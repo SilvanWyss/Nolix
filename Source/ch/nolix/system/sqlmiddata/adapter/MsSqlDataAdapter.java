@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmiddata.adapter;
 
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.sqlmidschema.adapter.MsSqlSchemaAdapter;
+import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
 
 public final class MsSqlDataAdapter extends AbstractSqlDataAdapter {
 
@@ -9,7 +9,7 @@ public final class MsSqlDataAdapter extends AbstractSqlDataAdapter {
     super(
       databaseName,
       sqlConnection,
-      MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));
+      SqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));
   }
 
   public static MsSqlDataAdapter forDatabaseNameAndSqlConnection(

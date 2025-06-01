@@ -24,25 +24,20 @@ public final class SchemaReader implements ISchemaReader {
 
   private final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader sqlSchemaReader;
 
-  private SchemaReader(
-    final String databaseName,
-    final ISqlConnection sqlConnection,
-    final ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator sqlSchemaQueryCreator) {
+  private SchemaReader(final String databaseName, final ISqlConnection sqlConnection) {
 
     this.sqlSchemaReader = //
-    ch.nolix.system.sqlschema.adapter.SchemaReader.forDatabaseNameAndSqlConnectionAndQueryCreator(
+    ch.nolix.system.sqlschema.adapter.SchemaReader.forDatabaseNameAndSqlConnection(
       databaseName,
-      sqlConnection,
-      sqlSchemaQueryCreator);
+      sqlConnection);
 
     this.sqlConnection = sqlConnection;
   }
 
-  public static SchemaReader forDatabaseNameAndSqlConnectionAndSqlSchemaQueryCreator(
+  public static SchemaReader forDatabaseNameAndSqlConnection(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator sqlSchemaQueryCreator) {
-    return new SchemaReader(databaseName, sqlConnection, sqlSchemaQueryCreator);
+    final ISqlConnection sqlConnection) {
+    return new SchemaReader(databaseName, sqlConnection);
   }
 
   @Override

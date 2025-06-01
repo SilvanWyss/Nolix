@@ -1,18 +1,17 @@
 package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi.IResourcePool;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
-public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
+public final class SqlSchemaAdapter implements ISchemaAdapter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -22,17 +21,13 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private final ISchemaWriter schemaWriter;
 
-  protected AbstractSchemaAdapter(
-    final String databaseName,
-    final SqlConnectionPool sqlConnectionPool,
-    final IQueryCreator queryCreator) {
+  private SqlSchemaAdapter(final String databaseName, final IResourcePool<ISqlConnection> sqlConnectionPool) {
 
     sqlConnection = sqlConnectionPool.borrowResource();
 
-    schemaReader = SchemaReader.forDatabaseNameAndSqlConnectionAndQueryCreator(
+    schemaReader = SchemaReader.forDatabaseNameAndSqlConnection(
       databaseName,
-      sqlConnection,
-      queryCreator);
+      sqlConnection);
 
     schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(
       databaseName,
@@ -42,115 +37,121 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     getStoredCloseController().createCloseDependencyTo(schemaWriter);
   }
 
+  public static SqlSchemaAdapter forDatabaseNameAndWithSqlConnectionPool(
+    final String databaseName,
+    final IResourcePool<ISqlConnection> sqlConnectionPool) {
+    return new SqlSchemaAdapter(databaseName, sqlConnectionPool);
+  }
+
   @Override
-  public final void addAdditionalSqlStatements(final IContainer<String> additionalSqlStatements) {
+  public void addAdditionalSqlStatements(final IContainer<String> additionalSqlStatements) {
     schemaWriter.addAdditionalSqlStatements(additionalSqlStatements);
   }
 
   @Override
-  public final void addColumn(final String tableName, final ColumnDto column) {
+  public void addColumn(final String tableName, final ColumnDto column) {
     schemaWriter.addColumn(tableName, column);
   }
 
   @Override
-  public final void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+  public void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
     for (final var c : columns) {
       addColumn(tableName, c);
     }
   }
 
   @Override
-  public final void addTable(final TableDto table) {
+  public void addTable(final TableDto table) {
     schemaWriter.addTable(table);
   }
 
   @Override
-  public final boolean columnIsEmpty(final String tableName, final String columnName) {
+  public boolean columnIsEmpty(final String tableName, final String columnName) {
     return schemaReader.columnIsEmpty(tableName, columnName);
   }
 
   @Override
-  public final void deleteColumn(final String tableName, final String columnName) {
+  public void deleteColumn(final String tableName, final String columnName) {
     schemaWriter.deleteColumn(tableName, columnName);
   }
 
   @Override
-  public final void deleteColumnIfExists(final String tableName, final String columnName) {
+  public void deleteColumnIfExists(final String tableName, final String columnName) {
     schemaWriter.deleteColumnIfExists(tableName, columnName);
   }
 
   @Override
-  public final void deleteTable(final String tableName) {
+  public void deleteTable(final String tableName) {
     schemaWriter.deleteTable(tableName);
   }
 
   @Override
-  public final ICloseController getStoredCloseController() {
+  public ICloseController getStoredCloseController() {
     return closeController;
   }
 
   @Override
-  public final int getSaveCount() {
+  public int getSaveCount() {
     return schemaWriter.getSaveCount();
   }
 
   @Override
-  public final boolean hasChanges() {
+  public boolean hasChanges() {
     return schemaWriter.hasChanges();
   }
 
   @Override
-  public final TableDto loadTable(final String tableName) {
+  public TableDto loadTable(final String tableName) {
     return schemaReader.loadTable(tableName);
   }
 
   @Override
-  public final int getTableCount() {
+  public int getTableCount() {
     return schemaReader.getTableCount();
   }
 
   @Override
-  public final IContainer<TableDto> loadTables() {
+  public IContainer<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 
   @Override
-  public final void noteClose() {
+  public void noteClose() {
     sqlConnection.close();
   }
 
   @Override
-  public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
+  public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     schemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
 
   @Override
-  public final void renameColumnIfExists(final String tableName, final String columnName, final String newColumnName) {
+  public void renameColumnIfExists(final String tableName, final String columnName, final String newColumnName) {
     schemaWriter.renameColumnIfExists(tableName, columnName, newColumnName);
   }
 
   @Override
-  public final void renameTable(final String tableName, final String newTableName) {
+  public void renameTable(final String tableName, final String newTableName) {
     schemaWriter.renameTable(tableName, newTableName);
   }
 
   @Override
-  public final void reset() {
+  public void reset() {
     schemaWriter.reset();
   }
 
   @Override
-  public final void saveChanges() {
+  public void saveChanges() {
     schemaWriter.saveChanges();
   }
 
   @Override
-  public final boolean tableExist() {
+  public boolean tableExist() {
     return schemaReader.tableExist();
   }
 
   @Override
-  public final boolean tableExists(final String tableName) {
+  public boolean tableExists(final String tableName) {
     return schemaReader.tableExists(tableName);
   }
 }

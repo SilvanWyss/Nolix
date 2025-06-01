@@ -9,7 +9,6 @@ import ch.nolix.system.sqlschema.adapter.SchemaWriter;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseInitializerTool;
 import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
-import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -26,48 +25,38 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
 
   private final ISqlConnection sqlConnection;
 
-  private final IQueryCreator sqlSchemaQueryCreator;
-
   /**
-   * Creates a new {@link DatabaseInitializer} with the given databaseName,
-   * sqlConnection and sqlSchemaQueryCreator.
+   * Creates a new {@link DatabaseInitializer} with the given databaseName and
+   * sqlConnection.
    * 
    * @param databaseName
    * @param sqlConnection
-   * @param sqlSchemaQueryCreator
    * @throws RuntimeException if the given datbaseName is null or blank.
    * @throws RuntimeException if the given sqlConnection is null or closed.
-   * @throws RuntimeException if the given sqlSchemaQueryCreator is null.
    */
   private DatabaseInitializer(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IQueryCreator sqlSchemaQueryCreator) {
+    final ISqlConnection sqlConnection) {
 
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
     ResourceValidator.assertIsOpen(sqlConnection);
-    Validator.assertThat(sqlSchemaQueryCreator).thatIsNamed("sql schema query creator").isNotNull();
 
     this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;
-    this.sqlSchemaQueryCreator = sqlSchemaQueryCreator;
   }
 
   /**
    * @param databaseName
    * @param sqlConnection
-   * @param sqlSchemaQueryCreator
-   * @return a new {@link DatabaseInitializer} with the given databaseName,
-   *         sqlConnection and sqlSchemaQueryCreator.
+   * @return a new {@link DatabaseInitializer} with the given databaseName and
+   *         sqlConnection.
    * @throws RuntimeException if the given datbaseName is null or blank.
    * @throws RuntimeException if the given sqlConnection is null or closed.
-   * @throws RuntimeException if the given sqlSchemaQueryCreator is null.
    */
-  public static DatabaseInitializer forDatabaseNameAndSqlConnectionAndSqlSchemaQueryCreator(
+  public static DatabaseInitializer forDatabaseNameAndSqlConnection(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IQueryCreator sqlSchemaQueryCreator) {
-    return new DatabaseInitializer(databaseName, sqlConnection, sqlSchemaQueryCreator);
+    final ISqlConnection sqlConnection) {
+    return new DatabaseInitializer(databaseName, sqlConnection);
   }
 
   /**
@@ -75,7 +64,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    */
   @Override
   public DatabaseState getDatabaseState() {
-    return DATABASE_STATE_ANALYSER.getDatabasState(databaseName, sqlConnection, sqlSchemaQueryCreator);
+    return DATABASE_STATE_ANALYSER.getDatabasState(databaseName, sqlConnection);
   }
 
   /**

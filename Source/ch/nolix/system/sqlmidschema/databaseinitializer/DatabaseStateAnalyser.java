@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 /**
  * @author Silvan Wyss
@@ -37,11 +36,10 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
   @Override
   public DatabaseState getDatabasState(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IQueryCreator queryCreator) {
+    final ISqlConnection sqlConnection) {
 
     final var schemaReader = //
-    SchemaReader.forDatabaseNameAndSqlConnectionAndQueryCreator(databaseName, sqlConnection, queryCreator);
+    SchemaReader.forDatabaseNameAndSqlConnection(databaseName, sqlConnection);
 
     return getDatabaseSchemaState(schemaReader);
   }

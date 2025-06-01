@@ -8,6 +8,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.modelmapper.TableDtoMapper;
+import ch.nolix.system.sqlschema.querycreator.QueryCreator;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.ITableDtoMapper;
@@ -15,42 +16,35 @@ import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 
+  private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
+
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISqlConnection sqlConnection;
 
-  private final IQueryCreator queryCreator;
-
-  private SchemaReader(
-    final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IQueryCreator queryCreator) {
+  private SchemaReader(final String databaseName, final ISqlConnection sqlConnection) {
 
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
     ResourceValidator.assertIsOpen(sqlConnection);
-    Validator.assertThat(queryCreator).thatIsNamed(IQueryCreator.class).isNotNull();
 
     this.sqlConnection = sqlConnection;
     createCloseDependencyTo(sqlConnection);
 
-    this.queryCreator = queryCreator;
-
     sqlConnection.executeStatement("USE " + databaseName);
   }
 
-  public static SchemaReader forDatabaseNameAndSqlConnectionAndQueryCreator(
+  public static SchemaReader forDatabaseNameAndSqlConnection(
     final String databaseName,
-    final ISqlConnection sqlConnection,
-    final IQueryCreator queryCreator) {
-    return new SchemaReader(databaseName, sqlConnection, queryCreator);
+    final ISqlConnection sqlConnection) {
+    return new SchemaReader(databaseName, sqlConnection);
   }
 
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
 
-    final var query = queryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName);
+    final var query = QUERY_CREATOR.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName);
     final var records = sqlConnection.getRecordsFromQuery(query);
 
     return records.isEmpty();
@@ -63,17 +57,17 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public int getTableCount() {
-  
-    final var query = queryCreator.createQueryToGetTableCount();
+
+    final var query = QUERY_CREATOR.createQueryToGetTableCount();
     final var record = sqlConnection.getSingleRecordFromQuery(query);
-  
+
     return Integer.valueOf(record.getStoredFirst());
   }
 
   @Override
   public TableDto loadTable(String tableName) {
 
-    final var query = queryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName);
+    final var query = QUERY_CREATOR.createQueryToLoadNameAndDataTypeOfColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
     return TABLE_DTO_MAPPER.mapSqlRecordsWithNameAndDataTypeToTableDto(tableName, sqlRecords);
@@ -82,7 +76,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public IContainer<TableDto> loadTables() {
 
-    final var query = queryCreator.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
+    final var query = QUERY_CREATOR.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
     return TABLE_DTO_MAPPER.mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(sqlRecords);
@@ -101,7 +95,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public boolean tableExists(String tableName) {
 
-    final var query = queryCreator.createQueryToGetTableCount(tableName);
+    final var query = QUERY_CREATOR.createQueryToGetTableCount(tableName);
     final var records = sqlConnection.getSingleRecordFromQuery(query);
 
     return (Integer.valueOf(records.getStoredFirst()) > 0);

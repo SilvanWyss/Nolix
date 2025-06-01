@@ -36,9 +36,10 @@ MsSqlSchemaAdapter>>>>> {
 
     final var databaseName = nxtArgCpt().nxtArgCpt().getDatabaseName();
 
-    return new MsSqlSchemaAdapter(
+    return //
+    new MsSqlSchemaAdapter(
       databaseName,
-      ch.nolix.system.sqlmidschema.adapter.MsSqlSchemaAdapter
+      ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter
         .forDatabaseNameAndSqlConnection(
           databaseName,
           SqlConnectionPoolBuilder
