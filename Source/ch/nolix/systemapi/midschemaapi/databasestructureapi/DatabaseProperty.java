@@ -2,17 +2,29 @@ package ch.nolix.systemapi.midschemaapi.databasestructureapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
+/**
+ * @author Silvan Wyss
+ * @version 2021-08-25
+ */
 public enum DatabaseProperty implements INameHolder {
   SCHEMA_TIMESTAMP("SchemaTimestamp");
 
   private final String name;
 
-  DatabaseProperty(final String label) {
-    this.name = label;
+  /**
+   * Creates a new {@link DatabaseProperty} with the given name.
+   * 
+   * @param name
+   */
+  DatabaseProperty(final String name) {
+    this.name = name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public final String getName() {
+  public String getName() {
     return name;
   }
 }
