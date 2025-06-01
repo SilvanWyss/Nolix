@@ -2,8 +2,7 @@ package ch.nolix.system.midschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.midschemaapi.adapterapi.IDatabaseInitializer;
-import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
+import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.IDatabaseInitializer;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -28,11 +27,6 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
         throw GeneralException.withErrorMessage("The database has a schema that does not suit.");
     }
   }
-
-  /**
-   * @return the state of the database.
-   */
-  protected abstract DatabaseState getDatabaseState();
 
   /**
    * Initializes the database with the given initialSchemaTimeStamp.

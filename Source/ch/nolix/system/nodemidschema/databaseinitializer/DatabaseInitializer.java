@@ -3,10 +3,10 @@ package ch.nolix.system.nodemidschema.databaseinitializer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
+import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.DatabaseState;
 import ch.nolix.systemapi.nodemidschemaapi.databaseinitializerapi.IDatabaseComponentCreator;
 import ch.nolix.systemapi.nodemidschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**

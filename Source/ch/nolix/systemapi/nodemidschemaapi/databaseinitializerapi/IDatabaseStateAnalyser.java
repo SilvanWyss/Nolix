@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.nodemidschemaapi.databaseinitializerapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
+import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.DatabaseState;
 
 /**
  * @author Silvan Wyss

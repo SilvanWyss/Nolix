@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmidschema.databaseinitializer;
 
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlschema.adapter.SchemaReader;
-import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
+import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.DatabaseState;
 import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
