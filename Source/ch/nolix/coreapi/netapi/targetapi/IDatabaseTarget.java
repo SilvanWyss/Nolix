@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.netapi.targetapi;
 
-public interface IDatabaseTarget extends IAuthenticationServerTarget {
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IDatabaseNameHolder;
 
-  String getDatabaseName();
+public interface IDatabaseTarget extends IAuthenticationServerTarget, IDatabaseNameHolder {
 }
