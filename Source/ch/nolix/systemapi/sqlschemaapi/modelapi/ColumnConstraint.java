@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlschemaapi.constaintproperty;
+package ch.nolix.systemapi.sqlschemaapi.modelapi;
 
 public enum ColumnConstraint {
   NOT_NULL,
