@@ -14,10 +14,8 @@ public interface IFluentMutableOptionalTextHolder<H extends IFluentMutableOption
 
   /**
    * Removes the text of the current {@link IFluentMutableOptionalTextHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalTextHolder}.
    */
-  H removeText();
+  void removeText();
 
   /**
    * Sets the text of the current {@link IFluentMutableOptionalTextHolder}.

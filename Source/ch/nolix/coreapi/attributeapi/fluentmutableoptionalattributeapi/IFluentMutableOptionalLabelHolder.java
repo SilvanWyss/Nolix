@@ -15,10 +15,8 @@ extends IOptionalLabelHolder {
 
   /**
    * Removes the label of the current {@link IFluentMutableOptionalLabelHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalLabelHolder}.
    */
-  H removeLabel();
+  void removeLabel();
 
   /**
    * Sets the label of the current {@link IFluentMutableOptionalLabelHolder}.

@@ -14,10 +14,8 @@ public interface IFluentMutableOptionalIdHolder<H extends IFluentMutableOptional
 
   /**
    * Removes the id of the current {@link IFluentMutableOptionalIdHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalIdHolder}.
    */
-  H removeId();
+  void removeId();
 
   /**
    * Sets the id of the current {@link IFluentMutableOptionalIdHolder}.

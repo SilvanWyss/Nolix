@@ -27,14 +27,11 @@ public interface IFluentMutableMultiTextHolder<H extends IFluentMutableMultiText
    * {@link IFluentMutableMultiTextHolder} contains such a text.
    * 
    * @param text
-   * @return the current {@link IFluentMutableMultiTextHolder}.
    */
-  H removeText(String text);
+  void removeText(String text);
 
   /**
    * Removes all texts from the current {@link IFluentMutableMultiTextHolder}.
-   * 
-   * @return the current {@link IFluentMutableMultiTextHolder}.
    */
-  H removeTexts();
+  void removeTexts();
 }

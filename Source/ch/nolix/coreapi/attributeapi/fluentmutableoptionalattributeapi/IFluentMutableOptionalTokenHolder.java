@@ -15,10 +15,8 @@ extends IOptionalTokenHolder {
 
   /**
    * Removes the token of the current {@link IFluentMutableOptionalTokenHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalTokenHolder}.
    */
-  H removeToken();
+  void removeToken();
 
   /**
    * Sets the token of the current {@link IFluentMutableOptionalTokenHolder}.

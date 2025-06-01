@@ -205,13 +205,11 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode removeHeader() {
+  public void removeHeader() {
 
     internalSpecification.removeHeader();
 
     save();
-
-    return this;
   }
 
   /**

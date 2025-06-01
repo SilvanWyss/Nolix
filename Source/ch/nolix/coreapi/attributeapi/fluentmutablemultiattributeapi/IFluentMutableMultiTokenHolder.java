@@ -27,14 +27,11 @@ public interface IFluentMutableMultiTokenHolder<H extends IFluentMutableMultiTok
    * {@link IFluentMutableMultiTokenHolder} contains such a token.
    * 
    * @param token
-   * @return the current {@link IFluentMutableMultiTokenHolder}.
    */
-  H removeToken(String token);
+  void removeToken(String token);
 
   /**
    * Removes all tokens from the current {@link IFluentMutableMultiTokenHolder}.
-   * 
-   * @return the current {@link IFluentMutableMultiTokenHolder}.
    */
-  H removeTokens();
+  void removeTokens();
 }

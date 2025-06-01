@@ -15,10 +15,8 @@ extends IOptionalTitleHolder {
 
   /**
    * Removes the title of the current {@link IFluentMutableOptionalTitleHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalTitleHolder}.
    */
-  H removeTitle();
+  void removeTitle();
 
   /**
    * Sets the title of the current {@link IFluentMutableOptionalTitleHolder}.

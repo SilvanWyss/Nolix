@@ -16,10 +16,8 @@ extends IOptionalHeaderHolder {
 
   /**
    * Removes the header of current {@link IFluentMutableOptionalHeaderHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalHeaderHolder}.
    */
-  H removeHeader();
+  void removeHeader();
 
   /**
    * Sets the header of the current {@link IFluentMutableOptionalHeaderHolder}.

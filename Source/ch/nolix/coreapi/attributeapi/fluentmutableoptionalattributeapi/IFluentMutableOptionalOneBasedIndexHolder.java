@@ -9,19 +9,17 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalOneBasedIndex
  * 
  * @author Silvan Wyss
  * @version 2025-06-01
- * @param <I> is the type of a
+ * @param <H> is the type of a
  *            {@link IFluentMutableOptionalOneBasedIndexHolder}.
  */
-public interface IFluentMutableOptionalOneBasedIndexHolder<I extends IFluentMutableOptionalOneBasedIndexHolder<I>>
+public interface IFluentMutableOptionalOneBasedIndexHolder<H extends IFluentMutableOptionalOneBasedIndexHolder<H>>
 extends IOptionalOneBasedIndexHolder {
 
   /**
    * Removes the one-based index of the current
    * {@link IFluentMutableOptionalOneBasedIndexHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalOneBasedIndexHolder}.
    */
-  I removeOneBasedIndex();
+  void removeOneBasedIndex();
 
   /**
    * Sets the one-based index of the current
@@ -30,5 +28,5 @@ extends IOptionalOneBasedIndexHolder {
    * @param oneBasedIndex
    * @return the current {@link IFluentMutableOptionalOneBasedIndexHolder}.
    */
-  I setOneBasedIndex(int oneBasedIndex);
+  H setOneBasedIndex(int oneBasedIndex);
 }

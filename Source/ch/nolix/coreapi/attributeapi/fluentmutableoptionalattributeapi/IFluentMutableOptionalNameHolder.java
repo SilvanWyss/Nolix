@@ -15,10 +15,8 @@ extends IOptionalNameHolder {
 
   /**
    * Removes the name of the current {@link IFluentMutableOptionalNameHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalNameHolder}.
    */
-  H removeName();
+  void removeName();
 
   /**
    * Sets the name of the current {@link IFluentMutableOptionalNameHolder}.

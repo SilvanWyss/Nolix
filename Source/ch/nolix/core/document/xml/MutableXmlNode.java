@@ -232,19 +232,13 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   @Override
-  public IMutableXmlNode removeName() {
-
+  public void removeName() {
     name = null;
-
-    return this;
   }
 
   @Override
-  public IMutableXmlNode removeValue() {
-
+  public void removeValue() {
     value = null;
-
-    return this;
   }
 
   @Override

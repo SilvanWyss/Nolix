@@ -17,10 +17,8 @@ extends ICardinalityHolder {
   /**
    * Removes the cardinality of the current
    * {@link IFluentMutableOptionalCardinalityHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalCardinalityHolder}.
    */
-  H removeCardinality();
+  void removeCardinality();
 
   /**
    * Sets the cardinality of the current

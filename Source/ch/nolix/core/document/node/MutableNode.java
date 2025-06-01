@@ -204,11 +204,8 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode removeHeader() {
-
+  public void removeHeader() {
     header = null;
-
-    return this;
   }
 
   /**

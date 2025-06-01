@@ -63,27 +63,18 @@ implements IStylableElement<E> {
   }
 
   @Override
-  public final E removeId() {
-
+  public final void removeId() {
     id.clear();
-
-    return asConcrete();
   }
 
   @Override
-  public final E removeToken(final String token) {
-
+  public final void removeToken(final String token) {
     tokens.remove(token);
-
-    return asConcrete();
   }
 
   @Override
-  public final E removeTokens() {
-
+  public final void removeTokens() {
     tokens.clear();
-
-    return asConcrete();
   }
 
   @Override

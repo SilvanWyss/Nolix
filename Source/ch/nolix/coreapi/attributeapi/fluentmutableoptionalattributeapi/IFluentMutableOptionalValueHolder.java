@@ -17,10 +17,8 @@ extends IOptionalValueHolder<V> {
 
   /**
    * Removes the value of the current {@link IFluentMutableOptionalValueHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalValueHolder}.
    */
-  H removeValue();
+  void removeValue();
 
   /**
    * Sets the value of the current {@link IFluentMutableOptionalValueHolder}.

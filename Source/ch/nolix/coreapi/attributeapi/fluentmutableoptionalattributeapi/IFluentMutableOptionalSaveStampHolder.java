@@ -17,10 +17,8 @@ extends IOptionalSaveStampHolder {
   /**
    * Removes the save stamp of the current
    * {@link IFluentMutableOptionalSaveStampHolder}.
-   * 
-   * @return the current {@link IFluentMutableOptionalSaveStampHolder}.
    */
-  H removeSaveStamp();
+  void removeSaveStamp();
 
   /**
    * Sets the save stamp of the current
