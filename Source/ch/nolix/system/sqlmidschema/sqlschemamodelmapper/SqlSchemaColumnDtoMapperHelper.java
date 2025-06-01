@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlmidschemaapi.datatypeapi.DataTypeTypeCatalog;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ConstraintDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnConstraintDto;
 
 public final class SqlSchemaColumnDtoMapperHelper {
 
@@ -17,7 +17,7 @@ public final class SqlSchemaColumnDtoMapperHelper {
 
     final var columnName = columnDto.name();
     final var dataType = DataTypeTypeCatalog.TEXT;
-    final IContainer<ConstraintDto> constraints = ImmutableList.createEmpty();
+    final IContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
 
     return new ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto(columnName, dataType, constraints);
   }
@@ -27,7 +27,7 @@ public final class SqlSchemaColumnDtoMapperHelper {
 
     final var columnName = columnDto.name() + StringCatalog.DOLLAR + "ReferencedTableId";
     final var dataType = DataTypeTypeCatalog.TEXT;
-    final IContainer<ConstraintDto> constraints = ImmutableList.createEmpty();
+    final IContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
 
     return new ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto(columnName, dataType, constraints);
   }

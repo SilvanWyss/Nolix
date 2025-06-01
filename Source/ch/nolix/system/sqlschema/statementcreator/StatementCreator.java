@@ -2,7 +2,7 @@ package ch.nolix.system.sqlschema.statementcreator;
 
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ConstraintDto;
+import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnConstraintDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
@@ -92,7 +92,7 @@ public final class StatementCreator implements IStatementCreator {
     return sql;
   }
 
-  private String getConstraintAsSql(final ConstraintDto constraint) {
+  private String getConstraintAsSql(final ColumnConstraintDto constraint) {
 
     var sql = constraint.constraint().toString().replace(StringCatalog.UNDERSCORE, StringCatalog.SPACE);
 
@@ -107,7 +107,7 @@ public final class StatementCreator implements IStatementCreator {
     return column.constraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
   }
 
-  private String getConstraintParametersAsSql(final ConstraintDto constraint) {
+  private String getConstraintParametersAsSql(final ColumnConstraintDto constraint) {
     return ("(" + constraint.parameters().toStringWithSeparator(",") + ")");
   }
 
