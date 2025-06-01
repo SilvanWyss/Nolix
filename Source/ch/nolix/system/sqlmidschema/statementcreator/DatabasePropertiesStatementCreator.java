@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlmidschema.statementcreator;
 
-import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;

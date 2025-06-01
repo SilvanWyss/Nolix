@@ -6,7 +6,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
-import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddataapi.sqlmapperapi.ISqlValueMapper;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;

@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlmidschema.querycreator;
 
-import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ContentModelColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;

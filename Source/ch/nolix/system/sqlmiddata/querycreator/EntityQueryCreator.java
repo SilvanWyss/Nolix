@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.querycreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
-import ch.nolix.systemapi.midschemaapi.databaseproperty.DatabaseProperty;
+import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;

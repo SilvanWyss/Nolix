@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.midschemaapi.databaseproperty;
+package ch.nolix.systemapi.midschemaapi.databasestructureapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
