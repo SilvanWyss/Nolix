@@ -2,7 +2,7 @@ package ch.nolix.system.midschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.IDatabaseInitializer;
+import ch.nolix.systemapi.midschemaapi.adapterapi.IDatabaseInitializer;
 import ch.nolix.systemapi.objectschemaapi.databaseproperty.DatabaseState;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

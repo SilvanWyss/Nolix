@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.midschemaapi.databaseinitializerapi;
+package ch.nolix.systemapi.midschemaapi.adapterapi;
 
 /**
  * @author Silvan Wyss
