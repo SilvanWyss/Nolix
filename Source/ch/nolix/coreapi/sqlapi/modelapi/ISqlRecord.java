@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.sqlapi.modelapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IOneBaseIndexed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IOneBasedIndexHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 /**
@@ -11,5 +11,5 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @author Silvan Wyss
  * @version 2024-12-28
  */
-public interface ISqlRecord extends IContainer<String>, IOneBaseIndexed {
+public interface ISqlRecord extends IContainer<String>, IOneBasedIndexHolder {
 }
