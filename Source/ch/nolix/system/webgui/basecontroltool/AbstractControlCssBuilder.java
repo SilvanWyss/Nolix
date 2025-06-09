@@ -138,6 +138,9 @@ implements IControlCssBuilder<C, S> {
 
     list.addAtEnd(
       CssProperty.withNameAndValue(
+        CssPropertyNameCatalog.BORDER_RADIUS,
+        style.getCornerRadiusWhenHasState(state) + "px"),
+      CssProperty.withNameAndValue(
         CssPropertyNameCatalog.BORDER_STYLE,
         "solid"),
       CssProperty.withNameAndValue(

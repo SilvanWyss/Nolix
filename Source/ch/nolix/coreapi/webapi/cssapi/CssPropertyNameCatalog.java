@@ -18,6 +18,8 @@ public final class CssPropertyNameCatalog {
 
   public static final String BORDER_LEFT_WIDTH = "border-left-width";
 
+  public static final String BORDER_RADIUS = "border-radius";
+
   public static final String BORDER_RIGHT_COLOR = "border-right-color";
 
   public static final String BORDER_RIGHT_WIDTH = "border-right-width";

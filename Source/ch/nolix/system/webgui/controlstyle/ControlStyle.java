@@ -24,6 +24,8 @@ S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends ControlHeadStyle<S>
 implements IControlStyle<S> {
 
+  public static final int DEFAULT_CORNER_RADIUS = 0;
+
   public static final int DEFAULT_BORDER_THICKNESS = 0;
 
   public static final IColor DEFAULT_BORDER_COLOR = X11ColorCatalog.BLACK;
@@ -35,6 +37,8 @@ implements IControlStyle<S> {
   private static final String WIDTH_HEADER = PascalCaseVariableCatalog.WIDTH;
 
   private static final String HEIGHT_HEADER = PascalCaseVariableCatalog.HEIGHT;
+
+  private static final String CORNER_RADIUS_HEADER = "CornerRadius";
 
   private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
 
@@ -90,6 +94,13 @@ implements IControlStyle<S> {
     IAbsoluteOrRelativeInt::getSpecification,
     this::setHeightForState,
     AbsoluteOrRelativeInt.withIntValue(100));
+
+  private final NonCascadingProperty<ControlState, Integer> cornerRadius = //
+  NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+    CORNER_RADIUS_HEADER,
+    ControlState.class,
+    this::setCornerRadiusForState,
+    DEFAULT_CORNER_RADIUS);
 
   private final NonCascadingProperty<ControlState, Integer> leftBorderThickness = NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
@@ -230,6 +241,11 @@ implements IControlStyle<S> {
   }
 
   @Override
+  public int getCornerRadiusWhenHasState(final ControlState state) {
+    return cornerRadius.getValueWhenHasState(state);
+  }
+
+  @Override
   public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
     return leftBorderColor.getValueWhenHasState(state);
   }
@@ -315,6 +331,11 @@ implements IControlStyle<S> {
   @Override
   public final void removeCustomBottomPaddings() {
     bottomPadding.setUndefined();
+  }
+
+  @Override
+  public void removeCustomCornerRadiuses() {
+    cornerRadius.setUndefined();
   }
 
   @Override
@@ -450,6 +471,16 @@ implements IControlStyle<S> {
     Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 
     this.bottomPadding.setValueForState(state, bottomPadding);
+
+    return asConcrete();
+  }
+
+  @Override
+  public S setCornerRadiusForState(final ControlState state, final int cornerRadius) {
+
+    Validator.assertThat(cornerRadius).thatIsNamed("corner radius").isNotNegative();
+
+    this.cornerRadius.setValueForState(state, cornerRadius);
 
     return asConcrete();
   }
