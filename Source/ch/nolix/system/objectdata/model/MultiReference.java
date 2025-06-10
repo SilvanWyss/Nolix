@@ -217,7 +217,7 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())
-      .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
+      .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei.referencedEntityId()));
   }
 
   private boolean needsToLoadAllPersistedReferencedEntityIds() {

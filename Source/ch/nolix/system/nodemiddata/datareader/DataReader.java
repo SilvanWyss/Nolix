@@ -11,6 +11,7 @@ import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
 import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataReader implements IDataReader {
@@ -61,7 +62,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public IContainer<String> loadMultiReferenceEntries(
+  public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {

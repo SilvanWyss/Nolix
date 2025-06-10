@@ -4,6 +4,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IDatabaseNameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -40,7 +41,17 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
     String entityId,
     String multiBackReferenceColumnName);
 
-  IContainer<String> loadMultiReferenceEntries(
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiReferenceColumnName
+   * @return the multi reference entries of the the multi reference field, that is
+   *         in the multi reference column with the given multiReferenceColumnName
+   *         and belongs to the entity, that has the given entityId and is in the
+   *         table with the given tableName, from the database.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
+  IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     String tableName,
     String entityId,
     String multiReferenceColumnName);

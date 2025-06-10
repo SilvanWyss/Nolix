@@ -12,6 +12,7 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
@@ -82,7 +83,7 @@ public final class InternalDataReader {
     return multiBackReferenceNode.getChildNodesHeaders();
   }
 
-  public IContainer<String> loadMultiReferenceEntries(
+  public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final TableViewDto tableView,
     final String entityId,
     final ColumnViewDto multiReferenceColumnInfo) {
@@ -93,10 +94,13 @@ public final class InternalDataReader {
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
     final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
-
     final var multiReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnIndex);
+    final var multiReferenceEntryNodes = multiReferenceNode.getStoredChildNodes();
 
-    return multiReferenceNode.getChildNodesHeaders();
+    //TODO: Create MultiReferenceEntryDtoMapper
+    return //
+    multiReferenceEntryNodes.to(
+      n -> new MultiReferenceEntryDto(tableView.name(), entityId, multiReferenceColumnInfo.id(), n.getHeader(), null));
   }
 
   public IContainer<Object> loadMultiValueEntries(

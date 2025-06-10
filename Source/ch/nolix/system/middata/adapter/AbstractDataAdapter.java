@@ -163,7 +163,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<String> loadMultiReferenceEntries(
+  public final IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
