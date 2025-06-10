@@ -226,8 +226,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final boolean tableContainsEntity(final String tableName, final String id) {
-    return dataReader.tableContainsEntity(tableName, id);
+  public final boolean tableContainsEntity(final String tableName, final String entityId) {
+    return dataReader.tableContainsEntity(tableName, entityId);
   }
 
   @Override

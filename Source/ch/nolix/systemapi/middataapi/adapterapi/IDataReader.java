@@ -61,7 +61,14 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
     String entityId,
     String multiValueColumnName);
 
-  boolean tableContainsEntity(String tableName, String id);
+  /**
+   * @param tableName
+   * @param entityId
+   * @return true if the table with the given tableName contains an entity with
+   *         the given entityId on the database, false otherwise.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
+  boolean tableContainsEntity(String tableName, String entityId);
 
   boolean tableContainsEntityWithValueAtColumn(String tableName, String columnName, String value);
 

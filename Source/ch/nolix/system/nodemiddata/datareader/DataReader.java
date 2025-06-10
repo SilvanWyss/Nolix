@@ -131,8 +131,8 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public boolean tableContainsEntity(final String tableName, final String id) {
-    return internalDataReader.tableContainsEntityWithGivenId(tableName, id);
+  public boolean tableContainsEntity(final String tableName, final String entityId) {
+    return internalDataReader.tableContainsEntityWithGivenId(tableName, entityId);
   }
 
   private TableViewDto getTableSchemaViewByTableName(final String tableName) {
