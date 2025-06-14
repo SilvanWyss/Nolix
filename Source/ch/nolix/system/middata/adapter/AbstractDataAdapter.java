@@ -171,11 +171,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<Object> loadMultiValueEntries(
+  public final IContainer<Object> loadMultiValueEntriesValues(
     final String tableName,
     final String entityId,
     final String multiFieldColumnName) {
-    return dataReader.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
+    return dataReader.loadMultiValueEntriesValues(tableName, entityId, multiFieldColumnName);
   }
 
   @Override

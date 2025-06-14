@@ -56,7 +56,17 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
     String entityId,
     String multiReferenceColumnName);
 
-  IContainer<Object> loadMultiValueEntries(
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiValueColumnName
+   * @return the values of the entries of the multi value, that is in the multi
+   *         value column with the given multiValueColumnName and belongs to the
+   *         entity, that has the given entityId and is in the table with the
+   *         given tableName, from the database.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
+  IContainer<Object> loadMultiValueEntriesValues(
     String tableName,
     String entityId,
     String multiValueColumnName);

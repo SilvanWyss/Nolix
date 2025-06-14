@@ -84,7 +84,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public IContainer<Object> loadMultiValueEntries(
+  public IContainer<Object> loadMultiValueEntriesValues(
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
