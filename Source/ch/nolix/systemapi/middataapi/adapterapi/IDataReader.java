@@ -66,10 +66,7 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    *         given tableName, from the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  IContainer<Object> loadMultiValueEntriesValues(
-    String tableName,
-    String entityId,
-    String multiValueColumnName);
+  IContainer<Object> loadMultiValueEntriesValues(String tableName, String entityId, String multiValueColumnName);
 
   /**
    * @param tableName
