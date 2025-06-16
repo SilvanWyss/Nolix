@@ -87,10 +87,30 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    */
   boolean tableContainsEntity(String tableName, String entityId);
 
+  /**
+   * @param tableName
+   * @param columnName
+   * @param value
+   * @return true if the table with the given tableName contains in the column
+   *         with the given columnName the given value on the database, false
+   *         otherwise.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
   boolean tableContainsEntityWithValueAtColumn(String tableName, String columnName, String value);
 
+  /**
+   * @param tableName
+   * @param columnName
+   * @param value
+   * @param entitiesToIgnoreIds
+   * @return true if the table with the given tableName contains in the column
+   *         with the given columnName the given value ignoring the entities with
+   *         the given entitiesToIgnoreIds on the database, false otherwise.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
   boolean tableContainsEntityWithValueAtColumnIgnoringEntities(
     String tableName,
     String columnName,
-    String value, IContainer<String> entitiesToIgnoreIds);
+    String value,
+    IContainer<String> entitiesToIgnoreIds);
 }
