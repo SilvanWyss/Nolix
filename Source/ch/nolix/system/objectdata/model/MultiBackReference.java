@@ -173,7 +173,7 @@ implements IMultiBackReference<E> {
     final var entity = getStoredParentEntity();
 
     return //
-    getStoredDataAndSchemaAdapter().loadMultiBackReferenceEntries(
+    getStoredDataAndSchemaAdapter().loadMultiBackReferenceBackReferencedEntityIds(
       entity.getParentTableName(),
       entity.getId(),
       getName())

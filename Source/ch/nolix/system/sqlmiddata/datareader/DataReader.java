@@ -61,7 +61,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public IContainer<String> loadMultiBackReferenceEntries(
+  public IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnName) {
@@ -84,7 +84,7 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public IContainer<Object> loadMultiValueEntriesValues(
+  public IContainer<Object> loadMultiValueValues(
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {

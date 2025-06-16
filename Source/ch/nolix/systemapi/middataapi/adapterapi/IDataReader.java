@@ -36,7 +36,17 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    */
   EntityLoadingDto loadEntity(String tableName, String id);
 
-  IContainer<String> loadMultiBackReferenceEntries(
+  /**
+   * @param tableName
+   * @param entityId
+   * @param multiBackReferenceColumnName
+   * @return the entity ids of the multi back reference, that is in the multi back
+   *         reference column with the given multiBackReferenceColumnName and
+   *         belongs to the entity, that has the given entityId and is in the
+   *         table with the given tableName, from the database.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
+  IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
     String tableName,
     String entityId,
     String multiBackReferenceColumnName);
@@ -60,13 +70,13 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    * @param tableName
    * @param entityId
    * @param multiValueColumnName
-   * @return the values of the entries of the multi value, that is in the multi
-   *         value column with the given multiValueColumnName and belongs to the
-   *         entity, that has the given entityId and is in the table with the
-   *         given tableName, from the database.
+   * @return the values of the multi value, that is in the multi value column with
+   *         the given multiValueColumnName and belongs to the entity, that has
+   *         the given entityId and is in the table with the given tableName, from
+   *         the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  IContainer<Object> loadMultiValueEntriesValues(String tableName, String entityId, String multiValueColumnName);
+  IContainer<Object> loadMultiValueValues(String tableName, String entityId, String multiValueColumnName);
 
   /**
    * @param tableName

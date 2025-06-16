@@ -155,11 +155,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<String> loadMultiBackReferenceEntries(
+  public final IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnName) {
-    return dataReader.loadMultiBackReferenceEntries(tableName, entityId, multiBackReferenceColumnName);
+    return dataReader.loadMultiBackReferenceBackReferencedEntityIds(tableName, entityId, multiBackReferenceColumnName);
   }
 
   @Override
@@ -171,11 +171,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<Object> loadMultiValueEntriesValues(
+  public final IContainer<Object> loadMultiValueValues(
     final String tableName,
     final String entityId,
     final String multiFieldColumnName) {
-    return dataReader.loadMultiValueEntriesValues(tableName, entityId, multiFieldColumnName);
+    return dataReader.loadMultiValueValues(tableName, entityId, multiFieldColumnName);
   }
 
   @Override

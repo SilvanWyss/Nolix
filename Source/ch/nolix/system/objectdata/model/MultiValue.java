@@ -130,7 +130,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   @SuppressWarnings("unchecked")
   private IContainer<MultiValueEntry<V>> loadAllPersistedValues() {
     return //
-    getStoredDataAndSchemaAdapter().loadMultiValueEntriesValues(
+    getStoredDataAndSchemaAdapter().loadMultiValueValues(
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())
