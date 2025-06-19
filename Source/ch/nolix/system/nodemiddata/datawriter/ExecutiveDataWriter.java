@@ -154,19 +154,21 @@ public final class ExecutiveDataWriter {
   }
 
   public void insertMultiBackReferenceEntry(
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo,
-    final String backReferencedEntityId) {
+    final int multiBackReferenceColumnOneBasedOrdinalIndex,
+    final String backReferencedEntityId,
+    final String backReferencedEntityTableId) {
 
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiBackReferenceEntry(
       d,
-      tableView,
+      tableName,
       entityId,
-      multiBackReferenceColumnInfo,
-      backReferencedEntityId);
+      multiBackReferenceColumnOneBasedOrdinalIndex,
+      backReferencedEntityId,
+      backReferencedEntityTableId);
 
     updaterCollector.addUpdater(updateAction);
   }

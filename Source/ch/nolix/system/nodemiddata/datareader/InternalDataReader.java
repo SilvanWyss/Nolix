@@ -66,21 +66,21 @@ public final class InternalDataReader {
       .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(rn, tableView));
   }
 
-  public IContainer<String> loadMultiBackReferenceEntries(
-    final TableViewDto tableView,
+  public IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
+    final String tableName,
     final String entityId,
     final ColumnViewDto multiBackReferenceColumnInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
 
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
+    final var multiBackReferenceNode = //
+    entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnOneBasedOrdinalIndex);
 
-    final var multiBackReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnIndex);
+    final var multiBackReferenceBackReferencedEntityNodes = multiBackReferenceNode.getStoredChildNodes();
 
-    return multiBackReferenceNode.getChildNodesHeaders();
+    return multiBackReferenceBackReferencedEntityNodes.to(b -> b.getStoredFirstChildNode().getHeader());
   }
 
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(

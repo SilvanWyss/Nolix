@@ -49,7 +49,8 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
   public String createStatementToInsertMultiBackReferenceEntry(
     final String entityId,
     final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
+    final String backReferencedEntityId,
+    final String backReferencedEntityTableId) {
     return "INSERT INTO "
     + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + " ("
@@ -58,12 +59,16 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + ", "
     + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + ", "
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID.getName()
     + ") VALUES ('"
     + entityId
     + "', '"
     + multiBackReferenceColumnId
     + "', '"
     + backReferencedEntityId
+    + "', '"
+    + backReferencedEntityTableId
     + "');";
   }
 }

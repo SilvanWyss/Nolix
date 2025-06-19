@@ -12,5 +12,6 @@ public interface IMultiBackReferenceStatementCreator {
   String createStatementToInsertMultiBackReferenceEntry(
     String entityId,
     String multiBackReferenceColumnId,
-    String backReferencedEntityId);
+    String backReferencedEntityId,
+    String backReferencedEntityTableId);
 }

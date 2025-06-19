@@ -11,6 +11,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
@@ -151,12 +152,26 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void insertMultiBackReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
-    executiveDataWriter.insertEntryIntoMultiBackReference(entityId, multiBackReferenceColumnId, backReferencedEntityId);
+  public void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
+
+    final var tableName = multiBackReferenceEntry.tableName();
+    final var entityId = multiBackReferenceEntry.entityId();
+    final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
+
+    final var multiBackReferenceColumnView = //
+    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
+
+    final var multiBackReferenceColumnId = multiBackReferenceColumnView.id();
+    final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
+    final var backReferencedEntityTableName = multiBackReferenceEntry.backReferencedEntityTableName();
+    final var backReferencedEntityTableView = getTableViewByTableName(backReferencedEntityTableName);
+    final var backReferencedEntityTableId = backReferencedEntityTableView.id();
+
+    executiveDataWriter.insertEntryIntoMultiBackReference(
+      entityId,
+      multiBackReferenceColumnId,
+      backReferencedEntityId,
+      backReferencedEntityTableId);
   }
 
   @Override

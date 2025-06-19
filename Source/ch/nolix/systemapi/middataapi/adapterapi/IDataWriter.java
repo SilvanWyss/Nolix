@@ -5,6 +5,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
@@ -114,16 +115,11 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertEntity(String tableName, EntityCreationDto entity);
 
   /**
-   * @param tableName
-   * @param entityId
-   * @param multiBackReferenceColumnId
-   * @param backReferencedEntityId
+   * Inserts the given multiBackReferenceEntry into the database.
+   * 
+   * @param multiBackReferenceEntry
    */
-  void insertMultiBackReferenceEntry(
-    String tableName,
-    String entityId,
-    String multiBackReferenceColumnId,
-    String backReferencedEntityId);
+  void insertMultiBackReferenceEntry(MultiBackReferenceEntryDto multiBackReferenceEntry);
 
   /**
    * @param multiReferenceEntry

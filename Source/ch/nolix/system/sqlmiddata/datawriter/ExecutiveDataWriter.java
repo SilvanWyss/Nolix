@@ -142,13 +142,15 @@ public final class ExecutiveDataWriter {
   public void insertEntryIntoMultiBackReference(
     final String entityId,
     final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
+    final String backReferencedEntityId,
+    final String backReferencedEntityTableId) {
 
     final var statement = //
     MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiBackReferenceEntry(
       entityId,
       multiBackReferenceColumnId,
-      backReferencedEntityId);
+      backReferencedEntityId,
+      backReferencedEntityTableId);
 
     sqlCollector.addSqlStatement(statement);
   }

@@ -202,21 +202,23 @@ public final class DataWriterActionProvider {
 
   public static void insertMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo,
-    final String backReferencedEntityId) {
+    final int multiBackReferenceColumnOneBasedOrdinalIndex,
+    final String backReferencedEntityId,
+    final String backReferencedEntityTableId) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase,
-      tableView.id());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
+    final var multiBackReferenceNode = //
+    entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnOneBasedOrdinalIndex);
 
-    final var multiBackReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnIndex);
+    //TODO: Create MultiBackReferenceBackReferencedEntityNode
+    final var multiBackReferenceBackReferencedEntityNode = //
+    Node.withChildNode(backReferencedEntityId, backReferencedEntityTableId);
 
-    multiBackReferenceNode.addChildNode(Node.withHeader(backReferencedEntityId));
+    multiBackReferenceNode.addChildNode(multiBackReferenceBackReferencedEntityNode);
   }
 
   public static void insertMultiReferenceEntry(

@@ -11,6 +11,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
@@ -159,22 +160,27 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void insertMultiBackReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
+  public void insertMultiBackReferenceEntry(MultiBackReferenceEntryDto multiBackReferenceEntry) {
 
-    final var tableInfo = getTableViewByTableName(tableName);
+    final var tableName = multiBackReferenceEntry.tableName();
+    final var entityId = multiBackReferenceEntry.entityId();
+    final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
 
-    final var multiBackReferenceColumnInfo = //
-    TABLE_VIEW_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
+    final var multiBackReferenceColumnView = //
+    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
+
+    final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
+    final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
+    final var backReferencedEntityTableName = multiBackReferenceEntry.backReferencedEntityTableName();
+    final var backReferencedEntityTableView = getTableViewByTableName(backReferencedEntityTableName);
+    final var backReferencedEntityTableId = backReferencedEntityTableView.id();
 
     executiveDataWriter.insertMultiBackReferenceEntry(
-      tableInfo,
+      tableName,
       entityId,
-      multiBackReferenceColumnInfo,
-      backReferencedEntityId);
+      multiBackReferenceColumnOneBasedOrdinalIndex,
+      backReferencedEntityId,
+      backReferencedEntityTableId);
   }
 
   @Override
