@@ -7,7 +7,7 @@ import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
  * @author Silvan Wyss
  * @version 2025-01-10
  */
-public interface ITableViewDtoSearcher {
+public interface ITableViewSearcher {
 
   /**
    * @param tableViewDto

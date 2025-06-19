@@ -4,11 +4,11 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.midschemaview.modelsearcher.TableViewDtoSearcher;
+import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalo
  */
 public final class EntityNodeMapper implements IEntityNodeMapper {
 
-  private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
+  private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
 
   private static final IContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
 
@@ -52,7 +52,7 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
 
     for (final var f : newEntity.contentFields()) {
 
-      final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
+      final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
       final var index = columnView.oneBasedOrdinalIndex() - 1;
 
       attributes[index] = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);

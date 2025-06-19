@@ -2,13 +2,13 @@ package ch.nolix.system.midschemaview.modelsearcher;
 
 import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 
 /**
  * @author Silvan Wyss
  * @version 2025-01-10
  */
-public final class TableViewDtoSearcher implements ITableViewDtoSearcher {
+public final class TableViewSearcher implements ITableViewSearcher {
 
   /**
    * {@inheritDoc}
