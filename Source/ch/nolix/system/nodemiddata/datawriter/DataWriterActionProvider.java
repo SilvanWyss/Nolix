@@ -112,17 +112,16 @@ public final class DataWriterActionProvider {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnView,
+    final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final String backReferencedEntityId) {
 
     final var tableNode = //
     DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.name());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
 
     final var multiBackReferenceColumnNode = //
-    entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnIndex);
+    entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnOneBasedOrdinalIndex);
 
     multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }

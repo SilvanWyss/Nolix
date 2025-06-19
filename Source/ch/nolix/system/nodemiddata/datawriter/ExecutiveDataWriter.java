@@ -106,7 +106,7 @@ public final class ExecutiveDataWriter {
   public void deleteMultiBackReferenceEntry(
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo,
+    final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final String backReferencedEntityId) {
 
     final Consumer<IMutableNode<?>> updateAction = //
@@ -115,7 +115,7 @@ public final class ExecutiveDataWriter {
       d,
       tableView,
       entityId,
-      multiBackReferenceColumnInfo,
+      multiBackReferenceColumnOneBasedOrdinalIndex,
       backReferencedEntityId);
 
     updaterCollector.addUpdater(updateAction);

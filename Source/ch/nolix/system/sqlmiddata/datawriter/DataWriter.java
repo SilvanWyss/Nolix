@@ -76,7 +76,18 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
-    executiveDataWriter.deleteMultiBackReferenceEntry(multiBackReferenceEntry);
+
+    final var tableName = multiBackReferenceEntry.tableName();
+    final var entityId = multiBackReferenceEntry.entityId();
+    final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
+
+    final var multiBackReferenceColumnView = //
+    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
+
+    final var multiBackReferenceColumnId = multiBackReferenceColumnView.id();
+    final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
+
+    executiveDataWriter.deleteMultiBackReferenceEntry(entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
   @Override
@@ -192,6 +203,8 @@ public final class DataWriter implements IDataWriter {
   }
 
   private TableViewDto getTableViewByTableName(final String tableName) {
+
+    //TODO: Create DatabaseViewSearcher
     return databaseSchemaView.tableSchemaViews().getStoredFirst(t -> t.name().equals(tableName));
   }
 }
