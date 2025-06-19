@@ -14,28 +14,36 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public interface IDataWriter extends IResettableChangeSaver {
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
+   * Deletes the references of the multi reference, that is in the multi reference
+   * column with the given multiReferenceColumnName and belongs to the entity,
+   * that has the given entityId and belongs to the table with the given
+   * tableName, from the database.
    * 
    * @param tableName
    * @param entityId
    * @param multiReferenceColumnName
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void clearMultiReference(String tableName, String entityId, String multiReferenceColumnName);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
+   * Deletes the values of the multi value, that is in the multi value column with
+   * the given multiValueColumnName and belongs to the entity, that has the given
+   * entityId and belongs to the table with the given tableName, from the
+   * database.
    * 
    * @param tableName
    * @param entityId
    * @param multiValueColumnName
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void clearMultiValue(String tableName, String entityId, String multiValueColumnName);
 
   /**
-   * Causes an error if the concerned entity was deleted or changed in the
-   * meanwhile.
+   * Deletes the given entity from the database.
+   * 
+   * Will cause an error by saving if the given entity was deleted or changed on
+   * the database in the meanwhile.
    * 
    * @param tableName
    * @param entity
@@ -43,23 +51,28 @@ public interface IDataWriter extends IResettableChangeSaver {
   void deleteEntity(String tableName, EntityDeletionDto entity);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
+   * Deletes the given backReferencedEntityId from the multi back reference, that
+   * is in the multi back reference column with the given
+   * multiBackReferenceColumnName and belongs to the entity, that has the given
+   * entityId and belongs to the table with the given tableName, from the
+   * database.
    * 
    * @param tableName
    * @param entityId
-   * @param multiBackReferenceColumnId
+   * @param multiBackReferenceColumnName
    * @param backReferencedEntityId
    */
   void deleteMultiBackReferenceEntry(
     String tableName,
     String entityId,
-    String multiBackReferenceColumnId,
+    String multiBackReferenceColumnName,
     String backReferencedEntityId);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
+   * Deletes the given referencedEntityId from the multi reference, that is in the
+   * multi reference column with the given multiReferenceColumnName and belongs to
+   * the entity, that has the given entityId and belongs to the table with the
+   * given tableName, from the database.
    * 
    * @param tableName
    * @param entityId
@@ -73,31 +86,39 @@ public interface IDataWriter extends IResettableChangeSaver {
     String referencedEntityId);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
+   * Deletes the given value from the multi value, that is in the multi value
+   * column with the given multiValueColumnName and belongs to the entity, that
+   * has the given entityId and belongs to the table with the given tableName,
+   * from the database.
    * 
    * @param tableName
    * @param entityId
    * @param multiValueColumnName
-   * @param entry
+   * @param value
    */
   void deleteMultiValueEntry(
     String tableName,
     String entityId,
     String multiValueColumnName,
-    String entry);
+    String value);
 
   /**
-   * Will cause an error if the database does not have the given schema timestamp.
+   * Will cause an error by saving if the database does not have the given
+   * schemaTimestamp.
+   * 
+   * This method can be used to prevent from saving changes when the
+   * schemaTimestamp was changed in the meanwhile
    * 
    * @param schemaTimestamp
    */
   void expectSchemaTimestamp(ITime schemaTimestamp);
 
   /**
-   * Will cause an error if the concerned table does not contain an entity with
-   * the given entityId. This method can be used to prevent from referencing an
-   * entity that was deleted in the meanwhile.
+   * Will cause an error by saving if on the database the table with the given
+   * tableName does not contain an entity with the given entityId.
+   * 
+   * This method can be used to prevent from referencing an entity that was
+   * deleted in the meanwhile.
    * 
    * @param tableName
    * @param entityId
@@ -105,17 +126,15 @@ public interface IDataWriter extends IResettableChangeSaver {
   void expectTableContainsEntity(String tableName, String entityId);
 
   /**
-   * Inserts the given newEntity into the table with the given tableName.
+   * Inserts the given entity into the table with the given tableName on the
+   * database.
    * 
    * @param tableName
-   * @param newEntity
+   * @param entity
    */
-  void insertEntity(String tableName, EntityCreationDto newEntity);
+  void insertEntity(String tableName, EntityCreationDto entity);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
-   * 
    * @param tableName
    * @param entityId
    * @param multiBackReferenceColumnId
@@ -128,17 +147,11 @@ public interface IDataWriter extends IResettableChangeSaver {
     String backReferencedEntityId);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
-   * 
    * @param multiReferenceEntry
    */
   void insertMultiReferenceEntry(MultiReferenceEntryDto multiReferenceEntry);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
-   * 
    * @param tableName
    * @param entityId
    * @param multiValueColumnName
@@ -147,9 +160,6 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 
   /**
-   * This method does not validate that the concerned entity was not changed in
-   * the meanwhile.
-   * 
    * @param tableName
    * @param entityUpdate
    */
