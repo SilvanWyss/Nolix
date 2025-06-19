@@ -4,6 +4,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
@@ -16,10 +17,13 @@ import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
+
+  private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   private static final ITableViewDtoSearcher TABLE_VIEW_DTO_SEARCHER = new TableViewDtoSearcher();
 
@@ -213,8 +217,6 @@ public final class DataWriter implements IDataWriter {
   }
 
   private TableViewDto getTableViewByTableName(final String tableName) {
-
-    //TODO: Create DatabaseViewSearcher
-    return databaseSchemaView.tableSchemaViews().getStoredFirst(t -> t.name().equals(tableName));
+    return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseSchemaView, tableName);
   }
 }
