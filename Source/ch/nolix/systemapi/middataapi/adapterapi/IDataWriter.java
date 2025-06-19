@@ -86,6 +86,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    * schemaTimestamp was changed in the meanwhile
    * 
    * @param schemaTimestamp
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void expectSchemaTimestamp(ITime schemaTimestamp);
 
@@ -98,6 +99,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entityId
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void expectTableContainsEntity(String tableName, String entityId);
 
@@ -107,6 +109,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entity
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void insertEntity(String tableName, EntityCreationDto entity);
 
