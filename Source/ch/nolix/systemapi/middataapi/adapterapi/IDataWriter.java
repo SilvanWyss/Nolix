@@ -26,7 +26,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param tableName
    * @param entityId
    * @param multiReferenceColumnName
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void clearMultiReference(String tableName, String entityId, String multiReferenceColumnName);
 
@@ -39,7 +38,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param tableName
    * @param entityId
    * @param multiValueColumnName
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void clearMultiValue(String tableName, String entityId, String multiValueColumnName);
 
@@ -51,7 +49,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entity
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void deleteEntity(String tableName, EntityDeletionDto entity);
 
@@ -59,7 +56,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * Deletes the given multiBackReferenceEntry from the database.
    * 
    * @param multiBackReferenceEntry
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void deleteMultiBackReferenceEntry(MultiBackReferenceEntryDeletionDto multiBackReferenceEntry);
 
@@ -67,7 +63,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * Deletes the given multiReferenceEntry from the database.
    * 
    * @param multiReferenceEntry
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void deleteMultiReferenceEntry(MultiReferenceEntryDeletionDto multiReferenceEntry);
 
@@ -75,7 +70,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * Deletes the given multiValueEntry from the database.
    * 
    * @param multiValueEntry
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void deleteMultiValueEntry(MultiValueEntryDto multiValueEntry);
 
@@ -87,7 +81,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * schemaTimestamp was changed in the meanwhile
    * 
    * @param schemaTimestamp
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void expectSchemaTimestamp(ITime schemaTimestamp);
 
@@ -100,7 +93,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entityId
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void expectTableContainsEntity(String tableName, String entityId);
 
@@ -110,7 +102,6 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param tableName
    * @param entity
-   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void insertEntity(String tableName, EntityCreationDto entity);
 
@@ -122,6 +113,8 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiBackReferenceEntry(MultiBackReferenceEntryDto multiBackReferenceEntry);
 
   /**
+   * Inserts the given multiReferenceEntry into the database.
+   * 
    * @param multiReferenceEntry
    */
   void insertMultiReferenceEntry(MultiReferenceEntryDto multiReferenceEntry);
@@ -135,6 +128,9 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 
   /**
+   * Updates the entity, that belongs to the table with the given tableName, in
+   * the database according to the given entityUpdate.
+   * 
    * @param tableName
    * @param entityUpdate
    */
