@@ -16,6 +16,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -55,7 +56,7 @@ public final class DataWriter implements IDataWriter {
     final String multiReferenceColumnName) {
     executiveDataWriter.deleteEntriesFromMultiReference(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).id());
+      getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName).id());
   }
 
   @Override
@@ -65,7 +66,7 @@ public final class DataWriter implements IDataWriter {
     final String multiValueColumnName) {
     executiveDataWriter.deleteEntriesFromMultiValue(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id());
+      getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName).id());
   }
 
   @Override
@@ -89,15 +90,16 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiValueEntry(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName,
-    final String entry) {
-    executiveDataWriter.deleteEntryFromMultiValue(
-      entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id(),
-      entry);
+  public void deleteMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
+
+    final var tableName = multiValueEntry.tableName();
+    final var entityId = multiValueEntry.entityId();
+    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
+    final var multiValueColumnId = multiValueColumnView.id();
+    final var value = multiValueEntry.value();
+
+    executiveDataWriter.deleteMultiValueEntry(entityId, multiValueColumnId, value);
   }
 
   @Override
@@ -158,7 +160,7 @@ public final class DataWriter implements IDataWriter {
     final String entry) {
     executiveDataWriter.insertEntryIntoMultiValue(
       entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).id(),
+      getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName).id(),
       entry);
   }
 
@@ -182,16 +184,14 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  private ColumnViewDto getColumnDefinitionByTableNameAndColumnName(
-    final String tableName,
-    final String columnName) {
+  private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
 
-    final var tableSchemaView = getTableSchmeaViewByTableName(tableName);
+    final var tableSchemaView = getTableViewByTableName(tableName);
 
     return TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableSchemaView, columnName);
   }
 
-  private TableViewDto getTableSchmeaViewByTableName(final String tableName) {
+  private TableViewDto getTableViewByTableName(final String tableName) {
     return databaseSchemaView.tableSchemaViews().getStoredFirst(t -> t.name().equals(tableName));
   }
 }

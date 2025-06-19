@@ -7,6 +7,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 /**
@@ -65,25 +66,17 @@ public interface IDataWriter extends IResettableChangeSaver {
    * Deletes the given multiReferenceEntry from the database.
    * 
    * @param multiReferenceEntry
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
   void deleteMultiReferenceEntry(MultiReferenceEntryDeletionDto multiReferenceEntry);
 
   /**
-   * Deletes the given value from the multi value, that is in the multi value
-   * column with the given multiValueColumnName and belongs to the entity, that
-   * has the given entityId and belongs to the table with the given tableName,
-   * from the database.
+   * Deletes the given multiValueEntry from the database.
    * 
-   * @param tableName
-   * @param entityId
-   * @param multiValueColumnName
-   * @param value
+   * @param multiValueEntry
+   * @throws RuntimeException if the current {@link IDataWriter} is closed.
    */
-  void deleteMultiValueEntry(
-    String tableName,
-    String entityId,
-    String multiValueColumnName,
-    String value);
+  void deleteMultiValueEntry(MultiValueEntryDto multiValueEntry);
 
   /**
    * Will cause an error by saving if the database does not have the given

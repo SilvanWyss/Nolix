@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
 
@@ -51,11 +52,14 @@ final class MultiValueSaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
+    final var tableName = entity.getParentTableName();
+    final var entityId = entity.getId();
+    final var multiValueColumnName = multiValueEntry.getStoredParentMultiValue().getStoredParentColumn().getName();
+    final var value = multiValueEntry.getStoredValue().toString();
 
-    dataAndSchemaAdapter.deleteMultiValueEntry(
-      entity.getParentTableName(),
-      entity.getId(),
-      multiValueEntry.getStoredParentMultiValue().getName(),
-      multiValueEntry.toString());
+    //TODO: Create MultiValueEntryDtoMapper
+    final var multiValueEntryDto = new MultiValueEntryDto(tableName, entityId, multiValueColumnName, value);
+
+    dataAndSchemaAdapter.deleteMultiValueEntry(multiValueEntryDto);
   }
 }

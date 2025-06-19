@@ -89,13 +89,10 @@ public final class ExecutiveDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void deleteEntryFromMultiValue(
-    final String entityId,
-    final String multiValueColumnId,
-    final String entry) {
+  public void deleteMultiValueEntry(final String entityId, final String multiValueColumnId, final String value) {
 
     final var statement = //
-    MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, entry);
+    MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, value);
 
     sqlCollector.addSqlStatement(statement);
   }

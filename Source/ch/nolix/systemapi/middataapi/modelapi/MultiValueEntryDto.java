@@ -4,5 +4,5 @@ public record MultiValueEntryDto(
 String tableName,
 String entityId,
 String multiValueColumnName,
-String multiValueEntry) {
+String value) {
 }

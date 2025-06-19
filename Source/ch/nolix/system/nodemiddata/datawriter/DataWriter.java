@@ -15,6 +15,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -111,17 +112,17 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiValueEntry(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName,
-    final String entry) {
+  public void deleteMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
 
-    final var tableInfo = getTableViewByTableName(tableName);
-    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
-    final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
+    final var tableName = multiValueEntry.tableName();
+    final var entityId = multiValueEntry.entityId();
+    final var tableView = getTableViewByTableName(tableName);
+    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
+    final var multiValueColumnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiValueColumnName);
+    final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
+    final var value = multiValueEntry.value();
 
-    executiveDataWriter.deleteMultiValueEntry(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, entry);
+    executiveDataWriter.deleteMultiValueEntry(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, value);
   }
 
   @Override
