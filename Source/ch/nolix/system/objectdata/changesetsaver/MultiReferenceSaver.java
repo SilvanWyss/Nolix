@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
@@ -66,11 +67,16 @@ public final class MultiReferenceSaver {
 
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();
+    final var entityId = entity.getId();
+    final var tableName = entity.getParentTableName();
+    final var multiReferenceColumn = multiReference.getStoredParentColumn();
+    final var multiReferenceColumnId = multiReferenceColumn.getId();
+    final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
 
-    dataAndSchemaAdapter.deleteMultiReferenceEntry(
-      entity.getParentTableName(),
-      entity.getId(),
-      multiReference.getName(),
-      multiReferenceEntry.getReferencedEntityId());
+    //TODO: Create MultiReferenceEntryDeletionDtoMapper
+    final var multiReferenceEntryDeletionDto = //
+    new MultiReferenceEntryDeletionDto(tableName, entityId, multiReferenceColumnId, referencedEntityId);
+
+    dataAndSchemaAdapter.deleteMultiReferenceEntry(multiReferenceEntryDeletionDto);
   }
 }

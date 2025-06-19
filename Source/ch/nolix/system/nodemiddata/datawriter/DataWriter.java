@@ -13,6 +13,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -92,15 +93,15 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiRefereceColumnName,
-    final String referencedEntityId) {
+  public void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
 
+    final var tableName = multiReferenceEntry.tableName();
     final var tableView = getTableViewByTableName(tableName);
-    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnName(tableView, multiRefereceColumnName);
+    final var entityId = multiReferenceEntry.entityId();
+    final var multiReferenceColumnId = multiReferenceEntry.multiReferenceColumnId();
+    final var columnView = TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableView, multiReferenceColumnId);
     final var multiReferencedColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
+    final var referencedEntityId = multiReferenceEntry.referencedEntityId();
 
     executiveDataWriter.deleteMultiReferenceEntry(
       tableName,

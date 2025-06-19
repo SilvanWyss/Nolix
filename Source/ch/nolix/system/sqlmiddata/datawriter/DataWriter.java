@@ -14,6 +14,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -78,15 +79,13 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiRefereceColumnName,
-    final String referencedEntityId) {
-    executiveDataWriter.deleteEntryFromMultiReference(
-      entityId,
-      getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).id(),
-      referencedEntityId);
+  public void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
+
+    final var entityId = multiReferenceEntry.entityId();
+    final var multiReferenceColumnId = multiReferenceEntry.multiReferenceColumnId();
+    final var referencedEntityId = multiReferenceEntry.referencedEntityId();
+
+    executiveDataWriter.deleteEntryFromMultiReference(entityId, multiReferenceColumnId, referencedEntityId);
   }
 
   @Override

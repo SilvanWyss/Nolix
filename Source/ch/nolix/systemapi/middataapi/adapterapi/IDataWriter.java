@@ -5,6 +5,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -61,21 +62,11 @@ public interface IDataWriter extends IResettableChangeSaver {
   void deleteMultiBackReferenceEntry(MultiBackReferenceEntryDeletionDto multiBackReferenceEntry);
 
   /**
-   * Deletes the given referencedEntityId from the multi reference, that is in the
-   * multi reference column with the given multiReferenceColumnName and belongs to
-   * the entity, that has the given entityId and belongs to the table with the
-   * given tableName, from the database.
+   * Deletes the given multiReferenceEntry from the database.
    * 
-   * @param tableName
-   * @param entityId
-   * @param multiRefereceColumnName
-   * @param referencedEntityId
+   * @param multiReferenceEntry
    */
-  void deleteMultiReferenceEntry(
-    String tableName,
-    String entityId,
-    String multiRefereceColumnName,
-    String referencedEntityId);
+  void deleteMultiReferenceEntry(MultiReferenceEntryDeletionDto multiReferenceEntry);
 
   /**
    * Deletes the given value from the multi value, that is in the multi value
