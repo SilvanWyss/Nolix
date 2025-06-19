@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.nodemiddataapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
 
 /**
  * @author Silvan Wyss

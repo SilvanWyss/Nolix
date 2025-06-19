@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
-import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
 import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.nodemiddataapi.modelmapperapi.IContentFieldDtoMapper;
 

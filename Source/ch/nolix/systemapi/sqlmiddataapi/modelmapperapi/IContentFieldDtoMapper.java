@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlmiddataapi.modelmapperapi;
 
-import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
 
 /**
  * @author Silvan Wyss

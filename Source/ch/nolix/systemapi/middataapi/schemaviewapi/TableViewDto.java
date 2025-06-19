@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.middataapi.midschemaview;
+package ch.nolix.systemapi.middataapi.schemaviewapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 

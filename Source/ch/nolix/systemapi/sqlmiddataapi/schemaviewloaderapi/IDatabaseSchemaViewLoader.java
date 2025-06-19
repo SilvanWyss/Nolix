@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi;
 
-import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 
 /**

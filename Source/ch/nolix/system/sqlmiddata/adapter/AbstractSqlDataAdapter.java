@@ -5,7 +5,7 @@ import ch.nolix.system.middata.adapter.AbstractDataAdapter;
 import ch.nolix.system.sqlmiddata.datareader.DataReader;
 import ch.nolix.system.sqlmiddata.datawriter.DataWriter;
 import ch.nolix.system.sqlmiddata.schemaviewloader.DatabaseSchemaViewLoader;
-import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi.IDatabaseSchemaViewLoader;
 

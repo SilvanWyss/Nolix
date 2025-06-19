@@ -2,10 +2,10 @@ package ch.nolix.systemapi.sqlmiddataapi.modelmapperapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.systemapi.middataapi.midschemaview.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.midschemaview.TableViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
 
 /**
  * @author Silvan Wyss

@@ -2,8 +2,8 @@ package ch.nolix.system.nodemiddata.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middataapi.schemaviewapi.DatabaseViewDto;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IMultiReferenceEntryNodeMapper;
 
 /**
