@@ -45,18 +45,19 @@ public final class MultiReferenceSaver {
     final var entity = multiReference.getStoredParentEntity();
     final var tableName = entity.getParentTableName();
     final var entityId = entity.getId();
-    final var multiReferenceColumnId = multiReference.getStoredParentColumn().getId();
+    final var multiReferenceColumn = multiReference.getStoredParentColumn();
+    final var multiReferenceColumnName = multiReferenceColumn.getName();
     final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
     final var referencedEntity = multiReference.getStoredParentEntity();
-    final var referencedEntityTableId = referencedEntity.getStoredParentTable().getId();
+    final var referencedEntityTableName = referencedEntity.getParentTableName();
 
     final var multiReferenceEntryDto = //
     new MultiReferenceEntryDto(
       tableName,
       entityId,
-      multiReferenceColumnId,
+      multiReferenceColumnName,
       referencedEntityId,
-      referencedEntityTableId);
+      referencedEntityTableName);
 
     dataAndSchemaAdapter.insertMultiReferenceEntry(multiReferenceEntryDto);
   }

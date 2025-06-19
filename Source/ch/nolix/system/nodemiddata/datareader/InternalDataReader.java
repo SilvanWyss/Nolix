@@ -99,8 +99,8 @@ public final class InternalDataReader {
 
     //TODO: Create MultiReferenceEntryDtoMapper
     return //
-    multiReferenceEntryNodes.to(
-      n -> new MultiReferenceEntryDto(tableView.name(), entityId, multiReferenceColumnInfo.id(), n.getHeader(), null));
+    multiReferenceEntryNodes.to(n -> new MultiReferenceEntryDto(tableView.name(), entityId,
+      multiReferenceColumnInfo.name(), n.getHeader(), null));
   }
 
   public IContainer<Object> loadMultiValueEntries(

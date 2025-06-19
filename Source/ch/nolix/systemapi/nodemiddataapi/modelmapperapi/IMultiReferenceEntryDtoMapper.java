@@ -13,7 +13,7 @@ public interface IMultiReferenceEntryDtoMapper {
    * @param multiReferenceEntryNode
    * @param tableName
    * @param entityId
-   * @param multiReferenceColumnId
+   * @param multiReferenceColumnName
    * @return a new {@link MultiReferenceEntryDto} from the given
    *         multiReferenceEntryNode.
    * @throws RuntimeException if the given multiReferenceEntryNode is null.
@@ -22,5 +22,5 @@ public interface IMultiReferenceEntryDtoMapper {
     IMutableNode<?> multiReferenceEntryNode,
     String tableName,
     String entityId,
-    String multiReferenceColumnId);
+    String multiReferenceColumnName);
 }

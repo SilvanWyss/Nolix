@@ -1,6 +1,7 @@
 package ch.nolix.systemapi.nodemiddataapi.nodemapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.middataapi.midschemaview.DatabaseViewDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 
 /**
@@ -11,9 +12,12 @@ public interface IMultiReferenceEntryNodeMapper {
 
   /**
    * @param multiReferenceEntryDto
+   * @param databaseView
    * @return a new multi reference entry node from the given
-   *         multiReferenceEntryDto.
+   *         multiReferenceEntryDto using the given databaseView.
    * @throws RuntimeException if the given multiReferenceEntryDto is null.
    */
-  INode<?> mapMultiReferenceEntryDtoToMultiReferenceEntryNode(MultiReferenceEntryDto multiReferenceEntryDto);
+  INode<?> mapMultiReferenceEntryDtoToMultiReferenceEntryNode(
+    MultiReferenceEntryDto multiReferenceEntryDto,
+    DatabaseViewDto databaseView);
 }
