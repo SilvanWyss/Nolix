@@ -3,7 +3,7 @@ package ch.nolix.system.nodemiddata.modelmapper;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.nodemiddataapi.modelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.nodemiddataapi.modelmapperapi.IEntityLoadingDtoMapper;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.IEntityNodeSearcher;

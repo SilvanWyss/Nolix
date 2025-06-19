@@ -1,7 +1,7 @@
-package ch.nolix.systemapi.middataapi.schemaviewsearcherapi;
+package ch.nolix.systemapi.midschemaviewapi.modelsearcherapi;
 
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 
 /**
  * @author Silvan Wyss

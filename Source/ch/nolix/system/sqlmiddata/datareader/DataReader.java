@@ -5,15 +5,15 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.middata.schemaviewsearcher.TableViewDtoSearcher;
+import ch.nolix.system.midschemaview.modelsearcher.TableViewDtoSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.DatabaseViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewsearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewDtoSearcher;
 
 public final class DataReader implements IDataReader {
 

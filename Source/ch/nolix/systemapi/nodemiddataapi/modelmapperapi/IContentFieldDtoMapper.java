@@ -4,8 +4,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 
 /**
  * @author Silvan Wyss

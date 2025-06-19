@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.nodemiddataapi.schemaviewmodelmapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 
 /**
  * @author Silvan Wyss

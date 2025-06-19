@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.system.middata.schemaviewsearcher.TableViewDtoSearcher;
+import ch.nolix.system.midschemaview.modelsearcher.TableViewDtoSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemiddata.nodemapper.ContentFieldNodeMapper;
@@ -20,9 +20,9 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewsearcherapi.ITableViewDtoSearcher;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;

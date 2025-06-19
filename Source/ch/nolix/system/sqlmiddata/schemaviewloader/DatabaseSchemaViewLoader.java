@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlmiddata.schemaviewloader;
 
-import ch.nolix.system.middata.schemaviewmapper.TableViewDtoMapper;
-import ch.nolix.systemapi.middataapi.schemaviewapi.DatabaseViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewmapperapi.ITableViewDtoMapper;
+import ch.nolix.system.midschemaview.modelmapper.TableViewDtoMapper;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelmapperapi.ITableViewDtoMapper;
 import ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi.IDatabaseSchemaViewLoader;
 
 /**

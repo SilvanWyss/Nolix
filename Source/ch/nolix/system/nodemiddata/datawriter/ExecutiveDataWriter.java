@@ -10,8 +10,8 @@ import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class ExecutiveDataWriter {

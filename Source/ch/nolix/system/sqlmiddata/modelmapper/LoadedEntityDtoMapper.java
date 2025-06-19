@@ -7,9 +7,9 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
-import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IContentFieldDtoMapper;
 import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.ILoadedEntityDtoMapper;
 
