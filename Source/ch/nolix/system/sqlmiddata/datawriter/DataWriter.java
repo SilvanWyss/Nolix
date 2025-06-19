@@ -13,6 +13,7 @@ import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearc
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -72,12 +73,8 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiBackReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
-    executiveDataWriter.deleteMultiBackReferenceEntry(entityId, multiBackReferenceColumnId, backReferencedEntityId);
+  public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
+    executiveDataWriter.deleteMultiBackReferenceEntry(multiBackReferenceEntry);
   }
 
   @Override

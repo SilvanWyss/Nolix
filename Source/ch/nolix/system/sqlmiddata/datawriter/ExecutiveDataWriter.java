@@ -11,6 +11,7 @@ import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
 import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiReferenceStatementCreator;
@@ -99,10 +100,11 @@ public final class ExecutiveDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void deleteMultiBackReferenceEntry(
-    final String entityId,
-    final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
+  public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
+
+    final var entityId = multiBackReferenceEntry.entityId();
+    final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
+    final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
 
     final var statement = //
     MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiBackReferenceEntry(

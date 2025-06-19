@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
@@ -59,11 +60,15 @@ public final class MultiBackReferenceSaver {
     final var multiBackReference = multiBackReferenceEntry.getStoredParentMultiBackReference();
     final var multiBackReferenceColumn = multiBackReference.getStoredParentColumn();
     final var entity = multiBackReference.getStoredParentEntity();
+    final var tableName = entity.getParentTableName();
+    final var entityId = entity.getId();
+    final var multiBackReferenceColumnId = multiBackReferenceColumn.getId();
+    final var backReferencedEntityId = multiBackReferenceEntry.getBackReferencedEntityId();
 
-    dataAndSchemaAdapter.deleteMultiBackReferenceEntry(
-      entity.getParentTableName(),
-      entity.getId(),
-      multiBackReferenceColumn.getId(),
-      multiBackReferenceEntry.getBackReferencedEntityId());
+    //TODO: Create MultiBackReferenceEntryDeletionDtoMapper
+    final var multiBackReferenceEntryDeletionDto = //
+    new MultiBackReferenceEntryDeletionDto(tableName, entityId, multiBackReferenceColumnId, backReferencedEntityId);
+
+    dataAndSchemaAdapter.deleteMultiBackReferenceEntry(multiBackReferenceEntryDeletionDto);
   }
 }

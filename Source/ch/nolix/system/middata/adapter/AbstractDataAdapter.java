@@ -12,6 +12,7 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -50,11 +51,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   @Override
   public final void deleteMultiBackReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
-    dataWriter.deleteMultiBackReferenceEntry(tableName, entityId, multiBackReferenceColumnId, backReferencedEntityId);
+    final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
+    dataWriter.deleteMultiBackReferenceEntry(multiBackReferenceEntry);
   }
 
   @Override

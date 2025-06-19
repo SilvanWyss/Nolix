@@ -12,6 +12,7 @@ import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearc
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
+import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -72,18 +73,19 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void deleteMultiBackReferenceEntry(
-    final String tableName,
-    final String entityId,
-    final String multiBackReferenceColumnId,
-    final String backReferencedEntityId) {
+  public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
 
-    final var tableInfo = getTableViewByTableName(tableName);
+    final var tableName = multiBackReferenceEntry.tableName();
+    final var tableView = getTableViewByTableName(tableName);
+    final var entityId = multiBackReferenceEntry.entityId();
+    final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
+    final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
+
     final var multiBackReferenceColumnInfo = //
-    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableInfo, multiBackReferenceColumnId);
+    TABLE_VIEW_DTO_SEARCHER.getColumnViewByColumnId(tableView, multiBackReferenceColumnId);
 
     executiveDataWriter.deleteMultiBackReferenceEntry(
-      tableInfo,
+      tableView,
       entityId,
       multiBackReferenceColumnInfo,
       backReferencedEntityId);

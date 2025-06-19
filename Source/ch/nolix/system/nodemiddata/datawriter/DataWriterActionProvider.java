@@ -112,17 +112,17 @@ public final class DataWriterActionProvider {
     final IMutableNode<?> nodeDatabase,
     final TableViewDto tableView,
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo,
+    final ColumnViewDto multiBackReferenceColumnView,
     final String backReferencedEntityId) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
+    final var tableNode = //
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.name());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiBackReferenceColumnIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
 
-    final var multiBackReferenceColumnIndex = multiBackReferenceColumnInfo.oneBasedOrdinalIndex();
-
-    final var multiBackReferenceColumnNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnIndex);
+    final var multiBackReferenceColumnNode = //
+    entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnIndex);
 
     multiBackReferenceColumnNode.removeFirstChildNodeWithHeader(backReferencedEntityId);
   }
@@ -229,7 +229,8 @@ public final class DataWriterActionProvider {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityId = multiReferenceEntry.entityid();
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-    final var multiReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
+    final var multiReferenceNode = entityNode
+      .getStoredChildNodeAtOneBasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
     final var multiReferenceEntryNode = Node.withHeader(multiReferenceEntry.referencedEntityId());
 
     multiReferenceNode.addChildNode(multiReferenceEntryNode);
