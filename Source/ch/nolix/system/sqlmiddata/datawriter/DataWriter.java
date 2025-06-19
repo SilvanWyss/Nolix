@@ -93,8 +93,11 @@ public final class DataWriter implements IDataWriter {
   @Override
   public void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
 
+    final var tableName = multiReferenceEntry.tableName();
     final var entityId = multiReferenceEntry.entityId();
-    final var multiReferenceColumnId = multiReferenceEntry.multiReferenceColumnId();
+    final var multiReferenceColumnName = multiReferenceEntry.multiReferenceColumnName();
+    final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
+    final var multiReferenceColumnId = multiReferenceColumnView.id();
     final var referencedEntityId = multiReferenceEntry.referencedEntityId();
 
     executiveDataWriter.deleteEntryFromMultiReference(entityId, multiReferenceColumnId, referencedEntityId);

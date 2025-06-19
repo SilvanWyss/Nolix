@@ -70,12 +70,12 @@ public final class MultiReferenceSaver {
     final var entityId = entity.getId();
     final var tableName = entity.getParentTableName();
     final var multiReferenceColumn = multiReference.getStoredParentColumn();
-    final var multiReferenceColumnId = multiReferenceColumn.getId();
+    final var multiReferenceColumnName = multiReferenceColumn.getName();
     final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
 
     //TODO: Create MultiReferenceEntryDeletionDtoMapper
     final var multiReferenceEntryDeletionDto = //
-    new MultiReferenceEntryDeletionDto(tableName, entityId, multiReferenceColumnId, referencedEntityId);
+    new MultiReferenceEntryDeletionDto(tableName, entityId, multiReferenceColumnName, referencedEntityId);
 
     dataAndSchemaAdapter.deleteMultiReferenceEntry(multiReferenceEntryDeletionDto);
   }
