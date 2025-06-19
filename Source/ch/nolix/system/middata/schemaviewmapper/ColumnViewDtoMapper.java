@@ -1,7 +1,7 @@
-package ch.nolix.system.middata.midschemaviewmapper;
+package ch.nolix.system.middata.schemaviewmapper;
 
-import ch.nolix.systemapi.middataapi.midschemaviewmapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewmapperapi.IColumnViewDtoMapper;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 
 /**
