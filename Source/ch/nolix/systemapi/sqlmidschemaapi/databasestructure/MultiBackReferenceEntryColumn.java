@@ -7,10 +7,10 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
  * @version 2024-02-13
  */
 public enum MultiBackReferenceEntryColumn implements INameHolder {
-  ENTITY_ID("EntityId"),
-  MULTI_BACK_REFERENCE_COLUMN_ID("MultiBackReferenceColumnId"),
-  BACK_REFERENCED_ENTITY_ID("BackReferencedEntityId"),
-  BACK_REFERENCED_ENTITY_TABLE_ID("BackReferencedEntityTableId");
+  ENTITY_ID(MultiBackReferenceEntryColumnNameCatalog.ENTITY_ID),
+  MULTI_BACK_REFERENCE_COLUMN_ID(MultiBackReferenceEntryColumnNameCatalog.MULTI_BACK_REFERENCE_COLUMN_ID),
+  BACK_REFERENCED_ENTITY_ID(MultiBackReferenceEntryColumnNameCatalog.BACK_REFERENCED_ENTITY_ID),
+  BACK_REFERENCED_ENTITY_TABLE_ID(MultiBackReferenceEntryColumnNameCatalog.BACK_REFERENCED_ENTITY_TABLE_ID);
 
   private final String name;
 
