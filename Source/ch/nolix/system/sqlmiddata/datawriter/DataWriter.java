@@ -4,9 +4,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.system.middata.midschemaviewsearcher.TableViewDtoSearcher;
+import ch.nolix.system.middata.schemaviewsearcher.TableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
-import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
@@ -17,6 +16,7 @@ import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewapi.DatabaseViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {

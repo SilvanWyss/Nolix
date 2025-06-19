@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.middataapi.midschemaviewsearcherapi;
+package ch.nolix.systemapi.middataapi.schemaviewsearcherapi;
 
 import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;

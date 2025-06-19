@@ -1,8 +1,8 @@
-package ch.nolix.system.middata.midschemaviewsearcher;
+package ch.nolix.system.middata.schemaviewsearcher;
 
-import ch.nolix.systemapi.middataapi.midschemaviewsearcherapi.ITableViewDtoSearcher;
 import ch.nolix.systemapi.middataapi.schemaviewapi.ColumnViewDto;
 import ch.nolix.systemapi.middataapi.schemaviewapi.TableViewDto;
+import ch.nolix.systemapi.middataapi.schemaviewsearcherapi.ITableViewDtoSearcher;
 
 /**
  * @author Silvan Wyss
