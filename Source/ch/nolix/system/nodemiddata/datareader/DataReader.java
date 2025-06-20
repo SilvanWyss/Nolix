@@ -20,16 +20,22 @@ public final class DataReader implements IDataReader {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseViewDto databaseSchemaView;
+  private final DatabaseViewDto databaseView;
 
   private final InternalDataReader internalDataReader;
 
-  public DataReader(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
+  private DataReader(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseView) {
 
-    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseViewDto.class).isNotNull();
+    Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
-    this.databaseSchemaView = databaseSchemaView;
+    this.databaseView = databaseView;
     this.internalDataReader = new InternalDataReader(nodeDatabase);
+  }
+
+  public static DataReader forNodeDatabaseAndDatabaseView(
+    final IMutableNode<?> nodeDatabase,
+    final DatabaseViewDto databaseView) {
+    return new DataReader(nodeDatabase, databaseView);
   }
 
   @Override
@@ -137,6 +143,6 @@ public final class DataReader implements IDataReader {
   }
 
   private TableViewDto getTableSchemaViewByTableName(final String tableName) {
-    return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
+    return databaseView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }

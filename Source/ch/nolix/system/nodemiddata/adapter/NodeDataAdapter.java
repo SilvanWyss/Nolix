@@ -18,7 +18,7 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
 
   private NodeDataAdapter(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
     super(
-      new DataReader(nodeDatabase, databaseSchemaView),
+      DataReader.forNodeDatabaseAndDatabaseView(nodeDatabase, databaseSchemaView),
       DataWriter.forNodeDatabaseAndDatabaseView(nodeDatabase, databaseSchemaView));
   }
 
