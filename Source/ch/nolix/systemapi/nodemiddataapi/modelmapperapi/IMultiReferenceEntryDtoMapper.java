@@ -2,6 +2,7 @@ package ch.nolix.systemapi.nodemiddataapi.modelmapperapi;
 
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
 
 /**
  * @author Silvan Wyss
@@ -14,6 +15,7 @@ public interface IMultiReferenceEntryDtoMapper {
    * @param tableName
    * @param entityId
    * @param multiReferenceColumnName
+   * @param databaseView
    * @return a new {@link MultiReferenceEntryDto} from the given
    *         multiReferenceEntryNode.
    * @throws RuntimeException if the given multiReferenceEntryNode is null.
@@ -22,5 +24,6 @@ public interface IMultiReferenceEntryDtoMapper {
     IMutableNode<?> multiReferenceEntryNode,
     String tableName,
     String entityId,
-    String multiReferenceColumnName);
+    String multiReferenceColumnName,
+    DatabaseViewDto databaseView);
 }
