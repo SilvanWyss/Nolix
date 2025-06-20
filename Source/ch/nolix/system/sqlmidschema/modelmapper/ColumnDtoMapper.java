@@ -17,41 +17,36 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public ColumnDto mapColumnTableSqlRecordToColumnDto(
-    final ISqlRecord columnTableSqlRecord) {
+  public ColumnDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
 
-    final var contentType = //
-    ContentType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX));
+    final var contentTypeEntry = //
+    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX);
+
+    final var contentType = ContentType.valueOf(contentTypeEntry);
 
     return //
     switch (contentType) {
       case VALUE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForValueColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForValueColumn(joinedColumnSqlRecord);
       case OPTIONAL_VALUE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalValueColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalValueColumn(joinedColumnSqlRecord);
       case MULTI_VALUE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(joinedColumnSqlRecord);
       case REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForReferenceColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForReferenceColumn(joinedColumnSqlRecord);
       case OPTIONAL_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(joinedColumnSqlRecord);
       case MULTI_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(joinedColumnSqlRecord);
       case BACK_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(joinedColumnSqlRecord);
       case OPTIONAL_BACK_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalBackReferenceColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper
+          .mapColumnTableSqlRecordToColumnDtoForOptionalBackReferenceColumn(joinedColumnSqlRecord);
       case MULTI_BACK_REFERENCE ->
-        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiBackReferenceColumn(columnTableSqlRecord);
+        ColumnDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiBackReferenceColumn(joinedColumnSqlRecord);
       default ->
         throw InvalidArgumentException.forArgument(contentType);
     };
-  }
-
-  @Override
-  public ColumnDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnDto) {
-
-    //TODO: Update
-    return mapColumnTableSqlRecordToColumnDto(joinedColumnDto);
   }
 }
