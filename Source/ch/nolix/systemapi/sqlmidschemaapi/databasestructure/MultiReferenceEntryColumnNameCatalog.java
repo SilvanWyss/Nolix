@@ -9,9 +9,11 @@ package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
  */
 public final class MultiReferenceEntryColumnNameCatalog {
 
-  public static final String MULTI_REFERENCE_COLUMN_ID = "MultiReferenceColumnId";
-
   public static final String ENTITY_ID = "EntityId";
+
+  public static final String ENTITY_TABLE_ID = "EntityTableId";
+
+  public static final String MULTI_REFERENCE_COLUMN_ID = "MultiReferenceColumnId";
 
   public static final String REFERENCED_ENTITY_ID = "ReferencedEntityId";
 
