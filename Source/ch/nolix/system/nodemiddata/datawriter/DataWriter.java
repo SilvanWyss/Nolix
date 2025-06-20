@@ -6,7 +6,6 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
-import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.system.nodemiddata.nodemapper.EntityIndexNodeMapper;
 import ch.nolix.system.nodemiddata.nodemapper.EntityNodeMapper;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
@@ -22,7 +21,6 @@ import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -32,8 +30,6 @@ public final class DataWriter implements IDataWriter {
   public static final int INITIAL_ENTITY_SAVE_STAMP = 0;
 
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
-
-  private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
 
   private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
@@ -134,9 +130,8 @@ public final class DataWriter implements IDataWriter {
 
     final var tableName = multiValueEntry.tableName();
     final var entityId = multiValueEntry.entityId();
-    final var tableView = getTableViewByTableName(tableName);
     final var multiValueColumnName = multiValueEntry.multiValueColumnName();
-    final var multiValueColumnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, multiValueColumnName);
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
     final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
     final var value = multiValueEntry.value();
 
@@ -258,10 +253,7 @@ public final class DataWriter implements IDataWriter {
   }
 
   private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
-
-    final var tableSchemaView = getTableViewByTableName(tableName);
-
-    return TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableSchemaView, columnName);
+    return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseView, tableName, columnName);
   }
 
   private TableViewDto getTableViewByTableName(final String tableName) {

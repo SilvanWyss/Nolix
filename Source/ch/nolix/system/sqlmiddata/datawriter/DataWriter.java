@@ -5,7 +5,6 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
-import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
@@ -19,14 +18,11 @@ import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
 
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
-
-  private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -226,10 +222,7 @@ public final class DataWriter implements IDataWriter {
   }
 
   private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
-
-    final var tableSchemaView = getTableViewByTableName(tableName);
-
-    return TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableSchemaView, columnName);
+    return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseSchemaView, tableName, columnName);
   }
 
   private TableViewDto getTableViewByTableName(final String tableName) {
