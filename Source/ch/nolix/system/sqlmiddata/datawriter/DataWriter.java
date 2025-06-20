@@ -174,7 +174,7 @@ public final class DataWriter implements IDataWriter {
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
 
     final var tableName = multiReferenceEntry.tableName();
-    final var entityId = multiReferenceEntry.entityid();
+    final var entityId = multiReferenceEntry.entityId();
     final var multiReferenceColumnName = multiReferenceEntry.multiReferenceColumnName();
     final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
     final var multiReferenceColumnId = multiReferenceColumnView.id();
