@@ -27,6 +27,16 @@ public interface IDatabaseViewSearcher {
 
   /**
    * @param databaseView
+   * @param tableId
+   * @return the {@link TableViewDto} with the given tableId from the given
+   *         databaseView.
+   * @throws RuntimeException if the given databaseView does not contain a
+   *                          {@link TableViewDto} with the given tableId.
+   */
+  TableViewDto getTableViewByTableId(DatabaseViewDto databaseView, String tableId);
+
+  /**
+   * @param databaseView
    * @param tableName
    * @return the {@link TableViewDto} with the given tableName from the given
    *         databaseView.
