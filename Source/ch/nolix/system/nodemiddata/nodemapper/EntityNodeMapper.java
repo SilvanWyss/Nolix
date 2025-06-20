@@ -53,9 +53,9 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     for (final var f : newEntity.contentFields()) {
 
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
-      final var index = columnView.oneBasedOrdinalIndex() - 1;
+      final var columnZeroBasedOrdinalIndex = columnView.oneBasedOrdinalIndex() - 1;
 
-      attributes[index] = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
+      attributes[columnZeroBasedOrdinalIndex] = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
     }
 
     return ContainerView.forArray(attributes);
