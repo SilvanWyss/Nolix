@@ -16,10 +16,10 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
     this(nodeDatabase, DATABASE_SCHEMA_VIEW_DTO_MAPPER.mapTableNodeToTableViewDto(nodeDatabase));
   }
 
-  private NodeDataAdapter(
-    final IMutableNode<?> nodeDatabase,
-    final DatabaseViewDto databaseSchemaView) {
-    super(new DataReader(nodeDatabase, databaseSchemaView), new DataWriter(nodeDatabase, databaseSchemaView));
+  private NodeDataAdapter(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
+    super(
+      new DataReader(nodeDatabase, databaseSchemaView),
+      DataWriter.forNodeDatabaseAndDatabaseView(nodeDatabase, databaseSchemaView));
   }
 
   public static NodeDataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {

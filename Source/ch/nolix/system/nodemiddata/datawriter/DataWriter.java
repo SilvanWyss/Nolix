@@ -30,16 +30,22 @@ public final class DataWriter implements IDataWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseViewDto databaseSchemaView;
+  private final DatabaseViewDto databaseView;
 
   private final ExecutiveDataWriter executiveDataWriter;
 
-  public DataWriter(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
+  private DataWriter(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseView) {
 
-    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseViewDto.class).isNotNull();
+    Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
-    this.databaseSchemaView = databaseSchemaView;
+    this.databaseView = databaseView;
     this.executiveDataWriter = ExecutiveDataWriter.forNodeDatabase(nodeDatabase);
+  }
+
+  public static DataWriter forNodeDatabaseAndDatabaseView(
+    final IMutableNode<?> nodeDatabase,
+    final DatabaseViewDto databaseView) {
+    return new DataWriter(nodeDatabase, databaseView);
   }
 
   @Override
@@ -240,6 +246,6 @@ public final class DataWriter implements IDataWriter {
   }
 
   private TableViewDto getTableViewByTableName(final String tableName) {
-    return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseSchemaView, tableName);
+    return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseView, tableName);
   }
 }
