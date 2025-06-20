@@ -17,7 +17,6 @@ import ch.nolix.system.nodemiddata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
@@ -201,25 +200,24 @@ public final class DataWriterActionProvider {
     final var multiBackReferenceNode = //
     entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnOneBasedOrdinalIndex);
 
-    //TODO: Create MultiBackReferenceBackReferencedEntityNode
-    final var multiBackReferenceBackReferencedEntityNode = //
-    Node.withChildNode(backReferencedEntityId, backReferencedEntityTableId);
+    //TODO: Create MultiBackReferenceEntryNodeMapper
+    final var multiBackReferenceEntryNode = Node.withChildNode(backReferencedEntityId, backReferencedEntityTableId);
 
-    multiBackReferenceNode.addChildNode(multiBackReferenceBackReferencedEntityNode);
+    multiBackReferenceNode.addChildNode(multiBackReferenceEntryNode);
   }
 
   public static void insertMultiReferenceEntry(
     final IMutableNode<?> nodeDatabase,
-    final MultiReferenceEntryDto multiReferenceEntry,
-    final int multiReferenceColumnOneBasedOrdinalIndex) {
+    final String tableName,
+    final String entityId,
+    final int multiReferenceColumnOneBasedOrdinalIndex,
+    final INode<?> multiReferenceEntryNode) {
 
-    final var tableName = multiReferenceEntry.tableName();
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var entityId = multiReferenceEntry.entityid();
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-    final var multiReferenceNode = entityNode
-      .getStoredChildNodeAtOneBasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
-    final var multiReferenceEntryNode = Node.withHeader(multiReferenceEntry.referencedEntityId());
+
+    final var multiReferenceNode = //
+    entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
 
     multiReferenceNode.addChildNode(multiReferenceEntryNode);
   }

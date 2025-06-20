@@ -1,5 +1,6 @@
 package ch.nolix.system.nodemiddata.datawriter;
 
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -203,11 +204,19 @@ public final class DataWriter implements IDataWriter {
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
 
     final var tableName = multiReferenceEntry.tableName();
+    final var entityId = multiReferenceEntry.entityid();
     final var multiReferenceColumnName = multiReferenceEntry.multiReferenceColumnName();
     final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
 
-    executiveDataWriter.insertMultiReferenceEntry(multiReferenceEntry, multiReferenceColumnOneBasedOrdinalIndex);
+    //TODO: Create MultiReferenceEntryNodeMapper
+    final var multiReferenceEntryNode = Node.withHeader(multiReferenceEntry.referencedEntityId());
+
+    executiveDataWriter.insertMultiReferenceEntry(
+      tableName,
+      entityId,
+      multiReferenceColumnOneBasedOrdinalIndex,
+      multiReferenceEntryNode);
   }
 
   @Override

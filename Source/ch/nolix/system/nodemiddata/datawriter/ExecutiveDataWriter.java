@@ -9,7 +9,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -177,15 +176,19 @@ public final class ExecutiveDataWriter {
   }
 
   public void insertMultiReferenceEntry(
-    final MultiReferenceEntryDto multiReferenceEntry,
-    final int multiReferenceColumnOneBasedOrdinalIndex) {
+    final String tableName,
+    final String entityId,
+    final int multiReferenceColumnOneBasedOrdinalIndex,
+    final INode<?> multiReferenceEntryNode) {
 
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiReferenceEntry(
       d,
-      multiReferenceEntry,
-      multiReferenceColumnOneBasedOrdinalIndex);
+      tableName,
+      entityId,
+      multiReferenceColumnOneBasedOrdinalIndex,
+      multiReferenceEntryNode);
 
     updaterCollector.addUpdater(updateAction);
   }
