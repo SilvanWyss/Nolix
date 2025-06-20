@@ -35,7 +35,15 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String entityId,
     final String multiReferenceColumnId) {
     return "SELECT "
+    + MultiReferenceEntryColumn.ENTITY_ID.getName()
+    + ", "
+    + MultiReferenceEntryColumn.ENTITY_TABLE_ID.getName()
+    + ", "
+    + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + ", "
     + MultiReferenceEntryColumn.REFERENCED_ENTITY_ID.getName()
+    + ", "
+    + MultiReferenceEntryColumn.REFERENCED_ENTITY_TABLE_ID.getName()
     + " FROM "
     + FixTable.MULTI_REFERENCE_ENTRY.getName()
     + " WHERE "
