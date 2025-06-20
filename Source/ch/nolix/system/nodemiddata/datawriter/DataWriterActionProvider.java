@@ -20,7 +20,6 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
@@ -239,21 +238,17 @@ public final class DataWriterActionProvider {
 
   public static void insertMultiValueEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo,
-    final String entry) {
+    final int multiValueColumnOneBasedOrdinalIndex,
+    final String value) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
+    final var multiValueValueNode = Node.withHeader(value);
 
-    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
-
-    final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnIndex);
-
-    multiValueNode.addChildNode(Node.withHeader(entry));
+    multiValueNode.addChildNode(multiValueValueNode);
   }
 
   public static void updateEntity(

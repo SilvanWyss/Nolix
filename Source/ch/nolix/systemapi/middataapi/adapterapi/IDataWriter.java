@@ -120,12 +120,11 @@ public interface IDataWriter extends IResettableChangeSaver {
   void insertMultiReferenceEntry(MultiReferenceEntryDto multiReferenceEntry);
 
   /**
-   * @param tableName
-   * @param entityId
-   * @param multiValueColumnName
-   * @param entry
+   * Inserts the given multiValueEntry into the database.
+   * 
+   * @param multiValueEntry
    */
-  void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
+  void insertMultiValueEntry(MultiValueEntryDto multiValueEntry);
 
   /**
    * Updates the entity, that belongs to the table with the given tableName, in

@@ -193,15 +193,16 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void insertMultiValueEntry(
-    final String tableName,
-    final String entityId,
-    final String multiValueColumnName,
-    final String entry) {
-    executiveDataWriter.insertEntryIntoMultiValue(
-      entityId,
-      getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName).id(),
-      entry);
+  public void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
+
+    final var tableName = multiValueEntry.tableName();
+    final var entityId = multiValueEntry.entityId();
+    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
+    final var multiValueColumnId = multiValueColumnView.id();
+    final var value = multiValueEntry.value();
+
+    executiveDataWriter.insertEntryIntoMultiValue(entityId, multiValueColumnId, value);
   }
 
   @Override

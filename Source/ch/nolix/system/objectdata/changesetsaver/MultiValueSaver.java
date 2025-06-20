@@ -39,12 +39,17 @@ final class MultiValueSaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
+    final var tableName = entity.getParentTableName();
+    final var entityId = entity.getId();
+    final var multiValue = multiValueEntry.getStoredParentMultiValue();
+    final var multiValueColumn = multiValue.getStoredParentColumn();
+    final var multiValueColumnName = multiValueColumn.getName();
+    final var value = multiValueEntry.getStoredValue().toString();
 
-    dataAndSchemaAdapter.insertMultiValueEntry(
-      entity.getParentTableName(),
-      entity.getId(),
-      multiValueEntry.getStoredParentMultiValue().getName(),
-      multiValueEntry.getStoredValue().toString());
+    //TODO: Create MultiValueEntryDtoMapper
+    final var multiValueEntryDto = new MultiValueEntryDto(tableName, entityId, multiValueColumnName, value);
+
+    dataAndSchemaAdapter.insertMultiValueEntry(multiValueEntryDto);
   }
 
   private void saveMultiValueEntryDeletion(

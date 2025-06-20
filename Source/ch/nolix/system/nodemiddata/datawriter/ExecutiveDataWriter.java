@@ -10,7 +10,6 @@ import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -188,13 +187,14 @@ public final class ExecutiveDataWriter {
   }
 
   public void insertMultiValueEntry(
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo,
-    final String entry) {
+    final int multiValueColumnOneBasedOrdinalIndex,
+    final String value) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.insertMultiValueEntry(d, tableView, entityId, multiValueColumnInfo, entry);
+    d -> //
+    DataWriterActionProvider.insertMultiValueEntry(d, tableName, entityId, multiValueColumnOneBasedOrdinalIndex, value);
 
     updaterCollector.addUpdater(updateAction);
   }

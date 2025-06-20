@@ -130,12 +130,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void insertMultiValueEntry(
-    final String tableName,
-    final String entityId,
-    final String multiFieldColumn,
-    final String entry) {
-    dataWriter.insertMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
+  public final void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
+    dataWriter.insertMultiValueEntry(multiValueEntry);
   }
 
   @Override
