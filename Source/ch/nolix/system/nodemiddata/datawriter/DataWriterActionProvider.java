@@ -3,7 +3,7 @@ package ch.nolix.system.nodemiddata.datawriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -262,7 +262,7 @@ public final class DataWriterActionProvider {
     final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
     saveStampNode.setHeader(newSaveStamp);
 
-    updateEntityNode(entityNode.get(), tableView, entityUpdate);
+    updateEntityNode(entityNode.get(), entityUpdate, tableView);
   }
 
   private static void deleteEntityIndex(final IMutableNode<?> nodeDatabase, final String entityId) {
@@ -274,19 +274,20 @@ public final class DataWriterActionProvider {
 
   private static void updateEntityNode(
     final IMutableNode<?> entityNode,
-    final TableViewDto tableView,
-    final EntityUpdateDto entityUpdate) {
+    final EntityUpdateDto entityUpdate,
+    final TableViewDto tableView) {
     for (final var f : entityUpdate.updatedContentFields()) {
 
-      final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
+      final var columnName = f.columnName();
+      final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, columnName);
 
-      if (columnView.contentType().getCardinality() != Cardinality.TO_MANY) {
+      if (columnView.contentType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE) {
 
-        final var columnIndex = columnView.oneBasedOrdinalIndex();
-        final var contentFieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(columnIndex);
-        final var newContentFieldNode = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
+        final var oneBasedColumnIndex = columnView.oneBasedOrdinalIndex();
+        final var fieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedColumnIndex);
+        final var newFieldNode = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
 
-        contentFieldNode.resetFromNode(newContentFieldNode);
+        fieldNode.resetFromNode(newFieldNode);
       }
     }
   }
