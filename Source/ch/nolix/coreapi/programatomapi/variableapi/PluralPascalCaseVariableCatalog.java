@@ -92,6 +92,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String CURSOR_POSITIONS = "CursorPositions";
 
+  public static final String DATA = "Data";
+
   public static final String DATABASES = "Databases";
 
   public static final String DATABASE_NAMES = "DatabaseNames";

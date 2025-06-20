@@ -96,6 +96,8 @@ public final class PluralLowerCaseVariableCatalog {
 
   public static final String DATABASE_NAMES = "database names";
 
+  public static final String DATA = "data";
+
   public static final String DATA_TYPES = "data types";
 
   public static final String DATES = "dates";
