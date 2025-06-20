@@ -1,12 +1,15 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.objectdata.middatamodelmapper.MultiValueEntryDtoMapper;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
+import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiValueEntryDtoMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
 
-final class MultiValueSaver {
+public final class MultiValueSaver {
+
+  private static final IMultiValueEntryDtoMapper MULTI_VALUE_ENTRY_DTO_MAPPER = new MultiValueEntryDtoMapper();
 
   public void saveChangesOfMultiValue(
     final IMultiValue<?> multiValue,
@@ -38,16 +41,7 @@ final class MultiValueSaver {
     final IMultiValueEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
-    final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
-    final var tableName = entity.getParentTableName();
-    final var entityId = entity.getId();
-    final var multiValue = multiValueEntry.getStoredParentMultiValue();
-    final var multiValueColumn = multiValue.getStoredParentColumn();
-    final var multiValueColumnName = multiValueColumn.getName();
-    final var value = multiValueEntry.getStoredValue().toString();
-
-    //TODO: Create MultiValueEntryDtoMapper
-    final var multiValueEntryDto = new MultiValueEntryDto(tableName, entityId, multiValueColumnName, value);
+    final var multiValueEntryDto = MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueEntry);
 
     dataAndSchemaAdapter.insertMultiValueEntry(multiValueEntryDto);
   }
@@ -56,14 +50,7 @@ final class MultiValueSaver {
     final IMultiValueEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
-    final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
-    final var tableName = entity.getParentTableName();
-    final var entityId = entity.getId();
-    final var multiValueColumnName = multiValueEntry.getStoredParentMultiValue().getStoredParentColumn().getName();
-    final var value = multiValueEntry.getStoredValue().toString();
-
-    //TODO: Create MultiValueEntryDtoMapper
-    final var multiValueEntryDto = new MultiValueEntryDto(tableName, entityId, multiValueColumnName, value);
+    final var multiValueEntryDto = MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueEntry);
 
     dataAndSchemaAdapter.deleteMultiValueEntry(multiValueEntryDto);
   }
