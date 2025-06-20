@@ -77,10 +77,15 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
+
+    final var multiReferenceColumn = getColumnInfoByTableNameAndColumnName(tableName, multiReferenceColumnName);
+    final var multiReferenceColumnId = multiReferenceColumn.name();
+
     return //
     internalDataReader.loadMultiReferenceEntries(
       entityId,
-      getColumnInfoByTableNameAndColumnName(tableName, multiReferenceColumnName));
+      multiReferenceColumnId,
+      databaseSchemaView);
   }
 
   @Override

@@ -7,6 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.LoadedEntityDtoMapper;
+import ch.nolix.system.sqlmiddata.modelmapper.MultiReferenceEntryDtoMapper;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiReferenceQueryCreator;
@@ -16,7 +17,9 @@ import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
+import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
+import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IMultiReferenceEntryDtoMapper;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
 import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiReferenceQueryCreator;
@@ -34,6 +37,8 @@ final class InternalDataReader {
   new MultiBackReferenceQueryCreator();
 
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
+
+  private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = new MultiReferenceEntryDtoMapper();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
@@ -78,17 +83,17 @@ final class InternalDataReader {
 
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String entityId,
-    final ColumnViewDto multiReferenceColumnInfo) {
+    final String multiReferenceColumnId,
+    final DatabaseViewDto databaseView) {
 
     final var query = //
-    MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(entityId, multiReferenceColumnInfo.id());
+    MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(entityId, multiReferenceColumnId);
 
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
-    //TODO: Create MultiReferenceEntryDtoMapper
     return //
-    sqlRecords.to(r -> new MultiReferenceEntryDto(null, entityId, multiReferenceColumnInfo.id(),
-      r.getStoredAtOneBasedIndex(1), null));
+    sqlRecords.to(
+      r -> MULTI_REFERENCE_ENTRY_DTO_MAPPER.mapMultiReferenceEntrySqlRecordToMultiReferenceEntryDto(r, databaseView));
   }
 
   public IContainer<Object> loadMultiValueEntries(
