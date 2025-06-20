@@ -1,13 +1,17 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
+import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
 
 public final class MultiReferenceSaver {
+
+  private static final IMultiReferenceEntryDeletionDtoMapper MULTI_REFERENCE_ENTRY_DELETION_DTO_MAPPER = //
+  new MultiReferenceEntryDeletionDtoMapper();
 
   public void saveMultiReference(
     final IMultiReference<?> multiReference,
@@ -51,6 +55,7 @@ public final class MultiReferenceSaver {
     final var referencedEntity = multiReference.getStoredParentEntity();
     final var referencedEntityTableName = referencedEntity.getParentTableName();
 
+    //TODO: Create MultiReferenceEntryDtoMapper
     final var multiReferenceEntryDto = //
     new MultiReferenceEntryDto(
       tableName,
@@ -66,17 +71,9 @@ public final class MultiReferenceSaver {
     final IMultiReferenceEntry<?> multiReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
-    final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
-    final var entity = multiReference.getStoredParentEntity();
-    final var entityId = entity.getId();
-    final var tableName = entity.getParentTableName();
-    final var multiReferenceColumn = multiReference.getStoredParentColumn();
-    final var multiReferenceColumnName = multiReferenceColumn.getName();
-    final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
-
-    //TODO: Create MultiReferenceEntryDeletionDtoMapper
     final var multiReferenceEntryDeletionDto = //
-    new MultiReferenceEntryDeletionDto(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+    MULTI_REFERENCE_ENTRY_DELETION_DTO_MAPPER.mapMultiReferenceEntryToMultiReferenceEntryDeletionDto(
+      multiReferenceEntry);
 
     dataAndSchemaAdapter.deleteMultiReferenceEntry(multiReferenceEntryDeletionDto);
   }
