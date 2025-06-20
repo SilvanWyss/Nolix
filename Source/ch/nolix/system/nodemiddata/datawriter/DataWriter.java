@@ -249,7 +249,10 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
-    executiveDataWriter.updateEntity(getTableViewByTableName(tableName), entityUpdate);
+
+    final var tableView = getTableViewByTableName(tableName);
+
+    executiveDataWriter.updateEntity(entityUpdate, tableView);
   }
 
   private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {

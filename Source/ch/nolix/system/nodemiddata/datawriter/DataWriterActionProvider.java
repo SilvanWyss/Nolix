@@ -7,6 +7,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
@@ -239,30 +240,31 @@ public final class DataWriterActionProvider {
 
   public static void updateEntity(
     final IMutableNode<?> database,
-    final TableViewDto tableView,
-    final EntityUpdateDto entityUpdate) {
+    final EntityUpdateDto entityUpdate,
+    final TableViewDto tableView) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database,
-      tableView.name());
+    final var tableName = tableView.name();
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
+    final var entityId = entityUpdate.id();
+    final var entityNodeContainer = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode, entityId);
 
-    final var entityNode = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode,
-      entityUpdate.id());
-
-    if (entityNode.isEmpty()) {
-      throw ChangedResourceException.forResource("data");
+    if (entityNodeContainer.isEmpty()) {
+      throw ChangedResourceException.forResource(PluralLowerCaseVariableCatalog.DATA);
     }
 
-    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode.get());
+    final var saveStamp = entityUpdate.saveStamp();
+    final var entityNode = entityNodeContainer.get();
+    final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
+    final var actualSaveStamp = saveStampNode.getHeader();
 
-    final var saveStamp = saveStampNode.getHeader();
-    if (!saveStamp.equals(entityUpdate.saveStamp())) {
-      throw ChangedResourceException.forResource("data");
+    if (!saveStamp.equals(actualSaveStamp)) {
+      throw ChangedResourceException.forResource(PluralLowerCaseVariableCatalog.DATA);
     }
 
     final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);
     saveStampNode.setHeader(newSaveStamp);
 
-    updateEntityNode(entityNode.get(), entityUpdate, tableView);
+    updateContentFieldsOfEntityNode(entityNode, entityUpdate, tableView);
   }
 
   private static void deleteEntityIndex(final IMutableNode<?> nodeDatabase, final String entityId) {
@@ -272,7 +274,7 @@ public final class DataWriterActionProvider {
     entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAtOneBasedIndex(2).hasHeader(entityId));
   }
 
-  private static void updateEntityNode(
+  private static void updateContentFieldsOfEntityNode(
     final IMutableNode<?> entityNode,
     final EntityUpdateDto entityUpdate,
     final TableViewDto tableView) {

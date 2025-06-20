@@ -225,10 +225,10 @@ public final class ExecutiveDataWriter {
     }
   }
 
-  public void updateEntity(final TableViewDto tableView, EntityUpdateDto entityUpdate) {
+  public void updateEntity(final EntityUpdateDto entityUpdate, final TableViewDto tableView) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.updateEntity(d, tableView, entityUpdate);
+    d -> DataWriterActionProvider.updateEntity(d, entityUpdate, tableView);
 
     updaterCollector.addUpdater(updateAction);
   }
