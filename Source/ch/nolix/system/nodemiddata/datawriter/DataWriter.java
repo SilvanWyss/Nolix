@@ -6,6 +6,8 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
+import ch.nolix.system.nodemiddata.nodemapper.EntityIndexNodeMapper;
+import ch.nolix.system.nodemiddata.nodemapper.EntityNodeMapper;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
@@ -20,6 +22,8 @@ import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
+import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityIndexNodeMapper;
+import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
@@ -27,6 +31,10 @@ public final class DataWriter implements IDataWriter {
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
+
+  private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
+
+  private static final IEntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -54,11 +62,7 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiReferenceColumnName) {
 
-    final var tableView = getTableViewByTableName(tableName);
-
-    final var multiReferenceColumnView = //
-    TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, multiReferenceColumnName);
-
+    final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
     final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
 
     executiveDataWriter.clearMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
@@ -70,9 +74,8 @@ public final class DataWriter implements IDataWriter {
     final String entityId,
     final String multiValueColumnName) {
 
-    final var tableInfo = getTableViewByTableName(tableName);
-    final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableInfo, multiValueColumnName);
-    final var multiValueColumnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
+    final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
 
     executiveDataWriter.clearMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
   }
@@ -90,7 +93,6 @@ public final class DataWriter implements IDataWriter {
   public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
 
     final var tableName = multiBackReferenceEntry.tableName();
-    final var tableView = getTableViewByTableName(tableName);
     final var entityId = multiBackReferenceEntry.entityId();
     final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
 
@@ -101,7 +103,7 @@ public final class DataWriter implements IDataWriter {
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
 
     executiveDataWriter.deleteMultiBackReferenceEntry(
-      tableView,
+      tableName,
       entityId,
       multiBackReferenceColumnOneBasedOrdinalIndex,
       backReferencedEntityId);
@@ -113,9 +115,7 @@ public final class DataWriter implements IDataWriter {
     final var tableName = multiReferenceEntry.tableName();
     final var entityId = multiReferenceEntry.entityId();
     final var multiReferenceColumnName = multiReferenceEntry.multiReferenceColumnName();
-
     final var multiReferenceColumnNameView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
-
     final var multiReferencedColumnOneBasedOrdinalIndex = multiReferenceColumnNameView.oneBasedOrdinalIndex();
     final var referencedEntityId = multiReferenceEntry.referencedEntityId();
 
@@ -161,12 +161,20 @@ public final class DataWriter implements IDataWriter {
   }
 
   @Override
-  public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-    executiveDataWriter.insertEntity(getTableViewByTableName(tableName), newEntity);
+  public void insertEntity(final String tableName, final EntityCreationDto entity) {
+
+    final var tableView = getTableViewByTableName(tableName);
+    final var tableId = tableView.id();
+    final var entityId = entity.id();
+    final var entityIndexNode = ENTITY_INDEXES_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(entity, tableId);
+    final var saveStamp = 0;
+    final var entityNode = ENTITY_NODE_MAPPER.mapEntityCreationDtoToEntityNode(entity, tableView, saveStamp);
+
+    executiveDataWriter.insertEntity(tableName, entityId, entityIndexNode, entityNode);
   }
 
   @Override
-  public void insertMultiBackReferenceEntry(MultiBackReferenceEntryDto multiBackReferenceEntry) {
+  public void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
 
     final var tableName = multiBackReferenceEntry.tableName();
     final var entityId = multiBackReferenceEntry.entityId();

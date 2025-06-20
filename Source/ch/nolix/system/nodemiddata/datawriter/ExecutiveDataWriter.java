@@ -6,8 +6,8 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.process.UpdaterCollector;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.processapi.IUpdaterCollector;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
@@ -103,7 +103,7 @@ public final class ExecutiveDataWriter {
   }
 
   public void deleteMultiBackReferenceEntry(
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final String backReferencedEntityId) {
@@ -112,7 +112,7 @@ public final class ExecutiveDataWriter {
     d -> //
     DataWriterActionProvider.deleteMultiBackReferenceEntry(
       d,
-      tableView,
+      tableName,
       entityId,
       multiBackReferenceColumnOneBasedOrdinalIndex,
       backReferencedEntityId);
@@ -144,10 +144,14 @@ public final class ExecutiveDataWriter {
     return updaterCollector.containsAny();
   }
 
-  public void insertEntity(final TableViewDto tableView, final EntityCreationDto newEntity) {
+  public void insertEntity(
+    final String tableName,
+    final String entityId,
+    final INode<?> entityIndexNode,
+    final INode<?> entityNode) {
 
     final Consumer<IMutableNode<?>> updateAction = //
-    d -> DataWriterActionProvider.insertEntity(d, tableView, newEntity);
+    d -> DataWriterActionProvider.insertEntity(d, tableName, entityId, entityIndexNode, entityNode);
 
     updaterCollector.addUpdater(updateAction);
   }

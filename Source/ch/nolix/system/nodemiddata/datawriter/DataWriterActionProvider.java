@@ -5,19 +5,17 @@ import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemiddata.nodemapper.ContentFieldNodeMapper;
-import ch.nolix.system.nodemiddata.nodemapper.EntityIndexNodeMapper;
-import ch.nolix.system.nodemiddata.nodemapper.EntityNodeMapper;
 import ch.nolix.system.nodemiddata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemiddata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
@@ -25,8 +23,6 @@ import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
 import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
-import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityIndexNodeMapper;
-import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IEntityNodeMapper;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemiddataapi.nodevalidatorapi.ITableNodeValidator;
@@ -51,11 +47,7 @@ public final class DataWriterActionProvider {
 
   private static final ITableNodeEditor TABLE_NODE_EDITOR = new TableNodeEditor();
 
-  private static final IEntityIndexNodeMapper ENTITY_INDEXES_NODE_MAPPER = new EntityIndexNodeMapper();
-
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
-
-  private static final IEntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
   private static final IContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
 
@@ -109,14 +101,12 @@ public final class DataWriterActionProvider {
 
   public static void deleteMultiBackReferenceEntry(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final String backReferencedEntityId) {
 
-    final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
     final var multiBackReferenceColumnNode = //
@@ -180,22 +170,20 @@ public final class DataWriterActionProvider {
 
   public static void insertEntity(
     final IMutableNode<?> nodeDatabase,
-    final TableViewDto tableView,
-    final EntityCreationDto newEntity) {
+    final String tableName,
+    final String entityId,
+    final INode<?> entityIndexNode,
+    final INode<?> entityNode) {
 
-    insertEntityIndex(nodeDatabase, tableView.id(), newEntity);
+    final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
-    if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.id())) {
-      throw ArgumentHasAttributeException.forArgumentAndAttributeName(
-        tableNode,
-        "entity with the id '" + newEntity.id() + "'");
+    if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, entityId)) {
+      throw //
+      ArgumentHasAttributeException.forArgumentAndAttributeName(tableNode, "entity with the id '" + entityId + "'");
     }
 
-    final var entityNode = ENTITY_NODE_MAPPER.mapEntityCreationDtoToEntityNode(newEntity, tableView, 0);
-
+    entityIndexesNode.addChildNode(entityIndexNode);
     tableNode.addChildNode(entityNode);
   }
 
@@ -284,17 +272,6 @@ public final class DataWriterActionProvider {
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
 
     entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAtOneBasedIndex(2).hasHeader(entityId));
-  }
-
-  private static void insertEntityIndex(
-    final IMutableNode<?> nodeDatabase,
-    final String tableId,
-    final EntityCreationDto newEntity) {
-
-    final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
-    final var entityIndexNode = ENTITY_INDEXES_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(newEntity, tableId);
-
-    entityIndexesNode.addChildNode(entityIndexNode);
   }
 
   private static void updateEntityNode(
