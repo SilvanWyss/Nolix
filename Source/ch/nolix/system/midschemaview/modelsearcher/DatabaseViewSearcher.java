@@ -15,6 +15,18 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
    * {@inheritDoc}
    */
   @Override
+  public ColumnViewDto getColumnViewByColumnId(final DatabaseViewDto databaseView, final String columnId) {
+
+    final var tableViews = databaseView.tableSchemaViews();
+
+    //TODO: Create getViewOfMultiples method
+    return tableViews.toMultiples(TableViewDto::columnSchemaViews).getStoredFirst(c -> c.id().equals(columnId));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ColumnViewDto getColumnViewByTableNameAndColumnName(
     final DatabaseViewDto databaseView,
     final String tableName,

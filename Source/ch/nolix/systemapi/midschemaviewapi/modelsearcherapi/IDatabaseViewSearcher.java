@@ -12,6 +12,16 @@ public interface IDatabaseViewSearcher {
 
   /**
    * @param databaseView
+   * @param columnId
+   * @return the {@link ColumnViewDto} with the given columnId from the given
+   *         databaseView.
+   * @throws RuntimeException if the given databaseView does not contain a
+   *                          {@link ColumnViewDto} with the given columnId.
+   */
+  ColumnViewDto getColumnViewByColumnId(DatabaseViewDto databaseView, String columnId);
+
+  /**
+   * @param databaseView
    * @param tableName
    * @param columnName
    * @return the {@link ColumnViewDto} with the given columnName from the table
