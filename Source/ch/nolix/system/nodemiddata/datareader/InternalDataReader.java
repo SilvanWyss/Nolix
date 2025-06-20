@@ -97,10 +97,10 @@ public final class InternalDataReader {
 
     final var multiReferenceEntryNodes = multiReferenceNode.getStoredChildNodes();
 
-    //TODO: Create MultiReferenceEntryDtoMapper
     return //
     multiReferenceEntryNodes
-      .to(n -> new MultiReferenceEntryDto(tableName, entityId, multiReferenceColumnInfo.name(), n.getHeader(), null));
+      .to(n -> new MultiReferenceEntryDto(tableName, entityId, multiReferenceColumnInfo.name(),
+        n.getStoredChildNodeAtOneBasedIndex(1).getHeader(), "x"));
   }
 
   public IContainer<Object> loadMultiValueEntries(

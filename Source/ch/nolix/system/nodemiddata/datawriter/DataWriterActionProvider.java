@@ -128,7 +128,8 @@ public final class DataWriterActionProvider {
     final var multiReferenceNode = //
     entityNode.getStoredChildNodeAtOneBasedIndex(multiReferencedColumnOneBasedOrdinalIndex);
 
-    multiReferenceNode.removeFirstChildNodeWithHeader(referencedEntityId);
+    multiReferenceNode.removeFirstChildNodeThat(
+      n -> n.getStoredChildNodeAtOneBasedIndex(1).hasHeader(referencedEntityId));
   }
 
   public static void deleteMultiValueEntry(

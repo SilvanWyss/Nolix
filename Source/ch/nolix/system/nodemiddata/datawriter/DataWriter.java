@@ -203,7 +203,7 @@ public final class DataWriter implements IDataWriter {
     final var multiReferenceColumnName = multiReferenceEntry.multiReferenceColumnName();
     final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
-    final var multiReferenceEntryNode = Node.withHeader(multiReferenceEntry.referencedEntityId());
+    final var multiReferenceEntryNode = Node.withChildNode(multiReferenceEntry.referencedEntityId(), "x");
 
     executiveDataWriter.insertMultiReferenceEntry(
       tableName,
