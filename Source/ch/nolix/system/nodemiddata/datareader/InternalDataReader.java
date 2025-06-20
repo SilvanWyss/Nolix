@@ -84,38 +84,34 @@ public final class InternalDataReader {
   }
 
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
     final ColumnViewDto multiReferenceColumnInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
 
-    final var multiReferenceColumnIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
-    final var multiReferenceNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnIndex);
+    final var multiReferenceNode = //
+    entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
+
     final var multiReferenceEntryNodes = multiReferenceNode.getStoredChildNodes();
 
     //TODO: Create MultiReferenceEntryDtoMapper
     return //
-    multiReferenceEntryNodes.to(n -> new MultiReferenceEntryDto(tableView.name(), entityId,
-      multiReferenceColumnInfo.name(), n.getHeader(), null));
+    multiReferenceEntryNodes
+      .to(n -> new MultiReferenceEntryDto(tableName, entityId, multiReferenceColumnInfo.name(), n.getHeader(), null));
   }
 
   public IContainer<Object> loadMultiValueEntries(
-    final TableViewDto tableView,
+    final String tableName,
     final String entityId,
     final ColumnViewDto multiValueColumnInfo) {
 
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
-      tableView.name());
-
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-
-    final var multiValueColumnIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
-
-    final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnIndex);
+    final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnInfo.oneBasedOrdinalIndex();
+    final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
 
     return multiValueNode
       .getStoredChildNodes()
@@ -133,37 +129,33 @@ public final class InternalDataReader {
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
-    final TableViewDto tableView,
+    final String tableName,
     final ColumnViewDto columnInfo,
     final String value) {
 
-    final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.name());
-
-    final var columnIndex = columnInfo.oneBasedOrdinalIndex();
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var columnOneBasedOrdinalIndex = columnInfo.oneBasedOrdinalIndex();
 
     return //
     TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
       tableNode,
-      columnIndex,
+      columnOneBasedOrdinalIndex,
       value);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
-    final TableViewDto tableView,
+    final String tableName,
     final ColumnViewDto columnInfo,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableView.name());
-
-    final var localOneBasedColumnIndex = columnInfo.oneBasedOrdinalIndex();
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var columnOneBasedOrdinalIndex = columnInfo.oneBasedOrdinalIndex();
 
     return //
     TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
       tableNode,
-      localOneBasedColumnIndex,
+      columnOneBasedOrdinalIndex,
       value,
       entitiesToIgnoreIds);
   }
