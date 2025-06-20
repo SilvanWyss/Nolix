@@ -28,6 +28,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public final class DataWriter implements IDataWriter {
 
+  public static final int INITIAL_ENTITY_SAVE_STAMP = 0;
+
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
@@ -167,7 +169,7 @@ public final class DataWriter implements IDataWriter {
     final var tableId = tableView.id();
     final var entityId = entity.id();
     final var entityIndexNode = ENTITY_INDEXES_NODE_MAPPER.mapEntityCreationDtoToEntityIndexNode(entity, tableId);
-    final var saveStamp = 0;
+    final var saveStamp = INITIAL_ENTITY_SAVE_STAMP;
     final var entityNode = ENTITY_NODE_MAPPER.mapEntityCreationDtoToEntityNode(entity, tableView, saveStamp);
 
     executiveDataWriter.insertEntity(tableName, entityId, entityIndexNode, entityNode);
