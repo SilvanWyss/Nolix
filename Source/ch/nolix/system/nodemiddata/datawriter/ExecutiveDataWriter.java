@@ -159,8 +159,7 @@ public final class ExecutiveDataWriter {
     final String tableName,
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
-    final String backReferencedEntityId,
-    final String backReferencedEntityTableId) {
+    final INode<?> multiBackReferenceEntryNode) {
 
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
@@ -169,8 +168,7 @@ public final class ExecutiveDataWriter {
       tableName,
       entityId,
       multiBackReferenceColumnOneBasedOrdinalIndex,
-      backReferencedEntityId,
-      backReferencedEntityTableId);
+      multiBackReferenceEntryNode);
 
     updaterCollector.addUpdater(updateAction);
   }

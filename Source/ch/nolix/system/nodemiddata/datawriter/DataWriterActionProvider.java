@@ -192,17 +192,13 @@ public final class DataWriterActionProvider {
     final String tableName,
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
-    final String backReferencedEntityId,
-    final String backReferencedEntityTableId) {
+    final INode<?> multiBackReferenceEntryNode) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
     final var multiBackReferenceNode = //
     entityNode.getStoredChildNodeAtOneBasedIndex(multiBackReferenceColumnOneBasedOrdinalIndex);
-
-    //TODO: Create MultiBackReferenceEntryNodeMapper
-    final var multiBackReferenceEntryNode = Node.withChildNode(backReferencedEntityId, backReferencedEntityTableId);
 
     multiBackReferenceNode.addChildNode(multiBackReferenceEntryNode);
   }
