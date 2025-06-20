@@ -1,14 +1,17 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.objectdata.middatamodelmapper.MultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDto;
+import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
 
 public final class MultiBackReferenceSaver {
+
+  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = new MultiBackReferenceEntryDtoMapper();
 
   public void saveMultiBackReference(
     final IMultiBackReference<? extends IEntity> multiBackReference,
@@ -43,21 +46,9 @@ public final class MultiBackReferenceSaver {
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
-    final var multiBackReference = multiBackReferenceEntry.getStoredParentMultiBackReference();
-    final var entity = multiBackReference.getStoredParentEntity();
-    final var tableName = entity.getParentTableName();
-    final var entityId = entity.getId();
-    final var multiBackReferenceColumnName = multiBackReference.getName();
-    final var backReferencedEntityId = multiBackReferenceEntry.getBackReferencedEntityId();
-    final var backReferencedEntityTableName = multiBackReference.getBackReferencedTableName();
-
-    //TODO: Create MultiBackReferenceEntryDtoMapper
-    final var multiBackReferenceEntryDto = new MultiBackReferenceEntryDto(
-      tableName,
-      entityId,
-      multiBackReferenceColumnName,
-      backReferencedEntityId,
-      backReferencedEntityTableName);
+    final var multiBackReferenceEntryDto = //
+    MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER.mapMultiBackReferenceEntryToMultiBackReferenceEntryDto(
+      multiBackReferenceEntry);
 
     dataAndSchemaAdapter.insertMultiBackReferenceEntry(multiBackReferenceEntryDto);
   }
