@@ -21,14 +21,15 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
     final String multiReferenceColumnName) {
 
     final var referencedEntityId = multiReferenceEntryNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
-    final var referencedEntityTableName = multiReferenceEntryNode.getStoredChildNodeAtOneBasedIndex(2).getHeader();
+    final var referencedEntityTableId = multiReferenceEntryNode.getStoredChildNodeAtOneBasedIndex(2).getHeader();
 
+    //TODO: Update
     return //
     new MultiReferenceEntryDto(
       tableName,
       entityId,
       multiReferenceColumnName,
       referencedEntityId,
-      referencedEntityTableName);
+      null);
   }
 }
