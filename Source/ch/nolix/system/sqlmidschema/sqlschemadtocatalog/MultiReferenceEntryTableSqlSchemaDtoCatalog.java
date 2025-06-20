@@ -9,15 +9,21 @@ import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 public final class MultiReferenceEntryTableSqlSchemaDtoCatalog {
 
-  private static final ColumnDto MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO = //
-  new ColumnDto(
-    MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName(),
-    DataTypeTypeCatalog.TEXT,
-    ImmutableList.createEmpty());
-
   private static final ColumnDto ENTITY_COLUMN_SQL_DTO = //
   new ColumnDto(
     MultiReferenceEntryColumn.ENTITY_ID.getName(),
+    DataTypeTypeCatalog.TEXT,
+    ImmutableList.createEmpty());
+
+  private static final ColumnDto ENTITY_TABLE_COLUMN_SQL_DTO = //
+  new ColumnDto(
+    MultiReferenceEntryColumn.ENTITY_TABLE_ID.getName(),
+    DataTypeTypeCatalog.TEXT,
+    ImmutableList.createEmpty());
+
+  private static final ColumnDto MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO = //
+  new ColumnDto(
+    MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName(),
     DataTypeTypeCatalog.TEXT,
     ImmutableList.createEmpty());
 
@@ -37,8 +43,9 @@ public final class MultiReferenceEntryTableSqlSchemaDtoCatalog {
   new TableDto(
     FixTable.MULTI_REFERENCE_ENTRY.getName(),
     ImmutableList.withElement(
-      MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
       ENTITY_COLUMN_SQL_DTO,
+      ENTITY_TABLE_COLUMN_SQL_DTO,
+      MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
       REFERENCED_ENTITY_COLUMN_SQL_DTO,
       REFERENCED_ENTITY_TABLE_COLUMN_SQL_DTO));
 
