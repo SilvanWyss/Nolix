@@ -23,10 +23,10 @@ public final class MultiBackReferenceEntryDeletionDtoMapper implements IMultiBac
     final var tableName = entity.getParentTableName();
     final var entityId = entity.getId();
     final var multiBackReferenceColumn = multiBackReference.getStoredParentColumn();
-    final var multiBackReferenceColumnName = multiBackReferenceColumn.getName();
+    final var multiBackReferenceColumnId = multiBackReferenceColumn.getId();
     final var backReferencedEntityId = multiBackReferenceEntry.getBackReferencedEntityId();
 
     return //
-    new MultiBackReferenceEntryDeletionDto(tableName, entityId, multiBackReferenceColumnName, backReferencedEntityId);
+    new MultiBackReferenceEntryDeletionDto(tableName, entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 }

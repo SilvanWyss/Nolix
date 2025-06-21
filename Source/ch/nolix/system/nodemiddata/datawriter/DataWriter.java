@@ -93,10 +93,10 @@ public final class DataWriter implements IDataWriter {
 
     final var tableName = multiBackReferenceEntry.tableName();
     final var entityId = multiBackReferenceEntry.entityId();
-    final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
+    final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
 
     final var multiBackReferenceColumnView = //
-    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
+    getColumnViewByTableNameAndColumnId(tableName, multiBackReferenceColumnId);
 
     final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
@@ -251,6 +251,10 @@ public final class DataWriter implements IDataWriter {
     final var tableView = getTableViewByTableName(tableName);
 
     executiveDataWriter.updateEntity(entityUpdate, tableView);
+  }
+
+  private ColumnViewDto getColumnViewByTableNameAndColumnId(final String tableName, final String columnId) {
+    return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnId(databaseView, tableName, columnId);
   }
 
   private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
