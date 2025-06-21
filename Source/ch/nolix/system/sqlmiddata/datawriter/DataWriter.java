@@ -26,28 +26,28 @@ public final class DataWriter implements IDataWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseViewDto databaseSchemaView;
+  private final DatabaseViewDto databaseView;
 
   private final ExecutiveDataWriter executiveDataWriter;
 
   private DataWriter(
     final String databaseName,
-    final DatabaseViewDto databaseSchemaView,
+    final DatabaseViewDto databaseView,
     final ISqlConnection sqlConnection) {
 
-    Validator.assertThat(databaseSchemaView).thatIsNamed(DatabaseViewDto.class).isNotNull();
+    Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
-    this.databaseSchemaView = databaseSchemaView;
+    this.databaseView = databaseView;
     executiveDataWriter = new ExecutiveDataWriter(databaseName, sqlConnection);
 
     createCloseDependencyTo(sqlConnection);
   }
 
-  public static DataWriter forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
+  public static DataWriter forDatabaseNameAndDatabaseViewAndSqlConnection(
     final String databaseName,
-    final DatabaseViewDto databaseSchemaView,
+    final DatabaseViewDto databaseView,
     final ISqlConnection sqlConnection) {
-    return new DataWriter(databaseName, databaseSchemaView, sqlConnection);
+    return new DataWriter(databaseName, databaseView, sqlConnection);
   }
 
   @Override
@@ -55,9 +55,11 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
-    executiveDataWriter.deleteEntriesFromMultiReference(
-      entityId,
-      getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName).id());
+
+    final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
+    final var multiReferenceColumnId = multiReferenceColumnView.id();
+
+    executiveDataWriter.deleteEntriesFromMultiReference(entityId, multiReferenceColumnId);
   }
 
   @Override
@@ -65,9 +67,11 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
-    executiveDataWriter.deleteEntriesFromMultiValue(
-      entityId,
-      getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName).id());
+
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
+    final var multiValueColumnId = multiValueColumnView.id();
+
+    executiveDataWriter.deleteEntriesFromMultiValue(entityId, multiValueColumnId);
   }
 
   @Override
@@ -222,10 +226,10 @@ public final class DataWriter implements IDataWriter {
   }
 
   private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
-    return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseSchemaView, tableName, columnName);
+    return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseView, tableName, columnName);
   }
 
   private TableViewDto getTableViewByTableName(final String tableName) {
-    return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseSchemaView, tableName);
+    return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseView, tableName);
   }
 }

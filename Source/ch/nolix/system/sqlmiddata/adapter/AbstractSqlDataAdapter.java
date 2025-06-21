@@ -35,7 +35,7 @@ public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
         databaseName,
         databaseSchemaView,
         sqlConnection),
-      DataWriter.forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(
+      DataWriter.forDatabaseNameAndDatabaseViewAndSqlConnection(
         databaseName,
         databaseSchemaView,
         sqlConnection));
