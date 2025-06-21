@@ -98,11 +98,11 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
-  public EntityLoadingDto loadEntity(final String tableName, final String id) {
+  public EntityLoadingDto loadEntity(final String tableName, final String entityId) {
 
     final var tableView = getTableViewByTableName(tableName);
 
-    return internalDataReader.loadEntity(tableView, id);
+    return internalDataReader.loadEntity(tableView, entityId);
   }
 
   @Override

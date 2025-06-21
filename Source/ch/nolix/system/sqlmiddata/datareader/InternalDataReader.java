@@ -72,11 +72,10 @@ final class InternalDataReader {
 
   public IContainer<String> loadMultiBackReferenceEntries(
     final String entityId,
-    final ColumnViewDto multiBackReferenceColumnInfo) {
+    final String multiBackReferenceColumnId) {
 
-    final var query = MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(
-      entityId,
-      multiBackReferenceColumnInfo.id());
+    final var query = //
+    MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(entityId, multiBackReferenceColumnId);
 
     return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAtOneBasedIndex(1));
   }
@@ -98,13 +97,13 @@ final class InternalDataReader {
 
   public IContainer<Object> loadMultiValueEntries(
     final String entityId,
-    final ColumnViewDto multiValueColumnInfo) {
+    final ColumnViewDto multiValueColumnView) {
     return sqlConnection
       .getRecordsFromQuery(
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
           entityId,
-          multiValueColumnInfo.id()))
-      .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnInfo.dataType()));
+          multiValueColumnView.id()))
+      .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnView.dataType()));
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {
@@ -125,22 +124,22 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
-    final ColumnViewDto columnInfo,
+    final ColumnViewDto columnView,
     final String value) {
 
-    final var contentType = columnInfo.contentType();
+    final var contentType = columnView.contentType();
 
     return //
     switch (contentType) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
-          columnInfo.name(),
+          columnView.name(),
           value);
       case MULTI_VALUE ->
-        multiValueEntryExistsForGivenColumnAndValue(columnInfo.id(), value);
+        multiValueEntryExistsForGivenColumnAndValue(columnView.id(), value);
       case MULTI_REFERENCE ->
-        multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.id(), value);
+        multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnView.id(), value);
       default ->
         throw InvalidArgumentException.forArgument(contentType);
     };

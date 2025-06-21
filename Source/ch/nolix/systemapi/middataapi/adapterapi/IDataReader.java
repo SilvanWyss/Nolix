@@ -29,12 +29,12 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
 
   /**
    * @param tableName
-   * @param id
+   * @param entityId
    * @return the entity, that is in the table with the given tableName and has the
-   *         given id, from the database.
+   *         given entityId, from the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  EntityLoadingDto loadEntity(String tableName, String id);
+  EntityLoadingDto loadEntity(String tableName, String entityId);
 
   /**
    * @param tableName
