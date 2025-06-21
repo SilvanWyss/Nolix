@@ -3,7 +3,7 @@ package ch.nolix.systemapi.middataapi.modelapi;
 public record MultiReferenceEntryDto(
 String tableName,
 String entityId,
-String multiReferenceColumnName,
+String multiReferenceColumnId,
 String referencedEntityId,
-String referencedEntityTableName) {
+String referencedEntityTableId) {
 }

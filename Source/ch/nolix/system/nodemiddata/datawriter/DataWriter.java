@@ -198,8 +198,8 @@ public final class DataWriter implements IDataWriter {
 
     final var tableName = multiReferenceEntry.tableName();
     final var entityId = multiReferenceEntry.entityId();
-    final var multiReferenceColumnName = multiReferenceEntry.multiReferenceColumnName();
-    final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
+    final var multiReferenceColumnId = multiReferenceEntry.multiReferenceColumnId();
+    final var multiReferenceColumnView = getColumnViewByTableNameAndColumnId(tableName, multiReferenceColumnId);
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
     final var multiReferenceEntryNode = Node.withChildNode(multiReferenceEntry.referencedEntityId(), "x");
 

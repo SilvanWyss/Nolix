@@ -28,25 +28,15 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
     final var tableName = table.name();
     final var entityId = multiReferenceSqlRecord.getStoredAtOneBasedIndex(1);
     final var multiReferenceColumnId = multiReferenceSqlRecord.getStoredAtOneBasedIndex(3);
-
-    final var multiReferenceColumn = //
-    DATABASE_VIEW_SEARCHER.getColumnViewByColumnId(databaseView, multiReferenceColumnId);
-
-    final var multiReferenceColumnName = multiReferenceColumn.name();
     final var referencedEntityId = multiReferenceSqlRecord.getStoredAtOneBasedIndex(4);
     final var referencedEntityTableId = multiReferenceSqlRecord.getStoredAtOneBasedIndex(5);
-
-    final var referencedEntityTable = //
-    DATABASE_VIEW_SEARCHER.getTableViewByTableId(databaseView, referencedEntityTableId);
-
-    final var referencedEntityTableName = referencedEntityTable.name();
 
     return //
     new MultiReferenceEntryDto(
       tableName,
       entityId,
-      multiReferenceColumnName,
+      multiReferenceColumnId,
       referencedEntityId,
-      referencedEntityTableName);
+      referencedEntityTableId);
   }
 }

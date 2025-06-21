@@ -86,20 +86,22 @@ public final class InternalDataReader {
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
-    final ColumnViewDto multiReferenceColumnInfo) {
+    final ColumnViewDto multiReferenceColumnView) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
-    final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnInfo.oneBasedOrdinalIndex();
+    final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
+    final var multiReferenceColumnId = multiReferenceColumnView.id();
 
     final var multiReferenceNode = //
     entityNode.getStoredChildNodeAtOneBasedIndex(multiReferenceColumnOneBasedOrdinalIndex);
 
     final var multiReferenceEntryNodes = multiReferenceNode.getStoredChildNodes();
 
+    //TODO: Update
     return //
     multiReferenceEntryNodes
-      .to(n -> new MultiReferenceEntryDto(tableName, entityId, multiReferenceColumnInfo.name(),
+      .to(n -> new MultiReferenceEntryDto(tableName, entityId, multiReferenceColumnId,
         n.getStoredChildNodeAtOneBasedIndex(1).getHeader(), "x"));
   }
 
