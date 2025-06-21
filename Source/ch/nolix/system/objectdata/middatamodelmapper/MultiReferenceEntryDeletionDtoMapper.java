@@ -23,9 +23,9 @@ public final class MultiReferenceEntryDeletionDtoMapper implements IMultiReferen
     final var tableName = entity.getParentTableName();
     final var entityId = entity.getId();
     final var multiReferenceColumn = multiReference.getStoredParentColumn();
-    final var multiReferenceColumnName = multiReferenceColumn.getName();
+    final var multiReferenceColumnId = multiReferenceColumn.getId();
     final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
 
-    return new MultiReferenceEntryDeletionDto(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+    return new MultiReferenceEntryDeletionDto(tableName, entityId, multiReferenceColumnId, referencedEntityId);
   }
 }
