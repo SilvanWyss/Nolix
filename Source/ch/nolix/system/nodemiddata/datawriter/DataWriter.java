@@ -176,16 +176,14 @@ public final class DataWriter implements IDataWriter {
 
     final var tableName = multiBackReferenceEntry.tableName();
     final var entityId = multiBackReferenceEntry.entityId();
-    final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
+    final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
 
     final var multiBackReferenceColumnView = //
-    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
+    getColumnViewByTableNameAndColumnId(tableName, multiBackReferenceColumnId);
 
     final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
-    final var backReferencedEntityTableName = multiBackReferenceEntry.backReferencedEntityTableName();
-    final var backReferencedEntityTableView = getTableViewByTableName(backReferencedEntityTableName);
-    final var backReferencedEntityTableId = backReferencedEntityTableView.id();
+    final var backReferencedEntityTableId = multiBackReferenceEntry.backReferencedEntityTableId();
     final var multiBackReferenceEntryNode = Node.withChildNode(backReferencedEntityId, backReferencedEntityTableId);
 
     executiveDataWriter.insertMultiBackReferenceEntry(

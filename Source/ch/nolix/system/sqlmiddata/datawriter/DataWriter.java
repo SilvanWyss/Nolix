@@ -16,7 +16,6 @@ import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -148,18 +147,10 @@ public final class DataWriter implements IDataWriter {
   @Override
   public void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
 
-    final var tableName = multiBackReferenceEntry.tableName();
     final var entityId = multiBackReferenceEntry.entityId();
-    final var multiBackReferenceColumnName = multiBackReferenceEntry.multiBackReferenceColumnName();
-
-    final var multiBackReferenceColumnView = //
-    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
-
-    final var multiBackReferenceColumnId = multiBackReferenceColumnView.id();
+    final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
-    final var backReferencedEntityTableName = multiBackReferenceEntry.backReferencedEntityTableName();
-    final var backReferencedEntityTableView = getTableViewByTableName(backReferencedEntityTableName);
-    final var backReferencedEntityTableId = backReferencedEntityTableView.id();
+    final var backReferencedEntityTableId = multiBackReferenceEntry.backReferencedEntityTableId();
 
     executiveDataWriter.insertEntryIntoMultiBackReference(
       entityId,
@@ -221,9 +212,5 @@ public final class DataWriter implements IDataWriter {
 
   private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
     return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseView, tableName, columnName);
-  }
-
-  private TableViewDto getTableViewByTableName(final String tableName) {
-    return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseView, tableName);
   }
 }
