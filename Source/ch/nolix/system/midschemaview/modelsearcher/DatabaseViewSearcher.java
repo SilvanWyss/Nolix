@@ -20,7 +20,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
     final var tableViews = databaseView.tableViews();
 
     //TODO: Create getViewOfMultiples method
-    return tableViews.toMultiples(TableViewDto::columnSchemaViews).getStoredFirst(c -> c.id().equals(columnId));
+    return tableViews.toMultiples(TableViewDto::columnViews).getStoredFirst(c -> c.id().equals(columnId));
   }
 
   /**
@@ -33,7 +33,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
     final String columnName) {
 
     final var tableView = getTableViewByTableName(databaseView, tableName);
-    final var columnViews = tableView.columnSchemaViews();
+    final var columnViews = tableView.columnViews();
 
     return columnViews.getStoredFirst(c -> c.name().equals(columnName));
   }

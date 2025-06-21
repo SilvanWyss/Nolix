@@ -40,7 +40,7 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     final TableViewDto tableView) {
 
     final var size = //
-    FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnSchemaViews().getCount();
+    FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnViews().getCount();
 
     final var attributes = new INode[size];
     final var entityId = newEntity.id();

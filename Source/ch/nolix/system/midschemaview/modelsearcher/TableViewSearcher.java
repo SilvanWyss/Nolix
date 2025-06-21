@@ -17,7 +17,7 @@ public final class TableViewSearcher implements ITableViewSearcher {
   public ColumnViewDto getColumnViewByColumnId(
     final TableViewDto tableViewDto,
     final String columnId) {
-    return tableViewDto.columnSchemaViews().getStoredFirst(c -> c.id().equals(columnId));
+    return tableViewDto.columnViews().getStoredFirst(c -> c.id().equals(columnId));
   }
 
   /**
@@ -27,6 +27,6 @@ public final class TableViewSearcher implements ITableViewSearcher {
   public ColumnViewDto getColumnViewByColumnName(
     final TableViewDto tableViewDto,
     final String columnName) {
-    return tableViewDto.columnSchemaViews().getStoredFirst(c -> c.name().equals(columnName));
+    return tableViewDto.columnViews().getStoredFirst(c -> c.name().equals(columnName));
   }
 }

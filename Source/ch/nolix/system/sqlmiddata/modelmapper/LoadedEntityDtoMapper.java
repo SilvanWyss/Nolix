@@ -29,7 +29,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
     new EntityLoadingDto(
       sqlRecord.getStoredAtOneBasedIndex(1),
       sqlRecord.getStoredAtOneBasedIndex(2),
-      mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnSchemaViews()));
+      mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnViews()));
   }
 
   @Override

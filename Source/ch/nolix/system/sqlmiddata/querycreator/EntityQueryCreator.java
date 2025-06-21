@@ -59,7 +59,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadEntitiesOfTable(final TableViewDto tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableView.columnSchemaViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
+    + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
     + " FROM "
     + tableView.name()
     + ";";
@@ -68,7 +68,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToLoadEntity(String id, TableViewDto tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableView.columnSchemaViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
+    + tableView.columnViews().to(ColumnViewDto::name).toStringWithSeparator(", ")
     + " FROM "
     + tableView.name()
     + " WHERE Id = '"
