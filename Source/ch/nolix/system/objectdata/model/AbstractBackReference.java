@@ -49,6 +49,11 @@ implements IAbstractBackReference<E> {
   }
 
   @Override
+  public final String getBackReferencedTableId() {
+    return getStoredBackReferencedTable().getId();
+  }
+
+  @Override
   public final String getBackReferencedTableName() {
     return backReferencedTableName;
   }
