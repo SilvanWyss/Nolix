@@ -22,6 +22,11 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
   }
 
   @Override
+  public final String getReferencedTableId() {
+    return getStoredReferencedTable().getId();
+  }
+
+  @Override
   public final String getReferencedTableName() {
     return referencedTableName;
   }

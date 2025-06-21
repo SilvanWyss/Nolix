@@ -9,6 +9,12 @@ package ch.nolix.systemapi.objectdataapi.modelapi;
 public interface IAbstractReference<E extends IEntity> extends IField {
 
   /**
+   * @return the id of the referenced {@link ITable} of the current
+   *         {@link IAbstractReference}.
+   */
+  String getReferencedTableId();
+
+  /**
    * @return the name of the referenced {@link ITable} of the current
    *         {@link IAbstractReference}.
    */
