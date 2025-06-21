@@ -130,8 +130,8 @@ public final class DataWriter implements IDataWriter {
 
     final var tableName = multiValueEntry.tableName();
     final var entityId = multiValueEntry.entityId();
-    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
-    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
+    final var multiValueColumnId = multiValueEntry.multiValueColumnId();
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnId(tableName, multiValueColumnId);
     final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
     final var value = multiValueEntry.value();
 
@@ -215,8 +215,8 @@ public final class DataWriter implements IDataWriter {
 
     final var tableName = multiValueEntry.tableName();
     final var entityId = multiValueEntry.entityId();
-    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
-    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
+    final var multiValueColumnId = multiValueEntry.multiValueColumnId();
+    final var multiValueColumnView = getColumnViewByTableNameAndColumnId(tableName, multiValueColumnId);
     final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
     final var value = multiValueEntry.value();
 

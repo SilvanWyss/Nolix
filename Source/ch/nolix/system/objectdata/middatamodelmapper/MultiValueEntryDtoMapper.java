@@ -21,9 +21,9 @@ public final class MultiValueEntryDtoMapper implements IMultiValueEntryDtoMapper
     final var entityId = entity.getId();
     final var multiValue = multiValueEntry.getStoredParentMultiValue();
     final var multiValueColumn = multiValue.getStoredParentColumn();
-    final var multiValueColumnName = multiValueColumn.getName();
+    final var multiValueColumnId = multiValueColumn.getId();
     final var value = multiValueEntry.getStoredValue().toString();
 
-    return new MultiValueEntryDto(tableName, entityId, multiValueColumnName, value);
+    return new MultiValueEntryDto(tableName, entityId, multiValueColumnId, value);
   }
 }

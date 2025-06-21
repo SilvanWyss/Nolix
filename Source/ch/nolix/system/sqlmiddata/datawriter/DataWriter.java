@@ -101,11 +101,8 @@ public final class DataWriter implements IDataWriter {
   @Override
   public void deleteMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
 
-    final var tableName = multiValueEntry.tableName();
     final var entityId = multiValueEntry.entityId();
-    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
-    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
-    final var multiValueColumnId = multiValueColumnView.id();
+    final var multiValueColumnId = multiValueEntry.multiValueColumnId();
     final var value = multiValueEntry.value();
 
     executiveDataWriter.deleteMultiValueEntry(entityId, multiValueColumnId, value);
@@ -174,11 +171,8 @@ public final class DataWriter implements IDataWriter {
   @Override
   public void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
 
-    final var tableName = multiValueEntry.tableName();
     final var entityId = multiValueEntry.entityId();
-    final var multiValueColumnName = multiValueEntry.multiValueColumnName();
-    final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
-    final var multiValueColumnId = multiValueColumnView.id();
+    final var multiValueColumnId = multiValueEntry.multiValueColumnId();
     final var value = multiValueEntry.value();
 
     executiveDataWriter.insertEntryIntoMultiValue(entityId, multiValueColumnId, value);
