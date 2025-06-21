@@ -17,7 +17,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
   @Override
   public ColumnViewDto getColumnViewByColumnId(final DatabaseViewDto databaseView, final String columnId) {
 
-    final var tableViews = databaseView.tableSchemaViews();
+    final var tableViews = databaseView.tableViews();
 
     //TODO: Create getViewOfMultiples method
     return tableViews.toMultiples(TableViewDto::columnSchemaViews).getStoredFirst(c -> c.id().equals(columnId));
@@ -44,7 +44,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
   @Override
   public TableViewDto getTableViewByTableId(final DatabaseViewDto databaseView, final String tableId) {
 
-    final var tableViews = databaseView.tableSchemaViews();
+    final var tableViews = databaseView.tableViews();
 
     return tableViews.getStoredFirst(t -> t.id().equals(tableId));
   }
@@ -55,7 +55,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
   @Override
   public TableViewDto getTableViewByTableName(final DatabaseViewDto databaseView, final String tableName) {
 
-    final var tableViews = databaseView.tableSchemaViews();
+    final var tableViews = databaseView.tableViews();
 
     return tableViews.getStoredFirst(t -> t.name().equals(tableName));
   }

@@ -162,6 +162,6 @@ public final class DataReader implements IDataReader {
   }
 
   private TableViewDto getTableSchemaViewByTableName(final String tableName) {
-    return databaseSchemaView.tableSchemaViews().getStoredFirst(td -> td.name().equals(tableName));
+    return databaseSchemaView.tableViews().getStoredFirst(td -> td.name().equals(tableName));
   }
 }
