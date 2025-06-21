@@ -23,6 +23,18 @@ public interface IDatabaseViewSearcher {
   /**
    * @param databaseView
    * @param tableName
+   * @param columnId
+   * @return the {@link ColumnViewDto} with the given columnId from the table with
+   *         the given tableName from the given databaseView.
+   * @throws RuntimeException if the given databaseView does not contain a table
+   *                          with the given tableName, that contains a
+   *                          {@link ColumnViewDto} with the given columnId.
+   */
+  ColumnViewDto getColumnViewByTableNameAndColumnId(DatabaseViewDto databaseView, String tableName, String columnId);
+
+  /**
+   * @param databaseView
+   * @param tableName
    * @param columnName
    * @return the {@link ColumnViewDto} with the given columnName from the table
    *         with the given tableName from the given databaseView.
@@ -54,4 +66,5 @@ public interface IDatabaseViewSearcher {
    *                          {@link TableViewDto} with the given tableName.
    */
   TableViewDto getTableViewByTableName(DatabaseViewDto databaseView, String tableName);
+
 }
