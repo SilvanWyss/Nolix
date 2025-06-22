@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.graphicapi.colorapi;
 
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
-import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
+import ch.nolix.systemapi.graphicapi.imageproperty.Alignment;
 
 /**
  * @author Silvan Wyss
@@ -22,5 +22,5 @@ public interface IColorGradient extends IElement {
   /**
    * @return the direction of the current {@link IColorGradient}.
    */
-  DirectionInCanvas getDirection();
+  Alignment getDirection();
 }

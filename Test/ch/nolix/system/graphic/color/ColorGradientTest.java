@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
+import ch.nolix.systemapi.graphicapi.imageproperty.Alignment;
 
 final class ColorGradientTest extends StandardTest {
 
@@ -12,7 +12,7 @@ final class ColorGradientTest extends StandardTest {
   void testCase_getSpecification() {
 
     //setup
-    final var testUnit = ColorGradient.withDirectionAndColors(DirectionInCanvas.HORIZONTAL, X11ColorCatalog.BLACK,
+    final var testUnit = ColorGradient.withDirectionAndColors(Alignment.HORIZONTAL, X11ColorCatalog.BLACK,
       X11ColorCatalog.WHITE);
 
     //execution
@@ -32,7 +32,7 @@ final class ColorGradientTest extends StandardTest {
     final var result = ColorGradient.fromSpecification(specification);
 
     //verification
-    expect(result.getDirection()).is(DirectionInCanvas.VERTICAL);
+    expect(result.getDirection()).is(Alignment.VERTICAL);
     expect(result.getColor1()).isEqualTo(X11ColorCatalog.BLACK);
     expect(result.getColor2()).isEqualTo(X11ColorCatalog.WHITE);
   }
@@ -47,7 +47,7 @@ final class ColorGradientTest extends StandardTest {
     final var result = ColorGradient.fromSpecification(specification);
 
     //verification
-    expect(result.getDirection()).is(DirectionInCanvas.HORIZONTAL);
+    expect(result.getDirection()).is(Alignment.HORIZONTAL);
     expect(result.getColor1()).isEqualTo(X11ColorCatalog.BLACK);
     expect(result.getColor2()).isEqualTo(X11ColorCatalog.WHITE);
   }
@@ -59,7 +59,7 @@ final class ColorGradientTest extends StandardTest {
     final var result = ColorGradient.withColors(X11ColorCatalog.BLACK, X11ColorCatalog.WHITE);
 
     //verification
-    expect(result.getDirection()).is(DirectionInCanvas.VERTICAL);
+    expect(result.getDirection()).is(Alignment.VERTICAL);
     expect(result.getColor1()).is(X11ColorCatalog.BLACK);
     expect(result.getColor2()).is(X11ColorCatalog.WHITE);
   }
@@ -68,11 +68,11 @@ final class ColorGradientTest extends StandardTest {
   void testCase_withDirectionAndColors() {
 
     //execution
-    final var result = ColorGradient.withDirectionAndColors(DirectionInCanvas.HORIZONTAL, X11ColorCatalog.BLACK,
+    final var result = ColorGradient.withDirectionAndColors(Alignment.HORIZONTAL, X11ColorCatalog.BLACK,
       X11ColorCatalog.WHITE);
 
     //verification
-    expect(result.getDirection()).is(DirectionInCanvas.HORIZONTAL);
+    expect(result.getDirection()).is(Alignment.HORIZONTAL);
     expect(result.getColor1()).is(X11ColorCatalog.BLACK);
     expect(result.getColor2()).is(X11ColorCatalog.WHITE);
   }

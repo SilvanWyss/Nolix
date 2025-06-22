@@ -10,7 +10,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
+import ch.nolix.systemapi.graphicapi.imageproperty.Alignment;
 
 /**
  * A {@link ColorGradient} is not mutable.
@@ -20,13 +20,13 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
  */
 public final class ColorGradient extends AbstractElement implements IColorGradient {
 
-  public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
+  public static final Alignment DEFAULT_DIRECTION = Alignment.VERTICAL;
 
   public static final Color DEFAULT_COLOR1 = X11ColorCatalog.BLACK;
 
   public static final Color DEFAULT_COLOR2 = X11ColorCatalog.WHITE;
 
-  private final DirectionInCanvas direction;
+  private final Alignment direction;
 
   private final Color color1;
 
@@ -43,7 +43,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws ArgumentIsNullException if the given color 1 is null.
    * @throws ArgumentIsNullException if the given color 2 is null.
    */
-  private ColorGradient(final DirectionInCanvas direction, final Color color1, final Color color2) {
+  private ColorGradient(final Alignment direction, final Color color1, final Color color2) {
 
     Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
     Validator.assertThat(color1).thatIsNamed("color1").isNotNull();
@@ -97,7 +97,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws ArgumentIsNullException if the given color 2 is null.
    */
   public static ColorGradient withDirectionAndColors(
-    final DirectionInCanvas direction,
+    final Alignment direction,
     final Color color1,
     final Color color2) {
     return new ColorGradient(direction, color1, color2);
@@ -132,7 +132,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
 
     return //
     new ColorGradient(
-      DirectionInCanvas.fromSpecification(directionSpecification),
+      Alignment.fromSpecification(directionSpecification),
       Color.fromSpecification(color1Specification),
       Color.fromSpecification(color2Specification));
   }
@@ -168,7 +168,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * {@inheritDoc}
    */
   @Override
-  public DirectionInCanvas getDirection() {
+  public Alignment getDirection() {
     return direction;
   }
 }

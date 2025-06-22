@@ -10,8 +10,8 @@ import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.graphicapi.imageproperty.Alignment;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
-import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
 public final class BackgroundToCssMapperHelper {
 
@@ -47,15 +47,15 @@ public final class BackgroundToCssMapperHelper {
     return getDegreeOfDirection(pColorGradient.getDirection());
   }
 
-  private static int getDegreeOfDirection(final DirectionInCanvas direction) {
+  private static int getDegreeOfDirection(final Alignment direction) {
     return switch (direction) {
       case VERTICAL ->
         180;
       case HORIZONTAL ->
         90;
-      case DIAGONAL_DOWN ->
+      case DIAGONAL_LEFT_DOWN ->
         135;
-      case DIAGONAL_UP ->
+      case DIAGONAL_LEFT_UP ->
         45;
       default ->
         throw InvalidArgumentException.forArgument(direction);
