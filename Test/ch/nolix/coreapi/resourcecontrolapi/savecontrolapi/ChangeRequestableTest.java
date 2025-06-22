@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.savecontrolapi;
+package ch.nolix.coreapi.resourcecontrolapi.savecontrolapi;
 
 import org.junit.jupiter.api.Test;
 

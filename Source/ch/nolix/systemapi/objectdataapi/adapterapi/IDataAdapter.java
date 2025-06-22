@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectdataapi.adapterapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IDatabaseNameHolder;
 import ch.nolix.coreapi.creationapi.copierapi.EmptyCopyable;
-import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
+import ch.nolix.coreapi.resourcecontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 

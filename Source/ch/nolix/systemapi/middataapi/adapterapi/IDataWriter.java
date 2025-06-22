@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.middataapi.adapterapi;
 
-import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
+import ch.nolix.coreapi.resourcecontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
 import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;

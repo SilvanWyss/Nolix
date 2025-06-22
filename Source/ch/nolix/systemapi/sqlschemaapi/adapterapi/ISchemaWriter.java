@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlschemaapi.adapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
+import ch.nolix.coreapi.resourcecontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
