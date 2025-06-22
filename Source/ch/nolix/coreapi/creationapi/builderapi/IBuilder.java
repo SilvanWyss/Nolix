@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structurecontrolapi.builderapi;
+package ch.nolix.coreapi.creationapi.builderapi;
 
 /**
  * A {@link IBuilder} can build {@link Object}s.

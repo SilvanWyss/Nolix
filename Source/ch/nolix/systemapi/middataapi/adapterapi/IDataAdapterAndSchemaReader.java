@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.middataapi.adapterapi;
 
-import ch.nolix.coreapi.structurecontrolapi.copierapi.EmptyCopyable;
+import ch.nolix.coreapi.creationapi.copierapi.EmptyCopyable;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
 
 /**
