@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.objectschemaapi.schematoolapi;
 
 import ch.nolix.systemapi.databaseobjectapi.modelexaminerapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;

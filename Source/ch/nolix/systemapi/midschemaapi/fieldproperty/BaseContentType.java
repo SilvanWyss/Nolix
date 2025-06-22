@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschemaapi.fieldproperty;
+package ch.nolix.systemapi.midschemaapi.fieldproperty;
 
 public enum BaseContentType {
   BASE_VALUE,

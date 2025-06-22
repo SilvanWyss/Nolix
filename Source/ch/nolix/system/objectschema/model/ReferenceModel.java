@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 

@@ -5,8 +5,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;

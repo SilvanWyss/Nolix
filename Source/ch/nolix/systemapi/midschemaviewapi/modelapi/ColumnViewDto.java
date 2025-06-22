@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.midschemaviewapi.modelapi;
 
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 
 /**
  * @author Silvan Wyss

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.schemaviewapi;
 
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 
 public interface IContentModelView<T> {
 

@@ -2,8 +2,8 @@ package ch.nolix.system.sqlmidschema.modelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.objectschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableFieldIndexCatalog;
 import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IContentModelDtoMapper;
 
