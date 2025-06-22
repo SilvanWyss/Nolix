@@ -175,6 +175,14 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
+  public IStyle withStyle(final IStyle style) {
+    return withAttachingAttributes(style.getAttachingAttributes()).withSubStyles(style.getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
 
     final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();
