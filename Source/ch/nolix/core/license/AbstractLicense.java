@@ -12,17 +12,17 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-05-16
  */
-public abstract class License implements INameHolder {
+public abstract class AbstractLicense implements INameHolder {
 
   private boolean activated;
 
   /**
-   * Activates the current {@link License} with the given key.
+   * Activates the current {@link AbstractLicense} with the given key.
    * 
    * @param key
-   * @throws InvalidArgumentException if the current {@link License} is already
+   * @throws InvalidArgumentException if the current {@link AbstractLicense} is already
    *                                  activated.
-   * @throws UnacceptedKeyException   if the current {@link License} does no
+   * @throws UnacceptedKeyException   if the current {@link AbstractLicense} does no
    *                                  accepts the given key.
    */
   public final void activate(final String key) {
@@ -34,7 +34,7 @@ public abstract class License implements INameHolder {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link License} is not
+   * @throws InvalidArgumentException if the current {@link AbstractLicense} is not
    *                                  activated.
    */
   public final void assetIsActivated() {
@@ -52,7 +52,7 @@ public abstract class License implements INameHolder {
   }
 
   /**
-   * @return true if the current {@link License} is activated.
+   * @return true if the current {@link AbstractLicense} is activated.
    */
   public final boolean isActivated() {
     return activated;
@@ -60,13 +60,13 @@ public abstract class License implements INameHolder {
 
   /**
    * @param filteredKey
-   * @return true if the current {@link License} accepts the given filteredKey.
+   * @return true if the current {@link AbstractLicense} accepts the given filteredKey.
    */
   protected abstract boolean acceptsFilteredKey(String filteredKey);
 
   /**
    * @param key
-   * @return true if the current {@link License} accepts the given key.
+   * @return true if the current {@link AbstractLicense} accepts the given key.
    */
   private boolean accepts(final String key) {
     return acceptsFilteredKey(getFilteredKey(key));
@@ -74,7 +74,7 @@ public abstract class License implements INameHolder {
 
   /**
    * @param key
-   * @throws UnacceptedKeyException if the current {@link License} does no accepts
+   * @throws UnacceptedKeyException if the current {@link AbstractLicense} does no accepts
    *                                the given key.
    */
   private void assertAccepts(final String key) {
@@ -84,7 +84,7 @@ public abstract class License implements INameHolder {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link License} is activated.
+   * @throws InvalidArgumentException if the current {@link AbstractLicense} is activated.
    */
   private void assertIsNotActivated() {
     if (isActivated()) {

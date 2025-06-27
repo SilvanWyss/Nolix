@@ -10,7 +10,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 final class LicenseManagerTest extends StandardTest {
 
-  private static final class TestLicense extends License {
+  private static final class TestLicense extends AbstractLicense {
 
     @Override
     protected boolean acceptsFilteredKey(String key) {
