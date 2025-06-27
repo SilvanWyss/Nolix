@@ -59,9 +59,9 @@ public final class SchemaReader implements ISchemaReader {
   public int getTableCount() {
 
     final var query = QUERY_CREATOR.createQueryToGetTableCount();
-    final var record = sqlConnection.getSingleRecordFromQuery(query);
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
-    return Integer.valueOf(record.getStoredFirst());
+    return Integer.valueOf(sqlRecord.getStoredFirst());
   }
 
   @Override
