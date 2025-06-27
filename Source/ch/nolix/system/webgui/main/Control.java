@@ -20,7 +20,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
-import ch.nolix.system.element.style.StylableElement;
+import ch.nolix.system.element.style.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -35,7 +35,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 public abstract class Control //NOSONAR: A Control is a principal object thus it has many methods.
 <C extends IControl<C, S>, S extends IControlStyle<S>>
-extends StylableElement<C>
+extends AbstractStylableElement<C>
 implements IControl<C, S> {
 
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;

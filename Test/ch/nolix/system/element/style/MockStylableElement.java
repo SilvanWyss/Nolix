@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-public final class MockStylableElement extends StylableElement<MockStylableElement> {
+public final class MockStylableElement extends AbstractStylableElement<MockStylableElement> {
 
   private String role;
 

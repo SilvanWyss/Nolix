@@ -12,7 +12,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
-public abstract class StylableElement<E extends IStylableElement<E>>
+public abstract class AbstractStylableElement<E extends IStylableElement<E>>
 extends AbstractMutableElement
 implements IStylableElement<E> {
 

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
  * @version 2016-05-01
  * @param <E> is the type of a {@link AbstractStyleElement}.
  */
-public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> extends StylableElement<E>
+public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> extends AbstractStylableElement<E>
 implements IStyleElement<E> {
 
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalog.CONFIGURATION;

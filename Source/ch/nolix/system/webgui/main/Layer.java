@@ -15,7 +15,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.element.style.StylableElement;
+import ch.nolix.system.element.style.AbstractStylableElement;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
@@ -34,7 +34,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
-extends StylableElement<Layer>
+extends AbstractStylableElement<Layer>
 implements ILayer<Layer> {
 
   public static final double DEFAULT_OPACITY = 1.0;
