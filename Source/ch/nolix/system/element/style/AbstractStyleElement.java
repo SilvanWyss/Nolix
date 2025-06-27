@@ -6,14 +6,15 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 
 /**
- * A {@link StyleElement} is a {@link StyleElement} that can have a
- * {@link Style}.
+ * A {@link AbstractStyleElement} is a {@link AbstractStyleElement} that can
+ * have a {@link Style}.
  * 
  * @author Silvan Wyss
  * @version 2016-05-01
- * @param <E> is the type of a {@link StyleElement}.
+ * @param <E> is the type of a {@link AbstractStyleElement}.
  */
-public abstract class StyleElement<E extends StyleElement<E>> extends StylableElement<E> implements IStyleElement<E> {
+public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> extends StylableElement<E>
+implements IStyleElement<E> {
 
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalog.CONFIGURATION;
 
@@ -77,12 +78,12 @@ public abstract class StyleElement<E extends StyleElement<E>> extends StylableEl
   }
 
   /**
-   * Resets the current {@link StyleElement}.
+   * Resets the current {@link AbstractStyleElement}.
    */
   protected abstract void resetConfigurationElement();
 
   /**
-   * @return the {@link Style} of the current {@link StyleElement}.
+   * @return the {@link Style} of the current {@link AbstractStyleElement}.
    */
   private IStyle getStoredConfiguration() {
     return style.getValue();

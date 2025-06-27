@@ -15,7 +15,7 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.element.style.StyleElement;
+import ch.nolix.system.element.style.AbstractStyleElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
@@ -39,7 +39,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayerStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
-extends StyleElement<WebGui>
+extends AbstractStyleElement<WebGui>
 implements IWebGui<WebGui> {
 
   public static final String DEFAULT_TITLE = PascalCaseVariableCatalog.GUI;
