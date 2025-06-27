@@ -176,13 +176,14 @@ public final class DataWriterActionProvider {
     final INode<?> entityIndexNode,
     final INode<?> entityNode) {
 
-    final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, entityId)) {
       throw //
       ArgumentHasAttributeException.forArgumentAndAttributeName(tableNode, "entity with the id '" + entityId + "'");
     }
+
+    final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
 
     entityIndexesNode.addChildNode(entityIndexNode);
     tableNode.addChildNode(entityNode);
