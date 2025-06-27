@@ -64,32 +64,11 @@ public final class ArraySorter {
         }
 
         break;
-      default:
-
-        final var leftSectionZeroBasedEndIndex = zeroBasedBeginIndex + (elementToProcessCount / 2);
-        final var rightSectionZeroBasedStartIndex = leftSectionZeroBasedEndIndex + 1;
-
-        sortSection(
+      default: //NOSONAR: The implementation of the case is as simple as possible.
+        sortSectionWhenContainsMoreThanTwoElements(
           elementArray,
           comparableArray,
           zeroBasedBeginIndex,
-          leftSectionZeroBasedEndIndex,
-          workElementArray,
-          workComparableArray);
-
-        sortSection(
-          elementArray,
-          comparableArray,
-          rightSectionZeroBasedStartIndex,
-          zeroBasedEndIndex,
-          workElementArray,
-          workComparableArray);
-
-        mergeSortedSections(
-          elementArray,
-          comparableArray,
-          zeroBasedBeginIndex,
-          leftSectionZeroBasedEndIndex,
           zeroBasedEndIndex,
           workElementArray,
           workComparableArray);
@@ -103,6 +82,44 @@ public final class ArraySorter {
 
     array[zeroBasedBeginIndex] = array[zeroBasedEndIndex];
     array[zeroBasedEndIndex] = leftElement;
+  }
+
+  private static <E, C extends Comparable<C>> void sortSectionWhenContainsMoreThanTwoElements(
+    final E[] elementArray,
+    final C[] comparableArray,
+    final int zeroBasedBeginIndex,
+    final int zeroBasedEndIndex,
+    final E[] workElementArray,
+    final C[] workComparableArray) {
+
+    final var elementToProcessCount = zeroBasedEndIndex - zeroBasedBeginIndex + 1;
+    final var leftSectionZeroBasedEndIndex = zeroBasedBeginIndex + (elementToProcessCount / 2);
+    final var rightSectionZeroBasedStartIndex = leftSectionZeroBasedEndIndex + 1;
+
+    sortSection(
+      elementArray,
+      comparableArray,
+      zeroBasedBeginIndex,
+      leftSectionZeroBasedEndIndex,
+      workElementArray,
+      workComparableArray);
+
+    sortSection(
+      elementArray,
+      comparableArray,
+      rightSectionZeroBasedStartIndex,
+      zeroBasedEndIndex,
+      workElementArray,
+      workComparableArray);
+
+    mergeSortedSections(
+      elementArray,
+      comparableArray,
+      zeroBasedBeginIndex,
+      leftSectionZeroBasedEndIndex,
+      zeroBasedEndIndex,
+      workElementArray,
+      workComparableArray);
   }
 
   private static <E, C extends Comparable<C>> void mergeSortedSections(
