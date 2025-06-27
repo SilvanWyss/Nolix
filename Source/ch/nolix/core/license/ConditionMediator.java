@@ -16,7 +16,7 @@ public final class ConditionMediator {
     this.condition = condition;
   }
 
-  public <F extends Feature> AdditionalConditionMediator thenRequireFeature(final Class<F> type) {
+  public <F extends AbstractFeature> AdditionalConditionMediator thenRequireFeature(final Class<F> type) {
 
     if (condition) {
       parentLicenseManager.requireFeature(type);

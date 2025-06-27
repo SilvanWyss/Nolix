@@ -19,7 +19,7 @@ final class LicenseManagerTest extends StandardTest {
   }
 
   //This class must be public that it can be processed by reflection.
-  public static final class TestFeature extends Feature {
+  public static final class TestFeature extends AbstractFeature {
 
     @Override
     public IContainer<Class<?>> getAuthorizedLicenseTypes() {

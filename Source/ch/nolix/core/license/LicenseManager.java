@@ -54,7 +54,7 @@ public final class LicenseManager {
   }
 
   /**
-   * Requires the {@link LicenseManager} to contain a {@link Feature} of the
+   * Requires the {@link LicenseManager} to contain a {@link AbstractFeature} of the
    * given featureType.
    * 
    * @param featureType
@@ -62,10 +62,10 @@ public final class LicenseManager {
    * @throws ArgumentDoesNotHaveAttributeException if the
    *                                               {@link LicenseManager}
    *                                               does not contain a
-   *                                               {@link Feature} of the given
+   *                                               {@link AbstractFeature} of the given
    *                                               featureType.
    */
-  public static <F extends Feature> void requireFeature(final Class<F> featureType) {
+  public static <F extends AbstractFeature> void requireFeature(final Class<F> featureType) {
     LICENSE_MANAGER.requireFeature(featureType);
   }
 

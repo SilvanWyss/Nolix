@@ -86,10 +86,10 @@ public final class LicenseManagerUnit {
   /**
    * @param featureType
    * @param <F>         is the given featureType.
-   * @return true if the current {@link LicenseManagerUnit} contains a {@link Feature}
+   * @return true if the current {@link LicenseManagerUnit} contains a {@link AbstractFeature}
    *         of the given featureType.
    */
-  public <F extends Feature> boolean containsFeature(final Class<F> featureType) {
+  public <F extends AbstractFeature> boolean containsFeature(final Class<F> featureType) {
     try {
       final var feature = featureType.getConstructor().newInstance();
       return feature.getAuthorizedLicenseTypes().containsAnyOf(getLicenseTypes());
@@ -134,7 +134,7 @@ public final class LicenseManagerUnit {
   }
 
   /**
-   * Requires the current {@link LicenseManagerUnit} to contain a {@link Feature} of
+   * Requires the current {@link LicenseManagerUnit} to contain a {@link AbstractFeature} of
    * the given featureType.
    * 
    * @param featureType
@@ -142,10 +142,10 @@ public final class LicenseManagerUnit {
    * @return the current {@link LicenseManagerUnit}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link LicenseManagerUnit} does not
-   *                                               contain a {@link Feature} of
+   *                                               contain a {@link AbstractFeature} of
    *                                               the given featureType.
    */
-  public <F extends Feature> LicenseManagerUnit requireFeature(final Class<F> featureType) {
+  public <F extends AbstractFeature> LicenseManagerUnit requireFeature(final Class<F> featureType) {
 
     //Asserts that the current LicenseManager contains a feature of the given
     //featureType.
