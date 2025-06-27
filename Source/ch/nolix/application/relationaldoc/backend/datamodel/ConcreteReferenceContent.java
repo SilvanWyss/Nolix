@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.MultiReference;
 
-public final class ConcreteReferenceContent extends ReferenceContent implements IConcreteReferenceContent {
+public final class ConcreteReferenceContent extends AbstractReferenceContent implements IConcreteReferenceContent {
 
   private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = //
   new ConcreteReferenceContentValidator();

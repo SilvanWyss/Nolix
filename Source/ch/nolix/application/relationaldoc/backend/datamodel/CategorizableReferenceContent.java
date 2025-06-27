@@ -9,7 +9,7 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.ISmartOb
 import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.Reference;
 
-public final class CategorizableReferenceContent extends ReferenceContent implements ICategorizableReferenceContent {
+public final class CategorizableReferenceContent extends AbstractReferenceContent implements ICategorizableReferenceContent {
 
   private static final SmartFieldExaminer CATEGORIZABLE_FIELD_EVALUATOR = new SmartFieldExaminer();
 
