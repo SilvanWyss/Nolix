@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
-import ch.nolix.system.webgui.controlstyle.ControlStyle;
+import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public abstract class AbstractLinearContainerStyle< //
 S extends ILinearContainerStyle<S> & IMultiStateConfiguration<S, ControlState> //
 >
-extends ControlStyle<S>
+extends AbstractControlStyle<S>
 implements ILinearContainerStyle<S> {
 
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;

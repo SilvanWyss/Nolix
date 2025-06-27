@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public abstract class ControlStyle< //NOSONAR: A ControlStyle has many methods per se.
+public abstract class AbstractControlStyle< //NOSONAR: A ControlStyle has many methods per se.
 S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlHeadStyle<S>
 implements IControlStyle<S> {

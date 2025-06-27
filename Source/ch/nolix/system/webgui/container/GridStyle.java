@@ -5,13 +5,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.webgui.controlstyle.ControlStyle;
+import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.webguiapi.containerapi.GridType;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class GridStyle extends ControlStyle<IGridStyle> implements IGridStyle {
+public final class GridStyle extends AbstractControlStyle<IGridStyle> implements IGridStyle {
 
   public static final GridType DEFAULT_GRID_TYPE = GridType.INNER_LINES;
 
