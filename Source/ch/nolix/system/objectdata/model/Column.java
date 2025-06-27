@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
 
-public final class Column extends ImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
+public final class Column extends AbstractImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
 
   private final String id;
 
