@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class ArraySorter {
 
+  private ArraySorter() {
+  }
+
   public static <E, C extends Comparable<C>> void sortArray(
     final E[] array,
     final int oneBasedEndIndex,
@@ -151,8 +154,5 @@ public final class ArraySorter {
       System.arraycopy(workElementArray, 0, elementArray, leftSectionZeroBasedBeginIndex, i);
       System.arraycopy(workComparableArray, 0, comparableArray, leftSectionZeroBasedBeginIndex, i);
     }
-  }
-
-  private ArraySorter() {
   }
 }
