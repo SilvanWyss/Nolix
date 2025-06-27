@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmiddata.datawriter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.sql.connection.SqlConnection;
+import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.sqlmiddata.statementcreator.EntityStatementCreator;
@@ -39,7 +39,7 @@ public final class ExecutiveDataWriter {
     final String databaseName,
     final ISqlConnection sqlConnection) {
 
-    Validator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
+    Validator.assertThat(sqlConnection).thatIsNamed(AbstractSqlConnection.class).isNotNull();
 
     this.sqlConnection = sqlConnection;
 

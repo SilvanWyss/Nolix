@@ -3,11 +3,11 @@ package ch.nolix.core.sql.connectionpool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.core.sql.connection.MsSqlConnection;
-import ch.nolix.core.sql.connection.SqlConnection;
+import ch.nolix.core.sql.connection.AbstractSqlConnection;
 
 public final class SqlConnectionFactory {
 
-  public SqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
+  public AbstractSqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {
       case MSSQL ->
         createMsSqlConnectionForSqlConnectionPool(sqlConnectionPool);

@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmiddata.datareader;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.sql.connection.SqlConnection;
+import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
@@ -52,7 +52,7 @@ final class InternalDataReader {
     final ISqlConnection sqlConnection) {
 
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
-    Validator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
+    Validator.assertThat(sqlConnection).thatIsNamed(AbstractSqlConnection.class).isNotNull();
 
     this.databaseName = databaseName;
     this.sqlConnection = sqlConnection;

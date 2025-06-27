@@ -21,7 +21,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
-public abstract class SqlConnection implements ISqlConnection {
+public abstract class AbstractSqlConnection implements ISqlConnection {
 
   private final SqlDatabaseEngine sqlDatabaseEngine;
 
@@ -29,7 +29,7 @@ public abstract class SqlConnection implements ISqlConnection {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
+  protected AbstractSqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 
     Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
     Validator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
@@ -38,7 +38,7 @@ public abstract class SqlConnection implements ISqlConnection {
     this.connection = connection;
   }
 
-  protected SqlConnection(
+  protected AbstractSqlConnection(
     final SqlDatabaseEngine sqlDatabaseEngine,
     final int port,
     final String userName,
@@ -51,7 +51,7 @@ public abstract class SqlConnection implements ISqlConnection {
       userPassword);
   }
 
-  protected SqlConnection(
+  protected AbstractSqlConnection(
     final SqlDatabaseEngine sqlDatabaseEngine,
     final String ip,
     final int port,
