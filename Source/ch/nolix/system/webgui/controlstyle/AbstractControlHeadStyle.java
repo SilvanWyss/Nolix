@@ -14,7 +14,7 @@ import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-abstract class ControlHeadStyle<C extends IControlHeadStyle<C>>
+abstract class AbstractControlHeadStyle<C extends IControlHeadStyle<C>>
 extends MultiStateConfiguration<C, ControlState>
 implements IControlHeadStyle<C> {
 
@@ -78,7 +78,7 @@ implements IControlHeadStyle<C> {
     IColor::getSpecification,
     DEFAULT_TEXT_COLOR);
 
-  protected ControlHeadStyle() {
+  protected AbstractControlHeadStyle() {
 
     super(ControlState.BASE);
 
