@@ -116,7 +116,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
 
   private static int getCountOfIterable(final Iterable<?> iterable) {
 
-    if (iterable instanceof final IContainer container) {
+    if (iterable instanceof final IContainer<?> container) {
       return container.getCount();
     }
 
