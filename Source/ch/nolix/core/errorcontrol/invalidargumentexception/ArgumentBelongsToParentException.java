@@ -1,6 +1,5 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
@@ -26,21 +25,6 @@ public final class ArgumentBelongsToParentException extends AbstractInvalidArgum
    */
   private ArgumentBelongsToParentException(final Object argument, final Object parent) {
     super(argument, new ErrorPredicateDto("belongs to a " + getTypeNameOfObject(parent)));
-  }
-
-  /**
-   * Creates a new {@link ArgumentBelongsToParentException} for the given
-   * argument, argumentName and parent.
-   * 
-   * @param argument     - Can be null.
-   * @param argumentName
-   * @param parent
-   * @throws RuntimeException if the given argumentName is null or blank.
-   * @throws RuntimeException if the given parent is null.
-   */
-  private ArgumentBelongsToParentException(final Object argument, final String argumentName, final Object parent) {
-    super(argument, new ArgumentNameDto(argumentName),
-      new ErrorPredicateDto("belongs to a " + getTypeNameOfObject(parent)));
   }
 
   /**

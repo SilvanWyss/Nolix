@@ -1,6 +1,5 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
 import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
 
 /**
@@ -25,22 +24,6 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
    */
   private ArgumentContainsElementException(final Object argument, final Object element) {
     super(argument, new ErrorPredicateDto("contains already the given " + getNameOfElement(element)));
-  }
-
-  /**
-   * Creates a new {@link ArgumentContainsElementException} for the given
-   * argument, argumentName and element.
-   * 
-   * @param argument     - Can be null.
-   * @param argumentName
-   * @param element      - Can be null.
-   * @throws RuntimeException if the given argumentName is null or blank.
-   */
-  private ArgumentContainsElementException(final Object argument, final String argumentName, final Object element) {
-    super(
-      argument,
-      new ArgumentNameDto(argumentName),
-      new ErrorPredicateDto("contains already the given " + getNameOfElement(element)));
   }
 
   /**
