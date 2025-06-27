@@ -7,7 +7,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequesta
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
-public abstract class WrapperResource<W extends WrapperResource<W, R>, R extends GroupCloseable>
+public abstract class AbstractWrapperResource<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements GroupCloseable {
 
   private AbstractResourcePool<W, R> parentResourcePool;
@@ -16,7 +16,7 @@ implements GroupCloseable {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  protected WrapperResource(final R resource) {
+  protected AbstractWrapperResource(final R resource) {
 
     Validator.assertThat(resource).fulfills(CloseStateRequestable::isOpen);
 
