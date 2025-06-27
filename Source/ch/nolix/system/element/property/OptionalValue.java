@@ -13,7 +13,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @version 2018-03-01
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
-public final class OptionalValue<V> extends SingleValue<V> {
+public final class OptionalValue<V> extends AbstractSingleValue<V> {
 
   /**
    * Creates a new {@link OptionalValue} with the given name, setterMethod,

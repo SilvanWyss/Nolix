@@ -15,16 +15,16 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @version 2018-03-04
- * @param <V> is the type of the value of a {@link SingleValue}.
+ * @param <V> is the type of the value of a {@link AbstractSingleValue}.
  */
-abstract class SingleValue<V> extends AbstractValue<V> {
+abstract class AbstractSingleValue<V> extends AbstractValue<V> {
 
   private final Consumer<V> setterMethod;
 
   private V value;
 
   /**
-   * Creates a new {@link SingleValue} with the given name, setterMethod,
+   * Creates a new {@link AbstractSingleValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
    * 
    * @param name
@@ -37,7 +37,7 @@ abstract class SingleValue<V> extends AbstractValue<V> {
    * @throws ArgumentIsNullException  if the given valueCreator is null.
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
-  protected SingleValue(
+  protected AbstractSingleValue(
     final String name,
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
@@ -54,9 +54,9 @@ abstract class SingleValue<V> extends AbstractValue<V> {
   }
 
   /**
-   * @return a new specification of the current {@link SingleValue}.
+   * @return a new specification of the current {@link AbstractSingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link SingleValue} does not
+   *                                               {@link AbstractSingleValue} does not
    *                                               have a value
    */
   public final Node getSpecification() {
@@ -64,9 +64,9 @@ abstract class SingleValue<V> extends AbstractValue<V> {
   }
 
   /**
-   * @return the value of the current {@link SingleValue}.
+   * @return the value of the current {@link AbstractSingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link SingleValue} does not
+   *                                               {@link AbstractSingleValue} does not
    *                                               have a value.
    */
   public final V getValue() {
@@ -92,11 +92,11 @@ abstract class SingleValue<V> extends AbstractValue<V> {
   }
 
   /**
-   * Sets the value of the current {@link SingleValue}.
+   * Sets the value of the current {@link AbstractSingleValue}.
    * 
    * @param value
    * @throws ArgumentIsNullException  if the given value is null.
-   * @throws InvalidArgumentException if the current {@link SingleValue} is not
+   * @throws InvalidArgumentException if the current {@link AbstractSingleValue} is not
    *                                  mutable and has already a value.
    */
   public final void setValue(final V value) {
@@ -135,7 +135,7 @@ abstract class SingleValue<V> extends AbstractValue<V> {
   }
 
   /**
-   * Removes the value of the current {@link SingleValue}.
+   * Removes the value of the current {@link AbstractSingleValue}.
    */
   protected final void internalClear() {
     value = null;

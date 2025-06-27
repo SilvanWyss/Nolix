@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
  * @version 2017-11-01
  * @param <V> is the type of the value of a {@link MutableOptionalValue}.
  */
-public final class MutableOptionalValue<V> extends SingleValue<V> {
+public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
 
   /**
    * Creates a new {@link MutableOptionalValue} with the given name, setterMethod,
@@ -110,7 +110,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
   }
 
   /**
-   * Removes the value of the current {@link SingleValue}.
+   * Removes the value of the current {@link AbstractSingleValue}.
    */
   public void clear() {
     internalClear();

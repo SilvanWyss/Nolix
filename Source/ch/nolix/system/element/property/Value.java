@@ -13,7 +13,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @version 2018-03-01
  * @param <V> is the type of the value of a {@link Value}.
  */
-public final class Value<V> extends SingleValue<V> {
+public final class Value<V> extends AbstractSingleValue<V> {
 
   /**
    * Creates a new {@link Value} with the given name, setterMethod, valueCreator
