@@ -33,9 +33,11 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
   private static final IExceptionArgumentStringRepresentaionPreparator ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
   new ExceptionArgumentStringRepresentaionPreparator();
 
-  private static final IExceptionArgumentNamePreparator ARGUMENT_NAME_PREPARATOR = new ExceptionArgumentNamePreparator();
+  private static final IExceptionArgumentNamePreparator ARGUMENT_NAME_PREPARATOR = //
+  new ExceptionArgumentNamePreparator();
 
-  private static final IExceptionErrorPredicatePreparator ERROR_PREDICATE_PREPARATOR = new ExceptionErrorPredicatePreparator();
+  private static final IExceptionErrorPredicatePreparator ERROR_PREDICATE_PREPARATOR = //
+  new ExceptionErrorPredicatePreparator();
 
   private static final IExceptionCausePreparator CAUSE_PREPARATOR = new ExceptionCausePreparator();
 

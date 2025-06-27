@@ -86,7 +86,9 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
       case 1 ->
         forValue(attributes.getStoredAtOneBasedIndex(1));
       case 2 ->
-        new AttachingAttribute(attributes.getStoredAtOneBasedIndex(1).toString(), attributes.getStoredAtOneBasedIndex(2));
+        new AttachingAttribute(
+          attributes.getStoredAtOneBasedIndex(1).toString(),
+          attributes.getStoredAtOneBasedIndex(2));
       default ->
         throw //
         InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableCatalog.SPECIFICATION);

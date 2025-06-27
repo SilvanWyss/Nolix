@@ -22,7 +22,8 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private static final ISqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
 
-  private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = new IncrementalCurrentTimeCreator();
+  private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
+  new IncrementalCurrentTimeCreator();
 
   private final ICloseController closeController = CloseController.forElement(this);
 

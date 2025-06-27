@@ -38,7 +38,8 @@ final class InternalDataReader {
 
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
-  private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = new MultiReferenceEntryDtoMapper();
+  private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //
+  new MultiReferenceEntryDtoMapper();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 

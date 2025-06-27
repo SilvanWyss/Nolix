@@ -11,7 +11,8 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
 
 public final class MultiReferenceSaver {
 
-  private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = new MultiReferenceEntryDtoMapper();
+  private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //
+  new MultiReferenceEntryDtoMapper();
 
   private static final IMultiReferenceEntryDeletionDtoMapper MULTI_REFERENCE_ENTRY_DELETION_DTO_MAPPER = //
   new MultiReferenceEntryDeletionDtoMapper();
