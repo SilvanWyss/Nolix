@@ -2,10 +2,10 @@ package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.commontypetool.inputstreamtool.InputStreamTool;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.core.programcontrol.worker.AbstractWorker;
 import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
 
-final class SocketEndPointMessageListener extends Worker {
+final class SocketEndPointMessageListener extends AbstractWorker {
 
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 

@@ -2,7 +2,7 @@ package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.core.programcontrol.worker.AbstractWorker;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import io.netty.bootstrap.ServerBootstrap;
@@ -13,7 +13,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
-final class SslServerWorker extends Worker {
+final class SslServerWorker extends AbstractWorker {
 
   private static final SslServerSslContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
   new SslServerSslContextCreator();

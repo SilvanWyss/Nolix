@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.worker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 
-public abstract class Worker {
+public abstract class AbstractWorker {
 
   private boolean started;
 

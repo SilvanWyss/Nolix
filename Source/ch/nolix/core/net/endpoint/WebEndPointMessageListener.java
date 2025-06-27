@@ -2,9 +2,9 @@ package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.websocket.WebSocketCompleteMessage;
-import ch.nolix.core.programcontrol.worker.BatchWorker;
+import ch.nolix.core.programcontrol.worker.AbstractBatchWorker;
 
-final class WebEndPointMessageListener extends BatchWorker {
+final class WebEndPointMessageListener extends AbstractBatchWorker {
 
   private final WebSocketEndPoint parentWebEndPoint;
 

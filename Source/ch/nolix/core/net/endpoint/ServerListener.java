@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.core.programcontrol.worker.AbstractWorker;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
 
 /**
@@ -18,7 +18,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequesta
  * @author Silvan Wyss
  * @version 2017-05-06
  */
-public final class ServerListener extends Worker implements CloseStateRequestable {
+public final class ServerListener extends AbstractWorker implements CloseStateRequestable {
 
   private static final SocketHandler SOCKET_HANDLER = new SocketHandler();
 
