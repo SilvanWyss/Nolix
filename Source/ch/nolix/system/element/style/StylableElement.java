@@ -6,14 +6,14 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.base.StructureSpecificationCreator;
-import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 public abstract class StylableElement<E extends IStylableElement<E>>
-extends MutableElement
+extends AbstractMutableElement
 implements IStylableElement<E> {
 
   private static final String ID_HEADER = PascalCaseVariableCatalog.ID;

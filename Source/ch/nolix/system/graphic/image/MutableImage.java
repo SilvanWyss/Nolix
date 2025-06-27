@@ -21,7 +21,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
-import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableSpecificationValueExtractor;
 import ch.nolix.system.element.property.Value;
 import ch.nolix.system.graphic.color.Color;
@@ -30,7 +30,7 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
-public final class MutableImage extends MutableElement implements IMutableImage<MutableImage> {
+public final class MutableImage extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 

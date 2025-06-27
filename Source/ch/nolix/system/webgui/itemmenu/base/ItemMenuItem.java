@@ -9,14 +9,14 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
-import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
 import ch.nolix.system.element.property.Value;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
 
-public final class ItemMenuItem extends MutableElement implements IItemMenuItem<ItemMenuItem> {
+public final class ItemMenuItem extends AbstractMutableElement implements IItemMenuItem<ItemMenuItem> {
 
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 

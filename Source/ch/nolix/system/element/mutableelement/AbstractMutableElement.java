@@ -19,7 +19,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
  * @author Silvan Wyss
  * @version 2017-10-29
  */
-public abstract class MutableElement implements IMutableElement {
+public abstract class AbstractMutableElement implements IMutableElement {
 
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
@@ -109,7 +109,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Resets the current {@link MutableElement} from the file with the given
+   * Resets the current {@link AbstractMutableElement} from the file with the given
    * filePath.
    * 
    * @param filePath
@@ -144,7 +144,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Lets the current {@link MutableElement} extract the {@link AbstractProperty}
+   * Lets the current {@link AbstractMutableElement} extract the {@link AbstractProperty}
    * from the given field if the given field stores a {@link AbstractProperty}.
    * 
    * @param field
@@ -158,7 +158,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the properties of the current {@link MutableElement}.
+   * Extracts the properties of the current {@link AbstractMutableElement}.
    */
   private void extractProperties() {
 
@@ -173,7 +173,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the {@link MutableElement} that are
+   * Extracts the {@link AbstractProperty}s of the {@link AbstractMutableElement} that are
    * from the given pClass.
    * 
    * @param pClass
@@ -187,7 +187,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the current {@link MutableElement}
+   * Extracts the {@link AbstractProperty}s of the current {@link AbstractMutableElement}
    * if they are not extracted yet.
    */
   private void extractPropertiesIfNotExtracted() {
@@ -197,7 +197,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty} of the {@link MutableElement} that is
+   * Extracts the {@link AbstractProperty} of the {@link AbstractMutableElement} that is
    * from the given field.
    * 
    * @param field
@@ -220,7 +220,7 @@ public abstract class MutableElement implements IMutableElement {
   }
 
   /**
-   * @return the {@link AbstractProperty}s of the current {@link MutableElement}.
+   * @return the {@link AbstractProperty}s of the current {@link AbstractMutableElement}.
    */
   private IContainer<IProperty> getStoredProperties() {
 
@@ -231,7 +231,7 @@ public abstract class MutableElement implements IMutableElement {
 
   /**
    * @return true if the {@link AbstractProperty}s of the current
-   *         {@link MutableElement} are extracted.
+   *         {@link AbstractMutableElement} are extracted.
    */
   private boolean hasExtractedProperties() {
     return (properties != null);
@@ -239,7 +239,7 @@ public abstract class MutableElement implements IMutableElement {
 
   /**
    * @param element
-   * @return true if the current {@link MutableElement} has the same specification
+   * @return true if the current {@link AbstractMutableElement} has the same specification
    *         as the given element.
    */
   private boolean hasSameSpecificationAs(final IElement element) {

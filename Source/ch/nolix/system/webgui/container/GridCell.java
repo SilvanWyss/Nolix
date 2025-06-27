@@ -5,13 +5,13 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
-import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
-public final class GridCell extends MutableElement implements Clearable {
+public final class GridCell extends AbstractMutableElement implements Clearable {
 
   private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalog.ROW_INDEX;
 
