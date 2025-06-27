@@ -12,19 +12,19 @@ public final class Logger {
   private static LogWorker logWorker;
 
   //static multi-attribute
-  private static final List<LogHandler> logHandlers = new List<>();
+  private static final List<AbstractLogHandler> abstractLogHandlers = new List<>();
 
   private Logger() {
   }
 
   //static initialization
   static {
-    logHandlers.addAtBegin(new StandardConsoleLogHandler());
-    logHandlers.addAtBegin(new FileLogHandler());
+    abstractLogHandlers.addAtBegin(new StandardConsoleLogHandler());
+    abstractLogHandlers.addAtBegin(new FileLogHandler());
   }
 
-  public static void addLogHandler(final LogHandler logHandler) {
-    logHandlers.addAtEnd(logHandler);
+  public static void addLogHandler(final AbstractLogHandler abstractLogHandler) {
+    abstractLogHandlers.addAtEnd(abstractLogHandler);
   }
 
   public static synchronized void disable() {
@@ -198,7 +198,7 @@ public final class Logger {
   }
 
   static void takeLogEntry(final LogEntry logEntry) {
-    for (final LogHandler lh : logHandlers) {
+    for (final AbstractLogHandler lh : abstractLogHandlers) {
       lh.takeLogEntry(logEntry);
     }
   }

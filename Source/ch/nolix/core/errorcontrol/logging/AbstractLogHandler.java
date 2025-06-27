@@ -2,17 +2,17 @@ package ch.nolix.core.errorcontrol.logging;
 
 import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
 
-public abstract class LogHandler {
+public abstract class AbstractLogHandler {
 
   public static final HarmLevel DEFAULT_MIN_HARM_LEVEL = HarmLevel.INFO;
 
   private final HarmLevel minHarmLevel;
 
-  protected LogHandler() {
+  protected AbstractLogHandler() {
     this(DEFAULT_MIN_HARM_LEVEL);
   }
 
-  protected LogHandler(final HarmLevel minHarmLevel) {
+  protected AbstractLogHandler(final HarmLevel minHarmLevel) {
 
     if (minHarmLevel == null) {
       throw new IllegalArgumentException("The given min harm level is null.");
