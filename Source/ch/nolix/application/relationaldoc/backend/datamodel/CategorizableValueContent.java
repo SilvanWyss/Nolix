@@ -8,7 +8,7 @@ import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.DataT
 import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.Value;
 
-public final class CategorizableValueContent extends ValueContent implements ICategorizableValueContent {
+public final class CategorizableValueContent extends AbstractValueContent implements ICategorizableValueContent {
 
   public static final DataType DEFAULT_DATA_TYPE = DataType.TEXT;
 

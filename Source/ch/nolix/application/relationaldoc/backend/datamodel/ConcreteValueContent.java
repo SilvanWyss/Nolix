@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.model.BackReference;
 import ch.nolix.system.objectdata.model.MultiValue;
 import ch.nolix.system.objectdata.model.OptionalValue;
 
-public final class ConcreteValueContent extends ValueContent implements IConcreteValueContent {
+public final class ConcreteValueContent extends AbstractValueContent implements IConcreteValueContent {
 
   private static final ConcreteValueContentValidator CONCRETE_VALUE_CONTENT_VALIDATOR = //
   new ConcreteValueContentValidator();

@@ -3,7 +3,7 @@ package ch.nolix.application.relationaldoc.backend.datamodel;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi.IValueContent;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
 
-public abstract class ValueContent extends AbstractContent implements IValueContent {
+public abstract class AbstractValueContent extends AbstractContent implements IValueContent {
 
   @Override
   public final ContentType getContentType() {
