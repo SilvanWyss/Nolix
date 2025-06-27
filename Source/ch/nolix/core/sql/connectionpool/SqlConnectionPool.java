@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
 import ch.nolix.core.programcontrol.usercontrol.CredentialBuilder;
-import ch.nolix.core.resourcecontrol.resourcepool.ResourcePool;
+import ch.nolix.core.resourcecontrol.resourcepool.AbstractResourcePool;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 public final class SqlConnectionPool
-extends ResourcePool<WrapperSqlConnection, AbstractSqlConnection>
+extends AbstractResourcePool<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlDatabaseTarget {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;

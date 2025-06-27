@@ -10,7 +10,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 public abstract class WrapperResource<W extends WrapperResource<W, R>, R extends GroupCloseable>
 implements GroupCloseable {
 
-  private ResourcePool<W, R> parentResourcePool;
+  private AbstractResourcePool<W, R> parentResourcePool;
 
   private final R resource;
 
@@ -37,7 +37,7 @@ implements GroupCloseable {
     return resource;
   }
 
-  final void internalSetParentResourcePool(final ResourcePool<W, R> parentResourcePool) {
+  final void internalSetParentResourcePool(final AbstractResourcePool<W, R> parentResourcePool) {
 
     Validator
       .assertThat(parentResourcePool)

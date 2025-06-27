@@ -7,7 +7,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi.IResourcePool;
 
-public abstract class ResourcePool<W extends WrapperResource<W, R>, R extends GroupCloseable>
+public abstract class AbstractResourcePool<W extends WrapperResource<W, R>, R extends GroupCloseable>
 implements IResourcePool<W> {
 
   private final ICloseController closeController = CloseController.forElement(this);
