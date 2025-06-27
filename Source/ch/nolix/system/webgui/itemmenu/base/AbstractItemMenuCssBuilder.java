@@ -7,7 +7,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public abstract class ItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
+public abstract class AbstractItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends AbstractControlCssBuilder<M, S> {
 
   @Override
