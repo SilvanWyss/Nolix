@@ -41,7 +41,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
 
   private static final IExceptionCausePreparator CAUSE_PREPARATOR = new ExceptionCausePreparator();
 
-  private final Object argument;
+  private final transient Object argument;
 
   private final String argumentName;
 
