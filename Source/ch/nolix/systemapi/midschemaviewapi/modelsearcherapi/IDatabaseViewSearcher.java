@@ -56,5 +56,4 @@ public interface IDatabaseViewSearcher {
    *                          {@link TableViewDto} with the given tableName.
    */
   TableViewDto getTableViewByTableName(DatabaseViewDto databaseView, String tableName);
-
 }
