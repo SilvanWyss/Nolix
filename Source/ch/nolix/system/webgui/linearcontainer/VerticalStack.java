@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 
 public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer.
-extends LinearContainer<IVerticalStack, IVerticalStackStyle>
+extends AbstractLinearContainer<IVerticalStack, IVerticalStackStyle>
 implements IVerticalStack {
 
   public static final HorizontalContentAlignment DEFAULT_CONTENT_ALIGNMENT = HorizontalContentAlignment.LEFT;

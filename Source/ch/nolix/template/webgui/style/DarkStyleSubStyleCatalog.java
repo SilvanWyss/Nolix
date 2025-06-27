@@ -10,7 +10,7 @@ import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
-import ch.nolix.system.webgui.linearcontainer.LinearContainer;
+import ch.nolix.system.webgui.linearcontainer.AbstractLinearContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
@@ -75,7 +75,7 @@ public final class DarkStyleSubStyleCatalog {
 
   public static final ISelectingStyleWithSelectors LINEAR_CONTAINER_STYLE = //
   new DeepSelectingStyle()
-    .withSelectorType(LinearContainer.class)
+    .withSelectorType(AbstractLinearContainer.class)
     .withAttachingAttribute("BaseChildControlMargin(10)");
 
   public static final ISelectingStyleWithSelectors MAIN_CONTENT_CONTAINER_STYLE = //

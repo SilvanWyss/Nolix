@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
-public abstract class LinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
+public abstract class AbstractLinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
 extends AbstractContainer<C, S>
 implements ILinearContainer<C, S> {
 
