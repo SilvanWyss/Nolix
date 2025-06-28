@@ -19,7 +19,7 @@ final class ToStringMethodTest extends StandardTest {
   void testCase_toString_whenIsIdentityMatrix(final int size, final String expectedResult) {
 
     //setup
-    final var testUnit = Matrix.createIdendityMatrix(size);
+    final var testUnit = Matrix.createIdendityMatrixWithLength(size);
 
     //execution
     final var result = testUnit.toString();
@@ -32,7 +32,7 @@ final class ToStringMethodTest extends StandardTest {
   void testCase_toString_whenMatrixIs1x1Matrix() {
 
     //setup
-    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(1, 1);
+    final var testUnit = Matrix.withRowCountAndColumnCount(1, 1);
 
     //execution
     final var result = testUnit.toString();
@@ -45,7 +45,7 @@ final class ToStringMethodTest extends StandardTest {
   void testCase_toString_whenMatrixIs2x2Matrix() {
 
     //setup
-    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(2, 2);
+    final var testUnit = Matrix.withRowCountAndColumnCount(2, 2);
 
     //execution
     final var result = testUnit.toString();
@@ -58,7 +58,7 @@ final class ToStringMethodTest extends StandardTest {
   void testCase_toString_whenMatrixIs3x3Matrix() {
 
     //setup
-    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(3, 3);
+    final var testUnit = Matrix.withRowCountAndColumnCount(3, 3);
 
     //execution
     final var result = testUnit.toString();
@@ -71,7 +71,7 @@ final class ToStringMethodTest extends StandardTest {
   void testCase_toString_whenMatrixIs4x4Matrix() {
 
     //setup
-    final var testUnit = Matrix.createMatrixWithRowCountAndColumnCount(4, 4);
+    final var testUnit = Matrix.withRowCountAndColumnCount(4, 4);
 
     //execution
     final var result = testUnit.toString();

@@ -19,8 +19,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
- * A {@link Matrix} represents a mathematical matrix of doubles. A
- * {@link Matrix} has at least 1 row and 1 column.
+ * A {@link Matrix} represents a mathematical matrix of doubles.
  * 
  * All comparisons a {@link Matrix} does are approximative. For example: -The
  * second row of the matrix [4, 5; 0.000000001, 0] is interpreted as a zero row.
@@ -40,28 +39,28 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   private double[][] values;
 
   /**
-   * Creates a new {@link Matrix} with the given size. The values of the
-   * {@link Matrix} will be all 0.0.
+   * Creates a new quadratic {@link Matrix} with the given length. The values of
+   * the {@link Matrix} will be 0.0.
    * 
-   * @param size
-   * @throws NonPositiveArgumentException if the given size is not positive.
+   * @param length
+   * @throws NonPositiveArgumentException if the given length is not positive.
    */
-  private Matrix(final int size) {
+  private Matrix(final int length) {
 
-    //Asserts that the given size is positive.
-    Validator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
+    //Asserts that the given length is positive.
+    Validator.assertThat(length).thatIsNamed(LowerCaseVariableCatalog.LENGTH).isPositive();
 
-    values = new double[size][size];
+    values = new double[length][length];
   }
 
   /**
-   * Creates a new {@link Matrix} with the given number of rows and the given
-   * number of columns.
+   * Creates a new {@link Matrix} with the given rowCount and the given
+   * columnCount.
    * 
    * @param rowCount
    * @param columnCount
-   * @throws NonPositiveArgumentException if the given row count is not positive.
-   * @throws NonPositiveArgumentException if the given column count is not
+   * @throws NonPositiveArgumentException if the given rowCount is not positive.
+   * @throws NonPositiveArgumentException if the given columnCount is not
    *                                      positive.
    */
   private Matrix(final int rowCount, final int columnCount) {
@@ -95,53 +94,38 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
-   * @param size
-   * @return a new identity {@link Matrix} with the given size.
-   * @throws NonPositiveArgumentException if the given size is not positive.
+   * @param length
+   * @return a new identity {@link Matrix} with the given length.
+   * @throws NonPositiveArgumentException if the given length is not positive.
    */
-  public static Matrix createIdendityMatrix(final int size) {
-    return new Matrix(size).setDiagonalValuesTo(1.0);
+  public static Matrix createIdendityMatrixWithLength(final int length) {
+    return new Matrix(length).setDiagonalValuesTo(1.0);
   }
 
   /**
    * The values of the created {@link Matrix} will be all 1.0
    * 
-   * @param size
-   * @return a new {@link Matrix} with the given size.
-   * @throws NonPositiveArgumentException if the given size is not positive.
+   * @param length
+   * @return a new {@link Matrix} with the given length.
+   * @throws NonPositiveArgumentException if the given length is not positive.
    */
-  public static Matrix createMatrixOfOnes(final int size) {
-    return new Matrix(size).setAllValuesTo(1.0);
-  }
-
-  /**
-   * The values of the created {@link Matrix} will be all 1.0
-   * 
-   * @param rowCount
-   * @param columnCount
-   * @return a new {@link Matrix} with the given number of rows and the given
-   *         number of columns.
-   * @throws NonPositiveArgumentException if the given rowCount is not positive.
-   * @throws NonPositiveArgumentException if the given columnCount is not
-   *                                      positive.
-   */
-  public static Matrix createMatrixOfOnes(final int rowCount, final int columnCount) {
-    return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
+  public static Matrix createQuadraticMatrixWithOnesAndLength(final int length) {
+    return new Matrix(length).setAllValuesTo(1.0);
   }
 
   /**
    * The values of the created {@link Matrix} will be all a whole random number in
    * [0, 99].
    * 
-   * @param size
-   * @return a new {@link Matrix} with the given size.
+   * @param length
+   * @return a new {@link Matrix} with the given length.
    */
-  public static Matrix createRandomMatrix(final int size) {
+  public static Matrix createRandomQuadraticMatrixWithLength(final int length) {
 
     //Asserts that the given size is positive.
-    Validator.assertThat(size).thatIsNamed(LowerCaseVariableCatalog.SIZE).isPositive();
+    Validator.assertThat(length).thatIsNamed(LowerCaseVariableCatalog.LENGTH).isPositive();
 
-    return createRandomMatrix(size, size);
+    return createRandomQuadraticMatrixWithRowCountAndColumnCount(length, length);
   }
 
   /**
@@ -156,7 +140,9 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws NonPositiveArgumentException if the given columnCount is not
    *                                      positive.
    */
-  public static Matrix createRandomMatrix(final int rowCount, final int columnCount) {
+  public static Matrix createRandomQuadraticMatrixWithRowCountAndColumnCount(
+    final int rowCount,
+    final int columnCount) {
 
     //Creates Matrix.
     final var matrix = new Matrix(rowCount, columnCount);
@@ -174,6 +160,21 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
+   * The values of the created {@link Matrix} will be all 1.0
+   * 
+   * @param rowCount
+   * @param columnCount
+   * @return a new {@link Matrix} with the given number of rows and the given
+   *         number of columns.
+   * @throws NonPositiveArgumentException if the given rowCount is not positive.
+   * @throws NonPositiveArgumentException if the given columnCount is not
+   *                                      positive.
+   */
+  public static Matrix withOnesAndRowCountAndColumnCount(final int rowCount, final int columnCount) {
+    return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
+  }
+
+  /**
    * @return a new {@link Matrix} with the given rowCount and columnCount.
    * 
    * @param rowCount
@@ -182,7 +183,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws NonPositiveArgumentException if the given columnCount is not
    *                                      positive.
    */
-  public static Matrix createMatrixWithRowCountAndColumnCount(final int rowCount, final int columnCount) {
+  public static Matrix withRowCountAndColumnCount(final int rowCount, final int columnCount) {
 
     //Calls constructor.
     return new Matrix(rowCount, columnCount);
@@ -344,7 +345,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     assertIsQuadratic();
 
     final var matrix = getClone()
-      .appendAtRight(Matrix.createIdendityMatrix(getRowCount()))
+      .appendAtRight(Matrix.createIdendityMatrixWithLength(getRowCount()))
       .tranformFirstPartToIdentityMatrix();
 
     if (matrix.getRowCount() < getRowCount()) {
