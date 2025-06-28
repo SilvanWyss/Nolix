@@ -13,7 +13,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableValue;
-import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
@@ -55,11 +54,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
-    getStoredStyle()
-      .setBorderThicknessForState(ControlState.BASE, 1)
-      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalog.AQUAMARINE)
-      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalog.MEDIUM_AQUA_MARINE)
-      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalog.MEDIUM_AQUA_MARINE);
+    getStoredStyle().setBorderThicknessForState(ControlState.BASE, 1);
   }
 
   @Override
