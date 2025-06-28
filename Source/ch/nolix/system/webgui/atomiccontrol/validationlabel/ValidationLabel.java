@@ -37,6 +37,8 @@ implements IValidationLabel {
 
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
+
+    setMinWidth(500);
   }
 
   @Override
