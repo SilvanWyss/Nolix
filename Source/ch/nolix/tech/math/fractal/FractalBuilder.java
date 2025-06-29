@@ -24,8 +24,7 @@ public final class FractalBuilder implements IFractalBuilder {
   public static final int DEFAULT_HEIGHT_IN_PIXEL = DEFAULT_WIDHT_IN_PIXEL;
 
   public static final Function<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = //
-  z -> new ComplexSequenceDefinedBy1Predecessor(
-    z, p -> p.getPower2().getSum(z));
+  z -> ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(z, p -> p.getPower2().getSum(z));
 
   public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 10.0;
 

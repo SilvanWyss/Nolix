@@ -12,7 +12,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_1() {
 
     //setup
-    final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
+    final var testUnit = //
+    ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       new ComplexNumber(0.0, 0.0, 20),
       p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 
@@ -31,7 +32,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_2() {
 
     //setup
-    final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
+    final var testUnit = //
+    ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       new ComplexNumber(0.0, 0.0, 20),
       p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 
@@ -50,7 +52,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   void test_getSquaredMagnitudeOfValueAtOneBasedIndex() {
 
     //setup
-    final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
+    final var testUnit = //
+    ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       new ComplexNumber(0.0, 0.0, 20),
       p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 
@@ -65,7 +68,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   void test_getValueAtOneBasedIndex() {
 
     //setup
-    final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
+    final var testUnit = //
+    ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       new ComplexNumber(0.0, 0.0, 20),
       p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 

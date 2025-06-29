@@ -18,6 +18,9 @@ public final class SequenceFactory {
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForStartValueAndIncrement(
     final IComplexNumber startValue,
     final IComplexNumber increment) {
-    return new ComplexSequenceDefinedBy1Predecessor(startValue, z -> z.getPower2().getSum(increment));
+    return //
+    ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
+      startValue,
+      z -> z.getPower2().getSum(increment));
   }
 }

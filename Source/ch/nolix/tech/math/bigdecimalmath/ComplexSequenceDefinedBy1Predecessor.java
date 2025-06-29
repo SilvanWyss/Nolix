@@ -16,7 +16,7 @@ implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
 
   private final Function<IComplexNumber, IComplexNumber> nextValueFunction;
 
-  public ComplexSequenceDefinedBy1Predecessor(
+  private ComplexSequenceDefinedBy1Predecessor(
     final IComplexNumber firstValue,
     final UnaryOperator<IComplexNumber> nextValueFunction) {
 
@@ -25,6 +25,12 @@ implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
 
     this.firstValue = firstValue;
     this.nextValueFunction = nextValueFunction;
+  }
+
+  public static ComplexSequenceDefinedBy1Predecessor withFirstValueAndNextValueFunction(
+    final IComplexNumber firstValue,
+    final UnaryOperator<IComplexNumber> nextValueFunction) {
+    return new ComplexSequenceDefinedBy1Predecessor(firstValue, nextValueFunction);
   }
 
   @Override
