@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2016-09-01
  */
-public abstract class StatisticalModel {
+public abstract class AbstractStatisticalModel {
 
   private final int backStepCount;
 
@@ -16,7 +16,7 @@ public abstract class StatisticalModel {
 
   private final LinkedList<Double> forecasts = LinkedList.createEmpty();
 
-  protected StatisticalModel(final int backStepsCount, final double[] inputValues) {
+  protected AbstractStatisticalModel(final int backStepsCount, final double[] inputValues) {
 
     Validator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
     Validator.assertThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
