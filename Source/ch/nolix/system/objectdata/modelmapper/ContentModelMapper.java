@@ -32,28 +32,28 @@ public final class ContentModelMapper {
     final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
-    if (contentModelDto instanceof ValueModelDto valueModelDto) {
+    if (contentModelDto instanceof ValueModelDto) {
 
-      final var valueType = valueModelDto.dataType().getDataTypeClass();
+      final var valueType = contentModelDto.getDataType().getDataTypeClass();
 
       return ValueModelView.forValueType(valueType);
     }
 
-    if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
+    if (contentModelDto instanceof OptionalValueModelDto) {
 
-      final var valueType = optionalValueModelDto.dataType().getDataTypeClass();
+      final var valueType = contentModelDto.getDataType().getDataTypeClass();
 
       return OptionalValueModelView.forValueType(valueType);
     }
 
-    if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
+    if (contentModelDto instanceof MultiValueModelDto) {
 
-      final var valueType = multiValueModelDto.dataType().getDataTypeClass();
+      final var valueType = contentModelDto.getDataType().getDataTypeClass();
 
       return MultiValueModelView.forValueType(valueType);
     }
 
-    if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
+    if (contentModelDto instanceof final ReferenceModelDto referenceModelDto) {
 
       final var tableId = referenceModelDto.referencedTableId();
       final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
@@ -61,7 +61,7 @@ public final class ContentModelMapper {
       return ReferenceModelView.forReferencedTable(table);
     }
 
-    if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
+    if (contentModelDto instanceof final OptionalReferenceModelDto optionalReferenceModelDto) {
 
       final var tableId = optionalReferenceModelDto.referencedTableId();
       final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
@@ -69,7 +69,7 @@ public final class ContentModelMapper {
       return OptionalReferenceModelView.forReferencedTable(table);
     }
 
-    if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
+    if (contentModelDto instanceof final MultiReferenceModelDto multiReferenceModelDto) {
 
       final var tableId = multiReferenceModelDto.referencedTableId();
       final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
@@ -77,7 +77,7 @@ public final class ContentModelMapper {
       return MultiReferenceModelView.forReferencedTable(table);
     }
 
-    if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
+    if (contentModelDto instanceof final BackReferenceModelDto backReferenceModelDto) {
 
       final var backReferencedColumnId = backReferenceModelDto.backReferencedColumnId();
       final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
@@ -86,7 +86,7 @@ public final class ContentModelMapper {
       return BackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
     }
 
-    if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
+    if (contentModelDto instanceof final OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
 
       final var backReferencedColumnId = optionalBackReferenceModelDto.backReferencedColumnId();
       final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
@@ -95,7 +95,7 @@ public final class ContentModelMapper {
       return OptionalBackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
     }
 
-    if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
+    if (contentModelDto instanceof final MultiBackReferenceModelDto multiBackReferenceModelDto) {
 
       final var backReferencedColumnId = multiBackReferenceModelDto.backReferencedColumnId();
       final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
