@@ -4,7 +4,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
-import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
+import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 abstract class AbstractControlHeadStyle<C extends IControlHeadStyle<C>>
-extends MultiStateConfiguration<C, ControlState>
+extends AbstractMultiStateConfiguration<C, ControlState>
 implements IControlHeadStyle<C> {
 
   public static final double DEFAULT_OPACITY = 1.0;

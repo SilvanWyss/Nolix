@@ -16,7 +16,7 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
   }
 
   private static final class CustomMultiStateConfiguration
-  extends MultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
+  extends AbstractMultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
 
     static final CustomState BASE_STATE = CustomState.A;
 

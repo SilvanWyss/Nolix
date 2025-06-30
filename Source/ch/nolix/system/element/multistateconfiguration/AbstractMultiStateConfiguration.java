@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 
-public abstract class MultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
+public abstract class AbstractMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
 extends AbstractElement
 implements IMultiStateConfiguration<C, S> {
 
@@ -24,7 +24,7 @@ implements IMultiStateConfiguration<C, S> {
 
   private IContainer<AbstractProperty<S>> abstractProperties;
 
-  protected MultiStateConfiguration(final S baseState) {
+  protected AbstractMultiStateConfiguration(final S baseState) {
 
     Validator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 
@@ -95,7 +95,7 @@ implements IMultiStateConfiguration<C, S> {
   public final void setFrom(final C element) {
 
     @SuppressWarnings("unchecked")
-    final var iterator = ((MultiStateConfiguration<C, S>) element).getStoredProperties().iterator();
+    final var iterator = ((AbstractMultiStateConfiguration<C, S>) element).getStoredProperties().iterator();
 
     for (final var p : getStoredProperties()) {
       p.setFrom(iterator.next());
@@ -103,8 +103,8 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   /**
-   * @return the current {@link MultiStateConfiguration} as concrete
-   *         {@link MultiStateConfiguration}.
+   * @return the current {@link AbstractMultiStateConfiguration} as concrete
+   *         {@link AbstractMultiStateConfiguration}.
    */
   @SuppressWarnings("unchecked")
   protected final C asConcrete() {
@@ -116,7 +116,7 @@ implements IMultiStateConfiguration<C, S> {
 
     Validator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
 
-    ((MultiStateConfiguration<?, S>) child).setParent(this);
+    ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
   }
 
   protected final void initialize() {
@@ -218,7 +218,7 @@ implements IMultiStateConfiguration<C, S> {
     }
   }
 
-  private void setParent(final MultiStateConfiguration<?, S> parentElement) {
+  private void setParent(final AbstractMultiStateConfiguration<?, S> parentElement) {
 
     final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getStoredCascadingProperties());
 

@@ -10,7 +10,7 @@ public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder
 
   private final String name;
 
-  protected MultiStateConfiguration<?, S> parent;
+  protected AbstractMultiStateConfiguration<?, S> parent;
 
   protected AbstractProperty(final String name) {
 
@@ -32,7 +32,7 @@ public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder
 
   protected abstract void setValueFromSpecification(INode<?> specification);
 
-  final void setParent(final MultiStateConfiguration<?, S> parent) {
+  final void setParent(final AbstractMultiStateConfiguration<?, S> parent) {
 
     Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
 
