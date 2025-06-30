@@ -6,7 +6,8 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
-public abstract class WebClientSession<S> extends AbstractWebClientSession<WebClient<S>, S> {
+public abstract class WebClientSession<S> //NOSONAR: A web client session class is expected to be abstract.
+extends AbstractWebClientSession<WebClient<S>, S> {
 
   private final IWebGui<?> webGui = new WebGui();
 
