@@ -155,6 +155,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     return getPixel(getWidth(), getHeight());
   }
 
+  @Override
   public MutableImage getCopy() {
     return new MutableImage(pixels.getCopy());
   }
