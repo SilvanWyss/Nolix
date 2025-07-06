@@ -38,6 +38,8 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
 
   private static final BufferedImageTool BUFFERED_IMAGE_TOOL = new BufferedImageTool();
 
+  private boolean hasChanged;
+
   private final Matrix<IColor> pixels;
 
   @SuppressWarnings("unused")
@@ -227,6 +229,8 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     for (var i = 1; i <= pixelCount; i++) {
       pixels.setAt(i, X11ColorCatalog.WHITE);
     }
+
+    hasChanged = true;
   }
 
   public void saveAsPNG() {
@@ -243,6 +247,8 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     deletePixelArraySpecificationAndBufferedImage();
 
     pixels.setAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition, color);
+
+    hasChanged = true;
 
     return this;
   }
@@ -261,6 +267,8 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
       this.pixels.setAt(i, Color.fromString(p.getHeader()));
       i++;
     }
+
+    hasChanged = true;
   }
 
   public void setPixelArray(final Iterable<Color> pixelArray) {
@@ -277,6 +285,8 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
       pixels.setAt(i, p);
       i++;
     }
+
+    hasChanged = true;
   }
 
   @Override
@@ -485,5 +495,9 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     generatePixelArraySpecificationIfNeeded();
 
     return pixelArraySpecification;
+  }
+
+  private boolean hasChanged() {
+    return hasChanged;
   }
 }
