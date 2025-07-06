@@ -23,7 +23,6 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableSpecificationValueExtractor;
-import ch.nolix.system.element.property.Value;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
@@ -38,18 +37,6 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
 
   private static final BufferedImageTool BUFFERED_IMAGE_TOOL = new BufferedImageTool();
 
-  private final Value<Integer> width = new Value<>(
-    PascalCaseVariableCatalog.WIDTH,
-    this::setWidth,
-    INode::getSingleChildNodeAsInt,
-    Node::withChildNode);
-
-  private final Value<Integer> height = new Value<>(
-    PascalCaseVariableCatalog.HEIGHT,
-    this::setHeight,
-    INode::getSingleChildNodeAsInt,
-    Node::withChildNode);
-
   private final Matrix<IColor> pixels;
 
   @SuppressWarnings("unused")
@@ -61,10 +48,6 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   private BufferedImage bufferedImage;
 
   private MutableImage(final Matrix<IColor> pixels) {
-
-    setWidth(pixels.getColumnCount());
-    setHeight(pixels.getRowCount());
-
     this.pixels = pixels;
   }
 
@@ -175,7 +158,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
 
   @Override
   public int getHeight() {
-    return height.getValue();
+    return pixels.getRowCount();
   }
 
   @Override
@@ -231,7 +214,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
 
   @Override
   public int getWidth() {
-    return width.getValue();
+    return pixels.getColumnCount();
   }
 
   @Override
@@ -470,9 +453,13 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   }
 
   private Node createPixelArraySpecification() {
-    return Node.withHeaderAndChildNodes(
+    return //
+    Node.withHeaderAndChildNode(
       PIXEL_ARRAY_HEADER,
-      pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue())));
+      Node.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
+      Node.withHeaderAndChildNodes(
+        "Pixels", //TODO: Extend variable catalogs
+        pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
   }
 
   private void deletePixelArraySpecificationAndBufferedImage() {
@@ -497,19 +484,5 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     generatePixelArraySpecificationIfNeeded();
 
     return pixelArraySpecification;
-  }
-
-  private void setHeight(final int height) {
-
-    Validator.assertThat(height).thatIsNamed(LowerCaseVariableCatalog.HEIGHT).isPositive();
-
-    this.height.setValue(height);
-  }
-
-  private void setWidth(final int width) {
-
-    Validator.assertThat(width).thatIsNamed(LowerCaseVariableCatalog.WIDTH).isPositive();
-
-    this.width.setValue(width);
   }
 }
