@@ -28,19 +28,19 @@ public interface IImage extends IElement {
 
   int getWidth();
 
+  String toBase64Jpg();
+
+  String toBase64Png();
+
   BufferedImage toBufferedImage();
 
   IImage toImmutableImage();
 
-  byte[] toJPG();
-
-  String toJPGString();
+  byte[] toJpg();
 
   IMutableImage<?> toLeftRotatedImage();
 
-  byte[] toPNG();
-
-  String toPNGString();
+  byte[] toPng();
 
   IMutableImage<?> toRepeatedImage(int width, int height);
 

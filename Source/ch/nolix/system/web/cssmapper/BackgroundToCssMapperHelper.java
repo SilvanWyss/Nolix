@@ -88,7 +88,7 @@ public final class BackgroundToCssMapperHelper {
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsImage(final IBackground background) {
 
     final var image = background.getImage();
-    final var imageCode = "data:image/jpeg;base64," + image.toJPGString();
+    final var imageCode = "data:image/jpeg;base64," + image.toBase64Jpg();
     final var imageUrl = "url('" + imageCode + "')";
 
     final var backgroundImageCssProperty = //

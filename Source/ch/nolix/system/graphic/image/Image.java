@@ -111,6 +111,16 @@ public final class Image extends AbstractElement implements IImage {
   }
 
   @Override
+  public String toBase64Jpg() {
+    return internalImage.toBase64Jpg();
+  }
+
+  @Override
+  public String toBase64Png() {
+    return internalImage.toBase64Png();
+  }
+
+  @Override
   public BufferedImage toBufferedImage() {
     return internalImage.toBufferedImage();
   }
@@ -121,13 +131,8 @@ public final class Image extends AbstractElement implements IImage {
   }
 
   @Override
-  public byte[] toJPG() {
-    return internalImage.toJPG();
-  }
-
-  @Override
-  public String toJPGString() {
-    return internalImage.toJPGString();
+  public byte[] toJpg() {
+    return internalImage.toJpg();
   }
 
   @Override
@@ -140,13 +145,8 @@ public final class Image extends AbstractElement implements IImage {
   }
 
   @Override
-  public byte[] toPNG() {
-    return internalImage.toPNG();
-  }
-
-  @Override
-  public String toPNGString() {
-    return internalImage.toPNGString();
+  public byte[] toPng() {
+    return internalImage.toPng();
   }
 
   @Override

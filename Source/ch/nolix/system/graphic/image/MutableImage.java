@@ -291,6 +291,16 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   }
 
   @Override
+  public String toBase64Jpg() {
+    return Base64.getEncoder().encodeToString(toJpg());
+  }
+
+  @Override
+  public String toBase64Png() {
+    return Base64.getEncoder().encodeToString(toPng());
+  }
+
+  @Override
   public BufferedImage toBufferedImage() {
 
     generateBufferedImageIfNeeded();
@@ -304,7 +314,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   }
 
   @Override
-  public byte[] toJPG() {
+  public byte[] toJpg() {
 
     final var byteArrayOutputStream = new ByteArrayOutputStream();
     final var imageWriter = ImageIO.getImageWritersByFormatName("jpg").next();
@@ -326,17 +336,12 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   }
 
   @Override
-  public String toJPGString() {
-    return Base64.getEncoder().encodeToString(toJPG());
-  }
-
-  @Override
   public MutableImage toLeftRotatedImage() {
     return new MutableImage(pixels.toLeftRotatedMatrix());
   }
 
   @Override
-  public byte[] toPNG() {
+  public byte[] toPng() {
 
     final var byteArrayOutputStream = new ByteArrayOutputStream();
 
@@ -348,11 +353,6 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
-  }
-
-  @Override
-  public String toPNGString() {
-    return Base64.getEncoder().encodeToString(toPNG());
   }
 
   @Override
