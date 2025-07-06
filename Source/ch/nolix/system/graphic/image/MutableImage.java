@@ -21,6 +21,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableSpecificationValueExtractor;
 import ch.nolix.system.graphic.color.Color;
@@ -458,7 +459,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
       PIXEL_ARRAY_HEADER,
       Node.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
       Node.withHeaderAndChildNodes(
-        "Pixels", //TODO: Extend variable catalogs
+        PluralPascalCaseVariableCatalog.PIXELS,
         pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
   }
 

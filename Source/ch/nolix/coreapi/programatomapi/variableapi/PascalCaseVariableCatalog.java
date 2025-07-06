@@ -286,6 +286,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String PERMISSION = "Permission";
 
+  public static final String PIXEL = "Pixel";
+
   public static final String PORT = "Port";
 
   public static final String POSITION = "Position";

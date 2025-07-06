@@ -286,6 +286,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String PERMISSION = "permission";
 
+  public static final String PIXEL = "pixel";
+
   public static final String PORT = "port";
 
   public static final String POSITION = "position";

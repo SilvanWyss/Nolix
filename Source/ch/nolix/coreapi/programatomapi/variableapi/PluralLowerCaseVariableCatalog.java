@@ -288,6 +288,8 @@ public final class PluralLowerCaseVariableCatalog {
 
   public static final String PERMISSIONS = "permissions";
 
+  public static final String PIXELS = "pixels";
+
   public static final String PORTS = "ports";
 
   public static final String POSITIONS = "positions";

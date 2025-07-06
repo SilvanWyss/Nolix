@@ -288,6 +288,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String PERMISSIONS = "Permissions";
 
+  public static final String PIXELS = "Pixels";
+
   public static final String PORTS = "Ports";
 
   public static final String POSITIONS = "Positions";
