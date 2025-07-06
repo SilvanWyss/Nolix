@@ -38,7 +38,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
   }
 
   @Override
-  public CopyableIterator<E> createCopy() {
+  public CopyableIterator<E> getCopy() {
     return new MatrixColumnIterator<>(parentMatrixColumn, nextElementOneBasedRowIndex);
   }
 

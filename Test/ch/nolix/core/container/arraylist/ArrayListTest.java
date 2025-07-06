@@ -81,7 +81,7 @@ final class ArrayListTest extends ContainerTest {
     final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification
     expect(result).containsExactlyInSameOrder(testUnit);

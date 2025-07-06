@@ -29,7 +29,7 @@ public abstract class CopyableIteratorTest extends StandardTest {
     FlowController.forCount(4).run(testUnit::next);
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification
     expect(testUnit.next()).is(rhino);

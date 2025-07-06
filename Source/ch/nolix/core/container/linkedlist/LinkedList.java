@@ -305,7 +305,7 @@ implements ILinkedList<E> {
    * {@inheritDoc}
    */
   @Override
-  public ILinkedList<E> createCopy() {
+  public ILinkedList<E> getCopy() {
 
     //Creates a LinkedList.
     final var copy = new LinkedList<E>();

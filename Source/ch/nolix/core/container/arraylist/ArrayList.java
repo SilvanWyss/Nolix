@@ -230,7 +230,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * {@inheritDoc}
    */
   @Override
-  public IArrayList<E> createCopy() {
+  public IArrayList<E> getCopy() {
     return withElements(elements);
   }
 

@@ -47,7 +47,7 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
   }
 
   @Override
-  public CopyableIterator<E> createCopy() {
+  public CopyableIterator<E> getCopy() {
     return forArrayAndStartIndexAndMaxNextIndex(parentArray, nextIndex, maxNextIndex);
   }
 

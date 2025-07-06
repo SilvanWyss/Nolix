@@ -14,7 +14,7 @@ final class GetCopyMethodTest extends StandardTest {
     final var testUnit = LinkedList.createEmpty();
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification
     expect(result.isEmpty()).isTrue();
@@ -33,7 +33,7 @@ final class GetCopyMethodTest extends StandardTest {
     final var testUnit = LinkedList.withElement(antelope, baboon, elephant, lion, rhino, zebra);
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);

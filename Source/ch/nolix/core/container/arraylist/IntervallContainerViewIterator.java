@@ -63,7 +63,7 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> createCopy() {
+  public CopyableIterator<E> getCopy() {
     return new IntervallContainerViewIterator<>(parentContainer, currentIndex, endIndex);
   }
 

@@ -25,7 +25,7 @@ final class GetCopyMethodTest extends StandardTest {
     final var testUnit = ArrayIterator.forArray(array);
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification part 1: Verifies testUnit.
     expect(testUnit.next()).is(element1);
@@ -63,7 +63,7 @@ final class GetCopyMethodTest extends StandardTest {
     FlowController.forCount(3).run(testUnit::next);
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification part 1: Verifies testUnit.
     expect(testUnit.next()).is(element4);
@@ -95,7 +95,7 @@ final class GetCopyMethodTest extends StandardTest {
     FlowController.forCount(6).run(testUnit::next);
 
     //execution
-    final var result = testUnit.createCopy();
+    final var result = testUnit.getCopy();
 
     //verification part 1: Verifies testUnit.
     expect(testUnit.hasNext()).isFalse();

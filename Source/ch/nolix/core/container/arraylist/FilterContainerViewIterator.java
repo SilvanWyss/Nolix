@@ -52,8 +52,8 @@ public final class FilterContainerViewIterator<E> implements CopyableIterator<E>
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<E> createCopy() {
-    return forIteratorAndSelector(iterator.createCopy(), selector);
+  public CopyableIterator<E> getCopy() {
+    return forIteratorAndSelector(iterator.getCopy(), selector);
   }
 
   /**

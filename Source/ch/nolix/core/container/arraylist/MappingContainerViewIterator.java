@@ -61,8 +61,8 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
    * {@inheritDoc}
    */
   @Override
-  public CopyableIterator<T> createCopy() {
-    return forIteratorAndMapper(iterator.createCopy(), mapper);
+  public CopyableIterator<T> getCopy() {
+    return forIteratorAndMapper(iterator.getCopy(), mapper);
   }
 
   /**

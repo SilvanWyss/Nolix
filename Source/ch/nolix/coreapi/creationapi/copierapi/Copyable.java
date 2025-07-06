@@ -12,5 +12,5 @@ public interface Copyable<C extends Copyable<C>> {
   /**
    * @return a new copy of the current {@link Copyable}.
    */
-  C createCopy();
+  C getCopy();
 }

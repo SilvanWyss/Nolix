@@ -154,7 +154,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
       //Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
       var sequenceFulfillsElementConditions = true;
-      final var iterator2 = iterator.createCopy();
+      final var iterator2 = iterator.getCopy();
       for (final Predicate<E> c : elementConditions) {
 
         final var element = iterator2.next();
@@ -168,7 +168,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       if (sequenceFulfillsElementConditions) {
 
         final ILinkedList<E> sequence = LinkedList.createEmpty();
-        final var iterator3 = iterator.createCopy();
+        final var iterator3 = iterator.getCopy();
         FlowController.forCount(getSize()).run(() -> sequence.addAtEnd(iterator3.next()));
 
         //Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
