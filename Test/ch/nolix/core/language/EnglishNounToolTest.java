@@ -3,7 +3,7 @@ package ch.nolix.core.language;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.core.language.english.EnglishNounTool;
+import ch.nolix.core.englishlanguage.EnglishNounTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class EnglishNounToolTest extends StandardTest {

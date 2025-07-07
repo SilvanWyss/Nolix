@@ -1,6 +1,6 @@
-package ch.nolix.core.language.english;
+package ch.nolix.core.englishlanguage;
 
-import ch.nolix.coreapi.languageapi.englishapi.IEnglishWordEndExaminer;
+import ch.nolix.coreapi.englishlanguageapi.IEnglishWordEndExaminer;
 
 /**
  * @author Silvan Wyss
