@@ -1,4 +1,4 @@
-package ch.nolix.core.programstructure.data;
+package ch.nolix.core.datamodel.id;
 
 import java.util.UUID;
 
