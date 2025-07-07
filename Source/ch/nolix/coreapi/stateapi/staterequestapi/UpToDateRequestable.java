@@ -15,7 +15,7 @@ public interface UpToDateRequestable {
    * @return true if the current {@link UpToDateRequestable} is not up-to-date,
    *         false otherwise.
    */
-  default boolean isOutDated() {
+  default boolean isOutOfDate() {
     return !isUpToDate();
   }
 
