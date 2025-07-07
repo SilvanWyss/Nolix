@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.cachingcontainer.CachingProperty;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.structure.property.LazyCalculatedProperty;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
@@ -48,8 +48,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final Class<E> entityClass;
 
-  private final CachingProperty<IContainer<IColumnView<ITable<IEntity>>>> columnsThatReferenceCurrentTable = //
-  new CachingProperty<>(() -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
+  private final LazyCalculatedProperty<IContainer<IColumnView<ITable<IEntity>>>> columnsThatReferenceCurrentTable = //
+  LazyCalculatedProperty.forValueCreater(() -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 
@@ -237,7 +237,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   IContainer<IColumnView<ITable<IEntity>>> internalGetColumnsThatReferencesCurrentTable() {
-    return columnsThatReferenceCurrentTable.getValue();
+    return columnsThatReferenceCurrentTable.getStoredValue();
   }
 
   void internalSetColumns(final IContainer<IColumnView<ITable<IEntity>>> columnViews) {
