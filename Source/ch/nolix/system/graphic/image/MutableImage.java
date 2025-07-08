@@ -44,6 +44,10 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   private final MutableSpecificationValueExtractor pixelsExtractor = new MutableSpecificationValueExtractor(
     PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 
+  private String nullableBase64PngString;
+
+  private String nullableBase64JpgString;
+
   private Node nullablePixelArraySpecification;
 
   private BufferedImage nullableBufferedImage;
@@ -275,12 +279,22 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public String toBase64Jpg() {
-    return Base64.getEncoder().encodeToString(toJpg());
+
+    if (nullableBase64JpgString == null) {
+      nullableBase64JpgString = generateBase64JpgString();
+    }
+
+    return nullableBase64JpgString;
   }
 
   @Override
   public String toBase64Png() {
-    return Base64.getEncoder().encodeToString(toPng());
+
+    if (nullableBase64PngString == null) {
+      nullableBase64PngString = generateBase64PngString();
+    }
+
+    return nullableBase64PngString;
   }
 
   @Override
@@ -419,6 +433,14 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return toScaledImage((double) width / getWidth(), (double) height / getHeight());
   }
 
+  private String generateBase64JpgString() {
+    return Base64.getEncoder().encodeToString(toJpg());
+  }
+
+  private String generateBase64PngString() {
+    return Base64.getEncoder().encodeToString(toPng());
+  }
+
   private BufferedImage generateBufferedImage() {
 
     final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
@@ -469,6 +491,8 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   private void removeGeneratedOutputs() {
+    nullableBase64JpgString = null;
+    nullableBase64PngString = null;
     nullablePixelArraySpecification = null;
     nullableBufferedImage = null;
   }
