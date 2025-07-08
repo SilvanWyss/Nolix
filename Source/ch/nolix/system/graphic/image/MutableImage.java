@@ -2,7 +2,6 @@ package ch.nolix.system.graphic.image;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 
@@ -16,9 +15,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
@@ -30,7 +29,8 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
-public final class MutableImage extends AbstractMutableElement implements IMutableImage<MutableImage> {
+public final class MutableImage //NOSONAR: A MutableImage is a principal object thus it has many methods.
+extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 
@@ -38,17 +38,15 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
 
   private static final BufferedImageTool BUFFERED_IMAGE_TOOL = new BufferedImageTool();
 
-  private boolean hasChanged;
-
   private final Matrix<IColor> pixels;
 
   @SuppressWarnings("unused")
   private final MutableSpecificationValueExtractor pixelsExtractor = new MutableSpecificationValueExtractor(
     PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 
-  private Node pixelArraySpecification;
+  private Node nullablePixelArraySpecification;
 
-  private BufferedImage bufferedImage;
+  private BufferedImage nullableBufferedImage;
 
   private MutableImage(final Matrix<IColor> pixels) {
     this.pixels = pixels;
@@ -224,70 +222,55 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   @Override
   public void reset() {
 
-    deletePixelArraySpecificationAndBufferedImage();
+    removeGeneratedOutputs();
 
     final var pixelCount = getPixelCount();
     for (var i = 1; i <= pixelCount; i++) {
       pixels.setAt(i, X11ColorCatalog.WHITE);
-    }
-
-    hasChanged = true;
-  }
-
-  public void saveAsPNG() {
-    try {
-      ImageIO.write(toBufferedImage(), "PNG", new File(StringCatalog.EMPTY_STRING));
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
     }
   }
 
   @Override
   public MutableImage setPixel(int xPosition, int yPosition, final IColor color) {
 
-    deletePixelArraySpecificationAndBufferedImage();
+    removeGeneratedOutputs();
 
     pixels.setAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition, color);
-
-    hasChanged = true;
 
     return this;
   }
 
   public void setPixelArray(final INode<?> pixelArray) {
 
-    final var lPixelArray = pixelArray.getStoredChildNodes();
+    final var pixelSpecifications = pixelArray.getStoredChildNodes();
 
-    Validator.assertThat(lPixelArray.getCount()).thatIsNamed("number of pixels")
-      .isEqualTo(getPixelCount());
+    Validator.assertThat(pixelSpecifications.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 
-    deletePixelArraySpecificationAndBufferedImage();
+    removeGeneratedOutputs();
 
-    var i = 1;
-    for (final var p : lPixelArray) {
-      this.pixels.setAt(i, Color.fromString(p.getHeader()));
-      i++;
+    var index = 1;
+
+    for (final var p : pixelSpecifications) {
+
+      final var pixel = Color.fromString(p.getHeader());
+
+      pixels.setAt(index, pixel);
+      index++;
     }
-
-    hasChanged = true;
   }
 
-  public void setPixelArray(final Iterable<Color> pixelArray) {
+  public void setPixelArray(final IContainer<IColor> pixelArray) {
 
-    final var lPixelArray = ContainerView.forIterable(pixelArray);
+    Validator.assertThat(pixelArray.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 
-    Validator.assertThat(lPixelArray.getCount()).thatIsNamed("number of pixels")
-      .isEqualTo(getPixelCount());
+    removeGeneratedOutputs();
 
-    deletePixelArraySpecificationAndBufferedImage();
+    var index = 1;
 
-    var i = 1;
-    for (final var p : lPixelArray) {
-      pixels.setAt(i, p);
-      i++;
+    for (final var p : pixelArray) {
+      pixels.setAt(index, p);
+      index++;
     }
-
-    hasChanged = true;
   }
 
   @Override
@@ -303,9 +286,11 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
   @Override
   public BufferedImage toBufferedImage() {
 
-    generateBufferedImageIfNeeded();
+    if (nullableBufferedImage == null) {
+      nullableBufferedImage = generateBufferedImage();
+    }
 
-    return bufferedImage;
+    return nullableBufferedImage;
   }
 
   @Override
@@ -326,7 +311,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
 
       imageWriter.setOutput(ImageIO.createImageOutputStream(byteArrayOutputStream));
 
-      imageWriter.write(null, new IIOImage(createJPGBufferedImage(), null, null), imageWriteParam);
+      imageWriter.write(null, new IIOImage(generateJpgBufferedImage(), null, null), imageWriteParam);
       imageWriter.dispose();
 
       return byteArrayOutputStream.toByteArray();
@@ -434,7 +419,7 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     return toScaledImage((double) width / getWidth(), (double) height / getHeight());
   }
 
-  private BufferedImage createBufferedImage() {
+  private BufferedImage generateBufferedImage() {
 
     final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
     for (var y = 0; y < getHeight(); y++) {
@@ -449,22 +434,22 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
     return lBufferedImage;
   }
 
-  private BufferedImage createJPGBufferedImage() {
+  private BufferedImage generateJpgBufferedImage() {
 
-    final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+    final var bufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
     for (var y = 0; y < getHeight(); y++) {
       for (var x = 0; x < getWidth(); x++) {
 
         final var pixel = pixels.getStoredAtOneBasedRowIndexAndColumnIndex(y + 1, x + 1);
 
-        lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
+        bufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
       }
     }
 
-    return lBufferedImage;
+    return bufferedImage;
   }
 
-  private Node createPixelArraySpecification() {
+  private Node generatePixelArraySpecification() {
     return //
     Node.withHeaderAndChildNode(
       PIXEL_ARRAY_HEADER,
@@ -474,31 +459,17 @@ public final class MutableImage extends AbstractMutableElement implements IMutab
         pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
   }
 
-  private void deletePixelArraySpecificationAndBufferedImage() {
-    pixelArraySpecification = null;
-    bufferedImage = null;
-  }
-
-  private void generateBufferedImageIfNeeded() {
-    if (bufferedImage == null) {
-      bufferedImage = createBufferedImage();
-    }
-  }
-
-  private void generatePixelArraySpecificationIfNeeded() {
-    if (pixelArraySpecification == null) {
-      pixelArraySpecification = createPixelArraySpecification();
-    }
-  }
-
   private Node getPixelArraySpecification() {
 
-    generatePixelArraySpecificationIfNeeded();
+    if (nullablePixelArraySpecification == null) {
+      nullablePixelArraySpecification = generatePixelArraySpecification();
+    }
 
-    return pixelArraySpecification;
+    return nullablePixelArraySpecification;
   }
 
-  private boolean hasChanged() {
-    return hasChanged;
+  private void removeGeneratedOutputs() {
+    nullablePixelArraySpecification = null;
+    nullableBufferedImage = null;
   }
 }
