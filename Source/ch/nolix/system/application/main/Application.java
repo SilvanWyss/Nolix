@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.core.structurecontrol.reflectiontool.ClassTool;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
@@ -26,19 +25,17 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @version 2016-01-01
  * @param <C> is the type of the {@link AbstractBackendClient}s of a
  *            {@link Application}.
- * @param <S> is the type of the application context of a {@link Application}.
+ * @param <S> is the type of the application service of a {@link Application}.
  */
 public abstract class Application //NOSONAR: An application class is expected to be abstract.
 <C extends AbstractBackendClient<C, S>, S>
 implements IApplication<S> {
 
-  private static final ClassTool CLASS_TOOL = new ClassTool();
-
-  private final S applicationService;
-
   private String nameAddendum;
 
   private AbstractServer<?> parentServer;
+
+  private final S applicationService;
 
   private final LinkedList<C> clients = LinkedList.createEmpty();
 
@@ -50,7 +47,7 @@ implements IApplication<S> {
    */
   protected Application(final S applicationService) {
 
-    Validator.assertThat(applicationService).thatIsNamed("application context").isNotNull();
+    Validator.assertThat(applicationService).thatIsNamed("application service").isNotNull();
 
     this.applicationService = applicationService;
   }
@@ -288,7 +285,7 @@ implements IApplication<S> {
    */
   @SuppressWarnings("unchecked")
   private AbstractSession<C, S> createInitialSession() {
-    return (AbstractSession<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
+    return (AbstractSession<C, S>) ReflectionTool.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
   }
 
   /**
