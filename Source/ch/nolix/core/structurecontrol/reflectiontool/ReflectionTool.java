@@ -38,7 +38,7 @@ public final class ReflectionTool {
   }
 
   public static <T> T createInstanceFromDefaultConstructorOfClass(final Class<T> paramClass) {
-    return CLASS_TOOL.createInstanceFromDefaultConstructorOf(paramClass);
+    return CLASS_TOOL.createInstanceFromDefaultConstructorOfClass(paramClass);
   }
 
   public static <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {

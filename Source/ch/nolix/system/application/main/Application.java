@@ -177,7 +177,7 @@ implements IApplication<S> {
    */
   @SuppressWarnings("unchecked")
   protected final AbstractSession<C, S> createInitialSession() {
-    return (AbstractSession<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOf(getInitialSessionClass());
+    return (AbstractSession<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
   }
 
   /**

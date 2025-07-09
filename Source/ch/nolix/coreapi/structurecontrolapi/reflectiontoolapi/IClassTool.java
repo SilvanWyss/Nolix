@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public interface IClassTool {
 
-  <T> T createInstanceFromDefaultConstructorOf(Class<T> paramClass);
+  <T> T createInstanceFromDefaultConstructorOfClass(Class<T> paramClass);
 
   <T> Constructor<T> getDefaultConstructorOfClass(Class<T> paramClass);
 
