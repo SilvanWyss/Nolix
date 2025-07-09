@@ -172,15 +172,6 @@ implements IApplication<S> {
   }
 
   /**
-   * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of
-   *         the current {@link Application}.
-   */
-  @SuppressWarnings("unchecked")
-  protected final AbstractSession<C, S> createInitialSession() {
-    return (AbstractSession<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
-  }
-
-  /**
    * @return the initial {@link AbstractSession} class of the current
    *         {@link Application}.
    */
@@ -289,6 +280,15 @@ implements IApplication<S> {
     backendClient.internalSetEndPoint(endPoint);
 
     return backendClient;
+  }
+
+  /**
+   * @return a new initial {@link AbstractSession} for a {@link AbstractClient} of
+   *         the current {@link Application}.
+   */
+  @SuppressWarnings("unchecked")
+  private AbstractSession<C, S> createInitialSession() {
+    return (AbstractSession<C, S>) CLASS_TOOL.createInstanceFromDefaultConstructorOfClass(getInitialSessionClass());
   }
 
   /**
