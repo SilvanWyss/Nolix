@@ -13,5 +13,5 @@ public interface IApplicationExaminer {
    * @return true if the given application is a web {@link IApplication}, false
    *         otherwise.
    */
-  boolean isWebApplication(IApplication<?> application);
+  boolean isWebApplication(IApplication<?, ?> application);
 }

@@ -52,7 +52,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(IApplication<?> application) {
+  protected void noteRemovedApplication(IApplication<?, ?> application) {
     //Does nothing.
   }
 }

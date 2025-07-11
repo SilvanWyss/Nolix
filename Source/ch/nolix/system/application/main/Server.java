@@ -121,7 +121,7 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(final IApplication<?> application) {
+  protected void noteRemovedApplication(final IApplication<?, ?> application) {
     internalServer.removeSlotByName(application.getUrlInstanceName());
   }
 }

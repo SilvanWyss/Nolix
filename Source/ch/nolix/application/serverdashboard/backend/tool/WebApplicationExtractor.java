@@ -23,7 +23,7 @@ public final class WebApplicationExtractor implements IWebApplicationExtractor {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IApplication<Object>> getStoredWebApplicationsOfServer(final IServer server) {
+  public IContainer<? extends IApplication<?, Object>> getStoredWebApplicationsOfServer(final IServer server) {
 
     final ILinkedList<Application<WebClient<Object>, Object>> webApplications = LinkedList.createEmpty();
 

@@ -10,7 +10,8 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  * @author Silvan Wyss
  * @version 2023-11-19
  */
-public interface IServer extends Clearable, GroupCloseable, IApplicationManager<IApplication<?>>, ISecuriyModeHolder {
+public interface IServer
+extends Clearable, GroupCloseable, IApplicationManager<IApplication<?, ?>>, ISecuriyModeHolder {
 
   /**
    * @return a target representation of the current {@link IServer}.

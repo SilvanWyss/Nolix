@@ -32,7 +32,7 @@ public final class ServerDashboardService implements IServerDashboardService {
     return getStoredWebApplications().to(WebApplicationInfo::forWebApplication);
   }
 
-  private IContainer<? extends IApplication<Object>> getStoredWebApplications() {
+  private IContainer<? extends IApplication<?, Object>> getStoredWebApplications() {
     return WEB_APPLICATION_EXTRACTOR.getStoredWebApplicationsOfServer(server);
   }
 }

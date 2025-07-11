@@ -15,7 +15,7 @@ public final class ApplicationExaminer implements IApplicationExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isWebApplication(final IApplication<?> application) {
+  public boolean isWebApplication(final IApplication<?, ?> application) {
     return //
     application != null
     && application instanceof Application<?, ?> localApplication

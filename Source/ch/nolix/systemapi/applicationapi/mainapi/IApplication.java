@@ -6,8 +6,10 @@ import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
  * @author Silvan Wyss
  * @version 2025-07-11
  * @param <S> is the type of the application service of a {@link IApplication}.
+ * @param <C> is the type of the {@link IBackendClient}s of a
+ *            {@link IApplication}.
  */
-public interface IApplication<S> {
+public interface IApplication<C extends IBackendClient<S>, S> {
 
   /**
    * @return a target representation of the current {@link IApplication}.

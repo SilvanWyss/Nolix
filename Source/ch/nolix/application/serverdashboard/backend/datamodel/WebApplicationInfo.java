@@ -13,7 +13,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
 
   private final IImage applicationLogo;
 
-  private <S> WebApplicationInfo(final IApplication<?> webApplication) {
+  private <S> WebApplicationInfo(final IApplication<?, ?> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
 
@@ -26,7 +26,7 @@ public final class WebApplicationInfo implements IWebApplicationInfo {
     }
   }
 
-  public static WebApplicationInfo forWebApplication(final IApplication<?> webApplication) {
+  public static WebApplicationInfo forWebApplication(final IApplication<?, ?> webApplication) {
     return new WebApplicationInfo(webApplication);
   }
 

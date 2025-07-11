@@ -104,7 +104,7 @@ public final class SslServer extends AbstractServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemovedApplication(final IApplication<?> application) {
+  protected void noteRemovedApplication(final IApplication<?, ?> application) {
     internalWebSocketServer.removeSlotByName(application.getUrlInstanceName());
   }
 }

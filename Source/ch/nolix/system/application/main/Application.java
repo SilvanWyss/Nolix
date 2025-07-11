@@ -29,7 +29,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  */
 public abstract class Application //NOSONAR: An application class is expected to be abstract.
 <C extends AbstractBackendClient<C, S>, S>
-implements IApplication<S> {
+implements IApplication<C, S> {
 
   private String nameAddendum;
 

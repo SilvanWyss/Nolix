@@ -299,7 +299,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends IApplication<?>> getStoredApplications() {
+  public final IContainer<? extends IApplication<?, ?>> getStoredApplications() {
     return applications;
   }
 
@@ -419,7 +419,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * 
    * @param application
    */
-  protected abstract void noteRemovedApplication(IApplication<?> application);
+  protected abstract void noteRemovedApplication(IApplication<?, ?> application);
 
   /**
    * Lets the current {@link Server} take the given endPoint.
@@ -495,7 +495,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                                not contain the given
    *                                                application.
    */
-  private void removeApplication(final IApplication<?> application) {
+  private void removeApplication(final IApplication<?, ?> application) {
 
     applications.removeStrictlyFirstOccurrenceOf(application);
 
