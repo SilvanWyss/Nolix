@@ -132,9 +132,9 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @return true if the current {@link Application} has a {@link AbstractClient}
-   *         connected.
+   * {@inheritDoc}
    */
+  @Override
   public final boolean hasClientConnected() {
     return getStoredClients().containsAny();
   }

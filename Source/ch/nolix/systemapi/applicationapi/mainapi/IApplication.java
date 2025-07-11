@@ -56,6 +56,12 @@ public interface IApplication<C extends IBackendClient<S>, S> {
   String getUrlInstanceName();
 
   /**
+   * @return true if the current {@link IApplication} has a {@link IBackendClient}
+   *         connected, false otherwise.
+   */
+  boolean hasClientConnected();
+
+  /**
    * @return true if the current {@link IApplication} has an instance appendix,
    *         false otherwise.
    */
