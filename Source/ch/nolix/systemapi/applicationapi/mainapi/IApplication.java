@@ -5,7 +5,7 @@ import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 /**
  * @author Silvan Wyss
  * @version 2025-07-11
- * @param <S>
+ * @param <S> is the type of the application service of a {@link IApplication}.
  */
 public interface IApplication<S> {
 
