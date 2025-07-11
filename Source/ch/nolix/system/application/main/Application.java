@@ -72,9 +72,9 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @return the class of the {@link AbstractClient}s of the current
-   *         {@link Application}.
+   * {@inheritDoc}
    */
+  @Override
   @SuppressWarnings("unchecked")
   public final Class<C> getClientClass() {
     return (Class<C>) (createInitialSession().getClientClass());

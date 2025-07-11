@@ -28,6 +28,12 @@ public interface IApplication<C extends IBackendClient<S>, S> {
   String getApplicationName();
 
   /**
+   * @return the class of the {@link IBackendClient}s of the current
+   *         {@link IApplication}.
+   */
+  Class<C> getClientClass();
+
+  /**
    * @return the appendix that forms the instance name of the current
    *         {@link IApplication} when appended to the the application name of the
    *         current {@link IApplication}.
