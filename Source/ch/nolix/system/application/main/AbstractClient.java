@@ -15,8 +15,8 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.systemapi.applicationapi.mainapi.IClient;
 
 /**
  * A {@link AbstractClient} is an end point with comfortable functionalities.
@@ -25,7 +25,7 @@ import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
  * @version 2016-01-01
  * @param <C> is the type of a {@link AbstractClient}.
  */
-public abstract class AbstractClient<C extends AbstractClient<C>> implements GroupCloseable {
+public abstract class AbstractClient<C extends AbstractClient<C>> implements IClient {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -51,9 +51,10 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return the {@link SecurityMode} of the current {@link AbstractClient}.
+   * {@inheritDoc}
    */
-  public SecurityMode getSecurityMode() {
+  @Override
+  public final SecurityMode getSecurityMode() {
     return endPoint.getSecurityMode();
   }
 
@@ -80,10 +81,10 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
   }
 
   /**
-   * @return the name of the target {@link Application} of the current
-   *         {@link AbstractClient}.
+   * {@inheritDoc}
    */
-  public final String getTarget() {
+  @Override
+  public final String getUrlInstanceNameOfTargetApplication() {
     return getStoredEndPoint().getCustomTargetSlot();
   }
 
@@ -91,40 +92,31 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements Gro
    * @return true if the current {@link AbstractClient} has requested the
    *         connection.
    */
+  @Override
   public final boolean hasRequestedConnection() {
     return getStoredEndPoint().isFrontendEndPoint();
   }
 
   /**
-   * @return true if the current {@link AbstractClient} has a target.
+   * {@inheritDoc}
    */
-  public final boolean hasTarget() {
+  @Override
+  public final boolean hasUrlInstanceNameOfTargetApplication() {
     return getStoredEndPoint().hasCustomTargetSlot();
   }
-
-  /**
-   * @return true if the current {@link AbstractClient} is a backend
-   *         {@link AbstractClient}.
-   */
-  public abstract boolean isBackendClient();
 
   /**
    * {@inheritDoc}
    */
   @Override
   public final boolean isClosed() {
+
     /*
      * The end point of the current Client can be requested only when the current
      * Client is connected.
      */
     return (isConnected() && getStoredEndPoint().isClosed());
   }
-
-  /**
-   * @return true if the current {@link AbstractClient} is a frontend
-   *         {@link AbstractClient}.
-   */
-  public abstract boolean isFrontendClient();
 
   /**
    * @return true if the current {@link AbstractClient} is a local

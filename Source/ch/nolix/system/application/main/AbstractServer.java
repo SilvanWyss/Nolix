@@ -380,12 +380,15 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   public final void takeClient(final AbstractBackendClient<?, ?> client) {
 
     //Handles the case that the given client does not have a target.
-    if (!client.hasTarget()) {
+    if (!client.hasUrlInstanceNameOfTargetApplication()) {
       getStoredDefaultApplication().takeClient(client);
 
       //Handles the case that the given client has a target.
     } else {
-      getStoredApplicationByUrlInstanceName(client.getTarget()).takeClient(client);
+
+      final var targetApplicaitonUrlInstanceName = client.getUrlInstanceNameOfTargetApplication();
+
+      getStoredApplicationByUrlInstanceName(targetApplicaitonUrlInstanceName).takeClient(client);
     }
   }
 

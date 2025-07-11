@@ -40,9 +40,10 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @return the parent {@link Application} of the current {@link AbstractBackendClient}.
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient} does
-   *                                  not reference its parent
+   * @return the parent {@link Application} of the current
+   *         {@link AbstractBackendClient}.
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   *                                  does not reference its parent
    *                                  {@link Application}.
    */
   public final Application<C, S> getStoredParentApplication() {
@@ -56,16 +57,8 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
    * {@inheritDoc}
    */
   @Override
-  public final boolean isBackendClient() {
+  public final boolean isOnBackend() {
     return true;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean isFrontendClient() {
-    return false;
   }
 
   /**
@@ -79,22 +72,25 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @return the current {@link AbstractSession} of the current {@link AbstractBackendClient}.
+   * @return the current {@link AbstractSession} of the current
+   *         {@link AbstractBackendClient}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractBackendClient} does not
-   *                                               have a current {@link AbstractSession}.
+   *                                               {@link AbstractBackendClient}
+   *                                               does not have a current
+   *                                               {@link AbstractSession}.
    */
   protected final AbstractSession<C, S> getStoredCurrentSession() {
     return sessionManager.getStoredCurrentSession();
   }
 
   /**
-   * Sets the {@link AbstractEndPoint} of the current {@link AbstractBackendClient}.
+   * Sets the {@link AbstractEndPoint} of the current
+   * {@link AbstractBackendClient}.
    * 
    * @param abstractEndPoint
    * @throws ArgumentIsNullException  if the given endPoint is null.
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient} is
-   *                                  already connected.
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   *                                  is already connected.
    */
   protected final void setEndPoint(final AbstractEndPoint abstractEndPoint) {
     internalSetEndPoint(abstractEndPoint);
@@ -109,14 +105,15 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Pops the current {@link AbstractSession} of the current {@link AbstractBackendClient} from
-   * the current {@link AbstractBackendClient}. Closes the current {@link AbstractBackendClient}
-   * if the current {@link AbstractSession} of the current {@link AbstractBackendClient} was the
+   * Pops the current {@link AbstractSession} of the current
+   * {@link AbstractBackendClient} from the current {@link AbstractBackendClient}.
+   * Closes the current {@link AbstractBackendClient} if the current
+   * {@link AbstractSession} of the current {@link AbstractBackendClient} was the
    * last {@link AbstractSession} of the current {@link AbstractBackendClient}.
    * 
-   * @InvalidArgumentException if the current {@link AbstractSession} of the current
-   *                           {@link AbstractBackendClient} is not the top
-   *                           {@link AbstractSession} of the current
+   * @InvalidArgumentException if the current {@link AbstractSession} of the
+   *                           current {@link AbstractBackendClient} is not the
+   *                           top {@link AbstractSession} of the current
    *                           {@link AbstractBackendClient}.
    */
   final void internalPopCurrentSession() {
@@ -124,16 +121,17 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Pops the current {@link AbstractSession} of the current {@link AbstractBackendClient} from
-   * the current {@link AbstractBackendClient} Forwards the given result. Closes the
-   * current {@link AbstractBackendClient} if the current {@link AbstractSession} of the current
-   * {@link AbstractBackendClient} was the last {@link AbstractSession} of the current
-   * {@link AbstractBackendClient}.
+   * Pops the current {@link AbstractSession} of the current
+   * {@link AbstractBackendClient} from the current {@link AbstractBackendClient}
+   * Forwards the given result. Closes the current {@link AbstractBackendClient}
+   * if the current {@link AbstractSession} of the current
+   * {@link AbstractBackendClient} was the last {@link AbstractSession} of the
+   * current {@link AbstractBackendClient}.
    * 
    * @param result
-   * @InvalidArgumentException if the current {@link AbstractSession} of the current
-   *                           {@link AbstractBackendClient} is not the top
-   *                           {@link AbstractSession} of the current
+   * @InvalidArgumentException if the current {@link AbstractSession} of the
+   *                           current {@link AbstractBackendClient} is not the
+   *                           top {@link AbstractSession} of the current
    *                           {@link AbstractBackendClient}.
    */
   final void internalPopCurrentSessionAndForwardGivenResult(final Object result) {
@@ -163,10 +161,11 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Sets the current {@link AbstractSession} of the current {@link AbstractBackendClient}. That
-   * means the current {@link AbstractSession} of the current {@link AbstractBackendClient} will
-   * be popped from the current {@link AbstractBackendClient} and the given session will
-   * be pushed to the current {@link AbstractBackendClient}.
+   * Sets the current {@link AbstractSession} of the current
+   * {@link AbstractBackendClient}. That means the current {@link AbstractSession}
+   * of the current {@link AbstractBackendClient} will be popped from the current
+   * {@link AbstractBackendClient} and the given session will be pushed to the
+   * current {@link AbstractBackendClient}.
    * 
    * @param session
    * @throws ArgumentIsNullException if the given session is null.
@@ -176,8 +175,8 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * Sets the {@link Application} the current {@link AbstractBackendClient} will belong
-   * to.
+   * Sets the {@link Application} the current {@link AbstractBackendClient} will
+   * belong to.
    * 
    * @param parentApplication
    * @throws ArgumentIsNullException  if the given parentApplication is null.
@@ -209,8 +208,8 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient} does
-   *                                  not reference its parent
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   *                                  does not reference its parent
    *                                  {@link Application}.
    */
   private void assertReferencesParentApplication() {
@@ -220,8 +219,8 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @return true if the current {@link AbstractBackendClient} references its parent
-   *         {@link Application}.
+   * @return true if the current {@link AbstractBackendClient} references its
+   *         parent {@link Application}.
    */
   private boolean referencesParentApplication() {
     return (parentApplication != null);

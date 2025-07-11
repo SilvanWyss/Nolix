@@ -18,24 +18,17 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * {@inheritDoc}
    */
   @Override
-  public final boolean isBackendClient() {
+  public final boolean isOnBackend() {
     return false;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean isFrontendClient() {
-    return true;
   }
 
   /**
    * Connects the current {@link AbstractFrontendClient} to the given application.
    * 
    * @param application
-   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
-   *                                  already connected.
+   * @throws InvalidArgumentException if the current
+   *                                  {@link AbstractFrontendClient} is already
+   *                                  connected.
    */
   protected final void connectTo(final Application<?, ?> application) {
 
@@ -51,8 +44,9 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * {@link Application} on the given server.
    * 
    * @param server
-   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
-   *                                  already connected.
+   * @throws InvalidArgumentException if the current
+   *                                  {@link AbstractFrontendClient} is already
+   *                                  connected.
    */
   protected final void connectTo(final AbstractServer<?> server) {
 
@@ -69,39 +63,43 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * 
    * @param port
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
-   *                                       is already connected.
+   * @throws InvalidArgumentException      if the current
+   *                                       {@link AbstractFrontendClient} is
+   *                                       already connected.
    */
   protected final void connectTo(final int port) {
     internalSetEndPoint(new NetEndPoint(port));
   }
 
   /**
-   * Connects the current {@link AbstractFrontendClient} to the {@link Application} with
-   * the given name on the given port on the local computer.
+   * Connects the current {@link AbstractFrontendClient} to the
+   * {@link Application} with the given name on the given port on the local
+   * computer.
    * 
    * @param port
    * @param name
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    * @throws ArgumentIsNullException       if the given name is null.
    * @throws EmptyArgumentException        if the given name is blank.
-   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
-   *                                       is already connected.
+   * @throws InvalidArgumentException      if the current
+   *                                       {@link AbstractFrontendClient} is
+   *                                       already connected.
    */
   protected final void connectTo(final int port, final String name) {
     internalSetEndPoint(new NetEndPoint(port, name));
   }
 
   /**
-   * Connects the current {@link AbstractFrontendClient} to the {@link Application} with
-   * the given instanceName on the given server.
+   * Connects the current {@link AbstractFrontendClient} to the
+   * {@link Application} with the given instanceName on the given server.
    * 
    * @param server
    * @param instanceName
    * @throws ArgumentIsNullException  if the given instanceName is null.
    * @throws EmptyArgumentException   if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
-   *                                  already connected.
+   * @throws InvalidArgumentException if the current
+   *                                  {@link AbstractFrontendClient} is already
+   *                                  connected.
    */
   protected final void connectTo(final AbstractServer<?> server, final String instanceName) {
 
@@ -117,8 +115,9 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * {@link Application} on the HTTP port (80) on the computer with the given ip.
    * 
    * @param ip
-   * @throws InvalidArgumentException if the current {@link AbstractFrontendClient} is
-   *                                  already connected.
+   * @throws InvalidArgumentException if the current
+   *                                  {@link AbstractFrontendClient} is already
+   *                                  connected.
    */
   protected final void connectTo(final String ip) {
     internalSetEndPoint(new NetEndPoint(ip));
@@ -131,16 +130,18 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @param ip
    * @param port
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
-   *                                       is already connected.
+   * @throws InvalidArgumentException      if the current
+   *                                       {@link AbstractFrontendClient} is
+   *                                       already connected.
    */
   protected final void connectTo(final String ip, final int port) {
     internalSetEndPoint(new NetEndPoint(ip, port));
   }
 
   /**
-   * Connects the current {@link AbstractFrontendClient} to the {@link Application} with
-   * the given name on the given port on the computer with the given ip.
+   * Connects the current {@link AbstractFrontendClient} to the
+   * {@link Application} with the given name on the given port on the computer
+   * with the given ip.
    * 
    * @param ip
    * @param port
@@ -148,8 +149,9 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    * @throws ArgumentIsNullException       if the given name is null.
    * @throws EmptyArgumentException        if the given name is blank.
-   * @throws InvalidArgumentException      if the current {@link AbstractFrontendClient}
-   *                                       is already connected.
+   * @throws InvalidArgumentException      if the current
+   *                                       {@link AbstractFrontendClient} is
+   *                                       already connected.
    */
   protected final void connectTo(final String ip, final int port, final String name) {
     internalSetEndPoint(new NetEndPoint(ip, port, name));
