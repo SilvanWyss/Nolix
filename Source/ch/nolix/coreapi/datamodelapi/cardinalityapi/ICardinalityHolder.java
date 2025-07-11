@@ -1,7 +1,5 @@
-package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
+package ch.nolix.coreapi.datamodelapi.cardinalityapi;
 
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**

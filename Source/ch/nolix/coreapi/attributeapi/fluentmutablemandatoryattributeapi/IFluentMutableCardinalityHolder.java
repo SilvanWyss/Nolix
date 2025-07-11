@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.ICardinalityHolder;
 
 /**
  * A {@link IFluentMutableCardinalityHolder} is a {@link ICardinalityHolder}
