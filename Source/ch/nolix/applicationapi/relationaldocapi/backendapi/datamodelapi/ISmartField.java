@@ -2,8 +2,8 @@ package ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelapi;
 
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.CATEGORIZABLE;
 import ch.nolix.applicationapi.relationaldocapi.backendapi.datamodelbasepi.ContentTypeAssignable;
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableCardinalityHolder;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.IFluentMutableCardinalityHolder;
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
 
