@@ -5,6 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.AbstractEndPoint;
+import ch.nolix.systemapi.applicationapi.mainapi.IBackendClient;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +14,9 @@ import ch.nolix.core.net.endpoint3.AbstractEndPoint;
  * @param <S> is the type of the context of the parent {@link Application} of a
  *            {@link AbstractBackendClient}.
  */
-public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S> extends AbstractClient<C> {
+public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
+extends AbstractClient<C>
+implements IBackendClient<S> {
 
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
@@ -32,9 +35,9 @@ public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S
   }
 
   /**
-   * @return the context of the parent {@link Application} of the current
-   *         {@link AbstractBackendClient}.
+   * {@inheritDoc}
    */
+  @Override
   public final S getStoredApplicationService() {
     return getStoredParentApplication().getStoredApplicationService();
   }
