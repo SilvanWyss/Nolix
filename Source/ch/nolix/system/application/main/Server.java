@@ -5,9 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.netapi.serverapi.ISinglePortServer;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
-import ch.nolix.systemapi.applicationapi.mainapi.IWebServer;
 
 /**
  * A {@link Server} is a {@link AbstractServer} that listens to net
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IWebServer;
  * @author Silvan Wyss
  * @version 2017-09-10
  */
-public final class Server extends AbstractServer<Server> implements IWebServer {
+public final class Server extends AbstractServer<Server> implements ISinglePortServer {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
