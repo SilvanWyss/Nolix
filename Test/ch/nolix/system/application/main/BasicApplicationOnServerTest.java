@@ -23,7 +23,7 @@ final class BasicApplicationOnServerTest extends StandardTest {
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution
-      final var result = testUnit.getNameAddendum();
+      final var result = testUnit.getInstanceAppendix();
 
       //verification
       expect(result).isEqualTo("Instance1");

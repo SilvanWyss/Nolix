@@ -24,7 +24,7 @@ final class BasicApplicationTest extends StandardTest {
 
     //verification
     expect(result.getApplicationName()).isEqualTo("My application");
-    expect(result.hasNameAddendum()).isFalse();
+    expect(result.hasInstanceAppendix()).isFalse();
     expect(result.getStoredApplicationService()).is(applicationService);
     expect(result.hasClientConnected()).isFalse();
   }

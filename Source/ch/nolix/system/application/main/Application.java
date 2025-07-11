@@ -86,18 +86,18 @@ implements IApplication<S> {
   @Override
   public final String getInstanceName() {
 
-    if (!hasNameAddendum()) {
+    if (!hasInstanceAppendix()) {
       return getApplicationName();
     }
 
-    return String.format("%s %s", getApplicationName(), getNameAddendum());
+    return String.format("%s %s", getApplicationName(), getInstanceAppendix());
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final String getNameAddendum() {
+  public final String getInstanceAppendix() {
 
     assertHasNameAddendum();
 
@@ -142,7 +142,7 @@ implements IApplication<S> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasNameAddendum() {
+  public final boolean hasInstanceAppendix() {
     return (nameAddendum != null);
   }
 
@@ -236,7 +236,7 @@ implements IApplication<S> {
    *                                       already an instance name.
    */
   private void assertDoesNotHaveNameAddendum() {
-    if (hasNameAddendum()) {
+    if (hasInstanceAppendix()) {
       throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "instance name");
     }
   }
@@ -247,7 +247,7 @@ implements IApplication<S> {
    *                                               have a name addendum.
    */
   private void assertHasNameAddendum() {
-    if (!hasNameAddendum()) {
+    if (!hasInstanceAppendix()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "name addendum");
     }
   }
