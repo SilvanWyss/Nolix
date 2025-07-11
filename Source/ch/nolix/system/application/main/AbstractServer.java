@@ -354,7 +354,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * {@inheritDoc}
    */
   @Override
-  public final void removeApplicationByInstanceName(final String instanceName) {
+  public final void removeApplicationWithInstanceName(final String instanceName) {
 
     final var application = getStoredApplicationByInstanceName(instanceName);
 
