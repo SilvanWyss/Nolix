@@ -14,6 +14,7 @@ import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
@@ -31,13 +32,13 @@ public abstract class Application //NOSONAR: An application class is expected to
 <C extends AbstractBackendClient<C, S>, S>
 implements IApplication<C, S> {
 
-  private String nameAddendum;
+  private String instanceAddendix;
 
   private AbstractServer<?> parentServer;
 
   private final S applicationService;
 
-  private final LinkedList<C> clients = LinkedList.createEmpty();
+  private final ILinkedList<C> clients = LinkedList.createEmpty();
 
   /**
    * Creates a new {@link Application} with the given applicationService.
@@ -81,7 +82,18 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @return the instance name of the current {@link Application}.
+   * {@inheritDoc}
+   */
+  @Override
+  public final String getInstanceAppendix() {
+
+    assertHasNameAddendum();
+
+    return instanceAddendix;
+  }
+
+  /**
+   * {@inheritDoc}
    */
   @Override
   public final String getInstanceName() {
@@ -91,17 +103,6 @@ implements IApplication<C, S> {
     }
 
     return String.format("%s %s", getApplicationName(), getInstanceAppendix());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final String getInstanceAppendix() {
-
-    assertHasNameAddendum();
-
-    return nameAddendum;
   }
 
   /**
@@ -143,7 +144,7 @@ implements IApplication<C, S> {
    */
   @Override
   public final boolean hasInstanceAppendix() {
-    return (nameAddendum != null);
+    return (instanceAddendix != null);
   }
 
   /**
@@ -152,7 +153,7 @@ implements IApplication<C, S> {
    * @param client
    */
   @SuppressWarnings("unchecked")
-  public final void takeClient(final AbstractBackendClient<?, ?> client) {
+  final void takeClient(final AbstractBackendClient<?, ?> client) {
     final var localClient = (C) client;
     localClient.internalSetParentApplication(this);
     clients.addAtEnd(localClient);
@@ -164,7 +165,7 @@ implements IApplication<C, S> {
    * 
    * @param endPoint
    */
-  public final void takeEndPoint(final IEndPoint endPoint) {
+  final void takeEndPoint(final IEndPoint endPoint) {
     takeClient(createBackendClientWithEndPoint(endPoint));
   }
 
@@ -175,21 +176,21 @@ implements IApplication<C, S> {
   protected abstract Class<?> getInitialSessionClass();
 
   /**
-   * Sets the given nameAddendum to the current {@link Application}.
+   * Sets the given nameAddendix to the current {@link Application}.
    * 
-   * @param nameAddendum
-   * @throws ArgumentIsNullException       if the given nameAddendum is null
-   * @throws InvalidArgumentException      if the given nameAddendum is blank.
+   * @param nameAddendix
+   * @throws ArgumentIsNullException       if the given nameAddendix is null
+   * @throws InvalidArgumentException      if the given nameAddendix is blank.
    * @throws ArgumentHasAttributeException if the current {@link Application} has
    *                                       already an instance name.
    */
-  final void internalSetNameAddendum(final String nameAddendum) {
+  final void setNameAppendix(final String nameAddendix) {
 
-    Validator.assertThat(nameAddendum).thatIsNamed("instance name").isNotBlank();
+    Validator.assertThat(nameAddendix).thatIsNamed("instance name").isNotBlank();
 
     assertDoesNotHaveNameAddendum();
 
-    this.nameAddendum = nameAddendum;
+    this.instanceAddendix = nameAddendix;
   }
 
   /**
@@ -200,7 +201,7 @@ implements IApplication<C, S> {
    *                                          belongs already to a
    *                                          {@link AbstractServer}.
    */
-  final void internalSetParentServer(final AbstractServer<?> parentServer) {
+  final void setParentServer(final AbstractServer<?> parentServer) {
 
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
     assertDoesNotBelongToServer();

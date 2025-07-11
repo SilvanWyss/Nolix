@@ -45,7 +45,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    */
   public final S addApplication(final Application<?, ?> application) {
 
-    application.internalSetParentServer(this);
+    application.setParentServer(this);
 
     addApplicationToList(application);
     noteAddedApplication(application);
@@ -72,8 +72,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    */
   public final S addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
 
-    application.internalSetParentServer(this);
-    application.internalSetNameAddendum(nameAddendum);
+    application.setParentServer(this);
+    application.setNameAppendix(nameAddendum);
 
     addApplicationToList(application);
     noteAddedApplication(application);
@@ -165,7 +165,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   public final <C extends AbstractBackendClient<C, U>, U> S addDefaultApplication(
     final Application<C, U> defaultApplication) {
 
-    defaultApplication.internalSetParentServer(this);
+    defaultApplication.setParentServer(this);
 
     addApplicationToList(defaultApplication);
     this.defaultApplication = defaultApplication;
