@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.managerapi.applicationmanagerapi.IApplicationManager;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
  * @author Silvan Wyss
  * @version 2023-11-19
  */
-public interface IServer extends Clearable, GroupCloseable {
+public interface IServer extends Clearable, GroupCloseable, IApplicationManager<IApplication<?>> {
 
   /**
    * @return the current {@link IServer} as {@link IServerTarget}.
@@ -23,11 +23,6 @@ public interface IServer extends Clearable, GroupCloseable {
    * @return the {@link SecurityMode} of the current {@link IServer}.
    */
   SecurityMode getSecurityMode();
-
-  /**
-   * @return the {@link IApplication}s of the current {@link IServer}.
-   */
-  IContainer<? extends IApplication<?>> getStoredApplications();
 
   /**
    * Removes the {@link IApplication} with the given instanceName from the current

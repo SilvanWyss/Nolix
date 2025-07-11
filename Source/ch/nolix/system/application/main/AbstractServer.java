@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
@@ -28,7 +29,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   private Application<?, ?> defaultApplication;
 
-  private final LinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
+  private final ILinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
 
   /**
    * Adds the given application to the current {@link AbstractServer}.
