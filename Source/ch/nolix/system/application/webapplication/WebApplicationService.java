@@ -2,8 +2,8 @@ package ch.nolix.system.application.webapplication;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.graphic.image.Image;
-import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationService;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.webapplicationapi.mainapi.IWebApplicationService;
 
 public class WebApplicationService implements IWebApplicationService {
 

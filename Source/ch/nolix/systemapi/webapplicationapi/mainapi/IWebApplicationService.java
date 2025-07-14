@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.applicationapi.webapplicationapi;
+package ch.nolix.systemapi.webapplicationapi.mainapi;
 
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 

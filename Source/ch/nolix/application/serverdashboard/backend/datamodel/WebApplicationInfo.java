@@ -4,8 +4,8 @@ import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebAp
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
-import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationService;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.webapplicationapi.mainapi.IWebApplicationService;
 
 public final class WebApplicationInfo implements IWebApplicationInfo {
 

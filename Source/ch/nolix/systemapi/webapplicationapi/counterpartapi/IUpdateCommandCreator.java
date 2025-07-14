@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.applicationapi.webapplicationcounterpartupdaterapi;
+package ch.nolix.systemapi.webapplicationapi.counterpartapi;
 
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.applicationapi.componentapi;
+package ch.nolix.systemapi.webapplicationapi.componentapi;
 
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 

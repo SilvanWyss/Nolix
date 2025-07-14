@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.applicationapi.webapplicationprotocol;
+package ch.nolix.systemapi.webapplicationapi.protocol;
 
 public final class ControlCommandProtocol {
 

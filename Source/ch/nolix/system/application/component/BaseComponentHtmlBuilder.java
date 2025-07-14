@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
-import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
+import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 
 public final class BaseComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {
