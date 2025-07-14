@@ -16,7 +16,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.systemapi.applicationapi.mainapi.IClient;
+import ch.nolix.systemapi.applicationapi.clientapi.IClient;
 
 /**
  * A {@link AbstractClient} is an end point with comfortable functionalities.

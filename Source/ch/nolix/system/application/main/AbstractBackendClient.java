@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.AbstractEndPoint;
-import ch.nolix.systemapi.applicationapi.mainapi.IBackendClient;
+import ch.nolix.systemapi.applicationapi.clientapi.IBackendClient;
 
 /**
  * @author Silvan Wyss

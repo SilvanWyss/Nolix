@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.applicationapi.mainapi;
+package ch.nolix.systemapi.applicationapi.clientapi;
 
 import ch.nolix.coreapi.netapi.netattributeapi.ISecuriyModeHolder;
 import ch.nolix.coreapi.netapi.staterequestapi.ConnectionSideRequestable;
