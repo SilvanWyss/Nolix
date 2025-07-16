@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientCounterpartUpdater;
-import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPartialCounterpartUpdater;
+import ch.nolix.system.webapplication.counterpartupdater.WebClientCounterpartUpdater;
+import ch.nolix.system.webapplication.counterpartupdater.WebClientPartialCounterpartUpdater;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 

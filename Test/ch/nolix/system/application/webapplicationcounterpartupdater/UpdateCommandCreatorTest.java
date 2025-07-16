@@ -3,6 +3,7 @@ package ch.nolix.system.application.webapplicationcounterpartupdater;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.system.webapplication.counterpartupdater.UpdateCommandCreator;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.webgui.main.WebGui;

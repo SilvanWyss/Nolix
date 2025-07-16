@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplicationcounterpartupdater;
+package ch.nolix.system.webapplication.counterpartupdater;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;

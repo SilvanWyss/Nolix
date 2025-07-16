@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplicationcounterpartupdater;
+package ch.nolix.system.webapplication.counterpartupdater;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
