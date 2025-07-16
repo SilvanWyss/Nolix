@@ -9,7 +9,7 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.application.basewebapplication.AbstractWebClient;
-import ch.nolix.system.application.webapplicationrefreshqueue.WebClientRefreshQueue;
+import ch.nolix.system.webapplication.refreshqueue.WebClientRefreshQueue;
 import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webapplicationapi.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplicationapi.protocol.ControlCommandProtocol;

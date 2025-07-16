@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplicationrefreshqueue;
+package ch.nolix.system.webapplication.refreshqueue;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplicationrefreshqueue;
+package ch.nolix.system.webapplication.refreshqueue;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
