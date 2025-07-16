@@ -1,4 +1,4 @@
-package ch.nolix.system.application.component;
+package ch.nolix.system.webapplication.component;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
