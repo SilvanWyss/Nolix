@@ -7,7 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.system.webapplication.main.WebClient;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 

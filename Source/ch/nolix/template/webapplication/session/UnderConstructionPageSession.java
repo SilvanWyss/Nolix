@@ -1,8 +1,8 @@
 package ch.nolix.template.webapplication.session;
 
-import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;

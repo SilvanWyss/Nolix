@@ -3,7 +3,7 @@ package ch.nolix.system.webapplication.component;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.adapterapi.IAdapterFactory;
-import ch.nolix.system.application.webapplication.WebClientSession;
+import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.

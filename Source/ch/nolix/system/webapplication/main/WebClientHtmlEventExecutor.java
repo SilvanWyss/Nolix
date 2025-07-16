@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplication;
+package ch.nolix.system.webapplication.main;
 
 import java.util.Optional;
 import java.util.function.BooleanSupplier;

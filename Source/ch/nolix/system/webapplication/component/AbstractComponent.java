@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
-import ch.nolix.system.application.webapplication.WebClientSession;
+import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webapplicationapi.componentapi.IComponentStyle;

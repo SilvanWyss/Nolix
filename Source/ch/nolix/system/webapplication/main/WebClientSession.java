@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplication;
+package ch.nolix.system.webapplication.main;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;

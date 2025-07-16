@@ -1,7 +1,7 @@
 package ch.nolix.system.webapplication.component;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.system.application.webapplication.WebClientSession;
+import ch.nolix.system.webapplication.main.WebClientSession;
 
 public abstract class Controller<AS> { //NOSONAR: This class is a base type that does not have abstract methods.
 

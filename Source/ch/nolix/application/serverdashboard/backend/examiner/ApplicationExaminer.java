@@ -2,7 +2,7 @@ package ch.nolix.application.serverdashboard.backend.examiner;
 
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.examinerapi.IApplicationExaminer;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.system.webapplication.main.WebClient;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 /**

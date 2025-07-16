@@ -6,7 +6,7 @@ import ch.nolix.application.serverdashboard.frontend.webapplicationcomponent.Web
 import ch.nolix.applicationapi.serverdashboardapi.backendapi.datamodelapi.IWebApplicationInfo;
 import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDashboardService;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.application.webapplication.WebClientSession;
+import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;

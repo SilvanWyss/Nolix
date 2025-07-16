@@ -4,7 +4,7 @@ import ch.nolix.application.serverdashboard.frontend.session.ServerDashboardSess
 import ch.nolix.applicationapi.serverdashboardapi.frontendapi.mainapi.IServerDashboardService;
 import ch.nolix.system.application.main.AbstractServer;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.system.webapplication.main.WebClient;
 
 public final class ServerDashboardApplication
 extends Application<WebClient<IServerDashboardService>, IServerDashboardService> {

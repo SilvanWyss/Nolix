@@ -1,4 +1,4 @@
-package ch.nolix.system.application.webapplication;
+package ch.nolix.system.webapplication.main;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.graphic.image.Image;
