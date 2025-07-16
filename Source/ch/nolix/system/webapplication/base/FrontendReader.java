@@ -1,4 +1,4 @@
-package ch.nolix.system.application.basewebapplication;
+package ch.nolix.system.webapplication.base;
 
 import java.util.Optional;
 

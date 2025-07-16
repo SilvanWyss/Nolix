@@ -1,4 +1,4 @@
-package ch.nolix.system.application.basewebapplication;
+package ch.nolix.system.webapplication.base;
 
 import ch.nolix.system.application.main.AbstractSession;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;

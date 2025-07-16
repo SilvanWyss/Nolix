@@ -1,7 +1,7 @@
 package ch.nolix.system.application.webapplication;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.application.basewebapplication.AbstractWebClientSession;
+import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;

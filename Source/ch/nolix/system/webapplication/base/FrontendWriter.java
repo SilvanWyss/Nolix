@@ -1,4 +1,4 @@
-package ch.nolix.system.application.basewebapplication;
+package ch.nolix.system.webapplication.base;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
