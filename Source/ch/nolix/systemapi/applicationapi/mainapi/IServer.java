@@ -15,6 +15,18 @@ public interface IServer<S extends IServer<S>>
 extends Clearable, GroupCloseable, IApplicationManager<IApplication<?, ?>>, ISecuriyModeHolder {
 
   /**
+   * Adds the given application to the current {@link IServer}.
+   * 
+   * @param application
+   * @return the current {@link IServer}.
+   * @throws RuntimeException if the given application is null.
+   * @throws RuntimeException if the current {@link IServer} contains already a
+   *                          {@link IApplication} with the same instanceName as
+   *                          the given application.
+   */
+  S addApplication(final IApplication<?, ?> application);
+
+  /**
    * @return a target representation of the current {@link IServer}.
    */
   IServerTarget asTarget();

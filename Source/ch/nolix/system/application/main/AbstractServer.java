@@ -32,23 +32,17 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   private final ILinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
 
   /**
-   * Adds the given application to the current {@link AbstractServer}.
-   * 
-   * @param application
-   * @return the current {@link AbstractServer}.
-   * @throws ArgumentIsNullException  if the given application is null.
-   * @throws ArgumentIsNullException  if the given instanceName is null
-   * @throws InvalidArgumentException if the given instanceName is blank.
-   * @throws InvalidArgumentException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  the given instanceName.
+   * {@inheritDoc}
    */
-  public final S addApplication(final Application<?, ?> application) {
+  @Override
+  public final S addApplication(final IApplication<?, ?> application) {
 
-    application.setParentServer(this);
+    final var localApplication = (Application<?, ?>) application;
 
-    addApplicationToList(application);
-    noteAddedApplication(application);
+    localApplication.setParentServer(this);
+
+    addApplicationToList(localApplication);
+    noteAddedApplication(localApplication);
 
     return asConcrete();
   }
