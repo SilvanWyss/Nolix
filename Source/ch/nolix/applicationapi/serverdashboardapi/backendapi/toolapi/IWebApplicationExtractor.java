@@ -15,5 +15,5 @@ public interface IWebApplicationExtractor {
    * @return the web applications of the given server.
    * @throws RuntimeException if the given server is null.
    */
-  IContainer<? extends IApplication<?, Object>> getStoredWebApplicationsOfServer(IServer server);
+  IContainer<? extends IApplication<?, Object>> getStoredWebApplicationsOfServer(IServer<?> server);
 }

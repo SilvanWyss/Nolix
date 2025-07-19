@@ -23,7 +23,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IServer;
  * @author Silvan Wyss
  * @version 2016-11-01
  */
-public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer {
+public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer<S> {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
