@@ -14,7 +14,7 @@ public final class NolixEnvironmentService {
 
   public static String getNolixConfigurationFilePath() {
 
-    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH);
+    createFileIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH);
 
     return NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH;
   }
@@ -28,9 +28,9 @@ public final class NolixEnvironmentService {
 
   public static String getNolixLicensesDirectoryPath() {
 
-    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_NAME);
+    createDirectoryIfDoesNotExist(NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_PATH);
 
-    return NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_NAME;
+    return NolixDirectoryAndFileCatalog.NOLIX_LICENSES_DIRECTORY_PATH;
   }
 
   public static String getNolixLogFilePath() {
