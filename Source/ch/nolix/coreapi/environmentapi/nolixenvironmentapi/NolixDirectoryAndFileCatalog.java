@@ -17,12 +17,12 @@ public final class NolixDirectoryAndFileCatalog {
   public static final String NOLIX_LICENSES_DIRECTORY_PATH = //
   NOLIX_DIRECTORY_PATH + FOLDER_DELIMITER + NOLIX_LICENSES_DIRECTORY_NAME;
 
-  public static final String NOLIX_CONFIGURATION_FILE_NAME = "configuration.txt";
+  public static final String NOLIX_CONFIGURATION_FILE_NAME = "configuration";
 
   public static final String NOLIX_CONFIGURATION_FILE_PATH = //
   NOLIX_DIRECTORY_PATH + FOLDER_DELIMITER + NOLIX_CONFIGURATION_FILE_NAME;
 
-  public static final String NOLI_LOG_FILE_NAME = "log.txt";
+  public static final String NOLI_LOG_FILE_NAME = "log";
 
   public static final String NOLIX_LOG_FILE_PATH = NOLIX_DIRECTORY_PATH + FOLDER_DELIMITER + NOLI_LOG_FILE_NAME;
 
