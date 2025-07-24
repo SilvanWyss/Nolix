@@ -43,7 +43,8 @@ public final class FieldFromColumnCreator {
         OptionalValueField
           .withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case MULTI_VALUE ->
-        MultiValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
+        MultiValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView)
+          .getValueType());
       case REFERENCE ->
         createReferenceFromAbstractReferenceModelView(
           (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
