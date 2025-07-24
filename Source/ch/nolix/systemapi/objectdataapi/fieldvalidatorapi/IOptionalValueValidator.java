@@ -4,7 +4,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 
 public interface IOptionalValueValidator extends IFieldValidator {
 
-  <V> void assertCanSetGivenValue(IOptionalValueField<V> optionalValue, V value);
+  <V> void assertCanSetValue(IOptionalValueField<V> optionalValueField, V value);
 
-  void assertHasValue(IOptionalValueField<?> optionalValue);
+  void assertContainsValue(IOptionalValueField<?> optionalValueField);
 }

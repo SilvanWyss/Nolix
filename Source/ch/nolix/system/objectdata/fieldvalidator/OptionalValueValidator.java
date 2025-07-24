@@ -12,16 +12,16 @@ public final class OptionalValueValidator extends FieldValidator implements IOpt
   private static final IOptionalValueTool OPTIONAL_VALUE_TOOL = new OptionalValueTool();
 
   @Override
-  public <V> void assertCanSetGivenValue(final IOptionalValueField<V> optionalValue, final V value) {
-    if (!OPTIONAL_VALUE_TOOL.canSetGivenValue(optionalValue, value)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
+  public <V> void assertCanSetValue(final IOptionalValueField<V> optionalValueField, final V value) {
+    if (!OPTIONAL_VALUE_TOOL.canSetValue(optionalValueField, value)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValueField, "cannot set the given value");
     }
   }
 
   @Override
-  public void assertHasValue(final IOptionalValueField<?> optionalValue) {
-    if (optionalValue.isEmpty()) {
-      throw EmptyArgumentException.forArgument(optionalValue);
+  public void assertContainsValue(final IOptionalValueField<?> optionalValueField) {
+    if (optionalValueField.isEmpty()) {
+      throw EmptyArgumentException.forArgument(optionalValueField);
     }
   }
 }

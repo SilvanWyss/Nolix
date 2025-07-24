@@ -56,7 +56,7 @@ public final class OptionalValueField<V> extends AbstractValueField<V> implement
   @Override
   public V getStoredValue() {
 
-    OPTIONAL_VALUE_VALIDATOR.assertHasValue(this);
+    OPTIONAL_VALUE_VALIDATOR.assertContainsValue(this);
 
     return internalValue;
   }
@@ -84,7 +84,7 @@ public final class OptionalValueField<V> extends AbstractValueField<V> implement
   @Override
   public void setValue(final V value) {
 
-    OPTIONAL_VALUE_VALIDATOR.assertCanSetGivenValue(this, value);
+    OPTIONAL_VALUE_VALIDATOR.assertCanSetValue(this, value);
 
     updateStateForSetValue(value);
 
