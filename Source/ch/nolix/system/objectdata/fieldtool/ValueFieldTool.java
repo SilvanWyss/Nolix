@@ -6,15 +6,16 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 public final class ValueFieldTool extends FieldTool implements IValueFieldTool {
 
   @Override
-  public boolean canSetValue(final IValueField<?> value, final Object valueToSet) {
+  public boolean canSetValue(final IValueField<?> valueField) {
     return //
-    canSetValue(value)
-    && valueToSet != null;
+    valueField != null
+    && valueField.isOpen();
   }
 
-  private boolean canSetValue(final IValueField<?> value) {
+  @Override
+  public boolean canSetValue(final IValueField<?> valueField, final Object value) {
     return //
-    value != null
-    && value.isOpen();
+    canSetValue(valueField)
+    && value != null;
   }
 }
