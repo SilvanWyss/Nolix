@@ -1,9 +1,6 @@
 package ch.nolix.system.application.main;
 
-import java.util.HashMap;
-
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -31,17 +28,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
 
   private IEndPoint endPoint;
 
-  private final HashMap<String, String> sessionVariables = new HashMap<>();
-
-  /**
-   * @param key
-   * @return true if the current {@link AbstractClient} contains a session
-   *         variable with the given key, false otherwise.
-   */
-  public final boolean containsSessionVariableWithKey(final String key) {
-    return sessionVariables.containsKey(key);
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -56,28 +42,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
   @Override
   public final SecurityMode getSecurityMode() {
     return endPoint.getSecurityMode();
-  }
-
-  /**
-   * @param key
-   * @return the value of the session variable with the given key from the current
-   *         {@link AbstractClient}.
-   * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link AbstractClient} does
-   *                                                not contain a session variable
-   *                                                with the given key.
-   */
-  public final String getSessionVariableValueByKey(final String key) {
-
-    final var value = sessionVariables.get(key);
-
-    if (value == null) {
-      throw ArgumentDoesNotContainElementException.forArgumentAndElement(
-        this,
-        "session variable with the key + '" + key + "'");
-    }
-
-    return value;
   }
 
   /**
@@ -142,21 +106,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    */
   public final boolean isWebClient() {
     return getStoredEndPoint().isWebSocketEndPoint();
-  }
-
-  /**
-   * Sets a session variable with the given key and value to the current
-   * {@link AbstractClient}.
-   * 
-   * Will overwrite a previous session variable if the current
-   * {@link AbstractClient} contains already a session variable with the given
-   * key.
-   * 
-   * @param key
-   * @param value
-   */
-  public final void setSessionVariableWithKeyAndValue(final String key, final String value) {
-    sessionVariables.put(key, value);
   }
 
   /**
