@@ -3,16 +3,16 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
 import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
-import ch.nolix.system.objectdata.fieldtool.ValueTool;
+import ch.nolix.system.objectdata.fieldtool.ValueFieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
+import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueFieldTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 
 public final class ValueField<V> extends AbstractValueField<V> implements IValueField<V> {
 
-  private static final IValueTool VALUE_TOOL = new ValueTool();
+  private static final IValueFieldTool VALUE_TOOL = new ValueFieldTool();
 
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
 

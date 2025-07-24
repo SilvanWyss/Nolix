@@ -25,7 +25,7 @@ final class ValueToolTest extends StandardTest {
     //setup
     final var pet = new Pet();
     final String valueToSet = "Garfield";
-    final var testUnit = new ValueTool();
+    final var testUnit = new ValueFieldTool();
 
     //execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
@@ -44,7 +44,7 @@ final class ValueToolTest extends StandardTest {
     databaseAdapter.insertEntity(pet);
     databaseAdapter.close();
     final String valueToSet = "Garfield";
-    final var testUnit = new ValueTool();
+    final var testUnit = new ValueFieldTool();
 
     //setup verification
     expect(pet.name.isClosed()).isTrue();
@@ -62,7 +62,7 @@ final class ValueToolTest extends StandardTest {
     //setup
     final var pet = new Pet();
     final String valueToSet = null;
-    final var testUnit = new ValueTool();
+    final var testUnit = new ValueFieldTool();
 
     //execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
