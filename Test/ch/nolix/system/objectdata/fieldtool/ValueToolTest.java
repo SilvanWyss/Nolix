@@ -6,13 +6,13 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
-import ch.nolix.system.objectdata.model.Value;
+import ch.nolix.system.objectdata.model.ValueField;
 
 final class ValueToolTest extends StandardTest {
 
   private static class Pet extends Entity {
 
-    private final Value<String> name = Value.withValueType(String.class);
+    private final ValueField<String> name = ValueField.withValueType(String.class);
 
     public Pet() {
       initialize();

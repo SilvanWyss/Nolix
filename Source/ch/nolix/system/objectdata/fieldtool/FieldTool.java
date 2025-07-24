@@ -7,9 +7,9 @@ import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 
 public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
 
@@ -25,7 +25,7 @@ public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
     };
   }
 
-  private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?> multiValue) {
+  private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValueField<?> multiValue) {
 
     if (multiValue.isEmpty()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot know its data type");
@@ -34,7 +34,7 @@ public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
     return multiValue.getAllStoredValues().getStoredFirst().getClass();
   }
 
-  private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?> optionalValue) {
+  private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValueField<?> optionalValue) {
 
     if (optionalValue.isEmpty()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot know its data type");
@@ -43,7 +43,7 @@ public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
     return optionalValue.getStoredValue().getClass();
   }
 
-  private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?> value) {
+  private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValueField<?> value) {
 
     if (value.isEmpty()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot know its data type");
@@ -77,11 +77,11 @@ public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
   private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IField field) {
     return switch (field.getType()) {
       case VALUE ->
-        getDataTypeWhenDoesNotBelongToEntity((IValue<?>) field);
+        getDataTypeWhenDoesNotBelongToEntity((IValueField<?>) field);
       case OPTIONAL_VALUE ->
-        getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?>) field);
+        getDataTypeWhenDoesNotBelongToEntity((IOptionalValueField<?>) field);
       case MULTI_VALUE ->
-        getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?>) field);
+        getDataTypeWhenDoesNotBelongToEntity((IMultiValueField<?>) field);
       default ->
         throw InvalidArgumentException.forArgumentAndErrorPredicate(field, "is not a base value");
     };

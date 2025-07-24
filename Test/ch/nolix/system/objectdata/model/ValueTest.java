@@ -11,7 +11,7 @@ final class ValueTest extends StandardTest {
   void testCase_constructor() {
 
     //execution
-    final var result = Value.withValueType(String.class);
+    final var result = ValueField.withValueType(String.class);
 
     //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
@@ -26,7 +26,7 @@ final class ValueTest extends StandardTest {
   void testCase_setValue() {
 
     //setup
-    final var testUnit = Value.withValueType(String.class);
+    final var testUnit = ValueField.withValueType(String.class);
 
     //execution
     testUnit.setValue("LoremIpsum");

@@ -10,9 +10,9 @@ import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 
-public final class OptionalValue<V> extends AbstractValue<V> implements IOptionalValue<V> {
+public final class OptionalValueField<V> extends AbstractValueField<V> implements IOptionalValueField<V> {
 
   private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
@@ -22,22 +22,22 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
 
   private V internalValue;
 
-  private OptionalValue(final Class<V> valueType) {
+  private OptionalValueField(final Class<V> valueType) {
     super(valueType);
   }
 
-  public static <V2> OptionalValue<V2> withInitialValue(final V2 initialValue) {
+  public static <V2> OptionalValueField<V2> withInitialValue(final V2 initialValue) {
 
     @SuppressWarnings("unchecked")
-    final var optionalValue = (OptionalValue<V2>) OptionalValue.withValueType(initialValue.getClass());
+    final var optionalValue = (OptionalValueField<V2>) OptionalValueField.withValueType(initialValue.getClass());
 
     optionalValue.setValue(initialValue);
 
     return optionalValue;
   }
 
-  public static <V2> OptionalValue<V2> withValueType(final Class<V2> valueType) {
-    return new OptionalValue<>(valueType);
+  public static <V2> OptionalValueField<V2> withValueType(final Class<V2> valueType) {
+    return new OptionalValueField<>(valueType);
   }
 
   @Override

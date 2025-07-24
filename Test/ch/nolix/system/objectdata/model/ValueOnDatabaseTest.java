@@ -11,7 +11,7 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   private static final class Pet extends Entity {
 
-    final Value<String> name = Value.withValueType(String.class);
+    final ValueField<String> name = ValueField.withValueType(String.class);
 
     Pet() {
       initialize();

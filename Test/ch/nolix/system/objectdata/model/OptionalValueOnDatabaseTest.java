@@ -10,7 +10,7 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
 
   private static final class Pet extends Entity {
 
-    private final OptionalValue<String> name = OptionalValue.withValueType(String.class);
+    private final OptionalValueField<String> name = OptionalValueField.withValueType(String.class);
 
     Pet() {
       initialize();

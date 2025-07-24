@@ -10,7 +10,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   private static final class Round extends Entity {
 
-    final MultiValue<Integer> amounts = MultiValue.withValueType(Integer.class);
+    final MultiValueField<Integer> amounts = MultiValueField.withValueType(Integer.class);
 
     Round() {
       initialize();

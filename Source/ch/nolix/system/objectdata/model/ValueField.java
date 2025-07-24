@@ -8,9 +8,9 @@ import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 
-public final class Value<V> extends AbstractValue<V> implements IValue<V> {
+public final class ValueField<V> extends AbstractValueField<V> implements IValueField<V> {
 
   private static final IValueTool VALUE_TOOL = new ValueTool();
 
@@ -20,22 +20,22 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
 
   private V internalValue;
 
-  private Value(final Class<V> valueType) {
+  private ValueField(final Class<V> valueType) {
     super(valueType);
   }
 
-  public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
+  public static <V2> ValueField<V2> withInitialValue(final V2 initialValue) {
 
     @SuppressWarnings("unchecked")
-    final var value = (Value<V2>) Value.withValueType(initialValue.getClass());
+    final var value = (ValueField<V2>) ValueField.withValueType(initialValue.getClass());
 
     value.setValue(initialValue);
 
     return value;
   }
 
-  public static <V2> Value<V2> withValueType(final Class<V2> valueType) {
-    return new Value<>(valueType);
+  public static <V2> ValueField<V2> withValueType(final Class<V2> valueType) {
+    return new ValueField<>(valueType);
   }
 
   @Override

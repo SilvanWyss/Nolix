@@ -10,9 +10,9 @@ final class TableTest extends StandardTest {
 
   private static final class Person extends Entity {
 
-    private final Value<String> firstName = Value.withValueType(String.class);
+    private final ValueField<String> firstName = ValueField.withValueType(String.class);
 
-    private final Value<String> lastName = Value.withValueType(String.class);
+    private final ValueField<String> lastName = ValueField.withValueType(String.class);
 
     void setFirstNameAndLastName(final String firstName, final String lastName) {
       this.firstName.setValue(firstName);

@@ -4,21 +4,21 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
 
-public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
+public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
 
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private final IMultiValue<V> parentMultiValue;
+  private final IMultiValueField<V> parentMultiValue;
 
   private DatabaseObjectState state;
 
   private final V value;
 
-  private MultiValueEntry(
-    final IMultiValue<V> parentMultiValue,
+  private MultiValueFieldEntry(
+    final IMultiValueField<V> parentMultiValue,
     final DatabaseObjectState initialState,
     final V value) {
 
@@ -31,20 +31,20 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
     this.value = value;
   }
 
-  public static <V2> MultiValueEntry<V2> loadedEntryForMultiValueAndValue(
-    final IMultiValue<V2> multiValue,
+  public static <V2> MultiValueFieldEntry<V2> loadedEntryForMultiValueAndValue(
+    final IMultiValueField<V2> multiValue,
     final V2 value) {
-    return new MultiValueEntry<>(multiValue, DatabaseObjectState.LOADED, value);
+    return new MultiValueFieldEntry<>(multiValue, DatabaseObjectState.LOADED, value);
   }
 
-  public static <V2> MultiValueEntry<V2> newEntryForMultiValueAndValue(
-    final IMultiValue<V2> multiValue,
+  public static <V2> MultiValueFieldEntry<V2> newEntryForMultiValueAndValue(
+    final IMultiValueField<V2> multiValue,
     final V2 value) {
-    return new MultiValueEntry<>(multiValue, DatabaseObjectState.NEW, value);
+    return new MultiValueFieldEntry<>(multiValue, DatabaseObjectState.NEW, value);
   }
 
   @Override
-  public IMultiValue<V> getStoredParentMultiValue() {
+  public IMultiValueField<V> getStoredParentMultiValue() {
     return parentMultiValue;
   }
 

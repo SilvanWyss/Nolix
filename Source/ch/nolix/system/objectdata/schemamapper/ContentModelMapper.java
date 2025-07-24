@@ -15,12 +15,12 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
@@ -61,16 +61,16 @@ implements IContentModelMapper {
     final IField field,
     final IContainer<ITable> referencedTables) {
 
-    if (field instanceof IValue<?> value) {
+    if (field instanceof IValueField<?> value) {
       return VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(value, referencedTables);
     }
 
-    if (field instanceof IOptionalValue<?> optionalValue) {
+    if (field instanceof IOptionalValueField<?> optionalValue) {
       return //
       OPTIONAL_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(optionalValue, referencedTables);
     }
 
-    if (field instanceof IMultiValue<?> multiValue) {
+    if (field instanceof IMultiValueField<?> multiValue) {
       return MULTI_VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(multiValue, referencedTables);
     }
 

@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 
 public interface IValueTool extends IFieldTool {
 
-  boolean canSetValue(IValue<?> value, Object valueToSet);
+  boolean canSetValue(IValueField<?> value, Object valueToSet);
 }

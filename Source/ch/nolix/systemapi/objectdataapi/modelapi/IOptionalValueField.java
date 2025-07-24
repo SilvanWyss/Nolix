@@ -1,6 +1,8 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
-public interface IValue<V> extends IAbstractValue<V> {
+import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+
+public interface IOptionalValueField<V> extends Clearable, IAbstractValueField<V> {
 
   V getStoredValue();
 

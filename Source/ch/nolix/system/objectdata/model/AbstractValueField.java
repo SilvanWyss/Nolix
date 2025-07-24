@@ -5,15 +5,15 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractValueField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 
-public abstract class AbstractValue<V> extends AbstractField implements IAbstractValue<V> {
+public abstract class AbstractValueField<V> extends AbstractField implements IAbstractValueField<V> {
 
   private final Class<V> valueType;
 
-  protected AbstractValue(final Class<V> valueType) {
+  protected AbstractValueField(final Class<V> valueType) {
 
     Validator.assertThat(valueType).thatIsNamed("value type").isNotNull();
 

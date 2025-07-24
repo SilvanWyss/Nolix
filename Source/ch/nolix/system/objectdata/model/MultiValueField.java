@@ -10,10 +10,10 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
 
-public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue<V> {
+public final class MultiValueField<V> extends AbstractValueField<V> implements IMultiValueField<V> {
 
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 
@@ -21,14 +21,14 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
 
   private boolean loadedAllPersistedValues;
 
-  private final LinkedList<MultiValueEntry<V>> localEntries = LinkedList.createEmpty();
+  private final LinkedList<MultiValueFieldEntry<V>> localEntries = LinkedList.createEmpty();
 
-  private MultiValue(final Class<V> valueType) {
+  private MultiValueField(final Class<V> valueType) {
     super(valueType);
   }
 
-  public static <V2> MultiValue<V2> withValueType(final Class<V2> valueType) {
-    return new MultiValue<>(valueType);
+  public static <V2> MultiValueField<V2> withValueType(final Class<V2> valueType) {
+    return new MultiValueField<>(valueType);
   }
 
   @Override
@@ -58,7 +58,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   }
 
   @Override
-  public IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries() {
+  public IContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
@@ -128,18 +128,18 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   }
 
   @SuppressWarnings("unchecked")
-  private IContainer<MultiValueEntry<V>> loadAllPersistedValues() {
+  private IContainer<MultiValueFieldEntry<V>> loadAllPersistedValues() {
     return //
     getStoredDataAndSchemaAdapter().loadMultiValueValues(
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())
-      .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
+      .to(mve -> MultiValueFieldEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
   }
 
   private void updateStateForAddValue(final V value) {
 
-    final var newEntry = MultiValueEntry.newEntryForMultiValueAndValue(this, value);
+    final var newEntry = MultiValueFieldEntry.newEntryForMultiValueAndValue(this, value);
 
     localEntries.addAtEnd(newEntry);
   }

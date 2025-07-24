@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
 import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiValueEntryDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
 
 /**
  * @author Silvan Wyss
@@ -14,7 +14,7 @@ public final class MultiValueEntryDtoMapper implements IMultiValueEntryDtoMapper
    * {@inheritDoc}
    */
   @Override
-  public MultiValueEntryDto mapMultiValueEntryToMultiValueEntryDto(final IMultiValueEntry<?> multiValueEntry) {
+  public MultiValueEntryDto mapMultiValueEntryToMultiValueEntryDto(final IMultiValueFieldEntry<?> multiValueEntry) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
     final var tableName = entity.getParentTableName();

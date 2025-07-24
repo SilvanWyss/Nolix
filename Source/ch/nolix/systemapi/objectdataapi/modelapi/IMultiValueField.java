@@ -5,13 +5,13 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
-public interface IMultiValue<V> extends Clearable, IAbstractValue<V> {
+public interface IMultiValueField<V> extends Clearable, IAbstractValueField<V> {
 
   void addValue(V value);
 
   IContainer<V> getAllStoredValues();
 
-  IContainer<? extends IMultiValueEntry<V>> getStoredNewAndDeletedEntries();
+  IContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries();
 
   boolean loadedAllPersistedValues();
 

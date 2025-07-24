@@ -2,9 +2,9 @@ package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
-public interface IMultiValueEntry<V> extends IDatabaseObject {
+public interface IMultiValueFieldEntry<V> extends IDatabaseObject {
 
-  IMultiValue<V> getStoredParentMultiValue();
+  IMultiValueField<V> getStoredParentMultiValue();
 
   V getStoredValue();
 }

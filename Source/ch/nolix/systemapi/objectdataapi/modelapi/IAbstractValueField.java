@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
-public interface IAbstractValue<V> extends IField {
+public interface IAbstractValueField<V> extends IField {
 
   Class<V> getValueType();
 }

@@ -1,12 +1,12 @@
 package ch.nolix.systemapi.objectdataapi.fieldtoolapi;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
 
 public interface IMultiValueTool extends IFieldTool {
 
-  boolean canAddGivenValue(IMultiValue<?> multiValue, Object value);
+  boolean canAddGivenValue(IMultiValueField<?> multiValue, Object value);
 
-  boolean canClear(IMultiValue<?> multiValue);
+  boolean canClear(IMultiValueField<?> multiValue);
 
-  <V> boolean canRemoveValue(IMultiValue<V> multiValue, V value);
+  <V> boolean canRemoveValue(IMultiValueField<V> multiValue, V value);
 }

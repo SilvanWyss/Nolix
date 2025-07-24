@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
 
 public final class EntitySaver {
 
@@ -92,7 +92,7 @@ public final class EntitySaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field.getType()) {
       case MULTI_VALUE:
-        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) field, dataAndSchemaAdapter);
+        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValueField<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
         MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) field, dataAndSchemaAdapter);

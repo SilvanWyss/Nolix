@@ -12,7 +12,7 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   private static final class Pet extends Entity {
 
-    final Value<Integer> ageInYears = Value.withValueType(Integer.class);
+    final ValueField<Integer> ageInYears = ValueField.withValueType(Integer.class);
 
     Pet() {
       initialize();

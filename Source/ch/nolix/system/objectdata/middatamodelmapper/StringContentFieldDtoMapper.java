@@ -7,12 +7,12 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
 
 /**
  * @author Silvan Wyss
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IValue;
  */
 public final class StringContentFieldDtoMapper implements IStringContentFieldDtoMapper {
 
-  private static StringValueFieldDto mapOptionalValueToStringContentFieldDto(IOptionalValue<?> optionalValue) {
+  private static StringValueFieldDto mapOptionalValueToStringContentFieldDto(IOptionalValueField<?> optionalValue) {
 
     final var columnName = optionalValue.getName();
 
@@ -61,15 +61,15 @@ public final class StringContentFieldDtoMapper implements IStringContentFieldDto
   @Override
   public StringValueFieldDto mapFieldToStringContentFieldDto(final IField field) {
 
-    if (field instanceof final IValue<?> value) {
+    if (field instanceof final IValueField<?> value) {
       return new StringValueFieldDto(value.getName(), value.getStoredValue().toString());
     }
 
-    if (field instanceof final IOptionalValue<?> optionalValue) {
+    if (field instanceof final IOptionalValueField<?> optionalValue) {
       return mapOptionalValueToStringContentFieldDto(optionalValue);
     }
 
-    if (field instanceof final IMultiValue<?> multiValue) {
+    if (field instanceof final IMultiValueField<?> multiValue) {
       return new StringValueFieldDto(multiValue.getName(), null);
     }
 

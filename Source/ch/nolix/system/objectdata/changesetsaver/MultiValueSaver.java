@@ -4,15 +4,15 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.objectdata.middatamodelmapper.MultiValueEntryDtoMapper;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiValueEntryDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValue;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueEntry;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
+import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
 
 public final class MultiValueSaver {
 
   private static final IMultiValueEntryDtoMapper MULTI_VALUE_ENTRY_DTO_MAPPER = new MultiValueEntryDtoMapper();
 
   public void saveChangesOfMultiValue(
-    final IMultiValue<?> multiValue,
+    final IMultiValueField<?> multiValue,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var e : multiValue.getStoredNewAndDeletedEntries()) {
       saveChangeOfMultiValueEntry(e, dataAndSchemaAdapter);
@@ -20,7 +20,7 @@ public final class MultiValueSaver {
   }
 
   private void saveChangeOfMultiValueEntry(
-    final IMultiValueEntry<?> multiValueEntry,
+    final IMultiValueFieldEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiValueEntryState = multiValueEntry.getState();
@@ -38,7 +38,7 @@ public final class MultiValueSaver {
   }
 
   private void saveMultiValueEntryCreation(
-    final IMultiValueEntry<?> multiValueEntry,
+    final IMultiValueFieldEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiValueEntryDto = MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueEntry);
@@ -47,7 +47,7 @@ public final class MultiValueSaver {
   }
 
   private void saveMultiValueEntryDeletion(
-    final IMultiValueEntry<?> multiValueEntry,
+    final IMultiValueFieldEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     final var multiValueEntryDto = MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueEntry);

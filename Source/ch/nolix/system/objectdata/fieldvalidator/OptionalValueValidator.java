@@ -5,21 +5,21 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
 import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValue;
+import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 
 public final class OptionalValueValidator extends FieldValidator implements IOptionalValueValidator {
 
   private static final IOptionalValueTool OPTIONAL_VALUE_TOOL = new OptionalValueTool();
 
   @Override
-  public <V> void assertCanSetGivenValue(final IOptionalValue<V> optionalValue, final V value) {
+  public <V> void assertCanSetGivenValue(final IOptionalValueField<V> optionalValue, final V value) {
     if (!OPTIONAL_VALUE_TOOL.canSetGivenValue(optionalValue, value)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
     }
   }
 
   @Override
-  public void assertHasValue(final IOptionalValue<?> optionalValue) {
+  public void assertHasValue(final IOptionalValueField<?> optionalValue) {
     if (optionalValue.isEmpty()) {
       throw EmptyArgumentException.forArgument(optionalValue);
     }
