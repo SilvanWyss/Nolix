@@ -34,7 +34,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
     final var endPoint = new LocalEndPoint();
 
-    internalSetEndPoint(endPoint);
+    setEndPoint(endPoint);
 
     application.takeEndPoint(endPoint.getStoredCounterpart());
   }
@@ -52,7 +52,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
     final var endPoint = new LocalEndPoint();
 
-    internalSetEndPoint(endPoint);
+    setEndPoint(endPoint);
 
     server.getStoredDefaultApplication().takeEndPoint(endPoint.getStoredCounterpart());
   }
@@ -68,7 +68,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                       already connected.
    */
   protected final void connectTo(final int port) {
-    internalSetEndPoint(new NetEndPoint(port));
+    setEndPoint(new NetEndPoint(port));
   }
 
   /**
@@ -86,7 +86,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                       already connected.
    */
   protected final void connectTo(final int port, final String name) {
-    internalSetEndPoint(new NetEndPoint(port, name));
+    setEndPoint(new NetEndPoint(port, name));
   }
 
   /**
@@ -105,7 +105,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
 
     final var endPoint = new LocalEndPoint();
 
-    internalSetEndPoint(endPoint);
+    setEndPoint(endPoint);
 
     server.getStoredApplicationByInstanceName(instanceName).takeEndPoint(endPoint.getStoredCounterpart());
   }
@@ -120,7 +120,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                  connected.
    */
   protected final void connectTo(final String ip) {
-    internalSetEndPoint(new NetEndPoint(ip));
+    setEndPoint(new NetEndPoint(ip));
   }
 
   /**
@@ -135,7 +135,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                       already connected.
    */
   protected final void connectTo(final String ip, final int port) {
-    internalSetEndPoint(new NetEndPoint(ip, port));
+    setEndPoint(new NetEndPoint(ip, port));
   }
 
   /**
@@ -154,6 +154,6 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                       already connected.
    */
   protected final void connectTo(final String ip, final int port, final String name) {
-    internalSetEndPoint(new NetEndPoint(ip, port, name));
+    setEndPoint(new NetEndPoint(ip, port, name));
   }
 }

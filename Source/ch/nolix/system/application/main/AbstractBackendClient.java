@@ -82,7 +82,7 @@ implements IBackendClient<S> {
    *                                  is already connected.
    */
   protected final void setEndPoint(final AbstractEndPoint abstractEndPoint) {
-    internalSetEndPoint(abstractEndPoint);
+    setEndPoint(abstractEndPoint);
   }
 
   /**

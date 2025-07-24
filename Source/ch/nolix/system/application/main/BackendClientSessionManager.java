@@ -5,6 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
+import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
 
@@ -77,7 +78,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
     Validator.assertThat(session).isOfType(AbstractSession.class);
 
     //Sets the given session to the Client of the current ClientSessionManager.
-    session.internalSetParentClient(parentClient.asConcrete());
+    session.internalSetParentClient(parentClient);
 
     //Pushes the given session to the current ClientSessionManager.
     sessionStack.addAtEnd(session);
@@ -94,7 +95,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
     FlowController.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
 
-    parentClient.internalAssertIsOpen();
+    ResourceValidator.assertIsOpen(parentClient);
 
     return (R) session.internalGetStoredResult();
   }

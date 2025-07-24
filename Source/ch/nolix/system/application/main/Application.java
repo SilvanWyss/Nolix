@@ -275,7 +275,7 @@ implements IApplication<C, S> {
   private C createBackendClientWithEndPoint(final IEndPoint endPoint) {
 
     final C backendClient = ReflectionTool.createInstanceFromDefaultConstructorOfClass(getClientClass());
-    backendClient.internalSetEndPoint(endPoint);
+    backendClient.setEndPoint(endPoint);
 
     return backendClient;
   }
