@@ -6,13 +6,16 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 public final class OptionalValueTool extends FieldTool implements IOptionalValueTool {
 
   @Override
-  public boolean canSetGivenValue(final IOptionalValueField<?> optionalValue, final Object value) {
-    return canSetValue(optionalValue)
-    && value != null;
+  public boolean canSetValue(final IOptionalValueField<?> optionalValueField) {
+    return //
+    optionalValueField != null
+    && optionalValueField.isOpen();
   }
 
-  private boolean canSetValue(final IOptionalValueField<?> optionalValue) {
-    return optionalValue != null
-    && optionalValue.isOpen();
+  @Override
+  public boolean canSetValue(final IOptionalValueField<?> optionalValueField, final Object value) {
+    return //
+    canSetValue(optionalValueField)
+    && value != null;
   }
 }

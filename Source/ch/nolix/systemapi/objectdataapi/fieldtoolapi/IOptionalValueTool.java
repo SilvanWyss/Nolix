@@ -4,5 +4,7 @@ import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
 
 public interface IOptionalValueTool extends IFieldTool {
 
-  boolean canSetGivenValue(IOptionalValueField<?> optionalValue, Object value);
+  boolean canSetValue(IOptionalValueField<?> optionalValueField);
+
+  boolean canSetValue(IOptionalValueField<?> optionalValueField, Object value);
 }
