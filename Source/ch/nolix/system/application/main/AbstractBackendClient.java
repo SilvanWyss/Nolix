@@ -43,20 +43,6 @@ implements IBackendClient<S> {
   }
 
   /**
-   * @return the parent {@link Application} of the current
-   *         {@link AbstractBackendClient}.
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
-   *                                  does not reference its parent
-   *                                  {@link Application}.
-   */
-  public final Application<C, S> getStoredParentApplication() {
-
-    assertReferencesParentApplication();
-
-    return parentApplication;
-  }
-
-  /**
    * {@inheritDoc}
    */
   @Override
@@ -219,6 +205,19 @@ implements IBackendClient<S> {
     if (!referencesParentApplication()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not reference its parent application");
     }
+  }
+
+  /**
+   * @return the parent {@link Application} of the current
+   *         {@link AbstractBackendClient}.
+   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   *                                  does not have a parent {@link Application}.
+   */
+  private Application<C, S> getStoredParentApplication() {
+  
+    assertReferencesParentApplication();
+  
+    return parentApplication;
   }
 
   /**

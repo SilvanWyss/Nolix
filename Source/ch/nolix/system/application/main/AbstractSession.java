@@ -48,7 +48,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    *         {@link AbstractClient} of the current {@link AbstractSession}.
    */
   public final S getStoredApplicationService() {
-    return getStoredParentApplication().getStoredApplicationService();
+    return getStoredParentClient().getStoredApplicationService();
   }
 
   /**
@@ -212,13 +212,5 @@ implements IClientComponent<C>, IRefreshableSubscriber {
     if (belongsToClient()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a client");
     }
-  }
-
-  /**
-   * @return the parent {@link Application} of the parent {@link AbstractClient}
-   *         of the current {@link AbstractSession}.
-   */
-  private Application<C, S> getStoredParentApplication() {
-    return getStoredParentClient().getStoredParentApplication();
   }
 }
