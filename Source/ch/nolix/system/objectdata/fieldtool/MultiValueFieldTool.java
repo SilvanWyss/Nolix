@@ -6,9 +6,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 public final class MultiValueFieldTool extends FieldTool implements IMultiValueFieldTool {
 
   @Override
-  public boolean canAddGivenValue(final IMultiValueField<?> multiValue, final Object value) {
+  public boolean canAddValue(final IMultiValueField<?> multiValueField, final Object value) {
     return //
-    canAddValue(multiValue)
+    canAddValue(multiValueField)
     && value != null;
   }
 
@@ -16,22 +16,20 @@ public final class MultiValueFieldTool extends FieldTool implements IMultiValueF
   public boolean canClear(final IMultiValueField<?> multiValue) {
     return //
     multiValue != null
-    && multiValue.belongsToEntity()
-    && multiValue.getStoredParentEntity().isOpen();
+    && multiValue.isOpen();
   }
 
   @Override
-  public <V> boolean canRemoveValue(final IMultiValueField<V> multiValue, final V value) {
+  public boolean canRemoveValue(final IMultiValueField<?> multiValueField, final Object value) {
     return //
-    canRemoveValue(multiValue)
-    && value != null;
+    canRemoveValue(multiValueField)
+    && multiValueField.getAllStoredValues().contains(value);
   }
 
   private boolean canAddValue(final IMultiValueField<?> multiValue) {
     return //
     multiValue != null
-    && multiValue.belongsToEntity()
-    && multiValue.getStoredParentEntity().isOpen();
+    && multiValue.isOpen();
   }
 
   private boolean canRemoveValue(final IMultiValueField<?> multiValue) {

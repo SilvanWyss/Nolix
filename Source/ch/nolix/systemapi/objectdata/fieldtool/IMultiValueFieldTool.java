@@ -4,9 +4,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public interface IMultiValueFieldTool extends IFieldTool {
 
-  boolean canAddGivenValue(IMultiValueField<?> multiValue, Object value);
+  boolean canAddValue(IMultiValueField<?> multiValueField, Object value);
 
-  boolean canClear(IMultiValueField<?> multiValue);
+  boolean canClear(IMultiValueField<?> multiValueField);
 
-  <V> boolean canRemoveValue(IMultiValueField<V> multiValue, V value);
+  boolean canRemoveValue(IMultiValueField<?> multiValueField, Object value);
 }

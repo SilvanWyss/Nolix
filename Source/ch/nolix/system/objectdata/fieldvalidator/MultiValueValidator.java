@@ -12,7 +12,7 @@ public final class MultiValueValidator extends FieldValidator implements IMultiV
 
   @Override
   public void assertCanAddGivenValue(final IMultiValueField<?> multiValue, final Object value) {
-    if (!MULTI_VALUE_TOOL.canAddGivenValue(multiValue, value)) {
+    if (!MULTI_VALUE_TOOL.canAddValue(multiValue, value)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot add the given value");
     }
   }
