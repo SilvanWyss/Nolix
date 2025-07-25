@@ -1,7 +1,7 @@
 package ch.nolix.core.resourcecontrol.resourcevalidator;
 
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 
 /**
  * @author Silvan Wyss

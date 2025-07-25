@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi;
+package ch.nolix.coreapi.resourcecontrol.resourceclosing;
 
 /**
  * @author Silvan Wyss

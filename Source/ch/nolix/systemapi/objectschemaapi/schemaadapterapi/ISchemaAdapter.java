@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrolapi.savecontrolapi.IResettableChangeSaver;
+import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
 
 public interface ISchemaAdapter extends IResettableChangeSaver {

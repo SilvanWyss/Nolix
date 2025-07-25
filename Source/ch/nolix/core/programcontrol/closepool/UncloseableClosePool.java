@@ -3,8 +3,8 @@ package ch.nolix.core.programcontrol.closepool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.IClosePool;
 
 public final class UncloseableClosePool implements IClosePool {
 

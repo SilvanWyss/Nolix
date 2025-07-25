@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.resourcecontrolapi.savecontrolapi;
+package ch.nolix.coreapi.resourcecontrol.savecontrol;
 
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 

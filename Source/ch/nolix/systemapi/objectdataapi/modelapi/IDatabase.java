@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

@@ -1,7 +1,7 @@
 package ch.nolix.core.resourcecontrol.resourceexaminer;
 
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
-import ch.nolix.coreapi.resourcecontrolapi.resourceexaminerapi.IResourceExaminer;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.resourceexaminer.IResourceExaminer;
 
 /**
  * @author Silvan Wyss

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi;
 
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
+import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
 public interface IDatabaseObjectValidator extends IResourceValidator {

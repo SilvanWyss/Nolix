@@ -10,7 +10,7 @@ import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.endpoint3.IServer;
 import ch.nolix.coreapi.net.endpoint3.ISlot;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 
 /**
  * @author Silvan Wyss

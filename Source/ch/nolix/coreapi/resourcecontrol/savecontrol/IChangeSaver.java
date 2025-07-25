@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.resourcecontrolapi.savecontrolapi;
+package ch.nolix.coreapi.resourcecontrol.savecontrol;
 
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.Closeable;
 
 /**
  * A {@link IChangeSaver} can save its changes.

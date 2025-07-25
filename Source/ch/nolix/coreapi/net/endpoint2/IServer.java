@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.net.endpoint2;
 
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 public interface IServer extends Clearable, GroupCloseable {

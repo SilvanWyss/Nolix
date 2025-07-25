@@ -2,9 +2,9 @@ package ch.nolix.core.resourcecontrol.resourcevalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.resourcecontrol.resourceexaminer.ResourceExaminer;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.CloseStateRequestable;
-import ch.nolix.coreapi.resourcecontrolapi.resourceexaminerapi.IResourceExaminer;
-import ch.nolix.coreapi.resourcecontrolapi.resourcevalidatorapi.IResourceValidator;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.resourceexaminer.IResourceExaminer;
+import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 
 /**
  * @author Silvan Wyss

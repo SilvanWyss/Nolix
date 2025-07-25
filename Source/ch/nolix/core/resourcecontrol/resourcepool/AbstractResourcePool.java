@@ -2,10 +2,10 @@ package ch.nolix.core.resourcecontrol.resourcepool;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.Closeable;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
-import ch.nolix.coreapi.resourcecontrolapi.resourcepoolapi.IResourcePool;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.Closeable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.resourcepool.IResourcePool;
 
 public abstract class AbstractResourcePool<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements IResourcePool<W> {

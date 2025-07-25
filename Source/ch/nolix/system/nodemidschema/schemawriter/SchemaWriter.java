@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.system.nodemidschema.nodemapper.ColumnNodeMapper;
 import ch.nolix.system.nodemidschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.system.nodemidschema.nodemapper.TableNodeMapper;

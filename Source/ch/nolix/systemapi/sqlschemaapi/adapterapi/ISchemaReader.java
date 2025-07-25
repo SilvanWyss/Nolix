@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlschemaapi.adapterapi;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
 
 public interface ISchemaReader extends GroupCloseable {

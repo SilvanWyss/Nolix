@@ -1,6 +1,6 @@
 package ch.nolix.coreapitest.resourcecontrolapi.savecontrolapi;
 
-import ch.nolix.coreapi.resourcecontrolapi.savecontrolapi.ChangeRequestable;
+import ch.nolix.coreapi.resourcecontrol.savecontrol.ChangeRequestable;
 
 public final class ChangeRequestableMock implements ChangeRequestable {
 
