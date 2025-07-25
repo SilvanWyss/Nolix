@@ -13,7 +13,7 @@ public final class MultiReferenceValidator extends FieldValidator implements IMu
 
   @Override
   public void assertCanAddGivenEntity(final IMultiReference<?> multiReference, final IEntity entity) {
-    if (!MULTI_REFERENCE_TOOL.canAddGivenEntity(multiReference, entity)) {
+    if (!MULTI_REFERENCE_TOOL.canAddEntity(multiReference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot add the given entity");
     }
   }
