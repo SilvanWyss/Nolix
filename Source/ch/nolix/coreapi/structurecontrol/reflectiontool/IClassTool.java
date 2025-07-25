@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structurecontrolapi.reflectiontoolapi;
+package ch.nolix.coreapi.structurecontrol.reflectiontool;
 
 import java.lang.reflect.Constructor;
 

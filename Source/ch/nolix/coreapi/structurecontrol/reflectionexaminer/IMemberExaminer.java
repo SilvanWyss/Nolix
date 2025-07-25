@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi;
+package ch.nolix.coreapi.structurecontrol.reflectionexaminer;
 
 import java.lang.reflect.Member;
 

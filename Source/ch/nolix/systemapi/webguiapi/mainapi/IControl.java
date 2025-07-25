@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.structurecontrolapi.linkingapi.Linkable;
+import ch.nolix.coreapi.structurecontrol.linking.Linkable;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;

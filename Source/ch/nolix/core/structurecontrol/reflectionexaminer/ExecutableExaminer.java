@@ -2,7 +2,7 @@ package ch.nolix.core.structurecontrol.reflectionexaminer;
 
 import java.lang.reflect.Executable;
 
-import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IExecutableExaminer;
+import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IExecutableExaminer;
 
 /**
  * @author Silvan Wyss

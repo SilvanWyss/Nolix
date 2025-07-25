@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structurecontrolapi.linkingapi;
+package ch.nolix.coreapi.structurecontrol.linking;
 
 public interface Linkable extends LinkedRequestable {
 

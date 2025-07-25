@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
+import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IFieldExaminer;
 
 public final class FieldTool {
 

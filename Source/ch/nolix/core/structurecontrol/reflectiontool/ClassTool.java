@@ -6,8 +6,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
-import ch.nolix.coreapi.structurecontrolapi.reflectiontoolapi.IClassTool;
+import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IFieldExaminer;
+import ch.nolix.coreapi.structurecontrol.reflectiontool.IClassTool;
 
 public final class ClassTool implements IClassTool {
 
