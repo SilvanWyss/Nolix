@@ -1,9 +1,6 @@
 package ch.nolix.core.resourcecontrol.resourcevalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.core.resourcecontrol.resourceexaminer.ResourceExaminer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
-import ch.nolix.coreapi.resourcecontrol.resourceexaminer.IResourceExaminer;
 import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 
 /**
@@ -12,15 +9,11 @@ import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
  */
 public class ResourceValidatorUnit implements IResourceValidator {
 
-  private static final IResourceExaminer RESOURCE_EXAMINER = new ResourceExaminer();
-
   /**
    * {@inheritDoc}
    */
   @Override
   public final void assertIsOpen(final CloseStateRequestable resource) {
-    if (!RESOURCE_EXAMINER.isOpen(resource)) {
-      throw ClosedArgumentException.forArgument(resource);
-    }
+    ResourceValidator.assertIsOpen(resource);
   }
 }

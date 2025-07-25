@@ -1,24 +1,39 @@
 package ch.nolix.core.resourcecontrol.resourcevalidator;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
-import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 
 /**
+ * The {@link ResourceValidator} provides methods to validate resources.
+ * 
+ * Of the {@link ResourceValidator} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  * @version 2025-04-13
  */
 public final class ResourceValidator {
 
-  private static final IResourceValidator RESOURCE_VALIDATOR_UNIT = new ResourceValidatorUnit();
-
+  /**
+   * Prevents that an instance of the {@link ResourceValidator} can be created.
+   */
   private ResourceValidator() {
   }
 
   /**
    * @param resource
-   * @throws RuntimeException if the given resource is null or closed.
+   * @throws ArgumentIsNullException if the given resource is null.
+   * @throws ClosedArgumentException if the given resource is closed.
    */
   public static void assertIsOpen(final CloseStateRequestable resource) {
-    RESOURCE_VALIDATOR_UNIT.assertIsOpen(resource);
+
+    if (resource == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.RESOURCE);
+    }
+
+    if (resource.isClosed()) {
+      throw ClosedArgumentException.forArgument(resource);
+    }
   }
 }
