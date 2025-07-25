@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-import ch.nolix.coreapi.managerapi.applicationmanagerapi.IApplicationManager;
+import ch.nolix.coreapi.manager.applicationmanager.IApplicationManager;
 import ch.nolix.coreapi.netapi.netattributeapi.ISecuriyModeHolder;
 import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;

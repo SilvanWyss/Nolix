@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.managerapi.guimanager;
+package ch.nolix.coreapi.manager.guimanager;
 
 import ch.nolix.coreapi.container.base.IContainer;
 
