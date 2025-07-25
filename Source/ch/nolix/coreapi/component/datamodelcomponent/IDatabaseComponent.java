@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.componentapi.datamodelcomponentapi;
+package ch.nolix.coreapi.component.datamodelcomponent;
 
 /**
  * A {@link IDatabaseComponent} can belong to a database.

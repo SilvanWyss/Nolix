@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-import ch.nolix.coreapi.componentapi.guicomponentapi.IGuiComponent;
+import ch.nolix.coreapi.component.guicomponent.IGuiComponent;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.componentapi.guicomponentapi;
+package ch.nolix.coreapi.component.guicomponent;
 
 /**
  * A {@link IGuiComponent} can belong to a GUI.

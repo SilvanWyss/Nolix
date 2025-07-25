@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.componentapi.applicationcomponentapi;
+package ch.nolix.coreapi.component.applicationcomponent;
 
 /**
  * A {@link IClientComponent} can belong to a client.
