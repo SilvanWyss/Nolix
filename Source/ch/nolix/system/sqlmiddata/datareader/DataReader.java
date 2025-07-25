@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;

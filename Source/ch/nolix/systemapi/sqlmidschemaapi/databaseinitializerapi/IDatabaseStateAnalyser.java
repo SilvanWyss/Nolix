@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi;
 
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.DatabaseState;
 
 /**

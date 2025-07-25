@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.sqlapi.syntaxapi;
+package ch.nolix.coreapi.sql.syntax;
 
 /**
  * @author Silvan Wyss

@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmiddata.sqlmapper;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.coreapi.sqlapi.syntaxapi.SqlKeywordCatalog;
+import ch.nolix.coreapi.sql.syntax.SqlKeywordCatalog;
 import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
 import ch.nolix.systemapi.sqlmiddataapi.sqlmapperapi.ISqlValueMapper;
 

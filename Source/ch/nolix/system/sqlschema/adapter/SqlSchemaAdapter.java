@@ -4,7 +4,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.coreapi.resourcecontrol.resourcepool.IResourcePool;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;

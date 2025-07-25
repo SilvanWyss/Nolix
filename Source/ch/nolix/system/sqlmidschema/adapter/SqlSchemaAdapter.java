@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmidschema.adapter;
 
 import ch.nolix.core.sql.connection.UncloseableSqlConnection;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschema.adapter.AbstractSchemaAdapter;
 import ch.nolix.system.sqlmidschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqlmidschema.schemareader.SchemaReader;

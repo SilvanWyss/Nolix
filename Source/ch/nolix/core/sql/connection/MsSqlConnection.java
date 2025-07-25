@@ -2,7 +2,7 @@ package ch.nolix.core.sql.connection;
 
 import java.sql.Connection;
 
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public final class MsSqlConnection extends AbstractSqlConnection {
 

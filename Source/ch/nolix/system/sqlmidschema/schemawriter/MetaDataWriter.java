@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
-import ch.nolix.coreapi.sqlapi.sqltoolapi.ISqlCollector;
+import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlmidschema.statementcreator.MetaDataStatementCreator;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;

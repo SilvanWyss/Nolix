@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlmidschema.modelmapper;
 
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnTableFieldIndexCatalog;
 import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IColumnDtoMapper;

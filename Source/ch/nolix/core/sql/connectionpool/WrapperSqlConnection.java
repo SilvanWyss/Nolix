@@ -3,9 +3,9 @@ package ch.nolix.core.sql.connectionpool;
 import ch.nolix.core.resourcecontrol.resourcepool.AbstractWrapperResource;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public final class WrapperSqlConnection
 extends AbstractWrapperResource<WrapperSqlConnection, AbstractSqlConnection>

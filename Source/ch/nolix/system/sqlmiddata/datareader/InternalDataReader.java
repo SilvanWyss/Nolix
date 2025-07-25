@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.LoadedEntityDtoMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.MultiReferenceEntryDtoMapper;

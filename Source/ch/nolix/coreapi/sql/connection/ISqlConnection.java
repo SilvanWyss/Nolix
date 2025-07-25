@@ -1,9 +1,9 @@
-package ch.nolix.coreapi.sqlapi.connectionapi;
+package ch.nolix.coreapi.sql.connection;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public interface ISqlConnection extends GroupCloseable {
 

@@ -4,8 +4,8 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.coreapi.sqlapi.sqltoolapi.ISqlCollector;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 
 public final class SqlCollector implements ISqlCollector {
 

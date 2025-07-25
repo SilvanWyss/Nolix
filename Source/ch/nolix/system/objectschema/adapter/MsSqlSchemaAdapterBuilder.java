@@ -6,7 +6,7 @@ import ch.nolix.core.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
 import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public final class MsSqlSchemaAdapterBuilder
 extends

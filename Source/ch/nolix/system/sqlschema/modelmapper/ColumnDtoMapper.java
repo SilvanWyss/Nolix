@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlschema.modelmapper;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
 import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.IColumnDtoMapper;

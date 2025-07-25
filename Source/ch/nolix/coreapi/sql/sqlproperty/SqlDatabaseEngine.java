@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.sqlapi.sqlproperty;
+package ch.nolix.coreapi.sql.sqlproperty;
 
 public enum SqlDatabaseEngine {
   MSSQL,

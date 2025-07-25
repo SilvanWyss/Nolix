@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.datawriter;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;

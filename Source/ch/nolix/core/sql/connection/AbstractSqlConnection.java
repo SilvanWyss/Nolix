@@ -17,9 +17,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public abstract class AbstractSqlConnection implements ISqlConnection {
 

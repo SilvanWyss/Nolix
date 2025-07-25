@@ -4,7 +4,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaTableDtoMapper;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;

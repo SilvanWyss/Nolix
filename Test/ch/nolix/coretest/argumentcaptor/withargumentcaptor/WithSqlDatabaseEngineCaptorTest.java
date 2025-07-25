@@ -6,7 +6,7 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithSqlDatabaseEngineCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
 

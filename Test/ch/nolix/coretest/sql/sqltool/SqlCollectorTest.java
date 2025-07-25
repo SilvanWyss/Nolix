@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 
 final class SqlCollectorTest extends StandardTest {
 

@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
 
 /**
  * A {@link SqlRecord} is not mutable.

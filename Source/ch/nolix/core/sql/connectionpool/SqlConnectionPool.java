@@ -8,8 +8,8 @@ import ch.nolix.core.resourcecontrol.resourcepool.AbstractResourcePool;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.connection.ISqlDatabaseTarget;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public final class SqlConnectionPool
 extends AbstractResourcePool<WrapperSqlConnection, AbstractSqlConnection>

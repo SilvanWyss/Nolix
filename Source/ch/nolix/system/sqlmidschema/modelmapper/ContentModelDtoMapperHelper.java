@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmidschema.modelmapper;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.MultiBackReferenceModelDto;

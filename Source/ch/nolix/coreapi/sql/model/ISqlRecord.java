@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.sqlapi.modelapi;
+package ch.nolix.coreapi.sql.model;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
 import ch.nolix.coreapi.container.base.IContainer;

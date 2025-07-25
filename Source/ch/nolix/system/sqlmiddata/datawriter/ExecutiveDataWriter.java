@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.datawriter;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.core.sql.sqltool.SqlCollector;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmiddata.statementcreator.EntityStatementCreator;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiBackReferenceStatementCreator;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiReferenceStatementCreator;

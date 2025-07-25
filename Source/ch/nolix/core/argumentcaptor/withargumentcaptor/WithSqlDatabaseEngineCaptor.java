@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.withargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public class WithSqlDatabaseEngineCaptor<N> extends ArgumentCaptor<SqlDatabaseEngine, N> {
 

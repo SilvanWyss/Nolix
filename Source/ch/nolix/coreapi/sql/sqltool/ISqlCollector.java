@@ -1,7 +1,7 @@
-package ch.nolix.coreapi.sqlapi.sqltoolapi;
+package ch.nolix.coreapi.sql.sqltool;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
+import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 public interface ISqlCollector extends Clearable {

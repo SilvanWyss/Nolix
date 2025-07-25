@@ -4,7 +4,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
+import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
