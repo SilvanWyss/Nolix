@@ -8,8 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.independent.arraytool.ArrayTool;
 
 /**
- * The {@link Validator} provides methods to validate arguments. Of the
- * {@link Validator} an instance cannot be created.
+ * The {@link Validator} provides methods to validate arguments.
+ * 
+ * Of the {@link Validator} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-12-01
