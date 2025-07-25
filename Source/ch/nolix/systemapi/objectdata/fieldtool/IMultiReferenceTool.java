@@ -11,5 +11,7 @@ public interface IMultiReferenceTool extends IFieldTool {
 
   <E extends IEntity> boolean canClear(IMultiReference<E> multiReference);
 
+  <E extends IEntity> boolean canRemoveEntity(IMultiReference<E> multiReference);
+
   <E extends IEntity> boolean canRemoveEntity(IMultiReference<E> multiReference, E entity);
 }

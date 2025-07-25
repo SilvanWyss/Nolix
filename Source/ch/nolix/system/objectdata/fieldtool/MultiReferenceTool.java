@@ -30,16 +30,17 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
   }
 
   @Override
+  public <E extends IEntity> boolean canRemoveEntity(final IMultiReference<E> multiReference) {
+    return //
+    multiReference != null
+    && multiReference.isOpen();
+  }
+
+  @Override
   public <E extends IEntity> boolean canRemoveEntity(final IMultiReference<E> multiReference, final E entity) {
     return //
     canRemoveEntity(multiReference)
     && entity != null
     && entity.isOpen();
-  }
-
-  private <E extends IEntity> boolean canRemoveEntity(final IMultiReference<E> multiReference) {
-    return //
-    multiReference != null
-    && multiReference.isOpen();
   }
 }
