@@ -84,7 +84,7 @@ final class TypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage(
-        "The given type 'class ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode' is not a class.");
+        "The given type 'class ch.nolix.coreapi.programcontrol.processproperty.WriteMode' is not a class.");
   }
 
   @Test
@@ -255,7 +255,7 @@ final class TypeMediatorTest extends StandardTest {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage(
-        "The given type 'class ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode' is not an interface.");
+        "The given type 'class ch.nolix.coreapi.programcontrol.processproperty.WriteMode' is not an interface.");
   }
 
   @Test
