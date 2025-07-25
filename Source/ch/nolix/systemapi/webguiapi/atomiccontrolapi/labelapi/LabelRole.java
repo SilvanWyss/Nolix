@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public enum LabelRole {
   TITLE,

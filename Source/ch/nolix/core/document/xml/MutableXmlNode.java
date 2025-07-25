@@ -6,9 +6,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
-import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
-import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
+import ch.nolix.coreapi.document.xml.IMutableXmlNode;
+import ch.nolix.coreapi.document.xml.IXmlAttribute;
+import ch.nolix.coreapi.document.xml.IXmlNode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 

@@ -1,7 +1,7 @@
 package ch.nolix.system.nodemidschema.nodemapper;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
 

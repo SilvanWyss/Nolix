@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.elementapi.mutableelementapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

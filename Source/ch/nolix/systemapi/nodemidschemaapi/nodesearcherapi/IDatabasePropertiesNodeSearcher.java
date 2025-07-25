@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 public interface IDatabasePropertiesNodeSearcher {

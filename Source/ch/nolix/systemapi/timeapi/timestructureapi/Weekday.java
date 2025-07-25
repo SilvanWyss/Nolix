@@ -2,7 +2,7 @@ package ch.nolix.systemapi.timeapi.timestructureapi;
 
 import java.time.DayOfWeek;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public enum Weekday {
   MONDAY,

@@ -1,6 +1,6 @@
 package ch.nolix.system.nodemiddata.modelmapper;
 
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;

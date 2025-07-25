@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.documentapi.xmlapi;
+package ch.nolix.coreapi.document.xml;
 
 import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalNameHolder;
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalValueHolder;

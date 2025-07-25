@@ -1,6 +1,6 @@
 package ch.nolix.system.nodemidschema.databaseinitializer;
 
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodeexaminer.NodeDatabaseExaminer;
 import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.DatabaseState;
 import ch.nolix.systemapi.nodemidschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;

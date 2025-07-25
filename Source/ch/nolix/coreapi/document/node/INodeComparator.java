@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.documentapi.nodeapi;
+package ch.nolix.coreapi.document.node;
 
 /**
  * @author Silvan Wyss

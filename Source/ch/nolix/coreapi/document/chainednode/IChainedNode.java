@@ -1,8 +1,8 @@
-package ch.nolix.coreapi.documentapi.chainednodeapi;
+package ch.nolix.coreapi.document.chainednode;
 
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
 
 /**

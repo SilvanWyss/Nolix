@@ -1,6 +1,6 @@
 package ch.nolix.core.document.chainednode;
 
-import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.document.chainednode.IChainedNode;
 
 public final class ChainedNodeComparator {
 

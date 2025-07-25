@@ -3,7 +3,7 @@ package ch.nolix.systemapi.guiapi.guiproperty;
 import java.awt.Cursor;
 import java.util.Locale;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

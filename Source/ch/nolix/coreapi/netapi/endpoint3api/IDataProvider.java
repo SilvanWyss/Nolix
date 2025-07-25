@@ -1,8 +1,8 @@
 package ch.nolix.coreapi.netapi.endpoint3api;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.chainednode.IChainedNode;
+import ch.nolix.coreapi.document.node.INode;
 
 public interface IDataProvider {
 

@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.adapter;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.adapter.NodeDataAdapterAndSchemaReader;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.graphicapi.imageapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public enum ImageApplication {
   SCALE_TO_FRAME,

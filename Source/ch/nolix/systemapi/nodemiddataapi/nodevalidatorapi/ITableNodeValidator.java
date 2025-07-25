@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.nodemiddataapi.nodevalidatorapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss

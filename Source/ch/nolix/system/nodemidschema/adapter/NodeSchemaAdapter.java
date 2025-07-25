@@ -1,7 +1,7 @@
 package ch.nolix.system.nodemidschema.adapter;
 
 import ch.nolix.core.document.node.FileNode;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.midschema.adapter.AbstractSchemaAdapter;
 import ch.nolix.system.nodemidschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.nodemidschema.schemareader.SchemaReader;

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 
 public interface IDatabaseNodeSearcher {
 

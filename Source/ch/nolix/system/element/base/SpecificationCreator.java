@@ -1,7 +1,7 @@
 package ch.nolix.system.element.base;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 

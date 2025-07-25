@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.elementapi.baseapi;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

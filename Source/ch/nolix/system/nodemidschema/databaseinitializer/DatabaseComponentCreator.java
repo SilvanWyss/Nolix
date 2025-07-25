@@ -2,7 +2,7 @@ package ch.nolix.system.nodemidschema.databaseinitializer;
 
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemidschemaapi.databaseinitializerapi.IDatabaseComponentCreator;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;

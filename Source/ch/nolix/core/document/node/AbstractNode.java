@@ -10,9 +10,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.documentapi.nodeapi.INodeComparator;
-import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
+import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.coreapi.document.node.INodeComparator;
+import ch.nolix.coreapi.document.xml.IMutableXmlNode;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 

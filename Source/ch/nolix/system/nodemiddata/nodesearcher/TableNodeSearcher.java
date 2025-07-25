@@ -3,7 +3,7 @@ package ch.nolix.system.nodemiddata.nodesearcher;
 import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.containerapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public enum GridType {
   INNER_LINES,

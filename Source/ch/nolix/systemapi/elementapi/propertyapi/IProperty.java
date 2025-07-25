@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.elementapi.propertyapi;
 
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public interface IProperty {
 

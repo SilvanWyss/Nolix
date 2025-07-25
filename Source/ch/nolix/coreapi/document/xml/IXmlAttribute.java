@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.documentapi.xmlapi;
+package ch.nolix.coreapi.document.xml;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.attribute.mandatoryattribute.IValueHolder;

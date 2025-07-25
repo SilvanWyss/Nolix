@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.nodemiddataapi.nodemapperapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
 
 /**

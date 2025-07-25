@@ -1,7 +1,7 @@
 package ch.nolix.system.nodemidschema.modelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.ContentModelNodeSearcher;
 import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;

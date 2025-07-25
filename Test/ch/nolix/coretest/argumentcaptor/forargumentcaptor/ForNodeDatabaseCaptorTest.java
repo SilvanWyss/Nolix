@@ -7,7 +7,7 @@ import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 
 final class ForNodeDatabaseCaptorTest extends StandardTest {
 

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.graphicapi.imageproperty;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 /**
  * A {@link Alignment} defines the way between two points of a

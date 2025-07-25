@@ -1,7 +1,7 @@
 package ch.nolix.core.document.xml;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
+import ch.nolix.coreapi.document.xml.IXmlAttribute;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 

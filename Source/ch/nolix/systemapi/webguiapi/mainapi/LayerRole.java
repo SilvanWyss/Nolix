@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public enum LayerRole {
   BACKGROUND_LAYER,

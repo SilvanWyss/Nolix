@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.midschemaapi.fieldproperty;
 
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public enum ContentType {
   VALUE(BaseContentType.BASE_VALUE, Cardinality.TO_ONE),

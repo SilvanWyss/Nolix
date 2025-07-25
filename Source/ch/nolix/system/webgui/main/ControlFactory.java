@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 public final class ControlFactory {
 

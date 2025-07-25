@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.elementapi.baseapi;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
+import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.coreapi.document.xml.IXmlNode;
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**

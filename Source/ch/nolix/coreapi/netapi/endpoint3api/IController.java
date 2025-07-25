@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.netapi.endpoint3api;
 
-import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.document.chainednode.IChainedNode;
 
 public interface IController {
 

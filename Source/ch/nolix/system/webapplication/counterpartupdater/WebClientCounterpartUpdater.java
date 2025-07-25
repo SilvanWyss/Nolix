@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 public final class WebClientCounterpartUpdater {

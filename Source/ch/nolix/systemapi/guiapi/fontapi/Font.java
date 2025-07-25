@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.guiapi.fontapi;
 
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

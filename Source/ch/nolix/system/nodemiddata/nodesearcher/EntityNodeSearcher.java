@@ -1,6 +1,6 @@
 package ch.nolix.system.nodemiddata.nodesearcher;
 
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.IEntityNodeSearcher;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;
 

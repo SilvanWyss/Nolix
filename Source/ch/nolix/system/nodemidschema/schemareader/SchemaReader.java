@@ -3,7 +3,7 @@ package ch.nolix.system.nodemidschema.schemareader;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.system.nodemidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.nodemidschema.nodeexaminer.TableNodeExaminer;

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.documentapi.nodeapi;
+package ch.nolix.coreapi.document.node;
 
 import java.util.function.Predicate;
 
