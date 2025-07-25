@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.environmentapi.nolixenvironmentapi;
+package ch.nolix.coreapi.environment.nolixenvironment;
 
 public final class NolixDirectoryAndFileCatalog {
 

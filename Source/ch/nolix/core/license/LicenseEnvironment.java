@@ -1,6 +1,6 @@
 package ch.nolix.core.license;
 
-import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
+import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 
 /**
  * The {@link LicenseEnvironment} provides information about the Nolix license

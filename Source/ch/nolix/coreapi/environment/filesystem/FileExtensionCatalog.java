@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.environmentapi.filesystemapi;
+package ch.nolix.coreapi.environment.filesystem;
 
 /**
  * The {@link FileExtensionCatalog} defines common file extensions. Of the

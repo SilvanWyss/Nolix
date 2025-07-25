@@ -5,7 +5,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import ch.nolix.coreapi.environmentapi.nolixenvironmentapi.NolixDirectoryAndFileCatalog;
+import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 
 public final class NolixEnvironmentService {
 

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.environmentapi.filesystemapi.FileExtensionCatalog;
+import ch.nolix.coreapi.environment.filesystem.FileExtensionCatalog;
 
 final class FileExtensionCatalogTest extends StandardTest {
 
