@@ -7,6 +7,13 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
 
   @Override
+  public <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference) {
+    return //
+    multiReference != null
+    && multiReference.isOpen();
+  }
+
+  @Override
   public <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference, IEntity entity) {
     return //
     canAddEntity(multiReference)
@@ -28,12 +35,6 @@ public final class MultiReferenceTool extends FieldTool implements IMultiReferen
     canRemoveEntity(multiReference)
     && entity != null
     && entity.isOpen();
-  }
-
-  private <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference) {
-    return //
-    multiReference != null
-    && multiReference.isOpen();
   }
 
   private <E extends IEntity> boolean canRemoveEntity(final IMultiReference<E> multiReference) {
