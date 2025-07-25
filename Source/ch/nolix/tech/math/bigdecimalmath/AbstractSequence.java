@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
+import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 
 abstract class AbstractSequence<V> implements ISequence<V> {
 

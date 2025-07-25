@@ -5,8 +5,8 @@ import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 
 public final class ComplexSequenceDefinedBy1Predecessor
 extends AbstractSequence<IComplexNumber>

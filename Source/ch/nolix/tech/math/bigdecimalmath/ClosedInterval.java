@@ -7,7 +7,7 @@ import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.Calculator;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
+import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 public final class ClosedInterval implements IClosedInterval {
 

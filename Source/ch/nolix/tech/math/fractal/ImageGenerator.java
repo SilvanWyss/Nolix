@@ -20,10 +20,10 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.techapi.mathapi.fractalapi.IFractal;
-import ch.nolix.techapi.mathapi.fractalapi.IFractalTool;
-import ch.nolix.techapi.mathapi.fractalapi.IImageGenerator;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.techapi.math.fractal.IFractal;
+import ch.nolix.techapi.math.fractal.IFractalTool;
+import ch.nolix.techapi.math.fractal.IImageGenerator;
 
 public final class ImageGenerator extends AbstractFuture implements IImageGenerator {
 

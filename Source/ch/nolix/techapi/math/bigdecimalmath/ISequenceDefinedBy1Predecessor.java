@@ -1,4 +1,4 @@
-package ch.nolix.techapi.mathapi.bigdecimalmathapi;
+package ch.nolix.techapi.math.bigdecimalmath;
 
 public interface ISequenceDefinedBy1Predecessor<V> extends ISequence<V> {
 

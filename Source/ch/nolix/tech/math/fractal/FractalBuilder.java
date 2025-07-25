@@ -8,10 +8,10 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
-import ch.nolix.techapi.mathapi.fractalapi.IFractalBuilder;
+import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.techapi.math.bigdecimalmath.ISequence;
+import ch.nolix.techapi.math.fractal.IFractalBuilder;
 
 public final class FractalBuilder implements IFractalBuilder {
 

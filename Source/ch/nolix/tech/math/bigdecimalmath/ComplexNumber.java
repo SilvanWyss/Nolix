@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.Calculator;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**
  * A {@link ComplexNumber} is not mutable.

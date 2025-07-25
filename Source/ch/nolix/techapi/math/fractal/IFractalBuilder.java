@@ -1,13 +1,13 @@
-package ch.nolix.techapi.mathapi.fractalapi;
+package ch.nolix.techapi.math.fractal;
 
 import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
+import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 
 public interface IFractalBuilder {
 

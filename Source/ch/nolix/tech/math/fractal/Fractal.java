@@ -9,10 +9,10 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
-import ch.nolix.techapi.mathapi.fractalapi.IFractal;
+import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.techapi.math.bigdecimalmath.ISequence;
+import ch.nolix.techapi.math.fractal.IFractal;
 
 public final class Fractal implements IFractal {
 

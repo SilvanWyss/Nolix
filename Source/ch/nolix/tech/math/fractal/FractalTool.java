@@ -3,9 +3,9 @@ package ch.nolix.tech.math.fractal;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.techapi.mathapi.fractalapi.IFractal;
-import ch.nolix.techapi.mathapi.fractalapi.IFractalTool;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
+import ch.nolix.techapi.math.fractal.IFractal;
+import ch.nolix.techapi.math.fractal.IFractalTool;
 
 public final class FractalTool implements IFractalTool {
 

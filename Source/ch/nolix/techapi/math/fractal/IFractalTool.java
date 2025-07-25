@@ -1,8 +1,8 @@
-package ch.nolix.techapi.mathapi.fractalapi;
+package ch.nolix.techapi.math.fractal;
 
 import java.math.BigDecimal;
 
-import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 public interface IFractalTool {
 
