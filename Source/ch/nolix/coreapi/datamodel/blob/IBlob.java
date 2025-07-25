@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.datamodelapi.blobapi;
+package ch.nolix.coreapi.datamodel.blob;
 
 public interface IBlob {
 

@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.datamodelapi.fieldproperty;
+package ch.nolix.coreapi.datamodel.fieldproperty;
 
-import ch.nolix.coreapi.datamodelapi.blobapi.IBlob;
+import ch.nolix.coreapi.datamodel.blob.IBlob;
 
 public enum DataType {
   INTEGER_1BYTE(Byte.class),

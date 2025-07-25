@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;

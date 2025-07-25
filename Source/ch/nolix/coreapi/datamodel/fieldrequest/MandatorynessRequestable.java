@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.datamodelapi.fieldrequestapi;
+package ch.nolix.coreapi.datamodel.fieldrequest;
 
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 

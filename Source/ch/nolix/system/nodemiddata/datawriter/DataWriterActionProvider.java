@@ -3,7 +3,7 @@ package ch.nolix.system.nodemiddata.datawriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
+import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;

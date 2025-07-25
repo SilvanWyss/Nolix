@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.datamodelapi.fieldrequestapi;
+package ch.nolix.coreapi.datamodel.fieldrequest;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.ContentType;
+import ch.nolix.coreapi.datamodel.fieldproperty.ContentType;
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 
 /**

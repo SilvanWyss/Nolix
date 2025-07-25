@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;

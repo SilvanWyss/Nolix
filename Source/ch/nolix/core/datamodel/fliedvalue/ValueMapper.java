@@ -2,8 +2,8 @@ package ch.nolix.core.datamodel.fliedvalue;
 
 import ch.nolix.core.datamodel.blob.Blob;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 
 /**
  * @author Silvan Wyss

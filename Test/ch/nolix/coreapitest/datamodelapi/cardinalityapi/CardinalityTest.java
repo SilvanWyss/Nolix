@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
+import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 
 final class CardinalityTest extends StandardTest {
 

@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.datamodelapi.fieldvalueapi;
+package ch.nolix.coreapi.datamodel.fieldvalue;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 
 /**
  * @author Silvan Wyss

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.datamodelapi.cardinalityapi;
+package ch.nolix.coreapi.datamodel.cardinality;
 
 /**
  * A {@link IFluentMutableCardinalityHolder} is a {@link ICardinalityHolder}

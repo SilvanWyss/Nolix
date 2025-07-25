@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectschema.model.ValueModel;
 import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;

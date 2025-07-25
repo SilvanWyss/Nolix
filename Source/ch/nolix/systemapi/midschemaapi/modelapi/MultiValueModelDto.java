@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.midschemaapi.modelapi;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 
 public record MultiValueModelDto(DataType dataType) implements IContentModelDto {

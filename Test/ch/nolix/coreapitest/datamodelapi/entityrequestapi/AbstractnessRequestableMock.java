@@ -1,6 +1,6 @@
 package ch.nolix.coreapitest.datamodelapi.entityrequestapi;
 
-import ch.nolix.coreapi.datamodelapi.entityrequestapi.AbstractnessRequestable;
+import ch.nolix.coreapi.datamodel.entityrequest.AbstractnessRequestable;
 
 public final class AbstractnessRequestableMock implements AbstractnessRequestable {
 

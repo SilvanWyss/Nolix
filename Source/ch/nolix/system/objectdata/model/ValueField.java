@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.datamodel.fliedvalue.ValueMapper;
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
-import ch.nolix.coreapi.datamodelapi.fieldvalueapi.IValueMapper;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.system.objectdata.fieldtool.ValueFieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;

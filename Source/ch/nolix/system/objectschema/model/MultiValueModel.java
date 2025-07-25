@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiValueModel;
 

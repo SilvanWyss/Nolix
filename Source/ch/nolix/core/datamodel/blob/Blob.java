@@ -3,7 +3,7 @@ package ch.nolix.core.datamodel.blob;
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.datamodelapi.blobapi.IBlob;
+import ch.nolix.coreapi.datamodel.blob.IBlob;
 
 public final class Blob implements IBlob {
 

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.datamodelapi.entityrequestapi;
+package ch.nolix.coreapi.datamodel.entityrequest;
 
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 

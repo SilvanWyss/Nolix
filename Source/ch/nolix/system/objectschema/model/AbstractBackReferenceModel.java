@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;

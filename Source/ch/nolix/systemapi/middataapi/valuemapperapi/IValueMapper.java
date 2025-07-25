@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.middataapi.valuemapperapi;
 
-import ch.nolix.coreapi.datamodelapi.fieldproperty.DataType;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 
 /**
  * @author Silvan Wyss

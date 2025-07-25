@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.attribute.mutablemandatoryattribute;
 
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.ICardinalityHolder;
+import ch.nolix.coreapi.datamodel.cardinality.ICardinalityHolder;
 
 /**
  * A {@link IMutableCardinalityHolder} is a {@link ICardinalityHolder} whose

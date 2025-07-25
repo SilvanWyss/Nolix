@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.BaseCardinality;
+import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
 import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;

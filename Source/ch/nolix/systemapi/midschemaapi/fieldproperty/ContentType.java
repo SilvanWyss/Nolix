@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.midschemaapi.fieldproperty;
 
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 public enum ContentType {
