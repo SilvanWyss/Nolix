@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.errormapping;
 
-import ch.nolix.coreapi.errorcontrolapi.errormappingapi.IErrorMessageExtractor;
+import ch.nolix.coreapi.errorcontrol.errormapping.IErrorMessageExtractor;
 
 /**
  * @author Silvan Wyss

@@ -4,7 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.TimeComplexityFunctionCatalog;
+import ch.nolix.coreapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
 
 final class TimeComplexityFunctionCatalogTest extends StandardTest {
 

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrolapi.errormappingapi;
+package ch.nolix.coreapi.errorcontrol.errormapping;
 
 /**
  * @author Silvan Wyss

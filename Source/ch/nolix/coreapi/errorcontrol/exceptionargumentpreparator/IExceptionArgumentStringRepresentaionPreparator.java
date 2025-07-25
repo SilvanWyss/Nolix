@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi;
+package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
 
 /**
  * A {@link IExceptionArgumentStringRepresentaionPreparator} provides method to

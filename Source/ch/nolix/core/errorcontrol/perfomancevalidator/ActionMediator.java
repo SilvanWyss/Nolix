@@ -7,9 +7,9 @@ import java.util.function.LongToDoubleFunction;
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.core.errorcontrol.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.IPerformanceAnalyzer;
-import ch.nolix.coreapi.errorcontrolapi.performanceanalysisapi.TimeComplexityFunctionCatalog;
-import ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi.IActionMediator;
+import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
+import ch.nolix.coreapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
+import ch.nolix.coreapi.errorcontrol.performancevalidator.IActionMediator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class ActionMediator<O> implements IActionMediator {

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrolapi.validatorapi;
+package ch.nolix.coreapi.errorcontrol.validator;
 
 public interface IOptionalMediator {
 

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrolapi.performancevalidatorapi;
+package ch.nolix.coreapi.errorcontrol.performancevalidator;
 
 import java.util.function.LongToDoubleFunction;
 

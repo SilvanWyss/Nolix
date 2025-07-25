@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.exceptionargumentpreparator;
 
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionCausePreparator;
 
 /**
  * @author Silvan Wyss

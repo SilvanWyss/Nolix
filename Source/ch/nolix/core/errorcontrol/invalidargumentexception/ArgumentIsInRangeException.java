@@ -1,7 +1,7 @@
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
 
 /**
  * A {@link ArgumentIsInRangeException} is a

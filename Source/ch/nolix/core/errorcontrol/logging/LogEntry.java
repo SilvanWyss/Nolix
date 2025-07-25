@@ -2,7 +2,7 @@ package ch.nolix.core.errorcontrol.logging;
 
 import ch.nolix.core.errorcontrol.errormapping.StackTraceMapper;
 import ch.nolix.core.independent.list.ImmutableList;
-import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
+import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
 
 public final class LogEntry {
 

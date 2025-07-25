@@ -1,7 +1,7 @@
 package ch.nolix.core.errorcontrol.logging;
 
 import ch.nolix.core.independent.list.List;
-import ch.nolix.coreapi.errorcontrolapi.loggingapi.HarmLevel;
+import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
 
 public final class Logger {
 

@@ -4,13 +4,13 @@ import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentN
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionArgumentStringRepresentaionPreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionCausePreparator;
 import ch.nolix.core.errorcontrol.exceptionargumentpreparator.ExceptionErrorPredicatePreparator;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ArgumentNameDto;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.CauseDto;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi.ErrorPredicateDto;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentNamePreparator;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionArgumentStringRepresentaionPreparator;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionCausePreparator;
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ArgumentNameDto;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.CauseDto;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentNamePreparator;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentStringRepresentaionPreparator;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionCausePreparator;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionErrorPredicatePreparator;
 
 /**
  * A {@link AbstractInvalidArgumentException} is a {@link RuntimeException} that

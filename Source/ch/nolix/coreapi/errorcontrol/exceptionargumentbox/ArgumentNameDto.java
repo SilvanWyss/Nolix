@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrolapi.exceptionargumentboxapi;
+package ch.nolix.coreapi.errorcontrol.exceptionargumentbox;
 
 /**
  * @author Silvan Wyss

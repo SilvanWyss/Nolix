@@ -1,6 +1,6 @@
 package ch.nolix.core.errorcontrol.exceptionargumentpreparator;
 
-import ch.nolix.coreapi.errorcontrolapi.exceptionargumentpreparatorapi.IExceptionErrorPredicatePreparator;
+import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionErrorPredicatePreparator;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 /**

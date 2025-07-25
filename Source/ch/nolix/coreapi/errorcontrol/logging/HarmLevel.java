@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrolapi.loggingapi;
+package ch.nolix.coreapi.errorcontrol.logging;
 
 public enum HarmLevel {
   INFO,
