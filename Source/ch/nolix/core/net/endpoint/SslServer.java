@@ -1,8 +1,8 @@
 package ch.nolix.core.net.endpoint;
 
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
 public final class SslServer extends AbstractServer {
 

@@ -2,7 +2,7 @@ package ch.nolix.core.net.endpoint2;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRole;
+import ch.nolix.coreapi.net.endpoint2protocol.MessageRole;
 
 /**
  * A package in end point 3 is a package with a message role.

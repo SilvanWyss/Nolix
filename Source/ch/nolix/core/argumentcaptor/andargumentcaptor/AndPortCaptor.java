@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {

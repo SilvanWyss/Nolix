@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
+import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 
 final class WebSocketFramePayloadLengthTest extends StandardTest {
 

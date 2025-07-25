@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint3;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
+import ch.nolix.coreapi.net.endpoint2.ISlot;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
@@ -46,7 +46,7 @@ final class ServerSlot implements ISlot {
    * {@inheritDoc}
    */
   @Override
-  public void takeBackendEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint endPoint) {
+  public void takeBackendEndPoint(final ch.nolix.coreapi.net.endpoint2.IEndPoint endPoint) {
     parentServer.internalTakeBackendEndPoint(new NetEndPoint(endPoint));
   }
 }

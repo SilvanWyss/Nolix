@@ -17,11 +17,11 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.netapi.endpoint3protocol.MessageHeaderCatalog;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv6Catalog;
-import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.endpoint3protocol.MessageHeaderCatalog;
+import ch.nolix.coreapi.net.netconstant.IPv6Catalog;
+import ch.nolix.coreapi.net.netproperty.ConnectionType;
+import ch.nolix.coreapi.net.netproperty.PeerType;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**
@@ -30,7 +30,7 @@ import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
  */
 public final class NetEndPoint extends AbstractEndPoint {
 
-  private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint;
+  private final ch.nolix.coreapi.net.endpoint2.IEndPoint internalEndPoint;
 
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
@@ -110,7 +110,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param internalEndPoint
    * @throws ArgumentIsNullException if the given internalEndPoint is null.
    */
-  NetEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint) {
+  NetEndPoint(final ch.nolix.coreapi.net.endpoint2.IEndPoint internalEndPoint) {
 
     //Asserts that the given internalEndPoint is not null.
     Validator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();

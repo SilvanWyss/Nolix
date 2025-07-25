@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
+import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
 
 public final class TestReceivingDataProviderController implements IDataProviderController {
 

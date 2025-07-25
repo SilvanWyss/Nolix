@@ -5,10 +5,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
-import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.endpoint2.ISlot;
+import ch.nolix.coreapi.net.netproperty.ConnectionType;
+import ch.nolix.coreapi.net.netproperty.PeerType;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * A local end point can send messages to an other local end point.

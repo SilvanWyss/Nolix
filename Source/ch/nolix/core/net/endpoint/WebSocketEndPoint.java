@@ -10,11 +10,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;
-import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
+import ch.nolix.coreapi.net.endpointprotocol.MessageType;
+import ch.nolix.coreapi.net.netproperty.ConnectionType;
+import ch.nolix.coreapi.net.netproperty.PeerType;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 final class WebSocketEndPoint extends AbstractNetEndPoint {

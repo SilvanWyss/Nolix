@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.applicationapi.clientapi.IBackendClient;
 
 /**

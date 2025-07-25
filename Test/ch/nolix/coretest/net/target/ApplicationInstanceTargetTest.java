@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class ApplicationInstanceTargetTest extends StandardTest {
 

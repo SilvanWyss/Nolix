@@ -1,6 +1,6 @@
 package ch.nolix.core.net.endpoint;
 
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

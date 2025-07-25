@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.ObjectProtocol;
 

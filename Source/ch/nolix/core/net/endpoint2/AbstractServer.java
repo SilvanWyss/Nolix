@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.netapi.endpoint2api.IServer;
-import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
+import ch.nolix.coreapi.net.endpoint2.IServer;
+import ch.nolix.coreapi.net.endpoint2.ISlot;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
 /**

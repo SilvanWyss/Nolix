@@ -1,8 +1,8 @@
 package ch.nolix.core.net.target;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 

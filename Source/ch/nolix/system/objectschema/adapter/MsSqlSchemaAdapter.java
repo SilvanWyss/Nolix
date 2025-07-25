@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.adapter;
 
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 
 public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {

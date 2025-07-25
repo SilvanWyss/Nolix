@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
+import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
 final class WebSocketFrameTest extends StandardTest {
 

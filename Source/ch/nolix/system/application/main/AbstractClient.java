@@ -9,8 +9,8 @@ import ch.nolix.core.net.endpoint3.AbstractEndPoint;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.endpoint3.IEndPoint;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.applicationapi.clientapi.IClient;
 

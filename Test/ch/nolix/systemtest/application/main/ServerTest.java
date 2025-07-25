@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 final class ServerTest extends StandardTest {

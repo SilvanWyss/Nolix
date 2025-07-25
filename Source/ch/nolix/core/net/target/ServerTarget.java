@@ -1,9 +1,9 @@
 package ch.nolix.core.net.target;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public class ServerTarget implements IServerTarget {

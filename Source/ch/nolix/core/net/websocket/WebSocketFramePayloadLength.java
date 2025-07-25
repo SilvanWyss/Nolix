@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
+import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public record WebSocketFramePayloadLength(long value) {

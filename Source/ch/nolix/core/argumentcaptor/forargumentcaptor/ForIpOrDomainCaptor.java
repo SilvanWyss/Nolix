@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.forargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalog;
+import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 
 public class ForIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
 

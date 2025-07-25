@@ -8,9 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.net.endpoint.LocalEndPoint;
 import ch.nolix.core.net.endpoint.LocalServer;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.netproperty.ConnectionType;
+import ch.nolix.coreapi.net.netproperty.PeerType;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class LocalEndPointTest extends StandardTest {
 

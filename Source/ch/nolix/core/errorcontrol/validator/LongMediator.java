@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.independent.arraytool.ArrayTool;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
 
 /**
  * A {@link LongMediator} is a {@link Mediator} for a long argument. A

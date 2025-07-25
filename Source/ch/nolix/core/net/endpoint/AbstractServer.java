@@ -7,9 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
-import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
-import ch.nolix.coreapi.netapi.endpointapi.IServer;
-import ch.nolix.coreapi.netapi.endpointapi.ISlot;
+import ch.nolix.coreapi.net.endpoint.IEndPoint;
+import ch.nolix.coreapi.net.endpoint.IServer;
+import ch.nolix.coreapi.net.endpoint.ISlot;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 
 /**

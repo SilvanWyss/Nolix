@@ -2,10 +2,10 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.sslapi.ISslCertificate;
-import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.ssl.ISslCertificate;
+import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 public final class SslServer extends AbstractServer<SslServer> {

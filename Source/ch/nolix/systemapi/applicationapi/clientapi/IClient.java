@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.applicationapi.clientapi;
 
-import ch.nolix.coreapi.netapi.netattributeapi.ISecuriyModeHolder;
-import ch.nolix.coreapi.netapi.staterequestapi.ConnectionSideRequestable;
+import ch.nolix.coreapi.net.netattribute.ISecuriyModeHolder;
+import ch.nolix.coreapi.net.staterequest.ConnectionSideRequestable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 
 /**

@@ -1,7 +1,7 @@
 package ch.nolix.coretest.net.endpoint;
 
-import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
-import ch.nolix.coreapi.netapi.endpointapi.ISlot;
+import ch.nolix.coreapi.net.endpoint.IEndPoint;
+import ch.nolix.coreapi.net.endpoint.ISlot;
 
 public final class MockSlot implements ISlot {
 

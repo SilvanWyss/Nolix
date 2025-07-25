@@ -3,8 +3,8 @@ package ch.nolix.core.net.endpoint3;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.endpoint3.ISlot;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * A {@link Server} is a {@link AbstractServer} that listens to

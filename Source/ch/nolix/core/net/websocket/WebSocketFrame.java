@@ -10,9 +10,9 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFramePayloadLengthType;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameType;
+import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
+import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
+import ch.nolix.coreapi.net.websocket.WebSocketFrameType;
 
 public final class WebSocketFrame {
 

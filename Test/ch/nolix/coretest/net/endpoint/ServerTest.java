@@ -6,8 +6,8 @@ import org.mockito.Mockito;
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.endpointapi.ISlot;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.endpoint.ISlot;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class ServerTest extends StandardTest {
 

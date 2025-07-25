@@ -3,8 +3,8 @@ package ch.nolix.coreapitest.netapi.netproperty;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.netapi.netproperty.BaseConnectionType;
-import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
+import ch.nolix.coreapi.net.netproperty.BaseConnectionType;
+import ch.nolix.coreapi.net.netproperty.ConnectionType;
 
 final class ConnectionTypeTest extends StandardTest {
 

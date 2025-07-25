@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.baseendpoint.AbstractBaseEndPoint;
-import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
+import ch.nolix.coreapi.net.endpoint2.IEndPoint;
 
 /**
  * @author Silvan Wyss

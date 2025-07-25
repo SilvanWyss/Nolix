@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
-import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
+import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 /**

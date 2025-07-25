@@ -15,9 +15,9 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.netapi.targetapi.IApplicationInstanceTarget;
-import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.net.endpoint3.IEndPoint;
+import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 

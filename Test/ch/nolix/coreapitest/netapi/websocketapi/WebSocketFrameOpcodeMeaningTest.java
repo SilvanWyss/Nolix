@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.netapi.websocketapi.WebSocketFrameOpcodeMeaning;
+import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
 final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
 

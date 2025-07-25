@@ -1,7 +1,7 @@
 package ch.nolix.core.net.endpoint2;
 
-import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.endpoint2.ISlot;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss

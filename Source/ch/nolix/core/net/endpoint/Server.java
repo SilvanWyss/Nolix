@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.netapi.netconstantapi.PortCatalog;
-import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.net.netconstant.PortCatalog;
+import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * A {@link Server} is a {@link AbstractServer} that listens to

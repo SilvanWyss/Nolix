@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
 import ch.nolix.coreapi.manager.applicationmanager.IApplicationManager;
-import ch.nolix.coreapi.netapi.netattributeapi.ISecuriyModeHolder;
-import ch.nolix.coreapi.netapi.targetapi.IServerTarget;
+import ch.nolix.coreapi.net.netattribute.ISecuriyModeHolder;
+import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
