@@ -12,8 +12,7 @@ public interface Groupable<E> {
   /**
    * @param norm
    * @return a new {@link IContainer} with the elements of the current
-   *         {@link Groupable} grouped by the given norm. Ignores null
-   *         elements.
+   *         {@link Groupable} grouped by the given norm. Ignores null elements.
    * @throws RuntimeException if the given norm is null.
    */
   IContainer<? extends IContainer<E>> getStoredInGroups(Function<E, ?> norm);

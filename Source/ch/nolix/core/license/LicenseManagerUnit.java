@@ -27,8 +27,8 @@ public final class LicenseManagerUnit {
   private final LinkedList<AbstractLicense> abstractLicenses = LinkedList.createEmpty();
 
   /**
-   * Creates and adds a new {@link AbstractLicense} of the given licenseType to the
-   * current {@link LicenseManagerUnit}
+   * Creates and adds a new {@link AbstractLicense} of the given licenseType to
+   * the current {@link LicenseManagerUnit}
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -39,9 +39,10 @@ public final class LicenseManagerUnit {
    * @throws InvalidArgumentException if the given licenseType does not contain a
    *                                  constructor with 1 {@link String} parameter.
    * @throws InvalidArgumentException if the found key is not valid.
-   * @throws InvalidArgumentException if the current {@link LicenseManagerUnit} does
-   *                                  contain already a {@link AbstractLicense} of the
-   *                                  given licenseType.
+   * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
+   *                                  does contain already a
+   *                                  {@link AbstractLicense} of the given
+   *                                  licenseType.
    */
   public <L extends AbstractLicense> LicenseManagerUnit addLicense(final Class<L> licenseType) {
 
@@ -63,8 +64,8 @@ public final class LicenseManagerUnit {
    * @throws ArgumentIsNullException  if the given license is null.
    * @throws InvalidArgumentException if the given license is not activated.
    * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
-   *                                  contains already a {@link AbstractLicense} of the
-   *                                  type the given license is.
+   *                                  contains already a {@link AbstractLicense}
+   *                                  of the type the given license is.
    */
   public LicenseManagerUnit addLicense(final AbstractLicense abstractLicense) {
 
@@ -86,8 +87,8 @@ public final class LicenseManagerUnit {
   /**
    * @param featureType
    * @param <F>         is the given featureType.
-   * @return true if the current {@link LicenseManagerUnit} contains a {@link AbstractFeature}
-   *         of the given featureType.
+   * @return true if the current {@link LicenseManagerUnit} contains a
+   *         {@link AbstractFeature} of the given featureType.
    */
   public <F extends AbstractFeature> boolean containsFeature(final Class<F> featureType) {
     try {
@@ -107,8 +108,8 @@ public final class LicenseManagerUnit {
   /**
    * @param licenseType
    * @param <L>         is the given licenseType.
-   * @return true if the current {@link LicenseManagerUnit} contains a {@link AbstractLicense}
-   *         of the given licenseType.
+   * @return true if the current {@link LicenseManagerUnit} contains a
+   *         {@link AbstractLicense} of the given licenseType.
    */
   public <L extends AbstractLicense> boolean containsLicense(final Class<L> licenseType) {
     return abstractLicenses.containsAny(l -> l.getClass() == licenseType);
@@ -126,24 +127,26 @@ public final class LicenseManagerUnit {
    * 
    * @param abstractLicense
    * @throws ArgumentDoesNotContainElementException if the current
-   *                                                {@link LicenseManagerUnit} does
-   *                                                not contain the given license.
+   *                                                {@link LicenseManagerUnit}
+   *                                                does not contain the given
+   *                                                license.
    */
   public void removeLicense(final AbstractLicense abstractLicense) {
     abstractLicenses.removeStrictlyFirstOccurrenceOf(abstractLicense);
   }
 
   /**
-   * Requires the current {@link LicenseManagerUnit} to contain a {@link AbstractFeature} of
-   * the given featureType.
+   * Requires the current {@link LicenseManagerUnit} to contain a
+   * {@link AbstractFeature} of the given featureType.
    * 
    * @param featureType
    * @param <F>         is the given featureType.
    * @return the current {@link LicenseManagerUnit}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link LicenseManagerUnit} does not
-   *                                               contain a {@link AbstractFeature} of
-   *                                               the given featureType.
+   *                                               {@link LicenseManagerUnit} does
+   *                                               not contain a
+   *                                               {@link AbstractFeature} of the
+   *                                               given featureType.
    */
   public <F extends AbstractFeature> LicenseManagerUnit requireFeature(final Class<F> featureType) {
 

@@ -13,7 +13,8 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @version 2017-08-27
- * @param <E> is the type of the elements of a {@link IntervallContainerViewIterator}.
+ * @param <E> is the type of the elements of a
+ *            {@link IntervallContainerViewIterator}.
  */
 final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
 
@@ -26,8 +27,8 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
   private int currentIndex;
 
   /**
-   * Creates a new {@link IntervallContainerViewIterator} for the given parentContainer,
-   * startIndex and endIndex.
+   * Creates a new {@link IntervallContainerViewIterator} for the given
+   * parentContainer, startIndex and endIndex.
    * 
    * @param parentContainer
    * @param startIndex
@@ -68,7 +69,8 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
   }
 
   /**
-   * @return true if the current {@link IntervallContainerViewIterator} has a next element.
+   * @return true if the current {@link IntervallContainerViewIterator} has a next
+   *         element.
    */
   @Override
   public boolean hasNext() {
@@ -76,7 +78,8 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
   }
 
   /**
-   * @return the next element of the current {@link IntervallContainerViewIterator}.
+   * @return the next element of the current
+   *         {@link IntervallContainerViewIterator}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link IntervallContainerViewIterator}
    *                                               does not have a next element.

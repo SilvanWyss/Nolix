@@ -2,8 +2,8 @@ package ch.nolix.core.sql.connectionpool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
-import ch.nolix.core.sql.connection.MsSqlConnection;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
+import ch.nolix.core.sql.connection.MsSqlConnection;
 
 public final class SqlConnectionFactory {
 

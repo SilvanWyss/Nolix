@@ -22,8 +22,7 @@ public final class FunctionService {
   private static final boolean TRUE = true;
 
   /**
-   * Prevents that an instance of the {@link FunctionService} can be
-   * created.
+   * Prevents that an instance of the {@link FunctionService} can be created.
    */
   private FunctionService() {
   }

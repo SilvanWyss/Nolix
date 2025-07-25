@@ -56,8 +56,8 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
   /**
    * @return a new specification of the current {@link AbstractSingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractSingleValue} does not
-   *                                               have a value
+   *                                               {@link AbstractSingleValue}
+   *                                               does not have a value
    */
   public final Node getSpecification() {
     return Node.withHeaderAndChildNodes(getName(), specificationCreator.apply(getValue()).getStoredChildNodes());
@@ -66,8 +66,8 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
   /**
    * @return the value of the current {@link AbstractSingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractSingleValue} does not
-   *                                               have a value.
+   *                                               {@link AbstractSingleValue}
+   *                                               does not have a value.
    */
   public final V getValue() {
 
@@ -96,8 +96,8 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * 
    * @param value
    * @throws ArgumentIsNullException  if the given value is null.
-   * @throws InvalidArgumentException if the current {@link AbstractSingleValue} is not
-   *                                  mutable and has already a value.
+   * @throws InvalidArgumentException if the current {@link AbstractSingleValue}
+   *                                  is not mutable and has already a value.
    */
   public final void setValue(final V value) {
 

@@ -6,8 +6,8 @@ import ch.nolix.systemapi.element.base.IElement;
 
 /**
  * A {@link IAbstractStyle} can style {@link IStylableElement}s. A
- * {@link IAbstractStyle} can distinguish if it would style also the child elements
- * of a given {@link IStylableElement}.
+ * {@link IAbstractStyle} can distinguish if it would style also the child
+ * elements of a given {@link IStylableElement}.
  * 
  * @author Silvan Wyss
  * @version 2023-07-09
@@ -73,9 +73,10 @@ public interface IAbstractStyle<S extends IAbstractStyle<S>> extends IElement {
   /**
    * @param selectorType
    * @param newAttachingAttributes
-   * @return a new {@link IAbstractStyle} from the current {@link IAbstractStyle} where
-   *         each of the given newAttachingAttributes was either added or updated
-   *         the according attachingAttributes where the given selectorType is.
+   * @return a new {@link IAbstractStyle} from the current {@link IAbstractStyle}
+   *         where each of the given newAttachingAttributes was either added or
+   *         updated the according attachingAttributes where the given
+   *         selectorType is.
    */
   S withNewAttachingAttributesWhereSelectorType(String selectorType, IContainer<String> newAttachingAttributes);
 
@@ -83,8 +84,8 @@ public interface IAbstractStyle<S extends IAbstractStyle<S>> extends IElement {
    * @param selectorType
    * @param newAttachingAttribute
    * @param newAttachingAttributes
-   * @return a new {@link IAbstractStyle} from the current {@link IAbstractStyle} where
-   *         the newAttachingAttribute and each of the given
+   * @return a new {@link IAbstractStyle} from the current {@link IAbstractStyle}
+   *         where the newAttachingAttribute and each of the given
    *         newAttachingAttributes either was added or updated the according
    *         attachingAttributes where the given selectorType is.
    */

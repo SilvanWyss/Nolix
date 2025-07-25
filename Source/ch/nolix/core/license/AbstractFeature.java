@@ -12,7 +12,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 public abstract class AbstractFeature implements INameHolder {
 
   /**
-   * @return the authorized {@link AbstractLicense} types of the current {@link AbstractFeature}.
+   * @return the authorized {@link AbstractLicense} types of the current
+   *         {@link AbstractFeature}.
    */
   public abstract IContainer<Class<?>> getAuthorizedLicenseTypes();
 

@@ -66,7 +66,8 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is
+   *                                 closed.
    */
   protected void assertIsOpen() {
     if (isClosed()) {
@@ -76,9 +77,9 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
 
   /**
    * @return the receiver controller of the current {@link AbstractEndPoint}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
-   *                                               does not have a receiver
-   *                                               controller.
+   * @throws ArgumentDoesNotHaveAttributeException if the current
+   *                                               {@link AbstractEndPoint} does
+   *                                               not have a receiver controller.
    */
   IDataProviderController getStoredReceiverController() {
 

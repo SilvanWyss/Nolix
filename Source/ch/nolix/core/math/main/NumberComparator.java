@@ -9,8 +9,7 @@ import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
 public final class NumberComparator {
 
   /**
-   * Prevents that an instance of the {@link NumberComparator} can be
-   * created.
+   * Prevents that an instance of the {@link NumberComparator} can be created.
    */
   private NumberComparator() {
   }

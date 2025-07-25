@@ -3,9 +3,9 @@ package ch.nolix.systemapi.graphic.imageproperty;
 import ch.nolix.coreapi.document.node.INode;
 
 /**
- * A {@link Alignment} defines the way between two points of a
- * rectangle. A {@link Alignment} does not (!) depend on the order of
- * the start point and end point.
+ * A {@link Alignment} defines the way between two points of a rectangle. A
+ * {@link Alignment} does not (!) depend on the order of the start point and end
+ * point.
  * 
  * @author Silvan Wyss
  * @version 2017-09-16

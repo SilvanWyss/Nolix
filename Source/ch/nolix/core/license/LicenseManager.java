@@ -26,16 +26,16 @@ public final class LicenseManager {
    * @param abstractLicense
    * @throws ArgumentIsNullException  if the given license is null.
    * @throws InvalidArgumentException if the {@link LicenseManager} contains
-   *                                  already a {@link AbstractLicense} of the type the
-   *                                  given license is.
+   *                                  already a {@link AbstractLicense} of the
+   *                                  type the given license is.
    */
   public static void addLicense(final AbstractLicense abstractLicense) {
     LICENSE_MANAGER.addLicense(abstractLicense);
   }
 
   /**
-   * Creates and adds a new {@link AbstractLicense} of the given licenseType to the
-   * {@link LicenseManager}.
+   * Creates and adds a new {@link AbstractLicense} of the given licenseType to
+   * the {@link LicenseManager}.
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -46,24 +46,23 @@ public final class LicenseManager {
    *                                  constructor with 1 {@link String} parameter.
    * @throws InvalidArgumentException if the found key is not valid.
    * @throws InvalidArgumentException if the {@link LicenseManager} contains
-   *                                  already a {@link AbstractLicense} of the given
-   *                                  licenseType.
+   *                                  already a {@link AbstractLicense} of the
+   *                                  given licenseType.
    */
   public static <L extends AbstractLicense> void addLicense(final Class<L> licenseType) {
     LICENSE_MANAGER.addLicense(licenseType);
   }
 
   /**
-   * Requires the {@link LicenseManager} to contain a {@link AbstractFeature} of the
-   * given featureType.
+   * Requires the {@link LicenseManager} to contain a {@link AbstractFeature} of
+   * the given featureType.
    * 
    * @param featureType
    * @param <F>         is the given featureType.
-   * @throws ArgumentDoesNotHaveAttributeException if the
-   *                                               {@link LicenseManager}
+   * @throws ArgumentDoesNotHaveAttributeException if the {@link LicenseManager}
    *                                               does not contain a
-   *                                               {@link AbstractFeature} of the given
-   *                                               featureType.
+   *                                               {@link AbstractFeature} of the
+   *                                               given featureType.
    */
   public static <F extends AbstractFeature> void requireFeature(final Class<F> featureType) {
     LICENSE_MANAGER.requireFeature(featureType);

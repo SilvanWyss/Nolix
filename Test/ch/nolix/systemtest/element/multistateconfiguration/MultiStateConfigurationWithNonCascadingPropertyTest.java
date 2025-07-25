@@ -18,7 +18,8 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     D
   }
 
-  private static final class CustomFormatElement extends AbstractMultiStateConfiguration<CustomFormatElement, CustomState> {
+  private static final class CustomFormatElement
+  extends AbstractMultiStateConfiguration<CustomFormatElement, CustomState> {
 
     final NonCascadingProperty<CustomState, Color> color = new NonCascadingProperty<>(
       "Color",

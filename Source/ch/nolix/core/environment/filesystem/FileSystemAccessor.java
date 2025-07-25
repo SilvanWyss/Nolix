@@ -28,8 +28,7 @@ import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 public final class FileSystemAccessor {
 
   /**
-   * Prevents that an instance of the {@link FileSystemAccessor} can be
-   * created.
+   * Prevents that an instance of the {@link FileSystemAccessor} can be created.
    */
   private FileSystemAccessor() {
   }
@@ -307,8 +306,8 @@ public final class FileSystemAccessor {
 
   /**
    * @param path
-   * @return new {@link FileSystemItemAccessorUnit}s for the file system items in the
-   *         folder with the given path.
+   * @return new {@link FileSystemItemAccessorUnit}s for the file system items in
+   *         the folder with the given path.
    */
   public static IContainer<FileSystemItemAccessorUnit> getFileSystemItemAccessors(final String path) {
     return ContainerView.forArray(new File(path).listFiles())

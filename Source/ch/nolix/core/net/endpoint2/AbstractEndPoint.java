@@ -48,7 +48,8 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is
+   *                                 closed.
    */
   protected final void assertIsOpen() {
     if (isClosed()) {

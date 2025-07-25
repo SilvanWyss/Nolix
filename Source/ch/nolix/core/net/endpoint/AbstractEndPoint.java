@@ -68,7 +68,8 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is closed.
+   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is
+   *                                 closed.
    */
   protected final void assertIsOpen() {
     if (isClosed()) {
@@ -78,8 +79,9 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
 
   /**
    * @return the receiver of the current {@link AbstractEndPoint}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
-   *                                               does not have a receiver.
+   * @throws ArgumentDoesNotHaveAttributeException if the current
+   *                                               {@link AbstractEndPoint} does
+   *                                               not have a receiver.
    */
   protected final Consumer<String> getStoredReceiver() {
 
@@ -100,7 +102,8 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * @param customTargetSlot
    * @throws ArgumentIsNullException  if the given customTargetSlot is null.
    * @throws InvalidArgumentException if the given customTargetSlot is blank.
-   * @throws ClosedArgumentException  if the current {@link AbstractEndPoint} is closed.
+   * @throws ClosedArgumentException  if the current {@link AbstractEndPoint} is
+   *                                  closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {
 
@@ -115,9 +118,9 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
-   *                                               does not have a custom target
-   *                                               slot.
+   * @throws ArgumentDoesNotHaveAttributeException if the current
+   *                                               {@link AbstractEndPoint} does
+   *                                               not have a custom target slot.
    */
   private void assertHasCustomTargetSlot() {
     if (!hasCustomTargetSlot()) {
@@ -126,8 +129,9 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link AbstractEndPoint}
-   *                                               does not have a receiver.
+   * @throws ArgumentDoesNotHaveAttributeException if the current
+   *                                               {@link AbstractEndPoint} does
+   *                                               not have a receiver.
    */
   private void assertHasReceiver() {
     if (!hasReceiver()) {

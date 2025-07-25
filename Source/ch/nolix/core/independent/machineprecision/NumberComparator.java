@@ -9,8 +9,7 @@ public final class NumberComparator {
   public static final double COMMON_DOUBLE_COMPARSION_THRESHOLD = 0.000_001; //10E^6
 
   /**
-   * Prevents that an instance of the {@link NumberComparator} can be
-   * created.
+   * Prevents that an instance of the {@link NumberComparator} can be created.
    */
   private NumberComparator() {
   }

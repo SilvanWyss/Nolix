@@ -42,8 +42,8 @@ public interface AggregationRequestable<E> {
    *         the elements of the current {@link AggregationRequestable}. Ignores
    *         null elements.
    * @throws RuntimeException if the given comparableMapper is null.
-   * @throws RuntimeException if the current {@link AggregationRequestable} does not
-   *                          contain a non-null element.
+   * @throws RuntimeException if the current {@link AggregationRequestable} does
+   *                          not contain a non-null element.
    */
   <C extends Comparable<C>> C getMax(Function<E, C> comparableMapper);
 
@@ -86,8 +86,8 @@ public interface AggregationRequestable<E> {
    *         the elements of the current {@link AggregationRequestable}. Ignores
    *         null elements.
    * @throws RuntimeException if the given comparableMapper is null.
-   * @throws RuntimeException if the current {@link AggregationRequestable} does not
-   *                          contain a non-null element.
+   * @throws RuntimeException if the current {@link AggregationRequestable} does
+   *                          not contain a non-null element.
    */
   <C extends Comparable<C>> C getMin(Function<E, C> comparableMapper);
 
@@ -113,7 +113,8 @@ public interface AggregationRequestable<E> {
   /**
    * @param valueMapper
    * @return the sum of the values the given valueMapper maps from the elements of
-   *         the current {@link AggregationRequestable}. Maps null elements to 0.0.
+   *         the current {@link AggregationRequestable}. Maps null elements to
+   *         0.0.
    * @throws RuntimeException if the given valueMapper is null.
    */
   BigDecimal getSum(Function<E, Number> valueMapper);

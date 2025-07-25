@@ -127,8 +127,8 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
   }
 
   /**
-   * @return new {@link FileSystemItemAccessorUnit}s to the file system items in the
-   *         folder of the current {@link FolderAccessor}.
+   * @return new {@link FileSystemItemAccessorUnit}s to the file system items in
+   *         the folder of the current {@link FolderAccessor}.
    */
   public IContainer<FileSystemItemAccessorUnit> getFileSystemItemAccessors() {
     return FileSystemAccessor.getFileSystemItemAccessors(getPath());

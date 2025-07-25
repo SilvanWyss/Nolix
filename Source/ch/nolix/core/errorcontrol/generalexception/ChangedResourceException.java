@@ -1,10 +1,10 @@
 package ch.nolix.core.errorcontrol.generalexception;
 
 /**
- * A {@link ChangedResourceException} is a
- * {@link RuntimeException} that is supposed to be thrown when a specific
- * resource was undesirably changed in the meanwhile. For thhis conext, a
- * resource can be e.g.: data, schema, file, connection.
+ * A {@link ChangedResourceException} is a {@link RuntimeException} that is
+ * supposed to be thrown when a specific resource was undesirably changed in the
+ * meanwhile. For thhis conext, a resource can be e.g.: data, schema, file,
+ * connection.
  * 
  * @author Silvan Wyss
  * @version 2022-02-27
@@ -13,8 +13,7 @@ package ch.nolix.core.errorcontrol.generalexception;
 public final class ChangedResourceException extends RuntimeException {
 
   /**
-   * Creates a new {@link ChangedResourceException} for the given
-   * resource.
+   * Creates a new {@link ChangedResourceException} for the given resource.
    * 
    * @param resource
    * @throws IllegalArgumentException if the given resource is null.
@@ -26,8 +25,7 @@ public final class ChangedResourceException extends RuntimeException {
 
   /**
    * @param resource
-   * @return a new {@link ChangedResourceException} for the given
-   *         resource.
+   * @return a new {@link ChangedResourceException} for the given resource.
    * @throws IllegalArgumentException if the given resource is null.
    * @throws IllegalArgumentException if the given resource is blank.
    */

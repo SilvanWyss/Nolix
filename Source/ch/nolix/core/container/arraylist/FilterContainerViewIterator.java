@@ -11,7 +11,8 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @version 2025-03-09
- * @param <E> is the type of the elements of a {@link FilterContainerViewIterator}.
+ * @param <E> is the type of the elements of a
+ *            {@link FilterContainerViewIterator}.
  */
 public final class FilterContainerViewIterator<E> implements CopyableIterator<E> {
 
@@ -24,7 +25,8 @@ public final class FilterContainerViewIterator<E> implements CopyableIterator<E>
   private E optionalNextElement;
 
   /**
-   * Creates a new {@link FilterContainerViewIterator} with the given iterator and selector.
+   * Creates a new {@link FilterContainerViewIterator} with the given iterator and
+   * selector.
    * 
    * @param iterator
    * @param selector

@@ -11,8 +11,8 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link LocalEndPoint} is an {@link AbstractEndPoint} that can send messages to
- * another {@link LocalEndPoint}.
+ * A {@link LocalEndPoint} is an {@link AbstractEndPoint} that can send messages
+ * to another {@link LocalEndPoint}.
  * 
  * @author Silvan Wyss
  * @version 2017-05-06

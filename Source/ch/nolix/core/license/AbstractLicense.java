@@ -20,10 +20,10 @@ public abstract class AbstractLicense implements INameHolder {
    * Activates the current {@link AbstractLicense} with the given key.
    * 
    * @param key
-   * @throws InvalidArgumentException if the current {@link AbstractLicense} is already
-   *                                  activated.
-   * @throws UnacceptedKeyException   if the current {@link AbstractLicense} does no
-   *                                  accepts the given key.
+   * @throws InvalidArgumentException if the current {@link AbstractLicense} is
+   *                                  already activated.
+   * @throws UnacceptedKeyException   if the current {@link AbstractLicense} does
+   *                                  no accepts the given key.
    */
   public final void activate(final String key) {
 
@@ -34,8 +34,8 @@ public abstract class AbstractLicense implements INameHolder {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractLicense} is not
-   *                                  activated.
+   * @throws InvalidArgumentException if the current {@link AbstractLicense} is
+   *                                  not activated.
    */
   public final void assetIsActivated() {
     if (!isActivated()) {
@@ -60,7 +60,8 @@ public abstract class AbstractLicense implements INameHolder {
 
   /**
    * @param filteredKey
-   * @return true if the current {@link AbstractLicense} accepts the given filteredKey.
+   * @return true if the current {@link AbstractLicense} accepts the given
+   *         filteredKey.
    */
   protected abstract boolean acceptsFilteredKey(String filteredKey);
 
@@ -74,8 +75,8 @@ public abstract class AbstractLicense implements INameHolder {
 
   /**
    * @param key
-   * @throws UnacceptedKeyException if the current {@link AbstractLicense} does no accepts
-   *                                the given key.
+   * @throws UnacceptedKeyException if the current {@link AbstractLicense} does no
+   *                                accepts the given key.
    */
   private void assertAccepts(final String key) {
     if (!accepts(key)) {
@@ -84,7 +85,8 @@ public abstract class AbstractLicense implements INameHolder {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractLicense} is activated.
+   * @throws InvalidArgumentException if the current {@link AbstractLicense} is
+   *                                  activated.
    */
   private void assertIsNotActivated() {
     if (isActivated()) {

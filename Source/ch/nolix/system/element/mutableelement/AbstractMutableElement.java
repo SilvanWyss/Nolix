@@ -109,8 +109,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Resets the current {@link AbstractMutableElement} from the file with the given
-   * filePath.
+   * Resets the current {@link AbstractMutableElement} from the file with the
+   * given filePath.
    * 
    * @param filePath
    * @throws InvalidArgumentException if the given filePath is not valid.
@@ -144,8 +144,9 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Lets the current {@link AbstractMutableElement} extract the {@link AbstractProperty}
-   * from the given field if the given field stores a {@link AbstractProperty}.
+   * Lets the current {@link AbstractMutableElement} extract the
+   * {@link AbstractProperty} from the given field if the given field stores a
+   * {@link AbstractProperty}.
    * 
    * @param field
    */
@@ -173,8 +174,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the {@link AbstractMutableElement} that are
-   * from the given pClass.
+   * Extracts the {@link AbstractProperty}s of the {@link AbstractMutableElement}
+   * that are from the given pClass.
    * 
    * @param pClass
    */
@@ -187,8 +188,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the current {@link AbstractMutableElement}
-   * if they are not extracted yet.
+   * Extracts the {@link AbstractProperty}s of the current
+   * {@link AbstractMutableElement} if they are not extracted yet.
    */
   private void extractPropertiesIfNotExtracted() {
     if (!hasExtractedProperties()) {
@@ -197,8 +198,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty} of the {@link AbstractMutableElement} that is
-   * from the given field.
+   * Extracts the {@link AbstractProperty} of the {@link AbstractMutableElement}
+   * that is from the given field.
    * 
    * @param field
    * @throws IllegalAccessError if the given field is not accessible.
@@ -220,7 +221,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * @return the {@link AbstractProperty}s of the current {@link AbstractMutableElement}.
+   * @return the {@link AbstractProperty}s of the current
+   *         {@link AbstractMutableElement}.
    */
   private IContainer<IProperty> getStoredProperties() {
 
@@ -239,8 +241,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
   /**
    * @param element
-   * @return true if the current {@link AbstractMutableElement} has the same specification
-   *         as the given element.
+   * @return true if the current {@link AbstractMutableElement} has the same
+   *         specification as the given element.
    */
   private boolean hasSameSpecificationAs(final IElement element) {
     return getSpecification().equals(element.getSpecification());
