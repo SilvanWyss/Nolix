@@ -1,14 +1,14 @@
 package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.fieldtool.MultiValueTool;
-import ch.nolix.systemapi.objectdata.fieldtool.IMultiValueTool;
+import ch.nolix.system.objectdata.fieldtool.MultiValueFieldTool;
+import ch.nolix.systemapi.objectdata.fieldtool.IMultiValueFieldTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueValidator;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public final class MultiValueValidator extends FieldValidator implements IMultiValueValidator {
 
-  private static final IMultiValueTool MULTI_VALUE_TOOL = new MultiValueTool();
+  private static final IMultiValueFieldTool MULTI_VALUE_TOOL = new MultiValueFieldTool();
 
   @Override
   public void assertCanAddGivenValue(final IMultiValueField<?> multiValue, final Object value) {

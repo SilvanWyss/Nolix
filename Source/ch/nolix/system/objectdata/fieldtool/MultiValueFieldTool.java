@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.systemapi.objectdata.fieldtool.IMultiValueTool;
+import ch.nolix.systemapi.objectdata.fieldtool.IMultiValueFieldTool;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
-public final class MultiValueTool extends FieldTool implements IMultiValueTool {
+public final class MultiValueFieldTool extends FieldTool implements IMultiValueFieldTool {
 
   @Override
   public boolean canAddGivenValue(final IMultiValueField<?> multiValue, final Object value) {
