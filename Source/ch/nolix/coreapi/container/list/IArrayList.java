@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.container.list;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.creationapi.copierapi.Copyable;
+import ch.nolix.coreapi.creation.copier.Copyable;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 /**

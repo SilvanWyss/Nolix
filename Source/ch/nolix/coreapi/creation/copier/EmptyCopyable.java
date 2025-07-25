@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.creationapi.copierapi;
+package ch.nolix.coreapi.creation.copier;
 
 /**
  * A {@link EmptyCopyable} can create an empty copy of itself.

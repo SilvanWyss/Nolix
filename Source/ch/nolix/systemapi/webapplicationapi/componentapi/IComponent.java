@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webapplicationapi.componentapi;
 
-import ch.nolix.coreapi.creationapi.builderapi.Rebuildable;
+import ch.nolix.coreapi.creation.builder.Rebuildable;
 import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

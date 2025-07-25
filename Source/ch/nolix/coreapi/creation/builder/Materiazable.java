@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.creationapi.builderapi;
+package ch.nolix.coreapi.creation.builder;
 
 import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
 

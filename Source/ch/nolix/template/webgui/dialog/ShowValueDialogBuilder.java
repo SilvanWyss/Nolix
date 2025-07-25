@@ -3,7 +3,7 @@ package ch.nolix.template.webgui.dialog;
 import java.util.function.Consumer;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.creationapi.builderapi.IBuilder;
+import ch.nolix.coreapi.creation.builder.IBuilder;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
