@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.independentapi.arraytoolapi;
+package ch.nolix.coreapi.independent.arraytool;
 
 /**
  * @author Silvan Wyss

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.independentapi.arraytoolapi;
+package ch.nolix.coreapi.independent.arraytool;
 
 /**
  * A {@link IArrayTool} provides functions to handle arrays.

@@ -1,7 +1,7 @@
 package ch.nolix.core.independent.arraytool;
 
 import ch.nolix.core.independent.list.List;
-import ch.nolix.coreapi.independentapi.arraytoolapi.IArrayTool;
+import ch.nolix.coreapi.independent.arraytool.IArrayTool;
 
 /**
  * @author Silvan Wyss

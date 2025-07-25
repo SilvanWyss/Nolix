@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.independentapi.iterabletoolapi;
+package ch.nolix.coreapi.independent.iterabletool;
 
 /**
  * A {@link IIterableTool} provides methods to handle {@link Iterable}s.

@@ -1,6 +1,6 @@
 package ch.nolix.core.independent.arraytool;
 
-import ch.nolix.coreapi.independentapi.arraytoolapi.IArrayValidator;
+import ch.nolix.coreapi.independent.arraytool.IArrayValidator;
 
 /**
  * @author Silvan Wyss

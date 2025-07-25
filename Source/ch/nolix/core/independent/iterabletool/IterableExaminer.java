@@ -1,6 +1,6 @@
 package ch.nolix.core.independent.iterabletool;
 
-import ch.nolix.coreapi.independentapi.iterabletoolapi.IIterableExaminer;
+import ch.nolix.coreapi.independent.iterabletool.IIterableExaminer;
 
 /**
  * @author Silvan Wyss
