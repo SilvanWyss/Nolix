@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.datamodel.entityrequest;
 
-import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link AbstractnessRequestable} can be asked if it is either abstract or

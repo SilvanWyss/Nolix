@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.net.staterequest;
 
-import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ConnectionSideRequestable} can be requested if it is on back-end or

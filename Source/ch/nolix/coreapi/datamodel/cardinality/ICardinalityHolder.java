@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.datamodel.cardinality;
 
-import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ICardinalityHolder} has a {@link Cardinality}.

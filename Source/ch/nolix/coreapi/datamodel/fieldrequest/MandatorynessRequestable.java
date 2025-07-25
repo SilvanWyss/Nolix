@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.datamodel.fieldrequest;
 
-import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link MandatorynessRequestable} can be asked if it is mandatory.

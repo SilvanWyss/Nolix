@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.datamodel.fieldrequest;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.ContentType;
-import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ContentTypeRequestable} can be asked if it either is for holding

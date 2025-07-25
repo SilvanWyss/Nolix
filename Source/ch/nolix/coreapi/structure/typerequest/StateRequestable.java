@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structureapi.typerequestapi;
+package ch.nolix.coreapi.structure.typerequest;
 
 /**
  * A {@link StateRequestable} has a certain state.

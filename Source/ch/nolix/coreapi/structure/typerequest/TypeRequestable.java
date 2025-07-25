@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.structureapi.typerequestapi;
+package ch.nolix.coreapi.structure.typerequest;
 
-import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link TypeRequestable} is of a certain type.
