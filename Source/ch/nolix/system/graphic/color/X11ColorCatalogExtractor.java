@@ -8,7 +8,7 @@ import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.container.pair.IPair;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphic.color.IColor;
 
 public final class X11ColorCatalogExtractor {
 

@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;

@@ -8,7 +8,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
-import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
+import ch.nolix.systemapi.gui.background.BackgroundType;
 
 final class BackgroundTest extends StandardTest {
 

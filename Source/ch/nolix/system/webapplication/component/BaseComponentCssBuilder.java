@@ -4,9 +4,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
-import ch.nolix.systemapi.webapplicationapi.componentapi.IComponentStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.webapplication.component.IComponent;
+import ch.nolix.systemapi.webapplication.component.IComponentStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class BaseComponentCssBuilder extends AbstractControlCssBuilder<IComponent, IComponentStyle> {
 

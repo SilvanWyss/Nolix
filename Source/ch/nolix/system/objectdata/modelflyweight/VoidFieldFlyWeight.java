@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.modelflyweight;
 
-import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IFieldFlyWeight;
+import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 
 public final class VoidFieldFlyWeight implements IFieldFlyWeight {
 

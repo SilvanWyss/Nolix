@@ -5,10 +5,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.ITableSearcher;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
+import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 /**
  * @author Silvan Wyss

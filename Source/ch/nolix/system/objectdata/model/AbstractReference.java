@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.ITable;
 
 public abstract class AbstractReference<E extends IEntity> extends AbstractField implements IAbstractReference<E> {
 

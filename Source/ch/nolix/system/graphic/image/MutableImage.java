@@ -25,9 +25,9 @@ import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableSpecificationValueExtractor;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.IMutableImage;
 
 public final class MutableImage //NOSONAR: A MutableImage is a principal object thus it has many methods.
 extends AbstractMutableElement implements IMutableImage<MutableImage> {

@@ -2,8 +2,8 @@ package ch.nolix.system.element.style;
 
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.systemapi.elementapi.styleapi.IStyle;
-import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
+import ch.nolix.systemapi.element.style.IStyle;
+import ch.nolix.systemapi.element.style.IStyleElement;
 
 /**
  * A {@link AbstractStyleElement} is a {@link AbstractStyleElement} that can

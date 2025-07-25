@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.modelsearcher;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IDatabaseSearcher;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 /**
  * @author Silvan Wyss

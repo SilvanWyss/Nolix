@@ -9,16 +9,16 @@ import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
+import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class InternalDataReader {
 

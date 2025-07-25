@@ -1,7 +1,7 @@
 package ch.nolix.system.time.moment;
 
-import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
+import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss

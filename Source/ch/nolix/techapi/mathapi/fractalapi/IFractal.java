@@ -2,8 +2,8 @@ package ch.nolix.techapi.mathapi.fractalapi;
 
 import java.math.BigDecimal;
 
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.image.IMutableImage;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;

@@ -2,11 +2,11 @@ package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectschema.model.Column;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IColumnMapper;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.schemamapper.IColumnMapper;
+import ch.nolix.systemapi.objectdata.schemamapper.IContentModelMapper;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ColumnMapper implements IColumnMapper {
 

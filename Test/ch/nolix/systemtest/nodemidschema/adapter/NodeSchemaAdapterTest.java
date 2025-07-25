@@ -7,9 +7,9 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.model.ValueModelDto;
 
 final class NodeSchemaAdapterTest extends StandardTest {
 

@@ -8,9 +8,9 @@ import ch.nolix.core.programcontrol.process.UpdaterCollector;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programcontrol.process.IUpdaterCollector;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class ExecutiveDataWriter {
 

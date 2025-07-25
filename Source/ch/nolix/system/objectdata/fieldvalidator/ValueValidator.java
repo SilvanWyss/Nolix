@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldtool.ValueFieldTool;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueFieldTool;
-import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
+import ch.nolix.systemapi.objectdata.fieldtool.IValueFieldTool;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IValueValidator;
+import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public final class ValueValidator extends FieldValidator implements IValueValidator {
 

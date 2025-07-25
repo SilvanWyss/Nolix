@@ -4,9 +4,9 @@ import java.util.Optional;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
-import ch.nolix.systemapi.webapplicationapi.componentapi.RefreshBehavior;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webapplication.component.IComponent;
+import ch.nolix.systemapi.webapplication.component.RefreshBehavior;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class WebClientHtmlEventExecutor {
 

@@ -9,10 +9,10 @@ import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlschema.querycreator.QueryCreator;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.modelmapperapi.ITableDtoMapper;
-import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.sqlschema.model.TableDto;
+import ch.nolix.systemapi.sqlschema.modelmapper.ITableDtoMapper;
+import ch.nolix.systemapi.sqlschema.querycreator.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 

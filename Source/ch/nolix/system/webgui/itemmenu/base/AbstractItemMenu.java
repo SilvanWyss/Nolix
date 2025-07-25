@@ -10,13 +10,13 @@ import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuSearcher;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuStyle;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuValidator;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuSearcher;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuStyle;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuValidator;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {

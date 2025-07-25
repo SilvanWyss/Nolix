@@ -11,12 +11,12 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploaderStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploader;
+import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploaderStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Uploader extends Control<IUploader, IUploaderStyle> implements IUploader {
 

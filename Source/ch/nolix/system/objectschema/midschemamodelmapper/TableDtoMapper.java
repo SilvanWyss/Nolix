@@ -1,9 +1,9 @@
 package ch.nolix.system.objectschema.midschemamodelmapper;
 
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IColumnDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.ITableDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.objectschema.midschemamodelmapper.IColumnDtoMapper;
+import ch.nolix.systemapi.objectschema.midschemamodelmapper.ITableDtoMapper;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**
  * @author Silvan Wyss

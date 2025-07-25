@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
+import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class BaseReferenceUpdater {
 

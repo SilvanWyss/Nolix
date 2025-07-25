@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiValueQueryCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryColumn;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiValueQueryCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
 
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 

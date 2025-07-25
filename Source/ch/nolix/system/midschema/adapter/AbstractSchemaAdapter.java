@@ -6,14 +6,14 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.IDatabaseInitializer;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 

@@ -2,9 +2,9 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
-import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IContentModelDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modeleditorapi.IColumnEditor;
+import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 
 /**
  * @author Silvan Wyss

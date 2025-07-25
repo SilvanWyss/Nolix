@@ -11,13 +11,13 @@ import ch.nolix.coreapi.container.pair.IPair;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.styletool.AttributeReplacer;
-import ch.nolix.systemapi.elementapi.baseapi.IElement;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.elementapi.styleapi.IStyle;
-import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
+import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.style.ISelectingStyle;
+import ch.nolix.systemapi.element.style.ISelectingStyleWithSelectors;
+import ch.nolix.systemapi.element.style.IStylableElement;
+import ch.nolix.systemapi.element.style.IStyle;
+import ch.nolix.systemapi.element.styletool.IAttributeReplacer;
 
 /**
  * @author Silvan Wyss

@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.statementcreator.EntityStatementCreator;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
+import ch.nolix.systemapi.middata.model.EntityCreationDto;
+import ch.nolix.systemapi.middata.model.EntityDeletionDto;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.middata.model.StringValueFieldDto;
 
 final class EntityStatementCreatorTest extends StandardTest {
 

@@ -2,10 +2,10 @@ package ch.nolix.system.sqlmiddata.modelmapper;
 
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
-import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IMultiReferenceEntryDtoMapper;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
 
 /**
  * @author Silvan Wyss

@@ -1,12 +1,12 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IEntityQueryCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
+import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 
 public final class EntityQueryCreator implements IEntityQueryCreator {
 

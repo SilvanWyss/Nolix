@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiValueEntryDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
+import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiValueEntryDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 /**
  * @author Silvan Wyss

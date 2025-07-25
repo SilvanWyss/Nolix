@@ -11,19 +11,19 @@ import ch.nolix.system.objectdata.fieldtocontentmodelmapper.OptionalReferenceToC
 import ch.nolix.system.objectdata.fieldtocontentmodelmapper.OptionalValueToContentModelMapper;
 import ch.nolix.system.objectdata.fieldtocontentmodelmapper.ReferenceToContentModelMapper;
 import ch.nolix.system.objectdata.fieldtocontentmodelmapper.ValueToContentModelMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.IContentModelMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.model.IBackReference;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
+import ch.nolix.systemapi.objectdata.model.IMultiReference;
+import ch.nolix.systemapi.objectdata.model.IMultiValueField;
+import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
+import ch.nolix.systemapi.objectdata.model.IOptionalReference;
+import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
+import ch.nolix.systemapi.objectdata.model.IReference;
+import ch.nolix.systemapi.objectdata.model.IValueField;
+import ch.nolix.systemapi.objectdata.schemamapper.IContentModelMapper;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ContentModelMapper //NOSONAR: A ContentModelMapper is a principal object thus it has many dependencies.
 implements IContentModelMapper {

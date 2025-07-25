@@ -16,14 +16,14 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControlStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControl;
+import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControlStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
 

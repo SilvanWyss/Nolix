@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IBackReferenceTool;
+import ch.nolix.systemapi.objectdata.fieldtool.IBackReferenceTool;
 
 public final class BackReferenceTool extends FieldTool implements IBackReferenceTool {
 }

@@ -6,13 +6,13 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class Database implements IDatabase {
 

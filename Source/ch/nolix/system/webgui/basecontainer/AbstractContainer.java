@@ -8,9 +8,9 @@ import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
+import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
+import ch.nolix.systemapi.webgui.basecontainer.IContainer;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends Control<C, S> implements IContainer<C, S> {

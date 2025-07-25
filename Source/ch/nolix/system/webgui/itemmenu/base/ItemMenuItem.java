@@ -13,8 +13,8 @@ import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
 import ch.nolix.system.element.property.Value;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
 
 public final class ItemMenuItem extends AbstractMutableElement implements IItemMenuItem<ItemMenuItem> {
 

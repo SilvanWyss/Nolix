@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.schemaview;
 
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class BackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
 extends AbstractBackReferenceModelView<C> {

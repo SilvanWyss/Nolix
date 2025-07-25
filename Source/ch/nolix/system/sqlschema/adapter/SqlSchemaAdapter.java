@@ -5,11 +5,11 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.coreapi.resourcecontrol.resourcepool.IResourcePool;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.sqlschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.sqlschema.model.ColumnDto;
+import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class SqlSchemaAdapter implements ISchemaAdapter {
 

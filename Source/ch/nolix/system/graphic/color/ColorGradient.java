@@ -9,8 +9,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.graphicapi.imageproperty.Alignment;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
+import ch.nolix.systemapi.graphic.imageproperty.Alignment;
 
 /**
  * A {@link ColorGradient} is not mutable.

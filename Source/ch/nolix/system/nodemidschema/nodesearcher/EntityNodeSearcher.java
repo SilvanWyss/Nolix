@@ -1,7 +1,7 @@
 package ch.nolix.system.nodemidschema.nodesearcher;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IEntityNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss

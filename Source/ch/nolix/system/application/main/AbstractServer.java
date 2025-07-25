@@ -12,8 +12,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
-import ch.nolix.systemapi.applicationapi.mainapi.IServer;
+import ch.nolix.systemapi.application.main.IApplication;
+import ch.nolix.systemapi.application.main.IServer;
 
 /**
  * A {@link AbstractServer} can contain {@link Application}s. A

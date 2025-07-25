@@ -5,8 +5,8 @@ import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.html.IHtmlElement;
-import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.container.ISingleContainer;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
 

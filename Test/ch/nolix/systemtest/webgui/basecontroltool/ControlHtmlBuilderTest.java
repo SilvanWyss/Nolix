@@ -3,8 +3,8 @@ package ch.nolix.systemtest.webgui.basecontroltool;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
 extends StandardTest {

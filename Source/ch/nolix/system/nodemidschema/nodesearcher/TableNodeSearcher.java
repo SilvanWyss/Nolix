@@ -3,10 +3,10 @@ package ch.nolix.system.nodemidschema.nodesearcher;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
 

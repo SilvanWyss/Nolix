@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiBackReferenceEntryColumn;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiBackReferenceQueryCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntryColumn;
 
 public final class MultiBackReferenceQueryCreator implements IMultiBackReferenceQueryCreator {
 

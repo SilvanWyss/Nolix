@@ -8,11 +8,11 @@ import org.mockito.Mockito;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.ButtonRole;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.EnterValueDialogBuilder;
 
 final class EnterValueDialogBuilderTest extends StandardTest {

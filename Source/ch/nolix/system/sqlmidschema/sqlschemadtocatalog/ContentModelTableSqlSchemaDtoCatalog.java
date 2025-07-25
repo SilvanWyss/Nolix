@@ -1,11 +1,11 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ContentModelColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.datatypeapi.DataTypeTypeCatalog;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ContentModelColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
+import ch.nolix.systemapi.sqlschema.model.ColumnDto;
+import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class ContentModelTableSqlSchemaDtoCatalog {
 

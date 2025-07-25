@@ -14,9 +14,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
-import ch.nolix.systemapi.timeapi.timestructureapi.Month;
-import ch.nolix.systemapi.timeapi.timestructureapi.Weekday;
+import ch.nolix.systemapi.time.moment.ITime;
+import ch.nolix.systemapi.time.timestructure.Month;
+import ch.nolix.systemapi.time.timestructure.Weekday;
 
 /**
  * A {@link Time} is not mutable. Technically, a {@link Time} is a wrapper

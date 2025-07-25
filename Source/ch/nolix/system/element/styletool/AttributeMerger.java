@@ -4,8 +4,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.style.AttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeMerger;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.styletool.IAttributeMerger;
 
 public final class AttributeMerger implements IAttributeMerger {
 

@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.guiapi.presenceapi.Presence;
+import ch.nolix.systemapi.gui.presence.Presence;
 
 final class PresenceTest extends StandardTest {
 

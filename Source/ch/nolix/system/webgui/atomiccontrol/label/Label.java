@@ -14,14 +14,14 @@ import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabelStyle;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabel;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabelStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
 

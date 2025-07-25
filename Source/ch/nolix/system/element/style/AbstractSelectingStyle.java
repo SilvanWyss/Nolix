@@ -9,9 +9,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.style.ISelectingStyleWithSelectors;
+import ch.nolix.systemapi.element.style.IStylableElement;
 
 public abstract class AbstractSelectingStyle
 extends AbstractStyle<ISelectingStyleWithSelectors>

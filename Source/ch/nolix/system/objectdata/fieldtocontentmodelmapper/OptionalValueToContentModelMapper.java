@@ -4,11 +4,11 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectschema.model.OptionalValueModel;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
-import ch.nolix.systemapi.objectdataapi.modelmapperapi.IFieldToContentModelMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
+import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
+import ch.nolix.systemapi.objectdata.modelmapper.IFieldToContentModelMapper;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class OptionalValueToContentModelMapper implements IFieldToContentModelMapper<IOptionalValueField<?>> {
 

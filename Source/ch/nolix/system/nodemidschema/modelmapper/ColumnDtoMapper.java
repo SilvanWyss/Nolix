@@ -2,8 +2,8 @@ package ch.nolix.system.nodemidschema.modelmapper;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.nodemidschemaapi.modelmapperapi.IColumnDtoMapper;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.nodemidschema.modelmapper.IColumnDtoMapper;
 
 /**
  * @author Silvan Wyss

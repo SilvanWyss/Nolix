@@ -12,7 +12,7 @@ import ch.nolix.coreapi.container.pair.IPair;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphic.color.IColor;
 
 /**
  * A {@link Color} is not mutable.

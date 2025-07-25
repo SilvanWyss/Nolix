@@ -3,8 +3,8 @@ package ch.nolix.system.webgui.atomiccontrol.validationlabel;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.html.IHtmlElement;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabel;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabel;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IValidationLabel> {
 

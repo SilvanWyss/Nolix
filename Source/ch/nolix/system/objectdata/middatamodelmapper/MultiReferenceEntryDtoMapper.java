@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
  * @author Silvan Wyss

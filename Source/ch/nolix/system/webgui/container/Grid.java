@@ -10,13 +10,13 @@ import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
-import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
-import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.container.IGrid;
+import ch.nolix.systemapi.webgui.container.IGridStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements IGrid {
 

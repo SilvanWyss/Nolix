@@ -12,11 +12,11 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.styletool.AttributeMerger;
 import ch.nolix.system.element.styletool.AttributeReplacer;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeMerger;
-import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.style.ISelectingStyleWithSelectors;
+import ch.nolix.systemapi.element.style.IStylableElement;
+import ch.nolix.systemapi.element.styletool.IAttributeMerger;
+import ch.nolix.systemapi.element.styletool.IAttributeReplacer;
 
 /**
  * @author Silvan Wyss

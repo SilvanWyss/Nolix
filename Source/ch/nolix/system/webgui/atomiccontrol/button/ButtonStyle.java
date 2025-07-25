@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.atomiccontrol.button;
 
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButtonStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButtonStyle;
 
 public final class ButtonStyle extends AbstractControlStyle<IButtonStyle> implements IButtonStyle {
 

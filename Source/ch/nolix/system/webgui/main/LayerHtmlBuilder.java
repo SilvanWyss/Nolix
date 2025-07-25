@@ -7,7 +7,7 @@ import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.html.IHtmlAttribute;
 import ch.nolix.coreapi.web.html.IHtmlElement;
 import ch.nolix.system.webgui.layertool.LayerTool;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
+import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerHtmlBuilder {
 

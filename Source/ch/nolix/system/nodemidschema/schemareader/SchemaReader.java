@@ -11,14 +11,14 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.nodemidschemaapi.modelmapperapi.IColumnDtoMapper;
-import ch.nolix.systemapi.nodemidschemaapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.nodemidschema.modelmapper.IColumnDtoMapper;
+import ch.nolix.systemapi.nodemidschema.nodeexaminer.ITableNodeExaminer;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 public final class SchemaReader implements ISchemaReader {
 

@@ -10,8 +10,8 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttributeValidator;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.style.IAttachingAttributeValidator;
 
 public final class AttachingAttribute extends AbstractElement implements IAttachingAttribute {
 

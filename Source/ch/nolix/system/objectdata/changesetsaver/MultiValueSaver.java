@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiValueEntryDtoMapper;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiValueEntryDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiValueEntryDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IMultiValueField;
+import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 public final class MultiValueSaver {
 

@@ -10,7 +10,7 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.web.cookie.ICookieManager;
 import ch.nolix.system.application.main.AbstractBackendClient;
-import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
 extends AbstractBackendClient<C, S>

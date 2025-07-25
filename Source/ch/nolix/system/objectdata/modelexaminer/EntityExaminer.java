@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
+import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
 /**
  * @author Silvan Wyss

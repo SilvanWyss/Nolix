@@ -18,7 +18,7 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.fractalapi.IFractal;

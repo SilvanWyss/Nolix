@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.style.DeepSelectingStyle;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
 
 final class DeepSelectingStyleTest extends StandardTest {
 

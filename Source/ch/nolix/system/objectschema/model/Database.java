@@ -5,9 +5,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.model.IDatabase;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class Database extends AbstractSchemaObject implements IDatabase {
 

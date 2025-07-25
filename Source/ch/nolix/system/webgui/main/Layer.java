@@ -20,18 +20,18 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
-import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
-import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
-import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
-import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
+import ch.nolix.systemapi.element.style.IStylableElement;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.ImageApplication;
+import ch.nolix.systemapi.gui.background.BackgroundType;
+import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.contentalignmentproperty.ContentAlignment;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.IWebGui;
+import ch.nolix.systemapi.webgui.main.LayerRole;
 
 public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
 extends AbstractStylableElement<Layer>

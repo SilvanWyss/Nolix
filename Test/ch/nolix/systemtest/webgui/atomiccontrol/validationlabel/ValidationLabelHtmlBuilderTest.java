@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webgui.atomiccontrol.validationlabel;
 
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabelHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabel;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabel;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class ValidationLabelHtmlBuilderTest

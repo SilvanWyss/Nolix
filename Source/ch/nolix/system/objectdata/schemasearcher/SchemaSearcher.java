@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.schemasearcher;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
-import ch.nolix.systemapi.objectdataapi.schemamodelsearcherapi.ISchemaSearcher;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
+import ch.nolix.systemapi.objectdata.schemamodelsearcher.ISchemaSearcher;
 
 /**
  * @author Silvan Wyss

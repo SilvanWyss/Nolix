@@ -2,9 +2,9 @@ package ch.nolix.system.nodemidschema.nodesearcher;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DatabasePropertiesNodeSearcher implements IDatabasePropertiesNodeSearcher {
 

@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldtool.MultiValueTool;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiValueTool;
-import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IMultiValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
+import ch.nolix.systemapi.objectdata.fieldtool.IMultiValueTool;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueValidator;
+import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public final class MultiValueValidator extends FieldValidator implements IMultiValueValidator {
 

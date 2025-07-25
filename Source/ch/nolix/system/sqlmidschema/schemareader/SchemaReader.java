@@ -7,10 +7,10 @@ import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.ITableDtoMapper;
-import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
+import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
 
@@ -22,7 +22,7 @@ public final class SchemaReader implements ISchemaReader {
 
   private final ISqlConnection sqlConnection;
 
-  private final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaReader sqlSchemaReader;
+  private final ch.nolix.systemapi.sqlschema.adapter.ISchemaReader sqlSchemaReader;
 
   private SchemaReader(final String databaseName, final ISqlConnection sqlConnection) {
 

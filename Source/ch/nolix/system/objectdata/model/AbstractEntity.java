@@ -13,17 +13,17 @@ import ch.nolix.system.objectdata.datavalidator.EntityValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi.IDatabaseObjectValidator;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.datavalidatorapi.IEntityValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.datavalidator.IEntityValidator;
+import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
+import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public abstract class AbstractEntity implements IEntity {
 

@@ -2,11 +2,11 @@ package ch.nolix.system.nodemiddata.schemaviewmodelmapper;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemiddataapi.schemaviewmodelmapperapi.IColumnSchemaViewDtoMapper;
-import ch.nolix.systemapi.nodemiddataapi.schemaviewmodelmapperapi.ITableSchemaViewDtoMapper;
+import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
+import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IColumnSchemaViewDtoMapper;
+import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.ITableSchemaViewDtoMapper;
 
 /**
  * @author Silvan Wyss

@@ -6,10 +6,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.ITableExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.ITableValidator;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
+import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss

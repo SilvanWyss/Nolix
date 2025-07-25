@@ -3,13 +3,13 @@ package ch.nolix.system.sqlmidschema.statementcreator;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IMetaDataStatementCreator;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
 
 public final class MetaDataStatementCreator implements IMetaDataStatementCreator {
 

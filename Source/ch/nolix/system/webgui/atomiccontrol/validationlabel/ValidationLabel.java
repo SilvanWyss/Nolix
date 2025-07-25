@@ -13,13 +13,13 @@ import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabel;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabelStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabel;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabelStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class ValidationLabel
 extends Control<IValidationLabel, IValidationLabelStyle>

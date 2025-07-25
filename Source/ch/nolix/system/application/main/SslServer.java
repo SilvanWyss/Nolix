@@ -6,7 +6,7 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 import ch.nolix.coreapi.net.target.IServerTarget;
-import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
+import ch.nolix.systemapi.application.main.IApplication;
 
 public final class SslServer extends AbstractServer<SslServer> {
 

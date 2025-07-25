@@ -3,7 +3,7 @@ package ch.nolix.system.webapplication.component;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.webapplication.main.WebClientSession;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class Component //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<S>, S> extends AbstractComponent<C, S> {

@@ -14,15 +14,15 @@ import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextboxStyle;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.TextMode;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextboxStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.TextMode;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
 

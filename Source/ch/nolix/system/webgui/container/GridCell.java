@@ -9,7 +9,7 @@ import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class GridCell extends AbstractMutableElement implements Clearable {
 

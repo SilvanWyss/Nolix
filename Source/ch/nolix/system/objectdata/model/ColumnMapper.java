@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.modelmapper.ContentModelMapper;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class ColumnMapper {
 

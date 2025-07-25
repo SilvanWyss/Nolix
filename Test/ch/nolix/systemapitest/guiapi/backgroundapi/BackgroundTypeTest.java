@@ -9,7 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
+import ch.nolix.systemapi.gui.background.BackgroundType;
 
 final class BackgroundTypeTest extends StandardTest {
 

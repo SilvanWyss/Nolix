@@ -9,9 +9,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueFieldEntry;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdata.model.IMultiValueField;
+import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 public final class MultiValueField<V> extends AbstractValueField<V> implements IMultiValueField<V> {
 

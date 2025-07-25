@@ -7,13 +7,13 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IDatabaseExaminer;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.ITableTool;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.IDatabase;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
+import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
+import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
+import ch.nolix.systemapi.objectschema.schematool.ITableTool;
 
 public final class DatabaseTool extends DatabaseObjectExaminer implements IDatabaseTool {
 

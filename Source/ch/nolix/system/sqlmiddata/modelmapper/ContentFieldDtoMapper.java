@@ -1,10 +1,10 @@
 package ch.nolix.system.sqlmiddata.modelmapper;
 
 import ch.nolix.system.middata.valuemapper.ValueMapper;
-import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IContentFieldDtoMapper;
+import ch.nolix.systemapi.middata.model.ObjectValueFieldDto;
+import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
 
 /**
  * @author Silvan Wyss

@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programcontrol.adapter.IAdapterFactory;
 import ch.nolix.system.webapplication.main.WebClientSession;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<S>, S extends IAdapterFactory<A>, A>

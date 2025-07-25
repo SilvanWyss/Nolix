@@ -1,12 +1,12 @@
 package ch.nolix.system.sqlmidschema.querycreator;
 
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.ContentModelColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.TableColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ContentModelColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
+import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
 /**
  * @author Silvan Wyss

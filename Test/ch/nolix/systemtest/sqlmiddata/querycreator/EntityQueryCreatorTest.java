@@ -6,9 +6,9 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
 final class EntityQueryCreatorTest extends StandardTest {
 

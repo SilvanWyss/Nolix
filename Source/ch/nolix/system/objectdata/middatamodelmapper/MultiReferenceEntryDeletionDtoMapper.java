@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiReferenceEntryDeletionDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDeletionDto;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDeletionDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
  * @author Silvan Wyss

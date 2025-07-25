@@ -3,9 +3,9 @@ package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 
 /**
  * @author Silvan Wyss
@@ -17,10 +17,10 @@ public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(
+  public IContainer<ch.nolix.systemapi.sqlschema.model.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(
     final ColumnDto columnDto) {
 
-    final IArrayList<ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto> sqlSchemaColumnDtos = //
+    final IArrayList<ch.nolix.systemapi.sqlschema.model.ColumnDto> sqlSchemaColumnDtos = //
     ArrayList.withInitialCapacity(2);
 
     final var mainSqlSchemaColumnDto = SqlSchemaColumnDtoMapperHelper.mapColumnDtoToMainSqlSchemaColumnDto(columnDto);

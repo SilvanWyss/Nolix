@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webgui.basecontainer;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
+import ch.nolix.systemapi.webgui.basecontainer.IContainer;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {

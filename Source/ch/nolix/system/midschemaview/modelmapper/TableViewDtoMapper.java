@@ -1,10 +1,10 @@
 package ch.nolix.system.midschemaview.modelmapper;
 
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelmapperapi.IColumnViewDtoMapper;
-import ch.nolix.systemapi.midschemaviewapi.modelmapperapi.ITableViewDtoMapper;
+import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemaview.modelmapper.IColumnViewDtoMapper;
+import ch.nolix.systemapi.midschemaview.modelmapper.ITableViewDtoMapper;
 
 /**
  * @author Silvan Wyss

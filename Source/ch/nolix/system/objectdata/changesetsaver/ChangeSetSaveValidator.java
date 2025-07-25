@@ -3,16 +3,16 @@ package ch.nolix.system.objectdata.changesetsaver;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IDatabaseSearcher;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IMultiReference;
+import ch.nolix.systemapi.objectdata.model.IOptionalReference;
+import ch.nolix.systemapi.objectdata.model.IReference;
+import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
+import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 public final class ChangeSetSaveValidator {
 

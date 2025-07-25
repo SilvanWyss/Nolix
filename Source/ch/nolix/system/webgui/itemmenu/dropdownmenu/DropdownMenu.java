@@ -6,12 +6,12 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.itemmenu.base.AbstractItemMenu;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenuStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenuStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdownMenuStyle> implements IDropdownMenu {
 

@@ -5,19 +5,19 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataWriter;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiBackReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiValueEntryDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.middata.adapter.IDataWriter;
+import ch.nolix.systemapi.middata.model.EntityCreationDto;
+import ch.nolix.systemapi.middata.model.EntityDeletionDto;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDeletionDto;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DataWriter implements IDataWriter {
 

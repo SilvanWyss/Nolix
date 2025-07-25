@@ -1,27 +1,27 @@
 package ch.nolix.system.objectschema.midschemamodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.MultiValueModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.OptionalValueModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.ReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
-import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IContentModelDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiValueModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalValueModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IValueModel;
+import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
+import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
+import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.objectschema.model.IBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.IMultiBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IMultiReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IMultiValueModel;
+import ch.nolix.systemapi.objectschema.model.IOptionalBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IOptionalReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IOptionalValueModel;
+import ch.nolix.systemapi.objectschema.model.IReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IValueModel;
 
 /**
  * @author Silvan Wyss

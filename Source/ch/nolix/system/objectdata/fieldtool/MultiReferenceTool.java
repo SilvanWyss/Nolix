@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IMultiReferenceTool;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
+import ch.nolix.systemapi.objectdata.fieldtool.IMultiReferenceTool;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 public final class MultiReferenceTool extends FieldTool implements IMultiReferenceTool {
 

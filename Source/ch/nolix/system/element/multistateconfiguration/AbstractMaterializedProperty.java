@@ -12,7 +12,7 @@ import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
+import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
 

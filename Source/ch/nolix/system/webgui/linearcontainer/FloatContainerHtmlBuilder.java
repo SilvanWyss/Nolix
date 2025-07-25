@@ -3,8 +3,8 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<FloatContainer> {
 

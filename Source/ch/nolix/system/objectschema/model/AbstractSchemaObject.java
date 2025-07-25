@@ -4,8 +4,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NewArgumentException;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 abstract class AbstractSchemaObject implements IDatabaseObject {
 

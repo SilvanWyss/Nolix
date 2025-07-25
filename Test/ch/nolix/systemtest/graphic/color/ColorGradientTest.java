@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.systemapi.graphicapi.imageproperty.Alignment;
+import ch.nolix.systemapi.graphic.imageproperty.Alignment;
 
 final class ColorGradientTest extends StandardTest {
 

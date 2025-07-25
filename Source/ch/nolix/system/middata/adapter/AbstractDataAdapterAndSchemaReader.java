@@ -2,10 +2,10 @@ package ch.nolix.system.middata.adapter;
 
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapter;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.middata.adapter.IDataAdapter;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**
  * @author Silvan Wyss

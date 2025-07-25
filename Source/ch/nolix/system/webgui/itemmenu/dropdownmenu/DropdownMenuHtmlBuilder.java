@@ -8,9 +8,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.html.IHtmlAttribute;
 import ch.nolix.coreapi.web.html.IHtmlElement;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenu;
 
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
 

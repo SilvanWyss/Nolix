@@ -7,10 +7,10 @@ import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
+import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
 

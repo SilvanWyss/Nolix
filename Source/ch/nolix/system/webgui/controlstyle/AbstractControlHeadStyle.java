@@ -8,11 +8,11 @@ import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfigu
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.fontapi.Font;
-import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.gui.font.Font;
+import ch.nolix.systemapi.gui.font.LineDecoration;
+import ch.nolix.systemapi.webgui.controlstyle.IControlHeadStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 abstract class AbstractControlHeadStyle<C extends IControlHeadStyle<C>>
 extends AbstractMultiStateConfiguration<C, ControlState>

@@ -3,8 +3,8 @@ package ch.nolix.system.webapplication.main;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public abstract class WebClientSession<S> //NOSONAR: A web client session class is expected to be abstract.
 extends AbstractWebClientSession<WebClient<S>, S> {

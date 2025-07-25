@@ -9,15 +9,15 @@ import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
-import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
-import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
-import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
+import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.ImageApplication;
+import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public abstract class AbstractControlStyle< //NOSONAR: A ControlStyle has many methods per se.
 S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>

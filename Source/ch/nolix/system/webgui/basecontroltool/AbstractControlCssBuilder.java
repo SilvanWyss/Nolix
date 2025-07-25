@@ -14,11 +14,11 @@ import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.system.webgui.cssmapper.CssPropertyMapper;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.cssmapperapi.ICssPropertyMapper;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.cssmapper.ICssPropertyMapper;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class AbstractControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
 implements IControlCssBuilder<C, S> {

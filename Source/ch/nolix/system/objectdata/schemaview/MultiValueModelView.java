@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.schemaview;
 
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 
 public final class MultiValueModelView<V> extends AbstractValueModelView<V> {
 

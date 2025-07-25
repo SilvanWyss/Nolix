@@ -4,11 +4,11 @@ import java.util.Optional;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IMultiReference;
+import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
 

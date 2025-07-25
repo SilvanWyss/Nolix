@@ -1,11 +1,11 @@
 package ch.nolix.system.sqlschema.statementcreator;
 
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnConstraintDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.DataTypeDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
+import ch.nolix.systemapi.sqlschema.model.ColumnConstraintDto;
+import ch.nolix.systemapi.sqlschema.model.ColumnDto;
+import ch.nolix.systemapi.sqlschema.model.DataTypeDto;
+import ch.nolix.systemapi.sqlschema.model.TableDto;
+import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
 public final class StatementCreator implements IStatementCreator {
 

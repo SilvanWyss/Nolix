@@ -10,7 +10,7 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
+import ch.nolix.systemapi.element.property.IProperty;
 
 public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
 

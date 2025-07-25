@@ -8,7 +8,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
-import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
+import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 public final class LocalFrontEndWriter implements IFrontEndWriter {
 

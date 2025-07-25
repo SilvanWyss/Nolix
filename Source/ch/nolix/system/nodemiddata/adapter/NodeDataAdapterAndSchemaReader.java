@@ -4,7 +4,7 @@ import ch.nolix.core.document.node.FileNode;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 
 public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
 

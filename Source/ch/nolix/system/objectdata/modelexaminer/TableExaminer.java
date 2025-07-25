@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.ITableExaminer;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
+import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 
 /**
  * @author Silvan Wyss

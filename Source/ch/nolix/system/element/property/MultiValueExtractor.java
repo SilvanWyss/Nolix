@@ -10,7 +10,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
-import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
+import ch.nolix.systemapi.element.property.IProperty;
 
 public final class MultiValueExtractor<V> implements IProperty, INameHolder {
 

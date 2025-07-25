@@ -9,15 +9,15 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.databaseobjectapi.modelexaminerapi.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReferenceEntry;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
+import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
+import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
+import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
+import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity>
 extends AbstractBackReference<E>

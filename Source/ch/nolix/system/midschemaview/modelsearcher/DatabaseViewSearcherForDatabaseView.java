@@ -1,11 +1,11 @@
 package ch.nolix.system.midschemaview.modelsearcher;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcherForDatabaseView;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcherForDatabaseView;
 
 /**
  * @author Silvan Wyss

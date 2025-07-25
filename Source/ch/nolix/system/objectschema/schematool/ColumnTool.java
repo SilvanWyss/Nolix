@@ -5,14 +5,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IContentModelExaminer;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.IDatabase;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelexaminer.IContentModelExaminer;
+import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
 

@@ -4,11 +4,11 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
+import ch.nolix.systemapi.middata.adapter.IDataReader;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
+import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
 public final class Column extends AbstractImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
 

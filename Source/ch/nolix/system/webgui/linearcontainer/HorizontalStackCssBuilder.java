@@ -9,10 +9,10 @@ import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.guiapi.contentalignmentproperty.VerticalContentAlignment;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.gui.contentalignmentproperty.VerticalContentAlignment;
+import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
+import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStackStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class HorizontalStackCssBuilder
 extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {

@@ -12,10 +12,10 @@ import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.MultiReferenceEntryTable
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.MultiValueEntryTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.TableTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseInitializerTool;
-import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IDatabaseInitializationStatementCreator;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseInitializerTool;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabaseInitializationStatementCreator;
+import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss

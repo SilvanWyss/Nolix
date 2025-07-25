@@ -9,7 +9,7 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.state.staterequest.MutabilityRequestable;
-import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
+import ch.nolix.systemapi.element.property.IBaseValue;
 
 /**
  * @author Silvan Wyss

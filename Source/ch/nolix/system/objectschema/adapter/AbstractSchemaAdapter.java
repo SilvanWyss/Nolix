@@ -6,10 +6,10 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.system.objectschema.model.Database;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
+import ch.nolix.systemapi.objectschema.model.IDatabase;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
@@ -19,17 +19,17 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   private IDatabase database;
 
-  private final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter midSchemaAdapter;
+  private final ch.nolix.systemapi.midschema.adapter.ISchemaAdapter midSchemaAdapter;
 
   private int saveCount;
 
   protected AbstractSchemaAdapter(
     final String databaseName,
-    final ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter midSchemaAdapter) {
+    final ch.nolix.systemapi.midschema.adapter.ISchemaAdapter midSchemaAdapter) {
 
     Validator
       .assertThat(midSchemaAdapter)
-      .thatIsNamed(ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter.class)
+      .thatIsNamed(ch.nolix.systemapi.midschema.adapter.ISchemaAdapter.class)
       .isNotNull();
 
     this.midSchemaAdapter = midSchemaAdapter;

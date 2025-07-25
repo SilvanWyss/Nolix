@@ -3,11 +3,11 @@ package ch.nolix.system.objectdata.schemaview;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.schemaview.IAbstractBackReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 
 public abstract class AbstractValueModelView<V> implements IAbstractValueModelView<V, ITable<IEntity>> {
 

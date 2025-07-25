@@ -1,10 +1,10 @@
 package ch.nolix.system.webgui.itemmenu.base;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuExaminer;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuItem;
-import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuValidator;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuExaminer;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuValidator;
 
 /**
  * @author Silvan Wyss

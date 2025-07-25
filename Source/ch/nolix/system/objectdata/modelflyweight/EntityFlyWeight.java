@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.modelflyweight;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IEntityFlyWeight;
+import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
 public final class EntityFlyWeight implements IEntityFlyWeight {
 

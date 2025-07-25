@@ -6,10 +6,10 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.system.sqlschema.adapter.SchemaWriter;
-import ch.nolix.systemapi.midschemaapi.databaseinitializerapi.DatabaseState;
-import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseInitializerTool;
-import ch.nolix.systemapi.sqlmidschemaapi.databaseinitializerapi.IDatabaseStateAnalyser;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
+import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseInitializerTool;
+import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseStateAnalyser;
+import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss

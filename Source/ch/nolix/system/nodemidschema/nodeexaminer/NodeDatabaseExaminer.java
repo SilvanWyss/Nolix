@@ -1,8 +1,8 @@
 package ch.nolix.system.nodemidschema.nodeexaminer;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodeexaminerapi.INodeDatabaseExaminer;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodeexaminer.INodeDatabaseExaminer;
 
 /**
  * @author Silvan Wyss

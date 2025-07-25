@@ -2,7 +2,7 @@ package ch.nolix.system.element.base;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
+import ch.nolix.systemapi.element.base.IStructureElement;
 
 public final class StructureSpecificationCreator {
 

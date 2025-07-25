@@ -11,9 +11,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.system.element.base.SpecificationCreator;
 import ch.nolix.system.element.multistateconfiguration.AbstractProperty;
-import ch.nolix.systemapi.elementapi.baseapi.IElement;
-import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
-import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
+import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.mutableelement.IMutableElement;
+import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss

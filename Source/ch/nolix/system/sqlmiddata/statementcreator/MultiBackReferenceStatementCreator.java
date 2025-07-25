@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiBackReferenceEntryColumn;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiBackReferenceStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntryColumn;
 
 public final class MultiBackReferenceStatementCreator implements IMultiBackReferenceStatementCreator {
 

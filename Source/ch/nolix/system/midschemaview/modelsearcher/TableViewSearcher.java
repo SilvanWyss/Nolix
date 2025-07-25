@@ -1,8 +1,8 @@
 package ch.nolix.system.midschemaview.modelsearcher;
 
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemaview.modelsearcher.ITableViewSearcher;
 
 /**
  * @author Silvan Wyss

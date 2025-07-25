@@ -2,7 +2,7 @@ package ch.nolix.system.time.timevalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public class TimeMediator extends ArgumentMediator<ITime> {
 

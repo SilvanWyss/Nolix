@@ -7,8 +7,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.html.IHtmlElement;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebGuiHtmlBuilder {
 

@@ -22,16 +22,16 @@ import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.element.style.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlTool;
-import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
-import ch.nolix.systemapi.guiapi.presenceapi.Presence;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.element.style.IStylableElement;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.presence.Presence;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public abstract class Control //NOSONAR: A Control is a principal object thus it has many methods.
 <C extends IControl<C, S>, S extends IControlStyle<S>>

@@ -2,9 +2,9 @@ package ch.nolix.system.nodemiddata.nodeexaminer;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
+import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 public final class TableNodeExaminer implements ITableNodeExaminer {
 

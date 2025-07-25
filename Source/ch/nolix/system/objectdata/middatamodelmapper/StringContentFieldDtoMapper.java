@@ -1,18 +1,18 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IStringContentFieldDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
+import ch.nolix.systemapi.middata.model.StringValueFieldDto;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringContentFieldDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IBackReference;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
+import ch.nolix.systemapi.objectdata.model.IMultiReference;
+import ch.nolix.systemapi.objectdata.model.IMultiValueField;
+import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
+import ch.nolix.systemapi.objectdata.model.IOptionalReference;
+import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
+import ch.nolix.systemapi.objectdata.model.IReference;
+import ch.nolix.systemapi.objectdata.model.IValueField;
 
 /**
  * @author Silvan Wyss

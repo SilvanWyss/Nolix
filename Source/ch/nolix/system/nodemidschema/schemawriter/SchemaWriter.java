@@ -14,20 +14,20 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.IColumnNodeMapper;
-import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.IContentModelNodeMapper;
-import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.ITableNodeMapper;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
+import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
+import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
+import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
 

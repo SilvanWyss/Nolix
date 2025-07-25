@@ -9,14 +9,14 @@ import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
-import ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi.IDatabaseObjectValidator;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.ITableMutationValidator;
-import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.IDatabaseValidator;
-import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.ITableValidator;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IDatabaseTool;
+import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
+import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
+import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
+import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
+import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
 
 /**
  * @author Silvan Wyss

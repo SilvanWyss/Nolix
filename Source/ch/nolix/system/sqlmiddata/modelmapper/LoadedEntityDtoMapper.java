@@ -5,13 +5,13 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
-import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.middataapi.modelapi.ObjectValueFieldDto;
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.FixDatabasePropertyCatalogue;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IContentFieldDtoMapper;
-import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.ILoadedEntityDtoMapper;
+import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.ObjectValueFieldDto;
+import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
+import ch.nolix.systemapi.sqlmiddata.modelmapper.ILoadedEntityDtoMapper;
 
 /**
  * @author Silvan Wyss

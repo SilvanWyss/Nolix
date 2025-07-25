@@ -5,9 +5,9 @@ import ch.nolix.system.middata.adapter.AbstractDataAdapter;
 import ch.nolix.system.sqlmiddata.datareader.DataReader;
 import ch.nolix.system.sqlmiddata.datawriter.DataWriter;
 import ch.nolix.system.sqlmiddata.schemaviewloader.DatabaseSchemaViewLoader;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.sqlmiddataapi.schemaviewloaderapi.IDatabaseSchemaViewLoader;
+import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
+import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.sqlmiddata.schemaviewloader.IDatabaseSchemaViewLoader;
 
 public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
 

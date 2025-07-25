@@ -12,12 +12,12 @@ import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.ButtonRole;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
+import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.LayerRole;
 
 public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
 

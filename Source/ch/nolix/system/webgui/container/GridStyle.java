@@ -6,10 +6,10 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.webguiapi.containerapi.GridType;
-import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.webgui.container.GridType;
+import ch.nolix.systemapi.webgui.container.IGridStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridStyle extends AbstractControlStyle<IGridStyle> implements IGridStyle {
 

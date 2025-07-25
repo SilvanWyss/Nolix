@@ -10,13 +10,13 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webapplication.base.AbstractWebClient;
 import ch.nolix.system.webapplication.refreshqueue.WebClientRefreshQueue;
-import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
-import ch.nolix.systemapi.webapplicationapi.protocol.CommandProtocol;
-import ch.nolix.systemapi.webapplicationapi.protocol.ControlCommandProtocol;
-import ch.nolix.systemapi.webapplicationapi.protocol.ObjectProtocol;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.webapplication.component.IComponent;
+import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.protocol.ControlCommandProtocol;
+import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
+import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploader;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 

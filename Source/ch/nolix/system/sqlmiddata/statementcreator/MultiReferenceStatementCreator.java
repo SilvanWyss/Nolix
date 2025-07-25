@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiReferenceEntryColumn;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiReferenceStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;
 
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {
 

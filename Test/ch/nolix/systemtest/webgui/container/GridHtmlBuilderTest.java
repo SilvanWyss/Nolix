@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webgui.container;
 
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.container.GridHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
+import ch.nolix.systemapi.webgui.container.IGrid;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class GridHtmlBuilderTest extends ControlHtmlBuilderTest<GridHtmlBuilder, IGrid> {

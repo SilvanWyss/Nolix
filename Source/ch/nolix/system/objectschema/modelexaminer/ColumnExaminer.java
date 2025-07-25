@@ -1,8 +1,8 @@
 package ch.nolix.system.objectschema.modelexaminer;
 
-import ch.nolix.systemapi.midschemaapi.fieldproperty.BaseContentType;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IColumnExaminer;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.modelexaminer.IColumnExaminer;
 
 /**
  * @author Silvan Wyss

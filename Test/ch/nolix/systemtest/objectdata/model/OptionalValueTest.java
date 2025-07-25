@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.model.OptionalValueField;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
 
 final class OptionalValueTest extends StandardTest {
 

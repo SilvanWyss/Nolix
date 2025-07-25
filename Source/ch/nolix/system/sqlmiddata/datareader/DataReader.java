@@ -7,13 +7,13 @@ import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
-import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.IDatabaseViewSearcher;
+import ch.nolix.systemapi.middata.adapter.IDataReader;
+import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
 
 public final class DataReader implements IDataReader {
 

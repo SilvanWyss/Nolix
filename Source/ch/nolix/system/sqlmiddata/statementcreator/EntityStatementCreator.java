@@ -2,17 +2,17 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.system.sqlmiddata.sqlmapper.SqlValueMapper;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
-import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
-import ch.nolix.systemapi.sqlmiddataapi.sqlmapperapi.ISqlValueMapper;
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IEntityStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.EntityIndexColumn;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.middata.model.EntityCreationDto;
+import ch.nolix.systemapi.middata.model.EntityDeletionDto;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.middata.model.StringValueFieldDto;
+import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
+import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlValueMapper;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
 

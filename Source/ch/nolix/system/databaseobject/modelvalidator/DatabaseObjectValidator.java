@@ -3,8 +3,8 @@ package ch.nolix.system.databaseobject.modelvalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidatorUnit;
-import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
-import ch.nolix.systemapi.databaseobjectapi.modelvalidatorapi.IDatabaseObjectValidator;
+import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 
 public class DatabaseObjectValidator extends ResourceValidatorUnit implements IDatabaseObjectValidator {
 

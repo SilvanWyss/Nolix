@@ -2,11 +2,11 @@ package ch.nolix.system.nodemiddata.modelmapper;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.EntityNodeSearcher;
-import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.nodemiddataapi.modelmapperapi.IContentFieldDtoMapper;
-import ch.nolix.systemapi.nodemiddataapi.modelmapperapi.IEntityLoadingDtoMapper;
-import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.IEntityNodeSearcher;
+import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.nodemiddata.modelmapper.IContentFieldDtoMapper;
+import ch.nolix.systemapi.nodemiddata.modelmapper.IEntityLoadingDtoMapper;
+import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss

@@ -1,6 +1,6 @@
 package ch.nolix.system.element.property;
 
-import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
+import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
 extends AbstractExtensionElement<E> {

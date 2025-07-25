@@ -5,9 +5,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextboxStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextboxStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox, ITextboxStyle> {
 

@@ -1,9 +1,9 @@
 package ch.nolix.system.nodemiddata.nodeeditor;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemiddata.nodeeditor.ITableNodeEditor;
+import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 /**
  * @author Silvan Wyss

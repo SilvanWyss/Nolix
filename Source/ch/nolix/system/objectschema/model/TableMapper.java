@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
 
 public final class TableMapper {
 

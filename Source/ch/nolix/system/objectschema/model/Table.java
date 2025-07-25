@@ -9,12 +9,12 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelmutationvalidatorapi.ITableMutationValidator;
-import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.ITableValidator;
+import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
+import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 public final class Table extends AbstractSchemaObject implements ITable {
 

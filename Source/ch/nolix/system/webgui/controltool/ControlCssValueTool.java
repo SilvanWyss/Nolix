@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.controltool;
 
-import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.graphic.color.IColor;
 
 public final class ControlCssValueTool {
 

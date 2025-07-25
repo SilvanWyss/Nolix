@@ -2,7 +2,7 @@ package ch.nolix.template.graphic.texture;
 
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphic.image.IImage;
 
 public final class TextureCreator {
 

@@ -2,11 +2,11 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataReader;
-import ch.nolix.systemapi.objectdataapi.datatoolapi.IEntityCreator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelfillerapi.IEntityFiller;
+import ch.nolix.systemapi.middata.adapter.IDataReader;
+import ch.nolix.systemapi.objectdata.datatool.IEntityCreator;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelfiller.IEntityFiller;
 
 public final class EntityLoader {
 

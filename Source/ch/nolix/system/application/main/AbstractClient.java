@@ -12,7 +12,7 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.systemapi.applicationapi.clientapi.IClient;
+import ch.nolix.systemapi.application.client.IClient;
 
 /**
  * @author Silvan Wyss

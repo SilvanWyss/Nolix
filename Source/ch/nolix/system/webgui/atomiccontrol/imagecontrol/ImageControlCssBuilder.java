@@ -6,9 +6,9 @@ import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControlStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControl;
+import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControlStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class ImageControlCssBuilder
 extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {

@@ -8,9 +8,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.IMutableImage;
 
 public final class Image extends AbstractElement implements IImage {
 

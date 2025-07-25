@@ -18,15 +18,15 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
-import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi.ILink;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi.ILinkStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.gui.font.LineDecoration;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILink;
+import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILinkStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 

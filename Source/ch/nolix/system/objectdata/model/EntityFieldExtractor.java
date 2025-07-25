@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelextractorapi.IEntityFieldExtractor;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.modelextractor.IEntityFieldExtractor;
 
 public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity, AbstractField> {
 

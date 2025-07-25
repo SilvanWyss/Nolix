@@ -1,8 +1,8 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschema.model.IReferenceModel;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ReferenceModel extends AbstractReferenceModel implements IReferenceModel {
 

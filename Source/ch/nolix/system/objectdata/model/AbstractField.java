@@ -7,14 +7,14 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelflyweightapi.IFieldFlyWeight;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
+import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public abstract class AbstractField implements IField {
 

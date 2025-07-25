@@ -1,8 +1,8 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
 
 public final class FieldFromTableCreator {
 

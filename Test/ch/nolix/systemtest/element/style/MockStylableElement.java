@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.style.AbstractStylableElement;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.element.style.IStylableElement;
 
 public final class MockStylableElement extends AbstractStylableElement<MockStylableElement> {
 

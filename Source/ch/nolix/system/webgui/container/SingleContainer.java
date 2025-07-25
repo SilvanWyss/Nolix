@@ -6,12 +6,12 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
-import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
-import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.container.ISingleContainer;
+import ch.nolix.systemapi.webgui.container.ISingleContainerStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class SingleContainer
 extends AbstractContainer<ISingleContainer, ISingleContainerStyle>

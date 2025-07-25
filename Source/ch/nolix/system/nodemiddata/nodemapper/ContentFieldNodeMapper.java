@@ -2,8 +2,8 @@ package ch.nolix.system.nodemiddata.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.middataapi.modelapi.StringValueFieldDto;
-import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
+import ch.nolix.systemapi.middata.model.StringValueFieldDto;
+import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
 
 /**
  * @author Silvan Wyss

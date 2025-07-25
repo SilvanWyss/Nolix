@@ -5,8 +5,8 @@ import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 

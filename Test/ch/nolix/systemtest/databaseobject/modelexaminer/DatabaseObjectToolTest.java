@@ -5,8 +5,8 @@ import org.mockito.Mockito;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.databaseobjectapi.databaseobjectproperty.DatabaseObjectState;
-import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 final class DatabaseObjectToolTest extends StandardTest {
 

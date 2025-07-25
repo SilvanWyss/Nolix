@@ -2,9 +2,9 @@ package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.system.objectdata.datavalidator.DatabaseValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IDatabaseSearcher;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
+import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 public final class ChangeSetSaver {
 

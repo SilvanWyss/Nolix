@@ -2,9 +2,9 @@ package ch.nolix.system.nodemidschema.nodeexaminer;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodeexaminerapi.IEntityNodeExaminer;
-import ch.nolix.systemapi.nodemidschemaapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.ITableNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodeexaminer.IEntityNodeExaminer;
+import ch.nolix.systemapi.nodemidschema.nodeexaminer.ITableNodeExaminer;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 /**
  * @author Silvan Wyss

@@ -8,11 +8,11 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
-import ch.nolix.systemapi.webapplicationapi.componentapi.IComponentStyle;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webapplication.component.IComponent;
+import ch.nolix.systemapi.webapplication.component.IComponentStyle;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public abstract class AbstractComponent<C extends Controller<S>, S>
 extends Control<IComponent, IComponentStyle>

@@ -5,10 +5,10 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.system.objectdata.fieldtool.ValueFieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueFieldTool;
-import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdata.fieldtool.IValueFieldTool;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IValueValidator;
+import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public final class ValueField<V> extends AbstractValueField<V> implements IValueField<V> {
 

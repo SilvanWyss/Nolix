@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 
 final class FileReader {
 

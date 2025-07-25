@@ -8,13 +8,13 @@ import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaTableDtoMapper;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
-import ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi.ISqlSchemaTableDtoMapper;
-import ch.nolix.systemapi.timeapi.momentapi.IIncrementalCurrentTimeCreator;
+import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
+import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
+import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
 
@@ -29,7 +29,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private final MetaDataWriter metaDataWriter;
 
-  private final ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter sqlSchemaWriter;
+  private final ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter sqlSchemaWriter;
 
   private final SqlCollector sqlCollector = new SqlCollector();
 

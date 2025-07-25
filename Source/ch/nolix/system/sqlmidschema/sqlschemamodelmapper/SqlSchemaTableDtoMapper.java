@@ -3,10 +3,10 @@ package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.EntitySqlSchemaColumnDtoCatalog;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi.ISqlSchemaColumnDtoMapper;
-import ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi.ISqlSchemaTableDtoMapper;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
+import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
+import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
 /**
  * @author Silvan Wyss
@@ -25,7 +25,7 @@ public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto mapTableDtoSqlSchemaTableDto(final TableDto tableDto) {
+  public ch.nolix.systemapi.sqlschema.model.TableDto mapTableDtoSqlSchemaTableDto(final TableDto tableDto) {
 
     final var tableName = tableDto.name();
 
@@ -34,6 +34,6 @@ public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
 
     final var columns = ContainerView.forIterable(META_COLUMN_SQL_SCHEMA_COLUMNS, contentColumns);
 
-    return new ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto(tableName, columns);
+    return new ch.nolix.systemapi.sqlschema.model.TableDto(tableName, columns);
   }
 }

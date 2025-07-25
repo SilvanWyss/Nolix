@@ -17,16 +17,16 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.ButtonRole;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButton;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.buttonapi.IButtonStyle;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabelTool;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
+import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButtonStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabelTool;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Button extends Control<IButton, IButtonStyle> implements IButton {
 

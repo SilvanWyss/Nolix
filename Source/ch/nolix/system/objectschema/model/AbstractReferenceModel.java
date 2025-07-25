@@ -2,9 +2,9 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectschema.model.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public abstract class AbstractReferenceModel implements IAbstractReferenceModel {
 

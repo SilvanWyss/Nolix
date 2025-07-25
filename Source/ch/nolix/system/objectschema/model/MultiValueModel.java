@@ -1,8 +1,8 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IMultiValueModel;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschema.model.IMultiValueModel;
 
 public final class MultiValueModel<V> extends AbstractValueModel<V> implements IMultiValueModel<V> {
 

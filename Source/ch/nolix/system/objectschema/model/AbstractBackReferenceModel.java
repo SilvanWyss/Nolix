@@ -2,10 +2,10 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.IColumnValidator;
+import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
 public abstract class AbstractBackReferenceModel implements IAbstractBackReferenceModel {
 

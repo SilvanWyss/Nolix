@@ -3,11 +3,11 @@ package ch.nolix.system.objectdata.changesetsaver;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiReferenceEntryDeletionDtoMapper;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IMultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiReferenceEntry;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDeletionDtoMapper;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IMultiReference;
+import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 public final class MultiReferenceSaver {
 

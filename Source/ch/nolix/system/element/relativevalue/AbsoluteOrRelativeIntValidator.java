@@ -1,7 +1,7 @@
 package ch.nolix.system.element.relativevalue;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 public final class AbsoluteOrRelativeIntValidator {
 

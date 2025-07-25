@@ -4,9 +4,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.ITableNodeMapper;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
 
 /**
  * @author Silvan Wyss

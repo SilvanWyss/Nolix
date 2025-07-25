@@ -2,7 +2,7 @@ package ch.nolix.system.webapplication.base;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
-import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
+import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 final class FrontendWriter implements IFrontEndWriter {
 

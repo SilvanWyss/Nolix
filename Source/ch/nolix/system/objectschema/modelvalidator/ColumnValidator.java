@@ -2,9 +2,9 @@ package ch.nolix.system.objectschema.modelvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IColumnExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelvalidatorapi.IColumnValidator;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.modelexaminer.IColumnExaminer;
+import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
 /**
  * @author Silvan Wyss

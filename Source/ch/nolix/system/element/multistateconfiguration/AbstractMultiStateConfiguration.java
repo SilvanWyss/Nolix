@@ -12,7 +12,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
+import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
 
 public abstract class AbstractMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
 extends AbstractElement

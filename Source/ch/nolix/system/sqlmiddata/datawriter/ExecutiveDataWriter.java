@@ -8,14 +8,14 @@ import ch.nolix.system.sqlmiddata.statementcreator.EntityStatementCreator;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiBackReferenceStatementCreator;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiReferenceStatementCreator;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IEntityStatementCreator;
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiBackReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiValueStatementCreator;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.middata.model.EntityCreationDto;
+import ch.nolix.systemapi.middata.model.EntityDeletionDto;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiBackReferenceStatementCreator;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiReferenceStatementCreator;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreator;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class ExecutiveDataWriter {
 

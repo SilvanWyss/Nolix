@@ -2,10 +2,10 @@ package ch.nolix.system.nodemidschema.nodesearcher;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IColumnNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IContentModelNodeSearcher;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 

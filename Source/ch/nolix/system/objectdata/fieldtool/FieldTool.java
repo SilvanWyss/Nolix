@@ -5,11 +5,11 @@ import java.lang.reflect.ParameterizedType;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IFieldTool;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IMultiValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
+import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IMultiValueField;
+import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
+import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
 

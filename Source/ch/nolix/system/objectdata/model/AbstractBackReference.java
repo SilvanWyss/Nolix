@@ -4,11 +4,11 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdataapi.modelapi.IAbstractBackReference;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
+import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
 public abstract class AbstractBackReference<E extends IEntity>
 extends AbstractField

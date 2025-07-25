@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
+import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;

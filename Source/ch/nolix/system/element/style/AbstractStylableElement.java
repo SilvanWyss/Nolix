@@ -9,8 +9,8 @@ import ch.nolix.system.element.base.StructureSpecificationCreator;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.element.base.IStructureElement;
+import ch.nolix.systemapi.element.style.IStylableElement;
 
 public abstract class AbstractStylableElement<E extends IStylableElement<E>>
 extends AbstractMutableElement

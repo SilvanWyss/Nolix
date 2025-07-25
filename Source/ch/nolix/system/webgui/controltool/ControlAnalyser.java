@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.controltool;
 
-import ch.nolix.systemapi.webguiapi.controltoolapi.IControlAnalyser;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webgui.controltool.IControlAnalyser;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class ControlAnalyser implements IControlAnalyser {
 

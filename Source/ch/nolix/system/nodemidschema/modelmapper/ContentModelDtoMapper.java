@@ -3,18 +3,18 @@ package ch.nolix.system.nodemidschema.modelmapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.ContentModelNodeSearcher;
-import ch.nolix.systemapi.midschemaapi.modelapi.BackReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.MultiValueModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.OptionalValueModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.ReferenceModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.ValueModelDto;
-import ch.nolix.systemapi.nodemidschemaapi.modelmapperapi.IContentModelDtoMapper;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IContentModelNodeSearcher;
+import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
+import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
+import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
+import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.nodemidschema.modelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
 /**
  * @author Silvan Wyss

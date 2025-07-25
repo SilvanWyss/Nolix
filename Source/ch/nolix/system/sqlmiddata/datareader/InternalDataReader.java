@@ -13,17 +13,17 @@ import ch.nolix.system.sqlmiddata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
-import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middataapi.valuemapperapi.IValueMapper;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.sqlmiddataapi.modelmapperapi.IMultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IEntityQueryCreator;
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiBackReferenceQueryCreator;
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiReferenceQueryCreator;
-import ch.nolix.systemapi.sqlmiddataapi.querycreatorapi.IMultiValueQueryCreator;
+import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
+import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiBackReferenceQueryCreator;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiReferenceQueryCreator;
+import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiValueQueryCreator;
 
 final class InternalDataReader {
 

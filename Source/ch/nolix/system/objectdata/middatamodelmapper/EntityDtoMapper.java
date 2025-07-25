@@ -1,13 +1,13 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.middataapi.modelapi.EntityCreationDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityDeletionDto;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IEntityDtoMapper;
-import ch.nolix.systemapi.objectdataapi.middatamodelmapperapi.IStringContentFieldDtoMapper;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelsearcherapi.IEntitySearcher;
+import ch.nolix.systemapi.middata.model.EntityCreationDto;
+import ch.nolix.systemapi.middata.model.EntityDeletionDto;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringContentFieldDtoMapper;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss

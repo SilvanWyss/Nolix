@@ -8,13 +8,13 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.web.css.ICss;
 import ch.nolix.coreapi.web.html.IHtmlElement;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webapplicationapi.counterpartapi.IUpdateCommandCreator;
-import ch.nolix.systemapi.webapplicationapi.protocol.CommandProtocol;
-import ch.nolix.systemapi.webapplicationapi.protocol.ObjectProtocol;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
+import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
+import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class UpdateCommandCreator implements IUpdateCommandCreator {
 

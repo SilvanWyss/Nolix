@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
 

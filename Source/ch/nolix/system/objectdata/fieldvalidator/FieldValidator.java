@@ -5,10 +5,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IFieldValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IField;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IFieldExaminer;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
 public class FieldValidator implements IFieldValidator {
 

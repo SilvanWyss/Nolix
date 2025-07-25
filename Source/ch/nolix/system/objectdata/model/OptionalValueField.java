@@ -7,10 +7,10 @@ import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldtool.OptionalValueTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IOptionalValueTool;
-import ch.nolix.systemapi.objectdataapi.fieldvalidatorapi.IOptionalValueValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalValueField;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectdata.fieldtool.IOptionalValueTool;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
+import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 public final class OptionalValueField<V> extends AbstractValueField<V> implements IOptionalValueField<V> {
 

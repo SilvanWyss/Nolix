@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.midschemamodelmapper.TableDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.ITableDtoMapper;
+import ch.nolix.systemapi.objectschema.midschemamodelmapper.ITableDtoMapper;
 
 final class DatabaseMutationExecutor {
 

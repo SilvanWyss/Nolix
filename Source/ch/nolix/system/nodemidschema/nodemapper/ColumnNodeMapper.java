@@ -2,10 +2,10 @@ package ch.nolix.system.nodemidschema.nodemapper;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.IColumnNodeMapper;
-import ch.nolix.systemapi.nodemidschemaapi.nodemapperapi.IContentModelNodeMapper;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
+import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
+import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
 
 /**
  * @author Silvan Wyss

@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlschema.querycreator;
 
-import ch.nolix.systemapi.sqlschemaapi.querycreatorapi.IQueryCreator;
+import ch.nolix.systemapi.sqlschema.querycreator.IQueryCreator;
 
 public final class QueryCreator implements IQueryCreator {
 

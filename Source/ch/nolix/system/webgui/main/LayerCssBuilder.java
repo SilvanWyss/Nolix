@@ -9,8 +9,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.css.ICssProperty;
-import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
+import ch.nolix.systemapi.gui.contentalignmentproperty.ContentAlignment;
+import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerCssBuilder {
 

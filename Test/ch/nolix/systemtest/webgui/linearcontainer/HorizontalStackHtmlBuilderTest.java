@@ -6,7 +6,7 @@ import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStackHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
+import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class HorizontalStackHtmlBuilderTest

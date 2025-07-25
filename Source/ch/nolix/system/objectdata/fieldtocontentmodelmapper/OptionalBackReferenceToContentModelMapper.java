@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.fieldtocontentmodelmapper;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectschema.model.OptionalBackReferenceModel;
-import ch.nolix.systemapi.objectdataapi.modelapi.IOptionalBackReference;
-import ch.nolix.systemapi.objectdataapi.modelmapperapi.IFieldToContentModelMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
+import ch.nolix.systemapi.objectdata.modelmapper.IFieldToContentModelMapper;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class OptionalBackReferenceToContentModelMapper
 implements IFieldToContentModelMapper<IOptionalBackReference<?>> {

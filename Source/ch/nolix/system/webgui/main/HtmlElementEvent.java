@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 //record
 public record HtmlElementEvent(String htmlElementId, String htmlEvent) implements IHtmlElementEvent {

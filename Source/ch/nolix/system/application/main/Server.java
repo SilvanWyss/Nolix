@@ -7,7 +7,7 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.server.ISinglePortServer;
 import ch.nolix.coreapi.net.target.IServerTarget;
-import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
+import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * A {@link Server} is a {@link AbstractServer} that listens to net

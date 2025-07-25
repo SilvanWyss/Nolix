@@ -23,20 +23,20 @@ import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.frontend.LocalFrontEndReader;
 import ch.nolix.system.gui.frontend.LocalFrontEndWriter;
 import ch.nolix.system.gui.iconresource.IconCatalog;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
-import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
-import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
-import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
-import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayerStack;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.element.style.IStylableElement;
+import ch.nolix.systemapi.graphic.color.IColor;
+import ch.nolix.systemapi.graphic.color.IColorGradient;
+import ch.nolix.systemapi.graphic.image.IImage;
+import ch.nolix.systemapi.graphic.image.ImageApplication;
+import ch.nolix.systemapi.gui.background.BackgroundType;
+import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
+import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.ILayerStack;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
 extends AbstractStyleElement<WebGui>

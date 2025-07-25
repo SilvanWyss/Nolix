@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
-import ch.nolix.systemapi.objectdataapi.datavalidatorapi.IEntityValidator;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.modelexaminerapi.IEntityExaminer;
+import ch.nolix.systemapi.objectdata.datavalidator.IEntityValidator;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 
 public final class EntityValidator implements IEntityValidator {
 

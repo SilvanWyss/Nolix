@@ -11,10 +11,10 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
-import ch.nolix.systemapi.sqlschemaapi.adapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.sqlschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlschemaapi.statementcreatorapi.IStatementCreator;
+import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.sqlschema.model.ColumnDto;
+import ch.nolix.systemapi.sqlschema.model.TableDto;
+import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
 

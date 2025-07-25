@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmiddata.adapter;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
-import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 
 public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
 

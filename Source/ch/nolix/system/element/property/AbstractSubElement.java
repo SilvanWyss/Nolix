@@ -5,8 +5,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
-import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
+import ch.nolix.systemapi.element.mutableelement.IMutableElement;
+import ch.nolix.systemapi.element.property.IProperty;
 
 public abstract class AbstractSubElement<E extends IMutableElement> implements IProperty {
 

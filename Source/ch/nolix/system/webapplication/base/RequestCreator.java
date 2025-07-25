@@ -1,7 +1,7 @@
 package ch.nolix.system.webapplication.base;
 
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.systemapi.applicationapi.basewebapplicationprotocol.RequestProtocol;
+import ch.nolix.systemapi.application.basewebapplicationprotocol.RequestProtocol;
 
 final class RequestCreator {
 

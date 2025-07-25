@@ -2,13 +2,13 @@ package ch.nolix.system.objectschema.modelexaminer;
 
 import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IDatabase;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.IDatabaseExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelexaminerapi.ITableExaminer;
-import ch.nolix.systemapi.objectschemaapi.modelmutationexaminer.ITableMutationExaminer;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.IDatabase;
+import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
+import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
+import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExaminer;
+import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 
 public final class DatabaseExaminer implements IDatabaseExaminer {
 

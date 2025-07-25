@@ -13,7 +13,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 /**
  * A {@link AbsoluteOrRelativeInt} stores either an integer or a percentage. A

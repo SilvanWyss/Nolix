@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectschema.model.Table;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;
-import ch.nolix.systemapi.objectdataapi.schemamapperapi.ITableMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.ITable;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
+import ch.nolix.systemapi.objectdata.schemamapper.ITableMapper;
+import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class TableMapper implements ITableMapper {
 

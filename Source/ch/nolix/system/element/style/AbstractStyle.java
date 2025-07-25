@@ -8,10 +8,10 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.container.pair.IPair;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.elementapi.styleapi.IAbstractStyle;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.element.style.IAbstractStyle;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.style.ISelectingStyleWithSelectors;
+import ch.nolix.systemapi.element.style.IStylableElement;
 
 /**
  * @author Silvan Wyss

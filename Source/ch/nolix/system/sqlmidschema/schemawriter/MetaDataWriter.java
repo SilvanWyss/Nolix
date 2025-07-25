@@ -5,12 +5,12 @@ import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlmidschema.statementcreator.MetaDataStatementCreator;
-import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IDatabasePropertiesStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.statementcreatorapi.IMetaDataStatementCreator;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class MetaDataWriter {
 

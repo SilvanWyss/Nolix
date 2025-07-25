@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.ILabel;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.labelapi.LabelRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabel;
+import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class LabelTest extends ControlTest<ILabel> {

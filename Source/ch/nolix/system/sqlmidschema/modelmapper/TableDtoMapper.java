@@ -2,9 +2,9 @@ package ch.nolix.system.sqlmidschema.modelmapper;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
-import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
-import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.IColumnDtoMapper;
-import ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi.ITableDtoMapper;
+import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.modelmapper.IColumnDtoMapper;
+import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
 
 /**
  * @author Silvan Wyss

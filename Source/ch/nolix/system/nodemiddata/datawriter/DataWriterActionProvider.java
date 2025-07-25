@@ -17,18 +17,18 @@ import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemiddata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.middataapi.modelapi.EntityUpdateDto;
-import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
-import ch.nolix.systemapi.midschemaviewapi.modelsearcherapi.ITableViewSearcher;
-import ch.nolix.systemapi.nodemiddataapi.nodeeditorapi.ITableNodeEditor;
-import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
-import ch.nolix.systemapi.nodemiddataapi.nodemapperapi.IContentFieldNodeMapper;
-import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.IEntityNodeSearcher;
-import ch.nolix.systemapi.nodemiddataapi.nodesearcherapi.ITableNodeSearcher;
-import ch.nolix.systemapi.nodemiddataapi.nodevalidatorapi.ITableNodeValidator;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschemaapi.nodesearcherapi.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
+import ch.nolix.systemapi.middata.model.EntityUpdateDto;
+import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemaview.modelsearcher.ITableViewSearcher;
+import ch.nolix.systemapi.nodemiddata.nodeeditor.ITableNodeEditor;
+import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
+import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
+import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
+import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
+import ch.nolix.systemapi.nodemiddata.nodevalidator.ITableNodeValidator;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
+import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DataWriterActionProvider {
 

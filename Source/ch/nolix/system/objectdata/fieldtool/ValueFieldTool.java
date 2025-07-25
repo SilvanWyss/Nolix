@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.fieldtool;
 
-import ch.nolix.systemapi.objectdataapi.fieldtoolapi.IValueFieldTool;
-import ch.nolix.systemapi.objectdataapi.modelapi.IValueField;
+import ch.nolix.systemapi.objectdata.fieldtool.IValueFieldTool;
+import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public final class ValueFieldTool extends FieldTool implements IValueFieldTool {
 

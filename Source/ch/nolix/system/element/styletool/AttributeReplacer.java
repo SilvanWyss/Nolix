@@ -5,8 +5,8 @@ import ch.nolix.core.container.pair.Pair;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.container.pair.IPair;
-import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
-import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
+import ch.nolix.systemapi.element.style.IAttachingAttribute;
+import ch.nolix.systemapi.element.styletool.IAttributeReplacer;
 
 public final class AttributeReplacer implements IAttributeReplacer {
 

@@ -9,8 +9,8 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebGuiCssBuilder {
 

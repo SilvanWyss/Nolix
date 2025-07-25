@@ -9,12 +9,12 @@ import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.objectschemaapi.midschemamodelmapperapi.IContentModelDtoMapper;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IContentModel;
-import ch.nolix.systemapi.objectschemaapi.modeleditorapi.IColumnEditor;
-import ch.nolix.systemapi.objectschemaapi.schematoolapi.IColumnTool;
+import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
+import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
 

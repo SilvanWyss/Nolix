@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.elementapi.baseapi.IElement;
+import ch.nolix.systemapi.element.base.IElement;
 
 /**
  * @author Silvan Wyss

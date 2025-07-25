@@ -19,7 +19,7 @@ import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
-import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
+import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss

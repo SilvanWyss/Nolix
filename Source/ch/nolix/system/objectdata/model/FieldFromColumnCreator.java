@@ -1,12 +1,12 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
-import ch.nolix.systemapi.objectdataapi.modelapi.ITable;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractBackReferenceModelView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractReferenceModelView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IAbstractValueModelView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;
-import ch.nolix.systemapi.objectdataapi.schemaviewapi.IContentModelView;
+import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.schemaview.IAbstractBackReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
+import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
 public final class FieldFromColumnCreator {
 

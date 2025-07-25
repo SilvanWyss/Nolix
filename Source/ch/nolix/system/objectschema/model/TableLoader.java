@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;
+import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 
 public final class TableLoader {
 

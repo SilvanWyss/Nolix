@@ -1,8 +1,8 @@
 package ch.nolix.system.webapplication.base;
 
 import ch.nolix.system.application.main.AbstractSession;
-import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
-import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
+import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
+import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 public abstract class AbstractWebClientSession<C extends AbstractWebClient<C, S>, S> extends AbstractSession<C, S> {
 

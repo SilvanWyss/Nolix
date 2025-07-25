@@ -1,8 +1,8 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.modelapi.IOptionalBackReferenceModel;
+import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.systemapi.objectschema.model.IOptionalBackReferenceModel;
 
 public final class OptionalBackReferenceModel
 extends AbstractBackReferenceModel

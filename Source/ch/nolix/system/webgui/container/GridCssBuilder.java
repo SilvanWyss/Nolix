@@ -9,9 +9,9 @@ import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
-import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
-import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.systemapi.webgui.container.IGrid;
+import ch.nolix.systemapi.webgui.container.IGridStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
 

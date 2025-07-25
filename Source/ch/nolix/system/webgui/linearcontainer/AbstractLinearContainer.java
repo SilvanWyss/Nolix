@@ -6,10 +6,10 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
-import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainer;
+import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainerStyle;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public abstract class AbstractLinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
 extends AbstractContainer<C, S>

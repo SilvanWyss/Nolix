@@ -6,7 +6,7 @@ import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStackHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
+import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStack;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<VerticalStackHtmlBuilder, IVerticalStack> {

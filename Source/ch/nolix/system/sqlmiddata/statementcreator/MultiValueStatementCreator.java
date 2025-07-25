@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
-import ch.nolix.systemapi.sqlmiddataapi.statementcreatorapi.IMultiValueStatementCreator;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.FixTable;
-import ch.nolix.systemapi.sqlmidschemaapi.databasestructure.MultiValueEntryColumn;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
 
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
 
