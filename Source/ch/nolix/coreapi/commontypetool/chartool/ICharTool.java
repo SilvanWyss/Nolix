@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.chartoolapi;
+package ch.nolix.coreapi.commontypetool.chartool;
 
 /**
  * The {@link ICharTool} provides methods to handle chars.

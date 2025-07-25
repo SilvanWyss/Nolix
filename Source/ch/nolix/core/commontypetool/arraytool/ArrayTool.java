@@ -1,7 +1,7 @@
 package ch.nolix.core.commontypetool.arraytool;
 
-import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
-import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediator;
+import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
+import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediator;
 
 public final class ArrayTool implements IArrayTool {
 

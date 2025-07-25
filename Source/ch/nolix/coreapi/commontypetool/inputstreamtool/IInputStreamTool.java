@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi;
+package ch.nolix.coreapi.commontypetool.inputstreamtool;
 
 import java.io.InputStream;
 

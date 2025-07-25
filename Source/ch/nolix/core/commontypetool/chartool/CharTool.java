@@ -1,6 +1,6 @@
 package ch.nolix.core.commontypetool.chartool;
 
-import ch.nolix.coreapi.commontypetoolapi.chartoolapi.ICharTool;
+import ch.nolix.coreapi.commontypetool.chartool.ICharTool;
 
 /**
  * @author Silvan Wyss

@@ -2,7 +2,7 @@ package ch.nolix.core.commontypetool.stringtool;
 
 import java.util.Locale;
 
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringExaminer;
+import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
 
 /**
  * @author Silvan Wyss

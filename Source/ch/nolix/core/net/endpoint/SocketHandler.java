@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
-import ch.nolix.coreapi.commontypetoolapi.inputstreamtoolapi.IInputStreamTool;
+import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.endpointapi.SocketType;
 import ch.nolix.coreapi.netapi.endpointprotocol.MessageType;

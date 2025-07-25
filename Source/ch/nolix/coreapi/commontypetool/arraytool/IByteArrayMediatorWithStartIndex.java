@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.arraytoolapi;
+package ch.nolix.coreapi.commontypetool.arraytool;
 
 public interface IByteArrayMediatorWithStartIndex {
 

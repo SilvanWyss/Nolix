@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.iteratorvalidatorapi;
+package ch.nolix.coreapi.commontypetool.iteratorvalidator;
 
 import java.util.Iterator;
 

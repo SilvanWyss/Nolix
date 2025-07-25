@@ -1,8 +1,8 @@
 package ch.nolix.core.commontypetool.arraytool;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IByteArrayMediatorWithStartIndex;
-import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
+import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
+import ch.nolix.coreapi.commontypetool.arraytool.INextIndexMediator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.stringtoolapi;
+package ch.nolix.coreapi.commontypetool.stringtool;
 
 /**
  * The {@link IStringTool} provides methods to handle {@link String}s.

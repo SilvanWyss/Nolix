@@ -1,6 +1,6 @@
 package ch.nolix.core.commontypetool.stringtool;
 
-import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.IStringTool;
+import ch.nolix.coreapi.commontypetool.stringtool.IStringTool;
 
 /**
  * The {@link StringTool} provides methods to handle {@link String}s.

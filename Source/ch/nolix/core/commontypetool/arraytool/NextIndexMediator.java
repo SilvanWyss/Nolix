@@ -1,6 +1,6 @@
 package ch.nolix.core.commontypetool.arraytool;
 
-import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.INextIndexMediator;
+import ch.nolix.coreapi.commontypetool.arraytool.INextIndexMediator;
 
 public final class NextIndexMediator implements INextIndexMediator {
 

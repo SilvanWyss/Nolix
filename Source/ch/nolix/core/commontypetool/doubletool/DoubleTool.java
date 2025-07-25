@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
+import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
 
 /**
  * @author Silvan Wyss

@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.NumberComparator;
-import ch.nolix.coreapi.commontypetoolapi.arraytoolapi.IArrayTool;
-import ch.nolix.coreapi.commontypetoolapi.doubletoolapi.IDoubleTool;
+import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
+import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 

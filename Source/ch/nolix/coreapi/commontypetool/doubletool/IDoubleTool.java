@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.commontypetoolapi.doubletoolapi;
+package ch.nolix.coreapi.commontypetool.doubletool;
 
 /**
  * A {@link IDoubleTool} provides methods to handle doubles.
