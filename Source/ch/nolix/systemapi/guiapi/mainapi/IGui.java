@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.guiapi.mainapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTitleHolder;
+import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTitleHolder;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;

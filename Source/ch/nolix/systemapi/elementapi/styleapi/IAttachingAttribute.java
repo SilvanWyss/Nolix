@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.elementapi.styleapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.IValueHolder;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 

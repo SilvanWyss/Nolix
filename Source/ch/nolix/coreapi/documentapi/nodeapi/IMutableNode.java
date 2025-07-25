@@ -2,7 +2,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 
 import java.util.function.Predicate;
 
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalHeaderHolder;
+import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalHeaderHolder;
 import ch.nolix.coreapi.stateapi.statemutationapi.Resettable;
 
 /**

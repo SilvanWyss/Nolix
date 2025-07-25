@@ -1,6 +1,6 @@
 package ch.nolix.core.license;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 /**

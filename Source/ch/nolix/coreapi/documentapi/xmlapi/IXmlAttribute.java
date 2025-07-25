@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.documentapi.xmlapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.IValueHolder;
 
 public interface IXmlAttribute extends INameHolder, IValueHolder<String> {
 }

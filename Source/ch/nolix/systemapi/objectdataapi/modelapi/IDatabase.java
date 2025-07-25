@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdataapi.modelapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;

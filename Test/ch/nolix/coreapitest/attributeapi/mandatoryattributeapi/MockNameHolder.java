@@ -1,6 +1,6 @@
 package ch.nolix.coreapitest.attributeapi.mandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 public final class MockNameHolder implements INameHolder {
 

@@ -1,7 +1,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
 

@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.documentapi.xmlapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalNameHolder;
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
+import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalNameHolder;
+import ch.nolix.coreapi.attribute.optionalattribute.IOptionalValueHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 public interface IXmlNode<N extends IXmlNode<N>>

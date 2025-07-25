@@ -1,6 +1,6 @@
 package ch.nolix.coreapitest.attributeapi.mandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.ITitleHolder;
 
 public final class MockTitleHolder implements ITitleHolder {
 

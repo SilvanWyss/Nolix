@@ -2,8 +2,8 @@ package ch.nolix.systemapi.objectdataapi.modelapi;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;

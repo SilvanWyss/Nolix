@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.webapi.htmlapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 public interface IHtmlAttribute extends INameHolder {
 

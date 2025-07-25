@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 public enum MultiValueEntryColumn implements INameHolder {
   ENTITY_ID(MultiValueEntryColumnNameCatalog.ENTITY_ID),

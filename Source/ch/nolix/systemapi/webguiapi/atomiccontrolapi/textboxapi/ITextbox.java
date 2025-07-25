@@ -2,7 +2,7 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTextHolder;
+import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTextHolder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, IFluentMutableTextHolder<ITextbox> {

@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.netapi.endpoint2api;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 public interface ISlot extends INameHolder {
 
