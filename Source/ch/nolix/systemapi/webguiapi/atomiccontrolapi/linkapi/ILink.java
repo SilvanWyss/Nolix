@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi.linkapi;
 
-import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
+import ch.nolix.coreapi.web.webproperty.LinkTarget;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public interface ILink extends IControl<ILink, ILinkStyle> {

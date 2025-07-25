@@ -1,8 +1,8 @@
 package ch.nolix.system.webapplication.component;
 
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.web.css.ICssProperty;
+import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webapplicationapi.componentapi.IComponentStyle;

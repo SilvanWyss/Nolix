@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.webapi.cookieapi;
+package ch.nolix.coreapi.web.cookie;
 
 import java.util.Optional;
 

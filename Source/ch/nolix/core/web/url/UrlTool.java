@@ -2,7 +2,7 @@ package ch.nolix.core.web.url;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.webapi.urlapi.IUrlTool;
+import ch.nolix.coreapi.web.url.IUrlTool;
 
 /**
  * @author Silvan Wyss

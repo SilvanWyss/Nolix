@@ -1,8 +1,8 @@
 package ch.nolix.system.webgui.atomiccontrol.validationlabel;
 
 import ch.nolix.core.web.html.HtmlElement;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
+import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.coreapi.web.html.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.validationlabelapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 

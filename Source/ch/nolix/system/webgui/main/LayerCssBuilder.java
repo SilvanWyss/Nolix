@@ -7,8 +7,8 @@ import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 

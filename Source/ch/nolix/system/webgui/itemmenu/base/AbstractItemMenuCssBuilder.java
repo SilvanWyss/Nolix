@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.itemmenu.base;
 
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi.IItemMenuStyle;

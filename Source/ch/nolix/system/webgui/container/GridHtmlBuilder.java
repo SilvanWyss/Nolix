@@ -4,8 +4,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
+import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.coreapi.web.html.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 

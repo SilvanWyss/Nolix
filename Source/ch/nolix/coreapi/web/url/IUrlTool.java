@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.webapi.urlapi;
+package ch.nolix.coreapi.web.url;
 
 /**
  * @author Silvan Wyss

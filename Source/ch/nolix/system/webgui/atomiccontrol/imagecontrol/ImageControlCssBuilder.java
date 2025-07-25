@@ -2,9 +2,9 @@ package ch.nolix.system.webgui.atomiccontrol.imagecontrol;
 
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalog;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.coreapi.web.css.ICssProperty;
+import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi.IImageControlStyle;

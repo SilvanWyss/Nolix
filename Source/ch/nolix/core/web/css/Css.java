@@ -2,8 +2,8 @@ package ch.nolix.core.web.css;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.ICss;
-import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.web.css.ICss;
+import ch.nolix.coreapi.web.css.ICssRule;
 
 public final class Css implements ICss {
 

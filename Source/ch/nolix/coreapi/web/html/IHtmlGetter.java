@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.webapi.htmlapi;
+package ch.nolix.coreapi.web.html;
 
 public interface IHtmlGetter {
 

@@ -2,8 +2,8 @@ package ch.nolix.system.webgui.atomiccontrol.textbox;
 
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.web.css.ICssProperty;
+import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextboxStyle;

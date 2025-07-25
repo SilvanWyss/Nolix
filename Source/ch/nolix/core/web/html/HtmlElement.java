@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
+import ch.nolix.coreapi.web.html.IHtmlAttribute;
+import ch.nolix.coreapi.web.html.IHtmlElement;
 
 public final class HtmlElement implements IHtmlElement {
 

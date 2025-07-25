@@ -1,8 +1,8 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 import ch.nolix.coreapi.component.guicomponent.IGuiComponent;
-import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
+import ch.nolix.coreapi.web.css.ICssRule;
+import ch.nolix.coreapi.web.html.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasapi.ICanvas;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;

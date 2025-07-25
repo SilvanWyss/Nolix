@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.cssmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.css.CssProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 import ch.nolix.systemapi.webguiapi.cssmapperapi.ICssPropertyMapper;
 

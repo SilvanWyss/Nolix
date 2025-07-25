@@ -3,8 +3,8 @@ package ch.nolix.system.webgui.atomiccontrol.textbox;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlAttributeNameCatalog;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
+import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
+import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.textboxapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controltoolapi.IControlHtmlBuilder;
 

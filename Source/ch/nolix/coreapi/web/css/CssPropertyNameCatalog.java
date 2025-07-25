@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.webapi.cssapi;
+package ch.nolix.coreapi.web.css;
 
 public final class CssPropertyNameCatalog {
 

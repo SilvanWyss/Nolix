@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;
+import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 
 final class HtmlElementTest extends StandardTest {
 

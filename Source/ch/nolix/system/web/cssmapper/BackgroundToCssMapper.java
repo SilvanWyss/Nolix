@@ -2,7 +2,7 @@ package ch.nolix.system.web.cssmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 import ch.nolix.systemapi.webapi.cssmapperapi.IBackgroundToCssMapper;
 

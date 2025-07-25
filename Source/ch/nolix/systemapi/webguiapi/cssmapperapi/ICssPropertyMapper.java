@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.cssmapperapi;
 
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.systemapi.guiapi.fontapi.LineDecoration;
 
 /**
