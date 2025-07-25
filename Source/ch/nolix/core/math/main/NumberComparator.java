@@ -1,6 +1,6 @@
 package ch.nolix.core.math.main;
 
-import ch.nolix.coreapi.mathapi.machineprecisionapi.ComparsionThresholdCatalog;
+import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
 
 /**
  * @author Silvan Wyss

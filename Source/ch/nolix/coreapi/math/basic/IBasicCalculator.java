@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.mathapi.basicapi;
+package ch.nolix.coreapi.math.basic;
 
 /**
  * @author Silvan Wyss

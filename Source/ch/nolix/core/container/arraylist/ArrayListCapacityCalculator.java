@@ -3,7 +3,7 @@ package ch.nolix.core.container.arraylist;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.Calculator;
-import ch.nolix.coreapi.mathapi.numberapi.IntCatalog;
+import ch.nolix.coreapi.math.number.IntCatalog;
 
 /**
  * @author Silvan Wyss

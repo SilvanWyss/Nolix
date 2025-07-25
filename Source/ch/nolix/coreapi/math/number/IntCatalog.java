@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.mathapi.numberapi;
+package ch.nolix.coreapi.math.number;
 
 /**
  * The {@link IntCatalog} provides int constants.

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.mathapi.machineprecisionapi;
+package ch.nolix.coreapi.math.machineprecision;
 
 public final class ComparsionThresholdCatalog {
 
