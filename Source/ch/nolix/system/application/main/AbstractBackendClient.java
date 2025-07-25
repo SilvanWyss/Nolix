@@ -5,6 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.AbstractEndPoint;
+import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.application.client.IBackendClient;
 
 /**
@@ -32,6 +33,14 @@ implements IBackendClient<S> {
    */
   public final String getApplicationName() {
     return getStoredParentApplication().getInstanceName();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final IApplicationInstanceTarget getApplicationAsTarget() {
+    return getStoredParentApplication().asTarget();
   }
 
   /**
@@ -214,9 +223,9 @@ implements IBackendClient<S> {
    *                                  does not have a parent {@link Application}.
    */
   private Application<C, S> getStoredParentApplication() {
-  
+
     assertReferencesParentApplication();
-  
+
     return parentApplication;
   }
 
