@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectdata.fieldtool;
 
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
-public interface IOptionalValueTool extends IFieldTool {
+public interface IOptionalValueFieldTool extends IFieldTool {
 
   boolean canSetValue(IOptionalValueField<?> optionalValueField);
 
