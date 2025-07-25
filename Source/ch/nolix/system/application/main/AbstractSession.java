@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.component.applicationcomponent.IClientComponent;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
+import ch.nolix.coreapi.programcontrol.trigger.IRefreshableSubscriber;
 
 /**
  * A {@link AbstractSession} manages user run methods and user data methods.

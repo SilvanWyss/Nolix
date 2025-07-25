@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.futureapi;
+package ch.nolix.coreapi.programcontrol.future;
 
 /**
  * A {@link IResultFuture} is a {@link IFuture} that will deliver a result when

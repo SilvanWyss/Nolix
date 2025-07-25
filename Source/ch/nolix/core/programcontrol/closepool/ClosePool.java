@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsEleme
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
+import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.IClosePool;
 

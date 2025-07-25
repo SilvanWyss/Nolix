@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.processproperty;
+package ch.nolix.coreapi.programcontrol.processproperty;
 
 /**
  * A {@link TargetInfoState} defines whether a {@link Object} either has

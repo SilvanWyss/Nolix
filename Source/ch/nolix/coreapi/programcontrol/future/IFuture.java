@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.programcontrolapi.futureapi;
+package ch.nolix.coreapi.programcontrol.future;
 
-import ch.nolix.coreapi.programcontrolapi.processapi.FinishRequestable;
+import ch.nolix.coreapi.programcontrol.process.FinishRequestable;
 
 /**
  * A {@link IFuture} is supposed to be given back when a job is started in

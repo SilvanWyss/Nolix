@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
+import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * A {@link JobPool} runs jobs in the background. A {@link JobPool} uses an

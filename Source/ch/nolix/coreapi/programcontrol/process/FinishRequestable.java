@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.processapi;
+package ch.nolix.coreapi.programcontrol.process;
 
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 

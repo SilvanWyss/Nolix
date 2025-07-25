@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.processproperty;
+package ch.nolix.coreapi.programcontrol.processproperty;
 
 /**
  * A {@link Result} defines if a process run was a success or a failure.

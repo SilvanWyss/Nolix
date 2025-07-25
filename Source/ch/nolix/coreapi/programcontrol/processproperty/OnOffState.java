@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.processproperty;
+package ch.nolix.coreapi.programcontrol.processproperty;
 
 /**
  * A {@link OnOffState} defines if something is on or off.

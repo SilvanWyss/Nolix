@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.TypeMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
 final class TypeMediatorTest extends StandardTest {
 

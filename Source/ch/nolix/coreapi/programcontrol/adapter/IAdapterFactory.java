@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.adapterapi;
+package ch.nolix.coreapi.programcontrol.adapter;
 
 /**
  * @author Silvan Wyss

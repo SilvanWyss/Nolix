@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.programcontrolapi.flowcontrolapi;
+package ch.nolix.coreapi.programcontrol.flowcontrol;
 
-import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
+import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss

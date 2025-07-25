@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.net.endpointprotocol.MessageType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
+import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
 
 /**
  * A {@link AbstractNetEndPoint} can send messages to an other

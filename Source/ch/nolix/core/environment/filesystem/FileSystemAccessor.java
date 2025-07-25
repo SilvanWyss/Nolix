@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
 /**
  * The {@link FileSystemAccessor} can access the file system on the local

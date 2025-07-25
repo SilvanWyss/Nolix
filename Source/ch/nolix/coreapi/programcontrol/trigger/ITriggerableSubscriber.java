@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.triggerapi;
+package ch.nolix.coreapi.programcontrol.trigger;
 
 import ch.nolix.coreapi.stateapi.staterequestapi.AlivenessRequestable;
 

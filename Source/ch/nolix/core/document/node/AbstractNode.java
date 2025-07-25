@@ -14,7 +14,7 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.document.node.INodeComparator;
 import ch.nolix.coreapi.document.xml.IMutableXmlNode;
 import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
-import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
+import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
 /**
  * @author Silvan Wyss

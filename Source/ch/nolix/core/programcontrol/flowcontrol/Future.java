@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.future.AbstractFuture;
-import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
+import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss

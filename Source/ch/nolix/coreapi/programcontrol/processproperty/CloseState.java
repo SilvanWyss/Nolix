@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.processproperty;
+package ch.nolix.coreapi.programcontrol.processproperty;
 
 /**
  * A {@link CloseState} indicates if something is either open, on closing or

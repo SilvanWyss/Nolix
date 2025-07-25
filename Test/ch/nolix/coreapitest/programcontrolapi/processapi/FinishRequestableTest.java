@@ -3,7 +3,7 @@ package ch.nolix.coreapitest.programcontrolapi.processapi;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programcontrolapi.processapi.FinishRequestable;
+import ch.nolix.coreapi.programcontrol.process.FinishRequestable;
 
 final class FinishRequestableTest extends StandardTest {
 

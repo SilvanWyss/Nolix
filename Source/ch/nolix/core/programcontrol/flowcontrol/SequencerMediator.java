@@ -5,9 +5,9 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
-import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsSoonAsMediator;
-import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IAsLongAsMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IAsSoonAsMediator;
+import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss

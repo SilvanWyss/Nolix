@@ -15,7 +15,7 @@ import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
+import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
 
 final class WebSocketEndPoint extends AbstractNetEndPoint {
 

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programcontrolapi.processproperty;
+package ch.nolix.coreapi.programcontrol.processproperty;
 
 /**
  * A {@link ProcessingMode} defines if a process should be run single-threaded

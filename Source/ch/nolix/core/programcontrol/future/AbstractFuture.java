@@ -1,7 +1,7 @@
 package ch.nolix.core.programcontrol.future;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
+import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss

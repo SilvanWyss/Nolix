@@ -6,9 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAfterEveryMediator;
-import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
-import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IAfterEveryMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IAsLongAsMediator;
+import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * A {@link AsLongAsMediator} is not mutable.
