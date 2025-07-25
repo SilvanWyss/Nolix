@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programatomapi.variableapi;
+package ch.nolix.coreapi.programatom.variable;
 
 /**
  * Of the {@link PluralLowerCaseVariableCatalog} an instance cannot be created.

@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

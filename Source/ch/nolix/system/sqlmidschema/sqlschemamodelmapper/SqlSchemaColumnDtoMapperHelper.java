@@ -2,7 +2,7 @@ package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.sqlmidschemaapi.datatypeapi.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschemaapi.modelapi.ColumnConstraintDto;

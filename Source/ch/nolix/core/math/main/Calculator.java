@@ -9,7 +9,7 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * The {@link Calculator} provides mathematical functions.

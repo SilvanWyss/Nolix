@@ -20,7 +20,7 @@ import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
 import ch.nolix.coreapi.net.endpoint.IEndPoint;
 import ch.nolix.coreapi.net.endpoint.SocketType;
 import ch.nolix.coreapi.net.endpointprotocol.MessageType;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class SocketHandler {
 

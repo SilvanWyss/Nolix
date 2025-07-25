@@ -8,8 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploader;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.uploaderapi.IUploaderStyle;

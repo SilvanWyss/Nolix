@@ -8,7 +8,7 @@ import ch.nolix.coreapi.net.endpoint.ISlot;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link LocalEndPoint} is an {@link AbstractEndPoint} that can send messages to

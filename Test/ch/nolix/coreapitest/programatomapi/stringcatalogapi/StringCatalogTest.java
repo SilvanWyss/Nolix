@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 
 final class StringCatalogTest extends StandardTest {
 

@@ -8,7 +8,7 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

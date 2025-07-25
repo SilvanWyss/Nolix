@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsLongAsMediator;
 import ch.nolix.coreapi.programcontrolapi.flowcontrolapi.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;

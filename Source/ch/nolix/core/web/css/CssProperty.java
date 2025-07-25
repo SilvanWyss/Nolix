@@ -1,7 +1,7 @@
 package ch.nolix.core.web.css;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 
 public final class CssProperty implements ICssProperty {

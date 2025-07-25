@@ -18,7 +18,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.net.target.IServerTarget;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 /**

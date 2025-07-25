@@ -7,7 +7,7 @@ import ch.nolix.core.programcontrol.usercontrol.CredentialBuilder;
 import ch.nolix.core.resourcecontrol.resourcepool.AbstractResourcePool;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 

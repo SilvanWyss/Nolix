@@ -9,8 +9,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.xml.IMutableXmlNode;
 import ch.nolix.coreapi.document.xml.IXmlAttribute;
 import ch.nolix.coreapi.document.xml.IXmlNode;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class MutableXmlNode implements IMutableXmlNode {
 

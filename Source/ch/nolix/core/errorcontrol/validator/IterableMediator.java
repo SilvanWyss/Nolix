@@ -14,8 +14,8 @@ import ch.nolix.core.independent.arraytool.ArrayTool;
 import ch.nolix.core.independent.iterabletool.IterableExaminer;
 import ch.nolix.core.independent.iterabletool.IterableTool;
 import ch.nolix.coreapi.independent.iterabletool.IIterableExaminer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * A named container mediator is an argument mediator for an iterable object

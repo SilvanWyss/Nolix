@@ -13,7 +13,7 @@ import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;

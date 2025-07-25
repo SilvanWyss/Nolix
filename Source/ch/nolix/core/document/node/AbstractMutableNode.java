@@ -5,9 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
 extends AbstractNode<N>

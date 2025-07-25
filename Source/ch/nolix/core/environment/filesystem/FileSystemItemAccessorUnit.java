@@ -3,8 +3,8 @@ package ch.nolix.core.environment.filesystem;
 import java.io.File;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.RegularExpressionPatternCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * A file system item accessor can access a given file system item. A file

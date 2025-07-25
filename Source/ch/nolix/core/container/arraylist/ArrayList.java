@@ -8,8 +8,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.commoncontainer.CountRequestable;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.container.list.IArrayList;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

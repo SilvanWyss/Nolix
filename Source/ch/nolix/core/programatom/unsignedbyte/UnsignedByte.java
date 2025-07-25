@@ -2,7 +2,7 @@ package ch.nolix.core.programatom.unsignedbyte;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link UnsignedByte} is not mutable.

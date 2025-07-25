@@ -3,7 +3,7 @@ package ch.nolix.systemtest.element.style;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.style.AbstractStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 

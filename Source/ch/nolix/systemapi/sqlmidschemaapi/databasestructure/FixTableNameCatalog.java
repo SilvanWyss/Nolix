@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 
 /**
  * Of the {@link FixTableNameCatalog} an instance cannot be created.

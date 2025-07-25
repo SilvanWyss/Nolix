@@ -13,7 +13,7 @@ import ch.nolix.core.structurecontrol.reflectionexaminer.ExecutableExaminer;
 import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
 import ch.nolix.core.structurecontrol.reflectionexaminer.MemberExaminer;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.structurecontrolapi.reflectionexaminerapi.IFieldExaminer;
 
 public final class ReflectionTool {

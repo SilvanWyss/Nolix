@@ -4,9 +4,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringTool;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.RegularExpressionPatternCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.RegularExpressionPatternCatalog;
+import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * The {@link StringToolUnit} provides methods to handle {@link String}s.

@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 
 final class SqlCollectorTest extends StandardTest {

@@ -5,7 +5,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
+import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
 
 /**
  * A {@link ForMaxMillisecondsMediator} is not mutable.

@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public class AndLoginPasswordCaptor<N> extends ArgumentCaptor<String, N> {
 

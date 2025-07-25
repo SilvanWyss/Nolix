@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.structure.property.LazyCalculatedProperty;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.datatool.EntityCreator;
 import ch.nolix.system.objectdata.datavalidator.TableValidator;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;

@@ -2,8 +2,8 @@ package ch.nolix.system.webgui.container;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;

@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class ShellProvider {
 

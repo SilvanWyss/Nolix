@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.atomiccontrol.button;
 
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 
 public final class ButtonAttributeHeaderCatalog {
 

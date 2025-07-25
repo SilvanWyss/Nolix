@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlmidschemaapi.databasestructure;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.programatomapi.variableapi.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 
 public enum ColumnColumn implements INameHolder {
   ID(PascalCaseVariableCatalog.ID),

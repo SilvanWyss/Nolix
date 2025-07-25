@@ -3,7 +3,7 @@ package ch.nolix.core.container.pair;
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.container.pair.IKeyValuePair;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 

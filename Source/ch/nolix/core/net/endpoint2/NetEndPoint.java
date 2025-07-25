@@ -12,7 +12,7 @@ import ch.nolix.coreapi.net.endpoint2protocol.MessageRole;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to

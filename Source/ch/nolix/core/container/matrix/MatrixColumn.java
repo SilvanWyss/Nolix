@@ -3,8 +3,8 @@ package ch.nolix.core.container.matrix;
 import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class MatrixColumn<E> extends AbstractExtendedContainer<E> {
 

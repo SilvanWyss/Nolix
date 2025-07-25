@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.programatomapi.characterproperty;
+package ch.nolix.coreapi.programatom.characterproperty;
 
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 
 public enum CharacterType {
   UPPER_CASE_LETTER,

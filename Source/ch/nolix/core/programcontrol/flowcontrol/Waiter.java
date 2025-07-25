@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatomapi.timeunitapi.TimeUnitConversionCatalog;
+import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
 
 /**
  * The {@link Waiter} provides methods to wait for specific durations. Of the

@@ -1,7 +1,7 @@
 package ch.nolix.system.element.style;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttributeValidator;
 

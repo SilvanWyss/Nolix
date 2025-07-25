@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.systemapi.objectdataapi.datavalidatorapi.IEntityValidator;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;

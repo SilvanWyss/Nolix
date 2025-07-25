@@ -7,7 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralPascalCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PluralPascalCaseVariableCatalog;
 
 final class PluralPascalCaseVariableCatalogTest extends StandardTest {
 

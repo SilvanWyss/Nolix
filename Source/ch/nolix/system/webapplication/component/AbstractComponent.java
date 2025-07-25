@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webapplicationapi.componentapi.IComponent;

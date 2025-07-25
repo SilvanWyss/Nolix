@@ -13,7 +13,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.document.node.INodeComparator;
 import ch.nolix.coreapi.document.xml.IMutableXmlNode;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 /**

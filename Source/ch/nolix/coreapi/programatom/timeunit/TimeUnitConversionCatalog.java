@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programatomapi.timeunitapi;
+package ch.nolix.coreapi.programatom.timeunit;
 
 /**
  * Of the {@link TimeUnitConversionCatalog} an instance cannot be created.

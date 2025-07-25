@@ -2,7 +2,7 @@ package ch.nolix.core.math.basic;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.coreapi.math.basic.IBasicCalculator;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

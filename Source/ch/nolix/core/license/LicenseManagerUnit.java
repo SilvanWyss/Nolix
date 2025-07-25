@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link LicenseManagerUnit} contains {@link AbstractLicense}s.

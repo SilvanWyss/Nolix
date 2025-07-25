@@ -24,10 +24,10 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.commoncontainer.StoringRequestable;
 import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
-import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatomapi.variableapi.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
