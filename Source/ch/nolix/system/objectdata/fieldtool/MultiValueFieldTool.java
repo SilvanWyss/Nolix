@@ -27,15 +27,16 @@ public final class MultiValueFieldTool extends FieldTool implements IMultiValueF
   }
 
   @Override
+  public boolean canRemoveValue(final IMultiValueField<?> multiValueField) {
+    return //
+    multiValueField != null
+    && multiValueField.isOpen();
+  }
+
+  @Override
   public boolean canRemoveValue(final IMultiValueField<?> multiValueField, final Object value) {
     return //
     canRemoveValue(multiValueField)
     && multiValueField.getAllStoredValues().contains(value);
-  }
-
-  private boolean canRemoveValue(final IMultiValueField<?> multiValueField) {
-    return //
-    multiValueField != null
-    && multiValueField.isOpen();
   }
 }

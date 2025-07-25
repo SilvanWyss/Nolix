@@ -10,5 +10,7 @@ public interface IMultiValueFieldTool extends IFieldTool {
 
   boolean canClear(IMultiValueField<?> multiValueField);
 
+  boolean canRemoveValue(IMultiValueField<?> multiValueField);
+
   boolean canRemoveValue(IMultiValueField<?> multiValueField, Object value);
 }
