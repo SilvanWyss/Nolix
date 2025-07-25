@@ -1,21 +1,21 @@
-package ch.nolix.template;
+package ch.nolix.techarchitecturetest;
 
 import org.junit.jupiter.api.Test;
 
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
-final class TemplateDependencyTest {
+final class TechDependencyTest {
 
   @Test
-  void testCase_chnolixtemplate_package() {
+  void testCase_chnolixtech_package() {
 
     //setup
     final var rule = //
     ArchRuleDefinition
       .classes()
       .that()
-      .resideInAPackage("ch.nolix.template..")
+      .resideInAPackage("ch.nolix.tech..")
       .and()
       .haveNameNotMatching(".*Test$")
       .should()
@@ -27,9 +27,8 @@ final class TemplateDependencyTest {
         "ch.nolix.system..",
         "ch.nolix.techapi..",
         "ch.nolix.tech..",
-        "ch.nolix.template..",
         "java..");
-    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.template..");
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.tech..");
 
     //execution & verification
     rule.check(testUnit);

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi;
+package ch.nolix.coreapiarchitecturetest;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,14 +6,14 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 
-final class SystemApiDependencyTest {
+final class CoreApiDependencyTest {
 
   @Test
   void testCase_cycles() {
 
     //setup
-    final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.systemapi.(*)..").should().beFreeOfCycles();
-    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.systemapi..");
+    final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.coreapi.(*)..").should().beFreeOfCycles();
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.coreapi..");
 
     //execution & verification
     rule.check(testUnit);
@@ -27,13 +27,13 @@ final class SystemApiDependencyTest {
     ArchRuleDefinition
       .classes()
       .that()
-      .resideInAPackage("ch.nolix.systemapi..")
+      .resideInAPackage("ch.nolix.coreapi..")
       .and()
       .haveNameNotMatching(".*Test$")
       .should()
       .onlyDependOnClassesThat()
-      .resideInAnyPackage("ch.nolix.coreapi..", "ch.nolix.systemapi..", "java..");
-    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.systemapi..");
+      .resideInAnyPackage("ch.nolix.coreapi..", "java..");
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix.coreapi..");
 
     //execution & verification
     rule.check(testUnit);

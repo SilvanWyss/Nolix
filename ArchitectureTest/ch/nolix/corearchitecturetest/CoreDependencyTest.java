@@ -1,4 +1,4 @@
-package ch.nolix.core;
+package ch.nolix.corearchitecturetest;
 
 import org.junit.jupiter.api.Test;
 

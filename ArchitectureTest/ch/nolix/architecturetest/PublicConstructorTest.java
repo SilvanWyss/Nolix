@@ -1,4 +1,4 @@
-package ch.nolix.all;
+package ch.nolix.architecturetest;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
