@@ -48,7 +48,7 @@ public final class Column extends AbstractImmutableDatabaseObject implements ICo
     final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
     final IDataReader midDataReader) {
-    return new Column(name, id, contentModelView, parentTable, midDataReader);
+    return new Column(id, name, contentModelView, parentTable, midDataReader);
   }
 
   @Override

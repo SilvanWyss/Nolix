@@ -206,7 +206,7 @@ public abstract class AbstractEntity implements IEntity {
   abstract IContainer<AbstractField> findFields();
 
   final IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
-    return ((Table<?>) getStoredParentTable()).getStoredMidDataAdapterAndSchemaReader();
+    return ((Table<?>) getStoredParentTable()).getStoredMidDataDataAdapterAndSchemaReader();
   }
 
   final void noteInsertIntoDatabase() {

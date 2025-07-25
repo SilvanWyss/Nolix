@@ -16,15 +16,20 @@ public final class ColumnMapper {
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
 
+    final var id = midSchemaColumnDto.id();
+    final var name = midSchemaColumnDto.name();
+
     final var contentModelView = //
     CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModel(midSchemaColumnDto.contentModel(), referencableTables);
 
+    final var midDataDataAdapterAndSchemaReader = parentTable.getStoredMidDataDataAdapterAndSchemaReader();
+
     return //
     Column.withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
-      midSchemaColumnDto.name(),
-      midSchemaColumnDto.id(),
+      id,
+      name,
       contentModelView,
       parentTable,
-      parentTable.getStoredMidDataAdapterAndSchemaReader());
+      midDataDataAdapterAndSchemaReader);
   }
 }
