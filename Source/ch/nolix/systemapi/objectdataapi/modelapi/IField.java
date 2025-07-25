@@ -4,7 +4,7 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.component.datamodelcomponent.IEntityComponent;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldrequest.MandatorynessRequestable;
-import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
+import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 import ch.nolix.systemapi.midschemaapi.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdataapi.schemaviewapi.IColumnView;

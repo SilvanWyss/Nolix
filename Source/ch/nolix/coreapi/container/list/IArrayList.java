@@ -2,7 +2,7 @@ package ch.nolix.coreapi.container.list;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.creation.copier.Copyable;
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * A {@link IArrayList} is a {@link IContainer} that can add and remove

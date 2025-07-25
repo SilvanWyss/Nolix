@@ -3,7 +3,7 @@ package ch.nolix.coreapi.document.chainednode;
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
+import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
 
 /**
  * A {@link IChainedNode} has the following attributes. -0 or 1 header -an

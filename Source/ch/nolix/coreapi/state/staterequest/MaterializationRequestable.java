@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.stateapi.staterequestapi;
+package ch.nolix.coreapi.state.staterequest;
 
 import ch.nolix.coreapi.structureapi.typemarkerapi.AllowDefaultMethodsAsDesignPattern;
 

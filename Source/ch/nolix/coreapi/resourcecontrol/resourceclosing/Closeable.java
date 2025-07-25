@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.resourcecontrol.resourceclosing;
 
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * A {@link Clearable} is a {@link AutoCloseable} whose close method does not

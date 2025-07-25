@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.structureapi.propertyapi;
 
-import ch.nolix.coreapi.stateapi.staterequestapi.UpToDateRequestable;
+import ch.nolix.coreapi.state.staterequest.UpToDateRequestable;
 
 /**
  * A {@link ILazyCalculatedProperty} provides a value that is calculated lazy.

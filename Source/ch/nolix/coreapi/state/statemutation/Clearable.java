@@ -1,6 +1,6 @@
-package ch.nolix.coreapi.stateapi.statemutationapi;
+package ch.nolix.coreapi.state.statemutation;
 
-import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
+import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
 
 /**
  * A {@link Clearable} can contain elements that can be removed.

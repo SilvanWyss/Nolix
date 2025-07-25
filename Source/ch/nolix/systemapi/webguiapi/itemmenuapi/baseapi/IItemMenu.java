@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi;
 import java.util.function.Consumer;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //An IItemMenu can contain 0 or 1 selected item.

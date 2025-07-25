@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.container.matrix;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 
 public interface IMatrix<E> extends Clearable, IContainer<E> {
 

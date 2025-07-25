@@ -3,7 +3,7 @@ package ch.nolix.coreapi.programcontrol.process;
 import java.util.function.Consumer;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

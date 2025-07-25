@@ -6,7 +6,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.stateapi.staterequestapi.CompletenessRequestable;
+import ch.nolix.coreapi.state.staterequest.CompletenessRequestable;
 
 public final class WebSocketCompleteMessage implements CompletenessRequestable {
 

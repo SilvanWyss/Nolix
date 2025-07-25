@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.stateapi.staterequestapi;
+package ch.nolix.coreapi.state.staterequest;
 
 /**
  * A {@link OnOffRequestable} can be asked if it is on or off.

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.stateapi.statemutationapi;
+package ch.nolix.coreapi.state.statemutation;
 
 /**
  * A {@link Resettable} can be reset.

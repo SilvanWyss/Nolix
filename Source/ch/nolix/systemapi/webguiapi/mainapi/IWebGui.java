@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;

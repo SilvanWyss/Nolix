@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.xml.IXmlNode;
-import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
+import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
 
 /**
  * A {@link INode} has the following attributes. -0 or 1 header -an arbitrary

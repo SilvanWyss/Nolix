@@ -2,7 +2,7 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi.imagecontrolapi;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
+import ch.nolix.coreapi.state.statemutation.Clearable;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;

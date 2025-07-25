@@ -10,8 +10,8 @@ import ch.nolix.coreapi.container.commoncontainer.IterableWithCopyableIterator;
 import ch.nolix.coreapi.container.commoncontainer.SingleSearchable;
 import ch.nolix.coreapi.container.commoncontainer.StoringRequestable;
 import ch.nolix.coreapi.container.commoncontainer.StringMappable;
-import ch.nolix.coreapi.stateapi.staterequestapi.EmptinessRequestable;
-import ch.nolix.coreapi.stateapi.staterequestapi.MaterializationRequestable;
+import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
+import ch.nolix.coreapi.state.staterequest.MaterializationRequestable;
 
 /**
  * A {@link IContainer} can store several elements of a certain type. A
