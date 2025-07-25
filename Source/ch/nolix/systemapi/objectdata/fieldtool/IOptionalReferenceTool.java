@@ -10,7 +10,9 @@ public interface IOptionalReferenceTool {
 
   boolean canClear(IOptionalReference<?> optionalReference);
 
-  boolean canSetGivenEntity(IOptionalReference<?> optionalReference, IEntity entity);
+  boolean canSetEntity(IOptionalReference<?> optionalReference);
+
+  boolean canSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 
   Optional<? extends IField> getOptionalStoredBackReferencingField(IOptionalReference<?> optionalReference);
 }

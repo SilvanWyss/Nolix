@@ -11,14 +11,24 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
 
   @Override
   public boolean canClear(final IOptionalReference<?> optionalReference) {
-    return optionalReference != null
+    return //
+    optionalReference != null
     && optionalReference.belongsToEntity()
     && optionalReference.getStoredParentEntity().isOpen();
   }
 
   @Override
-  public boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
-    return canSetEntity(optionalReference)
+  public boolean canSetEntity(final IOptionalReference<?> optionalReference) {
+    return //
+    optionalReference != null
+    && optionalReference.isOpen()
+    && optionalReference.belongsToEntity();
+  }
+
+  @Override
+  public boolean canSetEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
+    return //
+    canSetEntity(optionalReference)
     && entity != null
     && entity.isOpen()
     && optionalReference.getReferencedTableName().equals(entity.getParentTableName());
@@ -27,15 +37,10 @@ public final class OptionalReferenceTool extends FieldTool implements IOptionalR
   @Override
   public Optional<? extends IField> getOptionalStoredBackReferencingField(
     final IOptionalReference<?> optionalReference) {
-    return optionalReference
+    return //
+    optionalReference
       .getStoredReferencedEntity()
       .internalGetStoredFields()
       .getOptionalStoredFirst(p -> p.referencesBackField(optionalReference));
-  }
-
-  private boolean canSetEntity(final IOptionalReference<?> optionalReference) {
-    return optionalReference != null
-    && optionalReference.belongsToEntity()
-    && optionalReference.getStoredParentEntity().isOpen();
   }
 }
