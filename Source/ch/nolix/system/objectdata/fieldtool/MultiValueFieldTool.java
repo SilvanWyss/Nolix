@@ -20,10 +20,10 @@ public final class MultiValueFieldTool extends FieldTool implements IMultiValueF
   }
 
   @Override
-  public boolean canClear(final IMultiValueField<?> multiValue) {
+  public boolean canClear(final IMultiValueField<?> multiValueField) {
     return //
-    multiValue != null
-    && multiValue.isOpen();
+    multiValueField != null
+    && multiValueField.isOpen();
   }
 
   @Override
@@ -33,9 +33,9 @@ public final class MultiValueFieldTool extends FieldTool implements IMultiValueF
     && multiValueField.getAllStoredValues().contains(value);
   }
 
-  private boolean canRemoveValue(final IMultiValueField<?> multiValue) {
+  private boolean canRemoveValue(final IMultiValueField<?> multiValueField) {
     return //
-    multiValue != null
-    && multiValue.isOpen();
+    multiValueField != null
+    && multiValueField.isOpen();
   }
 }
