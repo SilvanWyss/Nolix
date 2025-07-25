@@ -2,7 +2,7 @@ package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.commontypetool.iteratorvalidator.IteratorValidator;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 public final class ArrayListIterator<E> implements CopyableIterator<E> {
 

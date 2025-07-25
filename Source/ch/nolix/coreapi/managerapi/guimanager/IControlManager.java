@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.managerapi.guimanager;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss

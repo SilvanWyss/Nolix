@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.sqlapi.sqltoolapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 

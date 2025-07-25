@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmidschemaapi.sqlschemamodelmapperapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 
 /**

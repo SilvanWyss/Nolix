@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.container;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalog;

@@ -1,7 +1,7 @@
 package ch.nolix.coretest.container.arraylist;
 
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coretest.container.base.CopyableIteratorTest;
 
 final class ArrayListIteratorTest extends CopyableIteratorTest {

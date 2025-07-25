@@ -20,10 +20,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.commoncontainerapi.StoringRequestable;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.commoncontainer.StoringRequestable;
+import ch.nolix.coreapi.container.list.IArrayList;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.StringCatalog;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;

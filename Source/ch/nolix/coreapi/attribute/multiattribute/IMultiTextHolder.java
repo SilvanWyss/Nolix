@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.attribute.multiattribute;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * A {@link IMultiTextHolder} can contain several texts.

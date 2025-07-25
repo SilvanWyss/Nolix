@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.itemmenu.dropdownmenu;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.itemmenu.base.AbstractItemMenu;
 import ch.nolix.system.webgui.main.HtmlElementEvent;

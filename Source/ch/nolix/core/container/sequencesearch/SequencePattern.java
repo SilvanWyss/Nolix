@@ -9,9 +9,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.coreapi.container.sequencesearch.ISequencePattern;
 
 /**
  * A {@link SequencePattern} is not mutable.

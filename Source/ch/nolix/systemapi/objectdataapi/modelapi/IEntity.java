@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdataapi.modelapi;
 import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalSaveStampHolder;
 import ch.nolix.coreapi.component.datamodelcomponent.ITableComponent;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 

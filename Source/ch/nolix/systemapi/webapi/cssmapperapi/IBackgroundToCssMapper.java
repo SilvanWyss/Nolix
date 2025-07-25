@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webapi.cssmapperapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 

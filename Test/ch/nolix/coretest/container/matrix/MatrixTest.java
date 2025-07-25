@@ -3,7 +3,7 @@ package ch.nolix.coretest.container.matrix;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class MatrixTest extends ContainerTest {

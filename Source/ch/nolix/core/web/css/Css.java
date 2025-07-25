@@ -1,7 +1,7 @@
 package ch.nolix.core.web.css;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 

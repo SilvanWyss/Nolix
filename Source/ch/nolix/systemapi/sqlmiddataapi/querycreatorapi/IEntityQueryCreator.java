@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmiddataapi.querycreatorapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;
 
 public interface IEntityQueryCreator {

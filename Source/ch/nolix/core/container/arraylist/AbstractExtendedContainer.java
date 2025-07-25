@@ -6,8 +6,8 @@ import java.util.function.Predicate;
 import ch.nolix.core.commontypetool.arraytool.ArraySorter;
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.container.base.Marker;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.IArrayList;
 
 /**
  * @author Silvan Wyss

@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.itemmenu.dropdownmenu;
 
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.webgui.itemmenu.base.AbstractItemMenuCssBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.dropdownmenuapi.IDropdownMenu;

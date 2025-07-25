@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.webapi.cssapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 public interface ICss {
 

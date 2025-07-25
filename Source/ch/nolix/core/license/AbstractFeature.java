@@ -1,7 +1,7 @@
 package ch.nolix.core.license;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * A {@link AbstractFeature} can be required for certain functionalities.

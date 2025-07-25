@@ -2,9 +2,9 @@ package ch.nolix.system.element.styletool;
 
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
-import ch.nolix.coreapi.containerapi.pairapi.IPair;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.IArrayList;
+import ch.nolix.coreapi.container.pair.IPair;
 import ch.nolix.systemapi.elementapi.styleapi.IAttachingAttribute;
 import ch.nolix.systemapi.elementapi.styletoolapi.IAttributeReplacer;
 

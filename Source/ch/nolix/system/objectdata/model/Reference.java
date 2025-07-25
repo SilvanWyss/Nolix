@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import java.util.Optional;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;

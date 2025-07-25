@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 public abstract class CopyableIteratorTest extends StandardTest {
 

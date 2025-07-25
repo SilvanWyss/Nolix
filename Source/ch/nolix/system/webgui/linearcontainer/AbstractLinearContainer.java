@@ -1,8 +1,8 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;

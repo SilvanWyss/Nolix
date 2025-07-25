@@ -3,7 +3,7 @@ package ch.nolix.system.midschema.adapter;
 import java.util.function.Supplier;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.ICloseController;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaAdapter;

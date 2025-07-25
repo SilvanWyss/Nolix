@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschemaapi.modelapi.ColumnDto;
 import ch.nolix.systemapi.midschemaapi.modelapi.IContentModelDto;

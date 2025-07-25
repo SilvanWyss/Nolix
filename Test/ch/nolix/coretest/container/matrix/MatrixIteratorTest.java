@@ -2,7 +2,7 @@ package ch.nolix.coretest.container.matrix;
 
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.matrix.MatrixIterator;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coretest.container.base.CopyableIteratorTest;
 
 final class MatrixIteratorTest extends CopyableIteratorTest {

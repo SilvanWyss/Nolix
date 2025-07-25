@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.list.ILinkedList;
 
 public final class InputStreamTool implements IInputStreamTool {
 

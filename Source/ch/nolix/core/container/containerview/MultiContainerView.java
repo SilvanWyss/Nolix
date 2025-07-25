@@ -4,9 +4,9 @@ import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
+import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.programatomapi.stringcatalogapi.CharacterCatalog;
 
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {

@@ -2,7 +2,7 @@ package ch.nolix.coreapi.programcontrolapi.processapi;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 
 /**

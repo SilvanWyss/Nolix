@@ -1,7 +1,7 @@
 package ch.nolix.system.middata.adapter;
 
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapter;
 import ch.nolix.systemapi.middataapi.adapterapi.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.midschemaapi.adapterapi.ISchemaReader;

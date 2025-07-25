@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.guiapi.backgroundapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;

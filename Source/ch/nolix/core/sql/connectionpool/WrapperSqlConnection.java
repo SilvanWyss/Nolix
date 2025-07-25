@@ -2,7 +2,7 @@ package ch.nolix.core.sql.connectionpool;
 
 import ch.nolix.core.resourcecontrol.resourcepool.AbstractWrapperResource;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sqlapi.connectionapi.ISqlConnection;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.middataapi.adapterapi;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrolapi.resourceclosingapi.GroupCloseable;
 import ch.nolix.systemapi.middataapi.modelapi.EntityLoadingDto;
 import ch.nolix.systemapi.middataapi.modelapi.MultiReferenceEntryDto;

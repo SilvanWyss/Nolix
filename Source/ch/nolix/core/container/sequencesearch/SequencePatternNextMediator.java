@@ -6,10 +6,10 @@ import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
-import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
-import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePatternNextMediator;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.IArrayList;
+import ch.nolix.coreapi.container.sequencesearch.ISequencePattern;
+import ch.nolix.coreapi.container.sequencesearch.ISequencePatternNextMediator;
 
 /**
  * @author Silvan Wyss

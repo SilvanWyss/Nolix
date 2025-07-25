@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlmiddata.querycreator;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschemaapi.databasestructureapi.DatabaseProperty;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.ColumnViewDto;
 import ch.nolix.systemapi.midschemaviewapi.modelapi.TableViewDto;

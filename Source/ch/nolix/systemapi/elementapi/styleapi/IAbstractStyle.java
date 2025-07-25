@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.elementapi.styleapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.pairapi.IPair;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.pair.IPair;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 /**

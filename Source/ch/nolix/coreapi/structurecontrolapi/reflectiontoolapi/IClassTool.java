@@ -2,7 +2,7 @@ package ch.nolix.coreapi.structurecontrolapi.reflectiontoolapi;
 
 import java.lang.reflect.Constructor;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 public interface IClassTool {
 

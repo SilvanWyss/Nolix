@@ -7,8 +7,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.cachingcontainerapi.ICachingContainer;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+import ch.nolix.coreapi.container.cachingcontainer.ICachingContainer;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.programatomapi.variableapi.LowerCaseVariableCatalog;
 
 public final class CachingContainer<E> extends AbstractExtendedContainer<E> implements ICachingContainer<E> {

@@ -1,7 +1,7 @@
 package ch.nolix.coretest.container.immutablelist;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class ImmutableListTest extends ContainerTest {

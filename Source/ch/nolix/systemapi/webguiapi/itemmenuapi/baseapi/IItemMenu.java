@@ -2,7 +2,7 @@ package ch.nolix.systemapi.webguiapi.itemmenuapi.baseapi;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.stateapi.statemutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

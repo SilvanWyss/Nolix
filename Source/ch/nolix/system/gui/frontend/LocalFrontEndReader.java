@@ -16,7 +16,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 public final class LocalFrontEndReader implements IFrontEndReader {

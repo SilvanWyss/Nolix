@@ -9,7 +9,7 @@ import ch.nolix.core.license.AbstractFeature;
 import ch.nolix.core.license.AbstractLicense;
 import ch.nolix.core.license.LicenseManager;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 final class LicenseManagerTest extends StandardTest {
 

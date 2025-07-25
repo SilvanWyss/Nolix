@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 import ch.nolix.coreapi.stateapi.staterequestapi.BlanknessRequestable;
 

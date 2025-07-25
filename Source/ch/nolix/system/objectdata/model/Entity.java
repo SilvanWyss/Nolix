@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 public abstract class Entity //NOSONAR: An entity class is expected to be abstract.
 extends AbstractEntity {

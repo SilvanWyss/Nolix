@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.sqlapi.modelapi;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * A {@link ISqlRecord} represents a SQL record. A {@link ISqlRecord} stores

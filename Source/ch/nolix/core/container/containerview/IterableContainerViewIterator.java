@@ -3,7 +3,7 @@ package ch.nolix.core.container.containerview;
 import java.util.Iterator;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.containerapi.iteratorapi.CopyableIterator;
+import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 public final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
 

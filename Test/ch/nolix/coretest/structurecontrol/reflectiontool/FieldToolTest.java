@@ -8,10 +8,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.structurecontrol.reflectiontool.FieldTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.IArrayList;
+import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.coreapi.container.matrix.IMatrix;
 
 final class FieldToolTest extends StandardTest {
 

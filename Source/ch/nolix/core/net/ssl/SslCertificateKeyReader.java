@@ -1,7 +1,7 @@
 package ch.nolix.core.net.ssl;
 
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.netapi.sslapi.ISslCertificateKeyReader;
 
 public final class SslCertificateKeyReader implements ISslCertificateKeyReader {

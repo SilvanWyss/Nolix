@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectschemaapi.modelapi;
 import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableNameHolder;
 import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
 import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.Deletable;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 

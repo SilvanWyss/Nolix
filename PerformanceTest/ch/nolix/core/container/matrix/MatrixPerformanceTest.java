@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
-import ch.nolix.coreapi.containerapi.listapi.IArrayList;
+import ch.nolix.coreapi.container.list.IArrayList;
 
 final class MatrixPerformanceTest extends PerformanceTest {
 

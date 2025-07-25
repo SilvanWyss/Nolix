@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.schemamapper;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectschema.model.Table;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntity;
 import ch.nolix.systemapi.objectdataapi.modelapi.IEntityTypeSet;

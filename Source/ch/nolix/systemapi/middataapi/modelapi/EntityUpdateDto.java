@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.middataapi.modelapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 public record EntityUpdateDto(
 String id,

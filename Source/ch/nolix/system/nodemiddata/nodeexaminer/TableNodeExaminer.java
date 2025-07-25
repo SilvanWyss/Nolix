@@ -1,6 +1,6 @@
 package ch.nolix.system.nodemiddata.nodeexaminer;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.nodemiddataapi.nodeexaminerapi.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemidschemaapi.databasestructureapi.FieldIndexCatalog;

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.elementapi.styleapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * A {@link ISelectingStyleWithSelectors} is a {@link ISelectingStyle} that can

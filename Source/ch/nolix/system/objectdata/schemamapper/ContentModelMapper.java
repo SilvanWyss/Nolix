@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.fieldtocontentmodelmapper.BackReferenceToContentModelMapper;
 import ch.nolix.system.objectdata.fieldtocontentmodelmapper.MultiBackReferenceToContentModelMapper;
 import ch.nolix.system.objectdata.fieldtocontentmodelmapper.MultiReferenceToContentModelMapper;

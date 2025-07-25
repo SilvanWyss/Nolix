@@ -2,7 +2,7 @@ package ch.nolix.coretest.container.containerview;
 
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.containerview.IterableContainerView;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class IterableViewTest extends ContainerTest {

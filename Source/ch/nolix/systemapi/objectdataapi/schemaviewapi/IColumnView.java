@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectdataapi.schemaviewapi;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobjectapi.modelapi.IDatabaseObject;
 
 public interface IColumnView<T> extends IDatabaseObject, IIdHolder, INameHolder {

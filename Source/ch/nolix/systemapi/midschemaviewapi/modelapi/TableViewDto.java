@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.midschemaviewapi.modelapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss

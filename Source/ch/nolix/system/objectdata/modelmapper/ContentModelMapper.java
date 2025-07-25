@@ -1,7 +1,7 @@
 package ch.nolix.system.objectdata.modelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.schemaview.BackReferenceModelView;
 import ch.nolix.system.objectdata.schemaview.MultiBackReferenceModelView;
 import ch.nolix.system.objectdata.schemaview.MultiReferenceModelView;

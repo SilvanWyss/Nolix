@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.sqlmidschemaapi.modelmapperapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sqlapi.modelapi.ISqlRecord;
 import ch.nolix.systemapi.midschemaapi.modelapi.TableDto;
 

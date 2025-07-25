@@ -2,7 +2,7 @@ package ch.nolix.systemapi.graphicapi.imageapi;
 
 import java.awt.image.BufferedImage;
 
-import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
+import ch.nolix.coreapi.container.matrix.IMatrix;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 

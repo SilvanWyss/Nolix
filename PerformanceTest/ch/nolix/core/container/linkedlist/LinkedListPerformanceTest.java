@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.programatom.function.FunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.ILinkedList;
 
 final class LinkedListPerformanceTest extends PerformanceTest {
 

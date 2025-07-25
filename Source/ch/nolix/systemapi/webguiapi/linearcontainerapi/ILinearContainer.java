@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 public interface ILinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
