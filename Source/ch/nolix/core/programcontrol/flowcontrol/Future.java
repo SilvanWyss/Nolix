@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  */
 public final class Future extends AbstractFuture {
 
-  private final JobRunner jobExecutor;
+  private final JobExecutor jobExecutor;
 
   /**
    * Creates a new {@link Future} with the given jobExecutor.
@@ -20,7 +20,7 @@ public final class Future extends AbstractFuture {
    * @param jobExecutor
    * @throws ArgumentIsNullException if the given jobExecutor is null.
    */
-  private Future(final JobRunner jobExecutor) {
+  private Future(final JobExecutor jobExecutor) {
 
     Validator.assertThat(jobExecutor).isNotNull();
 
@@ -32,7 +32,7 @@ public final class Future extends AbstractFuture {
    * @return a new {@link Future} with the given jobExecutor.
    * @throws ArgumentIsNullException if the given jobExecutor is null.
    */
-  public static Future forJobExecturor(final JobRunner jobExecutor) {
+  public static Future forJobExecturor(final JobExecutor jobExecutor) {
     return new Future(jobExecutor);
   }
 

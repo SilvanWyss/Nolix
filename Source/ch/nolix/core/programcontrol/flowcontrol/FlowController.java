@@ -110,7 +110,7 @@ public final class FlowController {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public static Future runInBackground(final Runnable job) {
-    return Future.forJobExecturor(new JobRunner(job, 1));
+    return Future.forJobExecturor(new JobExecutor(job, 1));
   }
 
   /**
@@ -124,7 +124,7 @@ public final class FlowController {
 
     final var allJobes = ContainerView.forElementAndArray(job, jobs);
 
-    return Future.forJobExecturor(JobRunner.forJobs(allJobes));
+    return Future.forJobExecturor(JobExecutor.forJobs(allJobes));
   }
 
   /**

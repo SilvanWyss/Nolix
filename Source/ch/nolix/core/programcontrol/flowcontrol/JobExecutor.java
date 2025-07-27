@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-06-04
  */
-final class JobRunner extends Thread {
+final class JobExecutor extends Thread {
 
   private static final JobMerger JOB_MERGER = new JobMerger();
 
@@ -33,13 +33,13 @@ final class JobRunner extends Thread {
   private Throwable error;
 
   /**
-   * Creates a new {@link JobRunner} with the given job. The {@link JobRunner}
+   * Creates a new {@link JobExecutor} with the given job. The {@link JobExecutor}
    * will start automatically.
    * 
    * @param job
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public JobRunner(final Runnable job) {
+  public JobExecutor(final Runnable job) {
 
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
@@ -53,15 +53,15 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Creates a new {@link JobRunner} with the given job and condition. The
-   * {@link JobRunner} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job and condition. The
+   * {@link JobExecutor} will start automatically.
    * 
    * @param job
    * @param condition
    * @throws ArgumentIsNullException if the given job is null.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public JobRunner(final Runnable job, final BooleanSupplier condition) {
+  public JobExecutor(final Runnable job, final BooleanSupplier condition) {
 
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
@@ -78,8 +78,8 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Creates a new {@link JobRunner} with the given job, condition and
-   * timeIntervalInMilliseconds. The {@link JobRunner} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job, condition and
+   * timeIntervalInMilliseconds. The {@link JobExecutor} will start automatically.
    * 
    * @param job
    * @param condition
@@ -89,7 +89,7 @@ final class JobRunner extends Thread {
    * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
-  public JobRunner(
+  public JobExecutor(
     final Runnable job,
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
@@ -112,15 +112,15 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Creates a new {@link JobRunner} with the given job and maxRunCount. The
-   * {@link JobRunner} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job and maxRunCount. The
+   * {@link JobExecutor} will start automatically.
    * 
    * @param job
    * @param maxRunCount
    * @throws ArgumentIsNullException   if the given job is null.
    * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
-  public JobRunner(
+  public JobExecutor(
     final Runnable job,
     final int maxRunCount) {
 
@@ -139,8 +139,8 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Creates a new {@link JobRunner} with the given job, maxRunCount and
-   * condition. The {@link JobRunner} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job, maxRunCount and
+   * condition. The {@link JobExecutor} will start automatically.
    * 
    * @param job
    * @param maxRunCount
@@ -149,7 +149,7 @@ final class JobRunner extends Thread {
    * @throws NegativeArgumentException if the given maxRunCount is negative.
    * @throws ArgumentIsNullException   if the given condition is null.
    */
-  public JobRunner(
+  public JobExecutor(
     final Runnable job,
     final int maxRunCount,
     final BooleanSupplier condition) {
@@ -172,8 +172,8 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Creates a new {@link JobRunner} with the given job, maxRunCount, condition
-   * and timeIntervalInMilliseconds. The {@link JobRunner} will start
+   * Creates a new {@link JobExecutor} with the given job, maxRunCount, condition
+   * and timeIntervalInMilliseconds. The {@link JobExecutor} will start
    * automatically.
    * 
    * @param job
@@ -186,7 +186,7 @@ final class JobRunner extends Thread {
    * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
-  public JobRunner(
+  public JobExecutor(
     final Runnable job,
     final int maxRunCount,
     final BooleanSupplier condition,
@@ -212,8 +212,8 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Creates a new {@link JobRunner} with the given job, maxRunCount and
-   * timeIntervalInMilliseconds. The {@link JobRunner} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job, maxRunCount and
+   * timeIntervalInMilliseconds. The {@link JobExecutor} will start automatically.
    * 
    * @param job
    * @param maxRunCount
@@ -223,7 +223,7 @@ final class JobRunner extends Thread {
    * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
-  public JobRunner(
+  public JobExecutor(
     final Runnable job,
     final int maxRunCount,
     final int timeIntervalInMilliseconds) {
@@ -245,12 +245,12 @@ final class JobRunner extends Thread {
     start();
   }
 
-  public static JobRunner forJobs(final IContainer<Runnable> jobs) {
-    return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
+  public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
+    return new JobExecutor(JOB_MERGER.createMergedJobForJobs(jobs), 1);
   }
 
   /**
-   * @return true if the current {@link JobRunner} has caught an error.
+   * @return true if the current {@link JobExecutor} has caught an error.
    */
   public boolean caughtError() {
     return (error != null);
@@ -258,9 +258,9 @@ final class JobRunner extends Thread {
 
   //For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @return the error of the current {@link JobRunner}.
+   * @return the error of the current {@link JobExecutor}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link JobRunner} does not have
+   *                                               {@link JobExecutor} does not have
    *                                               an error.
    */
   public Throwable getError() {
@@ -274,56 +274,56 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * @return the number of finished jobs of the current {@link JobRunner}.
+   * @return the number of finished jobs of the current {@link JobExecutor}.
    */
   public int getFinishedJobCount() {
     return finishedJobCount;
   }
 
   /**
-   * @return true if the current {@link JobRunner} has a condition.
+   * @return true if the current {@link JobExecutor} has a condition.
    */
   public boolean hasCondition() {
     return (condition != null);
   }
 
   /**
-   * @return true if the current {@link JobRunner} has a max run count.
+   * @return true if the current {@link JobExecutor} has a max run count.
    */
   public boolean hasMaxRunCount() {
     return (maxRunCount != null);
   }
 
   /**
-   * @return true if the current {@link JobRunner} has a time interval.
+   * @return true if the current {@link JobExecutor} has a time interval.
    */
   public boolean hasTimeInterval() {
     return (timeIntervalInMilliseconds != null);
   }
 
   /**
-   * @return true if the current {@link JobRunner} is finished.
+   * @return true if the current {@link JobExecutor} is finished.
    */
   public boolean isFinished() {
     return !isRunning();
   }
 
   /**
-   * @return true if the current {@link JobRunner} is finished successfully.
+   * @return true if the current {@link JobExecutor} is finished successfully.
    */
   public boolean isFinishedSuccessfully() {
     return (isFinished() && !caughtError());
   }
 
   /**
-   * @return true if the current {@link JobRunner} is running.
+   * @return true if the current {@link JobExecutor} is running.
    */
   public boolean isRunning() {
     return running;
   }
 
   /**
-   * Lets the current {@link JobRunner} run.
+   * Lets the current {@link JobExecutor} run.
    */
   @Override
   public void run() {
@@ -339,7 +339,7 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * @return true if the current {@link JobRunner} has a max run count and has
+   * @return true if the current {@link JobExecutor} has a max run count and has
    *         reached it.
    */
   private boolean reachedProbableMaxRunCount() {
@@ -373,7 +373,7 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * @return true if the current {@link JobRunner} has a condition and violates
+   * @return true if the current {@link JobExecutor} has a condition and violates
    *         it.
    */
   private boolean violatesProbableCondition() {
@@ -381,8 +381,8 @@ final class JobRunner extends Thread {
   }
 
   /**
-   * Waits for the time interval of the current {@link JobRunner} if the current
-   * {@link JobRunner} has a time interval.
+   * Waits for the time interval of the current {@link JobExecutor} if the current
+   * {@link JobExecutor} has a time interval.
    */
   private void waitForTimeIntervalIfHasTimeInterval() {
     if (hasTimeInterval()) {

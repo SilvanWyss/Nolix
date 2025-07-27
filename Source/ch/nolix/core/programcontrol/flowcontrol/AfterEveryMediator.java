@@ -139,11 +139,11 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
 
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
-      return Future.forJobExecturor(new JobRunner(job, timeIntervalInMilliseconds, () -> true));
+      return Future.forJobExecturor(new JobExecutor(job, timeIntervalInMilliseconds, () -> true));
     }
 
     //Handles the case that the current AfterAllMediator has a condition.
-    return Future.forJobExecturor(new JobRunner(job, condition, timeIntervalInMilliseconds));
+    return Future.forJobExecturor(new JobExecutor(job, condition, timeIntervalInMilliseconds));
   }
 
   /**
@@ -158,11 +158,11 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
 
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
-      return Future.forJobExecturor(new JobRunner(job, maxRunCount, timeIntervalInMilliseconds));
+      return Future.forJobExecturor(new JobExecutor(job, maxRunCount, timeIntervalInMilliseconds));
     }
 
     //Handles the case that the current AfterAllMediator has a condition.
-    return Future.forJobExecturor(new JobRunner(job, maxRunCount, condition, timeIntervalInMilliseconds));
+    return Future.forJobExecturor(new JobExecutor(job, maxRunCount, condition, timeIntervalInMilliseconds));
   }
 
   /**
