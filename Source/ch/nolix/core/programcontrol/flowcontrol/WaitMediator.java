@@ -4,14 +4,14 @@ package ch.nolix.core.programcontrol.flowcontrol;
  * @author Silvan Wyss
  * @version 2020-08-15
  */
-public final class ActionMediator {
+public final class WaitMediator {
 
   private static final FlowControllerMediator SEQUENCER_MEDIATOR = new FlowControllerMediator();
 
   /**
-   * Creates a new {@link ActionMediator}.
+   * Creates a new {@link WaitMediator}.
    */
-  ActionMediator() {
+  WaitMediator() {
   }
 
   /**

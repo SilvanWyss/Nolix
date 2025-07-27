@@ -24,7 +24,7 @@ public final class FlowController {
 
   private static final JobPool JOB_POOL = new JobPool();
 
-  private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
+  private static final WaitMediator ACTION_MEDIATOR = new WaitMediator();
 
   /**
    * Prevents that an instance of the {@link FlowController} can be created.
@@ -183,10 +183,10 @@ public final class FlowController {
    * Waits as long as the given condition is fulfilled.
    * 
    * @param condition
-   * @return a {@link ActionMediator}.
+   * @return a {@link WaitMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static ActionMediator waitAsLongAs(final BooleanSupplier condition) {
+  public static WaitMediator waitAsLongAs(final BooleanSupplier condition) {
 
     //Asserts that the given condition is not null.
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
@@ -209,11 +209,11 @@ public final class FlowController {
    * Waits for the given durationInMilliseconds.
    * 
    * @param durationInMilliseconds
-   * @return a {@link ActionMediator}.
+   * @return a {@link WaitMediator}.
    * @throws NegativeArgumentException if the given durationInMilliseconds is
    *                                   negative.
    */
-  public static ActionMediator waitForMilliseconds(final int durationInMilliseconds) {
+  public static WaitMediator waitForMilliseconds(final int durationInMilliseconds) {
 
     Waiter.waitForMilliseconds(durationInMilliseconds);
 
@@ -224,10 +224,10 @@ public final class FlowController {
    * Waits for the given durationInSeconds.
    * 
    * @param durationInSeconds
-   * @return a {@link ActionMediator}.
+   * @return a {@link WaitMediator}.
    * @throws NegativeArgumentException if the given durationInSeconds is negative.
    */
-  public static ActionMediator waitForSeconds(final int durationInSeconds) {
+  public static WaitMediator waitForSeconds(final int durationInSeconds) {
 
     Waiter.waitForSeconds(durationInSeconds);
 
@@ -238,10 +238,10 @@ public final class FlowController {
    * Waits until the given condition is fulfilled.
    * 
    * @param condition
-   * @return a {@link ActionMediator}.
+   * @return a {@link WaitMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static ActionMediator waitUntil(final BooleanSupplier condition) {
+  public static WaitMediator waitUntil(final BooleanSupplier condition) {
 
     waitAsLongAs(() -> !condition.getAsBoolean());
 
