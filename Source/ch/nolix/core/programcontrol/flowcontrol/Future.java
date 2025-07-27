@@ -12,21 +12,28 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  */
 public final class Future extends AbstractFuture {
 
-  private final JobRunner jobRunner;
+  private final JobRunner jobExecutor;
 
   /**
-   * Creates a new {@link Future} with the given jobRunner.
+   * Creates a new {@link Future} with the given jobExecutor.
    * 
-   * @param jobRunner
-   * @throws ArgumentIsNullException if the given jobRunner is null.
+   * @param jobExecutor
+   * @throws ArgumentIsNullException if the given jobExecutor is null.
    */
-  Future(final JobRunner jobRunner) {
+  private Future(final JobRunner jobExecutor) {
 
-    //Asserts that the given jobRunner is not null.
-    Validator.assertThat(jobRunner).isOfType(JobRunner.class);
+    Validator.assertThat(jobExecutor).isNotNull();
 
-    //Sets the jobRunner of the current Future.
-    this.jobRunner = jobRunner;
+    this.jobExecutor = jobExecutor;
+  }
+
+  /**
+   * @param jobExecutor
+   * @return a new {@link Future} with the given jobExecutor.
+   * @throws ArgumentIsNullException if the given jobExecutor is null.
+   */
+  public static Future forJobExecturor(final JobRunner jobExecutor) {
+    return new Future(jobExecutor);
   }
 
   /**
@@ -34,7 +41,7 @@ public final class Future extends AbstractFuture {
    */
   @Override
   public boolean caughtError() {
-    return jobRunner.caughtError();
+    return jobExecutor.caughtError();
   }
 
   /**
@@ -42,14 +49,14 @@ public final class Future extends AbstractFuture {
    */
   @Override
   public Throwable getError() {
-    return jobRunner.getError();
+    return jobExecutor.getError();
   }
 
   /**
    * @return the number of finished jobs of the current {@link IFuture}.
    */
   public int getFinishedJobCount() {
-    return jobRunner.getFinishedJobCount();
+    return jobExecutor.getFinishedJobCount();
   }
 
   /**
@@ -57,7 +64,7 @@ public final class Future extends AbstractFuture {
    */
   @Override
   public boolean isFinished() {
-    return jobRunner.isFinished();
+    return jobExecutor.isFinished();
   }
 
   /**
@@ -77,7 +84,8 @@ public final class Future extends AbstractFuture {
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     FlowController.asLongAs(
-      () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+      () -> //
+      System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
       && isRunning());
 
     if (!isFinished()) {
