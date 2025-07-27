@@ -139,7 +139,7 @@ public final class FlowController {
    * @throws ArgumentIsNullException if the given result job is null.
    */
   public static <R> IResultFuture<R> runInBackground(final Supplier<R> resultJob) {
-    return new ResultFuture<>(new ResultJobExecutor<>(resultJob));
+    return new ResultFuture<>(ResultJobExecutor.forResultJob(resultJob));
   }
 
   /**

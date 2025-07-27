@@ -24,22 +24,32 @@ final class ResultJobExecutor<R> extends Thread {
   private Throwable error;
 
   /**
-   * Creates a {@link ResultJobExecutor} with the given resultJob. The
-   * {@link ResultJobExecutor} will start automatically.
+   * Creates a new {@link ResultJobExecutor} for the given resultJob. The
+   * {@link ResultJobExecutor} will start automatically to execute the given
+   * resultJob.
    * 
    * @param resultJob
    * @throws ArgumentIsNullException if the given resultJob is null.
    */
-  public ResultJobExecutor(final Supplier<R> resultJob) {
+  private ResultJobExecutor(final Supplier<R> resultJob) {
 
-    //Asserts that the given resultJob is not null.
     Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
 
-    //Sets the resultJob of the current ResultJobRunner.
     this.resultJob = resultJob;
 
-    //Starts the current ResultJobRunner.
     start();
+  }
+
+  /**
+   * @param resultJob
+   * @param <R>       is the type of the result of the given resulltJob.
+   * @return a new {@link ResultJobExecutor} for the given resultJob. The
+   *         {@link ResultJobExecutor} will start automatically to execute the
+   *         given resultJob.
+   * @throws ArgumentIsNullException if the given resultJob is null.
+   */
+  public static <R> ResultJobExecutor<R> forResultJob(final Supplier<R> resultJob) {
+    return new ResultJobExecutor<>(resultJob);
   }
 
   /**
@@ -58,7 +68,6 @@ final class ResultJobExecutor<R> extends Thread {
    */
   public Throwable getError() {
 
-    //Asserts that the current ResultJobRunner has an error.
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
     }
@@ -73,12 +82,10 @@ final class ResultJobExecutor<R> extends Thread {
    */
   public R getResult() {
 
-    //Asserts that the current ResultJobRunner is finished.
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
     }
 
-    //Asserts that the current ResultJobRunner has not caught an error.
     if (caughtError()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has caught an error");
     }
@@ -94,10 +101,13 @@ final class ResultJobExecutor<R> extends Thread {
   }
 
   /**
-   * @return true if the current {@link ResultJobExecutor} is finished successfully.
+   * @return true if the current {@link ResultJobExecutor} is finished
+   *         successfully.
    */
   public boolean isFinsishedSuccessfully() {
-    return (isFinished() && !caughtError());
+    return //
+    isFinished() &&
+    !caughtError();
   }
 
   /**
@@ -114,7 +124,7 @@ final class ResultJobExecutor<R> extends Thread {
   public void run() {
     try {
       result = resultJob.get();
-    } catch (final Throwable paramError) { //NOSONAR: Each Throwable must be caught here.
+    } catch (final Throwable paramError) { //NOSONAR: All Throwables must be caught.
       error = paramError;
       Logger.logError(paramError);
     } finally {
