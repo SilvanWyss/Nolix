@@ -6,7 +6,7 @@ package ch.nolix.core.programcontrol.flowcontrol;
  */
 public final class ActionMediator {
 
-  private static final SequencerMediator SEQUENCER_MEDIATOR = new SequencerMediator();
+  private static final FlowControllerMediator SEQUENCER_MEDIATOR = new FlowControllerMediator();
 
   /**
    * Creates a new {@link ActionMediator}.
@@ -15,9 +15,9 @@ public final class ActionMediator {
   }
 
   /**
-   * @return a {@link SequencerMediator}.
+   * @return a {@link FlowControllerMediator}.
    */
-  public SequencerMediator andThen() {
+  public FlowControllerMediator andThen() {
     return SEQUENCER_MEDIATOR;
   }
 }

@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @author Silvan Wyss
  * @version 2020-08-15
  */
-public final class SequencerMediator {
+public final class FlowControllerMediator {
 
   /**
    * @param condition
