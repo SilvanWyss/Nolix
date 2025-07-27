@@ -19,6 +19,6 @@ public interface IFieldNodeMapper {
    */
   IContainer<INode<?>> mapEntityCreationDtoToFieldNodes(
     EntityCreationDto entityCreationDto,
-    long saveStamp, //TODO: Add saveStamp to EntityCreationDto
+    long saveStamp,
     TableViewDto tableView);
 }
