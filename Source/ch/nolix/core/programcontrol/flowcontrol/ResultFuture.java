@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
  */
 public final class ResultFuture<R> extends AbstractFuture implements IResultFuture<R> {
 
-  private final ResultJobRunner<R> resultJobRunner;
+  private final ResultJobExecutor<R> resultJobExecutor;
 
   /**
    * Creates a new {@link ResultFuture} with the given resultJobRunner.
@@ -21,13 +21,13 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    * @param resultJobRunner
    * @throws ArgumentIsNullException if the given resultJobRunner is null.
    */
-  ResultFuture(final ResultJobRunner<R> resultJobRunner) {
+  ResultFuture(final ResultJobExecutor<R> resultJobRunner) {
 
     //Asserts that the given resultJobRunner is not null.
-    Validator.assertThat(resultJobRunner).isOfType(ResultJobRunner.class);
+    Validator.assertThat(resultJobRunner).isOfType(ResultJobExecutor.class);
 
     //Sets the resultJobRunner of the current ResultFuture.
-    this.resultJobRunner = resultJobRunner;
+    this.resultJobExecutor = resultJobRunner;
   }
 
   /**
@@ -35,7 +35,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public boolean caughtError() {
-    return resultJobRunner.caughtError();
+    return resultJobExecutor.caughtError();
   }
 
   /**
@@ -43,7 +43,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public Throwable getError() {
-    return resultJobRunner.getError();
+    return resultJobExecutor.getError();
   }
 
   /**
@@ -51,7 +51,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public R getResult() {
-    return resultJobRunner.getResult();
+    return resultJobExecutor.getResult();
   }
 
   /**
@@ -59,7 +59,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public boolean isFinished() {
-    return resultJobRunner.isFinished();
+    return resultJobExecutor.isFinished();
   }
 
   /**

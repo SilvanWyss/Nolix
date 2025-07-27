@@ -13,9 +13,9 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @version 2017-09-29
  * @param <R> is the type of the result of the resulltJob of a
- *            {@link ResultJobRunner}.
+ *            {@link ResultJobExecutor}.
  */
-final class ResultJobRunner<R> extends Thread {
+final class ResultJobExecutor<R> extends Thread {
 
   private final Supplier<R> resultJob;
   private R result;
@@ -24,13 +24,13 @@ final class ResultJobRunner<R> extends Thread {
   private Throwable error;
 
   /**
-   * Creates a {@link ResultJobRunner} with the given resultJob. The
-   * {@link ResultJobRunner} will start automatically.
+   * Creates a {@link ResultJobExecutor} with the given resultJob. The
+   * {@link ResultJobExecutor} will start automatically.
    * 
    * @param resultJob
    * @throws ArgumentIsNullException if the given resultJob is null.
    */
-  public ResultJobRunner(final Supplier<R> resultJob) {
+  public ResultJobExecutor(final Supplier<R> resultJob) {
 
     //Asserts that the given resultJob is not null.
     Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
@@ -43,7 +43,7 @@ final class ResultJobRunner<R> extends Thread {
   }
 
   /**
-   * @return true if the current {@link ResultJobRunner} has caught an error.
+   * @return true if the current {@link ResultJobExecutor} has caught an error.
    */
   public boolean caughtError() {
     return (error != null);
@@ -51,9 +51,9 @@ final class ResultJobRunner<R> extends Thread {
 
   //For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @return the error of the current {@link ResultJobRunner}.
+   * @return the error of the current {@link ResultJobExecutor}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link ResultJobRunner} does
+   *                                               {@link ResultJobExecutor} does
    *                                               not have an error.
    */
   public Throwable getError() {
@@ -67,8 +67,8 @@ final class ResultJobRunner<R> extends Thread {
   }
 
   /**
-   * @return the result of the current {@link ResultJobRunner}
-   * @throws InvalidArgumentException if the current {@link ResultJobRunner} is
+   * @return the result of the current {@link ResultJobExecutor}
+   * @throws InvalidArgumentException if the current {@link ResultJobExecutor} is
    *                                  not finished or has caught an error.
    */
   public R getResult() {
@@ -87,28 +87,28 @@ final class ResultJobRunner<R> extends Thread {
   }
 
   /**
-   * @return true if the current {@link ResultJobRunner} is finished.
+   * @return true if the current {@link ResultJobExecutor} is finished.
    */
   public boolean isFinished() {
     return !isRunning();
   }
 
   /**
-   * @return true if the current {@link ResultJobRunner} is finished successfully.
+   * @return true if the current {@link ResultJobExecutor} is finished successfully.
    */
   public boolean isFinsishedSuccessfully() {
     return (isFinished() && !caughtError());
   }
 
   /**
-   * @return true if the current {@link ResultJobRunner} is running.
+   * @return true if the current {@link ResultJobExecutor} is running.
    */
   public boolean isRunning() {
     return running;
   }
 
   /**
-   * Runs the current {@link ResultJobRunner}.
+   * Runs the current {@link ResultJobExecutor}.
    */
   @Override
   public void run() {
