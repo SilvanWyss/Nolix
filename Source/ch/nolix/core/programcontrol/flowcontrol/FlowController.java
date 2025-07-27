@@ -11,7 +11,9 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsSoonAsMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IForCountMediator;
 import ch.nolix.coreapi.programcontrol.future.IFuture;
+import ch.nolix.coreapi.programcontrol.future.IResultFuture;
 
 /**
  * The {@link FlowController} provides methods for flow control. Of the
@@ -73,10 +75,10 @@ public final class FlowController {
 
   /**
    * @param maxRunCount
-   * @return a new {@link ForCountMediator} with the given max run count.
+   * @return a new {@link IForCountMediator} with the given max run count.
    * @throws NegativeArgumentException if the given max run count is negative.
    */
-  public static ForCountMediator forCount(final int maxRunCount) {
+  public static IForCountMediator forCount(final int maxRunCount) {
     return ForCountMediator.forMaxRunCount(maxRunCount);
   }
 
@@ -106,10 +108,10 @@ public final class FlowController {
    * Runs the given job in background.
    * 
    * @param job
-   * @return a new {@link Future}.
+   * @return a new {@link IFuture} for the execution of the given job.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public static Future runInBackground(final Runnable job) {
+  public static IFuture runInBackground(final Runnable job) {
     return Future.forJobExecturor(new JobExecutor(job, 1));
   }
 
@@ -133,10 +135,10 @@ public final class FlowController {
    * 
    * @param resultJob
    * @param <R>       is the type of the result the given resultJob returns.
-   * @return a new {@link ResultFuture}.
+   * @return a new {@link IResultFuture} for the execution of the given resultJob.
    * @throws ArgumentIsNullException if the given result job is null.
    */
-  public static <R> ResultFuture<R> runInBackground(final Supplier<R> resultJob) {
+  public static <R> IResultFuture<R> runInBackground(final Supplier<R> resultJob) {
     return new ResultFuture<>(new ResultJobRunner<>(resultJob));
   }
 
