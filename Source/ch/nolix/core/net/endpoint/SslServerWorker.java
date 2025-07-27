@@ -64,8 +64,7 @@ final class SslServerWorker extends AbstractWorker {
 
       channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();
-    } catch (final InterruptedException interruptedException //NOSONAR: The Exception is rethrown wrapped in another
-                                                             //Exception.
+    } catch (final InterruptedException interruptedException //NOSONAR: The Exception is wrapped.
     ) {
       throw WrapperException.forError(interruptedException);
     } finally {
