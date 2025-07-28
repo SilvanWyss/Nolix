@@ -2,10 +2,10 @@ package ch.nolix.core.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IForMaxMillisecondsMediator;
 
 /**
  * A {@link ForMaxMillisecondsMediator} is not mutable.
@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
  * @author Silvan Wyss
  * @version 2019-11-24
  */
-public final class ForMaxMillisecondsMediator {
+public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMediator {
 
   private final int maxDurationInMilliseconds;
 
@@ -64,14 +64,9 @@ public final class ForMaxMillisecondsMediator {
   }
 
   /**
-   * Creates
-   * 
-   * @param condition
-   * @return a new {@link AsLongAsMediator} for the maxDurationInMilliseconds of
-   *         the current {@link ForMaxMillisecondsMediator} and for the given
-   *         condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public AsLongAsMediator asLongAs(final BooleanSupplier condition) {
 
     //Asserts that the given condition is not null.
@@ -86,12 +81,9 @@ public final class ForMaxMillisecondsMediator {
   }
 
   /**
-   * @param condition
-   * @return a new {@link AsLongAsMediator} for the maxDurationInMilliseconds of
-   *         the current {@link ForMaxMillisecondsMediator} and for the given
-   *         condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public AsLongAsMediator until(final BooleanSupplier condition) {
 
     //Calls other method.
@@ -99,13 +91,9 @@ public final class ForMaxMillisecondsMediator {
   }
 
   /**
-   * Waits until the maxDurationInMilliseconds of the current
-   * {@link ForMaxMillisecondsMediator} is reached or as long as the given
-   * condition is fulfilled.
-   * 
-   * @param condition
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public void waitAsLongAs(final BooleanSupplier condition) {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
@@ -116,13 +104,9 @@ public final class ForMaxMillisecondsMediator {
   }
 
   /**
-   * Waits until the maxDurationInMilliseconds of the current
-   * {@link ForMaxMillisecondsMediator} is reached or until the given condition is
-   * fulfilled.
-   * 
-   * @param condition
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public void waitUntil(final BooleanSupplier condition) {
 
     //Calls other method.
