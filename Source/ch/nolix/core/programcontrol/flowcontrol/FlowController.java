@@ -12,12 +12,15 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IForCountMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IForMaxMillisecondsMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IWaitMediator;
 import ch.nolix.coreapi.programcontrol.future.IFuture;
 import ch.nolix.coreapi.programcontrol.future.IResultFuture;
 
 /**
- * The {@link FlowController} provides methods for flow control. Of the
- * {@link FlowController} an instance cannot be created.
+ * The {@link FlowController} provides methods for flow control.
+ * 
+ * Of the {@link FlowController} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @version 2016-06-01
@@ -25,8 +28,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
 public final class FlowController {
 
   private static final JobPool JOB_POOL = new JobPool();
-
-  private static final WaitMediator ACTION_MEDIATOR = new WaitMediator();
 
   /**
    * Prevents that an instance of the {@link FlowController} can be created.
@@ -36,7 +37,7 @@ public final class FlowController {
 
   /**
    * @param condition
-   * @return a new {@link AsLongAsMediator} with the given condition.
+   * @return a new {@link IAsLongAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public static IAsLongAsMediator asLongAs(final BooleanSupplier condition) {
@@ -45,7 +46,7 @@ public final class FlowController {
 
   /**
    * @param condition
-   * @return a new {@link AsSoonAsMediator} with the given condition.
+   * @return a new {@link IAsSoonAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public static IAsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
@@ -54,7 +55,7 @@ public final class FlowController {
 
   /**
    * @param condition
-   * @return a new {@link AsSoonAsMediator} with the negation of the given
+   * @return a new {@link IAsSoonAsMediator} with the negation of the given
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
@@ -75,8 +76,8 @@ public final class FlowController {
 
   /**
    * @param maxRunCount
-   * @return a new {@link IForCountMediator} with the given max run count.
-   * @throws NegativeArgumentException if the given max run count is negative.
+   * @return a new {@link IForCountMediator} with the given maxRunCount.
+   * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
   public static IForCountMediator forCount(final int maxRunCount) {
     return ForCountMediator.forMaxRunCount(maxRunCount);
@@ -84,23 +85,23 @@ public final class FlowController {
 
   /**
    * @param maxDurationInMilliseconds
-   * @return a new {@link ForMaxMillisecondsMediator} for the given
+   * @return a new {@link IForMaxMillisecondsMediator} for the given
    *         maxDurationInMilliseconds.
    * @throws NegativeArgumentException if the given maxDurationInMilliseconds is
    *                                   negative.
    */
-  public static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
+  public static IForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
     return ForMaxMillisecondsMediator.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
   /**
    * @param maxDurationInSeconds
-   * @return a new {@link ForMaxMillisecondsMediator} for the given
+   * @return a new {@link IForMaxMillisecondsMediator} for the given
    *         maxDurationInSeconds.
    * @throws NegativeArgumentException if the given maxDurationInSeconds is
    *                                   negative.
    */
-  public static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
+  public static IForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
     return ForMaxMillisecondsMediator.forMaxSeconds(maxDurationInSeconds);
   }
 
@@ -134,9 +135,9 @@ public final class FlowController {
    * result.
    * 
    * @param resultJob
-   * @param <R>       is the type of the result the given resultJob returns.
+   * @param <R>       is the type of the result of the given resultJob.
    * @return a new {@link IResultFuture} for the execution of the given resultJob.
-   * @throws ArgumentIsNullException if the given result job is null.
+   * @throws ArgumentIsNullException if the given resultJob is null.
    */
   public static <R> IResultFuture<R> runInBackground(final Supplier<R> resultJob) {
     return new ResultFuture<>(ResultJobExecutor.forResultJob(resultJob));
@@ -159,7 +160,7 @@ public final class FlowController {
    * job will not run properly.
    * 
    * @param job
-   * @return true if the given job run successfully, false otherwise.
+   * @return true if the given job runs successfully, false otherwise.
    */
   public static boolean runInEnclosedModeAndGetSuccessFlag(final Runnable job) {
     try {
@@ -173,7 +174,7 @@ public final class FlowController {
 
   /**
    * @param condition
-   * @return a new {@link AsLongAsMediator} for the negation of the given
+   * @return a new {@link IAsLongAsMediator} for the negation of the given
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
@@ -185,12 +186,11 @@ public final class FlowController {
    * Waits as long as the given condition is fulfilled.
    * 
    * @param condition
-   * @return a {@link WaitMediator}.
+   * @return a {@link IWaitMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static WaitMediator waitAsLongAs(final BooleanSupplier condition) {
+  public static IWaitMediator waitAsLongAs(final BooleanSupplier condition) {
 
-    //Asserts that the given condition is not null.
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     var i = 1;
@@ -204,49 +204,49 @@ public final class FlowController {
       }
     }
 
-    return ACTION_MEDIATOR;
+    return new WaitMediator();
   }
 
   /**
    * Waits for the given durationInMilliseconds.
    * 
    * @param durationInMilliseconds
-   * @return a {@link WaitMediator}.
+   * @return a new {@link IWaitMediator}.
    * @throws NegativeArgumentException if the given durationInMilliseconds is
    *                                   negative.
    */
-  public static WaitMediator waitForMilliseconds(final int durationInMilliseconds) {
+  public static IWaitMediator waitForMilliseconds(final int durationInMilliseconds) {
 
     Waiter.waitForMilliseconds(durationInMilliseconds);
 
-    return ACTION_MEDIATOR;
+    return new WaitMediator();
   }
 
   /**
    * Waits for the given durationInSeconds.
    * 
    * @param durationInSeconds
-   * @return a {@link WaitMediator}.
+   * @return a new {@link IWaitMediator}.
    * @throws NegativeArgumentException if the given durationInSeconds is negative.
    */
-  public static WaitMediator waitForSeconds(final int durationInSeconds) {
+  public static IWaitMediator waitForSeconds(final int durationInSeconds) {
 
     Waiter.waitForSeconds(durationInSeconds);
 
-    return ACTION_MEDIATOR;
+    return new WaitMediator();
   }
 
   /**
    * Waits until the given condition is fulfilled.
    * 
    * @param condition
-   * @return a {@link WaitMediator}.
+   * @return a new {@link IWaitMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static WaitMediator waitUntil(final BooleanSupplier condition) {
+  public static IWaitMediator waitUntil(final BooleanSupplier condition) {
 
     waitAsLongAs(() -> !condition.getAsBoolean());
 
-    return ACTION_MEDIATOR;
+    return new WaitMediator();
   }
 }
