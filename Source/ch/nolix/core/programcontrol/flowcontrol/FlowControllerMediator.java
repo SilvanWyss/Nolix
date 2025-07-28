@@ -3,11 +3,11 @@ package ch.nolix.core.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsSoonAsMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IFlowControllerMediator;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IForCountMediator;
+import ch.nolix.coreapi.programcontrol.flowcontrol.IForMaxMillisecondsMediator;
 import ch.nolix.coreapi.programcontrol.future.IFuture;
 import ch.nolix.coreapi.programcontrol.future.IResultFuture;
 
@@ -15,149 +15,116 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
  * @author Silvan Wyss
  * @version 2020-08-15
  */
-public final class FlowControllerMediator {
+public final class FlowControllerMediator implements IFlowControllerMediator {
 
   /**
-   * @param condition
-   * @return a new {@link AsLongAsMediator} with the given condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public IAsLongAsMediator asLongAs(final BooleanSupplier condition) {
     return FlowController.asLongAs(condition);
   }
 
   /**
-   * @param condition
-   * @return a new {@link AsSoonAsMediator} with the given condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public IAsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
     return FlowController.asSoonAs(condition);
   }
 
   /**
-   * @param condition
-   * @return a new {@link AsSoonAsMediator} with the negation of the given
-   *         condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public IAsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
     return FlowController.asSoonAsNoMore(condition);
   }
 
   /**
-   * Enqueues the given job.
-   * 
-   * @param job
-   * @return a {@link IFuture} for the given job.
-   * @throws ArgumentIsNullException if the given job is null.
+   * {@inheritDoc}
    */
+  @Override
   public IFuture enqueue(final Runnable job) {
     return FlowController.enqueue(job);
   }
 
   /**
-   * @param maxRunCount
-   * @return a new {@link IForCountMediator} with the given max run count.
-   * @throws NegativeArgumentException if the given max run count is negative.
+   * {@inheritDoc}
    */
+  @Override
   public IForCountMediator forCount(final int maxRunCount) {
     return FlowController.forCount(maxRunCount);
   }
 
   /**
-   * @param maxDurationInMilliseconds
-   * @return a new {@link ForMaxMillisecondsMediator} for the given
-   *         maxDurationInMilliseconds.
-   * @throws NegativeArgumentException if the given maxDurationInMilliseconds is
-   *                                   negative.
+   * {@inheritDoc}
    */
-  public ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
+  @Override
+  public IForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
     return FlowController.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
   /**
-   * @param maxDurationInSeconds
-   * @return a new {@link ForMaxMillisecondsMediator} for the given
-   *         maxDurationInSeconds.
-   * @throws NegativeArgumentException if the given maxDurationInSeconds is
-   *                                   negative.
+   * {@inheritDoc}
    */
-  public ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
+  @Override
+  public IForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
     return FlowController.forMaxSeconds(maxDurationInSeconds);
   }
 
   /**
-   * Runs the given job in background.
-   * 
-   * @param job
-   * @return a new {@link IFuture} for the execution of the given job.
-   * @throws ArgumentIsNullException if the given job is null.
+   * {@inheritDoc}
    */
+  @Override
   public IFuture runInBackground(final Runnable job) {
     return FlowController.runInBackground(job);
   }
 
   /**
-   * Runs the given result job in background. A result job is a job that returns a
-   * result.
-   * 
-   * @param resultJob
-   * @param <R>       is the type of the result the given resultJob returns.
-   * @return a new {@link IResultFuture} for the execution of the given resultJob.
-   * @throws ArgumentIsNullException if the given result job is null.
+   * {@inheritDoc}
    */
+  @Override
   public <R> IResultFuture<R> runInBackground(final Supplier<R> resultJob) {
     return FlowController.runInBackground(resultJob);
   }
 
   /**
-   * @param condition
-   * @return a new {@link AsLongAsMediator} for the negation of the given
-   *         condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public IAsLongAsMediator until(final BooleanSupplier condition) {
     return FlowController.until(condition);
   }
 
   /**
-   * Waits as long as the given condition is fulfilled.
-   * 
-   * @param condition
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public void waitAsLongAs(final BooleanSupplier condition) {
     FlowController.waitAsLongAs(condition);
   }
 
   /**
-   * Waits for the given durationInMilliseconds.
-   * 
-   * @param durationInMilliseconds
-   * @throws NegativeArgumentException if the given durationInMilliseconds is
-   *                                   negative.
+   * {@inheritDoc}
    */
+  @Override
   public void waitForMilliseconds(final int durationInMilliseconds) {
     FlowController.waitForMilliseconds(durationInMilliseconds);
   }
 
   /**
-   * Waits for the given durationInSeconds.
-   * 
-   * @param durationInSeconds
-   * @throws NegativeArgumentException if the given durationInSeconds is negative.
+   * {@inheritDoc}
    */
+  @Override
   public void waitForSeconds(final int durationInSeconds) {
     FlowController.waitForSeconds(durationInSeconds);
   }
 
   /**
-   * Waits until the given condition is fulfilled.
-   * 
-   * @param condition
-   * @throws ArgumentIsNullException if the given condition is null.
+   * {@inheritDoc}
    */
+  @Override
   public void waitUntil(final BooleanSupplier condition) {
     FlowController.waitUntil(condition);
   }
