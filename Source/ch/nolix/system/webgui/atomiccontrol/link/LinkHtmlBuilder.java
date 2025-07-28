@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.html.IHtmlAttribute;
 import ch.nolix.coreapi.web.html.IHtmlElement;
-import ch.nolix.coreapi.web.webproperty.LinkTarget;
+import ch.nolix.coreapi.web.htmlattribute.LinkTarget;
 import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILink;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
