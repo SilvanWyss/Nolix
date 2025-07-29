@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.englishlanguage;
+package ch.nolix.coreapi.misc.english;
 
 /**
  * @author Silvan Wyss

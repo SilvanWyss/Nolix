@@ -1,4 +1,4 @@
-package ch.nolix.core.englishlanguage;
+package ch.nolix.core.misc.english;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;

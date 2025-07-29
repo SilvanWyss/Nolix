@@ -1,9 +1,9 @@
-package ch.nolix.coretest.language;
+package ch.nolix.coretest.misc.english;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.core.englishlanguage.EnglishNounTool;
+import ch.nolix.core.misc.english.EnglishNounTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class EnglishNounToolTest extends StandardTest {
