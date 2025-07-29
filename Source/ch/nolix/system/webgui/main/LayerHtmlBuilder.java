@@ -1,11 +1,11 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HtmlElement;
+import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.web.html.IHtmlAttribute;
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.webgui.layertool.LayerTool;
 import ch.nolix.systemapi.webgui.main.ILayer;
 

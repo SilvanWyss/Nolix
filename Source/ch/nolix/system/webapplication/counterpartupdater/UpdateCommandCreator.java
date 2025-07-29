@@ -7,7 +7,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.web.css.ICss;
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;

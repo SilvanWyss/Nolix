@@ -1,11 +1,11 @@
-package ch.nolix.coretest.web.html;
+package ch.nolix.coretest.web.htmlelementmodel;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.core.web.html.HtmlAttribute;
-import ch.nolix.core.web.html.HtmlElement;
+import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
+import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 
 final class HtmlElementTest extends StandardTest {

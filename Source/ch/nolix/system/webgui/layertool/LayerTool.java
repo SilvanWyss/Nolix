@@ -1,6 +1,6 @@
 package ch.nolix.system.webgui.layertool;
 
-import ch.nolix.core.web.html.HtmlAttribute;
+import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.systemapi.webgui.main.ILayer;
 

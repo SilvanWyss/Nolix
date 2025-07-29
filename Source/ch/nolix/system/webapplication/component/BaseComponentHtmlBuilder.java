@@ -1,9 +1,9 @@
 package ch.nolix.system.webapplication.component;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.html.HtmlElement;
+import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

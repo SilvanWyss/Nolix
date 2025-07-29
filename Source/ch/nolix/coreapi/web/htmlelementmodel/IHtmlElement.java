@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.web.html;
+package ch.nolix.coreapi.web.htmlelementmodel;
 
 import ch.nolix.coreapi.container.base.IContainer;
 

@@ -12,7 +12,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.web.css.ICssRule;
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.AbstractStylableElement;

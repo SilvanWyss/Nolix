@@ -1,4 +1,4 @@
-package ch.nolix.core.web.html;
+package ch.nolix.core.web.htmlelementmodel;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.web.html.IHtmlAttribute;
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 
 public final class HtmlElement implements IHtmlElement {
 

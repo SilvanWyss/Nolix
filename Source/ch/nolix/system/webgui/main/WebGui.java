@@ -11,7 +11,7 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.web.css.ICss;
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;

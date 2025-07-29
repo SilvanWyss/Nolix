@@ -1,6 +1,6 @@
-package ch.nolix.core.web.html;
+package ch.nolix.core.web.htmlelementmodel;
 
-import ch.nolix.coreapi.web.html.IHtmlElement;
+import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 
 public final class HtmlElementStringRepresentator {
 
