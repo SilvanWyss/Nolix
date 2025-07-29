@@ -3,9 +3,9 @@ package ch.nolix.system.objectdata.adapter;
 import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
 import ch.nolix.system.objectdata.model.Database;
 import ch.nolix.system.objectdata.model.SchemaInitializer;

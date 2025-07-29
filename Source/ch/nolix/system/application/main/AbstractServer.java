@@ -7,11 +7,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.voidobject.VoidObject;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.application.main.IServer;
 

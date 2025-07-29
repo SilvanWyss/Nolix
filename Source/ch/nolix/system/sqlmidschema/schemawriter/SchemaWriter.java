@@ -1,9 +1,9 @@
 package ch.nolix.system.sqlmidschema.schemawriter;
 
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaTableDtoMapper;

@@ -1,9 +1,9 @@
 package ch.nolix.core.sql.connection;
 
-import ch.nolix.core.programcontrol.closepool.UncloseableCloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.UncloseableCloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;

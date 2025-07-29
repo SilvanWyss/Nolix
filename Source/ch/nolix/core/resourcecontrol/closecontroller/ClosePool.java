@@ -1,4 +1,4 @@
-package ch.nolix.core.programcontrol.closepool;
+package ch.nolix.core.resourcecontrol.closecontroller;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.IClosePool;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
 /**
  * @author Silvan Wyss

@@ -1,7 +1,7 @@
 package ch.nolix.coreapi.sql.connection;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 

@@ -5,12 +5,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.endpoint3.IServer;
 import ch.nolix.coreapi.net.endpoint3.ISlot;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
  * @author Silvan Wyss

@@ -1,9 +1,9 @@
 package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectschema.model.Database;
 import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschema.model.IDatabase;

@@ -2,7 +2,7 @@ package ch.nolix.systemapi.middata.adapter;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.time.moment.ITime;

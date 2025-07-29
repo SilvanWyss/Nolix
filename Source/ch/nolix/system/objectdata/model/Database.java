@@ -2,10 +2,10 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IDatabase;

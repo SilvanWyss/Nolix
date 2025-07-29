@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.resourcecontrol.resourcepool;
 
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**
  * A {@link IResourcePool} manages resources that are {@link AutoCloseable}s.

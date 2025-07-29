@@ -1,8 +1,8 @@
 package ch.nolix.system.sqlschema.adapter;
 
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.resourcecontrol.resourcepool.IResourcePool;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaAdapter;

@@ -3,7 +3,7 @@ package ch.nolix.core.resourcecontrol.resourcevalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
 
 /**
  * The {@link ResourceValidator} provides methods to validate resources.

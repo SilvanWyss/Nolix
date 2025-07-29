@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.resourcecontrol.resourceclosing;
+package ch.nolix.coreapi.resourcecontrol.closecontroller;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programcontrol.processproperty.CloseState;

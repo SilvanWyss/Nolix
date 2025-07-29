@@ -1,10 +1,10 @@
 package ch.nolix.system.nodemiddata.datareader;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.systemapi.middata.adapter.IDataReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;

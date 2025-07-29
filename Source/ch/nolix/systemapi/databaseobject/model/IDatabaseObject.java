@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.databaseobject.model;
 
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
 import ch.nolix.coreapi.structure.typerequest.StateRequestable;
 import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobject.databaseobjectrequest.CreationRequestable;

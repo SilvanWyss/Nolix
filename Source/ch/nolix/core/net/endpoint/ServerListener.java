@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.programcontrol.worker.AbstractWorker;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
 
 /**
  * A {@link ServerListener} listens to {@link SocketEndPoint}s for a

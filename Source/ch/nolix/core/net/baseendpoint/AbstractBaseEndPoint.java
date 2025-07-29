@@ -1,11 +1,11 @@
 package ch.nolix.core.net.baseendpoint;
 
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.net.baseendpoint.IBaseEndPoint;
 import ch.nolix.coreapi.net.baseendpoint.TargetSlotDefinition;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
 

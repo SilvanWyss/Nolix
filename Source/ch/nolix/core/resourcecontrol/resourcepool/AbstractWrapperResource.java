@@ -2,10 +2,10 @@ package ch.nolix.core.resourcecontrol.resourcepool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.CloseStateRequestable;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 public abstract class AbstractWrapperResource<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements GroupCloseable {

@@ -6,12 +6,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.endpoint3.AbstractEndPoint;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.application.client.IClient;
 
 /**

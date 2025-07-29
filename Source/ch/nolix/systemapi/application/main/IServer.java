@@ -3,7 +3,7 @@ package ch.nolix.systemapi.application.main;
 import ch.nolix.coreapi.manager.applicationmanager.IApplicationManager;
 import ch.nolix.coreapi.net.netattribute.ISecuriyModeHolder;
 import ch.nolix.coreapi.net.target.IServerTarget;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**

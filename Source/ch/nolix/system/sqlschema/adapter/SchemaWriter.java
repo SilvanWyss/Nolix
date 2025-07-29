@@ -2,13 +2,13 @@ package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.closepool.CloseController;
+import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;

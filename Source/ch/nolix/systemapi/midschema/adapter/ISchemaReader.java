@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.midschema.adapter;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.time.moment.ITime;
 

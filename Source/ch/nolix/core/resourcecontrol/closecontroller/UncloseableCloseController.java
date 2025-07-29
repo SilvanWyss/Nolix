@@ -1,8 +1,8 @@
-package ch.nolix.core.programcontrol.closepool;
+package ch.nolix.core.resourcecontrol.closecontroller;
 
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.ICloseController;
-import ch.nolix.coreapi.resourcecontrol.resourceclosing.IClosePool;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
 public final class UncloseableCloseController implements ICloseController {
 

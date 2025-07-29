@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.resourcecontrol.resourceclosing;
+package ch.nolix.coreapi.resourcecontrol.closecontroller;
 
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
