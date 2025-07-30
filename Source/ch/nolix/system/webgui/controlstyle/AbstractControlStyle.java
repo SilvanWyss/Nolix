@@ -72,9 +72,6 @@ implements IControlStyle<S> {
 
   private static final String PADDING_HEADER = "Padding";
 
-  private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
-  new AbsoluteOrRelativeIntValidator();
-
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = //
   new NonCascadingProperty //
   <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
@@ -615,14 +612,14 @@ implements IControlStyle<S> {
 
   private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
 
-    ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(height);
+    AbsoluteOrRelativeIntValidator.assertIsPositive(height);
 
     this.height.setValueForState(state, height);
   }
 
   private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
 
-    ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(width);
+    AbsoluteOrRelativeIntValidator.assertIsPositive(width);
 
     this.width.setValueForState(state, width);
   }

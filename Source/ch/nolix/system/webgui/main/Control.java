@@ -56,9 +56,6 @@ implements IControl<C, S> {
 
   private static final ControlTool CONTROL_TOOL = new ControlTool();
 
-  private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
-  new AbsoluteOrRelativeIntValidator();
-
   //An id works correctly for CSS only when it begins with a letter.
   private final String internalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
@@ -465,28 +462,28 @@ implements IControl<C, S> {
 
   private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 
-    ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(maxHeight);
+    AbsoluteOrRelativeIntValidator.assertIsPositive(maxHeight);
 
     this.maxHeight.setValue(maxHeight);
   }
 
   private void setMaxWidth(final AbsoluteOrRelativeInt maxWidth) {
 
-    ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(maxWidth);
+    AbsoluteOrRelativeIntValidator.assertIsPositive(maxWidth);
 
     this.maxWidth.setValue(maxWidth);
   }
 
   private void setMinHeight(final AbsoluteOrRelativeInt minHeight) {
 
-    ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(minHeight);
+    AbsoluteOrRelativeIntValidator.assertIsPositive(minHeight);
 
     this.minHeight.setValue(minHeight);
   }
 
   private void setMinWidth(final AbsoluteOrRelativeInt minWidth) {
 
-    ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(minWidth);
+    AbsoluteOrRelativeIntValidator.assertIsPositive(minWidth);
 
     this.minWidth.setValue(minWidth);
   }
