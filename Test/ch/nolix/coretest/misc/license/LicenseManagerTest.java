@@ -1,4 +1,4 @@
-package ch.nolix.coretest.license;
+package ch.nolix.coretest.misc.license;
 
 import java.util.Objects;
 
