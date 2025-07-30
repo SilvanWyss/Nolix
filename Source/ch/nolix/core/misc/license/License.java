@@ -1,11 +1,8 @@
 package ch.nolix.core.misc.license;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.licenseapi.ILicense;
 import ch.nolix.coreapi.misc.licenseapi.ILicenseValidator;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -60,7 +57,7 @@ implements ILicense {
    */
   private boolean acceptsKey(final String key) {
 
-    final var refinedKey = getRefinedKeyFromKey(key);
+    final var refinedKey = KeyRefinder.getRefinedKeyFromKey(key);
 
     return acceptsRefinedKey(refinedKey);
   }
@@ -74,20 +71,5 @@ implements ILicense {
     if (!acceptsKey(key)) {
       throw UnacceptedKeyException.forKey(key);
     }
-  }
-
-  /**
-   * @param key
-   * @return a refined key from the given key.
-   * @throws RuntimeException if the given key is null.
-   */
-  private String getRefinedKeyFromKey(final String key) {
-
-    Validator.assertThat(key).thatIsNamed(LowerCaseVariableCatalog.KEY).isNotNull();
-
-    return //
-    key
-      .replace(StringCatalog.MINUS, StringCatalog.EMPTY_STRING)
-      .replace(StringCatalog.SPACE, StringCatalog.EMPTY_STRING);
   }
 }
