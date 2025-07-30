@@ -25,4 +25,17 @@ public final class LicenseValidator implements ILicenseValidator {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not actiaved");
     }
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void assertIsNotActivated(final ILicense license) {
+
+    Validator.assertThat(license).thatIsNamed(ILicense.class).isNotNull();
+
+    if (license.isActivated()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is actiaved");
+    }
+  }
 }
