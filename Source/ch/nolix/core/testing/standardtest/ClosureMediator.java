@@ -19,7 +19,7 @@ public final class ClosureMediator {
    * @param closure
    * @throws ArgumentIsNullException if the given closure is null.
    */
-  public ClosureMediator(final Runnable closure) {
+  private ClosureMediator(final Runnable closure) {
 
     //Asserts that the given closure is not null.
     if (closure == null) {
@@ -28,6 +28,15 @@ public final class ClosureMediator {
 
     //Sets the closure of the current ClosureMediator.
     this.closure = closure;
+  }
+
+  /**
+   * @param closure
+   * @return a new {@link ClosureMediator} for the given closure.
+   * @throws ArgumentIsNullException if the given closure is null.
+   */
+  public static ClosureMediator forClosure(final Runnable closure) {
+    return new ClosureMediator(closure);
   }
 
   /**

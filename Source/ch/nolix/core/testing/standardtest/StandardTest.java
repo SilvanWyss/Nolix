@@ -136,7 +136,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new closure mediator that belongs for the given closure.
    */
   protected static final ClosureMediator expectRunning(final Runnable closure) {
-    return new ClosureMediator(closure);
+    return ClosureMediator.forClosure(closure);
   }
 
   /**
