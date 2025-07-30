@@ -17,17 +17,17 @@ import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalo
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link LicenseManagerUnit} contains {@link AbstractLicense}s.
+ * A {@link LicenseManagerUnit} contains {@link License}s.
  * 
  * @author Silvan Wyss
  * @version 2019-11-16
  */
 public final class LicenseManagerUnit {
 
-  private final LinkedList<AbstractLicense> abstractLicenses = LinkedList.createEmpty();
+  private final LinkedList<License> licenses = LinkedList.createEmpty();
 
   /**
-   * Creates and adds a new {@link AbstractLicense} of the given licenseType to
+   * Creates and adds a new {@link License} of the given licenseType to
    * the current {@link LicenseManagerUnit}
    * 
    * @param licenseType
@@ -41,14 +41,14 @@ public final class LicenseManagerUnit {
    * @throws InvalidArgumentException if the found key is not valid.
    * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
    *                                  does contain already a
-   *                                  {@link AbstractLicense} of the given
+   *                                  {@link License} of the given
    *                                  licenseType.
    */
-  public <L extends AbstractLicense> LicenseManagerUnit addLicense(final Class<L> licenseType) {
+  public <L extends License> LicenseManagerUnit addLicense(final Class<L> licenseType) {
 
     final var key = readKeyFromLicenseFile(licenseType);
 
-    final var license = ReflectionTool.createInstanceFromDefaultConstructorOfClass(AbstractLicense.class);
+    final var license = ReflectionTool.createInstanceFromDefaultConstructorOfClass(License.class);
     license.activate(key);
 
     addLicense(license);
@@ -59,26 +59,26 @@ public final class LicenseManagerUnit {
   /**
    * Adds the given license to the current {@link LicenseManagerUnit}.
    * 
-   * @param abstractLicense
+   * @param license
    * @return the current {@link LicenseManagerUnit}.
    * @throws ArgumentIsNullException  if the given license is null.
    * @throws InvalidArgumentException if the given license is not activated.
    * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
-   *                                  contains already a {@link AbstractLicense}
+   *                                  contains already a {@link License}
    *                                  of the type the given license is.
    */
-  public LicenseManagerUnit addLicense(final AbstractLicense abstractLicense) {
+  public LicenseManagerUnit addLicense(final License license) {
 
     //Asserts that the given license is not null.
-    Validator.assertThat(abstractLicense).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
+    Validator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
 
     //Assets thath the given license is actiaved.
-    abstractLicense.assetIsActivated();
+    license.assetIsActivated();
 
     //Handles the case that the current LicenseManager
     //does not contain already a License of the type the given license is.
-    if (!containsLicense(abstractLicense.getClass())) {
-      abstractLicenses.addAtEnd(abstractLicense);
+    if (!containsLicense(license.getClass())) {
+      licenses.addAtEnd(license);
     }
 
     return this;
@@ -109,30 +109,30 @@ public final class LicenseManagerUnit {
    * @param licenseType
    * @param <L>         is the given licenseType.
    * @return true if the current {@link LicenseManagerUnit} contains a
-   *         {@link AbstractLicense} of the given licenseType.
+   *         {@link License} of the given licenseType.
    */
-  public <L extends AbstractLicense> boolean containsLicense(final Class<L> licenseType) {
-    return abstractLicenses.containsAny(l -> l.getClass() == licenseType);
+  public <L extends License> boolean containsLicense(final Class<L> licenseType) {
+    return licenses.containsAny(l -> l.getClass() == licenseType);
   }
 
   /**
    * @return the types of the licenses of the current {@link LicenseManagerUnit}.
    */
   public IContainer<Class<?>> getLicenseTypes() {
-    return abstractLicenses.to(AbstractLicense::getClass);
+    return licenses.to(License::getClass);
   }
 
   /**
    * Removes the given license from the current {@link LicenseManagerUnit}.
    * 
-   * @param abstractLicense
+   * @param license
    * @throws ArgumentDoesNotContainElementException if the current
    *                                                {@link LicenseManagerUnit}
    *                                                does not contain the given
    *                                                license.
    */
-  public void removeLicense(final AbstractLicense abstractLicense) {
-    abstractLicenses.removeStrictlyFirstOccurrenceOf(abstractLicense);
+  public void removeLicense(final License license) {
+    licenses.removeStrictlyFirstOccurrenceOf(license);
   }
 
   /**
@@ -174,7 +174,7 @@ public final class LicenseManagerUnit {
    *         file. The license file is on the local computer.
    * @throws ArgumentIsNullException if the given licenseType is null.
    */
-  private <L extends AbstractLicense> String readKeyFromLicenseFile(final Class<L> licenseType) {
+  private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 
     //Asserts that the given licenseType is not null.
     Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();

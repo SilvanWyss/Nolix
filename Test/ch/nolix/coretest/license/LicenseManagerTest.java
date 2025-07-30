@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.misc.license.AbstractFeature;
-import ch.nolix.core.misc.license.AbstractLicense;
+import ch.nolix.core.misc.license.License;
 import ch.nolix.core.misc.license.LicenseManager;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
 
 final class LicenseManagerTest extends StandardTest {
 
-  private static final class TestLicense extends AbstractLicense {
+  private static final class TestLicense extends License {
 
     @Override
     protected boolean acceptsFilteredKey(String key) {
