@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
+import ch.nolix.coreapi.misc.licenseapi.ILicenseValidator;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
@@ -23,6 +24,8 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
  * @version 2019-11-16
  */
 public final class LicenseManagerUnit {
+
+  private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
   private final LinkedList<License> licenses = LinkedList.createEmpty();
 
@@ -72,7 +75,7 @@ public final class LicenseManagerUnit {
     Validator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
 
     //Assets thath the given license is actiaved.
-    license.assetIsActivated();
+    LICENSE_VALIDATOR.assertIsActivated(license);
 
     //Handles the case that the current LicenseManager
     //does not contain already a License of the type the given license is.

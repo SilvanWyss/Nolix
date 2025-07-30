@@ -30,16 +30,6 @@ implements ILicense {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link License} is not
-   *                                  activated.
-   */
-  public final void assetIsActivated() {
-    if (!isActivated()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not actiaved");
-    }
-  }
-
-  /**
    * {@inheritDoc}
    */
   @Override
