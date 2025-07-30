@@ -42,7 +42,7 @@ final class LicenseManagerTest extends StandardTest {
 
     //setup
     final var testLicense = new TestLicense();
-    testLicense.activate("0000-0000");
+    testLicense.activateWithKey("0000-0000");
     LicenseManager.addLicense(testLicense);
 
     //execution & verification

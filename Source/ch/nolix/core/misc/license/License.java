@@ -4,7 +4,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.coreapi.misc.licenseapi.ILicense;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
@@ -13,20 +13,15 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
  * @version 2017-05-16
  */
 public abstract class License //NOSONAR: A license class is expected to be abstract.
-implements INameHolder {
+implements ILicense {
 
   private boolean activated;
 
   /**
-   * Activates the current {@link License} with the given key.
-   * 
-   * @param key
-   * @throws InvalidArgumentException if the current {@link License} is already
-   *                                  activated.
-   * @throws UnacceptedKeyException   if the current {@link License} does no
-   *                                  accepts the given key.
+   * {@inheritDoc}
    */
-  public final void activate(final String key) {
+  @Override
+  public final void activateWithKey(final String key) {
 
     assertIsNotActivated();
     assertAccepts(key);
@@ -55,6 +50,7 @@ implements INameHolder {
   /**
    * @return true if the current {@link License} is activated.
    */
+  @Override
   public final boolean isActivated() {
     return activated;
   }

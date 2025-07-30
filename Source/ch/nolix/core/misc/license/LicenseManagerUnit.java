@@ -27,8 +27,8 @@ public final class LicenseManagerUnit {
   private final LinkedList<License> licenses = LinkedList.createEmpty();
 
   /**
-   * Creates and adds a new {@link License} of the given licenseType to
-   * the current {@link LicenseManagerUnit}
+   * Creates and adds a new {@link License} of the given licenseType to the
+   * current {@link LicenseManagerUnit}
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -40,16 +40,15 @@ public final class LicenseManagerUnit {
    *                                  constructor with 1 {@link String} parameter.
    * @throws InvalidArgumentException if the found key is not valid.
    * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
-   *                                  does contain already a
-   *                                  {@link License} of the given
-   *                                  licenseType.
+   *                                  does contain already a {@link License} of
+   *                                  the given licenseType.
    */
   public <L extends License> LicenseManagerUnit addLicense(final Class<L> licenseType) {
 
     final var key = readKeyFromLicenseFile(licenseType);
 
     final var license = ReflectionTool.createInstanceFromDefaultConstructorOfClass(License.class);
-    license.activate(key);
+    license.activateWithKey(key);
 
     addLicense(license);
 
@@ -64,8 +63,8 @@ public final class LicenseManagerUnit {
    * @throws ArgumentIsNullException  if the given license is null.
    * @throws InvalidArgumentException if the given license is not activated.
    * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
-   *                                  contains already a {@link License}
-   *                                  of the type the given license is.
+   *                                  contains already a {@link License} of the
+   *                                  type the given license is.
    */
   public LicenseManagerUnit addLicense(final License license) {
 
