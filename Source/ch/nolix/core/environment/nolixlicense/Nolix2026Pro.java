@@ -1,8 +1,8 @@
-package ch.nolix.core.nolixlicense;
+package ch.nolix.core.environment.nolixlicense;
 
 import ch.nolix.core.misc.license.AbstractLicense;
 
-public final class Nolix2024Pro extends AbstractLicense {
+public final class Nolix2026Pro extends AbstractLicense {
 
   //key = '45680060'
   @Override
