@@ -5,9 +5,9 @@ import java.util.Objects;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.license.AbstractFeature;
-import ch.nolix.core.license.AbstractLicense;
-import ch.nolix.core.license.LicenseManager;
+import ch.nolix.core.misc.license.AbstractFeature;
+import ch.nolix.core.misc.license.AbstractLicense;
+import ch.nolix.core.misc.license.LicenseManager;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
 

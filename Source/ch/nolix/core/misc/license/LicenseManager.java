@@ -1,4 +1,4 @@
-package ch.nolix.core.license;
+package ch.nolix.core.misc.license;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

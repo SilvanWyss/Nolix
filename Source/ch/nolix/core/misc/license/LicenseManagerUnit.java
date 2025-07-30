@@ -1,4 +1,4 @@
-package ch.nolix.core.license;
+package ch.nolix.core.misc.license;
 
 import java.lang.reflect.InvocationTargetException;
 

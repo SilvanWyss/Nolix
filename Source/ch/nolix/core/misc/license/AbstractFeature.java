@@ -1,4 +1,4 @@
-package ch.nolix.core.license;
+package ch.nolix.core.misc.license;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.container.base.IContainer;

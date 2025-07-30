@@ -1,6 +1,6 @@
 package ch.nolix.core.nolixlicense;
 
-import ch.nolix.core.license.AbstractLicense;
+import ch.nolix.core.misc.license.AbstractLicense;
 
 public final class Nolix2024Pro extends AbstractLicense {
 
