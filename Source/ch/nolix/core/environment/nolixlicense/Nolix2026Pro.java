@@ -6,7 +6,7 @@ public final class Nolix2026Pro extends License {
 
   //key = '45680060'
   @Override
-  protected boolean acceptsFilteredKey(final String filteredKey) {
+  protected boolean acceptsRefinedKey(final String filteredKey) {
     try {
       final var keyAsInt = Integer.valueOf(filteredKey);
       return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);

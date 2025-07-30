@@ -1,10 +1,9 @@
 package ch.nolix.core.misc.license;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.licenseapi.ILicense;
+import ch.nolix.coreapi.misc.licenseapi.ILicenseValidator;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
@@ -15,6 +14,8 @@ import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 public abstract class License //NOSONAR: A license class is expected to be abstract.
 implements ILicense {
 
+  private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
+
   private boolean activated;
 
   /**
@@ -23,8 +24,8 @@ implements ILicense {
   @Override
   public final void activateWithKey(final String key) {
 
-    assertIsNotActivated();
-    assertAccepts(key);
+    LICENSE_VALIDATOR.assertIsNotActivated(this);
+    assertAcceptsKey(key);
 
     activated = true;
   }
@@ -38,7 +39,7 @@ implements ILicense {
   }
 
   /**
-   * @return true if the current {@link License} is activated.
+   * {@inheritDoc}
    */
   @Override
   public final boolean isActivated() {
@@ -46,17 +47,22 @@ implements ILicense {
   }
 
   /**
-   * @param filteredKey
-   * @return true if the current {@link License} accepts the given filteredKey.
+   * @param refinedKey
+   * @return true if the current {@link License} accepts the given refinedKey,
+   *         false otherwise.
    */
-  protected abstract boolean acceptsFilteredKey(String filteredKey);
+  protected abstract boolean acceptsRefinedKey(String refinedKey);
 
   /**
    * @param key
-   * @return true if the current {@link License} accepts the given key.
+   * @return true if the current {@link License} accepts the given key, false
+   *         otherwise.
    */
-  private boolean accepts(final String key) {
-    return acceptsFilteredKey(getFilteredKey(key));
+  private boolean acceptsKey(final String key) {
+
+    final var refinedKey = getRefinedKeyFromKey(key);
+
+    return acceptsRefinedKey(refinedKey);
   }
 
   /**
@@ -64,33 +70,24 @@ implements ILicense {
    * @throws UnacceptedKeyException if the current {@link License} does no accepts
    *                                the given key.
    */
-  private void assertAccepts(final String key) {
-    if (!accepts(key)) {
+  private void assertAcceptsKey(final String key) {
+    if (!acceptsKey(key)) {
       throw UnacceptedKeyException.forKey(key);
     }
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link License} is activated.
-   */
-  private void assertIsNotActivated() {
-    if (isActivated()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is actiaved");
-    }
-  }
-
-  /**
    * @param key
-   * @return a filtered key for the given key.
-   * @throws ArgumentIsNullException if the given key is null.
+   * @return a refined key from the given key.
+   * @throws RuntimeException if the given key is null.
    */
-  private String getFilteredKey(final String key) {
+  private String getRefinedKeyFromKey(final String key) {
 
     Validator.assertThat(key).thatIsNamed(LowerCaseVariableCatalog.KEY).isNotNull();
 
-    return key
+    return //
+    key
       .replace(StringCatalog.MINUS, StringCatalog.EMPTY_STRING)
-      .replace(StringCatalog.SPACE, StringCatalog.EMPTY_STRING)
-      .replace(StringCatalog.TABULATOR, StringCatalog.EMPTY_STRING);
+      .replace(StringCatalog.SPACE, StringCatalog.EMPTY_STRING);
   }
 }

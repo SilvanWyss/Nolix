@@ -16,7 +16,7 @@ final class LicenseManagerTest extends StandardTest {
   private static final class TestLicense extends License {
 
     @Override
-    protected boolean acceptsFilteredKey(String key) {
+    protected boolean acceptsRefinedKey(String key) {
       return Objects.equals(key, "00000000");
     }
   }
