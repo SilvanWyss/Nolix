@@ -4,7 +4,7 @@ import java.util.function.BooleanSupplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatom.timeunit.TimeUnitConversionCatalog;
+import ch.nolix.coreapi.misc.time.TimeUnitConversionCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAfterEveryMediator;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsLongAsMediator;
