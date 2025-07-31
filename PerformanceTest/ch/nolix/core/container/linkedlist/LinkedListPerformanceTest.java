@@ -2,7 +2,7 @@ package ch.nolix.core.container.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.performancetest.PerformanceTest;
 import ch.nolix.coreapi.container.base.IContainer;

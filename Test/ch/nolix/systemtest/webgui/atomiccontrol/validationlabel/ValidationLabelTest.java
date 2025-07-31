@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webgui.atomiccontrol.validationlabel;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;

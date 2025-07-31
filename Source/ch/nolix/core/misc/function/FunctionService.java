@@ -1,4 +1,4 @@
-package ch.nolix.core.programatom.function;
+package ch.nolix.core.misc.function;
 
 import java.util.Objects;
 

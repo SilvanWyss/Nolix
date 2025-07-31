@@ -1,7 +1,7 @@
 package ch.nolix.template.webgui.dialog;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.coreapi.creation.builder.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;

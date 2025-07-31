@@ -2,7 +2,7 @@ package ch.nolix.coretest.programatom.function;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class FunctionCatalogTest extends StandardTest {

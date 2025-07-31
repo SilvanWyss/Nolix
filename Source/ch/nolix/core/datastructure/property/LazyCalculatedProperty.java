@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.coreapi.datastructure.property.ILazyCalculatedProperty;
 
 /**

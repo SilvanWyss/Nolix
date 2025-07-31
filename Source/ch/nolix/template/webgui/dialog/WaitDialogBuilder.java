@@ -1,6 +1,6 @@
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.creation.builder.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;

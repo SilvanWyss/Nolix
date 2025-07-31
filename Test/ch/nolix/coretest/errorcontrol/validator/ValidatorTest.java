@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MethodMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programatom.function.FunctionService;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ValidatorTest extends StandardTest {
