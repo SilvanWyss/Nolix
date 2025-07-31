@@ -1,4 +1,4 @@
-package ch.nolix.core.structure.property;
+package ch.nolix.core.datastructure.property;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programatom.function.FunctionService;
-import ch.nolix.coreapi.structure.property.ILazyCalculatedProperty;
+import ch.nolix.coreapi.datastructure.property.ILazyCalculatedProperty;
 
 /**
  * @author Silvan Wyss

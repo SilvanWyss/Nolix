@@ -1,10 +1,10 @@
 package ch.nolix.system.element.styletool;
 
 import ch.nolix.core.container.arraylist.ArrayList;
-import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
-import ch.nolix.coreapi.container.pair.IPair;
+import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.systemapi.element.style.IAttachingAttribute;
 import ch.nolix.systemapi.element.styletool.IAttributeReplacer;
 

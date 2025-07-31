@@ -1,6 +1,6 @@
 package ch.nolix.core.container.cachingcontainer;
 
-import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 final class CachingContainerIterator<E> implements CopyableIterator<E> {

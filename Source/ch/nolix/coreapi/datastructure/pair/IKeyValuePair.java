@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.container.pair;
+package ch.nolix.coreapi.datastructure.pair;
 
 public interface IKeyValuePair<K, V> {
 

@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.container.pair.IPair;
+import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.element.style.IAbstractStyle;
 import ch.nolix.systemapi.element.style.IAttachingAttribute;

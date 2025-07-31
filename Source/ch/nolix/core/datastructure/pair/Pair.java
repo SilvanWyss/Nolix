@@ -1,8 +1,8 @@
-package ch.nolix.core.container.pair;
+package ch.nolix.core.datastructure.pair;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.pair.IPair;
+import ch.nolix.coreapi.datastructure.pair.IPair;
 
 /**
  * A {@link Pair} contains 2 elements. A {@link Pair} is not mutable.

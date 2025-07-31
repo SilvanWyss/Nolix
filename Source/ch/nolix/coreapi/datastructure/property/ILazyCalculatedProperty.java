@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structure.property;
+package ch.nolix.coreapi.datastructure.property;
 
 import ch.nolix.coreapi.state.staterequest.UpToDateRequestable;
 

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.container.pair;
+package ch.nolix.coreapi.datastructure.pair;
 
 /**
  * A {@link IPair} contains 2 elements.

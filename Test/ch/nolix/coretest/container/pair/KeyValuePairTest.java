@@ -2,7 +2,7 @@ package ch.nolix.coretest.container.pair;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.pair.KeyValuePair;
+import ch.nolix.core.datastructure.pair.KeyValuePair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 

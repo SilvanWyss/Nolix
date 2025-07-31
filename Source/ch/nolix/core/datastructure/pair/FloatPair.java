@@ -1,4 +1,4 @@
-package ch.nolix.core.container.pair;
+package ch.nolix.core.datastructure.pair;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.math.main.NumberComparator;

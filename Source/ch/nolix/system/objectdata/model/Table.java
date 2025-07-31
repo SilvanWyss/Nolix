@@ -3,8 +3,8 @@ package ch.nolix.system.objectdata.model;
 import java.util.Optional;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.datastructure.property.LazyCalculatedProperty;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.structure.property.LazyCalculatedProperty;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.datatool.EntityCreator;

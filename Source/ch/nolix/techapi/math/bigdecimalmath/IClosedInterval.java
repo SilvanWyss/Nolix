@@ -2,7 +2,7 @@ package ch.nolix.techapi.math.bigdecimalmath;
 
 import java.math.BigDecimal;
 
-import ch.nolix.coreapi.container.pair.IPair;
+import ch.nolix.coreapi.datastructure.pair.IPair;
 
 public interface IClosedInterval {
 

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.pair.Pair;
+import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.cachingcontainer.ICachingContainer;
