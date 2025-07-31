@@ -2,7 +2,7 @@ package ch.nolix.templatetest.graphic.texture;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
+import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IImage;

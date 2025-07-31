@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.structurecontrol.reflectionexaminer;
+package ch.nolix.coreapi.reflection.reflectionexaminer;
 
 import java.lang.reflect.Field;
 

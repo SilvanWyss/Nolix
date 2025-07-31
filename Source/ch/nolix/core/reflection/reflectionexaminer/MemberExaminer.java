@@ -1,9 +1,9 @@
-package ch.nolix.core.structurecontrol.reflectionexaminer;
+package ch.nolix.core.reflection.reflectionexaminer;
 
 import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 
-import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IMemberExaminer;
+import ch.nolix.coreapi.reflection.reflectionexaminer.IMemberExaminer;
 
 /**
  * @author Silvan Wyss

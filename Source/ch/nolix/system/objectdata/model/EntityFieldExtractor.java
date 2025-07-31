@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
-import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
+import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.systemapi.objectdata.model.IEntity;

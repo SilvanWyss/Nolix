@@ -1,4 +1,4 @@
-package ch.nolix.core.structurecontrol.reflectiontool;
+package ch.nolix.core.reflection.reflectiontool;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;

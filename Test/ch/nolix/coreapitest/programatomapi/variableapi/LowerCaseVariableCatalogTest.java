@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.commontypetool.stringtool.StringExaminer;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
+import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;

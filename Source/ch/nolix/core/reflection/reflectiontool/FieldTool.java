@@ -1,13 +1,13 @@
-package ch.nolix.core.structurecontrol.reflectiontool;
+package ch.nolix.core.reflection.reflectiontool;
 
 import java.lang.reflect.Field;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
+import ch.nolix.core.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IFieldExaminer;
+import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 
 public final class FieldTool {
 

@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.fieldtool;
 import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
+import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.model.IField;

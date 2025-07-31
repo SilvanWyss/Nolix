@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.datastructure.pair.Pair;
-import ch.nolix.core.structurecontrol.reflectiontool.ReflectionTool;
+import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.datastructure.pair.IPair;

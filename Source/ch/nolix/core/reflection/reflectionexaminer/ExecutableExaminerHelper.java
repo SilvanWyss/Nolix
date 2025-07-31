@@ -1,4 +1,4 @@
-package ch.nolix.core.structurecontrol.reflectionexaminer;
+package ch.nolix.core.reflection.reflectionexaminer;
 
 import java.lang.reflect.Executable;
 

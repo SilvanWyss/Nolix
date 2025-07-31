@@ -1,10 +1,10 @@
-package ch.nolix.core.structurecontrol.reflectiontool;
+package ch.nolix.core.reflection.reflectiontool;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
-import ch.nolix.coreapi.structurecontrol.reflectiontool.IConstructorTool;
+import ch.nolix.coreapi.reflection.reflectiontool.IConstructorTool;
 
 public final class ConstructorTool implements IConstructorTool {
 

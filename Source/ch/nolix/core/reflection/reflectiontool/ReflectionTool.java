@@ -1,4 +1,4 @@
-package ch.nolix.core.structurecontrol.reflectiontool;
+package ch.nolix.core.reflection.reflectiontool;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
@@ -9,12 +9,12 @@ import java.lang.reflect.Member;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.structurecontrol.reflectionexaminer.ExecutableExaminer;
-import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
-import ch.nolix.core.structurecontrol.reflectionexaminer.MemberExaminer;
+import ch.nolix.core.reflection.reflectionexaminer.ExecutableExaminer;
+import ch.nolix.core.reflection.reflectionexaminer.FieldExaminer;
+import ch.nolix.core.reflection.reflectionexaminer.MemberExaminer;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IFieldExaminer;
+import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 
 public final class ReflectionTool {
 

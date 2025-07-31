@@ -1,13 +1,13 @@
-package ch.nolix.core.structurecontrol.reflectiontool;
+package ch.nolix.core.reflection.reflectiontool;
 
 import java.lang.reflect.Constructor;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
-import ch.nolix.core.structurecontrol.reflectionexaminer.FieldExaminer;
+import ch.nolix.core.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IFieldExaminer;
-import ch.nolix.coreapi.structurecontrol.reflectiontool.IClassTool;
+import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
+import ch.nolix.coreapi.reflection.reflectiontool.IClassTool;
 
 public final class ClassTool implements IClassTool {
 

@@ -1,9 +1,9 @@
-package ch.nolix.core.structurecontrol.reflectionexaminer;
+package ch.nolix.core.reflection.reflectionexaminer;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import ch.nolix.coreapi.structurecontrol.reflectionexaminer.IFieldExaminer;
+import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 
 /**
  * @author Silvan Wyss
