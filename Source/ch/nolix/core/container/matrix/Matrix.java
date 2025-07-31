@@ -13,11 +13,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.container.matrix.IMatrix;
-import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**

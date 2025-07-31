@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programatom.stringcatalog;
+package ch.nolix.coreapi.commontypetool.charactertool;
 
 /**
  * Of the {@link CharacterCatalog} an instance cannot be created.

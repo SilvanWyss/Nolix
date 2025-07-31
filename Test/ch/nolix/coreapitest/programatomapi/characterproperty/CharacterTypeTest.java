@@ -3,7 +3,7 @@ package ch.nolix.coreapitest.programatomapi.characterproperty;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programatom.characterproperty.CharacterType;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 
 final class CharacterTypeTest extends StandardTest {
 

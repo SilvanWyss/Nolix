@@ -1,12 +1,12 @@
-package ch.nolix.core.commontypetool.chartool;
+package ch.nolix.core.commontypetool.charactertool;
 
-import ch.nolix.coreapi.commontypetool.chartool.ICharTool;
+import ch.nolix.coreapi.commontypetool.charactertool.ICharacterTool;
 
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-public final class CharTool implements ICharTool {
+public final class CharacterTool implements ICharacterTool {
 
   /**
    * {@inheritDoc}

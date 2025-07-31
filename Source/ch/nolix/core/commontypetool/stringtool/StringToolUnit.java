@@ -3,8 +3,8 @@ package ch.nolix.core.commontypetool.stringtool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringTool;
-import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 import ch.nolix.coreapi.programatom.stringcatalog.RegularExpressionPatternCatalog;
 import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
 

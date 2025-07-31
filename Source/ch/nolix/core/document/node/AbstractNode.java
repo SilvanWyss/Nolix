@@ -9,11 +9,11 @@ import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.document.node.INodeComparator;
 import ch.nolix.coreapi.document.xml.IMutableXmlNode;
-import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
 /**

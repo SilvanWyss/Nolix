@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
-import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**

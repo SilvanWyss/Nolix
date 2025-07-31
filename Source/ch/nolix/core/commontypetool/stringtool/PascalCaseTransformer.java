@@ -1,7 +1,7 @@
 package ch.nolix.core.commontypetool.stringtool;
 
-import ch.nolix.coreapi.programatom.characterproperty.CharacterType;
-import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 
 public final class PascalCaseTransformer {

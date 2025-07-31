@@ -5,11 +5,11 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.xml.IMutableXmlNode;
 import ch.nolix.coreapi.document.xml.IXmlAttribute;
 import ch.nolix.coreapi.document.xml.IXmlNode;
-import ch.nolix.coreapi.programatom.stringcatalog.CharacterCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class MutableXmlNode implements IMutableXmlNode {

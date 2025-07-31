@@ -1,12 +1,12 @@
-package ch.nolix.coreapi.commontypetool.chartool;
+package ch.nolix.coreapi.commontypetool.charactertool;
 
 /**
- * The {@link ICharTool} provides methods to handle chars.
+ * The {@link ICharacterTool} provides methods to handle chars.
  * 
  * @author Silvan Wyss
  * @version 2024-07-21
  */
-public interface ICharTool {
+public interface ICharacterTool {
 
   /**
    * @param character
