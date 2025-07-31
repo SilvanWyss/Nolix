@@ -2,7 +2,7 @@ package ch.nolix.systemtest.application.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programatom.voidobject.VoidObject;
+import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BasicApplication;
 import ch.nolix.system.application.maintestutil.TestSession;

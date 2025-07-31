@@ -1,9 +1,9 @@
-package ch.nolix.core.datamodel.blob;
+package ch.nolix.core.misc.dataobject;
 
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.datamodel.blob.IBlob;
+import ch.nolix.coreapi.misc.dataobject.IBlob;
 
 public final class Blob implements IBlob {
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.programatom.voidobject.VoidObject;
+import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coretest.container.base.ContainerTest;

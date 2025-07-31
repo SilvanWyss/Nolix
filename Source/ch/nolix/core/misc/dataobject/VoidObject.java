@@ -1,4 +1,4 @@
-package ch.nolix.core.programatom.voidobject;
+package ch.nolix.core.misc.dataobject;
 
 /**
  * A {@link VoidObject} is useful where just a {@link Object} is needed. A

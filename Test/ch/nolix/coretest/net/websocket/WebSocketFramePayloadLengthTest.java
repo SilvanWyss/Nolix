@@ -2,8 +2,8 @@ package ch.nolix.coretest.net.websocket;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.misc.dataobject.UnsignedByte;
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
-import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 

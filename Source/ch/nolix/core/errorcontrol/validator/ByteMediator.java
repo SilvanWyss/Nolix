@@ -1,7 +1,7 @@
 package ch.nolix.core.errorcontrol.validator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
+import ch.nolix.core.misc.dataobject.UnsignedByte;
 
 public class ByteMediator extends Mediator {
 

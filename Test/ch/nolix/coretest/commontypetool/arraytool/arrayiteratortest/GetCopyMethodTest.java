@@ -3,7 +3,7 @@ package ch.nolix.coretest.commontypetool.arraytool.arrayiteratortest;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.core.programatom.voidobject.VoidObject;
+import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 

@@ -2,8 +2,8 @@ package ch.nolix.coretest.net.messaging;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.net.messaging.IndexedPackage;
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class IndexedPackageTest extends StandardTest {

@@ -1,8 +1,8 @@
-package ch.nolix.coretest.programatom.unsignedbyte;
+package ch.nolix.coretest.misc.dataobject;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
+import ch.nolix.core.misc.dataobject.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class UnsignedByteTest extends StandardTest {
