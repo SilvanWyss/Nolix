@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 

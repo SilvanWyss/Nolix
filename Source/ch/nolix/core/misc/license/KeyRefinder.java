@@ -1,7 +1,7 @@
 package ch.nolix.core.misc.license;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**

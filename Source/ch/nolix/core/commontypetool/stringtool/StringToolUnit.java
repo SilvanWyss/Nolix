@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringTool;
-import ch.nolix.coreapi.programatom.stringcatalog.RegularExpressionPatternCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
 import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
 
 /**

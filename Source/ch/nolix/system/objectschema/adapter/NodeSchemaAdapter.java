@@ -2,8 +2,8 @@ package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
+import ch.nolix.coreapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.programatom.stringcatalog.RegularExpressionPatternCatalog;
 
 public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
 

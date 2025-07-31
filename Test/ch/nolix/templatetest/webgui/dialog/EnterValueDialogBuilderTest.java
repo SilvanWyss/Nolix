@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;

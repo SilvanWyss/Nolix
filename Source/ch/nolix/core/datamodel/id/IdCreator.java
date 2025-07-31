@@ -2,7 +2,7 @@ package ch.nolix.core.datamodel.id;
 
 import java.util.UUID;
 
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 public final class IdCreator {
 

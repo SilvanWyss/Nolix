@@ -3,7 +3,7 @@ package ch.nolix.core.environment.filesystem;
 import java.io.File;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programatom.stringcatalog.RegularExpressionPatternCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**

@@ -13,12 +13,12 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.net.target.IServerTarget;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
 import ch.nolix.systemapi.application.main.IApplication;
 
 /**

@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programatom.stringcatalog;
+package ch.nolix.coreapi.commontypetool.stringtool;
 
 import java.util.regex.Pattern;
 

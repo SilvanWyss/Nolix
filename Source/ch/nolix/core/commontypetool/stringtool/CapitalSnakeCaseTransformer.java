@@ -2,7 +2,7 @@ package ch.nolix.core.commontypetool.stringtool;
 
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 public final class CapitalSnakeCaseTransformer {
 

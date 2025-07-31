@@ -1,6 +1,6 @@
 package ch.nolix.system.sqlschema.statementcreator;
 
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnConstraintDto;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.DataTypeDto;

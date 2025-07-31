@@ -3,7 +3,7 @@ package ch.nolix.core.programatom.function;
 import java.util.Objects;
 
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
-import ch.nolix.coreapi.programatom.stringcatalog.StringCatalog;
+import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 /**
  * Of the {@link FunctionService} an instance cannot be created.
