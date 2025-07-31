@@ -15,8 +15,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
-  private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
-
   private final String name;
 
   private boolean loadedTablesFromDatabase;
@@ -41,7 +39,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
   public Database addTable(final ITable table) {
 
     DATABASE_TOOL.assertCanAddGivenTable(this, table);
-    MUTATION_EXECUTOR.addTableToDatabase(this, (Table) table);
+    DatabaseMutationExecutor.addTableToDatabase(this, (Table) table);
 
     return this;
   }

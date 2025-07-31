@@ -7,9 +7,10 @@ final class DatabaseMutationExecutor {
 
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 
-  public void addTableToDatabase(
-    final Database database,
-    final Table table) {
+  private DatabaseMutationExecutor() {
+  }
+
+  public static void addTableToDatabase(final Database database, final Table table) {
 
     database.addTableAttribute(table);
     table.setParentDatabase(database);
