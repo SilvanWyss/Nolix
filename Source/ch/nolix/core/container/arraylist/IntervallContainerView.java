@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link IntervallContainerView} can iterate over a part of another

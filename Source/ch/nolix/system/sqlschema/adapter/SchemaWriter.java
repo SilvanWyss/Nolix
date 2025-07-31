@@ -7,7 +7,7 @@ import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;

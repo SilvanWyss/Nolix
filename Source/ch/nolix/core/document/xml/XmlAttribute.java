@@ -3,7 +3,7 @@ package ch.nolix.core.document.xml;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.document.xml.IXmlAttribute;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class XmlAttribute implements IXmlAttribute {
 

@@ -6,7 +6,7 @@ import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.htmlattribute.LinkTarget;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;

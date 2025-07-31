@@ -15,7 +15,7 @@ import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.coreapi.misc.licenseapi.ILicenseValidator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link LicenseManagerUnit} contains {@link License}s.

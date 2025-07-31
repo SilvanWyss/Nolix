@@ -16,7 +16,7 @@ import ch.nolix.core.math.main.NumberComparator;
 import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link Matrix} represents a mathematical matrix of doubles.

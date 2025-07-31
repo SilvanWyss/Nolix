@@ -9,7 +9,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.styletool.AttributeMerger;
 import ch.nolix.system.element.styletool.AttributeReplacer;
 import ch.nolix.systemapi.element.style.IAttachingAttribute;

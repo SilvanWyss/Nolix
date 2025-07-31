@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 

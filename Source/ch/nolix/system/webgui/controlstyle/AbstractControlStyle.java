@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;

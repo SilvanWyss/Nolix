@@ -17,12 +17,12 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpoint3protocol.MessageHeaderCatalog;
 import ch.nolix.coreapi.net.netconstant.IPv6Catalog;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

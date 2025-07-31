@@ -16,8 +16,8 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableExaminer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * A {@link LinkedList} is a {@link AbstractContainer} that can add elements at

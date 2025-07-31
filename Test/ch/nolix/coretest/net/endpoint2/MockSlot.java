@@ -2,9 +2,9 @@ package ch.nolix.coretest.net.endpoint2;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpoint2.IEndPoint;
 import ch.nolix.coreapi.net.endpoint2.ISlot;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class MockSlot implements ISlot {
 

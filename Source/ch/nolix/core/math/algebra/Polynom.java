@@ -11,7 +11,7 @@ import ch.nolix.core.math.main.Calculator;
 import ch.nolix.core.math.main.NumberComparator;
 import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link Polynom} is not mutable.

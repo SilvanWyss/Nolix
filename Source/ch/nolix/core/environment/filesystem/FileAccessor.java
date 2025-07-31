@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A file accessor can access a given file.

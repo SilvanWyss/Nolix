@@ -11,13 +11,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpointprotocol.MessageType;
 import ch.nolix.coreapi.net.netconstant.IPv6Catalog;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
 
 /**

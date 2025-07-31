@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;

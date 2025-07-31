@@ -3,7 +3,7 @@ package ch.nolix.core.commontypetool.arraytool;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
 import ch.nolix.coreapi.commontypetool.arraytool.INextIndexMediator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
 

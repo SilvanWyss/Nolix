@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContai
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.errorcontrol.validator.IOptionalMediator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implements IOptionalMediator {
 

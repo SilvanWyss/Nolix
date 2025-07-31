@@ -1,7 +1,7 @@
 package ch.nolix.core.web.htmlelementmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 
 public final class HtmlAttribute implements IHtmlAttribute {

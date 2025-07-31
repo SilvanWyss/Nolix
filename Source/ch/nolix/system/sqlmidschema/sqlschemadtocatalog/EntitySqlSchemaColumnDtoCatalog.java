@@ -1,7 +1,7 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 

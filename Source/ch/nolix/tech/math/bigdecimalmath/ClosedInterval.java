@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.math.main.Calculator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 public final class ClosedInterval implements IClosedInterval {

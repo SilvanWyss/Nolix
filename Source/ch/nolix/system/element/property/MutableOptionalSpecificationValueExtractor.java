@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public final class MutableOptionalSpecificationValueExtractor implements IProperty, INameHolder {

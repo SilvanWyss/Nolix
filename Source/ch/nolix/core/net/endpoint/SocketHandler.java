@@ -17,10 +17,10 @@ import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpoint.IEndPoint;
 import ch.nolix.coreapi.net.endpoint.SocketType;
 import ch.nolix.coreapi.net.endpointprotocol.MessageType;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 public final class SocketHandler {
 

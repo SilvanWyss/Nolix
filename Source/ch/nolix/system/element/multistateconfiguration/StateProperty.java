@@ -2,7 +2,7 @@ package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 public final class StateProperty<V> {

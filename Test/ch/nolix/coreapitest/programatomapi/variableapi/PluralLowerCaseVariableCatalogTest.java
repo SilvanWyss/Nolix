@@ -7,7 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
-import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 final class PluralLowerCaseVariableCatalogTest extends StandardTest {
 

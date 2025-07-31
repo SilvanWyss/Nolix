@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.nodemidschema.databasestructure;
 
-import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

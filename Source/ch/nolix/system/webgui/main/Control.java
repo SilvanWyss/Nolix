@@ -11,8 +11,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.ExtensionElement;

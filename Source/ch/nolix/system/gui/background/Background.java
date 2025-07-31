@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.css.ICssProperty;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;

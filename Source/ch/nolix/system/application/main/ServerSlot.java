@@ -3,9 +3,9 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.endpoint3.ISlot;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

@@ -4,7 +4,7 @@ import java.util.function.IntConsumer;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IForCountMediator;
 import ch.nolix.coreapi.programcontrol.future.IFuture;
 

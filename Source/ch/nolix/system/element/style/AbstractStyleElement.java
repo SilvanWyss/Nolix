@@ -1,6 +1,6 @@
 package ch.nolix.system.element.style;
 
-import ch.nolix.coreapi.programatom.variable.PascalCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.element.style.IStyle;
 import ch.nolix.systemapi.element.style.IStyleElement;

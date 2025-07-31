@@ -2,7 +2,7 @@ package ch.nolix.core.argumentcaptor.toargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
 

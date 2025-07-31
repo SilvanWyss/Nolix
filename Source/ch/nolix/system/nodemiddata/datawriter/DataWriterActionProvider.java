@@ -6,8 +6,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatom.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;

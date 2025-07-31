@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.modelmutationvalidator;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.model.AbstractBackReferenceModel;
 import ch.nolix.system.objectschema.model.AbstractReferenceModel;

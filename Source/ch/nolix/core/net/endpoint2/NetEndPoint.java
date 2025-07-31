@@ -7,12 +7,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpoint.IEndPoint;
 import ch.nolix.coreapi.net.endpoint2protocol.MessageRole;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link NetEndPoint} is a {@link AbstractEndPoint} that can send messages to

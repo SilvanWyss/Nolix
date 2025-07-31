@@ -2,7 +2,7 @@ package ch.nolix.core.testing.standardtest;
 
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link ExtendedThrownExceptionMediator} is not mutable.

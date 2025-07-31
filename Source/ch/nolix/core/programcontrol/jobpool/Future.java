@@ -2,7 +2,7 @@ package ch.nolix.core.programcontrol.jobpool;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.future.AbstractFuture;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 final class Future extends AbstractFuture {
 

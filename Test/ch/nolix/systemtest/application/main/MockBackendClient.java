@@ -4,7 +4,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.main.AbstractBackendClient;
 
 public final class MockBackendClient extends AbstractBackendClient<MockBackendClient, Object> {

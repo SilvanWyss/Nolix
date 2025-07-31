@@ -18,7 +18,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.container.matrix.IMatrix;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link Matrix} is a {@link AbstractContainer} that stores its elements in

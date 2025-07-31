@@ -7,7 +7,7 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
 extends AbstractNode<N>
