@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.programatom.word;
+package ch.nolix.coreapi.misc.english;
 
 /**
  * The {@link EnglishArticleCatalog} provides English articles.

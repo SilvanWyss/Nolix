@@ -2,8 +2,8 @@ package ch.nolix.core.misc.english;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.misc.english.EnglishArticleCatalog;
 import ch.nolix.coreapi.programatom.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.programatom.word.EnglishArticleCatalog;
 
 public final class EnglishNounTool {
 
