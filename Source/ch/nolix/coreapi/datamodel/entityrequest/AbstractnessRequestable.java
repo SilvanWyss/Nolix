@@ -1,7 +1,5 @@
 package ch.nolix.coreapi.datamodel.entityrequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link AbstractnessRequestable} can be asked if it is either abstract or
  * concrete.
@@ -9,7 +7,6 @@ import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @version 2023-08-25
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface AbstractnessRequestable {
 
   /**

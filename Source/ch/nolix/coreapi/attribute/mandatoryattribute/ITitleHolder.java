@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.mandatoryattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link ITitleHolder} has a title.
  * 
  * @author Silvan Wyss
  * @version 2019-07-26
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface ITitleHolder {
 
   /**

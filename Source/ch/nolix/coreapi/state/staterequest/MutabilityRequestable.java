@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link MutabilityRequestable} can be asked if it is mutable.
  * 
  * @author Silvan Wyss
  * @version 2021-03-19
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface MutabilityRequestable {
 
   /**

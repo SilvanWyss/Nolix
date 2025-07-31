@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.optionalattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IOptionalQualifiedNameHolder} can have a qualified name.
  * 
  * @author Silvan Wyss
  * @version 2024-02-11
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
 
   /**

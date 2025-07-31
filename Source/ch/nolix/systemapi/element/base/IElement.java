@@ -3,13 +3,11 @@ package ch.nolix.systemapi.element.base;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.document.xml.IXmlNode;
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IElement {
 
   /**

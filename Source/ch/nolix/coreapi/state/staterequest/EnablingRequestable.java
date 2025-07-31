@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link EnablingRequestable} can be asked if it is enabled or disabled.
  * 
  * @author Silvan Wyss
  * @version 2020-10-02
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface EnablingRequestable {
 
   /**

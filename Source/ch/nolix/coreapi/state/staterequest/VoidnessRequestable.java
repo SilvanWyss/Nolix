@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link VoidnessRequestable} can be asked if it is void.
  * 
  * @author Silvan Wyss
  * @version 2022-03-10
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface VoidnessRequestable {
 
   /**

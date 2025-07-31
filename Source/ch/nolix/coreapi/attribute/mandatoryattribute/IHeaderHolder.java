@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.mandatoryattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IHeaderHolder} has a header.
  * 
  * @author Silvan Wyss
  * @version 2018-04-07
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IHeaderHolder {
 
   /**

@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.mandatoryattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IIdHolder} has an id.
  * 
  * @author Silvan Wyss
  * @version 2019-06-10
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IIdHolder {
 
   /**

@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.optionalattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IOptionalTitleHolder} can have a title.
  * 
  * @author Silvan Wyss
  * @version 2023-02-06
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalTitleHolder {
 
   /**

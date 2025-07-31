@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link UpToDateRequestable} can be asked if it is up-to-date.
  * 
  * @author Silvan Wyss
  * @version 2025-07-07
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface UpToDateRequestable {
 
   /**

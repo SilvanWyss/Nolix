@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.optionalattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IOptionalLabelHolder} can have a label.
  * 
  * @author Silvan Wyss
  * @version 2023-02-07
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalLabelHolder {
 
   /**

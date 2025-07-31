@@ -1,7 +1,6 @@
 package ch.nolix.coreapi.datamodel.fieldrequest;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.ContentType;
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 
 /**
  * A {@link ContentTypeRequestable} can be asked if it either is for holding
@@ -10,7 +9,6 @@ import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @version 2023-09-08
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface ContentTypeRequestable {
 
   /**

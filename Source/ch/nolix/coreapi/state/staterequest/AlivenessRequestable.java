@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link AlivenessRequestable} can be asked if it is alive or outdated.
  * 
  * @author Silvan Wyss
  * @version 2023-08-02
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface AlivenessRequestable {
 
   /**

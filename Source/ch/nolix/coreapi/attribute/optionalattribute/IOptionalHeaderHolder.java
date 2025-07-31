@@ -2,15 +2,12 @@ package ch.nolix.coreapi.attribute.optionalattribute;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IOptionalHeaderHolder} can have a header.
  * 
  * @author Silvan Wyss
  * @version 2020-03-28
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalHeaderHolder {
 
   /**

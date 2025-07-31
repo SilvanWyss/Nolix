@@ -2,7 +2,6 @@ package ch.nolix.systemapi.element.mutableelement;
 
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.state.statemutation.Resettable;
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**
@@ -13,7 +12,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * @author Silvan Wyss
  * @version 2017-01-01
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IMutableElement extends Resettable, IElement {
 
   /**

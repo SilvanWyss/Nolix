@@ -1,12 +1,9 @@
 package ch.nolix.coreapi.resourcecontrol.closecontroller;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * @author Silvan Wyss
  * @version 2020-07-05
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface GroupCloseable extends Closeable {
 
   /**

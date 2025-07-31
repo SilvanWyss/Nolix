@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.programcontrol.process;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link FinishRequestable} can be asked if it is running or finished.
  * 
  * @author Silvan Wyss
  * @version 2022-06-18
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface FinishRequestable {
 
   /**

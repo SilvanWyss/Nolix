@@ -1,7 +1,5 @@
 package ch.nolix.systemapi.element.style;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link ISelectingStyle} is a {@link IAbstractStyle} that can select or skip
  * a {@link IStylableElement} that is given to be styled.
@@ -10,7 +8,6 @@ import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
  * @version 2023-07-08
  * @param <S> is the type of a {@link ISelectingStyle}.
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IAbstractStyle<S> {
 
   /**

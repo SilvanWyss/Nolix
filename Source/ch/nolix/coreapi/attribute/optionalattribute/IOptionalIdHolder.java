@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.optionalattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IOptionalIdHolder} can have an id.
  * 
  * @author Silvan Wyss
  * @version 2020-01-05
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalIdHolder {
 
   /**

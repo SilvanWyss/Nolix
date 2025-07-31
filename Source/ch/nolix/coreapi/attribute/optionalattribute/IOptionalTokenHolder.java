@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.optionalattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IOptionalTokenHolder} can have a token.
  * 
  * @author Silvan Wyss
  * @version 2020-03-29
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalTokenHolder {
 
   /**

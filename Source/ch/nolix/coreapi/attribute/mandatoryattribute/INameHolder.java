@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.mandatoryattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link INameHolder} has a name.
  * 
  * @author Silvan Wyss
  * @version 2016-01-01
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface INameHolder {
 
   /**

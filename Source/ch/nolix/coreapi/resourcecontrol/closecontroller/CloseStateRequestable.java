@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.resourcecontrol.closecontroller;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link CloseStateRequestable} can be asked if it is closed or open.
  * 
  * @author Silvan Wyss
  * @version 2020-07-01
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface CloseStateRequestable {
 
   /**

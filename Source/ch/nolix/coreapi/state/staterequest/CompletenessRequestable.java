@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link CompletenessRequestable} can be asked if it is complete.
  * 
  * @author Silvan Wyss
  * @version 2023-02-17
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface CompletenessRequestable {
 
   /**

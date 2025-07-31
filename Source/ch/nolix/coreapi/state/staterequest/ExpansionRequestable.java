@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link ExpansionRequestable} can be asked if it is expanded or collapsed.
  * 
  * @author Silvan Wyss
  * @version 2020-10-02
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface ExpansionRequestable {
 
   /**

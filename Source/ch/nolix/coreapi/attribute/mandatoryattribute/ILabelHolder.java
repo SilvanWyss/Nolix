@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.attribute.mandatoryattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link ILabelHolder} has a label.
  * 
  * @author Silvan Wyss
  * @version 2021-08-26
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface ILabelHolder {
 
   /**

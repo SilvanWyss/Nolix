@@ -1,7 +1,5 @@
 package ch.nolix.coreapi.attribute.mandatoryattribute;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link IQualifiedNameHolder} has a qualified name. The qualified name of a
  * {@link IQualifiedNameHolder} is its name headed by its qualifying prefix.
@@ -9,7 +7,6 @@ import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @version 2024-01-19
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IQualifiedNameHolder extends INameHolder {
 
   /**

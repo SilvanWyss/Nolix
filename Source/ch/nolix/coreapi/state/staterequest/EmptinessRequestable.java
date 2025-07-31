@@ -1,7 +1,5 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link EmptinessRequestable} can be asked if it is empty or contains
  * elements.
@@ -9,7 +7,6 @@ import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @version 2020-06-11
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {
 
   /**

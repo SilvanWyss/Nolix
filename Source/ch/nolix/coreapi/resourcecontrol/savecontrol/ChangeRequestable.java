@@ -1,14 +1,11 @@
 package ch.nolix.coreapi.resourcecontrol.savecontrol;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link ChangeRequestable} can be asked if it has uncommitted changes.
  * 
  * @author Silvan Wyss
  * @version 2021-02-26
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface ChangeRequestable {
 
   /**

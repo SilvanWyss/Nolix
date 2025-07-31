@@ -1,7 +1,5 @@
 package ch.nolix.coreapi.state.staterequest;
 
-import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
-
 /**
  * A {@link MaterializationRequestable} can be asked if it is either
  * materialized or a view. A materialized object manages its content by itself.
@@ -20,7 +18,6 @@ import ch.nolix.coreapi.structure.typemarker.AllowDefaultMethodsAsDesignPattern;
  * @author Silvan Wyss
  * @version 2023-02-12
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface MaterializationRequestable {
 
   /**
