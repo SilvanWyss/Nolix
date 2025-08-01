@@ -3,9 +3,8 @@ package ch.nolix.core.commontypetool.inputstreamtool;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
-import ch.nolix.coreapi.container.list.ILinkedList;
 
 public final class InputStreamTool implements IInputStreamTool {
 
@@ -15,7 +14,7 @@ public final class InputStreamTool implements IInputStreamTool {
   @Override
   public String readLineFromInputStream(final InputStream inputStream) {
 
-    final ILinkedList<Byte> bytes = LinkedList.createEmpty();
+    final var bytes = new List<Byte>();
 
     while (true) {
       try {
