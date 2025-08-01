@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.misc.licenseapi;
+package ch.nolix.coreapi.environment.licenseapi;
 
 import ch.nolix.coreapi.container.base.IContainer;
 

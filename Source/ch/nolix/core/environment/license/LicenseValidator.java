@@ -1,9 +1,9 @@
-package ch.nolix.core.misc.license;
+package ch.nolix.core.environment.license;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.misc.licenseapi.ILicense;
-import ch.nolix.coreapi.misc.licenseapi.ILicenseValidator;
+import ch.nolix.coreapi.environment.licenseapi.ILicense;
+import ch.nolix.coreapi.environment.licenseapi.ILicenseValidator;
 
 /**
  * A {@link LicenseValidator} is not mutable.

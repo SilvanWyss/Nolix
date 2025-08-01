@@ -1,4 +1,4 @@
-package ch.nolix.core.misc.license;
+package ch.nolix.core.environment.license;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -13,8 +13,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.environment.licenseapi.ILicenseValidator;
 import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
-import ch.nolix.coreapi.misc.licenseapi.ILicenseValidator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

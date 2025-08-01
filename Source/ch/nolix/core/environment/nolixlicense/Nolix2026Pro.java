@@ -1,6 +1,6 @@
 package ch.nolix.core.environment.nolixlicense;
 
-import ch.nolix.core.misc.license.License;
+import ch.nolix.core.environment.license.License;
 
 public final class Nolix2026Pro extends License {
 

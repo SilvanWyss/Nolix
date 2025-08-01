@@ -1,4 +1,4 @@
-package ch.nolix.core.misc.license;
+package ch.nolix.core.environment.license;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 
