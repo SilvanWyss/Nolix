@@ -18,7 +18,7 @@ public final class Credential {
     this.password = password;
   }
 
-  public static final Credential withLoginNameAndPassword(final String loginName, final String password) {
+  public static Credential withLoginNameAndPassword(final String loginName, final String password) {
     return new Credential(loginName, password);
   }
 
