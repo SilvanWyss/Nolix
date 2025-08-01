@@ -3,7 +3,6 @@ package ch.nolix.core.sql.connectionpool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
-import ch.nolix.core.programcontrol.usercontrol.CredentialBuilder;
 import ch.nolix.core.resourcecontrol.resourcepool.AbstractResourcePool;
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
@@ -46,7 +45,7 @@ implements ISqlDatabaseTarget {
     this.port = port;
     this.databaseName = databaseName;
     this.sqlDatabaseEngine = sqlDatabaseEngine;
-    credential = CredentialBuilder.createCredential().withLoginName(loginName).andPassword(loginPassword);
+    credential = Credential.withLoginNameAndPassword(loginName, loginPassword);
   }
 
   @Override

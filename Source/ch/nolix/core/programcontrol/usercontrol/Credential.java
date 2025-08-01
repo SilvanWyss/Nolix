@@ -9,13 +9,17 @@ public final class Credential {
 
   private final String password;
 
-  Credential(final String loginName, final String password) {
+  private Credential(final String loginName, final String password) {
 
     Validator.assertThat(loginName).thatIsNamed(LowerCaseVariableCatalog.LOGIN_NAME).isNotBlank();
     Validator.assertThat(password).thatIsNamed(LowerCaseVariableCatalog.PASSWORD).isNotBlank();
 
     this.loginName = loginName;
     this.password = password;
+  }
+
+  public static final Credential withLoginNameAndPassword(final String loginName, final String password) {
+    return new Credential(loginName, password);
   }
 
   public String getLoginName() {
