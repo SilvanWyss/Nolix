@@ -30,7 +30,10 @@ final class SystemApiArchitectureTest {
       .classes()
       .should()
       .onlyDependOnClassesThat()
-      .resideInAnyPackage("ch.nolix.coreapi..", "ch.nolix.systemapi..", "java..");
+      .resideInAnyPackage(
+        "ch.nolix.coreapi..",
+        "ch.nolix.systemapi..",
+        "java..");
 
     //execution & verification
     rule.check(TEST_UNIT);
