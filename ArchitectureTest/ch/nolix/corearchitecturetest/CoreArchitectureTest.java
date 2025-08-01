@@ -32,7 +32,12 @@ final class CoreArchitectureTest {
       .classes()
       .should()
       .onlyDependOnClassesThat()
-      .resideInAnyPackage("ch.nolix.core..", "ch.nolix.coreapi..", "io.netty..", "java..", "javax..");
+      .resideInAnyPackage(
+        "ch.nolix.core..",
+        "ch.nolix.coreapi..",
+        "io.netty..",
+        "java..",
+        "javax..");
 
     //execution & verification
     rule.check(TEST_UNIT);
