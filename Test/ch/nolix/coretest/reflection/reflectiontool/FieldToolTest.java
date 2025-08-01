@@ -1,4 +1,4 @@
-package ch.nolix.coretest.structurecontrol.reflectiontool;
+package ch.nolix.coretest.reflection.reflectiontool;
 
 import org.junit.jupiter.api.Test;
 
