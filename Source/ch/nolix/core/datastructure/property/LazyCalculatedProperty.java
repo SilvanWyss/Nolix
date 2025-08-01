@@ -5,7 +5,6 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.coreapi.datastructure.property.ILazyCalculatedProperty;
 
 /**
@@ -64,7 +63,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreater(final Supplier<V2> valueCreator) {
 
-    final BooleanSupplier needToUpdateSupplier = FunctionService::getTrue;
+    final BooleanSupplier needToUpdateSupplier = () -> true;
 
     return new LazyCalculatedProperty<>(valueCreator, needToUpdateSupplier);
   }
