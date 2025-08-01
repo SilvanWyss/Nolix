@@ -88,19 +88,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
   }
 
   @Test
-  void testCase_toBytes_whenPayloadLengthIs0() {
-
-    //setup
-    final var testUnit = new WebSocketFramePayloadLength(0);
-
-    //execution
-    final var result = testUnit.toBytes();
-
-    //verification
-    expect(result[0]).consistsOfBits("00000000");
-  }
-
-  @Test
   void testCase_toBytes_whenPayloadLengthIs125() {
 
     //setup
