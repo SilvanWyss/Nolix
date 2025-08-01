@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.NumberComparator;
+import ch.nolix.core.independent.math.NumberComparator;
 import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.coreapi.container.list.ILinkedList;

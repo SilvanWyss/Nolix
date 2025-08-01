@@ -6,7 +6,7 @@ import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.NumberComparator;
+import ch.nolix.core.independent.math.NumberComparator;
 
 /**
  * A {@link Vector} is not mutable.

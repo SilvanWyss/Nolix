@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.independent.machineprecision.NumberComparator;
+import ch.nolix.core.independent.math.NumberComparator;
 
 /**
  * A double mediator is a mediator for a double. A double mediator is not

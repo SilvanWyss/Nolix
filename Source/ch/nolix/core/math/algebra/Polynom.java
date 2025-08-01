@@ -7,8 +7,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.independent.math.NumberComparator;
 import ch.nolix.core.math.main.Calculator;
-import ch.nolix.core.math.main.NumberComparator;
 import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;

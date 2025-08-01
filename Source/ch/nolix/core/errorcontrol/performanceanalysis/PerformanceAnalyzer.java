@@ -5,10 +5,10 @@ import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
+import ch.nolix.core.independent.math.NumberComparator;
 import ch.nolix.core.independent.stopwatch.RuntimeMeter;
 import ch.nolix.core.independent.stopwatch.StopWatch;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
-import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
 
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
 
@@ -88,7 +88,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
           return false;
         }
 
-        if (isZero(latestTimeComplexityInvariant)) {
+        if (NumberComparator.isZero(latestTimeComplexityInvariant)) {
           latestTimeComplexityInvariant = timeComplexityInvariant;
         } else {
           latestTimeComplexityInvariant = (0.2 * latestTimeComplexityInvariant) + (0.8 * timeComplexityInvariant);
@@ -148,11 +148,5 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     }
 
     return (totalRunCount >= 390_625 /* 5^8 */);
-  }
-
-  private boolean isZero(final double value) {
-    return //
-    value > -ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD
-    && value < ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD;
   }
 }

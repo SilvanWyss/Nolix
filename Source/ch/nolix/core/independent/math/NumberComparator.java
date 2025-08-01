@@ -1,4 +1,4 @@
-package ch.nolix.core.math.main;
+package ch.nolix.core.independent.math;
 
 import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
 

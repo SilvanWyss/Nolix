@@ -3,7 +3,7 @@ package ch.nolix.coretest.math.main;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.core.math.main.NumberComparator;
+import ch.nolix.core.independent.math.NumberComparator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class NumberComparatorTest extends StandardTest {

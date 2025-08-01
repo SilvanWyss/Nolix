@@ -2,7 +2,7 @@ package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.math.main.NumberComparator;
+import ch.nolix.core.independent.math.NumberComparator;
 import ch.nolix.core.web.cssmodel.CssProperty;
 import ch.nolix.core.web.cssmodel.CssRule;
 import ch.nolix.coreapi.container.base.IContainer;
