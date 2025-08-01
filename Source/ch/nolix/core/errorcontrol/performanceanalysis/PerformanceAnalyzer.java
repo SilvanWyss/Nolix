@@ -6,8 +6,8 @@ import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.core.math.main.NumberComparator;
-import ch.nolix.core.programcontrol.stopwatch.RuntimeMeter;
-import ch.nolix.core.programcontrol.stopwatch.StopWatch;
+import ch.nolix.core.misc.stopwatch.RuntimeMeter;
+import ch.nolix.core.misc.stopwatch.StopWatch;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {

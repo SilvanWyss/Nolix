@@ -1,6 +1,4 @@
-package ch.nolix.core.programcontrol.stopwatch;
-
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+package ch.nolix.core.misc.stopwatch;
 
 public final class StopWatch {
 
@@ -83,13 +81,13 @@ public final class StopWatch {
 
   private void assertIsNotRunning() {
     if (isRunning()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is started");
+      throw new IllegalStateException("The current StopWatch is started.");
     }
   }
 
   private void assertIsRunning() {
     if (!isRunning()) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not started");
+      throw new IllegalStateException("The current StopWatch is not running.");
     }
   }
 }
