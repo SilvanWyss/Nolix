@@ -5,8 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironmentService;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
+import ch.nolix.core.independent.nolixenvironment.NolixEnvironmentService;
 
 public final class FileLogHandler extends AbstractLogHandler {
 

@@ -1,7 +1,7 @@
 package ch.nolix.core.net.ssl;
 
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.environment.nolixenvironment.NolixEnvironmentService;
+import ch.nolix.core.independent.nolixenvironment.NolixEnvironmentService;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 

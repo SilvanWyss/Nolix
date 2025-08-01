@@ -1,4 +1,4 @@
-package ch.nolix.core.environment.nolixenvironment;
+package ch.nolix.core.independent.nolixenvironment;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
