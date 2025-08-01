@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.creation.copier;
+package ch.nolix.coreapi.objectcreation.copier;
 
 /**
  * A {@link Copyable} can create a copy of itself.

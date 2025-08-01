@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.creation.builder;
+package ch.nolix.coreapi.objectcreation.builder;
 
 /**
  * A {@link IBuilder} can build {@link Object}s.

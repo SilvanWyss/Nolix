@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.creation.builder;
+package ch.nolix.coreapi.objectcreation.builder;
 
 /**
  * A {@link Rebuildable} can rebuild itself.

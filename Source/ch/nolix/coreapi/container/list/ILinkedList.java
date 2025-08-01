@@ -3,7 +3,7 @@ package ch.nolix.coreapi.container.list;
 import java.util.function.Predicate;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.creation.copier.Copyable;
+import ch.nolix.coreapi.objectcreation.copier.Copyable;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
