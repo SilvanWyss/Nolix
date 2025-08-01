@@ -1,6 +1,5 @@
 package ch.nolix.corearchitecturetest;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
@@ -13,7 +12,6 @@ final class CoreArchitectureTest {
   private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix.core..");
 
   @Test
-  @Disabled
   void testCase_cycles() {
 
     //setup
