@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.gui.main;
+package ch.nolix.systemapi.gui.model;
 
 import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTitleHolder;
 import ch.nolix.systemapi.graphic.image.IImage;

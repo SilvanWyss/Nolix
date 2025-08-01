@@ -19,7 +19,7 @@ import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.font.LineDecoration;
-import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILink;
 import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILinkStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;

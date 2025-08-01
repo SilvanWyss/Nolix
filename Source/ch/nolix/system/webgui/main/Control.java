@@ -23,7 +23,7 @@ import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
-import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.Presence;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;

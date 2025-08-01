@@ -17,7 +17,7 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButtonStyle;

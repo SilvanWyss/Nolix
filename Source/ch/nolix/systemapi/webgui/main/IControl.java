@@ -9,7 +9,7 @@ import ch.nolix.coreapi.objectstructure.linking.Linkable;
 import ch.nolix.coreapi.web.css.ICssRule;
 import ch.nolix.coreapi.web.html.IHtmlGetter;
 import ch.nolix.systemapi.gui.canvas.Dimensionable;
-import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.gui.guiproperty;
+package ch.nolix.systemapi.gui.model;
 
 import java.awt.Cursor;
 import java.util.Locale;

@@ -9,7 +9,7 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.gui.canvas.ICanvas;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
-import ch.nolix.systemapi.gui.main.IGui;
+import ch.nolix.systemapi.gui.model.IGui;
 import ch.nolix.systemapi.style.stylable.IStyleElement;
 
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, ICanvas<G>, IGui<G>, IStyleElement<G> {

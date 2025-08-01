@@ -14,7 +14,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
 import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextboxStyle;
 import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.TextMode;

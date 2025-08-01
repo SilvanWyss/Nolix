@@ -10,7 +10,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.gui.guiproperty.CursorIcon;
+import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
 import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
 import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuSearcher;
