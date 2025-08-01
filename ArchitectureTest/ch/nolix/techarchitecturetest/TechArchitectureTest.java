@@ -11,6 +11,7 @@ final class TechArchitectureTest {
 
   private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix.tech..");
 
+  @Test
   void testCase_cycles() {
 
     //setup
