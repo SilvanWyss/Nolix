@@ -1,7 +1,7 @@
 package ch.nolix.template.webgui.style;
 
-import ch.nolix.system.element.style.Style;
-import ch.nolix.systemapi.element.style.IStyle;
+import ch.nolix.system.style.model.Style;
+import ch.nolix.systemapi.style.model.IStyle;
 
 public final class StyleCatalog {
 

@@ -6,11 +6,11 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 import ch.nolix.coreapi.web.css.ICss;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.systemapi.element.style.IStyleElement;
 import ch.nolix.systemapi.gui.canvas.ICanvas;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 import ch.nolix.systemapi.gui.main.IGui;
+import ch.nolix.systemapi.style.stylable.IStyleElement;
 
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, ICanvas<G>, IGui<G>, IStyleElement<G> {
 
