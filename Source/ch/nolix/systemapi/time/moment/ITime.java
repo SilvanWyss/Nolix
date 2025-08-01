@@ -58,6 +58,11 @@ public interface ITime extends IElement {
   Weekday getWeekday();
 
   /**
+   * @return the week of the year of the current {@link ITime}.
+   */
+  int getWeekOfYear();
+
+  /**
    * @return the year of the current {@link ITime}.
    */
   int getYear();
