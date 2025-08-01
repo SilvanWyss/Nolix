@@ -1,16 +1,17 @@
 package ch.nolix.systemapi.webgui.controlstyle;
 
+import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface IPaddingStyle<S extends IPaddingStyle<S>> {
 
-  int getBottomPaddingWhenHasState(ControlState state);
+  IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(ControlState state);
 
-  int getLeftPaddingWhenHasState(ControlState state);
+  IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(ControlState state);
 
-  int getRightPaddingWhenHasState(ControlState state);
+  IAbsoluteOrRelativeInt getRightPaddingWhenHasState(ControlState state);
 
-  int getTopPaddingWhenHasState(ControlState state);
+  IAbsoluteOrRelativeInt getTopPaddingWhenHasState(ControlState state);
 
   void removeCustomBottomPaddings();
 

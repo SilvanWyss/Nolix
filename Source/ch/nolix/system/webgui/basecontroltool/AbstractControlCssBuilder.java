@@ -151,7 +151,9 @@ implements IControlCssBuilder<C, S> {
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getLeftBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.PADDING_LEFT,
-        String.valueOf(style.getLeftPaddingWhenHasState(state)) + "px"),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
+          style.getLeftPaddingWhenHasState(state),
+          "vw")),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.BORDER_RIGHT_WIDTH,
         String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + "px"),
@@ -160,7 +162,9 @@ implements IControlCssBuilder<C, S> {
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getRightBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.PADDING_RIGHT,
-        String.valueOf(style.getRightPaddingWhenHasState(state)) + "px"),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
+          style.getRightPaddingWhenHasState(state),
+          "vw")),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.BORDER_TOP_WIDTH,
         String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + "px"),
@@ -169,7 +173,9 @@ implements IControlCssBuilder<C, S> {
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getTopBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.PADDING_TOP,
-        String.valueOf(style.getTopPaddingWhenHasState(state)) + "px"),
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
+          style.getTopPaddingWhenHasState(state),
+          "vw")),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.BORDER_BOTTOM_WIDTH,
         String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + "px"),
@@ -178,7 +184,9 @@ implements IControlCssBuilder<C, S> {
         CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(style.getBottomBorderColorWhenHasState(state))),
       CssProperty.withNameAndValue(
         CssPropertyNameCatalog.PADDING_BOTTOM,
-        String.valueOf(style.getBottomPaddingWhenHasState(state)) + "px"));
+        CONTROL_CSS_VALUE_TOOL.getCssValueFromRelativeOrAbsoluteInt(
+          style.getBottomPaddingWhenHasState(state),
+          "vw")));
 
     list.addAtEnd(style.getBackgroundWhenHasState(state).toCssProperties());
   }
