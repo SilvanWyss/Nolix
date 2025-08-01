@@ -2,7 +2,6 @@ package ch.nolix.core.container.arraylist;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.Calculator;
 import ch.nolix.coreapi.math.number.IntCatalog;
 
 /**
@@ -49,6 +48,20 @@ public final class ArrayListCapacityCalculator {
       return Integer.MAX_VALUE;
     }
 
-    return Calculator.getMax(requiredCapacity, 2 * actualCapacity);
+    return getMax(requiredCapacity, 2 * actualCapacity);
+  }
+
+  /**
+   * @param value1
+   * @param value2
+   * @return the bigger value from the given value1 and value2.
+   */
+  private int getMax(int value1, int value2) {
+
+    if (value1 > value2) {
+      return value1;
+    }
+
+    return value2;
   }
 }
