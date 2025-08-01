@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.web.css;
+package ch.nolix.coreapi.web.cssmodel;
 
 import ch.nolix.coreapi.container.base.IContainer;
 

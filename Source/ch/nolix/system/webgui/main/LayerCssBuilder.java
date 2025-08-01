@@ -3,12 +3,12 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.math.main.NumberComparator;
-import ch.nolix.core.web.css.CssProperty;
-import ch.nolix.core.web.css.CssRule;
+import ch.nolix.core.web.cssmodel.CssProperty;
+import ch.nolix.core.web.cssmodel.CssRule;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
-import ch.nolix.coreapi.web.css.ICssProperty;
+import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.ILayer;
 

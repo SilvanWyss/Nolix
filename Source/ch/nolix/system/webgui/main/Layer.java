@@ -11,7 +11,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.coreapi.web.css.ICssRule;
+import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;

@@ -1,9 +1,9 @@
 package ch.nolix.system.webgui.atomiccontrol.link;
 
-import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.cssmodel.CssProperty;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.web.css.ICssProperty;
-import ch.nolix.coreapi.web.css.ICssRule;
+import ch.nolix.coreapi.web.cssmodel.ICssProperty;
+import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILink;
 import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILinkStyle;

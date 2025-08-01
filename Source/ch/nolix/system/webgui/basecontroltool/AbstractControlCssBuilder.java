@@ -4,14 +4,14 @@ import java.util.Locale;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.css.CssProperty;
-import ch.nolix.core.web.css.CssRule;
+import ch.nolix.core.web.cssmodel.CssProperty;
+import ch.nolix.core.web.cssmodel.CssRule;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
-import ch.nolix.coreapi.web.css.ICssProperty;
-import ch.nolix.coreapi.web.css.ICssRule;
+import ch.nolix.coreapi.web.cssmodel.ICssProperty;
+import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.system.webgui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;

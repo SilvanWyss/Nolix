@@ -10,7 +10,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.coreapi.web.css.ICss;
+import ch.nolix.coreapi.web.cssmodel.ICss;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.element.property.MutableOptionalValue;

@@ -1,10 +1,10 @@
-package ch.nolix.coretest.web.css;
+package ch.nolix.coretest.web.cssmodel;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.cssmodel.CssProperty;
 
 final class CssPropertyTest extends StandardTest {
 

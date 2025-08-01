@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webgui.cssmapper;
 
-import ch.nolix.coreapi.web.css.ICssProperty;
+import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 
 /**

@@ -1,9 +1,9 @@
-package ch.nolix.core.web.css;
+package ch.nolix.core.web.cssmodel;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.web.css.ICss;
-import ch.nolix.coreapi.web.css.ICssRule;
+import ch.nolix.coreapi.web.cssmodel.ICss;
+import ch.nolix.coreapi.web.cssmodel.ICssRule;
 
 public final class Css implements ICss {
 

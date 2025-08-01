@@ -1,11 +1,11 @@
 package ch.nolix.system.webgui.container;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.css.CssProperty;
-import ch.nolix.core.web.css.CssRule;
+import ch.nolix.core.web.cssmodel.CssProperty;
+import ch.nolix.core.web.cssmodel.CssRule;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.web.css.ICssProperty;
-import ch.nolix.coreapi.web.css.ICssRule;
+import ch.nolix.coreapi.web.cssmodel.ICssProperty;
+import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;

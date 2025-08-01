@@ -4,10 +4,10 @@ import java.util.Locale;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.cssmodel.CssProperty;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
-import ch.nolix.coreapi.web.css.ICssProperty;
+import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.imageproperty.Alignment;

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.state.statemutation.Clearable;
-import ch.nolix.coreapi.web.css.ICss;
+import ch.nolix.coreapi.web.cssmodel.ICss;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.gui.canvas.ICanvas;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
