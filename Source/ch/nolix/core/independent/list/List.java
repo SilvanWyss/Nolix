@@ -1,6 +1,7 @@
 package ch.nolix.core.independent.list;
 
 import java.util.Iterator;
+import java.util.function.Function;
 
 public final class List<E> implements Iterable<E> {
 
@@ -137,6 +138,29 @@ public final class List<E> implements Iterable<E> {
     if (!isEmpty()) {
       removeFirstOccuranceOfWhenContainsAny(element);
     }
+  }
+
+  public byte[] toByteArray(Function<E, Byte> byteMapper) {
+
+    if (byteMapper == null) {
+      throw new IllegalArgumentException("The given byteMapper is null.");
+    }
+
+    final var array = new byte[getElementCount()];
+    var index = 0;
+
+    for (final var e : this) {
+
+      if (e == null) {
+        array[index] = 0;
+      } else {
+        array[index] = byteMapper.apply(e);
+      }
+
+      index++;
+    }
+
+    return array;
   }
 
   private void assertIsNotEmpty() {
