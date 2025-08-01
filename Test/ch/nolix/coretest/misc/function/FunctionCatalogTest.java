@@ -1,4 +1,4 @@
-package ch.nolix.coretest.programatom.function;
+package ch.nolix.coretest.misc.function;
 
 import org.junit.jupiter.api.Test;
 
