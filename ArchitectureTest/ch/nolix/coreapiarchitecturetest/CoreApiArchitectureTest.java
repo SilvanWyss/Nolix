@@ -30,7 +30,9 @@ final class CoreApiArchitectureTest {
       .classes()
       .should()
       .onlyDependOnClassesThat()
-      .resideInAnyPackage("ch.nolix.coreapi..", "java..");
+      .resideInAnyPackage(
+        "ch.nolix.coreapi..",
+        "java..");
 
     //execution & verification
     rule.check(TEST_UNIT);
