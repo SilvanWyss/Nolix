@@ -1,4 +1,4 @@
-package ch.nolix.coretest.programcontrol.sequencer;
+package ch.nolix.coretest.programcontrol.flowcontrol;
 
 import org.junit.jupiter.api.Test;
 
