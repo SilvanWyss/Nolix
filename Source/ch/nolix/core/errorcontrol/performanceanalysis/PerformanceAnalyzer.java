@@ -5,8 +5,8 @@ import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
-import ch.nolix.core.misc.stopwatch.RuntimeMeter;
-import ch.nolix.core.misc.stopwatch.StopWatch;
+import ch.nolix.core.independent.stopwatch.RuntimeMeter;
+import ch.nolix.core.independent.stopwatch.StopWatch;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
 

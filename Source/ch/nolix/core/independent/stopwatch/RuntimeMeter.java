@@ -1,4 +1,4 @@
-package ch.nolix.core.misc.stopwatch;
+package ch.nolix.core.independent.stopwatch;
 
 public final class RuntimeMeter {
 
