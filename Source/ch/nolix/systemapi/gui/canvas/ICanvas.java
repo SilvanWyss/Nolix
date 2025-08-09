@@ -2,9 +2,9 @@ package ch.nolix.systemapi.gui.canvas;
 
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
-import ch.nolix.systemapi.graphic.image.ImageApplication;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 public interface ICanvas<C extends ICanvas<C>> {

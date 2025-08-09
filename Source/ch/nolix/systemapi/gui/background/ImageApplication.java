@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.graphic.image;
+package ch.nolix.systemapi.gui.background;
 
 import ch.nolix.coreapi.document.node.INode;
 
