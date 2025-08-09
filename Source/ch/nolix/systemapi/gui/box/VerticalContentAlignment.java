@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.gui.contentalignmentproperty;
+package ch.nolix.systemapi.gui.box;
 
 import ch.nolix.coreapi.document.node.INode;
 
