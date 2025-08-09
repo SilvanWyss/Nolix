@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webgui.linearcontainer;
 
-import ch.nolix.systemapi.gui.contentalignmentproperty.HorizontalContentAlignment;
+import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
 
 public interface IVerticalStack extends ILinearContainer<IVerticalStack, IVerticalStackStyle> {
 

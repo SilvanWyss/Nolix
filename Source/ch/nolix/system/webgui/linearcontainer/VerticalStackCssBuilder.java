@@ -9,7 +9,7 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.gui.contentalignmentproperty.HorizontalContentAlignment;
+import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
 import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStack;
 import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStackStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
