@@ -7,7 +7,7 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.systemapi.gui.contentalignmentproperty.ContentAlignment;
+import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 final class LayerTest extends StandardTest {
