@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.gui.contentalignmentproperty;
+package ch.nolix.systemapi.gui.box;
 
 import ch.nolix.coreapi.document.node.INode;
 
@@ -6,7 +6,7 @@ import ch.nolix.coreapi.document.node.INode;
  * @author Silvan Wyss
  * @version 2019-05-18
  */
-public enum ExtendedContentAlignment {
+public enum FreeableContentAlignment {
   TOP_LEFT,
   TOP,
   TOP_RIGHT,
@@ -20,11 +20,11 @@ public enum ExtendedContentAlignment {
 
   /**
    * @param specification
-   * @return a new {@link ExtendedContentAlignment} from the given specification.
+   * @return a new {@link FreeableContentAlignment} from the given specification.
    * @throws RuntimeException if the given specification does not represent a
-   *                          {@link ExtendedContentAlignment}.
+   *                          {@link FreeableContentAlignment}.
    */
-  public static ExtendedContentAlignment fromSpecification(final INode<?> specification) {
+  public static FreeableContentAlignment fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 }
