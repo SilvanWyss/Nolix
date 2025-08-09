@@ -8,7 +8,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.objectstructure.linking.Linkable;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.IHtmlGetter;
-import ch.nolix.systemapi.gui.canvas.Dimensionable;
+import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 public interface IControl<C extends IControl<C, S>, S extends IControlStyle<S>>
 extends
-Dimensionable<C>,
+ISizeAdjustableBox<C>,
 IHtmlGetter,
 IStylableElement<C>,
 IUserInputCell<C>,

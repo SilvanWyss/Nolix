@@ -1,8 +1,8 @@
-package ch.nolix.systemapi.gui.canvas;
+package ch.nolix.systemapi.gui.box;
 
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
-public interface Dimensionable<D extends Dimensionable<D>> {
+public interface ISizeAdjustableBox<D extends ISizeAdjustableBox<D>> {
 
   IAbsoluteOrRelativeInt getMaxHeight();
 
