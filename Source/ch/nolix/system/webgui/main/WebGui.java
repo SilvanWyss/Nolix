@@ -228,8 +228,8 @@ implements IWebGui<WebGui> {
   }
 
   @Override
-  public boolean isRootGui() {
-    return false;
+  public boolean isRoot() {
+    return true;
   }
 
   @Override
