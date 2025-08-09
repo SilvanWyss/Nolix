@@ -3,13 +3,13 @@ package ch.nolix.systemapi.webgui.main;
 import ch.nolix.coreapi.component.guicomponent.IGuiComponent;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.IHtmlGetter;
-import ch.nolix.systemapi.gui.canvas.ICanvas;
+import ch.nolix.systemapi.gui.background.IBackgroundHolder;
 import ch.nolix.systemapi.gui.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 public interface ILayer<L extends ILayer<L>>
 extends
-ICanvas<L>,
+IBackgroundHolder<L>,
 IGuiComponent<IWebGui<?>>,
 IHtmlGetter,
 IRootControlOwner<L>,

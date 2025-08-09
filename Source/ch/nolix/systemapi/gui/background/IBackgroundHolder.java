@@ -1,13 +1,10 @@
-package ch.nolix.systemapi.gui.canvas;
+package ch.nolix.systemapi.gui.background;
 
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
-import ch.nolix.systemapi.gui.background.BackgroundType;
-import ch.nolix.systemapi.gui.background.IBackground;
-import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
-public interface ICanvas<C extends ICanvas<C>> {
+public interface IBackgroundHolder<C extends IBackgroundHolder<C>> {
 
   IBackground getBackground();
 

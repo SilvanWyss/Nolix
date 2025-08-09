@@ -6,13 +6,13 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 import ch.nolix.coreapi.web.cssmodel.ICss;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.systemapi.gui.canvas.ICanvas;
+import ch.nolix.systemapi.gui.background.IBackgroundHolder;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 import ch.nolix.systemapi.gui.model.IGui;
 import ch.nolix.systemapi.style.stylable.IStyleElement;
 
-public interface IWebGui<G extends IWebGui<G>> extends Clearable, ICanvas<G>, IGui<G>, IStyleElement<G> {
+public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHolder<G>, IGui<G>, IStyleElement<G> {
 
   boolean containsControl(IControl<?, ?> control);
 
