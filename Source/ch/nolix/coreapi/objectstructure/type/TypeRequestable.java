@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.objectstructure.typerequest;
+package ch.nolix.coreapi.objectstructure.type;
 
 /**
  * A {@link TypeRequestable} is of a certain type.
