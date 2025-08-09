@@ -1,4 +1,4 @@
-package ch.nolix.system.graphic.color;
+package ch.nolix.system.gui.colorgradient;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -9,8 +9,10 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.graphic.color.IColorGradient;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphic.imageproperty.Alignment;
+import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**
  * A {@link ColorGradient} is not mutable.

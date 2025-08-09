@@ -1,7 +1,7 @@
 package ch.nolix.template.graphic.color;
 
-import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.systemapi.graphic.imageproperty.Alignment;
 
 public final class ColorGradientCatalog {

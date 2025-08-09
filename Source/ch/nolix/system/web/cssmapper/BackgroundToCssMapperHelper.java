@@ -9,9 +9,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.imageproperty.Alignment;
 import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 public final class BackgroundToCssMapperHelper {
 

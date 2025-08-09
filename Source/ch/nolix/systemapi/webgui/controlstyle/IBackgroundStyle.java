@@ -1,10 +1,10 @@
 package ch.nolix.systemapi.webgui.controlstyle;
 
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.ImageApplication;
 import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {

@@ -12,15 +12,15 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.system.web.cssmapper.BackgroundToCssMapper;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.color.IColorGradient;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.ImageApplication;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webapi.cssmapper.IBackgroundToCssMapper;
 
 public final class Background extends AbstractElement implements IBackground {

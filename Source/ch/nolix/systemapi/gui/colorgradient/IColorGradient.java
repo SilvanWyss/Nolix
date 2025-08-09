@@ -1,6 +1,7 @@
-package ch.nolix.systemapi.graphic.color;
+package ch.nolix.systemapi.gui.colorgradient;
 
 import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.imageproperty.Alignment;
 
 /**
