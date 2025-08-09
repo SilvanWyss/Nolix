@@ -20,7 +20,7 @@ public enum FreeableContentAlignment {
 
   /**
    * @param specification
-   * @return a new {@link FreeableContentAlignment} from the given specification.
+   * @return a {@link FreeableContentAlignment} from the given specification.
    * @throws RuntimeException if the given specification does not represent a
    *                          {@link FreeableContentAlignment}.
    */
