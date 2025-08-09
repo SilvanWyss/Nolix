@@ -4,7 +4,7 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
-public interface IBackgroundHolder<C extends IBackgroundHolder<C>> {
+public interface IBackgroundHolder<B extends IBackgroundHolder<B>> {
 
   IBackground getBackground();
 
@@ -22,11 +22,11 @@ public interface IBackgroundHolder<C extends IBackgroundHolder<C>> {
 
   void removeBackground();
 
-  C setBackgroundColor(IColor backgroundColor);
+  B setBackgroundColor(IColor backgroundColor);
 
-  C setBackgroundColorGradient(IColorGradient backgroundColorGradient);
+  B setBackgroundColorGradient(IColorGradient backgroundColorGradient);
 
-  C setBackgroundImage(IImage backgroundImage);
+  B setBackgroundImage(IImage backgroundImage);
 
-  C setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
+  B setBackgroundImage(IImage backgroundImage, ImageApplication imageApplication);
 }
