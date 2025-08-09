@@ -9,8 +9,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.graphic.imageproperty.Alignment;
 import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.box.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 public final class BackgroundToCssMapperHelper {
@@ -47,7 +47,7 @@ public final class BackgroundToCssMapperHelper {
     return getDegreeOfDirection(pColorGradient.getDirection());
   }
 
-  private static int getDegreeOfDirection(final Alignment direction) {
+  private static int getDegreeOfDirection(final Direction direction) {
     return switch (direction) {
       case VERTICAL ->
         180;
