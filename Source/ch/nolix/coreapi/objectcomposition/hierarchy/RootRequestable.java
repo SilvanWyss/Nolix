@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.objectstructure.hierarchy;
+package ch.nolix.coreapi.objectcomposition.hierarchy;
 
 /**
  * A {@link RootRequestable} can be asked if it is either a root object or a
