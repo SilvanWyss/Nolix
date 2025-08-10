@@ -74,7 +74,7 @@ public final class Database implements IDatabase {
       return DatabaseObjectState.EDITED;
     }
 
-    return DatabaseObjectState.LOADED;
+    return DatabaseObjectState.UNEDITED;
   }
 
   @Override
@@ -143,7 +143,7 @@ public final class Database implements IDatabase {
 
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override

@@ -17,7 +17,7 @@ abstract class AbstractImmutableDatabaseObject implements GroupCloseable, IDatab
 
   @Override
   public final DatabaseObjectState getState() {
-    return DatabaseObjectState.LOADED;
+    return DatabaseObjectState.UNEDITED;
   }
 
   @Override
@@ -37,7 +37,7 @@ abstract class AbstractImmutableDatabaseObject implements GroupCloseable, IDatab
 
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override

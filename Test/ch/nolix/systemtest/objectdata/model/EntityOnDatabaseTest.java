@@ -64,7 +64,7 @@ final class EntityOnDatabaseTest extends StandardTest {
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 
     //verification
-    expect(loadedGarfield.getState()).is(DatabaseObjectState.LOADED);
+    expect(loadedGarfield.getState()).is(DatabaseObjectState.UNEDITED);
     expect(loadedGarfield.getSaveStamp()).isNotEmpty();
   }
 

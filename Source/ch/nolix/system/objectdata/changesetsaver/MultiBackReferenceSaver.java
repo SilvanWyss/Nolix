@@ -36,7 +36,7 @@ public final class MultiBackReferenceSaver {
       case NEW:
         insertMultiBackReferenceEntry(multiBackReferenceEntry, dataAndSchemaAdapter);
         break;
-      case LOADED:
+      case UNEDITED:
         break;
       case DELETED:
         deleteMultiBackReferenceEntry(multiBackReferenceEntry, dataAndSchemaAdapter);

@@ -31,7 +31,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   public static <E2 extends IEntity> MultiBackReferenceEntry<E2> loadedEntryForMultiBackReferenceAndReferencedEntityId(
     final IMultiBackReference<E2> multiBackReference,
     final String backReferencedEntityId) {
-    return new MultiBackReferenceEntry<>(multiBackReference, DatabaseObjectState.LOADED, backReferencedEntityId);
+    return new MultiBackReferenceEntry<>(multiBackReference, DatabaseObjectState.UNEDITED, backReferencedEntityId);
   }
 
   public static <E2 extends IEntity> MultiBackReferenceEntry<E2> newEntryForMultiBackReferenceAndReferencedEntityId(
@@ -93,7 +93,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
 
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override

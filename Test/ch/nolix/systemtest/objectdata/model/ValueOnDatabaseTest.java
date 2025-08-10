@@ -148,12 +148,12 @@ final class ValueOnDatabaseTest extends StandardTest {
       .getStoredEntityById(garfield.getId());
 
     //setup verification
-    expect(loaedGarfield.getState()).is(DatabaseObjectState.LOADED);
+    expect(loaedGarfield.getState()).is(DatabaseObjectState.UNEDITED);
 
     //execution
     final var result = loaedGarfield.name.getState();
 
     //verification
-    expect(result).is(DatabaseObjectState.LOADED);
+    expect(result).is(DatabaseObjectState.UNEDITED);
   }
 }

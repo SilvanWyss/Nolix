@@ -35,7 +35,7 @@ public final class MultiReferenceSaver {
       case NEW:
         insertMultiReferenceEntry(multiReferenceEntry, dataAndSchemaAdapter);
         break;
-      case LOADED:
+      case UNEDITED:
         break;
       case DELETED:
         deleteMultiReferenceEntry(multiReferenceEntry, dataAndSchemaAdapter);

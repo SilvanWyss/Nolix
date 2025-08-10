@@ -121,7 +121,7 @@ public abstract class AbstractEntity implements IEntity {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
 
-    this.state = DatabaseObjectState.LOADED;
+    this.state = DatabaseObjectState.UNEDITED;
     this.id = id;
     this.saveStamp = saveStamp;
   }
@@ -162,7 +162,7 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override
@@ -221,7 +221,7 @@ public abstract class AbstractEntity implements IEntity {
       case NEW:
         //Does nothing.
         break;
-      case LOADED:
+      case UNEDITED:
         state = DatabaseObjectState.EDITED;
         break;
       case EDITED:

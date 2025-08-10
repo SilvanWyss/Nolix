@@ -103,7 +103,7 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override
@@ -173,8 +173,8 @@ public abstract class AbstractField implements IField {
     return switch (parentEntityState) {
       case NEW ->
         DatabaseObjectState.NEW;
-      case LOADED ->
-        DatabaseObjectState.LOADED;
+      case UNEDITED ->
+        DatabaseObjectState.UNEDITED;
       case EDITED ->
         getStateWhenParentFieldIsEdited();
       case DELETED ->
@@ -192,7 +192,7 @@ public abstract class AbstractField implements IField {
   private DatabaseObjectState getStateWhenParentFieldIsEdited() {
 
     if (!edited) {
-      return DatabaseObjectState.LOADED;
+      return DatabaseObjectState.UNEDITED;
     }
 
     return DatabaseObjectState.EDITED;

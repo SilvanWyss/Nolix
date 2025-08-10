@@ -45,7 +45,7 @@ final class DatabaseObjectToolTest extends StandardTest {
 
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
-    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.LOADED);
+    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
     //setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
@@ -143,7 +143,7 @@ final class DatabaseObjectToolTest extends StandardTest {
 
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
-    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.LOADED);
+    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
     //setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
@@ -241,7 +241,7 @@ final class DatabaseObjectToolTest extends StandardTest {
 
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
-    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.LOADED);
+    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
     //setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
@@ -339,7 +339,7 @@ final class DatabaseObjectToolTest extends StandardTest {
 
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
-    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.LOADED);
+    Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
     //setup testUnit
     final var testUnit = new DatabaseObjectExaminer();

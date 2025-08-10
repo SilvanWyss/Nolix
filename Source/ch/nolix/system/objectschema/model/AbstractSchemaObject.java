@@ -33,7 +33,7 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
 
   @Override
   public final boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override
@@ -54,7 +54,7 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
     state = switch (getState()) {
       case NEW ->
         throw NewArgumentException.forArgument(this);
-      case LOADED, EDITED ->
+      case UNEDITED, EDITED ->
         DatabaseObjectState.DELETED;
       case DELETED ->
         throw DeletedArgumentException.forArgument(this);
@@ -69,7 +69,7 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
     switch (getState()) {
       case NEW:
         break;
-      case LOADED:
+      case UNEDITED:
         state = DatabaseObjectState.EDITED;
         break;
       case EDITED:
@@ -84,8 +84,8 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
   final void setLoaded() {
     state = switch (getState()) {
       case NEW ->
-        DatabaseObjectState.LOADED;
-      case LOADED ->
+        DatabaseObjectState.UNEDITED;
+      case UNEDITED ->
         throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already loaded");
       case EDITED ->
         throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already edited");

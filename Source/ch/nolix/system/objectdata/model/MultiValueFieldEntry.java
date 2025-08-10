@@ -34,7 +34,7 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
   public static <V2> MultiValueFieldEntry<V2> loadedEntryForMultiValueAndValue(
     final IMultiValueField<V2> multiValue,
     final V2 value) {
-    return new MultiValueFieldEntry<>(multiValue, DatabaseObjectState.LOADED, value);
+    return new MultiValueFieldEntry<>(multiValue, DatabaseObjectState.UNEDITED, value);
   }
 
   public static <V2> MultiValueFieldEntry<V2> newEntryForMultiValueAndValue(
@@ -87,7 +87,7 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
 
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override

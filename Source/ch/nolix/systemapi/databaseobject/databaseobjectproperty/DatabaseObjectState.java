@@ -2,11 +2,11 @@ package ch.nolix.systemapi.databaseobject.databaseobjectproperty;
 
 public enum DatabaseObjectState {
 
-  //not yet persisted in database
+  //not persisted in database
   NEW,
 
-  //loaded from database
-  LOADED,
+  //loaded from database and not (!) edited
+  UNEDITED,
 
   //loaded from database and edited
   EDITED,

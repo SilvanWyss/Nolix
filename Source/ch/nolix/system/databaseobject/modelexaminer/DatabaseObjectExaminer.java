@@ -59,7 +59,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
     return //
     state == DatabaseObjectState.NEW
-    || state == DatabaseObjectState.LOADED;
+    || state == DatabaseObjectState.UNEDITED;
   }
 
   @Override
@@ -73,7 +73,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
     return //
     state == DatabaseObjectState.NEW
-    || state == DatabaseObjectState.LOADED
+    || state == DatabaseObjectState.UNEDITED
     || state == DatabaseObjectState.EDITED;
   }
 }

@@ -37,7 +37,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   public static <E2 extends IEntity> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
     final IMultiReference<E2> multiReference,
     final String referencedEntityId) {
-    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.LOADED, referencedEntityId);
+    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.UNEDITED, referencedEntityId);
   }
 
   public static <E2 extends IEntity> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
@@ -104,7 +104,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override

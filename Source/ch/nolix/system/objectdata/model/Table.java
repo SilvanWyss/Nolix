@@ -171,7 +171,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
       return DatabaseObjectState.EDITED;
     }
 
-    return DatabaseObjectState.LOADED;
+    return DatabaseObjectState.UNEDITED;
   }
 
   @Override
@@ -209,7 +209,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public boolean isLoaded() {
-    return (getState() == DatabaseObjectState.LOADED);
+    return (getState() == DatabaseObjectState.UNEDITED);
   }
 
   @Override
