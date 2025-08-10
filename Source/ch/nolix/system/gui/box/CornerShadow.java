@@ -97,6 +97,39 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
     this.color = Color.fromColor(color);
   }
 
+  /**
+   * @param cornerShadow
+   * @return a {@link CornerShadow} from the given cornerShadow.
+   * @throws RuntimeException if the given cornerShadow is null.
+   */
+  public static CornerShadow fromCornerShadow(final ICornerShadow cornerShadow) {
+
+    if (cornerShadow instanceof CornerShadow localCornerShadow) {
+      return localCornerShadow;
+    }
+
+    final var corner = cornerShadow.getCorner();
+    final var location = cornerShadow.getLocation();
+    final var side1Thickness = cornerShadow.getSide1Thickness();
+    final var side2Thickness = cornerShadow.getSide2Thickness();
+    final var blurRadius = cornerShadow.getBlurRadius();
+    final var color = cornerShadow.getColor();
+
+    return //
+    withCornerAndLocationAndSide1ThicknessAnsSide2ThicknessAndBlurRadiusAndColor(
+      corner,
+      location,
+      side1Thickness,
+      side2Thickness,
+      blurRadius,
+      color);
+  }
+
+  /**
+   * @param specification
+   * @return a {@link CornerShadow} from the given specification.
+   * @throws RuntimeException if the given specification is not valid.
+   */
   public static CornerShadow fromSpecification(final INode<?> specification) {
 
     var corner = DEFAULT_CORNER;
