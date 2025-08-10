@@ -69,7 +69,7 @@ public final class CssPropertyMapper implements ICssPropertyMapper {
       Optional.of(
         CssProperty.withNameAndValue(
           CssPropertyNameCatalog.BOX_SHADOW,
-          cornerShadows.getViewOf(s -> mapCornerShadowToCssProperty(s).getValue()).toString()));
+          cornerShadows.getViewOf(s -> mapCornerShadowToCssProperty(s).getValue()).toStringWithSeparator(",")));
     }
 
     return Optional.empty();
