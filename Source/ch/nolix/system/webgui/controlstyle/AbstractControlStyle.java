@@ -1,6 +1,10 @@
 package ch.nolix.system.webgui.controlstyle;
 
+import ch.nolix.core.container.containerview.ContainerView;
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -9,12 +13,14 @@ import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
+import ch.nolix.system.gui.box.CornerShadow;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
+import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -65,6 +71,8 @@ implements IControlStyle<S> {
   private static final String TOP_PADDING_HEADER = "TopPadding";
 
   private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+
+  private static final String CORNER_SHADOWS_HEADER = "CornerShadows";
 
   private static final String BORDER_COLOR_HEADER = "BorderColor";
 
@@ -202,6 +210,16 @@ implements IControlStyle<S> {
     this::setBottomPaddingForState,
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
+  private final NonCascadingProperty<ControlState, IContainer<CornerShadow>> cornerShadows = //
+  new NonCascadingProperty //
+  <ControlState, IContainer<CornerShadow>>( //NOSONAR: Gradle fails on diamond operators in this case.
+    CORNER_SHADOWS_HEADER,
+    ControlState.class,
+    s -> s.getStoredChildNodes().to(CornerShadow::fromSpecification),
+    s -> Node.withChildNodes(s.to(CornerShadow::getSpecification)),
+    this::setCornerShadowsForState,
+    ImmutableList.createEmpty());
+
   private final ForwardingProperty<ControlState, Integer> borderThickness = ForwardingProperty.withNameAndForProperty(
     BORDER_THICKNESS_HEADER,
     leftBorderThickness,
@@ -250,8 +268,13 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public int getCornerRadiusWhenHasState(final ControlState state) {
+  public final int getCornerRadiusWhenHasState(final ControlState state) {
     return cornerRadius.getValueWhenHasState(state);
+  }
+
+  @Override
+  public final IContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
+    return cornerShadows.getValueOfState(state);
   }
 
   @Override
@@ -343,8 +366,13 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public void removeCustomCornerRadiuses() {
+  public final void removeCustomCornerRadiuses() {
     cornerRadius.setUndefined();
+  }
+
+  @Override
+  public final void removeCustomCornerShadows() {
+    cornerShadows.setUndefined();
   }
 
   @Override
@@ -485,11 +513,31 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public S setCornerRadiusForState(final ControlState state, final int cornerRadius) {
+  public final S setCornerRadiusForState(final ControlState state, final int cornerRadius) {
 
     Validator.assertThat(cornerRadius).thatIsNamed("corner radius").isNotNegative();
 
     this.cornerRadius.setValueForState(state, cornerRadius);
+
+    return asConcrete();
+  }
+
+  @Override
+  public final S setCornerShadowForState(
+    final ControlState state,
+    final ICornerShadow cornerShadow,
+    final ICornerShadow... cornerShadows) {
+
+    final var allCornerShadows = ContainerView.forElementAndArray(cornerShadow, cornerShadows);
+
+    return setCornerShadowsForState(state, allCornerShadows);
+  }
+
+  @Override
+  public final S setCornerShadowsForState(final ControlState state,
+    final IContainer<? extends ICornerShadow> cornerShadows) {
+
+    this.cornerShadows.setValueForState(state, cornerShadows.to(CornerShadow::fromCornerShadow));
 
     return asConcrete();
   }
@@ -613,7 +661,7 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public S setWidthInPercentOfViewAreaWidthForState(
+  public final S setWidthInPercentOfViewAreaWidthForState(
     final ControlState state,
     final double widthInPercentOfViewAreaWidth) {
 
