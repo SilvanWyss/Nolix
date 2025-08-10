@@ -7,7 +7,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;

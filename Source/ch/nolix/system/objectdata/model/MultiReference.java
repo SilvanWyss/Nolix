@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.fieldtool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
-import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;

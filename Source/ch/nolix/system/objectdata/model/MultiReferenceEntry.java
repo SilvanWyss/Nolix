@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;

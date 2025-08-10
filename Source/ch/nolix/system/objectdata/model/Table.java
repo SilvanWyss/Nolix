@@ -13,7 +13,7 @@ import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.system.objectdata.modelfiller.EntityFiller;
 import ch.nolix.system.objectdata.modelsearcher.TableSearcher;
-import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.objectdata.datatool.IEntityCreator;

@@ -1,8 +1,8 @@
 package ch.nolix.system.databaseobject.modelexaminer;
 
-import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
+import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 

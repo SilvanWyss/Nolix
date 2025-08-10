@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.systemapi.databaseobject.databaseobjectproperty.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 

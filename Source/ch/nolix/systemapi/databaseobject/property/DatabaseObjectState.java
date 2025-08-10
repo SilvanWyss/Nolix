@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.databaseobject.databaseobjectproperty;
+package ch.nolix.systemapi.databaseobject.property;
 
 public enum DatabaseObjectState {
 
