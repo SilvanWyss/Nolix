@@ -30,6 +30,8 @@ public final class CssPropertyNameCatalog {
 
   public static final String BORDER_TOP_WIDTH = "border-top-width";
 
+  public static final String BOX_SHADOW = "box-shadow";
+
   public static final String COLOR = "color";
 
   public static final String CURSOR = "cursor";
