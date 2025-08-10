@@ -40,7 +40,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
 
   private static final String SIDE1_THICKNESS_HEADER = "Side1Thickness";
 
-  private static final String SIDE2_THICKNESS_HEADER = "Side2Thickenss";
+  private static final String SIDE2_THICKNESS_HEADER = "Side2Thickness";
 
   private static final String BLUR_RADIUS_HEADER = "BlurRadius";
 
