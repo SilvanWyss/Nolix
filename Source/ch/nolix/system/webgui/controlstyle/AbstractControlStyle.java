@@ -274,7 +274,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
-    return cornerShadows.getValueOfState(state);
+    return cornerShadows.getValueWhenHasState(state);
   }
 
   @Override
