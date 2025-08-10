@@ -1,4 +1,4 @@
-package ch.nolix.template.graphic.color;
+package ch.nolix.template.gui.colorgradient;
 
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
