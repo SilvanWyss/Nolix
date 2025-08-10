@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.databaseobject.databaseobjectrequest;
+package ch.nolix.systemapi.databaseobject.request;
 
 /**
  * A {@link DatabaseConnectionRequestable} can be asked if it is connected with

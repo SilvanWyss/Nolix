@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.databaseobject.databaseobjectrequest;
+package ch.nolix.systemapi.databaseobject.request;
 
 public interface DeletionRequestable {
 
