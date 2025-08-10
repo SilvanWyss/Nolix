@@ -10,6 +10,7 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.web.cookie.ICookieManager;
 import ch.nolix.system.application.main.AbstractBackendClient;
+import ch.nolix.system.webapplication.protocol.ClientCommandCreator;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
@@ -27,7 +28,7 @@ implements ICookieManager {
   @Override
   public final void deleteCookieByName(final String name) {
 
-    final var deleteCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createDeleteCookieByNameCommand(name);
+    final var deleteCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createDeleteCookieCommand(name);
 
     runOnCounterpart(deleteCookieCommand);
   }
@@ -54,10 +55,9 @@ implements ICookieManager {
   @Override
   public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
 
-    final var setOrAddCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR
-      .createSetOrAddCookieCommandForCookieWithNameAndValue(name, value);
+    final var addOrSetCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createAddOrSetCookieCommand(name, value);
 
-    runOnCounterpart(setOrAddCookieCommand);
+    runOnCounterpart(addOrSetCookieCommand);
   }
 
   @Override
@@ -104,7 +104,7 @@ implements ICookieManager {
 
   final void internalRedirectCounterpartToUrl(final String url) {
 
-    final var redirectToUrlCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectToUrlCommand(url);
+    final var redirectToUrlCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(url);
 
     runOnCounterpart(redirectToUrlCommand);
   }
