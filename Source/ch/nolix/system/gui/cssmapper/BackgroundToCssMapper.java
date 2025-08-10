@@ -1,10 +1,10 @@
-package ch.nolix.system.web.cssmapper;
+package ch.nolix.system.gui.cssmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
-import ch.nolix.systemapi.webapi.cssmapper.IBackgroundToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.IBackgroundToCssMapper;
 
 /**
  * @author Silvan Wyss

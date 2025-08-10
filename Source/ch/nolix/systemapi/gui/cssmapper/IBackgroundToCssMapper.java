@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webapi.cssmapper;
+package ch.nolix.systemapi.gui.cssmapper;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;

@@ -1,4 +1,4 @@
-package ch.nolix.system.web.cssmapper;
+package ch.nolix.system.gui.cssmapper;
 
 import java.util.Locale;
 

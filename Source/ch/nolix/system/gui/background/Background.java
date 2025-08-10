@@ -14,14 +14,14 @@ import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
-import ch.nolix.system.web.cssmapper.BackgroundToCssMapper;
+import ch.nolix.system.gui.cssmapper.BackgroundToCssMapper;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
-import ch.nolix.systemapi.webapi.cssmapper.IBackgroundToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.IBackgroundToCssMapper;
 
 public final class Background extends AbstractElement implements IBackground {
 
