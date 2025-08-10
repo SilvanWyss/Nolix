@@ -21,7 +21,6 @@ import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
-import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.Presence;
@@ -53,8 +52,6 @@ implements IControl<C, S> {
   private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 
   private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalog.CURSOR_ICON;
-
-  private static final ControlTool CONTROL_TOOL = new ControlTool();
 
   //An id works correctly for CSS only when it begins with a letter.
   private final String internalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
@@ -139,7 +136,7 @@ implements IControl<C, S> {
 
     final var html = getHtmlBuilder().createHtmlElementForControl(asConcrete());
 
-    return html.withAttribute(CONTROL_TOOL.createIdHtmlAttributeForControl(this));
+    return html.withAttribute(ControlHelper.createIdHtmlAttributeForControl(this));
   }
 
   @Override
