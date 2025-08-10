@@ -14,22 +14,20 @@ import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
-import ch.nolix.system.gui.cssmapper.BackgroundToCssMapper;
+import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
-import ch.nolix.systemapi.gui.cssmapper.IBackgroundToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 
 public final class Background extends AbstractElement implements IBackground {
 
   public static final Background TRANSPARENT_BACKGROUND = new Background();
 
   public static final ImageApplication DEFAULT_IMAGE_APPLICATION = ImageApplication.SCALE_TO_FRAME;
-
-  private static final IBackgroundToCssMapper BACKGROUND_TO_CSS_MAPPER = new BackgroundToCssMapper();
 
   private static final String COLOR_HEADER = "Color";
 
@@ -38,6 +36,8 @@ public final class Background extends AbstractElement implements IBackground {
   private static final String IMAGE_HEADER = "Image";
 
   private static final String TRANSPARENCY_HEADER = "Transparency";
+
+  private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
   private final IColor color;
 
@@ -216,7 +216,7 @@ public final class Background extends AbstractElement implements IBackground {
 
   @Override
   public IContainer<ICssProperty> toCssProperties() {
-    return BACKGROUND_TO_CSS_MAPPER.mapBackgroundToCssProperties(this);
+    return CSS_PROPERTY_MAPPER.mapBackgroundToCssProperties(this);
   }
 
   private void assertIsColor() {

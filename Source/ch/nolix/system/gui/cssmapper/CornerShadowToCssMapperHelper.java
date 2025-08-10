@@ -4,7 +4,7 @@ import ch.nolix.core.web.cssmodel.CssProperty;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
-import ch.nolix.systemapi.gui.cssmapper.IColorToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
 /**
  * Of the {@link CornerShadowToCssMapperHelper} an instance cannot be created.
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.gui.cssmapper.IColorToCssMapper;
  */
 public final class CornerShadowToCssMapperHelper {
 
-  private static final IColorToCssMapper COLOR_TO_CSS_MAPPER = new ColorToCssMapper();
+  private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
 
   /**
    * Prevents that an instance of the {@link CornerShadowToCssMapperHelper} can be
@@ -35,7 +35,7 @@ public final class CornerShadowToCssMapperHelper {
     final var side2Thickness = cornerShadow.getSide2Thickness();
     final var blurRadius = cornerShadow.getBlurRadius();
     final var color = cornerShadow.getColor();
-    final var colorCssValue = COLOR_TO_CSS_MAPPER.mapColorToCssValueCode(color);
+    final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
 
     return //
     switch (cornerShadow.getCorner()) {
@@ -70,7 +70,7 @@ public final class CornerShadowToCssMapperHelper {
     final var side2Thickness = cornerShadow.getSide2Thickness();
     final var blurRadius = cornerShadow.getBlurRadius();
     final var color = cornerShadow.getColor();
-    final var colorCssValue = COLOR_TO_CSS_MAPPER.mapColorToCssValueCode(color);
+    final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
 
     return //
     switch (cornerShadow.getCorner()) {

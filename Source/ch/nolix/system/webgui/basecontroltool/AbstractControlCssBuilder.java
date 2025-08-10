@@ -12,20 +12,16 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
-import ch.nolix.system.gui.cssmapper.CornerShadowToCssMapper;
+import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
-import ch.nolix.system.webgui.cssmapper.CssPropertyMapper;
-import ch.nolix.systemapi.gui.cssmapper.ICornerShadowToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
-import ch.nolix.systemapi.webgui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class AbstractControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
 implements IControlCssBuilder<C, S> {
-
-  private static final ICornerShadowToCssMapper CORNER_SHADOW_TO_CSS_MAPPER = new CornerShadowToCssMapper();
 
   private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
@@ -341,7 +337,7 @@ implements IControlCssBuilder<C, S> {
     final var cornerShadows = style.getCornerShadowsWhenHasState(state);
 
     final var cornerShadowCssProperty = //
-    CORNER_SHADOW_TO_CSS_MAPPER.mapCornerShadowsToOptionalCssProperty(cornerShadows);
+    CSS_PROPERTY_MAPPER.mapCornerShadowsToOptionalCssProperty(cornerShadows);
 
     if (cornerShadowCssProperty.isPresent()) {
       list.addAtEnd(cornerShadowCssProperty.get());

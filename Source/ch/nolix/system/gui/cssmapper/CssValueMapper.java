@@ -3,21 +3,21 @@ package ch.nolix.system.gui.cssmapper;
 import java.util.Locale;
 
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.gui.cssmapper.IColorToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
 /**
- * A {@link CornerShadowToCssMapper} is not mutable.
+ * A {@link CssValueMapper} is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2025-08-10
  */
-public final class ColorToCssMapper implements IColorToCssMapper {
+public final class CssValueMapper implements ICssValueMapper {
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String mapColorToCssValueCode(final IColor color) {
+  public String mapColorToCssValue(final IColor color) {
 
     if (color.hasFullAlphaValue()) {
       return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());

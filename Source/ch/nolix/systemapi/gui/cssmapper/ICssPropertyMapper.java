@@ -4,13 +4,22 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
+import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
+import ch.nolix.systemapi.gui.font.LineDecoration;
 
 /**
  * @author Silvan Wyss
  * @version 2025-08-10
  */
-public interface ICornerShadowToCssMapper {
+public interface ICssPropertyMapper {
+
+  /**
+   * @param background
+   * @return the {@link ICssProperty}s from the given background.
+   * @throws RuntimeException if the given background is null.
+   */
+  IContainer<ICssProperty> mapBackgroundToCssProperties(IBackground background);
 
   /**
    * @param cornerShadow
@@ -28,4 +37,11 @@ public interface ICornerShadowToCssMapper {
    *                          given cornerShadows is null.
    */
   Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(IContainer<? extends ICornerShadow> cornerShadows);
+
+  /**
+   * @param lineDecoration
+   * @return a new {@link ICssProperty} from the given lineDecoration.
+   * @throws RuntimeException if the given lineDecoration is null.
+   */
+  ICssProperty mapLineDecorationToCssProperty(LineDecoration lineDecoration);
 }

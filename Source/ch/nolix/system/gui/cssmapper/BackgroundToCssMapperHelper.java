@@ -9,14 +9,14 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.box.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
-import ch.nolix.systemapi.gui.cssmapper.IColorToCssMapper;
+import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
 public final class BackgroundToCssMapperHelper {
 
   private static final ICssProperty TRANSPARENT_BACKGROUND_CSS_PROPERTY = //
   CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, "none");
 
-  private static final IColorToCssMapper COLOR_TO_CSS_MAPPER = new ColorToCssMapper();
+  private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
 
   public static final ImmutableList<ICssProperty> TRANSPARENT_BACKGROUND_CSS_PROPERTIES = ImmutableList
     .withElement(TRANSPARENT_BACKGROUND_CSS_PROPERTY);
@@ -50,8 +50,8 @@ public final class BackgroundToCssMapperHelper {
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsColor(final IBackground background) {
 
     final var color = background.getColor();
-    final var colorCode = COLOR_TO_CSS_MAPPER.mapColorToCssValueCode(color);
-    final var backgroundCssProperty = CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, colorCode);
+    final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
+    final var backgroundCssProperty = CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, colorCssValue);
 
     return ImmutableList.withElement(backgroundCssProperty);
   }
@@ -60,9 +60,9 @@ public final class BackgroundToCssMapperHelper {
 
     final var colorGradient = background.getColorGradient();
     final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
-    final var color1Code = COLOR_TO_CSS_MAPPER.mapColorToCssValueCode(colorGradient.getColor1());
-    final var color2Code = COLOR_TO_CSS_MAPPER.mapColorToCssValueCode(colorGradient.getColor2());
-    final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
+    final var color1CssValue = CSS_VALUE_MAPPER.mapColorToCssValue(colorGradient.getColor1());
+    final var color2CssValue = CSS_VALUE_MAPPER.mapColorToCssValue(colorGradient.getColor2());
+    final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1CssValue + "," + color2CssValue + ")";
 
     final var backgroundCssProperty = //
     CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, linearGradientCode);
