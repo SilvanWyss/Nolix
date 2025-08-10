@@ -13,8 +13,6 @@ import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
-import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
-import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
@@ -68,7 +66,8 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
                 new Button()
                   .setRole(ButtonRole.CONFIRM_BUTTON)
                   .setText(getConfirmButtonText())
-                  .setLeftMouseButtonPressAction(b -> confirmNewValue(b, valueTextbox, valueTaker)))));
+                  .setLeftMouseButtonPressAction(
+                    () -> EnterValueDialogBuilderHelper.confirmNewValue(valueTextbox, valueTaker)))));
   }
 
   public EnterValueDialogBuilder setCancelButtonText(String cancelButtonText) {
@@ -104,18 +103,6 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     this.valueTaker = valueTaker;
 
     return this;
-  }
-
-  private void confirmNewValue(
-    final IButton confirmButton,
-    final ITextbox valueTextbox,
-    final Consumer<String> valueTaker) {
-
-    final var newValue = valueTextbox.getText();
-
-    valueTaker.accept(newValue);
-
-    confirmButton.getStoredParentLayer().removeSelfFromGui();
   }
 
   private String getCancelButtonText() {
