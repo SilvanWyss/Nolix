@@ -7,6 +7,8 @@ import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.cssmapper.IBackgroundToCssMapper;
 
 /**
+ * A {@link BackgroundToCssMapper} is not mutable.
+ * 
  * @author Silvan Wyss
  * @version 2025-02-09
  */
@@ -20,7 +22,8 @@ public final class BackgroundToCssMapper implements IBackgroundToCssMapper {
 
     final var type = background.getType();
 
-    return switch (type) {
+    return //
+    switch (type) {
       case COLOR ->
         BackgroundToCssMapperHelper.mapBackgroundToCssPropertiesWhenIsColor(background);
       case COLOR_GRADIENT ->
