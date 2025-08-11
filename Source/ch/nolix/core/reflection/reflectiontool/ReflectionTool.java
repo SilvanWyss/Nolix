@@ -1,7 +1,5 @@
 package ch.nolix.core.reflection.reflectiontool;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Executable;
 import java.lang.reflect.Field;
@@ -79,12 +77,6 @@ public final class ReflectionTool {
 
   public static <V> V getValueOfStaticField(final Field staticField) {
     return FIELD_TOOL.getValueOfStaticField(staticField);
-  }
-
-  public static <A extends Annotation> boolean hasAnnotation(
-    final AnnotatedElement object,
-    final Class<A> annotationType) {
-    return OBJECT_TOOL.hasAnnotation(object, annotationType);
   }
 
   public static boolean canStoreValueOfTypeOrSuperType(final Field field, final Class<?> type) {

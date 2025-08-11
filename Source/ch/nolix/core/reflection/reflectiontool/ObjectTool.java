@@ -1,7 +1,5 @@
 package ch.nolix.core.reflection.reflectiontool;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Field;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
@@ -54,9 +52,5 @@ public final class ObjectTool implements IObjectTool {
     } catch (final IllegalAccessException illegalAccessException) {
       throw WrapperException.forError(illegalAccessException);
     }
-  }
-
-  public <A extends Annotation> boolean hasAnnotation(final AnnotatedElement object, final Class<A> annotationType) {
-    return (object.getAnnotation(annotationType) != null);
   }
 }
