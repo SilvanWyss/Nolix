@@ -25,7 +25,8 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
-public abstract class AbstractControlStyle< //NOSONAR: A ControlStyle has many methods per se.
+public abstract //
+class AbstractControlStyle< //NOSONAR: A AbstractControlStyle is a principal object thus it has many methods.
 S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlHeadStyle<S>
 implements IControlStyle<S> {
