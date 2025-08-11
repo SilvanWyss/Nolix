@@ -87,8 +87,8 @@ public final class ReflectionTool {
     return OBJECT_TOOL.hasAnnotation(object, annotationType);
   }
 
-  public static boolean hasTypeOrSuperType(final Field field, final Class<?> type) {
-    return FIELD_EXAMINER.hasTypeOrSuperType(field, type);
+  public static boolean canStoreValueOfTypeOrSuperType(final Field field, final Class<?> type) {
+    return FIELD_EXAMINER.canStoreValueOfTypeOrSuperType(field, type);
   }
 
   public static boolean isPrivate(final Member member) {

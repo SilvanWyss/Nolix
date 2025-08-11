@@ -17,7 +17,7 @@ public final class FieldExaminer implements IFieldExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean hasTypeOrSuperType(final Field field, final Class<?> type) {
+  public boolean canStoreValueOfTypeOrSuperType(final Field field, final Class<?> type) {
     return //
     field != null
     && type != null

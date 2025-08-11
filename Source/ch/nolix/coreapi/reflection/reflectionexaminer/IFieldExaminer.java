@@ -11,10 +11,10 @@ public interface IFieldExaminer {
   /**
    * @param field
    * @param type
-   * @return true if the given field has the given type or super type, false
-   *         otherwise.
+   * @return true if the given field can store a value of the given type or super
+   *         type, false otherwise.
    */
-  boolean hasTypeOrSuperType(Field field, Class<?> type);
+  boolean canStoreValueOfTypeOrSuperType(Field field, Class<?> type);
 
   /**
    * @param field

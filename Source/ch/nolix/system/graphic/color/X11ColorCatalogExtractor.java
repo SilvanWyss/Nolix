@@ -36,7 +36,7 @@ public final class X11ColorCatalogExtractor {
   private boolean declaresColor(final Field field) {
     return //
     ReflectionTool.isStatic(field)
-    && ReflectionTool.hasTypeOrSuperType(field, Color.class);
+    && ReflectionTool.canStoreValueOfTypeOrSuperType(field, Color.class);
   }
 
   private boolean declaresColorName(final Field field) {

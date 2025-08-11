@@ -22,112 +22,112 @@ final class FieldExaminerTest extends StandardTest {
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_1A() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_1A() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, LinkedList.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, LinkedList.class);
 
     //verification
     expect(result).isTrue();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_1B() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_1B() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, AbstractContainer.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractContainer.class);
 
     //verification
     expect(result).isTrue();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_2A() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_2A() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, ILinkedList.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ILinkedList.class);
 
     //verification
     expect(result).isTrue();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_2B() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_2B() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, IContainer.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IContainer.class);
 
     //verification
     expect(result).isTrue();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_3A() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_3A() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, Matrix.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, Matrix.class);
 
     //verification
     expect(result).isFalse();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_3B() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_3B() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, ArrayList.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ArrayList.class);
 
     //verification
     expect(result).isFalse();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_4A() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_4A() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, IMatrix.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IMatrix.class);
 
     //verification
     expect(result).isFalse();
   }
 
   @Test
-  void testCase_hasTypeOrSuperType_4B() throws NoSuchFieldException {
+  void testCase_canStoreValueOfTypeOrSuperType_4B() throws NoSuchFieldException {
 
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.hasTypeOrSuperType(studentsField, IArrayList.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IArrayList.class);
 
     //verification
     expect(result).isFalse();
