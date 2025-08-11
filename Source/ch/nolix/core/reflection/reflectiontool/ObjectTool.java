@@ -6,20 +6,29 @@ import java.lang.reflect.Field;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.reflection.reflectiontool.IObjectTool;
 
-public final class ObjectTool {
+public final class ObjectTool implements IObjectTool {
 
-  public Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
+  @Override
+  public String getNameOfFirstFieldThatHasValue(final Object object, final Object value) {
 
-    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    final var field = getStoredFirstFieldThatHasValue(object, value);
+
+    return field.getName();
+  }
+
+  @Override
+  public Field getStoredFirstFieldThatHasValue(final Object object, final Object value) {
 
     var localClass = object.getClass();
+
     while (localClass != null) {
 
       for (final var f : localClass.getDeclaredFields()) {
-        final var fieldValue = getValueOfFieldOfObject(object, f);
+
+        final var fieldValue = getStoredValueOfField(object, f);
+
         if (fieldValue == value) {
           return f;
         }
@@ -28,37 +37,26 @@ public final class ObjectTool {
       localClass = localClass.getSuperclass();
     }
 
-    throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, value.getClass());
+    if (value != null) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, value.getClass());
+    }
+
+    throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(object, "null");
   }
 
-  public String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
-
-    final var field = getFirstFieldOfObjectThatStoresValue(object, value);
-
-    return field.getName();
-  }
-
-  public Object getValueOfFieldOfObject(final Object object, final Field field) {
+  @Override
+  public Object getStoredValueOfField(final Object object, final Field field) {
 
     field.setAccessible(true);
 
     try {
       return field.get(object);
-    } catch (final IllegalAccessException exception) {
-      throw WrapperException.forError(exception);
+    } catch (final IllegalAccessException illegalAccessException) {
+      throw WrapperException.forError(illegalAccessException);
     }
   }
 
-  /**
-   * @param object
-   * @param annotationType
-   * @param <A>            is the given annotationType.
-   * @return true if the given object has an annotation of the given
-   *         annotationType.
-   */
-  public <A extends Annotation> boolean hasAnnotation(
-    final AnnotatedElement object,
-    final Class<A> annotationType) {
+  public <A extends Annotation> boolean hasAnnotation(final AnnotatedElement object, final Class<A> annotationType) {
     return (object.getAnnotation(annotationType) != null);
   }
 }

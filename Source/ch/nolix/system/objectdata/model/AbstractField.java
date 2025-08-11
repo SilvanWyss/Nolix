@@ -43,7 +43,7 @@ public abstract class AbstractField implements IField {
     }
 
     if (belongsToEntity()) {
-      return ReflectionTool.getNameOfFirstFieldOfObjectThatStoresValue(getStoredParentEntity(), this);
+      return ReflectionTool.getNameOfFirstFieldThatHasValue(getStoredParentEntity(), this);
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate name");

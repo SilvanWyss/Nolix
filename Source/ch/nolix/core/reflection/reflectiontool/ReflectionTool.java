@@ -53,7 +53,7 @@ public final class ReflectionTool {
     while (localClass != null) {
 
       for (final var f : localClass.getDeclaredFields()) {
-        final var fieldValue = getValueOfFieldOfObject(object, f);
+        final var fieldValue = getStoredValueOfField(object, f);
         if (fieldValue == value) {
           return f;
         }
@@ -65,16 +65,16 @@ public final class ReflectionTool {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, value.getClass());
   }
 
-  public static String getNameOfFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
-    return OBJECT_TOOL.getNameOfFirstFieldOfObjectThatStoresValue(object, value);
+  public static String getNameOfFirstFieldThatHasValue(final Object object, final Object value) {
+    return OBJECT_TOOL.getNameOfFirstFieldThatHasValue(object, value);
   }
 
   public static IContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
     return CLASS_TOOL.getStoredPublicStaticFieldValuesOfClass(paramClass);
   }
 
-  public static Object getValueOfFieldOfObject(final Object object, final Field field) {
-    return OBJECT_TOOL.getValueOfFieldOfObject(object, field);
+  public static Object getStoredValueOfField(final Object object, final Field field) {
+    return OBJECT_TOOL.getStoredValueOfField(object, field);
   }
 
   public static <V> V getValueOfStaticField(final Field staticField) {
