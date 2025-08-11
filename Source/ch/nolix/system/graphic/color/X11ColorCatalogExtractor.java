@@ -26,15 +26,17 @@ public final class X11ColorCatalogExtractor {
       final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 
       x11Colors.addAtEnd(
-        new Pair<>(ReflectionTool.getValueFromStaticField(csf),
-          ReflectionTool.getValueFromStaticField(colorField)));
+        new Pair<>(ReflectionTool.getValueOfStaticField(csf),
+          ReflectionTool.getValueOfStaticField(colorField)));
     }
 
     return x11Colors;
   }
 
   private boolean declaresColor(final Field field) {
-    return ReflectionTool.isStaticAndStoresValueOfGivenType(field, IColor.class);
+    return //
+    ReflectionTool.isStatic(field)
+    && ReflectionTool.hasTypeOrSuperType(field, Color.class);
   }
 
   private boolean declaresColorName(final Field field) {

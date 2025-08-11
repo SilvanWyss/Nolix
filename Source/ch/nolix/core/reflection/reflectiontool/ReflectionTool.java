@@ -73,12 +73,12 @@ public final class ReflectionTool {
     return CLASS_TOOL.getStoredPublicStaticFieldValuesOfClass(paramClass);
   }
 
-  public static <V> V getValueFromStaticField(final Field staticField) {
-    return FIELD_TOOL.getValueFromStaticField(staticField);
-  }
-
   public static Object getValueOfFieldOfObject(final Object object, final Field field) {
     return OBJECT_TOOL.getValueOfFieldOfObject(object, field);
+  }
+
+  public static <V> V getValueOfStaticField(final Field staticField) {
+    return FIELD_TOOL.getValueOfStaticField(staticField);
   }
 
   public static <A extends Annotation> boolean hasAnnotation(
@@ -105,9 +105,5 @@ public final class ReflectionTool {
 
   public static boolean isStatic(final Field field) {
     return FIELD_EXAMINER.isStatic(field);
-  }
-
-  public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
-    return FIELD_TOOL.isStaticAndStoresValueOfGivenType(field, type);
   }
 }

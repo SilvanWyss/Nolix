@@ -15,7 +15,7 @@ final class StringCatalogTest extends StandardTest {
     for (final var f : StringCatalog.class.getFields()) {
       expect(ReflectionTool.isPublic(f)).isTrue();
       expect(ReflectionTool.isStatic(f)).isTrue();
-      expect(ReflectionTool.getValueFromStaticField(f).getClass()).is(String.class);
+      expect(ReflectionTool.getValueOfStaticField(f).getClass()).is(String.class);
     }
   }
 }
