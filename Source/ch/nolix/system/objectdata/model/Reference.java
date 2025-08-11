@@ -23,8 +23,6 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
-  private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
-
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
   private String referencedEntityId;
@@ -213,7 +211,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
   }
 
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
-    BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
+    BaseReferenceUpdater.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
   private void updateProbableBackReferencingFieldForClear() {

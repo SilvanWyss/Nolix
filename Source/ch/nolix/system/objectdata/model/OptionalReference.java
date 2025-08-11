@@ -21,8 +21,6 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
-
   private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
 
   private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();
@@ -222,7 +220,7 @@ public final class OptionalReference<E extends IEntity> extends AbstractReferenc
   }
 
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
-    BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
+    BaseReferenceUpdater.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
   private void updateProbableBackReferencingFieldForClear() {

@@ -11,7 +11,10 @@ public final class BaseReferenceUpdater {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  public <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
+  private BaseReferenceUpdater() {
+  }
+
+  public static <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
     final IAbstractReference<E> baseReference,
     final E entity) {
 
@@ -23,7 +26,7 @@ public final class BaseReferenceUpdater {
     baseBackReference.ifPresent(bbr -> toBaseBackReferenceAddOrSetEntity(bbr, baseReference.getStoredParentEntity()));
   }
 
-  private void toBaseBackReferenceAddOrSetEntity(
+  private static void toBaseBackReferenceAddOrSetEntity(
     final IAbstractBackReference<?> baseBackReference,
     final IEntity entity) {
 

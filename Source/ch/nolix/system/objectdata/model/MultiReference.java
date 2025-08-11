@@ -23,8 +23,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
 public final class MultiReference<E extends IEntity> extends AbstractReference<E> implements IMultiReference<E> {
 
-  private static final BaseReferenceUpdater BASE_BACK_REFERENCE_UPDATER = new BaseReferenceUpdater();
-
   private static final MultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
 
   private static final MultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
@@ -237,7 +235,7 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
   }
 
   private void updatePotentialBaseBackReferenceOfEntityForAddEntity(final E entity) {
-    BASE_BACK_REFERENCE_UPDATER.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
+    BaseReferenceUpdater.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
   private void updateStateAddingEntity(final E entity) {
