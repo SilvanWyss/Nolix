@@ -44,7 +44,7 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
   }
 
   private static boolean isField(final java.lang.reflect.Field javaField) {
-    return ReflectionTool.hasGivenTypeOrSuperType(javaField, AbstractField.class);
+    return ReflectionTool.hasTypeOrSuperType(javaField, AbstractField.class);
   }
 
   private static void fillUpFieldFromEntityAndJavaFieldIntoList(

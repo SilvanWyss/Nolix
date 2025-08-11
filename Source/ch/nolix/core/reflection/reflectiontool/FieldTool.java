@@ -28,10 +28,6 @@ public final class FieldTool {
     }
   }
 
-  public boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
-    return type.isAssignableFrom(field.getType());
-  }
-
   public boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {

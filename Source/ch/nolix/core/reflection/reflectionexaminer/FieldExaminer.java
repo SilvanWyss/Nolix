@@ -6,10 +6,23 @@ import java.lang.reflect.Modifier;
 import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 
 /**
+ * A {@link FieldExaminer} is not mutable.
+ * 
  * @author Silvan Wyss
  * @version 2025-02-09
  */
 public final class FieldExaminer implements IFieldExaminer {
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean hasTypeOrSuperType(final Field field, final Class<?> type) {
+    return //
+    field != null
+    && type != null
+    && type.isAssignableFrom(field.getType());
+  }
 
   /**
    * {@inheritDoc}
