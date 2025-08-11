@@ -215,7 +215,11 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
       getStoredParentEntity().getParentTableName(),
       getStoredParentEntity().getId(),
       getName())
-      .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei.referencedEntityId()));
+      .to(e -> //
+      MultiReferenceEntry.createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedEntityTableId(
+        this,
+        e.referencedEntityId(),
+        e.referencedEntityTableId()));
   }
 
   private boolean needsToLoadAllPersistedReferencedEntityIds() {
@@ -239,7 +243,8 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
   }
 
   private void updateStateAddingEntity(final E entity) {
-    localEntries.addAtEnd(MultiReferenceEntry.newEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
+    localEntries.addAtEnd(
+      MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
   }
 
   private void updateStateLoadingAllPersistedReferencedEntityIds() {

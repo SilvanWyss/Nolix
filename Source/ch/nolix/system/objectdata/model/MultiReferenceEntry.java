@@ -20,6 +20,8 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   private final String referencedEntityId;
 
+  private final String referencedEntityTableId;
+
   private MultiReferenceEntry(
     final IMultiReference<E> parentMultiReference,
     final DatabaseObjectState initialState,
@@ -30,20 +32,45 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     Validator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
 
     this.parentMultiReference = parentMultiReference;
-    state = initialState;
+    this.state = initialState;
     this.referencedEntityId = referencedEntityId;
+    this.referencedEntityTableId = null;
   }
 
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
-    final IMultiReference<E2> multiReference,
-    final String referencedEntityId) {
-    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.UNEDITED, referencedEntityId);
+  private MultiReferenceEntry(
+    final IMultiReference<E> parentMultiReference,
+    final DatabaseObjectState initialState,
+    final String referencedEntityId,
+    final String referencedEntityTableId) {
+
+    Validator.assertThat(parentMultiReference).thatIsNamed("parent MultiReference").isNotNull();
+    Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
+    Validator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
+    Validator.assertThat(referencedEntityTableId).thatIsNamed("referenced entity table id").isNotBlank();
+
+    this.parentMultiReference = parentMultiReference;
+    this.state = initialState;
+    this.referencedEntityId = referencedEntityId;
+    this.referencedEntityTableId = referencedEntityId;
   }
 
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
+  public static <E2 extends IEntity> MultiReferenceEntry<E2> createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedEntityTableId(
+    final IMultiReference<E2> multiReference,
+    final String referencedEntityId,
+    final String referencedEntityTableId) {
+    return //
+    new MultiReferenceEntry<>(
+      multiReference,
+      DatabaseObjectState.UNEDITED,
+      referencedEntityId,
+      referencedEntityTableId);
+  }
+
+  public static <E2 extends IEntity> MultiReferenceEntry<E2> createNewEntryForMultiReferenceAndReferencedEntityId(
     final IMultiReference<E2> multiReference,
     final String referencedEntityId) {
-    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
+    return //
+    new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
   }
 
   @Override
