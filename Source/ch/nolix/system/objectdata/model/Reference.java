@@ -187,36 +187,13 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  private void updateBackReferencingFieldForClear(final IField backReferencingField) {
-    switch (backReferencingField.getType()) {
-      case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) backReferencingField;
-        backReference.internalClear();
-        backReference.setAsEditedAndRunPotentialUpdateAction();
-        break;
-      case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) backReferencingField;
-        optionalBackReference.internalClear();
-        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
-        break;
-      case MULTI_BACK_REFERENCE:
-        /*
-         * Does nothing. MultiBackReferences do not need to be updated, because
-         * MultiBackReferences do not have redundancies.
-         */
-        break;
-      default:
-        //Does nothing.
-    }
-  }
-
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
     BaseReferenceUpdater.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
 
   private void updateProbableBackReferencingFieldForClear() {
     for (final var brp : getStoredAbstractBackReferencesThatReferencesBackThis()) {
-      updateBackReferencingFieldForClear(brp);
+      BackReferencingFieldUpdater.updateBackReferencingFieldForClearReferencingField(brp);
     }
   }
 
