@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdata.fieldtool.IValueFieldTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IValueValidator;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
-public final class ValueField<V> extends AbstractValueField<V> implements IValueField<V> {
+public final class ValueField<V> extends AbstractBaseValueField<V> implements IValueField<V> {
 
   private static final IValueFieldTool VALUE_TOOL = new ValueFieldTool();
 

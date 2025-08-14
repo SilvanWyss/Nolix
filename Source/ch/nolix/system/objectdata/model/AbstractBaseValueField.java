@@ -5,15 +5,15 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
-import ch.nolix.systemapi.objectdata.model.IAbstractValueField;
+import ch.nolix.systemapi.objectdata.model.IBaseValueField;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
-public abstract class AbstractValueField<V> extends AbstractField implements IAbstractValueField<V> {
+public abstract class AbstractBaseValueField<V> extends AbstractField implements IBaseValueField<V> {
 
   private final Class<V> valueType;
 
-  protected AbstractValueField(final Class<V> valueType) {
+  protected AbstractBaseValueField(final Class<V> valueType) {
 
     Validator.assertThat(valueType).thatIsNamed("value type").isNotNull();
 

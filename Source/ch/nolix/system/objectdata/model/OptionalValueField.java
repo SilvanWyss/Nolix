@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.fieldtool.IOptionalValueFieldTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
-public final class OptionalValueField<V> extends AbstractValueField<V> implements IOptionalValueField<V> {
+public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
 
   private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
