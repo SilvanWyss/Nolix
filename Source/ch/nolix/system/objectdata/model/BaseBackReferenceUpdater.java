@@ -1,22 +1,24 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.objectdata.model.IField;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
+import ch.nolix.systemapi.objectdata.model.IEntity;
 
-public final class BackReferencingFieldUpdater {
+public final class BaseBackReferenceUpdater {
 
-  private BackReferencingFieldUpdater() {
+  private BaseBackReferenceUpdater() {
   }
 
-  public static void updateBackReferencingFieldForClearReferencingField(final IField backReferencingField) {
-    switch (backReferencingField.getType()) {
+  public static void updateBaseBackReferenceForClearBaseReference(
+    final IBaseBackReference<IEntity> baseBackReferene) {
+    switch (baseBackReferene.getType()) {
       case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) backReferencingField;
+        final var backReference = (BackReference<?>) baseBackReferene;
         backReference.internalClear();
         backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) backReferencingField;
+        final var optionalBackReference = (OptionalBackReference<?>) baseBackReferene;
         optionalBackReference.internalClear();
         optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
@@ -27,7 +29,7 @@ public final class BackReferencingFieldUpdater {
          */
         break;
       default:
-        throw InvalidArgumentException.forArgumentAndArgumentName(backReferencingField, "back referencing field");
+        throw InvalidArgumentException.forArgumentAndArgumentName(baseBackReferene, "back referencing field");
       //Does nothing.
     }
   }
