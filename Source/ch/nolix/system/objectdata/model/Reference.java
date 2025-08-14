@@ -10,7 +10,7 @@ import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IReferenceValidator;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IReference;
@@ -52,7 +52,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
@@ -63,7 +63,7 @@ public final class Reference<E extends IEntity> extends AbstractReference<E> imp
 
     if (abstractBackReferenceContainer.isPresent()) {
 
-      final var abstractBackReference = (IAbstractBackReference<IEntity>) abstractBackReferenceContainer.get();
+      final var abstractBackReference = (IBaseBackReference<IEntity>) abstractBackReferenceContainer.get();
 
       return ImmutableList.withElement(abstractBackReference);
     }

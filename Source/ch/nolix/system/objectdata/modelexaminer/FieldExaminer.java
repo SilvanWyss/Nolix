@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.modelexaminer;
 
 import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IAbstractReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -42,10 +42,10 @@ public final class FieldExaminer extends DatabaseObjectExaminer implements IFiel
     final IField field,
     final IAbstractReference<? extends IEntity> abstractReference) {
 
-    if (field instanceof IAbstractBackReference && abstractReference != null) {
+    if (field instanceof IBaseBackReference && abstractReference != null) {
 
       @SuppressWarnings("unchecked")
-      final var abstractBackReference = (IAbstractBackReference<IEntity>) field;
+      final var abstractBackReference = (IBaseBackReference<IEntity>) field;
 
       return //
       abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull(
@@ -64,7 +64,7 @@ public final class FieldExaminer extends DatabaseObjectExaminer implements IFiel
    *         abstractBackReference and abstractReference are not null.
    */
   private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull( //NOSONAR: This method is an instance method.
-    final IAbstractBackReference<IEntity> abstractBackReference,
+    final IBaseBackReference<IEntity> abstractBackReference,
     final IAbstractReference<? extends IEntity> abstractReference) {
 
     if (abstractReference.belongsToEntity()) {

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameHolder, MandatorynessRequestable {
 
-  IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis();
+  IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis();
 
   IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis();
 

@@ -14,7 +14,7 @@ import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
@@ -89,9 +89,9 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
    */
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
 
-    final ILinkedList<IAbstractBackReference<IEntity>> abstractBackReferences = LinkedList.createEmpty();
+    final ILinkedList<IBaseBackReference<IEntity>> abstractBackReferences = LinkedList.createEmpty();
 
     for (final var e : getAllStoredReferencedEntities()) {
 
@@ -101,7 +101,7 @@ public final class MultiReference<E extends IEntity> extends AbstractReference<E
 
       if (abstractBackReferenceContainer.isPresent()) {
 
-        final var abstractBackReference = (IAbstractBackReference<IEntity>) abstractBackReferenceContainer.get();
+        final var abstractBackReference = (IBaseBackReference<IEntity>) abstractBackReferenceContainer.get();
 
         abstractBackReferences.addAtEnd(abstractBackReference);
       }

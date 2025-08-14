@@ -20,7 +20,7 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity>
-extends AbstractBackReference<E>
+extends AbstractBaseBackReference<E>
 implements IMultiBackReference<E> {
 
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();

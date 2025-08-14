@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IAbstractReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -25,7 +25,7 @@ public final class EntitySearcher implements IEntitySearcher {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public Optional<IAbstractBackReference<IEntity>> //
+  public Optional<IBaseBackReference<IEntity>> //
   getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
     final IEntity entity,
     final IAbstractReference<? extends IEntity> baseReference) {
@@ -36,7 +36,7 @@ public final class EntitySearcher implements IEntitySearcher {
 
       for (final var f : fields) {
         if (FIELD_EXAMINER.canReferenceBackAbstractReference(f, baseReference)) {
-          return Optional.of((IAbstractBackReference<IEntity>) f);
+          return Optional.of((IBaseBackReference<IEntity>) f);
         }
       }
     }
@@ -48,7 +48,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(
+  public IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(
     final IEntity entity) {
 
     if (entity == null) {

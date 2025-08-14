@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdata.modelsearcher;
 import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IAbstractReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -17,21 +17,21 @@ public interface IEntitySearcher {
   /**
    * @param entity
    * @param abstractReference
-   * @return a {@link Optional} with the {@link IAbstractBackReference} of the
+   * @return a {@link Optional} with the {@link IBaseBackReference} of the
    *         given entity that can reference back the given abstractReference, an
    *         empty {@link Optional} otherwise.
    */
-  Optional<IAbstractBackReference<IEntity>> //
+  Optional<IBaseBackReference<IEntity>> //
   getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
     IEntity entity,
     IAbstractReference<? extends IEntity> abstractReference);
 
   /**
    * @param entity
-   * @return the {@link IAbstractBackReference}s that reference back the given
+   * @return the {@link IBaseBackReference}s that reference back the given
    *         entity.
    */
-  IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(IEntity entity);
+  IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(IEntity entity);
 
   /**
    * @param entity

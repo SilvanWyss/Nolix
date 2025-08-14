@@ -4,14 +4,14 @@ import java.util.Optional;
 
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.objectdata.fieldtool.IReferenceTool;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
 
   @Override
-  public Optional<IAbstractBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
+  public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
     final IReference<IEntity> reference) {
 
     if (reference.isEmpty()) {
@@ -37,7 +37,7 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
   }
 
   @SuppressWarnings("unchecked")
-  private Optional<IAbstractBackReference<IEntity>> getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(
+  private Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(
     final IReference<IEntity> reference) {
 
     final var referencedEntity = reference.getStoredReferencedEntity();
@@ -45,7 +45,7 @@ public final class ReferenceTool extends FieldTool implements IReferenceTool {
     final var backReference = //
     referencedEntity.internalGetStoredFields().getOptionalStoredFirst(p -> p.referencesBackField(reference));
 
-    return backReference.map(br -> (IAbstractBackReference<IEntity>) br);
+    return backReference.map(br -> (IBaseBackReference<IEntity>) br);
   }
 
   private boolean isOpen(final IDatabaseObject databaseObject) {

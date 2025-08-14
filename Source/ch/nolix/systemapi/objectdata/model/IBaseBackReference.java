@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdata.model;
 
-public interface IAbstractBackReference<E extends IEntity> extends IField {
+public interface IBaseBackReference<E extends IEntity> extends IField {
 
   String getBackReferencedFieldName();
 

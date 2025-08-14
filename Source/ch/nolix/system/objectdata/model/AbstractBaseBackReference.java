@@ -4,15 +4,15 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdata.model.IAbstractBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
-public abstract class AbstractBackReference<E extends IEntity>
+public abstract class AbstractBaseBackReference<E extends IEntity>
 extends AbstractField
-implements IAbstractBackReference<E> {
+implements IBaseBackReference<E> {
 
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
@@ -22,7 +22,7 @@ implements IAbstractBackReference<E> {
 
   private Table<E> backReferencedTable;
 
-  protected AbstractBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
+  protected AbstractBaseBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
 
     Validator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
 
@@ -59,7 +59,7 @@ implements IAbstractBackReference<E> {
   }
 
   @Override
-  public final IContainer<IAbstractBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public final IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 
