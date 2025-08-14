@@ -54,7 +54,8 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.referencedEntityTableId = referencedEntityId;
   }
 
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedEntityTableId(
+  public static <E2 extends IEntity> MultiReferenceEntry<E2> //
+  createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedEntityTableId(
     final IMultiReference<E2> multiReference,
     final String referencedEntityId,
     final String referencedEntityTableId) {

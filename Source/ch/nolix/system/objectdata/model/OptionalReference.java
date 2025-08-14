@@ -17,7 +17,9 @@ import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
-public final class OptionalReference<E extends IEntity> extends AbstractBaseReference<E> implements IOptionalReference<E> {
+public final class OptionalReference<E extends IEntity>
+extends AbstractBaseReference<E>
+implements IOptionalReference<E> {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
