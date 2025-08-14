@@ -3,26 +3,26 @@ package ch.nolix.systemapi.objectdata.model;
 /**
  * @author Silvan Wyss
  * @version 2021-11-13
- * @param <E> is the type of the {@link IEntity}s a {@link IAbstractReference}
+ * @param <E> is the type of the {@link IEntity}s a {@link IBaseReference}
  *            can reference.
  */
-public interface IAbstractReference<E extends IEntity> extends IField {
+public interface IBaseReference<E extends IEntity> extends IField {
 
   /**
    * @return the id of the referenced {@link ITable} of the current
-   *         {@link IAbstractReference}.
+   *         {@link IBaseReference}.
    */
   String getReferencedTableId();
 
   /**
    * @return the name of the referenced {@link ITable} of the current
-   *         {@link IAbstractReference}.
+   *         {@link IBaseReference}.
    */
   String getReferencedTableName();
 
   /**
    * @return the referenced {@link ITable} of the current
-   *         {@link IAbstractReference}.
+   *         {@link IBaseReference}.
    */
   ITable<E> getStoredReferencedTable();
 }

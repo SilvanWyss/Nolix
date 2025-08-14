@@ -14,7 +14,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
 
   IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis();
 
-  IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis();
+  IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis();
 
   IColumnView<ITable<IEntity>> getStoredParentColumn();
 

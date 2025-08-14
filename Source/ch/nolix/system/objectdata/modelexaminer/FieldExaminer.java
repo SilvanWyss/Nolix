@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.modelexaminer;
 import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
@@ -40,7 +40,7 @@ public final class FieldExaminer extends DatabaseObjectExaminer implements IFiel
   @Override
   public boolean canReferenceBackAbstractReference(
     final IField field,
-    final IAbstractReference<? extends IEntity> abstractReference) {
+    final IBaseReference<? extends IEntity> abstractReference) {
 
     if (field instanceof IBaseBackReference && abstractReference != null) {
 
@@ -65,7 +65,7 @@ public final class FieldExaminer extends DatabaseObjectExaminer implements IFiel
    */
   private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull( //NOSONAR: This method is an instance method.
     final IBaseBackReference<IEntity> abstractBackReference,
-    final IAbstractReference<? extends IEntity> abstractReference) {
+    final IBaseReference<? extends IEntity> abstractReference) {
 
     if (abstractReference.belongsToEntity()) {
 

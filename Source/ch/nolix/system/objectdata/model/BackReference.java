@@ -6,7 +6,7 @@ import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
-import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -38,14 +38,14 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
+  public IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
     final var backReferencedField = //
-    (IAbstractReference<IEntity>) //
+    (IBaseReference<IEntity>) //
     ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);

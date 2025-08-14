@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
@@ -24,7 +24,7 @@ public interface IEntitySearcher {
   Optional<IBaseBackReference<IEntity>> //
   getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
     IEntity entity,
-    IAbstractReference<? extends IEntity> abstractReference);
+    IBaseReference<? extends IEntity> abstractReference);
 
   /**
    * @param entity
@@ -52,5 +52,5 @@ public interface IEntitySearcher {
    * @param entity
    * @return the {@link IField}s the given entity references back.
    */
-  IContainer<IAbstractReference<IEntity>> getStoredFieldsThatAreBackReferencedFrom(IEntity entity);
+  IContainer<IBaseReference<IEntity>> getStoredFieldsThatAreBackReferencedFrom(IEntity entity);
 }

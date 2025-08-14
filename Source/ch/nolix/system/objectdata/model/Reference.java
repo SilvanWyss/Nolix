@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
-public final class Reference<E extends IEntity> extends AbstractReference<E> implements IReference<E> {
+public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 

@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
@@ -28,7 +28,7 @@ public final class EntitySearcher implements IEntitySearcher {
   public Optional<IBaseBackReference<IEntity>> //
   getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
     final IEntity entity,
-    final IAbstractReference<? extends IEntity> baseReference) {
+    final IBaseReference<? extends IEntity> baseReference) {
 
     if (entity != null && baseReference != null) {
 
@@ -83,7 +83,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IAbstractReference<IEntity>> getStoredFieldsThatAreBackReferencedFrom(final IEntity entity) {
+  public IContainer<IBaseReference<IEntity>> getStoredFieldsThatAreBackReferencedFrom(final IEntity entity) {
 
     if (entity == null) {
       return ImmutableList.createEmpty();

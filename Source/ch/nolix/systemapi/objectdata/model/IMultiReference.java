@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
-public interface IMultiReference<E extends IEntity> extends Clearable, IAbstractReference<E> {
+public interface IMultiReference<E extends IEntity> extends Clearable, IBaseReference<E> {
 
   void addEntity(Object entity);
 

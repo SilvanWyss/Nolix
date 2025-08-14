@@ -21,7 +21,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
-public final class MultiReference<E extends IEntity> extends AbstractReference<E> implements IMultiReference<E> {
+public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {
 
   private static final MultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
 

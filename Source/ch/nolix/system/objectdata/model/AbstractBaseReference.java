@@ -3,18 +3,18 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
-public abstract class AbstractReference<E extends IEntity> extends AbstractField implements IAbstractReference<E> {
+public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference<E> {
 
   private final String referencedTableName;
 
   private Table<E> referencedTable;
 
-  protected AbstractReference(final String referencedTableName) {
+  protected AbstractBaseReference(final String referencedTableName) {
 
     Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 
@@ -32,7 +32,7 @@ public abstract class AbstractReference<E extends IEntity> extends AbstractField
   }
 
   @Override
-  public final IContainer<IAbstractReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
+  public final IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
     return ImmutableList.createEmpty();
   }
 

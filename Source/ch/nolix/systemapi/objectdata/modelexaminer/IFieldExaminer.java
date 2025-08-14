@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.objectdata.modelexaminer;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.objectdata.model.IAbstractReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
@@ -31,7 +31,7 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
    * @return true if the given field can reference back the given
    *         abstractReference, false otherwise.
    */
-  boolean canReferenceBackAbstractReference(IField field, IAbstractReference<? extends IEntity> abstractReference);
+  boolean canReferenceBackAbstractReference(IField field, IBaseReference<? extends IEntity> abstractReference);
 
   /**
    * @param field
