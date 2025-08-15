@@ -8,13 +8,16 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.system.objectdata.fieldtool.MultiReferenceEntryTool;
 import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
+import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
+import ch.nolix.systemapi.objectdata.fieldtool.IMultiReferenceTool;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -23,11 +26,11 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {
 
-  private static final MultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
+  private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
-  private static final MultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
+  private static final IMultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
 
-  private static final MultiReferenceEntryTool MULTI_REFERENCE_ENTRY_TOOL = new MultiReferenceEntryTool();
+  private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
@@ -112,7 +115,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   @Override
   public IContainer<? extends IMultiReferenceEntry<E>> getStoredNewAndDeletedEntries() {
-    return localEntries.getStoredSelected(MULTI_REFERENCE_ENTRY_TOOL::isNewOrDeleted);
+    return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
   @Override
