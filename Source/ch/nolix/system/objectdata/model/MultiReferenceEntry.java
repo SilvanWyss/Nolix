@@ -2,6 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
@@ -20,7 +21,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   private final String referencedEntityId;
 
-  private final String referencedEntityTableId;
+  private String referencedTableId;
 
   private MultiReferenceEntry(
     final IMultiReference<E> parentMultiReference,
@@ -34,7 +35,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.parentMultiReference = parentMultiReference;
     this.state = initialState;
     this.referencedEntityId = referencedEntityId;
-    this.referencedEntityTableId = null;
   }
 
   private MultiReferenceEntry(
@@ -51,11 +51,11 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.parentMultiReference = parentMultiReference;
     this.state = initialState;
     this.referencedEntityId = referencedEntityId;
-    this.referencedEntityTableId = referencedEntityId;
+    this.referencedTableId = referencedEntityId;
   }
 
   public static <E2 extends IEntity> MultiReferenceEntry<E2> //
-  createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedEntityTableId(
+  createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
     final IMultiReference<E2> multiReference,
     final String referencedEntityId,
     final String referencedEntityTableId) {
@@ -70,8 +70,15 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   public static <E2 extends IEntity> MultiReferenceEntry<E2> createNewEntryForMultiReferenceAndReferencedEntityId(
     final IMultiReference<E2> multiReference,
     final String referencedEntityId) {
-    return //
-    new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
+    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
+  }
+
+  public static <E2 extends IEntity> MultiReferenceEntry<E2> //
+  createNewEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
+    final IMultiReference<E2> multiReference,
+    final String referencedEntityId,
+    final String referencedTableId) {
+    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId, referencedTableId);
   }
 
   @Override
@@ -80,6 +87,14 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     getStoredReferencedEntity()
       .internalGetStoredFields()
       .getOptionalStoredFirst(p -> p.referencesBackField(getStoredParentMultiReference()));
+  }
+
+  @Override
+  public String getReferencedTableId() {
+
+    assertKnowsReferencedTable();
+
+    return referencedTableId;
   }
 
   @Override
@@ -141,11 +156,22 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return (getState() == DatabaseObjectState.NEW);
   }
 
-  void internalSetDeleted() {
+  @Override
+  public boolean knowsReferencedTable() {
+    return (referencedTableId != null);
+  }
+
+  void setDeleted() {
 
     assertIsLoaded();
 
     state = DatabaseObjectState.DELETED;
+  }
+
+  private void assertKnowsReferencedTable() {
+    if (!knowsReferencedTable()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not know its referenced table");
+    }
   }
 
   private void assertIsLoaded() {

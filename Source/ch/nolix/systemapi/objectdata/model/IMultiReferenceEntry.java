@@ -10,7 +10,11 @@ public interface IMultiReferenceEntry<E extends IEntity> extends IDatabaseObject
 
   String getReferencedEntityId();
 
+  String getReferencedTableId();
+
   IMultiReference<E> getStoredParentMultiReference();
 
   E getStoredReferencedEntity();
+
+  boolean knowsReferencedTable();
 }

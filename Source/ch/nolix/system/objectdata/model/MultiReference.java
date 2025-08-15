@@ -212,7 +212,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
       getStoredParentEntity().getId(),
       getName())
       .to(e -> //
-      MultiReferenceEntry.createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedEntityTableId(
+      MultiReferenceEntry.createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
         this,
         e.referencedEntityId(),
         e.referencedEntityTableId()));
@@ -229,7 +229,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
-    localEntries.getStoredFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
+    localEntries.getStoredFirst(le -> le.getReferencedEntityId().equals(entity.getId())).setDeleted();
 
     setAsEditedAndRunPotentialUpdateAction();
   }
@@ -239,8 +239,23 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   private void updateStateAddingEntity(final E entity) {
-    localEntries.addAtEnd(
-      MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
+
+    MultiReferenceEntry<E> multiReferenceEntry;
+
+    if (entity.belongsToTable()) {
+
+      //TODO: Add getParentTableId method to Entity
+      multiReferenceEntry = //
+      MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
+        this,
+        entity.getId(),
+        entity.getStoredParentTable().getId());
+    } else {
+      multiReferenceEntry = //
+      MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntityId(this, entity.getId());
+    }
+
+    localEntries.addAtEnd(multiReferenceEntry);
   }
 
   private void updateStateLoadingAllPersistedReferencedEntityIds() {
