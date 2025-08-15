@@ -35,11 +35,27 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     this.dataReader = dataReader;
     this.dataWriter = dataWriter;
 
-    getStoredCloseController().createCloseDependencyTo(dataReader);
+    createCloseDependencyTo(dataReader);
 
     if (dataReader != dataWriter) {
-      getStoredCloseController().createCloseDependencyTo(dataWriter);
+      createCloseDependencyTo(dataWriter);
     }
+  }
+
+  @Override
+  public final void clearMultiReference(
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
+    dataWriter.clearMultiReference(tableName, entityId, multiReferenceColumnName);
+  }
+
+  @Override
+  public final void clearMultiValue(
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumn) {
+    dataWriter.clearMultiValue(tableName, entityId, multiFieldColumn);
   }
 
   @Override
@@ -59,24 +75,8 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final void clearMultiReference(
-    final String tableName,
-    final String entityId,
-    final String multiReferenceColumnName) {
-    dataWriter.clearMultiReference(tableName, entityId, multiReferenceColumnName);
-  }
-
-  @Override
   public final void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
     dataWriter.deleteMultiReferenceEntry(multiReferenceEntry);
-  }
-
-  @Override
-  public final void clearMultiValue(
-    final String tableName,
-    final String entityId,
-    final String multiFieldColumn) {
-    dataWriter.clearMultiValue(tableName, entityId, multiFieldColumn);
   }
 
   @Override
@@ -125,6 +125,21 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
+  public final IContainer<EntityLoadingDto> loadEntities(final String tableName) {
+    return dataReader.loadEntities(tableName);
+  }
+
+  @Override
+  public final EntityLoadingDto loadEntity(final String tableName, final String id) {
+    return dataReader.loadEntity(tableName, id);
+  }
+
+  @Override
+  public final void insertEntity(final String tableName, final EntityCreationDto newEntity) {
+    dataWriter.insertEntity(tableName, newEntity);
+  }
+
+  @Override
   public final void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
     dataWriter.insertMultiBackReferenceEntry(multiBackReferenceEntry);
   }
@@ -137,11 +152,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   @Override
   public final void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
     dataWriter.insertMultiValueEntry(multiValueEntry);
-  }
-
-  @Override
-  public final void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-    dataWriter.insertEntity(tableName, newEntity);
   }
 
   @Override
@@ -169,16 +179,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final IContainer<EntityLoadingDto> loadEntities(final String tableName) {
-    return dataReader.loadEntities(tableName);
-  }
-
-  @Override
-  public final EntityLoadingDto loadEntity(final String tableName, final String id) {
-    return dataReader.loadEntity(tableName, id);
-  }
-
-  @Override
   public final void noteClose() {
     //Does nothing.
   }
@@ -191,6 +191,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   @Override
   public final void saveChanges() {
     dataWriter.saveChanges();
+  }
+
+  @Override
+  public final boolean tableContainsEntity(final String tableName, final String entityId) {
+    return dataReader.tableContainsEntity(tableName, entityId);
   }
 
   @Override
@@ -213,11 +218,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
       columnName,
       value,
       entitiesToIgnoreIds);
-  }
-
-  @Override
-  public final boolean tableContainsEntity(final String tableName, final String entityId) {
-    return dataReader.tableContainsEntity(tableName, entityId);
   }
 
   @Override
