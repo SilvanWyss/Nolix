@@ -9,5 +9,4 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 public interface IReferenceTool extends IFieldTool {
 
   Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(IReference<IEntity> reference);
-
 }

@@ -10,25 +10,20 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
 
   @Override
+  @SuppressWarnings("unchecked")
   public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(
     final IReference<IEntity> reference) {
 
-    if (reference.isEmpty()) {
-      return Optional.empty();
+    if (reference.containsAny()) {
+
+      final var referencedEntity = reference.getStoredReferencedEntity();
+
+      final var backReference = //
+      referencedEntity.internalGetStoredFields().getOptionalStoredFirst(p -> p.referencesBackField(reference));
+
+      return backReference.map(b -> (IBaseBackReference<IEntity>) b);
     }
 
-    return getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(reference);
-  }
-
-  @SuppressWarnings("unchecked")
-  private Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceOfReferenceWhenContainsAny(
-    final IReference<IEntity> reference) {
-
-    final var referencedEntity = reference.getStoredReferencedEntity();
-
-    final var backReference = //
-    referencedEntity.internalGetStoredFields().getOptionalStoredFirst(p -> p.referencesBackField(reference));
-
-    return backReference.map(br -> (IBaseBackReference<IEntity>) br);
+    return Optional.empty();
   }
 }
