@@ -13,7 +13,7 @@ public final class ValueModelView<V> extends AbstractValueModelView<V> {
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.VALUE_FIELD;
   }
 }

@@ -15,7 +15,7 @@ public final class BackReferenceModel extends AbstractBackReferenceModel impleme
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.BACK_REFERENCE;
   }
 }

@@ -15,7 +15,7 @@ public final class ReferenceModel extends AbstractReferenceModel implements IRef
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.REFERENCE;
   }
 }

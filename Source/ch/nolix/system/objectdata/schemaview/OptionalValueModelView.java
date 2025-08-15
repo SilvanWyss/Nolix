@@ -13,7 +13,7 @@ public final class OptionalValueModelView<V> extends AbstractValueModelView<V> {
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_VALUE_FIELD;
   }
 }

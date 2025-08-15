@@ -115,15 +115,15 @@ final class DatabaseTableLoader {
   }
 
   private boolean isBaseBackReference(final ColumnDto columnDto) {
-    return columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
+    return columnDto.contentModel().getFieldType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
   private boolean isBaseReference(final ColumnDto columnDto) {
-    return columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_REFERENCE;
+    return columnDto.contentModel().getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
   private boolean isBaseValue(final ColumnDto columnDto) {
-    return columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
+    return columnDto.contentModel().getFieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 
 }

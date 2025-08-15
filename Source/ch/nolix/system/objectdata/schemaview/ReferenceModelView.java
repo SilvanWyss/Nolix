@@ -16,7 +16,7 @@ public final class ReferenceModelView<E extends IEntity> extends AbstractReferen
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.REFERENCE;
   }
 }

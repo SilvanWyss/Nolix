@@ -13,7 +13,7 @@ public final class MultiValueModelView<V> extends AbstractValueModelView<V> {
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_VALUE_FIELD;
   }
 }

@@ -7,7 +7,7 @@ public record OptionalBackReferenceModelDto(DataType dataType, String backRefere
 implements IContentModelDto {
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 

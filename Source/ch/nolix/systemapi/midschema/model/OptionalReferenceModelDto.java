@@ -7,7 +7,7 @@ public record OptionalReferenceModelDto(DataType dataType, String referencedTabl
 implements IAbstractReferenceModelDto {
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_REFERENCE;
   }
 

@@ -17,7 +17,7 @@ implements IOptionalBackReferenceModel {
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 }

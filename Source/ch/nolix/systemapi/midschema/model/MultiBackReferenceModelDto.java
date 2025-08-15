@@ -6,7 +6,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 public record MultiBackReferenceModelDto(DataType dataType, String backReferencedColumnId) implements IContentModelDto {
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_BACK_REFERENCE;
   }
 

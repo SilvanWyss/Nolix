@@ -15,7 +15,7 @@ public final class MultiReferenceModel extends AbstractReferenceModel implements
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_REFERENCE;
   }
 }

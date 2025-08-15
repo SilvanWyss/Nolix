@@ -58,7 +58,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public FieldType getFieldType(final IColumn column) {
-    return column.getContentModel().getContentType();
+    return column.getContentModel().getFieldType();
   }
 
   @Override

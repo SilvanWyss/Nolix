@@ -7,7 +7,7 @@ public record MultiReferenceModelDto(DataType dataType, String referencedTableId
 implements IAbstractReferenceModelDto {
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_REFERENCE;
   }
 

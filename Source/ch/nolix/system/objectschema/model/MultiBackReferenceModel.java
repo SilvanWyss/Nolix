@@ -15,7 +15,7 @@ public final class MultiBackReferenceModel extends AbstractBackReferenceModel im
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_BACK_REFERENCE;
   }
 }

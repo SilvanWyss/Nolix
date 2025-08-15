@@ -33,10 +33,10 @@ public final class FieldFromColumnCreator {
   private static AbstractField createFieldFromContentModelView(
     final IContentModelView<ITable<IEntity>> contentModelView) {
 
-    final var contentType = contentModelView.getContentType();
+    final var fieldType = contentModelView.getFieldType();
 
     return //
-    switch (contentType) {
+    switch (fieldType) {
       case VALUE_FIELD ->
         ValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case OPTIONAL_VALUE_FIELD ->

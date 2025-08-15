@@ -15,7 +15,7 @@ public final class OptionalReferenceModel extends AbstractReferenceModel impleme
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_REFERENCE;
   }
 }

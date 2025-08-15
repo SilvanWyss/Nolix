@@ -12,5 +12,5 @@ public interface IContentModelView<T> {
 
   boolean referencesTable(T table);
 
-  FieldType getContentType();
+  FieldType getFieldType();
 }

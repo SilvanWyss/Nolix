@@ -17,6 +17,6 @@ public final class ColumnExaminer implements IColumnExaminer {
   public boolean isAbstractReferenceColumn(IColumn column) {
     return //
     column != null
-    && column.getContentModel().getContentType().getBaseType() == BaseFieldType.BASE_REFERENCE;
+    && column.getContentModel().getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 }

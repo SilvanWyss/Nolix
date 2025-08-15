@@ -16,7 +16,7 @@ public final class OptionalReferenceModelView<E extends IEntity> extends Abstrac
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_REFERENCE;
   }
 }

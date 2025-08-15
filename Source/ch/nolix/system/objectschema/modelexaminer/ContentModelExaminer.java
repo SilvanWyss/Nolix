@@ -18,7 +18,7 @@ public final class ContentModelExaminer extends DatabaseObjectExaminer implement
   public boolean isAbstractBackReferenceModel(final IContentModel contentModel) {
     return //
     contentModel != null &&
-    contentModel.getContentType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
+    contentModel.getFieldType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
   /**
@@ -28,7 +28,7 @@ public final class ContentModelExaminer extends DatabaseObjectExaminer implement
   public boolean isAbstractReferenceModel(final IContentModel contentModel) {
     return //
     contentModel != null &&
-    contentModel.getContentType().getBaseType() == BaseFieldType.BASE_REFERENCE;
+    contentModel.getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
   /**
@@ -38,6 +38,6 @@ public final class ContentModelExaminer extends DatabaseObjectExaminer implement
   public boolean isAbstractValueModel(final IContentModel contentModel) {
     return //
     contentModel != null &&
-    contentModel.getContentType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
+    contentModel.getFieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 }

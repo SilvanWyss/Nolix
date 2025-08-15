@@ -15,7 +15,7 @@ public final class OptionalValueModel<V> extends AbstractValueModel<V> implement
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.OPTIONAL_VALUE_FIELD;
   }
 }

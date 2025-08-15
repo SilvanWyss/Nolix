@@ -16,7 +16,7 @@ public final class MultiReferenceModelView<E extends IEntity> extends AbstractRe
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.MULTI_REFERENCE;
   }
 }

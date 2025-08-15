@@ -22,7 +22,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + valueModelDto.getContentType().name() + "'",
+        "'" + valueModelDto.getFieldType().name() + "'",
         "'" + valueModelDto.dataType().name() + "'",
         NULL);
     }
@@ -30,7 +30,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + optionalValueModelDto.getContentType().name() + "'",
+        "'" + optionalValueModelDto.getFieldType().name() + "'",
         "'" + optionalValueModelDto.dataType().name() + "'",
         NULL);
     }
@@ -38,7 +38,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + multiValueModelDto.getContentType().name() + "'",
+        "'" + multiValueModelDto.getFieldType().name() + "'",
         "'" + multiValueModelDto.dataType().name() + "'",
         NULL);
     }
@@ -46,7 +46,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + referenceModelDto.getContentType().name() + "'",
+        "'" + referenceModelDto.getFieldType().name() + "'",
         "'" + referenceModelDto.dataType().name() + "'",
         NULL);
     }
@@ -54,7 +54,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + optionalReferenceModelDto.getContentType().name() + "'",
+        "'" + optionalReferenceModelDto.getFieldType().name() + "'",
         "'" + optionalReferenceModelDto.dataType().name() + "'",
         NULL);
     }
@@ -62,7 +62,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + multiReferenceModelDto.getContentType().name() + "'",
+        "'" + multiReferenceModelDto.getFieldType().name() + "'",
         "'" + multiReferenceModelDto.dataType().name() + "'",
         NULL);
     }
@@ -70,7 +70,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + backReferenceModelDto.getContentType().name() + "'",
+        "'" + backReferenceModelDto.getFieldType().name() + "'",
         "'" + backReferenceModelDto.dataType().name() + "'",
         "'" + backReferenceModelDto.backReferencedColumnId() + "'");
     }
@@ -78,7 +78,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + optionalBackReferenceModelDto.getContentType().name() + "'",
+        "'" + optionalBackReferenceModelDto.getFieldType().name() + "'",
         "'" + optionalBackReferenceModelDto.dataType().name() + "'",
         "'" + optionalBackReferenceModelDto.backReferencedColumnId() + "'");
     }
@@ -86,7 +86,7 @@ public final class ContentModelSqlRecordMapper {
     if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
       return //
       new ContentModelSqlDto(
-        "'" + multiBackReferenceModelDto.getContentType().name() + "'",
+        "'" + multiBackReferenceModelDto.getFieldType().name() + "'",
         "'" + multiBackReferenceModelDto.dataType().name() + "'",
         "'" + multiBackReferenceModelDto.backReferencedColumnId() + "'");
     }

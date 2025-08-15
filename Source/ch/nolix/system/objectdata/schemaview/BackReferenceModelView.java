@@ -18,7 +18,7 @@ extends AbstractBackReferenceModelView<C> {
   }
 
   @Override
-  public FieldType getContentType() {
+  public FieldType getFieldType() {
     return FieldType.BACK_REFERENCE;
   }
 }

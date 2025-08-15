@@ -5,7 +5,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IContentModelDto {
 
-  FieldType getContentType();
+  FieldType getFieldType();
 
   DataType getDataType();
 }
