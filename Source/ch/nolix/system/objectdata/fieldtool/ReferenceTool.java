@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
 
   @Override
-  public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceForReference(
+  public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(
     final IReference<IEntity> reference) {
 
     if (reference.isEmpty()) {
