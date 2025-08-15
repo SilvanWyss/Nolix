@@ -16,20 +16,18 @@ public interface IEntitySearcher {
 
   /**
    * @param entity
-   * @param abstractReference
-   * @return a {@link Optional} with the {@link IBaseBackReference} of the
-   *         given entity that can reference back the given abstractReference, an
-   *         empty {@link Optional} otherwise.
+   * @param baseReference
+   * @return a {@link Optional} with the {@link IBaseBackReference} of the given
+   *         entity that can reference back the given abstractReference, an empty
+   *         {@link Optional} otherwise.
    */
-  Optional<IBaseBackReference<IEntity>> //
-  getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
+  Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     IEntity entity,
-    IBaseReference<? extends IEntity> abstractReference);
+    IBaseReference<? extends IEntity> baseReference);
 
   /**
    * @param entity
-   * @return the {@link IBaseBackReference}s that reference back the given
-   *         entity.
+   * @return the {@link IBaseBackReference}s that reference back the given entity.
    */
   IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackEntity(IEntity entity);
 

@@ -26,15 +26,12 @@ public final class EntitySearcher implements IEntitySearcher {
   @Override
   @SuppressWarnings("unchecked")
   public Optional<IBaseBackReference<IEntity>> //
-  getOptionalStoredAbstractBackReferenceThatCanBackReferenceAbstractReference(
+  getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     final IEntity entity,
     final IBaseReference<? extends IEntity> baseReference) {
 
     if (entity != null && baseReference != null) {
-
-      final var fields = entity.internalGetStoredFields();
-
-      for (final var f : fields) {
+      for (final var f : entity.internalGetStoredFields()) {
         if (FIELD_EXAMINER.canReferenceBackAbstractReference(f, baseReference)) {
           return Optional.of((IBaseBackReference<IEntity>) f);
         }
