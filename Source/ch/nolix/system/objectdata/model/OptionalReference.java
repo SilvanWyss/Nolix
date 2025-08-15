@@ -205,14 +205,13 @@ implements IOptionalReference<E> {
     }
   }
 
-  @SuppressWarnings("unchecked")
   private void updateProbableBackReferencingFieldForClearWhenIsNotEmpty() {
 
-    final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingField(this);
+    final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBaseBackReference(this);
 
     if (backReferencingField.isPresent()) {
       BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(
-        (IBaseBackReference<IEntity>) backReferencingField.get());
+        backReferencingField.get());
     }
   }
 
