@@ -46,7 +46,7 @@ public final class EntitySaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     dataAndSchemaAdapter.insertEntity(
-      newEntity.getParentTableName(),
+      newEntity.getStoredParentTable().getName(),
       ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity));
 
     saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
@@ -57,7 +57,7 @@ public final class EntitySaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
 
     dataAndSchemaAdapter.updateEntity(
-      editedEntity.getParentTableName(),
+      editedEntity.getStoredParentTable().getName(),
       ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity));
 
     saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
