@@ -70,8 +70,8 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  public void internalSetOptionalContent(final Object content) {
-    backReferencedEntityId = (String) content;
+  public void internalSetNullableContent(final Object nullableContent) {
+    backReferencedEntityId = (String) nullableContent;
   }
 
   @Override

@@ -122,8 +122,8 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @Override
-  public void internalSetOptionalContent(final Object content) {
-    Validator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
+  public void internalSetNullableContent(final Object nullableContent) {
+    Validator.assertThat(nullableContent).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
   }
 
   @Override

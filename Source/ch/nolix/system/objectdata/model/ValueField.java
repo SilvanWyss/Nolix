@@ -53,8 +53,8 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
   @Override
   @SuppressWarnings("unchecked")
-  public void internalSetOptionalContent(final Object content) {
-    internalValue = (V) content;
+  public void internalSetNullableContent(final Object nullableContent) {
+    internalValue = (V) nullableContent;
   }
 
   @Override

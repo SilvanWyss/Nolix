@@ -82,8 +82,8 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @Override
-  public void internalSetOptionalContent(final Object content) {
-    referencedEntityId = (String) content;
+  public void internalSetNullableContent(final Object nullableContent) {
+    referencedEntityId = (String) nullableContent;
   }
 
   @Override

@@ -20,7 +20,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
 
   FieldType getType();
 
-  void internalSetOptionalContent(Object content);
+  void internalSetNullableContent(Object nullableContent);
 
   boolean knowsParentColumn();
 
