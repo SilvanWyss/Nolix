@@ -4,11 +4,13 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
-public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, INameHolder {
+public interface ITable<E extends IEntity>
+extends IDatabaseComponent<IDatabase>, IDatabaseObject, IIdHolder, INameHolder {
 
   boolean containsEntityWithId(String id);
 
@@ -23,8 +25,6 @@ public interface ITable<E extends IEntity> extends IDatabaseObject, IIdHolder, I
   IContainer<E> getStoredEntities();
 
   E getStoredEntityById(String id);
-
-  IDatabase getStoredParentDatabase();
 
   ITable<E> insertEntity(E entity);
 

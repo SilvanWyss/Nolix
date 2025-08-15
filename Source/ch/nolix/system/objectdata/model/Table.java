@@ -83,6 +83,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   @Override
+  public boolean belongsToDatabase() {
+    return true;
+  }
+
+  @Override
   public boolean containsEntityWithId(final String id) {
     return getStoredMidDataDataAdapterAndSchemaReader().tableContainsEntity(getName(), id);
   }
