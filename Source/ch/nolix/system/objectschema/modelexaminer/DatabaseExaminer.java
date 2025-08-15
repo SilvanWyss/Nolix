@@ -105,7 +105,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     final var baseContentType = COLUMN_TOOL.getBaseFieldType(column);
 
     return switch (baseContentType) {
-      case BASE_VALUE ->
+      case BASE_VALUE_FIELD ->
         true;
       case BASE_REFERENCE ->
         canAddGivenTableBecauseOfGivenReferenceColumn(database, table, column);

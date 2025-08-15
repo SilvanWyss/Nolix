@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
-import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -52,7 +52,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
   }
 
   @Override
-  public BaseContentType getBaseFieldType(IColumn column) {
+  public BaseFieldType getBaseFieldType(IColumn column) {
     return getFieldType(column).getBaseType();
   }
 

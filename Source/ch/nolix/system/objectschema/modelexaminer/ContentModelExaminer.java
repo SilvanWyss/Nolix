@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.modelexaminer;
 
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.modelexaminer.IContentModelExaminer;
 
@@ -18,7 +18,7 @@ public final class ContentModelExaminer extends DatabaseObjectExaminer implement
   public boolean isAbstractBackReferenceModel(final IContentModel contentModel) {
     return //
     contentModel != null &&
-    contentModel.getContentType().getBaseType() == BaseContentType.BASE_BACK_REFERENCE;
+    contentModel.getContentType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
   /**
@@ -28,7 +28,7 @@ public final class ContentModelExaminer extends DatabaseObjectExaminer implement
   public boolean isAbstractReferenceModel(final IContentModel contentModel) {
     return //
     contentModel != null &&
-    contentModel.getContentType().getBaseType() == BaseContentType.BASE_REFERENCE;
+    contentModel.getContentType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
   /**
@@ -38,6 +38,6 @@ public final class ContentModelExaminer extends DatabaseObjectExaminer implement
   public boolean isAbstractValueModel(final IContentModel contentModel) {
     return //
     contentModel != null &&
-    contentModel.getContentType().getBaseType() == BaseContentType.BASE_VALUE;
+    contentModel.getContentType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 }

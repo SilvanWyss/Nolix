@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
-import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 
@@ -27,7 +27,7 @@ public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper
 
     sqlSchemaColumnDtos.addAtEnd(mainSqlSchemaColumnDto);
 
-    if (columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_REFERENCE) {
+    if (columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_REFERENCE) {
 
       final var referenceSqlSchemaColumnDto = //
       SqlSchemaColumnDtoMapperHelper.mapColumnDtoToReferenceSqlSchemaColumnDto(columnDto);

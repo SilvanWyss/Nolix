@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.midschema.fieldproperty.BaseContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -115,15 +115,15 @@ final class DatabaseTableLoader {
   }
 
   private boolean isBaseBackReference(final ColumnDto columnDto) {
-    return columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_BACK_REFERENCE;
+    return columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
   private boolean isBaseReference(final ColumnDto columnDto) {
-    return columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_REFERENCE;
+    return columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
   private boolean isBaseValue(final ColumnDto columnDto) {
-    return columnDto.contentModel().getContentType().getBaseType() == BaseContentType.BASE_VALUE;
+    return columnDto.contentModel().getContentType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 
 }

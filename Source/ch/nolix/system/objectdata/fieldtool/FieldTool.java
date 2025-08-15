@@ -15,7 +15,7 @@ public class FieldTool implements IFieldTool {
   @Override
   public final Class<?> getDataType(final IField field) {
     return switch (field.getType().getBaseType()) {
-      case BASE_VALUE ->
+      case BASE_VALUE_FIELD ->
         getDataTypeWhenIsBaseValue(field);
       case BASE_REFERENCE, BASE_BACK_REFERENCE ->
         String.class;
