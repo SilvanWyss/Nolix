@@ -12,7 +12,7 @@ public class ReferenceValidator extends FieldValidator implements IReferenceVali
   private static final IReferenceExaminer REFERENCE_EXAMINER = new RefenceExaminer();
 
   @Override
-  public void assertCanSetGivenEntity(final IReference<?> reference, final IEntity entity) {
+  public <E extends IEntity> void assertCanSetGivenEntity(final IReference<E> reference, final E entity) {
     if (!REFERENCE_EXAMINER.canSetEntity(reference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(reference, "cannot reference the given entity");
     }
