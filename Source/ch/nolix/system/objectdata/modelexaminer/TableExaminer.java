@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.modelexaminer;
 
+import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
@@ -9,7 +10,7 @@ import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
  * @author Silvan Wyss
  * @version 2024-12-29
  */
-public final class TableExaminer implements ITableExaminer {
+public final class TableExaminer extends DatabaseObjectExaminer implements ITableExaminer {
 
   private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 

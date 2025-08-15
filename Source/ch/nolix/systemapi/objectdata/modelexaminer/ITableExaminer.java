@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.objectdata.modelexaminer;
 
+import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
@@ -7,7 +8,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
  * @author Silvan Wyss
  * @version 2024-12-29
  */
-public interface ITableExaminer {
+public interface ITableExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param table
