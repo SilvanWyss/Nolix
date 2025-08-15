@@ -1,9 +1,9 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
+import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
+import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -13,9 +13,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public final class EntitySaver {
 
-  private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
+  private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
-  private static final IFieldTool FIELD_TOOL = new FieldTool();
+  private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
 
   private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
 
@@ -82,7 +82,7 @@ public final class EntitySaver {
   private void saveChangesOfPotentialMultiProperty(
     final IField p,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    if (FIELD_TOOL.isNewOrEdited(p)) {
+    if (DATABASE_OBJECT_EXAMINER.isNewOrEdited(p)) {
       saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(p, dataAndSchemaAdapter);
     }
   }

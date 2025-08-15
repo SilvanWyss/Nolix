@@ -1,10 +1,10 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
-import ch.nolix.system.objectdata.fieldtool.FieldTool;
+import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
+import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -16,11 +16,11 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 public final class ChangeSetSaveValidator {
 
+  private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
+
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
-
-  private static final IFieldTool FIELD_TOOL = new FieldTool();
 
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IDatabase database,
@@ -52,7 +52,7 @@ public final class ChangeSetSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IField field,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    if (FIELD_TOOL.isNewOrEdited(field)) {
+    if (DATABASE_OBJECT_EXAMINER.isNewOrEdited(field)) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenFieldIsNewOrEdited(field,
         dataAndSchemaAdapter);
     }

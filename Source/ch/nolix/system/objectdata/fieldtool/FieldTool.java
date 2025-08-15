@@ -4,14 +4,13 @@ import java.lang.reflect.ParameterizedType;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
-import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
-public class FieldTool extends DatabaseObjectExaminer implements IFieldTool {
+public class FieldTool implements IFieldTool {
 
   @Override
   public final Class<?> getDataType(final IField field) {
