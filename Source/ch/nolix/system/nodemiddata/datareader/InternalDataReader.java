@@ -48,6 +48,13 @@ public final class InternalDataReader {
     return DATABASE_NODE_SEARCHER.getDatabaseNameFromNodeDatabase(nodeDatabase);
   }
 
+  public int getEntityCount(String tableName) {
+
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+
+    return TABLE_NODE_SEARCHER.getEntityNodeCountOfTableNode(tableNode);
+  }
+
   public ITime getSchemaTimestamp() {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER

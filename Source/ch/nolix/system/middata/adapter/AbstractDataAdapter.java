@@ -100,6 +100,11 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
+  public final int getEntityCount(final String tableName) {
+    return dataReader.getEntityCount(tableName);
+  }
+
+  @Override
   public final int getSaveCount() {
     return dataWriter.getSaveCount();
   }

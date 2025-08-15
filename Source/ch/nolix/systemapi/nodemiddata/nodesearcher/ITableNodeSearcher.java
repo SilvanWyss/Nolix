@@ -7,6 +7,8 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 
 public interface ITableNodeSearcher {
 
+  int getEntityNodeCountOfTableNode(IMutableNode<?> tableNode);
+
   Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     IMutableNode<?> tableNode,
     String id);

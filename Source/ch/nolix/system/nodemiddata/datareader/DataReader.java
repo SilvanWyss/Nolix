@@ -45,6 +45,11 @@ public final class DataReader implements IDataReader {
   }
 
   @Override
+  public int getEntityCount(final String tableName) {
+    return internalDataReader.getEntityCount(tableName);
+  }
+
+  @Override
   public ITime getSchemaTimestamp() {
     return internalDataReader.getSchemaTimestamp();
   }

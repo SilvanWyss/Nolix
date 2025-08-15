@@ -64,6 +64,14 @@ final class InternalDataReader {
     return databaseName;
   }
 
+  public int getEntityCount(String tableName) {
+
+    final var query = ENTITY_QUERY_CREATOR.createQueryToCountEntities(tableName);
+    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
+
+    return Integer.valueOf(sqlRecord.getStoredOne());
+  }
+
   public Time getSchemaTimestamp() {
     return Time.fromString(
       sqlConnection

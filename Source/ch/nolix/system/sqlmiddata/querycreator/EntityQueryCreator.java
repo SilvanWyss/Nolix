@@ -11,8 +11,17 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 public final class EntityQueryCreator implements IEntityQueryCreator {
 
   @Override
+  public String createQueryToCountEntities(final String tableName) {
+    return //
+    "SELECT COUNT(Id) FROM "
+    + tableName
+    + ";";
+  }
+
+  @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
-    return "SELECT COUNT(Id) FROM "
+    return //
+    "SELECT COUNT(Id) FROM "
     + tableName
     + " WHERE Id = '"
     + id

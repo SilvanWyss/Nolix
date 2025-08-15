@@ -11,6 +11,11 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
+  public int getEntityNodeCountOfTableNode(final IMutableNode<?> tableNode) {
+    return tableNode.getChildNodeCount(c -> c.hasHeader(NodeHeaderCatalog.ENTITY));
+  }
+
+  @Override
   public Optional<? extends IMutableNode<?>> getOptionalStoredEntityNodeFromTableNode(
     final IMutableNode<?> tableNode,
     final String id) {

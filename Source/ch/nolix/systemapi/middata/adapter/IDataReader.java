@@ -14,6 +14,14 @@ import ch.nolix.systemapi.time.moment.ITime;
 public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
 
   /**
+   * @param tableName
+   * @return the number of the entities of the table with the given tableName from
+   *         the database.
+   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   */
+  int getEntityCount(String tableName);
+
+  /**
    * @return the schema timestamp from the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
