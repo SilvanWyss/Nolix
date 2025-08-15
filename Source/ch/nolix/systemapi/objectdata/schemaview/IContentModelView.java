@@ -4,7 +4,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IContentModelView<T> {
 
-  IAbstractBackReferenceModelView<?, T> asAbstractBackReferenceModel();
+  IBaseBackReferenceModelView<?, T> asAbstractBackReferenceModel();
 
   IAbstractReferenceModelView<T> asAbstractReferenceModel();
 

@@ -4,17 +4,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractBackReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
-public abstract class AbstractBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
-implements IAbstractBackReferenceModelView<C, ITable<IEntity>> {
+public abstract class AbstractBaseBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
+implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
 
   private final C backReferencedColumn;
 
-  protected AbstractBackReferenceModelView(final C backReferencedColumn) {
+  protected AbstractBaseBackReferenceModelView(final C backReferencedColumn) {
 
     Validator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 
@@ -22,7 +22,7 @@ implements IAbstractBackReferenceModelView<C, ITable<IEntity>> {
   }
 
   @Override
-  public final IAbstractBackReferenceModelView<C, ITable<IEntity>> asAbstractBackReferenceModel() {
+  public final IBaseBackReferenceModelView<C, ITable<IEntity>> asAbstractBackReferenceModel() {
     return this;
   }
 

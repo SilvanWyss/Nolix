@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractBackReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
@@ -56,13 +56,13 @@ public final class FieldFromColumnCreator {
           (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
       case BACK_REFERENCE ->
         createBackReferenceFromAbstractBackReferenceModelView(
-          (IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
+          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
       case OPTIONAL_BACK_REFERENCE ->
         createOptionalBackReferenceFromAbstractBackReferenceModelView(
-          (IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
+          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
       case MULTI_BACK_REFERENCE ->
         createMultiBackReferenceFromAbstractBackReferenceModelView(
-          (IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
+          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
     };
   }
 
@@ -91,7 +91,7 @@ public final class FieldFromColumnCreator {
   }
 
   private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(
-    final IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
+    final IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
     abstractBackReferenceModelView) {
 
     final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
@@ -104,7 +104,7 @@ public final class FieldFromColumnCreator {
   }
 
   private static OptionalBackReference<AbstractEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
-    final IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
+    final IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
     abstractBackReferenceModelView) {
 
     final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
@@ -119,7 +119,7 @@ public final class FieldFromColumnCreator {
   }
 
   private static MultiBackReference<AbstractEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
-    final IAbstractBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
+    final IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
     abstractBackReferenceModelView) {
 
     final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
