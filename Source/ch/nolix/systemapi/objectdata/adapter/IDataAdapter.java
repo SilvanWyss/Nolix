@@ -10,5 +10,5 @@ public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IDatabaseName
 
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
-  <E extends IEntity> IDataAdapter insertEntity(E entity, @SuppressWarnings("unchecked") E... entities);
+  IDataAdapter insertEntity(IEntity entity);
 }

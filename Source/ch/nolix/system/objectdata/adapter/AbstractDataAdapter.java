@@ -89,15 +89,9 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   @Override
-  public final <E extends IEntity> IDataAdapter insertEntity(
-    final E entity,
-    @SuppressWarnings("unchecked") final E... entities) {
+  public final IDataAdapter insertEntity(final IEntity entity) {
 
     database.insertEntity(entity);
-
-    for (final var e : entities) {
-      database.insertEntity(e);
-    }
 
     return this;
   }
