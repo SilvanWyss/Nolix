@@ -55,6 +55,29 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    * {@inheritDoc}
    */
   @Override
+  public boolean canSetParentTable(final IEntity entity) {
+    return //
+    entity != null
+    && entity.isOpen()
+    && !entity.belongsToTable();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <E extends IEntity> boolean canSetParentTable(final IEntity entity, final ITable<E> table) {
+    return //
+    canSetParentTable(entity)
+    && table != null
+    && table.isOpen()
+    && entity.getClass() == table.getEntityType();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isReferenced(final IEntity entity) {
     return //
     isReferencedInLocalData(entity)
