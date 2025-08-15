@@ -1,8 +1,8 @@
-package ch.nolix.systemapi.objectdata.fieldtool;
+package ch.nolix.systemapi.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
-public interface IMultiValueFieldTool extends IFieldTool {
+public interface IMultiValueFieldExaminer extends IFieldExaminer {
 
   boolean canAddValue(IMultiValueField<?> multiValueField);
 
