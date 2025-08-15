@@ -48,6 +48,11 @@ public abstract class AbstractEntity implements IEntity {
   private IContainer<AbstractField> fields;
 
   @Override
+  public final boolean belongsToDatabase() {
+    return belongsToDatabase();
+  }
+
+  @Override
   public final boolean belongsToTable() {
     return (parentTable != null);
   }
