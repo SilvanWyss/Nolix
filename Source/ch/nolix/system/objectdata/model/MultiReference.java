@@ -208,7 +208,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   private IContainer<MultiReferenceEntry<E>> loadAllPersistedReferencedEntityIds() {
     return //
     getStoredDataAndSchemaAdapter().loadMultiReferenceEntries(
-      getStoredParentEntity().getParentTableName(),
+      getStoredParentEntity().getStoredParentTable().getName(),
       getStoredParentEntity().getId(),
       getName())
       .to(e -> //
