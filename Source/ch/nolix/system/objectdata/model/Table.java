@@ -89,7 +89,19 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public int getEntityCount() {
-    return getStoredEntities().getCount();
+
+    var entityCount = getStoredMidDataDataAdapterAndSchemaReader().getEntityCount(getName());
+
+    for (final var e : internalGetStoredEntitiesInLocalData()) {
+      if (e.isNew()) {
+        entityCount++;
+      } else if //NOSONAR: When an Entity is new it is not deleted.
+      (e.isDeleted()) {
+        entityCount--;
+      }
+    }
+
+    return entityCount;
   }
 
   @Override
