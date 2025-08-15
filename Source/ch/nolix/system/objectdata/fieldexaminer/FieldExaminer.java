@@ -38,7 +38,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean canReferenceBackAbstractReference(
+  public boolean canReferenceBackBaseReference(
     final IField field,
     final IBaseReference<? extends IEntity> abstractReference) {
 

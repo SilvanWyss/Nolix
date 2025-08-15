@@ -27,11 +27,11 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param field
-   * @param abstractReference
-   * @return true if the given field can reference back the given
-   *         abstractReference, false otherwise.
+   * @param baseReference
+   * @return true if the given field can reference back the given baseReference,
+   *         false otherwise.
    */
-  boolean canReferenceBackAbstractReference(IField field, IBaseReference<? extends IEntity> abstractReference);
+  boolean canReferenceBackBaseReference(IField field, IBaseReference<? extends IEntity> baseReference);
 
   /**
    * @param field

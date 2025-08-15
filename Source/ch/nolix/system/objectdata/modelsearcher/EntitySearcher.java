@@ -32,7 +32,7 @@ public final class EntitySearcher implements IEntitySearcher {
 
     if (entity != null && baseReference != null) {
       for (final var f : entity.internalGetStoredFields()) {
-        if (FIELD_EXAMINER.canReferenceBackAbstractReference(f, baseReference)) {
+        if (FIELD_EXAMINER.canReferenceBackBaseReference(f, baseReference)) {
           return Optional.of((IBaseBackReference<IEntity>) f);
         }
       }
