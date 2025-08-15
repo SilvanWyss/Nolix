@@ -126,7 +126,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   private synchronized void saveChangesAndIncrementSaveCount() {
 
-    DATA_SAVER.saveChangesOfDatabaseSynchronously(database, midDataAdapterAndSchemaReader);
+    DATA_SAVER.saveChangesOfDatabaseAtOnce(database, midDataAdapterAndSchemaReader);
 
     saveCount++;
   }

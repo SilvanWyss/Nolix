@@ -3,20 +3,30 @@ package ch.nolix.system.objectdata.changesetsaver;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectdata.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.changesetsaver.IChangeSetSaver;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
+import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
 
-public final class ChangeSetSaver {
+/**
+ * @author Silvan Wyss
+ * @version 2024-02-12
+ */
+public final class ChangeSetSaver implements IChangeSetSaver {
 
   private static final IDatabaseSearcher DATABASE_TOOL = new DatabaseSearcher();
 
-  private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
+  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   private static final ChangeSetSaveValidator DATABASE_SAVE_VALIDATOR = new ChangeSetSaveValidator();
 
   private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 
-  public void saveChangesOfDatabaseSynchronously(
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void saveChangesOfDatabaseAtOnce(
     final IDatabase database,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     synchronized (ChangeSetSaver.class) {
