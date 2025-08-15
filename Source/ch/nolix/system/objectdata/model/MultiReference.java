@@ -10,13 +10,13 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
+import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
-import ch.nolix.systemapi.objectdata.fieldtool.IMultiReferenceTool;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -28,7 +28,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
-  private static final IMultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
+  private static final IMultiReferenceExaminer MULTI_REFERENCE_TOOL = new MultiReferenceExaminer();
 
   private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 

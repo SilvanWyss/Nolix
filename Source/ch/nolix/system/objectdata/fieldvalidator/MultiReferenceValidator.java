@@ -1,15 +1,15 @@
 package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.fieldtool.MultiReferenceTool;
-import ch.nolix.systemapi.objectdata.fieldtool.IMultiReferenceTool;
+import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 public final class MultiReferenceValidator extends FieldValidator implements IMultiReferenceValidator {
 
-  private static final IMultiReferenceTool MULTI_REFERENCE_TOOL = new MultiReferenceTool();
+  private static final IMultiReferenceExaminer MULTI_REFERENCE_TOOL = new MultiReferenceExaminer();
 
   @Override
   public void assertCanAddGivenEntity(final IMultiReference<?> multiReference, final IEntity entity) {

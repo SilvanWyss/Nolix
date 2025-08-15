@@ -1,9 +1,9 @@
-package ch.nolix.systemapi.objectdata.fieldtool;
+package ch.nolix.systemapi.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
-public interface IMultiReferenceTool extends IFieldTool {
+public interface IMultiReferenceExaminer extends IFieldExaminer {
 
   <E extends IEntity> boolean canAddEntity(IMultiReference<E> multiReference);
 
