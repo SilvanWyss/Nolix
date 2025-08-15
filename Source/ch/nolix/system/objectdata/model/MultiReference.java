@@ -92,7 +92,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    */
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
 
     final ILinkedList<IBaseBackReference<IEntity>> abstractBackReferences = LinkedList.createEmpty();
 

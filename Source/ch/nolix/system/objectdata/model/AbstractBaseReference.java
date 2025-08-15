@@ -32,7 +32,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   }
 
   @Override
-  public final IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
+  public final IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
     return ImmutableList.createEmpty();
   }
 

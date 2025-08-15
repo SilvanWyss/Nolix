@@ -78,7 +78,7 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
+  public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
 
     final ILinkedList<IBaseReference<IEntity>> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();

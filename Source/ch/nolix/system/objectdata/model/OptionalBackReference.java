@@ -52,7 +52,7 @@ implements IOptionalBackReference<E> {
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
+  public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();

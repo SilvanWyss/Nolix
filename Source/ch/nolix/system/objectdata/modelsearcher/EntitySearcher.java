@@ -57,7 +57,7 @@ public final class EntitySearcher implements IEntitySearcher {
 
     final var fields = entity.internalGetStoredFields();
 
-    return fields.toMultiples(IField::getStoredAbstractBackReferencesThatReferencesBackThis);
+    return fields.toMultiples(IField::getStoredBaseBackReferencesWhoReferencesBackThis);
   }
 
   /**
@@ -91,6 +91,6 @@ public final class EntitySearcher implements IEntitySearcher {
 
     final var fields = entity.internalGetStoredFields();
 
-    return fields.toMultiples(IField::getStoredAbstractReferencesThatAreBackReferencedFromThis);
+    return fields.toMultiples(IField::getStoredBaseReferencesWhoAreBackReferencedFromThis);
   }
 }

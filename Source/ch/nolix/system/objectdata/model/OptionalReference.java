@@ -61,7 +61,7 @@ implements IOptionalReference<E> {
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();

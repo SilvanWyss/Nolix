@@ -59,7 +59,7 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  public final IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 

@@ -38,7 +38,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IBaseReference<IEntity>> getStoredAbstractReferencesThatAreBackReferencedFromThis() {
+  public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();

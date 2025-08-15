@@ -52,7 +52,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   @Override
   @SuppressWarnings("unchecked")
-  public IContainer<IBaseBackReference<IEntity>> getStoredAbstractBackReferencesThatReferencesBackThis() {
+  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
 
     if (isEmpty()) {
       return ImmutableList.createEmpty();
@@ -192,14 +192,14 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateProbableBackReferencingFieldForClear() {
-    for (final var brp : getStoredAbstractBackReferencesThatReferencesBackThis()) {
+    for (final var brp : getStoredBaseBackReferencesWhoReferencesBackThis()) {
       BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(brp);
     }
   }
 
   private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
 
-    for (final var bbr : getStoredAbstractBackReferencesThatReferencesBackThis()) {
+    for (final var bbr : getStoredBaseBackReferencesWhoReferencesBackThis()) {
       if (FIELD_EXAMINER.isForSingleContent(bbr)) {
         final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
