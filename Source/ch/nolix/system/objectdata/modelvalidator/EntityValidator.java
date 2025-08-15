@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.datavalidator;
+package ch.nolix.system.objectdata.modelvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
-import ch.nolix.systemapi.objectdata.datavalidator.IEntityValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
+import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 public final class EntityValidator implements IEntityValidator {
 

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdata.datavalidator;
+package ch.nolix.systemapi.objectdata.modelvalidator;
 
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;

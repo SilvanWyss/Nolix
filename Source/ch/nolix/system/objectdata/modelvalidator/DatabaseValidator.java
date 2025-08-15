@@ -1,10 +1,10 @@
-package ch.nolix.system.objectdata.datavalidator;
+package ch.nolix.system.objectdata.modelvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelexaminer.DatabaseExaminer;
-import ch.nolix.systemapi.objectdata.datavalidator.IDatabaseValidator;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.modelexaminer.IDatabaseExaminer;
+import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
 
 public final class DatabaseValidator implements IDatabaseValidator {
 

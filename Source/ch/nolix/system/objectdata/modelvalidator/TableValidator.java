@@ -1,11 +1,11 @@
-package ch.nolix.system.objectdata.datavalidator;
+package ch.nolix.system.objectdata.modelvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
-import ch.nolix.systemapi.objectdata.datavalidator.ITableValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
+import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 
 public final class TableValidator implements ITableValidator {
 
