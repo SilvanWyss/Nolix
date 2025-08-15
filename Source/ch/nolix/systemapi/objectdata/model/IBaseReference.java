@@ -12,7 +12,7 @@ public interface IBaseReference<E extends IEntity> extends IField {
    * @return the type of the {@link IEntity}s the current {@link IBaseReference}
    *         can reference.
    */
-  Class<E> getReferanceableEntityType();
+  Class<E> getReferenceableEntityType();
 
   /**
    * @return the id of the referenced {@link ITable} of the current

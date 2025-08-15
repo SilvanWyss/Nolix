@@ -33,7 +33,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   }
 
   @Override
-  public final Class<E> getReferanceableEntityType() {
+  public final Class<E> getReferenceableEntityType() {
     return referenceableType;
   }
 
