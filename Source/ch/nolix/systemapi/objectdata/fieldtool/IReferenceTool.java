@@ -10,5 +10,4 @@ public interface IReferenceTool extends IFieldTool {
 
   Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(IReference<IEntity> reference);
 
-  boolean toReferenceCanSetEntity(final IReference<?> reference, IEntity entity);
 }
