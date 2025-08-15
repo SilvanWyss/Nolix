@@ -13,7 +13,7 @@ import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
@@ -117,8 +117,8 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.MULTI_REFERENCE;
+  public FieldType getType() {
+    return FieldType.MULTI_REFERENCE;
   }
 
   @Override

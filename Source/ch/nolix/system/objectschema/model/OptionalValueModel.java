@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IOptionalValueModel;
 
 public final class OptionalValueModel<V> extends AbstractValueModel<V> implements IOptionalValueModel<V> {
@@ -15,7 +15,7 @@ public final class OptionalValueModel<V> extends AbstractValueModel<V> implement
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.OPTIONAL_VALUE_FIELD;
+  public FieldType getContentType() {
+    return FieldType.OPTIONAL_VALUE_FIELD;
   }
 }

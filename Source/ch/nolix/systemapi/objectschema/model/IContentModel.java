@@ -1,11 +1,11 @@
 package ch.nolix.systemapi.objectschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IContentModel {
 
-  ContentType getContentType();
+  FieldType getContentType();
 
   DataType getDataType();
 

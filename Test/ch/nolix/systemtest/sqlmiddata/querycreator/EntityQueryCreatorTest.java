@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
@@ -36,8 +36,8 @@ final class EntityQueryCreatorTest extends StandardTest {
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE_FIELD, DataType.STRING),
-        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
+        new ColumnViewDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
+        new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
@@ -56,8 +56,8 @@ final class EntityQueryCreatorTest extends StandardTest {
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE_FIELD, DataType.STRING),
-        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
+        new ColumnViewDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
+        new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);

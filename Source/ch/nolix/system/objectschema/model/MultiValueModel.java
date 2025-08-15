@@ -1,7 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IMultiValueModel;
 
 public final class MultiValueModel<V> extends AbstractValueModel<V> implements IMultiValueModel<V> {
@@ -15,7 +15,7 @@ public final class MultiValueModel<V> extends AbstractValueModel<V> implements I
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.MULTI_VALUE_FIELD;
+  public FieldType getContentType() {
+    return FieldType.MULTI_VALUE_FIELD;
   }
 }

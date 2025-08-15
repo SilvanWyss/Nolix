@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -65,8 +65,8 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.OPTIONAL_BACK_REFERENCE;
+  public FieldType getType() {
+    return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 
   @Override

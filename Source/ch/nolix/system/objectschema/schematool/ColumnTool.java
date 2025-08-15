@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
@@ -57,7 +57,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
   }
 
   @Override
-  public ContentType getFieldType(final IColumn column) {
+  public FieldType getFieldType(final IColumn column) {
     return column.getContentModel().getContentType();
   }
 

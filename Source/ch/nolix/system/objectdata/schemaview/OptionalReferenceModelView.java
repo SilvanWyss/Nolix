@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.schemaview;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
@@ -16,7 +16,7 @@ public final class OptionalReferenceModelView<E extends IEntity> extends Abstrac
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.OPTIONAL_REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.OPTIONAL_REFERENCE;
   }
 }

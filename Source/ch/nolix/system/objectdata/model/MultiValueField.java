@@ -9,7 +9,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
@@ -63,8 +63,8 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.MULTI_VALUE_FIELD;
+  public FieldType getType() {
+    return FieldType.MULTI_VALUE_FIELD;
   }
 
   @Override

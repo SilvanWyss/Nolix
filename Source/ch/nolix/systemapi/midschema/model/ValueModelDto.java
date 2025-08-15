@@ -1,13 +1,13 @@
 package ch.nolix.systemapi.midschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public record ValueModelDto(DataType dataType) implements IContentModelDto {
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.VALUE_FIELD;
+  public FieldType getContentType() {
+    return FieldType.VALUE_FIELD;
   }
 
   @Override

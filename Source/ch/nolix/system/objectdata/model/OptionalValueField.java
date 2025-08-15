@@ -7,7 +7,7 @@ import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
@@ -62,8 +62,8 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.OPTIONAL_VALUE_FIELD;
+  public FieldType getType() {
+    return FieldType.OPTIONAL_VALUE_FIELD;
   }
 
   @Override

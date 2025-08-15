@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IOptionalBackReferenceModel;
 
@@ -17,7 +17,7 @@ implements IOptionalBackReferenceModel {
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.OPTIONAL_BACK_REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 }

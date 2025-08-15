@@ -5,7 +5,7 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.ValueValidator;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IValueValidator;
 import ch.nolix.systemapi.objectdata.model.IValueField;
@@ -47,8 +47,8 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.VALUE_FIELD;
+  public FieldType getType() {
+    return FieldType.VALUE_FIELD;
   }
 
   @Override

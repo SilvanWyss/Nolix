@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 
@@ -15,7 +15,7 @@ public final class BackReferenceModel extends AbstractBackReferenceModel impleme
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.BACK_REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.BACK_REFERENCE;
   }
 }

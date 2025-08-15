@@ -2,7 +2,7 @@ package ch.nolix.system.nodemidschema.nodesearcher;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
@@ -17,11 +17,11 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public ContentType getContentTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  public FieldType getContentTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
 
     final var contentTypeNode = getStoredContentTypeNodeFromContentModelNode(contentModelNode);
 
-    return ContentType.fromSpecification(contentTypeNode);
+    return FieldType.fromSpecification(contentTypeNode);
   }
 
   @Override

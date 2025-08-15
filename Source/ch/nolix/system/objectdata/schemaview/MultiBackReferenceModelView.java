@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.schemaview;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
@@ -18,7 +18,7 @@ extends AbstractBackReferenceModelView<C> {
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.MULTI_BACK_REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.MULTI_BACK_REFERENCE;
   }
 }

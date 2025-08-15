@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdata.schemaview;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IContentModelView<T> {
 
@@ -12,5 +12,5 @@ public interface IContentModelView<T> {
 
   boolean referencesTable(T table);
 
-  ContentType getContentType();
+  FieldType getContentType();
 }

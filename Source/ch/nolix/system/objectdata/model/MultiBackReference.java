@@ -9,7 +9,7 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -94,8 +94,8 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.MULTI_BACK_REFERENCE;
+  public FieldType getType() {
+    return FieldType.MULTI_BACK_REFERENCE;
   }
 
   @Override

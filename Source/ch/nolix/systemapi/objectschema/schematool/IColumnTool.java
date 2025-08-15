@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectschema.schematool;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -21,7 +21,7 @@ public interface IColumnTool extends IDatabaseObjectExaminer {
 
   BaseFieldType getBaseFieldType(IColumn column);
 
-  ContentType getFieldType(IColumn column);
+  FieldType getFieldType(IColumn column);
 
   IDatabase getParentDatabase(IColumn column);
 

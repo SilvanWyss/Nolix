@@ -8,7 +8,7 @@ import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldtool.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
@@ -86,8 +86,8 @@ implements IOptionalReference<E> {
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.OPTIONAL_REFERENCE;
+  public FieldType getType() {
+    return FieldType.OPTIONAL_REFERENCE;
   }
 
   @Override

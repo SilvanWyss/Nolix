@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IMultiBackReferenceModel;
 
@@ -15,7 +15,7 @@ public final class MultiBackReferenceModel extends AbstractBackReferenceModel im
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.MULTI_BACK_REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.MULTI_BACK_REFERENCE;
   }
 }

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.midschemaview.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**
  * @author Silvan Wyss
@@ -16,6 +16,6 @@ public record ColumnViewDto(
 String id,
 String name,
 int oneBasedOrdinalIndex,
-ContentType contentType,
+FieldType contentType,
 DataType dataType) {
 }

@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
@@ -51,8 +51,8 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
-  public ContentType getType() {
-    return ContentType.BACK_REFERENCE;
+  public FieldType getType() {
+    return FieldType.BACK_REFERENCE;
   }
 
   @Override

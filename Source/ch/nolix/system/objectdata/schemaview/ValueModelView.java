@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.schemaview;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public final class ValueModelView<V> extends AbstractValueModelView<V> {
 
@@ -13,7 +13,7 @@ public final class ValueModelView<V> extends AbstractValueModelView<V> {
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.VALUE_FIELD;
+  public FieldType getContentType() {
+    return FieldType.VALUE_FIELD;
   }
 }

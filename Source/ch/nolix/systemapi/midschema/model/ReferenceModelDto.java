@@ -1,13 +1,13 @@
 package ch.nolix.systemapi.midschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public record ReferenceModelDto(DataType dataType, String referencedTableId) implements IAbstractReferenceModelDto {
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.REFERENCE;
   }
 
   @Override

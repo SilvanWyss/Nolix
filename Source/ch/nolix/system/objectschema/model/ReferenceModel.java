@@ -1,6 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
@@ -15,7 +15,7 @@ public final class ReferenceModel extends AbstractReferenceModel implements IRef
   }
 
   @Override
-  public ContentType getContentType() {
-    return ContentType.REFERENCE;
+  public FieldType getContentType() {
+    return FieldType.REFERENCE;
   }
 }

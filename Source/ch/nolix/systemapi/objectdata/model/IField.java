@@ -6,7 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldrequest.MandatorynessRequestable;
 import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
-import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public interface IField
@@ -18,7 +18,7 @@ extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameH
 
   IColumnView<ITable<IEntity>> getStoredParentColumn();
 
-  ContentType getType();
+  FieldType getType();
 
   void internalSetOptionalContent(Object content);
 
