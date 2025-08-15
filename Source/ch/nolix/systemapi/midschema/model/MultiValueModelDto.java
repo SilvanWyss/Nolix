@@ -7,7 +7,7 @@ public record MultiValueModelDto(DataType dataType) implements IContentModelDto 
 
   @Override
   public ContentType getContentType() {
-    return ContentType.MULTI_VALUE;
+    return ContentType.MULTI_VALUE_FIELD;
   }
 
   @Override

@@ -48,7 +48,7 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
   @Override
   public ContentType getType() {
-    return ContentType.VALUE;
+    return ContentType.VALUE_FIELD;
   }
 
   @Override

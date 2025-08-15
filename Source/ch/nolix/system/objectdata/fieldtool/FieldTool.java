@@ -75,11 +75,11 @@ public class FieldTool implements IFieldTool {
 
   private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IField field) {
     return switch (field.getType()) {
-      case VALUE ->
+      case VALUE_FIELD ->
         getDataTypeWhenDoesNotBelongToEntity((IValueField<?>) field);
-      case OPTIONAL_VALUE ->
+      case OPTIONAL_VALUE_FIELD ->
         getDataTypeWhenDoesNotBelongToEntity((IOptionalValueField<?>) field);
-      case MULTI_VALUE ->
+      case MULTI_VALUE_FIELD ->
         getDataTypeWhenDoesNotBelongToEntity((IMultiValueField<?>) field);
       default ->
         throw InvalidArgumentException.forArgumentAndErrorPredicate(field, "is not a base value");

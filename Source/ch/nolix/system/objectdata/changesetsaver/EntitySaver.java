@@ -91,7 +91,7 @@ public final class EntitySaver {
     final IField field,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field.getType()) {
-      case MULTI_VALUE:
+      case MULTI_VALUE_FIELD:
         MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValueField<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:

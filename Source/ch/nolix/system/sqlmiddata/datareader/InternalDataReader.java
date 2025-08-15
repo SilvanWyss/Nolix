@@ -132,12 +132,12 @@ final class InternalDataReader {
 
     return //
     switch (contentType) {
-      case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
+      case VALUE_FIELD, OPTIONAL_VALUE_FIELD, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
           columnView.name(),
           value);
-      case MULTI_VALUE ->
+      case MULTI_VALUE_FIELD ->
         multiValueEntryExistsForGivenColumnAndValue(columnView.id(), value);
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnView.id(), value);
@@ -156,13 +156,13 @@ final class InternalDataReader {
 
     return //
     switch (contentType) {
-      case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
+      case VALUE_FIELD, OPTIONAL_VALUE_FIELD, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
           tableName,
           columnInfo.name(),
           value,
           entitiesToIgnoreIds);
-      case MULTI_VALUE ->
+      case MULTI_VALUE_FIELD ->
         multiValueEntryExistsForGivenColumnAndValueIgnoringGivenEntities(
           columnInfo.id(),
           value,

@@ -26,11 +26,11 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
 
     return //
     switch (contentType) {
-      case VALUE ->
+      case VALUE_FIELD ->
         ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForValueColumn(joinedColumnSqlRecord);
-      case OPTIONAL_VALUE ->
+      case OPTIONAL_VALUE_FIELD ->
         ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalValueColumn(joinedColumnSqlRecord);
-      case MULTI_VALUE ->
+      case MULTI_VALUE_FIELD ->
         ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(joinedColumnSqlRecord);
       case REFERENCE ->
         ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForReferenceColumn(joinedColumnSqlRecord);

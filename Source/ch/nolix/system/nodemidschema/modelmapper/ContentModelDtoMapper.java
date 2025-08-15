@@ -34,11 +34,11 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
 
     return //
     switch (contentType) {
-      case VALUE ->
+      case VALUE_FIELD ->
         new ValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
-      case OPTIONAL_VALUE ->
+      case OPTIONAL_VALUE_FIELD ->
         new OptionalValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
-      case MULTI_VALUE ->
+      case MULTI_VALUE_FIELD ->
         new MultiValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
       case REFERENCE ->
         new ReferenceModelDto(

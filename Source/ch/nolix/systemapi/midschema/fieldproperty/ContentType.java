@@ -4,9 +4,9 @@ import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.coreapi.document.node.INode;
 
 public enum ContentType {
-  VALUE(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_ONE),
-  OPTIONAL_VALUE(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_ONE_OR_NONE),
-  MULTI_VALUE(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_MANY),
+  VALUE_FIELD(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_ONE),
+  OPTIONAL_VALUE_FIELD(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_ONE_OR_NONE),
+  MULTI_VALUE_FIELD(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_MANY),
   REFERENCE(BaseFieldType.BASE_REFERENCE, Cardinality.TO_ONE),
   OPTIONAL_REFERENCE(BaseFieldType.BASE_REFERENCE, Cardinality.TO_ONE_OR_NONE),
   MULTI_REFERENCE(BaseFieldType.BASE_REFERENCE, Cardinality.TO_MANY),

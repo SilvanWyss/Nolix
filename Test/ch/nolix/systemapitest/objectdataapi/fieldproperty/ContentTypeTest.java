@@ -16,9 +16,9 @@ final class ContentTypeTest extends StandardTest {
   private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {
     return //
     ImmutableList.withElement(
-      Arguments.of(ContentType.VALUE, Cardinality.TO_ONE),
-      Arguments.of(ContentType.OPTIONAL_VALUE, Cardinality.TO_ONE_OR_NONE),
-      Arguments.of(ContentType.MULTI_VALUE, Cardinality.TO_MANY),
+      Arguments.of(ContentType.VALUE_FIELD, Cardinality.TO_ONE),
+      Arguments.of(ContentType.OPTIONAL_VALUE_FIELD, Cardinality.TO_ONE_OR_NONE),
+      Arguments.of(ContentType.MULTI_VALUE_FIELD, Cardinality.TO_MANY),
       Arguments.of(ContentType.REFERENCE, Cardinality.TO_ONE),
       Arguments.of(ContentType.OPTIONAL_REFERENCE, Cardinality.TO_ONE_OR_NONE),
       Arguments.of(ContentType.MULTI_REFERENCE, Cardinality.TO_MANY),

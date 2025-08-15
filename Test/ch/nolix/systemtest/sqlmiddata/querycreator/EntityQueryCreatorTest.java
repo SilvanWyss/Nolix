@@ -36,8 +36,8 @@ final class EntityQueryCreatorTest extends StandardTest {
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE, DataType.STRING),
-        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE, DataType.INTEGER_4BYTE)));
+        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE_FIELD, DataType.STRING),
+        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
@@ -56,8 +56,8 @@ final class EntityQueryCreatorTest extends StandardTest {
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
-        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE, DataType.STRING),
-        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE, DataType.INTEGER_4BYTE)));
+        new ColumnViewDto("ccccccc1", "name", 0, ContentType.VALUE_FIELD, DataType.STRING),
+        new ColumnViewDto("ccccccc2", "year_of_birth", 0, ContentType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);

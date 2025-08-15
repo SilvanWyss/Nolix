@@ -63,7 +63,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   public ContentType getType() {
-    return ContentType.OPTIONAL_VALUE;
+    return ContentType.OPTIONAL_VALUE_FIELD;
   }
 
   @Override

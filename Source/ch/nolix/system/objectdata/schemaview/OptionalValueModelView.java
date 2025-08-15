@@ -14,6 +14,6 @@ public final class OptionalValueModelView<V> extends AbstractValueModelView<V> {
 
   @Override
   public ContentType getContentType() {
-    return ContentType.OPTIONAL_VALUE;
+    return ContentType.OPTIONAL_VALUE_FIELD;
   }
 }

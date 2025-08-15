@@ -37,12 +37,12 @@ public final class FieldFromColumnCreator {
 
     return //
     switch (contentType) {
-      case VALUE ->
+      case VALUE_FIELD ->
         ValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
-      case OPTIONAL_VALUE ->
+      case OPTIONAL_VALUE_FIELD ->
         OptionalValueField
           .withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
-      case MULTI_VALUE ->
+      case MULTI_VALUE_FIELD ->
         MultiValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView)
           .getValueType());
       case REFERENCE ->

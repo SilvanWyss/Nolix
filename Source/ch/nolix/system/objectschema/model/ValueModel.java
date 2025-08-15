@@ -16,6 +16,6 @@ public final class ValueModel<V> extends AbstractValueModel<V> implements IValue
 
   @Override
   public ContentType getContentType() {
-    return ContentType.VALUE;
+    return ContentType.VALUE_FIELD;
   }
 }

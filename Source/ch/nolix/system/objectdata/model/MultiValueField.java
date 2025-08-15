@@ -64,7 +64,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public ContentType getType() {
-    return ContentType.MULTI_VALUE;
+    return ContentType.MULTI_VALUE_FIELD;
   }
 
   @Override

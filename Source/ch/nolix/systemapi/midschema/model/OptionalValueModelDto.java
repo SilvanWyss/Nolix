@@ -7,7 +7,7 @@ public record OptionalValueModelDto(DataType dataType) implements IContentModelD
 
   @Override
   public ContentType getContentType() {
-    return ContentType.OPTIONAL_VALUE;
+    return ContentType.OPTIONAL_VALUE_FIELD;
   }
 
   @Override

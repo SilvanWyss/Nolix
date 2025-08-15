@@ -14,6 +14,6 @@ public final class MultiValueModelView<V> extends AbstractValueModelView<V> {
 
   @Override
   public ContentType getContentType() {
-    return ContentType.MULTI_VALUE;
+    return ContentType.MULTI_VALUE_FIELD;
   }
 }

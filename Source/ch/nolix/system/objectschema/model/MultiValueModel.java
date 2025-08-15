@@ -16,6 +16,6 @@ public final class MultiValueModel<V> extends AbstractValueModel<V> implements I
 
   @Override
   public ContentType getContentType() {
-    return ContentType.MULTI_VALUE;
+    return ContentType.MULTI_VALUE_FIELD;
   }
 }

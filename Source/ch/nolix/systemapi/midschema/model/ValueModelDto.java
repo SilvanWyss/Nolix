@@ -7,7 +7,7 @@ public record ValueModelDto(DataType dataType) implements IContentModelDto {
 
   @Override
   public ContentType getContentType() {
-    return ContentType.VALUE;
+    return ContentType.VALUE_FIELD;
   }
 
   @Override
