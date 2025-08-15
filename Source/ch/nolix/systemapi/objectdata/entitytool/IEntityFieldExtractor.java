@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdata.modelextractor;
+package ch.nolix.systemapi.objectdata.entitytool;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IEntity;

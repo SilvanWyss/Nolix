@@ -1,4 +1,4 @@
-package ch.nolix.system.objectdata.model;
+package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -6,8 +6,9 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.system.objectdata.model.AbstractField;
+import ch.nolix.systemapi.objectdata.entitytool.IEntityFieldExtractor;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.modelextractor.IEntityFieldExtractor;
 
 public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity, AbstractField> {
 
