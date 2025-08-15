@@ -23,11 +23,11 @@ public final class OptionalReferenceExaminer extends FieldExaminer implements IO
   }
 
   @Override
-  public <E extends IEntity> boolean canSetEntity(final IOptionalReference<E> optionalReference, final IEntity entity) {
+  public <E extends IEntity> boolean canSetEntity(final IOptionalReference<E> optionalReference, final E entity) {
     return //
     canSetEntity(optionalReference)
     && entity != null
-    && entity.isOpen()
-    && optionalReference.getReferencedTableName().equals(entity.getParentTableName());
+    && entity.isOpen();
+    //TODO: && optionalReference.getReferencedEntityType().isAssignableFrom(entity.getClass())
   }
 }

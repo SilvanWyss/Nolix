@@ -9,5 +9,5 @@ public interface IOptionalReferenceExaminer extends IFieldExaminer {
 
   <E extends IEntity> boolean canSetEntity(IOptionalReference<E> optionalReference);
 
-  <E extends IEntity> boolean canSetEntity(IOptionalReference<E> optionalReference, IEntity entity);
+  <E extends IEntity> boolean canSetEntity(IOptionalReference<E> optionalReference, E entity);
 }
