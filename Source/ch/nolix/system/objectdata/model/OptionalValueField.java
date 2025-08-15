@@ -5,18 +5,18 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.objectdata.fieldtool.OptionalValueFieldTool;
+import ch.nolix.system.objectdata.fieldtool.FieldTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
-import ch.nolix.systemapi.objectdata.fieldtool.IOptionalValueFieldTool;
+import ch.nolix.systemapi.objectdata.fieldtool.IFieldTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
 
-  private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
+  private static final IFieldTool FIELD_TOOL = new FieldTool();
 
-  private static final IOptionalValueFieldTool OPTIONAL_VALUE_TOOL = new OptionalValueFieldTool();
+  private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
@@ -94,7 +94,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   @Override
   public void setValueFromString(final String string) {
 
-    final var dataType = DataType.forType(OPTIONAL_VALUE_TOOL.getDataType(this));
+    final var dataType = DataType.forType(FIELD_TOOL.getDataType(this));
 
     @SuppressWarnings("unchecked")
     final var value = (V) VALUE_MAPPER.mapStringToValue(string, dataType);

@@ -1,9 +1,9 @@
-package ch.nolix.system.objectdata.fieldtool;
+package ch.nolix.system.objectdata.fieldexaminer;
 
-import ch.nolix.systemapi.objectdata.fieldtool.IOptionalValueFieldTool;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
-public final class OptionalValueFieldTool extends FieldTool implements IOptionalValueFieldTool {
+public final class OptionalValueFieldExaminer extends FieldExaminer implements IOptionalValueFieldExaminer {
 
   @Override
   public boolean canSetValue(final IOptionalValueField<?> optionalValueField) {
