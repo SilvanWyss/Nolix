@@ -31,6 +31,13 @@ public final class EntityValidator implements IEntityValidator {
   }
 
   @Override
+  public <E extends IEntity> void assertCanSetParentTable(final IEntity entity, final ITable<E> table) {
+    if (!ENTITY_EXAMINER.canSetParentTable(entity, table)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(table, "cannot be set to the Entity");
+    }
+  }
+
+  @Override
   public void assertDoesNotBelongToTable(final IEntity entity) {
     if (entity.belongsToTable()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getStoredParentTable());

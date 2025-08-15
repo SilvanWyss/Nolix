@@ -1,7 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.datamodel.id.IdCreator;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -134,14 +133,9 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
 
-    Validator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+    ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
 
-    if (belongsToTable()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentTable());
-    }
-
-    this.parentTable = parentTable;
-    getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
+    executeSetParentTable(parentTable);
   }
 
   @Override
@@ -237,6 +231,13 @@ public abstract class AbstractEntity implements IEntity {
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
     }
+  }
+
+  private void executeSetParentTable(final ITable<? extends IEntity> parentTable) {
+
+    this.parentTable = parentTable;
+
+    getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }
 
   private boolean extractedFields() {
