@@ -134,6 +134,14 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
+  public final int getChildNodeCount(final Predicate<INode<?>> selector) {
+    return getStoredChildNodesThat(selector).getCount();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final IContainer<String> getChildNodesHeaders() {
     return getStoredChildNodes().to(INode::getHeader);
   }

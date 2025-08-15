@@ -62,6 +62,14 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
   int getChildNodeCount();
 
   /**
+   * @param selector
+   * @return the number of child {@link INode}s the given selector selects from
+   *         the current {@link INode}.
+   * @throws RuntimeException if the given selector is null.
+   */
+  int getChildNodeCount(Predicate<INode<?>> selector);
+
+  /**
    * @return the headers of the child {@link INode}s of the current {@link INode}.
    * @throws RuntimeException if one of the child {@link INode}s of the current
    *                          {@link INode} does not have a header.
@@ -70,7 +78,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
 
   /**
    * @param selector
-   * @return a new {@link Optional} wit the first child {@link INode} the given
+   * @return a new {@link Optional} with the first child {@link INode} the given
    *         selector selects from the current {@link INode}, an empty
    *         {@link Optional} otherwise.
    */
