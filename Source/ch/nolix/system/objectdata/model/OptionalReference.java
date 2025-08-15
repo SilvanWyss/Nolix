@@ -200,27 +200,6 @@ implements IOptionalReference<E> {
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  private void updateBackReferencingFieldForClear(final IField backReferencingField) {
-    switch (backReferencingField.getType()) {
-      case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) backReferencingField;
-        backReference.internalClear();
-        break;
-      case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) backReferencingField;
-        optionalBackReference.internalClear();
-        break;
-      case MULTI_BACK_REFERENCE:
-        /*
-         * Does nothing. MultiBackReferences do not need to be updated, because
-         * MultiBackReferences do not have redundancies.
-         */
-        break;
-      default:
-        //Does nothing.
-    }
-  }
-
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {
     BaseReferenceUpdater.ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(this, entity);
   }
@@ -231,11 +210,15 @@ implements IOptionalReference<E> {
     }
   }
 
+  @SuppressWarnings("unchecked")
   private void updateProbableBackReferencingFieldForClearWhenIsNotEmpty() {
 
     final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBackReferencingField(this);
 
-    backReferencingField.ifPresent(this::updateBackReferencingFieldForClear);
+    if (backReferencingField.isPresent()) {
+      BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(
+        (IBaseBackReference<IEntity>) backReferencingField.get());
+    }
   }
 
   private void updatePropbableBackReferencingFieldOfEntityForClear(final E entity) {
