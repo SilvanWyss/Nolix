@@ -3,7 +3,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
@@ -47,13 +47,13 @@ public final class FieldFromColumnCreator {
           .getValueType());
       case REFERENCE ->
         createReferenceFromAbstractReferenceModelView(
-          (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
+          (IBaseReferenceModelView<ITable<IEntity>>) contentModelView);
       case OPTIONAL_REFERENCE ->
         createOptionalReferenceFromAbstractReferenceModelView(
-          (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
+          (IBaseReferenceModelView<ITable<IEntity>>) contentModelView);
       case MULTI_REFERENCE ->
         createMultiReferenceFromAbstractReferenceModelView(
-          (IAbstractReferenceModelView<ITable<IEntity>>) contentModelView);
+          (IBaseReferenceModelView<ITable<IEntity>>) contentModelView);
       case BACK_REFERENCE ->
         createBackReferenceFromAbstractBackReferenceModelView(
           (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
@@ -67,7 +67,7 @@ public final class FieldFromColumnCreator {
   }
 
   private static Reference<AbstractEntity> createReferenceFromAbstractReferenceModelView(
-    final IAbstractReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
+    final IBaseReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
     final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
@@ -75,7 +75,7 @@ public final class FieldFromColumnCreator {
   }
 
   private static OptionalReference<AbstractEntity> createOptionalReferenceFromAbstractReferenceModelView(
-    final IAbstractReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
+    final IBaseReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
     final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
@@ -83,7 +83,7 @@ public final class FieldFromColumnCreator {
   }
 
   private static MultiReference<AbstractEntity> createMultiReferenceFromAbstractReferenceModelView(
-    final IAbstractReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
+    final IBaseReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
     final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 

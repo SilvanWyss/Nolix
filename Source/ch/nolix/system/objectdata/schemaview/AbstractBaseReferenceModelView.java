@@ -5,14 +5,14 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 
-public abstract class AbstractReferenceModelView<E extends IEntity> implements IAbstractReferenceModelView<ITable<E>> {
+public abstract class AbstractBaseReferenceModelView<E extends IEntity> implements IBaseReferenceModelView<ITable<E>> {
 
   private final ITable<E> referencedTable;
 
-  protected AbstractReferenceModelView(final ITable<E> referencedTable) {
+  protected AbstractBaseReferenceModelView(final ITable<E> referencedTable) {
 
     Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 
@@ -25,7 +25,7 @@ public abstract class AbstractReferenceModelView<E extends IEntity> implements I
   }
 
   @Override
-  public final IAbstractReferenceModelView<ITable<E>> asAbstractReferenceModel() {
+  public final IBaseReferenceModelView<ITable<E>> asAbstractReferenceModel() {
     return this;
   }
 

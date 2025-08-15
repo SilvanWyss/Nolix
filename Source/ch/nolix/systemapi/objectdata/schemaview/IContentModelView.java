@@ -6,7 +6,7 @@ public interface IContentModelView<T> {
 
   IBaseBackReferenceModelView<?, T> asAbstractBackReferenceModel();
 
-  IAbstractReferenceModelView<T> asAbstractReferenceModel();
+  IBaseReferenceModelView<T> asAbstractReferenceModel();
 
   IAbstractValueModelView<?, T> asAbstractValueModel();
 

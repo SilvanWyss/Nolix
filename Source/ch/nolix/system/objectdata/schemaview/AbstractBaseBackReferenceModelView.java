@@ -5,7 +5,7 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
@@ -27,7 +27,7 @@ implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
   }
 
   @Override
-  public final IAbstractReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
+  public final IBaseReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractReferenceModel");
   }
 

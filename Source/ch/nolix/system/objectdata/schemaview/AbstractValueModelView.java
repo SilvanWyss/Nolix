@@ -6,7 +6,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractReferenceModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
 
 public abstract class AbstractValueModelView<V> implements IAbstractValueModelView<V, ITable<IEntity>> {
@@ -26,7 +26,7 @@ public abstract class AbstractValueModelView<V> implements IAbstractValueModelVi
   }
 
   @Override
-  public final IAbstractReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
+  public final IBaseReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractReferenceModel");
   }
 

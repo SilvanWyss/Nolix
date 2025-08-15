@@ -4,7 +4,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
-public final class ReferenceModelView<E extends IEntity> extends AbstractReferenceModelView<E> {
+public final class ReferenceModelView<E extends IEntity> extends AbstractBaseReferenceModelView<E> {
 
   private ReferenceModelView(final ITable<E> referencedTable) {
     super(referencedTable);
