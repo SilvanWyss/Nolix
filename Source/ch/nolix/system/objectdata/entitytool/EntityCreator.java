@@ -1,9 +1,9 @@
-package ch.nolix.system.objectdata.modeltool;
+package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
+import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.modeltool.IEntityCreator;
 
 /**
  * @author Silvan Wyss

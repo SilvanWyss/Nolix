@@ -1,8 +1,8 @@
-package ch.nolix.system.objectdata.modelfiller;
+package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.modelfiller.IEntityFiller;
 
 /**
  * @author Silvan Wyss

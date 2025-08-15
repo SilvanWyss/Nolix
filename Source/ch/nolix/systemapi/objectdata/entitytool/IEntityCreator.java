@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdata.modeltool;
+package ch.nolix.systemapi.objectdata.entitytool;
 
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
