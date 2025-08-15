@@ -4,11 +4,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.modelexaminer.FieldExaminer;
+import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
-import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
 public class FieldValidator implements IFieldValidator {
 

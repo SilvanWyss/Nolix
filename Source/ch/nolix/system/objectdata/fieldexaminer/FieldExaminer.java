@@ -1,12 +1,12 @@
-package ch.nolix.system.objectdata.modelexaminer;
+package ch.nolix.system.objectdata.fieldexaminer;
 
 import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
-import ch.nolix.systemapi.objectdata.modelexaminer.IFieldExaminer;
 
 /**
  * @author Silvan Wyss

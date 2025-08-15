@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectdata.modelexaminer;
+package ch.nolix.systemapi.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
