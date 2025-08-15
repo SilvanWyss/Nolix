@@ -15,12 +15,12 @@ public final class RefenceExaminer extends FieldExaminer implements IReferenceEx
   }
 
   @Override
-  public <E extends IEntity> boolean canSetEntity(final IReference<E> reference, final IEntity entity) {
+  public <E extends IEntity> boolean canSetEntity(final IReference<E> reference, final E entity) {
     return //
     canSetEntity(reference)
     && entity != null
     && entity.isOpen()
-    && reference.getReferencedTableName().equals(entity.getParentTableName())
+    //TODO: && reference.getReferencedEntityType().isAssignableFrom(entity.getClass())
     && !reference.referencesEntity(entity);
   }
 }

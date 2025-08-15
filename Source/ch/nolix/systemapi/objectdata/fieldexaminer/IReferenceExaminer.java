@@ -7,5 +7,5 @@ public interface IReferenceExaminer extends IFieldExaminer {
 
   <E extends IEntity> boolean canSetEntity(IReference<E> reference);
 
-  <E extends IEntity> boolean canSetEntity(final IReference<E> reference, IEntity entity);
+  <E extends IEntity> boolean canSetEntity(final IReference<E> reference, E entity);
 }
