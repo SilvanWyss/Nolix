@@ -6,10 +6,9 @@ import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
-import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
+import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class BackReference<E extends IEntity> extends AbstractBaseBackReference<E> implements IBackReference<E> {
@@ -67,11 +66,6 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
-  }
-
-  @Override
-  public IContainer<IField> internalGetStoredSubFields() {
-    return ImmutableList.createEmpty();
   }
 
   @Override

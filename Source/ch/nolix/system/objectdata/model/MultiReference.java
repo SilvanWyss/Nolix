@@ -2,7 +2,6 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.function.Predicate;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -20,7 +19,6 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
@@ -121,11 +119,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   @Override
   public ContentType getType() {
     return ContentType.MULTI_REFERENCE;
-  }
-
-  @Override
-  public IContainer<IField> internalGetStoredSubFields() {
-    return ImmutableList.createEmpty();
   }
 
   @Override

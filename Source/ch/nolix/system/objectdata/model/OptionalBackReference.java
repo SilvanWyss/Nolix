@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
@@ -68,11 +67,6 @@ implements IOptionalBackReference<E> {
   @Override
   public ContentType getType() {
     return ContentType.OPTIONAL_BACK_REFERENCE;
-  }
-
-  @Override
-  public IContainer<IField> internalGetStoredSubFields() {
-    return ImmutableList.createEmpty();
   }
 
   @Override

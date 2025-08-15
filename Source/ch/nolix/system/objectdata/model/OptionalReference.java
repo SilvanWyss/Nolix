@@ -91,11 +91,6 @@ implements IOptionalReference<E> {
   }
 
   @Override
-  public IContainer<IField> internalGetStoredSubFields() {
-    return ImmutableList.createEmpty();
-  }
-
-  @Override
   public void internalSetOptionalContent(final Object content) {
     if (content == null) {
       referencedEntityId = null;

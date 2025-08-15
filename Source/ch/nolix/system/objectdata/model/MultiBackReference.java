@@ -1,6 +1,5 @@
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -14,7 +13,6 @@ import ch.nolix.systemapi.midschema.fieldproperty.ContentType;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
@@ -98,11 +96,6 @@ implements IMultiBackReference<E> {
   @Override
   public ContentType getType() {
     return ContentType.MULTI_BACK_REFERENCE;
-  }
-
-  @Override
-  public IContainer<IField> internalGetStoredSubFields() {
-    return ImmutableList.createEmpty();
   }
 
   @Override
