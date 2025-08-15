@@ -14,12 +14,12 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
   }
 
   @Override
-  public <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference, IEntity entity) {
+  public <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference, final E entity) {
     return //
     canAddEntity(multiReference)
     && entity != null
-    && entity.isOpen()
-    && multiReference.getReferencedTableName().equals(entity.getParentTableName());
+    && entity.isOpen();
+    //TODO: && entity.getClass().isAssignableFrom(multiReference.getReferencedEntityType())
   }
 
   @Override
