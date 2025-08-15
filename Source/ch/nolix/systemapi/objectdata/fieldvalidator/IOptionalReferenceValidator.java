@@ -7,7 +7,7 @@ public interface IOptionalReferenceValidator extends IFieldValidator {
 
   void assertCanClear(IOptionalReference<?> optionalReference);
 
-  void assertCanSetGivenEntity(IOptionalReference<?> optionalReference, IEntity entity);
+  <E extends IEntity> void assertCanSetGivenEntity(IOptionalReference<E> optionalReference, E entity);
 
   void assertIsNotEmpty(IOptionalReference<?> optionalReference);
 }

@@ -20,7 +20,8 @@ public final class OptionalReferenceValidator extends FieldValidator implements 
   }
 
   @Override
-  public void assertCanSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
+  public <E extends IEntity> void assertCanSetGivenEntity(final IOptionalReference<E> optionalReference,
+    final E entity) {
     if (!OPTIONAL_REFERENCE_EXAMINER.canSetEntity(optionalReference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "does not reference an entity");
     }
