@@ -10,15 +10,31 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference<E> {
 
+  private final Class<E> referenceableType;
+
   private final String referencedTableName;
 
   private Table<E> referencedTable;
+
+  protected AbstractBaseReference(final Class<E> referenceableType) {
+
+    Validator.assertThat(referenceableType).thatIsNamed("referenceable type").isNotNull();
+
+    this.referenceableType = referenceableType;
+    this.referencedTableName = null;
+  }
 
   protected AbstractBaseReference(final String referencedTableName) {
 
     Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 
+    this.referenceableType = null;
     this.referencedTableName = referencedTableName;
+  }
+
+  @Override
+  public final Class<E> getReferanceableEntityType() {
+    return referenceableType;
   }
 
   @Override

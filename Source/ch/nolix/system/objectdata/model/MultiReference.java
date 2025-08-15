@@ -36,8 +36,16 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   private final LinkedList<MultiReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
+  private MultiReference(final Class<E> referenceableType) {
+    super(referenceableType);
+  }
+
   private MultiReference(final String referencedTableName) {
     super(referencedTableName);
+  }
+
+  public static <E2 extends Entity> MultiReference<E2> forEntityType(final Class<E2> entityType) {
+    return new MultiReference<>(entityType);
   }
 
   public static <E2 extends AbstractEntity> MultiReference<E2> forEntity(final Class<E2> referencedEntityType) {
