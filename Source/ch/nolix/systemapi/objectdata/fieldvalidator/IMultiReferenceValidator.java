@@ -5,7 +5,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 public interface IMultiReferenceValidator extends IFieldValidator {
 
-  void assertCanAddGivenEntity(IMultiReference<?> multiReference, IEntity entity);
+  <E extends IEntity> void assertCanAddGivenEntity(IMultiReference<E> multiReference, E entity);
 
   void assertCanClear(IMultiReference<?> multiReference);
 
