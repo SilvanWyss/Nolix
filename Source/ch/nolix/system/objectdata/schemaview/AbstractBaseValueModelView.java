@@ -7,13 +7,13 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 
-public abstract class AbstractValueModelView<V> implements IAbstractValueModelView<V, ITable<IEntity>> {
+public abstract class AbstractBaseValueModelView<V> implements IBaseValueModelView<V, ITable<IEntity>> {
 
   private final Class<V> valueType;
 
-  protected AbstractValueModelView(final Class<V> valueType) {
+  protected AbstractBaseValueModelView(final Class<V> valueType) {
 
     Validator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalog.VALUE_TYPE).isNotNull();
 
@@ -31,7 +31,7 @@ public abstract class AbstractValueModelView<V> implements IAbstractValueModelVi
   }
 
   @Override
-  public final IAbstractValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
+  public final IBaseValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
     return this;
   }
 

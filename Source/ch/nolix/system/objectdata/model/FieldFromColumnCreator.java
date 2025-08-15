@@ -4,7 +4,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
@@ -38,12 +38,12 @@ public final class FieldFromColumnCreator {
     return //
     switch (fieldType) {
       case VALUE_FIELD ->
-        ValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
+        ValueField.withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case OPTIONAL_VALUE_FIELD ->
         OptionalValueField
-          .withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
+          .withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
       case MULTI_VALUE_FIELD ->
-        MultiValueField.withValueType(((IAbstractValueModelView<Object, ITable<IEntity>>) contentModelView)
+        MultiValueField.withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) contentModelView)
           .getValueType());
       case REFERENCE ->
         createReferenceFromAbstractReferenceModelView(

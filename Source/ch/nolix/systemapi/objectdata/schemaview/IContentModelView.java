@@ -8,7 +8,7 @@ public interface IContentModelView<T> {
 
   IBaseReferenceModelView<T> asAbstractReferenceModel();
 
-  IAbstractValueModelView<?, T> asAbstractValueModel();
+  IBaseValueModelView<?, T> asAbstractValueModel();
 
   boolean referencesTable(T table);
 

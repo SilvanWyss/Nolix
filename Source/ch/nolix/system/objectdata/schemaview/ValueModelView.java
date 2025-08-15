@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.schemaview;
 
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
-public final class ValueModelView<V> extends AbstractValueModelView<V> {
+public final class ValueModelView<V> extends AbstractBaseValueModelView<V> {
 
   private ValueModelView(final Class<V> valueType) {
     super(valueType);

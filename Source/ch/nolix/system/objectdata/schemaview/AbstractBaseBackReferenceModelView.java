@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
-import ch.nolix.systemapi.objectdata.schemaview.IAbstractValueModelView;
+import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public abstract class AbstractBaseBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
@@ -32,7 +32,7 @@ implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
   }
 
   @Override
-  public final IAbstractValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
+  public final IBaseValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractValueModel");
   }
 
