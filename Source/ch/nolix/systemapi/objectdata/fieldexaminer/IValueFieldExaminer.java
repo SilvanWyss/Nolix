@@ -1,8 +1,8 @@
-package ch.nolix.systemapi.objectdata.fieldtool;
+package ch.nolix.systemapi.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
-public interface IValueFieldTool extends IFieldTool {
+public interface IValueFieldExaminer extends IFieldExaminer {
 
   boolean canSetValue(IValueField<?> valueField);
 

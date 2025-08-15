@@ -1,9 +1,9 @@
-package ch.nolix.system.objectdata.fieldtool;
+package ch.nolix.system.objectdata.fieldexaminer;
 
-import ch.nolix.systemapi.objectdata.fieldtool.IValueFieldTool;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
-public final class ValueFieldTool extends FieldTool implements IValueFieldTool {
+public final class ValueFieldExaminer extends FieldExaminer implements IValueFieldExaminer {
 
   @Override
   public boolean canSetValue(final IValueField<?> valueField) {

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.model.IField;
  * @author Silvan Wyss
  * @version 2024-12-30
  */
-public final class FieldExaminer extends DatabaseObjectExaminer implements IFieldExaminer {
+public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExaminer {
 
   /**
    * {@inheritDoc}
@@ -51,30 +51,6 @@ public final class FieldExaminer extends DatabaseObjectExaminer implements IFiel
       abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull(
         abstractBackReference,
         abstractReference);
-    }
-
-    return false;
-  }
-
-  /**
-   * @param abstractBackReference
-   * @param abstractReference
-   * @return true if the given abstractBackReference can reference back the given
-   *         abstractReference, false otherwise, for the case that the given
-   *         abstractBackReference and abstractReference are not null.
-   */
-  private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull( //NOSONAR: This method is an instance method.
-    final IBaseBackReference<IEntity> abstractBackReference,
-    final IBaseReference<? extends IEntity> abstractReference) {
-
-    if (abstractReference.belongsToEntity()) {
-
-      final var backReferencedTableName = abstractBackReference.getBackReferencedTableName();
-      final var backReferencedFieldName = abstractBackReference.getBackReferencedFieldName();
-
-      return //
-      backReferencedTableName.equals(abstractReference.getStoredParentEntity().getParentTableName())
-      && backReferencedFieldName.equals(abstractReference.getName());
     }
 
     return false;
@@ -121,5 +97,29 @@ public final class FieldExaminer extends DatabaseObjectExaminer implements IFiel
     && (!field.isMandatory()
     || !isNewOrEdited(field)
     || field.containsAny());
+  }
+
+  /**
+   * @param abstractBackReference
+   * @param abstractReference
+   * @return true if the given abstractBackReference can reference back the given
+   *         abstractReference, false otherwise, for the case that the given
+   *         abstractBackReference and abstractReference are not null.
+   */
+  private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull(
+    final IBaseBackReference<IEntity> abstractBackReference,
+    final IBaseReference<? extends IEntity> abstractReference) {
+
+    if (abstractReference.belongsToEntity()) {
+
+      final var backReferencedTableName = abstractBackReference.getBackReferencedTableName();
+      final var backReferencedFieldName = abstractBackReference.getBackReferencedFieldName();
+
+      return //
+      backReferencedTableName.equals(abstractReference.getStoredParentEntity().getParentTableName())
+      && backReferencedFieldName.equals(abstractReference.getName());
+    }
+
+    return false;
   }
 }

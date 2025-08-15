@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
-import ch.nolix.system.objectdata.fieldtool.ValueFieldTool;
+import ch.nolix.system.objectdata.fieldexaminer.ValueFieldExaminer;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
@@ -26,7 +26,7 @@ final class ValueToolTest extends StandardTest {
     //setup
     final var pet = new Pet();
     final String valueToSet = "Garfield";
-    final var testUnit = new ValueFieldTool();
+    final var testUnit = new ValueFieldExaminer();
 
     //execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
@@ -45,7 +45,7 @@ final class ValueToolTest extends StandardTest {
     databaseAdapter.insertEntity(pet);
     databaseAdapter.close();
     final String valueToSet = "Garfield";
-    final var testUnit = new ValueFieldTool();
+    final var testUnit = new ValueFieldExaminer();
 
     //setup verification
     expect(pet.name.isClosed()).isTrue();
@@ -63,7 +63,7 @@ final class ValueToolTest extends StandardTest {
     //setup
     final var pet = new Pet();
     final String valueToSet = null;
-    final var testUnit = new ValueFieldTool();
+    final var testUnit = new ValueFieldExaminer();
 
     //execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
