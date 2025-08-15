@@ -2,26 +2,26 @@ package ch.nolix.system.objectdata.fieldvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
-import ch.nolix.systemapi.objectdata.fieldtool.IOptionalReferenceTool;
+import ch.nolix.system.objectdata.fieldexaminer.OptionalReferenceExaminer;
+import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
 public final class OptionalReferenceValidator extends FieldValidator implements IOptionalReferenceValidator {
 
-  private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();
+  private static final IOptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
 
   @Override
   public void assertCanClear(final IOptionalReference<?> optionalReference) {
-    if (!OPTIONAL_REFERENCE_TOOL.canClear(optionalReference)) {
+    if (!OPTIONAL_REFERENCE_EXAMINER.canClear(optionalReference)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot clear");
     }
   }
 
   @Override
   public void assertCanSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
-    if (!OPTIONAL_REFERENCE_TOOL.canSetEntity(optionalReference, entity)) {
+    if (!OPTIONAL_REFERENCE_EXAMINER.canSetEntity(optionalReference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "does not reference an entity");
     }
   }
