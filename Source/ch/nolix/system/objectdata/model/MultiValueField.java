@@ -131,7 +131,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   private IContainer<MultiValueFieldEntry<V>> loadAllPersistedValues() {
     return //
     getStoredDataAndSchemaAdapter().loadMultiValueValues(
-      getStoredParentEntity().getParentTableName(),
+      getStoredParentEntity().getStoredParentTable().getName(),
       getStoredParentEntity().getId(),
       getName())
       .to(mve -> MultiValueFieldEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
