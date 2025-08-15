@@ -199,7 +199,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     TABLE_VALIDATOR.assertCanInsertEntity(this, entity);
 
-    insertWhenCanBeInserted(entity);
+    executeInsertEntity(entity);
 
     return this;
   }
@@ -269,6 +269,13 @@ public final class Table<E extends IEntity> implements ITable<E> {
     entitiesInLocalData.addAtEnd(entity);
   }
 
+  private void executeInsertEntity(final E entity) {
+
+    entitiesInLocalData.addAtEnd(entity);
+
+    ((AbstractEntity) entity).noteInsertIntoDatabase();
+  }
+
   private E getStoredEntityByIdWhenIsInLocalData(final String id) {
     return internalGetStoredEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
   }
@@ -283,13 +290,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
       entitiesInLocalData.addAtEnd(entity);
     }
-  }
-
-  private void insertWhenCanBeInserted(final E entity) {
-
-    entitiesInLocalData.addAtEnd(entity);
-
-    ((AbstractEntity) entity).noteInsertIntoDatabase();
   }
 
   private void loadAllEntitiesInLocalDataIfNotLoaded() {
