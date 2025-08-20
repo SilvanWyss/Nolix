@@ -1,18 +1,20 @@
 package ch.nolix.systemapi.objectdata.model;
 
+import ch.nolix.coreapi.container.base.IContainer;
+
 /**
  * @author Silvan Wyss
  * @version 2021-11-13
  * @param <E> is the type of the {@link IEntity}s a {@link IBaseReference} can
- *            reference.
+ *            potentially reference.
  */
 public interface IBaseReference<E extends IEntity> extends IField {
 
   /**
-   * @return the type of the {@link IEntity}s the current {@link IBaseReference}
+   * @return the names of the {@link ITable}s the current {@link IBaseReference}
    *         can reference.
    */
-  Class<E> getReferenceableEntityType();
+  IContainer<String> getRefereneableTableNames();
 
   /**
    * @return the id of the referenced {@link ITable} of the current

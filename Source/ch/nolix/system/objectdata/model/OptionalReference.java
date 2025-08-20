@@ -29,16 +29,17 @@ implements IOptionalReference<E> {
 
   private String referencedEntityId;
 
-  private OptionalReference(final Class<E> referenceableType) {
-    super(referenceableType);
+  private OptionalReference(final IContainer<String> referenceableTableNames) {
+    super(referenceableTableNames);
   }
 
   private OptionalReference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  public static <E2 extends Entity> OptionalReference<E2> forEntityType(final Class<E2> entityType) {
-    return new OptionalReference<>(entityType);
+  public static <E2 extends Entity> OptionalReference<E2> forReferenceableTableNames(
+    final IContainer<String> referenceableTableNames) {
+    return new OptionalReference<>(referenceableTableNames);
   }
 
   public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> referencedEntityType) {

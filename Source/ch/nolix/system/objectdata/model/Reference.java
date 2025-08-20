@@ -27,16 +27,17 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private String referencedEntityId;
 
-  private Reference(final Class<E> referenceableType) {
-    super(referenceableType);
+  private Reference(final IContainer<String> referenceableTableNames) {
+    super(referenceableTableNames);
   }
 
   private Reference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  public static <E2 extends Entity> Reference<E2> forEntityType(final Class<E2> entityType) {
-    return new Reference<>(entityType);
+  public static <E2 extends Entity> Reference<E2> forReferenceableTableNames(
+    final IContainer<String> referenceableTableNames) {
+    return new Reference<>(referenceableTableNames);
   }
 
   public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> referencedEntityType) {
