@@ -19,7 +19,6 @@ IShortDescriptionHolder,
 IDatabaseComponent<IDatabase>,
 ITableComponent<ITable<? extends IEntity>> {
 
-  @Deprecated
   String getParentTableName();
 
   IContainer<? extends IField> internalGetStoredFields();
