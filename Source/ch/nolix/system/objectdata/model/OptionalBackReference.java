@@ -45,6 +45,11 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
+  public int getContentCardinality() {
+    return 1;
+  }
+
+  @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }

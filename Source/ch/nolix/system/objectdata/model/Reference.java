@@ -58,6 +58,11 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @Override
+  public int getContentCardinality() {
+    return 2;
+  }
+
+  @Override
   public String getReferencedEntityId() {
 
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);

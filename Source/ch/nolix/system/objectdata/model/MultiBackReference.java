@@ -71,6 +71,11 @@ implements IMultiBackReference<E> {
   }
 
   @Override
+  public int getContentCardinality() {
+    return 1;
+  }
+
+  @Override
   public IContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }

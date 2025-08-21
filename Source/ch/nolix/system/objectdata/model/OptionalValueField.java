@@ -45,6 +45,11 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   }
 
   @Override
+  public int getContentCardinality() {
+    return 1;
+  }
+
+  @Override
   public boolean isEmpty() {
     return (internalValue == null);
   }

@@ -67,6 +67,11 @@ implements IOptionalReference<E> {
   }
 
   @Override
+  public int getContentCardinality() {
+    return 2;
+  }
+
+  @Override
   public String getReferencedEntityId() {
 
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);

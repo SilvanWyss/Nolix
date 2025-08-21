@@ -58,6 +58,11 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   @Override
+  public int getContentCardinality() {
+    return 1;
+  }
+
+  @Override
   public IContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
