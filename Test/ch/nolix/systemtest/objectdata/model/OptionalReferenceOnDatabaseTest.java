@@ -16,7 +16,7 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   private static final class Person extends Entity {
 
-    final OptionalReference<Pet> pet = OptionalReference.forEntity(Pet.class);
+    final OptionalReference<Pet> pet = OptionalReference.forEntityType(Pet.class);
 
     Person() {
       initialize();

@@ -2,13 +2,16 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldtool.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
@@ -20,6 +23,8 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 public final class OptionalReference<E extends IEntity>
 extends AbstractBaseReference<E>
 implements IOptionalReference<E> {
+
+  private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
@@ -33,24 +38,25 @@ implements IOptionalReference<E> {
     super(referenceableTableNames);
   }
 
-  private OptionalReference(final String referencedTableName) {
-    super(referencedTableName);
-  }
+  @SafeVarargs
+  public static <E2 extends IEntity> OptionalReference<E2> forEntityType(
+    final Class<? extends E2> entity,
+    final Class<? extends E2>... entityTypes) {
 
-  public static <E2 extends Entity> OptionalReference<E2> forReferenceableTableNames(
-    final IContainer<String> referenceableTableNames) {
+    final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
+    final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+
     return new OptionalReference<>(referenceableTableNames);
   }
 
-  public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> referencedEntityType) {
+  public static <E2 extends IEntity> OptionalReference<E2> forReferenceableTableName(
+    final String referenceableTableName,
+    final String... referenceableTableNames) {
 
-    final var referencedTableName = referencedEntityType.getSimpleName();
+    final var allReferenceableTableNames = //
+    ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
 
-    return new OptionalReference<>(referencedTableName);
-  }
-
-  public static OptionalReference<AbstractEntity> forTable(final String referencedTableName) {
-    return new OptionalReference<>(referencedTableName);
+    return new OptionalReference<>(allReferenceableTableNames);
   }
 
   @Override
