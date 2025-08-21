@@ -13,7 +13,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   private static final class Person extends Entity {
 
-    final MultiReference<Pet> pets = MultiReference.forEntity(Pet.class);
+    final MultiReference<Pet> pets = MultiReference.forEntityType(Pet.class);
 
     Person() {
       initialize();

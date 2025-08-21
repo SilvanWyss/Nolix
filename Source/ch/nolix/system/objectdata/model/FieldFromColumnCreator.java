@@ -87,7 +87,7 @@ public final class FieldFromColumnCreator {
 
     final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
-    return MultiReference.forTable(referencedtableName);
+    return MultiReference.forReferenceableTableName(referencedtableName);
   }
 
   private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(

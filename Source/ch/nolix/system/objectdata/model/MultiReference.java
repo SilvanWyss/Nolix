@@ -2,18 +2,21 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.function.Predicate;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.MultiReferenceExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiReferenceValidator;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
@@ -25,6 +28,8 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {
 
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
+
+  private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
   private static final IMultiReferenceExaminer MULTI_REFERENCE_TOOL = new MultiReferenceExaminer();
 
@@ -40,24 +45,25 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     super(referenceableTableNames);
   }
 
-  private MultiReference(final String referencedTableName) {
-    super(referencedTableName);
-  }
+  @SafeVarargs
+  public static <E2 extends IEntity> MultiReference<E2> forEntityType(
+    final Class<? extends E2> entity,
+    final Class<? extends E2>... entityTypes) {
 
-  public static <E2 extends Entity> MultiReference<E2> forReferenceableTableNames(
-    final IContainer<String> referenceableTableNames) {
+    final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
+    final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+
     return new MultiReference<>(referenceableTableNames);
   }
 
-  public static <E2 extends AbstractEntity> MultiReference<E2> forEntity(final Class<E2> referencedEntityType) {
+  public static <E2 extends IEntity> MultiReference<E2> forReferenceableTableName(
+    final String referenceableTableName,
+    final String... referenceableTableNames) {
 
-    final var referencedTableName = referencedEntityType.getSimpleName();
+    final var allReferenceableTableNames = //
+    ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
 
-    return new MultiReference<>(referencedTableName);
-  }
-
-  public static <E2 extends AbstractEntity> MultiReference<E2> forTable(final String referencedTableName) {
-    return new MultiReference<>(referencedTableName);
+    return new MultiReference<>(allReferenceableTableNames);
   }
 
   @Override
