@@ -21,7 +21,9 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     Validator.assertThatTheStrings(referenceableTableNames).areNotBlank();
 
     this.referenceableTableNames = ImmutableList.forIterable(referenceableTableNames);
-    this.referencedTableName = null;
+
+    //TODO: Re-engineer
+    this.referencedTableName = referenceableTableNames.getStoredFirst();
   }
 
   protected AbstractBaseReference(final String referencedTableName) {

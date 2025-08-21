@@ -2,13 +2,16 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
@@ -18,6 +21,8 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
+
+  private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
@@ -31,24 +36,25 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     super(referenceableTableNames);
   }
 
-  private Reference(final String referencedTableName) {
-    super(referencedTableName);
-  }
+  @SafeVarargs
+  public static <E2 extends IEntity> Reference<E2> forEntityType(
+    final Class<? extends E2> entity,
+    final Class<? extends E2>... entityTypes) {
 
-  public static <E2 extends Entity> Reference<E2> forReferenceableTableNames(
-    final IContainer<String> referenceableTableNames) {
+    final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
+    final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+
     return new Reference<>(referenceableTableNames);
   }
 
-  public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> referencedEntityType) {
+  public static <E2 extends IEntity> Reference<E2> forReferenceableTableName(
+    final String referenceableTableName,
+    final String... referenceableTableNames) {
 
-    final var referencedTableName = referencedEntityType.getSimpleName();
+    final var allReferenceableTableNames = //
+    ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
 
-    return new Reference<>(referencedTableName);
-  }
-
-  public static Reference<AbstractEntity> forTable(final String referencedTableName) {
-    return new Reference<>(referencedTableName);
+    return new Reference<>(allReferenceableTableNames);
   }
 
   @Override

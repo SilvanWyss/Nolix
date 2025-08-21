@@ -24,7 +24,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   private static final class Flight extends Entity {
 
-    public final Reference<Plane> plane = Reference.forEntity(Plane.class);
+    public final Reference<Plane> plane = Reference.forEntityType(Plane.class);
 
     public Flight() {
       initialize();

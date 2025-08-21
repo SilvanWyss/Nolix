@@ -71,7 +71,7 @@ public final class FieldFromColumnCreator {
 
     final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
 
-    return Reference.forTable(referencedtableName);
+    return Reference.forReferenceableTableName(referencedtableName);
   }
 
   private static OptionalReference<AbstractEntity> createOptionalReferenceFromAbstractReferenceModelView(
