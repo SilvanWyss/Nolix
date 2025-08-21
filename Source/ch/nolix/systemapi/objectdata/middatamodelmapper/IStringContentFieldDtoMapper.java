@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdata.middatamodelmapper;
 
-import ch.nolix.systemapi.middata.model.StringValueFieldDto;
+import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
 import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
@@ -11,8 +11,8 @@ public interface IStringContentFieldDtoMapper {
 
   /**
    * @param field
-   * @return a new {@link StringValueFieldDto} from the given field.
+   * @return a new {@link StringRepresentedFieldDto} from the given field.
    * @throws RuntimeException if the given field is null.
    */
-  StringValueFieldDto mapFieldToStringContentFieldDto(IField field);
+  StringRepresentedFieldDto mapFieldToStringContentFieldDto(IField field);
 }

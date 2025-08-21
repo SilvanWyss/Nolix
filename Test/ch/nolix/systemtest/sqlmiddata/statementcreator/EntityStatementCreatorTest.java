@@ -8,7 +8,7 @@ import ch.nolix.system.sqlmiddata.statementcreator.EntityStatementCreator;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
-import ch.nolix.systemapi.middata.model.StringValueFieldDto;
+import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
 
 final class EntityStatementCreatorTest extends StandardTest {
 
@@ -68,9 +68,9 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new EntityCreationDto(
       "my_id",
       ImmutableList.withElement(
-        new StringValueFieldDto("MyColumn1", "my_value1"),
-        new StringValueFieldDto("MyColumn2", "my_value2"),
-        new StringValueFieldDto("MyColumn3", "my_value3")));
+        new StringRepresentedFieldDto("MyColumn1", "my_value1"),
+        new StringRepresentedFieldDto("MyColumn2", "my_value2"),
+        new StringRepresentedFieldDto("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
@@ -90,9 +90,9 @@ final class EntityStatementCreatorTest extends StandardTest {
       "my_id",
       "100",
       ImmutableList.withElement(
-        new StringValueFieldDto("MyColumn1", "my_value1"),
-        new StringValueFieldDto("MyColumn2", "my_value2"),
-        new StringValueFieldDto("MyColumn3", "my_value3")));
+        new StringRepresentedFieldDto("MyColumn1", "my_value1"),
+        new StringRepresentedFieldDto("MyColumn2", "my_value2"),
+        new StringRepresentedFieldDto("MyColumn3", "my_value3")));
 
     //execution
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);
