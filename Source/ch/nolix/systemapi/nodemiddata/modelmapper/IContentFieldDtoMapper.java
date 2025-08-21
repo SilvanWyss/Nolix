@@ -3,7 +3,7 @@ package ch.nolix.systemapi.nodemiddata.modelmapper;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.middata.model.ObjectValueFieldDto;
+import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
@@ -16,11 +16,11 @@ public interface IContentFieldDtoMapper {
   /**
    * @param contentFieldNode
    * @param supportingColumnInfo
-   * @return a new {@link ObjectValueFieldDto} from the given contentFieldNode.
+   * @return a new {@link FieldDto} from the given contentFieldNode.
    * @throws RuntimeException if the given contentFieldNode is null.
    * @throws RuntimeException if the given supportingColumnInfo is null.
    */
-  ObjectValueFieldDto mapContentFieldNodeToContentFieldDto(
+  FieldDto mapContentFieldNodeToContentFieldDto(
     INode<?> contentFieldNode,
     ColumnViewDto supportingColumnInfo);
 
@@ -30,7 +30,7 @@ public interface IContentFieldDtoMapper {
    * @return new {ContentFieldDto}s from the given entityNode.
    * @throws RuntimeException if the given entityNode is null.
    */
-  IContainer<ObjectValueFieldDto> mapEntityNodeToContentFieldDtos(
+  IContainer<FieldDto> mapEntityNodeToContentFieldDtos(
     IMutableNode<?> entityNode,
     TableViewDto tableView);
 }
