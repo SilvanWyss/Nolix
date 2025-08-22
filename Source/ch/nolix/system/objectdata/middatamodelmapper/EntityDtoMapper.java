@@ -17,17 +17,20 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final IStringRepresentedFieldDtoMapper STRING_CONTENT_FIELD_DTO_MAPPER = new StringContentFieldDtoMapper();
+  private static final IStringRepresentedFieldDtoMapper STRING_CONTENT_FIELD_DTO_MAPPER = //
+  new StringContentFieldDtoMapper();
 
   /**
    * {@inheritDoc}
    */
   @Override
   public EntityCreationDto mapEntityToEntityCreationDto(final IEntity entity) {
-    return //
-    new EntityCreationDto(
-      entity.getId(),
-      entity.internalGetStoredFields().to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringRepresentedFieldDto));
+
+    final var id = entity.getId();
+    final var entityFields = entity.internalGetStoredFields();
+    final var contentFields = entityFields.to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringRepresentedFieldDto);
+
+    return new EntityCreationDto(id, contentFields);
   }
 
   /**
@@ -35,7 +38,11 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    */
   @Override
   public EntityDeletionDto mapEntityToEntityDeletionDto(final IEntity entity) {
-    return new EntityDeletionDto(entity.getId(), entity.getSaveStamp());
+
+    final var id = entity.getId();
+    final var saveStamp = entity.getSaveStamp();
+
+    return new EntityDeletionDto(id, saveStamp);
   }
 
   /**
@@ -43,12 +50,12 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    */
   @Override
   public EntityUpdateDto mapEntityToEntityUpdateDto(final IEntity entity) {
-    return //
-    new EntityUpdateDto(
-      entity.getId(),
-      entity.getSaveStamp(),
-      ENTITY_SEARCHER
-        .getStoredEditedFields(entity)
-        .to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringRepresentedFieldDto));
+
+    final var id = entity.getId();
+    final var saveStamp = entity.getSaveStamp();
+    final var editedFields = ENTITY_SEARCHER.getStoredEditedFields(entity);
+    final var contentFields = editedFields.to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringRepresentedFieldDto);
+
+    return new EntityUpdateDto(id, saveStamp, contentFields);
   }
 }
