@@ -4,7 +4,7 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IReferenceExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
-public final class RefenceExaminer extends FieldExaminer implements IReferenceExaminer {
+public final class ReferenceExaminer extends FieldExaminer implements IReferenceExaminer {
 
   @Override
   public <E extends IEntity> boolean canSetEntity(final IReference<E> reference) {
@@ -20,7 +20,6 @@ public final class RefenceExaminer extends FieldExaminer implements IReferenceEx
     canSetEntity(reference)
     && entity != null
     && entity.isOpen()
-    //TODO: && reference.getReferencedEntityType().isAssignableFrom(entity.getClass())
-    && !reference.referencesEntity(entity);
+    && reference.getRefereneableTableNames().contains(entity.getParentTableName());
   }
 }
