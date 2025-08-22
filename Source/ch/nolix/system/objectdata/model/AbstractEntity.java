@@ -292,7 +292,7 @@ public abstract class AbstractEntity implements IEntity {
 
   private void updateAbstractBackReferencesThatReferencesBackThisForDeleteThis() {
     ENTITY_SEARCHER
-      .getStoredAbstractBackReferencesThatReferencesBackEntity(this)
+      .getStoredBaseBackReferencesThatReferenceBackEntity(this)
       .forEach(this::updateBackReferencingFieldsForDeletion);
   }
 

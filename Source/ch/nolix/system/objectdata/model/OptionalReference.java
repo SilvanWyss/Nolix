@@ -185,7 +185,7 @@ implements IOptionalReference<E> {
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
     return //
     ENTITY_SEARCHER
-      .getStoredFieldsThatAreBackReferencedFrom(entity)
+      .getStoredFieldsWhoAreBackReferencedFromEntity(entity)
       .getOptionalStoredFirst(f -> f.hasName(getName()));
   }
 
