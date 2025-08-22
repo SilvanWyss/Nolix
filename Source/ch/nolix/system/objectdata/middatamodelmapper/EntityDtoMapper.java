@@ -17,7 +17,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final IStringRepresentedFieldDtoMapper STRING_CONTENT_FIELD_DTO_MAPPER = //
+  private static final IStringRepresentedFieldDtoMapper STRING_REPRESENTED_FIELD_DTO_MAPPER = //
   new StringContentFieldDtoMapper();
 
   /**
@@ -28,7 +28,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
 
     final var id = entity.getId();
     final var entityFields = entity.internalGetStoredFields();
-    final var contentFields = entityFields.to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringRepresentedFieldDto);
+    final var contentFields = STRING_REPRESENTED_FIELD_DTO_MAPPER.mapFieldsToStringRepresentedFieldDtos(entityFields);
 
     return new EntityCreationDto(id, contentFields);
   }
@@ -54,7 +54,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
     final var id = entity.getId();
     final var saveStamp = entity.getSaveStamp();
     final var editedFields = ENTITY_SEARCHER.getStoredEditedFields(entity);
-    final var contentFields = editedFields.to(STRING_CONTENT_FIELD_DTO_MAPPER::mapFieldToStringRepresentedFieldDto);
+    final var contentFields = STRING_REPRESENTED_FIELD_DTO_MAPPER.mapFieldsToStringRepresentedFieldDtos(editedFields);
 
     return new EntityUpdateDto(id, saveStamp, contentFields);
   }

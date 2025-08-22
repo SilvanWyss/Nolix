@@ -1,6 +1,8 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
@@ -20,7 +22,8 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
  */
 public final class StringContentFieldDtoMapper implements IStringRepresentedFieldDtoMapper {
 
-  private static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(IOptionalValueField<?> optionalValue) {
+  private static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(
+    IOptionalValueField<?> optionalValue) {
 
     final var columnName = optionalValue.getName();
 
@@ -59,42 +62,56 @@ public final class StringContentFieldDtoMapper implements IStringRepresentedFiel
    * {@inheritDoc}
    */
   @Override
-  public StringRepresentedFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
+  public IContainer<StringRepresentedFieldDto> mapFieldsToStringRepresentedFieldDtos(
+    final IContainer<? extends IField> fields) {
+    return fields.toMultiples(this::mapFieldToStringRepresentedFieldDtos);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<StringRepresentedFieldDto> mapFieldToStringRepresentedFieldDtos(final IField field) {
 
     if (field instanceof final IValueField<?> value) {
-      return new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString());
+      return //
+      SingleContainer.withElement(new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString()));
     }
 
     if (field instanceof final IOptionalValueField<?> optionalValue) {
-      return mapOptionalValueToStringContentFieldDto(optionalValue);
+      return SingleContainer.withElement(mapOptionalValueToStringContentFieldDto(optionalValue));
     }
 
     if (field instanceof final IMultiValueField<?> multiValue) {
-      return new StringRepresentedFieldDto(multiValue.getName(), null);
+      return SingleContainer.withElement(new StringRepresentedFieldDto(multiValue.getName(), null));
     }
 
     if (field instanceof final IReference<?> reference) {
-      return new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId());
+      return //
+      SingleContainer.withElement(
+        new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId()));
     }
 
     if (field instanceof final IOptionalReference<?> optionalReference) {
-      return mapOptionalReferenceToStringContentFieldDto(optionalReference);
+      return SingleContainer.withElement(mapOptionalReferenceToStringContentFieldDto(optionalReference));
     }
 
     if (field instanceof final IMultiReference<?> multiReference) {
-      return new StringRepresentedFieldDto(multiReference.getName(), null);
+      return SingleContainer.withElement(new StringRepresentedFieldDto(multiReference.getName(), null));
     }
 
     if (field instanceof final IBackReference<?> backReference) {
-      return new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId());
+      return //
+      SingleContainer.withElement(
+        new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId()));
     }
 
     if (field instanceof final IOptionalBackReference<?> optionalBackReference) {
-      return mapOptionalBackReferenceToStringContentFieldDto(optionalBackReference);
+      return SingleContainer.withElement(mapOptionalBackReferenceToStringContentFieldDto(optionalBackReference));
     }
 
     if (field instanceof final IMultiBackReference<?> multiBackReference) {
-      return new StringRepresentedFieldDto(multiBackReference.getName(), null);
+      return SingleContainer.withElement(new StringRepresentedFieldDto(multiBackReference.getName(), null));
     }
 
     throw InvalidArgumentException.forArgument(field);
