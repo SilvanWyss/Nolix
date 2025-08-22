@@ -68,7 +68,9 @@ implements IOptionalReference<E> {
 
   @Override
   public int getContentCardinality() {
-    return 2;
+
+    //TODO: return 2
+    return 1;
   }
 
   @Override

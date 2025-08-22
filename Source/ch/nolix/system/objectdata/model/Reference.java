@@ -59,7 +59,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   @Override
   public int getContentCardinality() {
-    return 2;
+
+    //TODO: return 2
+    return 1;
   }
 
   @Override

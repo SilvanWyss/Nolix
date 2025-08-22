@@ -1,6 +1,7 @@
 package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.objectdata.entitytool.IEntityContentFieldsFiller;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
@@ -9,6 +10,8 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2024-12-21
  */
 public final class EntityFiller implements IEntityFiller {
+
+  private static final IEntityContentFieldsFiller ENTITY_CONTENT_FIELDS_FILLER = new EntityContentFieldsFiller();
 
   /**
    * {@inheritDoc}
@@ -19,15 +22,9 @@ public final class EntityFiller implements IEntityFiller {
     final var id = entityLoadingDto.id();
     final var saveStamp = entityLoadingDto.saveStamp();
     final var contentFields = entityLoadingDto.contentFields();
-    final var fields = entity.internalGetStoredFields();
 
     entity.internalSetLoadedAndIdAndSaveStamp(id, saveStamp);
 
-    for (final var f : contentFields) {
-
-      final var field = fields.getStoredFirst(f2 -> f2.hasName(f.columnName()));
-
-      field.internalSetNullableContent(f.nullableValue());
-    }
+    ENTITY_CONTENT_FIELDS_FILLER.fillUpEntityContentFieldsFromContentFieldDtos(entity, contentFields);
   }
 }
