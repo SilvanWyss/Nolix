@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
-import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringContentFieldDtoMapper;
+import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
  * @author Silvan Wyss
  * @version 2024-12-25
  */
-public final class StringContentFieldDtoMapper implements IStringContentFieldDtoMapper {
+public final class StringContentFieldDtoMapper implements IStringRepresentedFieldDtoMapper {
 
   private static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(IOptionalValueField<?> optionalValue) {
 
@@ -59,7 +59,7 @@ public final class StringContentFieldDtoMapper implements IStringContentFieldDto
    * {@inheritDoc}
    */
   @Override
-  public StringRepresentedFieldDto mapFieldToStringContentFieldDto(final IField field) {
+  public StringRepresentedFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
 
     if (field instanceof final IValueField<?> value) {
       return new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString());
