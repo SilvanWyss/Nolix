@@ -18,7 +18,7 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IStringRepresentedFieldDtoMapper STRING_REPRESENTED_FIELD_DTO_MAPPER = //
-  new StringContentFieldDtoMapper();
+  new StringRepresentedFieldDtoMapper();
 
   /**
    * {@inheritDoc}
