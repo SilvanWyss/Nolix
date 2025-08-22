@@ -3,7 +3,6 @@ package ch.nolix.system.objectdata.entitytool;
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
  * @author Silvan Wyss
@@ -17,16 +16,5 @@ public final class EntityCreator implements IEntityCreator {
   @Override
   public <E extends IEntity> E createEmptyEntityForEntityType(final Class<E> entityType) {
     return ReflectionTool.createInstanceFromDefaultConstructorOfClass(entityType);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public <E extends IEntity> E createEmptyEntityForTable(final ITable<E> table) {
-
-    final var entityType = table.getEntityType();
-
-    return createEmptyEntityForEntityType(entityType);
   }
 }

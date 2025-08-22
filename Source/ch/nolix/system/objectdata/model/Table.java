@@ -283,7 +283,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(EntityLoadingDto loadedEntity) {
     if (!TABLE_EXAMINER.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
 
-      final var entity = ENTITY_CREATOR.createEmptyEntityForTable(this);
+      final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(getEntityType());
+
       entity.internalSetParentTable(this);
 
       ENTITY_FILLER.fillUpEntityFromEntityLoadingDto(entity, loadedEntity);

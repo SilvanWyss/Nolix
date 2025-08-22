@@ -22,11 +22,12 @@ public final class EntityLoader {
     final String id,
     final IDataReader dataReader) {
 
-    final var entity = ENTITY_CREATOR.createEmptyEntityForTable(table);
-    entity.internalSetParentTable(table);
-
+    final var entityType = table.getEntityType();
+    final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
     final var tableName = table.getName();
     final var entityLoadingDto = dataReader.loadEntity(tableName, id);
+
+    entity.internalSetParentTable(table);
     ENTITY_FILLER.fillUpEntityFromEntityLoadingDto(entity, entityLoadingDto);
 
     return entity;
