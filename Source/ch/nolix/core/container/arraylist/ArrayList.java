@@ -252,9 +252,35 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
-    Validator.assertThat(oneBasedIndex).thatIsNamed("1 based index").isBetween(1, getCount());
+    Validator.assertThat(oneBasedIndex).thatIsNamed("one-based index").isBetween(1, getCount());
 
     return elements[oneBasedIndex - 1];
+  }
+
+  /**
+   * The time complexity of this implementation is O(n) if the given oneBasedIndex
+   * is bigger than the number of the elements of the current {@link ArrayList}
+   * and the current {@link ArrayList} contains n elements.
+   * 
+   * The time complexity of this implementation is O(1) if the given oneBasedIndex
+   * is not bigger than the number of the elements of the current
+   * {@link ArrayList}.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void insertAtOneBasedIndex(final int oneBasedIndex, final E element) {
+
+    Validator.assertThat(oneBasedIndex).thatIsNamed("one-based index").isBetween(1, getCount() + 1);
+
+    if (oneBasedIndex <= getCount()) {
+
+      Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+
+      elements[oneBasedIndex - 1] = element;
+    } else {
+      addAtEnd(element);
+    }
   }
 
   /**
