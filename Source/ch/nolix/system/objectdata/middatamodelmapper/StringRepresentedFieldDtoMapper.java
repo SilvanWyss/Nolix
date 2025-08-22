@@ -22,42 +22,6 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
  */
 public final class StringRepresentedFieldDtoMapper implements IStringRepresentedFieldDtoMapper {
 
-  private static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(
-    IOptionalValueField<?> optionalValue) {
-
-    final var columnName = optionalValue.getName();
-
-    if (optionalValue.isEmpty()) {
-      return new StringRepresentedFieldDto(columnName, null);
-    }
-
-    return new StringRepresentedFieldDto(columnName, optionalValue.getStoredValue().toString());
-  }
-
-  private static StringRepresentedFieldDto mapOptionalReferenceToStringContentFieldDto(
-    IOptionalReference<?> optionalReference) {
-
-    final var columnName = optionalReference.getName();
-
-    if (optionalReference.isEmpty()) {
-      return new StringRepresentedFieldDto(columnName, null);
-    }
-
-    return new StringRepresentedFieldDto(columnName, optionalReference.getReferencedEntityId());
-  }
-
-  private static StringRepresentedFieldDto mapOptionalBackReferenceToStringContentFieldDto(
-    IOptionalBackReference<?> optionalBackReference) {
-
-    final var columnName = optionalBackReference.getName();
-
-    if (optionalBackReference.isEmpty()) {
-      return new StringRepresentedFieldDto(columnName, null);
-    }
-
-    return new StringRepresentedFieldDto(columnName, optionalBackReference.getBackReferencedEntityId());
-  }
-
   /**
    * {@inheritDoc}
    */
@@ -79,7 +43,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IOptionalValueField<?> optionalValue) {
-      return SingleContainer.withElement(mapOptionalValueToStringContentFieldDto(optionalValue));
+      return StringRepresentedFieldDtoMapperHelper.mapOptionalValueToStringContentFieldDtos(optionalValue);
     }
 
     if (field instanceof final IMultiValueField<?> multiValue) {
@@ -93,7 +57,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IOptionalReference<?> optionalReference) {
-      return SingleContainer.withElement(mapOptionalReferenceToStringContentFieldDto(optionalReference));
+      return StringRepresentedFieldDtoMapperHelper.mapOptionalReferenceToStringContentFieldDtos(optionalReference);
     }
 
     if (field instanceof final IMultiReference<?> multiReference) {
@@ -107,7 +71,8 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IOptionalBackReference<?> optionalBackReference) {
-      return SingleContainer.withElement(mapOptionalBackReferenceToStringContentFieldDto(optionalBackReference));
+      return //
+      StringRepresentedFieldDtoMapperHelper.mapOptionalBackReferenceToStringContentFieldDtos(optionalBackReference);
     }
 
     if (field instanceof final IMultiBackReference<?> multiBackReference) {
