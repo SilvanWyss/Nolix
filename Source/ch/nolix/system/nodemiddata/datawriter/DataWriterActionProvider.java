@@ -281,7 +281,7 @@ public final class DataWriterActionProvider {
       final var columnName = f.columnName();
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, columnName);
 
-      if (columnView.contentType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE) {
+      if (columnView.fieldType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE) {
 
         final var oneBasedColumnIndex = columnView.oneBasedOrdinalIndex();
         final var fieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedColumnIndex);

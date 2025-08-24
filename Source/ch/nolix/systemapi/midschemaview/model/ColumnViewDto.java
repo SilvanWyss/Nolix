@@ -9,13 +9,13 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
  * @param id
  * @param name
  * @param oneBasedOrdinalIndex
- * @param contentType
+ * @param fieldType
  * @param dataType
  */
 public record ColumnViewDto(
 String id,
 String name,
 int oneBasedOrdinalIndex,
-FieldType contentType,
+FieldType fieldType,
 DataType dataType) {
 }

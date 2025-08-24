@@ -136,10 +136,10 @@ final class InternalDataReader {
     final ColumnViewDto columnView,
     final String value) {
 
-    final var contentType = columnView.contentType();
+    final var fieldType = columnView.fieldType();
 
     return //
-    switch (contentType) {
+    switch (fieldType) {
       case VALUE_FIELD, OPTIONAL_VALUE_FIELD, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
           tableName,
@@ -150,7 +150,7 @@ final class InternalDataReader {
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnView.id(), value);
       default ->
-        throw InvalidArgumentException.forArgument(contentType);
+        throw InvalidArgumentException.forArgument(fieldType);
     };
   }
 
@@ -160,10 +160,10 @@ final class InternalDataReader {
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    final var contentType = columnInfo.contentType();
+    final var fieldType = columnInfo.fieldType();
 
     return //
-    switch (contentType) {
+    switch (fieldType) {
       case VALUE_FIELD, OPTIONAL_VALUE_FIELD, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
           tableName,
@@ -181,7 +181,7 @@ final class InternalDataReader {
           value,
           entitiesToIgnoreIds);
       default ->
-        throw InvalidArgumentException.forArgument(contentType);
+        throw InvalidArgumentException.forArgument(fieldType);
     };
   }
 
