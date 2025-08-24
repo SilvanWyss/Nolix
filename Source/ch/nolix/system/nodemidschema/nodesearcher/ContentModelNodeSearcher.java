@@ -17,19 +17,19 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public FieldType getContentTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
-
-    final var contentTypeNode = getStoredContentTypeNodeFromContentModelNode(contentModelNode);
-
-    return FieldType.fromSpecification(contentTypeNode);
-  }
-
-  @Override
   public DataType getDataTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
 
     final var dataTypeNode = getStoredDataTypeNodeFromContentModelNode(contentModelNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
+  }
+
+  @Override
+  public FieldType getFieldTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
+
+    final var contentTypeNode = getStoredContentTypeNodeFromContentModelNode(contentModelNode);
+
+    return FieldType.fromSpecification(contentTypeNode);
   }
 
   @Override

@@ -30,10 +30,10 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
   @Override
   public IContentModelDto mapContentModelNodeToContentModelDto(final IMutableNode<?> contentModelNode) {
 
-    final var contentType = CONTENT_MODEL_NODE_SEARCHER.getContentTypeFromContentModelNode(contentModelNode);
+    final var fieldType = CONTENT_MODEL_NODE_SEARCHER.getFieldTypeFromContentModelNode(contentModelNode);
 
     return //
-    switch (contentType) {
+    switch (fieldType) {
       case VALUE_FIELD ->
         new ValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
       case OPTIONAL_VALUE_FIELD ->
@@ -65,7 +65,7 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
           CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
           CONTENT_MODEL_NODE_SEARCHER.getBackReferencedColumnIdFromContentModelNode(contentModelNode));
       default ->
-        throw InvalidArgumentException.forArgument(contentType);
+        throw InvalidArgumentException.forArgument(fieldType);
     };
   }
 }

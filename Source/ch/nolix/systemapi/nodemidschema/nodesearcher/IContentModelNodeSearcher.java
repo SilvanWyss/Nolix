@@ -8,9 +8,9 @@ public interface IContentModelNodeSearcher {
 
   String getBackReferencedColumnIdFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  FieldType getContentTypeFromContentModelNode(IMutableNode<?> contentModelNode);
-
   DataType getDataTypeFromContentModelNode(IMutableNode<?> contentModelNode);
+
+  FieldType getFieldTypeFromContentModelNode(IMutableNode<?> contentModelNode);
 
   String getReferencedTableIdFromContentModelNode(IMutableNode<?> contentModelNode);
 
