@@ -26,20 +26,20 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public FieldDto mapContentFieldNodeToContentFieldDto(
     final INode<?> contentFieldNode,
-    final ColumnViewDto columnInfo) {
+    final ColumnViewDto columnView) {
 
     if (contentFieldNode.containsChildNodes()) {
-      return new FieldDto(columnInfo.name(), null);
+      return new FieldDto(columnView.name(), null);
     }
 
     if (!contentFieldNode.hasHeader()) {
-      return new FieldDto(columnInfo.name(), null);
+      return new FieldDto(columnView.name(), null);
     }
 
     return //
     new FieldDto(
-      columnInfo.name(),
-      VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), columnInfo.dataType()));
+      columnView.name(),
+      VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), columnView.dataType()));
   }
 
   /**
