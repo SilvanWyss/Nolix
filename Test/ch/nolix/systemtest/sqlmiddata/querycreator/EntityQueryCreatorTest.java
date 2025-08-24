@@ -32,7 +32,7 @@ final class EntityQueryCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableInfo = new TableViewDto(
+    final var tableView = new TableViewDto(
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
@@ -40,7 +40,7 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
-    final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
+    final var result = testUnit.createQueryToLoadEntitiesOfTable(tableView);
 
     //verification
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat;";
@@ -52,7 +52,7 @@ final class EntityQueryCreatorTest extends StandardTest {
 
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableInfo = new TableViewDto(
+    final var tableView = new TableViewDto(
       "ttttttt1",
       "Cat",
       ImmutableList.withElement(
@@ -60,7 +60,7 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
-    final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);
+    final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableView);
 
     //verification
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat WHERE Id = 'eeeeeee1';";
