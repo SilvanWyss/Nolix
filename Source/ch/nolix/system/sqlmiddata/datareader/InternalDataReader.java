@@ -156,28 +156,28 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
-    final ColumnViewDto columnInfo,
+    final ColumnViewDto columnView,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
 
-    final var fieldType = columnInfo.fieldType();
+    final var fieldType = columnView.fieldType();
 
     return //
     switch (fieldType) {
       case VALUE_FIELD, OPTIONAL_VALUE_FIELD, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumnIgnoringGivenEntities(
           tableName,
-          columnInfo.name(),
+          columnView.name(),
           value,
           entitiesToIgnoreIds);
       case MULTI_VALUE_FIELD ->
         multiValueEntryExistsForGivenColumnAndValueIgnoringGivenEntities(
-          columnInfo.id(),
+          columnView.id(),
           value,
           entitiesToIgnoreIds);
       case MULTI_REFERENCE ->
         multiReferenceEntryExistsForGivenColumnAndReferencedEntityIgnoringGivenEntities(
-          columnInfo.id(),
+          columnView.id(),
           value,
           entitiesToIgnoreIds);
       default ->
