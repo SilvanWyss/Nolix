@@ -102,9 +102,10 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     final ITable table,
     final IColumn column) {
 
-    final var baseContentType = COLUMN_TOOL.getBaseFieldType(column);
+    final var baseFieldType = COLUMN_TOOL.getBaseFieldType(column);
 
-    return switch (baseContentType) {
+    return //
+    switch (baseFieldType) {
       case BASE_VALUE_FIELD ->
         true;
       case BASE_REFERENCE ->
