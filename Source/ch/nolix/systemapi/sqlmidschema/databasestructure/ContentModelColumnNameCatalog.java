@@ -10,7 +10,7 @@ public final class ContentModelColumnNameCatalog {
 
   public static final String ID = "Id";
 
-  public static final String CONTENT_TYPE = "ContentType";
+  public static final String FIELD_TYPE = "FieldType";
 
   public static final String DATA_TYPE = "DataType";
 
