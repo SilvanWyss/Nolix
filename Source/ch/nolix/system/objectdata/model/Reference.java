@@ -19,6 +19,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IReference;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdata.structure.EntityDto;
 
 public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
 
@@ -30,7 +31,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
-  private String referencedEntityId;
+  private EntityDto referencedEntity;
 
   private Reference(final IContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
@@ -69,7 +70,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return referencedEntityId;
+    return referencedEntity.id();
   }
 
   @Override
@@ -105,12 +106,18 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   @Override
   public void internalSetNullableContent(final Object nullableContent) {
-    referencedEntityId = (String) nullableContent;
+
+    final var id = (String) nullableContent;
+
+    //TODO: Complete
+    final var tableId = (String) null;
+
+    referencedEntity = new EntityDto(id, tableId);
   }
 
   @Override
   public boolean isEmpty() {
-    return (referencedEntityId == null);
+    return (referencedEntity == null);
   }
 
   @Override
@@ -230,10 +237,20 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateStateForClear() {
-    referencedEntityId = null;
+    referencedEntity = null;
   }
 
   private void updateStateForSetEntity(final E entity) {
-    referencedEntityId = entity.getId();
+
+    final var id = entity.getId();
+
+    if (entity.belongsToTable()) {
+
+      final var tableId = entity.getStoredParentTable().getId();
+
+      referencedEntity = new EntityDto(id, tableId);
+    } else {
+      referencedEntity = new EntityDto(id, null);
+    }
   }
 }
