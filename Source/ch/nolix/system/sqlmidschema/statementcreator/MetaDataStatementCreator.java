@@ -31,7 +31,7 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
     + ", "
     + ColumnColumn.NAME.getName()
     + ", "
-    + ColumnColumn.CONTENT_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnColumn.DATA_TYPE.getName()
     + ", "

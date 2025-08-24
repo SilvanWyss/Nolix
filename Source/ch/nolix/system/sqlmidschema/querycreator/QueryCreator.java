@@ -40,7 +40,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + ColumnColumn.PARENT_TABLE_ID.getName()
     + ", "
-    + ColumnColumn.CONTENT_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnColumn.DATA_TYPE.getName()
     + ", "

@@ -8,7 +8,7 @@ public enum ColumnColumn implements INameHolder {
   PARENT_TABLE_ID("ParentTableId"),
   NAME(PascalCaseVariableCatalog.NAME),
   CONTENT_MODEL("ContentModel"),
-  CONTENT_TYPE("ContentType"),
+  FIELD_TYPE("FieldType"),
   DATA_TYPE(PascalCaseVariableCatalog.DATA_TYPE),
   BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
 
