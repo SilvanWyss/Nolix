@@ -10,7 +10,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
-final class ContentTypeTest extends StandardTest {
+final class FieldTypeTest extends StandardTest {
 
   @MethodSource
   private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {
