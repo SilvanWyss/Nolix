@@ -43,7 +43,7 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
     + ", '"
     + column.name()
     + "', "
-    + contentModelSqlDto.contentType()
+    + contentModelSqlDto.fieldType()
     + ", "
     + contentModelSqlDto.dataType()
     + ", "
