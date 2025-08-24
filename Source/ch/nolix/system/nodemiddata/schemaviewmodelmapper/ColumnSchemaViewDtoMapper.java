@@ -24,7 +24,7 @@ public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapp
 
     final var id = COLUMN_NODE_SEARCHER.getColumnIdFromColumnNode(columnNode);
     final var name = COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(columnNode);
-    final var contentType = COLUMN_NODE_SEARCHER.getColumnContentTypeFromColumnNode(columnNode);
+    final var fieldType = COLUMN_NODE_SEARCHER.getColumnContentTypeFromColumnNode(columnNode);
     final var dataType = COLUMN_NODE_SEARCHER.getColumnDataTypeFromColumnNode(columnNode);
 
     return //
@@ -32,7 +32,7 @@ public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapp
       id,
       name,
       oneBasedColumnOrdinalIndex,
-      contentType,
+      fieldType,
       dataType);
   }
 }
