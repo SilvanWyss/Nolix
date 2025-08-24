@@ -1,6 +1,6 @@
 package ch.nolix.coreapi.datamodel.fieldrequest;
 
-import ch.nolix.coreapi.datamodel.fieldproperty.ContentType;
+import ch.nolix.coreapi.datamodel.fieldproperty.FieldType;
 
 /**
  * A {@link ContentTypeRequestable} can be asked if it either is for holding
@@ -14,7 +14,7 @@ public interface ContentTypeRequestable {
   /**
    * @return the content type of the current {@link ContentTypeRequestable}.
    */
-  ContentType getContentType();
+  FieldType getContentType();
 
   /**
    * @return true if the current {@link ContentTypeRequestable} is for references,
