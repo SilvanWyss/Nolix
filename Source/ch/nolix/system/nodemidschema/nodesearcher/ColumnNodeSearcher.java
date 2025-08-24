@@ -25,7 +25,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     final var contentModelNode = getStoredContentModelNodeFromColumnNode(columnNode);
 
     final var fieldTypeNode = //
-    CONTENT_MODEL_NODE_SEARCHER.getStoredContentTypeNodeFromContentModelNode(contentModelNode);
+    CONTENT_MODEL_NODE_SEARCHER.getStoredFieldTypeNodeFromContentModelNode(contentModelNode);
 
     return FieldType.fromSpecification(fieldTypeNode);
   }
