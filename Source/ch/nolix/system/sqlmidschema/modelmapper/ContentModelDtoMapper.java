@@ -19,13 +19,13 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
   @Override
   public IContentModelDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
 
-    final var contentTypeEntry = //
-    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.CONTENT_TYPE_INDEX);
+    final var fieldTypeEntry = //
+    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.FIELD_TYPE_INDEX);
 
-    final var contentType = FieldType.valueOf(contentTypeEntry);
+    final var fieldType = FieldType.valueOf(fieldTypeEntry);
 
     return //
-    switch (contentType) {
+    switch (fieldType) {
       case VALUE_FIELD ->
         ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForValueColumn(joinedColumnSqlRecord);
       case OPTIONAL_VALUE_FIELD ->
@@ -47,7 +47,7 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
         ContentModelDtoMapperHelper
           .mapColumnTableSqlRecordToColumnDtoForMultiBackReferenceColumn(joinedColumnSqlRecord);
       default ->
-        throw InvalidArgumentException.forArgument(contentType);
+        throw InvalidArgumentException.forArgument(fieldType);
     };
   }
 }

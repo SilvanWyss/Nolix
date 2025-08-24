@@ -12,7 +12,7 @@ public final class ColumnTableFieldIndexCatalog {
 
   public static final int NAME_INDEX = 3;
 
-  public static final int CONTENT_TYPE_INDEX = 4;
+  public static final int FIELD_TYPE_INDEX = 4;
 
   public static final int DATA_TYPE_INDEX = 5;
 
