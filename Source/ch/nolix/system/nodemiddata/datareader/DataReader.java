@@ -65,11 +65,11 @@ public final class DataReader implements IDataReader {
     final String entityId,
     final String multiBackReferenceColumnName) {
 
-    final var multiBackReferenceColumnInfo = //
+    final var multiBackReferenceColumnView = //
     getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
 
     return //
-    internalDataReader.loadMultiBackReferenceBackReferencedEntityIds(tableName, entityId, multiBackReferenceColumnInfo);
+    internalDataReader.loadMultiBackReferenceBackReferencedEntityIds(tableName, entityId, multiBackReferenceColumnView);
   }
 
   @Override
