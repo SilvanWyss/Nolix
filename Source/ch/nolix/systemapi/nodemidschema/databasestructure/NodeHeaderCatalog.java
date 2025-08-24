@@ -14,8 +14,6 @@ public final class NodeHeaderCatalog {
 
   public static final String CONTENT_MODEL = "ContentModel";
 
-  public static final String CONTENT_TYPE = "ContentType";
-
   public static final String DATABASE = PascalCaseVariableCatalog.DATABASE;
 
   public static final String DATABASE_PROPERTIES = "DatabaseProperties";
@@ -27,6 +25,8 @@ public final class NodeHeaderCatalog {
   public static final String ENTITY_INDEX = "EntityIndex";
 
   public static final String ENTITY_INDEXES = "EntityIndexes";
+
+  public static final String FIELD_TYPE = "FieldType";
 
   public static final String ID = PascalCaseVariableCatalog.ID;
 

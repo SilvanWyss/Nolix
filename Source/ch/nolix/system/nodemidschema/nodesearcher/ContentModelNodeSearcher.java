@@ -54,7 +54,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   @Override
   public IMutableNode<?> getStoredFieldTypeNodeFromContentModelNode(
     final IMutableNode<?> contentModelNode) {
-    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.CONTENT_TYPE);
+    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.FIELD_TYPE);
   }
 
   @Override

@@ -22,7 +22,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         backReferenceModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -37,7 +37,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         multiBackReferenceModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -52,7 +52,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         multiReferenceModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -67,7 +67,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         multiValueModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -80,7 +80,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         optionalBackReferenceModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -95,7 +95,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         optionalReferenceModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -110,7 +110,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         optionalValueModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -122,7 +122,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         referenceModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
@@ -137,7 +137,7 @@ public final class ContentModelNodeMapperHelper {
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.CONTENT_MODEL,
       Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.CONTENT_TYPE,
+        NodeHeaderCatalog.FIELD_TYPE,
         valueModelDto.getFieldType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
