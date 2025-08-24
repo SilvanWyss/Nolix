@@ -6,14 +6,13 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 final class FieldTypeTest extends StandardTest {
 
   @MethodSource
-  private static IContainer<Arguments> getFieldTypesAndTheirCardinality() {
+  private static ImmutableList<Arguments> getFieldTypesAndTheirCardinality() {
     return //
     ImmutableList.withElement(
       Arguments.of(FieldType.VALUE_FIELD, Cardinality.TO_ONE),
