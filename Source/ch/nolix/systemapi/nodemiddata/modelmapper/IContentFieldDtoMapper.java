@@ -15,14 +15,14 @@ public interface IContentFieldDtoMapper {
 
   /**
    * @param contentFieldNode
-   * @param supportingColumnInfo
+   * @param columnView
    * @return a new {@link FieldDto} from the given contentFieldNode.
    * @throws RuntimeException if the given contentFieldNode is null.
-   * @throws RuntimeException if the given supportingColumnInfo is null.
+   * @throws RuntimeException if the given columnView is null.
    */
   FieldDto mapContentFieldNodeToContentFieldDto(
     INode<?> contentFieldNode,
-    ColumnViewDto supportingColumnInfo);
+    ColumnViewDto columnView);
 
   /**
    * @param entityNode
