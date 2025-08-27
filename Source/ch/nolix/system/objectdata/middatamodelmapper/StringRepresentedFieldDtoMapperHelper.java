@@ -29,11 +29,12 @@ public final class StringRepresentedFieldDtoMapperHelper {
     final var columnName = optionalValue.getName();
 
     if (optionalValue.isEmpty()) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null));
+      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null, null));
     }
 
     return //
-    SingleContainer.withElement(new StringRepresentedFieldDto(columnName, optionalValue.getStoredValue().toString()));
+    SingleContainer
+      .withElement(new StringRepresentedFieldDto(columnName, optionalValue.getStoredValue().toString(), null));
   }
 
   public static IContainer<StringRepresentedFieldDto> mapOptionalReferenceToStringContentFieldDtos(
@@ -42,11 +43,12 @@ public final class StringRepresentedFieldDtoMapperHelper {
     final var columnName = optionalReference.getName();
 
     if (optionalReference.isEmpty()) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null));
+      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null, null));
     }
 
     return //
-    SingleContainer.withElement(new StringRepresentedFieldDto(columnName, optionalReference.getReferencedEntityId()));
+    SingleContainer
+      .withElement(new StringRepresentedFieldDto(columnName, optionalReference.getReferencedEntityId(), null));
   }
 
   public static IContainer<StringRepresentedFieldDto> mapOptionalBackReferenceToStringContentFieldDtos(
@@ -55,11 +57,11 @@ public final class StringRepresentedFieldDtoMapperHelper {
     final var columnName = optionalBackReference.getName();
 
     if (optionalBackReference.isEmpty()) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null));
+      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null, null));
     }
 
     return //
     SingleContainer.withElement(
-      new StringRepresentedFieldDto(columnName, optionalBackReference.getBackReferencedEntityId()));
+      new StringRepresentedFieldDto(columnName, optionalBackReference.getBackReferencedEntityId(), null));
   }
 }

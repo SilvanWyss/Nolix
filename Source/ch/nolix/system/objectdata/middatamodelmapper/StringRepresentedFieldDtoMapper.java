@@ -39,7 +39,8 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
 
     if (field instanceof final IValueField<?> value) {
       return //
-      SingleContainer.withElement(new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString()));
+      SingleContainer
+        .withElement(new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString(), null));
     }
 
     if (field instanceof final IOptionalValueField<?> optionalValue) {
@@ -47,13 +48,13 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IMultiValueField<?> multiValue) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(multiValue.getName(), null));
+      return SingleContainer.withElement(new StringRepresentedFieldDto(multiValue.getName(), null, null));
     }
 
     if (field instanceof final IReference<?> reference) {
       return //
       SingleContainer.withElement(
-        new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId()));
+        new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId(), null));
     }
 
     if (field instanceof final IOptionalReference<?> optionalReference) {
@@ -61,13 +62,13 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IMultiReference<?> multiReference) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(multiReference.getName(), null));
+      return SingleContainer.withElement(new StringRepresentedFieldDto(multiReference.getName(), null, null));
     }
 
     if (field instanceof final IBackReference<?> backReference) {
       return //
       SingleContainer.withElement(
-        new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId()));
+        new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(), null));
     }
 
     if (field instanceof final IOptionalBackReference<?> optionalBackReference) {
@@ -76,7 +77,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IMultiBackReference<?> multiBackReference) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(multiBackReference.getName(), null));
+      return SingleContainer.withElement(new StringRepresentedFieldDto(multiBackReference.getName(), null, null));
     }
 
     throw InvalidArgumentException.forArgument(field);

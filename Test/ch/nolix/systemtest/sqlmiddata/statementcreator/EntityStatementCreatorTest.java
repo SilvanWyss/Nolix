@@ -68,9 +68,9 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new EntityCreationDto(
       "my_id",
       ImmutableList.withElement(
-        new StringRepresentedFieldDto("MyColumn1", "my_value1"),
-        new StringRepresentedFieldDto("MyColumn2", "my_value2"),
-        new StringRepresentedFieldDto("MyColumn3", "my_value3")));
+        new StringRepresentedFieldDto("MyColumn1", "my_value1", "additional_value_1"),
+        new StringRepresentedFieldDto("MyColumn2", "my_value2", "additional_value_2"),
+        new StringRepresentedFieldDto("MyColumn3", "my_value3", "additional_value_3")));
 
     //execution
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
@@ -90,9 +90,9 @@ final class EntityStatementCreatorTest extends StandardTest {
       "my_id",
       "100",
       ImmutableList.withElement(
-        new StringRepresentedFieldDto("MyColumn1", "my_value1"),
-        new StringRepresentedFieldDto("MyColumn2", "my_value2"),
-        new StringRepresentedFieldDto("MyColumn3", "my_value3")));
+        new StringRepresentedFieldDto("MyColumn1", "my_value1", "additional_value_1"),
+        new StringRepresentedFieldDto("MyColumn2", "my_value2", "additional_value_2"),
+        new StringRepresentedFieldDto("MyColumn3", "my_value3", "additional_value_3")));
 
     //execution
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);
