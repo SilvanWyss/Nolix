@@ -15,11 +15,19 @@ public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapStringContentFieldDtoToContentFieldNode(final StringRepresentedFieldDto stringRepresentedFieldDto) {
+  public INode<?> mapStringContentFieldDtoToContentFieldNode(
+    final StringRepresentedFieldDto stringRepresentedFieldDto) {
 
     final var nullableValue = stringRepresentedFieldDto.nullableStringRepresentedValue();
 
     if (nullableValue != null) {
+
+      final var nullableAdditionalValue = stringRepresentedFieldDto.nullableAdditionalValue();
+
+      if (nullableAdditionalValue != null) {
+        return Node.withChildNode(nullableValue, nullableAdditionalValue);
+      }
+
       return Node.fromString(nullableValue);
     }
 

@@ -42,11 +42,9 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
         return new FieldDto(columnName, value, null);
       case REFERENCE, BACK_REFERENCE:
 
-        final var valueAsString2 = contentFieldNode.getHeader();
+        final var valueAsString2 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
         final var value2 = VALUE_MAPPER.mapStringToValue(valueAsString2, dataType);
-
-        //TODO: Set additionalValue
-        final String additionalValue2 = null;
+        final var additionalValue2 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(2).getHeader();
 
         return new FieldDto(columnName, value2, additionalValue2);
       case OPTIONAL_VALUE_FIELD:

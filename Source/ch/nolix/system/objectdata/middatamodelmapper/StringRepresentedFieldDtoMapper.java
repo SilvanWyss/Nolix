@@ -31,6 +31,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     return fields.toMultiples(this::mapFieldToStringRepresentedFieldDtos);
   }
 
+  //TODO: Simplify method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +55,8 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     if (field instanceof final IReference<?> reference) {
       return //
       SingleContainer.withElement(
-        new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId(), null));
+        new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId(),
+          reference.getReferencedTableId()));
     }
 
     if (field instanceof final IOptionalReference<?> optionalReference) {
@@ -68,7 +70,8 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     if (field instanceof final IBackReference<?> backReference) {
       return //
       SingleContainer.withElement(
-        new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(), null));
+        new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(),
+          backReference.getBackReferencedTableId()));
     }
 
     if (field instanceof final IOptionalBackReference<?> optionalBackReference) {
