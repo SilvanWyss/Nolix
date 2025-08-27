@@ -20,8 +20,8 @@ public interface IStringRepresentedFieldDtoMapper {
 
   /**
    * @param field
-   * @return new {@link StringRepresentedFieldDto}s from the given field.
+   * @return a new {@link StringRepresentedFieldDto} from the given field.
    * @throws RuntimeException if the given field is null.
    */
-  IContainer<StringRepresentedFieldDto> mapFieldToStringRepresentedFieldDtos(IField field);
+  StringRepresentedFieldDto mapFieldToStringRepresentedFieldDto(IField field);
 }

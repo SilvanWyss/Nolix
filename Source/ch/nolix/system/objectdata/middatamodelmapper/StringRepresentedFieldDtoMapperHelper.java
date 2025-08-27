@@ -1,7 +1,5 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.core.container.singlecontainer.SingleContainer;
-import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
@@ -23,45 +21,39 @@ public final class StringRepresentedFieldDtoMapperHelper {
   private StringRepresentedFieldDtoMapperHelper() {
   }
 
-  public static IContainer<StringRepresentedFieldDto> mapOptionalValueToStringContentFieldDtos(
+  public static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(
     final IOptionalValueField<?> optionalValue) {
 
     final var columnName = optionalValue.getName();
 
     if (optionalValue.isEmpty()) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null, null));
+      return new StringRepresentedFieldDto(columnName, null, null);
     }
 
-    return //
-    SingleContainer
-      .withElement(new StringRepresentedFieldDto(columnName, optionalValue.getStoredValue().toString(), null));
+    return new StringRepresentedFieldDto(columnName, optionalValue.getStoredValue().toString(), null);
   }
 
-  public static IContainer<StringRepresentedFieldDto> mapOptionalReferenceToStringContentFieldDtos(
+  public static StringRepresentedFieldDto mapOptionalReferenceToStringContentFieldDto(
     final IOptionalReference<?> optionalReference) {
 
     final var columnName = optionalReference.getName();
 
     if (optionalReference.isEmpty()) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null, null));
+      return new StringRepresentedFieldDto(columnName, null, null);
     }
 
-    return //
-    SingleContainer
-      .withElement(new StringRepresentedFieldDto(columnName, optionalReference.getReferencedEntityId(), null));
+    return new StringRepresentedFieldDto(columnName, optionalReference.getReferencedEntityId(), null);
   }
 
-  public static IContainer<StringRepresentedFieldDto> mapOptionalBackReferenceToStringContentFieldDtos(
+  public static StringRepresentedFieldDto mapOptionalBackReferenceToStringContentFieldDto(
     final IOptionalBackReference<?> optionalBackReference) {
 
     final var columnName = optionalBackReference.getName();
 
     if (optionalBackReference.isEmpty()) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(columnName, null, null));
+      return new StringRepresentedFieldDto(columnName, null, null);
     }
 
-    return //
-    SingleContainer.withElement(
-      new StringRepresentedFieldDto(columnName, optionalBackReference.getBackReferencedEntityId(), null));
+    return new StringRepresentedFieldDto(columnName, optionalBackReference.getBackReferencedEntityId(), null);
   }
 }

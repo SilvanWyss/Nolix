@@ -1,6 +1,5 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
@@ -28,59 +27,57 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
   @Override
   public IContainer<StringRepresentedFieldDto> mapFieldsToStringRepresentedFieldDtos(
     final IContainer<? extends IField> fields) {
-    return fields.toMultiples(this::mapFieldToStringRepresentedFieldDtos);
+    return fields.to(this::mapFieldToStringRepresentedFieldDto);
   }
 
-  //TODO: Simplify method
   /**
    * {@inheritDoc}
    */
   @Override
-  public IContainer<StringRepresentedFieldDto> mapFieldToStringRepresentedFieldDtos(final IField field) {
+  public StringRepresentedFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
 
     if (field instanceof final IValueField<?> value) {
       return //
-      SingleContainer
-        .withElement(new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString(), null));
+      new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString(), null);
     }
 
     if (field instanceof final IOptionalValueField<?> optionalValue) {
-      return StringRepresentedFieldDtoMapperHelper.mapOptionalValueToStringContentFieldDtos(optionalValue);
+      return StringRepresentedFieldDtoMapperHelper.mapOptionalValueToStringContentFieldDto(optionalValue);
     }
 
     if (field instanceof final IMultiValueField<?> multiValue) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(multiValue.getName(), null, null));
+      return new StringRepresentedFieldDto(multiValue.getName(), null, null);
     }
 
     if (field instanceof final IReference<?> reference) {
       return //
-      SingleContainer.withElement(
-        new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId(),
-          reference.getReferencedTableId()));
+
+      new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId(),
+        reference.getReferencedTableId());
     }
 
     if (field instanceof final IOptionalReference<?> optionalReference) {
-      return StringRepresentedFieldDtoMapperHelper.mapOptionalReferenceToStringContentFieldDtos(optionalReference);
+      return StringRepresentedFieldDtoMapperHelper.mapOptionalReferenceToStringContentFieldDto(optionalReference);
     }
 
     if (field instanceof final IMultiReference<?> multiReference) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(multiReference.getName(), null, null));
+      return new StringRepresentedFieldDto(multiReference.getName(), null, null);
     }
 
     if (field instanceof final IBackReference<?> backReference) {
       return //
-      SingleContainer.withElement(
-        new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(),
-          backReference.getBackReferencedTableId()));
+
+      new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(),
+        backReference.getBackReferencedTableId());
     }
 
     if (field instanceof final IOptionalBackReference<?> optionalBackReference) {
       return //
-      StringRepresentedFieldDtoMapperHelper.mapOptionalBackReferenceToStringContentFieldDtos(optionalBackReference);
+      StringRepresentedFieldDtoMapperHelper.mapOptionalBackReferenceToStringContentFieldDto(optionalBackReference);
     }
 
     if (field instanceof final IMultiBackReference<?> multiBackReference) {
-      return SingleContainer.withElement(new StringRepresentedFieldDto(multiBackReference.getName(), null, null));
+      return new StringRepresentedFieldDto(multiBackReference.getName(), null, null);
     }
 
     throw InvalidArgumentException.forArgument(field);
