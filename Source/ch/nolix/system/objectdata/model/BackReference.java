@@ -74,8 +74,8 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
-  public void internalSetNullableContent(final Object nullableContent) {
-    backReferencedEntityId = (String) nullableContent;
+  public void internalSetNullableValue(final Object nullableValue) {
+    backReferencedEntityId = (String) nullableValue;
   }
 
   @Override

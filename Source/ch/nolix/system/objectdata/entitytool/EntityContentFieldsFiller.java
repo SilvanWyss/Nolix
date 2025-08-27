@@ -34,7 +34,7 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
 
         switch (entityField.getContentCardinality()) {
           case 1:
-            entityField.internalSetNullableContent(f.nullableValue());
+            entityField.internalSetNullableValue(f.nullableValue());
             break;
           case 2:
             previousContentFieldDto = f;
@@ -46,12 +46,12 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
       } else {
 
         if (previousContentFieldDto.nullableValue() == null) {
-          previousEntityField.internalSetNullableContent(null);
+          previousEntityField.internalSetNullableValue(null);
         } else {
 
           final var content = ImmutableList.withElement(previousContentFieldDto.nullableValue(), f.nullableValue());
 
-          previousEntityField.internalSetNullableContent(content);
+          previousEntityField.internalSetNullableValue(content);
         }
 
         previousContentFieldDto = null;

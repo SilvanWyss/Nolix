@@ -104,8 +104,8 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public void internalSetNullableContent(final Object nullableContent) {
-    Validator.assertThat(nullableContent).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
+  public void internalSetNullableValue(final Object nullableValue) {
+    Validator.assertThat(nullableValue).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
   }
 
   @Override

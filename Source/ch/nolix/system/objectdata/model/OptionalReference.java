@@ -113,11 +113,11 @@ implements IOptionalReference<E> {
   }
 
   @Override
-  public void internalSetNullableContent(final Object nullableContent) {
-    if (nullableContent == null) {
+  public void internalSetNullableValue(final Object nullableValue) {
+    if (nullableValue == null) {
       referencedEntityId = null;
     } else {
-      referencedEntityId = (String) nullableContent;
+      referencedEntityId = (String) nullableValue;
     }
   }
 
