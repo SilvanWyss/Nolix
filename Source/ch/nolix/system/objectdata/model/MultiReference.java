@@ -4,10 +4,8 @@ import java.util.function.Predicate;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
@@ -139,8 +137,8 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @Override
-  public void internalSetNullableValue(final Object nullableValue) {
-    Validator.assertThat(nullableValue).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
+  public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
+    //Does nothing.
   }
 
   @Override

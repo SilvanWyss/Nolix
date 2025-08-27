@@ -105,12 +105,10 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @Override
-  public void internalSetNullableValue(final Object nullableValue) {
+  public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
 
     final var id = (String) nullableValue;
-
-    //TODO: Complete
-    final var tableId = (String) null;
+    final var tableId = nullableAdditionalValue;
 
     referencedEntity = new EntityDto(id, tableId);
   }

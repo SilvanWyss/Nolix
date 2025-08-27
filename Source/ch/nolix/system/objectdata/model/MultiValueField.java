@@ -3,10 +3,8 @@ package ch.nolix.system.objectdata.model;
 import java.util.function.Predicate;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -73,8 +71,8 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   @Override
-  public void internalSetNullableValue(final Object nullableValue) {
-    Validator.assertThat(nullableValue).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNull();
+  public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
+    //Does nothing.
   }
 
   @Override

@@ -1,13 +1,10 @@
 package ch.nolix.system.objectdata.entitytool;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityContentFieldsFiller;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
@@ -24,38 +21,12 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
     final IContainer<FieldDto> contentFieldDtos) {
 
     final var entityFields = entity.internalGetStoredFields();
-    FieldDto previousContentFieldDto = null;
-    IField previousEntityField = null;
 
     for (final var f : contentFieldDtos) {
-      if (previousContentFieldDto == null) {
 
-        final var entityField = entityFields.getStoredFirst(f2 -> f2.hasName(f.columnName()));
+      final var entityField = entityFields.getStoredFirst(f2 -> f2.hasName(f.columnName()));
 
-        switch (entityField.getContentCardinality()) {
-          case 1:
-            entityField.internalSetNullableValue(f.nullableValue());
-            break;
-          case 2:
-            previousContentFieldDto = f;
-            previousEntityField = entityField;
-            break;
-          default:
-            throw InvalidArgumentException.forArgument(f);
-        }
-      } else {
-
-        if (previousContentFieldDto.nullableValue() == null) {
-          previousEntityField.internalSetNullableValue(null);
-        } else {
-
-          final var content = ImmutableList.withElement(previousContentFieldDto.nullableValue(), f.nullableValue());
-
-          previousEntityField.internalSetNullableValue(content);
-        }
-
-        previousContentFieldDto = null;
-      }
+      entityField.internalSetNullableValue(f.nullableValue(), f.nullableAdditionalValue());
     }
   }
 

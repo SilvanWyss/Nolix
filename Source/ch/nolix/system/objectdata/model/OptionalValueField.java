@@ -69,12 +69,8 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   @SuppressWarnings("unchecked")
-  public void internalSetNullableValue(final Object nullableValue) {
-    if (nullableValue == null) {
-      internalValue = null;
-    } else {
-      internalValue = (V) nullableValue;
-    }
+  public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
+    internalValue = (V) nullableValue;
   }
 
   @Override
