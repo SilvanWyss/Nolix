@@ -1,5 +1,6 @@
 package ch.nolix.system.sqlmiddata.modelmapper;
 
+import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
@@ -14,6 +15,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
+  //TODO: Re-engineer
   /**
    * {@inheritDoc}
    */
@@ -23,9 +25,18 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
     final ColumnViewDto columnView) {
 
     final var columnName = columnView.name();
-    final var dataType = columnView.dataType();
-    final var content = VALUE_MAPPER.mapStringToValue(string, dataType);
+    final var fieldType = columnView.fieldType();
+    final var cardinality = fieldType.getCardinality();
+    final var baseCardinality = cardinality.getBaseCardinality();
 
-    return new FieldDto(columnName, content);
+    if (baseCardinality == BaseCardinality.SINGLE) {
+
+      final var dataType = columnView.dataType();
+      final var value = VALUE_MAPPER.mapStringToValue(string, dataType);
+
+      return new FieldDto(columnName, value, null);
+    }
+
+    return new FieldDto(columnName, null, null);
   }
 }

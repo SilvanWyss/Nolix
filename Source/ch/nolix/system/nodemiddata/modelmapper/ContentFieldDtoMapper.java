@@ -1,6 +1,7 @@
 package ch.nolix.system.nodemiddata.modelmapper;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.IMutableNode;
@@ -28,18 +29,56 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
     final INode<?> contentFieldNode,
     final ColumnViewDto columnView) {
 
-    if (contentFieldNode.containsChildNodes()) {
-      return new FieldDto(columnView.name(), null);
-    }
+    final var columnName = columnView.name();
+    final var fieldType = columnView.fieldType();
+    final var dataType = columnView.dataType();
 
-    if (!contentFieldNode.hasHeader()) {
-      return new FieldDto(columnView.name(), null);
-    }
+    switch (fieldType) {
+      case VALUE_FIELD:
 
-    return //
-    new FieldDto(
-      columnView.name(),
-      VALUE_MAPPER.mapStringToValue(contentFieldNode.getHeader(), columnView.dataType()));
+        final var valueAsString = contentFieldNode.getHeader();
+        final var value = VALUE_MAPPER.mapStringToValue(valueAsString, dataType);
+
+        return new FieldDto(columnName, value, null);
+      case REFERENCE, BACK_REFERENCE:
+
+        final var valueAsString2 = contentFieldNode.getHeader();
+        final var value2 = VALUE_MAPPER.mapStringToValue(valueAsString2, dataType);
+
+        //TODO: Set additionalValue
+        final String additionalValue2 = null;
+
+        return new FieldDto(columnName, value2, additionalValue2);
+      case OPTIONAL_VALUE_FIELD:
+
+        if (contentFieldNode.hasHeader()) {
+
+          final var valueAsString3 = contentFieldNode.getHeader();
+          final var value3 = VALUE_MAPPER.mapStringToValue(valueAsString3, dataType);
+
+          return new FieldDto(columnName, value3, null);
+        }
+
+        return new FieldDto(columnName, null, null);
+      case OPTIONAL_REFERENCE, OPTIONAL_BACK_REFERENCE:
+
+        if (contentFieldNode.hasHeader()) {
+
+          final var valueAsString4 = contentFieldNode.getHeader();
+          final var value4 = VALUE_MAPPER.mapStringToValue(valueAsString4, dataType);
+
+          //TODO: Set additionalValue4
+          final String additionalValue4 = null;
+
+          return new FieldDto(columnName, value4, additionalValue4);
+        }
+
+        return new FieldDto(columnName, null, null);
+      case MULTI_VALUE_FIELD, MULTI_REFERENCE, MULTI_BACK_REFERENCE:
+        return new FieldDto(columnName, null, null);
+      default:
+        throw InvalidArgumentException.forArgument(fieldType);
+    }
   }
 
   /**
