@@ -39,8 +39,9 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     return referenceableTableNames;
   }
 
+  //TODO: Delete this method
   @Override
-  public final String getReferencedTableId() {
+  public String getReferencedTableId() {
     return getStoredReferencedTable().getId();
   }
 
