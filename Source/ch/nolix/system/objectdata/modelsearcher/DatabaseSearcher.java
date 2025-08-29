@@ -26,4 +26,12 @@ public final class DatabaseSearcher extends DatabaseObjectExaminer implements ID
 
     return database.getStoredTables().toMultiples(ITable::internalGetStoredEntitiesInLocalData);
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITable<IEntity> getStoredTableById(final IDatabase database, final String tableId) {
+    return database.getStoredTables().getStoredFirst(t -> t.hasId(tableId));
+  }
 }
