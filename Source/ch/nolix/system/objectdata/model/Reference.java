@@ -58,6 +58,11 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return new Reference<>(allReferenceableTableNames);
   }
 
+  public static <E2 extends IEntity> Reference<E2> forReferenceableTableNames(
+    final IContainer<String> referenceableTableNames) {
+    return new Reference<>(referenceableTableNames);
+  }
+
   @Override
   public String getReferencedEntityId() {
 
