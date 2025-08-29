@@ -31,7 +31,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
-  private EntityDto referencedEntity;
+  private EntityDto referencedEntityDto;
+
+  private E referencedEntity;
 
   private Reference(final IContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
@@ -68,7 +70,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return referencedEntity.id();
+    return referencedEntityDto.id();
   }
 
   @Override
@@ -94,7 +96,12 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   @Override
   public E getStoredReferencedEntity() {
-    return getStoredReferencedTable().getStoredEntityById(getReferencedEntityId());
+
+    if (referencedEntity == null) {
+      referencedEntity = getStoredReferencedTable().getStoredEntityById(getReferencedEntityId());
+    }
+
+    return referencedEntity;
   }
 
   @Override
@@ -108,12 +115,12 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     final var id = (String) nullableValue;
     final var tableId = nullableAdditionalValue;
 
-    referencedEntity = new EntityDto(id, tableId);
+    referencedEntityDto = new EntityDto(id, tableId);
   }
 
   @Override
   public boolean isEmpty() {
-    return (referencedEntity == null);
+    return (referencedEntityDto == null);
   }
 
   @Override
@@ -152,10 +159,15 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {
 
-      final var referencedEntityId = referencedEntity.id();
-      final var referencedTableId = getStoredParentEntity().getStoredParentTable().getId();
+      final var referencedEntityId = referencedEntity.getId();
 
-      referencedEntity = new EntityDto(referencedEntityId, referencedTableId);
+      final var referencedTableId = //
+      getStoredParentEntity()
+        .getStoredParentDatabase()
+        .getStoredTableByName(referencedEntity.getParentTableName())
+        .getId();
+
+      referencedEntityDto = new EntityDto(referencedEntityId, referencedTableId);
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
   }
@@ -238,7 +250,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateStateForClear() {
-    referencedEntity = null;
+    referencedEntityDto = null;
   }
 
   private void updateStateForSetEntity(final E entity) {
@@ -249,9 +261,11 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
       final var tableId = entity.getStoredParentTable().getId();
 
-      referencedEntity = new EntityDto(id, tableId);
+      referencedEntityDto = new EntityDto(id, tableId);
     } else {
-      referencedEntity = new EntityDto(id, null);
+      referencedEntityDto = new EntityDto(id, null);
     }
+
+    this.referencedEntity = entity;
   }
 }
