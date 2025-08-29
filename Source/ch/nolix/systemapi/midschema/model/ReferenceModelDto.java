@@ -3,7 +3,7 @@ package ch.nolix.systemapi.midschema.model;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
-public record ReferenceModelDto(DataType dataType, String referencedTableId) implements IAbstractReferenceModelDto {
+public record ReferenceModelDto(DataType dataType, String referencedTableId) implements IBaseReferenceModelDto {
 
   @Override
   public FieldType getFieldType() {
