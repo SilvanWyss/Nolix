@@ -17,7 +17,7 @@ final class EntityFlyWeightTest extends StandardTest {
     final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
 
     //execution
-    testUnit.noteInsert();
+    testUnit.noteInsertIntoDatabase();
 
     //verification
     Mockito.verify(insertAction).run();

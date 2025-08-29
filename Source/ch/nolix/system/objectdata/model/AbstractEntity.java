@@ -212,7 +212,7 @@ public abstract class AbstractEntity implements IEntity {
 
     updateBaseBackReferencesWhenIsInsertedIntoDatabase();
 
-    entityFlyweight.noteInsert();
+    entityFlyweight.noteInsertIntoDatabase();
   }
 
   final void setEdited() {

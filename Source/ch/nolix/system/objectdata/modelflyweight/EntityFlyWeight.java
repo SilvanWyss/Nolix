@@ -24,7 +24,7 @@ public final class EntityFlyWeight implements IEntityFlyWeight {
   }
 
   @Override
-  public void noteInsert() {
+  public void noteInsertIntoDatabase() {
     insertAction.run();
   }
 }
