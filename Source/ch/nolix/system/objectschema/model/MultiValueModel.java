@@ -4,7 +4,7 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IMultiValueModel;
 
-public final class MultiValueModel<V> extends AbstractValueModel<V> implements IMultiValueModel<V> {
+public final class MultiValueModel<V> extends AbstractBaseValueModel<V> implements IMultiValueModel<V> {
 
   private MultiValueModel(final DataType dataType) {
     super(dataType);

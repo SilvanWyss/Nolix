@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschema.model;
 
-public interface IAbstractValueModel<V> extends IContentModel {
+public interface IBaseValueModel<V> extends IContentModel {
 
   Class<V> getValueClass();
 }
