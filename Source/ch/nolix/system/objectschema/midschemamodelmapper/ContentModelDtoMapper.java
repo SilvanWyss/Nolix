@@ -50,24 +50,27 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     if (contentModel instanceof final IReferenceModel referenceModel) {
 
       final var dataType = referenceModel.getDataType();
-      final var referencedTableId = referenceModel.getReferencedTable().getId();
+      final var referencedTableId = referenceModel.getReferenceableTables().getStoredFirst().getId();
 
+      //TODO: Update ReferenceModelDto
       return new ReferenceModelDto(dataType, referencedTableId);
     }
 
     if (contentModel instanceof final IOptionalReferenceModel optionalReferenceModel) {
 
       final var dataType = optionalReferenceModel.getDataType();
-      final var referencedTableId = optionalReferenceModel.getReferencedTable().getId();
+      final var referencedTableId = optionalReferenceModel.getReferenceableTables().getStoredFirst().getId();
 
+      //TODO: Update OptionalReferenceModelDto
       return new OptionalReferenceModelDto(dataType, referencedTableId);
     }
 
     if (contentModel instanceof final IMultiReferenceModel multiReferenceModel) {
 
       final var dataType = multiReferenceModel.getDataType();
-      final var referencedTableId = multiReferenceModel.getReferencedTable().getId();
+      final var referencedTableId = multiReferenceModel.getReferenceableTables().getStoredFirst().getId();
 
+      //TODO: Update MultiReferenceModelDto
       return new MultiReferenceModelDto(dataType, referencedTableId);
     }
 

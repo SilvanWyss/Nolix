@@ -1,17 +1,18 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IOptionalReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class OptionalReferenceModel extends AbstractBaseReferenceModel implements IOptionalReferenceModel {
 
-  private OptionalReferenceModel(final ITable referencedTable) {
-    super(referencedTable);
+  private OptionalReferenceModel(final IContainer<ITable> referenceableTables) {
+    super(referenceableTables);
   }
 
-  public static OptionalReferenceModel forReferencedTable(final ITable referencedTable) {
-    return new OptionalReferenceModel(referencedTable);
+  public static OptionalReferenceModel forReferenceableTables(final IContainer<ITable> referenceableTables) {
+    return new OptionalReferenceModel(referenceableTables);
   }
 
   @Override

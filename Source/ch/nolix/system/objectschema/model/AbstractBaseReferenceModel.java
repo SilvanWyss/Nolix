@@ -1,6 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.objectschema.model.IBaseReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -10,13 +11,10 @@ public abstract class AbstractBaseReferenceModel implements IBaseReferenceModel 
 
   private static final DataType DATA_TYPE = DataType.STRING;
 
-  private final ITable referencedTable;
+  private final ImmutableList<ITable> referenceableTables;
 
-  protected AbstractBaseReferenceModel(final ITable referencedTable) {
-
-    Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
-
-    this.referencedTable = referencedTable;
+  protected AbstractBaseReferenceModel(final IContainer<ITable> referenceableTables) {
+    this.referenceableTables = ImmutableList.forIterable(referenceableTables);
   }
 
   @Override
@@ -25,17 +23,17 @@ public abstract class AbstractBaseReferenceModel implements IBaseReferenceModel 
   }
 
   @Override
-  public final ITable getReferencedTable() {
-    return referencedTable;
-  }
-
-  @Override
-  public final boolean referencesTable(final ITable table) {
-    return (getReferencedTable() == table);
+  public final IContainer<ITable> getReferenceableTables() {
+    return referenceableTables;
   }
 
   @Override
   public final boolean referencesBackColumn(final IColumn column) {
     return false;
+  }
+
+  @Override
+  public final boolean referencesTable(final ITable table) {
+    return referenceableTables.contains(table);
   }
 }

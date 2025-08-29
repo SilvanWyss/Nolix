@@ -1,5 +1,6 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
@@ -42,7 +43,8 @@ public final class ContentModelMapper {
       final var referencedTableId = referenceModelDto.referencedTableId();
       final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
 
-      return ReferenceModel.forReferencedTable(referencedTable);
+      //TODO: Update ReferenceModelDto
+      return ReferenceModel.forReferenceableTables(ImmutableList.withElement(referencedTable));
     }
 
     if (midContentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
@@ -50,7 +52,8 @@ public final class ContentModelMapper {
       final var referencedTableId = optionalReferenceModelDto.referencedTableId();
       final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
 
-      return OptionalReferenceModel.forReferencedTable(referencedTable);
+      //TODO: Update OptionalReferenceModelDto
+      return OptionalReferenceModel.forReferenceableTables(ImmutableList.withElement(referencedTable));
     }
 
     if (midContentModelDto instanceof MultiReferenceModelDto multiBackReferenceModelDto) {
@@ -58,7 +61,8 @@ public final class ContentModelMapper {
       final var referencedTableId = multiBackReferenceModelDto.referencedTableId();
       final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
 
-      return MultiReferenceModel.forReferencedTable(referencedTable);
+      //TODO: Update MultiReferenceModelDto
+      return MultiReferenceModel.forReferenceableTables(ImmutableList.withElement(referencedTable));
     }
 
     if (midContentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {

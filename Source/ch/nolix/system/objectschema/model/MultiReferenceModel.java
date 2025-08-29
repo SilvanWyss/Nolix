@@ -1,17 +1,18 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IMultiReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class MultiReferenceModel extends AbstractBaseReferenceModel implements IMultiReferenceModel {
 
-  private MultiReferenceModel(final ITable referencedTable) {
-    super(referencedTable);
+  private MultiReferenceModel(final IContainer<ITable> referenceableTables) {
+    super(referenceableTables);
   }
 
-  public static MultiReferenceModel forReferencedTable(final ITable referencedTable) {
-    return new MultiReferenceModel(referencedTable);
+  public static MultiReferenceModel forReferenceableTables(final IContainer<ITable> referenceableTables) {
+    return new MultiReferenceModel(referenceableTables);
   }
 
   @Override

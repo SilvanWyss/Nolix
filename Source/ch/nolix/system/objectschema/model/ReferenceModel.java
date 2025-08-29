@@ -1,17 +1,18 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ReferenceModel extends AbstractBaseReferenceModel implements IReferenceModel {
 
-  private ReferenceModel(final ITable referencedTable) {
-    super(referencedTable);
+  private ReferenceModel(final IContainer<ITable> referenceableTables) {
+    super(referenceableTables);
   }
 
-  public static ReferenceModel forReferencedTable(final ITable referencedTable) {
-    return new ReferenceModel(referencedTable);
+  public static ReferenceModel forReferenceableTables(final IContainer<ITable> referenceableTables) {
+    return new ReferenceModel(referenceableTables);
   }
 
   @Override

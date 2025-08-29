@@ -14,9 +14,9 @@ public final class ReferenceToContentModelMapper implements IFieldToContentModel
     final IReference<?> field,
     final IContainer<ITable> referencedTables) {
 
-    final var referencedTableName = field.getReferencedTableName();
-    final var referencedTable = referencedTables.getStoredFirst(t -> t.hasName(referencedTableName));
+    final var referenceableTableNames = field.getRefereneableTableNames();
+    final var referenceableTables = referenceableTableNames.to(n -> referencedTables.getStoredFirst(t -> t.hasName(n)));
 
-    return ReferenceModel.forReferencedTable(referencedTable);
+    return ReferenceModel.forReferenceableTables(referenceableTables);
   }
 }

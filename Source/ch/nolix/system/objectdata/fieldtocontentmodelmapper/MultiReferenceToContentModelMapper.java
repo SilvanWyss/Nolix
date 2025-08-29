@@ -14,9 +14,9 @@ public final class MultiReferenceToContentModelMapper implements IFieldToContent
     final IMultiReference<?> field,
     final IContainer<ITable> referencedTables) {
 
-    final var referencedTableName = field.getReferencedTableName();
-    final var referencedTable = referencedTables.getStoredFirst(t -> t.hasName(referencedTableName));
+    final var referenceableTableNames = field.getRefereneableTableNames();
+    final var referenceableTables = referenceableTableNames.to(n -> referencedTables.getStoredFirst(t -> t.hasName(n)));
 
-    return MultiReferenceModel.forReferencedTable(referencedTable);
+    return MultiReferenceModel.forReferenceableTables(referenceableTables);
   }
 }
