@@ -14,7 +14,7 @@ public final class OptionalReferenceToContentModelMapper implements IFieldToCont
     final IOptionalReference<?> field,
     final IContainer<ITable> referencedTables) {
 
-    final var referenceableTableNames = field.getRefereneableTableNames();
+    final var referenceableTableNames = field.getReferenceableTableNames();
     final var referenceableTables = referenceableTableNames.to(n -> referencedTables.getStoredFirst(t -> t.hasName(n)));
 
     return OptionalReferenceModel.forReferenceableTables(referenceableTables);

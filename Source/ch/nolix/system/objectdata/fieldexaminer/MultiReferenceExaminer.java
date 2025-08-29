@@ -19,7 +19,7 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
     canAddEntity(multiReference)
     && entity != null
     && entity.isOpen()
-    && multiReference.getRefereneableTableNames().contains(entity.getParentTableName());
+    && multiReference.getReferenceableTableNames().contains(entity.getParentTableName());
   }
 
   @Override

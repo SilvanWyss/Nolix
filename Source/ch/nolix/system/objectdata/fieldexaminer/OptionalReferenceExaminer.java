@@ -28,6 +28,6 @@ public final class OptionalReferenceExaminer extends FieldExaminer implements IO
     canSetEntity(optionalReference)
     && entity != null
     && entity.isOpen()
-    && optionalReference.getRefereneableTableNames().contains(entity.getParentTableName());
+    && optionalReference.getReferenceableTableNames().contains(entity.getParentTableName());
   }
 }

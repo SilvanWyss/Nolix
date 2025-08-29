@@ -20,6 +20,6 @@ public final class ReferenceExaminer extends FieldExaminer implements IReference
     canSetEntity(reference)
     && entity != null
     && entity.isOpen()
-    && reference.getRefereneableTableNames().contains(entity.getParentTableName());
+    && reference.getReferenceableTableNames().contains(entity.getParentTableName());
   }
 }

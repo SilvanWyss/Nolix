@@ -35,7 +35,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   }
 
   @Override
-  public final IContainer<String> getRefereneableTableNames() {
+  public final IContainer<String> getReferenceableTableNames() {
     return referenceableTableNames;
   }
 
