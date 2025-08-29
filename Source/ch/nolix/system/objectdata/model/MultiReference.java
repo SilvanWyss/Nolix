@@ -99,11 +99,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @Override
-  public int getContentCardinality() {
-    return 1;
-  }
-
-  @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
 

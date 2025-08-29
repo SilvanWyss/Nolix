@@ -36,11 +36,6 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
-  public int getContentCardinality() {
-    return 1;
-  }
-
-  @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
 

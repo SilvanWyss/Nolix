@@ -35,11 +35,6 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
   }
 
   @Override
-  public int getContentCardinality() {
-    return 1;
-  }
-
-  @Override
   public V getStoredValue() {
 
     VALUE_VALIDATOR.assertIsNotEmpty(this);
