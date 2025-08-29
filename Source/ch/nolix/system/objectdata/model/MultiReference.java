@@ -64,6 +64,11 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     return new MultiReference<>(allReferenceableTableNames);
   }
 
+  public static <E2 extends IEntity> MultiReference<E2> forReferenceableTableNames(
+    final IContainer<String> referenceableTableNames) {
+    return new MultiReference<>(referenceableTableNames);
+  }
+
   @Override
   @SuppressWarnings("unchecked")
   public void addEntity(final Object entity) {
