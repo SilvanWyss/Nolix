@@ -2,12 +2,12 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
-import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IBaseBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
-public abstract class AbstractBackReferenceModel implements IAbstractBackReferenceModel {
+public abstract class AbstractBaseBackReferenceModel implements IBaseBackReferenceModel {
 
   private static final DataType DATA_TYPE = DataType.STRING;
 
@@ -15,7 +15,7 @@ public abstract class AbstractBackReferenceModel implements IAbstractBackReferen
 
   private final IColumn backReferencedColumn;
 
-  protected AbstractBackReferenceModel(final IColumn backReferencedColumn) {
+  protected AbstractBaseBackReferenceModel(final IColumn backReferencedColumn) {
 
     COLUMN_VALIDATOR.assertIsAbstractReferenceColumn(backReferencedColumn);
 

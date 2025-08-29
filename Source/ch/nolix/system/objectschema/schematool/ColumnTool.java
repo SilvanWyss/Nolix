@@ -7,7 +7,7 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IBaseBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -95,9 +95,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
     final var contentModel = column.getContentModel();
 
-    if (contentModel instanceof IAbstractBackReferenceModel abstractBackReferenceModel) {
+    if (contentModel instanceof IBaseBackReferenceModel baseBackReferenceModel) {
 
-      final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
+      final var backReferencedColumn = baseBackReferenceModel.getBackReferencedColumn();
       final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
 
       if (!CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(backReferencedColumnContentModel)) {

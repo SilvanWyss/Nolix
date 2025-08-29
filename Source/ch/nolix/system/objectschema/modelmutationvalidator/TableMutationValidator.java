@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.modelmutationvalidator;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.system.objectschema.model.AbstractBackReferenceModel;
+import ch.nolix.system.objectschema.model.AbstractBaseBackReferenceModel;
 import ch.nolix.system.objectschema.model.AbstractBaseReferenceModel;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
@@ -56,7 +56,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
 
-      final var abstractBackReferenceModel = (AbstractBackReferenceModel) (column.getContentModel());
+      final var abstractBackReferenceModel = (AbstractBaseBackReferenceModel) (column.getContentModel());
       final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
 
       DATABASE_TOOL.assertContainsTableWithGivenColumn(table.getStoredParentDatabase(), backReferencedColumn);

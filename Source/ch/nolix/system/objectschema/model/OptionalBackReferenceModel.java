@@ -5,7 +5,7 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IOptionalBackReferenceModel;
 
 public final class OptionalBackReferenceModel
-extends AbstractBackReferenceModel
+extends AbstractBaseBackReferenceModel
 implements IOptionalBackReferenceModel {
 
   private OptionalBackReferenceModel(final IColumn backReferencedColumn) {

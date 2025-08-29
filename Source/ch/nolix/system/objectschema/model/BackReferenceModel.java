@@ -4,7 +4,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 
-public final class BackReferenceModel extends AbstractBackReferenceModel implements IBackReferenceModel {
+public final class BackReferenceModel extends AbstractBaseBackReferenceModel implements IBackReferenceModel {
 
   private BackReferenceModel(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
