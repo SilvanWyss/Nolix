@@ -69,25 +69,28 @@ public final class FieldFromColumnCreator {
   private static Reference<AbstractEntity> createReferenceFromAbstractReferenceModelView(
     final IBaseReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
-    final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
+    final var referenceableTableNames = abstractReferenceModelView.getStoredReferenceableTables().to(ITable::getName);
 
-    return Reference.forReferenceableTableName(referencedtableName);
+    //TODO: Reference
+    return Reference.forReferenceableTableName(referenceableTableNames.getStoredFirst());
   }
 
   private static OptionalReference<AbstractEntity> createOptionalReferenceFromAbstractReferenceModelView(
     final IBaseReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
-    final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
+    final var referenceableTableNames = abstractReferenceModelView.getStoredReferenceableTables().to(ITable::getName);
 
-    return OptionalReference.forReferenceableTableName(referencedtableName);
+    //TODO: Update OptionalReference
+    return OptionalReference.forReferenceableTableName(referenceableTableNames.getStoredFirst());
   }
 
   private static MultiReference<AbstractEntity> createMultiReferenceFromAbstractReferenceModelView(
     final IBaseReferenceModelView<ITable<IEntity>> abstractReferenceModelView) {
 
-    final var referencedtableName = abstractReferenceModelView.getStoredReferencedTable().getName();
+    final var referenceableTableNames = abstractReferenceModelView.getStoredReferenceableTables().to(ITable::getName);
 
-    return MultiReference.forReferenceableTableName(referencedtableName);
+    //TODO: Update MultiReference
+    return MultiReference.forReferenceableTableName(referenceableTableNames.getStoredFirst());
   }
 
   private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(

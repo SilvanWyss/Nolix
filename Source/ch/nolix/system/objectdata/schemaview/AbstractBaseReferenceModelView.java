@@ -1,7 +1,8 @@
 package ch.nolix.system.objectdata.schemaview;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
@@ -10,13 +11,10 @@ import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 
 public abstract class AbstractBaseReferenceModelView<E extends IEntity> implements IBaseReferenceModelView<ITable<E>> {
 
-  private final ITable<E> referencedTable;
+  private final IContainer<? extends ITable<E>> referenceableTables;
 
-  protected AbstractBaseReferenceModelView(final ITable<E> referencedTable) {
-
-    Validator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
-
-    this.referencedTable = referencedTable;
+  protected AbstractBaseReferenceModelView(final IContainer<? extends ITable<E>> referenceableTables) {
+    this.referenceableTables = ImmutableList.forIterable(referenceableTables);
   }
 
   @Override
@@ -35,12 +33,12 @@ public abstract class AbstractBaseReferenceModelView<E extends IEntity> implemen
   }
 
   @Override
-  public final ITable<E> getStoredReferencedTable() {
-    return referencedTable;
+  public IContainer<? extends ITable<E>> getStoredReferenceableTables() {
+    return referenceableTables;
   }
 
   @Override
   public final boolean referencesTable(final ITable<E> table) {
-    return (getStoredReferencedTable() == table);
+    return getStoredReferenceableTables().contains(table);
   }
 }

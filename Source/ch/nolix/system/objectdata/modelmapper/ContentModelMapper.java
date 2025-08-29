@@ -30,7 +30,7 @@ public final class ContentModelMapper {
   public IContentModelView<ITable<IEntity>> //
   mapContentModelDtoToContentModel( //NOSONAR: This switch statement must handle all cases.
     final IContentModelDto contentModelDto,
-    final IContainer<? extends ITable<IEntity>> referencableTables) {
+    final IContainer<? extends ITable<IEntity>> tables) {
 
     if (contentModelDto instanceof ValueModelDto) {
 
@@ -55,38 +55,32 @@ public final class ContentModelMapper {
 
     if (contentModelDto instanceof final ReferenceModelDto referenceModelDto) {
 
-      final var referencableTableIds = referenceModelDto.referenceableTableIds();
+      final var referenceableTableIds = referenceModelDto.referenceableTableIds();
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
-      //TODO: Update ReferenceModelView
-      final var table = referencableTables.getStoredFirst(t -> t.hasId(referencableTableIds.getStoredFirst()));
-
-      return ReferenceModelView.forReferencedTable(table);
+      return ReferenceModelView.forReferenceableTables(referenceableTables);
     }
 
     if (contentModelDto instanceof final OptionalReferenceModelDto optionalReferenceModelDto) {
 
-      final var referencableTableIds = optionalReferenceModelDto.referenceableTableIds();
+      final var referenceableTableIds = optionalReferenceModelDto.referenceableTableIds();
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
-      //TODO: Update OptionalReferenceModelView
-      final var table = referencableTables.getStoredFirst(t -> t.hasId(referencableTableIds.getStoredFirst()));
-
-      return OptionalReferenceModelView.forReferencedTable(table);
+      return OptionalReferenceModelView.forReferenceableTables(referenceableTables);
     }
 
     if (contentModelDto instanceof final MultiReferenceModelDto multiReferenceModelDto) {
 
-      final var referencableTableIds = multiReferenceModelDto.referenceableTableIds();
+      final var referenceableTableIds = multiReferenceModelDto.referenceableTableIds();
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
-      //TODO: Update MultiReferenceModelView
-      final var table = referencableTables.getStoredFirst(t -> t.hasId(referencableTableIds.getStoredFirst()));
-
-      return MultiReferenceModelView.forReferencedTable(table);
+      return MultiReferenceModelView.forReferenceableTables(referenceableTables);
     }
 
     if (contentModelDto instanceof final BackReferenceModelDto backReferenceModelDto) {
 
       final var backReferencedColumnId = backReferenceModelDto.backReferencedColumnId();
-      final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
+      final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
       return BackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
@@ -95,7 +89,7 @@ public final class ContentModelMapper {
     if (contentModelDto instanceof final OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
 
       final var backReferencedColumnId = optionalBackReferenceModelDto.backReferencedColumnId();
-      final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
+      final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
       return OptionalBackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
@@ -104,7 +98,7 @@ public final class ContentModelMapper {
     if (contentModelDto instanceof final MultiBackReferenceModelDto multiBackReferenceModelDto) {
 
       final var backReferencedColumnId = multiBackReferenceModelDto.backReferencedColumnId();
-      final var referencableColumns = referencableTables.toMultiples(ITable::getStoredColumns);
+      final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
 
       return MultiBackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
