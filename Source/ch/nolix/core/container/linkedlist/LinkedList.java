@@ -344,7 +344,9 @@ implements ILinkedList<E> {
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
 
-    if (containsAny() && oneBasedIndex == getCount()) {
+    assertContainsAny();
+
+    if (oneBasedIndex == getCount()) {
       return lastNode.getElement();
     }
 
