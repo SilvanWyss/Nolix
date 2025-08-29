@@ -32,7 +32,7 @@ public final class NodeHeaderCatalog {
 
   public static final String NAME = PascalCaseVariableCatalog.NAME;
 
-  public static final String REFERENCED_TABLE_ID = "ReferencedTableId";
+  public static final String REFERENCEABLE_TABLE_IDS = "ReferenceableTableIds";
 
   public static final String SCHEMA_TIMESTAMP = "SchemaTimestamp";
 
