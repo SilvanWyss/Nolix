@@ -42,7 +42,10 @@ public final class StringRepresentedFieldDtoMapperHelper {
       return new StringRepresentedFieldDto(columnName, null, null);
     }
 
-    return new StringRepresentedFieldDto(columnName, optionalReference.getReferencedEntityId(), null);
+    final var value = optionalReference.getReferencedEntityId();
+    final var additionalValue = optionalReference.getReferencedTableId();
+
+    return new StringRepresentedFieldDto(columnName, value, additionalValue);
   }
 
   public static StringRepresentedFieldDto mapOptionalBackReferenceToStringContentFieldDto(
@@ -54,6 +57,9 @@ public final class StringRepresentedFieldDtoMapperHelper {
       return new StringRepresentedFieldDto(columnName, null, null);
     }
 
-    return new StringRepresentedFieldDto(columnName, optionalBackReference.getBackReferencedEntityId(), null);
+    final var value = optionalBackReference.getBackReferencedEntityId();
+    final var additionalValue = optionalBackReference.getBackReferencedTableId();
+
+    return new StringRepresentedFieldDto(columnName, value, additionalValue);
   }
 }
