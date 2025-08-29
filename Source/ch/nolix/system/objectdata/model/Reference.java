@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IReference;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
-import ch.nolix.systemapi.objectdata.structure.EntityDto;
+import ch.nolix.systemapi.objectdata.structure.CachedEntityDto;
 
 public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
 
@@ -31,9 +31,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
-  private EntityDto referencedEntityDto;
-
-  private E referencedEntity;
+  private CachedEntityDto<E> cachedEntityDto;
 
   private Reference(final IContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
@@ -70,7 +68,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return referencedEntityDto.id();
+    return cachedEntityDto.id();
   }
 
   @Override
@@ -97,11 +95,18 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   @Override
   public E getStoredReferencedEntity() {
 
-    if (referencedEntity == null) {
-      referencedEntity = getStoredReferencedTable().getStoredEntityById(getReferencedEntityId());
+    REFERENCE_VALIDATOR.assertIsNotEmpty(this);
+
+    if (cachedEntityDto.nullableEntity() == null) {
+
+      final var id = cachedEntityDto.id();
+      final var tableId = cachedEntityDto.nullableTableId();
+      final var entity = getStoredReferencedTable().getStoredEntityById(id);
+
+      cachedEntityDto = new CachedEntityDto<>(id, tableId, entity);
     }
 
-    return referencedEntity;
+    return cachedEntityDto.nullableEntity();
   }
 
   @Override
@@ -115,12 +120,12 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     final var id = (String) nullableValue;
     final var tableId = nullableAdditionalValue;
 
-    referencedEntityDto = new EntityDto(id, tableId);
+    cachedEntityDto = new CachedEntityDto<>(id, tableId, null);
   }
 
   @Override
   public boolean isEmpty() {
-    return (referencedEntityDto == null);
+    return (cachedEntityDto == null);
   }
 
   @Override
@@ -159,15 +164,17 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {
 
-      final var referencedEntityId = referencedEntity.getId();
+      final var id = cachedEntityDto.id();
+      final var entity = cachedEntityDto.nullableEntity();
+      final var tableName = entity.getParentTableName();
 
-      final var referencedTableId = //
+      final var tableId = //
       getStoredParentEntity()
         .getStoredParentDatabase()
-        .getStoredTableByName(referencedEntity.getParentTableName())
+        .getStoredTableByName(tableName)
         .getId();
 
-      referencedEntityDto = new EntityDto(referencedEntityId, referencedTableId);
+      cachedEntityDto = new CachedEntityDto<>(id, tableId, entity);
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
   }
@@ -250,7 +257,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateStateForClear() {
-    referencedEntityDto = null;
+    cachedEntityDto = null;
   }
 
   private void updateStateForSetEntity(final E entity) {
@@ -261,11 +268,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
       final var tableId = entity.getStoredParentTable().getId();
 
-      referencedEntityDto = new EntityDto(id, tableId);
+      cachedEntityDto = new CachedEntityDto<>(id, tableId, entity);
     } else {
-      referencedEntityDto = new EntityDto(id, null);
+      cachedEntityDto = new CachedEntityDto<>(id, null, entity);
     }
-
-    this.referencedEntity = entity;
   }
 }
