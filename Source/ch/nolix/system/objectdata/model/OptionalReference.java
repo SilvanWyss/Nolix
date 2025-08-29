@@ -59,6 +59,11 @@ implements IOptionalReference<E> {
     return new OptionalReference<>(allReferenceableTableNames);
   }
 
+  public static <E2 extends IEntity> OptionalReference<E2> forReferenceableTableNames(
+    final IContainer<String> referenceableTableNames) {
+    return new OptionalReference<>(referenceableTableNames);
+  }
+
   @Override
   public void clear() {
     if (containsAny()) {

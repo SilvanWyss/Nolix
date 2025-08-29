@@ -79,8 +79,7 @@ public final class FieldFromColumnCreator {
 
     final var referenceableTableNames = abstractReferenceModelView.getStoredReferenceableTables().to(ITable::getName);
 
-    //TODO: Update OptionalReference
-    return OptionalReference.forReferenceableTableName(referenceableTableNames.getStoredFirst());
+    return OptionalReference.forReferenceableTableNames(referenceableTableNames);
   }
 
   private static MultiReference<AbstractEntity> createMultiReferenceFromAbstractReferenceModelView(
