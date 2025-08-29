@@ -253,8 +253,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     MultiReferenceEntry<E> multiReferenceEntry;
 
     if (entity.belongsToTable()) {
-
-      //TODO: Add getParentTableId method to Entity
       multiReferenceEntry = //
       MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
         this,
