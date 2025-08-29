@@ -45,8 +45,9 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     return getStoredReferencedTable().getId();
   }
 
+  //TODO: Delete this method
   @Override
-  public final String getReferencedTableName() {
+  public String getReferencedTableName() {
     return referencedTableName;
   }
 
@@ -55,8 +56,9 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     return ImmutableList.createEmpty();
   }
 
+  //TODO: Delete this method  
   @Override
-  public final ITable<E> getStoredReferencedTable() {
+  public ITable<E> getStoredReferencedTable() {
 
     extractReferencedTableIfNotExtracted();
 
