@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.nodemidschema.nodesearcher;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -12,7 +13,7 @@ public interface IContentModelNodeSearcher {
 
   FieldType getFieldTypeFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  String getReferencedTableIdFromContentModelNode(IMutableNode<?> contentModelNode);
+  IContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode);
 
   IMutableNode<?> getStoredBackReferencedColumnIdNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 

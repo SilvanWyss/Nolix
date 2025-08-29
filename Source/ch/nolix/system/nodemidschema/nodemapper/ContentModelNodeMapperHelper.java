@@ -59,7 +59,9 @@ public final class ContentModelNodeMapperHelper {
         multiReferenceModelDto.dataType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.REFERENCED_TABLE_ID,
-        multiReferenceModelDto.referencedTableId()));
+
+        //TODO: Update model
+        multiReferenceModelDto.referenceableTableIds().getStoredFirst()));
   }
 
   public static Node mapMultiValueModelDtoToNode(final MultiValueModelDto multiValueModelDto) {
@@ -102,7 +104,9 @@ public final class ContentModelNodeMapperHelper {
         optionalReferenceModelDto.dataType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.REFERENCED_TABLE_ID,
-        optionalReferenceModelDto.referencedTableId()));
+
+        //TODO: Update model
+        optionalReferenceModelDto.referenceableTableIds().getStoredFirst()));
   }
 
   public static Node mapOptionalValueModelDtoToNode(final OptionalValueModelDto optionalValueModelDto) {
@@ -129,7 +133,9 @@ public final class ContentModelNodeMapperHelper {
         referenceModelDto.dataType().name()),
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.REFERENCED_TABLE_ID,
-        referenceModelDto.referencedTableId()));
+
+        //TODO: Update model
+        referenceModelDto.referenceableTableIds().getStoredFirst()));
   }
 
   public static Node mapValueModelDtoToNode(final ValueModelDto valueModelDto) {

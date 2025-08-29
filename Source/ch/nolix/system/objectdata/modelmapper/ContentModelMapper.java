@@ -55,24 +55,30 @@ public final class ContentModelMapper {
 
     if (contentModelDto instanceof final ReferenceModelDto referenceModelDto) {
 
-      final var tableId = referenceModelDto.referencedTableId();
-      final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
+      final var referencableTableIds = referenceModelDto.referenceableTableIds();
+
+      //TODO: Update ReferenceModelView
+      final var table = referencableTables.getStoredFirst(t -> t.hasId(referencableTableIds.getStoredFirst()));
 
       return ReferenceModelView.forReferencedTable(table);
     }
 
     if (contentModelDto instanceof final OptionalReferenceModelDto optionalReferenceModelDto) {
 
-      final var tableId = optionalReferenceModelDto.referencedTableId();
-      final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
+      final var referencableTableIds = optionalReferenceModelDto.referenceableTableIds();
+
+      //TODO: Update OptionalReferenceModelView
+      final var table = referencableTables.getStoredFirst(t -> t.hasId(referencableTableIds.getStoredFirst()));
 
       return OptionalReferenceModelView.forReferencedTable(table);
     }
 
     if (contentModelDto instanceof final MultiReferenceModelDto multiReferenceModelDto) {
 
-      final var tableId = multiReferenceModelDto.referencedTableId();
-      final var table = referencableTables.getStoredFirst(t -> t.hasId(tableId));
+      final var referencableTableIds = multiReferenceModelDto.referenceableTableIds();
+
+      //TODO: Update MultiReferenceModelView
+      final var table = referencableTables.getStoredFirst(t -> t.hasId(referencableTableIds.getStoredFirst()));
 
       return MultiReferenceModelView.forReferencedTable(table);
     }

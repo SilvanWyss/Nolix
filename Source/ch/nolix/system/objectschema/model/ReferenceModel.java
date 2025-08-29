@@ -7,11 +7,11 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ReferenceModel extends AbstractBaseReferenceModel implements IReferenceModel {
 
-  private ReferenceModel(final IContainer<ITable> referenceableTables) {
+  private ReferenceModel(final IContainer<? extends ITable> referenceableTables) {
     super(referenceableTables);
   }
 
-  public static ReferenceModel forReferenceableTables(final IContainer<ITable> referenceableTables) {
+  public static ReferenceModel forReferenceableTables(final IContainer<? extends ITable> referenceableTables) {
     return new ReferenceModel(referenceableTables);
   }
 

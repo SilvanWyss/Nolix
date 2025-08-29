@@ -11,9 +11,9 @@ public abstract class AbstractBaseReferenceModel implements IBaseReferenceModel 
 
   private static final DataType DATA_TYPE = DataType.STRING;
 
-  private final ImmutableList<ITable> referenceableTables;
+  private final ImmutableList<? extends ITable> referenceableTables;
 
-  protected AbstractBaseReferenceModel(final IContainer<ITable> referenceableTables) {
+  protected AbstractBaseReferenceModel(final IContainer<? extends ITable> referenceableTables) {
     this.referenceableTables = ImmutableList.forIterable(referenceableTables);
   }
 
@@ -23,7 +23,7 @@ public abstract class AbstractBaseReferenceModel implements IBaseReferenceModel 
   }
 
   @Override
-  public final IContainer<ITable> getReferenceableTables() {
+  public final IContainer<? extends ITable> getReferenceableTables() {
     return referenceableTables;
   }
 

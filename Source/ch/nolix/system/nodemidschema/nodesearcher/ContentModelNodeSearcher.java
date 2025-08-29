@@ -1,5 +1,7 @@
 package ch.nolix.system.nodemidschema.nodesearcher;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -33,11 +35,12 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public String getReferencedTableIdFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  public IContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode) {
 
     final var referencedTableIdsNode = getStoredReferencedTableIdNodeFromContentModelNode(contentModelNode);
 
-    return referencedTableIdsNode.getSingleChildNodeHeader();
+    //TODO: Update
+    return ImmutableList.withElement(referencedTableIdsNode.getSingleChildNodeHeader());
   }
 
   @Override

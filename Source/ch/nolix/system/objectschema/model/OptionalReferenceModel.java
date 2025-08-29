@@ -7,11 +7,11 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class OptionalReferenceModel extends AbstractBaseReferenceModel implements IOptionalReferenceModel {
 
-  private OptionalReferenceModel(final IContainer<ITable> referenceableTables) {
+  private OptionalReferenceModel(final IContainer<? extends ITable> referenceableTables) {
     super(referenceableTables);
   }
 
-  public static OptionalReferenceModel forReferenceableTables(final IContainer<ITable> referenceableTables) {
+  public static OptionalReferenceModel forReferenceableTables(final IContainer<? extends ITable> referenceableTables) {
     return new OptionalReferenceModel(referenceableTables);
   }
 

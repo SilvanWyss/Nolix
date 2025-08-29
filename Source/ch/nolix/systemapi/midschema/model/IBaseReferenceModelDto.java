@@ -1,5 +1,7 @@
 package ch.nolix.systemapi.midschema.model;
 
+import ch.nolix.coreapi.container.base.IContainer;
+
 /**
  * @author Silvan Wyss
  * @version 2025-01-24
@@ -7,8 +9,8 @@ package ch.nolix.systemapi.midschema.model;
 public interface IBaseReferenceModelDto extends IContentModelDto {
 
   /**
-   * @return the id of the referenced table of the current
+   * @return the ids of the referenceable tables of the current
    *         {@link IBaseReferenceModelDto};
    */
-  String getReferencedTableId();
+  IContainer<String> getReferenceableTableIds();
 }

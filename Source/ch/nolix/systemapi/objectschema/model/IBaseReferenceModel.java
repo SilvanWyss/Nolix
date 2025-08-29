@@ -4,5 +4,5 @@ import ch.nolix.coreapi.container.base.IContainer;
 
 public interface IBaseReferenceModel extends IContentModel {
 
-  IContainer<ITable> getReferenceableTables();
+  IContainer<? extends ITable> getReferenceableTables();
 }

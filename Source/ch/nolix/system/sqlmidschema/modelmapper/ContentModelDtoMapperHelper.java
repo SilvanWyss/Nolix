@@ -1,5 +1,6 @@
 package ch.nolix.system.sqlmidschema.modelmapper;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
@@ -45,7 +46,10 @@ public final class ContentModelDtoMapperHelper {
     return //
     new ReferenceModelDto(
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-      columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX));
+
+      //TODO: Update model
+      ImmutableList.withElement(
+        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
   }
 
   public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(
@@ -53,7 +57,10 @@ public final class ContentModelDtoMapperHelper {
     return //
     new OptionalReferenceModelDto(
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-      columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX));
+
+      //TODO: Update model
+      ImmutableList.withElement(
+        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
   }
 
   public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(
@@ -61,7 +68,10 @@ public final class ContentModelDtoMapperHelper {
     return //
     new MultiReferenceModelDto(
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-      columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX));
+
+      //TODO: Update model
+      ImmutableList.withElement(
+        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
   }
 
   public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(

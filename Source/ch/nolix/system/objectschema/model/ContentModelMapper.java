@@ -1,6 +1,5 @@
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
@@ -40,29 +39,26 @@ public final class ContentModelMapper {
 
     if (midContentModelDto instanceof ReferenceModelDto referenceModelDto) {
 
-      final var referencedTableId = referenceModelDto.referencedTableId();
-      final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
+      final var referenceableTableIds = referenceModelDto.referenceableTableIds();
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
-      //TODO: Update ReferenceModelDto
-      return ReferenceModel.forReferenceableTables(ImmutableList.withElement(referencedTable));
+      return ReferenceModel.forReferenceableTables(referenceableTables);
     }
 
     if (midContentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
 
-      final var referencedTableId = optionalReferenceModelDto.referencedTableId();
-      final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
+      final var referenceableTableIds = optionalReferenceModelDto.referenceableTableIds();
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
-      //TODO: Update OptionalReferenceModelDto
-      return OptionalReferenceModel.forReferenceableTables(ImmutableList.withElement(referencedTable));
+      return OptionalReferenceModel.forReferenceableTables(referenceableTables);
     }
 
     if (midContentModelDto instanceof MultiReferenceModelDto multiBackReferenceModelDto) {
 
-      final var referencedTableId = multiBackReferenceModelDto.referencedTableId();
-      final var referencedTable = tables.getStoredFirst(t -> t.hasId(referencedTableId));
+      final var referenceableTableIds = multiBackReferenceModelDto.referenceableTableIds();
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
-      //TODO: Update MultiReferenceModelDto
-      return MultiReferenceModel.forReferenceableTables(ImmutableList.withElement(referencedTable));
+      return MultiReferenceModel.forReferenceableTables(referenceableTables);
     }
 
     if (midContentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
