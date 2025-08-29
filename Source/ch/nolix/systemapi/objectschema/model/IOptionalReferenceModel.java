@@ -1,4 +1,4 @@
 package ch.nolix.systemapi.objectschema.model;
 
-public interface IOptionalReferenceModel extends IAbstractReferenceModel {
+public interface IOptionalReferenceModel extends IBaseReferenceModel {
 }

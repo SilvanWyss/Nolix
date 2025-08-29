@@ -4,7 +4,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IOptionalReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
-public final class OptionalReferenceModel extends AbstractReferenceModel implements IOptionalReferenceModel {
+public final class OptionalReferenceModel extends AbstractBaseReferenceModel implements IOptionalReferenceModel {
 
   private OptionalReferenceModel(final ITable referencedTable) {
     super(referencedTable);

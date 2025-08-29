@@ -4,7 +4,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IMultiReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
-public final class MultiReferenceModel extends AbstractReferenceModel implements IMultiReferenceModel {
+public final class MultiReferenceModel extends AbstractBaseReferenceModel implements IMultiReferenceModel {
 
   private MultiReferenceModel(final ITable referencedTable) {
     super(referencedTable);

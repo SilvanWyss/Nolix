@@ -2,7 +2,7 @@ package ch.nolix.systemapi.objectschema.modelexaminer;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschema.model.IAbstractBackReferenceModel;
-import ch.nolix.systemapi.objectschema.model.IAbstractReferenceModel;
+import ch.nolix.systemapi.objectschema.model.IBaseReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IAbstractValueModel;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
 
@@ -21,7 +21,7 @@ public interface IContentModelExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param contentModel
-   * @return true if the given contentModel is a {@link IAbstractReferenceModel},
+   * @return true if the given contentModel is a {@link IBaseReferenceModel},
    *         false otherwise.
    */
   boolean isAbstractReferenceModel(IContentModel contentModel);
