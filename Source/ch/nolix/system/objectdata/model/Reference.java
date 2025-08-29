@@ -144,8 +144,13 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @Override
-  protected void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected void noteInsertIntoDatabase() {
     if (containsAny()) {
+
+      final var referencedEntityId = referencedEntity.id();
+      final var referencedTableId = getStoredParentEntity().getStoredParentTable().getId();
+
+      referencedEntity = new EntityDto(referencedEntityId, referencedTableId);
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
   }

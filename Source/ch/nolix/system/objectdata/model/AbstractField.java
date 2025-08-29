@@ -138,7 +138,7 @@ public abstract class AbstractField implements IField {
     fieldFlyWeight.noteUpdate();
   }
 
-  protected abstract void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase();
+  protected abstract void noteInsertIntoDatabase();
 
   final void setParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
 

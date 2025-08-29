@@ -81,7 +81,7 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  protected final void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected final void noteInsertIntoDatabase() {
     //Does nothing.
   }
 

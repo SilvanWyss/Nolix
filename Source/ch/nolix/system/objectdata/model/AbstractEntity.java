@@ -210,7 +210,7 @@ public abstract class AbstractEntity implements IEntity {
 
   final void noteInsertIntoDatabase() {
 
-    updateBaseBackReferencesWhenIsInsertedIntoDatabase();
+    getStoredFields().forEach(AbstractField::noteInsertIntoDatabase);
 
     entityFlyweight.noteInsertIntoDatabase();
   }
@@ -314,10 +314,6 @@ public abstract class AbstractEntity implements IEntity {
       default:
         throw InvalidArgumentException.forArgument(baseBackReference.getType());
     }
-  }
-
-  private void updateBaseBackReferencesWhenIsInsertedIntoDatabase() {
-    getStoredFields().forEach(AbstractField::internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase);
   }
 
   private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {

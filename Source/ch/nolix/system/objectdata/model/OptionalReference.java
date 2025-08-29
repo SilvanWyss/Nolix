@@ -148,7 +148,7 @@ implements IOptionalReference<E> {
   }
 
   @Override
-  protected void internalUpdateBackReferencingFieldsWhenIsInsertedIntoDatabase() {
+  protected void noteInsertIntoDatabase() {
     if (containsAny()) {
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
