@@ -4,7 +4,9 @@ import java.util.Optional;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.ReferenceValidator;
@@ -31,7 +33,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
-  private EntityCache<E> referencedEntityCache;
+  private EntityCache<E> nullableReferencedEntityCache;
 
   private Reference(final IContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
@@ -68,7 +70,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return referencedEntityCache.id();
+    return nullableReferencedEntityCache.id();
   }
 
   @Override
@@ -97,16 +99,16 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    if (referencedEntityCache.nullableEntity() == null) {
+    if (nullableReferencedEntityCache.nullableEntity() == null) {
 
-      final var id = referencedEntityCache.id();
-      final var tableId = referencedEntityCache.nullableTableId();
+      final var id = nullableReferencedEntityCache.id();
+      final var tableId = nullableReferencedEntityCache.nullableTableId();
       final var entity = getStoredReferencedTable().getStoredEntityById(id);
 
-      referencedEntityCache = new EntityCache<>(id, tableId, entity);
+      nullableReferencedEntityCache = new EntityCache<>(id, tableId, entity);
     }
 
-    return referencedEntityCache.nullableEntity();
+    return nullableReferencedEntityCache.nullableEntity();
   }
 
   @Override
@@ -114,18 +116,28 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return FieldType.REFERENCE;
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
 
     final var id = (String) nullableValue;
+
+    if (id == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ID);
+    }
+
     final var tableId = nullableAdditionalValue;
 
-    referencedEntityCache = new EntityCache<>(id, tableId, null);
+    if (tableId == null) {
+      throw ArgumentIsNullException.forArgumentName("table id");
+    }
+
+    nullableReferencedEntityCache = new EntityCache<>(id, tableId, null);
   }
 
   @Override
   public boolean isEmpty() {
-    return (referencedEntityCache == null);
+    return (nullableReferencedEntityCache == null);
   }
 
   @Override
@@ -135,14 +147,16 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   @Override
   public boolean referencesEntity(final IEntity entity) {
-    return containsAny()
+    return //
+    containsAny()
     && entity != null
     && getReferencedEntityId().equals(entity.getId());
   }
 
   @Override
   public boolean referencesUninsertedEntity() {
-    return containsAny()
+    return //
+    containsAny()
     && !getStoredReferencedEntity().belongsToTable();
   }
 
@@ -164,8 +178,8 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {
 
-      final var id = referencedEntityCache.id();
-      final var entity = referencedEntityCache.nullableEntity();
+      final var id = nullableReferencedEntityCache.id();
+      final var entity = nullableReferencedEntityCache.nullableEntity();
       final var tableName = entity.getParentTableName();
 
       final var tableId = //
@@ -174,7 +188,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
         .getStoredTableByName(tableName)
         .getId();
 
-      referencedEntityCache = new EntityCache<>(id, tableId, entity);
+      nullableReferencedEntityCache = new EntityCache<>(id, tableId, entity);
       updateProbableBackReferenceForSetOrAddedEntity(getStoredReferencedEntity());
     }
   }
@@ -257,7 +271,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateStateForClear() {
-    referencedEntityCache = null;
+    nullableReferencedEntityCache = null;
   }
 
   private void updateStateForSetEntity(final E entity) {
@@ -268,9 +282,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
       final var tableId = entity.getStoredParentTable().getId();
 
-      referencedEntityCache = new EntityCache<>(id, tableId, entity);
+      nullableReferencedEntityCache = new EntityCache<>(id, tableId, entity);
     } else {
-      referencedEntityCache = new EntityCache<>(id, null, entity);
+      nullableReferencedEntityCache = new EntityCache<>(id, null, entity);
     }
   }
 }
