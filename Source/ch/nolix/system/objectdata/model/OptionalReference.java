@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
@@ -19,6 +20,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 public final class OptionalReference<E extends IEntity>
 extends AbstractBaseReference<E>
@@ -31,7 +33,7 @@ implements IOptionalReference<E> {
 
   private static final IOptionalReferenceTool OPTIONAL_REFERENCE_TOOL = new OptionalReferenceTool();
 
-  private String referencedEntityId;
+  private EntityCache<E> nullableReferencedEntityCache;
 
   private OptionalReference(final IContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
@@ -72,7 +74,7 @@ implements IOptionalReference<E> {
   public String getReferencedEntityId() {
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return referencedEntityId;
+    return nullableReferencedEntityCache.id();
   }
 
   @Override
@@ -106,12 +108,26 @@ implements IOptionalReference<E> {
 
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    referencedEntityId = (String) nullableValue;
+
+    final var id = (String) nullableValue;
+
+    if (id == null) {
+      nullableReferencedEntityCache = null;
+    } else {
+
+      final var tableId = nullableAdditionalValue;
+
+      if (tableId == null) {
+        throw ArgumentIsNullException.forArgumentName("table id");
+      }
+
+      nullableReferencedEntityCache = new EntityCache<>(id, tableId, null);
+    }
   }
 
   @Override
   public boolean isEmpty() {
-    return (referencedEntityId == null);
+    return (nullableReferencedEntityCache == null);
   }
 
   @Override
@@ -231,10 +247,12 @@ implements IOptionalReference<E> {
   }
 
   private void updateStateForSetEntity(final E entity) {
-    referencedEntityId = entity.getId();
+    final var id = entity.getId();
+
+    nullableReferencedEntityCache = new EntityCache<>(id, null, entity);
   }
 
   private void updateStateForClear() {
-    referencedEntityId = null;
+    nullableReferencedEntityCache = null;
   }
 }
