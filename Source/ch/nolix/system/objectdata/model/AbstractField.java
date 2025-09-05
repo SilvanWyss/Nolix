@@ -34,6 +34,14 @@ public abstract class AbstractField implements IField {
     return (parentEntity != null);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  @Override
+  public final boolean belongsToTable() {
+    return //
+    parentEntity != null
+    && parentEntity.belongsToTable();
+  }
+
   @Override
   public final String getName() {
     if (knowsParentColumn()) {
@@ -68,6 +76,11 @@ public abstract class AbstractField implements IField {
     FIELD_VALIDATOR.assertBelongsToEntity(this);
 
     return parentEntity;
+  }
+
+  @Override
+  public final ITable<? extends IEntity> getStoredParentTable() {
+    return getStoredParentEntity().getStoredParentTable();
   }
 
   @Override

@@ -2,6 +2,7 @@ package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.component.datamodelcomponent.IEntityComponent;
+import ch.nolix.coreapi.component.datamodelcomponent.ITableComponent;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldrequest.MandatorynessRequestable;
 import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
@@ -10,7 +11,13 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public interface IField
-extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameHolder, MandatorynessRequestable {
+extends
+EmptinessRequestable,
+IDatabaseObject,
+IEntityComponent<IEntity>,
+INameHolder,
+ITableComponent<ITable<? extends IEntity>>,
+MandatorynessRequestable {
   IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis();
 
   IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis();
