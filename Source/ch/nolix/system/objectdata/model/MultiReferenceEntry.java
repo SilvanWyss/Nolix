@@ -84,6 +84,11 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   }
 
   @Override
+  public boolean belongsToTable() {
+    return getStoredParentMultiReference().belongsToTable();
+  }
+
+  @Override
   public Optional<? extends IField> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis() {
     return //
     getStoredReferencedEntity()
@@ -105,15 +110,20 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   @Override
   public DatabaseObjectState getState() {
-  
+
     updateStateFromParentMultiReference();
-  
+
     return state;
   }
 
   @Override
   public IMultiReference<E> getStoredParentMultiReference() {
     return parentMultiReference;
+  }
+
+  @Override
+  public ITable<? extends IEntity> getStoredParentTable() {
+    return getStoredParentMultiReference().getStoredParentTable();
   }
 
   @Override
@@ -195,12 +205,12 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   private void retrieveReferencedTableId() {
     var referencedTableId = referencedEntityCache.nullableTableId();
-  
+
     if (referencedTableId == null) {
       final var referencedEntityId = referencedEntityCache.id();
       final var referencedEntity = referencedEntityCache.nullableEntity();
       referencedTableId = referencedEntity.getStoredParentTable().getId();
-  
+
       referencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, referencedEntity);
     }
   }
