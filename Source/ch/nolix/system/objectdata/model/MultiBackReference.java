@@ -70,14 +70,13 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
-    final ILinkedList<IBaseReference<IEntity>> abstractReferences = LinkedList.createEmpty();
+  public IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+    final ILinkedList<IBaseReference> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
-      @SuppressWarnings("unchecked")
       final var backReferencedField = //
-      (IBaseReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
+      (IBaseReference) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
 
       abstractReferences.addAtEnd(backReferencedField);
     }

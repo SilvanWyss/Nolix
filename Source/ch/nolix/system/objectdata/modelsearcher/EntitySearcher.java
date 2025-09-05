@@ -26,7 +26,7 @@ public final class EntitySearcher implements IEntitySearcher {
   public Optional<IBaseBackReference<IEntity>> //
   getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     final IEntity entity,
-    final IBaseReference<? extends IEntity> baseReference) {
+    final IBaseReference baseReference) {
     if (entity != null && baseReference != null) {
       for (final var f : entity.internalGetStoredFields()) {
         if (FIELD_EXAMINER.canReferenceBackBaseReference(f, baseReference)) {
@@ -71,7 +71,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseReference<IEntity>> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
+  public IContainer<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.toMultiples(IField::getStoredBaseReferencesWhoAreBackReferencedFromThis);

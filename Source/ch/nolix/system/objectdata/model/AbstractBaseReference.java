@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
-public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference<E> {
+public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference {
   private final ImmutableList<String> referenceableTableNames;
 
   protected AbstractBaseReference(final IContainer<String> referenceableTableNames) {
@@ -21,7 +21,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   }
 
   @Override
-  public final IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public final IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
     return ImmutableList.createEmpty();
   }
 

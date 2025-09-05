@@ -30,7 +30,7 @@ public interface IFieldExaminer extends IDatabaseObjectExaminer {
    * @return true if the given field can reference back the given baseReference,
    *         false otherwise.
    */
-  boolean canReferenceBackBaseReference(IField field, IBaseReference<? extends IEntity> baseReference);
+  boolean canReferenceBackBaseReference(IField field, IBaseReference baseReference);
 
   /**
    * @param field

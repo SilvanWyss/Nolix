@@ -35,14 +35,13 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
-  @SuppressWarnings("unchecked")
-  public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
     final var backReferencedField = //
-    (IBaseReference<IEntity>) //
+    (IBaseReference) //
     ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);

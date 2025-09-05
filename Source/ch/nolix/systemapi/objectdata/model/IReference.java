@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectdata.model;
 
-public interface IReference<E extends IEntity> extends IBaseReference<E> {
+public interface IReference<E extends IEntity> extends IBaseReference {
   String getReferencedEntityId();
 
   String getReferencedTableId();

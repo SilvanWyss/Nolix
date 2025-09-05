@@ -22,7 +22,7 @@ public interface IEntitySearcher {
    */
   Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     IEntity entity,
-    IBaseReference<? extends IEntity> baseReference);
+    IBaseReference baseReference);
 
   /**
    * @param entity
@@ -49,5 +49,5 @@ public interface IEntitySearcher {
    * @param entity
    * @return the {@link IField}s the given entity references back.
    */
-  IContainer<IBaseReference<IEntity>> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
+  IContainer<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
 }

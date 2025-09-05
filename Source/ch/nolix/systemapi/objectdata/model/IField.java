@@ -22,7 +22,7 @@ ITableComponent<ITable<? extends IEntity>>,
 MandatorynessRequestable {
   IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis();
 
-  IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis();
+  IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis();
 
   IColumnView<ITable<IEntity>> getStoredParentColumn();
 

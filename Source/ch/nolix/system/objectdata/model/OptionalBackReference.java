@@ -48,14 +48,13 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  @SuppressWarnings("unchecked")
-  public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
 
     final var backReferencedField = //
-    (IBaseReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
+    (IBaseReference) ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(),
       getBackReferencedFieldName());
 
     return ImmutableList.withElement(backReferencedField);

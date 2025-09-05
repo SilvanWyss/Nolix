@@ -14,7 +14,7 @@ public final class BaseReferenceUpdater {
   }
 
   public static <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
-    final IBaseReference<E> baseReference,
+    final IBaseReference baseReference,
     final E entity) {
     final var baseBackReference = //
     ENTITY_SEARCHER.getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
