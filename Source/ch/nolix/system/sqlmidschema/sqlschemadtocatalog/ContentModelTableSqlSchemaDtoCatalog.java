@@ -8,7 +8,7 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class ContentModelTableSqlSchemaDtoCatalog {
-  private static final ColumnDto CONTENT_TYPE_SQL_DTO = //
+  private static final ColumnDto FIELD_TYPE_SQL_DTO = //
   new ColumnDto(ContentModelColumn.FIELD_TYPE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto DATA_TYPE_SQL_DTO = //
@@ -30,7 +30,7 @@ public final class ContentModelTableSqlSchemaDtoCatalog {
   new TableDto(
     FixTable.COLUMN.getName(),
     ImmutableList.withElement(
-      CONTENT_TYPE_SQL_DTO,
+      FIELD_TYPE_SQL_DTO,
       DATA_TYPE_SQL_DTO,
       REFERENCED_TABLE_ID_SQL_DTO,
       BACK_REFERENCED_COLUMN_ID_SQL_DTO));
