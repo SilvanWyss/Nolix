@@ -23,7 +23,7 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
     final var multiReferenceColumn = multiReference.getStoredParentColumn();
     final var multiReferenceColumnId = multiReferenceColumn.getId();
     final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
-    final var referencedEntityTableId = multiReference.getReferencedTableId();
+    final var referencedEntityTableId = multiReferenceEntry.getReferencedTableId();
 
     return //
     new MultiReferenceEntryDto(

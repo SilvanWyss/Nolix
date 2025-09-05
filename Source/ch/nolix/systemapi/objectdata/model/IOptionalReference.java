@@ -5,6 +5,8 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
 public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseReference<E> {
   String getReferencedEntityId();
 
+  String getReferencedTableId();
+
   E getStoredReferencedEntity();
 
   void setEntity(Object entity);
