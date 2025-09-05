@@ -21,7 +21,7 @@ public final class ColumnTableSqlSchemaDtoCatalog {
   private static final ColumnDto NAME_SQL_DTO = //
   new ColumnDto(ColumnColumn.NAME.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
-  private static final ColumnDto CONTENT_TYPE_SQL_DTO = //
+  private static final ColumnDto FIELD_TYPE_SQL_DTO = //
   new ColumnDto(ColumnColumn.FIELD_TYPE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto DATA_TYPE_SQL_DTO = //
@@ -40,7 +40,7 @@ public final class ColumnTableSqlSchemaDtoCatalog {
       ID_SQL_DTO,
       PARENT_TABLE_ID_SQL_DTO,
       NAME_SQL_DTO,
-      CONTENT_TYPE_SQL_DTO,
+      FIELD_TYPE_SQL_DTO,
       DATA_TYPE_SQL_DTO,
       BACK_REFERENCED_COLUMN_ID_SQL_DTO));
 
