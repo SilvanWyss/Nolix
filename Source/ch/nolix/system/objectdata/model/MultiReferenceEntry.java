@@ -115,6 +115,17 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   }
 
   @Override
+  public String getReferencedTableName() {
+    final var referencedEntity = referencedEntityCache.nullableEntity();
+
+    if (referencedEntity != null) {
+      return referencedEntity.getParentTableName();
+    }
+
+    return getStoredReferencedTable().getName();
+  }
+
+  @Override
   public DatabaseObjectState getState() {
 
     updateStateFromParentMultiReference();

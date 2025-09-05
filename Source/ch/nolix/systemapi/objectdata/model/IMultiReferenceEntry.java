@@ -14,6 +14,8 @@ extends IDatabaseComponent<IDatabase>, IDatabaseObject, ITableComponent<ITable<?
 
   String getReferencedTableId();
 
+  String getReferencedTableName();
+
   IMultiReference<E> getStoredParentMultiReference();
 
   E getStoredReferencedEntity();
