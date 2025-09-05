@@ -47,7 +47,9 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final boolean belongsToDatabase() {
-    return belongsToDatabase();
+    return //
+    parentTable != null
+    && parentTable.belongsToDatabase();
   }
 
   @Override
