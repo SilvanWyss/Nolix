@@ -25,16 +25,16 @@ public final class LicenseManager {
    * @param license
    * @throws ArgumentIsNullException  if the given license is null.
    * @throws InvalidArgumentException if the {@link LicenseManager} contains
-   *                                  already a {@link License} of the
-   *                                  type the given license is.
+   *                                  already a {@link License} of the type the
+   *                                  given license is.
    */
   public static void addLicense(final License license) {
     LICENSE_MANAGER.addLicense(license);
   }
 
   /**
-   * Creates and adds a new {@link License} of the given licenseType to
-   * the {@link LicenseManager}.
+   * Creates and adds a new {@link License} of the given licenseType to the
+   * {@link LicenseManager}.
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -45,8 +45,8 @@ public final class LicenseManager {
    *                                  constructor with 1 {@link String} parameter.
    * @throws InvalidArgumentException if the found key is not valid.
    * @throws InvalidArgumentException if the {@link LicenseManager} contains
-   *                                  already a {@link License} of the
-   *                                  given licenseType.
+   *                                  already a {@link License} of the given
+   *                                  licenseType.
    */
   public static <L extends License> void addLicense(final Class<L> licenseType) {
     LICENSE_MANAGER.addLicense(licenseType);

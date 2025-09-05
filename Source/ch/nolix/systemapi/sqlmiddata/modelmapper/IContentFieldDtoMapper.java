@@ -11,8 +11,8 @@ public interface IContentFieldDtoMapper {
   /**
    * @param string
    * @param columnView
-   * @return a new {@link FieldDto} from the given string using the
-   *         given columnView.
+   * @return a new {@link FieldDto} from the given string using the given
+   *         columnView.
    */
   FieldDto mapStringToContentFieldDtoUsingColumnView(String string, ColumnViewDto columnView);
 }

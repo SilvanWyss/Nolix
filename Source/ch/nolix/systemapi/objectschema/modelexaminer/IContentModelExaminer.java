@@ -13,8 +13,8 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
 public interface IContentModelExaminer extends IDatabaseObjectExaminer {
   /**
    * @param contentModel
-   * @return true if the given contentModel is a
-   *         {@link IBaseBackReferenceModel}, false otherwise.
+   * @return true if the given contentModel is a {@link IBaseBackReferenceModel},
+   *         false otherwise.
    */
   boolean isAbstractBackReferenceModel(IContentModel contentModel);
 
@@ -27,8 +27,8 @@ public interface IContentModelExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param contentModel
-   * @return true if the given contentModel is a {@link IBaseValueModel},
-   *         false otherwise.
+   * @return true if the given contentModel is a {@link IBaseValueModel}, false
+   *         otherwise.
    */
   boolean isAbstractValueModel(IContentModel contentModel);
 }

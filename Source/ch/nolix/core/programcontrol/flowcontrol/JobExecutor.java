@@ -254,8 +254,8 @@ final class JobExecutor extends Thread {
   /**
    * @return the error of the current {@link JobExecutor}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link JobExecutor} does not have
-   *                                               an error.
+   *                                               {@link JobExecutor} does not
+   *                                               have an error.
    */
   public Throwable getError() {
     //Asserts that the current JobRunner has an error.
