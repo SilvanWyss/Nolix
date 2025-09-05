@@ -17,6 +17,8 @@ public final class FixTableNameCatalog {
 
   public static final String CONTENT_MODEL = "ContentModel";
 
+  public static final String REFERENCEABLE_TABLE = "ReferenceableTable";
+
   public static final String ENTITY_INDEX = "EntityIndex";
 
   public static final String MULTI_VALUE_ENTRY = "MultiValueEntry";
