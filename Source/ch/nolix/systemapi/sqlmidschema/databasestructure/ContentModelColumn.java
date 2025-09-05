@@ -8,7 +8,7 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
  */
 public enum ContentModelColumn implements INameHolder {
   ID(ContentModelColumnNameCatalog.ID),
-  CONTENT_TYPE(ContentModelColumnNameCatalog.FIELD_TYPE),
+  FIELD_TYPE(ContentModelColumnNameCatalog.FIELD_TYPE),
   DATA_TYPE(ContentModelColumnNameCatalog.DATA_TYPE),
   REFERENCED_TABLE_ID(ContentModelColumnNameCatalog.REFERENCED_TABLE_ID),
   BACK_REFERENCED_COLUM_ID(ContentModelColumnNameCatalog.BACK_REFERENCED_COLUM_ID);

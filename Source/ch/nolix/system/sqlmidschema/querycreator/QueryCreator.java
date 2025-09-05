@@ -68,7 +68,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
     + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.CONTENT_TYPE.getName()
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.FIELD_TYPE.getName()
     + ", "
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.DATA_TYPE.getName()
     + ", "
@@ -104,7 +104,7 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
     + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.CONTENT_TYPE.getName()
+    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.FIELD_TYPE.getName()
     + ", "
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.DATA_TYPE.getName()
     + ", "
