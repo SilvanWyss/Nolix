@@ -12,11 +12,11 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 public interface IEntity
 extends
 Deletable,
+IDatabaseComponent<IDatabase>,
 IDatabaseObject,
 IIdHolder,
 IOptionalSaveStampHolder,
 IShortDescriptionHolder,
-IDatabaseComponent<IDatabase>,
 ITableComponent<ITable<? extends IEntity>> {
   String getParentTableName();
 
