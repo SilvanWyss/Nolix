@@ -251,7 +251,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
         entity.getStoredParentTable().getId());
     } else {
       multiReferenceEntry = //
-      MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntityId(this, entity.getId());
+      MultiReferenceEntry.createNewEntryForMultiReferenceAndReferencedEntity(this, entity);
     }
 
     localEntries.addAtEnd(multiReferenceEntry);

@@ -15,5 +15,5 @@ public interface IMultiReferenceEntry<E extends IEntity> extends IDatabaseObject
 
   E getStoredReferencedEntity();
 
-  boolean knowsReferencedTable();
+  ITable<E> getStoredReferencedTable();
 }
