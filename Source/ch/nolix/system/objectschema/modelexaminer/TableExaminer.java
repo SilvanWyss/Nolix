@@ -31,7 +31,7 @@ public final class TableExaminer implements ITableExaminer {
     return //
     table != null
 
-    //This check is  not necessary, but provides a better performance for some cases.
+    //This part is not mandatory, but provides a better performance.
     && COLUMN_TOOL.isABackReferenceColumn(column)
 
     && table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
@@ -45,7 +45,7 @@ public final class TableExaminer implements ITableExaminer {
     return //
     table != null
 
-    //This check is  not necessary, but provides a better performance for some cases.
+    //This part is not mandatory, but provides a better performance.
     && COLUMN_TOOL.isAReferenceColumn(column)
 
     && table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));

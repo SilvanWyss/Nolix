@@ -44,8 +44,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   public boolean containsBackReferencededColumnByColumn(
     final IDatabase database,
     final IColumn column) {
-    //This check is theoretically not necessary, but provides a better performance
-    //for some cases.
+    //This part is not mandatory, but provides a better performance.
     if (!COLUMN_TOOL.isABackReferenceColumn(column)) {
       return false;
     }
@@ -65,8 +64,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
   @Override
   public boolean containsTableReferencedByColumn(final IDatabase database, final IColumn column) {
-    //This check is theoretically not necessary, but provides a better performance
-    //for some cases.
+    //This part is not mandatory, but provides a better performance.
     if (!COLUMN_TOOL.isAReferenceColumn(column)) {
       return false;
     }
