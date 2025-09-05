@@ -1,6 +1,7 @@
 package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.coreapi.component.datamodelcomponent.IEntityComponent;
 import ch.nolix.coreapi.component.datamodelcomponent.ITableComponent;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -13,6 +14,7 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 public interface IField
 extends
 EmptinessRequestable,
+IDatabaseComponent<IDatabase>,
 IDatabaseObject,
 IEntityComponent<IEntity>,
 INameHolder,

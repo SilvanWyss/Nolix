@@ -10,6 +10,7 @@ import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -28,6 +29,14 @@ public abstract class AbstractField implements IField {
   private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
 
   private boolean edited;
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  @Override
+  public final boolean belongsToDatabase() {
+    return //
+    parentEntity != null
+    && parentEntity.belongsToDatabase();
+  }
 
   @Override
   public final boolean belongsToEntity() {
@@ -69,6 +78,11 @@ public abstract class AbstractField implements IField {
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
 
     return parentColumn;
+  }
+
+  @Override
+  public final IDatabase getStoredParentDatabase() {
+    return getStoredParentEntity().getStoredParentDatabase();
   }
 
   @Override
