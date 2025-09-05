@@ -78,6 +78,13 @@ implements IOptionalReference<E> {
   }
 
   @Override
+  public String getReferencedTableId() {
+    retrieveReferencedTableId();
+
+    return nullableReferencedEntityCache.nullableTableId();
+  }
+
+  @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
@@ -199,6 +206,21 @@ implements IOptionalReference<E> {
     && entity.getState() == DatabaseObjectState.NEW
     && !entity.belongsToTable()) {
       getStoredParentEntity().getStoredParentDatabase().insertEntity(entity);
+    }
+  }
+
+  private void retrieveReferencedTableId() {
+    OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
+
+    var referencedTableId = nullableReferencedEntityCache.nullableTableId();
+
+    if (referencedTableId == null) {
+      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
+      final var referencedTable = referencedEntity.getStoredParentTable();
+      referencedTableId = referencedTable.getId();
+
+      nullableReferencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, referencedEntity);
     }
   }
 
