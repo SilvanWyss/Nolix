@@ -105,7 +105,9 @@ implements IOptionalReference<E> {
 
   @Override
   public E getStoredReferencedEntity() {
-    return getStoredReferencedTable().getStoredEntityById(getReferencedEntityId());
+    retrieveReferencedEntity();
+
+    return nullableReferencedEntityCache.nullableEntity();
   }
 
   @Override
@@ -206,6 +208,20 @@ implements IOptionalReference<E> {
     && entity.getState() == DatabaseObjectState.NEW
     && !entity.belongsToTable()) {
       getStoredParentEntity().getStoredParentDatabase().insertEntity(entity);
+    }
+  }
+
+  private void retrieveReferencedEntity() {
+    OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
+
+    var referencedEntity = nullableReferencedEntityCache.nullableEntity();
+
+    if (referencedEntity == null) {
+      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedTableId = nullableReferencedEntityCache.nullableTableId();
+      referencedEntity = getStoredReferencedTable().getStoredEntityById(referencedEntityId);
+
+      nullableReferencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, referencedEntity);
     }
   }
 
