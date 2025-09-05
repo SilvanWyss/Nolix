@@ -14,15 +14,4 @@ public interface IBaseReference<E extends IEntity> extends IField {
    *         can reference.
    */
   IContainer<String> getReferenceableTableNames();
-
-  /**
-   * @return the name of the referenced {@link ITable} of the current
-   *         {@link IBaseReference}.
-   */
-  String getReferencedTableName();
-
-  /**
-   * @return the referenced {@link ITable} of the current {@link IBaseReference}.
-   */
-  ITable<E> getStoredReferencedTable();
 }

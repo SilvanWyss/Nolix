@@ -6,29 +6,13 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
-import ch.nolix.systemapi.objectdata.model.ITable;
 
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference<E> {
   private final ImmutableList<String> referenceableTableNames;
 
-  private final String referencedTableName;
-
-  private Table<E> referencedTable;
-
   protected AbstractBaseReference(final IContainer<String> referenceableTableNames) {
     Validator.assertThatTheStrings(referenceableTableNames).areNotBlank();
-
     this.referenceableTableNames = ImmutableList.forIterable(referenceableTableNames);
-
-    //TODO: Re-engineer
-    this.referencedTableName = referenceableTableNames.getStoredFirst();
-  }
-
-  protected AbstractBaseReference(final String referencedTableName) {
-    Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
-
-    this.referenceableTableNames = null;
-    this.referencedTableName = referencedTableName;
   }
 
   @Override
@@ -36,23 +20,9 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     return referenceableTableNames;
   }
 
-  //TODO: Delete this method
-  @Override
-  public String getReferencedTableName() {
-    return referencedTableName;
-  }
-
   @Override
   public final IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
     return ImmutableList.createEmpty();
-  }
-
-  //TODO: Delete this method  
-  @Override
-  public ITable<E> getStoredReferencedTable() {
-    extractReferencedTableIfNotExtracted();
-
-    return referencedTable;
   }
 
   @Override
@@ -96,27 +66,5 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
           //Does nothing.
       }
     }
-  }
-
-  private boolean extractedReferencedTable() {
-    return (referencedTable != null);
-  }
-
-  private void extractReferencedTable() {
-    referencedTable = loadReferencedTable();
-  }
-
-  private void extractReferencedTableIfNotExtracted() {
-    if (!extractedReferencedTable()) {
-      extractReferencedTable();
-    }
-  }
-
-  @SuppressWarnings("unchecked")
-  private Table<E> loadReferencedTable() {
-    return (Table<E>) getStoredParentEntity()
-      .getStoredParentTable()
-      .getStoredParentDatabase()
-      .getStoredTableByName(getReferencedTableName());
   }
 }

@@ -5,7 +5,11 @@ public interface IReference<E extends IEntity> extends IBaseReference<E> {
 
   String getReferencedTableId();
 
+  String getReferencedTableName();
+
   E getStoredReferencedEntity();
+
+  ITable<E> getStoredReferencedTable();
 
   void setEntity(Object entity);
 

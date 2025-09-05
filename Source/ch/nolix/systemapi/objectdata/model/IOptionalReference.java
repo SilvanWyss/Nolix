@@ -7,7 +7,11 @@ public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseR
 
   String getReferencedTableId();
 
+  String getReferencedTableName();
+
   E getStoredReferencedEntity();
+
+  ITable<E> getStoredReferencedTable();
 
   void setEntity(Object entity);
 

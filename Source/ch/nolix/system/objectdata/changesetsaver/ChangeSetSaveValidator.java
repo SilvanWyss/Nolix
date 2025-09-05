@@ -94,13 +94,9 @@ public final class ChangeSetSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
     final IMultiReference<?> multiReference,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    final var referencedTableName = multiReference.getReferencedTableName();
-
-    for (final var le : multiReference.getStoredNewAndDeletedEntries()) {
-      if (le.isNew()) {
-        dataAndSchemaAdapter.expectTableContainsEntity(
-          referencedTableName,
-          le.getReferencedEntityId());
+    for (final var e : multiReference.getStoredNewAndDeletedEntries()) {
+      if (e.isNew()) {
+        dataAndSchemaAdapter.expectTableContainsEntity(e.getReferencedTableName(), e.getReferencedEntityId());
       }
     }
   }
