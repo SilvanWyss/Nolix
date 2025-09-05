@@ -294,7 +294,6 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
         }
       }
     }
-
   }
 
   private void updateStateForClear() {
@@ -304,12 +303,6 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   private void updateStateForSetEntity(final E entity) {
     final var id = entity.getId();
 
-    if (entity.belongsToTable()) {
-      final var tableId = entity.getStoredParentTable().getId();
-
-      nullableReferencedEntityCache = new EntityCache<>(id, tableId, entity);
-    } else {
-      nullableReferencedEntityCache = new EntityCache<>(id, null, entity);
-    }
+    nullableReferencedEntityCache = new EntityCache<>(id, null, entity);
   }
 }
