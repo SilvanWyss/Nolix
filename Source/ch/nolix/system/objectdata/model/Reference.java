@@ -82,6 +82,19 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @Override
+  public String getReferencedTableName() {
+    REFERENCE_VALIDATOR.assertIsNotEmpty(this);
+
+    final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
+
+    if (referencedEntity != null) {
+      return referencedEntity.getParentTableName();
+    }
+
+    return getStoredReferencedTable().getName();
+  }
+
+  @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
