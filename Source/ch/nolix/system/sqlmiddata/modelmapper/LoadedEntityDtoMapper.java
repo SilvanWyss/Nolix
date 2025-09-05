@@ -8,6 +8,7 @@ import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
@@ -43,11 +44,34 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
       .forCount(FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS)
       .run(sqlRecordValueIterator::next);
 
-    for (final var c : columnViews) {
-      final var string = sqlRecordValueIterator.next();
-      final var contentFieldDto = CONTENT_FIELD_DTO_MAPPER.mapStringToContentFieldDtoUsingColumnView(string, c);
+    String previousString = null;
 
-      contentFieldDtos.addAtEnd(contentFieldDto);
+    for (final var c : columnViews) {
+      if (previousString == null) {
+        final var fieldType = c.fieldType();
+
+        if (fieldType == FieldType.REFERENCE
+        || fieldType == FieldType.OPTIONAL_REFERENCE
+        || fieldType == FieldType.BACK_REFERENCE
+        || fieldType == FieldType.OPTIONAL_BACK_REFERENCE) {
+          previousString = sqlRecordValueIterator.next();
+        } else {
+          final var string = sqlRecordValueIterator.next();
+
+          final var contentFieldDto = //
+          CONTENT_FIELD_DTO_MAPPER.mapNullableStringRepresentedValueToContentFieldDto(string, null, c);
+
+          contentFieldDtos.addAtEnd(contentFieldDto);
+        }
+      } else {
+        final var string = sqlRecordValueIterator.next();
+
+        final var contentFieldDto = //
+        CONTENT_FIELD_DTO_MAPPER.mapNullableStringRepresentedValueToContentFieldDto(string, previousString, c);
+
+        contentFieldDtos.addAtEnd(contentFieldDto);
+        previousString = null;
+      }
     }
 
     return contentFieldDtos;

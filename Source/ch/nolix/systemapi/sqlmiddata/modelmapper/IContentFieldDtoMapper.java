@@ -9,10 +9,13 @@ import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
  */
 public interface IContentFieldDtoMapper {
   /**
-   * @param string
+   * @param nullableStringRepresentedValue
+   * @param nullableAdditionalValue
    * @param columnView
-   * @return a new {@link FieldDto} from the given string using the given
-   *         columnView.
+   * @return a new {@link FieldDto} from the given nullableStringRepresentedValue.
    */
-  FieldDto mapStringToContentFieldDtoUsingColumnView(String string, ColumnViewDto columnView);
+  FieldDto mapNullableStringRepresentedValueToContentFieldDto(
+    String nullableStringRepresentedValue,
+    String nullableAdditionalValue,
+    ColumnViewDto columnView);
 }
