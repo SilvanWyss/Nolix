@@ -9,6 +9,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;
+import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -19,12 +20,16 @@ import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 public final class OptionalReference<E extends IEntity>
 extends AbstractBaseReference<E>
 implements IOptionalReference<E> {
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
+
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
@@ -108,6 +113,24 @@ implements IOptionalReference<E> {
     retrieveReferencedEntity();
 
     return nullableReferencedEntityCache.nullableEntity();
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public ITable<E> getStoredReferencedTable() {
+    //This part is not mandatory, but provides a better performance.
+    final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
+    if (referencedEntity != null && referencedEntity.belongsToTable()) {
+      return (ITable<E>) referencedEntity.getStoredParentTable();
+    }
+
+    if (belongsToDatabase()) {
+      return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(getStoredParentDatabase(), getReferencedTableId());
+    }
+
+    final var database = nullableReferencedEntityCache.nullableEntity().getStoredParentDatabase();
+
+    return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getReferencedTableId());
   }
 
   @Override

@@ -110,7 +110,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   @Override
   public String getReferencedTableId() {
     retrieveReferencedTableId();
-  
+
     return referencedEntityCache.nullableTableId();
   }
 
@@ -149,7 +149,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
     //This part is not mandatory, but provides a better performance.
-    var referencedEntity = referencedEntityCache.nullableEntity();
+    final var referencedEntity = referencedEntityCache.nullableEntity();
     if (referencedEntity != null && referencedEntity.belongsToTable()) {
       return (ITable<E>) referencedEntity.getStoredParentTable();
     }

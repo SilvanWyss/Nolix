@@ -111,7 +111,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
     //This part is not mandatory, but provides a better performance.
-    var referencedEntity = nullableReferencedEntityCache.nullableEntity();
+    final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
     if (referencedEntity != null && referencedEntity.belongsToTable()) {
       return (ITable<E>) referencedEntity.getStoredParentTable();
     }
@@ -236,14 +236,14 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private void retrieveReferencedEntity() {
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
-  
+
     var referencedEntity = nullableReferencedEntityCache.nullableEntity();
-  
+
     if (referencedEntity == null) {
       final var referencedEntityId = nullableReferencedEntityCache.id();
       final var referencedTableId = nullableReferencedEntityCache.nullableTableId();
       referencedEntity = getStoredReferencedTable().getStoredEntityById(referencedEntityId);
-  
+
       nullableReferencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, referencedEntity);
     }
   }
