@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2025-07-07
  */
 public interface UpToDateRequestable {
-
   /**
    * @return true if the current {@link UpToDateRequestable} is not up-to-date,
    *         false otherwise.

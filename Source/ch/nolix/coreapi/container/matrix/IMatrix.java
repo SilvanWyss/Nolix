@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
 public interface IMatrix<E> extends Clearable, IContainer<E> {
-
   int getColumnCount();
 
   IContainer<? extends IContainer<E>> getColumns();

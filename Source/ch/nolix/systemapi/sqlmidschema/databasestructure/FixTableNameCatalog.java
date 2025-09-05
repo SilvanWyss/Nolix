@@ -9,7 +9,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
  * @version 2025-03-22
  */
 public final class FixTableNameCatalog {
-
   public static final String DATABASE_PROPERTY = "DatabaseProperty";
 
   public static final String TABLE = PascalCaseVariableCatalog.TABLE;

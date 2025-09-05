@@ -7,7 +7,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
 public final class SslServerPage {
-
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalog.REQUIRE_JS);
 
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalog.NOLIX_JS);
@@ -17,7 +16,6 @@ public final class SslServerPage {
   private final int port;
 
   private SslServerPage(final String domain, final int port) {
-
     Validator.assertThat(domain).thatIsNamed(LowerCaseVariableCatalog.DOMAIN).isNotBlank();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 

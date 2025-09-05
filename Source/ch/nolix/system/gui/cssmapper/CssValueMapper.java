@@ -12,13 +12,11 @@ import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
  * @version 2025-08-10
  */
 public final class CssValueMapper implements ICssValueMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public String mapColorToCssValue(final IColor color) {
-
     if (color.hasFullAlphaValue()) {
       return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
     }

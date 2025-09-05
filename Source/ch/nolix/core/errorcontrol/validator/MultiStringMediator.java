@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * @version 2017-01-01
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
-
   /**
    * Creates a new string container mediator with the given arguments.
    * 
@@ -19,7 +18,6 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    * @throws ArgumentIsNullException if the given argument container is null.
    */
   MultiStringMediator(final Iterable<String> arguments) {
-
     //Calls constructor of the base class.
     super(arguments);
   }
@@ -31,7 +29,6 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    * @throws ArgumentIsNullException if the given argument container is null.
    */
   MultiStringMediator(final String[] arguments) {
-
     //Calls method of the base class.
     super(arguments);
   }
@@ -45,14 +42,12 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    *                                  {@link MultiStringMediator} is blank.
    */
   public void areNotBlank() {
-
     //Asserts that the arguments of the current multi string mediator are not null.
     areNotNull();
 
     //Iterates the arguments of the current multi string mediator.
     var index = 1;
     for (final var a : getStoredArguments()) {
-
       //Asserts that the current argument is not blank.
       if (a.isBlank()) {
         throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(index + "th argument", a,
@@ -71,14 +66,12 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    *                                 container mediator is empty.
    */
   public void areNotEmpty() {
-
     //Asserts that the arguments of this string container mediator are not null.
     areNotNull();
 
     //Iterates the arguments of this string container mediator.
     var index = 1;
     for (final String a : getStoredArguments()) {
-
       //Asserts that the current argument is not empty.
       if (a.isEmpty()) {
         throw EmptyArgumentException.forArgumentAndArgumentName(a, index + "th argument");

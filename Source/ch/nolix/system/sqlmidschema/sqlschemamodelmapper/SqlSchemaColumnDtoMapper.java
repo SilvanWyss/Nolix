@@ -12,14 +12,12 @@ import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoM
  * @version 2025-02-01
  */
 public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<ch.nolix.systemapi.sqlschema.model.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(
     final ColumnDto columnDto) {
-
     final IArrayList<ch.nolix.systemapi.sqlschema.model.ColumnDto> sqlSchemaColumnDtos = //
     ArrayList.withInitialCapacity(2);
 
@@ -28,7 +26,6 @@ public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper
     sqlSchemaColumnDtos.addAtEnd(mainSqlSchemaColumnDto);
 
     if (columnDto.contentModel().getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE) {
-
       final var referenceSqlSchemaColumnDto = //
       SqlSchemaColumnDtoMapperHelper.mapColumnDtoToReferenceSqlSchemaColumnDto(columnDto);
 

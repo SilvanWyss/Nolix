@@ -18,7 +18,6 @@ IOptionalSaveStampHolder,
 IShortDescriptionHolder,
 IDatabaseComponent<IDatabase>,
 ITableComponent<ITable<? extends IEntity>> {
-
   String getParentTableName();
 
   IContainer<? extends IField> internalGetStoredFields();

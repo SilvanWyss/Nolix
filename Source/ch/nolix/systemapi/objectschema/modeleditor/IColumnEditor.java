@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
  * @param <C> is the type of {@link IColumn}s a {@link IColumnEditor} can edit.
  */
 public interface IColumnEditor<C extends IColumn> {
-
   /**
    * Lets the current {@link IColumnEditor} delete the given column.
    * 

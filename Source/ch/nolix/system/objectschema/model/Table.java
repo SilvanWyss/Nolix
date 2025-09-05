@@ -17,7 +17,6 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationVali
 import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 public final class Table extends AbstractSchemaObject implements ITable {
-
   private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 
   private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
@@ -31,7 +30,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
   private ILinkedList<Column> columns = LinkedList.createEmpty();
 
   private Table(final String id, final String name) {
-
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
@@ -43,7 +41,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   public static Table withName(final String name) {
-
     final var id = IdCreator.createIdOf10HexadecimalCharacters();
 
     return new Table(id, name);
@@ -51,7 +48,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public Table addColumn(final IColumn column) {
-
     MUTATION_VALIDATOR.assertCanAddColumnToTable(this, column);
 
     TableEditor.addColumnToTable(this, (Column) column);
@@ -61,7 +57,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public ITable addColumns(final IContainer<IColumn> columns) {
-
     for (final var c : columns) {
       addColumn(c);
     }
@@ -83,7 +78,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public void delete() {
-
     MUTATION_VALIDATOR.assertCanDeleteTable(this);
 
     TableEditor.deleteTable(this);
@@ -101,7 +95,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public Database getStoredParentDatabase() {
-
     assertBelongsToDatabase();
 
     return parentDatabase;
@@ -119,7 +112,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public Table setName(final String name) {
-
     MUTATION_VALIDATOR.assertCanSetNameToTable(this, name);
 
     TableEditor.setNameToTable(this, name);
@@ -129,7 +121,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   protected void noteClose() {
-
     //Does not call getStoredColumns method to avoid that the columns need to be
     //loaded from the database.
     for (final var c : columns) {
@@ -154,7 +145,6 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   void setParentDatabase(final Database parentDatabase) {
-
     Validator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
     TABLE_VALIDATOR.assertDoesNotBelongToDatabase(this);
 

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  *            potentially reference.
  */
 public interface IBaseReference<E extends IEntity> extends IField {
-
   /**
    * @return the names of the {@link ITable}s the current {@link IBaseReference}
    *         can reference.

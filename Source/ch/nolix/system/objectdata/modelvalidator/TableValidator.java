@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 
 public final class TableValidator implements ITableValidator {
-
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   @Override

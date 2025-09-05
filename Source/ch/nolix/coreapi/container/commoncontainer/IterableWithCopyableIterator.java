@@ -12,7 +12,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
  *            {@link IterableWithCopyableIterator}.
  */
 public interface IterableWithCopyableIterator<E> extends Iterable<E> {
-
   /**
    * {@inheritDoc}
    */

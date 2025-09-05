@@ -9,12 +9,10 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class MultiBackReferenceToContentModelMapper
 implements IFieldToContentModelMapper<IMultiBackReference<?>> {
-
   @Override
   public IContentModel mapFieldToContentModel(
     final IMultiBackReference<?> field,
     final IContainer<ITable> referencedTables) {
-
     final var backReferencedTableName = field.getBackReferencedTableName();
     final var backReferencedTable = referencedTables.getStoredFirst(t -> t.hasName(backReferencedTableName));
     final var backReferencedColumnName = field.getBackReferencedFieldName();

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2023-02-17
  */
 public interface CompletenessRequestable {
-
   /**
    * @return true if the current {@link CompletenessRequestable} is complete,
    *         false otherwise.

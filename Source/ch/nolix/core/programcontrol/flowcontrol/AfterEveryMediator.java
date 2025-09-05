@@ -16,7 +16,6 @@ import ch.nolix.coreapi.programcontrol.flowcontrol.IAfterEveryMediator;
  * @version 2017-01-01
  */
 public final class AfterEveryMediator implements IAfterEveryMediator {
-
   private final int timeIntervalInMilliseconds;
 
   private final Integer maxRunCount;
@@ -34,7 +33,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    *                                   negative.
    */
   AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
-
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
@@ -59,7 +57,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
     final int maxRunCount,
     final BooleanSupplier condition,
     final int timeIntervalInMilliseconds) {
-
     Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
     Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
@@ -74,7 +71,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   @Override
   public void run(final Runnable job) {
-
     //Handles the case that the current AfterEveryMediator does not have a max run count.
     if (!hasMaxRunCount()) {
       runWhenDoesNotHaveMaxRunCount(job);
@@ -90,7 +86,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   @Override
   public Future runInBackground(final Runnable job) {
-
     //Handles the case that the current AfterEveryMediator does not have a max count.
     if (!hasMaxRunCount()) {
       return runInBackgroundWhenDoesNotHaveMaxRunConunt(job);
@@ -136,7 +131,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @throws ArgumentIsNullException if the given job is null.
    */
   private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable job) {
-
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       return Future.forJobExecturor(new JobExecutor(job, timeIntervalInMilliseconds, () -> true));
@@ -155,7 +149,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @throws ArgumentIsNullException if the given job is null.
    */
   private Future runInBackgroundWhenHasMaxRunConunt(final Runnable job) {
-
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       return Future.forJobExecturor(new JobExecutor(job, maxRunCount, timeIntervalInMilliseconds));
@@ -175,7 +168,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    *                                               not have condition.
    */
   private void runWhenDoesNotHaveMaxRunCount(final Runnable job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     assertHasCondition();
@@ -193,13 +185,11 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param job
    */
   private void runWhenHasMaxRunCount(final Runnable job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       for (var i = 1; i <= maxRunCount; i++) {
-
         Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 
         job.run();
@@ -208,7 +198,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
       //Handles the case that the current AfterAllMediator has a condition.
     } else {
       for (var i = 1; i <= maxRunCount; i++) {
-
         Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 
         if (!condition.getAsBoolean()) {

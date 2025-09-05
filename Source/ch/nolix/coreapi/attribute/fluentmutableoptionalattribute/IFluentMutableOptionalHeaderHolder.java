@@ -13,7 +13,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
  */
 public interface IFluentMutableOptionalHeaderHolder<H extends IFluentMutableOptionalHeaderHolder<H>>
 extends IOptionalHeaderHolder {
-
   /**
    * Removes the header of current {@link IFluentMutableOptionalHeaderHolder}.
    */

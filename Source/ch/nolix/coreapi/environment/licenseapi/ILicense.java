@@ -5,7 +5,6 @@ package ch.nolix.coreapi.environment.licenseapi;
  * @version 2025-07-30
  */
 public interface ILicense {
-
   /**
    * Activates the current {@link ILicense} with the given key.
    * 

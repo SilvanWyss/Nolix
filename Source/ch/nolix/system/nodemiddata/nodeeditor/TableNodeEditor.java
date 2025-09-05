@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
  * @version 2024-12-21
  */
 public final class TableNodeEditor implements ITableNodeEditor {
-
   /**
    * {@inheritDoc}
    */

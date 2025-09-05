@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class DatabasePropertyTableSqlSchemaDtoCatalog {
-
   private static final ColumnDto KEY_COLUMN_SQL_DTO = //
   new ColumnDto(DatabasePropertyColumn.KEY.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 

@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 
 final class ContainerRoleTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirContainerRole() {
     return //
@@ -29,7 +28,6 @@ final class ContainerRoleTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirContainerRole")
   void testCase_fromSpecification(final INode<?> specification, final ContainerRole expectedContainerRole) {
-
     //execution
     final var result = ContainerRole.fromSpecification(specification);
 

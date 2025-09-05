@@ -21,7 +21,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSear
 import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 public final class SchemaReader implements ISchemaReader {
-
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
@@ -38,7 +37,6 @@ public final class SchemaReader implements ISchemaReader {
   private final IMutableNode<?> nodeDatabase;
 
   private SchemaReader(final IMutableNode<?> nodeDatabase) {
-
     Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
@@ -50,7 +48,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public boolean columnIsEmpty(String tableName, String columnName) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_EXAMINER.columnOfTableNodeIsEmptyByColumnName(tableNode, columnName);
@@ -68,7 +65,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public Time getSchemaTimestamp() {
-
     final var databasePropertiesNode = //
     DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
@@ -80,7 +76,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public TableDto loadTable(final String tableName) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return loadTableFromTableNode(tableNode);
@@ -88,7 +83,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<TableDto> loadTables() {
-
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
 
     return tableNodes.to(this::loadTableFromTableNode);
@@ -100,14 +94,12 @@ public final class SchemaReader implements ISchemaReader {
   }
 
   private IContainer<ColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
-
     final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
     return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
   }
 
   private TableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
-
     final var tableId = TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
     final var tableName = TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
     final var columns = loadColumnsFromTableNode(tableNode);

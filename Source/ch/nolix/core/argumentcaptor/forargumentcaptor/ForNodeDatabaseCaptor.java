@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
 public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N> {
-
   public ForNodeDatabaseCaptor() {
   }
 
@@ -15,14 +14,12 @@ public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N>
   }
 
   public final N forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-
     Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     return setArgumentAndGetNext(nodeDatabase);
   }
 
   public final N forTemporaryInMemoryNodeDatabase() {
-
     final var nodeDatabase = MutableNode.createEmpty();
 
     return forNodeDatabase(nodeDatabase);

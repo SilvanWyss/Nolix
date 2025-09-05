@@ -19,7 +19,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2023-02-12
  */
 public interface MaterializationRequestable {
-
   /**
    * @return true if the current {@link MaterializationRequestable} is
    *         materialized, false otherwise.

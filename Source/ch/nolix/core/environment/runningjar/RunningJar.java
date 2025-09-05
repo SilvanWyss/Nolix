@@ -12,7 +12,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 
 public final class RunningJar {
-
   private RunningJar() {
   }
 
@@ -42,7 +41,6 @@ public final class RunningJar {
   }
 
   public static IContainer<String> readLinesOfResource(final String path) {
-
     final ILinkedList<String> lines = LinkedList.createEmpty();
     final var inputStream = RunningJar.class.getResourceAsStream(StringCatalog.SLASH + path);
     final var inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);

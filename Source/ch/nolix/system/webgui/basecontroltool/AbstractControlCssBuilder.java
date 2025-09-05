@@ -22,14 +22,12 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class AbstractControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
 implements IControlCssBuilder<C, S> {
-
   private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
   private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
   @Override
   public final IContainer<ICssRule> createCssRulesForControl(final C control) {
-
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
     fillUpAllStateCssRulesIntoList(cssRules, control);
     fillUpBaseCssRulesIntoList(cssRules, control);
@@ -95,7 +93,6 @@ implements IControlCssBuilder<C, S> {
   private void fillUpCssRulesForControlAndAllStatesIntoList(
     final C control,
     final ILinkedList<ICssRule> list) {
-
     list.addAtEnd(getCssRuleForControlAndAllStates(control));
 
     fillUpAdditionalCssRulesForControlAndAllStatesIntoList(control, list);
@@ -105,7 +102,6 @@ implements IControlCssBuilder<C, S> {
     final C control,
     final ControlState state,
     final ILinkedList<ICssRule> list) {
-
     list.addAtEnd(getCssRuleForControlAndState(control, state));
 
     fillUpAdditionalCssRulesForControlAndStateIntoList(control, state, list);
@@ -133,7 +129,6 @@ implements IControlCssBuilder<C, S> {
     final C control,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-
     final var style = control.getStoredStyle();
 
     list.addAtEnd(
@@ -195,7 +190,6 @@ implements IControlCssBuilder<C, S> {
     final C control,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-
     var style = control.getStoredStyle();
 
     if (style.definesWidthForState(state)) {
@@ -218,7 +212,6 @@ implements IControlCssBuilder<C, S> {
   }
 
   private IContainer<ICssProperty> getCssPropertiesForControlAndAllStates(final C control) {
-
     final ILinkedList<ICssProperty> cssPropertiesForBaseState = LinkedList.createEmpty();
 
     onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(control, cssPropertiesForBaseState);
@@ -227,7 +220,6 @@ implements IControlCssBuilder<C, S> {
   }
 
   private IContainer<ICssProperty> getCssPropertiesForControlAndState(final C control, final ControlState state) {
-
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     onOwnFillUpCssPropertiesForControlAndStateIntoList(control, state, cssProperties);
@@ -248,7 +240,6 @@ implements IControlCssBuilder<C, S> {
   }
 
   private ICssProperty getFontWeightCssPropertyForControlAndState(final C control, final ControlState state) {
-
     final var style = control.getStoredStyle();
     final var boldTextFlag = style.getBoldTextFlagWhenHasState(state);
 
@@ -262,7 +253,6 @@ implements IControlCssBuilder<C, S> {
   private void onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(
     final C control,
     final ILinkedList<ICssProperty> list) {
-
     switch (control.getPresence()) {
       case VISIBLE:
         //Does nothing. Since presence is configured for all states, the Control will
@@ -323,7 +313,6 @@ implements IControlCssBuilder<C, S> {
     final C control,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-
     final var style = control.getStoredStyle();
     final var opacity = style.getOpacityWhenHasState(state);
 

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
  * @version 2023-02-09
  */
 public interface IMutableIdHolder extends IIdHolder {
-
   /**
    * Sets the id of the current {@link IMutableIdHolder}.
    * 

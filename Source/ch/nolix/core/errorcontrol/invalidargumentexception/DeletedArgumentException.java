@@ -12,7 +12,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class DeletedArgumentException extends AbstractInvalidArgumentException {
-
   private static final String ERROR_PREDICATE = "is deleted";
 
   /**

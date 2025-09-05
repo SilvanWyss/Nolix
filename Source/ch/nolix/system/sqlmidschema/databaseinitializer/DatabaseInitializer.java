@@ -16,7 +16,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2025-01-12
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
-
   private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();
 
   private static final IDatabaseInitializerTool DATABASE_INITIALIZER_TOOL = new DatabaseInitializerTool();
@@ -37,7 +36,6 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
   private DatabaseInitializer(
     final String databaseName,
     final ISqlConnection sqlConnection) {
-
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
     ResourceValidator.assertIsOpen(sqlConnection);
 
@@ -72,7 +70,6 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    */
   @Override
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimestamp) {
-
     final var schemaWriter = SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
 
     DATABASE_INITIALIZER_TOOL.initializeFixTables(schemaWriter);

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextboxStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox, ITextboxStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ITextbox textbox,

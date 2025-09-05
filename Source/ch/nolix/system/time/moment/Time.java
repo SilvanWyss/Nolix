@@ -27,7 +27,6 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  */
 public final class Time //NOSONAR: A Time is a principal object thus it has many methods.
 extends AbstractElement implements ITime {
-
   public static final int DEFAULT_YEAR = 2000;
 
   public static final int DEFAULT_MONTH_OF_YEAR = 1;
@@ -63,7 +62,6 @@ extends AbstractElement implements ITime {
    * @throws ArgumentIsNullException if the given zonedDateTime is null.
    */
   private Time(final ZonedDateTime zonedDateTime) {
-
     Validator.assertThat(zonedDateTime).thatIsNamed(ZonedDateTime.class).isNotNull();
 
     internalZonedDateTime = zonedDateTime;
@@ -97,7 +95,6 @@ extends AbstractElement implements ITime {
    *                                  {@link Time}.
    */
   public static Time fromString(final String string) {
-
     Validator.assertThat(string).thatIsNamed("string").isNotNull();
 
     final var values = string.split("-");
@@ -252,7 +249,6 @@ extends AbstractElement implements ITime {
     final int minuteOfHour,
     final int secondOfMinute,
     final int millisecondOfSecond) {
-
     final var nanoSecondsOfSecond = TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond;
 
     return //
@@ -289,7 +285,6 @@ extends AbstractElement implements ITime {
     final int secondOfMinute,
     final int millisecondOfSecond,
     final int microsecondsOfMilliSecond) {
-
     final var nanoSecondsOfSecond = //
     TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND * millisecondOfSecond
     + TimeUnitConversionCatalog.NANOSECONDS_PER_MICROSECOND * microsecondsOfMilliSecond;
@@ -385,7 +380,6 @@ extends AbstractElement implements ITime {
    */
   @Override
   public IContainer<INode<?>> getAttributes() {
-
     final var timeCode = //
     String.format(
       "%04d-%02d-%02d-%02d-%02d-%02d-%03d-%03d",
@@ -543,7 +537,6 @@ extends AbstractElement implements ITime {
    */
   @Override
   public ITime withAddedOrSubtractedMicroseconds(final long microseconds) {
-
     final var nanoseconds = TimeUnitConversionCatalog.NANOSECONDS_PER_MICROSECOND * microseconds;
 
     return forZonedDateTime(internalZonedDateTime.plusNanos(nanoseconds));
@@ -554,7 +547,6 @@ extends AbstractElement implements ITime {
    */
   @Override
   public Time withAddedOrSubtractedMilliseconds(final int milliseconds) {
-
     final var nanoSeconds = TimeUnitConversionCatalog.NANOSECONDS_PER_MILLISECOND * milliseconds;
 
     return forZonedDateTime(internalZonedDateTime.plusNanos(nanoSeconds));

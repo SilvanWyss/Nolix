@@ -10,7 +10,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
  * @version 2025-07-26
  */
 public interface IFieldNodeMapper {
-
   /**
    * @param entityCreationDto
    * @param saveStamp

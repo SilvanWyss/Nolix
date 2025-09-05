@@ -10,7 +10,6 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 
 final class TableNodeExaminerTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "3, Donald, id1, false",
@@ -30,7 +29,6 @@ final class TableNodeExaminerTest extends StandardTest {
     final String value,
     final String ingoredEntityId,
     final boolean expectedResult) {
-
     //setup of tableNode
     final var tableNode = //
     MutableNode

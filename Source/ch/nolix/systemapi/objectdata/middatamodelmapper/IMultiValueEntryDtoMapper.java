@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
  * @version 2025-06-20
  */
 public interface IMultiValueEntryDtoMapper {
-
   /**
    * @param multiValueEntry
    * @return a new {@link MultiValueEntryDto} from the given multiValueEntry.

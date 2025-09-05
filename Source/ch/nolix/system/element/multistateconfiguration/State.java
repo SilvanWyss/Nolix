@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
 final class State<S extends Enum<S>> implements INameHolder {
-
   private static final String NAME = PascalCaseVariableCatalog.STATE;
 
   private final String qualifyingPrefix;
@@ -16,7 +15,6 @@ final class State<S extends Enum<S>> implements INameHolder {
   private final S enumValue;
 
   private State(final String prefix, final int index, final S enumValue) {
-
     Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isNotNegative();
     Validator.assertThat(enumValue).thatIsNamed("enum value").isNotNull();

@@ -18,7 +18,6 @@ import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
 
 final class WebSocketEndPoint extends AbstractNetEndPoint {
-
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   private final PeerType peerType;
@@ -33,7 +32,6 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
-
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 
     Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
@@ -65,7 +63,6 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
 
   @Override
   public void noteClose() {
-
     if (canWork()) {
       sendRawMessage(MessageType.CLOSE_MESSAGE.getPrefix());
     }
@@ -104,14 +101,12 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
   }
 
   private void createMessageListenerAndWaitToTargetInfo() {
-
     WebEndPointMessageListener.forWebEndPoint(this);
 
     waitToTargetInfo();
   }
 
   private void sendBytes(final byte[] bytes) {
-
     assertIsOpen();
 
     try {
@@ -131,7 +126,6 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
   }
 
   private void waitToTargetInfo() {
-
     FlowController.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasTargetInfo);
 
     if (!hasTargetInfo()) {

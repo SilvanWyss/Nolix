@@ -10,9 +10,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 
 final class ValueToolTest extends StandardTest {
-
   private static class Pet extends Entity {
-
     private final ValueField<String> name = ValueField.withValueType(String.class);
 
     public Pet() {
@@ -22,7 +20,6 @@ final class ValueToolTest extends StandardTest {
 
   @Test
   void testCase_canSetValue() {
-
     //setup
     final var pet = new Pet();
     final String valueToSet = "Garfield";
@@ -37,7 +34,6 @@ final class ValueToolTest extends StandardTest {
 
   @Test
   void testCase_canSetValue_whenTheGivenValueIsClosed() {
-
     //setup
     final var pet = new Pet();
     final var databaseAdapter = NodeDataAdapter.forTemporaryInMemoryDatabase().withName("my_database")
@@ -59,7 +55,6 @@ final class ValueToolTest extends StandardTest {
 
   @Test
   void testCase_canSetValue_whenTheGivenValueToSetIsNull() {
-
     //setup
     final var pet = new Pet();
     final String valueToSet = null;

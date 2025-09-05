@@ -5,11 +5,9 @@ import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.application.main.AbstractSession;
 
 public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends AbstractSession<C, S> {
-
   private final Class<?> clientClass;
 
   private TestSession(final Class<?> clientClass) {
-
     Validator.assertThat(clientClass).thatIsNamed("client class").isNotNull();
 
     this.clientClass = clientClass;

@@ -12,7 +12,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
  * @version 2024-12-28
  */
 public interface ILoadedEntityDtoMapper {
-
   /**
    * @param sqlRecord
    * @param columnViews

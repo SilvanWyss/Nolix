@@ -6,7 +6,6 @@ import ch.nolix.coreapi.document.xml.IXmlAttribute;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class XmlAttribute implements IXmlAttribute {
-
   private final String name;
 
   private final String value;
@@ -16,7 +15,6 @@ public final class XmlAttribute implements IXmlAttribute {
   }
 
   public XmlAttribute(final String name, final String value) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 

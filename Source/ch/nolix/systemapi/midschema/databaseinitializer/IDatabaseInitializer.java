@@ -5,7 +5,6 @@ package ch.nolix.systemapi.midschema.databaseinitializer;
  * @version 2025-01-12
  */
 public interface IDatabaseInitializer {
-
   /**
    * @return the state of the database.
    */

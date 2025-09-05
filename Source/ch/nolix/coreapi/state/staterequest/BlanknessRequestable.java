@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2022-07-17
  */
 public interface BlanknessRequestable {
-
   /**
    * @return true if {@link BlanknessRequestable} is blank.
    */

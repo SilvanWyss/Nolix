@@ -14,7 +14,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiValueHolder;
  */
 public interface IFluentMutableMultiValueHolder<H extends IFluentMutableMultiValueHolder<H, V>, V>
 extends IMultiValueHolder<V> {
-
   /**
    * Adds the given value to the current {@link IFluentMutableMultiValueHolder}.
    * 

@@ -13,7 +13,6 @@ import ch.nolix.systemapi.gui.font.LineDecoration;
  * @version 2025-08-10
  */
 public interface ICssPropertyMapper {
-
   /**
    * @param background
    * @return the {@link ICssProperty}s from the given background.

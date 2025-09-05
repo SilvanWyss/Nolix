@@ -13,10 +13,8 @@ import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 
 final class ControlAnalyserTest extends StandardTest {
-
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlIsNull() {
-
     //setup
     final var testUnit = new ControlAnalyser();
 
@@ -29,7 +27,6 @@ final class ControlAnalyserTest extends StandardTest {
 
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenSecondControlIsNull() {
-
     //setup
     final var testUnit = new ControlAnalyser();
 
@@ -42,7 +39,6 @@ final class ControlAnalyserTest extends StandardTest {
 
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlDirectly() {
-
     //setup
     final var label = new Label();
     final var verticalStack = new VerticalStack().addControl(new Button(), new Link(), label);
@@ -57,7 +53,6 @@ final class ControlAnalyserTest extends StandardTest {
 
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlRecursively() {
-
     //setup
     final var label = new Label();
     final var verticalStack = //

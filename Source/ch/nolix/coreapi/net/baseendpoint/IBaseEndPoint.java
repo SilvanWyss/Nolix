@@ -6,7 +6,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 
 public interface IBaseEndPoint extends GroupCloseable {
-
   ConnectionType getConnectionType();
 
   String getCustomTargetSlot();

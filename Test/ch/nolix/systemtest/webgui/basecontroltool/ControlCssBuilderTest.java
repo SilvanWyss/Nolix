@@ -10,14 +10,12 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class ControlCssBuilderTest<B extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
 extends StandardTest {
-
   protected abstract C createControl();
 
   protected abstract B createTestUnit();
 
   @Test
   final void testCase_createCssRulesForControl_whenGivenControlHasAHoverBackgroundColor() {
-
     //setup
     final var control = createControl();
     control.editStyle(s -> s.setBackgroundColorForState(ControlState.HOVER, Color.fromString("0x102030")));
@@ -34,7 +32,6 @@ extends StandardTest {
 
   @Test
   final void testCase_createCssRulesForControl_whenGivenControlIsNew() {
-
     //setup
     final var control = createControl();
     final var controlInternalId = control.getInternalId();

@@ -4,7 +4,6 @@ import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControlStyle;
 
 public final class ImageControlStyle extends AbstractControlStyle<IImageControlStyle> implements IImageControlStyle {
-
   public ImageControlStyle() {
     initialize();
   }

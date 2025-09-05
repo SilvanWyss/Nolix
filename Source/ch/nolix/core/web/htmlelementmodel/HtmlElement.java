@@ -10,7 +10,6 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 
 public final class HtmlElement implements IHtmlElement {
-
   private static final HtmlElementStringRepresentator HTML_ELEMENT_STRING_REPRESENTATOR = //
   new HtmlElementStringRepresentator();
 
@@ -27,7 +26,6 @@ public final class HtmlElement implements IHtmlElement {
     final IContainer<? extends IHtmlAttribute> attributes,
     final String innerText,
     final IContainer<? extends IHtmlElement> childElements) {
-
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotBlank();
     Validator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
@@ -38,7 +36,6 @@ public final class HtmlElement implements IHtmlElement {
   }
 
   public static HtmlElement fromHtmlElement(final IHtmlElement htmlElement) {
-
     if (htmlElement instanceof final HtmlElement htmlAttribute) {
       return htmlAttribute;
     }
@@ -88,7 +85,6 @@ public final class HtmlElement implements IHtmlElement {
     final IContainer<? extends IHtmlAttribute> attributes,
     final IHtmlElement childElement,
     final IHtmlElement... childElements) {
-
     final var allChildElements = ImmutableList.withElement(childElement, childElements);
 
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, allChildElements);
@@ -162,7 +158,6 @@ public final class HtmlElement implements IHtmlElement {
 
   @Override
   public boolean equals(final Object object) {
-
     if (object instanceof final HtmlElement htmlElement) {
       return getType().equals(htmlElement.getType())
       && getAttributes().containsExactlyEqualingInSameOrder(htmlElement.getAttributes())
@@ -185,7 +180,6 @@ public final class HtmlElement implements IHtmlElement {
 
   @Override
   public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
-
     final var allAttributes = //
     ContainerView.forIterable(getAttributes(), ContainerView.forElementAndArray(attribute, attributes));
 

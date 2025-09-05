@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalTextHolder;
  * @version 2023-02-09
  */
 public interface IMutableOptionalTextHolder extends IOptionalTextHolder {
-
   /**
    * Removes the text of the current {@link IMutableOptionalTextHolder}.
    */

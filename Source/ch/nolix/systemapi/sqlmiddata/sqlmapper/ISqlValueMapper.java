@@ -7,7 +7,6 @@ import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
  * @version 2024-12-28
  */
 public interface ISqlValueMapper {
-
   /**
    * @param stringRepresentedFieldDto
    * @return a SQL value from the given stringContentFieldDto

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.ITableViewSearcher;
  * @version 2025-01-10
  */
 public final class TableViewSearcher implements ITableViewSearcher {
-
   /**
    * {@inheritDoc}
    */

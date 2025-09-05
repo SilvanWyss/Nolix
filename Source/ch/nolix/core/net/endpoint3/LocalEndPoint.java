@@ -20,7 +20,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2016-01-01
  */
 public final class LocalEndPoint extends AbstractEndPoint {
-
   private final PeerType peerType;
 
   private final LocalEndPoint counterpart;
@@ -32,7 +31,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * duplex controller.
    */
   public LocalEndPoint() {
-
     peerType = PeerType.FRONTEND;
 
     //Creates the counterpart of this local duplex controller.
@@ -48,7 +46,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param target
    */
   public LocalEndPoint(final ISlot target) {
-
     peerType = PeerType.FRONTEND;
 
     //Creates the counterpart of this local duplex controller.
@@ -68,7 +65,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given counterpart is null.
    */
   private LocalEndPoint(LocalEndPoint counterpart) {
-
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counterpart is not null.
@@ -94,7 +90,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private LocalEndPoint(
     final LocalEndPoint counterpart,
     final String target) {
-
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counterpart is not null.
@@ -197,7 +192,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public void runCommand(final IChainedNode command) {
-
     //Asserts that this local duplex controller is not aborted.
     assertIsOpen();
 
@@ -209,7 +203,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
-
     //Asserts that this local duplex controller is open.
     assertIsOpen();
 

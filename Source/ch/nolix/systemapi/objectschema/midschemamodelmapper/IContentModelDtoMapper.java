@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
  * @version 2024-12-27
  */
 public interface IContentModelDtoMapper {
-
   /**
    * @param contentModel
    * @return a new {@link IContentModelDto} from the given contentModel.

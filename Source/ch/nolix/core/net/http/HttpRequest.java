@@ -5,7 +5,6 @@ import ch.nolix.coreapi.container.commoncontainer.StoringRequestable;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public record HttpRequest(String content) {
-
   public static final String ACCEPT_HEADER = "Accept";
 
   public static final String CONTENT_TYPE_HEADER = "Content-Type";

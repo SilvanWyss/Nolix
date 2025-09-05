@@ -7,7 +7,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabel;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final ILabel control) {
     return HtmlElement.withTypeAndInnerText(

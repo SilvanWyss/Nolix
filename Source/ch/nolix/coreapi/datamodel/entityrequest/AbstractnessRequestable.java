@@ -8,7 +8,6 @@ package ch.nolix.coreapi.datamodel.entityrequest;
  * @version 2023-08-25
  */
 public interface AbstractnessRequestable {
-
   /**
    * @return true if the current {@link AbstractnessRequestable} is abstract,
    *         false otherwise.

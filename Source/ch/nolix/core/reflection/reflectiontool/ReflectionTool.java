@@ -15,7 +15,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 
 public final class ReflectionTool {
-
   private static final ClassTool CLASS_TOOL = new ClassTool();
 
   private static final MemberExaminer MEMBER_EXAMINER = new MemberExaminer();
@@ -44,12 +43,10 @@ public final class ReflectionTool {
   }
 
   public static Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
-
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     var localClass = object.getClass();
     while (localClass != null) {
-
       for (final var f : localClass.getDeclaredFields()) {
         final var fieldValue = getStoredValueOfField(object, f);
         if (fieldValue == value) {

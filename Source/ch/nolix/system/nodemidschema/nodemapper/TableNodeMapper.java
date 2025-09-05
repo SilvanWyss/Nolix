@@ -13,13 +13,11 @@ import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
  * @version 2021-09-12
  */
 public final class TableNodeMapper implements ITableNodeMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public INode<?> mapTableDtoToNode(final TableDto tableDto) {
-
     final ILinkedList<INode<?>> childNodes = LinkedList.createEmpty();
 
     final var idNode = TableNodeComponentMapper.mapTableDtoToIdNode(tableDto);

@@ -5,7 +5,6 @@ import java.util.UUID;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 public final class IdCreator {
-
   private IdCreator() {
   }
 

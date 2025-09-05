@@ -15,7 +15,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @param <S> is the type of a {@link IAbstractStyle}.
  */
 public interface IAbstractStyle<S extends IAbstractStyle<S>> extends IElement {
-
   /**
    * Applies the current {@link IAbstractStyle} to the given element.
    * 

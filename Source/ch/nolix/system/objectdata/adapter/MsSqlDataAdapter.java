@@ -10,7 +10,6 @@ import ch.nolix.system.sqlmiddata.adapter.MsSqlDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 public final class MsSqlDataAdapter extends AbstractDataAdapter {
-
   private final IResourcePool<? extends ISqlConnection> sqlConnectionPool;
 
   MsSqlDataAdapter(
@@ -45,7 +44,6 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
     final IEntityTypeSet entityTypeSet,
     final IResourcePool<? extends ISqlConnection> sqlConnectionPool,
     final ISqlConnection sqlConnection) {
-
     super(
       databaseName,
       entityTypeSet,

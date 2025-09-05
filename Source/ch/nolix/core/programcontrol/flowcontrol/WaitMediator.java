@@ -8,7 +8,6 @@ import ch.nolix.coreapi.programcontrol.flowcontrol.IWaitMediator;
  * @version 2020-08-15
  */
 public final class WaitMediator implements IWaitMediator {
-
   /**
    * @return a {@link FlowControllerMediator}.
    */

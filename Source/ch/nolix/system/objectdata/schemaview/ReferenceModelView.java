@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public final class ReferenceModelView<E extends IEntity> extends AbstractBaseReferenceModelView<E> {
-
   private ReferenceModelView(final IContainer<? extends ITable<E>> referenceableTables) {
     super(referenceableTables);
   }

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
-
   @Override
   public HtmlElement createHtmlElementForControl(final ITextbox textbox) {
     return HtmlElement.withTypeAndAttributes(

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITitleHolder;
  * @version 2023-02-09
  */
 public interface IMutableTitleHolder extends ITitleHolder {
-
   /**
    * Sets the title of the current {@link IMutableTitleHolder}.
    * 

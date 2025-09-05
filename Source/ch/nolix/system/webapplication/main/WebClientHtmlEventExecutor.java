@@ -9,14 +9,12 @@ import ch.nolix.systemapi.webapplication.component.RefreshBehavior;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class WebClientHtmlEventExecutor {
-
   public void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
     final IControl<?, ?> triggeredControl,
     final String htmlEvent,
     final BooleanSupplier openStateRequester,
     final Runnable guiUpdater,
     final Consumer<IControl<?, ?>> controlUpdater) {
-
     final var gui = triggeredControl.getStoredParentGui();
     final var originalLayerCount = gui.getLayerCount();
 
@@ -37,7 +35,6 @@ public final class WebClientHtmlEventExecutor {
   }
 
   private Optional<IControl<?, ?>> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
-
     if (control.isLinkedToAnObject()
     && control.getStoredLinkedObjects().getStoredFirst() instanceof final IComponent component) {
       return Optional.of(component);
@@ -54,7 +51,6 @@ public final class WebClientHtmlEventExecutor {
     final IControl<?, ?> triggeredControl,
     final int originalLayerCount,
     final BooleanSupplier openStateRequester) {
-
     if (!openStateRequester.getAsBoolean()) {
       return RefreshBehavior.DO_NOT_REFRESH_ANYTHING;
     }
@@ -74,7 +70,6 @@ public final class WebClientHtmlEventExecutor {
   }
 
   private IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {
-
     final var componentContainer = getOptionalStoredParentComponentOfControl(triggeredControl);
 
     return componentContainer.orElse(triggeredControl);

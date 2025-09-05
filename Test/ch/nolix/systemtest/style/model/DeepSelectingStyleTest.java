@@ -7,10 +7,8 @@ import ch.nolix.system.style.model.DeepSelectingStyle;
 import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
 
 final class DeepSelectingStyleTest extends StandardTest {
-
   @Test
   void testCase_getSpecification_whenHasSelectorIdAndContainsAttachingeAttributes() {
-
     //setup
     final var testUnit = //
     new DeepSelectingStyle()
@@ -28,7 +26,6 @@ final class DeepSelectingStyleTest extends StandardTest {
 
   @Test
   void testCase_getSpecification_whenHasSelectorRoleAndContainsAttachingeAttributes() {
-
     //setup
     final var testUnit = //
     new DeepSelectingStyle()
@@ -46,7 +43,6 @@ final class DeepSelectingStyleTest extends StandardTest {
 
   @Test
   void testCase_selectsChildElements() {
-
     //setup
     final var testUnit = new DeepSelectingStyle();
 
@@ -59,7 +55,6 @@ final class DeepSelectingStyleTest extends StandardTest {
 
   @Test
   void testCase_skipsChildElements() {
-
     //setup
     final var testUnit = new DeepSelectingStyle();
 

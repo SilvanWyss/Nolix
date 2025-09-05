@@ -11,10 +11,8 @@ import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
 final class EntityQueryCreatorTest extends StandardTest {
-
   @Test
   void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {
-
     //setup
     final var testUnit = new EntityQueryCreator();
 
@@ -29,7 +27,6 @@ final class EntityQueryCreatorTest extends StandardTest {
 
   @Test
   void testCase_createQueryToLoadEntitiesOfTable() {
-
     //setup
     final var testUnit = new EntityQueryCreator();
     final var tableView = new TableViewDto(
@@ -49,7 +46,6 @@ final class EntityQueryCreatorTest extends StandardTest {
 
   @Test
   void testCase_createQueryToLoadEntity() {
-
     //setup
     final var testUnit = new EntityQueryCreator();
     final var tableView = new TableViewDto(
@@ -69,7 +65,6 @@ final class EntityQueryCreatorTest extends StandardTest {
 
   @Test
   void testCase_createQueryToLoadSchemaTimestamp() {
-
     //setup
     final var testUnit = new EntityQueryCreator();
 

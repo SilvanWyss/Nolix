@@ -15,7 +15,6 @@ import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameType;
 
 public final class WebSocketFrame {
-
   private static final int MASK_LENGTH_IN_BYTES = 4;
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
@@ -33,7 +32,6 @@ public final class WebSocketFrame {
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
     final byte[] payload) {
-
     Validator.assertThat(payload).thatIsNamed("payload").isNotNull();
 
     firstNibble = new WebSocketFrameFirstNibble(
@@ -57,7 +55,6 @@ public final class WebSocketFrame {
 
   public WebSocketFrame(final InputStream inputStream) {
     try {
-
       firstNibble = WebSocketFrameFirstNibble.fromNibble(inputStream.readNBytes(2));
       payloadLength = calculatePayloadLength(inputStream);
 
@@ -84,7 +81,6 @@ public final class WebSocketFrame {
   }
 
   public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
-
     if (!pingFrame.isPingFrame()) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -97,7 +93,6 @@ public final class WebSocketFrame {
   }
 
   public WebSocketFrame createPongFrame() {
-
     if (!isPingFrame()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a ping frame");
     }
@@ -110,7 +105,6 @@ public final class WebSocketFrame {
   }
 
   public WebSocketFrameType getFrameType() {
-
     if (isControlFrame()) {
       return WebSocketFrameType.CONTROL_FRAME;
     }
@@ -123,7 +117,6 @@ public final class WebSocketFrame {
   }
 
   public BigDecimal getLengthInBytes() {
-
     var byteRepresentationLength = BigDecimal.valueOf(2);
 
     switch (getPayloadLengthType()) {
@@ -150,7 +143,6 @@ public final class WebSocketFrame {
   }
 
   public int getMaskLength() {
-
     if (masksPayload()) {
       return MASK_LENGTH_IN_BYTES;
     }
@@ -209,7 +201,6 @@ public final class WebSocketFrame {
   }
 
   public byte[] toBytes() {
-
     final var bytes = new byte[getLengthInBytes().intValue()];
 
     bytes[0] = firstNibble.getByte1();
@@ -266,7 +257,6 @@ public final class WebSocketFrame {
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs16Bits(
     final InputStream inputStream)
   throws IOException {
-
     final var headerNext2Bytes = inputStream.readNBytes(2);
 
     return new WebSocketFramePayloadLength(
@@ -277,7 +267,6 @@ public final class WebSocketFrame {
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs64Bits(
     final InputStream inputStream)
   throws IOException {
-
     final var headerNext8Bytes = inputStream.readNBytes(8);
 
     return new WebSocketFramePayloadLength(

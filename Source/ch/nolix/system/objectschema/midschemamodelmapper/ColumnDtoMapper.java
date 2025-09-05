@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
  * @version 2024-12-18
  */
 public final class ColumnDtoMapper implements IColumnDtoMapper {
-
   private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   /**
@@ -18,7 +17,6 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    */
   @Override
   public ColumnDto mapColumnToMidSchemaColumnDto(final IColumn column) {
-
     final var id = column.getId();
     final var name = column.getName();
     final var contentModel = column.getContentModel();

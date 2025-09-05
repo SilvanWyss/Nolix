@@ -13,7 +13,6 @@ import ch.nolix.coreapi.datastructure.pair.IPair;
  * @param <E2> is the type of the element 2 of a {@link Pair}.
  */
 public final class Pair<E1, E2> implements IPair<E1, E2> {
-
   private final E1 element1;
 
   private final E2 element2;
@@ -27,7 +26,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
    * @throws ArgumentIsNullException if the given element 2 is null.
    */
   public Pair(final E1 element1, final E2 element2) {
-
     //Asserts that the given element 1 is not null.
     Validator.assertThat(element1).thatIsNamed("element 1").isNotNull();
 

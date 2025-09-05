@@ -12,7 +12,6 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
  * @version 2017-01-01
  */
 public final class FunctionService {
-
   private static final double ZERO = 0.0;
 
   private static final double ONE = 1.0;
@@ -55,7 +54,6 @@ public final class FunctionService {
    * @return the hash code of the given object.
    */
   public static int getHashCode(final Object object) {
-
     if (object == null) {
       return 0;
     }
@@ -91,7 +89,6 @@ public final class FunctionService {
    * @return the {@link String} representation of the given object.
    */
   public static String getStringRepresentationOf(final Object object) {
-
     if (object == null) {
       return StringCatalog.NULL_HEADER;
     }

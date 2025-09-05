@@ -11,7 +11,6 @@ import java.util.function.ToLongFunction;
  * @param <E> is the type of the elements a {@link ArrayMappable}.
  */
 public interface ArrayMappable<E> {
-
   /**
    * @return a new array with the elements of the current {@link ArrayMappable}.
    */

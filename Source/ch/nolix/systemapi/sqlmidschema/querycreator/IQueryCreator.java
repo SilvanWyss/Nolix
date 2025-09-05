@@ -5,7 +5,6 @@ package ch.nolix.systemapi.sqlmidschema.querycreator;
  * @version 2024-12-19
  */
 public interface IQueryCreator {
-
   /**
    * @return a query to get number of tables.
    */

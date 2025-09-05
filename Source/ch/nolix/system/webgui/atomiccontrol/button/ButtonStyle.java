@@ -4,7 +4,6 @@ import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButtonStyle;
 
 public final class ButtonStyle extends AbstractControlStyle<IButtonStyle> implements IButtonStyle {
-
   public ButtonStyle() {
     initialize();
   }

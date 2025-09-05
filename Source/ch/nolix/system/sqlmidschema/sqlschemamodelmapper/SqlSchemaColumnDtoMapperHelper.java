@@ -8,13 +8,11 @@ import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnConstraintDto;
 
 public final class SqlSchemaColumnDtoMapperHelper {
-
   private SqlSchemaColumnDtoMapperHelper() {
   }
 
   public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToMainSqlSchemaColumnDto(
     final ColumnDto columnDto) {
-
     final var columnName = columnDto.name();
     final var dataType = DataTypeTypeCatalog.TEXT;
     final IContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
@@ -24,7 +22,6 @@ public final class SqlSchemaColumnDtoMapperHelper {
 
   public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToReferenceSqlSchemaColumnDto(
     final ColumnDto columnDto) {
-
     final var columnName = columnDto.name() + StringCatalog.DOLLAR + "ReferencedTableId";
     final var dataType = DataTypeTypeCatalog.TEXT;
     final IContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();

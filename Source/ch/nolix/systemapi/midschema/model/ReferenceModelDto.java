@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public record ReferenceModelDto(DataType dataType, IContainer<String> referenceableTableIds)
 implements IBaseReferenceModelDto {
-
   @Override
   public FieldType getFieldType() {
     return FieldType.REFERENCE;

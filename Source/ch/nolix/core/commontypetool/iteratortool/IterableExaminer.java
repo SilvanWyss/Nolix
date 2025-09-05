@@ -3,7 +3,6 @@ package ch.nolix.core.commontypetool.iteratortool;
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableExaminer;
 
 public final class IterableExaminer implements IIterableExaminer {
-
   @Override
   public boolean containsAny(final Iterable<?> iterable) {
     return //

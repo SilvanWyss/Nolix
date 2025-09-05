@@ -14,7 +14,6 @@ IGuiComponent<IWebGui<?>>,
 IHtmlGetter,
 IRootControlOwner<L>,
 IStylableElement<L> {
-
   boolean containsControl(IControl<?, ?> control);
 
   ContentAlignment getContentAlignment();

@@ -36,7 +36,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
  */
 public abstract class AbstractContainer<E> //NOSONAR: An AbstractContainer is a principal object thus it has many methods.
 implements IContainer<E> {
-
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractContainer} contains n elements.
@@ -45,13 +44,10 @@ implements IContainer<E> {
    */
   @Override
   public final boolean contains(final Object object) {
-
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is the given object.
       if (e == object) {
-
         //Returns true.
         return true;
       }
@@ -72,16 +68,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAll(final Iterable<?> objects) {
-
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
-
       //Handles the case that the current Container does not contain the current object.
       if (!contains(o)) {
-
         //Returns false.
         return false;
       }
@@ -102,7 +95,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAll(final Object object, final Object... objects) {
-
     //Calls other methods.
     return //
     contains(object)
@@ -120,16 +112,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAll(final Object[] objects) {
-
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
-
       //Handles the case that the current Container does not contain the given object.
       if (!contains(o)) {
-
         //Returns false.
         return false;
       }
@@ -147,16 +136,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAny(final Predicate<E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Returns true.
         return true;
       }
@@ -177,7 +163,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAny(final Object object, final Object... objects) {
-
     //Calls other methods.
     return //
     contains(object)
@@ -195,16 +180,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAnyOf(final Iterable<?> objects) {
-
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
-
       //Handles the case that the current Container contains the current object.
       if (contains(o)) {
-
         //Returns true.
         return true;
       }
@@ -225,16 +207,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAnyOf(final Object[] objects) {
-
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
-
       //Handles the case that the current Container contains the current object.
       if (contains(o)) {
-
         //Returns true.
         return true;
       }
@@ -252,7 +231,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAsManyAs(Iterable<?> iterable) {
-
     //Handles the case that the given iterable is a IContainer.
     if (iterable instanceof final IContainer<?> container) {
       return (getCount() == container.getCount());
@@ -270,13 +248,10 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsEqualing(final Object element) {
-
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element equals the given element.
       if (e.equals(element)) {
-
         //Returns true.
         return true;
       }
@@ -297,7 +272,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsExactlyEqualingInSameOrder(final Iterable<?> iterable) {
-
     //Handles the case that the given iterable is null.
     if (iterable == null) {
       return isEmpty();
@@ -315,7 +289,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsExactlyInSameOrder(final Iterable<?> iterable) {
-
     //Handles the case that the given iterable is null.
     if (iterable == null) {
       return isEmpty();
@@ -333,7 +306,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsLessThan(final Iterable<?> iterable) {
-
     //Handles the case that the given iterable is a IContainer.
     if (iterable instanceof final IContainer<?> container) {
       return (getCount() < container.getCount());
@@ -351,7 +323,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsMoreThan(final Iterable<?> iterable) {
-
     //Handles the case that the given container is a IContainer.
     if (iterable instanceof final IContainer<?> container) {
       return (getCount() > container.getCount());
@@ -369,7 +340,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNone(final Predicate<E> selector) {
-
     //Calls other method.
     return !containsAny(selector);
   }
@@ -385,7 +355,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNone(final Object object, final Object... objects) {
-
     //Calls other method.
     return !containsAny(object, objects);
   }
@@ -401,7 +370,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNoneOf(final Iterable<?> elements) {
-
     //Calls other method.
     return !containsAnyOf(elements);
   }
@@ -414,16 +382,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOnce(final Object object) {
-
     //Initializes found.
     var found = false;
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is the given object.
       if (e == object) {
-
         //Handles the case that the given object is already found.
         if (found) {
           return false;
@@ -446,7 +411,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOne() {
-
     //Creates iterator.
     final var iterator = iterator();
 
@@ -468,7 +432,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOne(final Predicate<E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -477,13 +440,10 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Handles the case the given selector selected already another element.
         if (found) {
-
           //Returns false.
           return false;
         }
@@ -505,19 +465,15 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOneEqualing(final E object) {
-
     //Initializes found.
     var found = false;
 
     //Iterates the current container.
     for (final var e : this) {
-
       //Handles the case that the current element equals he given object..
       if (Objects.equals(e, object)) {
-
         //Handles the case that an element that equals the given object is already found.
         if (found) {
-
           //Returns false.
           return false;
         }
@@ -539,16 +495,13 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOnly(final Predicate<E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is null or the given selector does not select the current element.
       if (e == null || !selector.test(e)) {
-
         //Returns false.
         return false;
       }
@@ -566,7 +519,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getAverage(final Function<E, Number> valueMapper) {
-
     //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
@@ -588,13 +540,10 @@ implements IContainer<E> {
    */
   @Override
   public final double getAverageOrZero(final Function<E, Number> mapper) {
-
     //Handles the case that the current Container is empty.
     if (isEmpty()) {
-
       //Asserts that the given mapper is not null.
       if (mapper == null) {
-
         //Creates and throws a new ArgumentIsNullException. 
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MAPPER);
       }
@@ -615,7 +564,6 @@ implements IContainer<E> {
    */
   @Override
   public final int getCount(final Predicate<E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -624,10 +572,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Increments the count.
         count++;
       }
@@ -645,16 +591,13 @@ implements IContainer<E> {
    */
   @Override
   public final int getCountOf(final Object element) {
-
     //Initializes count.
     var count = 0;
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is the given element.
       if (e == element) {
-
         //Increments the count.
         count++;
       }
@@ -672,7 +615,6 @@ implements IContainer<E> {
    */
   @Override
   public final int getOneBasedIndexOfFirst(final Predicate<E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -681,10 +623,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Returns the localOneBasedIndex.
         return localOneBasedIndex;
       }
@@ -705,16 +645,13 @@ implements IContainer<E> {
    */
   @Override
   public final int getOneBasedIndexOfFirstEqualElement(final Object object) {
-
     //Initializes localOneBasedIndex.
     var localOneBasedIndex = 1;
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element equals the given object.
       if (Objects.equals(e, object)) {
-
         //Returns the localOneBasedIndex.
         return localOneBasedIndex;
       }
@@ -738,13 +675,11 @@ implements IContainer<E> {
    */
   @Override
   public final int getOneBasedIndexOfFirstOccurrenceOf(final Object object) {
-
     //Initializes localOneBasedIndex.
     var localOneBasedIndex = 1;
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is the given object.
       if (e == object) {
         return localOneBasedIndex;
@@ -766,7 +701,6 @@ implements IContainer<E> {
    */
   @Override
   public final <C extends Comparable<C>> C getMax(final Function<E, C> comparableMapper) {
-
     //Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
@@ -775,16 +709,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
         //Handles the case that max is null or the Comparable of the current element is bigger than max.
         if (max == null || comparable.compareTo(max) > 0) {
-
           //Sets max as the Comparable of the current element.
           max = comparable;
         }
@@ -793,7 +724,6 @@ implements IContainer<E> {
 
     //Handles the case that max is null.
     if (max == null) {
-
       //Creates and throws a new InvalidArgumentException.
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
     }
@@ -810,7 +740,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getMaxOrZero(Function<E, Number> numberMapper) {
-
     //Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
@@ -819,16 +748,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the number of the current element.
         final var number = numberMapper.apply(e).doubleValue();
 
         //Handles the case that max is null or the number of the current element is bigger than max.
         if (max == null || number > max) {
-
           //Sets max as the number of the current element..
           max = number;
         }
@@ -837,7 +763,6 @@ implements IContainer<E> {
 
     //Handles the case that max is null.
     if (max == null) {
-
       //Returns 0.0.
       return 0.0;
     }
@@ -854,7 +779,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getMedian(final Function<E, Number> numberMapper) {
-
     //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
@@ -869,7 +793,6 @@ implements IContainer<E> {
 
     //Handles the case that the number of values is even.
     if (valueCount % 2 == 0) {
-
       //Calculates the preMedianIndex.
       final var preMedianIndex = valueCount / 2;
 
@@ -901,7 +824,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getMedianOrZero(Function<E, Number> norm) {
-
     //Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;
@@ -919,7 +841,6 @@ implements IContainer<E> {
    */
   @Override
   public final <C extends Comparable<C>> C getMin(final Function<E, C> comparableMapper) {
-
     //Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
@@ -928,16 +849,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
         //Handles the case that min is null or the Comparable of the current element is smaller than min.
         if (min == null || comparable.compareTo(min) < 0) {
-
           //Sets min as the Comparable of the current element.
           min = comparable;
         }
@@ -946,7 +864,6 @@ implements IContainer<E> {
 
     //Handles the case that min is null.
     if (min == null) {
-
       //Creates and throws a new InvalidArgumentException.
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
     }
@@ -960,7 +877,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getMinOrZero(final Function<E, Number> numberMapper) {
-
     //Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
@@ -969,16 +885,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the number of the current element.
         final var number = numberMapper.apply(e).doubleValue();
 
         //Handles the case that min is null or the number of the current element is smaller than min.
         if (min == null || number < min) {
-
           //Sets min as the number of the current element..
           min = number;
         }
@@ -987,7 +900,6 @@ implements IContainer<E> {
 
     //Handles the case that min is null.
     if (min == null) {
-
       //Returns 0.0.
       return 0.0;
     }
@@ -1004,13 +916,11 @@ implements IContainer<E> {
    */
   @Override
   public final Optional<E> getOptionalStoredFirst() {
-
     //Creates iterator.
     final var iterator = iterator();
 
     //Handles the case that the iterator has a next element.
     if (iterator.hasNext()) {
-
       //Creates and returns a new Optional with the next element of the iterator.
       return Optional.ofNullable(iterator.next());
     }
@@ -1027,16 +937,13 @@ implements IContainer<E> {
    */
   @Override
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Creates an returns a new Optional with the current element.
         return Optional.of(e);
       }
@@ -1054,7 +961,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getStandardDeviation(final Function<E, Number> norm) {
-
     //Calculates the variance.
     final var variance = getVariance(norm);
 
@@ -1070,7 +976,6 @@ implements IContainer<E> {
    */
   @Override
   public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> comparableMapper) {
-
     //Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
@@ -1082,16 +987,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
         //Handles the case that max is null or the Comparable of the current element is bigger than comparebleOfMax.
         if (max == null || comparable.compareTo(comparebleOfMax) > 0) {
-
           //Sets max as the the current element.
           max = e;
 
@@ -1118,7 +1020,6 @@ implements IContainer<E> {
    */
   @Override
   public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> comparableMapper) {
-
     //Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
@@ -1130,16 +1031,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
         //Handles the case that min is null or the Comparable of the current element is smaller than comparebleOfMin.
         if (min == null || comparable.compareTo(comparebleOfMin) < 0) {
-
           //Sets min as the the current element.
           min = e;
 
@@ -1166,13 +1064,11 @@ implements IContainer<E> {
    */
   @Override
   public final E getStoredFirst() {
-
     //Creates iterator.
     final var iterator = iterator();
 
     //Handles the case that the iterator has a next element.
     if (iterator.hasNext()) {
-
       //Returns the next element of the iterator.
       return iterator.next();
     }
@@ -1189,10 +1085,8 @@ implements IContainer<E> {
    */
   @Override
   public final E getStoredFirst(final Predicate<? super E> selector) {
-
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
         return e;
@@ -1211,7 +1105,6 @@ implements IContainer<E> {
   @Override
   @SuppressWarnings("unchecked")
   public final <E2 extends E> E2 getStoredFirstOfType(final Class<E2> type) {
-
     //Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
@@ -1231,7 +1124,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<? extends IContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
-
     //Asserts that the given norm is not null.
     Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
@@ -1240,10 +1132,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Gets the groupKey of the current element.
         final var groupKey = norm.apply(e);
 
@@ -1253,7 +1143,6 @@ implements IContainer<E> {
 
         //Handles the case that the optionalGroup of the current element does not exist.
         if (optionalGroup.isEmpty()) {
-
           //Creates group for the current element.
           final var group = createEmptyMutableList(new Marker<E>());
 
@@ -1265,7 +1154,6 @@ implements IContainer<E> {
 
           //Handles the case that the optionalGroup of the current element exists. 
         } else {
-
           //Adds the current element to the group for the current element.
           optionalGroup.get().addAtEnd(e);
         }
@@ -1284,7 +1172,6 @@ implements IContainer<E> {
    */
   @Override
   public final E getStoredLast() {
-
     //Calls other method.
     return getStoredAtOneBasedIndex(getCount());
   }
@@ -1298,7 +1185,6 @@ implements IContainer<E> {
   @Override
   @SuppressWarnings("unchecked")
   public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
-
     //Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
@@ -1314,7 +1200,6 @@ implements IContainer<E> {
    */
   @Override
   public final E getStoredOne() {
-
     //Enumerates the element count of the current Container.
     return switch (getCount()) {
       case 0 ->
@@ -1334,7 +1219,6 @@ implements IContainer<E> {
    */
   @Override
   public final E getStoredOne(final Predicate<? super E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1343,10 +1227,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Handles the case that the given selector selected already an element.
         if (selectedElement != null) {
           throw //
@@ -1380,7 +1262,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1389,13 +1270,11 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       /*
        * Handles the case that the current element is not null and the given selector
        * does not select the current element.
        */
       if (e != null && !selector.test(e)) {
-
         //Adds the current element to the otherElements.
         otherElements.addAtEnd(e);
       }
@@ -1413,7 +1292,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
-
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1422,10 +1300,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-
         //Adds the current element to the selectedElements.
         selectedElements.addAtEnd(e);
       }
@@ -1444,7 +1320,6 @@ implements IContainer<E> {
    */
   @Override
   public final BigDecimal getSum(final Function<E, Number> valueMapper) {
-
     //Asserts that the given valueMapper is not null.
     Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
 
@@ -1453,10 +1328,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Adds the value the given valueMapper maps from the current element to the sum.
         sum = sum.add(BigDecimal.valueOf(valueMapper.apply(e).doubleValue()));
       }
@@ -1474,7 +1347,6 @@ implements IContainer<E> {
    */
   @Override
   public final BigInteger getSumOfInts(final ToIntFunction<E> intMapper) {
-
     //Asserts that the given intMapper is not null.
     Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
@@ -1483,10 +1355,8 @@ implements IContainer<E> {
 
     //Iterates the current container.
     for (final var e : this) {
-
       //Handles the case that the current element is not null.
       if (e != null) {
-
         //Adds the int the given intMapper maps from the current element to the sum.
         sum = sum.add(BigInteger.valueOf(intMapper.applyAsInt(e)));
       }
@@ -1504,7 +1374,6 @@ implements IContainer<E> {
    */
   @Override
   public final double getVariance(final Function<E, Number> numberMapper) {
-
     //Calculates the average.
     final var average = getAverage(numberMapper);
 
@@ -1513,7 +1382,6 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Initializes number.
       var number = 0.0;
 
@@ -1558,7 +1426,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
-
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(oneBasedStartIndex, getCount());
   }
@@ -1570,7 +1437,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
-
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, oneBasedEndIndex);
   }
@@ -1582,7 +1448,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewWithoutFirst() {
-
     //Calls other method.
     return getViewWithoutFirst(1);
   }
@@ -1594,7 +1459,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewWithoutFirst(final int n) {
-
     //Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
@@ -1603,7 +1467,6 @@ implements IContainer<E> {
 
     //Handles the case that the current Container contains more than n elements.
     if (count > n) {
-
       //Creates and returns a new view IContainer.
       return getViewFromOneBasedStartIndexToOneBasedEndIndex(n + 1, count);
     }
@@ -1619,7 +1482,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewWithoutLast() {
-
     //Calls other method.
     return getViewWithoutLast(1);
   }
@@ -1631,7 +1493,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> getViewWithoutLast(final int n) {
-
     //Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
@@ -1640,7 +1501,6 @@ implements IContainer<E> {
 
     //Handles the case that the current Container contains more than n elements.
     if (count > 0) {
-
       //Creates and returns a new view IContainer.
       return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, count - n);
     }
@@ -1659,7 +1519,6 @@ implements IContainer<E> {
    */
   @Override
   public final boolean isEmpty() {
-
     for (final var e : this) {
       if (e != null) {
         return false;
@@ -1678,7 +1537,6 @@ implements IContainer<E> {
    */
   @Override
   public final <E2> IContainer<E2> to(final Function<E, E2> mapper) {
-
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
@@ -1687,10 +1545,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Asserts that the current element is not null.
       if (e == null) {
-
         //Creates and throws a ArgumentIsNullException.
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
       }
@@ -1714,7 +1570,6 @@ implements IContainer<E> {
    */
   @Override
   public final Object[] toArray() {
-
     //Creates array.
     final var array = new Object[getCount()];
 
@@ -1723,7 +1578,6 @@ implements IContainer<E> {
 
     //Iterates the current container.
     for (final var e : this) {
-
       //Sets the field of the array at the current index to the current element.
       array[index] = e;
 
@@ -1743,7 +1597,6 @@ implements IContainer<E> {
    */
   @Override
   public final byte[] toByteArray(final Function<E, Byte> byteMapper) {
-
     //Asserts that the given byteMapper is not null.
     Validator.assertThat(byteMapper).thatIsNamed("byte mapper").isNotNull();
 
@@ -1753,7 +1606,6 @@ implements IContainer<E> {
     //Fills up the array.
     var index = 0;
     for (final var e : this) {
-
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0;
@@ -1778,7 +1630,6 @@ implements IContainer<E> {
    */
   @Override
   public final char[] toCharArray(final Function<E, Character> charMapper) {
-
     //Asserts that the given charMapper is not null.
     Validator.assertThat(charMapper).thatIsNamed("char mapper").isNotNull();
 
@@ -1788,7 +1639,6 @@ implements IContainer<E> {
     //Fills up the array.
     var index = 0;
     for (final var e : this) {
-
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = CharacterCatalog.SPACE;
@@ -1813,7 +1663,6 @@ implements IContainer<E> {
    */
   @Override
   public final String toConcatenatedString() {
-
     final var stringBuilder = new StringBuilder();
 
     for (final var e : this) {
@@ -1831,7 +1680,6 @@ implements IContainer<E> {
    */
   @Override
   public final double[] toDoubleArray(final ToDoubleFunction<E> doubleMapper) {
-
     //Asserts that the given doubleMapper is not null.
     Validator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
 
@@ -1841,7 +1689,6 @@ implements IContainer<E> {
     //Fills up the array.
     var index = 0;
     for (final var e : this) {
-
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0.0;
@@ -1866,7 +1713,6 @@ implements IContainer<E> {
    */
   @Override
   public final int[] toIntArray(final ToIntFunction<E> intMapper) {
-
     //Asserts that the given intMapper is not null.
     Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
@@ -1876,7 +1722,6 @@ implements IContainer<E> {
     //Fills up the array.
     var index = 0;
     for (final var e : this) {
-
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0;
@@ -1902,7 +1747,6 @@ implements IContainer<E> {
    */
   @Override
   public final long[] toLongArray(final ToLongFunction<E> longMapper) {
-
     //Asserts that the given longMapper is not null.
     Validator.assertThat(longMapper).thatIsNamed("long mapper").isNotNull();
 
@@ -1912,7 +1756,6 @@ implements IContainer<E> {
     //Fills up the array.
     var index = 0;
     for (final var e : this) {
-
       //Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0L;
@@ -1941,7 +1784,6 @@ implements IContainer<E> {
    */
   @Override
   public final <E2> IContainer<E2> toMultiples(final Function<E, IContainer<E2>> multipleMapper) {
-
     //Asserts that the given multipleMapper is not null.
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
@@ -1950,10 +1792,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Asserts that the current element is not null.
       if (e == null) {
-
         //Creates and throws a ArgumentIsNullException.
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
       }
@@ -1974,7 +1814,6 @@ implements IContainer<E> {
    */
   @Override
   public <N extends Number> IContainer<N> toNumbers(final Function<E, N> numberMapper) {
-
     //Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 
@@ -1987,16 +1826,13 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the current element is null.
       if (e == null) {
-
         //Adds zero to numbers.
         numbers.addAtEnd(zero);
 
         //Handles the case that the current element is not null.
       } else {
-
         //Adds the Numebr the given numberMapper maps from the current element.
         numbers.addAtEnd(numberMapper.apply(e));
       }
@@ -2014,7 +1850,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<E> toReversedList() {
-
     final var reversedList = createEmptyMutableList(new Marker<E>());
 
     @SuppressWarnings("unchecked")
@@ -2040,7 +1875,6 @@ implements IContainer<E> {
    */
   @Override
   public final String[] toStringArray() {
-
     final var stringArray = new String[getCount()];
 
     //Iterates the elements of the current Container.
@@ -2061,7 +1895,6 @@ implements IContainer<E> {
    */
   @Override
   public final IContainer<String> toStrings() {
-
     //Creates list.
     final var list = createEmptyMutableList(new Marker<String>());
 
@@ -2081,7 +1914,6 @@ implements IContainer<E> {
    */
   @Override
   public final String toStringWithSeparator(final char separator) {
-
     //Calls other method.
     return toStringWithSeparator(String.valueOf(separator));
   }
@@ -2094,7 +1926,6 @@ implements IContainer<E> {
    */
   @Override
   public final String toStringWithSeparator(final String separator) {
-
     //Enumerates the element count of the current Container.
     return switch (getCount()) {
       case 0 ->
@@ -2115,7 +1946,6 @@ implements IContainer<E> {
    */
   @Override
   public final <E2> IContainer<E2> toWithOneBasedIndex(final BiFunction<Integer, E, E2> mapper) {
-
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
@@ -2127,10 +1957,8 @@ implements IContainer<E> {
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Asserts that the current element is not null.
       if (e == null) {
-
         //Creates and throws a ArgumentIsNullException.
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
       }
@@ -2176,16 +2004,13 @@ implements IContainer<E> {
    *         false otherwise, for the case that the given iterable is not null.
    */
   private boolean containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
-
     //Gets a new iterator from the given iterable.
     var iterator = iterable.iterator();
 
     //Iterates the current Container.
     for (final var e : this) {
-
       //Handles the case that the iterator has a next.
       if (iterator.hasNext()) {
-
         //Handles the case that the current element does not equal the next of the iterator.
         if (!Objects.equals(e, iterator.next())) {
           return false;
@@ -2207,19 +2032,16 @@ implements IContainer<E> {
    *         for the case that the given iterable is not null.
    */
   private boolean containsExactlyInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
-
     //Creates iterator.
     final var iterator = iterable.iterator();
 
     //Iterates the current Container.
     for (final var e : this) {
-
       /*
        * Handles the case that the iterator does not have a next element of the
        * current element is not the next element in the given iterable.
        */
       if (!iterator.hasNext() || e != iterator.next()) {
-
         //Returns false.
         return false;
       }
@@ -2240,7 +2062,6 @@ implements IContainer<E> {
    * @throws ArgumentIsNullException if the given separator is null.
    */
   private String toStringWhenContainsSeveralElements(final String separator) {
-
     //Asserts that the given separator is not null.
     Validator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalog.SEPARATOR).isNotNull();
 
@@ -2252,7 +2073,6 @@ implements IContainer<E> {
 
     //Iterates the elements of the current Container without the first element.
     for (final var e : getViewWithoutFirst()) {
-
       //Appends the separator and the String representation of the current element to
       //the StringBuilder.
       stringBuilder.append(separator + e);

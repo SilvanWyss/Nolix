@@ -5,7 +5,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class AndPasswordCaptor<N> extends ArgumentCaptor<String, N> {
-
   public AndPasswordCaptor() {
   }
 
@@ -14,7 +13,6 @@ public class AndPasswordCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N andPassword(final String password) {
-
     Validator.assertThat(password).thatIsNamed(LowerCaseVariableCatalog.PASSWORD).isNotNull();
 
     return setArgumentAndGetNext(password);

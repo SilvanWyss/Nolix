@@ -13,7 +13,6 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class FloatContainerCssBuilder
 extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final FloatContainer floatContainer,

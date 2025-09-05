@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @version 2024-12-18
  */
 public final class TableDtoMapper implements ITableDtoMapper {
-
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   /**
@@ -18,7 +17,6 @@ public final class TableDtoMapper implements ITableDtoMapper {
    */
   @Override
   public TableDto mapTableToTableDto(final ITable table) {
-
     final var id = table.getId();
     final var name = table.getName();
     final var columns = table.getStoredColumns();

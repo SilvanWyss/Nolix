@@ -7,7 +7,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @version 2025-07-30
  */
 public interface IFeature {
-
   /**
    * @return the authorized {@link ILicense} types of the current
    *         {@link IFeature}.

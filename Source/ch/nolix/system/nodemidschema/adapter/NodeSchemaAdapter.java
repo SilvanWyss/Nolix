@@ -8,7 +8,6 @@ import ch.nolix.system.nodemidschema.schemareader.SchemaReader;
 import ch.nolix.system.nodemidschema.schemawriter.SchemaWriter;
 
 public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
-
   private NodeSchemaAdapter(final IMutableNode<?> nodeDatabase) {
     super(
       DatabaseInitializer.forDatabaseNameAndNodeDatabase("database", nodeDatabase),
@@ -17,7 +16,6 @@ public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
   }
 
   public static NodeSchemaAdapter forFileNodeDatabase(final String filePath) {
-
     final var nodeDatabase = new FileNode(filePath);
 
     return new NodeSchemaAdapter(nodeDatabase);

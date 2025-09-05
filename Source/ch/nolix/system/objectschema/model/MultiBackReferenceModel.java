@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IMultiBackReferenceModel;
 
 public final class MultiBackReferenceModel extends AbstractBaseBackReferenceModel implements IMultiBackReferenceModel {
-
   private MultiBackReferenceModel(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
   }

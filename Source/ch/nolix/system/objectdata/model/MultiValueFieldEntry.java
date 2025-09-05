@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
-
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   private final IMultiValueField<V> parentMultiValue;
@@ -21,7 +20,6 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
     final IMultiValueField<V> parentMultiValue,
     final DatabaseObjectState initialState,
     final V value) {
-
     Validator.assertThat(parentMultiValue).thatIsNamed("parent MultiValue").isNotNull();
     Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
@@ -96,7 +94,6 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
   }
 
   void internalSetDeleted() {
-
     assertIsLoaded();
 
     state = DatabaseObjectState.DELETED;

@@ -5,7 +5,6 @@ package ch.nolix.systemapi.webgui.itemmenu.baseapi;
  * @version 2025-02-09
  */
 public interface IItemMenuValidator {
-
   /**
    * @param itemMenu
    * @param item

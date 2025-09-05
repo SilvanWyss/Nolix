@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalOneBasedIndexHolder
  * @version 2025-06-01
  */
 public interface IMutableOptionalOneBasedIndexHolder extends IOptionalOneBasedIndexHolder {
-
   /**
    * Removes the one-based index of the current
    * {@link IMutableOptionalOneBasedIndexHolder}.

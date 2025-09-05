@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IDatabaseNameHolder, IResettableChangeSaver {
-
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
   IDataAdapter insertEntity(IEntity entity);

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.commontypetool.stringtool;
  * @version 2016-10-01
  */
 public final class StringCatalog {
-
   public static final String APOSTROPH = "'";
 
   public static final String AVERAGE = "\u00D8";

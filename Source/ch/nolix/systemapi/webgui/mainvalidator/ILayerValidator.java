@@ -7,7 +7,6 @@ import ch.nolix.systemapi.webgui.main.ILayer;
  * @version 2024-12-19
  */
 public interface ILayerValidator {
-
   /**
    * @param layer
    * @throws RuntimeException if the given layer is null.

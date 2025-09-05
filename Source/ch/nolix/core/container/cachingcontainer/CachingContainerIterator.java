@@ -4,7 +4,6 @@ import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 final class CachingContainerIterator<E> implements CopyableIterator<E> {
-
   private final CopyableIterator<Pair<String, E>> parentCachingContainerIterator;
 
   public CachingContainerIterator(final CopyableIterator<Pair<String, E>> parentCachingContainerIterator) {

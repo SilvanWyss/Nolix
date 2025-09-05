@@ -15,7 +15,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2017-06-04
  */
 final class JobExecutor extends Thread {
-
   private static final JobMerger JOB_MERGER = new JobMerger();
 
   private final Runnable job;
@@ -40,7 +39,6 @@ final class JobExecutor extends Thread {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public JobExecutor(final Runnable job) {
-
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
@@ -62,7 +60,6 @@ final class JobExecutor extends Thread {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public JobExecutor(final Runnable job, final BooleanSupplier condition) {
-
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
@@ -123,7 +120,6 @@ final class JobExecutor extends Thread {
   public JobExecutor(
     final Runnable job,
     final int maxRunCount) {
-
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
@@ -153,7 +149,6 @@ final class JobExecutor extends Thread {
     final Runnable job,
     final int maxRunCount,
     final BooleanSupplier condition) {
-
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
@@ -227,7 +222,6 @@ final class JobExecutor extends Thread {
     final Runnable job,
     final int maxRunCount,
     final int timeIntervalInMilliseconds) {
-
     //Asserts that the given job is not null.
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
@@ -264,7 +258,6 @@ final class JobExecutor extends Thread {
    *                                               an error.
    */
   public Throwable getError() {
-
     //Asserts that the current JobRunner has an error.
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
@@ -327,7 +320,6 @@ final class JobExecutor extends Thread {
    */
   @Override
   public void run() {
-
     //main loop
     while (true) {
       if (!runProbableNextStepAndSayIfRunningMustContinue()) {
@@ -348,7 +340,6 @@ final class JobExecutor extends Thread {
 
   private boolean runProbableNextStepAndSayIfRunningMustContinue() {
     try {
-
       if (reachedProbableMaxRunCount()) {
         return false;
       }

@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.gui.font.Font;
 
 final class FontTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirFonts() {
     return //
@@ -30,7 +29,6 @@ final class FontTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirFonts")
   void testCase_fromSpecification(final INode<?> specification, final Font expectedFont) {
-
     //execution
     final var result = Font.fromSpecification(specification);
 

@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class NameHolderTest extends StandardTest {
-
   @Test
   void testCase_getNameInQuotes() {
-
     //setup
     final var testUnit = MockNameHolder.withName("my_name");
 
@@ -21,7 +19,6 @@ final class NameHolderTest extends StandardTest {
 
   @Test
   void testCase_hasName_whenDoesNotHaveTheGivenName() {
-
     //setup
     final var testUnit = MockNameHolder.withName("my_name");
 
@@ -34,7 +31,6 @@ final class NameHolderTest extends StandardTest {
 
   @Test
   void testCase_hasName_whenHasTheGivenName() {
-
     //setup
     final var testUnit = MockNameHolder.withName("my_name");
 
@@ -47,7 +43,6 @@ final class NameHolderTest extends StandardTest {
 
   @Test
   void testCase_hasSameNameAs_whenDoesNotHaveTheSameName() {
-
     //setup
     final var nameHolder = MockNameHolder.withName("My_name");
     final var testUnit = MockNameHolder.withName("my_name");
@@ -61,7 +56,6 @@ final class NameHolderTest extends StandardTest {
 
   @Test
   void testCase_hasSameNameAs_whenHasTheSameName() {
-
     //setup
     final var nameHolder = MockNameHolder.withName("my_name");
     final var testUnit = MockNameHolder.withName("my_name");

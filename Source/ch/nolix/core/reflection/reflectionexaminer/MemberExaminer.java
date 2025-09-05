@@ -10,7 +10,6 @@ import ch.nolix.coreapi.reflection.reflectionexaminer.IMemberExaminer;
  * @version 2024-07-15
  */
 public final class MemberExaminer implements IMemberExaminer {
-
   /**
    * {@inheritDoc}
    */

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.sqlmidschema.modelmapper.IContentModelDtoMapper;
  * @version 2021-09-02
  */
 public final class ColumnDtoMapper implements IColumnDtoMapper {
-
   private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   /**
@@ -19,7 +18,6 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    */
   @Override
   public ColumnDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
-
     final var id = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX);
     final var name = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX);
     final var contentModel = CONTENT_MODEL_DTO_MAPPER.mapJoinedColumnSqlRecordToColumnDto(joinedColumnSqlRecord);

@@ -5,7 +5,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
 public final class SslServer extends AbstractServer {
-
   public static final String DEFAULT_HTML_PAGE = """
   <!DOCTYPE html>
   <html>
@@ -36,7 +35,6 @@ public final class SslServer extends AbstractServer {
   public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
-
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 

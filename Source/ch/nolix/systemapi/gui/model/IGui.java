@@ -12,7 +12,6 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
  * @param <G> is the type of a {@link IGui}.
  */
 public interface IGui<G extends IGui<G>> extends IFluentMutableTitleHolder<G>, RootRequestable {
-
   /**
    * @return the {@link IFrontEndReader} of the current {@link IGui}.
    */

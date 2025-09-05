@@ -7,7 +7,6 @@ import ch.nolix.core.container.arraylist.ArrayListCapacityCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ArrayListCapacityCalculatorTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "0, 1, 1", //
@@ -33,7 +32,6 @@ final class ArrayListCapacityCalculatorTest extends StandardTest {
     final int actualCapacity,
     final int requiredCapacity,
     final int expectedResult) {
-
     //setup
     final var testUnit = new ArrayListCapacityCalculator();
 

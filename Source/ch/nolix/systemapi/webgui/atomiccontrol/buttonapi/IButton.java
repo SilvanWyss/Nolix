@@ -6,7 +6,6 @@ import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutable
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IButton extends IControl<IButton, IButtonStyle>, IFluentMutableTextHolder<IButton> {
-
   ButtonRole getRole();
 
   boolean hasRole();

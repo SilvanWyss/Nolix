@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuSearcher;
  * @version 2025-02-10
  */
 public final class ItemMenuSearcher implements IItemMenuSearcher {
-
   /**
    * {@inheritDoc}
    */

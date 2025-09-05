@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTokenHolder;
  * @param <H> is the type of a {@link IFluentMutableMultiTokenHolder}.
  */
 public interface IFluentMutableMultiTokenHolder<H extends IFluentMutableMultiTokenHolder<H>> extends IMultiTokenHolder {
-
   /**
    * Adds the given token to the current {@link IFluentMutableMultiTokenHolder}.
    * 

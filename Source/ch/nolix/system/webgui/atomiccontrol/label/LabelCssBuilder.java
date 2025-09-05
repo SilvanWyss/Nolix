@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabelStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILabelStyle> {
-
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ILabel control,

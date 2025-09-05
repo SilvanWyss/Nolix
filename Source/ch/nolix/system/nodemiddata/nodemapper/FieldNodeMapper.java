@@ -17,7 +17,6 @@ import ch.nolix.systemapi.nodemiddata.nodemapper.IFieldNodeMapper;
  * @version 2025-07-26
  */
 public final class FieldNodeMapper implements IFieldNodeMapper {
-
   private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
 
   private static final IContentFieldNodeMapper CONTENT_FIELD_NODE_MAPPER = new ContentFieldNodeMapper();
@@ -30,7 +29,6 @@ public final class FieldNodeMapper implements IFieldNodeMapper {
     final EntityCreationDto entityCreationDto,
     final long saveStamp,
     final TableViewDto tableView) {
-
     final var size = //
     FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + tableView.columnViews().getCount();
 
@@ -43,7 +41,6 @@ public final class FieldNodeMapper implements IFieldNodeMapper {
     attributes[3] = Node.EMPTY_NODE;
 
     for (final var f : entityCreationDto.contentFields()) {
-
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
       final var columnZeroBasedOrdinalIndex = columnView.oneBasedOrdinalIndex() - 1;
 

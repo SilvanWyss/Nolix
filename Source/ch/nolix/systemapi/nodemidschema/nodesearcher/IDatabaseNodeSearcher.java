@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
 public interface IDatabaseNodeSearcher {
-
   String getDatabaseNameFromNodeDatabase(IMutableNode<?> nodeDatabase);
 
   IMutableNode<?> getStoredColumnNodeByColumnIdFromNodeDatabase(IMutableNode<?> nodeDatabase, String columnId);

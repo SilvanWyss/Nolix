@@ -7,10 +7,8 @@ import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class WebSocketHandShakeRequestTest extends StandardTest {
-
   @Test
   void testCase() {
-
     //setup
     final var webSocketHandShakeRequest = new WebSocketHandShakeRequest(
       LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));

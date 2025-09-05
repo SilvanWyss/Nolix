@@ -12,11 +12,9 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 final class PublicConstructorTest {
-
   @Test
   @Disabled
   void testCase_publicConstructorsAreDefaultConstructors() {
-
     //setup
     final var rule = //
     ArchRuleDefinition
@@ -31,10 +29,8 @@ final class PublicConstructorTest {
       .haveModifier(JavaModifier.FINAL)
       .should(
         new ArchCondition<JavaConstructor>("have public constructors only without parameters") {
-
           @Override
           public void check(final JavaConstructor item, final ConditionEvents events) {
-
             final var isDefaultConstructor = item.getParameters().isEmpty();
             final var message = item.getFullName() + " is not a default constructor";
 

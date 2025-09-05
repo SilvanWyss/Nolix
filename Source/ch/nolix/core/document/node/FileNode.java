@@ -17,7 +17,6 @@ import ch.nolix.coreapi.document.node.INode;
  * @version 2017-07-14
  */
 public final class FileNode extends AbstractMutableNode<FileNode> {
-
   private final IMutableNode<?> internalSpecification;
 
   private final FileAccessor fileAccessor;
@@ -32,7 +31,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * @param filePath
    */
   public FileNode(final String filePath) {
-
     //Handles the case that there does not exist a file system item with the given
     //filePath.
     if (!FileSystemAccessor.exists(filePath)) {
@@ -61,7 +59,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * @param internalSpecification
    */
   private FileNode(final FileNode parentFileNode, final IMutableNode<?> internalSpecification) {
-
     //Asserts that the given simple persistent specification is not null.
     Validator
       .assertThat(parentFileNode)
@@ -86,7 +83,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public FileNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-
     internalSpecification.addChildNode(childNode, childNodes);
     save();
 
@@ -98,7 +94,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public FileNode addChildNodeFromString(final String string, final String... strings) {
-
     internalSpecification.addChildNodeFromString(string, strings);
     save();
 
@@ -110,7 +105,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public <N extends INode<?>> FileNode addChildNodes(final Iterable<N> childNodes) {
-
     internalSpecification.addChildNodes(childNodes);
     save();
 
@@ -122,7 +116,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public FileNode addChildNodesFromStrings(final Iterable<String> strings) {
-
     internalSpecification.addChildNodesFromStrings(strings);
     save();
 
@@ -168,7 +161,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public FileNode removeAndGetStoredFirstChildNodeThat(final Predicate<INode<?>> selector) {
-
     final var attribute = internalSpecification.removeAndGetStoredFirstChildNodeThat(selector::test);
     save();
 
@@ -206,7 +198,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public void removeHeader() {
-
     internalSpecification.removeHeader();
 
     save();
@@ -235,7 +226,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    */
   @Override
   public FileNode setHeader(final String header) {
-
     internalSpecification.setHeader(header);
     save();
 
@@ -254,7 +244,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * @return the root {@link FileNode} of the current {@link FileNode}.
    */
   private FileNode getStoredRootFileNode() {
-
     if (!isRootFileNode()) {
       return parentFileNode.getStoredRootFileNode();
     }

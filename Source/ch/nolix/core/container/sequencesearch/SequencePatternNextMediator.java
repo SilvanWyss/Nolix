@@ -18,7 +18,6 @@ import ch.nolix.coreapi.container.sequencesearch.ISequencePatternNextMediator;
  *            {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */
 public final class SequencePatternNextMediator<E> implements ISequencePatternNextMediator<E> {
-
   private final ISequencePattern<E> sequencePattern;
 
   private final int count;
@@ -35,7 +34,6 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @throws NegativeArgumentException if the given count is negative.
    */
   private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
-
     Validator.assertThat(sequencePattern).thatIsNamed(ISequencePattern.class).isNotNull();
     Validator.assertThat(count).thatIsNamed("count").isNotNegative();
 
@@ -66,7 +64,6 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    */
   @Override
   public ISequencePattern<E> withBlank() {
-
     final var blanks = createBlanks(count);
 
     return sequencePattern.withConditionsForNexts(blanks);
@@ -77,7 +74,6 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    */
   @Override
   public ISequencePattern<E> withCondition(final Predicate<E> condition) {
-
     final IArrayList<Predicate<E>> conditions = ArrayList.withInitialCapacity(count);
 
     for (var i = 1; i < count; i++) {
@@ -94,7 +90,6 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @throws NegativeArgumentException if the given paramCount is negative.
    */
   private IContainer<Predicate<E>> createBlanks(final int paramCount) {
-
     final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);
 
     for (var i = 1; i < paramCount; i++) {

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploaderStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploader, IUploaderStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IUploader button,

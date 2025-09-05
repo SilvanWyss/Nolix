@@ -20,7 +20,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DataWriter implements IDataWriter {
-
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
@@ -33,7 +32,6 @@ public final class DataWriter implements IDataWriter {
     final String databaseName,
     final DatabaseViewDto databaseView,
     final ISqlConnection sqlConnection) {
-
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
     this.databaseView = databaseView;
@@ -54,7 +52,6 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
-
     final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
     final var multiReferenceColumnId = multiReferenceColumnView.id();
 
@@ -66,7 +63,6 @@ public final class DataWriter implements IDataWriter {
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
-
     final var multiValueColumnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
     final var multiValueColumnId = multiValueColumnView.id();
 
@@ -80,7 +76,6 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
-
     final var entityId = multiBackReferenceEntry.entityId();
     final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
@@ -90,7 +85,6 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
-
     final var entityId = multiReferenceEntry.entityId();
     final var multiReferenceColumnId = multiReferenceEntry.multiReferenceColumnId();
     final var referencedEntityId = multiReferenceEntry.referencedEntityId();
@@ -100,7 +94,6 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void deleteMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
-
     final var entityId = multiValueEntry.entityId();
     final var multiValueColumnId = multiValueEntry.multiValueColumnId();
     final var value = multiValueEntry.value();
@@ -140,7 +133,6 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
-
     final var entityId = multiBackReferenceEntry.entityId();
     final var multiBackReferenceColumnId = multiBackReferenceEntry.multiBackReferenceColumnId();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
@@ -155,7 +147,6 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
-
     final var entityId = multiReferenceEntry.entityId();
     final var multiReferenceColumnId = multiReferenceEntry.multiReferenceColumnId();
     final var referencedEntityId = multiReferenceEntry.referencedEntityId();
@@ -170,7 +161,6 @@ public final class DataWriter implements IDataWriter {
 
   @Override
   public void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
-
     final var entityId = multiValueEntry.entityId();
     final var multiValueColumnId = multiValueEntry.multiValueColumnId();
     final var value = multiValueEntry.value();

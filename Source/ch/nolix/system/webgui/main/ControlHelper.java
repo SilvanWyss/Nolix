@@ -12,7 +12,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @version 2025-08-10
  */
 public final class ControlHelper {
-
   /**
    * Prevents that an instance of the {@link ControlHelper} can be created.
    */

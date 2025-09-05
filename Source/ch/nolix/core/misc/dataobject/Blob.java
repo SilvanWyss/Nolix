@@ -6,11 +6,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.dataobject.IBlob;
 
 public final class Blob implements IBlob {
-
   private final byte[] bytes;
 
   private Blob(final byte[] bytes) {
-
     Validator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 
     this.bytes = bytes; //NOSONAR: A BinaryObject operates on the original instance.

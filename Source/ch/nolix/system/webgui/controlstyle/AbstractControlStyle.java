@@ -30,7 +30,6 @@ class AbstractControlStyle< //NOSONAR: A AbstractControlStyle is a principal obj
 S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlHeadStyle<S>
 implements IControlStyle<S> {
-
   public static final int DEFAULT_CORNER_RADIUS = 0;
 
   public static final int DEFAULT_BORDER_THICKNESS = 0;
@@ -453,7 +452,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setBackgroundForState(ControlState state, IBackground background) {
-
     this.background.setValueForState(state, background);
 
     return asConcrete();
@@ -471,7 +469,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setBorderColorForState(final ControlState state, final IColor borderColor) {
-
     this.borderColor.setValueForState(state, borderColor);
 
     return asConcrete();
@@ -479,7 +476,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setBorderThicknessForState(final ControlState state, final int borderThickness) {
-
     this.borderThickness.setValueForState(state, borderThickness);
 
     return asConcrete();
@@ -487,7 +483,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
-
     this.bottomBorderColor.setValueForState(state, bottomBorderColor);
 
     return asConcrete();
@@ -495,7 +490,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
-
     Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 
     this.bottomBorderThickness.setValueForState(state, bottomBorderThickness);
@@ -505,7 +499,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setBottomPaddingForState(final ControlState state, final int bottomPadding) {
-
     Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 
     this.bottomPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(bottomPadding));
@@ -515,7 +508,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setCornerRadiusForState(final ControlState state, final int cornerRadius) {
-
     Validator.assertThat(cornerRadius).thatIsNamed("corner radius").isNotNegative();
 
     this.cornerRadius.setValueForState(state, cornerRadius);
@@ -528,7 +520,6 @@ implements IControlStyle<S> {
     final ControlState state,
     final ICornerShadow cornerShadow,
     final ICornerShadow... cornerShadows) {
-
     final var allCornerShadows = ContainerView.forElementAndArray(cornerShadow, cornerShadows);
 
     return setCornerShadowsForState(state, allCornerShadows);
@@ -537,7 +528,6 @@ implements IControlStyle<S> {
   @Override
   public final S setCornerShadowsForState(final ControlState state,
     final IContainer<? extends ICornerShadow> cornerShadows) {
-
     this.cornerShadows.setValueForState(state, cornerShadows.to(CornerShadow::fromCornerShadow));
 
     return asConcrete();
@@ -545,7 +535,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setHeightForState(final ControlState state, final int height) {
-
     setHeightForState(state, AbsoluteOrRelativeInt.withIntValue(height));
 
     return asConcrete();
@@ -555,7 +544,6 @@ implements IControlStyle<S> {
   public final S setHeightInPercentOfViewAreaForState(
     final ControlState state,
     final double heightInPercentOfViewAreaHeight) {
-
     setHeightForState(state, AbsoluteOrRelativeInt.withPercentage(heightInPercentOfViewAreaHeight));
 
     return asConcrete();
@@ -563,7 +551,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
-
     this.leftBorderColor.setValueForState(state, leftBorderColor);
 
     return asConcrete();
@@ -571,7 +558,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
-
     Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 
     this.leftBorderThickness.setValueForState(state, leftBorderThickness);
@@ -581,7 +567,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setLeftPaddingForState(final ControlState state, final int leftPadding) {
-
     Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 
     this.leftPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(leftPadding));
@@ -591,7 +576,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setPaddingForState(final ControlState state, final int padding) {
-
     this.padding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(padding));
 
     return asConcrete();
@@ -599,7 +583,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
-
     this.rightBorderColor.setValueForState(state, rightBorderColor);
 
     return asConcrete();
@@ -607,7 +590,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
-
     Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 
     this.rightBorderThickness.setValueForState(state, rightBorderThickness);
@@ -617,7 +599,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setRightPaddingForState(final ControlState state, final int rightPadding) {
-
     Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 
     this.rightPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(rightPadding));
@@ -627,7 +608,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
-
     this.topBorderColor.setValueForState(state, topBorderColor);
 
     return asConcrete();
@@ -635,7 +615,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
-
     Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 
     this.topBorderThickness.setValueForState(state, topBorderThickness);
@@ -645,7 +624,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setTopPaddingForState(final ControlState state, final int topPadding) {
-
     Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 
     this.topPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(topPadding));
@@ -655,7 +633,6 @@ implements IControlStyle<S> {
 
   @Override
   public final S setWidthForState(final ControlState state, final int width) {
-
     setWidthForState(state, AbsoluteOrRelativeInt.withIntValue(width));
 
     return asConcrete();
@@ -665,49 +642,42 @@ implements IControlStyle<S> {
   public final S setWidthInPercentOfViewAreaWidthForState(
     final ControlState state,
     final double widthInPercentOfViewAreaWidth) {
-
     setWidthForState(state, AbsoluteOrRelativeInt.withPercentage(widthInPercentOfViewAreaWidth));
 
     return asConcrete();
   }
 
   private void setBottomPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt bottomPadding) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(bottomPadding);
 
     this.bottomPadding.setValueForState(state, bottomPadding);
   }
 
   private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(height);
 
     this.height.setValueForState(state, height);
   }
 
   private void setLeftPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt leftPadding) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(leftPadding);
 
     this.leftPadding.setValueForState(state, leftPadding);
   }
 
   private void setRightPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt rightPadding) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(rightPadding);
 
     this.rightPadding.setValueForState(state, rightPadding);
   }
 
   private void setTopPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt topPadding) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(topPadding);
 
     this.topPadding.setValueForState(state, topPadding);
   }
 
   private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(width);
 
     this.width.setValueForState(state, width);

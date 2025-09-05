@@ -11,7 +11,6 @@ import ch.nolix.systemapi.nodemiddata.nodevalidator.ITableNodeValidator;
  * @version 2025-02-23
  */
 public final class TableNodeValidator implements ITableNodeValidator {
-
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
   /**

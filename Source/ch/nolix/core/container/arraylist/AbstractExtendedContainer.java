@@ -16,7 +16,6 @@ import ch.nolix.coreapi.container.list.IArrayList;
  *            {@link AbstractExtendedContainer}.
  */
 public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> {
-
   /**
    * {@inheritDoc}
    */
@@ -56,7 +55,6 @@ public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> 
    */
   @Override
   public final <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
-
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 

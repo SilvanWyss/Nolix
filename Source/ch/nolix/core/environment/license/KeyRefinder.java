@@ -11,7 +11,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2025-07-30
  */
 public final class KeyRefinder {
-
   /**
    * Prevents that an instance of the {@link KeyRefinder} can be created.
    */
@@ -24,7 +23,6 @@ public final class KeyRefinder {
    * @throws RuntimeException if the given key is null.
    */
   public static String getRefinedKeyFromKey(final String key) {
-
     Validator.assertThat(key).thatIsNamed(LowerCaseVariableCatalog.KEY).isNotNull();
 
     return //

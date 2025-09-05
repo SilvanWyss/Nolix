@@ -8,10 +8,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 
 final class EntityFlyWeightTest extends StandardTest {
-
   @Test
   void testCase_noteInsert() {
-
     //setup
     final var insertAction = Mockito.mock(Runnable.class);
     final var testUnit = EntityFlyWeight.withInsertAction(insertAction);
@@ -25,7 +23,6 @@ final class EntityFlyWeightTest extends StandardTest {
 
   @Test
   void testCase_withInsertAction() {
-
     //setup
     final var insertAction = Mockito.mock(Runnable.class);
 
@@ -38,7 +35,6 @@ final class EntityFlyWeightTest extends StandardTest {
 
   @Test
   void testCase_withInsertAction_whenTheGivenInsertActionIsNull() {
-
     //execution & verification
     expectRunning(() -> EntityFlyWeight.withInsertAction(null))
       .throwsException()

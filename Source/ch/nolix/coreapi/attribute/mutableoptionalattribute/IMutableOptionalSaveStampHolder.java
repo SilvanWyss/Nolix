@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalSaveStampHolder;
  * @version 2024-02-11
  */
 public interface IMutableOptionalSaveStampHolder extends IOptionalSaveStampHolder {
-
   /**
    * Removes the save stamp of the current
    * {@link IMutableOptionalSaveStampHolder}.

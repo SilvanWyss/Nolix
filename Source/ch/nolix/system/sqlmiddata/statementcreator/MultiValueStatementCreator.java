@@ -5,7 +5,6 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
 
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
-
   @Override
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //

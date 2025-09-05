@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
  * @version 2025-01-10
  */
 public interface IColumnSchemaViewDtoMapper {
-
   /**
    * @param columnNode
    * @param oneBasedColumnOrdinalIndex

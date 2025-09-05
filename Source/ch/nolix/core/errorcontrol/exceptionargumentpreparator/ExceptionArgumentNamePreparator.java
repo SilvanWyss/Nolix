@@ -7,7 +7,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionArgum
  * @version 2025-04-04
  */
 public final class ExceptionArgumentNamePreparator implements IExceptionArgumentNamePreparator {
-
   private static final String DEFAULT_ARGUMENT_NAME = "argument";
 
   /**
@@ -15,7 +14,6 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
    */
   @Override
   public String getNameOfArgument(final Object argument) {
-
     if (argument != null) {
       return getNameOfArgumentThatIsInstanceOfClass(argument.getClass());
     }
@@ -28,7 +26,6 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
    */
   @Override
   public String getValidatedArgumentNameFromArgumentName(final String argumentName) {
-
     if (argumentName == null) {
       throw new IllegalArgumentException("The given argument name is null.");
     }
@@ -46,7 +43,6 @@ public final class ExceptionArgumentNamePreparator implements IExceptionArgument
    * @throws IllegalArgumentException if the given paramClass is null.
    */
   private static String getNameOfArgumentThatIsInstanceOfClass(final Class<?> paramClass) {
-
     if (paramClass == null) {
       throw new IllegalArgumentException("The given class is null.");
     }

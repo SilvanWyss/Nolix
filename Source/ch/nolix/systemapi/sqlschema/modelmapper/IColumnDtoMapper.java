@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
  * @version 2025-01-10
  */
 public interface IColumnDtoMapper {
-
   /**
    * @param sqlRecordWithNameAndDataType
    * @return a new {@link ColumnDto} from the given sqlRecordWithNameAndDataType.

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2025-01-12
  */
 public abstract class AbstractDatabaseInitializer implements IDatabaseInitializer {
-
   /**
    * {@inheritDoc}
    */
@@ -40,7 +39,6 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
    * Initializes the database.
    */
   private void initializeDatabase() {
-
     final var initialSchemaTimestamp = Time.ofNow();
 
     initializeDatabaseWithInitialSchemaTimestamp(initialSchemaTimestamp);

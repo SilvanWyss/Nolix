@@ -14,7 +14,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalValueHolder;
  */
 public interface IFluentMutableOptionalValueHolder<H extends IFluentMutableOptionalValueHolder<H, V>, V>
 extends IOptionalValueHolder<V> {
-
   /**
    * Removes the value of the current {@link IFluentMutableOptionalValueHolder}.
    */

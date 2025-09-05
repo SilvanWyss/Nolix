@@ -8,7 +8,6 @@ package ch.nolix.coreapi.environment.filesystem;
  * @version 2018-12-16
  */
 public final class FileExtensionCatalog {
-
   public static final String AVI = ".avi";
 
   public static final String C = ".c";

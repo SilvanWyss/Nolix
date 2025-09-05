@@ -7,7 +7,6 @@ package ch.nolix.coreapi.misc.variable;
  * @version 2018-04-26
  */
 public final class PluralPascalCaseVariableCatalog {
-
   public static final String ACTIONS = "Actions";
 
   public static final String AGES = "Ages";

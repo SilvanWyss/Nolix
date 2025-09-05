@@ -6,7 +6,6 @@ public enum WebSocketFramePayloadLengthType {
   BITS_64;
 
   public static WebSocketFramePayloadLengthType fromCode(final int code) {
-
     if (code < 0) {
       throw new IllegalArgumentException("The given code '" + code + "' is negative.");
     }
@@ -27,7 +26,6 @@ public enum WebSocketFramePayloadLengthType {
   }
 
   public static WebSocketFramePayloadLengthType fromPayloadLength(final long payloadLength) {
-
     if (payloadLength < 0) {
       throw new IllegalArgumentException("The given payload length '" + payloadLength + "' is negative.");
     }

@@ -7,7 +7,6 @@ import ch.nolix.core.misc.english.EnglishNounTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class EnglishNounToolTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "bear",
@@ -48,7 +47,6 @@ final class EnglishNounToolTest extends StandardTest {
   "Zebra"
   })
   void testCase_getArticleOfNoun_whenGivenNounHasArtilceA(final String noun) {
-
     //setup
     final var testUnit = new EnglishNounTool();
 
@@ -73,7 +71,6 @@ final class EnglishNounToolTest extends StandardTest {
   "Urial"
   })
   void testCase_getArticleOfNoun_whenGivenNounHasArtilceAn(final String noun) {
-
     //setup
     final var testUnit = new EnglishNounTool();
 
@@ -102,7 +99,6 @@ final class EnglishNounToolTest extends StandardTest {
   "tooth, teeth"
   })
   void testCase_getPluralOfNoun(final String noun, final String expectedPlural) {
-
     //setup
     final var testUnit = new EnglishNounTool();
 

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2022-03-10
  */
 public interface VoidnessRequestable {
-
   /**
    * @return true if the current {@link VoidnessRequestable} is not void.
    */

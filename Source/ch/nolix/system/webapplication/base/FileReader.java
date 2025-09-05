@@ -12,7 +12,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 
 final class FileReader {
-
   private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 
   private final AbstractWebClient<?, ?> parentBackendWebClient;
@@ -22,7 +21,6 @@ final class FileReader {
   private byte[] latestOptionalFileFromCounterpart;
 
   private FileReader(final AbstractWebClient<?, ?> parentBackendWebClient) {
-
     Validator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
@@ -34,7 +32,6 @@ final class FileReader {
   }
 
   public Optional<byte[]> readOptionalFileFromCounterpart() {
-
     assertIsNotWaitingForFileFromCounterpart();
 
     return readOptionalFileFromCounterpartWhenIsNotWaitingForFileFromCounterpart();
@@ -82,7 +79,6 @@ final class FileReader {
 
   private Optional<byte[]> readOptionalFileFromCounterpartWhenIsNotWaitingForFileFromCounterpart() {
     try {
-
       isWaitingForFileFromCounterpart = true;
 
       parentBackendWebClient.internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
@@ -98,7 +94,6 @@ final class FileReader {
   }
 
   private void receiveEmptyFileSelectionFromCounterpart() {
-
     assertIsWaitingForFileFromCounterpart();
 
     isWaitingForFileFromCounterpart = false;
@@ -106,7 +101,6 @@ final class FileReader {
   }
 
   private void receiveFileFromCounterpart(final byte[] file) {
-
     Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
     assertIsWaitingForFileFromCounterpart();
 

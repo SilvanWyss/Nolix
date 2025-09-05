@@ -14,16 +14,13 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.container.matrix.IMatrix;
 
 final class FieldExaminerTest extends StandardTest {
-
   private static final class Lecture {
-
     @SuppressWarnings("unused")
     public LinkedList<String> students;
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_1A() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -37,7 +34,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_1B() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -51,7 +47,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_2A() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -65,7 +60,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_2B() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -79,7 +73,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_3A() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -93,7 +86,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_3B() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -107,7 +99,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_4A() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
@@ -121,7 +112,6 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_4B() throws NoSuchFieldException {
-
     //setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();

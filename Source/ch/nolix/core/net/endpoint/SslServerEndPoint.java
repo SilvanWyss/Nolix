@@ -9,11 +9,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
 final class SslServerEndPoint extends AbstractNetEndPoint {
-
   private final ChannelHandlerContext channelHandlerContext;
 
   public SslServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
-
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 
     Validator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();

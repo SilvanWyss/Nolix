@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2023-02-06
  */
 public interface ITokenHolder {
-
   /**
    * @return the token of the current {@link ITokenHolder}.
    */

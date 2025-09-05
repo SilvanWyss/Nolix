@@ -11,17 +11,14 @@ import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.systemapi.graphic.color.IColor;
 
 public final class X11ColorCatalogExtractor {
-
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 
   public IContainer<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
-
     final LinkedList<IPair<String, IColor>> x11Colors = LinkedList.createEmpty();
     final var colorStringFields = getColorNameConstantFields(paramClass);
     final var colorFields = getColorFields(paramClass);
 
     for (final var csf : colorStringFields) {
-
       final var colorStringFieldName = csf.getName();
       final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 
@@ -44,7 +41,6 @@ public final class X11ColorCatalogExtractor {
   }
 
   private ILinkedList<Field> getColorFields(final Class<?> paramClass) {
-
     final ILinkedList<Field> colorFields = LinkedList.createEmpty();
 
     for (final var f : paramClass.getDeclaredFields()) {
@@ -57,7 +53,6 @@ public final class X11ColorCatalogExtractor {
   }
 
   private ILinkedList<Field> getColorNameConstantFields(final Class<?> paramClass) {
-
     final ILinkedList<Field> colorNameConstantFields = LinkedList.createEmpty();
 
     for (final var f : paramClass.getDeclaredFields()) {

@@ -17,14 +17,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2018-12-09
  */
 public class ThrownExceptionMediator {
-
   private final Throwable exception;
 
   /**
    * Creates a new {@link ThrownExceptionMediator}.
    */
   ThrownExceptionMediator() {
-
     //Clears the exception of the current thrown exception mediator.
     exception = null;
   }
@@ -36,7 +34,6 @@ public class ThrownExceptionMediator {
    * @throws ArgumentIsNullException if the given exception is null.
    */
   ThrownExceptionMediator(final Throwable exception) {
-
     //Asserts that the given exception is not null.
     if (exception == null) {
       throw ArgumentIsNullException.forArgumentType(Exception.class);
@@ -52,7 +49,6 @@ public class ThrownExceptionMediator {
    * {@link ThrownExceptionMediator} does not have a message.
    */
   public final void withMessage() {
-
     //Handles the case that the current thrown exception mediator has an exception.
     if (exception != null && exception.getMessage() == null) {
       throw //
@@ -71,7 +67,6 @@ public class ThrownExceptionMediator {
    * @throws ArgumentIsNullException if the given message is null.
    */
   public final void withMessage(final String message) {
-
     //Asserts that the given message is not null.
     if (message == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MESSAGE);
@@ -79,7 +74,6 @@ public class ThrownExceptionMediator {
 
     //Handles the case that the current ThrownExceptionMediator has an exception.
     if (exception != null) {
-
       //Asserts that the exception of the current ThrownExceptionMediator has a
       //message.
       if (exception.getMessage() == null) {
@@ -113,7 +107,6 @@ public class ThrownExceptionMediator {
    * @throws ArgumentIsNullException if the given regex is null.
    */
   public final void withMessageThatMatches(final String regex) {
-
     if (regex == null) {
       throw ArgumentIsNullException.forArgumentName("regex");
     }
@@ -145,7 +138,6 @@ public class ThrownExceptionMediator {
    * {@link ThrownExceptionMediator} has a message.
    */
   public final void withoutMessage() {
-
     //Handles the case that the current ThrownExceptionMediator has an exception.
     if (exception != null && exception.getMessage() != null) {
       throw //
@@ -162,7 +154,6 @@ public class ThrownExceptionMediator {
    * 
    */
   final Throwable getException() {
-
     //Asserts that the current ThrownExceptionMediator has an exception.
     if (exception == null) {
       throw //

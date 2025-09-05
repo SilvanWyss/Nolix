@@ -7,11 +7,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class LocalServerTest extends StandardTest {
-
   @Test
   void testCase_constructor() {
     try (final var server = new LocalServer()) {
-
       //verification
       expect(server.getSecurityMode()).is(SecurityMode.NONE);
       expect(server.isOpen());

@@ -6,11 +6,9 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class SingleContainer<E> extends AbstractExtendedContainer<E> {
-
   private final E element;
 
   private SingleContainer(final E element) {
-
     Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     this.element = element;
@@ -27,7 +25,6 @@ public final class SingleContainer<E> extends AbstractExtendedContainer<E> {
 
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.ONE_BASED_INDEX).isEqualTo(1);
 
     return element;

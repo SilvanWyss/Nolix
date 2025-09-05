@@ -24,7 +24,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
-
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
@@ -44,7 +43,6 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
   private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   public Label() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
   }
@@ -101,7 +99,6 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public ILabel setRole(final LabelRole role) {
-
     this.role.setValue(role);
 
     return this;
@@ -109,7 +106,6 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public ILabel setText(final String text) {
-
     Validator.assertThat(text).thatIsNamed(LowerCaseVariableCatalog.TEXT).isNotNull();
 
     this.text.setValue(text);
@@ -139,7 +135,6 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   protected void resetControl() {
-
     removeRole();
     setText(DEFAULT_TEXT);
 

@@ -4,7 +4,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public interface IStatementCreator {
-
   String createStatementToAddColumn(String tableName, ColumnDto column);
 
   String createStatementToAddTable(TableDto table);

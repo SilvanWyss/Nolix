@@ -3,7 +3,6 @@ package ch.nolix.core.errorcontrol.validator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 public class BitMediator extends Mediator {
-
   private final boolean argument;
 
   BitMediator(final boolean argument) {
@@ -11,7 +10,6 @@ public class BitMediator extends Mediator {
   }
 
   BitMediator(final String argumentName, final boolean argument) {
-
     super(argumentName);
 
     this.argument = argument;

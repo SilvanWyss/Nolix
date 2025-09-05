@@ -8,10 +8,8 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy2Predecessor;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
-
   @Test
   void test_getValueAtOneBasedIndex() {
-
     //setup
     final var testUnit = new ComplexSequenceDefinedBy2Predecessor(
       new ComplexNumber(1.0, 0.0, 20),

@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ILabelHolder;
  * @param <H> is the type of a {@link IFluentMutableLabelHolder}.
  */
 public interface IFluentMutableLabelHolder<H extends IFluentMutableLabelHolder<H>> extends ILabelHolder {
-
   /**
    * Sets the label of the current {@link IFluentMutableLabelHolder}.
    * 

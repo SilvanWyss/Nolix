@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IEntityNodeSearcher;
  * @version 2024-12-28
  */
 public final class EntityNodeExaminer implements IEntityNodeExaminer {
-
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
   /**
@@ -20,7 +19,6 @@ public final class EntityNodeExaminer implements IEntityNodeExaminer {
   public boolean fieldNodeOfEntityNodeAtOneBasedColumnIndexIsEmpty(
     final IMutableNode<?> entityNode,
     final int oneBasedColumnIndex) {
-
     final var fieldNode = ENTITY_NODE_SEARCHER.getStoredFieldNodeFromEntityNodeAtOneBasedColumnIndex(entityNode,
       oneBasedColumnIndex);
 

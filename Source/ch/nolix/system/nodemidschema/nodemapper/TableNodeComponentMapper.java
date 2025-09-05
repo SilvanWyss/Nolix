@@ -8,7 +8,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
 
 public final class TableNodeComponentMapper {
-
   private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
   private TableNodeComponentMapper() {

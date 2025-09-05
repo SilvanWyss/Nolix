@@ -36,7 +36,6 @@ public abstract class Control //NOSONAR: A Control is a principal object thus it
 <C extends IControl<C, S>, S extends IControlStyle<S>>
 extends AbstractStylableElement<C>
 implements IControl<C, S> {
-
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
 
   public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
@@ -115,7 +114,6 @@ implements IControl<C, S> {
 
   @Override
   public final C editStyle(final Consumer<S> styleEditor) {
-
     styleEditor.accept(getStoredStyle());
 
     return asConcrete();
@@ -133,7 +131,6 @@ implements IControl<C, S> {
 
   @Override
   public final IHtmlElement getHtml() {
-
     final var html = getHtmlBuilder().createHtmlElementForControl(asConcrete());
 
     return html.withAttribute(ControlHelper.createIdHtmlAttributeForControl(this));
@@ -181,7 +178,6 @@ implements IControl<C, S> {
 
   @Override
   public IContainer<Object> getStoredLinkedObjects() {
-
     if (!isLinkedToAnObject()) {
       return ImmutableList.createEmpty();
     }
@@ -271,7 +267,6 @@ implements IControl<C, S> {
 
   @Override
   public final void linkTo(final Object object) {
-
     Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
     assertIsNotLinkedAnObject();
 
@@ -300,7 +295,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setCollapsed() {
-
     setPresence(Presence.COLLAPSED);
 
     return asConcrete();
@@ -308,7 +302,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setCursorIcon(final CursorIcon cursorIcon) {
-
     this.cursorIcon.setValue(cursorIcon);
 
     return asConcrete();
@@ -316,7 +309,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setInvisible() {
-
     setPresence(Presence.INVISIBLE);
 
     return asConcrete();
@@ -324,7 +316,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMaxHeight(final int maxHeight) {
-
     setMaxHeight(AbsoluteOrRelativeInt.withIntValue(maxHeight));
 
     return asConcrete();
@@ -332,7 +323,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMaxHeightInPercentOfViewAreaHeight(final double maxHeightInPercentOfViewAreaHeight) {
-
     setMaxHeight(AbsoluteOrRelativeInt.withPercentage(maxHeightInPercentOfViewAreaHeight));
 
     return asConcrete();
@@ -340,7 +330,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMaxWidth(final int maxWidth) {
-
     setMaxWidth(AbsoluteOrRelativeInt.withIntValue(maxWidth));
 
     return asConcrete();
@@ -348,7 +337,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMaxWidthInPercentOfViewAreaWidth(final double maxWidthInPercentOfViewAreaWidth) {
-
     setMaxWidth(AbsoluteOrRelativeInt.withPercentage(maxWidthInPercentOfViewAreaWidth));
 
     return asConcrete();
@@ -356,7 +344,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMinHeight(final int minHeight) {
-
     setMinHeight(AbsoluteOrRelativeInt.withIntValue(minHeight));
 
     return asConcrete();
@@ -364,7 +351,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMinHeightInPercentOfViewAreaHeight(final double minHeightInPercentOfViewAreaHeight) {
-
     setMinHeight(AbsoluteOrRelativeInt.withPercentage(minHeightInPercentOfViewAreaHeight));
 
     return asConcrete();
@@ -372,7 +358,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMinWidth(final int minWidth) {
-
     setMinWidth(AbsoluteOrRelativeInt.withIntValue(minWidth));
 
     return asConcrete();
@@ -380,7 +365,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setMinWidthInPercentOfViewAreaWidth(final double minWidthInPercentOfViewAreaWidth) {
-
     setMinWidth(AbsoluteOrRelativeInt.withPercentage(minWidthInPercentOfViewAreaWidth));
 
     return asConcrete();
@@ -388,7 +372,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setVisible() {
-
     setPresence(Presence.VISIBLE);
 
     return asConcrete();
@@ -396,7 +379,6 @@ implements IControl<C, S> {
 
   @Override
   public final C setVisibility(final boolean visible) {
-
     voidSetVisibility(visible);
 
     return asConcrete();
@@ -412,7 +394,6 @@ implements IControl<C, S> {
 
   @Override
   protected final void resetStylableElement() {
-
     setVisible();
     removeMinWidth();
     removeMinHeight();
@@ -451,42 +432,36 @@ implements IControl<C, S> {
   }
 
   private ControlParent getStoredParent() {
-
     assertBelongsToParent();
 
     return parent;
   }
 
   private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(maxHeight);
 
     this.maxHeight.setValue(maxHeight);
   }
 
   private void setMaxWidth(final AbsoluteOrRelativeInt maxWidth) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(maxWidth);
 
     this.maxWidth.setValue(maxWidth);
   }
 
   private void setMinHeight(final AbsoluteOrRelativeInt minHeight) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(minHeight);
 
     this.minHeight.setValue(minHeight);
   }
 
   private void setMinWidth(final AbsoluteOrRelativeInt minWidth) {
-
     AbsoluteOrRelativeIntValidator.assertIsPositive(minWidth);
 
     this.minWidth.setValue(minWidth);
   }
 
   private void setParent(final ControlParent parent) {
-
     Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
     assertDoesNotBelongToParent();
 

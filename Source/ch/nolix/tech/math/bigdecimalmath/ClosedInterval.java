@@ -10,13 +10,11 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 public final class ClosedInterval implements IClosedInterval {
-
   private final BigDecimal min;
 
   private final BigDecimal max;
 
   public ClosedInterval(final BigDecimal min, final BigDecimal max) {
-
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
     Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
 
@@ -26,7 +24,6 @@ public final class ClosedInterval implements IClosedInterval {
   }
 
   public ClosedInterval(final BigDecimal min, final BigDecimal max, final int decimalPlaces) {
-
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
     Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
     Validator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
@@ -64,7 +61,6 @@ public final class ClosedInterval implements IClosedInterval {
 
   @Override
   public Pair<IClosedInterval, IClosedInterval> getHalfs() {
-
     final var decimalPlaces = getDecimalPlaces();
     final var midPoint = getMidPoint();
 

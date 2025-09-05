@@ -4,7 +4,6 @@ import ch.nolix.coreapi.web.htmlattribute.LinkTarget;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface ILink extends IControl<ILink, ILinkStyle> {
-
   String getDisplayText();
 
   LinkTarget getTarget();

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.independent.iterabletool;
  * @version 2024-12-12
  */
 public interface IIterableTool {
-
   /**
    * @param iterable
    * @return the number of elements of the given iterable.

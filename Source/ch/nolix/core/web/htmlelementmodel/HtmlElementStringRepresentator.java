@@ -3,9 +3,7 @@ package ch.nolix.core.web.htmlelementmodel;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 
 public final class HtmlElementStringRepresentator {
-
   public String toString(final IHtmlElement htmlElement) {
-
     if (!htmlElement.containsChildElements()) {
       return toStringWhenDoesNotContainChildElements(htmlElement);
     }
@@ -14,7 +12,6 @@ public final class HtmlElementStringRepresentator {
   }
 
   private String toStringWhenDoesNotContainChildElements(final IHtmlElement htmlElement) {
-
     if (htmlElement.getInnerText().isEmpty()) {
       return toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(htmlElement);
     }
@@ -23,7 +20,6 @@ public final class HtmlElementStringRepresentator {
   }
 
   private String toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
-
     if (!htmlElement.containsAttributes()) {
       return ("<" + htmlElement.getType() + " />");
     }
@@ -32,7 +28,6 @@ public final class HtmlElementStringRepresentator {
   }
 
   private String toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
-
     if (!htmlElement.containsAttributes()) {
       return ("<" + htmlElement.getType() + ">" + htmlElement.getInnerText() + "</" + htmlElement.getType() + ">");
     }
@@ -49,7 +44,6 @@ public final class HtmlElementStringRepresentator {
   }
 
   private String toStringWhenContainsChildElements(final IHtmlElement htmlElement) {
-
     if (htmlElement.getInnerText().isEmpty()) {
       return toStringWhenContainsChildElementsAndHasEmptyInnerText(htmlElement);
     }
@@ -58,7 +52,6 @@ public final class HtmlElementStringRepresentator {
   }
 
   private String toStringWhenContainsChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
-
     if (!htmlElement.containsAttributes()) {
       return "<"
       + htmlElement.getType()
@@ -81,7 +74,6 @@ public final class HtmlElementStringRepresentator {
   }
 
   private String toStringWhenContainsChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
-
     if (!htmlElement.containsAttributes()) {
       return "<"
       + htmlElement.getType()

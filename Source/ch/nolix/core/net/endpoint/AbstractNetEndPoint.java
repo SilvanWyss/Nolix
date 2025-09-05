@@ -18,7 +18,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
  * @version 2016-01-01
  */
 public abstract class AbstractNetEndPoint extends AbstractEndPoint {
-
   private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
 
   private boolean hasTargetInfo;
@@ -31,7 +30,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given targetInfoState is null.
    */
   AbstractNetEndPoint(final TargetInfoState targetInfoState) {
-
     //Asserts that the given targetInfoState is not null.
     Validator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
 
@@ -49,7 +47,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException if the given target is blank.
    */
   AbstractNetEndPoint(final String target) {
-
     //Calls constructor of the base class.
     setCustomTargetSlot(target);
 
@@ -79,7 +76,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @param rawMessage
    */
   protected final void sendRawMessage(final char rawMessage) {
-
     //Calls other method.
     sendRawMessage(String.valueOf(rawMessage));
   }
@@ -116,7 +112,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    *                                  has already a target info.
    */
   private void confirmReceivedTargetInfo() {
-
     //Asserts that the current BaseNetEndPoint has already a target info.
     if (hasTargetInfo()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has already a target info");
@@ -129,7 +124,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @return the target message of the current {@link AbstractNetEndPoint}.
    */
   private String getTargetMessage() {
-
     //Handles the case that the current BaseNetEndPoint has a target.
     if (!hasCustomTargetSlot()) {
       return MessageType.DEFAULT_TARGET_MESSAGE.getPrefix();
@@ -147,7 +141,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    *                                 closed.
    */
   private void receiveMessage(final String message) {
-
     //Asserts that the current NetEndPoint is open.
     assertIsOpen();
 
@@ -161,7 +154,6 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException if the given rawMessage is not valid.
    */
   void receiveRawMessage(final String rawMessage) {
-
     //Determinate the message type of the given rawMessage.
     final var messageType = MessageType.forPrefix(rawMessage.substring(0, 1));
 

@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 public final class EntityValidator implements IEntityValidator {
-
   private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   @Override

@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public abstract class AbstractBaseReferenceModel implements IBaseReferenceModel {
-
   private static final DataType DATA_TYPE = DataType.STRING;
 
   private final ImmutableList<? extends ITable> referenceableTables;

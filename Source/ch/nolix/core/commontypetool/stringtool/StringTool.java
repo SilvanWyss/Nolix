@@ -11,7 +11,6 @@ import ch.nolix.coreapi.commontypetool.stringtool.IStringTool;
  * @version 2025-03-09
  */
 public final class StringTool {
-
   private static final IStringTool STRING_TOOL_UNIT = new StringToolUnit();
 
   /**

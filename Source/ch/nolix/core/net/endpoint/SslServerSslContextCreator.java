@@ -28,7 +28,6 @@ import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 
 final class SslServerSslContextCreator {
-
   private static final String PASSWORD = "my_password";
 
   private static final char[] PASSWORD_AS_CHAR_ARRAY = PASSWORD.toCharArray();
@@ -37,7 +36,6 @@ final class SslServerSslContextCreator {
 
   public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
     try {
-
       X509Certificate cert = getCert(paramSSLCertificate);
 
       final var key = getPrivateKey(paramSSLCertificate);
@@ -68,7 +66,6 @@ final class SslServerSslContextCreator {
   }
 
   private X509Certificate getCert(final ISslCertificate paramSSLCertificate) throws CertificateException {
-
     final var filePath = paramSSLCertificate.getPublicKeyPemFilePath();
 
     return (X509Certificate) CertificateFactory

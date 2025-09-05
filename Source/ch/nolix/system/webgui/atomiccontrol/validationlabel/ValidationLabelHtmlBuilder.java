@@ -7,7 +7,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLab
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IValidationLabel> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final IValidationLabel control) {
     return HtmlElement.withTypeAndInnerText(
@@ -16,7 +15,6 @@ public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IVa
   }
 
   private String getHtmlDivInnerTextForControl(final IValidationLabel control) {
-
     if (control.isEmpty()) {
       return "\u2800";
     }

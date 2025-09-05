@@ -17,7 +17,6 @@ import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.CharsetUtil;
 
 final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
-
   private final String htmlPage;
 
   public SslServerIndexPageHandler(String htmlPage) {

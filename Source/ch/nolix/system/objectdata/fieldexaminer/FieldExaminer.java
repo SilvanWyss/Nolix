@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
  * @version 2024-12-30
  */
 public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExaminer {
-
   /**
    * {@inheritDoc}
    */
@@ -41,9 +40,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
   public boolean canReferenceBackBaseReference(
     final IField field,
     final IBaseReference<? extends IEntity> abstractReference) {
-
     if (field instanceof IBaseBackReference && abstractReference != null) {
-
       @SuppressWarnings("unchecked")
       final var abstractBackReference = (IBaseBackReference<IEntity>) field;
 
@@ -109,9 +106,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
   private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull(
     final IBaseBackReference<IEntity> abstractBackReference,
     final IBaseReference<? extends IEntity> abstractReference) {
-
     if (abstractReference.belongsToEntity()) {
-
       final var backReferencedTableName = abstractBackReference.getBackReferencedTableName();
       final var backReferencedFieldName = abstractBackReference.getBackReferencedFieldName();
 

@@ -8,7 +8,6 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ToStringMethodTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "1, '[1]'",
@@ -17,7 +16,6 @@ final class ToStringMethodTest extends StandardTest {
   "4, '[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]'"
   })
   void testCase_toString_whenIsIdentityMatrix(final int size, final String expectedResult) {
-
     //setup
     final var testUnit = Matrix.createIdendityMatrixWithLength(size);
 
@@ -30,7 +28,6 @@ final class ToStringMethodTest extends StandardTest {
 
   @Test
   void testCase_toString_whenMatrixIs1x1Matrix() {
-
     //setup
     final var testUnit = Matrix.withRowCountAndColumnCount(1, 1);
 
@@ -43,7 +40,6 @@ final class ToStringMethodTest extends StandardTest {
 
   @Test
   void testCase_toString_whenMatrixIs2x2Matrix() {
-
     //setup
     final var testUnit = Matrix.withRowCountAndColumnCount(2, 2);
 
@@ -56,7 +52,6 @@ final class ToStringMethodTest extends StandardTest {
 
   @Test
   void testCase_toString_whenMatrixIs3x3Matrix() {
-
     //setup
     final var testUnit = Matrix.withRowCountAndColumnCount(3, 3);
 
@@ -69,7 +64,6 @@ final class ToStringMethodTest extends StandardTest {
 
   @Test
   void testCase_toString_whenMatrixIs4x4Matrix() {
-
     //setup
     final var testUnit = Matrix.withRowCountAndColumnCount(4, 4);
 

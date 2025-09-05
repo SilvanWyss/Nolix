@@ -5,7 +5,6 @@ package ch.nolix.coreapi.programcontrol.flowcontrol;
  * @version 2025-07-28
  */
 public interface IWaitMediator {
-
   /**
    * @return a new {@link IFlowControllerMediator}.
    */

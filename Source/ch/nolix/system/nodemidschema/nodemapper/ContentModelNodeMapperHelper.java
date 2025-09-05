@@ -13,7 +13,6 @@ import ch.nolix.systemapi.midschema.model.ValueModelDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 public final class ContentModelNodeMapperHelper {
-
   private ContentModelNodeMapperHelper() {
   }
 

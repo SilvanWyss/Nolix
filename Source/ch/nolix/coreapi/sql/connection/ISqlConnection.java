@@ -6,7 +6,6 @@ import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public interface ISqlConnection extends GroupCloseable {
-
   void executeStatement(String statement, String... statements);
 
   void executeStatements(IContainer<String> statements);

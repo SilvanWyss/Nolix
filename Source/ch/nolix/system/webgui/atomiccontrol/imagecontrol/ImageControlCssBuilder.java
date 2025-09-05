@@ -12,7 +12,6 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class ImageControlCssBuilder
 extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IImageControl imageControl,

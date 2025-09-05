@@ -9,7 +9,6 @@ import ch.nolix.coreapi.document.xml.IXmlNode;
  * @version 2016-01-01
  */
 public interface IElement {
-
   /**
    * @return the attributes of the current {@link IElement}.
    */

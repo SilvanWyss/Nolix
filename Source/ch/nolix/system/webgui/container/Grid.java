@@ -19,7 +19,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements IGrid {
-
   private static final String CELL_HEADER = PascalCaseVariableCatalog.CELL;
 
   private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
@@ -73,7 +72,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-
     final ILinkedList<IControl<?, ?>> childControls = LinkedList.createEmpty();
     for (final var c : cells) {
       if (c.containsAny()) {
@@ -89,7 +87,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     final int oneBasedRowIndex,
     final int oneBasedColumnIndex,
     final IControl<?, ?> control) {
-
     final var cell = GridCell.withOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex);
     cell.setControl(control);
     addCell(cell);
@@ -101,7 +98,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
 
   @Override
   public IGrid insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
-
     final var textControl = new Label().setText(text);
 
     return insertControlAtRowAndColumn(rowIndex, columnIndex, textControl);
@@ -138,7 +134,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   private void addCell(final GridCell cell) {
-
     expandTo(cell.getRowIndex(), cell.getColumnIndex());
 
     cells.setAtOneBasedRowIndexAndColumnIndex(cell.getRowIndex(), cell.getColumnIndex(), cell);
@@ -150,7 +145,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   private void expandColumnsTo(final int columnIndex) {
-
     Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     if (cells.isEmpty()) {
@@ -158,7 +152,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     }
 
     for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
-
       final ILinkedList<GridCell> column = LinkedList.createEmpty();
 
       for (var ri = 1; ri <= getRowCount(); ri++) {
@@ -170,7 +163,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   private void expandRowsTo(final int rowIndex) {
-
     Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     if (cells.isEmpty()) {
@@ -178,7 +170,6 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     }
 
     for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
-
       final ILinkedList<GridCell> row = LinkedList.createEmpty();
 
       for (var ci = 1; ci <= getColumnCount(); ci++) {

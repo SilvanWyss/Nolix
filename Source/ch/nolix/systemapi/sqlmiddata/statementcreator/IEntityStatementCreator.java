@@ -6,7 +6,6 @@ import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public interface IEntityStatementCreator {
-
   String createStatementToDeleteEntity(String tableName, EntityDeletionDto entity);
 
   String createStatementToDeleteEntityIndex(String entityId);

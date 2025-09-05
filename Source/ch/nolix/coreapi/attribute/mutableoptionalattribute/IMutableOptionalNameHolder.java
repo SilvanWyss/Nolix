@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalNameHolder;
  * @version 2023-02-07
  */
 public interface IMutableOptionalNameHolder extends IOptionalNameHolder {
-
   /**
    * Removes the name of the current {@link IMutableOptionalNameHolder}.
    */

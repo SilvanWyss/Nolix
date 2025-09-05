@@ -12,7 +12,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotBelongToParentException extends AbstractInvalidArgumentException {
-
   private static final String DEFAULT_PARENT_TYPE_NAME = Object.class.getSimpleName();
 
   /**
@@ -67,7 +66,6 @@ public final class ArgumentDoesNotBelongToParentException extends AbstractInvali
    * @throws RuntimeException if the given parentType is null.
    */
   private static String getNameOfParentType(final Class<?> parentType) {
-
     if (parentType == null) {
       throw new IllegalArgumentException("The given parent type is null.");
     }

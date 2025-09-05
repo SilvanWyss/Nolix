@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public final class EntityLoader {
-
   private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
 
   private static final IEntityFiller ENTITY_FILLER = new EntityFiller();
@@ -21,7 +20,6 @@ public final class EntityLoader {
     final ITable<E> table,
     final String id,
     final IDataReader dataReader) {
-
     final var entityType = table.getEntityType();
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
     final var tableName = table.getName();

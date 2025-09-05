@@ -10,7 +10,6 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 
 final class MultiStateConfigurationWithNonCascadingPropertyTest extends StandardTest {
-
   private enum CustomState {
     A,
     B,
@@ -20,7 +19,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   private static final class CustomFormatElement
   extends AbstractMultiStateConfiguration<CustomFormatElement, CustomState> {
-
     final NonCascadingProperty<CustomState, Color> color = new NonCascadingProperty<>(
       "Color",
       CustomState.class,
@@ -29,7 +27,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
       X11ColorCatalog.WHITE);
 
     CustomFormatElement() {
-
       super(CustomState.A);
 
       reset();
@@ -38,7 +35,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_addOrChangeAttribute_1A() {
-
     //setup
     final var testUnit = new CustomFormatElement();
 
@@ -51,7 +47,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_addOrChangeAttribute_1B() {
-
     //setup
     final var testUnit = new CustomFormatElement();
 
@@ -64,7 +59,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_addOrChangeAttribute_1C() {
-
     //setup
     final var testUnit = new CustomFormatElement();
 
@@ -77,7 +71,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_addOrChangeAttribute_1D() {
-
     //setup
     final var testUnit = new CustomFormatElement();
 
@@ -90,7 +83,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_constructor() {
-
     //execution
     final var testUnit = new CustomFormatElement();
 
@@ -100,7 +92,6 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_getSpecification() {
-
     //setup
     final var testUnit = new CustomFormatElement();
     testUnit.color.setValueForState(CustomState.A, X11ColorCatalog.BLACK);

@@ -12,10 +12,8 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.model.ValueModelDto;
 
 final class NodeSchemaAdapterTest extends StandardTest {
-
   @Test
   void testCase_addColumn() {
-
     //parameter definition
     final var tableName = "table_name";
     final var columnName = "column_name";
@@ -48,7 +46,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
   @Test
   void testCase_addTable() {
-
     //parameter definition
     final var tableName = "table_name";
 
@@ -75,7 +72,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
   @Test
   void testCase_deleteColumn() {
-
     //parameter definition
     final var tableName = "table_name";
     final var columnName = "column_name";
@@ -110,7 +106,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
 
   @Test
   void testCase_deleteTable() {
-
     //parameter definition
     final var tableName = "table_name";
 

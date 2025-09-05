@@ -13,7 +13,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * @version 2017-01-01
  */
 public interface IMutableElement extends Resettable, IElement {
-
   /**
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
@@ -29,13 +28,11 @@ public interface IMutableElement extends Resettable, IElement {
    * @throws RuntimeException if one of the given attributes is not valid.
    */
   default void addOrChangeAttribute(final INode<?> attribute, final INode<?>... attributes) {
-
     //Calls other method.
     addOrChangeAttribute(attribute);
 
     //Iterates the given attributes.
     for (final var a : attributes) {
-
       //Calls other method.
       addOrChangeAttribute(a);
     }
@@ -57,7 +54,6 @@ public interface IMutableElement extends Resettable, IElement {
    * @throws RuntimeException if one of the given attributes is not valid.
    */
   default void addOrChangeAttributes(final Iterable<? extends INode<?>> attributes) {
-
     //Iterates the given attributes.
     for (final var a : attributes) {
       addOrChangeAttribute(a);
@@ -71,7 +67,6 @@ public interface IMutableElement extends Resettable, IElement {
    * @throws RuntimeException if one of the given attributes is not valid.
    */
   default void resetFromAttributes(final Iterable<? extends INode<?>> attributes) {
-
     reset();
 
     addOrChangeAttributes(attributes);

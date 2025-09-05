@@ -5,14 +5,12 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 public final class ColumnMapper {
-
   private ColumnMapper() {
   }
 
   public static IContainer<Column> mapMidSchemaTableDtoToLoadedColumns(
     final TableDto midTableDto,
     final IContainer<Table> tables) {
-
     final var tableName = midTableDto.name();
     final var table = tables.getStoredFirst(t -> t.hasName(tableName));
     final var midColumns = midTableDto.columns();
@@ -24,7 +22,6 @@ public final class ColumnMapper {
     final Table parentTable,
     final ColumnDto midColumnDto,
     final IContainer<Table> tables) {
-
     final var id = midColumnDto.id();
     final var name = midColumnDto.name();
     final var midContentModel = midColumnDto.contentModel();

@@ -8,10 +8,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.property.Value;
 
 final class ValueTest extends StandardTest {
-
   @Test
   void testCase_forInt() {
-
     //execution
     final var result = Value.forInt("amount", FunctionService::takeObjectAndDoNothing);
 
@@ -22,7 +20,6 @@ final class ValueTest extends StandardTest {
 
   @Test
   void testCase_getSpecification() {
-
     //setup
     final var testUnit = Value.forInt("amount", FunctionService::takeObjectAndDoNothing);
     testUnit.setValue(500);
@@ -36,7 +33,6 @@ final class ValueTest extends StandardTest {
 
   @Test
   void testCase_setValue_whenTheGivenValueIsNull() {
-
     //setup
     final var testUnit = Value.forString("name", FunctionService::takeObjectAndDoNothing);
 
@@ -55,7 +51,6 @@ final class ValueTest extends StandardTest {
 
   @Test
   void testCase_setValue_whenTheGivenValueIsValid() {
-
     //setup
     final var testUnit = Value.forString("name", FunctionService::takeObjectAndDoNothing);
 

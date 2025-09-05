@@ -13,7 +13,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public final class MultiValueExtractor<V> implements IProperty, INameHolder {
-
   private final String name;
 
   private final Consumer<V> adder;
@@ -30,7 +29,6 @@ public final class MultiValueExtractor<V> implements IProperty, INameHolder {
     final Supplier<IContainer<V>> getter,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(adder).thatIsNamed("adder").isNotNull();
     Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
@@ -51,7 +49,6 @@ public final class MultiValueExtractor<V> implements IProperty, INameHolder {
 
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
-
     if (attribute.hasHeader(getName())) {
       adder.accept(valueCreator.apply(attribute));
       return true;

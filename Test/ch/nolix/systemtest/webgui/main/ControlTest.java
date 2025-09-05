@@ -10,12 +10,10 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
-
   protected abstract C createTestUnit();
 
   @Test
   final void testCase_editStyle() {
-
     //setup
     final var testUnit = createTestUnit();
 
@@ -29,7 +27,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   @Test
   final void testCase_getInternalId() {
-
     //setup
     final var testUnit = createTestUnit();
 
@@ -43,13 +40,11 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   @Test
   final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
-
     //setup
     final var testUnit = createTestUnit();
     final var internalId = testUnit.getInternalId();
 
     for (var i = 1; i <= 10_000; i++) {
-
       //execution
       final var result = testUnit.getInternalId();
 
@@ -60,7 +55,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   @Test
   final void testCase_getStoredChildControls() {
-
     //setup
     final var testUnit = createTestUnit();
 
@@ -73,7 +67,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   @Test
   final void testCase_linkTo() {
-
     //setup
     final var voidObject = new VoidObject();
     final var testUnit = createTestUnit();
@@ -90,7 +83,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   @Test
   final void testCase_reset() {
-
     //setup
     final var testUnit = createTestUnit();
     testUnit.setInvisible();
@@ -113,7 +105,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
 
   @Test
   final void testCase_setCursorIcon() {
-
     //setup
     final var testUnit = createTestUnit();
 

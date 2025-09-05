@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ILabelHolder;
  * @version 2023-10-25
  */
 public interface IMutableLabelHolder extends ILabelHolder {
-
   /**
    * Sets the label of the current {@link IMutableLabelHolder}.
    * 

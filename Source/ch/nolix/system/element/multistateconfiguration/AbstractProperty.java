@@ -7,13 +7,11 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder {
-
   private final String name;
 
   protected AbstractMultiStateConfiguration<?, S> parent;
 
   protected AbstractProperty(final String name) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
@@ -33,7 +31,6 @@ public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder
   protected abstract void setValueFromSpecification(INode<?> specification);
 
   final void setParent(final AbstractMultiStateConfiguration<?, S> parent) {
-
     Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
 
     this.parent = parent;

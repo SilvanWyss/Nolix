@@ -13,7 +13,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  */
 public interface IServer<S extends IServer<S>>
 extends Clearable, GroupCloseable, IApplicationManager<IApplication<?, ?>>, ISecuriyModeHolder {
-
   /**
    * Adds the given application to the current {@link IServer}.
    * 

@@ -10,9 +10,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 
 final class TableTest extends StandardTest {
-
   private static final class Person extends Entity {
-
     private final ValueField<String> firstName = ValueField.withValueType(String.class);
 
     private final ValueField<String> lastName = ValueField.withValueType(String.class);
@@ -33,7 +31,6 @@ final class TableTest extends StandardTest {
 
   @Test
   void testCase_getStoredAllEntities_whenIsEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class);
@@ -50,7 +47,6 @@ final class TableTest extends StandardTest {
 
   @Test
   void testCase_getStoredAllEntities() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class);

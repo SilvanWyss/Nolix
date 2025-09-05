@@ -7,7 +7,6 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
  * @version 2024-12-28
  */
 public interface IValueMapper {
-
   /**
    * @param string
    * @param dataType

@@ -7,7 +7,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 public final class TableNodeExaminer implements ITableNodeExaminer {
-
   @Override
   public boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
     final IMutableNode<?> tableNode,
@@ -34,7 +33,6 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final String value) {
     return tableNode.containsChildNodeThat(
       (final var a) -> {
-
         if (!a.hasHeader(NodeHeaderCatalog.ENTITY)) {
           return false;
         }

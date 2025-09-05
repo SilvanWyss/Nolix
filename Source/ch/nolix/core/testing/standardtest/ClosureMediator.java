@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  * @version 2016-10-01
  */
 public final class ClosureMediator {
-
   private final Runnable closure;
 
   /**
@@ -20,7 +19,6 @@ public final class ClosureMediator {
    * @throws ArgumentIsNullException if the given closure is null.
    */
   private ClosureMediator(final Runnable closure) {
-
     //Asserts that the given closure is not null.
     if (closure == null) {
       throw ArgumentIsNullException.forArgumentName("closure");

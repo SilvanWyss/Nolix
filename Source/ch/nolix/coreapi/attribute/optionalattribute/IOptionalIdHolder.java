@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2020-01-05
  */
 public interface IOptionalIdHolder {
-
   /**
    * @return the id of the current {@link IOptionalIdHolder}.
    */

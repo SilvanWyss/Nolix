@@ -13,10 +13,8 @@ import ch.nolix.system.style.model.Style;
 import ch.nolix.system.webgui.main.WebGui;
 
 final class StyleTest extends StandardTest {
-
   @Test
   void testCase_fromSpecification_whenIsEmpty() {
-
     //setup
     final var specification = Node.withHeader("Style");
 
@@ -30,7 +28,6 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_fromSpecification_whenContainsAttachingAttributesAndSubStyles() {
-
     //setup
     final var specification = Node
       .fromString(
@@ -55,7 +52,6 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_styleElement() {
-
     //setup part 1: create WebGui
     final var webGui = new WebGui();
 
@@ -76,7 +72,6 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withAttachingAttribute_whenIsEmpty() {
-
     //setup
     final var testUnit = new Style();
 
@@ -92,7 +87,6 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withSubStyle_whenIsEmpty() {
-
     //setup
     final var subStyle1 = new SelectingStyle();
     final var subStyle2 = new SelectingStyle();
@@ -111,7 +105,6 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withAttachingAttribute_whenContainsAny() {
-
     //setup
     final var testUnit = new Style().withAttachingAttribute("p1(v1)", "p2(v2)");
 
@@ -130,7 +123,6 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withSubStyle_whenContainsAny() {
-
     //setup
     final var subStyle1 = new SelectingStyle();
     final var subStyle2 = new SelectingStyle();

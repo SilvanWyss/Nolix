@@ -25,7 +25,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
  * @version 2017-05-06
  */
 public final class SocketEndPoint extends AbstractNetEndPoint {
-
   private final PeerType peerType;
 
   private final Socket socket;
@@ -78,7 +77,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public SocketEndPoint(final String ip, final int port) {
-
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
     Validator
@@ -112,7 +110,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws InvalidArgumentException      if the given target is blank.
    */
   public SocketEndPoint(final String ip, final int port, final String target) {
-
     super(target);
 
     Validator
@@ -150,7 +147,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
-
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
     Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
@@ -185,7 +181,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
     final String target) {
-
     super(target);
 
     Validator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
@@ -241,7 +236,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    */
   @Override
   protected void sendRawMessage(final String rawMessage) {
-
     assertIsOpen();
 
     try {

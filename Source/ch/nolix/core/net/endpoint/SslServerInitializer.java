@@ -10,7 +10,6 @@ import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketSe
 import io.netty.handler.ssl.SslContext;
 
 final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
-
   private static final String WEBSOCKET_PATH = "/websocket"; //NOSONAR: This constant is not a URI.
 
   private final SslServer parentWebSocketServer;

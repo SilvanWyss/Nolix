@@ -9,12 +9,10 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class OptionalValueToContentModelMapper implements IFieldToContentModelMapper<IOptionalValueField<?>> {
-
   @Override
   public IContentModel mapFieldToContentModel(
     final IOptionalValueField<?> field,
     final IContainer<ITable> referencedTables) {
-
     final var valueType = field.getValueType();
     final var dataType = DataType.forType(valueType);
 

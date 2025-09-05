@@ -10,7 +10,6 @@ import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 public final class WrapperSqlConnection
 extends AbstractWrapperResource<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlConnection {
-
   private WrapperSqlConnection(final AbstractSqlConnection abstractSqlConnection) {
     super(abstractSqlConnection);
   }

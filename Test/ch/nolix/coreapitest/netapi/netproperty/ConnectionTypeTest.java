@@ -7,10 +7,8 @@ import ch.nolix.coreapi.net.netproperty.BaseConnectionType;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 
 final class ConnectionTypeTest extends StandardTest {
-
   @Test
   void testCase_getBaseType_whenIsLocal() {
-
     //setup
     final var testUnit = ConnectionType.LOCAL;
 
@@ -23,7 +21,6 @@ final class ConnectionTypeTest extends StandardTest {
 
   @Test
   void testCase_getBaseType_whenIsSocket() {
-
     //setup
     final var testUnit = ConnectionType.SOCKET;
 
@@ -36,7 +33,6 @@ final class ConnectionTypeTest extends StandardTest {
 
   @Test
   void testCase_getBaseType_whenIsWebSocket() {
-
     //setup
     final var testUnit = ConnectionType.WEB_SOCKET;
 

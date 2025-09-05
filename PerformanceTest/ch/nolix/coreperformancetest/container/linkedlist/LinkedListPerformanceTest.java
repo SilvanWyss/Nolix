@@ -10,7 +10,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 
 final class LinkedListPerformanceTest extends PerformanceTest {
-
   @Test
   void testCase_addAtBegin() {
     expectOnAnObjectFrom(this::createLinkedList).running(ll -> ll.addAtBegin(66)).hasConstantOrLowerTimeComplexity();
@@ -66,7 +65,6 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   }
 
   private ILinkedList<Integer> createLinkedList(final int elementCount) {
-
     final ILinkedList<Integer> list = LinkedList.createEmpty();
 
     FlowController.forCount(elementCount).run(i -> list.addAtEnd(i - (i % 1000)));

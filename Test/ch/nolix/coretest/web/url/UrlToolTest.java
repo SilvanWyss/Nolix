@@ -9,10 +9,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.url.UrlTool;
 
 final class UrlToolTest extends StandardTest {
-
   @Test
   void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNull() {
-
     //setup
     final var testUnit = new UrlTool();
 
@@ -33,7 +31,6 @@ final class UrlToolTest extends StandardTest {
   "nolix.ch, nolix.ch"
   })
   void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNotNull(final String url, final String expectedResult) {
-
     //setup
     final var testUnit = new UrlTool();
 

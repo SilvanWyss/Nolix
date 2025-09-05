@@ -3,7 +3,6 @@ package ch.nolix.systemtest.application.main;
 import ch.nolix.system.application.main.AbstractSession;
 
 public final class MockBackendClientSession extends AbstractSession<MockBackendClient, Object> {
-
   @Override
   public void refresh() {
     //Does nothing.

@@ -15,7 +15,6 @@ import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 import ch.nolix.techapi.math.fractal.IFractal;
 
 public final class Fractal implements IFractal {
-
   public static final Color CONVERGENCE_COLOR = X11ColorCatalog.BLACK;
 
   private final IClosedInterval realComponentInterval;
@@ -46,7 +45,6 @@ public final class Fractal implements IFractal {
     final int sequencesMaxIterationCount,
     final IntFunction<IColor> colorFunction,
     final int decimalPlaces) {
-
     Validator
       .assertThat(realComponentInterval)
       .thatIsNamed("real component interval")
@@ -115,7 +113,6 @@ public final class Fractal implements IFractal {
 
   @Override
   public IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
-
     if (iterationCount == -1) {
       return CONVERGENCE_COLOR;
     }
@@ -160,7 +157,6 @@ public final class Fractal implements IFractal {
 
   @Override
   public MutableImage toImage() {
-
     final var imageBuilder = startImageGeneration();
     imageBuilder.waitUntilIsFinishedSuccessfully();
 

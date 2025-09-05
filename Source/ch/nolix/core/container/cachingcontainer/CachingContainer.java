@@ -12,7 +12,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class CachingContainer<E> extends AbstractExtendedContainer<E> implements ICachingContainer<E> {
-
   private static final String AUTO_ID_PREFIX = "Z";
 
   private long autoIdCounter = 1;
@@ -35,7 +34,6 @@ public final class CachingContainer<E> extends AbstractExtendedContainer<E> impl
   }
 
   public Optional<String> getOptionalIdOf(final E element) {
-
     final var pair = elements.getOptionalStoredFirst(e -> e.getStoredElement2() == element);
 
     if (pair.isEmpty()) {
@@ -67,7 +65,6 @@ public final class CachingContainer<E> extends AbstractExtendedContainer<E> impl
 
   @Override
   public String registerAndGetId(final E element) {
-
     Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     assertDoesNotContain(element);
@@ -80,7 +77,6 @@ public final class CachingContainer<E> extends AbstractExtendedContainer<E> impl
 
   @Override
   public void registerAtId(final String id, final E element) {
-
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
@@ -92,11 +88,9 @@ public final class CachingContainer<E> extends AbstractExtendedContainer<E> impl
 
   @Override
   public String registerIfNotRegisteredAndGetId(final E element) {
-
     final var pair = elements.getOptionalStoredFirst(e -> e.hasElement2(element));
 
     if (pair.isEmpty()) {
-
       Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
       final var id = createNextAutoId();
@@ -126,7 +120,6 @@ public final class CachingContainer<E> extends AbstractExtendedContainer<E> impl
   }
 
   private String createNextAutoId() {
-
     while (containsWithId(AUTO_ID_PREFIX + autoIdCounter)) {
       autoIdCounter++;
     }

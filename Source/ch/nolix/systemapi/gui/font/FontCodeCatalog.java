@@ -7,7 +7,6 @@ package ch.nolix.systemapi.gui.font;
  * @version 2020-08-02
  */
 public final class FontCodeCatalog {
-
   public static final String ARIAL = "Arial";
 
   public static final String ARIAL_BLACK = "Arial Black";

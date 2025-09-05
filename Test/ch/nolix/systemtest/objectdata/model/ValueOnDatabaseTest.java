@@ -11,9 +11,7 @@ import ch.nolix.system.objectdata.model.ValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class ValueOnDatabaseTest extends StandardTest {
-
   private static final class Pet extends Entity {
-
     final ValueField<String> name = ValueField.withValueType(String.class);
 
     Pet() {
@@ -23,7 +21,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -37,7 +34,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -55,7 +51,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -78,7 +73,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getState_whenIsNewAndNotEdited() {
-
     //setup
     final var garfield = new Pet();
 
@@ -94,7 +88,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getState_whenIsNewAndEdited() {
-
     //setup
     final var garfield = new Pet();
     garfield.name.setValue("Garfield");
@@ -111,7 +104,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getState_whenIsClosed() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -133,7 +125,6 @@ final class ValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getState_whenIsLoaded() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);

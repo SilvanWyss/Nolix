@@ -15,14 +15,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2016-09-01
  */
 public class StringMediator extends ArgumentMediator<String> {
-
   /**
    * Creates a new {@link StringMediator} for the given argument.
    * 
    * @param argument
    */
   protected StringMediator(final String argument) {
-
     //Calls constructor of the base class.
     super(argument);
   }
@@ -37,7 +35,6 @@ public class StringMediator extends ArgumentMediator<String> {
    * @throws InvalidArgumentException if the given argumentName is blank.
    */
   protected StringMediator(final String argumentName, final String argument) {
-
     //Calls constructor of the base class.
     super(argumentName, argument);
   }
@@ -60,7 +57,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                   given length.
    */
   public void hasLength(final int length) {
-
     //Asserts that the given length is not negative.
     if (length < 0) {
       throw NegativeArgumentException.forArgumentAndArgumentName(length, LowerCaseVariableCatalog.LENGTH);
@@ -87,7 +83,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                   {@link StringMediator} is not empty.
    */
   public void isEmpty() {
-
     //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
@@ -104,7 +99,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                 {@link StringMediator} is empty.
    */
   public void isNotEmpty() {
-
     //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
@@ -121,7 +115,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                  {@link StringMediator} is blank.
    */
   public void isNotBlank() {
-
     //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
@@ -144,7 +137,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                  given max length says.
    */
   public void isNotLongerThan(final int maxLength) {
-
     //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
@@ -168,7 +160,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                  given min length says.
    */
   public void isNotShorterThan(final int minLength) {
-
     //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
@@ -190,7 +181,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                  given regularExpression.
    */
   public void matches(final String regularExpression) {
-
     //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
@@ -215,7 +205,6 @@ public class StringMediator extends ArgumentMediator<String> {
    *                                  the given prefix.
    */
   public void startsWith(final String prefix) {
-
     isNotNull();
 
     if (!getStoredArgument().startsWith(prefix)) {

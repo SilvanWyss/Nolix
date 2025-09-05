@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class UnsupportedCaseException extends AbstractInvalidArgumentException {
-
   private static final String ARGUMENT_NAME = "case";
 
   private static final String ERROR_PREDICATE = "is not supported";
@@ -62,7 +61,6 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
    * @throws RuntimeException if the given paramCase is null.
    */
   private static String getNameOfCase(final Enum<?> paramCase) {
-
     if (paramCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }
@@ -76,7 +74,6 @@ public final class UnsupportedCaseException extends AbstractInvalidArgumentExcep
    * @throws RuntimeException if the given paramCase is null or blank.
    */
   private static String getNameOfCase(String paramCase) {
-
     if (paramCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }

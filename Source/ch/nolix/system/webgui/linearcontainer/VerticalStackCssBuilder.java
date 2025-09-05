@@ -16,7 +16,6 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class VerticalStackCssBuilder
 extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IVerticalStack verticalStack,
@@ -68,7 +67,6 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   }
 
   private CssProperty createCssPropertyForContentAlignmentOfControl(final IVerticalStack control) {
-
     final var contentAlignment = control.getContentAlignment();
 
     return createCssPropertyForContentAlignment(contentAlignment);

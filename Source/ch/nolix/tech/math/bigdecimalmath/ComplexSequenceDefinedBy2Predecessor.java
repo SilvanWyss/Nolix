@@ -11,7 +11,6 @@ import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy2Predecessor;
 public final class ComplexSequenceDefinedBy2Predecessor
 extends AbstractSequence<IComplexNumber>
 implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
-
   private final IComplexNumber firstValue;
 
   private final IComplexNumber secondValue;
@@ -22,7 +21,6 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
     final IComplexNumber firstValue,
     final IComplexNumber secondValue,
     BinaryOperator<IComplexNumber> nextValueFunction) {
-
     Validator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
     Validator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
     Validator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
@@ -49,7 +47,6 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
 
   @Override
   protected IComplexNumber calculateValue(final int index) {
-
     if (index == 1) {
       return getFirstValue();
     }

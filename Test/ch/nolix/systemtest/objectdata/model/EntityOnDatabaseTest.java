@@ -12,9 +12,7 @@ import ch.nolix.system.objectdata.model.ValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class EntityOnDatabaseTest extends StandardTest {
-
   private static final class Pet extends Entity {
-
     final ValueField<Integer> ageInYears = ValueField.withValueType(Integer.class);
 
     Pet() {
@@ -28,7 +26,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isInserted_whenHasInsertAction() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -49,7 +46,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isLoaded() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -70,7 +66,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -88,7 +83,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsChangedInTheMeanwhile() {
-
     //setup part 1: Initializes database.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -118,7 +112,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsDeletedInTheMeanwhile() {
-
     //setup part 1: Initializes database.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -148,7 +141,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_delete_whenIsLoaded() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -182,7 +174,6 @@ final class EntityOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_delete_whenIsClosed() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);

@@ -7,7 +7,6 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public interface IDatabase extends GroupCloseable, IDatabaseObject, INameHolder {
-
   IEntityTypeSet getEntityTypeSet();
 
   ITime getSchemaTimestamp();

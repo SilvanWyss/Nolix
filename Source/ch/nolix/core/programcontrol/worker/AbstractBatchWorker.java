@@ -1,7 +1,6 @@
 package ch.nolix.core.programcontrol.worker;
 
 public abstract class AbstractBatchWorker extends AbstractWorker {
-
   @Override
   protected final void run() {
     while (shouldRunNextStep()) {

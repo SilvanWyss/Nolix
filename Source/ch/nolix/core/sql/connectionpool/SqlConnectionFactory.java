@@ -6,7 +6,6 @@ import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.core.sql.connection.MsSqlConnection;
 
 public final class SqlConnectionFactory {
-
   public AbstractSqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {
       case MSSQL ->

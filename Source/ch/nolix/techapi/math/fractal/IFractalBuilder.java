@@ -10,7 +10,6 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 
 public interface IFractalBuilder {
-
   IFractal build();
 
   int getMaxIterationCount();

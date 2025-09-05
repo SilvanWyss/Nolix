@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @version 2024-12-30
  */
 public interface ITableExaminer {
-
   /**
    * @param table
    * @param column

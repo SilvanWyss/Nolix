@@ -10,11 +10,9 @@ import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.webapplication.main.WebClient;
 
 final class BasicApplicationOnServerTest extends StandardTest {
-
   @Test
   void testCase_getNameAddendum_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
-
       //setup
       final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
@@ -34,7 +32,6 @@ final class BasicApplicationOnServerTest extends StandardTest {
 
   @Test
   void testCase_getInstanceName_whenDoesNotBelongToAServer() {
-
     //setup
     final var applicationService = new VoidObject();
     @SuppressWarnings("unchecked")
@@ -53,7 +50,6 @@ final class BasicApplicationOnServerTest extends StandardTest {
   @Test
   void testCase_getInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
-
       //setup
       final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
@@ -74,7 +70,6 @@ final class BasicApplicationOnServerTest extends StandardTest {
   @Test
   void testCase_getUrlInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
-
       //setup
       final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")

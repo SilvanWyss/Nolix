@@ -3,7 +3,6 @@ package ch.nolix.core.errorcontrol.validator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 public class ByteMediator extends Mediator {
-
   private final byte argument;
 
   public ByteMediator(final byte value) {
@@ -11,7 +10,6 @@ public class ByteMediator extends Mediator {
   }
 
   public ByteMediator(final String argumentName, final byte value) {
-
     super(argumentName);
 
     this.argument = value;

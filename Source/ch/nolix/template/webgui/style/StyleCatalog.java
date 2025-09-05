@@ -4,7 +4,6 @@ import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
 
 public final class StyleCatalog {
-
   public static final IStyle DARK_STYLE = //
   new Style()
     .withSubStyle(

@@ -9,7 +9,6 @@ import java.util.Optional;
  * @version 2020-03-28
  */
 public interface IOptionalHeaderHolder {
-
   /**
    * @return the header of the current {@link IOptionalHeaderHolder}.
    * @throws RuntimeException if the current {@link IOptionalHeaderHolder} does
@@ -22,7 +21,6 @@ public interface IOptionalHeaderHolder {
    *         header, otherwise an empty {@link String}.
    */
   default String getHeaderOrEmptyString() {
-
     if (!hasHeader()) {
       return "";
     }
@@ -36,7 +34,6 @@ public interface IOptionalHeaderHolder {
    *         {@link Optional}.
    */
   default Optional<String> getOptionalHeader() {
-
     if (hasHeader()) {
       return Optional.of(getHeader());
     }

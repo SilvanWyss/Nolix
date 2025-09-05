@@ -8,7 +8,6 @@ import ch.nolix.systemapi.graphic.image.IMutableImage;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
-
   String getAlternateText();
 
   IMutableImage<?> getStoredImage();

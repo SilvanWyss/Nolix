@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
  * @version 2025-01-12
  */
 public interface INodeDatabaseExaminer {
-
   /**
    * @param nodeDatabase
    * @return true if the given nodeDatabase is properly (!) initialized, false

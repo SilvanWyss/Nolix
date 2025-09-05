@@ -5,7 +5,6 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntryColumn;
 
 public final class MultiBackReferenceQueryCreator implements IMultiBackReferenceQueryCreator {
-
   @Override
   public String createQueryToLoadMultiBackReferenceEntries(
     final String backReferencedTableName,

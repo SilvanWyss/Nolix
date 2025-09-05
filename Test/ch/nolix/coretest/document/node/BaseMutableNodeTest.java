@@ -9,10 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends BaseNodeTest<N> {
-
   @Test
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsBlank() {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -28,7 +26,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsNotBlank() {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -41,7 +38,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsBlank() {
-
     //setup
     final N testUnit = createNodeWithHeader("Color");
 
@@ -57,7 +53,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsNotBlank() {
-
     //setup
     final N testUnit = createNodeWithHeader("Color");
 
@@ -70,7 +65,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsBlank() {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -86,7 +80,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsNotBlank() {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -99,7 +92,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsBlank() {
-
     //setup
     final N testUnit = createNodeWithHeader("Color");
 
@@ -115,7 +107,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsNotBlank() {
-
     //setup
     final N testUnit = createNodeWithHeader("Color");
 
@@ -128,7 +119,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_removeHeader() {
-
     //setup
     final N testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
@@ -158,7 +148,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
   "a(b(c),d(e),f(g))"
   })
   void testCase_resetFromString(final String string) {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -171,7 +160,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_resetFromString_whenTheGivenStringIsNotValid() {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -183,7 +171,6 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_setHeader() {
-
     //setup
     final N testUnit = createBlankNode();
     testUnit.setHeader("Lorem");

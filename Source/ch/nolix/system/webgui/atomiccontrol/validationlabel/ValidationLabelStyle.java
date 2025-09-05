@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLab
 public final class ValidationLabelStyle
 extends AbstractControlStyle<IValidationLabelStyle>
 implements IValidationLabelStyle {
-
   public ValidationLabelStyle() {
     initialize();
   }

@@ -21,7 +21,6 @@ import ch.nolix.systemapi.graphic.color.IColor;
  * @version 2016-01-01
  */
 public final class Color extends AbstractElement implements IColor {
-
   public static final int DEFAULT_ALPHA_VALUE = 255;
 
   public static final long MIN_COLOR_LONG = 0;
@@ -80,7 +79,6 @@ public final class Color extends AbstractElement implements IColor {
    *                                       color component (in [0, 255]).
    */
   private Color(final int redValue, final int greenValue, final int blueValue, final int alphaValue) {
-
     Validator
       .assertThat(redValue)
       .thatIsNamed("red value")
@@ -108,14 +106,12 @@ public final class Color extends AbstractElement implements IColor {
   }
 
   public static Color createAverageFrom(final IColor color, final IColor... colors) {
-
     final var allColors = ContainerView.forElementAndArray(color, colors);
 
     return createAverageFrom(allColors);
   }
 
   public static Color createAverageFrom(final IContainer<IColor> colors) {
-
     final var colorCount = colors.getCount();
 
     var averageRedValue = 0;
@@ -143,7 +139,6 @@ public final class Color extends AbstractElement implements IColor {
    * @throws NullPointerException if the given color is null.
    */
   public static Color fromColor(final IColor color) {
-
     if (color instanceof final Color localColor) {
       return localColor;
     }
@@ -163,7 +158,6 @@ public final class Color extends AbstractElement implements IColor {
    *                                         a {@link Color}.
    */
   public static Color fromLong(final long pLong) {
-
     //Asserts that the given pLong is a true color value.
     Validator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
 
@@ -204,13 +198,11 @@ public final class Color extends AbstractElement implements IColor {
    *                                         represent a {@link Color}.
    */
   public static Color fromString(final String string) {
-
     final var webColorAndName = getX11Colors()
       .getOptionalStoredFirst(p -> p.getStoredElement1().equals(string));
 
     //Handles the case that the given string is not a color name.
     if (webColorAndName.isEmpty()) {
-
       if ((string.length() != 8 || string.length() != 10)
       && !string.substring(0, 2).equals(StringCatalog.HEXADECIMAL_PREFIX)) {
         throw UnrepresentingArgumentException.forArgumentAndType(string, Color.class);
@@ -285,13 +277,11 @@ public final class Color extends AbstractElement implements IColor {
    *                                         represent a color component.
    */
   private static int getColorComponentFrom(final String string) {
-
     var value = 0;
     var base = 1;
 
     //Iterates the given string.
     for (var i = string.length() - 1; i >= 0; i--) {
-
       final var hexadecimalDigit = string.charAt(i);
       final var characterInt = mapHexadecimalDigitFromStringToInt(hexadecimalDigit, string);
 
@@ -306,7 +296,6 @@ public final class Color extends AbstractElement implements IColor {
    * @return the names and values of the X11 colors.
    */
   private static IContainer<IPair<String, IColor>> getX11Colors() {
-
     if (x11Colors == null) {
       x11Colors = new X11ColorCatalogExtractor().getColorConstantsFromClass(X11ColorCatalog.class);
     }
@@ -324,7 +313,6 @@ public final class Color extends AbstractElement implements IColor {
   private static int mapHexadecimalDigitFromStringToInt( //NOSONAR: This method is uniform.
     char hexadecimalDigit,
     final String string) {
-
     //Enumerates the given character.
     return switch (hexadecimalDigit) {
       case '0' ->
@@ -409,7 +397,6 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public String getColorNameOrHexadecimalString() {
-
     final var webColorAndName = getX11Colors().getOptionalStoredFirst(wc -> wc.getStoredElement2().equals(this));
 
     //Handles the case that the current Color has a color name.
@@ -514,7 +501,6 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public String toHexadecimalString() {
-
     var string = StringCatalog.HEXADECIMAL_PREFIX
     + String.format("%02X", redValue)
     + String.format("%02X", greenValue)
@@ -545,7 +531,6 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public long toLong() {
-
     //Handles the case that the current Color does not have a full alpha value.
     if (!hasFullAlphaValue()) {
       return 16_777_216L * getRedValue()
@@ -566,7 +551,6 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue) {
-
     Validator
       .assertThat(floatingPointAlphaValue)
       .thatIsNamed("floating point number alpha value")

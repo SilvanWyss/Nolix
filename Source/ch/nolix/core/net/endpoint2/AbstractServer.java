@@ -15,7 +15,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
  * @version 2017-03-05
  */
 public abstract class AbstractServer implements IServer {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private ISlot defaultSlot;
@@ -27,7 +26,6 @@ public abstract class AbstractServer implements IServer {
    */
   @Override
   public final void addDefaultSlot(final ISlot defaultSlot) {
-
     addSlotToList(defaultSlot);
 
     this.defaultSlot = defaultSlot;
@@ -40,7 +38,6 @@ public abstract class AbstractServer implements IServer {
    */
   @Override
   public final void addSlot(final ISlot slot) {
-
     addSlotToList(slot);
 
     noteAddedSlot(slot);
@@ -121,7 +118,6 @@ public abstract class AbstractServer implements IServer {
    *                                               the given endPoint.
    */
   final void internalTakeBackendEndPoint(final AbstractEndPoint abstractEndPoint) {
-
     abstractEndPoint.assertIsOpen();
 
     if (!abstractEndPoint.hasCustomTargetSlot()) {
@@ -165,7 +161,6 @@ public abstract class AbstractServer implements IServer {
    *                                  same name like the given slot.
    */
   private void addSlotToList(ISlot slot) {
-
     assertDoesNotContainSlotWithName(slot.getName());
 
     this.slots.addAtEnd(slot);
@@ -205,7 +200,6 @@ public abstract class AbstractServer implements IServer {
    *                                               {@link ISlot}.
    */
   private ISlot getStoredDefaultSlot() {
-
     assertContainsDefaultSlot();
 
     return defaultSlot;
@@ -234,7 +228,6 @@ public abstract class AbstractServer implements IServer {
    *                                                not contain the given slot.
    */
   private void removeSlot(final ISlot slot) {
-
     slots.removeStrictlyFirstOccurrenceOf(slot);
 
     if (slot == defaultSlot) {

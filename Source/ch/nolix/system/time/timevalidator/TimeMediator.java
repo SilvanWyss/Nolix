@@ -5,7 +5,6 @@ import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public class TimeMediator extends ArgumentMediator<ITime> {
-
   TimeMediator(final String argumentName, final ITime argument) {
     super(argumentName, argument);
   }
@@ -15,7 +14,6 @@ public class TimeMediator extends ArgumentMediator<ITime> {
   }
 
   public final void isAfter(final ITime time) {
-
     isNotNull();
 
     if (!getStoredArgument().isAfter(time)) {
@@ -28,7 +26,6 @@ public class TimeMediator extends ArgumentMediator<ITime> {
   }
 
   public final void isBefore(final ITime time) {
-
     isNotNull();
 
     if (!getStoredArgument().isBefore(time)) {

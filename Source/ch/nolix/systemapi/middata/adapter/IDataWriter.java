@@ -16,7 +16,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2021-09-19
  */
 public interface IDataWriter extends IResettableChangeSaver {
-
   /**
    * Deletes the references of the multi reference, that is in the multi reference
    * column with the given multiReferenceColumnName and belongs to the entity,

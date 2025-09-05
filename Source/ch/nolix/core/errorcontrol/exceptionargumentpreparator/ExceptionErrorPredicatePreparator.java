@@ -8,13 +8,11 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionError
  * @version 2025-04-06
  */
 public final class ExceptionErrorPredicatePreparator implements IExceptionErrorPredicatePreparator {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public String getValidErrorPredicateFromErrorPredicate(final String errorPredicate) {
-
     if (errorPredicate == null) {
       throw new IllegalArgumentException("The given error predicate is null.");
     }

@@ -4,13 +4,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public final class ImmutableListIterator<E> implements Iterator<E> {
-
   private final E[] parentArray;
 
   private int nextIndex;
 
   private ImmutableListIterator(final E[] parrentArray) {
-
     if (parrentArray == null) {
       throw new IllegalArgumentException("The given parent array is null.");
     }
@@ -30,7 +28,6 @@ public final class ImmutableListIterator<E> implements Iterator<E> {
 
   @Override
   public E next() {
-
     assertHasNext();
 
     return nextWhenHasNext();
@@ -43,7 +40,6 @@ public final class ImmutableListIterator<E> implements Iterator<E> {
   }
 
   private E nextWhenHasNext() {
-
     final var element = parentArray[nextIndex];
 
     nextIndex++;

@@ -10,11 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
 public abstract class AbstractBaseValueField<V> extends AbstractField implements IBaseValueField<V> {
-
   private final Class<V> valueType;
 
   protected AbstractBaseValueField(final Class<V> valueType) {
-
     Validator.assertThat(valueType).thatIsNamed("value type").isNotNull();
 
     this.valueType = valueType;

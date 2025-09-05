@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITextHolder;
  * @version 2023-02-09
  */
 public interface IMutableTextHolder extends ITextHolder {
-
   /**
    * Sets the text of the current {@link IMutableTextHolder}.
    * 

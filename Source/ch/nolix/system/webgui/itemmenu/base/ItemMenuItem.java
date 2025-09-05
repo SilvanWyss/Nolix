@@ -17,7 +17,6 @@ import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
 import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
 
 public final class ItemMenuItem extends AbstractMutableElement implements IItemMenuItem<ItemMenuItem> {
-
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
   private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
@@ -54,7 +53,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   }
 
   private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
-
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
     this.selectAction = selectAction;
@@ -65,7 +63,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   }
 
   public static ItemMenuItem fromSpecification(final INode<?> specification) {
-
     final var item = new ItemMenuItem();
     item.resetFromSpecification(specification);
 
@@ -75,7 +72,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   public static ItemMenuItem withIdAndText(
     final String id,
     final String text) {
-
     final var item = new ItemMenuItem();
     item.setId(id);
     item.setText(text);
@@ -87,7 +83,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
     final String id,
     final String text,
     final Runnable selectAction) {
-
     final var item = new ItemMenuItem(i -> selectAction.run());
     item.setId(id);
     item.setText(text);
@@ -99,7 +94,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
     final String id,
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {
-
     final var item = new ItemMenuItem(selectAction);
     item.setId(id);
     item.setText(text);
@@ -109,7 +103,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
 
   public static ItemMenuItem withText(
     final String text) {
-
     final var item = new ItemMenuItem();
     item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
@@ -120,7 +113,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Runnable selectAction) {
-
     final var item = new ItemMenuItem(i -> selectAction.run());
     item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
@@ -131,7 +123,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {
-
     final var item = new ItemMenuItem(selectAction);
     item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
@@ -183,7 +174,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
 
   @Override
   public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
-
     Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
 
     this.parentMenu = parentMenu;
@@ -200,7 +190,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   }
 
   private void selectWhenNotSelected() {
-
     unselectItemsOfOptionalParentMenu();
 
     selectionFlag.setValue(true);
@@ -213,7 +202,6 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   }
 
   private void setId(final String id) {
-
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id.setValue(id);

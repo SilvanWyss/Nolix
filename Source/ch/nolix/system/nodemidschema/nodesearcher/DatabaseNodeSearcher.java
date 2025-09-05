@@ -9,7 +9,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSear
 import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
-
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
@@ -19,7 +18,6 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
 
   @Override
   public String getDatabaseNameFromNodeDatabase(IMutableNode<?> nodeDatabase) {
-
     final var databasePropertiesNode = getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
     return DATABASE_PROPERTIES_NODE_SEARCHER.getDatabaseNameFromDatabasePropertiesNode(databasePropertiesNode);

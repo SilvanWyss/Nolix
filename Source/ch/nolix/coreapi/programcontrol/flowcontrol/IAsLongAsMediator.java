@@ -7,7 +7,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2025-02-13
  */
 public interface IAsLongAsMediator {
-
   /**
    * @param timeIntervalInMilliseconds
    * @return a new {@link IAfterEveryMediator} with the given

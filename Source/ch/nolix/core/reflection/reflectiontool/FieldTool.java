@@ -9,19 +9,16 @@ import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.coreapi.reflection.reflectiontool.IFieldTool;
 
 public final class FieldTool implements IFieldTool {
-
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @Override
   @SuppressWarnings("unchecked")
   public <V> V getValueOfStaticField(final Field paramField) {
-
     if (!FIELD_EXAMINER.isStatic(paramField)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(paramField, "is not static");
     }
 
     try {
-
       paramField.setAccessible(true);
 
       return (V) paramField.get(null);

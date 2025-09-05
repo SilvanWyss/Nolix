@@ -5,7 +5,6 @@ package ch.nolix.coreapi.errorcontrol.errormapping;
  * @version 2025-02-28
  */
 public interface IErrorMessageExtractor {
-
   /**
    * @param error
    * @return the message of the given error. Handles the case when the given error

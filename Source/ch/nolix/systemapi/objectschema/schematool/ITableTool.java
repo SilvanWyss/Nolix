@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public interface ITableTool extends IDatabaseObjectExaminer {
-
   int getColumnCount(ITable table);
 
   IContainer<? extends IColumn> getStoredBackReferenceColumns(ITable table);

@@ -5,10 +5,8 @@ import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
-
   @Override
   public boolean isNewOrDeleted(IDatabaseObject databaseObject) {
-
     if (databaseObject == null) {
       return false;
     }
@@ -22,7 +20,6 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
   @Override
   public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
-
     if (databaseObject == null) {
       return false;
     }
@@ -36,7 +33,6 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
   @Override
   public boolean isNewOrEditedOrDeleted(final IDatabaseObject databaseObject) {
-
     if (databaseObject == null) {
       return false;
     }
@@ -50,7 +46,6 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
   @Override
   public boolean isNewOrLoaded(final IDatabaseObject databaseObject) {
-
     if (databaseObject == null) {
       return false;
     }
@@ -64,7 +59,6 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
 
   @Override
   public boolean isNewOrLoadedOrEdited(final IDatabaseObject databaseObject) {
-
     if (databaseObject == null) {
       return false;
     }

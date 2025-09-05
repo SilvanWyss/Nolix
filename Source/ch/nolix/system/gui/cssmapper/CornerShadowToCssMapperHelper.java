@@ -13,7 +13,6 @@ import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
  * @version 2025-08-10
  */
 public final class CornerShadowToCssMapperHelper {
-
   private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
 
   /**
@@ -30,7 +29,6 @@ public final class CornerShadowToCssMapperHelper {
    * @throws RuntimeException if the given cornerShadow is null.
    */
   public static ICssProperty mapCornerShadowToCssPropertyWhenShadowIsInsideTheBox(final ICornerShadow cornerShadow) {
-
     final var side1Thickness = cornerShadow.getSide1Thickness();
     final var side2Thickness = cornerShadow.getSide2Thickness();
     final var blurRadius = cornerShadow.getBlurRadius();
@@ -65,7 +63,6 @@ public final class CornerShadowToCssMapperHelper {
    * @throws RuntimeException if the given cornerShadow is null.
    */
   public static ICssProperty mapCornerShadowToCssPropertyWhenShadowIsOutsideTheBox(final ICornerShadow cornerShadow) {
-
     final var side1Thickness = cornerShadow.getSide1Thickness();
     final var side2Thickness = cornerShadow.getSide2Thickness();
     final var blurRadius = cornerShadow.getBlurRadius();

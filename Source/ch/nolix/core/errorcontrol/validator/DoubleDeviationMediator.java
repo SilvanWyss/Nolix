@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  * @version 2017-01-01
  */
 public final class DoubleDeviationMediator extends Mediator {
-
   private final double argument;
 
   private final double maxDeviation;
@@ -30,7 +29,6 @@ public final class DoubleDeviationMediator extends Mediator {
     final String argumentName,
     final Double argument,
     final double maxDeviation) {
-
     //Calls constructor of the base class.
     super(argumentName);
 
@@ -52,7 +50,6 @@ public final class DoubleDeviationMediator extends Mediator {
    *                                  deviation mediator.
    */
   public void isEqualTo(final double value) {
-
     /*
      * Asserts that the argument of this named double deviation mediator equals the
      * given value with a deviation that is not bigger than the max deviation of

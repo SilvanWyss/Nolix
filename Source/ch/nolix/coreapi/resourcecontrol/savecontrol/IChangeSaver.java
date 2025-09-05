@@ -9,7 +9,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.Closeable;
  * @version 2018-04-09
  */
 public interface IChangeSaver extends Closeable, ChangeRequestable {
-
   /**
    * Saves the changes of the current {@link IChangeSaver}.
    */

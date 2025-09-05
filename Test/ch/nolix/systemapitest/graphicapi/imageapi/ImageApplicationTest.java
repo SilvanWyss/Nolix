@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 
 final class ImageApplicationTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirImageApplications() {
     return //
@@ -24,7 +23,6 @@ final class ImageApplicationTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirImageApplications")
   void testCase_fromSpecification(final INode<?> specification, final ImageApplication expectedImageApplication) {
-
     //execution
     final var result = ImageApplication.fromSpecification(specification);
 

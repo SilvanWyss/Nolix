@@ -6,10 +6,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.querycreator.MultiValueQueryCreator;
 
 final class MultiValueQueryCreatorTest extends StandardTest {
-
   @Test
   void testCase_createQueryToLoadMultiValueEntries() {
-
     //setup
     final var testUnit = new MultiValueQueryCreator();
 

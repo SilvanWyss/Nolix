@@ -6,10 +6,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
 
 final class MultiValueStatementCreatorTest extends StandardTest {
-
   @Test
   void testCase_createStatementToDeleteMultiValueEntries() {
-
     //setup
     final var entityId = "my_entity_id";
     final var multiValueColumnId = "my_multi_value_column_id";
@@ -29,7 +27,6 @@ final class MultiValueStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToDeleteMultiValueEntry() {
-
     //setup
     final var entityId = "my_entity_id";
     final var multiValueColumnId = "my_multi_value_column_id";
@@ -50,7 +47,6 @@ final class MultiValueStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToInsertMultiValueEntry() {
-
     //setup
     final var entityId = "my_entity_id";
     final var multiValueColumnId = "my_multi_value_column_id";

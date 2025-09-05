@@ -9,13 +9,11 @@ import ch.nolix.coreapi.web.url.IUrlTool;
  * @version 2024-12-09
  */
 public final class UrlTool implements IUrlTool {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public String getDisplayTextForUrl(final String url) {
-
     Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotNull();
 
     if (url.startsWith("http://www.")) {

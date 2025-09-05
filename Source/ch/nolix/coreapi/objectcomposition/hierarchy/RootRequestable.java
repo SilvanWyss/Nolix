@@ -8,7 +8,6 @@ package ch.nolix.coreapi.objectcomposition.hierarchy;
  * @version 2025-08-09
  */
 public interface RootRequestable {
-
   /**
    * @return true if the current {@link RootRequestable} is a child object, false
    *         otherwise.

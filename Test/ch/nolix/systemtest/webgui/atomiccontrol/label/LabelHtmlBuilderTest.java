@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabel;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class LabelHtmlBuilderTest extends ControlHtmlBuilderTest<LabelHtmlBuilder, ILabel> {
-
   @Override
   protected ILabel createControl() {
     return new Label();

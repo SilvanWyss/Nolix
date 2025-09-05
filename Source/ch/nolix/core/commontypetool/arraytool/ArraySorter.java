@@ -5,7 +5,6 @@ import java.util.function.Function;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class ArraySorter {
-
   private ArraySorter() {
   }
 
@@ -13,7 +12,6 @@ public final class ArraySorter {
     final E[] array,
     final int oneBasedEndIndex,
     final Function<E, C> comparableMapper) {
-
     Validator.assertThat(oneBasedEndIndex).thatIsNamed("one-based end index").isBetween(1, array.length);
 
     final var zeroBasedEndIndex = oneBasedEndIndex - 1;
@@ -32,7 +30,6 @@ public final class ArraySorter {
     final E[] array,
     final int oneBasedEndIndex,
     final Function<E, C> comparableMapper) {
-
     @SuppressWarnings("unchecked")
     final var comparableArray = (C[]) new Comparable[oneBasedEndIndex];
 
@@ -50,7 +47,6 @@ public final class ArraySorter {
     final int zeroBasedEndIndex,
     final E[] workElementArray,
     final C[] workComparableArray) {
-
     final var elementToProcessCount = zeroBasedEndIndex - zeroBasedBeginIndex + 1;
 
     switch (elementToProcessCount) {
@@ -77,7 +73,6 @@ public final class ArraySorter {
 
   private static void swapElements(final Object[] array, final int zeroBasedBeginIndex,
     final int zeroBasedEndIndex) {
-
     final var leftElement = array[zeroBasedBeginIndex];
 
     array[zeroBasedBeginIndex] = array[zeroBasedEndIndex];
@@ -91,7 +86,6 @@ public final class ArraySorter {
     final int zeroBasedEndIndex,
     final E[] workElementArray,
     final C[] workComparableArray) {
-
     final var elementToProcessCount = zeroBasedEndIndex - zeroBasedBeginIndex + 1;
     final var leftSectionZeroBasedEndIndex = zeroBasedBeginIndex + (elementToProcessCount / 2);
     final var rightSectionZeroBasedStartIndex = leftSectionZeroBasedEndIndex + 1;
@@ -130,7 +124,6 @@ public final class ArraySorter {
     final int rightSectionZeroBasedEndIndex,
     final E[] workElementArray,
     final C[] workComparableArray) {
-
     var leftSectionZeroBasedIndex = leftSectionZeroBasedBeginIndex;
     var rightSectionZeroBasedIndex = leftSectionZeroBasedEndIndex + 1;
     var movedElement = false;
@@ -138,7 +131,6 @@ public final class ArraySorter {
     var i = 0;
     while (leftSectionZeroBasedIndex <= leftSectionZeroBasedEndIndex
     && rightSectionZeroBasedIndex <= rightSectionZeroBasedEndIndex) {
-
       if (comparableArray[leftSectionZeroBasedIndex].compareTo(comparableArray[rightSectionZeroBasedIndex]) > 0) {
         workElementArray[i] = elementArray[rightSectionZeroBasedIndex];
         workComparableArray[i] = comparableArray[rightSectionZeroBasedIndex];
@@ -154,7 +146,6 @@ public final class ArraySorter {
     }
 
     if (movedElement) {
-
       while (leftSectionZeroBasedIndex <= leftSectionZeroBasedEndIndex) {
         workElementArray[i] = elementArray[leftSectionZeroBasedIndex];
         workComparableArray[i] = comparableArray[leftSectionZeroBasedIndex];

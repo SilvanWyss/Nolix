@@ -5,7 +5,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class AndNameCaptor<N> extends ArgumentCaptor<String, N> {
-
   public AndNameCaptor() {
   }
 
@@ -18,7 +17,6 @@ public class AndNameCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N andName(final String name) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     return setArgumentAndGetNext(name);

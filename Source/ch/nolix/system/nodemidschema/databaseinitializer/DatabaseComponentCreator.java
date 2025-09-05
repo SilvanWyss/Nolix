@@ -12,7 +12,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2025-01-12
  */
 public final class DatabaseComponentCreator implements IDatabaseComponentCreator {
-
   /**
    * {@inheritDoc}
    */
@@ -20,7 +19,6 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
   public IMutableNode<?> createDatabasePropertiesNodeWithDatabaseNameAndInitialSchemaTimeStamp(
     final String databaseName,
     final ITime initialSchemaTimeStamp) {
-
     final var nameNode = createNameNodeWithName(databaseName);
     final var schemaTimestampNode = createSchemaTimestampNodeWithInitialSchemaTimeStamp(initialSchemaTimeStamp);
 

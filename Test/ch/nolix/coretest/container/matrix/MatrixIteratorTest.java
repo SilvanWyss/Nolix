@@ -6,7 +6,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coretest.container.base.CopyableIteratorTest;
 
 final class MatrixIteratorTest extends CopyableIteratorTest {
-
   @Override
   protected <E> CopyableIterator<E> createIteratorForEmptyContainerForType(final Class<E> type) {
     return MatrixIterator.forMatrix(Matrix.createEmpty());
@@ -16,7 +15,6 @@ final class MatrixIteratorTest extends CopyableIteratorTest {
   protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
     final E element,
     @SuppressWarnings("unchecked") final E... elements) {
-
     final Matrix<E> matrix = Matrix.createEmpty();
 
     matrix.addRow(element, elements);

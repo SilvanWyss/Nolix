@@ -6,10 +6,8 @@ import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ArrayToolTest extends StandardTest {
-
   @Test
   void testCase_onArray_fromIndex_write() {
-
     //setup
     final var array = new byte[10];
     final var testUnit = new ArrayTool();

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
-
   private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
@@ -23,7 +22,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   }
 
   public static <V2> OptionalValueField<V2> withInitialValue(final V2 initialValue) {
-
     @SuppressWarnings("unchecked")
     final var optionalValue = (OptionalValueField<V2>) OptionalValueField.withValueType(initialValue.getClass());
 
@@ -38,7 +36,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   public void clear() {
-
     internalValue = null;
 
     setAsEditedAndRunPotentialUpdateAction();
@@ -51,7 +48,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   public V getStoredValue() {
-
     OPTIONAL_VALUE_VALIDATOR.assertContainsValue(this);
 
     return internalValue;
@@ -75,7 +71,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   public void setValue(final V value) {
-
     OPTIONAL_VALUE_VALIDATOR.assertCanSetValue(this, value);
 
     updateStateForSetValue(value);
@@ -85,7 +80,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   public void setValueFromString(final String string) {
-
     final var dataType = DataType.forType(getValueType());
 
     @SuppressWarnings("unchecked")
@@ -95,7 +89,6 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   }
 
   private void updateStateForSetValue(final V value) {
-
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     internalValue = value;

@@ -12,7 +12,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends AbstractInvalidArgumentException {
-
   /**
    * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
    * argument and methodName.
@@ -46,7 +45,6 @@ public final class ArgumentDoesNotSupportMethodException extends AbstractInvalid
    * @throws RuntimeException if the given methodName is null or blank.
    */
   private static String getValidatedMethodNameFromMethodName(final String methodName) {
-
     if (methodName == null) {
       throw new IllegalArgumentException("The given method name is null.");
     }

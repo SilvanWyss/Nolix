@@ -12,7 +12,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2021-09-18
  */
 public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
-
   /**
    * @param tableName
    * @return the number of the entities of the table with the given tableName from

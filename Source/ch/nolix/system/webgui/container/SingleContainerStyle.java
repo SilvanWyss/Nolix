@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.container.ISingleContainerStyle;
 public final class SingleContainerStyle
 extends AbstractControlStyle<ISingleContainerStyle>
 implements ISingleContainerStyle {
-
   public SingleContainerStyle() {
     initialize();
   }

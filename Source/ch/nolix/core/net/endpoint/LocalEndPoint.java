@@ -18,7 +18,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2017-05-06
  */
 public final class LocalEndPoint extends AbstractEndPoint {
-
   private final PeerType peerType;
 
   private final LocalEndPoint counterpart;
@@ -34,7 +33,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException if the given slot is blank.
    */
   private LocalEndPoint(final AbstractServer server, final String slot) {
-
     //Sets the peerType of the current LocalEndPoint.
     peerType = PeerType.FRONTEND;
 
@@ -58,7 +56,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given target is null.
    */
   private LocalEndPoint(final ISlot slot) {
-
     //Asserts that the given slot is not null.
     Validator.assertThat(slot).thatIsNamed(ISlot.class).isNotNull();
 
@@ -81,7 +78,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given counterpart is null.
    */
   private LocalEndPoint(final LocalEndPoint counterpart) {
-
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counterpart is not null.
@@ -159,7 +155,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public void sendMessage(final String message) {
-
     //Asserts that the given message is not null.
     Validator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
 

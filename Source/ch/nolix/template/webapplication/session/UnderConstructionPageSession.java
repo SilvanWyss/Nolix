@@ -13,7 +13,6 @@ import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
-
   private static final String CRANE_IMAGE_RESOURCE_PATH = "image/crane.jpg";
 
   private static final IImage CRANE_IMAGE = Image.fromResource(CRANE_IMAGE_RESOURCE_PATH);

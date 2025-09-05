@@ -5,11 +5,9 @@ import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 final class FrontendWriter implements IFrontEndWriter {
-
   private final AbstractWebClient<?, ?> parentBackendWebClient;
 
   private FrontendWriter(final AbstractWebClient<?, ?> parentBackendWebClient) {
-
     Validator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;

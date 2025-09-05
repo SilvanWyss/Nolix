@@ -13,7 +13,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class ExecutiveDataWriter {
-
   private final IMutableNode<?> nodeDatabase;
 
   private final IUpdaterCollector<IMutableNode<?>> updaterCollector = new UpdaterCollector<>();
@@ -21,7 +20,6 @@ public final class ExecutiveDataWriter {
   private int saveCount;
 
   private ExecutiveDataWriter(final IMutableNode<?> nodeDatabase) {
-
     Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
@@ -35,7 +33,6 @@ public final class ExecutiveDataWriter {
     final String tableName,
     final String entityId,
     final int multiReferencedColumnOneBasedOrdinalIndex) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.clearMultiReference(d, tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
@@ -47,7 +44,6 @@ public final class ExecutiveDataWriter {
     final String tableName,
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.clearMultiValue(d, tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
 
@@ -59,7 +55,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final int multiReferencedColumnOneBasedOrdinalIndex,
     final String referencedEntityId) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.deleteMultiReferenceEntry(
@@ -77,7 +72,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex,
     final String entry) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.deleteMultiValueEntry(
@@ -94,7 +88,6 @@ public final class ExecutiveDataWriter {
     final String tableName,
     final String entityId,
     final String entitySaveStamp) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.deleteEntity(d, tableName, entityId, entitySaveStamp);
 
@@ -106,7 +99,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final String backReferencedEntityId) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.deleteMultiBackReferenceEntry(
@@ -120,7 +112,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void expectSchemaTimestamp(ITime schemaTimestamp) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.expectSchemaTimestamp(d, schemaTimestamp);
 
@@ -128,7 +119,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void expectTableContainsEntity(final String tableName, final String entityId) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.expectTableContainsEntity(d, tableName, entityId);
 
@@ -148,7 +138,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final INode<?> entityIndexNode,
     final INode<?> entityNode) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.insertEntity(d, tableName, entityId, entityIndexNode, entityNode);
 
@@ -160,7 +149,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final INode<?> multiBackReferenceEntryNode) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiBackReferenceEntry(
@@ -178,7 +166,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final int multiReferenceColumnOneBasedOrdinalIndex,
     final INode<?> multiReferenceEntryNode) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiReferenceEntry(
@@ -196,7 +183,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex,
     final String value) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> //
     DataWriterActionProvider.insertMultiValueEntry(d, tableName, entityId, multiValueColumnOneBasedOrdinalIndex, value);
@@ -210,7 +196,6 @@ public final class ExecutiveDataWriter {
 
   public void saveChangesAndReset() {
     try {
-
       final var updatedNodeDatabase = MutableNode.fromNode(nodeDatabase);
 
       updaterCollector.updateObjectAndClear(updatedNodeDatabase);
@@ -224,7 +209,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void updateEntity(final EntityUpdateDto entityUpdate, final TableViewDto tableView) {
-
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.updateEntity(d, entityUpdate, tableView);
 

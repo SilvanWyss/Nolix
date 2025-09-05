@@ -9,7 +9,6 @@ package ch.nolix.coreapi.component.datamodelcomponent;
  *            belong to.
  */
 public interface IDatabaseComponent<D> {
-
   /**
    * @return true if the current {@link IDatabaseComponent} belongs to a database,
    *         false otherwise.

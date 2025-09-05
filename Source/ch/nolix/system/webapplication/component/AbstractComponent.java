@@ -17,7 +17,6 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 public abstract class AbstractComponent<C extends Controller<S>, S>
 extends Control<IComponent, IComponentStyle>
 implements IComponent {
-
   private static final BaseComponentHtmlBuilder HTML_BUILDER = new BaseComponentHtmlBuilder();
 
   private static final BaseComponentCssBuilder CSS_BUILDER = new BaseComponentCssBuilder();
@@ -25,7 +24,6 @@ implements IComponent {
   private final C controller;
 
   protected AbstractComponent(final C controller, final WebClientSession<S> webClientSession) {
-
     Validator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 
     this.controller = controller;

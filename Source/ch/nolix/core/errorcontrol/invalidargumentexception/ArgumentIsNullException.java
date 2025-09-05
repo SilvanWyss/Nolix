@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class ArgumentIsNullException extends AbstractInvalidArgumentException {
-
   private static final String ERROR_PREDICATE = "is null";
 
   /**
@@ -63,7 +62,6 @@ public final class ArgumentIsNullException extends AbstractInvalidArgumentExcept
    * @throws RuntimeException if the given argumentType is null.
    */
   private static String getNameOfArgumentType(final Class<?> argumentType) {
-
     if (argumentType == null) {
       throw new IllegalArgumentException("The given argument type is null.");
     }

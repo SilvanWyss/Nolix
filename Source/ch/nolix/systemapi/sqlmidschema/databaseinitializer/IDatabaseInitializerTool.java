@@ -9,7 +9,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2025-01-18
  */
 public interface IDatabaseInitializerTool {
-
   /**
    * Initializes the fix tables of the database using the given schemaWriter.
    * 

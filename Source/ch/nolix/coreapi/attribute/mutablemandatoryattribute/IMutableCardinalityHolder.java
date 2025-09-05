@@ -10,7 +10,6 @@ import ch.nolix.coreapi.datamodel.cardinality.ICardinalityHolder;
  * @version 2023-10-24
  */
 public interface IMutableCardinalityHolder extends ICardinalityHolder {
-
   /**
    * Sets the cardinality of the current {@link IMutableCardinalityHolder}.
    * 

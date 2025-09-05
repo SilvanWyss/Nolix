@@ -7,7 +7,6 @@ import java.lang.reflect.Executable;
  * @version 2025-02-08
  */
 public interface IExecutableExaminer {
-
   /**
    * @param executable
    * @param type

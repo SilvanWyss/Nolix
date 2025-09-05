@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2022-03-04
  */
 public final class EntityCreator implements IEntityCreator {
-
   /**
    * {@inheritDoc}
    */

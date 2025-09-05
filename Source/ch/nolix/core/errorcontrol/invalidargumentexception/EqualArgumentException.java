@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class EqualArgumentException extends AbstractInvalidArgumentException {
-
   /**
    * Creates a new {@link EqualArgumentException} for the given argument and
    * equalValue.

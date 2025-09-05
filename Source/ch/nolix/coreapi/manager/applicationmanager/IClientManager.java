@@ -8,7 +8,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @param <C> is the type of the clients of a {@link IClientManager}.
  */
 public interface IClientManager<C> {
-
   /**
    * @return the clients of the current {@link IClientManager}.
    */

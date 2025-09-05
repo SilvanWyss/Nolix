@@ -7,7 +7,6 @@ package ch.nolix.coreapi.datamodel.fieldrequest;
  * @version 2021-12-26
  */
 public interface MandatorynessRequestable {
-
   /**
    * @return true if the current {@link MandatorynessRequestable} is mandatory,
    *         false otherweise.

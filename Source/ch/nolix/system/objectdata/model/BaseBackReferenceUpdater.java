@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
 public final class BaseBackReferenceUpdater {
-
   private BaseBackReferenceUpdater() {
   }
 

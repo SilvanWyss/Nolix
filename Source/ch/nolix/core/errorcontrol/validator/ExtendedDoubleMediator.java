@@ -10,14 +10,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * @version 2017-11-12
  */
 public class ExtendedDoubleMediator extends DoubleMediator {
-
   /**
    * Creates a new extended double mediator for the given argument.
    * 
    * @param argument
    */
   ExtendedDoubleMediator(final double argument) {
-
     //Calls constructor of the base class.
     super(argument);
   }

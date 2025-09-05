@@ -22,7 +22,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2017-07-10
  */
 public final class FileAccessor extends FileSystemItemAccessorUnit {
-
   /**
    * Creates a new file accessor for a file with the given file path.
    * 
@@ -32,7 +31,6 @@ public final class FileAccessor extends FileSystemItemAccessorUnit {
    *                                  local machine.
    */
   public FileAccessor(final String filePath) {
-
     //Calls method of the base class.
     super(filePath);
 
@@ -115,7 +113,6 @@ public final class FileAccessor extends FileSystemItemAccessorUnit {
    * @throws RuntimeException if an error occurs.
    */
   public ILinkedList<String> readFileToLines() {
-
     final ILinkedList<String> lines = LinkedList.createEmpty();
 
     try (

@@ -1,7 +1,6 @@
 package ch.nolix.systemapi.sqlschema.querycreator;
 
 public interface IQueryCreator {
-
   String createQueryToGetTableCount();
 
   String createQueryToGetTableCount(String tableName);

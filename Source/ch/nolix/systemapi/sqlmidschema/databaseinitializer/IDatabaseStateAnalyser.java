@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
  * @version 2025-01-05
  */
 public interface IDatabaseStateAnalyser {
-
   /**
    * @param databaseName
    * @param sqlConnection

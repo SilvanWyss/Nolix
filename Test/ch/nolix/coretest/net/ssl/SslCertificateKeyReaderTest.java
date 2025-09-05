@@ -9,10 +9,8 @@ import ch.nolix.core.net.ssl.SslCertificateKeyReader;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class SslCertificateKeyReaderTest extends StandardTest {
-
   @Test
   void testCase_getKeyFromPemFileLines() {
-
     //setup
     final var pemFileLines = //
     ImmutableList.withElement(
@@ -43,7 +41,6 @@ final class SslCertificateKeyReaderTest extends StandardTest {
   "  -----BEGIN PRIVATE KEY-----  ",
   "  -----END PRIVATE KEY-----  " })
   void testCase_whenGivenLineIsNotAKeyLine(final String line) {
-
     //setup
     final var testUnit = new SslCertificateKeyReader();
 

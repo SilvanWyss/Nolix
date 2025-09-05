@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControl;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class ImageControlHtmlBuilderTest extends ControlHtmlBuilderTest<ImageControlHtmlBuilder, IImageControl> {
-
   @Override
   protected IImageControl createControl() {
     return new ImageControl();

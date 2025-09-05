@@ -7,7 +7,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class SingleContainerIterator<E> implements CopyableIterator<E> {
-
   private E nullableElement;
 
   private SingleContainerIterator(final E nullableElement) {
@@ -30,7 +29,6 @@ public final class SingleContainerIterator<E> implements CopyableIterator<E> {
 
   @Override
   public E next() {
-
     assertHasNext();
 
     final var localElement = nullableElement;

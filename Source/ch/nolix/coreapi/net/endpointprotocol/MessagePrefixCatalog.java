@@ -1,7 +1,6 @@
 package ch.nolix.coreapi.net.endpointprotocol;
 
 public final class MessagePrefixCatalog {
-
   public static final String TARGET_MESSAGE = "T";
 
   public static final String DEFAULT_TARGET_MESSAGE = "A";

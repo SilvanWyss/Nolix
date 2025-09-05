@@ -10,7 +10,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @version 2024-04-23
  */
 public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelectingStyleWithSelectors> {
-
   /**
    * @return the selector id of the current {@link ISelectingStyleWithSelectors}.
    * @throws RuntimeException if the current {@link ISelectingStyleWithSelectors}

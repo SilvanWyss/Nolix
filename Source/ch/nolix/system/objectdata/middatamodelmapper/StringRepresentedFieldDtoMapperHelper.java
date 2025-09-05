@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
  * @version 2025-08-22
  */
 public final class StringRepresentedFieldDtoMapperHelper {
-
   /**
    * Prevents that an instance of the
    * {@link StringRepresentedFieldDtoMapperHelper} can be created.
@@ -23,7 +22,6 @@ public final class StringRepresentedFieldDtoMapperHelper {
 
   public static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(
     final IOptionalValueField<?> optionalValue) {
-
     final var columnName = optionalValue.getName();
 
     if (optionalValue.isEmpty()) {
@@ -35,7 +33,6 @@ public final class StringRepresentedFieldDtoMapperHelper {
 
   public static StringRepresentedFieldDto mapOptionalReferenceToStringContentFieldDto(
     final IOptionalReference<?> optionalReference) {
-
     final var columnName = optionalReference.getName();
 
     if (optionalReference.isEmpty()) {
@@ -50,7 +47,6 @@ public final class StringRepresentedFieldDtoMapperHelper {
 
   public static StringRepresentedFieldDto mapOptionalBackReferenceToStringContentFieldDto(
     final IOptionalBackReference<?> optionalBackReference) {
-
     final var columnName = optionalBackReference.getName();
 
     if (optionalBackReference.isEmpty()) {

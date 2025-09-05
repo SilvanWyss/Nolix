@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class WebSocketHandShakeResponse {
-
   public static final String WEB_SOCKET_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 
   public static final String SEC_WEBSOCKET_ACCEPT_HEADER = "Sec-WebSocket-Accept";
@@ -21,7 +20,6 @@ public final class WebSocketHandShakeResponse {
   private final String secWebSocketAccept;
 
   public WebSocketHandShakeResponse(final String secWebSocketKey) {
-
     Validator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
 
     this.secWebSocketKey = secWebSocketKey;

@@ -9,11 +9,9 @@ import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class DoubleMediatorTest extends StandardTest {
-
   @ParameterizedTest
   @ValueSource(doubles = { 0.0, 0.0001, 0.5, 1.0, 1.5, 1000.0 })
   void testCase_isNotNegative_whenGivenArgumentIsNotNegative(final double argument) {
-
     //setup
     final var testUnit = DoubleMediator.forArgument(argument);
 
@@ -24,7 +22,6 @@ final class DoubleMediatorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(doubles = { -0.0001, -0.5, -1.0, -1.5, -1000.0 })
   void testCase_isNotNegative_whenGivenArgumentIsNegative(final double argument) {
-
     //setup
     final var testUnit = DoubleMediator.forArgument(argument);
 
@@ -38,7 +35,6 @@ final class DoubleMediatorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(doubles = { 0.0001, 0.5, 1.0, 1.5, 1000.0 })
   void testCase_isPositive_whenGivenArgumentIsPositive(final double argument) {
-
     //setup
     final var testUnit = DoubleMediator.forArgument(argument);
 
@@ -49,7 +45,6 @@ final class DoubleMediatorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(doubles = { 0.0, -0.0001, -0.5, -1.0, -1.5, -1000.0 })
   void testCase_isPositive_whenGivenArgumentIsNotPositive(final double argument) {
-
     //setup
     final var testUnit = DoubleMediator.forArgument(argument);
 

@@ -5,7 +5,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.element.base.IElement;
 
 public interface IAttachingAttribute extends IElement, IValueHolder<INode<?>> {
-
   String getTag();
 
   boolean hasTag();

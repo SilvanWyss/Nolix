@@ -8,7 +8,6 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {
-
   IBackground getBackgroundWhenHasState(ControlState state);
 
   void removeCustomBackgrounds();

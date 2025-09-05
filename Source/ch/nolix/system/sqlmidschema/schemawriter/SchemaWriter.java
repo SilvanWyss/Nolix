@@ -17,7 +17,6 @@ import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMa
 import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
-
   private static final ISqlSchemaTableDtoMapper SQL_SCHEMA_TABLE_DTO_MAPPER = new SqlSchemaTableDtoMapper();
 
   private static final ISqlSchemaColumnDtoMapper SQL_SCHEMA_COLUMN_DTO_MAPPER = new SqlSchemaColumnDtoMapper();
@@ -38,7 +37,6 @@ public final class SchemaWriter implements ISchemaWriter {
   private int saveCount;
 
   public SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
-
     this.sqlConnection = sqlConnection;
     this.metaDataWriter = MetaDataWriter.forSqlCollector(sqlCollector);
 
@@ -69,7 +67,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
-
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
 
     metaDataWriter.deleteColumn(tableName, columnName);
@@ -105,7 +102,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
 
     metaDataWriter.renameColumn(tableName, columnName, newColumnName);

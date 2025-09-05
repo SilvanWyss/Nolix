@@ -5,7 +5,6 @@ package ch.nolix.coreapi.math.basic;
  * @version 2024-12-27
  */
 public interface IBasicCalculator {
-
   /**
    * @param value1
    * @param value2

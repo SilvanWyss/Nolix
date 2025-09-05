@@ -23,7 +23,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2016-01-01
  */
 public final class Server extends AbstractServer {
-
   public static final String DEFAULT_INITIAL_HTTP_MESSAGE = //
   """
   HTTP/1.1 200 OK
@@ -65,7 +64,6 @@ public final class Server extends AbstractServer {
    *                                       blank.
    */
   private Server(final int port, final String initialHttpMessage) {
-
     //Asserts that the given port is in [0,65535].
     Validator.assertThat(port).isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
@@ -79,7 +77,6 @@ public final class Server extends AbstractServer {
     this.initialHttpMessage = initialHttpMessage;
 
     try {
-
       //Creates the serverSocket of the current Server.
       serverSocket = new ServerSocket(getPort());
 

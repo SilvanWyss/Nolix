@@ -8,7 +8,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * @version 2025-04-06
  */
 public interface IExceptionArgumentStringRepresentaionPreparator {
-
   /**
    * @param argument - Can be null.
    * @return a space enclosed and quoted {@link String} representation of the

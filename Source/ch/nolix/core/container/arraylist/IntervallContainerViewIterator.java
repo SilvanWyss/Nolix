@@ -17,7 +17,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link IntervallContainerViewIterator}.
  */
 final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
-
   private final IContainer<E> parentContainer;
 
   private final int endIndex;
@@ -38,7 +37,6 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    * @throws NonPositiveArgumentException if the given endIndex is not positive.
    */
   public IntervallContainerViewIterator(final IContainer<E> parentContainer, final int startIndex, final int endIndex) {
-
     Validator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
@@ -86,7 +84,6 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public E next() {
-
     //Asserts that the current @link SubContainerIterator has a next element.
     if (!hasNext()) {
       throw //

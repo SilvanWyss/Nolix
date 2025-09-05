@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
  * @version 2025-06-01
  */
 public interface IMutableOneBasedIndexHolder extends IOneBasedIndexHolder {
-
   /**
    * Sets the one-based index of the current {@link IOneBasedIndexHolder}.
    * 

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public interface ITable<E extends IEntity>
 extends IDatabaseComponent<IDatabase>, IDatabaseObject, IIdHolder, INameHolder {
-
   boolean containsEntityWithId(String id);
 
   int getEntityCount();

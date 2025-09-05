@@ -9,16 +9,13 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
-
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
   public int getOneBasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
-
     var localOneBasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;
 
     for (final var c : getStoredColumnNodesFromTableNode(tableNode)) {
-
       if (COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(c).equals(columnName)) {
         return localOneBasedColumnIndex;
       }
@@ -60,7 +57,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
-
     final var idNode = getStoredIdNodeFromTableNode(tableNode);
 
     return idNode.getSingleChildNodeHeader();
@@ -68,7 +64,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
-
     final var nameNode = getStoredNameNodeFromTableNode(tableNode);
 
     return nameNode.getSingleChildNodeHeader();

@@ -17,7 +17,6 @@ extends
 INode<N>,
 IFluentMutableOptionalHeaderHolder<N>,
 Resettable {
-
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 

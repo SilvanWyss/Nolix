@@ -7,7 +7,6 @@ import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 
 public interface IImage extends IElement {
-
   IColor getBottomLeftPixel();
 
   IColor getBottomRightPixel();

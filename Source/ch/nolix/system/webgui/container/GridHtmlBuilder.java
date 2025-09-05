@@ -10,7 +10,6 @@ import ch.nolix.systemapi.webgui.container.IGrid;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
@@ -31,7 +30,6 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   }
 
   private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfGrid(final IGrid grid) {
-
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
 
     for (var ri = 1; ri <= grid.getRowCount(); ri++) {
@@ -48,7 +46,6 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   }
 
   private IContainer<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
-
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
 
     for (var ci = 1; ci <= grid.getColumnCount(); ci++) {
@@ -59,7 +56,6 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   }
 
   private HtmlElement createHtmlElementForCellOfGrid(final IGrid grid, final int rowIndex, final int columnIndex) {
-
     if (!grid.containsControlAtOneBasedRowAndColumnIndex(rowIndex, columnIndex)) {
       return HtmlElement.withType(HtmlElementTypeCatalog.TD);
     }

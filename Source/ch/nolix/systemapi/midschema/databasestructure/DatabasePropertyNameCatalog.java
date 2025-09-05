@@ -7,7 +7,6 @@ package ch.nolix.systemapi.midschema.databasestructure;
  * @version 2025-06-01
  */
 public final class DatabasePropertyNameCatalog {
-
   public static final String SCHEMA_TIMESTAMP = "SchemaTimestamp";
 
   /**

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITokenHolder;
  * @version 2023-02-09
  */
 public interface IMutableTokenHolder extends ITokenHolder {
-
   /**
    * Sets the token of the current {@link IMutableTokenHolder}.
    * 

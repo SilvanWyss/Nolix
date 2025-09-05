@@ -11,7 +11,6 @@ import ch.nolix.coreapi.net.endpoint2protocol.MessageRole;
  * @version 2016-10-01
  */
 final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
-
   private final MessageRole messageRole;
 
   /**
@@ -25,7 +24,6 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
    * @throws ArgumentIsNullException if the given message is null.
    */
   public Package(final int index, final MessageRole messageRole, final String message) {
-
     //Calls constructor of the base class.
     super(index, message);
 

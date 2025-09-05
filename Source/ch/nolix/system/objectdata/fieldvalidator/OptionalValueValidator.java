@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 public final class OptionalValueValidator extends FieldValidator implements IOptionalValueValidator {
-
   private static final IOptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
 
   @Override

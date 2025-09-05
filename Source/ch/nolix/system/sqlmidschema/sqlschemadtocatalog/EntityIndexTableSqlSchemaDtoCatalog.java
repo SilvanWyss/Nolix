@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class EntityIndexTableSqlSchemaDtoCatalog {
-
   private static final ColumnDto ENTITY_ID_SQL_SCHEMA_COLUMN_DTO = //
   new ColumnDto(EntityIndexColumn.ENTITY_ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 

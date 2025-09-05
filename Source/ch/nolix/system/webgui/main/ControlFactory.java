@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.coreapi.document.node.INode;
 
 public final class ControlFactory {
-
   private static final ControlFactoryUnit CONTROL_FACTORY = new ControlFactoryUnit();
 
   private ControlFactory() {

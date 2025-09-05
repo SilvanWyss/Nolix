@@ -11,7 +11,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2019-09-06
  */
 public final class UnsignedByte {
-
   /**
    * A {@link UnsignedByte} stores its value in an unsigned int because for any
    * transformation it would be needed to transform the value to an int anyway.
@@ -57,7 +56,6 @@ public final class UnsignedByte {
    * @throws ArgumentIsOutOfRangeException if the given number is not in [0, 255].
    */
   public static UnsignedByte fromNumber(final int number) {
-
     //Asserts that the given number is in [0, 255].
     Validator.assertThat(number).thatIsNamed(LowerCaseVariableCatalog.NUMBER).isBetween(0, 255);
 
@@ -78,7 +76,6 @@ public final class UnsignedByte {
    *         int.
    */
   public int getBitAtAsInt(final int index) {
-
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isBetween(1, 8);
 
     return (mByte >> (8 - index)) & 1;

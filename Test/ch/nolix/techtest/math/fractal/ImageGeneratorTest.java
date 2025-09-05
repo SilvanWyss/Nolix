@@ -7,10 +7,8 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.ImageGenerator;
 
 final class ImageGeneratorTest extends StandardTest {
-
   @Test
   void testCase_getStoredImage() {
-
     //setup
     final var fractalBuilder = new FractalBuilder().setWidthInPixel(10).setHeightInPixel(5);
     final var fractal = fractalBuilder.build();

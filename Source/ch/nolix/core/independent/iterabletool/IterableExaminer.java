@@ -7,7 +7,6 @@ import ch.nolix.coreapi.independent.iterabletool.IIterableExaminer;
  * @version 2025-02-07
  */
 public final class IterableExaminer implements IIterableExaminer {
-
   /**
    * @param iterable
    * @param element
@@ -15,12 +14,10 @@ public final class IterableExaminer implements IIterableExaminer {
    *         false otherwise, for the case that the given iterable is not null.
    */
   private static boolean containsElementMultipleTimesWhenIsNotNull(final Iterable<?> iterable, final Object element) {
-
     var found = false;
 
     for (final var e : iterable) {
       if (e == element) {
-
         if (found) {
           return true;
         }
@@ -39,12 +36,10 @@ public final class IterableExaminer implements IIterableExaminer {
    *         false otherwise, for the case that the given iterable is not null.
    */
   private static boolean containsElementOnceWhenIsNotNull(final Iterable<?> iterable, final Object element) {
-
     var found = false;
 
     for (final var e : iterable) {
       if (e == element) {
-
         if (found) {
           return false;
         }
@@ -63,7 +58,6 @@ public final class IterableExaminer implements IIterableExaminer {
    *         otherwise, for the case that the given iterable is not null.
    */
   private static boolean containsElementWhenIsNotNull(final Iterable<?> iterable, final Object element) {
-
     for (final var e : iterable) {
       if (e == element) {
         return true;
@@ -83,12 +77,10 @@ public final class IterableExaminer implements IIterableExaminer {
   private static boolean containsExacltyOneWithStringRepresentationWhenIsNotNull(
     final Iterable<?> iterable,
     final String stringRepresentation) {
-
     var found = false;
 
     for (final var e : iterable) {
       if (e != null && e.toString().equals(stringRepresentation)) {
-
         if (found) {
           return false;
         }
@@ -105,7 +97,6 @@ public final class IterableExaminer implements IIterableExaminer {
    */
   @Override
   public boolean containsElement(final Iterable<?> iterable, final Object element) {
-
     if (iterable == null) {
       return false;
     }
@@ -128,7 +119,6 @@ public final class IterableExaminer implements IIterableExaminer {
    */
   @Override
   public boolean containsElementOnce(final Iterable<?> iterable, final Object element) {
-
     if (iterable == null) {
       return false;
     }
@@ -143,7 +133,6 @@ public final class IterableExaminer implements IIterableExaminer {
   public boolean containsExactlyOneWithStringRepresentation(
     final Iterable<?> iterable,
     final String stringRepresentation) {
-
     if (iterable == null) {
       return false;
     }
@@ -156,7 +145,6 @@ public final class IterableExaminer implements IIterableExaminer {
    */
   @Override
   public boolean isEmpty(final Iterable<?> iterable) {
-
     if (iterable == null) {
       throw new IllegalArgumentException("The given iterable is null.");
     }

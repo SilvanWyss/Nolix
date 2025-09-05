@@ -13,7 +13,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public final class MutableOptionalSpecificationValueExtractor implements IProperty, INameHolder {
-
   private final String name;
 
   private final Consumer<INode<?>> setter;
@@ -27,7 +26,6 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     final Consumer<INode<?>> setter,
     final BooleanSupplier valuePresenceChecker,
     final Supplier<Node> getter) {
-
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
     Validator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
@@ -46,7 +44,6 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
 
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
-
     if (attribute.hasHeader(getName())) {
       setter.accept(attribute);
       return true;

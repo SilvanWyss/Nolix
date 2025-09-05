@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2024-12-20
  */
 public interface IEntityCreator {
-
   /**
    * @param entityType
    * @param <E>        is the type of the created {@link IEntity}.

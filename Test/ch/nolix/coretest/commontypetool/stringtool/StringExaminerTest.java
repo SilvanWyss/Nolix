@@ -11,7 +11,6 @@ import ch.nolix.core.testing.standardtest.StandardTest;
  * @version 2025-03-01
  */
 final class StringExaminerTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "''", //
@@ -21,7 +20,6 @@ final class StringExaminerTest extends StandardTest {
   "cheesburger§" //
   })
   void testCase_isLowerCase_whenTheGivenStringIsLowerCase(final String string) {
-
     //setup
     final var testUnit = new StringExaminer();
 
@@ -41,7 +39,6 @@ final class StringExaminerTest extends StandardTest {
   "Cheesburger§" //
   })
   void testCase_isLowerCase_whenTheGivenStringIsNotLowerCase(final String string) {
-
     //setup
     final var testUnit = new StringExaminer();
 
@@ -59,7 +56,6 @@ final class StringExaminerTest extends StandardTest {
   "CursorIcon" //
   })
   void testCase_iisPascalCase_whenTheGivenStringIsPascalCase(final String string) {
-
     //setup
     final var testUnit = new StringExaminer();
 
@@ -77,7 +73,6 @@ final class StringExaminerTest extends StandardTest {
   "cursorIcon" //
   })
   void testCase_iisPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
-
     //setup
     final var testUnit = new StringExaminer();
 
@@ -119,7 +114,6 @@ final class StringExaminerTest extends StandardTest {
   void testCase_startsWithIgnoringCase_whenTheGivenStringStartsWithTheGivenPrefix(
     final String string,
     final String prefix) {
-
     //setup
     final var testUnit = new StringExaminer();
 
@@ -185,7 +179,6 @@ final class StringExaminerTest extends StandardTest {
   void testCase_startsWithIgnoringCase_whenTheGivenStringDoesNotStartWithTheGivenPrefix(
     final String string,
     final String prefix) {
-
     //setup
     final var testUnit = new StringExaminer();
 

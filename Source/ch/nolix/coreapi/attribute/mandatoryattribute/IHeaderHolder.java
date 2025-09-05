@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2018-04-07
  */
 public interface IHeaderHolder {
-
   /**
    * @return the header of the current {@link IHeaderHolder}.
    */
@@ -34,7 +33,6 @@ public interface IHeaderHolder {
    *         given object.
    */
   default boolean hasSameHeaderAs(final IHeaderHolder object) {
-
     //Handles the case that the given object is null.
     if (object == null) {
       return false;

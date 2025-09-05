@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploader;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class UploaderHtmlBuilderTest extends ControlHtmlBuilderTest<UploaderHtmlBuilder, IUploader> {
-
   @Override
   protected IUploader createControl() {
     return new Uploader();

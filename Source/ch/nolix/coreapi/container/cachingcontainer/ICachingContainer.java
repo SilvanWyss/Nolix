@@ -3,7 +3,6 @@ package ch.nolix.coreapi.container.cachingcontainer;
 import ch.nolix.coreapi.container.base.IContainer;
 
 public interface ICachingContainer<E> extends IContainer<E> {
-
   boolean containsWithId(String id);
 
   String getIdOf(E element);

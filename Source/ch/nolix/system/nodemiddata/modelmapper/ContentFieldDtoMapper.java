@@ -18,7 +18,6 @@ import ch.nolix.systemapi.nodemiddata.modelmapper.IContentFieldDtoMapper;
  * @version 2021-10-20
  */
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
-
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   /**
@@ -28,7 +27,6 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   public FieldDto mapContentFieldNodeToContentFieldDto(
     final INode<?> contentFieldNode,
     final ColumnViewDto columnView) {
-
     final var columnName = columnView.name();
     final var fieldType = columnView.fieldType();
     final var dataType = columnView.dataType();
@@ -50,7 +48,6 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
       case OPTIONAL_VALUE_FIELD:
 
         if (contentFieldNode.hasHeader()) {
-
           final var valueAsString3 = contentFieldNode.getHeader();
           final var value3 = VALUE_MAPPER.mapStringToValue(valueAsString3, dataType);
 
@@ -61,7 +58,6 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
       case OPTIONAL_REFERENCE, OPTIONAL_BACK_REFERENCE:
 
         if (contentFieldNode.containsChildNodes()) {
-
           final var valueAsString4 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(1).getHeader();
           final var value4 = VALUE_MAPPER.mapStringToValue(valueAsString4, dataType);
           final var additionalValue4 = contentFieldNode.getStoredChildNodeAtOneBasedIndex(2).getHeader();
@@ -84,11 +80,9 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   public IContainer<FieldDto> mapEntityNodeToContentFieldDtos(
     final IMutableNode<?> entityNode,
     final TableViewDto tableView) {
-
     final ILinkedList<FieldDto> contentFields = LinkedList.createEmpty();
 
     for (final var c : tableView.columnViews()) {
-
       final var contentFieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(c.oneBasedOrdinalIndex());
       final var contentFieldDto = mapContentFieldNodeToContentFieldDto(contentFieldNode, c);
 

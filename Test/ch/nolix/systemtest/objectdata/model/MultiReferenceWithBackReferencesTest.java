@@ -11,9 +11,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiReference;
 
 final class MultiReferenceWithBackReferencesTest extends StandardTest {
-
   private static final class Person extends Entity {
-
     final MultiReference<Pet> pets = MultiReference.forEntityType(Pet.class);
 
     Person() {
@@ -22,7 +20,6 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
   }
 
   private static final class Pet extends Entity {
-
     final BackReference<Person> owner = BackReference.forEntityAndBackReferencedFieldName(Person.class,
       "pets");
 
@@ -33,7 +30,6 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenContainsSeveral() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -68,7 +64,6 @@ final class MultiReferenceWithBackReferencesTest extends StandardTest {
 
   @Test
   void testCase_removeEntity_whenContainsEntity() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);

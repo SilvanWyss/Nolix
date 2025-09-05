@@ -8,10 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class WithIpOrDomainCaptorTest extends StandardTest {
-
   @Test
   void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
-
     //setup
     final var testUnit = new WithIpOrDomainCaptor<>();
 
@@ -21,7 +19,6 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
 
   @Test
   void testCase_withIpOrDomain_whenHasNext() {
-
     //parameter definition
     final var domain = "nolix.ch";
 
@@ -39,7 +36,6 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
 
   @Test
   void testCase_withIpOrDomain_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new WithIpOrDomainCaptor<>();
 
@@ -51,7 +47,6 @@ final class WithIpOrDomainCaptorTest extends StandardTest {
 
   @Test
   void testCase_withLocalAddress_whenHasNext() {
-
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new WithIpOrDomainCaptor<>(andNameCaptor);

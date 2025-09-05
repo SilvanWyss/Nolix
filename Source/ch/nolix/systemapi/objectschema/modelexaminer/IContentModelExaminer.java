@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
  * @version 2024-01-31
  */
 public interface IContentModelExaminer extends IDatabaseObjectExaminer {
-
   /**
    * @param contentModel
    * @return true if the given contentModel is a

@@ -19,7 +19,6 @@ abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
    * Creates a new {@link Mediator} with a default argument name.
    */
   protected Mediator() {
-
     //Calls other constructor.
     this(DEFAULT_ARGUMENT_NAME);
   }
@@ -32,7 +31,6 @@ abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
    * @throws InvalidArgumentException if the given argumentName is blank.
    */
   protected Mediator(final String argumentName) {
-
     //Asserts that the given argumentName is not null.
     if (argumentName == null) {
       throw ArgumentIsNullException.forArgumentName("argument name");

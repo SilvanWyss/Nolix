@@ -6,28 +6,24 @@ import java.util.Iterator;
 import ch.nolix.core.independent.arraytool.ArrayValidator;
 
 public final class ImmutableList<E> implements Iterable<E> {
-
   private static final ArrayValidator ARRAY_VALIDATOR = new ArrayValidator();
 
   private final E[] elements;
 
   @SuppressWarnings("unchecked")
   private ImmutableList() {
-
     elements = (E[]) new Object[0];
 
     ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
   }
 
   private ImmutableList(final E[] paramElements) {
-
     elements = paramElements.clone();
 
     ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
   }
 
   private ImmutableList(final E element, final E[] paramElements) {
-
     elements = Arrays.copyOfRange(paramElements, 0, 1 + paramElements.length);
     elements[paramElements.length] = element;
 

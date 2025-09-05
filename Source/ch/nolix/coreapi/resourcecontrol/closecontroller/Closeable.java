@@ -10,7 +10,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  * @version 2023-09-10
  */
 public interface Closeable extends AutoCloseable, CloseStateRequestable {
-
   /**
    * Closes the current {@link Closeable}.
    */

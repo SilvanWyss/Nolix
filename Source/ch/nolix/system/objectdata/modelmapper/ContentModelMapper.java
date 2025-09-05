@@ -26,35 +26,29 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
 public final class ContentModelMapper {
-
   public IContentModelView<ITable<IEntity>> //
   mapContentModelDtoToContentModel( //NOSONAR: This switch statement must handle all cases.
     final IContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> tables) {
-
     if (contentModelDto instanceof ValueModelDto) {
-
       final var valueType = contentModelDto.getDataType().getDataTypeClass();
 
       return ValueModelView.forValueType(valueType);
     }
 
     if (contentModelDto instanceof OptionalValueModelDto) {
-
       final var valueType = contentModelDto.getDataType().getDataTypeClass();
 
       return OptionalValueModelView.forValueType(valueType);
     }
 
     if (contentModelDto instanceof MultiValueModelDto) {
-
       final var valueType = contentModelDto.getDataType().getDataTypeClass();
 
       return MultiValueModelView.forValueType(valueType);
     }
 
     if (contentModelDto instanceof final ReferenceModelDto referenceModelDto) {
-
       final var referenceableTableIds = referenceModelDto.referenceableTableIds();
       final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
@@ -62,7 +56,6 @@ public final class ContentModelMapper {
     }
 
     if (contentModelDto instanceof final OptionalReferenceModelDto optionalReferenceModelDto) {
-
       final var referenceableTableIds = optionalReferenceModelDto.referenceableTableIds();
       final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
@@ -70,7 +63,6 @@ public final class ContentModelMapper {
     }
 
     if (contentModelDto instanceof final MultiReferenceModelDto multiReferenceModelDto) {
-
       final var referenceableTableIds = multiReferenceModelDto.referenceableTableIds();
       final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
 
@@ -78,7 +70,6 @@ public final class ContentModelMapper {
     }
 
     if (contentModelDto instanceof final BackReferenceModelDto backReferenceModelDto) {
-
       final var backReferencedColumnId = backReferenceModelDto.backReferencedColumnId();
       final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
@@ -87,7 +78,6 @@ public final class ContentModelMapper {
     }
 
     if (contentModelDto instanceof final OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
-
       final var backReferencedColumnId = optionalBackReferenceModelDto.backReferencedColumnId();
       final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
@@ -96,7 +86,6 @@ public final class ContentModelMapper {
     }
 
     if (contentModelDto instanceof final MultiBackReferenceModelDto multiBackReferenceModelDto) {
-
       final var backReferencedColumnId = multiBackReferenceModelDto.backReferencedColumnId();
       final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
       final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));

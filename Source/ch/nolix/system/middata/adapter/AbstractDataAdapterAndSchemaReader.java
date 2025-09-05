@@ -14,11 +14,9 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 public abstract class AbstractDataAdapterAndSchemaReader
 extends AbstractDataAdapter
 implements IDataAdapterAndSchemaReader {
-
   private final ISchemaReader schemaReader;
 
   protected AbstractDataAdapterAndSchemaReader(final IDataAdapter dataAdapter, final ISchemaReader schemaReader) {
-
     super(dataAdapter, dataAdapter);
 
     ResourceValidator.assertIsOpen(schemaReader);

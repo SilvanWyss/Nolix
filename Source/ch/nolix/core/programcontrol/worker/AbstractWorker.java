@@ -4,13 +4,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 
 public abstract class AbstractWorker {
-
   private boolean started;
 
   protected abstract void run();
 
   protected final void start() {
-
     setStarted();
 
     FlowController.runInBackground(this::run);
@@ -27,7 +25,6 @@ public abstract class AbstractWorker {
   }
 
   private void setStarted() {
-
     assertIsNotStarted();
 
     started = true;

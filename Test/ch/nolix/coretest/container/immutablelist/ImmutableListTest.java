@@ -5,7 +5,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class ImmutableListTest extends ContainerTest {
-
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,

@@ -7,10 +7,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.coreapi.reflection.reflectiontool.IObjectTool;
 
 public final class ObjectTool implements IObjectTool {
-
   @Override
   public String getNameOfFirstFieldThatHasValue(final Object object, final Object value) {
-
     final var field = getStoredFirstFieldThatHasValue(object, value);
 
     return field.getName();
@@ -18,13 +16,10 @@ public final class ObjectTool implements IObjectTool {
 
   @Override
   public Field getStoredFirstFieldThatHasValue(final Object object, final Object value) {
-
     var localClass = object.getClass();
 
     while (localClass != null) {
-
       for (final var f : localClass.getDeclaredFields()) {
-
         final var fieldValue = getStoredValueOfField(object, f);
 
         if (fieldValue == value) {
@@ -44,7 +39,6 @@ public final class ObjectTool implements IObjectTool {
 
   @Override
   public Object getStoredValueOfField(final Object object, final Field field) {
-
     field.setAccessible(true);
 
     try {

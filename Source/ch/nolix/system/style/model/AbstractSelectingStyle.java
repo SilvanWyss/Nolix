@@ -16,7 +16,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public abstract class AbstractSelectingStyle
 extends AbstractStyle<ISelectingStyleWithSelectors>
 implements ISelectingStyleWithSelectors {
-
   protected static final String SELECTOR_ID_HEADER = "SelectorId";
 
   protected static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -40,7 +39,6 @@ implements ISelectingStyleWithSelectors {
     IContainer<String> selectorTokens,
     final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
-
     super(attachingAttributes, subStyles);
 
     Validator.assertThatTheStrings(selectorRoles).areNotBlank();
@@ -70,7 +68,6 @@ implements ISelectingStyleWithSelectors {
 
   @Override
   public final IContainer<INode<?>> getAttributes() {
-
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
@@ -98,7 +95,6 @@ implements ISelectingStyleWithSelectors {
 
   @Override
   public final String getSelectorId() {
-
     assertHasSelectorId();
 
     return selectorId;
@@ -116,7 +112,6 @@ implements ISelectingStyleWithSelectors {
 
   @Override
   public final String getSelectorType() {
-
     assertHasSelectorType();
 
     return selectorType;
@@ -128,7 +123,6 @@ implements ISelectingStyleWithSelectors {
   }
 
   public final boolean hasSelectorId(final String selectorId) {
-
     if (!hasSelectorId()) {
       return false;
     }
@@ -148,7 +142,6 @@ implements ISelectingStyleWithSelectors {
   }
 
   public final boolean hasSelectorType(final String selectorType) {
-
     if (!hasSelectorType()) {
       return false;
     }
@@ -167,7 +160,6 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
     final Enum<?>... selectorRoles) {
-
     final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles).to(Object::toString);
 
     return withSelectorRoles(allSelectorRoles);
@@ -175,7 +167,6 @@ implements ISelectingStyleWithSelectors {
 
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
-
     final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles);
 
     return withSelectorRoles(allSelectorRoles);
@@ -185,7 +176,6 @@ implements ISelectingStyleWithSelectors {
   public final ISelectingStyleWithSelectors withSelectorToken(
     final String selectorToken,
     final String... selectorTokens) {
-
     final var allSelectorTokens = ContainerView.forElementAndArray(selectorToken, selectorTokens);
 
     return withSelectorTokens(allSelectorTokens);

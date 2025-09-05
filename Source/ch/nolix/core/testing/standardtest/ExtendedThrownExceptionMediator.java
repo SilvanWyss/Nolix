@@ -11,7 +11,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2018-12-09
  */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
-
   /**
    * Creates a new {@link ExtendedThrownExceptionMediator}.
    */
@@ -26,7 +25,6 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * @throws ArgumentIsNullException if the given exception is null.
    */
   ExtendedThrownExceptionMediator(final Throwable exception) {
-
     //Calls constructor of the base class.
     super(exception);
   }
@@ -43,7 +41,6 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * @throws ArgumentIsNullException if the given type is null.
    */
   public <E extends Exception> ThrownExceptionMediator ofType(final Class<E> type) {
-
     //Asserts that the given type is not null.
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TYPE);

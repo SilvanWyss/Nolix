@@ -8,7 +8,6 @@ package ch.nolix.coreapi.objectcreation.copier;
  * @param <C> is the type of a {@link Copyable}.
  */
 public interface Copyable<C extends Copyable<C>> {
-
   /**
    * @return a new copy of the current {@link Copyable}.
    */

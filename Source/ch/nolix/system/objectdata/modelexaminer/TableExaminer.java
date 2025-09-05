@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
  * @version 2024-12-29
  */
 public final class TableExaminer extends DatabaseObjectExaminer implements ITableExaminer {
-
   private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();
 
   /**

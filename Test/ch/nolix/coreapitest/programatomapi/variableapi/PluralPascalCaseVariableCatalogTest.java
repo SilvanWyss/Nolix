@@ -10,12 +10,10 @@ import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
 import ch.nolix.coreapi.misc.variable.PluralPascalCaseVariableCatalog;
 
 final class PluralPascalCaseVariableCatalogTest extends StandardTest {
-
   private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
 
   @Test
   void testCase_constants() {
-
     //setup
     final var exceptions = //
     LinkedList.withElement(PluralPascalCaseVariableCatalog.GUIS, PluralPascalCaseVariableCatalog.URLS);
@@ -23,7 +21,6 @@ final class PluralPascalCaseVariableCatalogTest extends StandardTest {
     //verification
     for (final var c : ReflectionTool
       .getStoredPublicStaticFieldValuesOfClass(PluralPascalCaseVariableCatalog.class)) {
-
       expect(c).isOfType(String.class);
 
       final var stringValue = c.toString();

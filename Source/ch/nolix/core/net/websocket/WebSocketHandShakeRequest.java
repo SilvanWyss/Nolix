@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.commoncontainer.StoringRequestable;
 
 public final class WebSocketHandShakeRequest {
-
   private static final String SEC_WEBSOCKET_KEY_HEADER = "Sec-WebSocket-Key";
 
   private final String secWebSocketKey;

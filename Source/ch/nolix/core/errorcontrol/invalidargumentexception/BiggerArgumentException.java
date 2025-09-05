@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class BiggerArgumentException extends AbstractInvalidArgumentException {
-
   /**
    * Creates a new {@link BiggerArgumentException} for the given argument,
    * argumentName and max.

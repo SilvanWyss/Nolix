@@ -19,7 +19,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @param <S> is the type of a {@link AbstractStyle}.
  */
 abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElement implements IAbstractStyle<S> {
-
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
   private final ImmutableList<AttachingAttribute> attachingAttributes;
@@ -35,7 +34,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   protected AbstractStyle(
     final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
-
     this.attachingAttributes = //
     ImmutableList.forIterable(attachingAttributes.to(AttachingAttribute::fromAttachingAttribute));
 
@@ -71,7 +69,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    */
   @Override
   public final S withAttachingAttribute(final Enum<?> tag, final String value) {
-
     final var attachingAttribute = AttachingAttribute.forTagAndValue(tag, value);
     final var attachingAttribtues = ImmutableList.withElement(attachingAttribute);
 
@@ -83,7 +80,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    */
   @Override
   public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
-
     final ILinkedList<IAttachingAttribute> allAttachingAttributes = LinkedList.createEmpty();
 
     allAttachingAttributes.addAtEnd(AttachingAttribute.forValue(attachingAttribute));
@@ -100,7 +96,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
     final String selectorType,
     final String newAttachingAttribute,
     final String... newAttachingAttributes) {
-
     final var allNewAttachingAttribtues = //
     ContainerView.forElementAndArray(newAttachingAttribute, newAttachingAttributes);
 
@@ -114,7 +109,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   public final S withReplacedAttachingAttributes(
     final IPair<String, String> attachingAttributeReplacement,
     @SuppressWarnings("unchecked") final IPair<String, String>... attachingAttributeReplacements) {
-
     final var allAttachingAttributeReplacements = //
     ContainerView.forElementAndArray(attachingAttributeReplacement, attachingAttributeReplacements);
 
@@ -128,7 +122,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   public final S withReplacedTaggedAttachingAttributes(
     final IPair<Enum<?>, String> attachingAttributeReplacement,
     @SuppressWarnings("unchecked") final IPair<Enum<?>, String>... attachingAttributeReplacements) {
-
     final var allAttachingAttributeReplacements = //
     ContainerView.forElementAndArray(attachingAttributeReplacement, attachingAttributeReplacements);
 
@@ -142,7 +135,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   public final S withSubStyle(
     final ISelectingStyleWithSelectors subStyle,
     final ISelectingStyleWithSelectors... subStyles) {
-
     final var allSubStyles = ContainerView.forElementAndArray(subStyle, subStyles);
 
     return withSubStyles(allSubStyles);
@@ -182,7 +174,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    * @param element
    */
   protected final void letSubStylesStyleChildElementsOfElement(final IStylableElement<?> element) {
-
     final var childElements = element.getStoredChildStylableElements();
 
     getSubStyles().forEach(ss -> childElements.forEach(ss::applyToElement));
@@ -194,7 +185,6 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    */
   private AbstractSelectingStyle createSelectingStyleFromSelectingStyle(
     final ISelectingStyleWithSelectors selectingStyle) {
-
     if (selectingStyle instanceof final SelectingStyle elementSelectingStyle) {
       return elementSelectingStyle;
     }

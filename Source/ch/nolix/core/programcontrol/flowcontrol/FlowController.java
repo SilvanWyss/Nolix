@@ -26,7 +26,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
  * @version 2016-06-01
  */
 public final class FlowController {
-
   private static final JobPool JOB_POOL = new JobPool();
 
   /**
@@ -124,7 +123,6 @@ public final class FlowController {
    * @return a new {@link IFuture} for the running of the given jobs.
    */
   public static IFuture runInBackgroundAndOrder(final Runnable job, final Runnable... jobs) {
-
     final var allJobes = ContainerView.forElementAndArray(job, jobs);
 
     return Future.forJobExecturor(JobExecutor.forJobs(allJobes));
@@ -190,12 +188,10 @@ public final class FlowController {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public static IWaitMediator waitAsLongAs(final BooleanSupplier condition) {
-
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     var i = 1;
     while (condition.getAsBoolean()) {
-
       if (i < 100) {
         waitForMilliseconds(10);
         i++;
@@ -216,7 +212,6 @@ public final class FlowController {
    *                                   negative.
    */
   public static IWaitMediator waitForMilliseconds(final int durationInMilliseconds) {
-
     Waiter.waitForMilliseconds(durationInMilliseconds);
 
     return new WaitMediator();
@@ -230,7 +225,6 @@ public final class FlowController {
    * @throws NegativeArgumentException if the given durationInSeconds is negative.
    */
   public static IWaitMediator waitForSeconds(final int durationInSeconds) {
-
     Waiter.waitForSeconds(durationInSeconds);
 
     return new WaitMediator();
@@ -244,7 +238,6 @@ public final class FlowController {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   public static IWaitMediator waitUntil(final BooleanSupplier condition) {
-
     waitAsLongAs(() -> !condition.getAsBoolean());
 
     return new WaitMediator();

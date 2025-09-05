@@ -12,7 +12,6 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
  * @version 2017-08-15
  */
 public final class PopupWindowProvider {
-
   private static final String ERROR_WINDOW_TITLE = "Error";
 
   private static final String MESSAGE_WINDOW_TITLE = "Message";
@@ -44,7 +43,6 @@ public final class PopupWindowProvider {
    * @param error
    */
   public static void showErrorWindow(final Throwable error) {
-
     String title;
     final var textStringBuilder = new StringBuilder();
 
@@ -55,7 +53,6 @@ public final class PopupWindowProvider {
 
       //Handles the case that the given exception is not null.
     } else {
-
       //Sets the title.
       title = error.getClass().getSimpleName();
 
@@ -67,7 +64,6 @@ public final class PopupWindowProvider {
 
       //Iterates the stack trace of the given exception.
       for (final StackTraceElement ste : error.getStackTrace()) {
-
         final String[] classPath = ste.getClassName().split("\\.");
         textStringBuilder.append(classPath[classPath.length - 1]);
 
@@ -106,7 +102,6 @@ public final class PopupWindowProvider {
    * @return true if the yes-button was selected.
    */
   public static boolean showRequestWindow(final String question) {
-
     final var result = JOptionPane.showConfirmDialog(
       null,
       question,

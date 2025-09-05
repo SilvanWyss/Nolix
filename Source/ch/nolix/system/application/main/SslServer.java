@@ -9,7 +9,6 @@ import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 
 public final class SslServer extends AbstractServer<SslServer> {
-
   public static final int DEFAULT_PORT = PortCatalog.HTTPS;
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
@@ -24,7 +23,6 @@ public final class SslServer extends AbstractServer<SslServer> {
   private final int port;
 
   public SslServer(final int port, final String domain, final ISslCertificate paramSSLCertificate) {
-
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
@@ -38,7 +36,6 @@ public final class SslServer extends AbstractServer<SslServer> {
   }
 
   public static SslServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
-
     final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
 
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
@@ -49,7 +46,6 @@ public final class SslServer extends AbstractServer<SslServer> {
 
   public static SslServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final String domain) {
-
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
@@ -59,7 +55,6 @@ public final class SslServer extends AbstractServer<SslServer> {
   public static SslServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String domain) {
-
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 

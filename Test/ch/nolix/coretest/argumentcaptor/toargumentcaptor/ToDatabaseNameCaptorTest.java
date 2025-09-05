@@ -8,10 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ToDatabaseNameCaptorTest extends StandardTest {
-
   @Test
   void testCase_getDatabaseName_whenDoesNotHaveDatabaseName() {
-
     //setup
     final var testUnit = new ToDatabaseNameCaptor<>();
 
@@ -21,7 +19,6 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
 
   @Test
   void testCase_toDatabase_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new ToDatabaseNameCaptor<>();
 
@@ -33,7 +30,6 @@ final class ToDatabaseNameCaptorTest extends StandardTest {
 
   @Test
   void testCase_toDatabaseName_whenHasNext() {
-
     //parameter definition
     final var databaseName = "my_database";
 

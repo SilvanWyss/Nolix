@@ -7,13 +7,11 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class EntityTest extends StandardTest {
-
   private static final class Thing extends Entity {
   }
 
   @Test
   void testCase_constructor() {
-
     //execution
     final var result = new Thing();
 
@@ -29,7 +27,6 @@ final class EntityTest extends StandardTest {
 
   @Test
   void testCase_toString() {
-
     //setup
     final var testUnit = new Thing();
 

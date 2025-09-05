@@ -22,7 +22,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2017-05-22
  */
 public final class NetEndPoint extends AbstractEndPoint {
-
   private int nextSentPackageIndex = 1;
 
   private final IEndPoint internalEndPoint;
@@ -37,7 +36,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public NetEndPoint(final int port) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(port));
   }
@@ -53,7 +51,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException      if the given target is blank.
    */
   public NetEndPoint(final int port, final String target) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(port, target));
   }
@@ -65,7 +62,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param ip
    */
   public NetEndPoint(final String ip) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip));
   }
@@ -79,7 +75,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public NetEndPoint(final String ip, final int port) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port));
   }
@@ -96,7 +91,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException      if the given target is blank.
    */
   public NetEndPoint(final String ip, final int port, final String target) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port, target));
   }
@@ -108,7 +102,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given internalEndPoint is null.
    */
   NetEndPoint(final IEndPoint internalEndPoint) {
-
     Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 
     this.internalEndPoint = internalEndPoint;
@@ -202,7 +195,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         {@link NetEndPoint}
    */
   int getNextSentPackageIndex() {
-
     //Resets the index of the text sent package if it has reached the maximum
     //value.
     if (nextSentPackageIndex == Integer.MAX_VALUE) {
@@ -219,7 +211,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param paramPackage
    */
   void receive(final Package paramPackage) {
-
     //Enumerates the message role of the given package.
     switch (paramPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case RESPONSE_EXPECTING_MESSAGE:
@@ -287,7 +278,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         stays connected, null otherwise.
    */
   private String sendAndWaitToReply(final String message) {
-
     //Sends message and receives reply.
     final var index = getNextSentPackageIndex();
     send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
@@ -319,10 +309,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    *                          index.
    */
   private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
-
     //This loop suffers from being optimized away by the compiler or the JVM.
     while (!receivedPackage(index)) {
-
       //Handles the case that the current NetEndPoint is closed.
       if (isClosed()) {
         return null;

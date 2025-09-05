@@ -10,11 +10,9 @@ import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 
 public abstract class AbstractBaseValueModelView<V> implements IBaseValueModelView<V, ITable<IEntity>> {
-
   private final Class<V> valueType;
 
   protected AbstractBaseValueModelView(final Class<V> valueType) {
-
     Validator.assertThat(valueType).thatIsNamed(LowerCaseVariableCatalog.VALUE_TYPE).isNotNull();
 
     this.valueType = valueType;

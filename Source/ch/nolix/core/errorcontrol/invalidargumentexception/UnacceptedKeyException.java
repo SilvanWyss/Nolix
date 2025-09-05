@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class UnacceptedKeyException extends AbstractInvalidArgumentException {
-
   private static final String ARGUMENT_NAME = "key";
 
   private static final String ERROR_PREDICATE = "is not accepted";

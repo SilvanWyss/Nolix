@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlCssBuilderTest;
 
 final class TextboxCssBuilderTest extends ControlCssBuilderTest<TextboxCssBuilder, ITextbox> {
-
   @Override
   protected ITextbox createControl() {
     return new Textbox();

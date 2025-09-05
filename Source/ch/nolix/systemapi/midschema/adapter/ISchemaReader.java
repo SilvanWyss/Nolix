@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public interface ISchemaReader extends GroupCloseable {
-
   boolean columnIsEmpty(String tableName, String columnName);
 
   ITime getSchemaTimestamp();

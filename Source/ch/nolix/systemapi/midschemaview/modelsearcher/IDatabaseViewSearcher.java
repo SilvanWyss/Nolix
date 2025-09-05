@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
  * @version 2025-06-19
  */
 public interface IDatabaseViewSearcher {
-
   /**
    * @param databaseView
    * @param tableName

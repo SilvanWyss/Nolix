@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalIdHolder;
  * @version 2023-02-09
  */
 public interface IMutableOptionalIdHolder extends IOptionalIdHolder {
-
   /**
    * Removes the id of the current {@link IMutableOptionalIdHolder}.
    */

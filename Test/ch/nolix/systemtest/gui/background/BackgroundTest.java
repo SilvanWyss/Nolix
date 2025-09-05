@@ -11,7 +11,6 @@ import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 
 final class BackgroundTest extends StandardTest {
-
   @ParameterizedTest
   @ValueSource(strings = {
   "Background(Color(0x010203))",
@@ -19,7 +18,6 @@ final class BackgroundTest extends StandardTest {
   "Background(Transparency)"
   })
   void testCase_fromSpecification(final String backgroundSpecificationAsString) {
-
     //setup
     final var backgroundSpecification = Node.fromString(backgroundSpecificationAsString);
 
@@ -32,7 +30,6 @@ final class BackgroundTest extends StandardTest {
 
   @Test
   void testCase_withColor() {
-
     //execution
     final var result = Background.withColor(X11ColorCatalog.BLUE);
 

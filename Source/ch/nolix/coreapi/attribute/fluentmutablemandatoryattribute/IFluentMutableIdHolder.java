@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
  * @param <H> is the type of a {@link IFluentMutableIdHolder}.
  */
 public interface IFluentMutableIdHolder<H> extends IIdHolder {
-
   /**
    * Sets the id of the current {@link IFluentMutableIdHolder}.
    * 

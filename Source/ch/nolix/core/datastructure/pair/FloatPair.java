@@ -10,7 +10,6 @@ import ch.nolix.core.independent.math.NumberComparator;
  * @version 2016-08-01
  */
 public final class FloatPair {
-
   public static final double DEFAULT_VALUE = 0.0;
 
   private final double value1;
@@ -43,7 +42,6 @@ public final class FloatPair {
    */
   @Override
   public boolean equals(final Object object) {
-
     if (object instanceof final FloatPair floatPair) {
       return //
       NumberComparator.areEqual(value1, floatPair.value1)

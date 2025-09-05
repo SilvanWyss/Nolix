@@ -12,7 +12,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> {
-
   private final int index;
 
   private final C content;
@@ -25,7 +24,6 @@ public class IndexedPackage<C> {
    * @throws ArgumentIsNullException if the given content is null.
    */
   protected IndexedPackage(final int index, final C content) {
-
     //Asserts that the given content is not null.
     Validator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNotNull();
 

@@ -7,7 +7,6 @@ package ch.nolix.systemapi.midschema.databasestructure;
  * @version 2025-01-12
  */
 public final class FixDatabasePropertyCatalogue {
-
   public static final int NUMBER_OF_ENTITY_META_FIELDS;
 
   static {

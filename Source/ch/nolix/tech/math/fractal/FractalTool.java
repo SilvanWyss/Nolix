@@ -8,7 +8,6 @@ import ch.nolix.techapi.math.fractal.IFractal;
 import ch.nolix.techapi.math.fractal.IFractalTool;
 
 public final class FractalTool implements IFractalTool {
-
   @Override
   public BigDecimal getHeightInPixelAsBigDecimal(final IFractal fractal) {
     return BigDecimal.valueOf(fractal.getHeightInPixel()).setScale(fractal.getDecimalPlaces());
@@ -24,7 +23,6 @@ public final class FractalTool implements IFractalTool {
     final IFractal fractal,
     final IComplexNumber startNumber,
     final BigDecimal limit) {
-
     final var sequence = fractal.createSequenceFor(startNumber);
 
     return sequence.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(

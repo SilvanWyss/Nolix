@@ -8,7 +8,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * @version 2022-07-08
  */
 public abstract class AbstractElement implements IElement {
-
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
   /**

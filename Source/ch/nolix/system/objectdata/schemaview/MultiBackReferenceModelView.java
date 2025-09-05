@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class MultiBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
 extends AbstractBaseBackReferenceModelView<C> {
-
   private MultiBackReferenceModelView(final C backReferencedColumn) {
     super(backReferencedColumn);
   }

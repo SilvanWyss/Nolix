@@ -20,7 +20,6 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
  * @version 2024-12-25
  */
 public final class StringRepresentedFieldDtoMapper implements IStringRepresentedFieldDtoMapper {
-
   /**
    * {@inheritDoc}
    */
@@ -35,7 +34,6 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
    */
   @Override
   public StringRepresentedFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
-
     if (field instanceof final IValueField<?> value) {
       return //
       new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString(), null);

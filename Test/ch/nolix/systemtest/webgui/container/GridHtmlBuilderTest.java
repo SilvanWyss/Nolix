@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.container.IGrid;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class GridHtmlBuilderTest extends ControlHtmlBuilderTest<GridHtmlBuilder, IGrid> {
-
   @Override
   protected IGrid createControl() {
     return new Grid();

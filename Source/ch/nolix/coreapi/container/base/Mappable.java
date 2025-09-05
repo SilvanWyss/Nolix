@@ -9,7 +9,6 @@ import java.util.function.Function;
  * @param <E> is the type of the elements a {@link Mappable}.
  */
 public interface Mappable<E> {
-
   /**
    * @param mapper
    * @param <E2>   is the type of the elements the given mapper maps from the

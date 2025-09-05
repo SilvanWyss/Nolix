@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTextHolder;
  * @version 2023-10-25
  */
 public interface IMutableMultiTextHolder extends IMultiTextHolder {
-
   /**
    * Adds the given text to the current {@link IMutableMultiTextHolder}.
    * 

@@ -8,7 +8,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * @version 2025-03-28
  */
 public final class MultiValueEntryColumnNameCatalog {
-
   public static final String ENTITY_ID = "EntityId";
 
   public static final String MULTI_VALUE_COLUMN_ID = "MultiValueColumnId";

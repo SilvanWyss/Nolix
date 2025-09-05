@@ -11,7 +11,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
  * @version 2025-01-12
  */
 public final class EntityIndexNodeMapper implements IEntityIndexNodeMapper {
-
   /**
    * {@inheritDoc}
    */

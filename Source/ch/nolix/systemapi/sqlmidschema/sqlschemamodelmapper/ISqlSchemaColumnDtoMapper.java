@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
  * @version 2025-02-01
  */
 public interface ISqlSchemaColumnDtoMapper {
-
   /**
    * @param columnDto
    * @return new {@link ch.nolix.systemapi.sqlschema.model.ColumnDto}s from the

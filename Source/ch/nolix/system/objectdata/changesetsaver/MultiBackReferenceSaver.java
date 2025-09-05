@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
 public final class MultiBackReferenceSaver {
-
   private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiBackReferenceEntryDtoMapper();
 
@@ -29,7 +28,6 @@ public final class MultiBackReferenceSaver {
   private void saveMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var multiReferenceEntryState = multiBackReferenceEntry.getState();
 
     switch (multiReferenceEntryState) {
@@ -50,7 +48,6 @@ public final class MultiBackReferenceSaver {
   private void insertMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var multiBackReferenceEntryDto = //
     MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER.mapMultiBackReferenceEntryToMultiBackReferenceEntryDto(
       multiBackReferenceEntry);
@@ -61,7 +58,6 @@ public final class MultiBackReferenceSaver {
   private void deleteMultiBackReferenceEntry(
     final IMultiBackReferenceEntry<?> multiBackReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var multiBackReferenceEntryDeletionDto = //
     MULTI_BACK_REFERENCE_ENTRY_DELETION_DTO_MAPPER
       .mapMultiBackReferenceEntryToMultiBackReferenceEntryDeletionDto(multiBackReferenceEntry);

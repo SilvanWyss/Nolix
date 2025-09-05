@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITitleHolder;
  * @param <H> is the type of a {@link IFluentMutableTitleHolder}.
  */
 public interface IFluentMutableTitleHolder<H extends IFluentMutableTitleHolder<H>> extends ITitleHolder {
-
   /**
    * Sets the title of the current {@link IFluentMutableTitleHolder}.
    * 

@@ -9,7 +9,6 @@ package ch.nolix.coreapi.math.number;
  * @version 2025-05-29
  */
 public final class IntCatalog {
-
   public static final int THOUSAND = 1_000;
 
   public static final int MILLION = 1_000_000;

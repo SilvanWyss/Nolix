@@ -8,20 +8,17 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 final class MatrixColumnIterator<E> implements CopyableIterator<E> {
-
   private final MatrixColumn<E> parentMatrixColumn;
 
   private int nextElementOneBasedRowIndex = 1;
 
   private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
-
     Validator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
 
     this.parentMatrixColumn = parentMatrixColumn;
   }
 
   private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn, final int nextElementOneBasedRowIndex) {
-
     Validator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
 
     Validator
@@ -49,7 +46,6 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 
   @Override
   public E next() {
-
     assertHasNext();
 
     return nextWhenHasNext();
@@ -64,7 +60,6 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
   }
 
   private E nextWhenHasNext() {
-
     final var element = parentMatrixColumn.getStoredAtOneBasedIndex(nextElementOneBasedRowIndex);
 
     nextElementOneBasedRowIndex++;

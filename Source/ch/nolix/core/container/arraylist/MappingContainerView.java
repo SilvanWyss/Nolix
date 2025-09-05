@@ -18,7 +18,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  *            from its elements.
  */
 public final class MappingContainerView<E, T> extends AbstractExtendedContainer<T> {
-
   private final IContainer<E> container;
 
   private final Function<E, T> mapper;
@@ -33,7 +32,6 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws ArgumentIsNullException if the given mapper is null.
    */
   private MappingContainerView(final IContainer<E> container, final Function<E, T> mapper) {
-
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
     this.container = container;
@@ -71,7 +69,6 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    */
   @Override
   public T getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     final var element = container.getStoredAtOneBasedIndex(oneBasedIndex);
 
     return mapper.apply(element);

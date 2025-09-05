@@ -8,7 +8,6 @@ import ch.nolix.systemapi.gui.location.Location;
  * @version 2025-08-09
  */
 public interface ICornerShadow {
-
   /**
    * @return the blur radius of the current {ICornerShadow}.
    */

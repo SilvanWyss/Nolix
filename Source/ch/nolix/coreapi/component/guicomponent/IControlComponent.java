@@ -9,7 +9,6 @@ package ch.nolix.coreapi.component.guicomponent;
  *            to.
  */
 public interface IControlComponent<C> {
-
   /**
    * @return true if the current {@link IControlComponent} belongs to a control,
    *         false otherwise.

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2025-08-22
  */
 public interface IEntityContentFieldsFiller {
-
   /**
    * Fills up the content fields of the given entity from the given
    * contentFieldDtos.

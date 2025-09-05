@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2024-12-21
  */
 public final class EntityFiller implements IEntityFiller {
-
   private static final IEntityContentFieldsFiller ENTITY_CONTENT_FIELDS_FILLER = new EntityContentFieldsFiller();
 
   /**
@@ -18,7 +17,6 @@ public final class EntityFiller implements IEntityFiller {
    */
   @Override
   public void fillUpEntityFromEntityLoadingDto(final IEntity entity, final EntityLoadingDto entityLoadingDto) {
-
     final var id = entityLoadingDto.id();
     final var saveStamp = entityLoadingDto.saveStamp();
     final var contentFields = entityLoadingDto.contentFields();

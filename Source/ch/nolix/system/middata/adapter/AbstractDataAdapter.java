@@ -20,7 +20,6 @@ import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final IDataReader dataReader;
@@ -28,7 +27,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   private final IDataWriter dataWriter;
 
   protected AbstractDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
-
     Validator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
     Validator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
 

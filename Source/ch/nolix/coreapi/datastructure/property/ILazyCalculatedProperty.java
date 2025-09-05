@@ -10,7 +10,6 @@ import ch.nolix.coreapi.state.staterequest.UpToDateRequestable;
  * @param <V> is the type of the value of a {@link ILazyCalculatedProperty}.
  */
 public interface ILazyCalculatedProperty<V> extends UpToDateRequestable {
-
   /**
    * @return the lazy calculated value of the current
    *         {@link ILazyCalculatedProperty}.

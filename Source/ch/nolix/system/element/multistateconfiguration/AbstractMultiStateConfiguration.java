@@ -17,7 +17,6 @@ import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfigurati
 public abstract class AbstractMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
 extends AbstractElement
 implements IMultiStateConfiguration<C, S> {
-
   private final State<S> baseState;
 
   private final IContainer<State<S>> availableStates;
@@ -25,7 +24,6 @@ implements IMultiStateConfiguration<C, S> {
   private IContainer<AbstractProperty<S>> abstractProperties;
 
   protected AbstractMultiStateConfiguration(final S baseState) {
-
     Validator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 
     availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
@@ -38,7 +36,6 @@ implements IMultiStateConfiguration<C, S> {
 
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
-
     for (final var p : getStoredProperties()) {
       if (attribute.getHeader().endsWith(p.getName())) {
         p.setValueFromSpecification(attribute);
@@ -51,13 +48,11 @@ implements IMultiStateConfiguration<C, S> {
 
   @Override
   public final void addOrChangeAttribute(final String attribtue, final String... attributes) {
-
     //Calls other method.
     addOrChangeAttribute(Node.fromString(attribtue));
 
     //Iterates the given attributes.
     for (final var a : attributes) {
-
       //Calls other method.
       addOrChangeAttribute(Node.fromString(a));
     }
@@ -72,7 +67,6 @@ implements IMultiStateConfiguration<C, S> {
 
   @Override
   public final IContainer<INode<?>> getAttributes() {
-
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     for (final var p : getStoredProperties()) {
@@ -93,7 +87,6 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   public final void setFrom(final C element) {
-
     @SuppressWarnings("unchecked")
     final var iterator = ((AbstractMultiStateConfiguration<C, S>) element).getStoredProperties().iterator();
 
@@ -113,7 +106,6 @@ implements IMultiStateConfiguration<C, S> {
 
   @SuppressWarnings("unchecked")
   protected final void internalAddChild(final C child) {
-
     Validator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
 
     ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
@@ -132,14 +124,12 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   final IContainer<AbstractProperty<S>> getStoredProperties() {
-
     extractPropertiesIfNotExtracted();
 
     return abstractProperties;
   }
 
   final State<S> getStateObjectFor(final S state) {
-
     for (final var s : availableStates) {
       if (s.hasEnumValue(state)) {
         return s;
@@ -156,7 +146,6 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   private void extractPropertiesWhenNotExtracted() {
-
     final ILinkedList<AbstractProperty<S>> lProperties = LinkedList.createEmpty();
     fillUpPropertiesIntoList(lProperties);
 
@@ -189,7 +178,6 @@ implements IMultiStateConfiguration<C, S> {
 
   private AbstractProperty<S> getPropertyFromField(final Field field) {
     try {
-
       field.setAccessible(true);
 
       @SuppressWarnings("unchecked")
@@ -219,7 +207,6 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   private void setParent(final AbstractMultiStateConfiguration<?, S> parentElement) {
-
     final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getStoredCascadingProperties());
 
     for (final var cp : getStoredCascadingProperties()) {

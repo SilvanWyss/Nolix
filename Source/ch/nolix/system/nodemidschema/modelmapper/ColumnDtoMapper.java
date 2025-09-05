@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemidschema.modelmapper.IColumnDtoMapper;
  * @version 2021-09-12
  */
 public final class ColumnDtoMapper implements IColumnDtoMapper {
-
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   private static final ContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
@@ -20,7 +19,6 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    */
   @Override
   public ColumnDto mapColumnNodeToColumnDto(final IMutableNode<?> columnNode) {
-
     final var columnId = COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
     final var columnName = COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
     final var contentModelNode = COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode);

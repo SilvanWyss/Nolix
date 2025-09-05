@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class Database extends AbstractSchemaObject implements IDatabase {
-
   private static final DatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
@@ -24,7 +23,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
   public Database(final String name, final ISchemaAdapter midSchemaAdapter) {
-
     DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
 
     Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
@@ -37,7 +35,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   public Database addTable(final ITable table) {
-
     DATABASE_TOOL.assertCanAddGivenTable(this, table);
     DatabaseMutationExecutor.addTableToDatabase(this, (Table) table);
 
@@ -46,7 +43,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   public Database createTableWithName(final String name) {
-
     final var table = Table.withName(name);
 
     return addTable(table);
@@ -59,7 +55,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   public IContainer<ITable> getStoredTables() {
-
     loadTablesFromDatabaseIfNeeded();
 
     return tables;
@@ -67,7 +62,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   public int getTableCount() {
-
     if (!isConnectedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
       return tables.getCount();
     }
@@ -82,7 +76,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   protected void noteClose() {
-
     //Does not call getStoredTables method to avoid that the tables need to be
     //loaded from the database.
     for (final var t : tables) {
@@ -95,7 +88,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
   }
 
   ISchemaAdapter getStoredMidSchemaAdapter() {
-
     DATABASE_OBJECT_VALIDATOR.assertIsConnectedWithRealDatabase(this);
 
     return midSchemaAdapter;
@@ -110,7 +102,6 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
   }
 
   private void loadTablesFromDatabase() {
-
     final var loadedTables = TableLoader.loadTables(getStoredMidSchemaAdapter());
 
     for (final var t : loadedTables) {

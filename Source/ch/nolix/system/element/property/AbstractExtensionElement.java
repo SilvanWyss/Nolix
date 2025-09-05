@@ -8,7 +8,6 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public abstract class AbstractExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
-
   private E internalExtensionElement;
 
   protected AbstractExtensionElement(final E internalExtensionElement) {
@@ -32,7 +31,6 @@ public abstract class AbstractExtensionElement<E extends IRespondingMutableEleme
   }
 
   protected final void internalSetExtensionElement(final E internalExtensionElement) {
-
     Validator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
 
     if (this.internalExtensionElement != null && !isExchangable()) {

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.datamodel.fieldproperty.FieldType;
  * @version 2023-09-08
  */
 public interface FieldTypeRequestable {
-
   /**
    * @return the field type of the current {@link FieldTypeRequestable}.
    */

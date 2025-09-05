@@ -11,7 +11,6 @@ import java.util.function.ToIntFunction;
  * @param <E> is the type of the elements a {@link AggregationRequestable}.
  */
 public interface AggregationRequestable<E> {
-
   /**
    * @param valueMapper
    * @return the average of the values the given valueMapper maps from the

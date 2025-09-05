@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @version 2024-12-18
  */
 public interface ITableDtoMapper {
-
   /**
    * @param table
    * @return a new {@link TableDto} from the given table.

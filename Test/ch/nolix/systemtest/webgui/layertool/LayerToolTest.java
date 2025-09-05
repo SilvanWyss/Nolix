@@ -7,10 +7,8 @@ import ch.nolix.system.webgui.layertool.LayerTool;
 import ch.nolix.system.webgui.main.Layer;
 
 final class LayerToolTest extends StandardTest {
-
   @Test
   void testCase_createIdHtmlAttributeForLayer() {
-
     //setup
     final var layer = new Layer();
     final var testUnit = new LayerTool();

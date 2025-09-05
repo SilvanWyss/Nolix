@@ -9,7 +9,6 @@ import ch.nolix.systemapi.nodemidschema.nodeexaminer.INodeDatabaseExaminer;
  * @version 2025-01-12
  */
 public final class NodeDatabaseExaminer implements INodeDatabaseExaminer {
-
   /**
    * {@inheritDoc}
    */

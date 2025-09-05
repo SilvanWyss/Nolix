@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
  * @version 2024-12-29
  */
 public final class EntityExaminer extends DatabaseObjectExaminer implements IEntityExaminer {
-
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   /**
@@ -21,7 +20,6 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    */
   @Override
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IEntity entity) {
-
     if (isNewOrEdited(entity)) {
       return entity.internalGetStoredFields().containsOnly(FIELD_EXAMINER::isSetForCaseWhenIsMandatoryAndNewOrEdited);
     }
@@ -99,7 +97,6 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    */
   @Override
   public boolean isReferencedInLocalData(final IEntity entity) {
-
     if (!entity.belongsToTable()) {
       return false;
     }
@@ -132,9 +129,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
   }
 
   private boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
-
     if (entity.isReferencedInPersistedData()) {
-
       final var locallyDeletedEntities = getLocallyDeletedEntities(entity);
 
       return entity.isReferencedInPersistedDataIgnoringGivenEntities(locallyDeletedEntities);

@@ -12,13 +12,11 @@ import ch.nolix.systemapi.sqlmidschema.modelmapper.IContentModelDtoMapper;
  * @version 2025-06-20
  */
 public final class ContentModelDtoMapper implements IContentModelDtoMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public IContentModelDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
-
     final var fieldTypeEntry = //
     joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.FIELD_TYPE_INDEX);
 

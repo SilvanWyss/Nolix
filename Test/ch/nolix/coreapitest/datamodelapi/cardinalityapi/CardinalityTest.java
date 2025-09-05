@@ -11,7 +11,6 @@ import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 
 final class CardinalityTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getCardinalitysAndTheirBaseCardinality() {
     return //
@@ -24,7 +23,6 @@ final class CardinalityTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getCardinalitysAndTheirBaseCardinality")
   void testCase_fromSpecification(final Cardinality testUnit, final BaseCardinality expectedBaseCardinality) {
-
     //execution
     final var result = testUnit.getBaseCardinality();
 

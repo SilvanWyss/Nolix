@@ -20,7 +20,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
-
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   private final E[] elements;
@@ -51,7 +50,6 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   private ImmutableList(final E element, final E[] elements) {
-
     this.elements = ARRAY_TOOL.createArrayWithElement(element, elements);
 
     Validator.assertThatTheElements(elements).areNotNull();
@@ -80,7 +78,6 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    */
   @SuppressWarnings("unchecked")
   public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
-
     if (container instanceof final ImmutableList<E2> immutableList) {
       return immutableList;
     }
@@ -89,7 +86,6 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
     final var elements = new Object[elementCount];
     var index = 0;
     for (final var e : container) {
-
       if (e == null) {
         throw ArgumentIsNullException.forArgumentName((index + 1) + "th element");
       }
@@ -111,7 +107,6 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    *                                 null.
    */
   public static <E2> ImmutableList<E2> fromStream(final Stream<E2> stream) {
-
     Validator.assertThat(stream).thatIsNamed(Stream.class).isNotNull();
 
     return forIterable(stream.toList());
@@ -144,7 +139,6 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(1, getCount());
 
     return elements[oneBasedIndex - 1];

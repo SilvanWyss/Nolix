@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.schematool.ITableTool;
  * @version 2021-07-11
  */
 public final class TableEditor {
-
   private static final ITableTool TABLE_TOOL = new TableTool();
 
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
@@ -19,12 +18,10 @@ public final class TableEditor {
   }
 
   public static void addColumnToTable(final Table table, final Column column) {
-
     table.addColumnAttribute(column);
     column.setParentTableAttribute(table);
 
     if (table.isConnectedWithRealDatabase()) {
-
       final var midSchemaAdapter = table.getStoredMidSchemaAdapter();
       final var tableName = table.getName();
       final var columnDto = COLUMN_DTO_MAPPER.mapColumnToMidSchemaColumnDto(column);
@@ -36,7 +33,6 @@ public final class TableEditor {
   }
 
   public static void deleteTable(final Table table) {
-
     if (table.belongsToDatabase()) {
       table.getStoredParentDatabase().removeTableAttribute(table);
     }
@@ -49,7 +45,6 @@ public final class TableEditor {
   }
 
   public static void setNameToTable(final Table table, final String name) {
-
     final var oldTableName = table.getName();
     final var referencingColumns = TABLE_TOOL.getStoredReferencingColumns(table);
     final var backReferencingColumns = TABLE_TOOL.getStoredBackReferencingColumns(table);
@@ -57,7 +52,6 @@ public final class TableEditor {
     table.setNameAttribute(name);
 
     if (table.isConnectedWithRealDatabase()) {
-
       table.getStoredMidSchemaAdapter().renameTable(oldTableName, name);
 
       for (final var rc : referencingColumns) {

@@ -9,7 +9,6 @@ import java.util.function.Predicate;
  *            {@link IFilteringContainerViewProvider}.
  */
 public interface IFilteringContainerViewProvider<E> {
-
   /**
    * @param selector
    * @return a new {@link IContainer} view with the elements the given selector

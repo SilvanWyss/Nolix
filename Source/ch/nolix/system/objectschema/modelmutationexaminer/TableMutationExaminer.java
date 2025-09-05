@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExami
  * @version 2024-12-30
  */
 public final class TableMutationExaminer implements ITableMutationExaminer {
-
   /**
    * {@inheritDoc}
    */

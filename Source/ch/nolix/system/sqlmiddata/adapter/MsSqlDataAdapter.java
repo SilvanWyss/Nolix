@@ -4,7 +4,6 @@ import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
 
 public final class MsSqlDataAdapter extends AbstractSqlDataAdapter {
-
   private MsSqlDataAdapter(final String databaseName, final ISqlConnection sqlConnection) {
     super(
       databaseName,

@@ -8,7 +8,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2021-06-27
  */
 public final class LocalServer extends AbstractServer {
-
   /**
    * {@inheritDoc}
    */

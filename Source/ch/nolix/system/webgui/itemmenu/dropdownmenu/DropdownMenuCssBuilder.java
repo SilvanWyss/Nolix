@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class DropdownMenuCssBuilder extends AbstractItemMenuCssBuilder<IDropdownMenu, IDropdownMenuStyle> {
-
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IDropdownMenu control,

@@ -10,14 +10,12 @@ import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
  * @version 2025-06-20
  */
 public final class MultiBackReferenceEntryDeletionDtoMapper implements IMultiBackReferenceEntryDeletionDtoMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public MultiBackReferenceEntryDeletionDto mapMultiBackReferenceEntryToMultiBackReferenceEntryDeletionDto(
     final IMultiBackReferenceEntry<? extends IEntity> multiBackReferenceEntry) {
-
     final var multiBackReference = multiBackReferenceEntry.getStoredParentMultiBackReference();
     final var entity = multiBackReference.getStoredParentEntity();
     final var tableName = entity.getParentTableName();

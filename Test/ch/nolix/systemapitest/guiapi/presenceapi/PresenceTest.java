@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.gui.presence.Presence;
 
 final class PresenceTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirPresences() {
     return //
@@ -25,7 +24,6 @@ final class PresenceTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirPresences")
   void testCase_fromSpecification(final INode<?> specification, final Presence expectedPresence) {
-
     //execution
     final var result = Presence.fromSpecification(specification);
 

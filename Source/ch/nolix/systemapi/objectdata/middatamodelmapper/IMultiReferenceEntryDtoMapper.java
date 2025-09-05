@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
  * @version 2025-06-20
  */
 public interface IMultiReferenceEntryDtoMapper {
-
   /**
    * @param multiReferenceEntry
    * @return a new {@link MultiReferenceEntryDto} from the given

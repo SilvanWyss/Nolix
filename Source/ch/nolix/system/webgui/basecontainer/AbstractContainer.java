@@ -14,7 +14,6 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends Control<C, S> implements IContainer<C, S> {
-
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
   private final MutableOptionalValue<ContainerRole> role = new MutableOptionalValue<>(
@@ -60,7 +59,6 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final C setRole(final ContainerRole role) {
-
     this.role.setValue(role);
 
     return asConcrete();
@@ -75,7 +73,6 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   protected final void resetControl() {
-
     removeRole();
     clear();
 

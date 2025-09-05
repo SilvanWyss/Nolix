@@ -15,7 +15,6 @@ import ch.nolix.coreapi.net.endpoint3.IEndPoint;
  * @version 2016-01-01
  */
 public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
-
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   private IDataProviderController receiverController;
@@ -36,7 +35,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void runCommands(final IChainedNode command, IChainedNode... commands) {
-
     runCommand(command);
 
     //Iterates the given commands.
@@ -57,7 +55,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
-
     //Asserts that the given receiverController is not null.
     Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 
@@ -82,7 +79,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    *                                               not have a receiver controller.
    */
   IDataProviderController getStoredReceiverController() {
-
     if (hasReceivingDataProviderController()) {
       return receiverController;
     }

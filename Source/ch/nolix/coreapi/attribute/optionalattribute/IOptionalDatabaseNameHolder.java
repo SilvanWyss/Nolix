@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2025-06-01
  */
 public interface IOptionalDatabaseNameHolder {
-
   /**
    * @return the database name of the current {@link IOptionalDatabaseNameHolder}.
    * @throws RuntimeException if the current {@link IOptionalDatabaseNameHolder}

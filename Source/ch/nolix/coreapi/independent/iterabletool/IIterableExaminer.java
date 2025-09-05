@@ -5,7 +5,6 @@ package ch.nolix.coreapi.independent.iterabletool;
  * @version 2025-02-07
  */
 public interface IIterableExaminer {
-
   /**
    * @param iterable
    * @param element

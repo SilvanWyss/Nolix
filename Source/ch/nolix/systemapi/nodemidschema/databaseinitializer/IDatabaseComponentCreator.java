@@ -8,7 +8,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2025-01-12
  */
 public interface IDatabaseComponentCreator {
-
   /**
    * @param databaseName
    * @param initialSchemaTimeStamp

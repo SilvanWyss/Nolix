@@ -3,7 +3,6 @@ package ch.nolix.systemapi.sqlmiddata.querycreator;
 import ch.nolix.coreapi.container.base.IContainer;
 
 public interface IMultiValueQueryCreator {
-
   String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
     String columnId,
     String value,

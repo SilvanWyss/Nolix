@@ -8,14 +8,12 @@ import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 public final class NodeDataAdapter extends AbstractDataAdapter {
-
   private final IMutableNode<?> nodeDatabase;
 
   private NodeDataAdapter(
     final String databaseName,
     final IMutableNode<?> nodeDatabase,
     final IEntityTypeSet entityTypeSet) {
-
     super(
       databaseName,
       entityTypeSet,

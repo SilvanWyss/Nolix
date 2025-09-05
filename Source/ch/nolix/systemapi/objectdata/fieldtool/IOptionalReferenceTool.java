@@ -7,6 +7,5 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
 public interface IOptionalReferenceTool extends IFieldTool {
-
   Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(IOptionalReference<?> optionalReference);
 }

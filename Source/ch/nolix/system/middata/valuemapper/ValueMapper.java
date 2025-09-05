@@ -10,7 +10,6 @@ import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
  * @version 2021-11-05
  */
 public final class ValueMapper implements IValueMapper {
-
   @Override
   public Object mapStringToValue(final String string, final DataType dataType) {
     return //

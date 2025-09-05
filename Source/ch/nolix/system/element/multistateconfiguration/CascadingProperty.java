@@ -9,7 +9,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMaterializedProperty<S, V> {
-
   private final V defaultValue;
 
   private CascadingProperty<S, V> parentProperty;
@@ -20,7 +19,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator,
     final V defaultValue) {
-
     super(name, stateClass, valueCreator, specificationCreator);
 
     Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
@@ -35,7 +33,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     final Function<V, INode<?>> specificationCreator,
     final BiConsumer<S, V> setterMethod,
     final V defaultValue) {
-
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
     Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
@@ -72,7 +69,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
 
   @Override
   protected V getValueWhenHasState(final State<S> state) {
-
     final var stateProperty = stateProperties[state.getIndex()];
     if (stateProperty.hasValueOrDefinesEmpty()) {
       return stateProperty.getValue();
@@ -92,7 +88,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
 
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
-
     final var stateProperty = stateProperties[state.getIndex()];
     if (stateProperty.hasValueOrDefinesEmpty()) {
       return stateProperty.hasValue();
@@ -108,7 +103,6 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
 
   @SuppressWarnings("unchecked")
   void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
-
     Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
 
     this.parentProperty = (CascadingProperty<S, V>) parentProperty;

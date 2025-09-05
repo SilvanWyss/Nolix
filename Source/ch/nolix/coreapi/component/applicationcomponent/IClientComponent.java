@@ -9,7 +9,6 @@ package ch.nolix.coreapi.component.applicationcomponent;
  *            to.
  */
 public interface IClientComponent<C> {
-
   /**
    * @return true if the current {@link IClientComponent} belongs to a client,
    *         false otherwise.

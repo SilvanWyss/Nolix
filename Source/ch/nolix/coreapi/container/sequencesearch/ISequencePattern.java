@@ -21,7 +21,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  *            {@link ISequencePattern} selects.
  */
 public interface ISequencePattern<E> {
-
   /**
    * @return a new {@link ISequencePattern} from the current
    *         {@link ISequencePattern } with a blank condition for the next element

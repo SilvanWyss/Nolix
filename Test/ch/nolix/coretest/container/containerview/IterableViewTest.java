@@ -6,7 +6,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class IterableViewTest extends ContainerTest {
-
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,

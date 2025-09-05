@@ -9,7 +9,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
  * @version 2025-07-11
  */
 public interface IClient extends ConnectionSideRequestable, GroupCloseable, ISecuriyModeHolder {
-
   /**
    * @return the URL instance name of the target application of the current
    *         {@link IClient}.

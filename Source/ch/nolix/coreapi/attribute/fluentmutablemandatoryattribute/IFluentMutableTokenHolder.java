@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITokenHolder;
  * @param <H> is the type of a {@link IFluentMutableTokenHolder}.
  */
 public interface IFluentMutableTokenHolder<H extends IFluentMutableTokenHolder<H>> extends ITokenHolder {
-
   /**
    * Sets the token of the current {@link IFluentMutableTokenHolder}.
    * 

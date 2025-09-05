@@ -11,7 +11,6 @@ import ch.nolix.coreapi.programcontrol.process.FinishRequestable;
  * @version 2019-04-14
  */
 public interface IFuture extends FinishRequestable {
-
   /**
    * @return true if the current {@link IFuture} caught an error.
    */

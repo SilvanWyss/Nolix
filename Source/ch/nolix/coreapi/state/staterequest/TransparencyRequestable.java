@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2022-07-15
  */
 public interface TransparencyRequestable {
-
   /**
    * @return true if the current {@link TransparencyRequestable} is opaque.
    */

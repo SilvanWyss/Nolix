@@ -7,7 +7,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2025-02-13
  */
 public interface IAsSoonAsMediator {
-
   /**
    * Lets the current {@link IAsSoonAsMediator} run the given job asynchronously
    * in background.

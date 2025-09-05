@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
  * @version 2025-01-12
  */
 public interface IDatabaseStateAnalyser {
-
   /**
    * @param nodeDatabase
    * @return the state of the given nodeDatabase.

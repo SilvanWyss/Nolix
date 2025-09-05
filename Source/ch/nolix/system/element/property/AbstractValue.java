@@ -17,7 +17,6 @@ import ch.nolix.systemapi.element.property.IBaseValue;
  * @param <V> is the type of the values of a {@link AbstractValue}.
  */
 public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {
-
   private final String name;
 
   private final Function<INode<?>, V> valueCreator;
@@ -40,7 +39,6 @@ public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequesta
     final String name,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
     Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
@@ -66,7 +64,6 @@ public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequesta
    */
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
-
     if (attribute.hasHeader(getName())) {
       addOrChangeValue(valueCreator.apply(attribute));
       return true;

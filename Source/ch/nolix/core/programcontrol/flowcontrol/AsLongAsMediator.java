@@ -17,7 +17,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2017-06-01
  */
 public final class AsLongAsMediator implements IAsLongAsMediator {
-
   private final BooleanSupplier condition;
 
   /**
@@ -27,7 +26,6 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   private AsLongAsMediator(final BooleanSupplier condition) {
-
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.condition = condition;

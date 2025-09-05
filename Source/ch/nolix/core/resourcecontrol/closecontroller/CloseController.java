@@ -12,7 +12,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
  * @version 2020-07-05
  */
 public final class CloseController implements ICloseController {
-
   private IClosePool parentClosePool;
 
   /**
@@ -47,7 +46,6 @@ public final class CloseController implements ICloseController {
    */
   @Override
   public void createCloseDependencyTo(final GroupCloseable element) {
-
     final var elementsToAdd = element.getStoredCloseController().getParentClosePool().getStoredElements();
 
     for (final var e : elementsToAdd) {
@@ -78,7 +76,6 @@ public final class CloseController implements ICloseController {
    */
   @Override
   public void setParentClosePool(final IClosePool parentClosePool) {
-
     //Asserts that the given parentClosePool is not null.
     Validator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
 

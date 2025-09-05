@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
 public class FieldValidator implements IFieldValidator {
-
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   @Override

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.style.model.IStyle;
  * @param <E> is the type of a {@link IStyleElement}.
  */
 public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElement<E> {
-
   /**
    * Applies the {@link IStyle} of the current {@link IStyleElement} to the
    * current {@link IStyleElement} and its child elements if the current

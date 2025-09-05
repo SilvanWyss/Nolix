@@ -8,10 +8,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
 final class BackendClientSessionManagerTest extends StandardTest {
-
   @Test
   void testCase_forClient() {
-
     //setup
     final var mockBackendClient = new MockBackendClient();
 
@@ -27,7 +25,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_forClient_whenTheGivenClientIsNull() {
-
     //execution & verification
     expectRunning(() -> BackendClientSessionManager.forClient(null))
       .throwsException()
@@ -37,7 +34,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_popCurrentSession_whenDoesNotContainSession() {
-
     //setup
     final var mockBackendClient = new MockBackendClient();
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
@@ -48,7 +44,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_popCurrentSession_whenContains1Session() {
-
     //setup
     final var mockBackendClient = new MockBackendClient();
     final var mockBackendClientSession = new MockBackendClientSession();
@@ -67,7 +62,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_pushSession_whenDoesNotContainSession() {
-
     //setup
     final var mockBackendClient = new MockBackendClient();
     final var mockBackendClientSession = new MockBackendClientSession();
@@ -86,7 +80,6 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_pushSession_whenContains1Session() {
-
     //setup
     final var mockBackendClient = new MockBackendClient();
     final var mockBackendClientSession1 = new MockBackendClientSession();

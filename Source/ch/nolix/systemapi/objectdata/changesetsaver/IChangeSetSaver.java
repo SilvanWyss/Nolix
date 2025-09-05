@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IDatabase;
  * @version 2025-08-15
  */
 public interface IChangeSetSaver {
-
   /**
    * Saves the changes of the given database at once using the given
    * dataAndSchemaAdapter.

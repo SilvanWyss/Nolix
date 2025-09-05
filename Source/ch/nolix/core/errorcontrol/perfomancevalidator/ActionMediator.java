@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.performancevalidator.IActionMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class ActionMediator<O> implements IActionMediator {
-
   private static final IPerformanceAnalyzer PERFORMANCE_ANALYZER = new PerformanceAnalyzer();
 
   private final IntFunction<O> objectSupplier;
@@ -21,7 +20,6 @@ public final class ActionMediator<O> implements IActionMediator {
   private final Consumer<O> action;
 
   private ActionMediator(final IntFunction<O> objectSupplier, final Consumer<O> action) {
-
     Validator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
     Validator.assertThat(action).thatIsNamed(LowerCaseVariableCatalog.ACTION).isNotNull();
 
@@ -42,7 +40,6 @@ public final class ActionMediator<O> implements IActionMediator {
 
   @Override
   public void hasGivenOrLowerTimeComplexity(final LongToDoubleFunction timeComplexityFunction) {
-
     final var passed = //
     PERFORMANCE_ANALYZER.onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
       objectSupplier,

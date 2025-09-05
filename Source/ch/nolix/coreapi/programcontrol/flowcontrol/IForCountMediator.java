@@ -9,7 +9,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2025-07-27
  */
 public interface IForCountMediator {
-
   /**
    * Lets the current {@link IForCountMediator} run the given job.
    * 

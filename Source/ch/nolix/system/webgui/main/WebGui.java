@@ -41,7 +41,6 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
 extends AbstractStyleElement<WebGui>
 implements IWebGui<WebGui> {
-
   public static final String DEFAULT_TITLE = PascalCaseVariableCatalog.GUI;
 
   public static final Image DEFAULT_ICON = IconCatalog.NOLIX_ICON;
@@ -95,7 +94,6 @@ implements IWebGui<WebGui> {
   private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
 
   public WebGui() {
-
     reset();
 
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
@@ -164,7 +162,6 @@ implements IWebGui<WebGui> {
 
   @Override
   public IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations() {
-
     final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations = LinkedList.createEmpty();
 
     registerHtmlElementEventsAt(htmlElementEventRegistrations);
@@ -239,7 +236,6 @@ implements IWebGui<WebGui> {
 
   @Override
   public WebGui pushLayer(final ILayer<?> layer) {
-
     layerStack.pushLayer(layer);
 
     return this;
@@ -247,7 +243,6 @@ implements IWebGui<WebGui> {
 
   @Override
   public WebGui pushLayerWithRootControl(final IControl<?, ?> rootControl) {
-
     layerStack.pushLayerWithRootControl(rootControl);
 
     return this;
@@ -264,7 +259,6 @@ implements IWebGui<WebGui> {
   }
 
   public WebGui setBackground(final IBackground background) {
-
     this.background.setValue(background);
 
     return this;
@@ -294,7 +288,6 @@ implements IWebGui<WebGui> {
   public WebGui setFrontEndReaderAndFrontEndWriter(
     final IFrontEndReader frontEndReader,
     final IFrontEndWriter frontEndWriter) {
-
     Validator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
     Validator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();
 
@@ -306,7 +299,6 @@ implements IWebGui<WebGui> {
 
   @Override
   public WebGui setIcon(final IImage icon) {
-
     this.icon.setValue(Image.fromAnyImage(icon));
 
     return this;
@@ -314,7 +306,6 @@ implements IWebGui<WebGui> {
 
   @Override
   public WebGui setRemoveLayerAction(Runnable removeLayerAction) {
-
     layerStack.setRemoveLayerAction(removeLayerAction);
 
     return this;
@@ -322,7 +313,6 @@ implements IWebGui<WebGui> {
 
   @Override
   public WebGui setTitle(final String title) {
-
     Validator.assertThat(title).thatIsNamed(LowerCaseVariableCatalog.TITLE).isNotBlank();
 
     this.title.setValue(title);
@@ -332,7 +322,6 @@ implements IWebGui<WebGui> {
 
   @Override
   protected void resetConfigurationElement() {
-
     setTitle(DEFAULT_TITLE);
     setIcon(DEFAULT_ICON);
 
@@ -341,7 +330,6 @@ implements IWebGui<WebGui> {
 
   @Override
   protected void resetStyle() {
-
     //An image will not be reset since an image is not supposed to be applied from
     //a Style.
     if (hasBackground() && getBackground().getType() != BackgroundType.IMAGE) {

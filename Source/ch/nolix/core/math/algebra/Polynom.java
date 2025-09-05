@@ -23,7 +23,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2016-03-01
  */
 public final class Polynom {
-
   public static final Polynom EMPTY_POLYNOM = new Polynom();
 
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
@@ -52,13 +51,11 @@ public final class Polynom {
    *                                 0.0.
    */
   private Polynom(final double[] coefficientArray) {
-
     //Asserts that the given coefficientArray is not null.
     Validator.assertThat(coefficientArray).thatIsNamed("coefficient array").isNotNull();
 
     //Handles the case that the given coefficient array is not empty.
     if (coefficientArray.length > 0) {
-
       //Asserts that the given highest coefficient is not 0.0.
       Validator.assertThat(coefficientArray[0]).thatIsNamed("highest coefficient").isNotEqualTo(0.0);
     }
@@ -92,7 +89,6 @@ public final class Polynom {
    *                                       {@link Polynom}.
    */
   public double getCoefficientForDegree(final int degree) {
-
     //Asserts that the given degree is between 0 and the degree of the current
     //Polynom.
     Validator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isBetween(0, getDegree());
@@ -115,9 +111,7 @@ public final class Polynom {
    * @throws NegativeArgumentException if the given deriveCount is negative.
    */
   public Polynom getDerived(final int deriveCount) {
-
     if (deriveCount == 1) {
-
       if (derivedPolynom == null) {
         derivedPolynom = calculateDerived(1);
       }
@@ -150,7 +144,6 @@ public final class Polynom {
    * @throws NegativeArgumentException if the given integrationCount is negative.
    */
   public Polynom getIntegrated(final int integrationCount) {
-
     Validator.assertThat(integrationCount).thatIsNamed("integration count").isNotNegative();
 
     final var degree = getDegree();
@@ -161,7 +154,6 @@ public final class Polynom {
       if (NumberComparator.isZero(coefficients[i])) {
         integratedCoefficients[i] = 0.0;
       } else {
-
         var integratedCoefficient = coefficients[i];
 
         for (var j = degree - i + 1; j < integratedDegree - i + 1; j++) {
@@ -190,7 +182,6 @@ public final class Polynom {
    * @return the value of the current {@link Polynom} at the given x.
    */
   public double getValueAt(final double x) {
-
     if (isZeroPolynom()) {
       return 0.0;
     }
@@ -243,7 +234,6 @@ public final class Polynom {
    * @throws ArgumentIsNullException if the given parameterSymbol is null.
    */
   public String toString(final String parameterSymbol) {
-
     Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
 
     final var stringBuilder = new StringBuilder();
@@ -265,7 +255,6 @@ public final class Polynom {
   }
 
   private Polynom calculateDerived(final int deriveCount) {
-
     Validator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
 
     if (deriveCount == 0) {
@@ -277,7 +266,6 @@ public final class Polynom {
     final var derivedCoefficients = new double[derivedDegree + 1];
 
     for (var derivedCoefficientIndex = 0; derivedCoefficientIndex <= derivedDegree; derivedCoefficientIndex++) {
-
       var derivedCoefficient = coefficients[derivedCoefficientIndex];
 
       for (var j = degree - derivedCoefficientIndex; j > derivedDegree - derivedCoefficientIndex; j--) {
@@ -291,7 +279,6 @@ public final class Polynom {
   }
 
   private boolean equals(final Polynom polynom) {
-
     if (!hasSameDegreeAs(polynom)) {
       return false;
     }
@@ -306,7 +293,6 @@ public final class Polynom {
   }
 
   private double getValueAtWhenIsNotZeroPolynom(final double x) {
-
     var value = coefficients[0];
 
     var base = 1.0;
@@ -322,11 +308,9 @@ public final class Polynom {
     if (coefficients.length == 0) {
       stringBuilder.append("0.0");
     } else {
-
       final var constant = coefficients[coefficients.length - 1];
 
       if (!NumberComparator.isZero(constant)) {
-
         if (coefficients.length > 1 && constant > 0.0) {
           stringBuilder.append("+");
         }
@@ -337,15 +321,12 @@ public final class Polynom {
   }
 
   private void appendHigherCoefficientsTo(final StringBuilder stringBuilder, final String parameterSymbol) {
-
     final var degree = getDegree();
 
     for (var i = 0; i < degree - 1; i++) {
-
       final var coefficient = coefficients[i];
 
       if (!NumberComparator.isZero(coefficient)) {
-
         if (i > 0 && coefficient > 0.0) {
           stringBuilder.append('+');
         }
@@ -362,11 +343,9 @@ public final class Polynom {
 
   private void appendLinearCoefficientTo(final StringBuilder stringBuilder, final String parameterSymbol) {
     if (coefficients.length > 1) {
-
       final var linearCoefficient = coefficients[coefficients.length - 2];
 
       if (!NumberComparator.isZero(linearCoefficient)) {
-
         if (coefficients.length > 2 && linearCoefficient > 0.0) {
           stringBuilder.append("+");
         }

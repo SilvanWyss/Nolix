@@ -3,7 +3,6 @@ package ch.nolix.techapi.math.bigdecimalmath;
 import java.math.BigDecimal;
 
 public interface IComplexNumber extends Comparable<IComplexNumber> {
-
   IComplexNumber getConjugate();
 
   int getDecimalPlaces();

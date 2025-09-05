@@ -5,7 +5,6 @@ import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public interface ISchemaAdapter extends IResettableChangeSaver {
-
   ISchemaAdapter addTable(ITable table);
 
   ITable getStoredTableByName(String name);

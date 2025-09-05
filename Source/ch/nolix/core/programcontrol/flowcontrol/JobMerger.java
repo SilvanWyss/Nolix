@@ -6,9 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 public final class JobMerger {
-
   public Runnable createMergedJobForJobs(IContainer<Runnable> jobs) {
-
     Validator.assertThat(jobs).thatIsNamed(PluralLowerCaseVariableCatalog.JOBS).isNotNull();
 
     return () -> runJobs(jobs);

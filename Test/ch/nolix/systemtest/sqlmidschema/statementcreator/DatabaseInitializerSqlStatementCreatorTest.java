@@ -7,10 +7,8 @@ import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationState
 import ch.nolix.system.time.moment.Time;
 
 final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
-
   @Test
   void testCase_createSqlStatementToCreateSchemaTimestampEntry() {
-
     //setup
     final var time = Time.withYear(2025);
     final var testUnit = new DatabaseInitializationStatementCreator();

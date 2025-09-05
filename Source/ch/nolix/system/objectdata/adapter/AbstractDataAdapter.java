@@ -17,7 +17,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {
-
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
   private static final ChangeSetSaver DATA_SAVER = new ChangeSetSaver();
@@ -39,7 +38,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter,
     final Supplier<IDataAdapterAndSchemaReader> midDataAdapterAndSchemaReader) {
-
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 
     SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(entityTypeSet, schemaAdapter);
@@ -90,7 +88,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   @Override
   public final IDataAdapter insertEntity(final IEntity entity) {
-
     database.insertEntity(entity);
 
     return this;
@@ -103,7 +100,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
 
   @Override
   public final synchronized void reset() {
-
     database.close();
 
     midDataAdapterAndSchemaReader = midDataAdapterAndSchemaReader.createEmptyCopy();
@@ -125,7 +121,6 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   private synchronized void saveChangesAndIncrementSaveCount() {
-
     DATA_SAVER.saveChangesOfDatabaseAtOnce(database, midDataAdapterAndSchemaReader);
 
     saveCount++;

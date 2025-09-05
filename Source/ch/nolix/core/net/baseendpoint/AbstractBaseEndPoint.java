@@ -8,7 +8,6 @@ import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   @Override
@@ -18,7 +17,6 @@ public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
 
   @Override
   public final TargetSlotDefinition getTargetSlotDefinition() {
-
     if (hasCustomTargetSlot()) {
       return TargetSlotDefinition.CUSTOM;
     }

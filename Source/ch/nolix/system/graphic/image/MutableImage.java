@@ -31,7 +31,6 @@ import ch.nolix.systemapi.graphic.image.IMutableImage;
 
 public final class MutableImage //NOSONAR: A MutableImage is a principal object thus it has many methods.
 extends AbstractMutableElement implements IMutableImage<MutableImage> {
-
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 
   private static final String JPG_STRING = "JPGString";
@@ -65,7 +64,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
-
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(bufferedImage.getWidth(), bufferedImage.getHeight());
     for (var i = 1; i <= image.getWidth(); i++) {
       for (var j = 1; j <= image.getHeight(); j++) {
@@ -85,7 +83,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage fromFile(final String filePath) {
-
     final var bufferedImage = BUFFERED_IMAGE_TOOL.fromFile(filePath);
 
     return fromBufferedImage(bufferedImage);
@@ -96,9 +93,7 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage fromSpecification(final INode<?> specification) {
-
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
-
       final var lJPGString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
 
       return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
@@ -121,7 +116,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final IColor color) {
-
     Validator.assertThat(width).thatIsNamed(LowerCaseVariableCatalog.WIDTH).isPositive();
     Validator.assertThat(height).thatIsNamed(LowerCaseVariableCatalog.HEIGHT).isPositive();
     Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
@@ -129,7 +123,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     Matrix<IColor> pixels = Matrix.createEmpty();
 
     if (width > 0 && height > 0) {
-
       final var row = new Color[width];
       for (var i = 0; i < width; i++) {
         row[i] = Color.fromColor(color);
@@ -184,7 +177,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
-
     Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
     Validator.assertThat(xPosition).thatIsNamed("y-position").isPositive();
 
@@ -225,7 +217,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public void reset() {
-
     removeGeneratedOutputs();
 
     final var pixelCount = getPixelCount();
@@ -236,7 +227,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public MutableImage setPixel(int xPosition, int yPosition, final IColor color) {
-
     removeGeneratedOutputs();
 
     pixels.setAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition, color);
@@ -245,7 +235,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public void setPixelArray(final INode<?> pixelArray) {
-
     final var pixelSpecifications = pixelArray.getStoredChildNodes();
 
     Validator.assertThat(pixelSpecifications.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
@@ -255,7 +244,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     var index = 1;
 
     for (final var p : pixelSpecifications) {
-
       final var pixel = Color.fromString(p.getHeader());
 
       pixels.setAt(index, pixel);
@@ -264,7 +252,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public void setPixelArray(final IContainer<IColor> pixelArray) {
-
     Validator.assertThat(pixelArray.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 
     removeGeneratedOutputs();
@@ -279,7 +266,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public String toBase64Jpg() {
-
     if (nullableBase64JpgString == null) {
       nullableBase64JpgString = generateBase64JpgString();
     }
@@ -289,7 +275,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public String toBase64Png() {
-
     if (nullableBase64PngString == null) {
       nullableBase64PngString = generateBase64PngString();
     }
@@ -299,7 +284,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public BufferedImage toBufferedImage() {
-
     if (nullableBufferedImage == null) {
       nullableBufferedImage = generateBufferedImage();
     }
@@ -314,7 +298,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public byte[] toJpg() {
-
     final var byteArrayOutputStream = new ByteArrayOutputStream();
     final var imageWriter = ImageIO.getImageWritersByFormatName("jpg").next();
     final var imageWriteParam = imageWriter.getDefaultWriteParam();
@@ -322,7 +305,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     imageWriteParam.setCompressionQuality(1.0F);
 
     try {
-
       imageWriter.setOutput(ImageIO.createImageOutputStream(byteArrayOutputStream));
 
       imageWriter.write(null, new IIOImage(generateJpgBufferedImage(), null, null), imageWriteParam);
@@ -341,11 +323,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public byte[] toPng() {
-
     final var byteArrayOutputStream = new ByteArrayOutputStream();
 
     try {
-
       ImageIO.write(toBufferedImage(), "png", byteArrayOutputStream);
 
       return byteArrayOutputStream.toByteArray();
@@ -356,7 +336,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public MutableImage toRepeatedImage(final int width, final int height) {
-
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
 
     final var sourceWidth = getWidth();
@@ -378,7 +357,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public MutableImage toScaledImage(final double factor) {
-
     Validator.assertThat(factor).thatIsNamed(LowerCaseVariableCatalog.FACTOR).isPositive();
 
     return toScaledImage(factor, factor);
@@ -386,7 +364,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
-
     Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
     Validator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
 
@@ -404,7 +381,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     }
 
     for (var x = 1; x <= image.getWidth(); x++) {
-
       //sourceX := the source Image's x for the new Image's x
       final var sourceX = (int) ((x - 1) * reziprocalWidthFactor) + 1;
 
@@ -419,7 +395,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   @Override
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
-
     final Matrix<IColor> localPixels = Matrix.createEmpty();
     for (final var r : pixels.getRows()) {
       localPixels.addRow(r.to(p -> p.withFloatingPointAlphaValue(alphaValue)));
@@ -442,11 +417,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   private BufferedImage generateBufferedImage() {
-
     final var lBufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
     for (var y = 0; y < getHeight(); y++) {
       for (var x = 0; x < getWidth(); x++) {
-
         final var pixel = pixels.getStoredAtOneBasedRowIndexAndColumnIndex(y + 1, x + 1);
 
         lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
@@ -457,11 +430,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   private BufferedImage generateJpgBufferedImage() {
-
     final var bufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
     for (var y = 0; y < getHeight(); y++) {
       for (var x = 0; x < getWidth(); x++) {
-
         final var pixel = pixels.getStoredAtOneBasedRowIndexAndColumnIndex(y + 1, x + 1);
 
         bufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
@@ -482,7 +453,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   private Node getPixelArraySpecification() {
-
     if (nullablePixelArraySpecification == null) {
       nullablePixelArraySpecification = generatePixelArraySpecification();
     }

@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class MethodMediator extends ArgumentMediator<Method> {
-
   MethodMediator(final Method argument) {
     super(LowerCaseVariableCatalog.METHOD, argument);
   }
@@ -18,7 +17,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
   }
 
   public final MethodMediator doesNotHaveAnnotations() {
-
     isNotNull();
 
     if (getStoredArgument().getAnnotations().length != 0) {
@@ -33,7 +31,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
   }
 
   public final MethodMediator doesNotReturnAnything() {
-
     isNotNull();
 
     if (getStoredArgument().getReturnType() != void.class) {
@@ -48,7 +45,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
   }
 
   public final <A extends Annotation> MethodMediator hasAnnotation(final Class<A> annotationType) {
-
     if (annotationType == null) {
       throw ArgumentIsNullException.forArgumentName("annotation type");
     }
@@ -67,7 +63,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
   }
 
   public final MethodMediator hasParametersOfTypeOnly(final Class<String> type) {
-
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(getArgumentName());
     }
@@ -88,7 +83,6 @@ public class MethodMediator extends ArgumentMediator<Method> {
   }
 
   public final MethodMediator hasReturnType(final Class<?> returnType) {
-
     if (returnType == null) {
       throw ArgumentIsNullException.forArgumentName("return type");
     }

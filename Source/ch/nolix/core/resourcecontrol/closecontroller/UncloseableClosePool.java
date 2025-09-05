@@ -7,7 +7,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
 public final class UncloseableClosePool implements IClosePool {
-
   @Override
   public void addElements(final IContainer<GroupCloseable> elements) {
     //Does nothing.

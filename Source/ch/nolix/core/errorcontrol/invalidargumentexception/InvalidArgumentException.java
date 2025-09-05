@@ -10,7 +10,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class InvalidArgumentException extends AbstractInvalidArgumentException {
-
   /**
    * Creates a new {@link InvalidArgumentException} for the given argument.
    * 

@@ -7,7 +7,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2025-02-10
  */
 public interface IAfterEveryMediator {
-
   /**
    * Lets the current {@link IAfterEveryMediator} run the given job.
    * 

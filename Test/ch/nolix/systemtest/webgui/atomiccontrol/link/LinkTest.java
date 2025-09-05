@@ -5,7 +5,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILink;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class LinkTest extends ControlTest<ILink> {
-
   @Override
   protected Link createTestUnit() {
     return new Link();

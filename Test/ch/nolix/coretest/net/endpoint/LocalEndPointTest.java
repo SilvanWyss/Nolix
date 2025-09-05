@@ -13,10 +13,8 @@ import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class LocalEndPointTest extends StandardTest {
-
   @Test
   void testCase_sendMessage_whenSends1Message() {
-
     //setup
     final var slot = new MockSlot();
     final var testUnit = LocalEndPoint.toSlot(slot);
@@ -30,7 +28,6 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_sendMessage_whenSends3Messages() {
-
     //setup
     final var slot = new MockSlot();
     final var testUnit = LocalEndPoint.toSlot(slot);
@@ -46,7 +43,6 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_sendMessage_whenTheGivenMessageIsNull() {
-
     //setup
     final var slot = new MockSlot();
     final var testUnit = LocalEndPoint.toSlot(slot);
@@ -64,12 +60,10 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_sendMessage_whenIsClosed() {
-
     //setup part 1: Creates slot.
     final var slot = new MockSlot();
 
     try (final var testUnit = LocalEndPoint.toSlot(slot)) {
-
       //setup part 2: Closes testUnit.
       testUnit.close(); //NOSONAR: This test case tests the close method.
 
@@ -90,7 +84,6 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_toSlot() {
-
     //setup
     final var slot = new MockSlot();
 
@@ -105,7 +98,6 @@ final class LocalEndPointTest extends StandardTest {
 
   @Test
   void testCase_toSlot_whenTheGivenSlotIsNull() {
-
     //execution & verification
     expectRunning(() -> LocalEndPoint.toSlot(null))
       .throwsException()
@@ -116,7 +108,6 @@ final class LocalEndPointTest extends StandardTest {
   @Test
   void testCase_toTargetSlotOnServer() {
     try (final var server = new LocalServer()) {
-
       //setup
       final var slot = new MockSlot();
       server.addSlot(slot);
@@ -138,7 +129,6 @@ final class LocalEndPointTest extends StandardTest {
   @Test
   void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
     try (final var server = new LocalServer()) {
-
       //execution & verification
       expectRunning(() -> LocalEndPoint.toTargetSlotOnServer(server, " "))
         .throwsException()

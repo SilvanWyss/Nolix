@@ -14,11 +14,9 @@ import ch.nolix.systemapi.midschema.model.ValueModelDto;
 import ch.nolix.systemapi.sqlmidschema.modelsqldto.ContentModelSqlDto;
 
 public final class ContentModelSqlRecordMapper {
-
   private static final String NULL = "NULL";
 
   public ContentModelSqlDto mapContentModelDtoToContentModelSqlDto(final IContentModelDto contentModelDto) {
-
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return //
       new ContentModelSqlDto(

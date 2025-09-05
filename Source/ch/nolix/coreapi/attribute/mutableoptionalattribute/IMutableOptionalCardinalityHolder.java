@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalCardinalityHolder;
  * @version 2023-10-24
  */
 public interface IMutableOptionalCardinalityHolder extends IOptionalCardinalityHolder {
-
   /**
    * Removes the cardinality of the current
    * {@link IMutableOptionalCardinalityHolder}.

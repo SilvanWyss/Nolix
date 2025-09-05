@@ -9,7 +9,6 @@ package ch.nolix.coreapi.component.applicationcomponent;
  *            belong to.
  */
 public interface IApplicationComponent<A> {
-
   /**
    * @return true if the current {@link IApplicationComponent} belongs to an
    *         application, false otherwise.

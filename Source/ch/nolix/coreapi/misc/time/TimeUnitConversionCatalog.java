@@ -7,7 +7,6 @@ package ch.nolix.coreapi.misc.time;
  * @version 2017-02-05
  */
 public final class TimeUnitConversionCatalog {
-
   public static final int NANOSECONDS_PER_MICROSECOND = 1000;
 
   public static final int NANOSECONDS_PER_MILLISECOND = 1_000_000;

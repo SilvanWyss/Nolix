@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExami
 import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 
 public final class DatabaseExaminer implements IDatabaseExaminer {
-
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
@@ -45,7 +44,6 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   public boolean containsBackReferencededColumnByColumn(
     final IDatabase database,
     final IColumn column) {
-
     //This check is theoretically not necessary, but provides a better performance
     //for some cases.
     if (!COLUMN_TOOL.isABackReferenceColumn(column)) {
@@ -67,7 +65,6 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
   @Override
   public boolean containsTableReferencedByColumn(final IDatabase database, final IColumn column) {
-
     //This check is theoretically not necessary, but provides a better performance
     //for some cases.
     if (!COLUMN_TOOL.isAReferenceColumn(column)) {
@@ -101,7 +98,6 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     final IDatabase database,
     final ITable table,
     final IColumn column) {
-
     final var baseFieldType = COLUMN_TOOL.getBaseFieldType(column);
 
     return //

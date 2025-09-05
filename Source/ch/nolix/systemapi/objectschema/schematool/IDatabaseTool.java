@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public interface IDatabaseTool extends IDatabaseObjectExaminer {
-
   boolean allBackReferencesAreValid(IDatabase database);
 
   void assertAllBackReferencesAreValid(IDatabase database);

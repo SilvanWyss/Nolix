@@ -16,7 +16,6 @@ import ch.nolix.systemapi.style.stylable.IStyleElement;
  */
 public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> extends AbstractStylableElement<E>
 implements IStyleElement<E> {
-
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalog.CONFIGURATION;
 
   private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(
@@ -30,7 +29,6 @@ implements IStyleElement<E> {
    */
   @Override
   public void applyStyleIfHasStyle() {
-
     //Handles the case that the current ConfigurationElement has a Configuration.
     if (hasStyle()) {
       resetStyleRecursively();
@@ -60,7 +58,6 @@ implements IStyleElement<E> {
    */
   @Override
   public E setStyle(IStyle style) {
-
     this.style.setValue(style);
     applyStyleIfHasStyle();
 
@@ -72,7 +69,6 @@ implements IStyleElement<E> {
    */
   @Override
   protected final void resetStylableElement() {
-
     removeStyle();
 
     resetConfigurationElement();

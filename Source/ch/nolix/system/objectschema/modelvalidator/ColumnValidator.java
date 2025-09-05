@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
  * @version 2024-12-30
  */
 public final class ColumnValidator implements IColumnValidator {
-
   private static final IColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
 
   /**

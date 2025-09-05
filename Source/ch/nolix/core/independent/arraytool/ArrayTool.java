@@ -8,7 +8,6 @@ import ch.nolix.coreapi.independent.arraytool.IArrayTool;
  * @version 2017-08-14
  */
 public final class ArrayTool implements IArrayTool {
-
   /**
    * {@inheritDoc}
    */
@@ -16,7 +15,6 @@ public final class ArrayTool implements IArrayTool {
   public <E> E[] createArrayWithElement(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-
     final @SuppressWarnings("unchecked") var array = (E[]) new Object[elements.length + 1];
     array[0] = element;
     System.arraycopy(elements, 0, array, 1, elements.length);
@@ -29,7 +27,6 @@ public final class ArrayTool implements IArrayTool {
    */
   @Override
   public Iterable<Byte> createIterable(final byte[] values) {
-
     //Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -50,7 +47,6 @@ public final class ArrayTool implements IArrayTool {
    */
   @Override
   public Iterable<Double> createIterable(final double[] values) {
-
     //Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -71,7 +67,6 @@ public final class ArrayTool implements IArrayTool {
    */
   @Override
   public <E> Iterable<E> createIterable(final E[] elements) {
-
     //Asserts that the given elements is not null.
     if (elements == null) {
       throw new IllegalArgumentException("The given elements is null.");
@@ -92,7 +87,6 @@ public final class ArrayTool implements IArrayTool {
    */
   @Override
   public Iterable<Long> createIterable(final int[] values) {
-
     //Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -113,7 +107,6 @@ public final class ArrayTool implements IArrayTool {
    */
   @Override
   public Iterable<Long> createIterable(final long[] values) {
-
     //Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");
@@ -134,7 +127,6 @@ public final class ArrayTool implements IArrayTool {
    */
   @Override
   public String createString(final long[] values) {
-
     //Asserts that the given values is not null.
     if (values == null) {
       throw new IllegalArgumentException("The given values is null.");

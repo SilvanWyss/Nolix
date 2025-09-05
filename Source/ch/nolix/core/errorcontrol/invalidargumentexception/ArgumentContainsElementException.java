@@ -12,7 +12,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class ArgumentContainsElementException extends AbstractInvalidArgumentException {
-
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
   /**
@@ -41,7 +40,6 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
    * @return the name of the given element.
    */
   private static String getNameOfElement(final Object element) {
-
     if (element != null) {
       return getNameOfElementWhenIsNotNull(element);
     }
@@ -56,7 +54,6 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
    * @throws RuntimeException if the given element is null.
    */
   private static String getNameOfElementWhenIsNotNull(final Object element) {
-
     final var name = element.getClass().getSimpleName();
 
     if (name != null && !name.isEmpty()) {

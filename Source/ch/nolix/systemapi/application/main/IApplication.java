@@ -11,7 +11,6 @@ import ch.nolix.systemapi.application.client.IBackendClient;
  *            {@link IApplication}.
  */
 public interface IApplication<C extends IBackendClient<S>, S> {
-
   /**
    * @return a target representation of the current {@link IApplication}.
    */

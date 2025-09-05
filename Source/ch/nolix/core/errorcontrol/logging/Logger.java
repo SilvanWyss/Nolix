@@ -4,7 +4,6 @@ import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
 
 public final class Logger {
-
   //static attribute
   private static boolean active = true;
 
@@ -29,7 +28,6 @@ public final class Logger {
 
   public static synchronized void disable() {
     if (active) {
-
       active = false;
 
       if (logWorker != null) {
@@ -51,7 +49,6 @@ public final class Logger {
 
   public static void logError(final Throwable error) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -65,7 +62,6 @@ public final class Logger {
 
   public static void logError(final String error) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -84,7 +80,6 @@ public final class Logger {
     final double value,
     final String errorPredicate) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -103,7 +98,6 @@ public final class Logger {
     final long value,
     final String errorPredicate) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -119,7 +113,6 @@ public final class Logger {
 
   public static void logFatalError(final String fatalError) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -135,7 +128,6 @@ public final class Logger {
 
   public static void logInfo(final String info) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -151,7 +143,6 @@ public final class Logger {
 
   public static void logInfo(final String valueName, final double value) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -167,7 +158,6 @@ public final class Logger {
 
   public static void logInfo(final String valueName, final long value) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();
@@ -183,7 +173,6 @@ public final class Logger {
 
   public static void logWarning(final String warning) {
     if (active) {
-
       synchronized (Logger.class) {
         if (logWorker == null) {
           logWorker = new LogWorker();

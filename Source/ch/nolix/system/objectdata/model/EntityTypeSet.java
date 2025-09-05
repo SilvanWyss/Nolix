@@ -10,13 +10,11 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 public final class EntityTypeSet implements IEntityTypeSet {
-
   public static final EntityTypeSet EMPTY_SCHEMA = new EntityTypeSet(ImmutableList.createEmpty());
 
   private final ImmutableList<Class<? extends IEntity>> entityTypes;
 
   private EntityTypeSet(final IContainer<Class<? extends IEntity>> entityTypes) {
-
     Validator.assertThat(entityTypes)
       .thatIsNamed(PluralLowerCaseVariableCatalog.ENTITY_TYPES)
       .containsDistinctNonNullElemensOnly();
@@ -28,7 +26,6 @@ public final class EntityTypeSet implements IEntityTypeSet {
   public static EntityTypeSet withEntityType(
     final Class<?> entityType,
     final Class<?>... entityTypes) {
-
     final ILinkedList<Class<? extends IEntity>> allEntityTypes = LinkedList.createEmpty();
 
     allEntityTypes.addAtEnd((Class<IEntity>) entityType);

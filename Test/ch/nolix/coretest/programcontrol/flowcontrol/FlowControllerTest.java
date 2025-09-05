@@ -8,10 +8,8 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class FlowControllerTest extends StandardTest {
-
   @Test
   void testCase_runInBackground_whenFailingProcessIsGiven() {
-
     //execution
     final var result = FlowController.runInBackground(() -> {
       throw GeneralException.withErrorMessage("test error");
@@ -25,7 +23,6 @@ final class FlowControllerTest extends StandardTest {
 
   @Test
   void testCase_runInBackground_whenPassingProcessIsGiven() {
-
     //execution
     final var result = FlowController.runInBackground(FunctionService::doNothing);
     result.waitUntilIsFinished();
@@ -36,7 +33,6 @@ final class FlowControllerTest extends StandardTest {
 
   @Test
   void testCase_runInBackground_whenFunctionIsGiven() {
-
     //execution
     final var result = FlowController.runInBackground(() -> 3 + 4);
     result.waitUntilIsFinished();

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ISaveStampHolder;
  * @version 2024-02-11
  */
 public interface IMutableSaveStampHolder extends ISaveStampHolder {
-
   /**
    * Sets the save stamp of the current {@link IMutableSaveStampHolder}.
    * 

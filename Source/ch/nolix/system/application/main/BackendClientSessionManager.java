@@ -8,7 +8,6 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
-
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
 
   private final C parentClient;
@@ -18,7 +17,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   private final LinkedList<AbstractSession<C, S>> sessionStack = LinkedList.createEmpty();
 
   private BackendClientSessionManager(final C parentClient) {
-
     //Asserts that the given parentClient is not null.
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
@@ -48,7 +46,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   public AbstractSession<C, S> getStoredCurrentSession() {
-
     FlowController
       .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
       .waitUntil(this::containsCurrentSession);
@@ -73,7 +70,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   public void pushSession(final AbstractSession<C, S> session) {
-
     //Asserts that the given session is not null.
     Validator.assertThat(session).isOfType(AbstractSession.class);
 
@@ -90,7 +86,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
 
   @SuppressWarnings("unchecked")
   public <R> R pushSessionAndGetResult(final AbstractSession<C, S> session) {
-
     pushSession(session);
 
     FlowController.waitUntil(() -> (parentClient.isClosed() || !session.belongsToClient()));
@@ -112,7 +107,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   private void assertContainsCurrentSessionAsTopSession() {
-
     assertContainsCurrentSession();
 
     if (!currentSessionIsTopSession()) {
@@ -141,7 +135,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   private void initializeSession(final AbstractSession<C, S> session) {
-
     //Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {
       session.fullInitialize();
@@ -158,7 +151,6 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   private void popCurrentSessionFromStack() {
-
     assertContainsCurrentSessionAsTopSession();
 
     popCurrentSessionFromStackWhenContainsCurrentSessionAsTopSession();

@@ -29,7 +29,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Button extends Control<IButton, IButtonStyle> implements IButton {
-
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
   private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
@@ -53,7 +52,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   private Consumer<IButton> leftMouseButtonReleaseAction;
 
   public Button() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
@@ -112,7 +110,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-
     if (hasLeftMouseButtonPressAction()) {
       list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"));
     }
@@ -160,7 +157,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
-
     Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
@@ -171,7 +167,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setLeftMouseButtonPressAction(final Consumer<IButton> leftMouseButtonPressAction) {
-
     Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
@@ -184,7 +179,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
-
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
@@ -195,7 +189,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
-
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
@@ -208,7 +201,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setRole(final ButtonRole role) {
-
     this.role.setValue(role);
 
     return this;
@@ -216,7 +208,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setText(final String text) {
-
     this.text.setValue(text);
 
     return this;
@@ -244,7 +235,6 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   protected void resetControl() {
-
     removeRole();
     setText(DEFAULT_TEXT);
     removeLeftMouseButtonPressAction();

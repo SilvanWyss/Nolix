@@ -10,18 +10,15 @@ import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
  * @version 2025-02-21
  */
 public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public INode<?> mapStringContentFieldDtoToContentFieldNode(
     final StringRepresentedFieldDto stringRepresentedFieldDto) {
-
     final var nullableValue = stringRepresentedFieldDto.nullableStringRepresentedValue();
 
     if (nullableValue != null) {
-
       final var nullableAdditionalValue = stringRepresentedFieldDto.nullableAdditionalValue();
 
       if (nullableAdditionalValue != null) {

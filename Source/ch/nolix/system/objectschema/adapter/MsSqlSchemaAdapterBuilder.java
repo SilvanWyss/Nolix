@@ -16,9 +16,7 @@ ToDatabaseNameCaptor< //
 WithLoginNameCaptor< //
 AndLoginPasswordCaptor< //
 MsSqlSchemaAdapter>>>>> {
-
   private MsSqlSchemaAdapterBuilder() {
-
     super(
       new AndPortCaptor<>(
         new ToDatabaseNameCaptor<>(
@@ -33,7 +31,6 @@ MsSqlSchemaAdapter>>>>> {
   }
 
   private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
-
     final var databaseName = nxtArgCpt().nxtArgCpt().getDatabaseName();
 
     return //

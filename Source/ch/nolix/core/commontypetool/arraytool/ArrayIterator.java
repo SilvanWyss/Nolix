@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 public final class ArrayIterator<E> implements CopyableIterator<E> {
-
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
 
   private final E[] parentArray;
@@ -15,7 +14,6 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
   private int nextIndex;
 
   private ArrayIterator(final E[] parrentArray) {
-
     Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
@@ -23,7 +21,6 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
   }
 
   private ArrayIterator(final E[] parrentArray, final int startIndex) {
-
     Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
     Validator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
 
@@ -51,7 +48,6 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
 
   @Override
   public E next() {
-
     assertHasNext();
 
     return nextWhenHasNext();
@@ -62,7 +58,6 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
   }
 
   private E nextWhenHasNext() {
-
     final var element = parentArray[nextIndex];
 
     nextIndex++;

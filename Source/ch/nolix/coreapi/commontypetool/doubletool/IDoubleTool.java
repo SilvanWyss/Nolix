@@ -7,7 +7,6 @@ package ch.nolix.coreapi.commontypetool.doubletool;
  * @version 2022-07-22
  */
 public interface IDoubleTool {
-
   /**
    * @param value
    * @return a {@link String} representation of the given value. The

@@ -14,7 +14,6 @@ import ch.nolix.coreapi.document.node.INode;
  * @param <V> is the type of the value of a {@link Value}.
  */
 public final class Value<V> extends AbstractSingleValue<V> {
-
   /**
    * Creates a new {@link Value} with the given name, setterMethod, valueCreator
    * and specificationCreator.
@@ -33,7 +32,6 @@ public final class Value<V> extends AbstractSingleValue<V> {
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
@@ -89,7 +87,6 @@ public final class Value<V> extends AbstractSingleValue<V> {
    *                                  {@link String} value for a {@link Value}.
    */
   private static Node getStringValueSpecificationForAValueFromString(final String string) {
-
     if (string.isEmpty()) {
       return Node.EMPTY_NODE;
     }

@@ -10,9 +10,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiReference;
 
 final class MultiReferenceOnDatabaseTest extends StandardTest {
-
   private static final class Person extends Entity {
-
     final MultiReference<Pet> pets = MultiReference.forEntityType(Pet.class);
 
     Person() {
@@ -21,7 +19,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
   }
 
   private static final class Pet extends Entity {
-
     Pet() {
       initialize();
     }
@@ -29,7 +26,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenIsLoadedAndEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -47,7 +43,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenIsLoadedAndNotEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -73,7 +68,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenReferencedEntityIsLoadedAndDeleted() {
-
     //setup part 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -98,7 +92,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
-
     //setup part 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -131,7 +124,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -149,7 +141,6 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);

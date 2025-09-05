@@ -8,7 +8,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @param <C> is the type of the controls of a {@link IControlManager}.
  */
 public interface IControlManager<C> {
-
   /**
    * @return the controls of the current {@link IControlManager}.
    */

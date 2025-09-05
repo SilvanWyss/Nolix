@@ -10,10 +10,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
 final class ForNodeDatabaseCaptorTest extends StandardTest {
-
   @Test
   void testCase_forNodeDatabase_whenDoesNotHaveNext() {
-
     //setup
     final var database = MutableNode.createEmpty();
     final var testUnit = new ForNodeDatabaseCaptor<>();
@@ -26,7 +24,6 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   @Test
   void testCase_forNodeDatabase_whenHasNext() {
-
     //setup
     final var database = MutableNode.createEmpty();
     final var andNameCaptor = new AndNameCaptor<>();
@@ -42,7 +39,6 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   @Test
   void testCase_forTemporaryInMemoryNodeDatabase_whenHasNext() {
-
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);
@@ -57,7 +53,6 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   @Test
   void testCase_getStoredNodeDatabase_whenDoesNotHaveNodeDatabase() {
-
     //setup
     final var testUnit = new ForNodeDatabaseCaptor<>();
 

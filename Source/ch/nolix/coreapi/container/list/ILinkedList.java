@@ -15,7 +15,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  * @param <E> is the type of the elements of a {@link ILinkedList}.
  */
 public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IContainer<E> {
-
   /**
    * Adds the given element at the begin of the current {@link ILinkedList}.
    * 

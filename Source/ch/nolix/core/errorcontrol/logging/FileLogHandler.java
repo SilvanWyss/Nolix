@@ -9,11 +9,9 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.independent.nolixenvironment.NolixEnvironmentService;
 
 public final class FileLogHandler extends AbstractLogHandler {
-
   @Override
   protected void log(final LogEntry logEntry) {
     try {
-
       final var nolixLogFilePath = Path.of(NolixEnvironmentService.getNolixLogFilePath());
 
       Files.writeString(

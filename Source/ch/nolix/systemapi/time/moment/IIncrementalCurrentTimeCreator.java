@@ -17,7 +17,6 @@ import java.time.ZonedDateTime;
  * @version 2024-12-14
  */
 public interface IIncrementalCurrentTimeCreator {
-
   /**
    * @return a new {@link ITime} that represents the current time on the local
    *         computer.

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.environment.licenseapi.ILicenseValidator;
  */
 public abstract class License //NOSONAR: A license class is expected to be abstract.
 implements ILicense {
-
   private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
   private boolean activated;
@@ -20,7 +19,6 @@ implements ILicense {
    */
   @Override
   public final void activateWithKey(final String key) {
-
     LICENSE_VALIDATOR.assertIsNotActivated(this);
     assertAcceptsKey(key);
 
@@ -56,7 +54,6 @@ implements ILicense {
    *         otherwise.
    */
   private boolean acceptsKey(final String key) {
-
     final var refinedKey = KeyRefinder.getRefinedKeyFromKey(key);
 
     return acceptsRefinedKey(refinedKey);

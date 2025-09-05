@@ -17,7 +17,6 @@ import ch.nolix.systemapi.application.main.IApplication;
  * @version 2017-09-10
  */
 public final class Server extends AbstractServer<Server> implements ISinglePortServer {
-
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
   private ch.nolix.core.net.endpoint3.Server internalServer;
@@ -30,7 +29,6 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   private Server(final int port) {
-
     //Creates the internalServer of the current Server.
     internalServer = ch.nolix.core.net.endpoint3.Server.forPortAndHttpMessage(
       port,

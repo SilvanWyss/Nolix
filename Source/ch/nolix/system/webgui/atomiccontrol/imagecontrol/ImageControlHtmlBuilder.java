@@ -12,7 +12,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControl;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
-
   @Override
   public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
     return HtmlElement.withTypeAndAttributes(
@@ -21,11 +20,9 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
   }
 
   private IContainer<IHtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
-
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 
     if (imageControl.containsAny()) {
-
       final var srcAttribute = //
       HtmlAttribute.withNameAndValue(
         HtmlAttributeNameCatalog.SRC,

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschema.model.IContentModelDto;
  * @version 2024-12-21
  */
 public interface IContentModelNodeMapper {
-
   /**
    * @param columnDto
    * @return a new content model {@link INode} from the given columnDto.

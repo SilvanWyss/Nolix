@@ -9,7 +9,6 @@ package ch.nolix.coreapi.component.datamodelcomponent;
  *            to.
  */
 public interface IEntityComponent<E> {
-
   /**
    * @return true if the current {@link IEntityComponent} belongs to an entity,
    *         false otherwise.

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.commontypetool.stringtool;
  * @version 2024-07-22
  */
 public interface IStringTool {
-
   /**
    * @param string
    * @param n

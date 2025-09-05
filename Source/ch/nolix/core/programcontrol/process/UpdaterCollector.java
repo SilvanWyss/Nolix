@@ -15,7 +15,6 @@ import ch.nolix.coreapi.programcontrol.process.IUpdaterCollector;
  *            {@link UpdaterCollector} can mutate.
  */
 public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
-
   private final ILinkedList<Consumer<O>> updaters = LinkedList.createEmpty();
 
   /**
@@ -55,7 +54,6 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
    */
   @Override
   public void updateObjectAndClear(final O object) {
-
     Validator.assertThat(object).thatIsNamed(Object.class).isNotNull();
 
     updateObjectAndClearWhenObjectIsNotNull(object);

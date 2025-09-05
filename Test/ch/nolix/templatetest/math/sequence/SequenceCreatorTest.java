@@ -7,10 +7,8 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.SequenceFactory;
 
 final class SequenceCreatorTest extends StandardTest {
-
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
-
     //execution
     final var result = SequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
 
@@ -24,7 +22,6 @@ final class SequenceCreatorTest extends StandardTest {
 
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
-
     //execution
     final var result = SequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
 
@@ -38,7 +35,6 @@ final class SequenceCreatorTest extends StandardTest {
 
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
-
     //execution
     final var result = SequenceFactory.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));
 

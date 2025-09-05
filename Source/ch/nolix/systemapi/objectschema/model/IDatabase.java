@@ -5,7 +5,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 public interface IDatabase extends IDatabaseObject, INameHolder {
-
   IDatabase addTable(ITable table);
 
   IDatabase createTableWithName(String name);

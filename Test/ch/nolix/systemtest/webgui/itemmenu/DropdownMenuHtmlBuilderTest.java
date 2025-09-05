@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenu;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class DropdownMenuHtmlBuilderTest extends ControlHtmlBuilderTest<DropdownMenuHtmlBuilder, IDropdownMenu> {
-
   @Override
   protected IDropdownMenu createControl() {
     return new DropdownMenu();

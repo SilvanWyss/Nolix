@@ -11,7 +11,6 @@ import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStackStyle;
 public final class HorizontalStack //NOSONAR: A HorizontalStack is a LinearContainer.
 extends AbstractLinearContainer<IHorizontalStack, IHorizontalStackStyle>
 implements IHorizontalStack {
-
   public static final VerticalContentAlignment DEFAULT_CONTENT_ALIGNMENT = VerticalContentAlignment.TOP;
 
   private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
@@ -34,7 +33,6 @@ implements IHorizontalStack {
 
   @Override
   public IHorizontalStack setContentAlignment(final VerticalContentAlignment contentAlignment) {
-
     this.contentAlignment.setValue(contentAlignment);
 
     return this;

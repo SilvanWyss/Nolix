@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @version 2024-12-20
  */
 public interface ITableMutationValidator {
-
   /**
    * @param table
    * @param column

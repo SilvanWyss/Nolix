@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends AbstractInvalidArgumentException {
-
   private static final String DEFAULT_VALUE_NAME = Object.class.getSimpleName();
 
   /**
@@ -78,7 +77,6 @@ public final class UnequalArgumentException extends AbstractInvalidArgumentExcep
    * @throws RuntimeException if the given value is null.
    */
   private static String getNameOfValue(final Object value) {
-
     if (value == null) {
       throw new IllegalArgumentException("The given value is null.");
     }

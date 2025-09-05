@@ -8,7 +8,6 @@ package ch.nolix.coreapi.component.guicomponent;
  * @param <G> is the type of the GUI a {@link IGuiComponent} can belong to.
  */
 public interface IGuiComponent<G> {
-
   /**
    * @return true if the current {@link IGuiComponent} belongs to a GUI, false
    *         otherwise.

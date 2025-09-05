@@ -30,7 +30,6 @@ import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
-
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
@@ -60,7 +59,6 @@ public final class SchemaWriter implements ISchemaWriter {
   private boolean hasChanges;
 
   private SchemaWriter(final IMutableNode<?> nodeDatabase) {
-
     Validator.assertThat(nodeDatabase).thatIsNamed("database Node").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
@@ -74,7 +72,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
@@ -85,7 +82,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addTable(final TableDto table) {
-
     editedNodeDatabase.addChildNode(TABLE_NODE_MAPPER.mapTableDtoToNode(table));
 
     hasChanges = true;
@@ -93,7 +89,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
@@ -107,7 +102,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteTable(final String tableName) {
-
     editedNodeDatabase.removeFirstChildNodeThat(
       (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.TABLE)
       && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
@@ -138,7 +132,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void reset() {
-
     editedNodeDatabase = MutableNode.fromNode(nodeDatabase);
 
     hasChanges = false;
@@ -147,7 +140,6 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void saveChanges() {
     try {
-
       setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
       nodeDatabase.setChildNodes(editedNodeDatabase.getStoredChildNodes());
 
@@ -159,7 +151,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
@@ -172,7 +163,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 
@@ -185,7 +175,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
@@ -196,7 +185,6 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   private void setSchemaTimestamp(final ITime schemaTimestamp) {
-
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
       .getStoredDatabasePropertiesNodeFromNodeDatabase(editedNodeDatabase);
 

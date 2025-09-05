@@ -23,7 +23,6 @@ import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
  * @version 2021-07-11
  */
 public final class TableMutationValidator implements ITableMutationValidator {
-
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
@@ -39,7 +38,6 @@ public final class TableMutationValidator implements ITableMutationValidator {
    */
   @Override
   public void assertCanAddColumnToTable(final ITable table, final IColumn column) {
-
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
     TABLE_VALIDATOR.assertDoesNotContainColumnWithName(table, column.getName());
 
@@ -47,7 +45,6 @@ public final class TableMutationValidator implements ITableMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsNew(column);
 
     if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
-
       final var abstractReferenceModel = (AbstractBaseReferenceModel) column.getContentModel();
       final var referencedTables = abstractReferenceModel.getReferenceableTables();
 
@@ -56,7 +53,6 @@ public final class TableMutationValidator implements ITableMutationValidator {
     }
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
-
       final var abstractBackReferenceModel = (AbstractBaseBackReferenceModel) (column.getContentModel());
       final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
 
@@ -80,7 +76,6 @@ public final class TableMutationValidator implements ITableMutationValidator {
    */
   @Override
   public void assertCanSetNameToTable(final ITable table, final String name) {
-
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
 
     if (table.belongsToDatabase()) {

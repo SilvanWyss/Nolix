@@ -6,14 +6,12 @@ import ch.nolix.coreapi.datastructure.pair.IKeyValuePair;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
-
   private final K key;
 
   private final V value;
 
   //For a better performance, this implementation does not use all available comfort methods.
   private KeyValuePair(final K key, final V value) {
-
     if (key == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.KEY);
     }

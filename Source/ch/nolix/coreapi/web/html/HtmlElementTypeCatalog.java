@@ -1,7 +1,6 @@
 package ch.nolix.coreapi.web.html;
 
 public final class HtmlElementTypeCatalog {
-
   public static final String A = "a";
 
   public static final String BODY = "body";

@@ -7,10 +7,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class ServerTargetTest extends StandardTest {
-
   @Test
   void testCase_forIpOrDomainAndPortAndSecurityModeForConnections() {
-
     //parameter definition
     final var domain = "nolix.ch";
     final var port = 443;

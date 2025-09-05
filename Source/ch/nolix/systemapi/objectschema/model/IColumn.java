@@ -15,7 +15,6 @@ IDatabaseObject,
 IFluentMutableNameHolder<IColumn>,
 IIdHolder,
 ITableComponent<ITable> {
-
   IContentModel getContentModel();
 
   boolean isBackReferenced();

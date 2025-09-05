@@ -15,14 +15,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link IterableContainerView}.
  */
 public final class IterableContainerView<E> extends AbstractExtendedContainer<E> {
-
   private final Iterable<E> iterable;
 
   /**
    * Creates a new {@link IterableContainerView} for a new empty container.
    */
   public IterableContainerView() {
-
     //Calls other constructor.
     this(ArrayList.createEmpty());
   }
@@ -36,7 +34,6 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
    */
   @SuppressWarnings("unchecked")
   private <E2 extends E> IterableContainerView(final Iterable<E2> container) {
-
     //Asserts that the given container is not null.
     Validator
       .assertThat(container)
@@ -62,7 +59,6 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
    */
   @Override
   public int getCount() {
-
     var size = 0;
 
     //Iterates the current IterableView.
@@ -80,11 +76,9 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     //Iterates the current IterableView.
     var i = 1;
     for (final var e : this) {
-
       //Asserts that the current index is the given index.
       if (i == oneBasedIndex) {
         return e;

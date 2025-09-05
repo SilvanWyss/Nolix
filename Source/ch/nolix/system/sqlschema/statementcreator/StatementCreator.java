@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
 import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
 public final class StatementCreator implements IStatementCreator {
-
   @Override
   public String createStatementToAddColumn(final String tabbleName, final ColumnDto column) {
     return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column) + ";");
@@ -82,7 +81,6 @@ public final class StatementCreator implements IStatementCreator {
   }
 
   private String getColumnAsSql(final ColumnDto column) {
-
     var sql = column.name() + " " + getDataTypeAsSql(column.dataType());
 
     if (column.constraints().containsAny()) {
@@ -93,7 +91,6 @@ public final class StatementCreator implements IStatementCreator {
   }
 
   private String getConstraintAsSql(final ColumnConstraintDto constraint) {
-
     var sql = constraint.constraint().toString().replace(StringCatalog.UNDERSCORE, StringCatalog.SPACE);
 
     if (constraint.parameters().containsAny()) {
@@ -112,7 +109,6 @@ public final class StatementCreator implements IStatementCreator {
   }
 
   private String getDataTypeAsSql(final DataTypeDto dataType) {
-
     final var parameter = dataType.nullableParameter();
 
     if (parameter != null) {

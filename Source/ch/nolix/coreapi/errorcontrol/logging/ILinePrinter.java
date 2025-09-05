@@ -1,7 +1,6 @@
 package ch.nolix.coreapi.errorcontrol.logging;
 
 public interface ILinePrinter {
-
   void printEmptyLine();
 
   void printErrorLine(final String errorLine);

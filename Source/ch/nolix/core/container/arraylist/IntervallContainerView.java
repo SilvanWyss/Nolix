@@ -24,7 +24,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link IntervallContainerView}.
  */
 public final class IntervallContainerView<E> extends AbstractExtendedContainer<E> {
-
   private final AbstractContainer<E> abstractContainer;
 
   private final int startIndex;
@@ -48,7 +47,6 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    *                                      container.
    */
   private IntervallContainerView(final AbstractContainer<E> container, final int startIndex, final int endIndex) {
-
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
@@ -105,7 +103,6 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
 
     Validator

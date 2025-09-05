@@ -9,13 +9,11 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
  * @version 2025-06-20
  */
 public final class MultiValueEntryDtoMapper implements IMultiValueEntryDtoMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public MultiValueEntryDto mapMultiValueEntryToMultiValueEntryDto(final IMultiValueFieldEntry<?> multiValueEntry) {
-
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
     final var tableName = entity.getParentTableName();
     final var entityId = entity.getId();

@@ -21,7 +21,6 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
  * @version 2016-08-01
  */
 public final class ColorGradient extends AbstractElement implements IColorGradient {
-
   public static final Direction DEFAULT_DIRECTION = Direction.VERTICAL;
 
   public static final Color DEFAULT_COLOR1 = X11ColorCatalog.BLACK;
@@ -46,7 +45,6 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws ArgumentIsNullException if the given color 2 is null.
    */
   private ColorGradient(final Direction direction, final Color color1, final Color color2) {
-
     Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
     Validator.assertThat(color1).thatIsNamed("color1").isNotNull();
     Validator.assertThat(color2).thatIsNamed("color2").isNotNull();
@@ -62,7 +60,6 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static ColorGradient fromSpecification(final INode<?> specification) {
-
     final var attributes = specification.getStoredChildNodes();
     final var attributeCount = attributes.getCount();
 
@@ -111,7 +108,6 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws InvalidArgumentException if the given attributes are not valid.
    */
   private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
-
     final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
 
@@ -127,7 +123,6 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws InvalidArgumentException if the given attributes are not valid.
    */
   private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
-
     final var directionSpecification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
     final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(3));

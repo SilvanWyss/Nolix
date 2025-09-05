@@ -3,7 +3,6 @@ package ch.nolix.coreapitest.datamodelapi.entityrequestapi;
 import ch.nolix.coreapi.datamodel.entityrequest.AbstractnessRequestable;
 
 public final class AbstractnessRequestableMock implements AbstractnessRequestable {
-
   private final boolean isAbstract;
 
   private AbstractnessRequestableMock(final boolean isAbstract) {

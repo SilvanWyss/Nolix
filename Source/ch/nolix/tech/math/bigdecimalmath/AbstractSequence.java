@@ -7,14 +7,12 @@ import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 
 abstract class AbstractSequence<V> implements ISequence<V> {
-
   private final ArrayList<Pair<V, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
 
   @Override
   public int getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
     final BigDecimal limit,
     final int maxIterationCount) {
-
     for (var i = 1; i <= maxIterationCount; i++) {
       if (getSquaredMagnitudeOfValueAtOneBasedIndex(i).compareTo(limit) > 0) {
         return i;
@@ -26,7 +24,6 @@ abstract class AbstractSequence<V> implements ISequence<V> {
 
   @Override
   public BigDecimal getSquaredMagnitudeOfValueAtOneBasedIndex(final int oneBasedIndex) {
-
     calculateValuesAndSquaredMagnitudesToIndex(oneBasedIndex);
 
     return valuesAndSquaredMagnitudes.get(oneBasedIndex - 1).getStoredElement2();
@@ -34,7 +31,6 @@ abstract class AbstractSequence<V> implements ISequence<V> {
 
   @Override
   public V getValueAtOneBasedIndex(final int oneBasedIndex) {
-
     calculateValuesAndSquaredMagnitudesToIndex(oneBasedIndex);
 
     return valuesAndSquaredMagnitudes.get(oneBasedIndex - 1).getStoredElement1();
@@ -50,7 +46,6 @@ abstract class AbstractSequence<V> implements ISequence<V> {
 
   private void calculateValuesAndSquaredMagnitudesToIndex(final int index) {
     for (var i = valuesAndSquaredMagnitudes.size() + 1; i <= index; i++) {
-
       final var value = calculateValue(i);
       final var valueSquaredMagnitude = calculateSquaredMagnitudeForValue(value);
 

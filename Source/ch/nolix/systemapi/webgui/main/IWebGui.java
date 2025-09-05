@@ -13,7 +13,6 @@ import ch.nolix.systemapi.gui.model.IGui;
 import ch.nolix.systemapi.style.stylable.IStyleElement;
 
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHolder<G>, IGui<G>, IStyleElement<G> {
-
   boolean containsControl(IControl<?, ?> control);
 
   ICss getCss();

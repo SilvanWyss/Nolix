@@ -18,7 +18,6 @@ import ch.nolix.systemapi.application.client.IBackendClient;
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
 extends AbstractClient<C>
 implements IBackendClient<S> {
-
   @SuppressWarnings("unchecked")
   private final BackendClientSessionManager<C, S> sessionManager = BackendClientSessionManager.forClient((C) this);
 
@@ -183,7 +182,6 @@ implements IBackendClient<S> {
    *                                  {@link Application}.
    */
   final void internalSetParentApplication(final Application<C, S> parentApplication) {
-
     //Asserts that the given parent application is not null.
     Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
 
@@ -223,7 +221,6 @@ implements IBackendClient<S> {
    *                                  does not have a parent {@link Application}.
    */
   private Application<C, S> getStoredParentApplication() {
-
     assertReferencesParentApplication();
 
     return parentApplication;

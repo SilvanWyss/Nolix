@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IValueValidator;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public final class ValueField<V> extends AbstractBaseValueField<V> implements IValueField<V> {
-
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
@@ -21,7 +20,6 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
   }
 
   public static <V2> ValueField<V2> withInitialValue(final V2 initialValue) {
-
     @SuppressWarnings("unchecked")
     final var value = (ValueField<V2>) ValueField.withValueType(initialValue.getClass());
 
@@ -36,7 +34,6 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
   @Override
   public V getStoredValue() {
-
     VALUE_VALIDATOR.assertIsNotEmpty(this);
 
     return internalValue;
@@ -65,7 +62,6 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
   @Override
   public void setValue(final V value) {
-
     VALUE_VALIDATOR.assertCanSetGivenValue(this, value);
 
     updateStateForSetValue(value);
@@ -75,7 +71,6 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
   @Override
   public void setValueFromString(final String string) {
-
     final var dataType = DataType.forType(getValueType());
 
     @SuppressWarnings("unchecked")

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalTokenHolder;
  * @version 2023-02-09
  */
 public interface IMutableOptionalTokenHolder extends IOptionalTokenHolder {
-
   /**
    * Removes the token of the current {@link IMutableOptionalTokenHolder}.
    */

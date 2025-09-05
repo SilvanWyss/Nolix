@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 public final class MultiReferenceValidator extends FieldValidator implements IMultiReferenceValidator {
-
   private static final IMultiReferenceExaminer MULTI_REFERENCE_TOOL = new MultiReferenceExaminer();
 
   @Override

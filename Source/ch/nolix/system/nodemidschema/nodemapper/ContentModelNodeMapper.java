@@ -20,13 +20,11 @@ import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
  * @version 2024-09-12
  */
 public final class ContentModelNodeMapper implements IContentModelNodeMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public INode<?> mapColumnDtoToContentModelNode(final ColumnDto columnDto) {
-
     final var contentModel = columnDto.contentModel();
 
     return mapContentModelDtoToNode(contentModel);
@@ -37,7 +35,6 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
    */
   @Override
   public INode<?> mapContentModelDtoToNode(final IContentModelDto contentModelDto) {
-
     if (contentModelDto instanceof ValueModelDto valueModelDto) {
       return ContentModelNodeMapperHelper.mapValueModelDtoToNode(valueModelDto);
     }

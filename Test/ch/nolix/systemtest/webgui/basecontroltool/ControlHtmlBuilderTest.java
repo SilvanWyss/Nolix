@@ -8,10 +8,8 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
 extends StandardTest {
-
   @Test
   final void testCase_createHtmlElementForNewControl() {
-
     //setup
     final B testUnit = createTestUnit();
 

@@ -23,7 +23,6 @@ import ch.nolix.systemapi.style.tool.IAttributeReplacer;
  * @version 2016-01-01
  */
 public final class DeepSelectingStyle extends AbstractSelectingStyle {
-
   public static final String TYPE_NAME = "DeepSelectingStyle";
 
   private static final IAttributeMerger ATTRIBUTE_MERGER = new AttributeMerger();
@@ -70,7 +69,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
-
     String optionalselectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> selectorRoles = LinkedList.createEmpty();
@@ -129,7 +127,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    */
   @Override
   public void applyToElement(final IStylableElement<?> element) {
-
     if (selectsElement(element)) {
       setAttachingAttributesToElement(element);
       letSubStylesStyleChildElementsOfElement(element);
@@ -144,7 +141,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withAttachingAttributes(
     final IContainer<? extends IAttachingAttribute> attachingAttributes) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
 
@@ -175,7 +171,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   public ISelectingStyleWithSelectors withNewAttachingAttributesWhereSelectorType(
     final String selectorType,
     final IContainer<String> newAttachingAttributes) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     IContainer<? extends IAttachingAttribute> attachingAttributes;
@@ -214,7 +209,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withReplacedAttachingAttributes(
     final IContainer<IPair<String, String>> attachingAttributeReplacements) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
 
@@ -250,7 +244,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withReplacedTaggedAttachingAttributes(
     final IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
 
@@ -285,7 +278,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
-
     Validator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
 
     String optionalSelectorType = null;
@@ -309,7 +301,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withSelectorRoles(final IContainer<String> selectorRoles) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorRoles = LinkedList.createEmpty();
@@ -340,7 +331,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withSelectorTokens(final IContainer<String> selectorTokens) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
@@ -371,7 +361,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withSelectorType(final String selectorType) {
-
     Validator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
 
     String optionalSelectorId = null;
@@ -396,7 +385,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   @Override
   public ISelectingStyleWithSelectors withSubStyles(
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
-
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();
@@ -423,7 +411,6 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   }
 
   private void styleChildElementsOfElement(final IStylableElement<?> element) {
-
     final var childElements = element.getStoredChildStylableElements();
 
     childElements.forEach(this::applyToElement);

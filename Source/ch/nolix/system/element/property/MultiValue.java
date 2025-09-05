@@ -21,7 +21,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  * @param <V> is the type of the values of a {@link MultiValue}.
  */
 public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
-
   private final Consumer<V> adderMethod;
 
   private final LinkedList<V> values = LinkedList.createEmpty();
@@ -45,7 +44,6 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
     final Consumer<V> adderMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     //Calls constructor of the base class
     super(name, valueCreator, specificationCreator);
 
@@ -152,7 +150,6 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @throws EmptyArgumentException if the current {@link MultiValue} is empty.
    */
   public MultiValue<V> removeLast() {
-
     values.removeLast();
 
     return this;
@@ -171,10 +168,8 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
-
     //Iterates the values of the current MultiProperty.
     for (final var v : getStoredValues()) {
-
       //Creates a specification from the current value.
       final var specification = Node.withHeaderAndChildNodes(getName(),
         specificationCreator.apply(v).getStoredChildNodes());

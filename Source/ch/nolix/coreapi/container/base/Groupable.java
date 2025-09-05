@@ -8,7 +8,6 @@ import java.util.function.Function;
  * @param <E> is the type of the elements a {@link Groupable}.
  */
 public interface Groupable<E> {
-
   /**
    * @param norm
    * @return a new {@link IContainer} with the elements of the current

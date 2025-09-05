@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
-
   private final IMultiBackReference<E> parentMultiBackReference;
 
   private DatabaseObjectState state;
@@ -18,7 +17,6 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     final IMultiBackReference<E> parentMultiBackReference,
     final DatabaseObjectState initialState,
     final String backReferencedEntityId) {
-
     Validator.assertThat(parentMultiBackReference).thatIsNamed("parent MultiBackReference").isNotNull();
     Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
     Validator.assertThat(backReferencedEntityId).thatIsNamed("back referenced entity id").isNotBlank();

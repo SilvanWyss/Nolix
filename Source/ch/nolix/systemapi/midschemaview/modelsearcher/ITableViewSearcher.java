@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
  * @version 2025-01-10
  */
 public interface ITableViewSearcher {
-
   /**
    * @param tableViewDto
    * @param columnId

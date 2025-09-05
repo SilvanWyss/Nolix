@@ -10,12 +10,10 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.OptionalReference;
 
 final class OptionalReferenceOnDatabaseTest extends StandardTest {
-
   private static final class Pet extends Entity {
   }
 
   private static final class Person extends Entity {
-
     final OptionalReference<Pet> pet = OptionalReference.forEntityType(Pet.class);
 
     Person() {
@@ -25,7 +23,6 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsNewAndEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -43,7 +40,6 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -63,7 +59,6 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredEntity_whenIsLoadedAndNotEmpty() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -87,7 +82,6 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenReferencedEntityIsDeleted() {
-
     //setup part 1: Initializes database.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -117,7 +111,6 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
@@ -135,7 +128,6 @@ final class OptionalReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_setEntity_whenParentEntityBelongsToTableAndSetEntityDoesNot_andIsSaved() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);

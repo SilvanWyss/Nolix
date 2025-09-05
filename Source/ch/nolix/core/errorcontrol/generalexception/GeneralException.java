@@ -2,7 +2,6 @@ package ch.nolix.core.errorcontrol.generalexception;
 
 @SuppressWarnings("serial")
 public final class GeneralException extends RuntimeException {
-
   private GeneralException(final String errorMessage) {
     super(getValidErroMessageOfErrorMessage(errorMessage));
   }
@@ -12,7 +11,6 @@ public final class GeneralException extends RuntimeException {
   }
 
   private static String getValidErroMessageOfErrorMessage(final String errorMessage) {
-
     if (errorMessage == null) {
       throw new IllegalArgumentException("The given error message is null.");
     }
@@ -26,7 +24,6 @@ public final class GeneralException extends RuntimeException {
 
   @Override
   public boolean equals(final Object object) {
-
     if (object instanceof final GeneralException generalException) {
       return getMessage().equals(generalException.getMessage());
     }

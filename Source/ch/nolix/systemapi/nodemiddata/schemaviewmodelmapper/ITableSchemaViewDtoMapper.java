@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
  * @version 2025-01-11
  */
 public interface ITableSchemaViewDtoMapper {
-
   /**
    * @param tableNode
    * @return a new {@link TableViewDto} from the given tableNode.

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.commontypetool.charactertool;
  * @version 2017-06-24
  */
 public final class CharacterCatalog {
-
   public static final char APOSTROPH = '\'';
 
   public static final char AVERAGE = '\u00D8';

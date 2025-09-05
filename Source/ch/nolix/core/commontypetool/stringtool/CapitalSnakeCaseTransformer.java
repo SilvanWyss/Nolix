@@ -5,9 +5,7 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 public final class CapitalSnakeCaseTransformer {
-
   public String toCapitalSnakeCase(final String string) {
-
     if (string.isEmpty()) {
       return StringCatalog.EMPTY_STRING;
     }
@@ -16,7 +14,6 @@ public final class CapitalSnakeCaseTransformer {
   }
 
   private String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
-
     final var stringBuilder = new StringBuilder();
     final var firstCharacter = string.charAt(0);
 
@@ -26,7 +23,6 @@ public final class CapitalSnakeCaseTransformer {
 
     var previousCharacterType = firstCharacterType;
     for (var i = 1; i < string.length(); i++) {
-
       final var character = string.charAt(i);
       final var characterType = CharacterType.ofCharacter(character);
 
@@ -60,7 +56,6 @@ public final class CapitalSnakeCaseTransformer {
   private CharacterType appendFirstTargetCharacterAccordingToFirstCharacterAndGetFirstCharacterType(
     final char firstCharacter,
     final StringBuilder stringBuilder) {
-
     final var firstCharacterType = CharacterType.ofCharacter(firstCharacter);
 
     switch (firstCharacterType) {

@@ -20,7 +20,6 @@ import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 public final class DarkStyleSubStyleCatalog {
-
   public static final ISelectingStyleWithSelectors LAYER_STYLE = //
   new DeepSelectingStyle()
     .withSelectorType(Layer.class)

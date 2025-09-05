@@ -12,7 +12,6 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
 public final class BackgroundToCssMapperHelper {
-
   private static final ICssProperty TRANSPARENT_BACKGROUND_CSS_PROPERTY = //
   CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, "none");
 
@@ -48,7 +47,6 @@ public final class BackgroundToCssMapperHelper {
   }
 
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsColor(final IBackground background) {
-
     final var color = background.getColor();
     final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
     final var backgroundCssProperty = CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, colorCssValue);
@@ -57,7 +55,6 @@ public final class BackgroundToCssMapperHelper {
   }
 
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(final IBackground background) {
-
     final var colorGradient = background.getColorGradient();
     final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
     final var color1CssValue = CSS_VALUE_MAPPER.mapColorToCssValue(colorGradient.getColor1());
@@ -71,7 +68,6 @@ public final class BackgroundToCssMapperHelper {
   }
 
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsImage(final IBackground background) {
-
     final var image = background.getImage();
     final var imageCode = "data:image/jpeg;base64," + image.toBase64Jpg();
     final var imageUrl = "url('" + imageCode + "')";

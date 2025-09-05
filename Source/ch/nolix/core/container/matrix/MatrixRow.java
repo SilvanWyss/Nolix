@@ -7,13 +7,11 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class MatrixRow<E> extends AbstractExtendedContainer<E> {
-
   private final Matrix<E> parentMatrix;
 
   private final int rowIndex;
 
   MatrixRow(final Matrix<E> parentMatrix, final int rowIndex) {
-
     Validator
       .assertThat(parentMatrix)
       .thatIsNamed("parent matrix")

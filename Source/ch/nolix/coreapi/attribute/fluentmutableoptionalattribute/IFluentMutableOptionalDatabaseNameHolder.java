@@ -13,7 +13,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
  */
 public interface IFluentMutableOptionalDatabaseNameHolder<H extends IFluentMutableOptionalDatabaseNameHolder<H>>
 extends IDatabaseNameHolder {
-
   /**
    * Removes the database name of the current
    * {@link IFluentMutableOptionalDatabaseNameHolder}.

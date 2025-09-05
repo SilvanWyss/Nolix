@@ -18,7 +18,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <V> is the type of the value of a {@link AbstractSingleValue}.
  */
 abstract class AbstractSingleValue<V> extends AbstractValue<V> {
-
   private final Consumer<V> setterMethod;
 
   private V value;
@@ -42,7 +41,6 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     //Calls constructor of the base class.
     super(name, valueCreator, specificationCreator);
 
@@ -70,7 +68,6 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    *                                               does not have a value.
    */
   public final V getValue() {
-
     //Asserts that the current SingleProperty has a value.
     if (value == null) {
       throw //
@@ -100,7 +97,6 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    *                                  is not mutable and has already a value.
    */
   public final void setValue(final V value) {
-
     //Asserts that the given value is not null.
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
@@ -125,10 +121,8 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    */
   @Override
   public final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
-
     //Handles the case that the current SingleValue has a value.
     if (containsAny()) {
-
       //Adds the specification of the current SingleValue to the given list.
       list.addAtEnd(getSpecification());
     }

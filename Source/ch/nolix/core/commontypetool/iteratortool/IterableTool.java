@@ -4,7 +4,6 @@ import ch.nolix.coreapi.commontypetool.iterabletool.IIterableExaminer;
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableTool;
 
 public final class IterableTool {
-
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private static final IIterableTool ITERABLE_TOOL = new IterableToolUnit();

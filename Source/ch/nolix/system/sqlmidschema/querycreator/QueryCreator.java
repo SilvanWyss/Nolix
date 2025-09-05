@@ -13,7 +13,6 @@ import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
  * @version 2021-09-02
  */
 public final class QueryCreator implements IQueryCreator {
-
   /**
    * {@inheritDoc}
    */

@@ -22,7 +22,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
  * @param <N> is the type of a {@link AbstractNode}.
  */
 public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N> {
-
   public static final String COMMA_CODE = "$M";
 
   public static final String DOLLAR_SYMBOL_CODE = "$X";
@@ -38,7 +37,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * @return an escape {@link String} for the given string.
    */
   public static String getEscapeStringFor(final String string) {
-
     final var stringBuilder = new StringBuilder();
 
     for (var i = 0; i < string.length(); i++) {
@@ -69,7 +67,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * @throws NullPointerException if the given escapeString is null.
    */
   public static String getOriginStringFromEscapeString(final String escapeString) {
-
     return //
     escapeString
       .replace(COMMA_CODE, String.valueOf(CharacterCatalog.COMMA))
@@ -265,7 +262,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    *                                  with the given path.
    */
   public final void saveToFile(final String path) {
-
     //Calls other method.
     saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
@@ -315,7 +311,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final int toInt() {
-
     if (!hasHeader() || containsChildNodes()) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
@@ -332,7 +327,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final String toString() {
-
     final var stringBuilder = new StringBuilder();
 
     //Handles the case that the current specification has a header.
@@ -356,13 +350,11 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final IMutableXmlNode toXml() {
-
     //Creates an XmlNode.
     final var xmlNode = MutableXmlNode.createBlankMutableXmlNode().setName(getHeader());
 
     //Iterates the child nodes of the current BaseNode.
     for (final AbstractNode<?> cn : getStoredChildNodes()) {
-
       //Handles the case that the current child node itself does not contain child nodes.
       if (!cn.containsChildNodes()) {
         xmlNode.setValue(cn.toString());
@@ -379,7 +371,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
     final int leadingTabulators,
     final StringBuilder stringBuilder) {
-
     //Handles the case that all child nodes of the current BaseNode themselves do
     //not contain child nodes.
     if (getStoredChildNodes().containsNone(INode::containsChildNodes)) {
@@ -391,7 +382,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       //Handles the case that the current BaseNode contains child nodes that
       //themselves contains child nodes.
     } else {
-
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
         .append(CharacterCatalog.NEW_LINE);
@@ -400,7 +390,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       final var attributeCount = getChildNodeCount();
       var index = 1;
       for (final AbstractNode<?> cn : getStoredChildNodes()) {
-
         stringBuilder.append(cn.toFormattedString(leadingTabulators + 1));
 
         if (index < attributeCount) {
@@ -433,7 +422,6 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    *         leading tabulator count says.
    */
   private String toFormattedString(final int leadingTabulators) {
-
     final var stringBuilder = new StringBuilder();
 
     stringBuilder.append(StringTool.createTabs(leadingTabulators));

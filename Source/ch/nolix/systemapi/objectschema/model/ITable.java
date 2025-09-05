@@ -14,7 +14,6 @@ IDatabaseComponent<IDatabase>,
 IDatabaseObject,
 IFluentMutableNameHolder<ITable>,
 IIdHolder {
-
   ITable addColumn(IColumn column);
 
   ITable addColumns(IContainer<IColumn> columns);

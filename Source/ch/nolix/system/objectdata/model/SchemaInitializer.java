@@ -15,7 +15,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
 public final class SchemaInitializer {
-
   private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 
   private static final ITableMapper TABLE_MAPPER = new ch.nolix.system.objectdata.schemamapper.TableMapper();
@@ -39,7 +38,6 @@ public final class SchemaInitializer {
   private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter) {
-
     final var tables = TABLE_MAPPER.mapSchemaToEmptyTables(entityTypeSet);
 
     tables.forEach(schemaAdapter::addTable);
@@ -63,7 +61,6 @@ public final class SchemaInitializer {
   private void addBaseValueColumnsToTableFromEntityType(
     final ITable table,
     final Class<? extends IEntity> entityType) {
-
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseValues = entity
@@ -71,7 +68,6 @@ public final class SchemaInitializer {
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD);
 
     for (final var bv : baseValues) {
-
       final var column = COLUMN_MAPPER.mapFieldToColumn(bv, ImmutableList.createEmpty());
 
       table.addColumn(column);
@@ -92,7 +88,6 @@ public final class SchemaInitializer {
     final ITable table,
     final Class<? extends IEntity> entityType,
     final IContainer<ITable> referencableTables) {
-
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseReferences = entity
@@ -100,7 +95,6 @@ public final class SchemaInitializer {
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_REFERENCE);
 
     for (final var br : baseReferences) {
-
       final var column = COLUMN_MAPPER.mapFieldToColumn(br, referencableTables);
 
       table.addColumn(column);
@@ -121,7 +115,6 @@ public final class SchemaInitializer {
     final ITable table,
     final Class<? extends IEntity> entityType,
     final IContainer<ITable> referencableTables) {
-
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseBackReferences = entity
@@ -129,7 +122,6 @@ public final class SchemaInitializer {
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
 
     for (final var bbr : baseBackReferences) {
-
       final var column = COLUMN_MAPPER.mapFieldToColumn(bbr, referencableTables);
 
       table.addColumn(column);

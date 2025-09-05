@@ -5,7 +5,6 @@ package ch.nolix.coreapi.resourcecontrol.closecontroller;
  * @version 2022-07-05
  */
 public interface ICloseController {
-
   /**
    * Closes all elements of the current {@link ICloseController}.
    */

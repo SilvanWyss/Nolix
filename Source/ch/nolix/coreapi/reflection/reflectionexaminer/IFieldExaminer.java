@@ -7,7 +7,6 @@ import java.lang.reflect.Field;
  * @version 2025-02-09
  */
 public interface IFieldExaminer {
-
   /**
    * @param field
    * @param type

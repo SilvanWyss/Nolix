@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2021-03-19
  */
 public interface MutabilityRequestable {
-
   /**
    * @return true if the current {@link MutabilityRequestable} is not mutable.
    */

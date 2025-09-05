@@ -7,7 +7,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * @version 2025-03-28
  */
 public final class ContentModelColumnNameCatalog {
-
   public static final String ID = "Id";
 
   public static final String FIELD_TYPE = "FieldType";

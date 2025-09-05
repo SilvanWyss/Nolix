@@ -9,10 +9,8 @@ import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class LabelTest extends ControlTest<ILabel> {
-
   @Test
   void testCase_removeRole() {
-
     //setup
     final var testUnit = new Label();
     testUnit.setRole(LabelRole.TITLE);
@@ -29,7 +27,6 @@ final class LabelTest extends ControlTest<ILabel> {
 
   @Test
   void testCase_setRole() {
-
     //setup
     final var testUnit = new Label();
 
@@ -46,7 +43,6 @@ final class LabelTest extends ControlTest<ILabel> {
 
   @Test
   void testCase_setText() {
-
     //setup
     final var testUnit = new Label();
 
@@ -62,7 +58,6 @@ final class LabelTest extends ControlTest<ILabel> {
 
   @Test
   void testCase_setText_whenGivenTextIsEmpty() {
-
     //setup
     final var testUnit = new Label();
 
@@ -75,7 +70,6 @@ final class LabelTest extends ControlTest<ILabel> {
 
   @Test
   void testCase_setText_whenGivenTextIsNull() {
-
     //setup
     final var testUnit = new Label();
     testUnit.setText("Lorem Ipsum");

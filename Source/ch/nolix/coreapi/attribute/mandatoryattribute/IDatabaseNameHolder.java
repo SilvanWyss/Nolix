@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2025-06-01
  */
 public interface IDatabaseNameHolder {
-
   /**
    * @return the database name of the current {@link IDatabaseNameHolder}.
    */

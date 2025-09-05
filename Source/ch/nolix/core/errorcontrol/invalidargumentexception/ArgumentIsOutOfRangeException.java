@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class ArgumentIsOutOfRangeException extends AbstractInvalidArgumentException {
-
   /**
    * Creates a new {@link ArgumentIsOutOfRangeException} for the given argument
    * and range defined by the given min and max.

@@ -7,10 +7,8 @@ import ch.nolix.system.objectdata.model.OptionalValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class OptionalValueTest extends StandardTest {
-
   @Test
   void testCase_clear() {
-
     //setup
     final var testUnit = OptionalValueField.withInitialValue("LoremIpsum");
 
@@ -23,7 +21,6 @@ final class OptionalValueTest extends StandardTest {
 
   @Test
   void testCase_constructor() {
-
     //execution
     final var result = OptionalValueField.withValueType(String.class);
 
@@ -38,7 +35,6 @@ final class OptionalValueTest extends StandardTest {
 
   @Test
   void testCase_setValue() {
-
     //setup
     final var testUnit = OptionalValueField.withValueType(String.class);
 

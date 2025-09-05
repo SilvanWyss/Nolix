@@ -10,10 +10,8 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 
 final class ColorTest extends StandardTest {
-
   @Test
   void testCase_equals_whenGivenColorIsEqual() {
-
     //setup
     final var testUnit = Color.fromString("0x102030");
     final var color = Color.fromString("0x102030");
@@ -27,7 +25,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_equals_whenGivenColorIsNotEqual() {
-
     //setup
     final var testUnit = Color.fromString("0x102030");
     final var color = Color.fromString("0x101010");
@@ -41,7 +38,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_fromString_1A() {
-
     //execution
     final var result = Color.fromString("0x000000");
 
@@ -51,7 +47,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_fromString_1B() {
-
     //execution
     final var result = Color.fromString("0xFFFFFF");
 
@@ -61,7 +56,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getAlphaValue() {
-
     //setup
     final var testUnit = Color.fromString("0x102030A0");
 
@@ -74,7 +68,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getBlueValue() {
-
     //setup
     final var testUnit = Color.fromString("0x102030A0");
 
@@ -87,7 +80,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getGreenValue() {
-
     //setup
     final var testUnit = Color.fromString("0x102030A0");
 
@@ -100,7 +92,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getColorNameOrHexadecimalString_1A() {
-
     //setup
     final var testUnit = X11ColorCatalog.ALICE_BLUE;
 
@@ -113,7 +104,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getColorNameOrHexadecimalString_1B() {
-
     //setup
     final var testUnit = X11ColorCatalog.YELLOW_GREEN;
 
@@ -126,7 +116,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getInvertedColor_1A() {
-
     //setup
     final var testUnit = Color.fromLong(0x000000);
 
@@ -139,7 +128,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getInvertedColor_1B() {
-
     //setup
     final var testUnit = Color.fromLong(0xFFFFFF);
 
@@ -152,7 +140,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getRedValue() {
-
     //setup
     final var testUnit = Color.fromString("0x102030A0");
 
@@ -165,7 +152,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_getSpecification() {
-
     //setup
     final var testUnit = Color.fromString("0x102030");
 
@@ -200,7 +186,6 @@ final class ColorTest extends StandardTest {
   "0xFFFFFFFF"
   })
   void testCase_toHexadecimalStringWithAlphaValu(final String string) {
-
     //setup
     final var testUnit = Color.fromString(string);
 
@@ -213,7 +198,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_withAlphaValue_1A() {
-
     //setup
     final var testUnit = Color.fromString("0x10203000");
 
@@ -226,7 +210,6 @@ final class ColorTest extends StandardTest {
 
   @Test
   void testCase_withAlphaValue_1B() {
-
     //setup
     final var testUnit = Color.fromString("0x10203000");
 
@@ -249,7 +232,6 @@ final class ColorTest extends StandardTest {
     final String colorAsHexadecimalString,
     final double floatingPointAlphaValue,
     final String expectedHexadecimaString) {
-
     //setup
     final var testUnit = Color.fromString(colorAsHexadecimalString);
 
@@ -272,7 +254,6 @@ final class ColorTest extends StandardTest {
   void testCase_withFullAlphaValue(
     final String colorAsHexadecimalString,
     final String expectedHexadecimaString) {
-
     //setup
     final var testUnit = Color.fromString("0x102030");
 

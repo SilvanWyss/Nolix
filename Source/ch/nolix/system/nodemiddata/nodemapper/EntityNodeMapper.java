@@ -13,7 +13,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
  * @version 2021-10-19
  */
 public final class EntityNodeMapper implements IEntityNodeMapper {
-
   private static final IFieldNodeMapper FIELD_NODE_MAPPER = new FieldNodeMapper();
 
   @Override
@@ -24,7 +23,6 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     final EntityCreationDto newEntity,
     final TableViewDto tableView,
     final long saveStamp) {
-
     final var entityHeader = NodeHeaderCatalog.ENTITY;
     final var fieldNodes = FIELD_NODE_MAPPER.mapEntityCreationDtoToFieldNodes(newEntity, saveStamp, tableView);
 

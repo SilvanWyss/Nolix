@@ -6,10 +6,8 @@ import ch.nolix.core.misc.dataobject.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class UnsignedByteTest extends StandardTest {
-
   @Test
   void testCase_getBitAtAsInt_1A() {
-
     //setup
     final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -36,7 +34,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_getBitAtAsInt_1B() {
-
     //setup
     final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 1, 1, 1);
 
@@ -63,7 +60,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_getBitAtAsInt_1C() {
-
     //setup
     final var testUnit = new UnsignedByte(1, 1, 1, 0, 0, 0, 0, 0);
 
@@ -90,7 +86,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_getBitAtAsInt_1D() {
-
     //setup
     final var testUnit = new UnsignedByte(1, 1, 1, 1, 1, 1, 1, 1);
 
@@ -117,7 +112,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toBitString_1A() {
-
     //setup
     final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -130,7 +124,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toBitString_1B() {
-
     //setup
     final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 1, 1, 1);
 
@@ -143,7 +136,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toBitString_1C() {
-
     //setup
     final var testUnit = new UnsignedByte(1, 1, 1, 0, 0, 0, 0, 0);
 
@@ -156,7 +148,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toBitString_1D() {
-
     //setup
     final var testUnit = new UnsignedByte(1, 1, 1, 1, 1, 1, 1, 1);
 
@@ -170,7 +161,6 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toByte() {
     for (var i = 0; i <= 255; i++) {
-
       //setup
       final var testUnit = UnsignedByte.fromNumber(i);
 
@@ -184,7 +174,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toInt_1A() {
-
     //setup
     final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -197,7 +186,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toInt_1B() {
-
     //setup
     final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 1, 1, 1);
 
@@ -210,7 +198,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toInt_1C() {
-
     //setup
     final var testUnit = new UnsignedByte(1, 1, 1, 0, 0, 0, 0, 0);
 
@@ -223,7 +210,6 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toInt_1D() {
-
     //setup
     final var testUnit = new UnsignedByte(1, 1, 1, 1, 1, 1, 1, 1);
 

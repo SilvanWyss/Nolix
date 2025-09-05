@@ -12,13 +12,11 @@ import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
  * @version 2025-01-05
  */
 public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
-
   /**
    * @param schemaReader
    * @return the state of the database from the given schemaReader.
    */
   private static DatabaseState getDatabaseSchemaState(final ISchemaReader schemaReader) {
-
     if (schemaReader.tableExists(FixTable.DATABASE_PROPERTY.getName())) {
       return DatabaseState.INITIALIZED;
     }
@@ -37,7 +35,6 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
   public DatabaseState getDatabasState(
     final String databaseName,
     final ISqlConnection sqlConnection) {
-
     final var schemaReader = //
     SchemaReader.forDatabaseNameAndSqlConnection(databaseName, sqlConnection);
 

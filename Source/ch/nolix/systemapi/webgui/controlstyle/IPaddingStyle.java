@@ -4,7 +4,6 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface IPaddingStyle<S extends IPaddingStyle<S>> {
-
   IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(ControlState state);
 
   IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(ControlState state);

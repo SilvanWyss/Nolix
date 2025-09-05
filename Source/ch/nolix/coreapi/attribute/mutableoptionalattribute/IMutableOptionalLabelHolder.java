@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalLabelHolder;
  * @version 2023-10-25
  */
 public interface IMutableOptionalLabelHolder extends IOptionalLabelHolder {
-
   /**
    * Removes the label of the current {@link IMutableOptionalLabelHolder}.
    */

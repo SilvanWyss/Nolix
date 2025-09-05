@@ -7,7 +7,6 @@ import ch.nolix.systemapi.graphic.color.IColor;
  * @version 2025-08-10
  */
 public interface ICssValueMapper {
-
   /**
    * @param color
    * @return the CSS value from the given color.

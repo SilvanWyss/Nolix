@@ -3,7 +3,6 @@ package ch.nolix.core.argumentcaptor.withargumentcaptor;
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 
 public class WithDatabaseCaptor<D, N> extends ArgumentCaptor<D, N> {
-
   public WithDatabaseCaptor() {
   }
 

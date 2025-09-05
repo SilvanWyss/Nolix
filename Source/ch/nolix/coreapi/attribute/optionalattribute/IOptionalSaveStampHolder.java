@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2024-02-11
  */
 public interface IOptionalSaveStampHolder {
-
   /**
    * @return the save stamp of the current {@link IOptionalSaveStampHolder}.
    * @throws RuntimeException if the current {@link IOptionalSaveStampHolder} does

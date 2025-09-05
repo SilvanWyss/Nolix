@@ -4,11 +4,9 @@ import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.errorcontrol.errormapping.IErrorMessageExtractor;
 
 public final class StackTraceMapper {
-
   private static final IErrorMessageExtractor ERROR_MESSAGE_EXTRACTOR = new ErrorMessageExtractor();
 
   public String[] mapErrorToStackTrace(final Throwable error) {
-
     final var list = new List<String>();
 
     mapOwnStackTraceElementsOfErrorIntoList(error, list);
@@ -23,7 +21,6 @@ public final class StackTraceMapper {
   }
 
   private void mapCauseStackTraceIntoList(final Throwable cause, final List<String> list) {
-
     final var errorMessage = ERROR_MESSAGE_EXTRACTOR.getMessageOfError(cause);
 
     list.addAtEnd("Cause: " + cause.getClass().getSimpleName() + ": " + errorMessage);

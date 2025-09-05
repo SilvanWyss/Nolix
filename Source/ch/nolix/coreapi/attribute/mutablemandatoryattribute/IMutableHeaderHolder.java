@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IHeaderHolder;
  * @version 2023-01-29
  */
 public interface IMutableHeaderHolder extends IHeaderHolder {
-
   /**
    * Sets the header of the current {@link IMutableHeaderHolder}.
    * 

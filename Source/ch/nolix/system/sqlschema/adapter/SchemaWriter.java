@@ -17,7 +17,6 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
 import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
 public final class SchemaWriter implements ISchemaWriter {
-
   private static final IStatementCreator STATEMENT_CREATOR = new StatementCreator();
 
   private final ICloseController closeController = CloseController.forElement(this);
@@ -31,7 +30,6 @@ public final class SchemaWriter implements ISchemaWriter {
   private int saveCount;
 
   private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
-
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
     ResourceValidator.assertIsOpen(sqlConnection);
 
@@ -54,7 +52,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
-
     final var statement = STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
 
     sqlCollector.addSqlStatement(statement);
@@ -69,7 +66,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addTable(final TableDto table) {
-
     final var statement = STATEMENT_CREATOR.createStatementToAddTable(table);
 
     sqlCollector.addSqlStatement(statement);
@@ -77,7 +73,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
-
     final var statement = STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
 
     sqlCollector.addSqlStatement(statement);
@@ -85,7 +80,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteColumnIfExists(final String tableName, final String columnName) {
-
     final var statement = STATEMENT_CREATOR.createStatementToDeleteColumnIfExists(tableName, columnName);
 
     sqlCollector.addSqlStatement(statement);
@@ -93,7 +87,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void deleteTable(final String tableName) {
-
     final var statement = STATEMENT_CREATOR.createStatementToDeleteTable(tableName);
 
     sqlCollector.addSqlStatement(statement);
@@ -121,7 +114,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-
     final var statement = STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
 
     sqlCollector.addSqlStatement(statement);
@@ -129,7 +121,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameColumnIfExists(final String tableName, final String columnName, final String newColumnName) {
-
     final var statement = STATEMENT_CREATOR.createStatementToRenameColumnIfExists(tableName, columnName, newColumnName);
 
     sqlCollector.addSqlStatement(statement);
@@ -137,7 +128,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-
     final var statement = STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
 
     sqlCollector.addSqlStatement(statement);

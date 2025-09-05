@@ -1,7 +1,6 @@
 package ch.nolix.systemapi.application.basewebapplicationprotocol;
 
 public final class CommandProtocol {
-
   public static final String DELETE_COOKIE_BY_NAME = "DeleteCookieByName";
 
   public static final String OPEN_NEW_TAB = "OpenNewTab";

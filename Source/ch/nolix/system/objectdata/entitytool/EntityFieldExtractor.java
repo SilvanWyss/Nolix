@@ -11,9 +11,7 @@ import ch.nolix.systemapi.objectdata.entitytool.IEntityFieldExtractor;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
 public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity, AbstractField> {
-
   private static IContainer<AbstractField> extractStoredFieldsFromEntityWhenEntityIsNotNull(final IEntity entity) {
-
     final ILinkedList<AbstractField> fields = LinkedList.createEmpty();
 
     fillUpFieldsFromEntityIntoList(entity, fields);
@@ -22,11 +20,9 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
   }
 
   private static void fillUpFieldsFromEntityIntoList(final IEntity entity, final ILinkedList<AbstractField> list) {
-
     Class<?> entityClass = entity.getClass();
 
     while (entityClass != null) {
-
       fillUpFieldsFromEntityAndEntityClassIntoList(entity, entityClass, list);
 
       entityClass = entityClass.getSuperclass();
@@ -52,11 +48,9 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
     final IEntity entity,
     final java.lang.reflect.Field javaField,
     final ILinkedList<AbstractField> list) {
-
     javaField.setAccessible(true);
 
     try {
-
       final var field = (AbstractField) javaField.get(entity);
 
       list.addAtEnd(field);
@@ -67,7 +61,6 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
 
   @Override
   public IContainer<AbstractField> extractStoredFieldsFromEntity(final IEntity entity) {
-
     if (entity == null) {
       return ImmutableList.createEmpty();
     }

@@ -15,7 +15,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class Database implements IDatabase {
-
   private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 
   private final IEntityTypeSet entityTypeSet;
@@ -31,7 +30,6 @@ public final class Database implements IDatabase {
   private Database(
     final IEntityTypeSet entityTypeSet,
     final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader) {
-
     ResourceValidator.assertIsOpen(midDataAdapterAndSchemaReader);
     Validator.assertThat(entityTypeSet).thatIsNamed(IEntityTypeSet.class).isNotNull();
 
@@ -65,7 +63,6 @@ public final class Database implements IDatabase {
 
   @Override
   public DatabaseObjectState getState() {
-
     if (getStoredMidDataAdapterAndSchemaReader().isClosed()) {
       return DatabaseObjectState.CLOSED;
     }
@@ -84,7 +81,6 @@ public final class Database implements IDatabase {
 
   @Override
   public <E extends IEntity> IContainer<E> getStoredEntitiesByType(final Class<E> type) {
-
     final var table = getStoredTableByEntityType(type);
 
     return table.getStoredEntities();
@@ -93,7 +89,6 @@ public final class Database implements IDatabase {
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType) {
-
     final var tableName = entityType.getSimpleName();
 
     return (ITable<E>) getStoredTableByName(tableName);
@@ -112,7 +107,6 @@ public final class Database implements IDatabase {
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> IDatabase insertEntity(final E entity) {
-
     final var entityType = (Class<E>) entity.getClass();
     final var table = getStoredTableByEntityType(entityType);
 
@@ -153,7 +147,6 @@ public final class Database implements IDatabase {
 
   @Override
   public void noteClose() {
-
     for (final var t : getStoredTables()) {
       ((Table<?>) t).close();
     }

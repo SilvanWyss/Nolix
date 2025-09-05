@@ -19,13 +19,11 @@ import ch.nolix.systemapi.gui.font.LineDecoration;
  * @version 2025-08-10
  */
 public final class CssPropertyMapper implements ICssPropertyMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<ICssProperty> mapBackgroundToCssProperties(final IBackground background) {
-
     final var type = background.getType();
 
     return //
@@ -63,7 +61,6 @@ public final class CssPropertyMapper implements ICssPropertyMapper {
   @Override
   public Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(
     final IContainer<? extends ICornerShadow> cornerShadows) {
-
     if (cornerShadows.containsAny()) {
       return //
       Optional.of(

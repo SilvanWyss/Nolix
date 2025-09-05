@@ -1,7 +1,6 @@
 package ch.nolix.core.independent.stopwatch;
 
 public final class StopWatch {
-
   private long totalRunningTimeInMilliseconds;
 
   private boolean running;
@@ -16,7 +15,6 @@ public final class StopWatch {
   }
 
   public static StopWatch createStartedStopWatch() {
-
     final var stopWatch = new StopWatch();
 
     stopWatch.start();
@@ -25,9 +23,7 @@ public final class StopWatch {
   }
 
   public synchronized long getTotalRunningTimeInMilliseconds() {
-
     if (isRunning()) {
-
       final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
 
       return (totalRunningTimeInMilliseconds + durationInMilliseconds);
@@ -41,7 +37,6 @@ public final class StopWatch {
   }
 
   public synchronized void stop() {
-
     assertIsRunning();
 
     final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
@@ -50,7 +45,6 @@ public final class StopWatch {
   }
 
   public synchronized long stopAndGetMillisecondsSinceLatestStart() {
-
     assertIsRunning();
 
     final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
@@ -61,7 +55,6 @@ public final class StopWatch {
   }
 
   public synchronized long stopAndGetTotalRunningTimeInMilliseconds() {
-
     assertIsRunning();
 
     final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
@@ -72,7 +65,6 @@ public final class StopWatch {
   }
 
   public synchronized void start() {
-
     assertIsNotRunning();
 
     latestStartInMilliseconds = System.currentTimeMillis();

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi.IImageControl;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class ImageControlTest extends ControlTest<IImageControl> {
-
   @Override
   protected IImageControl createTestUnit() {
     return new ImageControl();
@@ -18,7 +17,6 @@ final class ImageControlTest extends ControlTest<IImageControl> {
 
   @Test
   void testCase_getStoredImage_whenIsEmpty() {
-
     //setup
     final var testUnit = new ImageControl();
 
@@ -33,7 +31,6 @@ final class ImageControlTest extends ControlTest<IImageControl> {
 
   @Test
   void testCase_getStoredImage_whenContainsMutableImage() {
-
     //setup
     final var mutableImage = MutableImage.withWidthAndHeightAndColor(16, 16, X11ColorCatalog.WHITE);
     final var testUnit = new ImageControl();

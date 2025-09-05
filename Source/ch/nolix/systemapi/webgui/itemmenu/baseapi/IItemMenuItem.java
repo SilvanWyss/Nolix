@@ -7,7 +7,6 @@ import ch.nolix.systemapi.gui.selection.Selectable;
 
 public interface IItemMenuItem<I extends IItemMenuItem<I>>
 extends BlanknessRequestable, IIdHolder, IMutableElement, Selectable {
-
   boolean belongsToMenu();
 
   String getText();

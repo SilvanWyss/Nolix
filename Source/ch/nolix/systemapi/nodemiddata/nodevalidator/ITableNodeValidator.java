@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
  * @version 2025-02-23
  */
 public interface ITableNodeValidator {
-
   /**
    * @param tableNode
    * @param entityId

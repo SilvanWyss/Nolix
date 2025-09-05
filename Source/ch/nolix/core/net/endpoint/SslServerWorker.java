@@ -14,7 +14,6 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 final class SslServerWorker extends AbstractWorker {
-
   private static final SslServerSslContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
   new SslServerSslContextCreator();
 
@@ -33,7 +32,6 @@ final class SslServerWorker extends AbstractWorker {
     final int port,
     final String htmlPage,
     final ISslCertificate paramSSLCertificate) {
-
     Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
     Validator.assertThat(paramSSLCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
@@ -48,7 +46,6 @@ final class SslServerWorker extends AbstractWorker {
 
   @Override
   protected void run() {
-
     final var sslContext = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
     final var bossGroup = new NioEventLoopGroup(1);
     final var workerGroup = new NioEventLoopGroup();

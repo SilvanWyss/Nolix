@@ -8,7 +8,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @param <V> is the type of the value of a {@link IOptionalValueHolder}.
  */
 public interface IOptionalValueHolder<V> {
-
   /**
    * @return the value of the current {@link IOptionalValueHolder}.
    * @throws RuntimeException if the current {@link IOptionalValueHolder} does not

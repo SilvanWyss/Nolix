@@ -15,7 +15,6 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
-
   private static final ISqlValueMapper SQL_VALUE_MAPPER = new SqlValueMapper();
 
   @Override
@@ -108,7 +107,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
-
     final var contentFieldSets = //
     entityUpdate.updatedContentFields()
       .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapStringContentFieldDtoToSqlValue(f));

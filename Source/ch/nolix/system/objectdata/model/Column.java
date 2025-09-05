@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
 public final class Column extends AbstractImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
-
   private final String id;
 
   private final String name;
@@ -28,7 +27,6 @@ public final class Column extends AbstractImmutableDatabaseObject implements ICo
     final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
     final IDataReader midDataReader) {
-
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(contentModelView).thatIsNamed(IContentModelView.class).isNotNull();

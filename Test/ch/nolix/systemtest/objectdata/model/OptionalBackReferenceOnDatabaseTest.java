@@ -11,9 +11,7 @@ import ch.nolix.system.objectdata.model.OptionalBackReference;
 import ch.nolix.system.objectdata.model.OptionalReference;
 
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
-
   private static final class Person extends Entity {
-
     final OptionalReference<Pet> pet = OptionalReference.forEntityType(Pet.class);
 
     Person() {
@@ -22,7 +20,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   private static final class Pet extends Entity {
-
     final OptionalBackReference<Person> owner = OptionalBackReference
       .forEntityAndBackReferencedFieldName(Person.class, "pet");
 
@@ -33,7 +30,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredEntity_whenIsNewAndEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -50,7 +46,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -70,7 +65,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredEntity_whenIsLoaded() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -93,7 +87,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -107,7 +100,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
-
     //setup part 1:
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -132,7 +124,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenBackReferencedPropertyIsChanged() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
@@ -161,7 +152,6 @@ final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isChanged_whenIsLoaded() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);

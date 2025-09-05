@@ -11,10 +11,8 @@ import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLab
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class ValidationLabelTest extends ControlTest<IValidationLabel> {
-
   @Test
   void testCase_letsClear() {
-
     //setup part 1: Creates a ValidationLabel and runs an action that produces an
     //error.
     final var testUnit = new ValidationLabel();
@@ -34,7 +32,6 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
   @Test
   void testCase_letsShowError() {
-
     //setup
     final var testUnit = new ValidationLabel();
     final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionService::throwException);
@@ -57,7 +54,6 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
   }
 
   private Exception getExceptionOfFunctionsCatalogThrowExceptionMethod() {
-
     try {
       FunctionService.throwException();
     } catch (final GeneralException exception) {

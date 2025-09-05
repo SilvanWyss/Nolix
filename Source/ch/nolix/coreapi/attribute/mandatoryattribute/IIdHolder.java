@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2019-06-10
  */
 public interface IIdHolder {
-
   /**
    * @return the id of the current {@link IIdHolder}.
    */

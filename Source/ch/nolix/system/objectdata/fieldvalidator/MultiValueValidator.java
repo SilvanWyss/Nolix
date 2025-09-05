@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueValidator;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public final class MultiValueValidator extends FieldValidator implements IMultiValueValidator {
-
   private static final IMultiValueFieldExaminer MULTI_VALUE_TOOL = new MultiValueFieldTool();
 
   @Override

@@ -1,7 +1,6 @@
 package ch.nolix.coreapi.web.css;
 
 public final class CssPropertyNameCatalog {
-
   public static final String ALIGN_ITEMS = "align-items";
 
   public static final String BACKGROUND = "background";

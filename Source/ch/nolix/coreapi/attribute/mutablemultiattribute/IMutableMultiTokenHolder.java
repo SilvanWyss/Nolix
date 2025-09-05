@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTokenHolder;
  * @version 2023-07-16
  */
 public interface IMutableMultiTokenHolder extends IMultiTokenHolder {
-
   /**
    * Adds the given token to the current {@link IMutableMultiTokenHolder}.
    * 

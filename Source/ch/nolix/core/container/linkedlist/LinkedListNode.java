@@ -16,7 +16,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the element of a {@link LinkedListNode}.
  */
 final class LinkedListNode<E> {
-
   private E element;
 
   private LinkedListNode<E> nextNode;
@@ -63,7 +62,6 @@ final class LinkedListNode<E> {
    *                                               have a next node.
    */
   public LinkedListNode<E> getNextNode() {
-
     //Asserts that the current list node has a next node.
     if (!hasNextNode()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
@@ -93,7 +91,6 @@ final class LinkedListNode<E> {
    * @throws ArgumentIsNullException if the given element is null.
    */
   public void setElement(final E element) {
-
     //Asserts that the given element is not null.
     Validator
       .assertThat(element)
@@ -111,7 +108,6 @@ final class LinkedListNode<E> {
    * @throws ArgumentIsNullException if the given next node is null.
    */
   public void setNextNode(final LinkedListNode<E> nextNode) {
-
     //Asserts that the given next node is not null.
     Validator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
 
@@ -128,7 +124,6 @@ final class LinkedListNode<E> {
    *                                               have a next node.
    */
   public void swapElementWithNextNode() {
-
     //Asserts that the current list node has a next node.
     if (!hasNextNode()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");

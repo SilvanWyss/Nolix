@@ -18,7 +18,6 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
-
   private static final String DEFAULT_VALUE_NAME = LowerCaseVariableCatalog.VALUE;
 
   private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalog.LONG_LEFT_ARROW;
@@ -60,28 +59,24 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   public ShowValueDialogBuilder setConfirmButtonText(final String confirmButtonText) {
-
     this.confirmButtonText = confirmButtonText;
 
     return this;
   }
 
   public ShowValueDialogBuilder setValue(final String value) {
-
     this.value = value;
 
     return this;
   }
 
   public ShowValueDialogBuilder setValueCopier(final Consumer<String> valueCopier) {
-
     this.valueCopier = valueCopier;
 
     return this;
   }
 
   public ShowValueDialogBuilder setValueName(final String valueName) {
-
     this.valueName = valueName;
 
     return this;
@@ -102,7 +97,6 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   private Consumer<String> getValueCopier() {
-
     assertHasValueCopier();
 
     return valueCopier;

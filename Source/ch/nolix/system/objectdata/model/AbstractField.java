@@ -17,7 +17,6 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public abstract class AbstractField implements IField {
-
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   private static final VoidFieldFlyWeight VOID_FIELD_FLY_WEIGHT = new VoidFieldFlyWeight();
@@ -37,7 +36,6 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final String getName() {
-
     if (knowsParentColumn()) {
       return getStoredParentColumn().getName();
     }
@@ -51,7 +49,6 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final DatabaseObjectState getState() {
-
     if (!belongsToEntity()) {
       return DatabaseObjectState.NEW;
     }
@@ -61,7 +58,6 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final IColumnView<ITable<IEntity>> getStoredParentColumn() {
-
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
 
     return parentColumn;
@@ -69,7 +65,6 @@ public abstract class AbstractField implements IField {
 
   @Override
   public final AbstractEntity getStoredParentEntity() {
-
     FIELD_VALIDATOR.assertBelongsToEntity(this);
 
     return parentEntity;
@@ -128,7 +123,6 @@ public abstract class AbstractField implements IField {
   }
 
   protected final void setAsEditedAndRunPotentialUpdateAction() {
-
     if (belongsToEntity()) {
       getStoredParentEntity().setEdited();
     }
@@ -141,14 +135,12 @@ public abstract class AbstractField implements IField {
   protected abstract void noteInsertIntoDatabase();
 
   final void setParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
-
     Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 
     this.parentColumn = parentColumn;
   }
 
   final void setParentColumnFromParentTable() {
-
     final var name = getName();
 
     final var localParentColumn = //
@@ -158,7 +150,6 @@ public abstract class AbstractField implements IField {
   }
 
   final void setParentEntity(final AbstractEntity parentEntity) {
-
     Validator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
     FIELD_VALIDATOR.assertDoesNotBelongToEntity(this);
 
@@ -167,7 +158,6 @@ public abstract class AbstractField implements IField {
   }
 
   private DatabaseObjectState getStateWhenBelongsToEntity() {
-
     final var parentEntityState = getStoredParentEntity().getState();
 
     return switch (parentEntityState) {
@@ -190,7 +180,6 @@ public abstract class AbstractField implements IField {
   }
 
   private DatabaseObjectState getStateWhenParentFieldIsEdited() {
-
     if (!edited) {
       return DatabaseObjectState.UNEDITED;
     }

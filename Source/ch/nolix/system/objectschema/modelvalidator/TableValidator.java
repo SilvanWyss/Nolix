@@ -16,7 +16,6 @@ import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
  * @version 2024-12-30
  */
 public final class TableValidator implements ITableValidator {
-
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   @Override

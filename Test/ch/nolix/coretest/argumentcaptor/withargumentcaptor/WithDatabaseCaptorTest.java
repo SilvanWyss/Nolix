@@ -10,10 +10,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
 final class WithDatabaseCaptorTest extends StandardTest {
-
   @Test
   void testCase_getStoredDatabase_whenDoesNotHaveDatabase() {
-
     //setup
     final var testUnit = new WithDatabaseCaptor<>();
 
@@ -23,7 +21,6 @@ final class WithDatabaseCaptorTest extends StandardTest {
 
   @Test
   void testCase_withDatabase_whenHasNext() {
-
     //parameter definition
     final var database = MutableNode.createEmpty();
 
@@ -41,7 +38,6 @@ final class WithDatabaseCaptorTest extends StandardTest {
 
   @Test
   void testCase_withDatabase_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new WithDatabaseCaptor<>();
 

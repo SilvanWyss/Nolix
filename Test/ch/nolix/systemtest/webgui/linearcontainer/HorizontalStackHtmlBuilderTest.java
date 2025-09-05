@@ -11,10 +11,8 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class HorizontalStackHtmlBuilderTest
 extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
-
   @Test
   void testCase_createHtmlElement_whenContainsChildControls() {
-
     //setup control
     final var control = createControl().addControl(new Label(), new Label(), new Label());
 

@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class UpdateTicket {
-
   private final boolean updateConstellationOrStyle;
 
   private final IWebGui<?> webGui;
@@ -16,7 +15,6 @@ public final class UpdateTicket {
   private final ImmutableList<IControl<?, ?>> controls;
 
   private UpdateTicket(final IWebGui<?> webGui, final boolean updateConstellationOrStyle) {
-
     Validator.assertThat(webGui).thatIsNamed(IWebGui.class).isNotNull();
 
     this.updateConstellationOrStyle = updateConstellationOrStyle;
@@ -43,14 +41,12 @@ public final class UpdateTicket {
   }
 
   public IContainer<IControl<?, ?>> getStoredControls() {
-
     assertIsForSpecificControls();
 
     return controls;
   }
 
   public IWebGui<?> getStoredWebGui() {
-
     assertIsForWholeWebGui();
 
     return webGui;

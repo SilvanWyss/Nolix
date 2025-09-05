@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
-
   protected TypeMediator(final Class<T> argument) {
     super(LowerCaseVariableCatalog.TYPE, argument);
   }
@@ -24,7 +23,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   public final void isAbstract() {
-
     isNotNull();
 
     if (!Modifier.isAbstract(getStoredArgument().getModifiers())) {
@@ -37,7 +35,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   public final void isClass() {
-
     isNotNull();
 
     if (getStoredArgument().isInterface()
@@ -52,7 +49,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   public final void isConcrete() {
-
     isNotNull();
 
     if (Modifier.isAbstract(getStoredArgument().getModifiers())) {
@@ -65,7 +61,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   public final void isEnum() {
-
     isNotNull();
 
     if (!getStoredArgument().isEnum()) {
@@ -78,7 +73,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   public final void isImplementing(final Class<?> pInterface) {
-
     new TypeMediator<>(pInterface).isInterface();
 
     isClass();
@@ -93,7 +87,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   public final void isInterface() {
-
     isNotNull();
 
     if (!getStoredArgument().isInterface()) {

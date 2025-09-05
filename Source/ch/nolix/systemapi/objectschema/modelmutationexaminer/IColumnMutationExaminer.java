@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
  * @version 2024-12-27
  */
 public interface IColumnMutationExaminer {
-
   /**
    * @param column
    * @return true if the given column can be deleted, false otherwise.

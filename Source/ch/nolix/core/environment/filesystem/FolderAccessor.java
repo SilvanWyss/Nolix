@@ -12,12 +12,10 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2017-07-10
  */
 public final class FolderAccessor extends FileSystemItemAccessorUnit {
-
   /**
    * Creates a new {@link FolderAccessor} for the folder of the running jar file.
    */
   public FolderAccessor() {
-
     //Calls constructor of the base class.
     super(FileSystemAccessor.getFolderPathOfRunningJarFile());
   }
@@ -31,7 +29,6 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    *                                  machine.
    */
   public FolderAccessor(final String path) {
-
     //Calls constructor of the base class.
     super(path);
 

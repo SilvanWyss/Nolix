@@ -16,7 +16,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link ResultJobExecutor}.
  */
 final class ResultJobExecutor<R> extends Thread {
-
   private final Supplier<R> resultJob;
   private R result;
   private boolean running = true;
@@ -32,7 +31,6 @@ final class ResultJobExecutor<R> extends Thread {
    * @throws ArgumentIsNullException if the given resultJob is null.
    */
   private ResultJobExecutor(final Supplier<R> resultJob) {
-
     Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
 
     this.resultJob = resultJob;
@@ -67,7 +65,6 @@ final class ResultJobExecutor<R> extends Thread {
    *                                               not have an error.
    */
   public Throwable getError() {
-
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
     }
@@ -81,7 +78,6 @@ final class ResultJobExecutor<R> extends Thread {
    *                                  not finished or has caught an error.
    */
   public R getResult() {
-
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
     }

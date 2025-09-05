@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2023-07-08
  */
 public interface ActivenessRequestable {
-
   /**
    * @return true if the current {@link ActivenessRequestable} is active.
    */

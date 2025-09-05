@@ -7,7 +7,6 @@ import ch.nolix.coreapi.errorcontrol.errormapping.IErrorMessageExtractor;
  * @version 2025-02-28
  */
 public final class ErrorMessageExtractor implements IErrorMessageExtractor {
-
   private static final String DEFAULT_ERROR_MESSAGE = "An error occured.";
 
   /**
@@ -15,7 +14,6 @@ public final class ErrorMessageExtractor implements IErrorMessageExtractor {
    */
   @Override
   public String getMessageOfError(final Throwable error) {
-
     if (error == null) {
       return DEFAULT_ERROR_MESSAGE;
     }

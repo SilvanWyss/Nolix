@@ -7,10 +7,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class ContainerViewTest extends ContainerTest {
-
   @Test
   void testCase_containsEqualing() {
-
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
     final String[] array2 = { "antelope", "baboon", "lion" };
@@ -36,7 +34,6 @@ final class ContainerViewTest extends ContainerTest {
 
   @Test
   void testCase_getStoredAtOneBasedIndex() {
-
     //setup
     final String[] array1 = { "apple", "banana", "cerish" };
     final String[] array2 = { "antelope", "baboon", "elephant" };
@@ -59,7 +56,6 @@ final class ContainerViewTest extends ContainerTest {
 
   @Test
   void testCase_getStoredSelected() {
-
     //setup
     final String[] array1 = { "A", "AA", "AAA" };
     final String[] array2 = { "B", "BB", "BBB" };

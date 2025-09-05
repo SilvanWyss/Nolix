@@ -16,7 +16,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DataReader implements IDataReader {
-
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
@@ -26,7 +25,6 @@ public final class DataReader implements IDataReader {
   private final InternalDataReader internalDataReader;
 
   private DataReader(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseView) {
-
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
     this.databaseView = databaseView;
@@ -64,7 +62,6 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnName) {
-
     final var multiBackReferenceColumnView = //
     getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
 
@@ -77,7 +74,6 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
-
     final var multiReferenceColumnView = getColumnViewByTableNameAndColumnName(tableName, multiReferenceColumnName);
 
     return internalDataReader.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnView);
@@ -88,7 +84,6 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
-
     final var columnView = getColumnViewByTableNameAndColumnName(tableName, multiValueColumnName);
 
     return internalDataReader.loadMultiValueEntries(tableName, entityId, columnView);
@@ -96,7 +91,6 @@ public final class DataReader implements IDataReader {
 
   @Override
   public IContainer<EntityLoadingDto> loadEntities(final String tableName) {
-
     final var tableView = getTableViewByTableName(tableName);
 
     return internalDataReader.loadEntitiesOfTable(tableView);
@@ -104,7 +98,6 @@ public final class DataReader implements IDataReader {
 
   @Override
   public EntityLoadingDto loadEntity(final String tableName, final String entityId) {
-
     final var tableView = getTableViewByTableName(tableName);
 
     return internalDataReader.loadEntity(tableView, entityId);
@@ -120,7 +113,6 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String columnName,
     final String value) {
-
     final var columnView = getColumnViewByTableNameAndColumnName(tableName, columnName);
 
     return internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnView, value);
@@ -132,7 +124,6 @@ public final class DataReader implements IDataReader {
     final String columnName,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
-
     final var columnView = getColumnViewByTableNameAndColumnName(tableName, columnName);
 
     return //

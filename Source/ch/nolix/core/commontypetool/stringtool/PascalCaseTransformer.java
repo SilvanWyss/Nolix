@@ -5,9 +5,7 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 public final class PascalCaseTransformer {
-
   public String toPascalCase(final String string) {
-
     if (string.isEmpty()) {
       return StringCatalog.EMPTY_STRING;
     }
@@ -16,7 +14,6 @@ public final class PascalCaseTransformer {
   }
 
   private String toPascalCaseWhenStringIsNotEmpty(final String string) {
-
     final var stringBuilder = new StringBuilder();
 
     final var firstCharacter = string.charAt(0);
@@ -32,7 +29,6 @@ public final class PascalCaseTransformer {
     var previousCharacter = firstCharacter;
     var previousCharacterType = firstCharacterType;
     for (var i = 1; i < string.length(); i++) {
-
       final var character = string.charAt(i);
       final var characterType = CharacterType.ofCharacter(character);
 
@@ -68,7 +64,6 @@ public final class PascalCaseTransformer {
     final char sourceCharacter,
     final char previousCharacter,
     final CharacterType previousCharacterType) {
-
     if (previousCharacterType == CharacterType.NUMBER
     || previousCharacter == CharacterCatalog.UNDERSCORE
     || previousCharacterType == CharacterType.OTHER) {
@@ -82,7 +77,6 @@ public final class PascalCaseTransformer {
     final char sourceCharacter,
     final char previousCharacter,
     final CharacterType previousCharacterType) {
-
     if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
     || previousCharacterType == CharacterType.NUMBER
     || previousCharacter == CharacterCatalog.UNDERSCORE

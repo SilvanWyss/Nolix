@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IHeaderHolder;
  * @param <H> is the type of a {@link IFluentMutableHeaderHolder}.
  */
 public interface IFluentMutableHeaderHolder<H extends IHeaderHolder> extends IHeaderHolder {
-
   /**
    * Sets the header of the current {@link IFluentMutableHeaderHolder}.
    * 

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class MultiValueEntryTableSqlSchemaDtoCatalog {
-
   private static final ColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = //
   new ColumnDto(
     MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName(),

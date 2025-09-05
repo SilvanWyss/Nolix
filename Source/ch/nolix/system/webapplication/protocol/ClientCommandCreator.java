@@ -12,7 +12,6 @@ import ch.nolix.systemapi.application.basewebapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webapplication.protocol.IClientCommandCreator;
 
 public final class ClientCommandCreator implements IClientCommandCreator {
-
   @Override
   public IChainedNode createAddOrSetCookieCommand(final String name, final String value) {
     return //
@@ -41,7 +40,6 @@ public final class ClientCommandCreator implements IClientCommandCreator {
 
   @Override
   public IChainedNode createRedirectCommand(final IServerTarget serverTarget) {
-
     final var url = serverTarget.toUrl();
 
     return createRedirectCommand(url);

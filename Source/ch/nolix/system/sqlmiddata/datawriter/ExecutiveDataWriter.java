@@ -18,7 +18,6 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreato
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class ExecutiveDataWriter {
-
   private static final IEntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
 
   private static final IMultiValueStatementCreator MULTI_VALUE_STATEMENT_CREATOR = new MultiValueStatementCreator();
@@ -38,7 +37,6 @@ public final class ExecutiveDataWriter {
   public ExecutiveDataWriter(
     final String databaseName,
     final ISqlConnection sqlConnection) {
-
     Validator.assertThat(sqlConnection).thatIsNamed(AbstractSqlConnection.class).isNotNull();
 
     this.sqlConnection = sqlConnection;
@@ -47,7 +45,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
-
     final var deleteEntityIndexStatement = ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntityIndex(entity.id());
     final var deleteEntityStatement = ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntity(tableName, entity);
 
@@ -57,7 +54,6 @@ public final class ExecutiveDataWriter {
   public void deleteEntriesFromMultiReference(
     final String entityId,
     final String multiReferenceColumnId) {
-
     final var statement = //
     MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiReferenceEntries(entityId, multiReferenceColumnId);
 
@@ -67,7 +63,6 @@ public final class ExecutiveDataWriter {
   public void deleteEntriesFromMultiValue(
     final String entityId,
     final String multiValueColumnId) {
-
     final var statement = //
     MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntries(entityId, multiValueColumnId);
 
@@ -78,7 +73,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final String multiReferenceColumnId,
     final String referencedEntityId) {
-
     final var statement = //
     MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiReferenceEntry(
       entityId,
@@ -89,7 +83,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void deleteMultiValueEntry(final String entityId, final String multiValueColumnId, final String value) {
-
     final var statement = //
     MULTI_VALUE_STATEMENT_CREATOR.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, value);
 
@@ -100,7 +93,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
-
     final var statement = //
     MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToDeleteMultiBackReferenceEntry(
       entityId,
@@ -115,7 +107,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void expectTableContainsEntity(final String tableName, final String entityId) {
-
     final var statement = ENTITY_STATEMENT_CREATOR.createStatementToExpectTableContainsEntity(tableName, entityId);
 
     sqlCollector.addSqlStatement(statement);
@@ -130,7 +121,6 @@ public final class ExecutiveDataWriter {
   }
 
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
-
     final var insertEntityIndexStatement = //
     ENTITY_STATEMENT_CREATOR.createStatementToInsertEntityIndex(tableName, newEntity.id());
 
@@ -144,7 +134,6 @@ public final class ExecutiveDataWriter {
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId,
     final String backReferencedEntityTableId) {
-
     final var statement = //
     MULTI_BACK_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiBackReferenceEntry(
       entityId,
@@ -160,7 +149,6 @@ public final class ExecutiveDataWriter {
     final String multiReferenceColumnId,
     final String referencedEntityId,
     final String referencedEntityTableId) {
-
     final var statement = //
     MULTI_REFERENCE_STATEMENT_CREATOR.createStatementToInsertMultiReferenceEntry(
       entityId,
@@ -175,7 +163,6 @@ public final class ExecutiveDataWriter {
     final String entityId,
     final String multiValueColumnId,
     final String entry) {
-
     final var statement = MULTI_VALUE_STATEMENT_CREATOR.createStatementToInsertMultiValueEntry(entityId,
       multiValueColumnId, entry);
 
@@ -187,14 +174,12 @@ public final class ExecutiveDataWriter {
   }
 
   public void saveChangesAndReset() {
-
     sqlCollector.executeAndClearUsingConnection(sqlConnection);
 
     saveCount++;
   }
 
   public void updateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
-
     final var statement = ENTITY_STATEMENT_CREATOR.createStatementToUpdateEntityOnTable(tableName, entityUpdate);
 
     sqlCollector.addSqlStatement(statement);

@@ -7,7 +7,6 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesState
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DatabasePropertiesStatementCreator implements IDatabasePropertiesStatementCreator {
-
   @Override
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return //

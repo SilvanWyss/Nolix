@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2024-12-25
  */
 public interface IEntityDtoMapper {
-
   /**
    * @param entity
    * @return a new {@link EntityCreationDto} from the given entity.

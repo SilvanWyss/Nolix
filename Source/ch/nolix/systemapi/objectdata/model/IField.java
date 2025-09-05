@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public interface IField
 extends EmptinessRequestable, IDatabaseObject, IEntityComponent<IEntity>, INameHolder, MandatorynessRequestable {
-
   IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis();
 
   IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis();

@@ -8,13 +8,11 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 
 final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
-
   private final SslServer parentWebSocketServer;
 
   private SslServerEndPoint parentWebSocketServerEndPoint;
 
   public SslServerChannelInboundHandler(final SslServer parentWebSocketServer) {
-
     Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;
@@ -36,7 +34,6 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     final WebSocketFrame webSocketFrame)
   throws Exception {
     if (parentWebSocketServerEndPoint == null) {
-
       parentWebSocketServerEndPoint = new SslServerEndPoint(channelHandlerContext);
 
       //The end point must receive the current message to know its content before it
@@ -46,7 +43,6 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
 
       parentWebSocketServer.internalTakeBackendEndPoint(parentWebSocketServerEndPoint);
     } else if (webSocketFrame instanceof final TextWebSocketFrame textWebSocketFrame) {
-
       final var rawMessage = textWebSocketFrame.text();
 
       parentWebSocketServerEndPoint.receiveRawMessageInBackground(rawMessage);

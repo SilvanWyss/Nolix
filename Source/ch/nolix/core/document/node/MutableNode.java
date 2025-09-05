@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class MutableNode extends AbstractMutableNode<MutableNode> {
-
   private String header;
 
   private final LinkedList<MutableNode> childNodes = LinkedList.createEmpty();
@@ -39,7 +38,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    *                                         {@link MutableNode}.
    */
   public static MutableNode fromFile(final String filePath) {
-
     final var mutableNode = MutableNode.createEmpty();
     mutableNode.resetFromFile(filePath);
 
@@ -51,7 +49,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * @return a new {@link MutableNode} from the given {@link INode}.
    */
   public static MutableNode fromNode(final INode<?> node) {
-
     final var mutableNode = MutableNode.createEmpty();
 
     if (node.hasHeader()) {
@@ -70,7 +67,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    *                                         represent a {@link MutableNode}.
    */
   public static MutableNode fromString(final String string) {
-
     final var mutableNode = MutableNode.createEmpty();
     mutableNode.resetFromString(string);
 
@@ -82,7 +78,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-
     this.childNodes.addAtEnd(fromNode(childNode));
 
     for (final var cn : childNodes) {
@@ -97,7 +92,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode addChildNodeFromString(final String string, final String... strings) {
-
     addChildNode(fromString(string));
 
     for (final var s : strings) {
@@ -112,7 +106,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public <N extends INode<?>> MutableNode addChildNodes(final Iterable<N> pChildNodes) {
-
     for (final var cn : pChildNodes) {
       childNodes.addAtEnd(fromNode(cn));
     }
@@ -125,7 +118,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode addChildNodesFromStrings(final Iterable<String> strings) {
-
     for (final var s : strings) {
       addChildNode(fromString(s));
     }
@@ -154,7 +146,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public String getHeader() {
-
     assertHasHeader();
 
     return header;
@@ -230,7 +221,6 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode setHeader(final String header) {
-
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
     this.header = header;

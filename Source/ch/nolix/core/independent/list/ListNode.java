@@ -3,13 +3,11 @@ package ch.nolix.core.independent.list;
 import java.util.NoSuchElementException;
 
 final class ListNode<E> {
-
   private final E element;
 
   private ListNode<E> nextNode;
 
   public ListNode(final E element) {
-
     if (element == null) {
       throw new IllegalArgumentException("The given element is null.");
     }
@@ -26,7 +24,6 @@ final class ListNode<E> {
   }
 
   public ListNode<E> getStoredNextNode() {
-
     assertHasNextNode();
 
     return nextNode;
@@ -41,7 +38,6 @@ final class ListNode<E> {
   }
 
   public void setNextNode(final ListNode<E> nextNode) {
-
     if (nextNode == null) {
       throw new IllegalArgumentException("The given next node is null.");
     }

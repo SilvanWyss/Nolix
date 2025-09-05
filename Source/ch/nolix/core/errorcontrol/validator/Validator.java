@@ -80,7 +80,6 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
   public static ExtendedIterableMediator<Double> assertThat(final double[] argument) {
-
     //Handles the case that the given argument is null.
     if (argument == null) {
       return new ExtendedIterableMediator<>(null);
@@ -103,7 +102,6 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
   public static ExtendedIterableMediator<Long> assertThat(final int[] argument) {
-
     //Handles the case that the given argument is null.
     if (argument == null) {
       return new ExtendedIterableMediator<>(null);
@@ -135,7 +133,6 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link ExtendedIterableMediator} for the given argument.
    */
   public static ExtendedIterableMediator<Long> assertThat(final long[] argument) {
-
     //Handles the case that the given argument is null.
     if (argument == null) {
       return new ExtendedIterableMediator<>(null);

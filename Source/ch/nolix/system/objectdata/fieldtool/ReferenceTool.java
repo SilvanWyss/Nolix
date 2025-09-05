@@ -8,14 +8,11 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 public final class ReferenceTool extends FieldTool implements IReferenceTool {
-
   @Override
   @SuppressWarnings("unchecked")
   public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(
     final IReference<IEntity> reference) {
-
     if (reference.containsAny()) {
-
       final var referencedEntity = reference.getStoredReferencedEntity();
 
       final var backReference = //

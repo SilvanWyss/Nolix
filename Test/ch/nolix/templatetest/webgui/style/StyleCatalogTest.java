@@ -19,10 +19,8 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.template.webgui.style.StyleCatalog;
 
 final class StyleCatalogTest extends StandardTest {
-
   @Test
   void testCase_DarkStyle() {
-
     //setup
     final var webGuiWithVariousContent = createWebGuiWithVariousContent();
     final var testUnit = StyleCatalog.DARK_STYLE;

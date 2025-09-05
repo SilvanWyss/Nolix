@@ -10,7 +10,6 @@ package ch.nolix.coreapi.math.number;
  * @version 2017-12-08
  */
 public final class NumberCatalog {
-
   public static final double EULERS_NUMBER = 2.718281828459045;
 
   public static final double GOLDEN_RATIO = 1.618033988749894;

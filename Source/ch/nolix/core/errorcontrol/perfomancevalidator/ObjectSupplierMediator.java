@@ -8,11 +8,9 @@ import ch.nolix.coreapi.errorcontrol.performancevalidator.IActionMediator;
 import ch.nolix.coreapi.errorcontrol.performancevalidator.IObjectSupplierMediator;
 
 public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<O> {
-
   private final IntFunction<O> objectSupplier;
 
   private ObjectSupplierMediator(final IntFunction<O> objectSupplier) {
-
     Validator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
 
     this.objectSupplier = objectSupplier;

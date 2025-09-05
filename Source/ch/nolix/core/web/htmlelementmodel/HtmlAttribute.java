@@ -5,14 +5,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 
 public final class HtmlAttribute implements IHtmlAttribute {
-
   private final String name;
 
   private final String value;
 
   //For a better performance, this implementation does not use all available comfort methods.
   private HtmlAttribute(final String name, final String value) {
-
     if (name == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.KEY);
     }
@@ -26,7 +24,6 @@ public final class HtmlAttribute implements IHtmlAttribute {
   }
 
   public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
-
     if (htmlAttribute instanceof final HtmlAttribute concreteHtmlAttribute) {
       return concreteHtmlAttribute;
     }

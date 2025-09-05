@@ -7,13 +7,11 @@ import ch.nolix.coreapi.independent.arraytool.IArrayValidator;
  * @version 2023-02-17
  */
 public final class ArrayValidator implements IArrayValidator {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public void assertDoesNotContainNull(final Object[] array) {
-
     if (array == null) {
       throw new IllegalArgumentException("The given array is null.");
     }

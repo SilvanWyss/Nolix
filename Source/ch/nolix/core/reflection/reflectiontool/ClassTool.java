@@ -10,7 +10,6 @@ import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.coreapi.reflection.reflectiontool.IClassTool;
 
 public final class ClassTool implements IClassTool {
-
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private static final ConstructorTool CONSTRUCTOR_TOOL = new ConstructorTool();
@@ -23,7 +22,6 @@ public final class ClassTool implements IClassTool {
   @Override
   public <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
     try {
-
       final var defaultConstructor = paramClass.getDeclaredConstructor();
 
       defaultConstructor.setAccessible(true);
@@ -36,12 +34,10 @@ public final class ClassTool implements IClassTool {
 
   @Override
   public IContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
-
     final var publicStaticFields = LinkedList.createEmpty();
 
     //Iterates the fields of the given Class.
     for (final var f : paramClass.getDeclaredFields()) {
-
       //Handles the case that the current field is .
       if (FIELD_EXAMINER.isStatic(f) && ReflectionTool.isPublic(f)) {
         try {

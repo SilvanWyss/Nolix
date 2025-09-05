@@ -10,7 +10,6 @@ import java.util.function.Predicate;
  *            {@link ISequencePatternNextMediator}.
  */
 public interface ISequencePatternNextMediator<E> {
-
   /**
    * @return a new {@link ISequencePattern} from the {@link ISequencePattern} of
    *         the current {@link ISequencePatternNextMediator} with a blank

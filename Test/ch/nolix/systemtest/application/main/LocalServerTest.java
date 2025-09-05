@@ -11,14 +11,11 @@ import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.LocalServer;
 
 final class LocalServerTest extends StandardTest {
-
   @Test
   void testCase_addApplication() {
-
     final var applicationMock = mock(Application.class);
 
     try (final var testUnit = new LocalServer()) {
-
       //execution
       testUnit.addApplication(applicationMock);
 
@@ -31,11 +28,9 @@ final class LocalServerTest extends StandardTest {
   @Test
   @SuppressWarnings("unchecked")
   void testCase_addDefaultApplication() {
-
     final var applicationMock = mock(Application.class);
 
     try (final var testUnit = new LocalServer()) {
-
       //execution
       testUnit.addDefaultApplication(applicationMock);
 
@@ -48,7 +43,6 @@ final class LocalServerTest extends StandardTest {
   @Test
   void testCase_asTarget() {
     try (final var testUnit = new LocalServer()) {
-
       //verification & execution
       expectRunning(testUnit::asTarget).throwsException().ofType(ArgumentDoesNotSupportMethodException.class);
     }
@@ -57,7 +51,6 @@ final class LocalServerTest extends StandardTest {
   @Test
   void testCase_constructor() {
     try (final var testUnit = new LocalServer()) {
-
       //verification
       expect(testUnit.getSecurityMode()).is(SecurityMode.NONE);
       expect(testUnit.isEmpty()).isTrue();

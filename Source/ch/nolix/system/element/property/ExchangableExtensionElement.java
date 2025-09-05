@@ -4,7 +4,6 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
 extends AbstractExtensionElement<E> {
-
   public ExchangableExtensionElement(final E internalExtensionElement) {
     super(internalExtensionElement);
   }

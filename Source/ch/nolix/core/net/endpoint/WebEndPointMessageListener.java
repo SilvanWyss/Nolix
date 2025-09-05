@@ -5,11 +5,9 @@ import ch.nolix.core.net.websocket.WebSocketCompleteMessage;
 import ch.nolix.core.programcontrol.worker.AbstractBatchWorker;
 
 final class WebEndPointMessageListener extends AbstractBatchWorker {
-
   private final WebSocketEndPoint parentWebEndPoint;
 
   private WebEndPointMessageListener(final WebSocketEndPoint parentWebEndPoint) {
-
     Validator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
 
     this.parentWebEndPoint = parentWebEndPoint;
@@ -23,7 +21,6 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
 
   @Override
   protected void runStep() {
-
     final var message = new WebSocketCompleteMessage(
       parentWebEndPoint::isOpen,
       parentWebEndPoint.getStoredInputStream(),
@@ -38,7 +35,6 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
   }
 
   private void receiveMessage(final String message) {
-
     //A web socket can send frames that contain a payload of length 0 resp. an
     //empty message.
     if (!message.isEmpty()) {

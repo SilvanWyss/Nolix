@@ -9,7 +9,6 @@ package ch.nolix.system.graphic.color;
  *      names</a>
  */
 public final class X11ColorCatalog {
-
   public static final int ALICE_BLUE_INT = 0xF0F8FF;
 
   public static final String ALICE_BLUE_STRING = "AliceBlue";

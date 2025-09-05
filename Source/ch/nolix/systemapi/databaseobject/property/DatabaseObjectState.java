@@ -1,7 +1,6 @@
 package ch.nolix.systemapi.databaseobject.property;
 
 public enum DatabaseObjectState {
-
   //not persisted in database
   NEW,
 

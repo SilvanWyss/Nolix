@@ -12,7 +12,6 @@ import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
  * @version 2021-09-12
  */
 public final class ColumnNodeMapper implements IColumnNodeMapper {
-
   private static final IContentModelNodeMapper CONTENT_MODEL_NODE_MAPPER = new ContentModelNodeMapper();
 
   /**
@@ -20,7 +19,6 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
    */
   @Override
   public INode<?> mapColumnDtoToColumnNode(final ColumnDto columnDto) {
-
     final var idNode = ColumnNodeComponentMapper.mapColumnDtoToIdNode(columnDto);
     final var nameNode = ColumnNodeComponentMapper.mapColumnDtoToNameNode(columnDto);
     final var contentModelNode = CONTENT_MODEL_NODE_MAPPER.mapColumnDtoToContentModelNode(columnDto);

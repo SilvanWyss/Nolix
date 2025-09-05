@@ -12,7 +12,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalTokenHolder;
  */
 public interface IFluentMutableOptionalTokenHolder<H extends IFluentMutableOptionalTokenHolder<H>>
 extends IOptionalTokenHolder {
-
   /**
    * Removes the token of the current {@link IFluentMutableOptionalTokenHolder}.
    */

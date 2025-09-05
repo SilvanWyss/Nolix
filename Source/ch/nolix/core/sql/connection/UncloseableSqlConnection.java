@@ -19,7 +19,6 @@ import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
  * @version 2025-02-07
  */
 public final class UncloseableSqlConnection implements ISqlConnection {
-
   private final ISqlConnection sqlConnection;
 
   /**
@@ -29,7 +28,6 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    * @throws RuntimeException if the given sqlConnection is null or not open.
    */
   private UncloseableSqlConnection(final ISqlConnection sqlConnection) {
-
     ResourceValidator.assertIsOpen(sqlConnection);
 
     this.sqlConnection = sqlConnection;
@@ -43,7 +41,6 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    * @throws RuntimeException if the given sqlConnection is null or not open.
    */
   public static UncloseableSqlConnection forSqlConnection(final ISqlConnection sqlConnection) {
-
     if (sqlConnection instanceof final UncloseableSqlConnection uncloseableSqlConnection) {
       return uncloseableSqlConnection;
     }

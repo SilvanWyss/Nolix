@@ -11,7 +11,6 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebGuiHtmlBuilder {
-
   public IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
     return //
     HtmlElement.withTypeAndAttributesAndChildElements(

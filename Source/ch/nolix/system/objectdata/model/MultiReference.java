@@ -24,7 +24,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {
-
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
@@ -47,7 +46,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   public static <E2 extends IEntity> MultiReference<E2> forEntityType(
     final Class<? extends E2> entity,
     final Class<? extends E2>... entityTypes) {
-
     final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
     final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
@@ -57,7 +55,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   public static <E2 extends IEntity> MultiReference<E2> forReferenceableTableName(
     final String referenceableTableName,
     final String... referenceableTableNames) {
-
     final var allReferenceableTableNames = //
     ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
 
@@ -77,7 +74,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   @Override
   public void clear() {
-
     getAllStoredReferencedEntities().forEach(this::removeEntity);
 
     setAsEditedAndRunPotentialUpdateAction();
@@ -85,7 +81,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   @Override
   public IContainer<String> getAllReferencedEntityIds() {
-
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
     return localEntries
@@ -95,7 +90,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   @Override
   public IContainer<E> getAllStoredReferencedEntities() {
-
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
     return localEntries
@@ -106,17 +100,14 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
-
     final ILinkedList<IBaseBackReference<IEntity>> abstractBackReferences = LinkedList.createEmpty();
 
     for (final var e : getAllStoredReferencedEntities()) {
-
       final var fields = e.internalGetStoredFields();
 
       final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
       if (abstractBackReferenceContainer.isPresent()) {
-
         final var abstractBackReference = (IBaseBackReference<IEntity>) abstractBackReferenceContainer.get();
 
         abstractBackReferences.addAtEnd(abstractBackReference);
@@ -158,7 +149,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   @Override
   public boolean referencesEntity(final IEntity entity) {
-
     if (entity == null) {
       return false;
     }
@@ -179,7 +169,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   @Override
   public void removeFirstEntity(final Predicate<E> selector) {
-
     final var entity = getAllStoredReferencedEntities().getOptionalStoredFirst(selector);
 
     entity.ifPresent(this::removeEntity);
@@ -195,7 +184,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   private void addCastedEntity(final E entity) {
-
     assertCanAddEntity(entity);
 
     updateStateAddingEntity(entity);
@@ -239,7 +227,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   private void removeCastedEntity(final E entity) {
-
     MULTI_REFERENCE_VALIDATOR.assertCanRemoveEntity(this, entity);
 
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
@@ -254,7 +241,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   private void updateStateAddingEntity(final E entity) {
-
     MultiReferenceEntry<E> multiReferenceEntry;
 
     if (entity.belongsToTable()) {
@@ -272,7 +258,6 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   private void updateStateLoadingAllPersistedReferencedEntityIds() {
-
     loadedAllPersistedReferencedEntityIds = true;
 
     localEntries.addAtEnd(loadAllPersistedReferencedEntityIds());

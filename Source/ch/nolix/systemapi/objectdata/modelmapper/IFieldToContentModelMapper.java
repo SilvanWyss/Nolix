@@ -15,7 +15,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  *            {@link IFieldToContentModelMapper} maps.
  */
 public interface IFieldToContentModelMapper<F extends IField> {
-
   /**
    * @param field
    * @param referencedTables

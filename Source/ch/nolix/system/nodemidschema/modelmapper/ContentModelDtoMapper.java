@@ -21,7 +21,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
  * @version 2024-12-25
  */
 public final class ContentModelDtoMapper implements IContentModelDtoMapper {
-
   private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   /**
@@ -29,7 +28,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
    */
   @Override
   public IContentModelDto mapContentModelNodeToContentModelDto(final IMutableNode<?> contentModelNode) {
-
     final var fieldType = CONTENT_MODEL_NODE_SEARCHER.getFieldTypeFromContentModelNode(contentModelNode);
 
     return //

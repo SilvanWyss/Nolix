@@ -9,7 +9,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @version 2023-06-16
  */
 public interface IMultiTokenHolder {
-
   /**
    * @return the tokens of the current {@link IMultiTokenHolder}.
    */

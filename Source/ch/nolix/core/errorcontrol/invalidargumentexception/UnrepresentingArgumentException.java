@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends AbstractInvalidArgumentException {
-
   private static final String DEFAULT_TYPE_NAME = Object.class.getSimpleName();
 
   private static final String A = "a";
@@ -82,7 +81,6 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * @throws RuntimeException if the given type is null.
    */
   private static String getNameOfType(final Class<?> type) {
-
     if (type == null) {
       throw new IllegalArgumentException("The given type is null.");
     }
@@ -102,7 +100,6 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * @throws RuntimeException if the given type is null.
    */
   private static String getPronounAndNameOfType(final Class<?> type) {
-
     final var name = getNameOfType(type);
     final var pronoun = getPronounForNoun(name);
 
@@ -115,7 +112,6 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
    * @throws RuntimeException if the given noun is null or blank.
    */
   private static String getPronounForNoun(final String noun) {
-
     if (noun == null) {
       throw new IllegalArgumentException("The given noun is null.");
     }

@@ -12,13 +12,11 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
 extends AbstractNode<N>
 implements IMutableNode<N> {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public final N addPostfixToHeader(final String postfix) {
-
     //Asserts that the given postfix is not blank.
     Validator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalog.POSTFIX).isNotBlank();
 
@@ -39,7 +37,6 @@ implements IMutableNode<N> {
    */
   @Override
   public final N addPrefixToHeader(final String prefix) {
-
     //Asserts that the given prefix is not blank.
     Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
 
@@ -72,7 +69,6 @@ implements IMutableNode<N> {
    */
   @Override
   public final void resetFromNode(INode<?> node) {
-
     reset();
 
     if (node.hasHeader()) {
@@ -87,11 +83,9 @@ implements IMutableNode<N> {
    */
   @Override
   public final void resetFromString(final String string) {
-
     reset();
 
     if (setFromStringAndStartIndexAndGetEndIndex(string, 0) != string.length() - 1) {
-
       reset();
 
       throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
@@ -103,7 +97,6 @@ implements IMutableNode<N> {
    */
   @Override
   public final N setChildNodes(final Iterable<? extends INode<?>> childNodes) {
-
     removeChildNodes();
     addChildNodes(childNodes);
 
@@ -116,7 +109,6 @@ implements IMutableNode<N> {
   protected abstract N asConcrete();
 
   final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
-
     final var headerLength = getHeaderLengthFromStringAndStartIndex(string, startIndex);
 
     if (headerLength > 0) {
@@ -158,9 +150,7 @@ implements IMutableNode<N> {
   }
 
   private int getHeaderLengthFromStringAndStartIndex(final String string, final int startIndex) {
-
     for (var index = startIndex; index < string.length(); index++) {
-
       final var character = string.charAt(index);
 
       if (character == '(' || character == ',' || character == ')') {

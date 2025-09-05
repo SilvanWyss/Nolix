@@ -5,7 +5,6 @@ package ch.nolix.coreapi.resourcecontrol.closecontroller;
  * @version 2020-07-05
  */
 public interface GroupCloseable extends Closeable {
-
   /**
    * {@inheritDoc}
    */

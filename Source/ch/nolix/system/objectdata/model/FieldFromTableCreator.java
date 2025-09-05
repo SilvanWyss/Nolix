@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public final class FieldFromTableCreator {
-
   private FieldFromTableCreator() {
   }
 

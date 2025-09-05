@@ -11,7 +11,6 @@ import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
  * @version 2025-05-30
  */
 public final class TableDtoMapper implements ITableDtoMapper {
-
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   /**
@@ -19,7 +18,6 @@ public final class TableDtoMapper implements ITableDtoMapper {
    */
   @Override
   public TableDto mapJoinedColumnSqlRecordsToTableDto(final IContainer<ISqlRecord> joinedColumnSqlRecords) {
-
     final var firstJoinedColumnSqlRecord = joinedColumnSqlRecords.getStoredFirst();
     final var id = firstJoinedColumnSqlRecord.getStoredAtOneBasedIndex(3);
     final var name = firstJoinedColumnSqlRecord.getStoredAtOneBasedIndex(4);
@@ -34,7 +32,6 @@ public final class TableDtoMapper implements ITableDtoMapper {
   @Override
   public IContainer<TableDto> mapJoinedColumnSqlRecordsToTableDtos(
     final IContainer<ISqlRecord> joinedColumnSqlRecords) {
-
     final var joinedColumnSqlRecordsGroupedByTable = //
     joinedColumnSqlRecords.getStoredInGroups(r -> r.getStoredAtOneBasedIndex(3));
 

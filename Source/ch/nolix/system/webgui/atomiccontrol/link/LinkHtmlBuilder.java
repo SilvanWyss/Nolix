@@ -15,7 +15,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILink;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
@@ -25,7 +24,6 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
   }
 
   private IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
-
     final ILinkedList<IHtmlAttribute> htmlAttribtues = LinkedList.createEmpty();
 
     htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
@@ -38,7 +36,6 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
   }
 
   private HtmlAttribute createTargetHtmlAttributeForControl(final ILink control) {
-
     final var target = control.getTarget();
 
     return createTargetHtmlAttributeForTarget(target);

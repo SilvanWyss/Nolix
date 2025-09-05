@@ -26,7 +26,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
  * @version 2017-07-14
  */
 public final class FileSystemAccessor {
-
   /**
    * Prevents that an instance of the {@link FileSystemAccessor} can be created.
    */
@@ -82,7 +81,6 @@ public final class FileSystemAccessor {
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path) {
-
     //Calls other method.
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
@@ -101,13 +99,11 @@ public final class FileSystemAccessor {
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode) {
-
     //Asserts that the if given path is not null or empty.
     Validator.assertThat(path).thatIsNamed(LowerCaseVariableCatalog.PATH).isNotBlank();
 
     //Creates file.
     try {
-
       if (!new File(path).createNewFile()) {
         switch (writeMode) {
           case OVERWRITE_WHEN_TARGET_EXISTS_ALREADY:
@@ -145,7 +141,6 @@ public final class FileSystemAccessor {
    * @throws ArgumentIsNullException  if the given content is null.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final byte[] content) {
-
     final var fileAccessor = createFile(path, writeMode);
 
     fileAccessor.overwriteFile(content);
@@ -169,7 +164,6 @@ public final class FileSystemAccessor {
    * @throws ArgumentIsNullException  if the given content is null.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final String content) {
-
     final var fileAccessor = createFile(path, writeMode);
 
     fileAccessor.overwriteFile(content);
@@ -189,7 +183,6 @@ public final class FileSystemAccessor {
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path, final byte[] content) {
-
     final var fileAccessor = createFile(path);
 
     fileAccessor.overwriteFile(content);
@@ -209,7 +202,6 @@ public final class FileSystemAccessor {
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path, final String content) {
-
     //Calls other method.
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY, content);
   }
@@ -223,7 +215,6 @@ public final class FileSystemAccessor {
    *                                  with the given path.
    */
   public static FolderAccessor createFolder(final String path) {
-
     //Asserts that there does not exist already a file system item with the given
     //path.
     if (exists(path)) {
@@ -288,7 +279,6 @@ public final class FileSystemAccessor {
    *         path recursively.
    */
   public static ILinkedList<FileAccessor> getFileAccessorsRecursively(final String path) {
-
     final ILinkedList<FileAccessor> fileAccessors = LinkedList.createEmpty();
 
     for (final var f : new File(path).listFiles()) {
@@ -331,7 +321,6 @@ public final class FileSystemAccessor {
   }
 
   public static void overwriteFile(final String path, final byte[] content) {
-
     //Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
@@ -355,7 +344,6 @@ public final class FileSystemAccessor {
    *                                  given path.
    */
   public static void overwriteFile(final String path, final String content) {
-
     //Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");

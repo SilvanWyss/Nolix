@@ -15,7 +15,6 @@ import ch.nolix.systemapi.style.model.IAttachingAttribute;
 import ch.nolix.systemapi.style.tool.IAttachingAttributeValidator;
 
 public final class AttachingAttribute extends AbstractElement implements IAttachingAttribute {
-
   private static final IAttachingAttributeValidator ATTACHING_ATTRIBUTE_VALIDATOR = new AttachingAttributeValidator();
 
   private final String optionalTag;
@@ -23,7 +22,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
   private final Node value;
 
   private AttachingAttribute(final INode<?> value) {
-
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = null;
@@ -31,7 +29,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
   }
 
   private AttachingAttribute(final String tag, final INode<?> value) {
-
     Validator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
@@ -40,7 +37,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
   }
 
   private AttachingAttribute(final String tag, final String value) {
-
     Validator.assertThat(tag).thatIsNamed(LowerCaseVariableCatalog.TAG).isNotBlank();
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
@@ -66,7 +62,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   //For a better performance, this implementation does not use all available comfort methods.
   public static AttachingAttribute fromAttachingAttribute(final IAttachingAttribute attachingAttribute) {
-
     if (attachingAttribute instanceof final AttachingAttribute concreteAttachingAttribute) {
       return concreteAttachingAttribute;
     }
@@ -79,7 +74,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
   }
 
   public static AttachingAttribute fromSpecification(final INode<?> specification) {
-
     final var attributes = specification.getStoredChildNodes();
 
     return //
@@ -98,7 +92,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   @Override
   public IContainer<INode<?>> getAttributes() {
-
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (optionalTag != null) {
@@ -112,7 +105,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   @Override
   public String getTag() {
-
     ATTACHING_ATTRIBUTE_VALIDATOR.assertHasTag(this);
 
     return optionalTag;
@@ -139,7 +131,6 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
   //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public IAttachingAttribute withValue(String value) {
-
     if (optionalTag != null) {
       return new AttachingAttribute(optionalTag, value);
     }

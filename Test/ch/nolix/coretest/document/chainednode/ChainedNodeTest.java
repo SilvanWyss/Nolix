@@ -9,10 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ChainedNodeTest extends StandardTest {
-
   @Test
   void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
-
     //setup
     final var testUnit = ChainedNode.fromString("");
 
@@ -25,7 +23,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
-
     //setup
     final var testUnit = ChainedNode.fromString("");
 
@@ -38,7 +35,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
-
     //setup
     final var testUnit = ChainedNode.withHeader("a");
 
@@ -53,7 +49,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
-
     //setup
     final var testUnit = ChainedNode.fromString("a(b)");
 
@@ -68,7 +63,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
-
     //setup
     final var testUnit = ChainedNode.fromString("a(10)");
 
@@ -84,7 +78,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
-
     //setup
     final var testUnit = ChainedNode.fromString("a(10, 20)");
 
@@ -99,7 +92,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_isBlank_whenIsBlank() {
-
     //setup
     final var testUnit = ChainedNode.fromString("");
 
@@ -112,7 +104,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_isBlank_whenHasHeaderOnly() {
-
     //setup
     final var testUnit = ChainedNode.withHeader("a");
 
@@ -125,7 +116,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A1() {
-
     //setup
     final var testUnit = new ChainedNode();
 
@@ -138,7 +128,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A2() {
-
     //setup
     final var testUnit = ChainedNode.fromString("100(x)");
 
@@ -151,7 +140,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenRepresentsNegativeInt() {
-
     //setup
     final var testUnit = ChainedNode.withHeader("-100");
 
@@ -164,7 +152,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenRepresentsPositiveInt() {
-
     //setup
     final var testUnit = ChainedNode.withHeader("100");
 
@@ -177,7 +164,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenRepresentsZeroInt() {
-
     //setup
     final var testUnit = ChainedNode.withHeader("0");
 
@@ -190,7 +176,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toNode_whenIsBlank() {
-
     //setup
     final var testUnit = ChainedNode.fromString("");
 
@@ -203,7 +188,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toNode_whenHasHeaderOnly() {
-
     //setup
     final var testUnit = ChainedNode.withHeader("a");
 
@@ -216,7 +200,6 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toNode_whenHasNextNode() {
-
     //setup
     final var testUnit = ChainedNode.fromString("a.b");
 

@@ -7,7 +7,6 @@ import java.util.function.BooleanSupplier;
  * @version 2025-07-28
  */
 public interface IForMaxMillisecondsMediator {
-
   /**
    * @param condition
    * @return a new {@link IAsLongAsMediator} for the maxDurationInMilliseconds of

@@ -12,7 +12,6 @@ import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
  * @version 2025-02-09
  */
 public final class FieldExaminer implements IFieldExaminer {
-
   /**
    * {@inheritDoc}
    */

@@ -16,13 +16,11 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
  * @version 2019-02-19
  */
 public final class ComplexNumber implements IComplexNumber {
-
   private final BigDecimal realComponent;
 
   private final BigDecimal imaginaryComponent;
 
   public ComplexNumber(final BigDecimal realComponent, final BigDecimal imaginaryComponent) {
-
     Validator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
     Validator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
 
@@ -35,7 +33,6 @@ public final class ComplexNumber implements IComplexNumber {
     final BigDecimal realComponent,
     final BigDecimal imaginaryComponent,
     final int decimalPlaces) {
-
     Validator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
     Validator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
     Validator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
@@ -45,7 +42,6 @@ public final class ComplexNumber implements IComplexNumber {
   }
 
   public ComplexNumber(final double realComponent, final double imaginaryComponent) {
-
     final var realComponentBigDecimal = BigDecimal.valueOf(realComponent);
     final var imaginaryComponentBigDecimal = BigDecimal.valueOf(imaginaryComponent);
 
@@ -57,7 +53,6 @@ public final class ComplexNumber implements IComplexNumber {
   }
 
   public ComplexNumber(final double realComponent, final double imaginaryComponent, final int decimalPlaces) {
-
     Validator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
 
     this.realComponent = BigDecimal.valueOf(realComponent).setScale(decimalPlaces, RoundingMode.HALF_UP);
@@ -67,7 +62,6 @@ public final class ComplexNumber implements IComplexNumber {
 
   @Override
   public int compareTo(final IComplexNumber complexNumber) {
-
     Validator.assertThat(complexNumber).thatIsNamed("complex number").isNotNull();
 
     return getMagnitude().compareTo(complexNumber.getMagnitude());
@@ -76,7 +70,6 @@ public final class ComplexNumber implements IComplexNumber {
   //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public boolean equals(final Object object) {
-
     if (object instanceof final IComplexNumber complexNumber) {
       return equalsComplexNumber(complexNumber);
     }
@@ -110,7 +103,6 @@ public final class ComplexNumber implements IComplexNumber {
 
   @Override
   public ComplexNumber getPower(final int exponent) {
-
     Validator.assertThat(exponent).thatIsNamed(LowerCaseVariableCatalog.EXPONENT).isPositive();
 
     var complexNumber = this;
@@ -243,7 +235,6 @@ public final class ComplexNumber implements IComplexNumber {
 
   @Override
   public String toString() {
-
     if (isPureReal()) {
       return realComponent.toString();
     }

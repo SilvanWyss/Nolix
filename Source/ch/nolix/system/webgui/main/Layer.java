@@ -36,7 +36,6 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
 extends AbstractStylableElement<Layer>
 implements ILayer<Layer> {
-
   public static final double DEFAULT_OPACITY = 1.0;
 
   public static final IColor DEFAULT_BACKGROUND_COLOR = X11ColorCatalog.WHITE;
@@ -99,7 +98,6 @@ implements ILayer<Layer> {
   private IWebGui<?> parentGui;
 
   public static Layer fromSpecification(final INode<?> specification) {
-
     final var layer = new Layer();
     layer.resetFromSpecification(specification);
 
@@ -180,7 +178,6 @@ implements ILayer<Layer> {
 
   @Override
   public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
-
     if (isEmpty()) {
       return Optional.empty();
     }
@@ -195,7 +192,6 @@ implements ILayer<Layer> {
 
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
-
     if (isEmpty()) {
       return getStoredControlsWhenIsEmpty();
     }
@@ -205,7 +201,6 @@ implements ILayer<Layer> {
 
   @Override
   public IWebGui<?> getStoredParentGui() {
-
     LAYER_VALIDATOR.assertBelongsToGui(this);
 
     return parentGui;
@@ -223,7 +218,6 @@ implements ILayer<Layer> {
 
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
-
     final ILinkedList<IControl<?, ?>> childConfigurableElements = LinkedList.createEmpty();
 
     if (containsAny()) {
@@ -255,7 +249,6 @@ implements ILayer<Layer> {
 
   @Override
   public void internalSetParentGui(final IWebGui<?> parentGui) {
-
     Validator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
     LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
 
@@ -284,7 +277,6 @@ implements ILayer<Layer> {
   }
 
   public Layer setBackground(final IBackground background) {
-
     this.background.setValue(background);
 
     return this;
@@ -312,7 +304,6 @@ implements ILayer<Layer> {
 
   @Override
   public Layer setRootControl(final IControl<?, ?> rootControl) {
-
     rootControl.internalSetParentLayer(this);
     this.rootControl.setValue(rootControl);
 
@@ -321,7 +312,6 @@ implements ILayer<Layer> {
 
   @Override
   public Layer setContentAlignment(final ContentAlignment contentAlignment) {
-
     this.contentAlignment.setValue(contentAlignment);
 
     return this;
@@ -329,7 +319,6 @@ implements ILayer<Layer> {
 
   @Override
   public Layer setOpacity(final double opacity) {
-
     Validator.assertThat(opacity).thatIsNamed("opacity").isBetween(0.0, 1.0);
 
     this.opacity.setValue(opacity);
@@ -339,7 +328,6 @@ implements ILayer<Layer> {
 
   @Override
   public Layer setRole(final LayerRole role) {
-
     this.role.setValue(role);
 
     return this;
@@ -363,7 +351,6 @@ implements ILayer<Layer> {
   }
 
   private boolean containsControlWhenContainsAny(final IControl<?, ?> control) {
-
     final var localRootControl = getStoredRootControl();
 
     if (localRootControl == control) {
@@ -376,7 +363,6 @@ implements ILayer<Layer> {
   private void fillUpChildControlsOfControlIntoListRecursively(
     final IControl<?, ?> control,
     final ILinkedList<IControl<?, ?>> list) {
-
     final var childControls = control.getStoredChildControls();
 
     list.addAtEnd(childControls);
@@ -384,7 +370,6 @@ implements ILayer<Layer> {
   }
 
   private double getOpacityFromString(final String string) {
-
     Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
 
     if (!string.endsWith("%")) {
@@ -399,7 +384,6 @@ implements ILayer<Layer> {
   }
 
   private IContainer<IControl<?, ?>> getStoredControlsWhenIsNotEmpty() {
-
     final ILinkedList<IControl<?, ?>> controls = LinkedList.createEmpty();
     controls.addAtEnd(getStoredRootControl());
     fillUpChildControlsOfControlIntoListRecursively(getStoredRootControl(), controls);

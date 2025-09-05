@@ -9,9 +9,7 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 
 final class TableOnDatabaseTest extends StandardTest {
-
   private static final class Thing extends Entity {
-
     Thing() {
       initialize();
     }
@@ -19,7 +17,6 @@ final class TableOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
-
     //setup part 1: Initializes database.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Thing.class);
@@ -38,7 +35,6 @@ final class TableOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
-
     //setup part 1: Initializes database.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Thing.class);

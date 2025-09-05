@@ -10,10 +10,8 @@ import ch.nolix.systemapi.sqlschema.model.DataTypeDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 final class SchemaStatementCreatorTest extends StandardTest {
-
   @Test
   void testCase_createStatementToAddColumn() {
-
     //setup
     final var dataTypeDto = new DataTypeDto("nvarchar", "100");
     final var columnDto = new ColumnDto("Name", dataTypeDto, ImmutableList.createEmpty());
@@ -28,7 +26,6 @@ final class SchemaStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToAddTable() {
-
     //setup
     final var tableDto = new TableDto(
       "Pet",

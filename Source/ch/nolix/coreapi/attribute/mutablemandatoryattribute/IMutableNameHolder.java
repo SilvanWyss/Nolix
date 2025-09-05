@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
  * @version 2023-01-27
  */
 public interface IMutableNameHolder extends INameHolder {
-
   /**
    * Sets the name of the current {@link IMutableNameHolder}.
    * 

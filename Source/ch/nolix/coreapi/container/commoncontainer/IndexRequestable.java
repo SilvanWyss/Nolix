@@ -8,7 +8,6 @@ import java.util.function.Predicate;
  * @param <E> is the type of the elements a {@link IndexRequestable}.
  */
 public interface IndexRequestable<E> {
-
   /**
    * @param selector
    * @return the 1-based index of the first element the given selector selects

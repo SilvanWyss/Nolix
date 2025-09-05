@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.coreapi.reflection.reflectiontool.IConstructorTool;
 
 public final class ConstructorTool implements IConstructorTool {
-
   public <T> T createInstanceFromDefaultConstructor(final Constructor<T> defaultConstructor) {
     try {
       return defaultConstructor.newInstance();

@@ -5,7 +5,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IColumnNodeSearcher {
-
   DataType getColumnDataTypeFromColumnNode(IMutableNode<?> columnNode);
 
   FieldType getColumnFieldTypeFromColumnNode(IMutableNode<?> columnNode);

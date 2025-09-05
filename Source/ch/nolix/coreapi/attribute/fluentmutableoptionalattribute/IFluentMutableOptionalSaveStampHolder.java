@@ -13,7 +13,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalSaveStampHolder;
  */
 public interface IFluentMutableOptionalSaveStampHolder<H extends IFluentMutableOptionalSaveStampHolder<H>>
 extends IOptionalSaveStampHolder {
-
   /**
    * Removes the save stamp of the current
    * {@link IFluentMutableOptionalSaveStampHolder}.

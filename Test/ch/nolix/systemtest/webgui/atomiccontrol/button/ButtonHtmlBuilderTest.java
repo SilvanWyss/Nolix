@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHtmlBuilder, IButton> {
-
   @Override
   protected IButton createControl() {
     return new Button();

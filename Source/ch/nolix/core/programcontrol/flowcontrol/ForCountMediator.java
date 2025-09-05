@@ -15,7 +15,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2016-06-01
  */
 public final class ForCountMediator implements IForCountMediator {
-
   private final int maxRunCount;
 
   /**
@@ -25,7 +24,6 @@ public final class ForCountMediator implements IForCountMediator {
    * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
   private ForCountMediator(final int maxRunCount) {
-
     Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     this.maxRunCount = maxRunCount;
@@ -45,7 +43,6 @@ public final class ForCountMediator implements IForCountMediator {
    */
   @Override
   public void run(final Runnable job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     for (var i = 1; i <= maxRunCount; i++) {
@@ -58,7 +55,6 @@ public final class ForCountMediator implements IForCountMediator {
    */
   @Override
   public void run(final IntConsumer job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     for (var i = 1; i <= maxRunCount; i++) {

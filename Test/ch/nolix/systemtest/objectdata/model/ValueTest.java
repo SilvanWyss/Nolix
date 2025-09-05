@@ -7,10 +7,8 @@ import ch.nolix.system.objectdata.model.ValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class ValueTest extends StandardTest {
-
   @Test
   void testCase_constructor() {
-
     //execution
     final var result = ValueField.withValueType(String.class);
 
@@ -25,7 +23,6 @@ final class ValueTest extends StandardTest {
 
   @Test
   void testCase_setValue() {
-
     //setup
     final var testUnit = ValueField.withValueType(String.class);
 

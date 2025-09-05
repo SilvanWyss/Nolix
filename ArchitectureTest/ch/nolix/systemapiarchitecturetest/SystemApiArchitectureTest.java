@@ -8,12 +8,10 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 
 final class SystemApiArchitectureTest {
-
   private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix.systemapi..");
 
   @Test
   void testCase_cycles() {
-
     //setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.systemapi.(*)..").should().beFreeOfCycles();
 
@@ -23,7 +21,6 @@ final class SystemApiArchitectureTest {
 
   @Test
   void testCase_dependencies() {
-
     //setup
     final var rule = //
     ArchRuleDefinition

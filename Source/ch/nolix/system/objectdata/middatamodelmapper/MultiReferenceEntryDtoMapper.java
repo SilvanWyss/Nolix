@@ -10,14 +10,12 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
  * @version 2025-02-21
  */
 public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryDtoMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public MultiReferenceEntryDto mapMultiReferenceEntryToMultiReferenceEntryDto(
     final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry) {
-
     final var multiReference = multiReferenceEntry.getStoredParentMultiReference();
     final var entity = multiReference.getStoredParentEntity();
     final var tableName = entity.getParentTableName();

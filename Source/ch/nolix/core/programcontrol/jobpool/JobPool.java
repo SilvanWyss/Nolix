@@ -14,7 +14,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2019-04-14
  */
 public final class JobPool {
-
   private static final int OPTIMAL_WORKER_COUNT = 100;
 
   private final LinkedList<Worker> workers = LinkedList.createEmpty();
@@ -29,7 +28,6 @@ public final class JobPool {
    * @throws ArgumentIsNullException if the given job is null.
    */
   public IFuture enqueue(final Runnable job) {
-
     final var jobWrapper = new JobWrapper(job);
     jobWrappers.addAtEnd(jobWrapper);
     createNewWorkerIfNeeded();
@@ -52,7 +50,6 @@ public final class JobPool {
   }
 
   synchronized Optional<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
-
     final var nextFreshJobWrapper = jobWrappers.getOptionalStoredFirst(JobWrapper::isFresh);
 
     if (nextFreshJobWrapper.isEmpty()) {
@@ -68,7 +65,6 @@ public final class JobPool {
   }
 
   private synchronized void createNewWorkerIfNeeded() {
-
     //Handles the case that a new worker is needed.
     if (newWorkerIsNeeded()) {
       workers.addAtEnd(new Worker(this));
@@ -84,7 +80,6 @@ public final class JobPool {
   }
 
   private synchronized boolean newWorkerIsNeeded() {
-
     final var workerCount = getWorkerCount();
 
     return jobWrappers.containsAny()

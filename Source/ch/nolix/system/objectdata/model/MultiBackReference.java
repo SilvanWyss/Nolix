@@ -18,7 +18,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 public final class MultiBackReference<E extends IEntity>
 extends AbstractBaseBackReference<E>
 implements IMultiBackReference<E> {
-
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
@@ -36,7 +35,6 @@ implements IMultiBackReference<E> {
   public static <E2 extends AbstractEntity> MultiBackReference<E2> forBackReferencedEntityTypeAndBaseReference(
     final Class<E2> backReferencedEntityType,
     final String backReferencedBaseReferenceName) {
-
     final var entityTypeName = backReferencedEntityType.getSimpleName();
 
     return forBackReferencedTableAndBaseReference(entityTypeName, backReferencedBaseReferenceName);
@@ -50,7 +48,6 @@ implements IMultiBackReference<E> {
 
   @Override
   public IContainer<String> getAllBackReferencedEntityIds() {
-
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
     return localEntries
@@ -60,7 +57,6 @@ implements IMultiBackReference<E> {
 
   @Override
   public IContainer<E> getAllStoredBackReferencedEntities() {
-
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
     return localEntries
@@ -75,12 +71,10 @@ implements IMultiBackReference<E> {
 
   @Override
   public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
-
     final ILinkedList<IBaseReference<IEntity>> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var e : getAllStoredBackReferencedEntities()) {
-
       @SuppressWarnings("unchecked")
       final var backReferencedField = //
       (IBaseReference<IEntity>) ENTITY_SEARCHER.getStoredFieldByName(e, backReferencedBaseReferenceName);
@@ -119,7 +113,6 @@ implements IMultiBackReference<E> {
 
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
-
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
     for (final var p : entity.internalGetStoredFields()) {
@@ -133,14 +126,12 @@ implements IMultiBackReference<E> {
 
   @Override
   public boolean referencesBackEntityWithId(final String id) {
-
     final var entity = getStoredBackReferencedTable().getStoredEntityById(id);
 
     return referencesBackEntity(entity);
   }
 
   void internalAddBackReferencedEntityId(final String backReferencedEntityId) {
-
     final var newEntry = MultiBackReferenceEntry.newEntryForMultiBackReferenceAndReferencedEntityId(
       this,
       backReferencedEntityId);
@@ -149,7 +140,6 @@ implements IMultiBackReference<E> {
   }
 
   void internalDeleteBackReferencedEntityId(final String backReferencedEntityId) {
-
     final var entry = localEntries.getStoredFirst(e -> e.getBackReferencedEntityId().equals(backReferencedEntityId));
 
     entry.internalDelete();
@@ -160,7 +150,6 @@ implements IMultiBackReference<E> {
   }
 
   private IContainer<MultiBackReferenceEntry<E>> loadAllPersistedBackReferencedEntityIds() {
-
     final var entity = getStoredParentEntity();
 
     return //
@@ -178,7 +167,6 @@ implements IMultiBackReference<E> {
   }
 
   private void updateStateLoadingAllPersistedBackReferencedEntityIds() {
-
     loadedAllPersistedBackReferencedEntityIds = true;
 
     localEntries.addAtEnd(loadAllPersistedBackReferencedEntityIds());

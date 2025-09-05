@@ -6,7 +6,6 @@ import ch.nolix.coreapi.web.cssmodel.ICss;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 
 public final class Css implements ICss {
-
   private final IContainer<CssRule> rules;
 
   private Css(final IContainer<ICssRule> rules) {

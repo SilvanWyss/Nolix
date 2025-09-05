@@ -8,7 +8,6 @@ import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 public interface IBackground extends IElement {
-
   IColor getColor();
 
   IColorGradient getColorGradient();

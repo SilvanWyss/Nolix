@@ -12,7 +12,6 @@ import ch.nolix.systemapi.sqlschema.modelmapper.ITableDtoMapper;
  * @version 2025-05-11
  */
 public final class TableDtoMapper implements ITableDtoMapper {
-
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   /**
@@ -22,7 +21,6 @@ public final class TableDtoMapper implements ITableDtoMapper {
   public TableDto mapSqlRecordsWithNameAndDataTypeToTableDto(
     final String tableName,
     final IContainer<ISqlRecord> sqlRecordsWithNameAndDataType) {
-
     final var columns = sqlRecordsWithNameAndDataType.to(COLUMN_DTO_MAPPER::mapSqlRecordWithNameAndDataTypeToColumnDto);
 
     return new TableDto(tableName, columns);
@@ -34,7 +32,6 @@ public final class TableDtoMapper implements ITableDtoMapper {
   @Override
   public IContainer<TableDto> mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(
     final IContainer<ISqlRecord> sqlRecordsWithTableNameAndNameAndDataType) {
-
     final var columns = //
     sqlRecordsWithTableNameAndNameAndDataType.to(
       COLUMN_DTO_MAPPER::mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto);

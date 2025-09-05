@@ -8,10 +8,8 @@ import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLab
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class ValidationLabelTool implements IValidationLabelTool {
-
   @Override
   public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
-
     final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);
 
     validationLabel.ifPresent(IValidationLabel::clear);
@@ -43,9 +41,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
 
   @Override
   public Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(final IControl<?, ?> control) {
-
     if (control.belongsToControl()) {
-
       final var parentControl = control.getStoredParentControl();
 
       for (final var cc : parentControl.getStoredChildControls()) {
@@ -64,7 +60,6 @@ public final class ValidationLabelTool implements IValidationLabelTool {
   public void showErrorInNearestValidationLabelOfControlOrSwallowError(
     final IControl<?, ?> control,
     final Throwable error) {
-
     final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);
 
     validationLabel.ifPresent(l -> l.showError(error));

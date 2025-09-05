@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschema.model.IContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 public interface IMetaDataStatementCreator {
-
   String createStatementToAddColumn(String tableName, ColumnDto column);
 
   String createStatementToAddTable(String tableId, String tableName);

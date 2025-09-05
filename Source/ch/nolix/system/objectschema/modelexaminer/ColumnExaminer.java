@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectschema.modelexaminer.IColumnExaminer;
  * @version 2024-12-30
  */
 public final class ColumnExaminer implements IColumnExaminer {
-
   /**
    * {@inheritDoc}
    */

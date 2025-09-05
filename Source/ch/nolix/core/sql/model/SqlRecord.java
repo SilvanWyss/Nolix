@@ -16,7 +16,6 @@ import ch.nolix.coreapi.sql.model.ISqlRecord;
  * @version 2024-12-28
  */
 public final class SqlRecord extends AbstractExtendedContainer<String> implements ISqlRecord {
-
   private final int oneBasedIndex;
 
   private final ImmutableList<String> values;
@@ -32,9 +31,7 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * @throws ArgumentIsNullException      if the given values is null.
    */
   private SqlRecord(final int oneBasedIndex, final ImmutableList<String> values) {
-
     if (oneBasedIndex < 1) {
-
       throw //
       NonPositiveArgumentException.forArgumentAndArgumentName(oneBasedIndex, LowerCaseVariableCatalog.ONE_BASED_INDEX);
     }
@@ -56,7 +53,6 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * @throws ArgumentIsNullException      if the given value is null.
    */
   public static SqlRecord withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
-
     final var values = ImmutableList.withElement(value);
 
     return withOneBasedIndexAndValues(oneBasedIndex, values);

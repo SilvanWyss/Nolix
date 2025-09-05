@@ -12,7 +12,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */
 final class LinkedListIterator<E> implements CopyableIterator<E> {
-
   private LinkedListNode<E> nextNode;
 
   /**
@@ -50,7 +49,6 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public E next() {
-
     assertHasNext();
 
     return nextWhenHasNext();
@@ -65,7 +63,6 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
   }
 
   private E nextWhenHasNext() {
-
     final var element = nextNode.getElement();
 
     if (nextNode.hasNextNode()) {

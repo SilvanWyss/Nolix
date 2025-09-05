@@ -3,7 +3,6 @@ package ch.nolix.coreapitest.attributeapi.mandatoryattributeapi;
 import ch.nolix.coreapi.attribute.mandatoryattribute.ITitleHolder;
 
 public final class MockTitleHolder implements ITitleHolder {
-
   private final String title;
 
   private MockTitleHolder(final String title) {

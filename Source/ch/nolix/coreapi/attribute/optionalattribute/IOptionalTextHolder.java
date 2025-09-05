@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2023-02-03
  */
 public interface IOptionalTextHolder {
-
   /**
    * @return the text of the current {@link IOptionalTextHolder}.
    * @throws RuntimeException if the current {@link IOptionalTextHolder} does not

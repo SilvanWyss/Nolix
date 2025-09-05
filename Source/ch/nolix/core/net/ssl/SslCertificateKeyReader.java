@@ -5,9 +5,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.net.ssl.ISslCertificateKeyReader;
 
 public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
-
   public String getKeyFromPemFileLines(final IContainer<String> pemFileLines) {
-
     final var keyLines = getKeyLinesFromPemFileLines(pemFileLines);
 
     return keyLines.toConcatenatedString();
@@ -21,7 +19,6 @@ public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
 
   @Override
   public String readKeyFromPemFile(final String pemFilePath) {
-
     final var pemFileLines = FileSystemAccessor.readFileToLines(pemFilePath);
 
     return getKeyFromPemFileLines(pemFileLines);

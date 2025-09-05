@@ -11,10 +11,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 
 final class ClosedIntervalTest extends StandardTest {
-
   @Test
   void testCase_containsValue_whenNullIsGiven() {
-
     //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
@@ -32,7 +30,6 @@ final class ClosedIntervalTest extends StandardTest {
   "0.0, 1.0, 0.5", //value = mid point
   })
   void testCase_containsValue_whenContainsTheGivenValue(final double min, final double max, final double value) {
-
     //setup
     final var testUnit = new ClosedInterval(min, max);
     final var valueAsBigDecimal = BigDecimal.valueOf(value);
@@ -50,7 +47,6 @@ final class ClosedIntervalTest extends StandardTest {
   "0.0, 1.0, 2.0", //The given value is bigger than max.
   })
   void testCase_containsValue_whenDoesNotContainTheGivenValue(final double min, final double max, final double value) {
-
     //setup
     final var testUnit = new ClosedInterval(min, max);
     final var valueAsBigDecimal = BigDecimal.valueOf(value);
@@ -64,7 +60,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenMinIsNull() {
-
     //execution & verification
     expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
       .throwsException()
@@ -74,7 +69,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenMaxIsNull() {
-
     //execution & verification
     expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
       .throwsException()
@@ -84,7 +78,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_equals_whenNullIsGiven() {
-
     //setup
     final ClosedInterval nullCloedInterval = null;
     final var testUnit = new ClosedInterval(0.0, 1.0);
@@ -98,7 +91,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_equals_whenUnequalClosedIntervalIsGiven() {
-
     //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
@@ -111,7 +103,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_equals_whenEqualClosedIntervalIsGiven() {
-
     //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
@@ -124,7 +115,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getHalfs_1A() {
-
     //parameter definition
     final var scale = 20;
 
@@ -143,7 +133,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getHalfs_1B() {
-
     //parameter definition
     final var scale = 20;
 
@@ -162,7 +151,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getHalfs_whenHasLength0() {
-
     //parameter definition
     final var scale = 20;
 
@@ -181,7 +169,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getLength_1A() {
-
     //parameter definition
     final var scale = 20;
 
@@ -197,7 +184,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getLength_1B() {
-
     //parameter definition
     final var scale = 20;
 
@@ -213,7 +199,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getLength_1C() {
-
     //parameter definition
     final var scale = 20;
 
@@ -229,7 +214,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getLength_whenHasLength0() {
-
     //parameter definition
     final var scale = 20;
 
@@ -245,7 +229,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getMidpoint_1A() {
-
     //parameter definition
     final var scale = 20;
 
@@ -261,7 +244,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getMidpoint_1B() {
-
     //parameter definition
     final var scale = 20;
 
@@ -277,7 +259,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_getMidpoint_whenHasLength0() {
-
     //parameter definition
     final var scale = 20;
 
@@ -302,7 +283,6 @@ final class ClosedIntervalTest extends StandardTest {
   "0.75, 2.0, true", //When the given ClosedInterval only intersects with the max.
   })
   void testCase_intersectsWith(final double min, final double max, final boolean expectedResult) {
-
     //setup
     final var closedInterval = new ClosedInterval(0.0, 1.0);
     final var testUnit = new ClosedInterval(min, max);
@@ -316,7 +296,6 @@ final class ClosedIntervalTest extends StandardTest {
 
   @Test
   void testCase_toString() {
-
     //setup
     final var testUnit = new ClosedInterval(-1.0, 1.0, 5);
 

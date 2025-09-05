@@ -9,10 +9,8 @@ import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.webgui.main.WebGui;
 
 final class UpdateCommandCreatorTest extends StandardTest {
-
   @Test
   void testCase_createSetCssCommandFromWebGui() {
-
     //setup
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
@@ -26,7 +24,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
 
   @Test
   void testCase_createSetTitleCommandForTitle() {
-
     //setup
     final var testUnit = new UpdateCommandCreator();
 
@@ -39,7 +36,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
 
   @Test
   void testCase_createSetTitleCommandFromWebGui() {
-
     //setup
     final var webGui = new WebGui().setTitle("my_title");
     final var testUnit = new UpdateCommandCreator();
@@ -53,7 +49,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
 
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
-
     //setup
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
@@ -67,7 +62,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
 
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
-
     //setup
     final var button = new Button();
     final var webGui = new WebGui().pushLayerWithRootControl(button);
@@ -82,7 +76,6 @@ final class UpdateCommandCreatorTest extends StandardTest {
 
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
-
     //setup
     final var textbox = new Textbox();
     final var webGui = new WebGui().pushLayerWithRootControl(textbox);

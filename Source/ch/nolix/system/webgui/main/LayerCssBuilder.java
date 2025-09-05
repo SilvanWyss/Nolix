@@ -13,7 +13,6 @@ import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerCssBuilder {
-
   public CssRule getCssRuleForLayer(final ILayer<?> layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }
@@ -23,7 +22,6 @@ public final class LayerCssBuilder {
   }
 
   private IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
-
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     if (layer.getStoredParentGui().getStoredTopLayer() == layer) {
@@ -56,7 +54,6 @@ public final class LayerCssBuilder {
   }
 
   private int getCssZIndexForLayer(final ILayer<?> layer) {
-
     if (!layer.belongsToGui()) {
       return 0;
     }

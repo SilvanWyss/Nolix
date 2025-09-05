@@ -14,7 +14,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2017-07-10
  */
 public class FileSystemItemAccessorUnit {
-
   private final File internalAccessor;
 
   /**
@@ -27,7 +26,6 @@ public class FileSystemItemAccessorUnit {
    *                                  the local machine.
    */
   public FileSystemItemAccessorUnit(final String path) {
-
     //Creates the internal file accessor of this file accessor.
     internalAccessor = new File(path);
 
@@ -45,7 +43,6 @@ public class FileSystemItemAccessorUnit {
    *         {@link FileSystemItemAccessorUnit}.
    */
   public final String getExtension() {
-
     final var array = RegularExpressionPatternCatalog.DOT_PATTERN.split(getName());
 
     return ("." + array[array.length - 1]);
@@ -56,7 +53,6 @@ public class FileSystemItemAccessorUnit {
    *         {@link FileSystemItemAccessorUnit}.
    */
   public final String getName() {
-
     final var array = getPath().split("/");
 
     return array[array.length - 1];

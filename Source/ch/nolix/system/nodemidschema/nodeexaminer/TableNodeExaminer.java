@@ -11,7 +11,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
  * @version 2024-12-28
  */
 public final class TableNodeExaminer implements ITableNodeExaminer {
-
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
   private static final IEntityNodeExaminer ENTITY_NODE_EXAMINER = new EntityNodeExaminer();
@@ -21,7 +20,6 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
    */
   @Override
   public boolean columnOfTableNodeIsEmptyByColumnName(final IMutableNode<?> tableNode, final String columnName) {
-
     final var localOneBasedColumnIndex = TABLE_NODE_SEARCHER.getOneBasedIndexOfColumnInTableNodeByColumnName(tableNode,
       columnName);
     final var entityNodes = TABLE_NODE_SEARCHER.getStoredEntityNodesFromTableNode(tableNode);

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
  * @version 2025-05-30
  */
 public interface ITableDtoMapper {
-
   /**
    * @param joinedColumnSqlRecords
    * @return a new {@link TableDto} from the given joinedColumnSqlRecords

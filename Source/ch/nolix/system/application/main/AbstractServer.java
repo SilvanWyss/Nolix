@@ -24,7 +24,6 @@ import ch.nolix.systemapi.application.main.IServer;
  * @version 2016-11-01
  */
 public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer<S> {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private Application<?, ?> defaultApplication;
@@ -36,7 +35,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    */
   @Override
   public final S addApplication(final IApplication<?, ?> application) {
-
     final var localApplication = (Application<?, ?>) application;
 
     localApplication.setParentServer(this);
@@ -65,7 +63,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                          the given instanceName.
    */
   public final S addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
-
     application.setParentServer(this);
     application.setNameAppendix(nameAddendum);
 
@@ -100,7 +97,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     final String applicationName,
     final Class<T> initialSessionClass,
     final U applicationService) {
-
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
       applicationName,
@@ -132,7 +128,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   addApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
     final Class<T> initialSessionClass) {
-
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
       name,
@@ -158,7 +153,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    */
   public final <C extends AbstractBackendClient<C, U>, U> S addDefaultApplication(
     final Application<C, U> defaultApplication) {
-
     defaultApplication.setParentServer(this);
 
     addApplicationToList(defaultApplication);
@@ -197,7 +191,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     final String applicationName,
     final Class<T> initialSessionClass,
     final U applicationService) {
-
     //Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
       applicationName,
@@ -230,7 +223,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
     final String name,
     final Class<T> initialSessionClass) {
-
     //Creates a default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
       name,
@@ -314,7 +306,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                               {@link Application}.
    */
   public final Application<?, ?> getStoredDefaultApplication() {
-
     //Asserts that the current Server contains a default Application.
     assertContainsDefaultApplication();
 
@@ -349,7 +340,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    */
   @Override
   public final void removeApplicationWithInstanceName(final String instanceName) {
-
     final var application = getStoredApplicationByInstanceName(instanceName);
 
     removeApplication(application);
@@ -372,14 +362,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                               given target.
    */
   public final void takeClient(final AbstractBackendClient<?, ?> client) {
-
     //Handles the case that the given client does not have a target.
     if (!client.hasUrlInstanceNameOfTargetApplication()) {
       getStoredDefaultApplication().takeClient(client);
 
       //Handles the case that the given client has a target.
     } else {
-
       final var targetApplicaitonUrlInstanceName = client.getUrlInstanceNameOfTargetApplication();
 
       getStoredApplicationByUrlInstanceName(targetApplicaitonUrlInstanceName).takeClient(client);
@@ -421,7 +409,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param endPoint
    */
   void internalTakeEndPoint(final IEndPoint endPoint) {
-
     //Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultApplication().takeEndPoint(endPoint);
@@ -443,7 +430,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                  applications.
    */
   private void addApplicationToList(final Application<?, ?> application) {
-
     //Asserts that the current Server does not contain already
     //an Application with the same name as the given application..
     assertDoesNotContainApplicationWithName(application.getInstanceName());
@@ -490,7 +476,6 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                                                application.
    */
   private void removeApplication(final IApplication<?, ?> application) {
-
     applications.removeStrictlyFirstOccurrenceOf(application);
 
     if (application == defaultApplication) {

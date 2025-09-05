@@ -10,13 +10,10 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 
 final class ElementTest extends StandardTest {
-
   @Test
   void testCase_hashCode() {
-
     //setup
     final var testUnit = new AbstractElement() {
-
       @Override
       public IContainer<INode<?>> getAttributes() {
         return ImmutableList.withElement(Node.withHeader("my_flag"));

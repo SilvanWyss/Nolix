@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
  * @version 2025-06-20
  */
 public interface IMultiReferenceEntryDtoMapper {
-
   /**
    * @param multiReferenceSqlRecord
    * @param databaseView

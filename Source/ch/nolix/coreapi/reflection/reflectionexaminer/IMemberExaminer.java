@@ -7,7 +7,6 @@ import java.lang.reflect.Member;
  * @version 2025-02-09
  */
 public interface IMemberExaminer {
-
   /**
    * @param member
    * @return true if the given member is private, false otherwise.

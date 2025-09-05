@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITextHolder;
  * @param <H> is the type of a {@link IFluentMutableTextHolder}.
  */
 public interface IFluentMutableTextHolder<H extends IFluentMutableTextHolder<H>> extends ITextHolder {
-
   /**
    * Sets the text of the current {@link IFluentMutableTextHolder}.
    * 

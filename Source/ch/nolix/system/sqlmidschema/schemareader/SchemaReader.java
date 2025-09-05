@@ -13,7 +13,6 @@ import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
 import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
 public final class SchemaReader implements ISchemaReader {
-
   private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
 
   private static final ITableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
@@ -25,7 +24,6 @@ public final class SchemaReader implements ISchemaReader {
   private final ch.nolix.systemapi.sqlschema.adapter.ISchemaReader sqlSchemaReader;
 
   private SchemaReader(final String databaseName, final ISqlConnection sqlConnection) {
-
     this.sqlSchemaReader = //
     ch.nolix.system.sqlschema.adapter.SchemaReader.forDatabaseNameAndSqlConnection(
       databaseName,
@@ -52,7 +50,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public int getTableCount() {
-
     final var query = QUERY_CREATOR.createQueryToGetTableCount();
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
     final var value = sqlRecord.getStoredOne();
@@ -62,7 +59,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public Time getSchemaTimestamp() {
-
     final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
     final var value = sqlRecord.getStoredOne();
@@ -72,7 +68,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public TableDto loadTable(final String tableName) {
-
     final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns(tableName);
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 
@@ -81,7 +76,6 @@ public final class SchemaReader implements ISchemaReader {
 
   @Override
   public IContainer<TableDto> loadTables() {
-
     final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 

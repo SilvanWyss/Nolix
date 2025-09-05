@@ -6,7 +6,6 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 
 final class CharacterTypeTest extends StandardTest {
-
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsANumber() {
     expect(CharacterType.ofCharacter('0')).is(CharacterType.NUMBER);
@@ -93,7 +92,6 @@ final class CharacterTypeTest extends StandardTest {
 
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsASpecialCharacter() {
-
     expect(CharacterType.ofCharacter('.')).is(CharacterType.OTHER);
     expect(CharacterType.ofCharacter(',')).is(CharacterType.OTHER);
     expect(CharacterType.ofCharacter(':')).is(CharacterType.OTHER);

@@ -8,10 +8,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 
 final class WebSocketFramePayloadLengthTest extends StandardTest {
-
   @Test
   void testCase_getType_whenPayloadLengthIs0() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(0);
 
@@ -24,7 +22,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_getType_whenPayloadLengthIs125() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(125);
 
@@ -37,7 +34,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_getType_whenPayloadLengthIs126() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(126);
 
@@ -50,7 +46,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_getType_whenPayloadLengthIs65535() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(65535);
 
@@ -63,7 +58,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_getType_whenPayloadLengthIs65536() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(65536);
 
@@ -76,7 +70,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_getType_whenPayloadLengthIs9223372036854775807() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807L);
 
@@ -89,7 +82,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs125() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(125);
 
@@ -103,7 +95,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs126() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(126);
 
@@ -118,7 +109,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs65535() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(65535);
 
@@ -133,7 +123,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs65536() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(65536);
 
@@ -154,7 +143,6 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs9223372036854775807() {
-
     //setup
     final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807L);
 

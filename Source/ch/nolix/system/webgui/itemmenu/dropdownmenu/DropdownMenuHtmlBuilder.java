@@ -13,7 +13,6 @@ import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
 import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenu;
 
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
-
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
     return HtmlElement.withTypeAndChildElements(
@@ -39,7 +38,6 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
   }
 
   private IContainer<IHtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
-
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 
     if (item.isSelected()) {

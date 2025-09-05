@@ -7,7 +7,6 @@ import ch.nolix.coreapi.commontypetool.charactertool.ICharacterTool;
  * @version 2016-01-01
  */
 public final class CharacterTool implements ICharacterTool {
-
   /**
    * {@inheritDoc}
    */

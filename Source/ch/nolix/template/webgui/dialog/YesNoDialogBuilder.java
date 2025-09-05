@@ -15,7 +15,6 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
-
   private static final String DEFAULT_YES_NO_QUESTION = "Do you want to run the action?";
 
   private static final Runnable DEFAULT_CONFIRM_ACTION = FunctionService::doNothing;
@@ -51,7 +50,6 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   public YesNoDialogBuilder setConfirmAction(final Runnable confirmAction) {
-
     Validator.assertThat(confirmAction).thatIsNamed("confirm action").isNotNull();
 
     this.confirmAction = confirmAction;
@@ -60,7 +58,6 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   public YesNoDialogBuilder setYesNoQuestion(final String yesNoQuestion) {
-
     Validator.assertThat(yesNoQuestion).thatIsNamed("yes-no-question").isNotNull();
 
     this.yesNoQuestion = yesNoQuestion;

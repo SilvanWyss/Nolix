@@ -12,7 +12,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public final class EntitySaver {
-
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
@@ -44,7 +43,6 @@ public final class EntitySaver {
   private void saveNewEntity(
     final IEntity newEntity,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     dataAndSchemaAdapter.insertEntity(
       newEntity.getStoredParentTable().getName(),
       ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity));
@@ -55,7 +53,6 @@ public final class EntitySaver {
   private void saveChangesOfEditedEntity(
     final IEntity editedEntity,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     dataAndSchemaAdapter.updateEntity(
       editedEntity.getStoredParentTable().getName(),
       ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity));

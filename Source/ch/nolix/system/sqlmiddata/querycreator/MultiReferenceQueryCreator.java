@@ -6,7 +6,6 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;
 
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {
-
   @Override
   public String createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
     final String columnId,

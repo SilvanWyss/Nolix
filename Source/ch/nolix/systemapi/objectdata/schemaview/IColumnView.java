@@ -6,7 +6,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 public interface IColumnView<T> extends IDatabaseObject, IIdHolder, INameHolder {
-
   IContentModelView<T> getContentModel();
 
   T getStoredParentTable();

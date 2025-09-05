@@ -27,7 +27,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  */
 public final class ChainedNode //NOSONAR: A ChainedNode is a principal object thus it has many methods.
 implements IChainedNode {
-
   public static final String DOT_CODE = "$D";
 
   public static final String COMMA_CODE = "$M";
@@ -93,7 +92,6 @@ implements IChainedNode {
    * @throws RuntimeException if the given chainedNode is null.
    */
   public static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
-
     if (chainedNode instanceof final ChainedNode localChainedNode) {
       return localChainedNode;
     }
@@ -118,7 +116,6 @@ implements IChainedNode {
    * @return a new {@link ChainedNode} from the given node.
    */
   public static ChainedNode fromNode(final INode<?> node) {
-
     final var chainedNode = new ChainedNode();
 
     if (node.hasHeader()) {
@@ -137,7 +134,6 @@ implements IChainedNode {
    *                                         represent a {@link ChainedNode}.
    */
   public static ChainedNode fromString(final String string) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.resetFromString(string);
 
@@ -165,7 +161,6 @@ implements IChainedNode {
    * @return an origin {@link String} from the given escapeString.
    */
   public static String getStoredginStringFromEscapeString(final String escapeString) {
-
     return escapeString
       .replace(DOT_CODE, String.valueOf(CharacterCatalog.DOT))
       .replace(COMMA_CODE, String.valueOf(CharacterCatalog.COMMA))
@@ -183,7 +178,6 @@ implements IChainedNode {
    * @throws ArgumentIsNullException if one of the given childNodes is null.
    */
   public static ChainedNode withChildNodesFromNodes(final INode<?> childNode, final INode<?>... childNodes) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.addChildNode(childNode, childNodes);
 
@@ -198,7 +192,6 @@ implements IChainedNode {
    * @throws ArgumentIsNullException if one of the given attributes is null.
    */
   public static ChainedNode withChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.addChildNodesFromNodes(attributes);
 
@@ -212,7 +205,6 @@ implements IChainedNode {
    * @throws InvalidArgumentException if the given header is blank.
    */
   public static ChainedNode withHeader(final String header) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
 
@@ -228,7 +220,6 @@ implements IChainedNode {
    * @throws ArgumentIsNullException  if the given attribute is null.
    */
   public static ChainedNode withHeaderAndChildNode(final String header, final ChainedNode attribute) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNode(attribute);
@@ -240,7 +231,6 @@ implements IChainedNode {
     final String header,
     final ChainedNode childNode,
     final ChainedNode... childNodes) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNode(childNode, childNodes);
@@ -256,7 +246,6 @@ implements IChainedNode {
    * @throws InvalidArgumentException if the given header is blank.
    */
   public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNode(childNode);
@@ -275,7 +264,6 @@ implements IChainedNode {
   public static ChainedNode withHeaderAndChildNodes(
     final String header,
     final Iterable<? extends IChainedNode> attributes) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNodes(attributes);
@@ -298,7 +286,6 @@ implements IChainedNode {
     final String header,
     final INode<?> childNode,
     final INode<?>... childNodes) {
-
     final var chainedNode = new ChainedNode();
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes);
 
@@ -321,7 +308,6 @@ implements IChainedNode {
   public static ChainedNode withHeaderAndChildNodesFromNodes(
     final String header,
     final Iterable<? extends INode<?>> attributes) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNodesFromNodes(attributes);
@@ -338,7 +324,6 @@ implements IChainedNode {
    * @throws ArgumentIsNullException  if the given nextNode is null.
    */
   public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.setNextNode(nextNode);
@@ -362,7 +347,6 @@ implements IChainedNode {
     ChainedNode nextNode,
     final IChainedNode childNode,
     final IChainedNode... childNodes) {
-
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
     chainedNode.addChildNode(childNode, childNodes);
@@ -442,7 +426,6 @@ implements IChainedNode {
    */
   @Override
   public String getHeader() {
-
     //Asserts that the current ChainedNode has a header.
     if (header == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
@@ -459,7 +442,6 @@ implements IChainedNode {
    */
   @Override
   public ChainedNode getNextNode() {
-
     //Asserts that the current ChanedNode has a next node.
     if (nextNode == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
@@ -553,7 +535,6 @@ implements IChainedNode {
    */
   @Override
   public double toDouble() {
-
     //Asserts that the current ChainedNode can represent a Double.
     if (header == null || childNodes.containsAny()) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
@@ -567,7 +548,6 @@ implements IChainedNode {
    */
   @Override
   public int toInt() {
-
     if (!hasHeader() || containsChildNodes() || hasNextNode()) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
@@ -590,7 +570,6 @@ implements IChainedNode {
    */
   @Override
   public Node toNode() {
-
     //Asserts that the current ChainedNode can represent a Node.
     if (nextNode != null) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Node.class);
@@ -623,7 +602,6 @@ implements IChainedNode {
    * @throws ArgumentIsNullException if one of the given childNodes is null.
    */
   private void addChildNode(final IChainedNode childNode, final IChainedNode... childNodes) {
-
     if (childNode instanceof final ChainedNode chainedNode) {
       this.childNodes.addAtEnd(chainedNode);
     } else {
@@ -646,7 +624,6 @@ implements IChainedNode {
    * @param childNodes
    */
   private void addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-
     this.childNodes.addAtEnd(fromNode(childNode));
 
     for (final var cn : childNodes) {
@@ -688,7 +665,6 @@ implements IChainedNode {
    * @param stringBuilder
    */
   private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
-
     //Handles the case that the current ChainedNode has a header.
     if (header != null) {
       stringBuilder.append(getEscapeStringFor(header));
@@ -696,12 +672,10 @@ implements IChainedNode {
 
     //Handles the case that the current ChainedNode contains attributes.
     if (childNodes.containsAny()) {
-
       stringBuilder.append("(");
 
       var atBegin = true;
       for (final var a : childNodes) {
-
         if (atBegin) {
           atBegin = false;
         } else {
@@ -742,7 +716,6 @@ implements IChainedNode {
   private HeaderLengthAndTaskAfterSetHeaderParameter getHeaderLengthAndTaskAfterSetHeader(
     final String string,
     final int startIndex) {
-
     var nextIndex = startIndex;
     while (nextIndex < string.length()) {
       switch (string.charAt(nextIndex)) {
@@ -768,7 +741,6 @@ implements IChainedNode {
   private int mapChildNodesAndPotentialNextNodeFromStingAndStartIndexAndGetNextIndex(
     final String string,
     final int startIndex) {
-
     var nextIndex = startIndex;
 
     final var node = new ChainedNode();
@@ -776,7 +748,6 @@ implements IChainedNode {
     this.childNodes.addAtEnd(node);
 
     while (nextIndex < string.length()) {
-
       final var character = string.charAt(nextIndex);
 
       if (character == ',') {
@@ -800,7 +771,6 @@ implements IChainedNode {
   }
 
   private int mapNextNodeFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
-
     nextNode = new ChainedNode();
 
     return nextNode.setFromStringAndStartIndexAndGetNextIndex(string, startIndex);
@@ -823,11 +793,9 @@ implements IChainedNode {
    *                                         represent a {@link ChainedNode}.
    */
   private void resetFromString(final String string) {
-
     reset();
 
     if (setFromStringAndStartIndexAndGetNextIndex(string, 0) != string.length()) {
-
       reset();
 
       throw UnrepresentingArgumentException.forArgumentAndType(string, ChainedNode.class);
@@ -844,7 +812,6 @@ implements IChainedNode {
    * @return the next index the given string can be processed from.
    */
   private int setFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
-
     final var headerLengthAndTaskAfterSetHeader = getHeaderLengthAndTaskAfterSetHeader(string, startIndex);
     final var headerLength = headerLengthAndTaskAfterSetHeader.getHeaderLength();
     final var taskAfterSetHeader = headerLengthAndTaskAfterSetHeader.getTaskAfterSetHeader();
@@ -874,7 +841,6 @@ implements IChainedNode {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private void setHeader(final String header) {
-
     //Asserts that the given header is not null.
     if (header == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.HEADER);
@@ -898,7 +864,6 @@ implements IChainedNode {
    * @throws ArgumentIsNullException if the given nextNode is null.
    */
   private void setNextNode(final IChainedNode nextNode) {
-
     //Asserts that the given nextNode is not null.
     if (nextNode == null) {
       throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);

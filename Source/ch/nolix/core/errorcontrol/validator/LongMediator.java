@@ -24,7 +24,6 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
  * @version 2017-01-01
  */
 public class LongMediator extends Mediator {
-
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   private final long argument;
@@ -47,7 +46,6 @@ public class LongMediator extends Mediator {
    * @throws InvalidArgumentException if the given argumentName is blank.
    */
   private LongMediator(final String argumentName, final long argument) {
-
     super(argumentName);
 
     this.argument = argument;
@@ -162,7 +160,6 @@ public class LongMediator extends Mediator {
    *                                  the given values.
    */
   public final void isEqualToAny(final long value, final long... values) {
-
     if (argument == value) {
       return;
     }

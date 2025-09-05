@@ -11,7 +11,6 @@ package ch.nolix.core.errorcontrol.generalexception;
  */
 @SuppressWarnings("serial")
 public final class ChangedResourceException extends RuntimeException {
-
   /**
    * Creates a new {@link ChangedResourceException} for the given resource.
    * 
@@ -40,7 +39,6 @@ public final class ChangedResourceException extends RuntimeException {
    * @throws IllegalArgumentException if the given resource is blank.
    */
   private static String validateAndGetResource(final String resource) {
-
     if (resource == null) {
       throw new IllegalArgumentException("The given resource is null.");
     }

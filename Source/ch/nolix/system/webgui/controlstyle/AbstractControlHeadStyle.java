@@ -17,7 +17,6 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 abstract class AbstractControlHeadStyle<C extends IControlHeadStyle<C>>
 extends AbstractMultiStateConfiguration<C, ControlState>
 implements IControlHeadStyle<C> {
-
   public static final double DEFAULT_OPACITY = 1.0;
 
   public static final Font DEFAULT_FONT = Font.ARIAL;
@@ -79,7 +78,6 @@ implements IControlHeadStyle<C> {
     DEFAULT_TEXT_COLOR);
 
   protected AbstractControlHeadStyle() {
-
     super(ControlState.BASE);
 
     textLineDecoration.setUndefined();
@@ -158,7 +156,6 @@ implements IControlHeadStyle<C> {
 
   @Override
   public final C setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
-
     this.boldTextFlag.setValueForState(state, boldTextFlag);
 
     return asConcrete();
@@ -166,7 +163,6 @@ implements IControlHeadStyle<C> {
 
   @Override
   public final C setFontForState(final ControlState state, final Font font) {
-
     this.font.setValueForState(state, font);
 
     return asConcrete();
@@ -174,7 +170,6 @@ implements IControlHeadStyle<C> {
 
   @Override
   public final C setOpacityForState(final ControlState state, final double opacity) {
-
     Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
 
     this.opacity.setValueForState(state, opacity);
@@ -184,7 +179,6 @@ implements IControlHeadStyle<C> {
 
   @Override
   public final C setTextColorForState(final ControlState state, final IColor textColor) {
-
     this.textColor.setValueForState(state, textColor);
 
     return asConcrete();
@@ -192,7 +186,6 @@ implements IControlHeadStyle<C> {
 
   @Override
   public C setTextLineDecorationForState(final ControlState state, final LineDecoration textLineDecoration) {
-
     this.textLineDecoration.setValueForState(state, textLineDecoration);
 
     return asConcrete();
@@ -200,7 +193,6 @@ implements IControlHeadStyle<C> {
 
   @Override
   public final C setTextSizeForState(final ControlState state, final int textSize) {
-
     Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();
 
     this.textSize.setValueForState(state, textSize);
@@ -209,7 +201,6 @@ implements IControlHeadStyle<C> {
   }
 
   private double getOpacityFromString(final String string) {
-
     Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
 
     if (!string.endsWith("%")) {

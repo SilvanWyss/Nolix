@@ -6,7 +6,6 @@ import java.util.function.Consumer;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IValidationLabelTool {
-
   void clearNearestValidationLabelOfControl(IControl<?, ?> control);
 
   void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(IControl<?, ?> control, Runnable action);

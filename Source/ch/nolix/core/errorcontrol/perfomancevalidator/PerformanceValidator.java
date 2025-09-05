@@ -5,7 +5,6 @@ import java.util.function.IntFunction;
 import ch.nolix.coreapi.errorcontrol.performancevalidator.IObjectSupplierMediator;
 
 public final class PerformanceValidator {
-
   private PerformanceValidator() {
   }
 

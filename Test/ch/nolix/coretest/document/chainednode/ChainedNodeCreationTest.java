@@ -10,10 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ChainedNodeCreationTest extends StandardTest {
-
   @Test
   void testCase_fromNode_whenNodeIsBlank() {
-
     //setup
     final var node = Node.EMPTY_NODE;
 
@@ -29,7 +27,6 @@ final class ChainedNodeCreationTest extends StandardTest {
 
   @Test
   void testCase_fromNode_whenNodeHasHeaderOnly() {
-
     //setup
     final var node = Node.withHeader("a");
 
@@ -58,7 +55,6 @@ final class ChainedNodeCreationTest extends StandardTest {
   "a(b).c(d).e(f).g(h)"
   })
   void testCase_fromString(final String string) {
-
     //execution
     final var result = ChainedNode.fromString(string);
 
@@ -68,7 +64,6 @@ final class ChainedNodeCreationTest extends StandardTest {
 
   @Test
   void testCase_withHeader_whenNullHeaderIsGiven() {
-
     //execution & verification
     expectRunning(() -> ChainedNode.withHeader(null))
       .throwsException()
@@ -78,7 +73,6 @@ final class ChainedNodeCreationTest extends StandardTest {
 
   @Test
   void testCase_withHeader_whenHeaderIsGiven() {
-
     //execution
     final var result = ChainedNode.withHeader("a");
 

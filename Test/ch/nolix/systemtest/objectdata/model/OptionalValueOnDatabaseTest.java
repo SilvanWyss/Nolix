@@ -10,9 +10,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.OptionalValueField;
 
 final class OptionalValueOnDatabaseTest extends StandardTest {
-
   private static final class Pet extends Entity {
-
     private final OptionalValueField<String> name = OptionalValueField.withValueType(String.class);
 
     Pet() {
@@ -34,7 +32,6 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenIsEmptyAndSaved() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -53,7 +50,6 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -71,7 +67,6 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);

@@ -14,7 +14,6 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 public abstract class AbstractLinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
 extends AbstractContainer<C, S>
 implements ILinearContainer<C, S> {
-
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
   private final MultiValue<IControl<?, ?>> childControls = new MultiValue<>(
@@ -25,7 +24,6 @@ implements ILinearContainer<C, S> {
 
   @Override
   public final C addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
-
     final var allControls = ContainerView.forElementAndArray(control, controls);
 
     return addControls(allControls);
@@ -33,7 +31,6 @@ implements ILinearContainer<C, S> {
 
   @Override
   public final C addControls(final IContainer<? extends IControl<?, ?>> controls) {
-
     controls.forEach(this::addControl);
 
     return asConcrete();
@@ -65,7 +62,6 @@ implements ILinearContainer<C, S> {
   }
 
   private void addControl(final IControl<?, ?> control) {
-
     control.internalSetParentControl(this);
 
     this.childControls.add(control);

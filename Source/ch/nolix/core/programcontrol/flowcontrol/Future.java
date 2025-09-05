@@ -11,7 +11,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2017-05-23
  */
 public final class Future extends AbstractFuture {
-
   private final JobExecutor jobExecutor;
 
   /**
@@ -21,7 +20,6 @@ public final class Future extends AbstractFuture {
    * @throws ArgumentIsNullException if the given jobExecutor is null.
    */
   private Future(final JobExecutor jobExecutor) {
-
     Validator.assertThat(jobExecutor).isNotNull();
 
     this.jobExecutor = jobExecutor;
@@ -80,7 +78,6 @@ public final class Future extends AbstractFuture {
    */
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
-
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     FlowController.asLongAs(

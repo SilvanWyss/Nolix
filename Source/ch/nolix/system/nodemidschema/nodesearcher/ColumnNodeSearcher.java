@@ -8,12 +8,10 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
-
   private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
 
   @Override
   public DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
-
     final var contentModelNode = getStoredContentModelNodeFromColumnNode(columnNode);
 
     return CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode);
@@ -21,7 +19,6 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
   public FieldType getColumnFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
-
     final var contentModelNode = getStoredContentModelNodeFromColumnNode(columnNode);
 
     final var fieldTypeNode = //
@@ -32,7 +29,6 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
   public String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
-
     final var idNode = getStoredIdNodeFromColumnNode(columnNode);
 
     return idNode.getSingleChildNodeHeader();
@@ -40,7 +36,6 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
   public String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
-
     final var columnNameNode = getStoredNameNodeFromColumnNode(columnNode);
 
     return columnNameNode.getSingleChildNodeHeader();

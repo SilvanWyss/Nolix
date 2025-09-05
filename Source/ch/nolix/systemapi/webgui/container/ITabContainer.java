@@ -7,7 +7,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabelStyle;
 
 public interface ITabContainer
 extends ch.nolix.systemapi.webgui.basecontainer.IContainer<ITabContainer, ITabContainerStyle> {
-
   ITabContainer addTab(ITabContainerTab tab, ITabContainerTab... tabs);
 
   ITabContainer addTabs(IContainer<ITabContainerTab> tabs);

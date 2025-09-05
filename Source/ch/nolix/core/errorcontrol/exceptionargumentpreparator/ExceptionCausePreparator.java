@@ -7,13 +7,11 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionCause
  * @version 2025-04-05
  */
 public final class ExceptionCausePreparator implements IExceptionCausePreparator {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public Throwable getValidatedCauseFromCause(final Throwable cause) {
-
     if (cause == null) {
       throw new IllegalArgumentException("The given cause is null.");
     }

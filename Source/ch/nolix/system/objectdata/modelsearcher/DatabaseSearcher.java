@@ -13,13 +13,11 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
  * @version 2024-12-29
  */
 public final class DatabaseSearcher extends DatabaseObjectExaminer implements IDatabaseSearcher {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
-
     if (database == null) {
       return ImmutableList.createEmpty();
     }

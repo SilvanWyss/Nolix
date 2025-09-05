@@ -12,7 +12,6 @@ import ch.nolix.systemapi.webgui.container.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridStyle extends AbstractControlStyle<IGridStyle> implements IGridStyle {
-
   public static final GridType DEFAULT_GRID_TYPE = GridType.INNER_LINES;
 
   public static final int DEFAULT_GRID_THICKNESS = 1;
@@ -105,7 +104,6 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
 
   @Override
   public IGridStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
-
     Validator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 
     this.childControlMargin.setValueForState(state, childControlMargin);
@@ -115,7 +113,6 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
 
   @Override
   public IGridStyle setGridColorForState(final ControlState state, final IColor gridColor) {
-
     this.gridColor.setValueForState(state, gridColor);
 
     return this;
@@ -123,7 +120,6 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
 
   @Override
   public IGridStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
-
     Validator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
 
     this.gridThickness.setValueForState(state, gridThickness);
@@ -133,7 +129,6 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
 
   @Override
   public IGridStyle setGridTypeForState(final ControlState state, final GridType gridType) {
-
     this.gridType.setValueForState(state, gridType);
 
     return this;

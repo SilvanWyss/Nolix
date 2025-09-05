@@ -17,7 +17,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link FilterContainerView}.
  */
 public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
-
   private final IContainer<E> container;
 
   private final Predicate<E> selector;
@@ -32,7 +31,6 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if the given selector is null.
    */
   private FilterContainerView(final IContainer<E> container, final Predicate<E> selector) {
-
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -78,7 +76,6 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
     final T element,
     final T[] array,
     final Predicate<T> selector) {
-
     final var container = ContainerView.forElementAndArray(element, array);
 
     return forContainerAndSelector(container, selector);

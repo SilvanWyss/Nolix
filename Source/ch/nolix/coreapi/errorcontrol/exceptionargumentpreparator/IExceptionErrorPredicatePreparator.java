@@ -8,7 +8,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * @version 2025-04-06
  */
 public interface IExceptionErrorPredicatePreparator {
-
   /**
    * @param errorPredicate
    * @return a validated error predicate from the given errorPredicate.

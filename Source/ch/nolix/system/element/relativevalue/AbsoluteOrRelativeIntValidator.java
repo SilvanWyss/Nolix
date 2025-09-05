@@ -9,7 +9,6 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
  * 
  */
 public final class AbsoluteOrRelativeIntValidator {
-
   /**
    * Prevents that an instance of the {@link AbsoluteOrRelativeIntValidator} can
    * be created.

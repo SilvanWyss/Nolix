@@ -5,7 +5,6 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface IGridStyle extends IControlStyle<IGridStyle> {
-
   int getChildControlMarginWhenHasState(ControlState state);
 
   IColor getGridColorWhenHasState(ControlState state);

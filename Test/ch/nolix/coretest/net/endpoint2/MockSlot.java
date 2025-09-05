@@ -7,7 +7,6 @@ import ch.nolix.coreapi.net.endpoint2.IEndPoint;
 import ch.nolix.coreapi.net.endpoint2.ISlot;
 
 public final class MockSlot implements ISlot {
-
   public static final String REPLY = "reply";
 
   private static final String NAME = "slot";
@@ -20,7 +19,6 @@ public final class MockSlot implements ISlot {
   }
 
   public String getLatestReceivedMessage() {
-
     assertHasReceivedMessage();
 
     return latestReceivedMessage;
@@ -42,7 +40,6 @@ public final class MockSlot implements ISlot {
   }
 
   private String getReply(final String message) {
-
     Validator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
 
     latestReceivedMessage = message;

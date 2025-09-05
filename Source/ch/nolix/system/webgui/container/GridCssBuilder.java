@@ -14,7 +14,6 @@ import ch.nolix.systemapi.webgui.container.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
-
   private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
 
   @Override
@@ -37,7 +36,6 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
     final IGrid control,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-
     final var style = control.getStoredStyle();
     final var gridThickness = style.getGridThicknessWhenHasState(state);
     final var gridcolor = style.getGridColorWhenHasState(state);

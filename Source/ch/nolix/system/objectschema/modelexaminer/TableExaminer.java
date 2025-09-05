@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
  * @version 2024-12-30
  */
 public final class TableExaminer implements ITableExaminer {
-
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   /**
@@ -29,7 +28,6 @@ public final class TableExaminer implements ITableExaminer {
    */
   @Override
   public boolean containsColumnThatIsBackReferencedByColumn(final ITable table, final IColumn column) {
-
     return //
     table != null
 
@@ -44,7 +42,6 @@ public final class TableExaminer implements ITableExaminer {
    */
   @Override
   public boolean containsColumnThatReferencesBackColumn(final ITable table, final IColumn column) {
-
     return //
     table != null
 

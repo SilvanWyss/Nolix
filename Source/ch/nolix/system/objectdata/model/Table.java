@@ -27,7 +27,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class Table<E extends IEntity> implements ITable<E> {
-
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
   private static final ITableSearcher TABLE_TOOL = new TableSearcher();
@@ -62,7 +61,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
     final String name,
     final String id,
     final Class<E> entityClass) {
-
     Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
@@ -94,7 +92,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public int getEntityCount() {
-
     var entityCount = getStoredMidDataDataAdapterAndSchemaReader().getEntityCount(getName());
 
     for (final var e : internalGetStoredEntitiesInLocalData()) {
@@ -126,13 +123,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public Optional<E> getOptionalStoredEntityById(final String id) {
-
     final var entity = internalGetStoredEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
 
     if (entity.isEmpty()) {
-
       if (getStoredMidDataDataAdapterAndSchemaReader().tableContainsEntity(getName(), id)) {
-
         addEntityWithIdWhenIsNotAdded(id);
 
         return Optional.of(getStoredEntityByIdWhenIsInLocalData(id));
@@ -151,7 +145,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public IContainer<E> getStoredEntities() {
-
     loadAllEntitiesInLocalDataIfNotLoaded();
 
     return entitiesInLocalData;
@@ -159,11 +152,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public E getStoredEntityById(final String id) {
-
     final var entity = internalGetStoredEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
 
     if (entity.isEmpty()) {
-
       addEntityWithIdWhenIsNotAdded(id);
 
       return getStoredEntityByIdWhenIsInLocalData(id);
@@ -179,7 +170,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public DatabaseObjectState getState() {
-
     if (parentDatabase.isClosed()) {
       return DatabaseObjectState.CLOSED;
     }
@@ -193,7 +183,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public ITable<E> insertEntity(final E entity) {
-
     //The Entity must know its Table that it can be inserted into the Table.
     entity.internalSetParentTable(this);
 
@@ -263,14 +252,12 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {
-
     final var entity = EntityLoader.loadEntityById(this, id, getStoredMidDataDataAdapterAndSchemaReader());
 
     entitiesInLocalData.addAtEnd(entity);
   }
 
   private void executeInsertEntity(final E entity) {
-
     entitiesInLocalData.addAtEnd(entity);
 
     ((AbstractEntity) entity).noteInsertIntoDatabase();
@@ -282,7 +269,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(EntityLoadingDto loadedEntity) {
     if (!TABLE_EXAMINER.containsEntityWithGivenIdInLocalData(this, loadedEntity.id())) {
-
       final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(getEntityType());
 
       entity.internalSetParentTable(this);
@@ -300,7 +286,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
-
     for (final var r : getStoredMidDataDataAdapterAndSchemaReader().loadEntities(getName())) {
       insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(r);
     }

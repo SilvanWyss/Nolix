@@ -15,7 +15,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 public final class ChangeSetSaveValidator {
-
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
@@ -25,7 +24,6 @@ public final class ChangeSetSaveValidator {
   public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IDatabase database,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var entitiesInLocalData = DATABASE_SEARCHER.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
@@ -96,7 +94,6 @@ public final class ChangeSetSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
     final IMultiReference<?> multiReference,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var referencedTableName = multiReference.getReferencedTableName();
 
     for (final var le : multiReference.getStoredNewAndDeletedEntries()) {

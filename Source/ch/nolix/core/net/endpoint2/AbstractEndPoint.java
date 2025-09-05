@@ -14,7 +14,6 @@ import ch.nolix.coreapi.net.endpoint2.IEndPoint;
  * @version 2017-05-21
  */
 public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
-
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 
   private Function<String, String> replier;
@@ -39,7 +38,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public void setReplier(final UnaryOperator<String> replier) {
-
     //Asserts that the given replier is not null.
     Validator.assertThat(replier).thatIsNamed("replier").isNotNull();
 
@@ -63,12 +61,10 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    *                                               a replier.
    */
   protected final Function<String, String> getStoredReplier() {
-
     final long startTimeInMilliseconds = System.currentTimeMillis();
 
     //This loop suffers from being optimized away by the compiler or the JVM.
     while (!hasReplier()) {
-
       //The following statement, that is actually unnecessary,
       //makes that the current loop is not optimized away.
       System.out.flush(); //NOSONAR: This statement is used to keep the loop.

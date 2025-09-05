@@ -7,7 +7,6 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 final class JobWrapper implements Runnable {
-
   private boolean finished;
 
   private boolean running;
@@ -17,7 +16,6 @@ final class JobWrapper implements Runnable {
   private Throwable error;
 
   public JobWrapper(final Runnable job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.job = job;
@@ -28,7 +26,6 @@ final class JobWrapper implements Runnable {
   }
 
   public Throwable getError() {
-
     if (!caughtError()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
     }
@@ -50,7 +47,6 @@ final class JobWrapper implements Runnable {
 
   @Override
   public void run() {
-
     assertIsFresh();
 
     running = true;
@@ -70,7 +66,6 @@ final class JobWrapper implements Runnable {
   }
 
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
-
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     FlowController.waitAsLongAs(
@@ -82,7 +77,6 @@ final class JobWrapper implements Runnable {
   }
 
   private void assertIsFresh() {
-
     if (isRunning()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already running");
     }

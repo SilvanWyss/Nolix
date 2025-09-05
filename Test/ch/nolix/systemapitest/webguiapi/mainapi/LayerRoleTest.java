@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 final class LayerRoleTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirLayerRole() {
     return //
@@ -25,7 +24,6 @@ final class LayerRoleTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirLayerRole")
   void testCase_fromSpecification(final INode<?> specification, final LayerRole expectedLayerRole) {
-
     //execution
     final var result = LayerRole.fromSpecification(specification);
 

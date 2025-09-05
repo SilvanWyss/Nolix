@@ -5,7 +5,6 @@ package ch.nolix.coreapi.independent.arraytool;
  * @version 2024-12-14
  */
 public interface IArrayValidator {
-
   /**
    * @param array
    * @throws RuntimeException if the given array is null.

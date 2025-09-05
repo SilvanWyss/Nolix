@@ -7,10 +7,8 @@ import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class TextboxTest extends ControlTest<ITextbox> {
-
   @Test
   void testCase_emptyText() {
-
     //setup
     final var testUnit = new Textbox();
     testUnit.setText("Lorem ipsum");

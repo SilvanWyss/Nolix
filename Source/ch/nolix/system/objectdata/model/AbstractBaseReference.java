@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference<E> {
-
   private final ImmutableList<String> referenceableTableNames;
 
   private final String referencedTableName;
@@ -17,7 +16,6 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   private Table<E> referencedTable;
 
   protected AbstractBaseReference(final IContainer<String> referenceableTableNames) {
-
     Validator.assertThatTheStrings(referenceableTableNames).areNotBlank();
 
     this.referenceableTableNames = ImmutableList.forIterable(referenceableTableNames);
@@ -27,7 +25,6 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   }
 
   protected AbstractBaseReference(final String referencedTableName) {
-
     Validator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
 
     this.referenceableTableNames = null;
@@ -59,7 +56,6 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
   //TODO: Delete this method  
   @Override
   public ITable<E> getStoredReferencedTable() {
-
     extractReferencedTableIfNotExtracted();
 
     return referencedTable;

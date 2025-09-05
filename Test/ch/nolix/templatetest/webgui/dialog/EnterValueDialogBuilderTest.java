@@ -16,10 +16,8 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.EnterValueDialogBuilder;
 
 final class EnterValueDialogBuilderTest extends StandardTest {
-
   @Test
   void testCase_build() {
-
     //setup
     final var testUnit = new EnterValueDialogBuilder();
 
@@ -36,7 +34,6 @@ final class EnterValueDialogBuilderTest extends StandardTest {
   @Test
   @SuppressWarnings("unchecked")
   void testCase_build_thenClickCancelButton() {
-
     //setup
     final var testUnit = new EnterValueDialogBuilder();
     final var valueTakerMock = Mockito.mock(Consumer.class);
@@ -56,7 +53,6 @@ final class EnterValueDialogBuilderTest extends StandardTest {
   @Test
   @SuppressWarnings("unchecked")
   void testCase_build_thenClickConfirmButton() {
-
     //setup
     final var testUnit = new EnterValueDialogBuilder();
     final var valueTakerMock = Mockito.mock(Consumer.class);
@@ -76,7 +72,6 @@ final class EnterValueDialogBuilderTest extends StandardTest {
   @Test
   @SuppressWarnings("unchecked")
   void testCase_build_thenAddToWebGui_thenClickCancelButton() {
-
     //parameter definition
     final var value = "777";
 
@@ -106,7 +101,6 @@ final class EnterValueDialogBuilderTest extends StandardTest {
   @Test
   @SuppressWarnings("unchecked")
   void testCase_build_thenAddToWebGui_thenEnterValue_thenClickConfirmButton() {
-
     //parameter definition
     final var value = "777";
 
@@ -134,7 +128,6 @@ final class EnterValueDialogBuilderTest extends StandardTest {
   }
 
   private boolean isCancelButton(final IControl<?, ?> control) {
-
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CANCEL_BUTTON);
     }
@@ -143,7 +136,6 @@ final class EnterValueDialogBuilderTest extends StandardTest {
   }
 
   private boolean isConfirmButton(final IControl<?, ?> control) {
-
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
     }

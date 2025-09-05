@@ -19,7 +19,6 @@ import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
  * @version 2022-07-05
  */
 public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolder {
-
   /**
    * @return true if the current {@link IChainedNode} contains child nodes.
    */

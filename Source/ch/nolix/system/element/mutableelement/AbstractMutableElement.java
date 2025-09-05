@@ -20,7 +20,6 @@ import ch.nolix.systemapi.element.property.IProperty;
  * @version 2017-10-29
  */
 public abstract class AbstractMutableElement implements IMutableElement {
-
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
   private LinkedList<IProperty> properties;
@@ -33,10 +32,8 @@ public abstract class AbstractMutableElement implements IMutableElement {
    */
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
-
     //Iterates the properties of the current MutableElement.
     for (final var p : getStoredProperties()) {
-
       //Handles the case that the current Property has added or changed the given attribute.
       if (p.addedOrChangedAttribute(attribute)) {
         return;
@@ -52,13 +49,11 @@ public abstract class AbstractMutableElement implements IMutableElement {
    */
   @Override
   public final void addOrChangeAttribute(final String attribte, final String... attributes) {
-
     //Calls other method.
     addOrChangeAttribute(Node.fromString(attribte));
 
     //Iterates the given attributes.
     for (final var a : attributes) {
-
       //Calls other method.
       addOrChangeAttribute(Node.fromString(a));
     }
@@ -79,12 +74,10 @@ public abstract class AbstractMutableElement implements IMutableElement {
    */
   @Override
   public final IContainer<INode<?>> getAttributes() {
-
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     //Iterates the properties of the current MutableElement.
     for (final var p : getStoredProperties()) {
-
       //Fills up the attributes of the current Property.
       p.fillUpAttributesInto(attributes);
     }
@@ -133,7 +126,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
    *         illegalAccessException.
    */
   private IllegalAccessError createIllegalAccessErrorFor(final IllegalAccessException illegalAccessException) {
-
     final var message = illegalAccessException.getMessage();
 
     if (message == null || message.isBlank()) {
@@ -151,7 +143,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
    * @param field
    */
   private void extractPotentialPropertyFrom(final Field field) {
-
     //Handles the case that the given field is a Property.
     if (IProperty.class.isAssignableFrom(field.getType())) {
       extractPropertyFrom(field);
@@ -162,7 +153,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
    * Extracts the properties of the current {@link AbstractMutableElement}.
    */
   private void extractProperties() {
-
     properties = LinkedList.createEmpty();
 
     //Iterates the classes of the current MutableElement.
@@ -180,7 +170,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
    * @param pClass
    */
   private void extractPropertiesFrom(final Class<?> pClass) {
-
     //Iterates the fields of the given pClass.
     for (final var f : pClass.getDeclaredFields()) {
       extractPotentialPropertyFrom(f);
@@ -206,7 +195,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
    */
   private void extractPropertyFrom(final Field field) {
     try {
-
       field.setAccessible(true);
 
       final var property = (IProperty) (field.get(this));
@@ -225,7 +213,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
    *         {@link AbstractMutableElement}.
    */
   private IContainer<IProperty> getStoredProperties() {
-
     extractPropertiesIfNotExtracted();
 
     return properties;

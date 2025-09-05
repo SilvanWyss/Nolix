@@ -27,7 +27,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ContentModelMapper //NOSONAR: A ContentModelMapper is a principal object thus it has many dependencies.
 implements IContentModelMapper {
-
   private static final ValueToContentModelMapper VALUE_TYPE_TO_CONTENT_MODEL_MAPPER = //
   new ValueToContentModelMapper();
 
@@ -60,7 +59,6 @@ implements IContentModelMapper {
   public IContentModel mapFieldToContentModel(
     final IField field,
     final IContainer<ITable> referencedTables) {
-
     if (field instanceof IValueField<?> value) {
       return VALUE_TYPE_TO_CONTENT_MODEL_MAPPER.mapFieldToContentModel(value, referencedTables);
     }

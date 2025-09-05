@@ -7,10 +7,8 @@ import ch.nolix.core.independent.list.List;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GetCountMethodTest extends StandardTest {
-
   @Test
   void testCase_getCount_whenGivenIterableIsNull() {
-
     //setup
     final Iterable<Object> iterable = null;
 
@@ -20,7 +18,6 @@ final class GetCountMethodTest extends StandardTest {
 
   @Test
   void testCase_getCount_whenGivenIterableIsEmpty() {
-
     //setup
     final Iterable<Object> iterable = new List<>();
 
@@ -33,7 +30,6 @@ final class GetCountMethodTest extends StandardTest {
 
   @Test
   void testCase_getCount_whenGivenIterableContains1Element() {
-
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "antelope" });
 
@@ -46,7 +42,6 @@ final class GetCountMethodTest extends StandardTest {
 
   @Test
   void testCase_getCount_whenGivenIterableContains2Elements() {
-
     //setup
     final Iterable<Object> iterable = new List<>(new String[] { "antelope", "elephant" });
 

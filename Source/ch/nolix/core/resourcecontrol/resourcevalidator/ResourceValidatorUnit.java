@@ -8,7 +8,6 @@ import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
  * @version 2024-12-19
  */
 public class ResourceValidatorUnit implements IResourceValidator {
-
   /**
    * {@inheritDoc}
    */

@@ -8,7 +8,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2020-06-11
  */
 public interface EmptinessRequestable {
-
   /**
    * @return true if the current {@link EmptinessRequestable} contains one or
    *         several elements.

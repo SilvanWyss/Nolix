@@ -12,7 +12,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * @version 2022-05-28
  */
 public interface IColor extends IElement {
-
   /**
    * @return the alpha value of the current {@link IColor} as percentage. A
    *         percentage is a number in the range [0.0, 1.0].

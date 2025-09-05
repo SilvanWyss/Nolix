@@ -22,7 +22,6 @@ import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
  * @param <N> is the type of a {@link INode}.
  */
 public interface INode<N extends INode<N>> extends BlanknessRequestable, IOptionalHeaderHolder {
-
   /**
    * @param header
    * @return a new {@link INode} that is a copy of the current {@link INode} with

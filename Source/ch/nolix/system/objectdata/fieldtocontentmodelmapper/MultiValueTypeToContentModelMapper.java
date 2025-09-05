@@ -9,12 +9,10 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class MultiValueTypeToContentModelMapper implements IFieldToContentModelMapper<IMultiValueField<?>> {
-
   @Override
   public IContentModel mapFieldToContentModel(
     final IMultiValueField<?> field,
     final IContainer<ITable> referencedTables) {
-
     final var valueType = field.getValueType();
     final var dataType = DataType.forType(valueType);
 

@@ -5,7 +5,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
-
   public ToDatabaseNameCaptor() {
   }
 
@@ -18,7 +17,6 @@ public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N toDatabase(final String databaseName) {
-
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
 
     return setArgumentAndGetNext(databaseName);

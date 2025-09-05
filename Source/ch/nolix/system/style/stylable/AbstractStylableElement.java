@@ -15,7 +15,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public abstract class AbstractStylableElement<E extends IStylableElement<E>>
 extends AbstractMutableElement
 implements IStylableElement<E> {
-
   private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
 
   private static final String TOKEN_HEADER = PascalCaseVariableCatalog.TOKEN;
@@ -29,7 +28,6 @@ implements IStylableElement<E> {
 
   @Override
   public final E addToken(final String token) {
-
     Validator.assertThat(token).thatIsNamed(LowerCaseVariableCatalog.TOKEN).isNotBlank();
 
     tokens.add(token);
@@ -79,7 +77,6 @@ implements IStylableElement<E> {
 
   @Override
   public final void reset() {
-
     removeId();
     removeTokens();
 
@@ -90,7 +87,6 @@ implements IStylableElement<E> {
 
   @Override
   public final void resetStyleRecursively() {
-
     resetStyle();
 
     getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
@@ -98,7 +94,6 @@ implements IStylableElement<E> {
 
   @Override
   public final E setId(final String id) {
-
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id.setValue(id);

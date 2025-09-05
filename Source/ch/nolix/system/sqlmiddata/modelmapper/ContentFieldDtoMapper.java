@@ -12,7 +12,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
  * @version 2025-01-11
  */
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
-
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
   //TODO: Re-engineer
@@ -23,14 +22,12 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   public FieldDto mapStringToContentFieldDtoUsingColumnView(
     final String string,
     final ColumnViewDto columnView) {
-
     final var columnName = columnView.name();
     final var fieldType = columnView.fieldType();
     final var cardinality = fieldType.getCardinality();
     final var baseCardinality = cardinality.getBaseCardinality();
 
     if (baseCardinality == BaseCardinality.SINGLE) {
-
       final var dataType = columnView.dataType();
       final var value = VALUE_MAPPER.mapStringToValue(string, dataType);
 

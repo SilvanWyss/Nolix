@@ -7,7 +7,6 @@ package ch.nolix.coreapi.resourcecontrol.savecontrol;
  * @version 2021-02-26
  */
 public interface ChangeRequestable {
-
   /**
    * @return true if the current {@link ChangeRequestable} has uncomitted changes.
    */

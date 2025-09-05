@@ -6,10 +6,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GetCopyMethodTest extends StandardTest {
-
   @Test
   void testCase_getCopy_whenIsEmpty() {
-
     //setup
     final var testUnit = LinkedList.createEmpty();
 
@@ -22,7 +20,6 @@ final class GetCopyMethodTest extends StandardTest {
 
   @Test
   void testCase_getCopy_whenContainsAny() {
-
     //setup
     final var antelope = "antelope";
     final var baboon = "baboon";

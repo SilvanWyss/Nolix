@@ -12,14 +12,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  *            container mediator.
  */
 public class ExtendedIterableMediator<E> extends IterableMediator<E> {
-
   /**
    * Creates a new extended container mediator for the given argument.
    * 
    * @param argument
    */
   ExtendedIterableMediator(final Iterable<E> argument) {
-
     //Calls constructor of the base class.
     super(argument);
   }

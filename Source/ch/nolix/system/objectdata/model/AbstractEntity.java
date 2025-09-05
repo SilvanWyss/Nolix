@@ -25,7 +25,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 public abstract class AbstractEntity implements IEntity {
-
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
@@ -58,7 +57,6 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final void delete() {
-
     ENTITY_VALIDATOR.assertCanBeDeleted(this);
 
     /*
@@ -83,7 +81,6 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final ITable<? extends IEntity> getStoredParentTable() {
-
     ENTITY_VALIDATOR.assertBelongsToTable(this);
 
     return parentTable;
@@ -91,7 +88,6 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final String getSaveStamp() {
-
     ENTITY_VALIDATOR.assertHasSaveStamp(this);
 
     return saveStamp;
@@ -119,7 +115,6 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final void internalSetLoadedAndIdAndSaveStamp(final String id, final String saveStamp) {
-
     DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
 
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
@@ -132,7 +127,6 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
-
     ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
 
     executeSetParentTable(parentTable);
@@ -209,7 +203,6 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   final void noteInsertIntoDatabase() {
-
     getStoredFields().forEach(AbstractField::noteInsertIntoDatabase);
 
     entityFlyweight.noteInsertIntoDatabase();
@@ -234,7 +227,6 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   private void executeSetParentTable(final ITable<? extends IEntity> parentTable) {
-
     this.parentTable = parentTable;
 
     getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
@@ -251,21 +243,18 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   private void extractFieldsWhenNotExtracted() {
-
     fields = findFields();
 
     fields.forEach(f -> f.setParentEntity(this));
   }
 
   private IContainer<AbstractField> getStoredFields() {
-
     extractFieldsIfNotExtracted();
 
     return fields;
   }
 
   private boolean isReferencedInPersistedDataWhenBelongsToTable() {
-
     final var localId = getId();
 
     return //
@@ -276,7 +265,6 @@ public abstract class AbstractEntity implements IEntity {
 
   private boolean isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(
     final IContainer<String> entitiesToIgnoreIds) {
-
     final var localId = getId();
 
     return //

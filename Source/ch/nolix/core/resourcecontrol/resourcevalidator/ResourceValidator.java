@@ -14,7 +14,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
  * @version 2025-04-13
  */
 public final class ResourceValidator {
-
   /**
    * Prevents that an instance of the {@link ResourceValidator} can be created.
    */
@@ -27,7 +26,6 @@ public final class ResourceValidator {
    * @throws ClosedArgumentException if the given resource is closed.
    */
   public static void assertIsOpen(final CloseStateRequestable resource) {
-
     if (resource == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.RESOURCE);
     }

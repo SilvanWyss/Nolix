@@ -27,7 +27,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
  *            mediator.
  */
 public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
-
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
@@ -40,7 +39,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    * @param argument
    */
   public IterableMediator(final Iterable<E> argument) {
-
     //Calls constructor of the base class.
     super(argument);
   }
@@ -57,7 +55,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   IterableMediator(
     final String argumentName,
     final Iterable<E> argument) {
-
     //Calls constructor of the base class.
     super(argumentName, argument);
   }
@@ -87,7 +84,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  the given condition.
    */
   public void contains(final Predicate<E> condition) {
-
     //Asserts that the given condition is not null.
     if (condition == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.CONDITION);
@@ -96,7 +92,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     //Iterates the elements of the argument of this container mediator.
     var found = false;
     for (final E e : getStoredArgument()) {
-
       //Handles the case that the current element fulfills the given condition.
       if (condition.test(e)) {
         found = true;
@@ -112,7 +107,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsAll(final Object[] elements) {
-
     if (elements == null) {
       throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ELEMENTS);
     }
@@ -123,7 +117,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsAll(final Iterable<Object> elements) {
-
     if (elements == null) {
       throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ELEMENTS);
     }
@@ -132,7 +125,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsAsManyElementsAs(final Object[] array) {
-
     if (array == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ARRAY);
     }
@@ -141,14 +133,12 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsAsManyElementsAs(final Iterable<?> iterable) {
-
     final var elementCountOfIterable = ITERABLE_TOOL.getElementCount(iterable);
 
     hasElementCount(elementCountOfIterable);
   }
 
   public void containsDistinctNonNullElemensOnly() {
-
     containsNonNullElementsOnly();
 
     final var argument = getStoredArgument();
@@ -165,7 +155,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsExactly(final Object firstElement, final Object... elements) {
-
     final var allElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
 
     hasElementCount(allElements.length);
@@ -174,19 +163,16 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsExactlyEqualing(final Object firstElement, final Object... elements) {
-
     final var localElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
 
     containsExactlyEqualing(localElements);
   }
 
   public void containsExactlyEqualing(final Object[] elements) {
-
     containsAsManyElementsAs(elements);
 
     var index = 0;
     for (final var e : getStoredArgument()) {
-
       if (!Objects.equals(e, elements[index])) {
         throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           e,
@@ -199,19 +185,16 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked") E... elements) {
-
     final var localElements = ARRAY_TOOL.createArrayWithElement(element, elements);
 
     containsExactlyInSameOrder(localElements);
   }
 
   public void containsExactlyInSameOrder(final E[] elements) {
-
     containsAsManyElementsAs(elements);
 
     var index = 0;
     for (final var e : getStoredArgument()) {
-
       if (e != elements[index]) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -225,13 +208,11 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   public void containsExactlyInSameOrder(final Iterable<E> elements) {
-
     containsAsManyElementsAs(elements);
 
     final var iterator = elements.iterator();
     var index = 1;
     for (final var e : getStoredArgument()) {
-
       final var element = iterator.next();
 
       if (e != element) {
@@ -288,7 +269,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                   given element count says.
    */
   public void hasElementCount(final int elementCount) {
-
     //Asserts that the given element count is not negative.
     if (elementCount < 0) {
       throw NegativeArgumentException.forArgumentAndArgumentName(elementCount, LowerCaseVariableCatalog.ELEMENT_COUNT);
@@ -302,7 +282,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     //Iterates the argument of this container mediator.
     Iterator<E> iterator = getStoredArgument().iterator();
     while (iterator.hasNext()) {
-
       actualElementCount++;
 
       //Asserts that the argument of this container mediator
@@ -337,7 +316,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  given array.
    */
   public void hasSameSizeAs(final double[] array) {
-
     //Asserts that the given array is not null.
     if (array == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ARRAY);
@@ -354,7 +332,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                   is empty.
    */
   public void isEmpty() {
-
     //Asserts that the argument of this container mediator is not null.
     isNotNull();
 
@@ -371,7 +348,6 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                 empty.
    */
   public void isNotEmpty() {
-
     //Asserts that the argument of this container mediator is not null.
     isNotNull();
 
@@ -382,14 +358,12 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   private void containsNonNullElementsOnly() {
-
     isNotNull();
 
     final var argument = getStoredArgument();
     var oneBasedndex = 1;
 
     for (final var e : argument) {
-
       if (e == null) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(

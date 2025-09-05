@@ -11,7 +11,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
  * @version 2025-01-10
  */
 public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapper {
-
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   @Override
@@ -21,7 +20,6 @@ public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapp
   public ColumnViewDto mapColumnNodeToColumnViewDto(
     final IMutableNode<?> columnNode,
     final int oneBasedColumnOrdinalIndex) {
-
     final var id = COLUMN_NODE_SEARCHER.getColumnIdFromColumnNode(columnNode);
     final var name = COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(columnNode);
     final var fieldType = COLUMN_NODE_SEARCHER.getColumnFieldTypeFromColumnNode(columnNode);

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2025-01-10
  */
 public interface IOneBasedIndexHolder {
-
   /**
    * @return the one-based index of the current {@link IOneBasedIndexHolder}.
    */

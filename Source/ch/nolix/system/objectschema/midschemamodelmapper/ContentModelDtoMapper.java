@@ -29,13 +29,11 @@ import ch.nolix.systemapi.objectschema.model.IValueModel;
  * @version 2024-12-27
  */
 public final class ContentModelDtoMapper implements IContentModelDtoMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public IContentModelDto mapContentModelToContentModelDto(final IContentModel contentModel) {
-
     if (contentModel instanceof final IValueModel<?> valueModel) {
       return new ValueModelDto(valueModel.getDataType());
     }
@@ -49,7 +47,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     }
 
     if (contentModel instanceof final IReferenceModel referenceModel) {
-
       final var dataType = referenceModel.getDataType();
       final var referenceableTableIds = referenceModel.getReferenceableTables().to(ITable::getId);
 
@@ -57,7 +54,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     }
 
     if (contentModel instanceof final IOptionalReferenceModel optionalReferenceModel) {
-
       final var dataType = optionalReferenceModel.getDataType();
       final var referenceableTableIds = optionalReferenceModel.getReferenceableTables().to(ITable::getId);
 
@@ -65,7 +61,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     }
 
     if (contentModel instanceof final IMultiReferenceModel multiReferenceModel) {
-
       final var dataType = multiReferenceModel.getDataType();
       final var referenceableTableIds = multiReferenceModel.getReferenceableTables().to(ITable::getId);
 
@@ -73,7 +68,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     }
 
     if (contentModel instanceof final IBackReferenceModel backReferenceModel) {
-
       final var dataType = backReferenceModel.getDataType();
       final var backReferencedColumnId = backReferenceModel.getBackReferencedColumn().getId();
 
@@ -81,7 +75,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     }
 
     if (contentModel instanceof final IOptionalBackReferenceModel optionalBackReferenceModel) {
-
       final var dataType = optionalBackReferenceModel.getDataType();
       final var backReferencedColumnId = optionalBackReferenceModel.getBackReferencedColumn().getId();
 
@@ -89,7 +82,6 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     }
 
     if (contentModel instanceof final IMultiBackReferenceModel multiBackReferenceModel) {
-
       final var dataType = multiBackReferenceModel.getDataType();
       final var backReferencedColumnId = multiBackReferenceModel.getBackReferencedColumn().getId();
 

@@ -21,7 +21,6 @@ import ch.nolix.coreapi.container.sequencesearch.ISequencePattern;
  *            {@link SequencePattern}.
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {
-
   private final IContainer<Predicate<E>> elementConditions;
 
   private final IContainer<Predicate<IContainer<E>>> sequenceConditions;
@@ -99,7 +98,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    */
   @Override
   public ISequencePattern<E> withConditionForNext(final Predicate<E> condition) {
-
     final var allElementConditions = ContainerView.forIterableAndElement(elementConditions, condition);
 
     return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
@@ -110,7 +108,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    */
   @Override
   public ISequencePattern<E> withConditionsForNexts(IContainer<Predicate<E>> conditions) {
-
     Validator.assertThatTheElements(conditions).areNotNull();
 
     final var allElementConditions = ContainerView.forIterable(elementConditions, conditions);
@@ -123,7 +120,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    */
   @Override
   public ISequencePattern<E> withSequenceCondition(final Predicate<IContainer<E>> sequenceCondition) {
-
     final var newSequenceConditions = ContainerView.forIterableAndElement(sequenceConditions, sequenceCondition);
 
     return withElementConditionsAndSequenceConditions(elementConditions, newSequenceConditions);
@@ -142,7 +138,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    */
   @Override
   public IContainer<? extends IContainer<E>> getMatchingSequencesFrom(final IContainer<E> list) {
-
     final ILinkedList<ILinkedList<E>> sequences = LinkedList.createEmpty();
 
     final int maxSequenceCount = list.getCount() - getSize() + 1;
@@ -150,12 +145,10 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     //Iterates the given list.
     final var iterator = list.iterator();
     for (var i = 1; i <= maxSequenceCount; i++) {
-
       //Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
       var sequenceFulfillsElementConditions = true;
       final var iterator2 = iterator.getCopy();
       for (final Predicate<E> c : elementConditions) {
-
         final var element = iterator2.next();
 
         if (!c.test(element)) {
@@ -165,7 +158,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       }
 
       if (sequenceFulfillsElementConditions) {
-
         final ILinkedList<E> sequence = LinkedList.createEmpty();
         final var iterator3 = iterator.getCopy();
 
@@ -199,7 +191,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @return true if the current {@link SequencePattern} matches the given list.
    */
   public boolean matches(final LinkedList<E> list) {
-
     //Asserts that the given list has as many elements as the current SequencePattern requires.
     if (list.getCount() != getSize()) {
       return false;

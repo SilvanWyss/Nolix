@@ -10,7 +10,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.container.list.IArrayList;
 
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
-
   private final IContainer<IContainer<E>> containers;
 
   private MultiContainerView() {
@@ -18,7 +17,6 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   private MultiContainerView(final E[] array, @SuppressWarnings("unchecked") final E[]... arrays) {
-
     final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
 
     localContainers.addAtEnd(ArrayContainerView.forArray(array));
@@ -33,7 +31,6 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   private MultiContainerView(
     final Iterable<? extends E> iterable,
     @SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
-
     final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
 
     localContainers.addAtEnd(IterableContainerView.forIterable(iterable));
@@ -74,10 +71,8 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
 
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     var i = 1;
     for (final var e : this) {
-
       if (i == oneBasedIndex) {
         return e;
       }

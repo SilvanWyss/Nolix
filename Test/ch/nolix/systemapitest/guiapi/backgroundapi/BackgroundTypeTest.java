@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 
 final class BackgroundTypeTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirBackgroundTypes() {
     return //
@@ -26,7 +25,6 @@ final class BackgroundTypeTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirBackgroundTypes")
   void testCase_fromSpecification(final INode<?> specification, final BackgroundType expectedBackgroundType) {
-
     //execution
     final var result = BackgroundType.fromSpecification(specification);
 

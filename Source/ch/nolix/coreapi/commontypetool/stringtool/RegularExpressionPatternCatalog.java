@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
  * @version 2023-01-09
  */
 public final class RegularExpressionPatternCatalog {
-
   public static final Pattern DOLLAR_PATTERN = Pattern.compile(RegularExpressionStringPatternCatalog.DOLLAR_PATTERN);
 
   public static final Pattern DOT_PATTERN = Pattern.compile(RegularExpressionStringPatternCatalog.DOT_PATTERN);

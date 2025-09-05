@@ -8,10 +8,8 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 
 final class NodeTest extends BaseNodeTest<Node> {
-
   @Test
   void testCase_asWithHeader_1A() {
-
     //setup
     final var testUnit = Node.fromString("a(x,y)");
 
@@ -24,7 +22,6 @@ final class NodeTest extends BaseNodeTest<Node> {
 
   @Test
   void testCase_asWithHeader_1B() {
-
     //setup
     final var testUnit = Node.fromString("(x,y)");
 
@@ -37,7 +34,6 @@ final class NodeTest extends BaseNodeTest<Node> {
 
   @Test
   void testCase_asWithHeader_1C() {
-
     //setup
     final var testUnit = Node.fromString("a");
 
@@ -55,7 +51,6 @@ final class NodeTest extends BaseNodeTest<Node> {
   "a(b(c)), <a><b>c</b></a>"
   })
   void testCase_toXml(final String nodeStringRepresentation, final String expectedXmlStringRepresentation) {
-
     //setup
     final var testUnit = Node.fromString(nodeStringRepresentation);
 

@@ -14,7 +14,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
  * @version 2024-12-25
  */
 public final class EntityDtoMapper implements IEntityDtoMapper {
-
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IStringRepresentedFieldDtoMapper STRING_REPRESENTED_FIELD_DTO_MAPPER = //
@@ -25,7 +24,6 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    */
   @Override
   public EntityCreationDto mapEntityToEntityCreationDto(final IEntity entity) {
-
     final var id = entity.getId();
     final var entityFields = entity.internalGetStoredFields();
     final var contentFields = STRING_REPRESENTED_FIELD_DTO_MAPPER.mapFieldsToStringRepresentedFieldDtos(entityFields);
@@ -38,7 +36,6 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    */
   @Override
   public EntityDeletionDto mapEntityToEntityDeletionDto(final IEntity entity) {
-
     final var id = entity.getId();
     final var saveStamp = entity.getSaveStamp();
 
@@ -50,7 +47,6 @@ public final class EntityDtoMapper implements IEntityDtoMapper {
    */
   @Override
   public EntityUpdateDto mapEntityToEntityUpdateDto(final IEntity entity) {
-
     final var id = entity.getId();
     final var saveStamp = entity.getSaveStamp();
     final var editedFields = ENTITY_SEARCHER.getStoredEditedFields(entity);

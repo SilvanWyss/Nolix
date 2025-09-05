@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IValueHolder;
  * @param <V> is the value of a {@link IMutableValueHolder}.
  */
 public interface IMutableValueHolder<V> extends IValueHolder<V> {
-
   /**
    * Sets the value of the current {@link IMutableValueHolder}.
    * 

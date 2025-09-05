@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
  * @version 2025-06-01
  */
 public interface IMutableDatabaseNameHolder extends IDatabaseNameHolder {
-
   /**
    * Sets the database name of the current {@link IMutableDatabaseNameHolder}.
    * 

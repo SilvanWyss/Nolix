@@ -14,7 +14,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
  * @version 2020-07-06
  */
 final class ClosePool implements IClosePool {
-
   private CloseState state = CloseState.OPEN;
 
   private final LinkedList<GroupCloseable> elements = LinkedList.createEmpty();
@@ -81,7 +80,6 @@ final class ClosePool implements IClosePool {
    *                                          contains already the given element.
    */
   private void addElement(GroupCloseable element) {
-
     assertDoesNotContainElement(element);
 
     elements.addAtEnd(element);
@@ -103,7 +101,6 @@ final class ClosePool implements IClosePool {
    * state of the current {@link IClosePool} is {@link CloseState#OPEN}.
    */
   private void closeElementsWhenStateIsOpen() {
-
     state = CloseState.ON_CLOSING;
 
     elements.forEach(this::letNoteClose);

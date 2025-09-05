@@ -7,7 +7,6 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class ValidationLabelHtmlBuilderTest
 extends ControlHtmlBuilderTest<ValidationLabelHtmlBuilder, IValidationLabel> {
-
   @Override
   protected IValidationLabel createControl() {
     return new ValidationLabel();

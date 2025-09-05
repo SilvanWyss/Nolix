@@ -14,9 +14,7 @@ import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.system.objectschema.model.ValueModel;
 
 final class NodeDataAdapterTest extends StandardTest {
-
   private static final class Pet extends Entity {
-
     Pet() {
       initialize();
     }
@@ -24,7 +22,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_close_whenIsOpen() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = //
@@ -42,7 +39,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_close_whenIsClosed() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var testUnit = //
@@ -61,7 +57,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenDatabaseIsEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
 
@@ -76,7 +71,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenDatabaseIsNotValid() {
-
     //setup
     final var nodeDatabase = MutableNode.fromString("x(y,z)");
 
@@ -90,7 +84,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_getEmptyCopy_whenHasChanges() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -110,7 +103,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -126,7 +118,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_saveChangesAndReset_whenHasChanges() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
@@ -143,7 +134,6 @@ final class NodeDataAdapterTest extends StandardTest {
 
   @Test
   void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
-
     //setup part 1: Creates a database.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);

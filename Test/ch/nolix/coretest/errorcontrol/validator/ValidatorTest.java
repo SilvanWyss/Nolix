@@ -13,10 +13,8 @@ import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ValidatorTest extends StandardTest {
-
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByte() {
-
     //setup
     final var argument = (byte) 127;
 
@@ -29,7 +27,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
-
     //setup
     final var argument = new byte[100];
 
@@ -42,7 +39,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsADouble() {
-
     //setup
     final var argument = 1.0;
 
@@ -55,7 +51,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
-
     //setup
     final var argument = new double[100];
 
@@ -68,7 +63,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
-
     //setup
     final var argument = 50;
 
@@ -81,7 +75,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
-
     //setup
     final var argument = new int[100];
 
@@ -94,7 +87,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsALong() {
-
     //setup
     final var argument = 50L;
 
@@ -107,7 +99,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
-
     //setup
     final var argument = new long[100];
 
@@ -120,7 +111,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
-
     //setup
     final var argument = FunctionService.class.getMethod("doNothing");
 
@@ -133,7 +123,6 @@ final class ValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAString() {
-
     //setup
     final var argument = "lorem ipsum";
 

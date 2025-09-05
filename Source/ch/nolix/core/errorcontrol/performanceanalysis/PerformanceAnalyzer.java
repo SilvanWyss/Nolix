@@ -11,7 +11,6 @@ import ch.nolix.core.independent.stopwatch.StopWatch;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
-
   private static final RuntimeMeter RUNTIME_METER = new RuntimeMeter();
 
   @Override
@@ -30,12 +29,10 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     final IntFunction<O> objectSupplier,
     final Consumer<O> action,
     final LongToDoubleFunction timeComplexityFunction) {
-
     final var stopWatch = StopWatch.createStartedStopWatch();
     var maxRunCount = 5;
 
     while (stopWatch.getTotalRunningTimeInMilliseconds() < 5_000) {
-
       final var passed = //
       onObjectsFromObjectSupplierUpToMaxRunCountActionRunsWithGivenOrLowerTimeComplexity(
         objectSupplier,
@@ -44,7 +41,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
         timeComplexityFunction);
 
       if (passed) {
-
         final var resultIsFinal = //
         resultIsFinalAccordingToTotalRunningTimeInMillisecondsAndTotalRunCount(
           stopWatch.getTotalRunningTimeInMilliseconds(),
@@ -67,11 +63,9 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     final int maxRunCount,
     final Consumer<O> action,
     final LongToDoubleFunction timeComplexityFunction) {
-
     var latestTimeComplexityInvariant = 0.0;
 
     for (var runCount = 5; runCount <= maxRunCount; runCount *= 5) {
-
       final var optionalTimeComplexityInvariant = //
       getOpionalTimeComplexityInvariantOfActionOnObjectFromObjectSupplierByRunCountAndTimeComplexityFunction(
         objectSupplier,
@@ -80,7 +74,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
         timeComplexityFunction);
 
       if (optionalTimeComplexityInvariant.isPresent()) {
-
         final var timeComplexityInvariant = optionalTimeComplexityInvariant.get();
         final var goodWillTimeComplexityInvariant = 1.1 * timeComplexityInvariant;
 
@@ -105,12 +98,10 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     final int runCount,
     final Consumer<O> action,
     final LongToDoubleFunction timeComplexityFunction) {
-
     final var runtimeInMilliseconds = //
     getRuntimeInMillisecondsOfActionOnObjectFromObjectSupplierByRunCount(objectSupplier, runCount, action);
 
     if (runtimeInMilliseconds > 10) {
-
       final var timeComplexity = timeComplexityFunction.applyAsDouble(runCount);
       final double timeComplexityInvariant = timeComplexity / runtimeInMilliseconds;
 
@@ -124,7 +115,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
     final IntFunction<O> objectSupplier,
     final int runCount,
     final Consumer<O> action) {
-
     final var object = objectSupplier.apply(runCount);
     final Runnable actionOnObject = () -> action.accept(object);
 
@@ -138,7 +128,6 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
   private boolean resultIsFinalAccordingToTotalRunningTimeInMillisecondsAndTotalRunCount(
     final long totalRunningTimeInMilliseconds,
     final int totalRunCount) {
-
     if (totalRunningTimeInMilliseconds > 500) {
       return (totalRunCount >= 5);
     }

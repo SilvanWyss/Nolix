@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class TableTableSqlSchemaDtoCatalog {
-
   private static final ColumnDto ID_COLUMN_SQL_DTO = //
   new ColumnDto(
     TableColumn.ID.getName(),

@@ -9,10 +9,8 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
 final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
-
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_1() {
-
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
@@ -32,7 +30,6 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_2() {
-
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
@@ -52,7 +49,6 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   @Test
   void test_getSquaredMagnitudeOfValueAtOneBasedIndex() {
-
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
@@ -68,7 +64,6 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   @Test
   void test_getValueAtOneBasedIndex() {
-
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(

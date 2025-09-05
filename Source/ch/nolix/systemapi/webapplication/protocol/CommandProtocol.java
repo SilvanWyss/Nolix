@@ -1,7 +1,6 @@
 package ch.nolix.systemapi.webapplication.protocol;
 
 public final class CommandProtocol {
-
   public static final String SET_CSS = "SetCSS";
 
   public static final String SET_EVENT_FUNCTIONS = "SetEventFunctions";

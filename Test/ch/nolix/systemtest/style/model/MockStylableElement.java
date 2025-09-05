@@ -8,11 +8,9 @@ import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 public final class MockStylableElement extends AbstractStylableElement<MockStylableElement> {
-
   private String role;
 
   public String getRole() {
-
     assertHasRole();
 
     return role;

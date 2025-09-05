@@ -40,7 +40,6 @@ MaterializationRequestable,
 SingleSearchable<E>,
 StoringRequestable<E>,
 StringMappable {
-
   /**
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given

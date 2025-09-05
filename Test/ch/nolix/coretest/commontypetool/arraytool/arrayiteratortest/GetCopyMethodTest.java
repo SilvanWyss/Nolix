@@ -8,10 +8,8 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GetCopyMethodTest extends StandardTest {
-
   @Test
   void testCase_getCopy_whenIsAtStartIndex() {
-
     //setup part 1: Creates array.
     final var element1 = new VoidObject();
     final var element2 = new VoidObject();
@@ -48,7 +46,6 @@ final class GetCopyMethodTest extends StandardTest {
 
   @Test
   void testCase_getCopy_whenIsAtIndexBetweenStartAndEnd() {
-
     //setup part 1: Creates array.
     final var element1 = new VoidObject();
     final var element2 = new VoidObject();
@@ -80,7 +77,6 @@ final class GetCopyMethodTest extends StandardTest {
 
   @Test
   void testCase_getCopy_whenIsAtEndIndex() {
-
     //setup part 1: Creates array.
     final var element1 = new VoidObject();
     final var element2 = new VoidObject();

@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
  * @version 2024-12-21
  */
 public interface IColumnDtoMapper {
-
   /**
    * @param joinedColumnSqlRecord
    * @return a new {@link ColumnDto} from the given joinedColumnSqlRecord.

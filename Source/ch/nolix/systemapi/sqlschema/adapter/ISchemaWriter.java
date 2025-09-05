@@ -6,7 +6,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
-
   void addAdditionalSqlStatements(IContainer<String> additionalSqlStatements);
 
   void addColumn(String tableName, ColumnDto column);

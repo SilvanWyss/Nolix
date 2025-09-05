@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.function.Function;
 
 public final class List<E> implements Iterable<E> {
-
   private int elementCount;
 
   private ListNode<E> beginNode;
@@ -25,7 +24,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public static String[] createArrayFromList(final List<String> list) {
-
     final var array = new String[list.getElementCount()];
 
     var index = 0;
@@ -38,7 +36,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public static <E2> List<E2> withElements(final Iterable<E2> elements) {
-
     final var list = new List<E2>();
 
     for (final var e : elements) {
@@ -49,7 +46,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public void addAtBegin(final E element) {
-
     final ListNode<E> node = new ListNode<>(element);
 
     if (isEmpty()) {
@@ -64,7 +60,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public void addAtEnd(final E element) {
-
     final var node = new ListNode<>(element);
 
     if (isEmpty()) {
@@ -85,7 +80,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public List<E> getCopy() {
-
     final var list = new List<E>();
 
     for (final var e : this) {
@@ -100,7 +94,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public E getStoredFirst() {
-
     assertIsNotEmpty();
 
     return beginNode.getStoredElement();
@@ -112,7 +105,6 @@ public final class List<E> implements Iterable<E> {
 
   @Override
   public Iterator<E> iterator() {
-
     if (isEmpty()) {
       return ListIterator.forEmptyList();
     }
@@ -121,7 +113,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public void removeFirst() {
-
     assertIsNotEmpty();
 
     if (!beginNode.hasNextNode()) {
@@ -141,7 +132,6 @@ public final class List<E> implements Iterable<E> {
   }
 
   public byte[] toByteArray(Function<E, Byte> byteMapper) {
-
     if (byteMapper == null) {
       throw new IllegalArgumentException("The given byteMapper is null.");
     }
@@ -150,7 +140,6 @@ public final class List<E> implements Iterable<E> {
     var index = 0;
 
     for (final var e : this) {
-
       if (e == null) {
         array[index] = 0;
       } else {
@@ -180,11 +169,9 @@ public final class List<E> implements Iterable<E> {
   private void removeFirstOccuranceOfWhenIsNotFirst(final E element) {
     var iteratorNode = beginNode;
     while (iteratorNode.hasNextNode()) {
-
       final var nextNode = iteratorNode.getStoredNextNode();
 
       if (nextNode.contains(element)) {
-
         if (!nextNode.hasNextNode()) {
           iteratorNode.removeNextNode();
           endNode = iteratorNode;

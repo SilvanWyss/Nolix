@@ -8,10 +8,8 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 final class ApplicationInstanceTargetTest extends StandardTest {
-
   @Test
   void testCase_forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {
-
     //execution
     final var result = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
@@ -31,7 +29,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   @Test
   void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
-
     //setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
@@ -50,7 +47,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   @Test
   void testCase_toUrl_forHttpsPortAndSSLSecurityMode() {
-
     //setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
@@ -69,7 +65,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   @Test
   void testCase_toUrl_forCustomPortAndNoneSecurityMode() {
-
     //setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
@@ -88,7 +83,6 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   @Test
   void testCase_toUrl_forCustomPortAndSslSecurityMode() {
-
     //setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(

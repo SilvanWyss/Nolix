@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
  * @version 2024-12-30
  */
 public interface IColumnValidator {
-
   /**
    * 
    * @param column

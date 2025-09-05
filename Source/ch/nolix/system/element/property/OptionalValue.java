@@ -14,7 +14,6 @@ import ch.nolix.coreapi.document.node.INode;
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends AbstractSingleValue<V> {
-
   /**
    * Creates a new {@link OptionalValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
@@ -33,7 +32,6 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
@@ -92,7 +90,6 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
       setterMethod,
       s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
       (final String s) -> {
-
         if (s.isEmpty()) {
           return Node.EMPTY_NODE;
         }

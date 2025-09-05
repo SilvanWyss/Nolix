@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2020-03-29
  */
 public interface IOptionalNameHolder {
-
   /**
    * @return the name of the current {@link IOptionalNameHolder}.
    * @throws RuntimeException if the current {@link IOptionalNameHolder} does not

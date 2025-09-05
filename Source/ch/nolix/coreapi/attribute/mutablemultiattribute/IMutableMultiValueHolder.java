@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiValueHolder;
  * @param <V> is the type of the values of a {@link IMutableMultiValueHolder}.
  */
 public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
-
   /**
    * Adds the given value to the current {@link IMutableMultiValueHolder}.
    * 

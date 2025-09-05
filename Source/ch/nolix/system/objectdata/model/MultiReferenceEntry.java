@@ -12,7 +12,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
-
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 
   private final IMultiReference<E> parentMultiReference;
@@ -27,7 +26,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     final IMultiReference<E> parentMultiReference,
     final DatabaseObjectState initialState,
     final String referencedEntityId) {
-
     Validator.assertThat(parentMultiReference).thatIsNamed("parent MultiReference").isNotNull();
     Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
     Validator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
@@ -42,7 +40,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     final DatabaseObjectState initialState,
     final String referencedEntityId,
     final String referencedEntityTableId) {
-
     Validator.assertThat(parentMultiReference).thatIsNamed("parent MultiReference").isNotNull();
     Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
     Validator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
@@ -91,7 +88,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   @Override
   public String getReferencedTableId() {
-
     assertKnowsReferencedTable();
 
     return referencedTableId;
@@ -162,7 +158,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   }
 
   void setDeleted() {
-
     assertIsLoaded();
 
     state = DatabaseObjectState.DELETED;

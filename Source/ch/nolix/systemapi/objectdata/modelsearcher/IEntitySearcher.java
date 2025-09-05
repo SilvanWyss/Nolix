@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
  * @version 2024-12-29
  */
 public interface IEntitySearcher {
-
   /**
    * @param entity
    * @param baseReference

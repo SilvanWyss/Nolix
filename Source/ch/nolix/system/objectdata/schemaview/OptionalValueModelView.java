@@ -3,7 +3,6 @@ package ch.nolix.system.objectdata.schemaview;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public final class OptionalValueModelView<V> extends AbstractBaseValueModelView<V> {
-
   private OptionalValueModelView(final Class<V> valueType) {
     super(valueType);
   }

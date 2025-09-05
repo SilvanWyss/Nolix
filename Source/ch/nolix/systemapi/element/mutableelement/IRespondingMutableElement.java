@@ -8,7 +8,6 @@ import ch.nolix.coreapi.document.node.INode;
  * @param <E> is the type of a {@link IRespondingMutableElement}.
  */
 public interface IRespondingMutableElement<E extends IRespondingMutableElement<E>> extends IMutableElement {
-
   /**
    * Adds or changes the given attribute to the current
    * {@link IRespondingMutableElement} if the given attributes matches.

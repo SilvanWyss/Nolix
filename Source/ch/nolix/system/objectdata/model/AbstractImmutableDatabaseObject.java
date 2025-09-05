@@ -7,7 +7,6 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 abstract class AbstractImmutableDatabaseObject implements GroupCloseable, IDatabaseObject {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   @Override

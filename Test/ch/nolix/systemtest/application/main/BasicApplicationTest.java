@@ -9,10 +9,8 @@ import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.webapplication.main.WebClient;
 
 final class BasicApplicationTest extends StandardTest {
-
   @Test
   void testCase_withNameAndInitialSessionClassAndContext() {
-
     //setup
     final var applicationService = new VoidObject();
 

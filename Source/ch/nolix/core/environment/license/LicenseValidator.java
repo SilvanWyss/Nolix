@@ -12,13 +12,11 @@ import ch.nolix.coreapi.environment.licenseapi.ILicenseValidator;
  * @version 2025-07-30
  */
 public final class LicenseValidator implements ILicenseValidator {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public void assertIsActivated(final ILicense license) {
-
     Validator.assertThat(license).thatIsNamed(ILicense.class).isNotNull();
 
     if (!license.isActivated()) {
@@ -31,7 +29,6 @@ public final class LicenseValidator implements ILicenseValidator {
    */
   @Override
   public void assertIsNotActivated(final ILicense license) {
-
     Validator.assertThat(license).thatIsNamed(ILicense.class).isNotNull();
 
     if (license.isActivated()) {

@@ -17,11 +17,9 @@ AndDatabaseNameCaptor< //
 WithLoginNameCaptor< //
 AndLoginPasswordCaptor< //
 AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
-
   public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 
   private MsSqlDataAdapterBuilder() {
-
     super(
       new AndPortCaptor<>(
         new AndDatabaseNameCaptor<>(

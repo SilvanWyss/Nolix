@@ -9,11 +9,9 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 final class ServerTest extends StandardTest {
-
   @Test
   void testCase_forHttpPort() {
     try (final var testUnit = Server.forHttpPort()) {
-
       //verification
       expect(testUnit.getIp()).isEqualTo(LocalComputer.getLanIp());
       expect(testUnit.getPort()).isEqualTo(PortCatalog.HTTP);

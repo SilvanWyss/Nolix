@@ -9,7 +9,6 @@ import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public abstract class AbstractSubElement<E extends IMutableElement> implements IProperty {
-
   private final String attributePrefix;
 
   private E internalSubElement;
@@ -17,7 +16,6 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
   protected AbstractSubElement(
     final String attributePrefix,
     final E internalSubElement) {
-
     Validator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
 
     this.attributePrefix = attributePrefix;
@@ -36,9 +34,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
 
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
-
     if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
-
       internalSubElement.addOrChangeAttribute(
         Node.withHeaderAndChildNodes(
           attribute.getHeader().substring(attributePrefix.length()),
@@ -59,7 +55,6 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
   }
 
   protected final void internalSetSubElement(final E internalSubElement) {
-
     Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 
     if (this.internalSubElement != null && !isExchangable()) {

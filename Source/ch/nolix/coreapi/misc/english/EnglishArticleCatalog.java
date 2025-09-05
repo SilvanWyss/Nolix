@@ -9,7 +9,6 @@ package ch.nolix.coreapi.misc.english;
  * @version 2024-12-25
  */
 public final class EnglishArticleCatalog {
-
   public static final String A = "a";
 
   public static final String AN = "an";

@@ -8,7 +8,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @param <V> is the type of the value of a {@link IValueHolder}.
  */
 public interface IValueHolder<V> {
-
   /**
    * @return the value of the current {@link IValueHolder}.
    */

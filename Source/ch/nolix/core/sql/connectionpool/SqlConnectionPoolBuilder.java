@@ -15,9 +15,7 @@ AndDatabaseNameCaptor< //
 WithSqlDatabaseEngineCaptor< //
 AndLoginNameCaptor< //
 AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
-
   private SqlConnectionPoolBuilder() {
-
     super(
       new AndPortCaptor<>(
         new AndDatabaseNameCaptor<>(

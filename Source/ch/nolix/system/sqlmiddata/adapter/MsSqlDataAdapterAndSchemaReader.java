@@ -6,13 +6,11 @@ import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 
 public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
-
   private final ISqlConnection sqlConnection;
 
   private MsSqlDataAdapterAndSchemaReader(
     final String databaseName,
     final ISqlConnection sqlConnection) {
-
     super(
       MsSqlDataAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection),
       SqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));

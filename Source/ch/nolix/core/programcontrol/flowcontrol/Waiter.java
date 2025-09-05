@@ -13,7 +13,6 @@ import ch.nolix.coreapi.misc.time.TimeUnitConversionCatalog;
  * @version 2017-06-04
  */
 final class Waiter {
-
   /**
    * Prevents that an instance of the {@link Waiter} can be created.
    */
@@ -28,7 +27,6 @@ final class Waiter {
    *                                   negative.
    */
   public static void waitForSeconds(final int duractionInSeconds) {
-
     //Asserts that the given duractionInSeconds is not negative.
     Validator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 
@@ -43,7 +41,6 @@ final class Waiter {
    *                                   negative.
    */
   public static void waitForMilliseconds(final int durationInMilliseconds) {
-
     //Asserts that the given durationInMilliseconds is not negative.
     Validator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 

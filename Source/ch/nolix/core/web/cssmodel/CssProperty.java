@@ -5,14 +5,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 
 public final class CssProperty implements ICssProperty {
-
   private final String name;
 
   private final String value;
 
   //For a better performance, this implementation does not use all available comfort methods.
   private CssProperty(final String name, final String value) {
-
     if (name == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.NAME);
     }
@@ -26,7 +24,6 @@ public final class CssProperty implements ICssProperty {
   }
 
   public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
-
     if (cssProperty instanceof final CssProperty localCssProperty) {
       return localCssProperty;
     }

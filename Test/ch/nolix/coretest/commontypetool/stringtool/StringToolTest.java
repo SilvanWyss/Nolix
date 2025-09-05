@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class StringToolTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "'', 0, ''", //
@@ -33,7 +32,6 @@ final class StringToolTest extends StandardTest {
     final String string,
     final int lastCharacterCount,
     final String expectedResult) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -59,7 +57,6 @@ final class StringToolTest extends StandardTest {
   "10, '\t\t\t\t\t\t\t\t\t\t'" //
   })
   void testCase_createTabs(final int tabCount, final String expectedResult) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -72,7 +69,6 @@ final class StringToolTest extends StandardTest {
 
   @Test
   void testCase_createTabs_whenTheGivenTabCountIsNegative() {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -89,7 +85,6 @@ final class StringToolTest extends StandardTest {
   "zebra, {zebra}" //
   })
   void testCase_getIngetInBraces(final String string, final String expectedResult) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -102,7 +97,6 @@ final class StringToolTest extends StandardTest {
 
   @Test
   void testCase_getInInBraces_whenTheGivenObjectIsNull() {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -115,7 +109,6 @@ final class StringToolTest extends StandardTest {
 
   @Test
   void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -135,7 +128,6 @@ final class StringToolTest extends StandardTest {
   "false" //
   })
   void testCase_toBoolean_whenTheGivenStringRepresentsFalse(final String string) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -155,7 +147,6 @@ final class StringToolTest extends StandardTest {
   "true" //
   })
   void testCase_toBoolean_whenTheGivenStringRepresentsTrue(final String string) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -178,7 +169,6 @@ final class StringToolTest extends StandardTest {
   "10" //
   })
   void testCase_toBoolean_whenTheGivenStringDoesNotRepresentABoolean(final String string) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -199,7 +189,6 @@ final class StringToolTest extends StandardTest {
   "2", //
   })
   void testCase_toDouble_whenTheGivenStringDoesNotRepresentADouble(final String string) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -238,7 +227,6 @@ final class StringToolTest extends StandardTest {
   "Cursor500Icon, CURSOR500ICON" //
   })
   void testCase_toCapitalSnakeCase(final String string, final String expectedResult) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -277,7 +265,6 @@ final class StringToolTest extends StandardTest {
   "Cursor500Icon, Cursor500Icon" //
   })
   void testCase_toPascalCase(final String string, final String expectedResult) {
-
     //setup
     final var testUnit = new StringToolUnit();
 

@@ -8,7 +8,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2024-01-19
  */
 public interface IQualifiedNameHolder extends INameHolder {
-
   /**
    * @return the qualified name of the current {@link IQualifiedNameHolder}.
    */

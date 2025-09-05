@@ -12,14 +12,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2024-05-12
  */
 public final class IteratorValidator implements IIteratorValidator {
-
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public void assertHasNext(final Iterator<?> iterator) {
-
     //Asserts that the given iterator is not null.
     if (iterator == null) {
       throw ArgumentIsNullException.forArgumentType(Iterator.class);

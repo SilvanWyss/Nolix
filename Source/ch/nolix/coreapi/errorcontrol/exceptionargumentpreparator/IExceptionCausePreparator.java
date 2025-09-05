@@ -8,7 +8,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * @version 2025-04-05
  */
 public interface IExceptionCausePreparator {
-
   /**
    * @param cause
    * @return a validated cause from the given cause.

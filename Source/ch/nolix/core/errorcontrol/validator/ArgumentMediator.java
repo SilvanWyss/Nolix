@@ -18,7 +18,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <A> is the type of the argument of an {@link ArgumentMediator}.
  */
 public class ArgumentMediator<A> extends Mediator {
-
   private final A argument;
 
   /**
@@ -27,7 +26,6 @@ public class ArgumentMediator<A> extends Mediator {
    * @param argument
    */
   protected ArgumentMediator(final A argument) {
-
     //Calls other constructor.
     this(DEFAULT_ARGUMENT_NAME, argument);
   }
@@ -42,7 +40,6 @@ public class ArgumentMediator<A> extends Mediator {
    * @throws InvalidArgumentException if the given argument name is blank.
    */
   protected ArgumentMediator(final String argumentName, final A argument) {
-
     //Calls constructor of the base class.
     super(argumentName);
 
@@ -67,7 +64,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  the given condition.
    */
   public final void fulfills(Predicate<A> condition) {
-
     //Asserts that the given condition is not null.
     if (condition == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.CONDITION);
@@ -93,7 +89,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  given object.
    */
   public final void hasSameStringRepresentationAs(final Object object) {
-
     //Asserts that the given object is not null.
     if (object == null) {
       throw ArgumentIsNullException.forArgumentType(Object.class);
@@ -113,7 +108,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  given stringRepresentation.
    */
   public final void hasStringRepresentation(final String stringRepresentation) {
-
     isNotNull();
 
     final var actualStringRepresentation = getStoredArgument().toString();
@@ -134,7 +128,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  given object.
    */
   public final void isEqualTo(final Object object) {
-
     //Asserts that the argument of the current ArgumentMediator equals the given
     //object.
     if (!Objects.equals(getStoredArgument(), object)) {
@@ -149,7 +142,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  given object.
    */
   public final void is(final Object object) {
-
     //Asserts that the argument of the current ArgumentMediator is the given
     //object.
     if (argument != object) {
@@ -168,7 +160,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  object.
    */
   public final void isNot(final Object object) {
-
     //Asserts that the argument of the current ArgumentMediator is not the given
     //object.
     if (argument == object) {
@@ -187,7 +178,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  object.
    */
   public final void isNotEqualTo(final A object) {
-
     //Asserts that the argument of the current ArgumentMediator does not equal the
     //given object.
     if (Objects.equals(getStoredArgument(), object)) {
@@ -200,7 +190,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                 {@link ArgumentMediator} is null.
    */
   public final void isNotNull() {
-
     //Asserts that the argument of the current ArgumentMediator is not null.
     if (argument == null) {
       throw ArgumentIsNullException.forArgumentName(getArgumentName());
@@ -212,7 +201,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                    {@link ArgumentMediator} is not (!) null.
    */
   public final void isNull() {
-
     //Asserts that the argument of the current ArgumentMediator is (!) null.
     if (argument != null) {
       throw ArgumentIsNotNullException.forArgument(getStoredArgument());
@@ -228,7 +216,6 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  type.
    */
   public final void isOfType(final Class<?> type) {
-
     //Asserts that the argument of the current ArgumentMediator is not null.
     isNotNull();
 

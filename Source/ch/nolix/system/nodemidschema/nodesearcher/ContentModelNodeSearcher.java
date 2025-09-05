@@ -8,10 +8,8 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
 public final class ContentModelNodeSearcher implements IContentModelNodeSearcher {
-
   @Override
   public String getBackReferencedColumnIdFromContentModelNode(final IMutableNode<?> contentModelNode) {
-
     final var backReferencedColumnIdNode = getStoredBackReferencedColumnIdNodeFromContentModelNode(contentModelNode);
 
     return backReferencedColumnIdNode.getSingleChildNodeHeader();
@@ -19,7 +17,6 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
 
   @Override
   public DataType getDataTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
-
     final var dataTypeNode = getStoredDataTypeNodeFromContentModelNode(contentModelNode);
 
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
@@ -27,7 +24,6 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
 
   @Override
   public FieldType getFieldTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
-
     final var fieldTypeNode = getStoredFieldTypeNodeFromContentModelNode(contentModelNode);
 
     return FieldType.fromSpecification(fieldTypeNode);
@@ -35,7 +31,6 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
 
   @Override
   public IContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode) {
-
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromContentModelNode(contentModelNode);
 
     return referenceableTableIdsNode.getChildNodesHeaders();

@@ -3,7 +3,6 @@ package ch.nolix.core.environment.nolixlicense;
 import ch.nolix.core.environment.license.License;
 
 public final class Nolix2026Pro extends License {
-
   //key = '45680060'
   @Override
   protected boolean acceptsRefinedKey(final String filteredKey) {

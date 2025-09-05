@@ -16,7 +16,6 @@ import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
 extends AbstractBackendClient<C, S>
 implements ICookieManager {
-
   private static final ClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
   new ClientCommandCreator();
 
@@ -27,7 +26,6 @@ implements ICookieManager {
 
   @Override
   public final void deleteCookieByName(final String name) {
-
     final var deleteCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createDeleteCookieCommand(name);
 
     runOnCounterpart(deleteCookieCommand);
@@ -35,7 +33,6 @@ implements ICookieManager {
 
   @Override
   public final Optional<String> getOptionalCookieValueByCookieName(final String cookieName) {
-
     final var getCookieValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
       .createGetCookieValueRequestForCookieName(cookieName);
 
@@ -43,7 +40,6 @@ implements ICookieManager {
   }
 
   public final Optional<String> getOptionalUrlParameterValueByUrlParameterName(final String urlParameterName) {
-
     final var getUrlParameterValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
       .createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
 
@@ -54,7 +50,6 @@ implements ICookieManager {
 
   @Override
   public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
-
     final var addOrSetCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createAddOrSetCookieCommand(name, value);
 
     runOnCounterpart(addOrSetCookieCommand);
@@ -78,14 +73,12 @@ implements ICookieManager {
   }
 
   final String internalGetTextFromClipboardOfCounterpart() {
-
     final var getTextFromClipBoardCommand = BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetTextFromClipboardRequest();
 
     return getDataFromCounterpart(getTextFromClipBoardCommand).getHeader();
   }
 
   final void internalOpenNewTabOnCounterpartWithUrl(final String url) {
-
     final var openNewTabCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createOpenNewTabCommand(url);
 
     runOnCounterpart(openNewTabCommand);
@@ -96,14 +89,12 @@ implements ICookieManager {
   }
 
   final void internalRedirectCounterpartTo(final IApplicationInstanceTarget applicationInstanceTarget) {
-
     final var redirectCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationInstanceTarget);
 
     runOnCounterpart(redirectCommand);
   }
 
   final void internalRedirectCounterpartToUrl(final String url) {
-
     final var redirectToUrlCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(url);
 
     runOnCounterpart(redirectToUrlCommand);
@@ -114,14 +105,12 @@ implements ICookieManager {
   }
 
   final void internalSaveFileOnCounterpart(final byte[] bytes) {
-
     final var saveFileCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createSaveFileCommand(bytes);
 
     runOnCounterpart(saveFileCommand);
   }
 
   final void internalWriteTextToClipboardOfCounterpart(final String text) {
-
     final var writeTextToClipboardCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createWriteTextToClipBoardCommand(text);
 
     runOnCounterpart(writeTextToClipboardCommand);

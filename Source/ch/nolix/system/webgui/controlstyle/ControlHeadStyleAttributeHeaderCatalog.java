@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.controlstyle;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
 public final class ControlHeadStyleAttributeHeaderCatalog {
-
   public static final String OPACITY_HEADER = PascalCaseVariableCatalog.OPACITY;
 
   public static final String FONT_HEADER = PascalCaseVariableCatalog.FONT;

@@ -12,7 +12,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  *            {@link IUpdaterCollector} can mutate.
  */
 public interface IUpdaterCollector<O> extends Clearable {
-
   /**
    * Adds the given updater to the current {@link IUpdaterCollector}.
    * 

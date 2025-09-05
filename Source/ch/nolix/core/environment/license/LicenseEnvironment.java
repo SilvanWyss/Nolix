@@ -11,7 +11,6 @@ import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalo
  * @version 2019-11-16
  */
 public final class LicenseEnvironment {
-
   public static final String LICENCSE_FILE_EXTENSION = "license";
 
   /**

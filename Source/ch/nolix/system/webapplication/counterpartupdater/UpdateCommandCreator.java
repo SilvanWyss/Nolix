@@ -17,7 +17,6 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class UpdateCommandCreator implements IUpdateCommandCreator {
-
   @Override
   public IChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetCssCommandFromCss(webGui.getCss());
@@ -94,7 +93,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
 
   private ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
     final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
-
     final var eventFunctions = htmlElementEventRegistrations.to(
       e -> Node.withChildNode(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
 
@@ -114,7 +112,6 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   }
 
   private ChainedNode createSetUserInputFunctionsCommandForControls(final IContainer<IControl<?, ?>> controls) {
-
     final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {

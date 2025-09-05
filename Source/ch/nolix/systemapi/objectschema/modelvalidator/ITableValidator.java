@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @version 2024-12-30
  */
 public interface ITableValidator {
-
   /**
    * @param table
    * @param column

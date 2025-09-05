@@ -12,7 +12,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class BackReference<E extends IEntity> extends AbstractBaseBackReference<E> implements IBackReference<E> {
-
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
@@ -38,7 +37,6 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseReference<IEntity>> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
-
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -57,7 +55,6 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   @Override
   public String getBackReferencedEntityId() {
-
     FIELD_VALIDATOR.assertIsNotEmpty(this);
 
     return backReferencedEntityId;

@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITextHolder;
  * @param <H> is the type of a {@link IFluentMutableOptionalTextHolder}.
  */
 public interface IFluentMutableOptionalTextHolder<H extends IFluentMutableOptionalTextHolder<H>> extends ITextHolder {
-
   /**
    * Removes the text of the current {@link IFluentMutableOptionalTextHolder}.
    */

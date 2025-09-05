@@ -7,7 +7,6 @@ import ch.nolix.systemapi.webgui.main.IRootControlOwner;
 
 public interface ITabContainerTab
 extends IFluentMutableHeaderHolder<IHeaderHolder>, IRootControlOwner<ITabContainerTab>, Selectable {
-
   boolean belongsToTabContainer();
 
   ITabContainer getParentTabContainer();

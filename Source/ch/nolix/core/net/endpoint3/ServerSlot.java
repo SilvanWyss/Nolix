@@ -11,7 +11,6 @@ import ch.nolix.coreapi.net.endpoint2.ISlot;
  * @version 2021-06-28
  */
 final class ServerSlot implements ISlot {
-
   private final String name;
 
   private final AbstractServer parentServer;
@@ -26,7 +25,6 @@ final class ServerSlot implements ISlot {
    * @throws ArgumentIsNullException  if the given parentServer is null.
    */
   public ServerSlot(final String name, final AbstractServer parentServer) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 

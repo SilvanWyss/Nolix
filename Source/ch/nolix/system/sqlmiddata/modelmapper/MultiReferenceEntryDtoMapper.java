@@ -12,7 +12,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
  * @version 2025-06-20
  */
 public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryDtoMapper {
-
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   /**
@@ -22,7 +21,6 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
   public MultiReferenceEntryDto mapMultiReferenceEntrySqlRecordToMultiReferenceEntryDto(
     final ISqlRecord multiReferenceSqlRecord,
     final DatabaseViewDto databaseView) {
-
     final var tableId = multiReferenceSqlRecord.getStoredAtOneBasedIndex(2);
     final var table = DATABASE_VIEW_SEARCHER.getTableViewByTableId(databaseView, tableId);
     final var tableName = table.name();

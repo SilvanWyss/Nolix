@@ -11,11 +11,9 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public abstract class AbstractBaseBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
 implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
-
   private final C backReferencedColumn;
 
   protected AbstractBaseBackReferenceModelView(final C backReferencedColumn) {
-
     Validator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 
     this.backReferencedColumn = backReferencedColumn;

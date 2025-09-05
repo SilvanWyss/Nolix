@@ -6,13 +6,11 @@ import ch.nolix.core.programcontrol.worker.AbstractWorker;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
 
 final class SocketEndPointMessageListener extends AbstractWorker {
-
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
   private final SocketEndPoint parentNetEndPoint;
 
   public SocketEndPointMessageListener(final SocketEndPoint parentNetEndPoint) {
-
     Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
 
     this.parentNetEndPoint = parentNetEndPoint;
@@ -23,7 +21,6 @@ final class SocketEndPointMessageListener extends AbstractWorker {
   @Override
   protected void run() {
     while (parentNetEndPoint.isOpen()) {
-
       final var line = INPUT_STREAM_TOOL.readLineFromInputStream(parentNetEndPoint.getStoredInputStream());
 
       if (line == null) {

@@ -11,10 +11,8 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
 final class ShowValueDialogBuilderTest extends StandardTest {
-
   @Test
   void testCase_build() {
-
     //setup
     final var testUnit = new ShowValueDialogBuilder();
 
@@ -27,7 +25,6 @@ final class ShowValueDialogBuilderTest extends StandardTest {
 
   @Test
   void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
-
     //setup
     final var webGui = new WebGui();
     final var testUnit = new ShowValueDialogBuilder();
@@ -45,7 +42,6 @@ final class ShowValueDialogBuilderTest extends StandardTest {
   }
 
   private boolean isConfirmButton(final IControl<?, ?> control) {
-
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
     }

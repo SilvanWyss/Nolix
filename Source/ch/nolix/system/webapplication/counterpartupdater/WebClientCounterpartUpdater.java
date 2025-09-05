@@ -10,7 +10,6 @@ import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebClientCounterpartUpdater {
-
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
   private final BooleanSupplier openStateRequestable;
@@ -20,7 +19,6 @@ public final class WebClientCounterpartUpdater {
   private WebClientCounterpartUpdater(
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
-
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
@@ -35,7 +33,6 @@ public final class WebClientCounterpartUpdater {
   }
 
   public void updateCounterpartFromWebGui(final IWebGui<?> webGui) {
-
     webGui.applyStyleIfHasStyle();
 
     final var updateCommands = createUpdateCommandsFromWebGui(webGui);

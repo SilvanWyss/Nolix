@@ -6,13 +6,11 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 final class ControlParent {
-
   private final ILayer<?> layer;
 
   private final IControl<?, ?> control;
 
   private ControlParent(final IControl<?, ?> control) {
-
     Validator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
 
     layer = null;
@@ -20,7 +18,6 @@ final class ControlParent {
   }
 
   private ControlParent(final ILayer<?> layer) {
-
     Validator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
 
     this.layer = layer;
@@ -40,7 +37,6 @@ final class ControlParent {
   }
 
   public boolean belongsToGui() {
-
     if (isControl()) {
       return control.belongsToGui();
     }
@@ -49,7 +45,6 @@ final class ControlParent {
   }
 
   public boolean belongsToLayer() {
-
     if (isControl()) {
       return control.belongsToLayer();
     }
@@ -58,14 +53,12 @@ final class ControlParent {
   }
 
   public IControl<?, ?> getStoredControl() {
-
     assertIsControl();
 
     return control;
   }
 
   public Object getStoredElement() {
-
     if (isControl()) {
       return control;
     }
@@ -74,7 +67,6 @@ final class ControlParent {
   }
 
   public ILayer<?> getStoredRootLayer() {
-
     if (isLayer()) {
       return layer;
     }

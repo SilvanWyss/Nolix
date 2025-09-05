@@ -4,7 +4,6 @@ import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 public interface IDatabaseObjectValidator extends IResourceValidator {
-
   void assertIsConnectedWithRealDatabase(IDatabaseObject databaseObject);
 
   void assertIsLoaded(IDatabaseObject databaseObject);

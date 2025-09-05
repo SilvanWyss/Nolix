@@ -9,10 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GetInParenthesesMethodTest extends StandardTest {
-
   @Test
   void testCase_getInParantheses_whenGivenObjectIsNull() {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -30,7 +28,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
   "lorem ipsum, (lorem ipsum)"
   })
   void testCase_getInParantheses_when1StringIsGiven(final String string, final String expectedResult) {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -43,7 +40,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
 
   @Test
   void testCase_getInParantheses_when3StringsAreGiven() {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -56,7 +52,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
 
   @Test
   void testCase_getInParantheses_whenOneOfGivenStringsIsNull() {
-
     //setup
     final var testUnit = new StringToolUnit();
 
@@ -69,7 +64,6 @@ final class GetInParenthesesMethodTest extends StandardTest {
 
   @Test
   void testCase_getInParantheses_whenGivenVarargsIsNull() {
-
     //setup
     final Object[] varargs = null;
     final var testUnit = new StringToolUnit();

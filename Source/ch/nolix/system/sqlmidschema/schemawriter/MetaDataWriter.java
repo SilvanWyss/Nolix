@@ -13,7 +13,6 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreato
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class MetaDataWriter {
-
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
@@ -22,7 +21,6 @@ public final class MetaDataWriter {
   private final ISqlCollector sqlCollector;
 
   private MetaDataWriter(final ISqlCollector sqlCollector) {
-
     Validator.assertThat(sqlCollector).thatIsNamed(SqlCollector.class).isNotNull();
 
     this.sqlCollector = sqlCollector;
@@ -33,35 +31,30 @@ public final class MetaDataWriter {
   }
 
   public void addColumn(final String tableName, final ColumnDto column) {
-
     final var statement = META_DATA_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
 
     sqlCollector.addSqlStatement(statement);
   }
 
   public void deleteColumn(String tableName, String columnName) {
-
     final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
 
     sqlCollector.addSqlStatement(statement);
   }
 
   public void addTable(final TableDto table) {
-
     final var statements = META_DATA_STATEMENT_CREATOR.createStatementsToAddTable(table);
 
     sqlCollector.addSqlStatements(statements);
   }
 
   public void deleteTable(final String tableName) {
-
     final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteTable(tableName);
 
     sqlCollector.addSqlStatement(statement);
   }
 
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-
     final var statement = //
     META_DATA_STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
 
@@ -69,7 +62,6 @@ public final class MetaDataWriter {
   }
 
   public void renameTable(final String tableName, final String newTableName) {
-
     final var statement = //
     META_DATA_STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
 
@@ -77,7 +69,6 @@ public final class MetaDataWriter {
   }
 
   public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
-
     final var statement = //
     META_DATA_STATEMENT_CREATOR.createStatementToSetContentModel(tableName, columnName, contentModel);
 
@@ -85,7 +76,6 @@ public final class MetaDataWriter {
   }
 
   public void setSchemaTimestamp(ITime schemaTimestamp) {
-
     final var statement = DATABASE_PROPERTIES_STATEMENT_CREATOR.createStatementToSetSchemaTimestamp(schemaTimestamp);
 
     sqlCollector.addSqlStatement(statement);

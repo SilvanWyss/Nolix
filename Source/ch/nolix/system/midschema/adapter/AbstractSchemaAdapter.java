@@ -16,7 +16,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISchemaReader schemaReader;
@@ -27,7 +26,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     final IDatabaseInitializer databaseInitializer,
     final Supplier<ISchemaReader> schemaReaderCreator,
     final Supplier<ISchemaWriter> schemaWriterCreator) {
-
     databaseInitializer.initializeDatabaseIfNotInitialized();
 
     schemaReader = schemaReaderCreator.get();

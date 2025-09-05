@@ -6,7 +6,6 @@ import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 
 final class WebSocketFrameFirstNibble {
-
   private final boolean mFINBit;
 
   private final int opcode;
@@ -22,7 +21,6 @@ final class WebSocketFrameFirstNibble {
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
     final boolean maskBit,
     final int payloadLength) {
-
     Validator.assertThat(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
 
     this.mFINBit = mFINBit;
@@ -38,7 +36,6 @@ final class WebSocketFrameFirstNibble {
   }
 
   public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
-
     final var wrapperByte1 = new UnsignedByte(byte1);
     final var wrapperByte2 = new UnsignedByte(byte2);
 
@@ -58,7 +55,6 @@ final class WebSocketFrameFirstNibble {
   }
 
   public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
-
     Validator.assertThat(nibble).hasElementCount(2);
 
     return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
@@ -69,7 +65,6 @@ final class WebSocketFrameFirstNibble {
   }
 
   public byte getByte1() {
-
     var byte1 = 0;
 
     if (getFINBit()) {
@@ -82,7 +77,6 @@ final class WebSocketFrameFirstNibble {
   }
 
   public byte getByte2() {
-
     var byte2 = 0;
 
     if (getMaskBit()) {

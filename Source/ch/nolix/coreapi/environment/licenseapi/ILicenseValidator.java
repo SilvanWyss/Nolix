@@ -7,7 +7,6 @@ import ch.nolix.core.environment.license.License;
  * @version 2025-07-30
  */
 public interface ILicenseValidator {
-
   /**
    * @param license
    * @throws RuntimeException if the given {@link License} is null or not

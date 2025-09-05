@@ -10,9 +10,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiValueField;
 
 final class MultiValueOnDatabaseTest extends StandardTest {
-
   private static final class Round extends Entity {
-
     final MultiValueField<Integer> amounts = MultiValueField.withValueType(Integer.class);
 
     Round() {
@@ -22,7 +20,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsNewAndEmpty() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);
@@ -40,7 +37,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsNewAndContainsValue() {
-
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);
@@ -64,7 +60,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_removeValue_whenIsLoadedAndContainsValue() {
-
     //setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);

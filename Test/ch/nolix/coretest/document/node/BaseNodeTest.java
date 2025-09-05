@@ -11,10 +11,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
-
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
-
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a");
 
@@ -24,7 +22,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
-
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
@@ -37,7 +34,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   @Test
   void testCase_getStoredChildNodeAtOneBasedIndex() {
-
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
@@ -75,7 +71,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   "Lorem,Ipsum",
   "Lorem Ipsum" })
   void testCase_getHeader(final String header) {
-
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes(header);
 
@@ -88,7 +83,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   @Test
   void testCase_getStoredSingleChildNode_1A() {
-
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
@@ -101,7 +95,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   @Test
   void testCase_getStoredSingleChildNode_1B() {
-
     //setup
     final N testUnit = createBlankNode();
 
@@ -111,7 +104,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   @Test
   void testCase_toString_1() {
-
     //setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
@@ -129,7 +121,6 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   "'Lorem,', 'Lorem$M'"
   })
   void testCase_toString_2(final String header, final String expectedResult) {
-
     //setup
     final N testUnit = createNodeWithHeader(header);
 

@@ -7,7 +7,6 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 public abstract class CopyableIteratorTest extends StandardTest {
-
   protected abstract <E> CopyableIterator<E> createIteratorForEmptyContainerForType(Class<E> type);
 
   protected abstract <E> CopyableIterator<E> createIteratorForContainerWithElements(
@@ -16,7 +15,6 @@ public abstract class CopyableIteratorTest extends StandardTest {
 
   @Test
   void testCase_getCopy() {
-
     //setup
     final var antelope = "antelope";
     final var baboon = "baboon";

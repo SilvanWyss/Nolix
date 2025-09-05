@@ -11,7 +11,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @param <S> is the type of a {@link ISelectingStyle}.
  */
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IAbstractStyle<S> {
-
   /**
    * @return true if the current {@link ISelectingStyle} would select the child
    *         elements of a given {@link IStylableElement} to style.

@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 
 public final class BufferedImageTool {
-
   public BufferedImage fromBytes(final byte[] bytes) {
     try {
       return ImageIO.read(new ByteArrayInputStream(bytes));

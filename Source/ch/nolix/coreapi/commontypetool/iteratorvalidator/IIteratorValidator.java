@@ -7,7 +7,6 @@ import java.util.Iterator;
  * @version 2024-05-12
  */
 public interface IIteratorValidator {
-
   /**
    * @param iterator
    * @throws RuntimeException if the given iterator does not have a next element.

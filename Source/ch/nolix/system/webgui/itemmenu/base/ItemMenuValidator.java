@@ -11,7 +11,6 @@ import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuValidator;
  * @version 2025-02-09
  */
 public final class ItemMenuValidator implements IItemMenuValidator {
-
   private static final IItemMenuExaminer ITEM_MENU_EXAMINER = new ItemMenuExaminer();
 
   /**

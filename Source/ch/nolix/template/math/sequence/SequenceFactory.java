@@ -6,7 +6,6 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 
 public final class SequenceFactory {
-
   private SequenceFactory() {
   }
 

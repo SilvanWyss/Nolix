@@ -5,7 +5,6 @@ package ch.nolix.coreapi.commontypetool.stringtool;
  * @version 2025-03-01
  */
 public interface IStringExaminer {
-
   /**
    * @param string
    * @return true if the given string is in lower case, false otherwise.

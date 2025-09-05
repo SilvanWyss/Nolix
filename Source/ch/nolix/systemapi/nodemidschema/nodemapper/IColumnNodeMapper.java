@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
  * @version 2024-12-21
  */
 public interface IColumnNodeMapper {
-
   /**
    * @param columnDto
    * @return a new {@link INode} from the given columnDto.

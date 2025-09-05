@@ -8,10 +8,8 @@ import ch.nolix.core.programcontrol.flowcontrol.ForCountMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ForCountMediatorTest extends StandardTest {
-
   @Test
   void testCase_forMaxRunCount_whenTheGivenMaxRunCountIsNegative() {
-
     //execution & verification
     expectRunning(() -> ForCountMediator.forMaxRunCount(-1))
       .throwsException()
@@ -21,7 +19,6 @@ final class ForCountMediatorTest extends StandardTest {
 
   @Test
   void testCase_run_whenTheGivenMaxRunCountIs0() {
-
     //setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(0);
@@ -35,7 +32,6 @@ final class ForCountMediatorTest extends StandardTest {
 
   @Test
   void testCase_run_whenTheGivenMaxRunCountIs1() {
-
     //setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(1);
@@ -49,7 +45,6 @@ final class ForCountMediatorTest extends StandardTest {
 
   @Test
   void testCase_run_whenTheGivenMaxRunCountIs5() {
-
     //setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(5);
@@ -63,7 +58,6 @@ final class ForCountMediatorTest extends StandardTest {
 
   @Test
   void testCase_runInBackground_whenTheGivenMaxRunCountIs0() {
-
     //setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(0);
@@ -79,7 +73,6 @@ final class ForCountMediatorTest extends StandardTest {
 
   @Test
   void testCase_runInBackground_whenTheGivenMaxRunCountIs1() {
-
     //setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(1);
@@ -95,7 +88,6 @@ final class ForCountMediatorTest extends StandardTest {
 
   @Test
   void testCase_runInBackground_whenTheGivenMaxRunCountIs5() {
-
     //setup
     final var mockRunnable = Mockito.mock(Runnable.class);
     final var testUnit = ForCountMediator.forMaxRunCount(5);

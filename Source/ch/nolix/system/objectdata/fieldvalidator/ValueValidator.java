@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IValueValidator;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public final class ValueValidator extends FieldValidator implements IValueValidator {
-
   private static final IValueFieldExaminer VALUE_TOOL = new ValueFieldExaminer();
 
   @Override

@@ -11,10 +11,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
 final class WebSocketFrameTest extends StandardTest {
-
   @Test
   void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
-
     //setup
     final var bytes = new byte[] {
     new UnsignedByte(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
@@ -26,12 +24,10 @@ final class WebSocketFrameTest extends StandardTest {
     //setup
     final var webSocketFrame = new WebSocketFrame(
       new InputStream() {
-
         private int counter;
 
         @Override
         public int read() throws IOException {
-
           //The mask 0xFF makes a byte unsigned.
           final var lByte = 0xFF & bytes[counter];
 
@@ -58,7 +54,6 @@ final class WebSocketFrameTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
-
     //setup
     final var testUnit = new WebSocketFrame(false, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
 
@@ -73,7 +68,6 @@ final class WebSocketFrameTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
-
     //setup
     final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
 
@@ -88,7 +82,6 @@ final class WebSocketFrameTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
-
     //setup
     final var testUnit = new WebSocketFrame(
       true,
@@ -110,7 +103,6 @@ final class WebSocketFrameTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
-
     //setup
     final var payload = new byte[65535];
     final var lByte = new UnsignedByte(1, 0, 1, 0, 1, 1, 0, 0).toByte();
@@ -137,7 +129,6 @@ final class WebSocketFrameTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
-
     //setup
     final var payload = new byte[65536];
     final var lByte = new UnsignedByte(1, 0, 1, 0, 1, 1, 0, 0).toByte();
@@ -170,7 +161,6 @@ final class WebSocketFrameTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
-
     //setup
     final var payload = new byte[1_000_000];
     final var lByte = new UnsignedByte(1, 0, 1, 0, 1, 1, 0, 0).toByte();

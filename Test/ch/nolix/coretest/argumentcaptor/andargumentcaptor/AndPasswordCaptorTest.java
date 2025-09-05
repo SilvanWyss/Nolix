@@ -8,10 +8,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class AndPasswordCaptorTest extends StandardTest {
-
   @Test
   void testCase_andPassword_whenHasNext() {
-
     //parameter definition
     final var password = "my_password";
 
@@ -29,7 +27,6 @@ final class AndPasswordCaptorTest extends StandardTest {
 
   @Test
   void testCase_andPassword_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new AndPasswordCaptor<>();
 
@@ -41,7 +38,6 @@ final class AndPasswordCaptorTest extends StandardTest {
 
   @Test
   void testCase_getPassword_whenDoesNotHavePassword() {
-
     //setup
     final var testUnit = new AndPasswordCaptor<>();
 

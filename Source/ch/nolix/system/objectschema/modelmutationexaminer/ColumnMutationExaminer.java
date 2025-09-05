@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.modelmutationexaminer.IColumnMutationExam
  * @version 2024-12-27
  */
 public final class ColumnMutationExaminer implements IColumnMutationExaminer {
-
   /**
    * {@inheritDoc}
    */

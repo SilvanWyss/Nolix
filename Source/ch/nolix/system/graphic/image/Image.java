@@ -13,18 +13,15 @@ import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 
 public final class Image extends AbstractElement implements IImage {
-
   private final MutableImage internalImage;
 
   private Image(final MutableImage internalImage) {
-
     Validator.assertThat(internalImage).thatIsNamed("internal image").isNotNull();
 
     this.internalImage = internalImage;
   }
 
   public static Image fromAnyImage(final IImage image) {
-
     if (image instanceof final Image lImage) {
       return lImage;
     }
@@ -33,7 +30,6 @@ public final class Image extends AbstractElement implements IImage {
   }
 
   public static Image fromBytes(final byte[] bytes) {
-
     final var mutableImage = MutableImage.fromBytes(bytes);
 
     return fromAnyImage(mutableImage);

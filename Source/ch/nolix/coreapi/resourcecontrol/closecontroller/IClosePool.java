@@ -8,7 +8,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
  * @version 2022-07-08
  */
 public interface IClosePool {
-
   /**
    * Adds the given elements to the current {@link IClosePool}.
    * 

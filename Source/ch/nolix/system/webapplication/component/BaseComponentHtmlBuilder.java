@@ -8,10 +8,8 @@ import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class BaseComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final IComponent control) {
-
     final var childControls = control.getStoredChildControls();
 
     return switch (childControls.getCount()) {

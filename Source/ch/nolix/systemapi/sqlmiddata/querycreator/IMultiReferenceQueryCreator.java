@@ -3,7 +3,6 @@ package ch.nolix.systemapi.sqlmiddata.querycreator;
 import ch.nolix.coreapi.container.base.IContainer;
 
 public interface IMultiReferenceQueryCreator {
-
   String createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
     String columnId,
     String referencedEntityId,

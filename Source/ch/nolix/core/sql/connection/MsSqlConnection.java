@@ -5,7 +5,6 @@ import java.sql.Connection;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public final class MsSqlConnection extends AbstractSqlConnection {
-
   public static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MSSQL;
 
   private static final String MSSQL_DATABASE_ENINGE_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";

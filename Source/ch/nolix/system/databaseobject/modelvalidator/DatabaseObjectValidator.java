@@ -7,7 +7,6 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 
 public class DatabaseObjectValidator extends ResourceValidatorUnit implements IDatabaseObjectValidator {
-
   @Override
   public final void assertIsConnectedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (!databaseObject.isConnectedWithRealDatabase()) {

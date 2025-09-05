@@ -11,10 +11,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
 final class ComplexNumberTest extends StandardTest {
-
   @Test
   void testCase_constructor_1A() {
-
     //execution
     final var result = new ComplexNumber(0.0, 0.0);
 
@@ -25,7 +23,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_constructor_1B() {
-
     //execution
     final var result = new ComplexNumber(1.0, 0.0);
 
@@ -36,7 +33,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_constructor_1C() {
-
     //execution
     final var result = new ComplexNumber(0.0, 1.0);
 
@@ -47,7 +43,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_constructor_2A() {
-
     //execution
     final var realComponent = new BigDecimal("3.14159265359").setScale(5, RoundingMode.HALF_UP);
     final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(10, RoundingMode.HALF_UP);
@@ -63,7 +58,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_constructor_2B() {
-
     //execution
     final var realComponent = new BigDecimal("3.14159265359").setScale(10, RoundingMode.HALF_UP);
     final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(5, RoundingMode.HALF_UP);
@@ -79,7 +73,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getConjugate_1A() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
@@ -92,7 +85,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getConjugate_1B() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
@@ -105,7 +97,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getConjugate_1C() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
@@ -118,7 +109,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getConjugate_1D() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
@@ -141,7 +131,6 @@ final class ComplexNumberTest extends StandardTest {
     final double realComponent,
     final double imaginaryComponent,
     final double expectedMagnitude) {
-
     //parameter definition
     final var scale = 10;
 
@@ -157,7 +146,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getProduct_1A() {
-
     //parameter definition
     final var factor = new ComplexNumber(0.0, 0.0);
 
@@ -173,7 +161,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getProduct_1B() {
-
     //parameter definition
     final var factor = new ComplexNumber(0.0, 0.0);
 
@@ -189,7 +176,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getSum_1A() {
-
     //setup
     final var testUnit = new ComplexNumber(-1.0, -1.0);
 
@@ -207,7 +193,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getSum_1B() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
@@ -225,7 +210,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_getSum_1C() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
@@ -243,7 +227,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_inDecimalPlaces() {
-
     //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 10);
 
@@ -258,7 +241,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, -1.0);
 
@@ -271,7 +253,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
@@ -284,7 +265,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
@@ -297,7 +277,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, -1.0);
 
@@ -310,7 +289,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
@@ -323,7 +301,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
@@ -336,7 +313,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
-
     //setup
     final var testUnit = new ComplexNumber(-1.0, 1.0);
 
@@ -349,7 +325,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
@@ -362,7 +337,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
@@ -375,7 +349,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
-
     //setup
     final var testUnit = new ComplexNumber(-1.0, 0.0);
 
@@ -388,7 +361,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
-
     //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
@@ -401,7 +373,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
-
     //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
@@ -414,7 +385,6 @@ final class ComplexNumberTest extends StandardTest {
 
   @Test
   void testCase_toString() {
-
     //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 5);
 

@@ -16,7 +16,6 @@ import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
 import ch.nolix.systemapi.objectschema.schematool.ITableTool;
 
 public final class DatabaseTool extends DatabaseObjectExaminer implements IDatabaseTool {
-
   private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
   private static final ITableTool TABLE_TOOL = new TableTool();
@@ -38,7 +37,6 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
   @Override
   public void assertCanAddGivenTable(final IDatabase database, final ITable table) {
     if (!DATABASE_EXAMINER.canAddTable(database, table)) {
-
       if (table == null) {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TABLE);
       }

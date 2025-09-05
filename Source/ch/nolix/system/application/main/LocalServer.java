@@ -10,7 +10,6 @@ import ch.nolix.systemapi.application.main.IApplication;
  * @version 2021-06-29
  */
 public final class LocalServer extends AbstractServer<LocalServer> {
-
   @Override
   public IServerTarget asTarget() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asTarget");

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.independent.arraytool;
  * @version 2024-12-25
  */
 public interface IArrayTool {
-
   /**
    * @param element
    * @param elements

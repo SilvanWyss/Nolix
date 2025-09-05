@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.validator.IOptionalMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implements IOptionalMediator {
-
   protected OptionalMediator(final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     super(argument);
@@ -36,7 +35,6 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
 
   @Override
   public final void containsEqualObject(Object object) {
-
     final var argument = getStoredArgument();
 
     if (argument == null //NOSONAR: The argument can be null.
@@ -52,7 +50,6 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
 
   @Override
   public final void containsObject(Object object) {
-
     final var argument = getStoredArgument();
 
     if (argument == null //NOSONAR: The argument can be null.
@@ -65,7 +62,6 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
 
   @Override
   public final void containsObjectOfType(Class<Object> type) {
-
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     final var argument = getStoredArgument();
@@ -83,7 +79,6 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
 
   @Override
   public final void isEmpty() {
-
     isNotNull();
 
     final var argument = getStoredArgument();
@@ -95,7 +90,6 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
 
   @Override
   public final void isPresent() {
-
     isNotNull();
 
     final var argument = getStoredArgument();

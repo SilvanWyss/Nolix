@@ -7,7 +7,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * @version 2025-05-12
  */
 public final class ColumnColumnNameCatalog {
-
   public static final String ID = "Id";
 
   public static final String PARENT_TABLE_ID = "ParentTableId";

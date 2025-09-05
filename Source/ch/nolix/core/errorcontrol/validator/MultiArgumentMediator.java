@@ -15,7 +15,6 @@ import ch.nolix.core.independent.arraytool.ArrayTool;
  * @param <A> is the type of the arguments of a multi argument mediator.
  */
 public class MultiArgumentMediator<A> {
-
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   private final Iterable<A> arguments;
@@ -27,7 +26,6 @@ public class MultiArgumentMediator<A> {
    * @throws ArgumentIsNullException if the given arguments is null..
    */
   MultiArgumentMediator(final Iterable<A> arguments) {
-
     //Asserts that the given arguments is not null.
     if (arguments == null) {
       throw ArgumentIsNullException.forArgumentName("arguments");
@@ -44,7 +42,6 @@ public class MultiArgumentMediator<A> {
    * @throws ArgumentIsNullException if the given arguments is null.
    */
   MultiArgumentMediator(final A[] arguments) {
-
     //Calls other constructor.
     this(ARRAY_TOOL.createIterable(arguments));
   }
@@ -54,11 +51,9 @@ public class MultiArgumentMediator<A> {
    *                                 argument mediator is null.
    */
   public final void areNotNull() {
-
     //Iterates the arguments of this multi argument mediator.
     var index = 1;
     for (final A a : getStoredArguments()) {
-
       //Asserts that the current argument is not null.
       if (a == null) {
         throw ArgumentIsNullException.forArgumentName(index + "th argument");
@@ -76,11 +71,9 @@ public class MultiArgumentMediator<A> {
    *                                  does not fulfill the given condition.
    */
   public final void fulfill(final Predicate<A> condition) {
-
     //Iterates the arguments of this multi argument mediator.
     var index = 1;
     for (final A a : getStoredArguments()) {
-
       //Asserts that the current argument fulfills the given condition.
       if (!condition.test(a)) {
         throw //

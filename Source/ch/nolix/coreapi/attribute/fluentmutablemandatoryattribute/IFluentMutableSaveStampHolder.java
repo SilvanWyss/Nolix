@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ISaveStampHolder;
  * @param <H> is the type of a {@link IFluentMutableSaveStampHolder}.
  */
 public interface IFluentMutableSaveStampHolder<H extends IFluentMutableSaveStampHolder<H>> extends ISaveStampHolder {
-
   /**
    * Sets the save stamp of the current {@link IFluentMutableSaveStampHolder}.
    * 

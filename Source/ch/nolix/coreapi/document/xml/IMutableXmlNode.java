@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableO
 
 public interface IMutableXmlNode
 extends IFluentMutableOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
-
   IMutableXmlNode addAttribute(IXmlAttribute attribute);
 
   IMutableXmlNode addAttributes(IXmlAttribute attribute, IXmlAttribute... attributes);

@@ -9,13 +9,11 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 
 public final class CssRule implements ICssRule {
-
   private final String selector;
 
   private final IContainer<CssProperty> properties;
 
   private CssRule(final String selector, final IContainer<? extends ICssProperty> properties) {
-
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     this.properties = properties.to(CssProperty::fromCssProperty);
@@ -36,7 +34,6 @@ public final class CssRule implements ICssRule {
     final String selector,
     final ICssProperty property,
     final ICssProperty... properties) {
-
     final var allProperties = ContainerView.forElementAndArray(property, properties);
 
     return new CssRule(selector, allProperties);
@@ -59,7 +56,6 @@ public final class CssRule implements ICssRule {
 
   @Override
   public ICssRule withPrefixedSelector(final String selectorPrefix) {
-
     Validator.assertThat(selectorPrefix).thatIsNamed("selector prefix").isNotNull();
 
     final var prefixedSelector = selectorPrefix + getSelector();

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @version 2023-10-25
  */
 public interface IMultiTextHolder {
-
   /**
    * @return the texts of the current {@link IMultiTextHolder}.
    */

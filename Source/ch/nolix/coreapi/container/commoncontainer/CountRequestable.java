@@ -8,7 +8,6 @@ import java.util.function.Predicate;
  * @param <E> is the type of the elements a {@link CountRequestable}.
  */
 public interface CountRequestable<E> {
-
   /**
    * @return the number of elements of the current {@link CountRequestable}.
    */

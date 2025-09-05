@@ -7,7 +7,6 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
 
 final class TimeComplexityFunctionCatalogTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "-300, 1.0", //
@@ -31,7 +30,6 @@ final class TimeComplexityFunctionCatalogTest extends StandardTest {
   "300, 1.0", //
   })
   void testCase_constantFunction(final long input, final double expectedResult) {
-
     //execution
     final var result = TimeComplexityFunctionCatalog.CONSTANT.applyAsDouble(input);
 
@@ -62,7 +60,6 @@ final class TimeComplexityFunctionCatalogTest extends StandardTest {
   "300, 300.0", //
   })
   void testCase_linearFunction(final long input, final double expectedResult) {
-
     //execution
     final var result = TimeComplexityFunctionCatalog.LINEAR.applyAsDouble(input);
 
@@ -93,7 +90,6 @@ final class TimeComplexityFunctionCatalogTest extends StandardTest {
   "300, 90000.0", //
   })
   void testCase_quadraticFunction(final long input, final double expectedResult) {
-
     //execution
     final var result = TimeComplexityFunctionCatalog.QUADRATIC.applyAsDouble(input);
 

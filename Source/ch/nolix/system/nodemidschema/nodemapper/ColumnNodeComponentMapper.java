@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 public final class ColumnNodeComponentMapper {
-
   private ColumnNodeComponentMapper() {
   }
 

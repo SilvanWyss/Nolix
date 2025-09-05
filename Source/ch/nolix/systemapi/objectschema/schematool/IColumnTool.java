@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public interface IColumnTool extends IDatabaseObjectExaminer {
-
   void assertBelongsToTable(IColumn column);
 
   void assertDoesNotBelongToTable(IColumn column);

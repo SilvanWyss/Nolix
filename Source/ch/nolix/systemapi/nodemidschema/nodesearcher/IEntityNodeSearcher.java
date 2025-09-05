@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
  * @version 2024-12-25
  */
 public interface IEntityNodeSearcher {
-
   /**
    * @param entityNode
    * @param oneBasedColumnIndex

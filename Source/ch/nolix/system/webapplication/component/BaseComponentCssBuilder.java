@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webapplication.component.IComponentStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class BaseComponentCssBuilder extends AbstractControlCssBuilder<IComponent, IComponentStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IComponent button,

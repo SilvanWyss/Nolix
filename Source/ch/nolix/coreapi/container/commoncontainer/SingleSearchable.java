@@ -10,7 +10,6 @@ import java.util.function.Predicate;
  * @param <E> is the type of the elements a {@link SingleSearchable}.
  */
 public interface SingleSearchable<E> {
-
   /**
    * @return a {@link Optional} with the first element of the current
    *         {@link SingleSearchable} if the current {@link SingleSearchable} is

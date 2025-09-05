@@ -11,13 +11,10 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 
 final class EqualsMethodTest extends StandardTest {
-
   @Test
   void testCase_equals_whenTheGivenObjectIsNull() {
-
     //setup
     final var testUnit = new AbstractElement() {
-
       @Override
       public IContainer<INode<?>> getAttributes() {
         return ImmutableList.withElement(Node.withHeader("my_flag"));
@@ -33,11 +30,9 @@ final class EqualsMethodTest extends StandardTest {
 
   @Test
   void testCase_equals_whenTheGivenObjectIsAVoidObject() {
-
     //setup
     final Object object = new VoidObject();
     final var testUnit = new AbstractElement() {
-
       @Override
       public IContainer<INode<?>> getAttributes() {
         return ImmutableList.withElement(Node.withHeader("my_flag"));
@@ -53,10 +48,8 @@ final class EqualsMethodTest extends StandardTest {
 
   @Test
   void testCase_equals_whenTheGivenObjectIsTheSame() {
-
     //setup
     final var testUnit = new AbstractElement() {
-
       @Override
       public IContainer<INode<?>> getAttributes() {
         return ImmutableList.withElement(Node.withHeader("my_flag"));

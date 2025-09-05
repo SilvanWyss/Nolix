@@ -8,7 +8,6 @@ import java.util.function.Predicate;
  * @param <E> is the type of the elements a {@link Filterable}.
  */
 public interface Filterable<E> {
-
   /**
    * @param type
    * @param <E2> is the type of the elements of the returned {@link IContainer}.

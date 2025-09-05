@@ -7,7 +7,6 @@ import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
  * @version 2024-12-13
  */
 public final class NumberComparator {
-
   /**
    * Prevents that an instance of the {@link NumberComparator} can be created.
    */
@@ -20,7 +19,6 @@ public final class NumberComparator {
    * @return true if the given value1 and value2 are equal, false otherwise.
    */
   public static boolean areEqual(final double value1, final double value2) {
-
     if (value1 < value2) {
       return (value2 - value1) < ComparsionThresholdCatalog.COMMON_DOUBLE_COMPARSION_THRESHOLD;
     }

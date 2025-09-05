@@ -7,10 +7,8 @@ import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 
 final class FractalBuilderTest extends StandardTest {
-
   @Test
   void testCase_build() {
-
     //setup
     final var testUnit = new FractalBuilder();
     testUnit

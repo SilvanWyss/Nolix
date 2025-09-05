@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2016-01-01
  */
 public interface INameHolder {
-
   /**
    * @return the name of the current {@link INameHolder}.
    */
@@ -34,7 +33,6 @@ public interface INameHolder {
    *         given nameHolder.
    */
   default boolean hasSameNameAs(final INameHolder nameHolder) {
-
     //Handles the case that the given nameHolder is null.
     if (nameHolder == null) {
       return false;

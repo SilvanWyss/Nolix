@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends Clearable, IControl<C, S> {
-
   ContainerRole getRole();
 
   boolean hasRole();

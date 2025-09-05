@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
 public interface IEntityQueryCreator {
-
   String createQueryToCountEntities(String tableName);
 
   String createQueryToCountEntitiesWithGivenId(String tableName, String id);

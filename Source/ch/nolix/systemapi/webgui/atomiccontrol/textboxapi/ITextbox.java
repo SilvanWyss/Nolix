@@ -6,7 +6,6 @@ import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutable
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, IFluentMutableTextHolder<ITextbox> {
-
   void emptyText();
 
   TextMode getTextMode();

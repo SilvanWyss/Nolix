@@ -29,7 +29,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Link extends Control<ILink, ILinkStyle> implements ILink {
-
   public static final String DEFAULT_DISPLAY_TEXT = StringCatalog.QUESTION_MARK;
 
   private static final LinkTarget DEFAULT_TARGET = LinkTarget.NEW_TAB;
@@ -59,7 +58,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   private final MutableOptionalValue<String> url = MutableOptionalValue.forString(URL_HEADER, this::setUrl);
 
   public Link() {
-
     //Info: Reset is technically optional, but required to achieve a well-defined initial state.
     reset();
 
@@ -125,7 +123,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   @Override
   public ILink setDisplayText(final String displayText) {
-
     Validator.assertThat(displayText).thatIsNamed("dipslay text").isNotBlank();
 
     this.displayText.setValue(displayText);
@@ -135,7 +132,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   @Override
   public ILink setTarget(final LinkTarget target) {
-
     this.target.setValue(target);
 
     return this;
@@ -143,7 +139,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   @Override
   public ILink setUrl(final String url) {
-
     Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotBlank();
 
     this.url.setValue(url);
@@ -153,7 +148,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   @Override
   public ILink setUrlAndDisplayTextFromIt(final String url) {
-
     final var localDisplayText = URL_TOOL.getDisplayTextForUrl(url);
 
     setUrl(url);
@@ -184,7 +178,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   @Override
   protected void resetControl() {
-
     setDisplayText(DEFAULT_DISPLAY_TEXT);
     removeUrl();
 

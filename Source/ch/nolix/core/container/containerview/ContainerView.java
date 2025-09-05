@@ -19,7 +19,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ContainerView}.
  */
 public final class ContainerView<E> extends AbstractExtendedContainer<E> {
-
   private final IContainer<E> internalContainer;
 
   /**
@@ -29,7 +28,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if the given container is null.
    */
   private ContainerView(final IContainer<E> container) {
-
     //Asserts that the given container is not null.
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
@@ -48,7 +46,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @SuppressWarnings("unchecked")
   public static <E2> ContainerView<E2> forArray(final E2[] array, final E2[]... arrays) {
-
     final var container = MultiContainerView.forArray(array, arrays);
 
     return new ContainerView<>(container);
@@ -65,7 +62,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if one element of the given arrays is null.
    */
   public static <E2> ContainerView<E2> forElementAndArray(final E2 element, final E2[] array) {
-
     @SuppressWarnings("unchecked")
     final var arrayWithElement = (E2[]) new Object[] { element };
 
@@ -81,7 +77,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @return a new empty {@link ContainerView}.
    */
   public static <E2> ContainerView<E2> forEmpty() {
-
     final IContainer<E2> container = ImmutableList.createEmpty();
 
     return new ContainerView<>(container);
@@ -101,7 +96,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
   public static <E2> ContainerView<E2> forIterable(
     final Iterable<? extends E2> iterable,
     final Iterable<? extends E2>... iterables) {
-
     final var container = MultiContainerView.forIterable(iterable, iterables);
 
     return new ContainerView<>(container);
@@ -123,7 +117,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
     final Iterable<? extends E2> iterable,
     final E2 element,
     final E2... elements) {
-
     @SuppressWarnings("unchecked")
     final var container = //
     MultiContainerView.forIterable(iterable, ImmutableList.withElement(element), ArrayContainerView.forArray(elements));
@@ -140,7 +133,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public boolean equals(final Object object) {
-
     //Handles the case that the given object is a Iterable.
     if (object instanceof final Iterable<?> iterable) {
       return containsExactlyInSameOrder(iterable);

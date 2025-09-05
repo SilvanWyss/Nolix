@@ -5,12 +5,10 @@ import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphic.image.IImage;
 
 public final class TextureCreator {
-
   private TextureCreator() {
   }
 
   public static IImage createConcreteTexture() {
-
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0x808080);
@@ -33,7 +31,6 @@ public final class TextureCreator {
   }
 
   public static IImage createFirWoodTexture() {
-
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var mainColor = Color.fromLong(0xE0D0B0);
@@ -56,7 +53,6 @@ public final class TextureCreator {
   }
 
   public static IImage createJuteTexture() {
-
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0xC0C0A0);
@@ -79,7 +75,6 @@ public final class TextureCreator {
   }
 
   public static IImage createParchmentTexture() {
-
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0xEFEFCF);
@@ -102,7 +97,6 @@ public final class TextureCreator {
   }
 
   public static IImage createWhiteMarbleTexture() {
-
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0x282820);

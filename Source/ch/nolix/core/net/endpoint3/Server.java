@@ -14,7 +14,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2016-11-01
  */
 public final class Server extends AbstractServer {
-
   private final ch.nolix.core.net.endpoint2.Server internalServer;
 
   /**
@@ -25,7 +24,6 @@ public final class Server extends AbstractServer {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   private Server(final int port) {
-
     //Creates the internal net server of the current net server.
     internalServer = ch.nolix.core.net.endpoint2.Server.forPort(port);
 
@@ -48,7 +46,6 @@ public final class Server extends AbstractServer {
    * @throws EmptyArgumentException        if the given httpMessage is blank.
    */
   private Server(final int port, final String httpMessage) {
-
     //Creates the internal net server of the current net server.
     internalServer = ch.nolix.core.net.endpoint2.Server.forPortAndHttpMessage(port, httpMessage);
 

@@ -20,7 +20,6 @@ import ch.nolix.systemapi.application.client.IClient;
  * @param <C> is the type of a {@link AbstractClient}.
  */
 public abstract class AbstractClient<C extends AbstractClient<C>> implements IClient {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private IEndPoint nullableEndPoint;
@@ -70,7 +69,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    */
   @Override
   public final boolean isClosed() {
-
     // The end point of the current Client can be requested only when the current Client is connected.
     return //
     isConnected()
@@ -148,7 +146,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    *                                  already connected.
    */
   final void setEndPoint(final IEndPoint endPoint) {
-
     //Asserts that the given endPoint is not null.
     Validator.assertThat(endPoint).thatIsNamed(AbstractEndPoint.class).isNotNull();
 
@@ -191,7 +188,6 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    *                                      not connected.
    */
   private IEndPoint getStoredEndPoint() {
-
     assertIsConnected();
 
     return nullableEndPoint;

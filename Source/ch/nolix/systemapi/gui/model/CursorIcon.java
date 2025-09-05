@@ -53,7 +53,6 @@ public enum CursorIcon {
    * @return a {@link Cursor} representation of the current {@link CursorIcon}.
    */
   public Cursor toCursor() {
-
     //Enumerates the current cursor icon.
     return switch (this) {
       case ARROW ->

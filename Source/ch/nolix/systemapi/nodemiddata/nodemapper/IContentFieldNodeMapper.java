@@ -8,7 +8,6 @@ import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
  * @version 2025-02-21
  */
 public interface IContentFieldNodeMapper {
-
   /**
    * @param stringRepresentedFieldDto
    * @return a bew content field node from the given stringContentFieldDto.

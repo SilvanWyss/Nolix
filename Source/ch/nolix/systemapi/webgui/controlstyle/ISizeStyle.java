@@ -4,7 +4,6 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface ISizeStyle<S extends ISizeStyle<S>> {
-
   boolean definesHeightForState(ControlState state);
 
   boolean definesWidthForState(ControlState state);

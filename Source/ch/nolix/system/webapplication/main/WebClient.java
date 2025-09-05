@@ -19,7 +19,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
-
   private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
 
   private final WebClientRefreshQueue refreshQueue = WebClientRefreshQueue
@@ -60,7 +59,6 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private Optional<IComponent> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
-
     if (control.isLinkedToAnObject()
     && control.getStoredLinkedObjects().getStoredFirst() instanceof final IComponent component) {
       return Optional.of(component);
@@ -100,7 +98,6 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void runControlCommand(final IChainedNode guiCommand) {
-
     final var command = guiCommand.getNextNode();
     final var internalControlId = guiCommand.getSingleChildNodeHeader();
     final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
@@ -128,7 +125,6 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void runHtmlEventCommand(final IControl<?, ?> triggeredControl, final IChainedNode htmlEventCommand) {
-
     final var htmlEvent = htmlEventCommand.getSingleChildNodeHeader();
 
     WEB_CLIENT_HTML_EVENT_EXECUTOR.runHtmlEventOfTriggeredControlAndUpdateAccordingly(
@@ -140,13 +136,11 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void runSetUserInputsCommand(final IChainedNode guiCommand) {
-
     final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
 
     for (final var p : guiCommand.getChildNodes()) {
-
       final var internalControlId = p.getChildNodeAtOneBasedIndex(1).getHeader();
       final var userInput = p.getChildNodeAtOneBasedIndex(2).getHeaderOrEmptyString();
       final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
@@ -172,7 +166,6 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void updateCounterpartWhenOpen(final IControl<?, ?> control) {
-
     final var component = getOptionalStoredParentComponentOfControl(control);
 
     if (component.isEmpty()) {

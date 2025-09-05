@@ -12,7 +12,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
  * @param <R> is the type of the result of a {@link ResultFuture}.
  */
 public final class ResultFuture<R> extends AbstractFuture implements IResultFuture<R> {
-
   private final ResultJobExecutor<R> resultJobExecutor;
 
   /**
@@ -22,7 +21,6 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    * @throws ArgumentIsNullException if the given resultJobRunner is null.
    */
   ResultFuture(final ResultJobExecutor<R> resultJobRunner) {
-
     //Asserts that the given resultJobRunner is not null.
     Validator.assertThat(resultJobRunner).isOfType(ResultJobExecutor.class);
 
@@ -75,7 +73,6 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
-
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     FlowController.waitAsLongAs(
@@ -92,7 +89,6 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    */
   @Override
   public R waitUntilIsFinishedAndGetResult() {
-
     waitUntilIsFinished();
 
     return getResult();

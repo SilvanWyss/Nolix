@@ -8,7 +8,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 
 public record WebSocketFramePayloadLength(long value) {
-
   public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
 
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNegative();
@@ -17,7 +16,6 @@ public record WebSocketFramePayloadLength(long value) {
   }
 
   public WebSocketFramePayloadLengthType getType() {
-
     return WebSocketFramePayloadLengthType.fromPayloadLength(value);
   }
 
@@ -39,14 +37,12 @@ public record WebSocketFramePayloadLength(long value) {
   }
 
   private byte[] toBytesWhen7Bits() {
-
     final var byteArray = BigInteger.valueOf(value).toByteArray();
 
     return new byte[] { byteArray[0] };
   }
 
   private byte[] toBytesWhen16Bits() {
-
     final var byteArray = BigInteger.valueOf(value).toByteArray();
 
     if (byteArray.length == 1) {
@@ -61,7 +57,6 @@ public record WebSocketFramePayloadLength(long value) {
   }
 
   private byte[] toBytesWhen64Bits() {
-
     final var byteArray = BigInteger.valueOf(value).toByteArray();
 
     final var result = new byte[8];

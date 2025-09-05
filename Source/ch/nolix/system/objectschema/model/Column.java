@@ -17,7 +17,6 @@ import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
-
   private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
 
   private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
@@ -44,7 +43,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final String id,
     final String name,
     final IContentModel contentModel) {
-
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
@@ -87,7 +85,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   @Override
   public Table getStoredParentTable() {
-
     COLUMN_TOOL.assertBelongsToTable(this);
 
     return parentTable;
@@ -95,7 +92,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   @Override
   public boolean isBackReferenced() {
-
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
       return false;
     }
@@ -117,7 +113,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   @Override
   public Column setContentModel(final IContentModel contentModel) {
-
     COLUMN_EDITOR.setContentModelToColumn(this, contentModel);
 
     return this;
@@ -125,14 +120,12 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   @Override
   public Column setName(final String name) {
-
     COLUMN_EDITOR.setNameToColumn(this, name);
 
     return this;
   }
 
   IContainer<? extends IColumn> getStoredBackReferencingColumns() {
-
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
       return LinkedList.createEmpty();
     }
@@ -145,14 +138,12 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   void setContentModelAttribute(final IContentModel contentModel) {
-
     Validator.assertThat(contentModel).thatIsNamed(IContentModel.class).isNotNull();
 
     this.contentModel = contentModel;
   }
 
   void internalSetContentModelToDatabase() {
-
     final var table = getStoredParentTable();
     final var tableName = table.getName();
     final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(getContentModel());
@@ -174,7 +165,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
-
     if (COLUMN_TOOL.belongsToDatabase(this)) {
       return COLUMN_TOOL
         .getParentDatabase(this)
@@ -191,7 +181,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
-
     if (COLUMN_TOOL.belongsToDatabase(this)) {
       return COLUMN_TOOL
         .getParentDatabase(this)

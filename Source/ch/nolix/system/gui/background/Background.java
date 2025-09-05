@@ -24,7 +24,6 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 
 public final class Background extends AbstractElement implements IBackground {
-
   public static final Background TRANSPARENT_BACKGROUND = new Background();
 
   public static final ImageApplication DEFAULT_IMAGE_APPLICATION = ImageApplication.SCALE_TO_FRAME;
@@ -55,7 +54,6 @@ public final class Background extends AbstractElement implements IBackground {
   }
 
   private Background(final IColor color) {
-
     Validator.assertThat(color).thatIsNamed(IColor.class).isNotNull();
 
     this.color = color;
@@ -65,7 +63,6 @@ public final class Background extends AbstractElement implements IBackground {
   }
 
   private Background(final IColorGradient colorGradient) {
-
     Validator.assertThat(colorGradient).thatIsNamed(IColorGradient.class).isNotNull();
 
     color = null;
@@ -75,7 +72,6 @@ public final class Background extends AbstractElement implements IBackground {
   }
 
   private Background(final IImage image, final ImageApplication imageApplication) {
-
     Validator.assertThat(image).thatIsNamed(IImage.class).isNotNull();
     Validator.assertThat(imageApplication).thatIsNamed(ImageApplication.class).isNotNull();
 
@@ -86,7 +82,6 @@ public final class Background extends AbstractElement implements IBackground {
   }
 
   public static Background fromSpecification(final INode<?> specification) {
-
     final var childNode = specification.getStoredFirstChildNode();
 
     return switch (childNode.getHeader()) {
@@ -150,7 +145,6 @@ public final class Background extends AbstractElement implements IBackground {
 
   @Override
   public IColor getColor() {
-
     assertIsColor();
 
     return color;
@@ -158,7 +152,6 @@ public final class Background extends AbstractElement implements IBackground {
 
   @Override
   public IColorGradient getColorGradient() {
-
     assertIsColorGradient();
 
     return colorGradient;
@@ -166,7 +159,6 @@ public final class Background extends AbstractElement implements IBackground {
 
   @Override
   public IImage getImage() {
-
     assertIsImage();
 
     return image;
@@ -174,7 +166,6 @@ public final class Background extends AbstractElement implements IBackground {
 
   @Override
   public ImageApplication getImageApplication() {
-
     assertIsImage();
 
     return imageApplication;

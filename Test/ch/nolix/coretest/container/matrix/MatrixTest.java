@@ -7,10 +7,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class MatrixTest extends ContainerTest {
-
   @Test
   void testCase_addColumn() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
 
@@ -25,7 +23,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_addRow() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
 
@@ -40,7 +37,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_getColumn() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
@@ -63,7 +59,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_getCopy() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
@@ -83,7 +78,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_getIndexOf() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
@@ -115,7 +109,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_getRow() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
@@ -138,7 +131,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_toLeftRotatedMatrix() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
@@ -158,7 +150,6 @@ final class MatrixTest extends ContainerTest {
 
   @Test
   void testCase_toRightRotatedMatrix() {
-
     //setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
@@ -180,7 +171,6 @@ final class MatrixTest extends ContainerTest {
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-
     final Matrix<E> matrix = Matrix.createEmpty();
 
     matrix.addRow(element, elements);

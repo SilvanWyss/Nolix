@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
  * @version 2024-12-29
  */
 public interface ISchemaSearcher {
-
   /**
    * @param name
    * @param entityTypeSet

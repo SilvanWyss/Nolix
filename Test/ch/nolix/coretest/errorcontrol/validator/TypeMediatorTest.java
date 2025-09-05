@@ -13,10 +13,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
 final class TypeMediatorTest extends StandardTest {
-
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(String.class);
 
@@ -29,7 +27,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
@@ -39,7 +36,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsNull() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(null);
 
@@ -52,7 +48,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isClass_whenTheGivenArgumentIsAClass() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
@@ -62,7 +57,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
 
@@ -75,7 +69,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
 
@@ -89,7 +82,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isClass_whenTheGivenArgumentIsNull() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(null);
 
@@ -102,7 +94,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(AbstractList.class);
 
@@ -115,7 +106,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
@@ -125,7 +115,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isConcrete_whenTheGivenArgumentIsNull() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(null);
 
@@ -138,7 +127,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsAClas() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
@@ -151,7 +139,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
 
@@ -164,7 +151,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
 
@@ -174,7 +160,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isEnum_whenTheGivenArgumentIsNull() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(null);
 
@@ -187,7 +172,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(String.class);
 
@@ -200,7 +184,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
@@ -210,7 +193,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isImplementing_whenTheGivenArgumentIsNull() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(null);
 
@@ -223,7 +205,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(Iterable.class);
 
@@ -233,7 +214,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsAClass() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(ArrayList.class);
 
@@ -246,7 +226,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(WriteMode.class);
 
@@ -260,7 +239,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isInterface_whenTheGivenArgumentIsNull() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(null);
 
@@ -273,7 +251,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
@@ -286,7 +263,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
@@ -296,7 +272,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
 
@@ -309,7 +284,6 @@ final class TypeMediatorTest extends StandardTest {
 
   @Test
   void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
-
     //setup
     final var testUnit = TypeMediator.forArgument(List.class);
 

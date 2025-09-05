@@ -12,10 +12,8 @@ import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class IteratorValidatorTest extends StandardTest {
-
   @Test
   void testCase_whenTheGivenIteratorIsNull() {
-
     //setup
     final var testUnit = new IteratorValidator();
 
@@ -28,11 +26,9 @@ final class IteratorValidatorTest extends StandardTest {
 
   @Test
   void testCase_whenTheGivenIteratorDoesNotHaveNext() {
-
     //setup
     final var iterator = //
     new Iterator<VoidObject>() {
-
       @Override
       public boolean hasNext() {
         return false;
@@ -53,11 +49,9 @@ final class IteratorValidatorTest extends StandardTest {
 
   @Test
   void testCase_whenTheGivenIteratorHasNext() {
-
     //setup
     final var iterator = //
     new Iterator<VoidObject>() {
-
       @Override
       public boolean hasNext() {
         return true;

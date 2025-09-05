@@ -7,10 +7,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class WithNameCaptorTest extends StandardTest {
-
   @Test
   void testCase_getName_whenDoesNotHaveName() {
-
     //setup
     final var testUnit = new WithNameCaptor<>();
 
@@ -20,7 +18,6 @@ final class WithNameCaptorTest extends StandardTest {
 
   @Test
   void testCase_withName_whenHasNext() {
-
     //parameter definition
     final var name = "my_name";
 
@@ -38,7 +35,6 @@ final class WithNameCaptorTest extends StandardTest {
 
   @Test
   void testCase_withName_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new WithNameCaptor<>();
 

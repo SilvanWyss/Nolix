@@ -11,7 +11,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public final class CatchingProperty<V> implements IProperty, INameHolder {
-
   private final String name;
 
   private final Consumer<V> setter;
@@ -22,7 +21,6 @@ public final class CatchingProperty<V> implements IProperty, INameHolder {
     final String name,
     final Consumer<V> setter,
     final Function<INode<?>, V> valueCreator) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -39,7 +37,6 @@ public final class CatchingProperty<V> implements IProperty, INameHolder {
 
   @Override
   public boolean addedOrChangedAttribute(INode<?> attribute) {
-
     if (hasName(attribute.getHeader())) {
       setter.accept(valueCreator.apply(attribute));
       return true;

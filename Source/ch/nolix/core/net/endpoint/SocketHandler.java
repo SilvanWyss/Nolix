@@ -23,11 +23,9 @@ import ch.nolix.coreapi.net.endpoint.SocketType;
 import ch.nolix.coreapi.net.endpointprotocol.MessageType;
 
 public final class SocketHandler {
-
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
   public void handleSocketForServer(final Socket socket, final Server server) {
-
     final var backendNetEndPoint = createOptionalBackendNetEndPointForSocketAndServer(socket, server);
 
     if (backendNetEndPoint.isEmpty()) {
@@ -67,7 +65,6 @@ public final class SocketHandler {
   private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
     final Socket socket,
     final Server server) {
-
     final var socketInputStream = getOptionalInputStreamOfSocket(socket);
     final var socketOutputStream = getOptionalOutputStreamOfSocket(socket);
 
@@ -106,7 +103,6 @@ public final class SocketHandler {
     fillUpLinesIntoListUntilReceivesEmptyLine(lines, socketInputStream);
 
     if (WebSocketHandShakeRequest.canBe(lines)) {
-
       Logger.logInfo(
         "The current SocketHandler has received the web socket opening handshake request: "
         + StringTool.getInSingleQuotes(lines.toString()));
@@ -154,7 +150,6 @@ public final class SocketHandler {
     final LinkedList<String> lines,
     final InputStream inputStream) {
     while (true) {
-
       final var line = INPUT_STREAM_TOOL.readLineFromInputStream(inputStream);
 
       if (line == null) {
@@ -173,7 +168,6 @@ public final class SocketHandler {
     try {
       return Optional.of(socket.getInputStream());
     } catch (final IOException ioException) {
-
       Logger.logError(ioException);
 
       return Optional.empty();
@@ -184,7 +178,6 @@ public final class SocketHandler {
     try {
       return Optional.of(socket.getOutputStream());
     } catch (final IOException ioException) {
-
       Logger.logError(ioException);
 
       return Optional.empty();
@@ -193,7 +186,6 @@ public final class SocketHandler {
 
   private Optional<SocketType> getSocketTypeFromFirstReceivedLine(
     final String firstReceivedLine) {
-
     if (firstReceivedLine.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
       return Optional.of(SocketType.NET_SOCKET_WITH_DEFAULT_TARGET);
     }

@@ -11,10 +11,8 @@ import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
 
 final class EntityStatementCreatorTest extends StandardTest {
-
   @Test
   void testCase_createStatementToDeleteEntity() {
-
     //setup
     final var testUnit = new EntityStatementCreator();
     final var entityDeletionDto = new EntityDeletionDto("my_id", "100");
@@ -30,7 +28,6 @@ final class EntityStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToDeleteEntityIndex() {
-
     //setup
     final var testUnit = new EntityStatementCreator();
 
@@ -44,7 +41,6 @@ final class EntityStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToExpectTableContainsEntity() {
-
     //setup
     final var testUnit = new EntityStatementCreator();
 
@@ -62,7 +58,6 @@ final class EntityStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToInsertNewEntity() {
-
     //setup
     final var testUnit = new EntityStatementCreator();
     final var newEntityDto = new EntityCreationDto(
@@ -83,7 +78,6 @@ final class EntityStatementCreatorTest extends StandardTest {
 
   @Test
   void testCase_createStatementToUpdateEntityOnTable() {
-
     //setup
     final var testUnit = new EntityStatementCreator();
     final var newEntityDto = new EntityUpdateDto(

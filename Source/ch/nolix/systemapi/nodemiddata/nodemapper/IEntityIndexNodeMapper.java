@@ -8,7 +8,6 @@ import ch.nolix.systemapi.middata.model.EntityCreationDto;
  * @version 2025-01-12
  */
 public interface IEntityIndexNodeMapper {
-
   /**
    * @param entityCreationDto
    * @param tableId

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
  * @version 2025-02-09
  */
 public final class ItemMenuExaminer implements IItemMenuExaminer {
-
   @Override
   public boolean canAddItem(final IItemMenu<?, ?> itemMenu, final IItemMenuItem<?> item) {
     return itemMenu != null

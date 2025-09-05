@@ -5,7 +5,6 @@ import ch.nolix.core.independent.list.ImmutableList;
 import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
 
 public final class LogEntry {
-
   private static final StackTraceMapper STACK_TRACE_MAPPER = new StackTraceMapper();
 
   private final String message;
@@ -17,7 +16,6 @@ public final class LogEntry {
   private final ImmutableList<String> additionalInfoLines;
 
   private LogEntry(final HarmLevel harmLevel, final String message, final String[] additionalInfoLines) {
-
     creationTimeInMillisecondsSince1970 = System.currentTimeMillis();
 
     if (harmLevel == null) {
@@ -52,7 +50,6 @@ public final class LogEntry {
   }
 
   private static String getMessageFromError(final Throwable error) {
-
     if (error == null) {
       return "An error occured.";
     }

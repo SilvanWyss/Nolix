@@ -7,7 +7,6 @@ package ch.nolix.coreapi.net.endpoint3protocol;
  * @version 2016-01-01
  */
 public final class MessageHeaderCatalog {
-
   public static final String COMMANDS_HEADER = "Commands";
 
   public static final String DONE_HEADER = "Done";

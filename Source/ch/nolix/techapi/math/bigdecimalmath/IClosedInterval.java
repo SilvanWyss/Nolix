@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import ch.nolix.coreapi.datastructure.pair.IPair;
 
 public interface IClosedInterval {
-
   boolean containsValue(BigDecimal value);
 
   int getDecimalPlaces();

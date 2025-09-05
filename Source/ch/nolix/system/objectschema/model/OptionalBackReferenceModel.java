@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectschema.model.IOptionalBackReferenceModel;
 public final class OptionalBackReferenceModel
 extends AbstractBaseBackReferenceModel
 implements IOptionalBackReferenceModel {
-
   private OptionalBackReferenceModel(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
   }

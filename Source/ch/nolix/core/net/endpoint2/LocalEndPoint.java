@@ -17,7 +17,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2017-05-22
  */
 public final class LocalEndPoint extends AbstractEndPoint {
-
   private final PeerType peerType;
 
   private final LocalEndPoint counterpart;
@@ -29,7 +28,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * point.
    */
   public LocalEndPoint() {
-
     peerType = PeerType.FRONTEND;
 
     //Creates the counterpart of this local end point.
@@ -46,7 +44,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given target is null.
    */
   public LocalEndPoint(final ISlot target) {
-
     peerType = PeerType.FRONTEND;
 
     //Creates the counterpart of this local end point.
@@ -66,7 +63,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param target
    */
   public LocalEndPoint(final AbstractServer abstractServer, final String target) {
-
     peerType = PeerType.FRONTEND;
 
     //Creates the counterpart of this local end point.
@@ -85,7 +81,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given counterpart is null.
    */
   private LocalEndPoint(final LocalEndPoint counterPart) {
-
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counter part is not null.
@@ -108,7 +103,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws EmptyArgumentException  if the given target is empty.
    */
   private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
-
     peerType = PeerType.BACKEND;
 
     //Asserts that the given counter part is not null.
@@ -148,7 +142,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws ClosedArgumentException if this local end point is closed.
    */
   public String sendAndWaitToReply(final String message) {
-
     //Asserts that this local end point is open.
     assertIsOpen();
 
@@ -169,7 +162,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public String getCustomTargetSlot() {
-
     //Asserts that this local end point has a target.
     if (!hasCustomTargetSlot()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target");

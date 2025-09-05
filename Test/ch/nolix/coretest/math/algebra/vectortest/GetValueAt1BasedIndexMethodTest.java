@@ -8,7 +8,6 @@ import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "1, 2.0",
@@ -21,7 +20,6 @@ final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
   void testCase_getValueAtOneBasedIndex_whenGivenOneBasedIndexIsInRange(
     final int oneBasedIndex,
     final double expectedValue) {
-
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
@@ -36,7 +34,6 @@ final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
   @CsvSource({ "-1", "0", "7", "8"
   })
   void testCase_getValueAtOneBasedIndex_whenGivenOneBasedIndexIsOutOfRange(final int oneBasedIndex) {
-
     //setup
     final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 

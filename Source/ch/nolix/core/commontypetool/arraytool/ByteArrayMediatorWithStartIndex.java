@@ -6,13 +6,11 @@ import ch.nolix.coreapi.commontypetool.arraytool.INextIndexMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
-
   private final byte[] byteArray;
 
   private int index;
 
   private ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
-
     Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
     Validator
@@ -31,7 +29,6 @@ public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediator
 
   @Override
   public INextIndexMediator write(final byte[] bytes) {
-
     for (var i = 0; i < bytes.length; i++) {
       byteArray[index + i] = bytes[i];
     }

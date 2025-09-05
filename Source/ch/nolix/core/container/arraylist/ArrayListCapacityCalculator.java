@@ -9,7 +9,6 @@ import ch.nolix.coreapi.math.number.IntCatalog;
  * @version 2024-07-28
  */
 public final class ArrayListCapacityCalculator {
-
   /**
    * @param capacity
    * @param requiredCapacity
@@ -31,12 +30,10 @@ public final class ArrayListCapacityCalculator {
   public int calculateTargetCapacityForActualCapacityAndRequiredCapacity(
     final int actualCapacity,
     final int requiredCapacity) {
-
     Validator.assertThat(actualCapacity).thatIsNamed("actial capacity").isNotNegative();
     Validator.assertThat(requiredCapacity).thatIsNamed("required capacity").isNotNegative();
 
     if (actualCapacity > requiredCapacity) {
-
       if (actualCapacity / 3 > requiredCapacity) {
         return (2 * requiredCapacity);
       }
@@ -57,7 +54,6 @@ public final class ArrayListCapacityCalculator {
    * @return the bigger value from the given value1 and value2.
    */
   private int getMax(int value1, int value2) {
-
     if (value1 > value2) {
       return value1;
     }

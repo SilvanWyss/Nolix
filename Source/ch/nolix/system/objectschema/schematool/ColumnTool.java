@@ -15,7 +15,6 @@ import ch.nolix.systemapi.objectschema.modelexaminer.IContentModelExaminer;
 import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
-
   private static final IContentModelExaminer CONTENT_MODEL_EXAMINER = new ContentModelExaminer();
 
   @Override
@@ -68,7 +67,6 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-
     final var contentModel = column.getContentModel();
 
     return CONTENT_MODEL_EXAMINER.isAbstractBackReferenceModel(contentModel);
@@ -76,7 +74,6 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-
     final var contentModel = column.getContentModel();
 
     return CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(contentModel);
@@ -84,7 +81,6 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isAValueColumn(final IColumn column) {
-
     final var contentModel = column.getContentModel();
 
     return CONTENT_MODEL_EXAMINER.isAbstractValueModel(contentModel);
@@ -92,11 +88,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
-
     final var contentModel = column.getContentModel();
 
     if (contentModel instanceof IBaseBackReferenceModel baseBackReferenceModel) {
-
       final var backReferencedColumn = baseBackReferenceModel.getBackReferencedColumn();
       final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
 

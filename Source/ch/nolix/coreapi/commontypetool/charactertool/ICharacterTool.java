@@ -7,7 +7,6 @@ package ch.nolix.coreapi.commontypetool.charactertool;
  * @version 2024-07-21
  */
 public interface ICharacterTool {
-
   /**
    * @param character
    * @return true if the given character is a digit.

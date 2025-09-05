@@ -22,7 +22,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @version 2025-01-18
  */
 public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
-
   private static final IDatabaseInitializationStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
   new DatabaseInitializationStatementCreator();
 
@@ -31,7 +30,6 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
    */
   @Override
   public void initializeFixTables(final ISchemaWriter schemaWriter) {
-
     //Adds database property table.
     schemaWriter.addTable(DatabasePropertyTableSqlSchemaDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
 
@@ -60,7 +58,6 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     final ITime schemaTimestamp,
     final ISqlConnection sqlConnection,
     final String databaseName) {
-
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
 
     final var query = //

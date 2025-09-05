@@ -1,11 +1,9 @@
 package ch.nolix.core.errorcontrol.validator;
 
 public final class ExtendedByteMediator extends ByteMediator {
-
   private final byte argument;
 
   ExtendedByteMediator(byte argument) {
-
     super(argument);
 
     this.argument = argument;

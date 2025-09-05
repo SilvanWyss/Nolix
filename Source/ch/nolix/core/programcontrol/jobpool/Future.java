@@ -5,11 +5,9 @@ import ch.nolix.core.programcontrol.future.AbstractFuture;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 final class Future extends AbstractFuture {
-
   private final JobWrapper jobWrapper;
 
   public Future(final JobWrapper jobWrapper) {
-
     Validator.assertThat(jobWrapper).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.jobWrapper = jobWrapper;

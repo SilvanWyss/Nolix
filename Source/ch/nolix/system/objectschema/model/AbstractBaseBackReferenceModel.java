@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
 public abstract class AbstractBaseBackReferenceModel implements IBaseBackReferenceModel {
-
   private static final DataType DATA_TYPE = DataType.STRING;
 
   private static final IColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
@@ -16,7 +15,6 @@ public abstract class AbstractBaseBackReferenceModel implements IBaseBackReferen
   private final IColumn backReferencedColumn;
 
   protected AbstractBaseBackReferenceModel(final IColumn backReferencedColumn) {
-
     COLUMN_VALIDATOR.assertIsAbstractReferenceColumn(backReferencedColumn);
 
     this.backReferencedColumn = backReferencedColumn;

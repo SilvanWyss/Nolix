@@ -9,7 +9,6 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 
 public interface IFractal {
-
   ISequence<IComplexNumber> createSequenceFor(IComplexNumber complexNumber);
 
   IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);

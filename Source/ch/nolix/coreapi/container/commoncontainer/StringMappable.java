@@ -5,7 +5,6 @@ package ch.nolix.coreapi.container.commoncontainer;
  * @version 2024-11-14
  */
 public interface StringMappable {
-
   /**
    * @return a concatenation of the {@link String} representations of the elements
    *         of the current {@link StringMappable}.

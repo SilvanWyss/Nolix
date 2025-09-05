@@ -10,7 +10,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
  * @version 2025-06-19
  */
 public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
-
   /**
    * {@inheritDoc}
    */
@@ -19,7 +18,6 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
     final DatabaseViewDto databaseView,
     final String tableName,
     final String columnId) {
-
     final var tableView = getTableViewByTableName(databaseView, tableName);
     final var columnViews = tableView.columnViews();
 
@@ -34,7 +32,6 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
     final DatabaseViewDto databaseView,
     final String tableName,
     final String columnName) {
-
     final var tableView = getTableViewByTableName(databaseView, tableName);
     final var columnViews = tableView.columnViews();
 
@@ -46,7 +43,6 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
    */
   @Override
   public TableViewDto getTableViewByTableId(final DatabaseViewDto databaseView, final String tableId) {
-
     final var tableViews = databaseView.tableViews();
 
     return tableViews.getStoredFirst(t -> t.id().equals(tableId));
@@ -57,7 +53,6 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
    */
   @Override
   public TableViewDto getTableViewByTableName(final DatabaseViewDto databaseView, final String tableName) {
-
     final var tableViews = databaseView.tableViews();
 
     return tableViews.getStoredFirst(t -> t.name().equals(tableName));

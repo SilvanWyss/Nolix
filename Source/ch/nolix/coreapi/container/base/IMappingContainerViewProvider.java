@@ -9,7 +9,6 @@ import java.util.function.Function;
  *            {@link IMappingContainerViewProvider}.
  */
 public interface IMappingContainerViewProvider<E> {
-
   /**
    * @param mapper
    * @param <T>    is the type of the elements the given mapper maps from the

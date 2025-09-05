@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2024-02-11
  */
 public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
-
   /**
    * @return the qualified name of the current
    *         {@link IOptionalQualifiedNameHolder}.

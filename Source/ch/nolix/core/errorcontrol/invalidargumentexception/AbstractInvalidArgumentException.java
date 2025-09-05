@@ -27,7 +27,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionError
  */
 @SuppressWarnings("serial")
 public abstract class AbstractInvalidArgumentException extends RuntimeException {
-
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
   private static final IExceptionArgumentStringRepresentaionPreparator ARGUMENT_STRING_REPRESENTAION_PREPARATOR = //
@@ -54,7 +53,6 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * @param argument - Can be null.
    */
   protected AbstractInvalidArgumentException(final Object argument) {
-
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument)
@@ -79,7 +77,6 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    *                          null or blank.
    */
   protected AbstractInvalidArgumentException(final Object argument, final ArgumentNameDto argumentNameDto) {
-
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName())
@@ -112,7 +109,6 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     final Object argument,
     final ArgumentNameDto argumentNameDto,
     final ErrorPredicateDto errorPredicateDto) {
-
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName())
@@ -149,7 +145,6 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
     final ArgumentNameDto argumentNameDto,
     final ErrorPredicateDto errorPredicateDto,
     final CauseDto causeDto) {
-
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getValidatedArgumentNameFromArgumentName(argumentNameDto.argumentName())
@@ -175,7 +170,6 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    *                          is null or blank.
    */
   protected AbstractInvalidArgumentException(final Object argument, final ErrorPredicateDto errorPredicateDto) {
-
     super(
       "The given "
       + ARGUMENT_NAME_PREPARATOR.getNameOfArgument(argument)

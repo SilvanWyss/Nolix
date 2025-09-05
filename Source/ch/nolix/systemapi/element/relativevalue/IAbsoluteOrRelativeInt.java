@@ -9,7 +9,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * @version 2022-10-15
  */
 public interface IAbsoluteOrRelativeInt extends IElement {
-
   /**
    * @return the absolute value of the current {@link IAbsoluteOrRelativeInt}.
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not

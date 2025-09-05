@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * @version 2019-11-16
  */
 public final class LicenseManager {
-
   private static final LicenseManagerUnit LICENSE_MANAGER = new LicenseManagerUnit();
 
   /**

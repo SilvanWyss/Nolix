@@ -7,21 +7,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 
 public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
-
   BigDecimalMediator(final BigDecimal argument) {
-
     //Calls constructor of the base class.
     super(argument);
   }
 
   BigDecimalMediator(final String argumentName, final BigDecimal argument) {
-
     //Calls constructor of the base class.
     super(argumentName, argument);
   }
 
   public final void isNotNegative() {
-
     //Asserts that the argument of the current BigDecimalValidator is not null.
     isNotNull();
 
@@ -32,7 +28,6 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
   }
 
   public final void isNotSmallerThan(final BigDecimal value) {
-
     //Asserts that the argument of the current BigDecimalValidator is not null.
     isNotNull();
 
@@ -44,7 +39,6 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
   }
 
   public final void isPositive() {
-
     //Asserts that the argument of the current BigDecimalValidator is not null.
     isNotNull();
 

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2023-10-24
  */
 public interface IOptionalCardinalityHolder {
-
   /**
    * @return the cardinality of the current {@link IOptionalCardinalityHolder}.
    * @throws RuntimeException if the current {@link IOptionalCardinalityHolder}

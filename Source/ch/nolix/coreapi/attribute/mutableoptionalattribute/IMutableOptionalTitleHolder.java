@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalTitleHolder;
  * @version 2023-02-09
  */
 public interface IMutableOptionalTitleHolder extends IOptionalTitleHolder {
-
   /**
    * Removes the title of the current {@link IMutableOptionalTitleHolder}.
    */

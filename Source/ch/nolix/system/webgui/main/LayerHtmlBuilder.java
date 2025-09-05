@@ -10,7 +10,6 @@ import ch.nolix.system.webgui.layertool.LayerTool;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerHtmlBuilder {
-
   private static final LayerTool LAYER_TOOL = new LayerTool();
 
   public IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
@@ -25,7 +24,6 @@ public final class LayerHtmlBuilder {
   }
 
   private IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
-
     if (layer.isEmpty()) {
       return ImmutableList.createEmpty();
     }

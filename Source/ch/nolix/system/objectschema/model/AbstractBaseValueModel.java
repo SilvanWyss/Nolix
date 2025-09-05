@@ -7,11 +7,9 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public abstract class AbstractBaseValueModel<V> implements IBaseValueModel<V> {
-
   private final DataType dataType;
 
   protected AbstractBaseValueModel(final DataType dataType) {
-
     Validator.assertThat(dataType).thatIsNamed(DataType.class).isNotNull();
 
     this.dataType = dataType;

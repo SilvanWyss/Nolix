@@ -19,7 +19,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Uploader extends Control<IUploader, IUploaderStyle> implements IUploader {
-
   private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
 
   private static final UploaderCssBuilder CSS_BUILDER = new UploaderCssBuilder();
@@ -27,14 +26,12 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   private byte[] file;
 
   public Uploader() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
   }
 
   @Override
   public byte[] getFile() {
-
     assertHasFile();
 
     return file.clone();
@@ -67,7 +64,6 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 
   @Override
   public void internalSetFile(final byte[] file) {
-
     Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
 
     this.file = file; //NOSONAR: A Uploader operates on the original input.

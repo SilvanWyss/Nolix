@@ -1,7 +1,6 @@
 package ch.nolix.coreapi.environment.nolixenvironment;
 
 public final class NolixDirectoryAndFileCatalog {
-
   private static final String APP_DATA = "APPDATA";
 
   private static final String APP_DATA_DIRECTORY_PATH = getAppDataDirectoryPath();

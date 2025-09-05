@@ -12,7 +12,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
  * @version 2025-01-31
  */
 public final class DatabaseSchemaViewDtoMapper implements IDatabaseSchemaViewDtoMapper {
-
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final ITableSchemaViewDtoMapper TABLE_SCHEMA_VIEW_DTO_MAPPER = new TableSchemaViewDtoMapper();
@@ -22,7 +21,6 @@ public final class DatabaseSchemaViewDtoMapper implements IDatabaseSchemaViewDto
    */
   @Override
   public DatabaseViewDto mapTableNodeToTableViewDto(final IMutableNode<?> nodeDatabase) {
-
     final var databaseName = DATABASE_NODE_SEARCHER.getDatabaseNameFromNodeDatabase(nodeDatabase);
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
     final var tableSchemaViews = tableNodes.to(TABLE_SCHEMA_VIEW_DTO_MAPPER::mapTableNodeToTableViewDto);

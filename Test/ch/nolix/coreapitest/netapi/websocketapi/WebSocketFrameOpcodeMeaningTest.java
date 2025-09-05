@@ -10,7 +10,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
 final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
-
   @MethodSource
   private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsAndTheirNumbers() {
     return //
@@ -50,7 +49,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   void testCase_toNumber_fromNumber(
     final int number,
     final WebSocketFrameOpcodeMeaning expectedWebSocketFrameOpcodeMeaning) {
-
     //execution
     final var result = WebSocketFrameOpcodeMeaning.fromNumber(number);
 
@@ -61,7 +59,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsAndTheirNumbers")
   void testCase_toNumber_whenHaseANumber(final WebSocketFrameOpcodeMeaning testUnit, final int expectedNumber) {
-
     //execution
     final var result = testUnit.toNumber();
 
@@ -72,7 +69,6 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber")
   void testCase_toNumber_whenDoesNotHaveASingleNumber(final WebSocketFrameOpcodeMeaning testUnit) {
-
     //execution & verification
     expectRunning(testUnit::toNumber).throwsException();
   }

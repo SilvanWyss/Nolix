@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 
 public final class SpecificationCreator {
-
   public INode<?> getSpecificationOfElement(final IElement element) {
     return Node.withHeaderAndChildNodes(getSpecificationHeaderOfElement(element), element.getAttributes());
   }
@@ -16,7 +15,6 @@ public final class SpecificationCreator {
   }
 
   private String getSpecificationHeaderOfElementClass(final Class<?> elementClass) {
-
     if (!elementClass.isAnonymousClass()) {
       return elementClass.getSimpleName();
     }

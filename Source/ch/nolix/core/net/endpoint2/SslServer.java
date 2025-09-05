@@ -6,14 +6,12 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
 public final class SslServer extends AbstractServer {
-
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();
 
   private final ch.nolix.core.net.endpoint.SslServer internalWebSocketServer;
 
   public SslServer(final int port, final String HtmlPage, final ISslCertificate paramSSLCertificate) {
-
     internalWebSocketServer = new ch.nolix.core.net.endpoint.SslServer(port, HtmlPage, paramSSLCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
@@ -22,7 +20,6 @@ public final class SslServer extends AbstractServer {
   public SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
-
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 

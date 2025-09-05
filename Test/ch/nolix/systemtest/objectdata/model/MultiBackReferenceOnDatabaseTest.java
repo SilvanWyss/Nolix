@@ -11,9 +11,7 @@ import ch.nolix.system.objectdata.model.MultiBackReference;
 import ch.nolix.system.objectdata.model.Reference;
 
 final class MultiBackReferenceOnDatabaseTest extends StandardTest {
-
   private static final class Plane extends Entity {
-
     public final MultiBackReference<Flight> flights = MultiBackReference
       .forBackReferencedEntityTypeAndBaseReference(Flight.class, "plane");
 
@@ -23,7 +21,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   }
 
   private static final class Flight extends Entity {
-
     public final Reference<Plane> plane = Reference.forEntityType(Plane.class);
 
     public Flight() {
@@ -33,7 +30,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndEmpty() {
-
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
@@ -52,7 +48,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getAllStoredBackReferencedEntities_whenIsNewAndNotEmpty() {
-
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
@@ -77,7 +72,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getAllBackReferencedEntityIds_whenIsLoaded() {
-
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
@@ -104,7 +98,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsEmpty() {
-
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);
@@ -123,7 +116,6 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenBackReferencedEntityIsDeleted() {
-
     //setup part 1: Creates nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Plane.class, Flight.class);

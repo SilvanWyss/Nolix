@@ -8,14 +8,12 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.main.AbstractBackendClient;
 
 public final class MockBackendClient extends AbstractBackendClient<MockBackendClient, Object> {
-
   private IChainedNode latestRunHereCommand;
 
   private IChainedNode latestGetDataFromHereRequest;
 
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
-
     Validator.assertThat(request).thatIsNamed(LowerCaseVariableCatalog.REQUEST).isNotNull();
 
     latestGetDataFromHereRequest = request;
@@ -25,14 +23,12 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
 
   @Override
   protected void runHere(final IChainedNode command) {
-
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
 
     latestRunHereCommand = command;
   }
 
   public IChainedNode getStoredLatestGetDataFromHereRequest() {
-
     Validator
       .assertThat(latestGetDataFromHereRequest)
       .thatIsNamed("latest received data from here command")
@@ -42,7 +38,6 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
   }
 
   public IChainedNode getStoredLatestRunHereCommand() {
-
     Validator.assertThat(latestRunHereCommand).thatIsNamed("latest received run here command").isNotNull();
 
     return latestRunHereCommand;

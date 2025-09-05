@@ -8,7 +8,6 @@ package ch.nolix.coreapi.objectcreation.copier;
  * @param <C> is the type of a {@link EmptyCopyable}.
  */
 public interface EmptyCopyable<C extends EmptyCopyable<C>> {
-
   /**
    * @return a new empty copy of the current {@link EmptyCopyable}.
    */

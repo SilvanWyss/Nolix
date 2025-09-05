@@ -4,7 +4,6 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.RequestProtocol;
 
 final class RequestCreator {
-
   public ChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
     return ChainedNode.withHeaderAndChildNode(
       RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME,

@@ -8,7 +8,6 @@ import java.util.function.Predicate;
  * @param <E> is the type of the elements a {@link StoringRequestable}.
  */
 public interface StoringRequestable<E> {
-
   /**
    * @param object
    * @return true if the current {@link StoringRequestable} contains the given

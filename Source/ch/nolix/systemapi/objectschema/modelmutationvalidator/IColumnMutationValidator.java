@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
  * @version 2024-12-27
  */
 public interface IColumnMutationValidator {
-
   /**
    * @param column
    * @throws RuntimeException if the given column cannot be deleted.

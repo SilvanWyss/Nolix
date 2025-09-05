@@ -10,10 +10,8 @@ import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStack;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<VerticalStackHtmlBuilder, IVerticalStack> {
-
   @Test
   void testCase_createHtmlElement_whenContainsChildControls() {
-
     //setup control
     final var control = createControl().addControl(new Label(), new Label(), new Label());
 

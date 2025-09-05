@@ -4,7 +4,6 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public record OptionalValueModelDto(DataType dataType) implements IContentModelDto {
-
   @Override
   public FieldType getFieldType() {
     return FieldType.OPTIONAL_VALUE_FIELD;

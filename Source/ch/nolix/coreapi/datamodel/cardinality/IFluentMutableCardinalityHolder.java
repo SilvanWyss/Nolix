@@ -10,7 +10,6 @@ package ch.nolix.coreapi.datamodel.cardinality;
  */
 public interface IFluentMutableCardinalityHolder<H extends IFluentMutableCardinalityHolder<H>>
 extends ICardinalityHolder {
-
   /**
    * Sets the {@link Cardinality} of the current
    * {@link IFluentMutableCardinalityHolder}.

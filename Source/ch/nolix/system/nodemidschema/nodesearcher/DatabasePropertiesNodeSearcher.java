@@ -7,10 +7,8 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSear
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DatabasePropertiesNodeSearcher implements IDatabasePropertiesNodeSearcher {
-
   @Override
   public String getDatabaseNameFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
-
     final var databaseNameNode = getStoredDatabaseNameNodeFromDatabasePropertiesNode(databasePropertiesNode);
 
     return databaseNameNode.getSingleChildNodeHeader();
@@ -18,7 +16,6 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
 
   @Override
   public ITime getSchemaTimestampFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
-
     final var schemaTimeStampNode = getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 
     return Time.fromSpecification(schemaTimeStampNode);

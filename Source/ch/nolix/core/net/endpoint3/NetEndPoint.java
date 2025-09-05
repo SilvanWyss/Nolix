@@ -29,7 +29,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2016-01-01
  */
 public final class NetEndPoint extends AbstractEndPoint {
-
   private final ch.nolix.coreapi.net.endpoint2.IEndPoint internalEndPoint;
 
   /**
@@ -40,7 +39,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public NetEndPoint(final int port) {
-
     //Calls other constructor.
     this(IPv6Catalog.LOOP_BACK_ADDRESS, port);
   }
@@ -56,7 +54,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException      if the given targetSlot is blank.
    */
   public NetEndPoint(final int port, final String targetSlot) {
-
     //Calls other constructor.
     this(IPv6Catalog.LOOP_BACK_ADDRESS, port, targetSlot);
   }
@@ -68,7 +65,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param ip
    */
   public NetEndPoint(final String ip) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip));
   }
@@ -82,7 +78,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public NetEndPoint(final String ip, final int port) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip, port));
   }
@@ -99,7 +94,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException      if the given targetSlot is blank.
    */
   public NetEndPoint(final String ip, final int port, final String targetSlot) {
-
     //Calls other constructor.
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip, port, targetSlot));
   }
@@ -111,7 +105,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsNullException if the given internalEndPoint is null.
    */
   NetEndPoint(final ch.nolix.coreapi.net.endpoint2.IEndPoint internalEndPoint) {
-
     //Asserts that the given internalEndPoint is not null.
     Validator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();
 
@@ -147,7 +140,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public INode<?> getDataForRequest(final IChainedNode request) {
-
     final var requests = ImmutableList.withElement(request);
 
     return getDataForRequests(requests).getStoredOne();
@@ -158,7 +150,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-
     //Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElement(request, requests);
 
@@ -171,7 +162,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-
     //Creates message.
     final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
@@ -226,7 +216,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
-
     //Creates message.
     final var message = MessageHeaderCatalog.COMMANDS_HEADER + '(' + ContainerView.forIterable(commands) + ')';
 
@@ -236,7 +225,6 @@ public final class NetEndPoint extends AbstractEndPoint {
       //When one of the given commands is a redirect command, the counterpart will
       //redirect and leave null.
     } else {
-
       //Sends the message and received reply.
       final var reply = Node.fromString(replyAsString);
 
@@ -286,7 +274,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    *                                               have a receiver.
    */
   private String receiveAndGetReply(final ChainedNode message) {
-
     //Gets the receiver controller of the current NetEndPoint.
     final var receiverController = getStoredReceiverController();
 

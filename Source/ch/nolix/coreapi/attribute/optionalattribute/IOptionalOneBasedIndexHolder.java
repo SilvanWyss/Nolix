@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2025-06-01
  */
 public interface IOptionalOneBasedIndexHolder {
-
   /**
    * @return the one-based index of the current
    *         {@link IOptionalOneBasedIndexHolder}.

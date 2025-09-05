@@ -8,7 +8,6 @@ import ch.nolix.coreapi.document.node.INode;
  * @version 2024-01-05
  */
 public interface IStructureElement extends IElement {
-
   /**
    * @return the child {@link IStructureElement}s of the current
    *         {@link IStructureElement}.

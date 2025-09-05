@@ -12,7 +12,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  */
 @SuppressWarnings("serial")
 public final class InvalidPortException extends AbstractInvalidArgumentException {
-
   private static final String ARGUMENT_NAME = LowerCaseVariableCatalog.PORT;
 
   /**

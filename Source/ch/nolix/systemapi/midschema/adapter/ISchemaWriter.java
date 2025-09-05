@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschema.model.IContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
-
   void addColumn(String tableName, ColumnDto column);
 
   void addTable(TableDto table);

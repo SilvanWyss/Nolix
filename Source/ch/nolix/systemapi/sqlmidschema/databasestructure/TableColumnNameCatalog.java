@@ -7,7 +7,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * @version 2025-03-28
  */
 public final class TableColumnNameCatalog {
-
   //'Id' is a reserved word in MSSQL databases.
   public static final String ID = "Id_";
 

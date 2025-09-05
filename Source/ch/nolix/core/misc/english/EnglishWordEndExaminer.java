@@ -7,7 +7,6 @@ import ch.nolix.coreapi.misc.english.IEnglishWordEndExaminer;
  * @version 2023-12-17
  */
 public final class EnglishWordEndExaminer implements IEnglishWordEndExaminer {
-
   /**
    * @param word
    * @return true if the given word ends with a vocal and y, false otherwise, for

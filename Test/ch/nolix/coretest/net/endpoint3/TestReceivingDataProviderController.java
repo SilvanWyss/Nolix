@@ -9,14 +9,12 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
 
 public final class TestReceivingDataProviderController implements IDataProviderController {
-
   private IChainedNode latestReceivedCommand;
 
   private IChainedNode latestReceivedRequest;
 
   @Override
   public INode<?> getDataForRequest(final IChainedNode request) {
-
     latestReceivedRequest = request;
 
     return Node.withHeader("test_data");

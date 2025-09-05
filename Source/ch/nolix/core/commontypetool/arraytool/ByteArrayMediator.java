@@ -5,11 +5,9 @@ import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediator;
 import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
 
 public final class ByteArrayMediator implements IByteArrayMediator {
-
   private final byte[] byteArray;
 
   private ByteArrayMediator(final byte[] byteArray) {
-
     Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediator operates on the original instance.

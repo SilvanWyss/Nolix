@@ -8,14 +8,12 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class ColumnMapper {
-
   private static final ContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
 
   public IColumnView<ITable<IEntity>> mapMidSchemaColumnDtoToColumnView(
     final ColumnDto midSchemaColumnDto,
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-
     final var id = midSchemaColumnDto.id();
     final var name = midSchemaColumnDto.name();
 

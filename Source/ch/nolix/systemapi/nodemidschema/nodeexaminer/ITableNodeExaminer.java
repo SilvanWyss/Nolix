@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
  * @version 2024-12-28
  */
 public interface ITableNodeExaminer {
-
   /**
    * @param tableNode
    * @param columnName

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 final class FieldTypeTest extends StandardTest {
-
   @MethodSource
   private static ImmutableList<Arguments> getFieldTypesAndTheirCardinality() {
     return //
@@ -29,7 +28,6 @@ final class FieldTypeTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getFieldTypesAndTheirCardinality")
   void testCase_getCardinality(final FieldType testUnit, final Cardinality expectedCardinality) {
-
     //execution
     final var result = testUnit.getCardinality();
 

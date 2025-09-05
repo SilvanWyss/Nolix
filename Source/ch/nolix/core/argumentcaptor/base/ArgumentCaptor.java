@@ -21,7 +21,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   private Supplier<N> builder;
 
   protected ArgumentCaptor() {
-
     nextArgumentCaptor = null;
 
     nextArgumentCaptorAsNext = null;
@@ -29,7 +28,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
 
   protected ArgumentCaptor(final N nextArgumentCaptor) {
     if (nextArgumentCaptor instanceof final ArgumentCaptor<?, ?> localArgumentCaptor) {
-
       this.nextArgumentCaptor = localArgumentCaptor;
 
       nextArgumentCaptorAsNext = nextArgumentCaptor;
@@ -39,21 +37,18 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   }
 
   public final N nxtArgCpt() {
-
     assertHasNextArgumentCaptor();
 
     return nextArgumentCaptorAsNext;
   }
 
   protected final A getStoredArgument() {
-
     assertHasArgument();
 
     return argument;
   }
 
   protected final N setArgumentAndGetNext(final A argument) {
-
     setArgument(argument);
 
     return getNext();
@@ -64,7 +59,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     if (hasNextArgumentCaptor()) {
       nextArgumentCaptor.setBuilder(builder);
     } else {
-
       assertDoesNotHaveBuilder();
 
       Validator.assertThat(builder).thatIsNamed(LowerCaseVariableCatalog.BUILDER).isNotNull();
@@ -103,7 +97,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   }
 
   private N getNext() {
-
     if (hasNextArgumentCaptor()) {
       return nextArgumentCaptorAsNext;
     }
@@ -112,7 +105,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   }
 
   private Supplier<N> getStoredBuilder() {
-
     assertHasBuilder();
 
     return builder;
@@ -131,7 +123,6 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   }
 
   private void setArgument(final A argument) {
-
     hasArgument = true;
 
     this.argument = argument;

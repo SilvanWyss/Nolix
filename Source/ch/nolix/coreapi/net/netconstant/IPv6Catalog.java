@@ -7,7 +7,6 @@ package ch.nolix.coreapi.net.netconstant;
  * @version 2017-03-05
  */
 public final class IPv6Catalog {
-
   public static final String LOOP_BACK_ADDRESS = "::1";
 
   /**

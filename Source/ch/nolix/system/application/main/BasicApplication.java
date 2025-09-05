@@ -3,7 +3,6 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
 public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends Application<C, S> {
-
   private final String applicationName;
 
   private final Class<?> initialSessionClass;
@@ -12,7 +11,6 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
     final String applicationName,
     final Class<T> initialSessionClass,
     final S applicationService) {
-
     super(applicationService);
 
     Validator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();

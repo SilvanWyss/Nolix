@@ -26,7 +26,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
-
   public static final String DEFAULT_ALTERNATE_TEXT = StringCatalog.EMPTY_STRING;
 
   private static final String IMAGE_HEADER = PascalCaseVariableCatalog.IMAGE;
@@ -52,7 +51,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   private Consumer<IImageControl> leftMouseButtonReleaseAction;
 
   public ImageControl() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
@@ -126,7 +124,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public void runHtmlEvent(final String htmlEvent) {
-
     Validator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onclick");
 
     if (hasLeftMouseButtonPressAction()) {
@@ -136,7 +133,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public IImageControl setAlternateText(final String alternateText) {
-
     this.alternateText.setValue(alternateText);
 
     return this;
@@ -144,7 +140,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public IImageControl setImage(final IImage image) {
-
     if (image instanceof final MutableImage mutableImage) {
       this.image.setValue(mutableImage);
     } else {
@@ -156,7 +151,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public IImageControl setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
-
     Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
@@ -167,7 +161,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public IImageControl setLeftMouseButtonPressAction(final Consumer<IImageControl> leftMouseButtonPressAction) {
-
     Validator
       .assertThat(leftMouseButtonPressAction)
       .thatIsNamed("left mouse button press action")
@@ -180,7 +173,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
-
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
@@ -192,7 +184,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   @Override
   public IImageControl setLeftMouseButtonRelaseAction(
     final Consumer<IImageControl> leftMouseButtonReleaseAction) {
-
     Validator
       .assertThat(leftMouseButtonReleaseAction)
       .thatIsNamed("left mouse button release action")
@@ -225,7 +216,6 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   @Override
   protected void resetControl() {
-
     clear();
 
     removeLeftMouseButtonPressAction();

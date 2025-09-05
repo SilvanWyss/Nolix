@@ -7,7 +7,6 @@ import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.document.node.INode;
 
 public final class ControlFactoryUnit {
-
   private final LinkedList<Class<Control<?, ?>>> controlClasses = LinkedList.createEmpty();
 
   public boolean canCreateControlOfType(final String type) {
@@ -15,7 +14,6 @@ public final class ControlFactoryUnit {
   }
 
   public Control<?, ?> createControlFromSpecification(final INode<?> specification) {
-
     final var control = createControlOfType(specification.getHeader());
 
     control.resetFromSpecification(specification);
@@ -24,7 +22,6 @@ public final class ControlFactoryUnit {
   }
 
   public Control<?, ?> createControlOfType(final String type) {
-
     final var controlClass = getControlClassByName(type);
 
     return ReflectionTool.createInstanceFromDefaultConstructorOfClass(controlClass);
@@ -33,11 +30,9 @@ public final class ControlFactoryUnit {
   public void registerControlClass(
     final Class<Control<?, ?>> controlClass,
     final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
-
     final var allControlClasses = ContainerView.forElementAndArray(controlClass, controlClasses);
 
     for (final var cc : allControlClasses) {
-
       assertDoesNotContainControlClassWithName(cc.getSimpleName());
 
       this.controlClasses.addAtEnd(cc);

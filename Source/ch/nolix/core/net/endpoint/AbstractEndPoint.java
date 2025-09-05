@@ -17,7 +17,6 @@ import ch.nolix.coreapi.net.endpoint.IEndPoint;
  * @version 2017-05-06
  */
 public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
-
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   private String customTargetSlot;
@@ -29,7 +28,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final String getCustomTargetSlot() {
-
     assertHasCustomTargetSlot();
 
     return customTargetSlot;
@@ -56,7 +54,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void setReceiver(final Consumer<String> receiver) {
-
     //Asserts that the given receiver is not null.
     Validator.assertThat(receiver).thatIsNamed(LowerCaseVariableCatalog.RECEIVER).isNotNull();
 
@@ -84,7 +81,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    *                                               not have a receiver.
    */
   protected final Consumer<String> getStoredReceiver() {
-
     if (hasReceiver()) {
       return receiver;
     }
@@ -106,7 +102,6 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    *                                  closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {
-
     //Asserts that the given customTargetSlot is not blank.
     Validator.assertThat(customTargetSlot).thatIsNamed("custom target slot").isNotBlank();
 

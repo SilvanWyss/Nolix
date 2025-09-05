@@ -13,7 +13,6 @@ import ch.nolix.coreapi.datamodel.cardinality.ICardinalityHolder;
  */
 public interface IFluentMutableOptionalCardinalityHolder<H extends IFluentMutableOptionalCardinalityHolder<H>>
 extends ICardinalityHolder {
-
   /**
    * Removes the cardinality of the current
    * {@link IFluentMutableOptionalCardinalityHolder}.

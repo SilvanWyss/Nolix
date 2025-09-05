@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
  * @version 2024-02-12
  */
 public final class ChangeSetSaver implements IChangeSetSaver {
-
   private static final IDatabaseSearcher DATABASE_TOOL = new DatabaseSearcher();
 
   private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
@@ -35,7 +34,6 @@ public final class ChangeSetSaver implements IChangeSetSaver {
   }
 
   private void saveChangesOfDatabase(final IDatabase database, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     assertCanSaveChangesOfDatabase(database);
 
     addExpectionThatDatabaseHasInitialSchemaTimestamp(database, dataAndSchemaAdapter);
@@ -53,7 +51,6 @@ public final class ChangeSetSaver implements IChangeSetSaver {
 
   private void prepareChangesOfDatabase(final IDatabase database,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {

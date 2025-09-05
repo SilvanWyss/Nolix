@@ -6,10 +6,8 @@ import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ARModelTest extends StandardTest {
-
   @Test
   void testCase_constructor_1() {
-
     //execution
     final double[] inputValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     final var lARModel = new ARModel(1, inputValues);
@@ -23,7 +21,6 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_2() {
-
     //execution
     final double[] inputValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     final var lARModel = new ARModel(2, inputValues);
@@ -37,7 +34,6 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_3() {
-
     //execution
     final double[] inputValues = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
     final var lARModel = new ARModel(2, inputValues);
@@ -51,7 +47,6 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_4() {
-
     //execution
     final double[] inputValues = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
     final var lARModel = new ARModel(3, inputValues);
@@ -65,7 +60,6 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_5() {
-
     //execution
     final double[] inputValues = { 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 };
     final var lARModel = new ARModel(3, inputValues);
@@ -81,7 +75,6 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_6() {
-
     //exection
     final double[] inputValues = { 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 };
     final var lARModel = new ARModel(4, inputValues);

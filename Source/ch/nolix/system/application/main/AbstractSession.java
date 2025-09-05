@@ -21,7 +21,6 @@ import ch.nolix.coreapi.programcontrol.trigger.IRefreshableSubscriber;
  */
 public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
 implements IClientComponent<C>, IRefreshableSubscriber {
-
   private C parentClient;
 
   private Object result;
@@ -58,7 +57,6 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    */
   @Override
   public final C getStoredParentClient() {
-
     //Asserts that the current {@link Session} belonts to a client.
     assertBelongsToClient();
 
@@ -148,7 +146,6 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   protected abstract Class<?> getClientClass();
 
   final Object internalGetStoredResult() {
-
     if (result == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.RESULT);
     }
@@ -172,7 +169,6 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    *                                  belongs to a client.
    */
   final void internalSetParentClient(C parentClient) {
-
     //Asserts that the given client is not null.
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
@@ -184,7 +180,6 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   }
 
   final void internalSetResult(final Object result) {
-
     Validator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
 
     this.result = result;
@@ -195,7 +190,6 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    *                                  not belong to a client.
    */
   private void assertBelongsToClient() {
-
     //Asserts that the current {@link Session} belongs to a client.
     if (!belongsToClient()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not belong to a client");
@@ -207,7 +201,6 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    *                                  belongs to a client.
    */
   private void assertDoesNotBelongToClient() {
-
     //Asserts that the current {@link Session} does not belong to a client.
     if (belongsToClient()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a client");

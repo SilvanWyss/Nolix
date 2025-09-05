@@ -15,7 +15,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
-
   private static final String NONE_HEADER = "None";
 
   private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
@@ -34,7 +33,6 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     final Class<S> stateClass,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     super(name);
 
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -55,7 +53,6 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator,
     final BiConsumer<S, V> setterMethod) {
-
     super(name);
 
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -75,7 +72,6 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
   }
 
   public final Optional<V> getOptionalValueOfState(final S state) {
-
     final var stateProperty = stateProperties[getStateOf(state).getIndex()];
 
     if (!stateProperty.hasValue()) {
@@ -123,7 +119,6 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
   @Override
   protected final void fillUpValuesSpecificationInto(final ILinkedList<INode<?>> list) {
     for (final var s : parent.getAvailableStates()) {
-
       final var stateProperty = stateProperties[s.getIndex()];
 
       switch (stateProperty.getAssignmentType()) {
@@ -169,7 +164,6 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
 
   @Override
   protected final void setValueFromSpecification(final INode<?> specification) {
-
     for (final var s : parent.getAvailableStates()) {
       if (STRING_EXAMINER.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
         setValueFromSpecificationToState(s, specification);

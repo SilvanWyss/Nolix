@@ -13,9 +13,7 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class WebGuiCssBuilder {
-
   public Css createCssForWebGui(final IWebGui<?> webGui) {
-
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
 
     fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
@@ -26,7 +24,6 @@ public final class WebGuiCssBuilder {
   private void fillUpCssRulesOfWebGuiIntoList(
     final IWebGui<?> webGui,
     final ILinkedList<ICssRule> cssRules) {
-
     cssRules.addAtEnd(
       CssRule.withSelectorAndProperties(
         HtmlElementTypeCatalog.BODY,
@@ -56,7 +53,6 @@ public final class WebGuiCssBuilder {
   }
 
   private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final ILinkedList<ICssRule> cssRules) {
-
     cssRules.addAtEnd(layer.getCssRule());
 
     for (final var c : layer.getStoredControls()) {

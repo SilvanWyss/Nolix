@@ -9,10 +9,8 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class DatabaseObjectToolTest extends StandardTest {
-
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNull() {
-
     //setup
     final var testUnit = new DatabaseObjectExaminer();
 
@@ -25,7 +23,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNew() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
@@ -42,7 +39,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsLoaded() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
@@ -59,7 +55,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsEdited() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
@@ -76,7 +71,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsDeleted() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
@@ -93,7 +87,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsClosed() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
@@ -110,7 +103,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNull() {
-
     //setup
     final var testUnit = new DatabaseObjectExaminer();
 
@@ -123,7 +115,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNew() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
@@ -140,7 +131,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
@@ -157,7 +147,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsEdited() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
@@ -174,7 +163,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
@@ -191,7 +179,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsClosed() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
@@ -208,7 +195,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNull() {
-
     //setup
     final var testUnit = new DatabaseObjectExaminer();
 
@@ -221,7 +207,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNew() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
@@ -238,7 +223,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsLoaded() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
@@ -255,7 +239,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsEdited() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
@@ -272,7 +255,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsDeleted() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
@@ -289,7 +271,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsClosed() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
@@ -306,7 +287,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNull() {
-
     //setup
     final var testUnit = new DatabaseObjectExaminer();
 
@@ -319,7 +299,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNew() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
@@ -336,7 +315,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
@@ -353,7 +331,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsEdited() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
@@ -370,7 +347,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
@@ -387,7 +363,6 @@ final class DatabaseObjectToolTest extends StandardTest {
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsClosed() {
-
     //setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(IDatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);

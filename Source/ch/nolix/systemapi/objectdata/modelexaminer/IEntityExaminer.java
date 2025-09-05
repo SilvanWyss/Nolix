@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
  * @version 2024-12-29
  */
 public interface IEntityExaminer extends IDatabaseObjectExaminer {
-
   /**
    * @param entity
    * @return true if all new and mandatory fields of the given entity are set,

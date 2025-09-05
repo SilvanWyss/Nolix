@@ -9,10 +9,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
-
   @Test
   void testCase_getSqlDatabaseEngine_whenDoesNotHaveSqlDatabaseEngine() {
-
     //setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
@@ -22,7 +20,6 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
 
   @Test
   void testCase_withSqlDatabaseEngine_whenHasNext() {
-
     //parameter definition
     final var sqlDatabaseEngine = SqlDatabaseEngine.MSSQL;
 
@@ -40,7 +37,6 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
 
   @Test
   void testCase_withSqlDatabaseEngine_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 

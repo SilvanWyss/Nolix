@@ -31,7 +31,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSear
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class DataWriterActionProvider {
-
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
@@ -59,7 +58,6 @@ public final class DataWriterActionProvider {
     final String tableName,
     final String entityId,
     final int multiReferencedColumnOneBasedOrdinalIndex) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -74,7 +72,6 @@ public final class DataWriterActionProvider {
     final String tableName,
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
@@ -87,7 +84,6 @@ public final class DataWriterActionProvider {
     final String tableName,
     final String entityId,
     final String entitySaveStamp) {
-
     deleteEntityIndex(database, entityId);
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
@@ -105,7 +101,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final String backReferencedEntityId) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -121,7 +116,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final int multiReferencedColumnOneBasedOrdinalIndex,
     final String referencedEntityId) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -138,7 +132,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex,
     final String entry) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
@@ -147,7 +140,6 @@ public final class DataWriterActionProvider {
   }
 
   public static void expectSchemaTimestamp(final IMutableNode<?> nodeDatabase, final ITime schemaTimestamp) {
-
     final var databasePropertiesNode = //
     DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
@@ -163,7 +155,6 @@ public final class DataWriterActionProvider {
     final IMutableNode<?> nodeDatabase,
     final String tableName,
     final String entityId) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     TABLE_NODE_VALIDATOR.assertTableNodeContainsEntityWithId(tableNode, entityId);
@@ -175,7 +166,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final INode<?> entityIndexNode,
     final INode<?> entityNode) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     if (TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, entityId)) {
@@ -195,7 +185,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final int multiBackReferenceColumnOneBasedOrdinalIndex,
     final INode<?> multiBackReferenceEntryNode) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -211,7 +200,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final int multiReferenceColumnOneBasedOrdinalIndex,
     final INode<?> multiReferenceEntryNode) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -227,7 +215,6 @@ public final class DataWriterActionProvider {
     final String entityId,
     final int multiValueColumnOneBasedOrdinalIndex,
     final String value) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
@@ -240,7 +227,6 @@ public final class DataWriterActionProvider {
     final IMutableNode<?> database,
     final EntityUpdateDto entityUpdate,
     final TableViewDto tableView) {
-
     final var tableName = tableView.name();
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
     final var entityId = entityUpdate.id();
@@ -266,7 +252,6 @@ public final class DataWriterActionProvider {
   }
 
   private static void deleteEntityIndex(final IMutableNode<?> nodeDatabase, final String entityId) {
-
     final var entityIndexesNode = DATABASE_NODE_SEARCHER.getStoredEntityIndexesNodeFromNodeDatabase(nodeDatabase);
 
     entityIndexesNode.removeFirstChildNodeThat(ehn -> ehn.getStoredChildNodeAtOneBasedIndex(2).hasHeader(entityId));
@@ -277,12 +262,10 @@ public final class DataWriterActionProvider {
     final EntityUpdateDto entityUpdate,
     final TableViewDto tableView) {
     for (final var f : entityUpdate.updatedContentFields()) {
-
       final var columnName = f.columnName();
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, columnName);
 
       if (columnView.fieldType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE) {
-
         final var oneBasedColumnIndex = columnView.oneBasedOrdinalIndex();
         final var fieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedColumnIndex);
         final var newFieldNode = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ColumnMapper implements IColumnMapper {
-
   private static final IContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
 
   @Override

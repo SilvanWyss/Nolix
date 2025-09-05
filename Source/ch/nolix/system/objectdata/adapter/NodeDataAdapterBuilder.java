@@ -7,9 +7,7 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 public final class NodeDataAdapterBuilder
 extends ForNodeDatabaseCaptor<WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, NodeDataAdapter>>> {
-
   private NodeDataAdapterBuilder() {
-
     super(new WithNameCaptor<>(new AndSchemaCaptor<>()));
 
     setBuilder(this::buildNodeDataAdapter);

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
  * @param <R> is the type of the resources of a {@link IResourcePool}.
  */
 public interface IResourcePool<R extends AutoCloseable> extends GroupCloseable {
-
   /**
    * @return resource from the current {@link IResourcePool} which will be
    *         borrowed. When The resource is closed its internal resource will be

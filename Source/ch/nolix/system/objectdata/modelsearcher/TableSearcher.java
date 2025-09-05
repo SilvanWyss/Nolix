@@ -15,13 +15,11 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
  * @version 2024-12-29
  */
 public final class TableSearcher extends DatabaseObjectExaminer implements ITableSearcher {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<String> getLocallyDeletedEntityIds(final ITable<?> table) {
-
     if (table == null) {
       return ImmutableList.createEmpty();
     }
@@ -36,7 +34,6 @@ public final class TableSearcher extends DatabaseObjectExaminer implements ITabl
   @SuppressWarnings("unchecked")
   public <E extends IEntity> IContainer<IColumnView<ITable<IEntity>>> getStoredColumsThatReferencesTable(
     final ITable<E> table) {
-
     if (table == null) {
       return ImmutableList.createEmpty();
     }

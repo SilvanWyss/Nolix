@@ -9,7 +9,6 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.state.staterequest.CompletenessRequestable;
 
 public final class WebSocketCompleteMessage implements CompletenessRequestable {
-
   private boolean complete;
 
   private final LinkedList<Byte> message = LinkedList.createEmpty();
@@ -19,7 +18,6 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
     final InputStream inputStream,
     final Consumer<WebSocketFrame> controlFrameTaker) {
     while (isOpenFunction.getAsBoolean() && isIncomplete()) {
-
       final var frame = new WebSocketFrame(inputStream);
 
       addFrame(frame, controlFrameTaker);
@@ -31,7 +29,6 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   }
 
   public byte[] getMessageAsByteArray() {
-
     final var byteArray = new byte[message.getCount()];
     var i = 0;
     for (final var b : message) {
@@ -48,7 +45,6 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   }
 
   private void addDataFrame(final WebSocketFrame dataFrame) {
-
     for (final var b : dataFrame.getPayload()) {
       message.addAtEnd(b);
     }

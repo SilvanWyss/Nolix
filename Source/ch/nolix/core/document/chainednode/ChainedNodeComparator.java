@@ -3,12 +3,10 @@ package ch.nolix.core.document.chainednode;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 
 public final class ChainedNodeComparator {
-
   private ChainedNodeComparator() {
   }
 
   public static boolean areEqual(final IChainedNode chainedNode1, final IChainedNode chainedNode2) {
-
     if (chainedNode1 == null) {
       return (chainedNode2 == null);
     }
@@ -27,7 +25,6 @@ public final class ChainedNodeComparator {
   private static boolean canEqualBecauseOfHeaderWhenNotNull(
     final IChainedNode chainedNode1,
     final IChainedNode chainedNode2) {
-
     if (!chainedNode1.hasHeader()) {
       return !chainedNode2.hasHeader();
     }

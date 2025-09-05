@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class MultiBackReferenceEntryTableSqlSchemaDtoCatalog {
-
   private static final ColumnDto ENTITY_COLUMN_SQL_DTO = //
   new ColumnDto(
     MultiBackReferenceEntryColumn.ENTITY_ID.getName(),

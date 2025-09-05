@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2021-06-19
  */
 public interface ITextHolder {
-
   /**
    * @return the text of the current {@link ITextHolder}.
    */

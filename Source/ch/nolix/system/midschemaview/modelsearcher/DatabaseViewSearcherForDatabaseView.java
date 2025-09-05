@@ -12,7 +12,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcherForDa
  * @version 2025-06-27
  */
 public final class DatabaseViewSearcherForDatabaseView implements IDatabaseViewSearcherForDatabaseView {
-
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 
   private final DatabaseViewDto databaseView;
@@ -25,7 +24,6 @@ public final class DatabaseViewSearcherForDatabaseView implements IDatabaseViewS
    * @throws RuntimeException if the given databaseView is null.
    */
   private DatabaseViewSearcherForDatabaseView(final DatabaseViewDto databaseView) {
-
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
     this.databaseView = databaseView;

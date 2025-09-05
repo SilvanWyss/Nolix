@@ -7,7 +7,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class ButtonHtmlBuilder implements IControlHtmlBuilder<IButton> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final IButton button) {
     return HtmlElement.withTypeAndInnerText(

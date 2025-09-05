@@ -14,13 +14,11 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdownMenuStyle> implements IDropdownMenu {
-
   private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
 
   private static final DropdownMenuCssBuilder CSS_BUILDER = new DropdownMenuCssBuilder();
 
   public DropdownMenu() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 

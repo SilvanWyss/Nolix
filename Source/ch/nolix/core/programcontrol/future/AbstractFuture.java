@@ -8,7 +8,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @version 2022-06-18
  */
 public abstract class AbstractFuture implements IFuture {
-
   /**
    * {@inheritDoc}
    */
@@ -30,7 +29,6 @@ public abstract class AbstractFuture implements IFuture {
    */
   @Override
   public final void waitUntilIsFinishedSuccessfully() {
-
     waitUntilIsFinished();
 
     handleProbableError();
@@ -41,14 +39,12 @@ public abstract class AbstractFuture implements IFuture {
    */
   @Override
   public final void waitUntilIsFinishedSuccessfully(final int timeoutInMilliseconds) {
-
     waitUntilIsFinished(timeoutInMilliseconds);
 
     handleProbableError();
   }
 
   private void handleError() {
-
     if (getError().getMessage() == null || getError().getMessage().isBlank()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         this,

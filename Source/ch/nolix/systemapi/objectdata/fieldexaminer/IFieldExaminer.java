@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
  * @version 2024-12-30
  */
 public interface IFieldExaminer extends IDatabaseObjectExaminer {
-
   /**
    * @param field
    * @return true if the given field belongs to a {@link IEntity}, false

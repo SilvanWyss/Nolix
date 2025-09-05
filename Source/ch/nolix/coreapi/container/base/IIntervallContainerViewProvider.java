@@ -7,7 +7,6 @@ package ch.nolix.coreapi.container.base;
  *            {@link IIntervallContainerViewProvider}.
  */
 public interface IIntervallContainerViewProvider<E> {
-
   /**
    * @param oneBasedStartIndex
    * @return a new view of the current {@link IIntervallContainerViewProvider}

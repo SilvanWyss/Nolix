@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 
 public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
-
   public AndPortCaptor() {
   }
 
@@ -27,7 +26,6 @@ public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
   }
 
   public final N andPort(final int port) {
-
     Validator
       .assertThat(port)
       .thatIsNamed(LowerCaseVariableCatalog.PORT)

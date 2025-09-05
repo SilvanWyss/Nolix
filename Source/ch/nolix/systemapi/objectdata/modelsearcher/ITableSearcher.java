@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
  * @version 2024-12-29
  */
 public interface ITableSearcher extends IDatabaseObjectExaminer {
-
   /**
    * @param table
    * @return the ids of the locally deleted {@link IEntity}s of the given table.

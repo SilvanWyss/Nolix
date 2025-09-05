@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 public final class ReferenceExaminer extends FieldExaminer implements IReferenceExaminer {
-
   @Override
   public <E extends IEntity> boolean canSetEntity(final IReference<E> reference) {
     return //

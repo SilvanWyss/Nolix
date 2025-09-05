@@ -6,13 +6,11 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
-
   private final CopyableIterator<IContainer<E>> mainIterator;
 
   private CopyableIterator<E> currentSubIterator;
 
   private MultiContainerViewIterator(final IContainer<IContainer<E>> containers) {
-
     mainIterator = containers.iterator();
 
     if (mainIterator.hasNext()) {
@@ -46,7 +44,6 @@ public final class MultiContainerViewIterator<E> implements CopyableIterator<E> 
 
   @Override
   public E next() {
-
     if (!hasNext()) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NEXT_ELEMENT);

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
  *            of a {@link IBackendClient}.
  */
 public interface IBackendClient<S> extends IClient {
-
   /**
    * @return the application of the current {@link IBackendClient} as target.
    */

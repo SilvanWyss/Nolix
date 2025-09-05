@@ -12,10 +12,8 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 
 final class YesNoDialogBuilderTest extends StandardTest {
-
   @Test
   void testCase_build() {
-
     //setup
     final var testUnit = new YesNoDialogBuilder();
 
@@ -31,7 +29,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
 
   @Test
   void testCase_build_thenClickCancelButton() {
-
     //setup
     final var testUnit = new YesNoDialogBuilder();
     final var confirmActionMock = Mockito.mock(Runnable.class);
@@ -50,7 +47,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
 
   @Test
   void testCase_build_thenClickConfirmButton() {
-
     //setup
     final var testUnit = new YesNoDialogBuilder();
     final var confirmActionMock = Mockito.mock(Runnable.class);
@@ -69,7 +65,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
 
   @Test
   void testCase_build_thenAddToWebGui_thenClickCancelButton() {
-
     //setup
     final var webGui = new WebGui();
     final var testUnit = new YesNoDialogBuilder();
@@ -91,7 +86,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
 
   @Test
   void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
-
     //setup
     final var webGui = new WebGui();
     final var testUnit = new YesNoDialogBuilder();
@@ -112,7 +106,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
   }
 
   private boolean isCancelButton(final IControl<?, ?> control) {
-
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CANCEL_BUTTON);
     }
@@ -121,7 +114,6 @@ final class YesNoDialogBuilderTest extends StandardTest {
   }
 
   private boolean isConfirmButton(final IControl<?, ?> control) {
-
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
     }

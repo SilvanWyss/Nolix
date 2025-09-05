@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public abstract class WebClientSession<S> //NOSONAR: A web client session class is expected to be abstract.
 extends AbstractWebClientSession<WebClient<S>, S> {
-
   private final IWebGui<?> webGui = new WebGui();
 
   public final IWebGui<?> getStoredGui() {
@@ -32,7 +31,6 @@ extends AbstractWebClientSession<WebClient<S>, S> {
 
   @Override
   protected final void fullInitialize() {
-
     getStoredGui()
       .setTitle(getApplicationName())
       .setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());

@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2023-02-07
  */
 public interface IOptionalLabelHolder {
-
   /**
    * @return the label of the current {@link IOptionalLabelHolder}.
    * @throws RuntimeException if the current {@link IOptionalLabelHolder} does not

@@ -16,7 +16,6 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 public final class SingleContainer
 extends AbstractContainer<ISingleContainer, ISingleContainerStyle>
 implements ISingleContainer {
-
   private static final String CONTROL_HEADER = "Control";
 
   private static final SingleContainerHtmlBuilder HTML_BUILDER = new SingleContainerHtmlBuilder();
@@ -36,7 +35,6 @@ implements ISingleContainer {
 
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -61,7 +59,6 @@ implements ISingleContainer {
 
   @Override
   public SingleContainer setControl(final IControl<?, ?> control) {
-
     control.internalSetParentControl(this);
     this.control.setValue(control);
 

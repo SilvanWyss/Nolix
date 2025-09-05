@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
  * @version 2024-12-29
  */
 public interface IDatabaseSearcher {
-
   /**
    * @param database
    * @return the {@link IEntity}s of the given database in the local data.

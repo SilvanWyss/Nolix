@@ -5,7 +5,6 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntryColumn;
 
 public final class MultiBackReferenceStatementCreator implements IMultiBackReferenceStatementCreator {
-
   @Override
   public String createStatementToDeleteMultiBackReferenceEntries(
     final String entityId,

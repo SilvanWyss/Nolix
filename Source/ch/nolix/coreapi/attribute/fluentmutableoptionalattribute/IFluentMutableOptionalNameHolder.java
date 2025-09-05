@@ -12,7 +12,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalNameHolder;
  */
 public interface IFluentMutableOptionalNameHolder<H extends IFluentMutableOptionalNameHolder<H>>
 extends IOptionalNameHolder {
-
   /**
    * Removes the name of the current {@link IFluentMutableOptionalNameHolder}.
    */

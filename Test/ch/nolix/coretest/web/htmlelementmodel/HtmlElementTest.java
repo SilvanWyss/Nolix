@@ -9,10 +9,8 @@ import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 
 final class HtmlElementTest extends StandardTest {
-
   @Test
   void testCase_withAttribute_whenContainsAttributesAndHasNonEmptyInnerText() {
-
     //setup
     final var attribute1 = HtmlAttribute.withNameAndValue("n1", "v1");
     final var attribute2 = HtmlAttribute.withNameAndValue("n2", "v2");

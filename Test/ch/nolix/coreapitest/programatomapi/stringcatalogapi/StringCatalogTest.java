@@ -7,10 +7,8 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 final class StringCatalogTest extends StandardTest {
-
   @Test
   void testCase_constants() {
-
     //verification
     for (final var f : StringCatalog.class.getFields()) {
       expect(ReflectionTool.isPublic(f)).isTrue();

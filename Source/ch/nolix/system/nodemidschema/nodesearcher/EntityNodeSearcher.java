@@ -8,7 +8,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IEntityNodeSearcher;
  * @version 2024-12-25
  */
 public final class EntityNodeSearcher implements IEntityNodeSearcher {
-
   /**
    * {@inheritDoc}
    */

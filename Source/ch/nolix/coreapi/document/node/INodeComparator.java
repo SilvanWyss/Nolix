@@ -5,7 +5,6 @@ package ch.nolix.coreapi.document.node;
  * @version 2025-01-01
  */
 public interface INodeComparator {
-
   /**
    * @param node1
    * @param node2

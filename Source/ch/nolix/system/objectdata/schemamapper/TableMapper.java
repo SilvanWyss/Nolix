@@ -8,10 +8,8 @@ import ch.nolix.systemapi.objectdata.schemamapper.ITableMapper;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class TableMapper implements ITableMapper {
-
   @Override
   public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {
-
     final var name = entityType.getSimpleName();
 
     return Table.withName(name);
@@ -19,7 +17,6 @@ public final class TableMapper implements ITableMapper {
 
   @Override
   public IContainer<ITable> mapSchemaToEmptyTables(final IEntityTypeSet entityTypeSet) {
-
     final var entityTypes = entityTypeSet.getEntityTypes();
 
     return entityTypes.to(this::mapEntityTypeToEmptyTable);

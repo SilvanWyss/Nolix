@@ -15,7 +15,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalidArgumentException {
-
   private static final String DEFAULT_ATTRIBUTE_NAME = "attribute";
 
   /**
@@ -148,7 +147,6 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @throws RuntimeException if the given attribtueType is null.
    */
   private static String getNameOfAttributeType(final Class<?> attributeType) {
-
     if (attributeType == null) {
       throw new IllegalArgumentException("The given attribute type is null.");
     }
@@ -168,7 +166,6 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @throws RuntimeException if the given attributeName is null or blank.
    */
   private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {
-
     if (attributeName == null) {
       throw new IllegalArgumentException("The given attribute name is null.");
     }

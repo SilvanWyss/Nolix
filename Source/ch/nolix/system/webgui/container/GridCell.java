@@ -12,7 +12,6 @@ import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class GridCell extends AbstractMutableElement implements Clearable {
-
   private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalog.ROW_INDEX;
 
   private static final String COLUMN_INDEX_HEADER = PascalCaseVariableCatalog.COLUMN_INDEX;
@@ -33,7 +32,6 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   }
 
   public static GridCell fromSpecification(final INode<?> specification) {
-
     final var cell = new GridCell();
     cell.resetFromSpecification(specification);
 
@@ -41,7 +39,6 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   }
 
   public static GridCell withOneBasedRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
-
     final var cell = new GridCell();
     cell.setRowIndex(rowIndex);
     cell.setColumnIndex(columnIndex);
@@ -81,14 +78,12 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   }
 
   private void setColumnIndex(final int columnIndex) {
-
     Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
 
     this.columnIndex.setValue(columnIndex);
   }
 
   private void setRowIndex(final int rowIndex) {
-
     Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
 
     this.rowIndex.setValue(rowIndex);

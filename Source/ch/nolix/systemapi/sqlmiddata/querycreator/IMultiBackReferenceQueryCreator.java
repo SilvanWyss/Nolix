@@ -1,7 +1,6 @@
 package ch.nolix.systemapi.sqlmiddata.querycreator;
 
 public interface IMultiBackReferenceQueryCreator {
-
   String createQueryToLoadMultiBackReferenceEntries(
     String backReferencedTableName,
     String backReferencedSingleReferenceColumnName,

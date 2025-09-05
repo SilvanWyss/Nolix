@@ -8,7 +8,6 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 abstract class AbstractSchemaObject implements IDatabaseObject {
-
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
   @Override
@@ -44,7 +43,6 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
   protected abstract void noteClose();
 
   final void close() {
-
     state = DatabaseObjectState.CLOSED;
 
     noteClose();

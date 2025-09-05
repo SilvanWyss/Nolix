@@ -4,7 +4,6 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public interface IBorderStyle<S extends IBorderStyle<S>> {
-
   IColor getBottomBorderColorWhenHasState(ControlState state);
 
   int getBottomBorderThicknessWhenHasState(ControlState state);

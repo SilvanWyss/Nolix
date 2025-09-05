@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 public abstract class AbstractBaseBackReference<E extends IEntity>
 extends AbstractField
 implements IBaseBackReference<E> {
-
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private final String backReferencedTableName;
@@ -23,7 +22,6 @@ implements IBaseBackReference<E> {
   private Table<E> backReferencedTable;
 
   protected AbstractBaseBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
-
     Validator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
 
     Validator
@@ -42,7 +40,6 @@ implements IBaseBackReference<E> {
 
   @Override
   public final ITable<E> getStoredBackReferencedTable() {
-
     extractBackReferencedTableIfNotExtracted();
 
     return backReferencedTable;

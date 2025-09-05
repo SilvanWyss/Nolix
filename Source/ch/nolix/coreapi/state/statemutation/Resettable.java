@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.statemutation;
  * @version 2016-01-01
  */
 public interface Resettable {
-
   /**
    * Resets the current {@link Resettable}.
    */

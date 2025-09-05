@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 
 public abstract class AbstractBaseReferenceModelView<E extends IEntity> implements IBaseReferenceModelView<ITable<E>> {
-
   private final IContainer<? extends ITable<E>> referenceableTables;
 
   protected AbstractBaseReferenceModelView(final IContainer<? extends ITable<E>> referenceableTables) {

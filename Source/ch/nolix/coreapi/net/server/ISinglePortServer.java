@@ -5,7 +5,6 @@ package ch.nolix.coreapi.net.server;
  * @version 2025-01-12
  */
 public interface ISinglePortServer {
-
   /**
    * @return the ip of the current {@link ISinglePortServer}.
    */

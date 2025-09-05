@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * @version 2020-03-29
  */
 public interface IOptionalTokenHolder {
-
   /**
    * @return the token of the current {@link IOptionalTokenHolder}.
    */

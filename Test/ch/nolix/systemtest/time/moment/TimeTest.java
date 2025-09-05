@@ -7,10 +7,8 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.time.timestructure.Weekday;
 
 final class TimeTest extends StandardTest {
-
   @Test
   void testCase_getWeekday_whenIs2020_01_01() {
-
     //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 1);
 
@@ -23,7 +21,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_getWeekday_whenIs2020_01_02() {
-
     //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 2);
 
@@ -36,7 +33,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_getWeekday_whenIs2020_01_03() {
-
     //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 3);
 
@@ -49,7 +45,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_isAfter_whenTheGivenTimeIsBefore() {
-
     //setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -79,7 +74,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_isAfter_whenTheGivenTimeEquals() {
-
     //setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -109,7 +103,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_isAfter_whenTheGivenTimeIsAfter() {
-
     //setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -139,7 +132,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_isBefore_whenTheGivenTimeIsBefore() {
-
     //setup
     final var time = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -169,7 +161,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_isBefore_whenTheGivenTimeEquals() {
-
     //setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -199,7 +190,6 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_isBefore_whenTheGivenTimeIsAfter() {
-
     //setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
@@ -231,7 +221,6 @@ final class TimeTest extends StandardTest {
   void testCase_withYearAndMonthOfYearAndDayOfMonth() {
     for (var y = 1600; y <= 3000; y++) {
       for (var m = 1; m <= 12; m++) {
-
         final int dayCount;
         if (m == 2) {
           dayCount = 28;
@@ -240,7 +229,6 @@ final class TimeTest extends StandardTest {
         }
 
         for (var d = 1; d <= dayCount; d++) {
-
           //execution
           final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 
@@ -255,11 +243,9 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour() {
-
     //main loop
     for (var h = 0; h <= 23; h++) {
       for (var m = 0; m <= 59; m++) {
-
         //execution
         final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(2000, 1, 1, h, m);
 

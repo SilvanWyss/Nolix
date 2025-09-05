@@ -3,7 +3,6 @@ package ch.nolix.systemapi.objectdata.fieldvalidator;
 import ch.nolix.systemapi.objectdata.model.IField;
 
 public interface IFieldValidator {
-
   void assertBelongsToEntity(IField field);
 
   void assertDoesNotBelongToEntity(IField field);

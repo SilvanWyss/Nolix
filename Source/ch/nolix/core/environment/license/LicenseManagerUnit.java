@@ -24,7 +24,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2019-11-16
  */
 public final class LicenseManagerUnit {
-
   private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
   private final LinkedList<License> licenses = LinkedList.createEmpty();
@@ -47,7 +46,6 @@ public final class LicenseManagerUnit {
    *                                  the given licenseType.
    */
   public <L extends License> LicenseManagerUnit addLicense(final Class<L> licenseType) {
-
     final var key = readKeyFromLicenseFile(licenseType);
 
     final var license = ReflectionTool.createInstanceFromDefaultConstructorOfClass(License.class);
@@ -70,7 +68,6 @@ public final class LicenseManagerUnit {
    *                                  type the given license is.
    */
   public LicenseManagerUnit addLicense(final License license) {
-
     //Asserts that the given license is not null.
     Validator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
 
@@ -151,7 +148,6 @@ public final class LicenseManagerUnit {
    *                                               given featureType.
    */
   public <F extends AbstractFeature> LicenseManagerUnit requireFeature(final Class<F> featureType) {
-
     //Asserts that the current LicenseManager contains a feature of the given
     //featureType.
     if (!containsFeature(featureType)) {
@@ -177,7 +173,6 @@ public final class LicenseManagerUnit {
    * @throws ArgumentIsNullException if the given licenseType is null.
    */
   private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
-
     //Asserts that the given licenseType is not null.
     Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 

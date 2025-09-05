@@ -23,7 +23,6 @@ import ch.nolix.systemapi.gui.location.Location;
  * @version 2025-08-09
  */
 public final class CornerShadow extends AbstractElement implements ICornerShadow {
-
   private static final Corner DEFAULT_CORNER = Corner.BOTTOM_RIGHT;
 
   public static final Location DEFAULT_LOCATION = Location.OUTSIDE;
@@ -82,7 +81,6 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
     final int side2Thickness,
     final int blurRadius,
     final IColor color) {
-
     Validator.assertThat(corner).thatIsNamed(Corner.class).isNotNull();
     Validator.assertThat(location).thatIsNamed(Location.class).isNotNull();
     Validator.assertThat(side1Thickness).thatIsNamed("side 1 thickness").isNotNegative();
@@ -103,7 +101,6 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @throws RuntimeException if the given cornerShadow is null.
    */
   public static CornerShadow fromCornerShadow(final ICornerShadow cornerShadow) {
-
     if (cornerShadow instanceof CornerShadow localCornerShadow) {
       return localCornerShadow;
     }
@@ -131,7 +128,6 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @throws RuntimeException if the given specification is not valid.
    */
   public static CornerShadow fromSpecification(final INode<?> specification) {
-
     var corner = DEFAULT_CORNER;
     var location = DEFAULT_LOCATION;
     var side1Thickness = DEFAULT_SIDE_THICKNESS;
@@ -141,7 +137,6 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
     final var attributes = specification.getStoredChildNodes();
 
     for (final var a : attributes) {
-
       final var header = a.getHeader();
 
       switch (header) {

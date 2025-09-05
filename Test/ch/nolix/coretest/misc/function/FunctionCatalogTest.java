@@ -6,10 +6,8 @@ import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class FunctionCatalogTest extends StandardTest {
-
   @Test
   void testCase_getFalse() {
-
     //execution
     final var result = FunctionService.getFalse();
 
@@ -19,7 +17,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getNull() {
-
     //execution
     final var result = FunctionService.getNull();
 
@@ -29,7 +26,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getOne() {
-
     //execution
     final var result = FunctionService.getOne();
 
@@ -39,7 +35,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getStringRepresentationOf_whenNullIsGiven() {
-
     //execution
     final var result = FunctionService.getStringRepresentationOf(null);
 
@@ -49,7 +44,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
-
     //execution
     final var result = FunctionService.getStringRepresentationOf(2500);
 
@@ -59,7 +53,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getStringRepresentationOf_whenAStringIsGiven() {
-
     //execution
     final var result = FunctionService.getStringRepresentationOf("Lorem ipsum");
 
@@ -69,7 +62,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getTrue() {
-
     //execution
     final var result = FunctionService.getTrue();
 
@@ -79,7 +71,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getTypeOf_whenIntIsGiven() {
-
     //execution
     final var result = FunctionService.getTypeOf(2500);
 
@@ -89,7 +80,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getTypeOf_whenStringIsGiven() {
-
     //execution
     final var result = FunctionService.getTypeOf("");
 
@@ -99,7 +89,6 @@ final class FunctionCatalogTest extends StandardTest {
 
   @Test
   void testCase_getZero() {
-
     //execution
     final var result = FunctionService.getZero();
 

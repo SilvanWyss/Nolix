@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
 import ch.nolix.systemapi.objectschema.schematool.ITableTool;
 
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
-
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
   @Override
@@ -23,7 +22,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
 
   @Override
   public IContainer<? extends IColumn> getStoredBackReferencingColumns(final ITable table) {
-
     if (!table.belongsToDatabase()) {
       return getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(table);
     }
@@ -33,7 +31,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
 
   @Override
   public IContainer<? extends IColumn> getStoredReferencingColumns(final ITable table) {
-
     if (!table.belongsToDatabase()) {
       return getStoredReferencingColumnsWhenDoesNotBelongToDatabase(table);
     }
@@ -43,7 +40,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
 
   private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
-
     final var columns = table.getStoredParentDatabase().getStoredTables().toMultiples(ITable::getStoredColumns);
 
     return table
@@ -53,7 +49,6 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
 
   private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
-
     final var columns = table.getStoredColumns();
 
     return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));

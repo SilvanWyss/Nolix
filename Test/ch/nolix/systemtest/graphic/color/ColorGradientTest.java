@@ -9,10 +9,8 @@ import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.systemapi.gui.box.Direction;
 
 final class ColorGradientTest extends StandardTest {
-
   @Test
   void testCase_getSpecification() {
-
     //setup
     final var testUnit = ColorGradient.withDirectionAndColors(Direction.HORIZONTAL, X11ColorCatalog.BLACK,
       X11ColorCatalog.WHITE);
@@ -26,7 +24,6 @@ final class ColorGradientTest extends StandardTest {
 
   @Test
   void testCase_fromSpecification_1A() {
-
     //setup
     final var specification = Node.fromString("ColorGradient(0x000000,0xFFFFFF)");
 
@@ -41,7 +38,6 @@ final class ColorGradientTest extends StandardTest {
 
   @Test
   void testCase_fromSpecification_1B() {
-
     //setup
     final var specification = Node.fromString("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
 
@@ -56,7 +52,6 @@ final class ColorGradientTest extends StandardTest {
 
   @Test
   void testCase_withColors() {
-
     //execution
     final var result = ColorGradient.withColors(X11ColorCatalog.BLACK, X11ColorCatalog.WHITE);
 
@@ -68,7 +63,6 @@ final class ColorGradientTest extends StandardTest {
 
   @Test
   void testCase_withDirectionAndColors() {
-
     //execution
     final var result = ColorGradient.withDirectionAndColors(Direction.HORIZONTAL, X11ColorCatalog.BLACK,
       X11ColorCatalog.WHITE);

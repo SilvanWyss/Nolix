@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2024-12-21
  */
 public interface IEntityFiller {
-
   /**
    * Fills up the given entity from the given entityLoadingDto.
    * 

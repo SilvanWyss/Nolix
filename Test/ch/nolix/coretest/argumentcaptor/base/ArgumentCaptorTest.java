@@ -14,10 +14,8 @@ import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class ArgumentCaptorTest extends StandardTest {
-
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
-
     //execution & verification
     expectRunning(() -> new ArgumentCaptor<String, VoidObject>(null) {
     }) //
@@ -27,7 +25,6 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNotValid() {
-
     //execution & verification
     expectRunning(() -> new ArgumentCaptor<String, VoidObject>(new VoidObject()) {
     }) //
@@ -37,7 +34,6 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_defaultConstructor() {
-
     //execution & verification
     expectRunning(() -> new ArgumentCaptor<String, VoidObject>() {
     }) //
@@ -46,7 +42,6 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_nxtArgCpt_whenDoesNotHaveNextArgumentCaptor() {
-
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {
     };
@@ -59,10 +54,8 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_setBuilder_whenTheGivenBuilderIsNull() {
-
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {
-
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }
@@ -77,10 +70,8 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_setBuilder_whenHasAlreadyBuilder() {
-
     //setup
     final var testUnit = new ArgumentCaptor<String, VoidObject>() {
-
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }

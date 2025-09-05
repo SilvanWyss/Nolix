@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.modelmapper.IColumnViewDtoMapper;
  * @version 2025-01-10
  */
 public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
-
   /**
    * {@inheritDoc}
    */
@@ -17,7 +16,6 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
   public ColumnViewDto mapMidSchemaColumnDtoToColumnViewDto(
     final ColumnDto columnDto,
     final int oneBasedColumnOrdinalIndex) {
-
     final var id = columnDto.id();
     final var name = columnDto.name();
     final var contentModel = columnDto.contentModel();

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.modelexaminer.IContentModelExaminer;
  * @version 2024-01-31
  */
 public final class ContentModelExaminer extends DatabaseObjectExaminer implements IContentModelExaminer {
-
   /**
    * {@inheritDoc}
    */

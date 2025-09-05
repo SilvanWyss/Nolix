@@ -5,7 +5,6 @@ package ch.nolix.systemapi.webgui.itemmenu.baseapi;
  * @version 2025-02-10
  */
 public interface IItemMenuSearcher {
-
   /**
    * @param itemMenu
    * @return the blank item of the given itemMenu.

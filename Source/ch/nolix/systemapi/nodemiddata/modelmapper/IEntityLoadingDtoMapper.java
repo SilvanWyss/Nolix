@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
  * @version 2025-02-07
  */
 public interface IEntityLoadingDtoMapper {
-
   /**
    * @param entityNode
    * @param tableView

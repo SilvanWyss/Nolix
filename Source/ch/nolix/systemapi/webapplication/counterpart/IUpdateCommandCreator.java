@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public interface IUpdateCommandCreator {
-
   IChainedNode createSetCssCommandFromWebGui(IWebGui<?> webGui);
 
   IChainedNode createSetEventFunctionsCommandFromWebGui(IWebGui<?> webGui);

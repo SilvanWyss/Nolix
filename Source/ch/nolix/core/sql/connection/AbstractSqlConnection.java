@@ -22,7 +22,6 @@ import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
 public abstract class AbstractSqlConnection implements ISqlConnection {
-
   private final SqlDatabaseEngine sqlDatabaseEngine;
 
   private final Connection connection;
@@ -30,7 +29,6 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
   private final ICloseController closeController = CloseController.forElement(this);
 
   protected AbstractSqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
-
     Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
     Validator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
 
@@ -57,7 +55,6 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     final int port,
     final String userName,
     final String userPassword) {
-
     Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 
     this.sqlDatabaseEngine = sqlDatabaseEngine;
@@ -79,9 +76,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
 
   @Override
   public final void executeStatements(final IContainer<String> statements) {
-
     try (final var statement = connection.createStatement()) {
-
       connection.setAutoCommit(false);
 
       for (final var sqlStatement : statements) {
@@ -91,7 +86,6 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
       statement.executeBatch();
       connection.commit();
     } catch (final SQLException sqlException) {
-
       try {
         connection.rollback();
       } catch (final SQLException sqlException2) {
@@ -104,7 +98,6 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
 
   @Override
   public final void executeStatement(final String statement, final String... statements) {
-
     final var allStatements = ContainerView.forElementAndArray(statement, statements);
 
     executeStatements(allStatements);
@@ -156,17 +149,14 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
 
   private final IContainer<ISqlRecord> getRecordsFromResultSet(final ResultSet resultSet)
   throws SQLException {
-
     final ILinkedList<ISqlRecord> sqlRecords = LinkedList.createEmpty();
     final var columnCount = resultSet.getMetaData().getColumnCount();
     var index = 1;
 
     while (resultSet.next()) {
-
       final ArrayList<String> entries = ArrayList.withInitialCapacity(columnCount);
 
       for (var i = 1; i <= columnCount; i++) {
-
         final var entry = resultSet.getString(i);
 
         if (entry == null) {

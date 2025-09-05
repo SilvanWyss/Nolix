@@ -13,7 +13,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.property.IProperty;
 
 public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
-
   private final String name;
 
   private final Consumer<V> setter;
@@ -30,7 +29,6 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
     final Supplier<V> getter,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
     Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
@@ -68,7 +66,6 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
       getter,
       s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
       (final String s) -> {
-
         if (s.isEmpty()) {
           return Node.EMPTY_NODE;
         }
@@ -84,7 +81,6 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
 
   @Override
   public boolean addedOrChangedAttribute(INode<?> attribute) {
-
     if (hasName(attribute.getHeader())) {
       setter.accept(valueCreator.apply(attribute));
       return true;

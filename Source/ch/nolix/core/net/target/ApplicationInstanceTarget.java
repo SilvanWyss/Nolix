@@ -5,7 +5,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
-
   private final String applicationInstanceName;
 
   private final String applicationUrlInstanceName;
@@ -16,7 +15,6 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
     final SecurityMode securityModeForConnections) {
-
     super(ipOrDomain, port, securityModeForConnections);
 
     Validator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();

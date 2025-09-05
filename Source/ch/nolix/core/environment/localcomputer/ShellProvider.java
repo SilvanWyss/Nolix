@@ -13,12 +13,10 @@ import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 
 public final class ShellProvider {
-
   private ShellProvider() {
   }
 
   public static void run(final String[] command) {
-
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
 
     final var runtimeCommand = createRuntimeCommandFromCommand(command);
@@ -47,7 +45,6 @@ public final class ShellProvider {
   }
 
   public static void startFirefox(final String url, final int port) {
-
     Validator
       .assertThat(url)
       .thatIsNamed(LowerCaseVariableCatalog.URL)
@@ -70,14 +67,12 @@ public final class ShellProvider {
   }
 
   private static String[] createRuntimeCommandFromCommand(final String[] command) {
-
     final var preCommand = new String[] { "cmd.exe", "/c" };
 
     return ContainerView.forArray(preCommand, command).toStringArray();
   }
 
   private static String getUrlWithHttpPrefix(final String url) {
-
     if (!url.startsWith("http://")) {
       return ("http://" + url);
     }

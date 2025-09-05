@@ -7,11 +7,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class Component //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<S>, S> extends AbstractComponent<C, S> {
-
   private IControl<?, ?> childControl;
 
   protected Component(final C controller, final WebClientSession<S> webClientSession) {
-
     super(controller, webClientSession);
 
     rebuild();
@@ -19,7 +17,6 @@ public abstract class Component //NOSONAR: A component class is expected to be a
 
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
-
     if (childControl == null) {
       return ImmutableList.createEmpty();
     }

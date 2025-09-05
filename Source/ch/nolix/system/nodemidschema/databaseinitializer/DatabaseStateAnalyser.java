@@ -11,7 +11,6 @@ import ch.nolix.systemapi.nodemidschema.nodeexaminer.INodeDatabaseExaminer;
  * @version 2025-01-12
  */
 public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
-
   private static final INodeDatabaseExaminer NODE_DATABASE_EXAMINER = new NodeDatabaseExaminer();
 
   /**
@@ -19,7 +18,6 @@ public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
    */
   @Override
   public DatabaseState getStateOfNodeDatabase(final IMutableNode<?> nodeDatabase) {
-
     if (NODE_DATABASE_EXAMINER.nodeDatabaseIsUninitialized(nodeDatabase)) {
       return DatabaseState.UNINITIALIZED;
     }

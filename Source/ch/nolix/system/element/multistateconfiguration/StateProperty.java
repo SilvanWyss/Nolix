@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 public final class StateProperty<V> {
-
   private boolean hasValueOrDefinesEmpty;
 
   private V value;
@@ -19,7 +18,6 @@ public final class StateProperty<V> {
   }
 
   public ValueStoringState getAssignmentType() {
-
     if (!hasValueOrDefinesEmpty()) {
       return ValueStoringState.FORWARDING;
     }
@@ -33,7 +31,6 @@ public final class StateProperty<V> {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public V getValue() {
-
     if (!hasValueOrDefinesEmpty || value == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.VALUE);
     }
@@ -61,7 +58,6 @@ public final class StateProperty<V> {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public void setValue(final V value) {
-
     if (value == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
     }

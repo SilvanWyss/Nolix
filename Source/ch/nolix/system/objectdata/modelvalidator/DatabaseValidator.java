@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IDatabaseExaminer;
 import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
 
 public final class DatabaseValidator implements IDatabaseValidator {
-
   private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 
   @Override

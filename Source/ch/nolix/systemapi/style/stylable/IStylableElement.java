@@ -22,7 +22,6 @@ IFluentMutableOptionalIdHolder<E>,
 IMutableElement,
 IStructureElement,
 TypeRequestable {
-
   /**
    * @return the child {@link IStylableElement}s of the current
    *         {@link IStylableElement}.

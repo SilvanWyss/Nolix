@@ -20,7 +20,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2016-01-01
  */
 public final class Node extends AbstractNode<Node> {
-
   public static final Node EMPTY_NODE = new Node();
 
   private final String header;
@@ -28,7 +27,6 @@ public final class Node extends AbstractNode<Node> {
   private final ImmutableList<Node> childNodes;
 
   private Node() {
-
     header = null;
 
     childNodes = ImmutableList.forIterable(LinkedList.createEmpty());
@@ -40,7 +38,6 @@ public final class Node extends AbstractNode<Node> {
    * @param childNodes
    */
   private Node(final Iterable<? extends INode<?>> childNodes) {
-
     header = null;
 
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
@@ -54,7 +51,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private Node(final String header) {
-
     this.header = getValidHeaderFromHeader(header);
 
     childNodes = ImmutableList.createEmpty();
@@ -70,7 +66,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private Node(final String header, final INode<?> childNode, final INode<?>[] childNodes) {
-
     this.header = getValidHeaderFromHeader(header);
 
     this.childNodes = //
@@ -86,7 +81,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private Node(final String header, final Iterable<? extends INode<?>> childNodes) {
-
     this.header = getValidHeaderFromHeader(header);
 
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
@@ -116,7 +110,6 @@ public final class Node extends AbstractNode<Node> {
    * @return a new {@link Node} from the given {@link INode}.
    */
   public static Node fromNode(final INode<?> node) {
-
     if (node instanceof final Node lNode) {
       return lNode;
     }
@@ -160,7 +153,6 @@ public final class Node extends AbstractNode<Node> {
    * @return a new {@link Node} with the given childNodes.
    */
   public static Node withChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes);
 
     return new Node(allChildNodes);
@@ -182,7 +174,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   public static Node withChildNode(final String childNode, final String... childNodes) {
-
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
 
     return withChildNodes(allChildNodes);
@@ -289,7 +280,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if one of the given childNodes is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
-
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
 
     return withHeaderAndChildNodes(header, allChildNodes);
@@ -312,7 +302,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws RuntimeException if one of the given nodes is null.
    */
   private static IContainer<Node> createNodesFromNodes(final Iterable<? extends INode<?>> nodes) {
-
     final ILinkedList<Node> lNodes = LinkedList.createEmpty();
 
     for (final var n : nodes) {
@@ -337,7 +326,6 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private static String getValidHeaderFromHeader(final String header) {
-
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
     return header;
@@ -357,7 +345,6 @@ public final class Node extends AbstractNode<Node> {
    */
   @Override
   public String getHeader() {
-
     if (header == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
     }

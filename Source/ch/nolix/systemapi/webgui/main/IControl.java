@@ -22,7 +22,6 @@ IStylableElement<C>,
 IUserInputCell<C>,
 Linkable,
 PresenceSettable<C> {
-
   boolean belongsToControl();
 
   boolean belongsToGui();

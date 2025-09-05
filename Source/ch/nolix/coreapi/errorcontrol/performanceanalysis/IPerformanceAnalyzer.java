@@ -5,7 +5,6 @@ import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
 public interface IPerformanceAnalyzer {
-
   <O> boolean onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
     IntFunction<O> objectSupplier,
     Consumer<O> action,

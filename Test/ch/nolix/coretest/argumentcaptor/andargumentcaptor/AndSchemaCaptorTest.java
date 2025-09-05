@@ -9,10 +9,8 @@ import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class AndSchemaCaptorTest extends StandardTest {
-
   @Test
   void testCase_andSchema_whenHasNext() {
-
     //parameter definition
     final var schema = new VoidObject();
 
@@ -30,7 +28,6 @@ final class AndSchemaCaptorTest extends StandardTest {
 
   @Test
   void testCase_andSchema_whenDoesNotHaveNext() {
-
     //setup
     final var testUnit = new AndSchemaCaptor<>();
 
@@ -42,7 +39,6 @@ final class AndSchemaCaptorTest extends StandardTest {
 
   @Test
   void testCase_getStoredSchema_whenDoesNotHaveSchema() {
-
     //setup
     final var testUnit = new AndSchemaCaptor<>();
 

@@ -12,7 +12,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
  */
 public interface IFluentMutableOneBasedIndexHolder<I extends IFluentMutableOneBasedIndexHolder<I>>
 extends IOneBasedIndexHolder {
-
   /**
    * Sets the one-based index of the current
    * {@link IFluentMutableOneBasedIndexHolder}.

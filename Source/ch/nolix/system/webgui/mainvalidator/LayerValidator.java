@@ -11,7 +11,6 @@ import ch.nolix.systemapi.webgui.mainvalidator.ILayerValidator;
  * @version 2023-10-29
  */
 public final class LayerValidator implements ILayerValidator {
-
   /**
    * {@inheritDoc}
    */

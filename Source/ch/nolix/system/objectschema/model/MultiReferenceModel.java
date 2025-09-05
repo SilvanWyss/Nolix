@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectschema.model.IMultiReferenceModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class MultiReferenceModel extends AbstractBaseReferenceModel implements IMultiReferenceModel {
-
   private MultiReferenceModel(final IContainer<? extends ITable> referenceableTables) {
     super(referenceableTables);
   }
@@ -15,7 +14,6 @@ public final class MultiReferenceModel extends AbstractBaseReferenceModel implem
   public static MultiReferenceModel forReferenceableTable(
     final ITable referenceableTable,
     final ITable... referenceableTables) {
-
     final var allReferenceableTables = ContainerView.forElementAndArray(referenceableTable, referenceableTables);
 
     return new MultiReferenceModel(allReferenceableTables);

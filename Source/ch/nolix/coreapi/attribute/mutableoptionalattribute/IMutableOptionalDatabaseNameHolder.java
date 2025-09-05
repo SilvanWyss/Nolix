@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalDatabaseNameHolder;
  * @version 2025-06-01
  */
 public interface IMutableOptionalDatabaseNameHolder extends IOptionalDatabaseNameHolder {
-
   /**
    * Removes the database name of the current
    * {@link IMutableOptionalDatabaseNameHolder}.

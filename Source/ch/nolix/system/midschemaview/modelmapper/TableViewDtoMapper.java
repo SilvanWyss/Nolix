@@ -11,7 +11,6 @@ import ch.nolix.systemapi.midschemaview.modelmapper.ITableViewDtoMapper;
  * @version 2025-01-24
  */
 public final class TableViewDtoMapper implements ITableViewDtoMapper {
-
   private static final IColumnViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnViewDtoMapper();
 
   /**
@@ -19,7 +18,6 @@ public final class TableViewDtoMapper implements ITableViewDtoMapper {
    */
   @Override
   public TableViewDto mapMidSchemaTableDtoToTableViewDto(final TableDto table) {
-
     final var id = table.id();
     final var name = table.name();
     final var columns = table.columns();

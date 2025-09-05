@@ -9,7 +9,6 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 
 final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
-
   private enum CustomState {
     A,
     B,
@@ -19,7 +18,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
   private static final class CustomMultiStateConfiguration
   extends AbstractMultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
-
     static final CustomState BASE_STATE = CustomState.A;
 
     final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
@@ -30,7 +28,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
       X11ColorCatalog.WHITE);
 
     CustomMultiStateConfiguration() {
-
       super(BASE_STATE);
 
       reset();
@@ -43,7 +40,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
   @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
-
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
@@ -57,7 +53,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
   @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndDefinesValueForBaseState() {
-
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setValueForState(CustomState.A, X11ColorCatalog.RED);
@@ -72,7 +67,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
   @Test
   void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndGetsValueFromParent() {
-
     //setup
     final var parentMultiStateConfiguration = new CustomMultiStateConfiguration();
     parentMultiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalog.RED);
@@ -89,7 +83,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
   @Test
   void testCase_getValueOfState_whenDefinesValueForGivenState() {
-
     //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setValueForState(CustomState.C, X11ColorCatalog.RED);

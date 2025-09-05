@@ -16,7 +16,6 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class HorizontalStackCssBuilder
 extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IHorizontalStack horizontalStack,
@@ -74,7 +73,6 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   }
 
   private CssProperty createCssPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
-
     final var contentAlignment = control.getContentAlignment();
 
     return createCssPropertyForContentAlignment(contentAlignment);

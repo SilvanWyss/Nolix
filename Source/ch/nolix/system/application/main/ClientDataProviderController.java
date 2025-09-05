@@ -18,7 +18,6 @@ import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
  * @version 2016-01-01
  */
 final class ClientDataProviderController implements IDataProviderController {
-
   private final AbstractClient<?> parentClient;
 
   /**
@@ -29,7 +28,6 @@ final class ClientDataProviderController implements IDataProviderController {
    * @throws ArgumentIsNullException if the given parentClient is null.
    */
   public ClientDataProviderController(final AbstractClient<?> parentClient) {
-
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
     this.parentClient = parentClient;
@@ -48,7 +46,6 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   @Override
   public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-
     //Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElement(request, requests);
 
@@ -77,7 +74,6 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   @Override
   public void runCommands(final IChainedNode command, final IChainedNode... commands) {
-
     //Concatenates the given commands.
     final var concatenatedCommands = ImmutableList.withElement(command, commands);
 
@@ -90,7 +86,6 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
-
     //Iterates the given commands.
     for (final var c : commands) {
       parentClient.runHere(c);

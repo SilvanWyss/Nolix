@@ -6,7 +6,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IContentModelNodeSearcher {
-
   String getBackReferencedColumnIdFromContentModelNode(IMutableNode<?> contentModelNode);
 
   DataType getDataTypeFromContentModelNode(IMutableNode<?> contentModelNode);

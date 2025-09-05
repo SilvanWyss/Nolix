@@ -8,7 +8,6 @@ package ch.nolix.coreapi.component.datamodelcomponent;
  * @param <T> is the type of the table a {@link ITableComponent} can belong to.
  */
 public interface ITableComponent<T> {
-
   /**
    * @return true if the current {@link ITableComponent} belongs to a table, false
    *         otherwise.

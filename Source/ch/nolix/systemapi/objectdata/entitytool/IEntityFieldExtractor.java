@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
  *            {@link IEntityFieldExtractor} can extract.
  */
 public interface IEntityFieldExtractor<E extends IEntity, F extends IField> {
-
   /**
    * @param entity
    * @return the {@link IField}s from the given entity.

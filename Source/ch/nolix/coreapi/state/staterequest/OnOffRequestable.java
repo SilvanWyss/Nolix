@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2023-02-05
  */
 public interface OnOffRequestable {
-
   /**
    * @return true if the current {@link OnOffRequestable} is off, false otherwise.
    */

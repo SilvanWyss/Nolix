@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalIdHolder;
  * @param <H> is the type of a {@link IFluentMutableOptionalIdHolder}.
  */
 public interface IFluentMutableOptionalIdHolder<H extends IFluentMutableOptionalIdHolder<H>> extends IOptionalIdHolder {
-
   /**
    * Removes the id of the current {@link IFluentMutableOptionalIdHolder}.
    */

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.linkapi.ILinkStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILinkStyle> {
-
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ILink control,

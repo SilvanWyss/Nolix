@@ -14,7 +14,6 @@ import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 import ch.nolix.techapi.math.fractal.IFractalBuilder;
 
 public final class FractalBuilder implements IFractalBuilder {
-
   public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
 
   public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
@@ -75,7 +74,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setDecimalPlaces(final int decimalPlaces) {
-
     this.decimalPlaces = decimalPlaces;
 
     return this;
@@ -83,7 +81,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setColorFunction(final IntFunction<IColor> colorFunction) {
-
     this.colorFunction = colorFunction;
 
     return this;
@@ -91,7 +88,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setHeightInPixel(final int heightInPixel) {
-
     this.heightInPixel = heightInPixel;
 
     return this;
@@ -104,7 +100,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setImaginaryComponentInterval(final IClosedInterval imaginaryComponentInterval) {
-
     this.imaginaryComponentInterval = imaginaryComponentInterval;
 
     return this;
@@ -117,7 +112,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setRealComponentInterval(final IClosedInterval realComponentInterval) {
-
     this.realComponentInterval = realComponentInterval;
 
     return this;
@@ -125,7 +119,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setMaxIterationCount(final int sequencesMaxIterationCount) {
-
     this.sequencesMaxIterationCount = sequencesMaxIterationCount;
 
     return this;
@@ -133,7 +126,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setMinMagnitudeForDivergence(final BigDecimal sequencesMinDivergenceMagnitude) {
-
     this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
 
     return this;
@@ -147,7 +139,6 @@ public final class FractalBuilder implements IFractalBuilder {
   @Override
   public IFractalBuilder setSequenceCreator(
     final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
-
     this.sequenceCreator = sequenceCreator;
 
     return this;
@@ -155,7 +146,6 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public IFractalBuilder setWidthInPixel(final int widthInPixel) {
-
     this.widthInPixel = widthInPixel;
 
     return this;

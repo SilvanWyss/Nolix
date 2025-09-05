@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
  * @version 2024-12-21
  */
 public interface ITableNodeEditor {
-
   /**
    * Removes the first entity node with the given id from the given tableNode.
    * 

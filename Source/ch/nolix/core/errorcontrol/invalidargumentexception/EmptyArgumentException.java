@@ -13,7 +13,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class EmptyArgumentException extends AbstractInvalidArgumentException {
-
   private static final String ERROR_PREDICATE = "is empty";
 
   /**

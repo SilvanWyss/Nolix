@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHorizontalStack> {
-
   @Override
   public HtmlElement createHtmlElementForControl(final IHorizontalStack horizontalStack) {
     return HtmlElement.withTypeAndChildElements(

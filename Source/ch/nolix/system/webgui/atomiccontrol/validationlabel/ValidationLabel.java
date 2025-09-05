@@ -24,7 +24,6 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 public final class ValidationLabel
 extends Control<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
-
   private static final String ERROR_HEADER = PascalCaseVariableCatalog.ERROR;
 
   private final MutableOptionalValue<Throwable> error = new MutableOptionalValue<>(
@@ -34,7 +33,6 @@ implements IValidationLabel {
     e -> Node.withHeader(e.getMessage()));
 
   public ValidationLabel() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
@@ -113,7 +111,6 @@ implements IValidationLabel {
 
   @Override
   protected void resetControl() {
-
     clear();
 
     getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalog.RED);

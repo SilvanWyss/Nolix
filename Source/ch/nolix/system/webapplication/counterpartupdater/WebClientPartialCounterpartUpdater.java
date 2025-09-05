@@ -12,7 +12,6 @@ import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class WebClientPartialCounterpartUpdater {
-
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
   private final BooleanSupplier openStateRequestable;
@@ -22,7 +21,6 @@ public final class WebClientPartialCounterpartUpdater {
   private WebClientPartialCounterpartUpdater(
     final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
-
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
@@ -37,7 +35,6 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   public void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
-
     final IContainer<IControl<?, ?>> controls = ImmutableList.withElement(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
@@ -46,7 +43,6 @@ public final class WebClientPartialCounterpartUpdater {
   public void updateControlsOnCounterpart(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
-
     Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
     if (updateConstellationOrStyle) {
@@ -64,7 +60,6 @@ public final class WebClientPartialCounterpartUpdater {
   private IContainer<IChainedNode> createUpdateCommandsForControls(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
-
     Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
     final var webGui = controls.getStoredFirst().getStoredParentGui();

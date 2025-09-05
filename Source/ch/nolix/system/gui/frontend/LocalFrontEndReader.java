@@ -20,12 +20,10 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 
 public final class LocalFrontEndReader implements IFrontEndReader {
-
   private static final JFileChooser FILE_CHOOSER;
 
   //static initializing
   static {
-
     try {
       UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
     } catch (final
@@ -55,7 +53,6 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 
   @Override
   public Optional<byte[]> readFileToBytes() {
-
     if (FILE_CHOOSER.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
       return Optional.empty();
     }
@@ -67,7 +64,6 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 
   private IContainer<String> getFilePathsFromClipboard() {
     try {
-
       @SuppressWarnings("unchecked")
       final var files = (List<File>) (Toolkit.getDefaultToolkit().getSystemClipboard()
         .getData(DataFlavor.javaFileListFlavor));

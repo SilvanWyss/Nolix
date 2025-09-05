@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
  * @version 2024-12-18
  */
 public interface IColumnDtoMapper {
-
   /**
    * @param column
    * @return a new {@link ColumnDto} from the given column.

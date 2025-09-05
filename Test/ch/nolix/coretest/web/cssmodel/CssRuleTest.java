@@ -7,10 +7,8 @@ import ch.nolix.core.web.cssmodel.CssProperty;
 import ch.nolix.core.web.cssmodel.CssRule;
 
 final class CssRuleTest extends StandardTest {
-
   @Test
   void testCase_withPrefixedSelector() {
-
     //setup
     final var property1 = CssProperty.withNameAndValue("n1", "v1");
     final var property2 = CssProperty.withNameAndValue("n2", "v2");

@@ -15,7 +15,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link FilterContainerViewIterator}.
  */
 public final class FilterContainerViewIterator<E> implements CopyableIterator<E> {
-
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
 
   private final CopyableIterator<E> iterator;
@@ -34,7 +33,6 @@ public final class FilterContainerViewIterator<E> implements CopyableIterator<E>
    * @throws ArgumentIsNullException if the given selector is null.
    */
   private FilterContainerViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {
-
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -71,7 +69,6 @@ public final class FilterContainerViewIterator<E> implements CopyableIterator<E>
    */
   @Override
   public E next() {
-
     ITERATOR_VALIDATOR.assertHasNext(this);
 
     final var nextElement = optionalNextElement;
@@ -82,11 +79,9 @@ public final class FilterContainerViewIterator<E> implements CopyableIterator<E>
   }
 
   private void moveToOptionalNextElement() {
-
     optionalNextElement = null;
 
     while (iterator.hasNext()) {
-
       final var nextElement = iterator.next();
 
       if (nextElement != null && selector.test(nextElement)) {

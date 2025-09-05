@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
  * @param <H> is the type of a {@link IFluentMutableNameHolder}.
  */
 public interface IFluentMutableNameHolder<H extends IFluentMutableNameHolder<H>> extends INameHolder {
-
   /**
    * Sets the name of the current {@link IFluentMutableNameHolder}.
    * 

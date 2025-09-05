@@ -10,7 +10,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
  * @version 2023-02-07
  */
 public interface IMutableOptionalHeaderHolder extends IOptionalHeaderHolder {
-
   /**
    * Removes the header of the current {@link IMutableOptionalHeaderHolder}.
    */

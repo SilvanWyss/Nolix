@@ -11,7 +11,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
  * @version 2025-07-28
  */
 public interface IFlowControllerMediator {
-
   /**
    * @param condition
    * @return a new {@link IAsLongAsMediator} with the given condition.

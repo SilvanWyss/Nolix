@@ -7,7 +7,6 @@ package ch.nolix.coreapi.misc.variable;
  * @version 2018-04-07
  */
 public final class PascalCaseVariableCatalog {
-
   public static final String ACTION = "Action";
 
   public static final String AGE = "Age";

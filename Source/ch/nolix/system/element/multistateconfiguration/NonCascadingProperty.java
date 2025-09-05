@@ -9,7 +9,6 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMaterializedProperty<S, V> {
-
   private final V defaultValue;
 
   public NonCascadingProperty(
@@ -18,7 +17,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator,
     final V defaultValue) {
-
     super(name, stateClass, valueCreator, specificationCreator);
 
     Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
@@ -33,7 +31,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     final Function<V, INode<?>> specificationCreator,
     final BiConsumer<S, V> setterMethod,
     final V defaultValue) {
-
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
     Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
@@ -77,7 +74,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
 
   @Override
   protected V getValueWhenHasState(final State<S> state) {
-
     final var stateProperty = stateProperties[state.getIndex()];
     if (stateProperty.hasValueOrDefinesEmpty()) {
       return stateProperty.getValue();
@@ -93,7 +89,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
 
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
-
     final var stateProperty = stateProperties[state.getIndex()];
     if (stateProperty.hasValueOrDefinesEmpty()) {
       return stateProperty.hasValue();

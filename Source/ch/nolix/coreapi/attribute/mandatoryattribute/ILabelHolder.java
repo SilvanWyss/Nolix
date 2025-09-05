@@ -7,7 +7,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * @version 2021-08-26
  */
 public interface ILabelHolder {
-
   /**
    * @return the label of the current {@link ILabelHolder}.
    */

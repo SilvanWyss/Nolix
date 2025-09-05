@@ -8,7 +8,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * @version 2025-04-04
  */
 public interface IExceptionArgumentNamePreparator {
-
   /**
    * @param argument - Can be null.
    * @return a name of the given argument.

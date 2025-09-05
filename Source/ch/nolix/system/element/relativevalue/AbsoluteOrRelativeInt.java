@@ -23,7 +23,6 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
  * @version 2022-10-15
  */
 public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbsoluteOrRelativeInt {
-
   private final boolean isAbsolute;
 
   private final int absoluteValue;
@@ -48,7 +47,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * @throws NegativeArgumentException if the given percentage is negative.
    */
   private AbsoluteOrRelativeInt(final double percentage) {
-
     Validator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalog.PERCENTAGE).isNotNegative();
 
     isAbsolute = false;
@@ -62,7 +60,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static AbsoluteOrRelativeInt fromSpecification(final INode<?> specification) {
-
     final var attribute = specification.getSingleChildNodeHeader();
 
     if (attribute.endsWith("%")) {
@@ -94,7 +91,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    */
   @Override
   public IContainer<INode<?>> getAttributes() {
-
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (isAbsolute()) {
@@ -110,7 +106,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
 
   @Override
   public int getAbsoluteValue() {
-
     assertIsAbsolute();
 
     return absoluteValue;
@@ -118,7 +113,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
 
   @Override
   public double getPercentage() {
-
     assertIsRelative();
 
     return percentage;
@@ -130,7 +124,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    */
   @Override
   public int getValueRelativeToHundredPercentValue(final int hundredPercentValue) {
-
     if (isAbsolute) {
       return absoluteValue;
     }
@@ -152,7 +145,6 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    */
   @Override
   public boolean isPositive() {
-
     if (isAbsolute) {
       return (absoluteValue > 0);
     }

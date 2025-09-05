@@ -12,7 +12,6 @@ import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
-
   private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   private final ICloseController closeController = CloseController.forElement(this);
@@ -26,7 +25,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   protected AbstractSchemaAdapter(
     final String databaseName,
     final ch.nolix.systemapi.midschema.adapter.ISchemaAdapter midSchemaAdapter) {
-
     Validator
       .assertThat(midSchemaAdapter)
       .thatIsNamed(ch.nolix.systemapi.midschema.adapter.ISchemaAdapter.class)
@@ -41,7 +39,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   @Override
   public ISchemaAdapter addTable(final ITable table) {
-
     database.addTable(table);
 
     return this;
@@ -89,7 +86,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   @Override
   public final void saveChanges() {
     try {
-
       DATABASE_TOOL.assertAllBackReferencesAreValid(database);
       midSchemaAdapter.saveChanges();
 
@@ -100,7 +96,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   private void resetUsingDatabaseName(final String databaseName) {
-
     database = new Database(databaseName, midSchemaAdapter);
 
     midSchemaAdapter.reset();

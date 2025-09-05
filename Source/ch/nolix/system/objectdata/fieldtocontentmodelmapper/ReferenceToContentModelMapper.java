@@ -8,12 +8,10 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ReferenceToContentModelMapper implements IFieldToContentModelMapper<IReference<?>> {
-
   @Override
   public IContentModel mapFieldToContentModel(
     final IReference<?> field,
     final IContainer<ITable> referencedTables) {
-
     final var referenceableTableNames = field.getReferenceableTableNames();
     final var referenceableTables = referenceableTableNames.to(n -> referencedTables.getStoredFirst(t -> t.hasName(n)));
 

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.net.endpoint.IEndPoint;
 import ch.nolix.coreapi.net.endpoint.ISlot;
 
 public final class MockSlot implements ISlot {
-
   private String latestReceivedMessage;
 
   @Override

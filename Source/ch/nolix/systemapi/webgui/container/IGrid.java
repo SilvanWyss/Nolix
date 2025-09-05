@@ -4,7 +4,6 @@ import ch.nolix.systemapi.webgui.basecontainer.IContainer;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IGrid extends IContainer<IGrid, IGridStyle> {
-
   boolean containsControlAtOneBasedRowAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
 
   int getColumnCount();

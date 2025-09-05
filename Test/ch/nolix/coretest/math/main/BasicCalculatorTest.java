@@ -10,7 +10,6 @@ import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class BasicCalculatorTest extends StandardTest {
-
   @ParameterizedTest
   @CsvSource({
   "-1.0, -1.0, 0.0",
@@ -33,7 +32,6 @@ final class BasicCalculatorTest extends StandardTest {
     final double value1,
     final double value2,
     final double expectedAbsoluteDifference) {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -57,7 +55,6 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1, 0"
   })
   void testCase_getAbsoluteDifference(final int value1, final int value2, final int expectedAbsoluteDifference) {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -81,7 +78,6 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1, 0"
   })
   void testCase_getAbsoluteDifference(final long value1, final long value2, final long expectedAbsoluteDifference) {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -101,7 +97,6 @@ final class BasicCalculatorTest extends StandardTest {
   "1.0, 1.0"
   })
   void testCase_getAbsoluteValue(final double value, final double expectedAbsoluteValue) {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -119,7 +114,6 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1"
   })
   void testCase_getAbsoluteValue(final int value, final int expectedAbsoluteValue) {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -137,7 +131,6 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1"
   })
   void testCase_getAbsoluteValue(final long value, final long expectedAbsoluteValue) {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -150,7 +143,6 @@ final class BasicCalculatorTest extends StandardTest {
 
   @Test
   void testCase_getAverage() {
-
     //setup
     final var values = ImmutableList.withElement(80.0, 90.0, 100.0, 110.0, 120.0);
     final var testUnit = new BasicCalculator();
@@ -164,7 +156,6 @@ final class BasicCalculatorTest extends StandardTest {
 
   @Test
   void testCase_getAverage_whenTheGivenIterableIsEmpty() {
-
     //setup
     final ImmutableList<Double> values = ImmutableList.createEmpty();
     final var testUnit = new BasicCalculator();
@@ -178,7 +169,6 @@ final class BasicCalculatorTest extends StandardTest {
 
   @Test
   void testCase_getMax() {
-
     //setup
     final var testUnit = new BasicCalculator();
 
@@ -191,7 +181,6 @@ final class BasicCalculatorTest extends StandardTest {
 
   @Test
   void testCase_getMin() {
-
     //setup
     final var testUnit = new BasicCalculator();
 

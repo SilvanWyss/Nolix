@@ -12,7 +12,6 @@ import ch.nolix.systemapi.webgui.main.ILayerStack;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 public final class LayerStack implements ILayerStack {
-
   private final IWebGui<?> parentGui;
 
   private Runnable removeLayerAction;
@@ -21,7 +20,6 @@ public final class LayerStack implements ILayerStack {
   private final ILinkedList<ILayer<?>> layers = LinkedList.createEmpty();
 
   private LayerStack(final IWebGui<?> parentGui) {
-
     Validator.assertThat(parentGui).thatIsNamed("parent gui").isNotNull();
 
     this.parentGui = parentGui;
@@ -50,9 +48,7 @@ public final class LayerStack implements ILayerStack {
 
   @Override
   public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
-
     for (final var l : getStoredLayers()) {
-
       final var control = l.getOptionalStoredControlByInternalId(internalId);
 
       if (control.isPresent()) {
@@ -90,7 +86,6 @@ public final class LayerStack implements ILayerStack {
 
   @Override
   public ILayerStack pushLayer(ILayer<?> layer) {
-
     layer.internalSetParentGui(parentGui);
 
     layers.addAtEnd(layer);
@@ -105,7 +100,6 @@ public final class LayerStack implements ILayerStack {
 
   @Override
   public void removeLayer(final ILayer<?> layer) {
-
     layers.removeStrictlyFirstOccurrenceOf(layer);
 
     runProbableRemoveLayerAction();
@@ -114,7 +108,6 @@ public final class LayerStack implements ILayerStack {
   //mehod
   @Override
   public ILayerStack setRemoveLayerAction(Runnable removeLayerAction) {
-
     Validator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
 
     this.removeLayerAction = removeLayerAction;

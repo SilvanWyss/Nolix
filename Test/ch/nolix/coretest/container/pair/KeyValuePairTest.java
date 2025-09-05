@@ -7,10 +7,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class KeyValuePairTest extends StandardTest {
-
   @Test
   void testCase_toString() {
-
     //test parameters
     final var key = "France";
     final var value = "Paris";
@@ -24,7 +22,6 @@ final class KeyValuePairTest extends StandardTest {
 
   @Test
   void testCase_withKeyAndValue() {
-
     //test parameters
     final var key = "France";
     final var value = "Paris";
@@ -39,7 +36,6 @@ final class KeyValuePairTest extends StandardTest {
 
   @Test
   void testCase_withKeyAndValue_whenTheGivenKeyIsNull() {
-
     //test parameters
     final String key = null;
     final String value = "Paris";
@@ -53,7 +49,6 @@ final class KeyValuePairTest extends StandardTest {
 
   @Test
   void testCase_withKeyAndValue_whenTheGivenValueIsNull() {
-
     //test parameters
     final String key = "France";
     final String value = null;

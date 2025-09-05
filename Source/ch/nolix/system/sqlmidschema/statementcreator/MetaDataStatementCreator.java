@@ -12,12 +12,10 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
 
 public final class MetaDataStatementCreator implements IMetaDataStatementCreator {
-
   private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
 
   @Override
   public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
-
     final var contentModel = column.contentModel();
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
@@ -75,7 +73,6 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
 
   @Override
   public ILinkedList<String> createStatementsToAddTable(final TableDto table) {
-
     final ILinkedList<String> statements = LinkedList.createEmpty();
 
     statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
@@ -141,7 +138,6 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
     final String tableName,
     final String columnName,
     final IContentModelDto contentModel) {
-
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
     return //

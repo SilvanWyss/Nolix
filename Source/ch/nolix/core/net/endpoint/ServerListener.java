@@ -19,7 +19,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
  * @version 2017-05-06
  */
 public final class ServerListener extends AbstractWorker implements CloseStateRequestable {
-
   private static final SocketHandler SOCKET_HANDLER = new SocketHandler();
 
   /**
@@ -35,7 +34,6 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
    * @throws ArgumentIsNullException if the given parentServer is null.
    */
   private ServerListener(final Server parentServer) {
-
     //Asserts that the given parentServer is not null.
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
@@ -69,12 +67,10 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
    */
   @Override
   protected void run() {
-
     final var serverSocket = parentServer.internalGetStoredServerSocket();
 
     try {
       while (isOpen()) {
-
         final var socket = serverSocket.accept();
 
         handleSocket(socket);
@@ -82,7 +78,6 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
     } catch (final SocketException socketException) { //NOSONAR: serverSocket.accept will throw a SocketException when the serverSocket is stopped.
       parentServer.close();
     } catch (final IOException ioException) {
-
       parentServer.close();
 
       throw WrapperException.forError(ioException);

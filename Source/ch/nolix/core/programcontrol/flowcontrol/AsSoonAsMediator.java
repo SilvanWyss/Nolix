@@ -9,7 +9,6 @@ import ch.nolix.coreapi.programcontrol.flowcontrol.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 public final class AsSoonAsMediator implements IAsSoonAsMediator {
-
   private final BooleanSupplier condition;
 
   /**
@@ -19,7 +18,6 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
    * @throws ArgumentIsNullException if the given condition is null.
    */
   private AsSoonAsMediator(final BooleanSupplier condition) {
-
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
     this.condition = condition;
@@ -39,14 +37,12 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
    */
   @Override
   public IFuture runInBackground(final Runnable job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     return Future.forJobExecturor(new JobExecutor(() -> runAsSoonAsConditionIsFulfilled(job), 1));
   }
 
   private void runAsSoonAsConditionIsFulfilled(final Runnable job) {
-
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     FlowController.waitUntil(condition);

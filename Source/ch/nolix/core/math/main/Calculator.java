@@ -18,7 +18,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2016-05-01
  */
 public final class Calculator {
-
   private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();
 
   /**
@@ -144,7 +143,6 @@ public final class Calculator {
    *                                   equal the count of the given xValues.
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
-
     //Asserts that the given degree is not negative.
     Validator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isNotNegative();
 

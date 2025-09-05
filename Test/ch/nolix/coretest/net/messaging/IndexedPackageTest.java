@@ -7,10 +7,8 @@ import ch.nolix.core.net.messaging.IndexedPackage;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class IndexedPackageTest extends StandardTest {
-
   @Test
   void testCase_hasIndex_whenHasTheGivenIndex() {
-
     //setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
 
@@ -23,7 +21,6 @@ final class IndexedPackageTest extends StandardTest {
 
   @Test
   void testCase_hasIndex_whenDoesNotHaveTheGivenIndex() {
-
     //setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
 

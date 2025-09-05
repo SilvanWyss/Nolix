@@ -10,15 +10,12 @@ import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
 final class NetEndPointTest extends StandardTest {
-
   @Test
   void testCase_constructor() {
-
     //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
-
       //setup
       server.addDefaultSlot(new TestSlot());
 
@@ -35,18 +32,15 @@ final class NetEndPointTest extends StandardTest {
 
   @Test
   void testCase_runCommand() {
-
     //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
-
       //setup
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
-
         //execution
         testUnit.runCommand(ChainedNode.fromString("test_command"));
 
@@ -59,18 +53,15 @@ final class NetEndPointTest extends StandardTest {
 
   @Test
   void testCase_getData() {
-
     //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
-
       //setup
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
-
         //execution
         final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
 

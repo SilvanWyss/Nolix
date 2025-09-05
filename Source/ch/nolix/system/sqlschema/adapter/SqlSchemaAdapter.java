@@ -12,7 +12,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public final class SqlSchemaAdapter implements ISchemaAdapter {
-
   private final ICloseController closeController = CloseController.forElement(this);
 
   private final ISqlConnection sqlConnection;
@@ -22,7 +21,6 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
   private final ISchemaWriter schemaWriter;
 
   private SqlSchemaAdapter(final String databaseName, final IResourcePool<ISqlConnection> sqlConnectionPool) {
-
     sqlConnection = sqlConnectionPool.borrowResource();
 
     schemaReader = SchemaReader.forDatabaseNameAndSqlConnection(

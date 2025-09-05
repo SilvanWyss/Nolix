@@ -21,7 +21,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSear
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class InternalDataReader {
-
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
@@ -38,7 +37,6 @@ public final class InternalDataReader {
   private final IMutableNode<?> nodeDatabase;
 
   public InternalDataReader(final IMutableNode<?> nodeDatabase) {
-
     Validator.assertThat(nodeDatabase).thatIsNamed("database node").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
@@ -49,14 +47,12 @@ public final class InternalDataReader {
   }
 
   public int getEntityCount(String tableName) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_SEARCHER.getEntityNodeCountOfTableNode(tableNode);
   }
 
   public ITime getSchemaTimestamp() {
-
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
       .getStoredDatabasePropertiesNodeFromNodeDatabase(nodeDatabase);
 
@@ -64,7 +60,6 @@ public final class InternalDataReader {
   }
 
   public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
 
@@ -77,7 +72,6 @@ public final class InternalDataReader {
     final String tableName,
     final String entityId,
     final ColumnViewDto multiBackReferenceColumnView) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
@@ -94,7 +88,6 @@ public final class InternalDataReader {
     final String tableName,
     final String entityId,
     final ColumnViewDto multiReferenceColumnView) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
@@ -121,7 +114,6 @@ public final class InternalDataReader {
     final String tableName,
     final String entityId,
     final ColumnViewDto multiValueColumnView) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiValueColumnOneBasedOrdinalIndex = multiValueColumnView.oneBasedOrdinalIndex();
@@ -133,7 +125,6 @@ public final class InternalDataReader {
   }
 
   public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
 
@@ -146,7 +137,6 @@ public final class InternalDataReader {
     final String tableName,
     final ColumnViewDto columnView,
     final String value) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var columnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
@@ -162,7 +152,6 @@ public final class InternalDataReader {
     final ColumnViewDto columnView,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var columnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 
@@ -175,7 +164,6 @@ public final class InternalDataReader {
   }
 
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
-
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
     return TABLE_NODE_EXAMINER.tableNodeContainsEntityNodeWithGivenId(tableNode, id);

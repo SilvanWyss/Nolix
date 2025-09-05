@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 public class ReferenceValidator extends FieldValidator implements IReferenceValidator {
-
   private static final IReferenceExaminer REFERENCE_EXAMINER = new ReferenceExaminer();
 
   @Override

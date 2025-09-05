@@ -13,7 +13,6 @@ import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 public final class SqlConnectionPool
 extends AbstractResourcePool<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlDatabaseTarget {
-
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
   private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
@@ -35,7 +34,6 @@ implements ISqlDatabaseTarget {
     final SqlDatabaseEngine sqlDatabaseEngine,
     final String loginName,
     final String loginPassword) {
-
     Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isBetween(0, 65_535);
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();

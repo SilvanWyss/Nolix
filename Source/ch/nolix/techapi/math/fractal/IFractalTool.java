@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 public interface IFractalTool {
-
   BigDecimal getHeightInPixelAsBigDecimal(IFractal fractal);
 
   BigDecimal getHeightInUnits(IFractal fractal);

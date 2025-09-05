@@ -5,7 +5,6 @@ import ch.nolix.systemapi.webgui.container.ISingleContainer;
 import ch.nolix.systemtest.webgui.basecontainer.ContainerTest;
 
 final class SingleContainerTest extends ContainerTest<ISingleContainer> {
-
   @Override
   protected ISingleContainer createTestUnit() {
     return new SingleContainer();

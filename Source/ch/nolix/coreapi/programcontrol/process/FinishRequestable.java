@@ -7,7 +7,6 @@ package ch.nolix.coreapi.programcontrol.process;
  * @version 2022-06-18
  */
 public interface FinishRequestable {
-
   /**
    * @return true if the current {@link FinishRequestable} is finished.
    */

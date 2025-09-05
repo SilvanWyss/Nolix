@@ -14,7 +14,6 @@ import ch.nolix.coreapi.programcontrol.flowcontrol.IForMaxMillisecondsMediator;
  * @version 2019-11-24
  */
 public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMediator {
-
   private final int maxDurationInMilliseconds;
 
   /**
@@ -26,7 +25,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    *                                   negative.
    */
   private ForMaxMillisecondsMediator(final int maxDurationInMilliseconds) {
-
     //Asserts that the given maxDurationInMilliseconds is not negative.
     Validator.assertThat(maxDurationInMilliseconds).thatIsNamed("max duration in milliseconds").isNotNegative();
 
@@ -42,7 +40,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    *                                   negative.
    */
   static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
-
     //Creates and returns a new ForMaxMillisecondsMediator.
     return new ForMaxMillisecondsMediator(maxDurationInMilliseconds);
   }
@@ -55,7 +52,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    *                                   negative.
    */
   static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
-
     //Asserts that the given maxDurationInSeconds is not negative.
     Validator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 
@@ -68,7 +64,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    */
   @Override
   public AsLongAsMediator asLongAs(final BooleanSupplier condition) {
-
     //Asserts that the given condition is not null.
     Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
 
@@ -85,7 +80,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    */
   @Override
   public AsLongAsMediator until(final BooleanSupplier condition) {
-
     //Calls other method.
     return asLongAs(() -> !condition.getAsBoolean());
   }
@@ -95,7 +89,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    */
   @Override
   public void waitAsLongAs(final BooleanSupplier condition) {
-
     final var startTimeInMilliseconds = System.currentTimeMillis();
     final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 
@@ -108,7 +101,6 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    */
   @Override
   public void waitUntil(final BooleanSupplier condition) {
-
     //Calls other method.
     waitAsLongAs(() -> !condition.getAsBoolean());
   }

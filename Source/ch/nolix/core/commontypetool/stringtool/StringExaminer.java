@@ -9,7 +9,6 @@ import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
  * @version 2025-03-01
  */
 public final class StringExaminer implements IStringExaminer {
-
   /**
    * {@inheritDoc}
    */

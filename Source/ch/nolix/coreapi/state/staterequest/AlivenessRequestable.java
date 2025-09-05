@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2023-08-02
  */
 public interface AlivenessRequestable {
-
   /**
    * @return true if the current {@link AlivenessRequestable} is alive.
    */

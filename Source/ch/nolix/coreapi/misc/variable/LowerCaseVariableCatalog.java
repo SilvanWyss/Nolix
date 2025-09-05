@@ -7,7 +7,6 @@ package ch.nolix.coreapi.misc.variable;
  * @version 2017-11-13
  */
 public final class LowerCaseVariableCatalog {
-
   public static final String ACTION = "action";
 
   public static final String AGE = "age";

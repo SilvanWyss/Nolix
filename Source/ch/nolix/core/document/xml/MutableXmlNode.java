@@ -13,7 +13,6 @@ import ch.nolix.coreapi.document.xml.IXmlNode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class MutableXmlNode implements IMutableXmlNode {
-
   private String name;
 
   private String value;
@@ -30,7 +29,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
-
     final var mutableXmlNode = new MutableXmlNode();
 
     if (pXmlNode.hasName()) {
@@ -51,7 +49,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
-
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
@@ -81,7 +78,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     if (mutableXmlNode.containsChildNodes()) {
-
       for (final var cn : mutableXmlNode.getStoredChildNodes()) {
         stringBuilder
           .append(CharacterCatalog.NEW_LINE)
@@ -105,7 +101,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public MutableXmlNode addAttribute(final IXmlAttribute attribute) {
-
     attributes.addAtEnd(attribute);
 
     return this;
@@ -113,7 +108,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public MutableXmlNode addAttributes(final IXmlAttribute attribute, final IXmlAttribute... attributes) {
-
     addAttribute(attribute);
 
     return addAttributes(ContainerView.forArray(attributes));
@@ -121,7 +115,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
-
     this.attributes.addAtEnd(attributes);
 
     return this;
@@ -134,7 +127,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public MutableXmlNode addChildNode(final IMutableXmlNode childNode) {
-
     childNodes.addAtEnd(childNode);
 
     return this;
@@ -142,7 +134,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public MutableXmlNode addChildNodes(final IMutableXmlNode childNode, final IMutableXmlNode... childNodes) {
-
     addChildNode(childNode);
 
     return addChildNodes(ContainerView.forArray(childNodes));
@@ -150,7 +141,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
-
     this.childNodes.addAtEnd(childNodes);
 
     return this;
@@ -181,7 +171,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public String getName() {
-
     if (name == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NAME);
     }
@@ -196,7 +185,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public String getValue() {
-
     supposeHasValue();
 
     return value;
@@ -218,14 +206,12 @@ public final class MutableXmlNode implements IMutableXmlNode {
   }
 
   public IMutableXmlNode removeAttributes() {
-
     attributes.clear();
 
     return this;
   }
 
   public IMutableXmlNode removeChildNodes() {
-
     childNodes.clear();
 
     return this;
@@ -243,7 +229,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public IMutableXmlNode setName(final String name) {
-
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
     this.name = name;
@@ -253,7 +238,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public IMutableXmlNode setValue(final String value) {
-
     Validator.assertThat(value).isNotEmpty();
 
     this.value = value;
@@ -267,7 +251,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public String toString() {
-
     final var stringBuilder = new StringBuilder();
 
     stringBuilder

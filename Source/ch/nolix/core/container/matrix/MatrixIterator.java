@@ -15,7 +15,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link MatrixIterator}.
  */
 public final class MatrixIterator<E> implements CopyableIterator<E> {
-
   private final Matrix<E> parentMatrix;
 
   private int nextElementOneBasedIndex;
@@ -27,7 +26,6 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * @throws ArgumentIsNullException if the given parentMatrix is null.
    */
   private MatrixIterator(final Matrix<E> parentMatrix) {
-
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     this.parentMatrix = parentMatrix;
@@ -46,7 +44,6 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    *                                 parentMatrix.
    */
   private MatrixIterator(final Matrix<E> parentMatrix, final int oneBasedStartIndex) {
-
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     Validator
@@ -90,7 +87,6 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    */
   @Override
   public E next() {
-
     assertHasNext();
 
     return nextWhenHasNext();
@@ -113,7 +109,6 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    *         when the current {@link MatrixIterator} has a next element.
    */
   private E nextWhenHasNext() {
-
     final var element = parentMatrix.getStoredAtOneBasedIndex(nextElementOneBasedIndex);
 
     nextElementOneBasedIndex++;

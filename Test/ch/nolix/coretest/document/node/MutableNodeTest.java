@@ -3,7 +3,6 @@ package ch.nolix.coretest.document.node;
 import ch.nolix.core.document.node.MutableNode;
 
 final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
-
   @Override
   protected MutableNode createBlankNode() {
     return MutableNode.createEmpty();
@@ -11,7 +10,6 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
 
   @Override
   protected MutableNode createNodeWithHeader(final String header) {
-
     final var mutableNode = MutableNode.createEmpty();
 
     mutableNode.setHeader(header);
@@ -21,13 +19,11 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
 
   @Override
   protected MutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
-
     final var mutableNode = MutableNode.createEmpty();
 
     mutableNode.setHeader(header);
 
     for (final var cnh : childNodeHeaders) {
-
       final var childNode = MutableNode.createEmpty();
       childNode.setHeader(cnh);
 

@@ -9,10 +9,8 @@ import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuStyle;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
-
   @Test
   final void testCase_creation() {
-
     //setup
     final M testUnit = createTestUnit();
 
@@ -23,7 +21,6 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
 
   @Test
   final void testCase_addItemWithIdAndText() {
-
     //setup
     final M testUnit = createTestUnit();
 
@@ -45,7 +42,6 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
 
   @Test
   final void testCase_addItemWithText() {
-
     //setup
     final M testUnit = createTestUnit();
 
@@ -62,7 +58,6 @@ abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<
 
   @Test
   final void testCase_selectItemById_whenContainsItemWithGivenId() {
-
     //setup
     final var item = ItemMenuItem.withIdAndText("my_id2", "my_text2");
     final M testUnit = createTestUnit()

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  * @version 2022-05-28
  */
 public interface ITime extends IElement {
-
   /**
    * @return the day of the month of the current {@link ITime}.
    */

@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
  * @version 2025-01-31
  */
 public interface IDatabaseSchemaViewLoader {
-
   /**
    * @param databaseName
    * @param schemaAdapter

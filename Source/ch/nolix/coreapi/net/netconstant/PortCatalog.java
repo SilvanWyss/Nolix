@@ -7,7 +7,6 @@ package ch.nolix.coreapi.net.netconstant;
  * @version 2016-01-01
  */
 public final class PortCatalog {
-
   public static final int MIN_PORT = 0;
 
   public static final int FTP = 20;

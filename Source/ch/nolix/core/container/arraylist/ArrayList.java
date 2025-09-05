@@ -17,7 +17,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {
-
   private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
 
   private int elementCount;
@@ -49,7 +48,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   public static <E2> ArrayList<E2> withElement(final E2 element, final @SuppressWarnings("unchecked") E2... elements) {
-
     final var arrayList = new ArrayList<E2>();
 
     arrayList.addAtEnd(element, elements);
@@ -67,7 +65,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   public static <E2> ArrayList<E2> withElements(final E2[] elements) {
-
     final var arrayList = new ArrayList<E2>();
 
     arrayList.addAtEnd(elements);
@@ -85,7 +82,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @throws NegativeArgumentException if the given initialCapacity is negative.
    */
   public static <E2> ArrayList<E2> withInitialCapacity(final int initialCapacity) {
-
     Validator
       .assertThat(initialCapacity)
       .thatIsNamed(LowerCaseVariableCatalog.INITIAL_CAPACITY)
@@ -108,14 +104,12 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @throws NullPointerException if the given container is null.
    */
   public static <E2> ArrayList<E2> withInitialCapacityFromSizeOfContainer(final CountRequestable<?> container) {
-
     final var initialCapacity = container.getCount();
 
     return withInitialCapacity(initialCapacity);
   }
 
   private static int getCountOfIterable(final Iterable<?> iterable) {
-
     if (iterable instanceof final IContainer<?> container) {
       return container.getCount();
     }
@@ -131,7 +125,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public void addAtEnd(final E element) {
-
     Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
     final var localElementCount = getCount();
@@ -150,7 +143,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public void addAtEnd(final E element, @SuppressWarnings("unchecked") final E... elements) {
-
     Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
     Validator.assertThatTheElements(elements).areNotNull();
 
@@ -171,7 +163,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public void addAtEnd(E[] elements) {
-
     Validator.assertThatTheElements(elements).areNotNull();
 
     final var localElementCount = getCount();
@@ -190,7 +181,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public void addAtEnd(final Iterable<? extends E> elements) {
-
     Validator.assertThatTheElements(elements).areNotNull();
 
     final var newElementCount = getCount() + getCountOfIterable(elements);
@@ -200,7 +190,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     var index = getCount();
 
     for (final var e : elements) {
-
       this.elements[index] = e;
 
       index++;
@@ -217,7 +206,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   @Override
   @SuppressWarnings("unchecked")
   public void clear() {
-
     elements = (E[]) new Object[0];
 
     elementCount = 0;
@@ -251,7 +239,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed("one-based index").isBetween(1, getCount());
 
     return elements[oneBasedIndex - 1];
@@ -270,11 +257,9 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public void insertAtOneBasedIndex(final int oneBasedIndex, final E element) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed("one-based index").isBetween(1, getCount() + 1);
 
     if (oneBasedIndex <= getCount()) {
-
       Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
       elements[oneBasedIndex - 1] = element;
@@ -358,7 +343,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @param requiredCapacity
    */
   private void growAtLeastToRequiredCapacityWhenNeedsToGrowForIt(final int requiredCapacity) {
-
     final var targetCapacity = calculateTargetCapacityForRequiredCapacityWhenNeedsToGrowForIt(requiredCapacity);
 
     growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(targetCapacity);
@@ -372,7 +356,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @param capacity
    */
   private void growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(final int capacity) {
-
     @SuppressWarnings("unchecked")
     final var newElements = (E[]) new Object[capacity];
 

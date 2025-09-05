@@ -4,7 +4,6 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 
 public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
-
   public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 
   MsSqlSchemaAdapter(

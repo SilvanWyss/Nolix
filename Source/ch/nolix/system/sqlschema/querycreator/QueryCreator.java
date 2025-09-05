@@ -3,7 +3,6 @@ package ch.nolix.system.sqlschema.querycreator;
 import ch.nolix.systemapi.sqlschema.querycreator.IQueryCreator;
 
 public final class QueryCreator implements IQueryCreator {
-
   @Override
   public String createQueryToGetTableCount() {
     return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES;";

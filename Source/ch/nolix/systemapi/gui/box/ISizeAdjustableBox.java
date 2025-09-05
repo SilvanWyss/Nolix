@@ -3,7 +3,6 @@ package ch.nolix.systemapi.gui.box;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 public interface ISizeAdjustableBox<D extends ISizeAdjustableBox<D>> {
-
   IAbsoluteOrRelativeInt getMaxHeight();
 
   IAbsoluteOrRelativeInt getMaxWidth();

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploader;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final IUploader control) {
     return HtmlElement.withTypeAndAttributes(

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 public abstract class AbstractWrapperResource<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements GroupCloseable {
-
   private AbstractResourcePool<W, R> parentResourcePool;
 
   private final R resource;
@@ -17,7 +16,6 @@ implements GroupCloseable {
   private final ICloseController closeController = CloseController.forElement(this);
 
   protected AbstractWrapperResource(final R resource) {
-
     Validator.assertThat(resource).fulfills(CloseStateRequestable::isOpen);
 
     this.resource = resource;
@@ -38,7 +36,6 @@ implements GroupCloseable {
   }
 
   final void internalSetParentResourcePool(final AbstractResourcePool<W, R> parentResourcePool) {
-
     Validator
       .assertThat(parentResourcePool)
       .thatIsNamed("parent resource pool")

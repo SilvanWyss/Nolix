@@ -6,6 +6,5 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IComponent
 extends IControl<IComponent, IComponentStyle>, IRefreshableSubscriber, Rebuildable {
-
   RefreshBehavior getRefreshBehavior();
 }

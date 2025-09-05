@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 public final class MultiValueSaver {
-
   private static final IMultiValueEntryDtoMapper MULTI_VALUE_ENTRY_DTO_MAPPER = new MultiValueEntryDtoMapper();
 
   public void saveChangesOfMultiValue(
@@ -22,7 +21,6 @@ public final class MultiValueSaver {
   private void saveChangeOfMultiValueEntry(
     final IMultiValueFieldEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var multiValueEntryState = multiValueEntry.getState();
 
     switch (multiValueEntryState) {
@@ -40,7 +38,6 @@ public final class MultiValueSaver {
   private void saveMultiValueEntryCreation(
     final IMultiValueFieldEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var multiValueEntryDto = MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueEntry);
 
     dataAndSchemaAdapter.insertMultiValueEntry(multiValueEntryDto);
@@ -49,7 +46,6 @@ public final class MultiValueSaver {
   private void saveMultiValueEntryDeletion(
     final IMultiValueFieldEntry<?> multiValueEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-
     final var multiValueEntryDto = MULTI_VALUE_ENTRY_DTO_MAPPER.mapMultiValueEntryToMultiValueEntryDto(multiValueEntry);
 
     dataAndSchemaAdapter.deleteMultiValueEntry(multiValueEntryDto);

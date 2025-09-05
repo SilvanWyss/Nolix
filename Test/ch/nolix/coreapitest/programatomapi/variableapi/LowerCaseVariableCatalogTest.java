@@ -10,18 +10,15 @@ import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 final class LowerCaseVariableCatalogTest extends StandardTest {
-
   private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
 
   @Test
   void testCase_constants() {
-
     //setup
     final var exceptions = LinkedList.withElement(LowerCaseVariableCatalog.GUI, LowerCaseVariableCatalog.URL);
 
     //verification
     for (final var c : ReflectionTool.getStoredPublicStaticFieldValuesOfClass(LowerCaseVariableCatalog.class)) {
-
       expect(c).isOfType(String.class);
 
       final var stringValue = c.toString();

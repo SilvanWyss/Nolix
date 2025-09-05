@@ -12,7 +12,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalLabelHolder;
  */
 public interface IFluentMutableOptionalLabelHolder<H extends IFluentMutableOptionalLabelHolder<H>>
 extends IOptionalLabelHolder {
-
   /**
    * Removes the label of the current {@link IFluentMutableOptionalLabelHolder}.
    */

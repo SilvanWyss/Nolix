@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class BaseReferenceUpdater {
-
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private BaseReferenceUpdater() {
@@ -17,7 +16,6 @@ public final class BaseReferenceUpdater {
   public static <E extends IEntity> void ofBaseReferenceUpdatePotentialBaseBackReferenceForAddOrSetEntity(
     final IBaseReference<E> baseReference,
     final E entity) {
-
     final var baseBackReference = //
     ENTITY_SEARCHER.getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
       entity,
@@ -29,7 +27,6 @@ public final class BaseReferenceUpdater {
   private static void toBaseBackReferenceAddOrSetEntity(
     final IBaseBackReference<?> baseBackReference,
     final IEntity entity) {
-
     final var type = baseBackReference.getType();
 
     switch (type) {

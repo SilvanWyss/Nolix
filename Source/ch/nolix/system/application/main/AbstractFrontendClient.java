@@ -13,7 +13,6 @@ import ch.nolix.core.net.endpoint3.NetEndPoint;
  * @param <C> is the type of a {@link AbstractFrontendClient}.
  */
 public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>> extends AbstractClient<C> {
-
   /**
    * {@inheritDoc}
    */
@@ -31,7 +30,6 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                  connected.
    */
   protected final void connectTo(final Application<?, ?> application) {
-
     final var endPoint = new LocalEndPoint();
 
     setEndPoint(endPoint);
@@ -49,7 +47,6 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                  connected.
    */
   protected final void connectTo(final AbstractServer<?> server) {
-
     final var endPoint = new LocalEndPoint();
 
     setEndPoint(endPoint);
@@ -102,7 +99,6 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                  connected.
    */
   protected final void connectTo(final AbstractServer<?> server, final String instanceName) {
-
     final var endPoint = new LocalEndPoint();
 
     setEndPoint(endPoint);

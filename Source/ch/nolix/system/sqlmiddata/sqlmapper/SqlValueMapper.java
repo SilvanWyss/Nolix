@@ -10,13 +10,11 @@ import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlValueMapper;
  * @version 2024-12-28
  */
 public class SqlValueMapper implements ISqlValueMapper {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public String mapStringContentFieldDtoToSqlValue(final StringRepresentedFieldDto stringRepresentedFieldDto) {
-
     final var nullableValue = stringRepresentedFieldDto.nullableStringRepresentedValue();
 
     if (nullableValue.isEmpty()) {

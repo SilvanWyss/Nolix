@@ -9,14 +9,12 @@ import ch.nolix.systemapi.webgui.main.IControl;
 public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<S>, S extends IAdapterFactory<A>, A>
 extends AbstractComponent<C, S> {
-
   private IControl<?, ?> childControl;
 
   protected ComponentWithAdapterFactory(
     final C controller,
     final A initialAdapter,
     final WebClientSession<S> webClientSession) {
-
     super(controller, webClientSession);
 
     rebuild(initialAdapter);
@@ -24,7 +22,6 @@ extends AbstractComponent<C, S> {
 
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
-
     if (childControl == null) {
       return ImmutableList.createEmpty();
     }
@@ -34,7 +31,6 @@ extends AbstractComponent<C, S> {
 
   @Override
   public final void rebuild() {
-
     final var adapter = createAdapter();
 
     rebuild(adapter);

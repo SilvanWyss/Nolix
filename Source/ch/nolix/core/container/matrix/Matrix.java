@@ -29,7 +29,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMatrix<E> {
-
   private Object[][] elements = new Object[0][0];
 
   /**
@@ -52,7 +51,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
   public static <E2> Matrix<E2> fromMatrix(final IMatrix<E2> matrix) {
-
     final var newMatrix = new Matrix<E2>();
 
     for (final var r : matrix.getRows()) {
@@ -79,7 +77,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @SuppressWarnings("unchecked")
   public Matrix<E> addColumn(final E element, final E... elements) {
-
     //Collects allElements.
     final var allElements = ContainerView.forElementAndArray(element, elements);
 
@@ -102,7 +99,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                  {@link Matrix}.
    */
   public Matrix<E> addColumn(final Iterable<E> elements) {
-
     //Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
@@ -111,13 +107,11 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
-
         this.elements = new Object[lElements.getCount()][1];
 
         //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
-
           this.elements[i][0] = e;
 
           i++;
@@ -126,7 +120,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
       //Handles the case that the current matrix is not empty.
     } else {
-
       //Asserts that as many elements are given as the number of rows of the current
       //matrix.
       Validator
@@ -139,7 +132,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
       //Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
-
         final var row = Arrays.copyOf(this.elements[i], columnCount + 1);
         row[columnCount] = e;
 
@@ -169,7 +161,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @SuppressWarnings("unchecked")
   public Matrix<E> addRow(final E element, final E... elements) {
-
     //Collects allElements.
     final var allElements = ContainerView.forElementAndArray(element, elements);
 
@@ -192,7 +183,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                  {@link Matrix}.
    */
   public Matrix<E> addRow(final Iterable<E> elements) {
-
     //Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
@@ -201,13 +191,11 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Handles the case that the current matrix is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
-
         this.elements = new Object[1][lElements.getCount()];
 
         //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
-
           this.elements[0][i] = e;
 
           i++;
@@ -216,7 +204,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
       //Handles the case that the current matrix is not empty.
     } else {
-
       //Asserts that as many elements are given as the number of columns of the
       //current matrix.
       Validator
@@ -231,7 +218,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
       //Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
-
         newElements[rowCount][i] = e;
 
         i++;
@@ -272,7 +258,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @Override
   public int getColumnCount() {
-
     //Handles the case that the current {@link Matrix} is empty.
     if (elements.length < 1) {
       return 0;
@@ -292,7 +277,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                      {@link Matrix}.
    */
   public int getColumnIndexOf(final int index) {
-
     //Asserts that the current matrix contains an element at the given index.
     assertContainsAt(index);
 
@@ -310,7 +294,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @Override
   public IContainer<MatrixColumn<E>> getColumns() {
-
     final ILinkedList<MatrixColumn<E>> columns = LinkedList.createEmpty();
 
     //Iterates the columns of the current matrix.
@@ -328,7 +311,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return a new {@link Matrix} with the elements of the current {@link Matrix}.
    */
   public Matrix<E> getCopy() {
-
     final var matrix = new Matrix<E>();
 
     final var rowCounnt = getRowCount();
@@ -368,7 +350,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                      {@link Matrix}.
    */
   public int getIndexOf(final int rowIndex, final int columnIndex) {
-
     //Asserts that the current matrix contains an element
     //at the given row index and the given column index.
     assertContainsAt(rowIndex, columnIndex);
@@ -408,7 +389,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   @Override
   @SuppressWarnings("unchecked")
   public E getStoredAtOneBasedRowIndexAndColumnIndex(final int oneBasedRowIndex, final int oneBasedColumnIndex) {
-
     //Asserts that the current matrix contains an element at the given row index
     //and column index.
     assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
@@ -438,7 +418,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                      {@link Matrix}.
    */
   public int getRowIndexOf(final int index) {
-
     //Asserts that the current matrix contains an element at the given index.
     assertContainsAt(index);
 
@@ -456,7 +435,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @Override
   public IContainer<MatrixRow<E>> getRows() {
-
     final ILinkedList<MatrixRow<E>> rows = LinkedList.createEmpty();
 
     //Iterates the rows of the current matrix.
@@ -474,7 +452,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @Override
   public int getRowCount() {
-
     //Handles the case that the current {@link Matrix} is empty.
     if (elements.length < 1) {
       return 0;
@@ -515,7 +492,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @throws ArgumentIsNullException      if the given element is null.
    */
   public void setAt(final int index, final E element) {
-
     //Asserts that the given element is not null.
     Validator
       .assertThat(element)
@@ -551,7 +527,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     final int oneBasedRowIndex,
     final int oneBasedColumnIndex,
     final E element) {
-
     //Asserts that the current matrix contains an element at the given row index
     //and column index.
     assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
@@ -576,14 +551,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @SuppressWarnings("unchecked")
   public <O> Matrix<O> toMatrix(final Function<E, O> transformer) {
-
     //Creates matrix.
     final var matrix = new Matrix<O>();
 
     //Fills up the elements of the matrix.
     matrix.elements = new Object[getRowCount()][getColumnCount()];
     for (var i = 0; i < getRowCount(); i++) {
-
       //Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
         matrix.elements[i][j] = transformer.apply((E) elements[i][j]);
@@ -601,7 +574,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return a new left rotated {@link Matrix} of the current {@link Matrix}.
    */
   public Matrix<E> toLeftRotatedMatrix() {
-
     final var leftRotatedMatrix = new Matrix<E>();
     final var leftRotatedMatrixRowCount = getColumnCount();
     final var leftRotatedMatrixColumnCount = getRowCount();
@@ -612,7 +584,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
     //Iterates the rows of the left rotated matrix.
     for (var i = 0; i < leftRotatedMatrixRowCount; i++) {
-
       //Iterates the columns of the current row.
       for (var j = 0; j < leftRotatedMatrixColumnCount; j++) {
         leftRotatedMatrixElements[i][j] = elements[j][leftRotatedMatrixRowCount - i - 1];
@@ -630,7 +601,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
    */
   public Matrix<E> toRightRotatedMatrix() {
-
     final var rightRotatedMatrix = new Matrix<E>();
     final var rightRotatedMatrixRowCount = getColumnCount();
     final var rightRotatedMatrixColumnCount = getRowCount();
@@ -641,7 +611,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
     //Iterates the rows of the right rotated matrix.
     for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
-
       //Iterates the columns of the current row.
       for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
         rightRotatedMatrixElements[i][j] = elements[rightRotatedMatrixColumnCount - j - 1][i];
@@ -660,19 +629,16 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @Override
   public String toString() {
-
     final var stringBuilder = new StringBuilder();
 
     //Iterates the rows of the current matrix.
     for (var i = 0; i < getRowCount(); i++) {
-
       if (i > 0) {
         stringBuilder.append(CharacterCatalog.SEMICOLON);
       }
 
       //Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
-
         if (j > 0) {
           stringBuilder.append(CharacterCatalog.COMMA);
         }
@@ -692,7 +658,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                      {@link Matrix}.
    */
   private void assertContainsAt(final int index) {
-
     Validator
       .assertThat(index)
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
@@ -718,7 +683,6 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                                      {@link Matrix}.
    */
   private void assertContainsAt(final int rowIndex, final int columnIndex) {
-
     Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)

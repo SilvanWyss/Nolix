@@ -7,7 +7,6 @@ package ch.nolix.coreapi.objectcreation.builder;
  * @version 2023-11-04
  */
 public interface Rebuildable {
-
   /**
    * Rebuilds the current {@link Rebuildable}.
    */

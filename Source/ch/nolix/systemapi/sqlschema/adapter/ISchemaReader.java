@@ -5,7 +5,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
 public interface ISchemaReader extends GroupCloseable {
-
   boolean columnIsEmpty(String tableName, String columnName);
 
   int getTableCount();

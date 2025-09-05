@@ -9,7 +9,6 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
  * @version 2025-05-11
  */
 public interface ITableDtoMapper {
-
   /**
    * @param tableName
    * @param sqlRecordsWithNameAndDataType

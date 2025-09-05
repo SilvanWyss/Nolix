@@ -10,7 +10,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
  * @version 2025-02-02
  */
 public final class EntitySqlSchemaColumnDtoCatalog {
-
   public static final ColumnDto ID_COLUMN_DTO = //
   new ColumnDto(PascalCaseVariableCatalog.ID, DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 

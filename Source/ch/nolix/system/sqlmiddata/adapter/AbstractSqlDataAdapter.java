@@ -10,14 +10,12 @@ import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.sqlmiddata.schemaviewloader.IDatabaseSchemaViewLoader;
 
 public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
-
   private static final IDatabaseSchemaViewLoader DATABASE_SCHEMA_VIEW_LOADER = new DatabaseSchemaViewLoader();
 
   protected AbstractSqlDataAdapter(
     final String databaseName,
     final ISqlConnection sqlConnection,
     final ISchemaReader schemaReader) {
-
     this(
       databaseName,
       DATABASE_SCHEMA_VIEW_LOADER.loadDatabaseSchemaView(databaseName, schemaReader),

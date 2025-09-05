@@ -9,12 +9,10 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class ArrayViewTest extends ContainerTest {
-
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   @Test
   void testCase_forArray_whenTheGivenArrayIsNull() {
-
     //execution & verification
     expectRunning(() -> ArrayContainerView
       .forArray(null)).throwsException()

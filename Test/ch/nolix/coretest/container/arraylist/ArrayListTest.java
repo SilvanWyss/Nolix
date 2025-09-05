@@ -8,7 +8,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
 final class ArrayListTest extends ContainerTest {
-
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
@@ -23,7 +22,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_addAtEnd_whenHasAvailableCapacity() {
-
     //setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = ArrayList.withInitialCapacity(10);
@@ -37,7 +35,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_addAtEnd_whenDoesNotHaveAvailableCapacity() {
-
     //setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = ArrayList.withInitialCapacity(5);
@@ -51,7 +48,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_clear_whenIsEmpty() {
-
     //setup
     final ArrayList<String> testUnit = ArrayList.createEmpty();
 
@@ -64,7 +60,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_clear_whenContainsAny() {
-
     //setup
     final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
@@ -77,7 +72,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_getCopy() {
-
     //setup
     final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
@@ -90,7 +84,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_isMaterialized() {
-
     //setup
     final var testUnit = ArrayList.createEmpty();
 
@@ -103,7 +96,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_withElemens() {
-
     //setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
 
@@ -116,7 +108,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_withInitialCapacity() {
-
     //execution
     final var result = ArrayList.withInitialCapacity(10);
 
@@ -126,7 +117,6 @@ final class ArrayListTest extends ContainerTest {
 
   @Test
   void testCase_withInitialCapacity_whenTheGivenInitialCapacityIsNegative() {
-
     //execution & verification
     expectRunning(() -> ArrayList.withInitialCapacity(-1))
       .throwsException()

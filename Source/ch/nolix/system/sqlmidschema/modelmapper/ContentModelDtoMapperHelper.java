@@ -16,7 +16,6 @@ import ch.nolix.systemapi.midschema.model.ValueModelDto;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnTableFieldIndexCatalog;
 
 public final class ContentModelDtoMapperHelper {
-
   private ContentModelDtoMapperHelper() {
   }
 

@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @version 2025-08-22
  */
 public final class EntityContentFieldsFiller implements IEntityContentFieldsFiller {
-
   /**
    * {@inheritDoc}
    */
@@ -19,11 +18,9 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
   public void fillUpEntityContentFieldsFromContentFieldDtos(
     final IEntity entity,
     final IContainer<FieldDto> contentFieldDtos) {
-
     final var entityFields = entity.internalGetStoredFields();
 
     for (final var f : contentFieldDtos) {
-
       final var entityField = entityFields.getStoredFirst(f2 -> f2.hasName(f.columnName()));
 
       entityField.internalSetNullableValue(f.nullableValue(), f.nullableAdditionalValue());
@@ -37,7 +34,6 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
   public void fillUpEntityContentFieldsFromEntityLoadingDto(
     final IEntity entity,
     final EntityLoadingDto entityLoadingDto) {
-
     final var contentFields = entityLoadingDto.contentFields();
 
     fillUpEntityContentFieldsFromContentFieldDtos(entity, contentFields);

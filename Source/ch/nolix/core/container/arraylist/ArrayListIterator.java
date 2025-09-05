@@ -5,7 +5,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 public final class ArrayListIterator<E> implements CopyableIterator<E> {
-
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
 
   private final E[] parentArray;
@@ -15,7 +14,6 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
   private int nextIndex;
 
   private ArrayListIterator(final E[] parrentArray, final int maxNextIndex) {
-
     Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
     Validator.assertThat(maxNextIndex).thatIsNamed("max next index").isNotNegative();
 
@@ -25,7 +23,6 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
   }
 
   private ArrayListIterator(final E[] parrentArray, final int startIndex, final int maxNexIndex) {
-
     Validator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
     Validator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
     Validator.assertThat(maxNexIndex).thatIsNamed("max next index").isBiggerThanOrEquals(startIndex);
@@ -58,7 +55,6 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
 
   @Override
   public E next() {
-
     assertHasNext();
 
     return nextWhenHasNext();
@@ -69,7 +65,6 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
   }
 
   private E nextWhenHasNext() {
-
     final var element = parentArray[nextIndex];
 
     nextIndex++;

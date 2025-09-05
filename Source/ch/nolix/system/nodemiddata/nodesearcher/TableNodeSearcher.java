@@ -9,7 +9,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 public final class TableNodeSearcher implements ITableNodeSearcher {
-
   @Override
   public int getEntityNodeCountOfTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getChildNodeCount(c -> c.hasHeader(NodeHeaderCatalog.ENTITY));
@@ -53,7 +52,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
-
     final var idNode = getStoredIdNodeFromTableNode(tableNode);
 
     return idNode.getSingleChildNodeHeader();
@@ -61,7 +59,6 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
-
     final var nameNode = getStoredNameNodeFromTableNode(tableNode);
 
     return nameNode.getSingleChildNodeHeader();

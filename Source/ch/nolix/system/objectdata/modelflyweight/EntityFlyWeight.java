@@ -4,11 +4,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
 public final class EntityFlyWeight implements IEntityFlyWeight {
-
   private final Runnable insertAction;
 
   private EntityFlyWeight(final Runnable insertAction) {
-
     Validator.assertThat(insertAction).thatIsNamed("insert action").isNotNull();
 
     this.insertAction = insertAction;

@@ -23,7 +23,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 public final class OptionalReference<E extends IEntity>
 extends AbstractBaseReference<E>
 implements IOptionalReference<E> {
-
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
@@ -42,7 +41,6 @@ implements IOptionalReference<E> {
   public static <E2 extends IEntity> OptionalReference<E2> forEntityType(
     final Class<? extends E2> entity,
     final Class<? extends E2>... entityTypes) {
-
     final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
     final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
@@ -52,7 +50,6 @@ implements IOptionalReference<E> {
   public static <E2 extends IEntity> OptionalReference<E2> forReferenceableTableName(
     final String referenceableTableName,
     final String... referenceableTableNames) {
-
     final var allReferenceableTableNames = //
     ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
 
@@ -73,7 +70,6 @@ implements IOptionalReference<E> {
 
   @Override
   public String getReferencedEntityId() {
-
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
     return referencedEntityId;
@@ -82,7 +78,6 @@ implements IOptionalReference<E> {
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
-
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -91,7 +86,6 @@ implements IOptionalReference<E> {
     final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
     if (abstractBackReferenceContainer.isPresent()) {
-
       final var abstractBackReference = (IBaseBackReference<IEntity>) abstractBackReferenceContainer.get();
 
       return ImmutableList.withElement(abstractBackReference);
@@ -146,7 +140,6 @@ implements IOptionalReference<E> {
 
   @Override
   public void setEntityById(final String id) {
-
     final var entity = getStoredReferencedTable().getStoredEntityById(id);
 
     setEntity(entity);
@@ -168,7 +161,6 @@ implements IOptionalReference<E> {
   }
 
   private void clearWhenContainsAny() {
-
     assertCanClear();
 
     updateProbableBackReferencingFieldForClear();
@@ -195,7 +187,6 @@ implements IOptionalReference<E> {
   }
 
   private void setCastedEntity(final E entity) {
-
     assertCanSetEntity(entity);
 
     updatePropbableBackReferencingFieldOfEntityForClear(entity);
@@ -222,7 +213,6 @@ implements IOptionalReference<E> {
   }
 
   private void updateProbableBackReferencingFieldForClearWhenIsNotEmpty() {
-
     final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBaseBackReference(this);
 
     if (backReferencingField.isPresent()) {
@@ -232,7 +222,6 @@ implements IOptionalReference<E> {
   }
 
   private void updatePropbableBackReferencingFieldOfEntityForClear(final E entity) {
-
     final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
     if (pendantReferencingField.isPresent()) {

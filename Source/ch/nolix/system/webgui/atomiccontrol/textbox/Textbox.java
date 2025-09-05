@@ -25,7 +25,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
-
   public static final String DEFAULT_TEXT = StringCatalog.EMPTY_STRING;
 
   public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
@@ -50,7 +49,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   private Consumer<String> updateTextAction;
 
   public Textbox() {
-
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
@@ -109,7 +107,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public Textbox setText(final String text) {
-
     this.text.setValue(text);
 
     runOptionalUpdateTextActionForText(text);
@@ -119,7 +116,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public Textbox setTextMode(final TextMode textMode) {
-
     this.textMode.setValue(textMode);
 
     return this;
@@ -127,7 +123,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public Textbox setUpdateTextAction(final Runnable updateTextAction) {
-
     Validator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 
     return setUpdateTextAction(t -> updateTextAction.run());
@@ -135,7 +130,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public Textbox setUpdateTextAction(final Consumer<String> updateTextAction) {
-
     Validator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 
     this.updateTextAction = updateTextAction;
@@ -165,7 +159,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   protected void resetControl() {
-
     emptyText();
     setTextMode(DEFAULT_TEXT_MODE);
     removeUpdateTextAction();

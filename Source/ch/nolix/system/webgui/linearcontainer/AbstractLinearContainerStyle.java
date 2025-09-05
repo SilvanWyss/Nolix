@@ -12,7 +12,6 @@ S extends ILinearContainerStyle<S> & IMultiStateConfiguration<S, ControlState> /
 >
 extends AbstractControlStyle<S>
 implements ILinearContainerStyle<S> {
-
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 
   private static final String CHILD_CONTROL_MARGIN_HEADER = "ChildControlMargin";
@@ -36,7 +35,6 @@ implements ILinearContainerStyle<S> {
 
   @Override
   public S setChildControlMarginForState(final ControlState state, final int childControlMargin) {
-
     Validator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 
     this.childControlMargin.setValueForState(state, childControlMargin);

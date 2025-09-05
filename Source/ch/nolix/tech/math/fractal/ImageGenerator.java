@@ -26,7 +26,6 @@ import ch.nolix.techapi.math.fractal.IFractalTool;
 import ch.nolix.techapi.math.fractal.IImageGenerator;
 
 public final class ImageGenerator extends AbstractFuture implements IImageGenerator {
-
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 
   private static final IFractalTool FRACTAL_TOOL = new FractalTool();
@@ -40,7 +39,6 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
   private final IContainer<IFuture> futures;
 
   private ImageGenerator(final IFractal fractal) {
-
     Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
 
     this.fractal = fractal;
@@ -67,7 +65,6 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
 
   @Override
   public Throwable getError() {
-
     final var futureWithError = futures.getOptionalStoredFirst(IFuture::caughtError);
 
     if (futureWithError.isEmpty()) {
@@ -94,7 +91,6 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
 
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
-
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     FlowController.waitAsLongAs(
@@ -119,7 +115,6 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
   }
 
   private void fillImagePixel(final int x, final int y) {
-
     final var color = Color.createAverageFrom(
       getColorOfPixel(x - 0.75, y - 0.75),
       getColorOfPixel(x - 0.75, y - 0.25),
@@ -130,7 +125,6 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
   }
 
   private IColor getColorOfPixel(final double x, final double y) {
-
     final var z = getComplexNumberOfPixel(x, y);
 
     final var iterationCount = getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(z);
@@ -153,14 +147,12 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
   }
 
   private ILinkedList<IFuture> startFillImageAndGetFutures() {
-
     final ILinkedList<IFuture> lFutures = LinkedList.createEmpty();
 
     final var jobPool = new JobPool();
 
     final var heightInpixel = fractal.getHeightInPixel();
     for (var y = 1; y < heightInpixel; y += IMAGE_ROWS_PER_THREAD) {
-
       final var startImageRow = y;
       final var endImageRow = Calculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
 

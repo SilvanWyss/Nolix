@@ -7,7 +7,6 @@ package ch.nolix.coreapi.datamodel.cardinality;
  * @version 2023-08-25
  */
 public interface ICardinalityHolder {
-
   /**
    * @return the {@link Cardinality} of the current {@link ICardinalityHolder}.
    */

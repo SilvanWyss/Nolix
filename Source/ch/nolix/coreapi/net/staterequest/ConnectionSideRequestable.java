@@ -8,7 +8,6 @@ package ch.nolix.coreapi.net.staterequest;
  * @version 2025-07-11
  */
 public interface ConnectionSideRequestable {
-
   /**
    * @return true if the current {@link ConnectionSideRequestable} is on the
    *         back-end, false otherwise.

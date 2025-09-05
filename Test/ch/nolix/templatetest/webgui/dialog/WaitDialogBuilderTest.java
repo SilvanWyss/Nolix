@@ -10,10 +10,8 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 
 final class WaitDialogBuilderTest extends StandardTest {
-
   @Test
   void testCase_build() {
-
     //setup
     final var testUnit = new WaitDialogBuilder();
 
@@ -27,7 +25,6 @@ final class WaitDialogBuilderTest extends StandardTest {
   }
 
   private boolean isMainLabel(final IControl<?, ?> control) {
-
     if (control instanceof final ILabel label) {
       return (label.getRole() == LabelRole.MAIN_LABEL);
     }

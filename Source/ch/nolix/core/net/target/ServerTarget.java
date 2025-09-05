@@ -7,7 +7,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.target.IServerTarget;
 
 public class ServerTarget implements IServerTarget {
-
   private final String ipOrDomain;
 
   private final int port;
@@ -18,7 +17,6 @@ public class ServerTarget implements IServerTarget {
     final String ipOrDomain,
     final int port,
     final SecurityMode securityModeForConnections) {
-
     Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
     Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 
@@ -65,7 +63,6 @@ public class ServerTarget implements IServerTarget {
   }
 
   private String toHttpsUrl() {
-
     if (getPort() == PortCatalog.HTTPS) {
       return String.format("https://%s", getIpOrDomain());
     }
@@ -74,7 +71,6 @@ public class ServerTarget implements IServerTarget {
   }
 
   private String toHttpUrl() {
-
     if (getPort() == PortCatalog.HTTP) {
       return String.format("http://%s", getIpOrDomain());
     }

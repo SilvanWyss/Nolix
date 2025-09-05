@@ -15,7 +15,6 @@ import ch.nolix.core.independent.math.NumberComparator;
  * @version 2016-02-01
  */
 public final class Vector {
-
   public static final Vector EMPTY_VECTOR = new Vector();
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
@@ -75,7 +74,6 @@ public final class Vector {
    * @return the euclid norm of the current {@link Vector}.
    */
   public double getEuclidNorm() {
-
     var sum = 0.0;
     for (final var v : values) {
       sum += Math.pow(v, 2);
@@ -88,7 +86,6 @@ public final class Vector {
    * @return the Manhattan norm of the current {@link Vector}.
    */
   public double getManhattanNorm() {
-
     var manhattanNorm = 0.0;
 
     for (final var v : values) {
@@ -104,7 +101,6 @@ public final class Vector {
    *         {@link Vector} with the given factor.
    */
   public Vector getProduct(final double factor) {
-
     final var size = getSize();
     final var productValues = new double[size];
 
@@ -128,7 +124,6 @@ public final class Vector {
    *         and the given vector.
    */
   public Vector getSum(final Vector vector) {
-
     if (!vector.hasSameSizeAs(this)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         vector,
@@ -158,7 +153,6 @@ public final class Vector {
    *                                       {@link Vector}.
    */
   public double getValueAtOneBasedIndex(final int oneBasedIndex) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());
 
     return values[oneBasedIndex - 1];
@@ -186,13 +180,11 @@ public final class Vector {
    */
   @Override
   public String toString() {
-
     final var stringBuilder = new StringBuilder();
 
     stringBuilder.append("(");
 
     for (var i = 0; i < values.length; i++) {
-
       if (i > 0) {
         stringBuilder.append(",");
       }
@@ -220,7 +212,6 @@ public final class Vector {
    * @return true if the current {@link Vector} equals the given vector.
    */
   private boolean equalsVector(final Vector vector) {
-
     if (!canEqualVectorBecauseOfSize(vector)) {
       return false;
     }

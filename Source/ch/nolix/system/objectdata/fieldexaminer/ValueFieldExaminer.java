@@ -4,7 +4,6 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
 public final class ValueFieldExaminer extends FieldExaminer implements IValueFieldExaminer {
-
   @Override
   public boolean canSetValue(final IValueField<?> valueField) {
     return //

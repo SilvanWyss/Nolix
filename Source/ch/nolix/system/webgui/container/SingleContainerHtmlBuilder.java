@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.container.ISingleContainer;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
-
   @Override
   public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
     return HtmlElement.withTypeAndChildElements(
@@ -19,7 +18,6 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
 
   private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
     final ISingleContainer singleContainer) {
-
     if (singleContainer.isEmpty()) {
       return ImmutableList.createEmpty();
     }

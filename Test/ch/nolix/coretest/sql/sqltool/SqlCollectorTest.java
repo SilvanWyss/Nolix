@@ -14,10 +14,8 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 
 final class SqlCollectorTest extends StandardTest {
-
   @Test
   void testCase_addSqlStatement() {
-
     //setup
     final var sqlStatement1 = "CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);";
     final var sqlStatement2 = "CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);";
@@ -34,7 +32,6 @@ final class SqlCollectorTest extends StandardTest {
 
   @Test
   void testCase_addSqlStatement_whenTheGivenSqlStatementIsNull() {
-
     //setup
     final String sqlStatement = null;
     final var testUnit = new SqlCollector();
@@ -49,7 +46,6 @@ final class SqlCollectorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(strings = { StringCatalog.EMPTY_STRING, StringCatalog.SPACE, StringCatalog.TABULATOR })
   void testCase_addSqlStatement_whenTheGivenSqlStatementIsBlank(final String sqlStatement) {
-
     //setup
     final var testUnit = new SqlCollector();
 
@@ -62,7 +58,6 @@ final class SqlCollectorTest extends StandardTest {
 
   @Test
   void testCase_addSqlStatements() {
-
     //setup
     final var sqlStatement1 = "CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);";
     final var sqlStatement2 = "CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);";
@@ -79,7 +74,6 @@ final class SqlCollectorTest extends StandardTest {
 
   @Test
   void testCase_constructor() {
-
     //execution
     final var result = new SqlCollector();
 
@@ -90,7 +84,6 @@ final class SqlCollectorTest extends StandardTest {
 
   @Test
   void testCase_executeAndClearUsingConnection() {
-
     //setup
     final var sqlConnectionMock = Mockito.mock(ISqlConnection.class);
     final var testUnit = new SqlCollector();

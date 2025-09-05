@@ -9,10 +9,8 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 
 final class WebGuiTest extends StandardTest {
-
   @Test
   void testCase_constructor() {
-
     //execution
     final var result = new WebGui();
 
@@ -26,7 +24,6 @@ final class WebGuiTest extends StandardTest {
 
   @Test
   void testCase_reset() {
-
     //setup
     final var testUnit = new WebGui();
     testUnit.setTitle("my_title");

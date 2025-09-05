@@ -15,13 +15,11 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
  * @version 2016-01-01
  */
 public final class StringToolUnit implements IStringTool {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public String createStringWithoutLastCharacters(final String string, final int n) {
-
     Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
 
     return string.substring(0, string.length() - n);
@@ -32,7 +30,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String createTabs(final int tabCount) {
-
     //Asserts that the given tabulatorCount is not negative.
     Validator.assertThat(tabCount).thatIsNamed("tab count").isNotNegative();
 
@@ -51,7 +48,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String getInBraces(final Object object) {
-
     if (object == null) {
       throw ArgumentIsNullException.forArgumentType(Object.class);
     }
@@ -65,7 +61,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String getInParentheses(final Object object, final Object... objects) {
-
     if (object == null) {
       throw ArgumentIsNullException.forArgumentName("1th object");
     }
@@ -80,7 +75,6 @@ public final class StringToolUnit implements IStringTool {
     stringBuilder.append(object);
 
     for (final var o : objects) {
-
       if (o == null) {
         throw ArgumentIsNullException.forArgumentName(index + "th object");
       }
@@ -99,7 +93,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String getInSingleQuotes(final Object object) {
-
     if (object == null) {
       throw ArgumentIsNullException.forArgumentType(Object.class);
     }
@@ -112,7 +105,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public boolean toBoolean(final String string) {
-
     //Enumerates the given string.
     return //
     switch (string) {
@@ -130,7 +122,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public double toDouble(final String string) {
-
     if (!RegularExpressionPatternCatalog.DOUBLE_PATTERN.matcher(string).matches()) {
       throw UnrepresentingArgumentException.forArgumentAndType(string, Double.TYPE);
     }

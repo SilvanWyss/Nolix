@@ -9,7 +9,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @version 2016-09-01
  */
 public abstract class AbstractStatisticalModel {
-
   private final int backStepCount;
 
   private final double[] inputValues;
@@ -17,7 +16,6 @@ public abstract class AbstractStatisticalModel {
   private final LinkedList<Double> forecasts = LinkedList.createEmpty();
 
   protected AbstractStatisticalModel(final int backStepsCount, final double[] inputValues) {
-
     Validator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
     Validator.assertThat(backStepsCount).thatIsNamed("back step count").isBetween(1, inputValues.length);
 
@@ -34,7 +32,6 @@ public abstract class AbstractStatisticalModel {
   }
 
   public final double getForecast(final int index) {
-
     Validator.assertThat(index).thatIsNamed("index").isPositive();
 
     while (forecasts.getCount() < index) {
@@ -51,7 +48,6 @@ public abstract class AbstractStatisticalModel {
   }
 
   protected final double getValueFromBack(final int index) {
-
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
 
     Validator

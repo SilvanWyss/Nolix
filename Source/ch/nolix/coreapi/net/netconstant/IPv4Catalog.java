@@ -7,7 +7,6 @@ package ch.nolix.coreapi.net.netconstant;
  * @version 2018-12-02
  */
 public final class IPv4Catalog {
-
   public static final String LOOP_BACK_ADDRESS = "127.0.0.1";
 
   /**

@@ -15,7 +15,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  */
 @SuppressWarnings("serial")
 public final class SmallerArgumentException extends AbstractInvalidArgumentException {
-
   /**
    * Creates a new {@link SmallerArgumentException} for the given argument,
    * argumentName and min.
@@ -83,7 +82,6 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @throws RuntimeException if the given min is null.
    */
   private static BigDecimal getValidatedMinFromMin(final BigDecimal min) {
-
     if (min == null) {
       throw new IllegalArgumentException("The given minimum is null.");
     }

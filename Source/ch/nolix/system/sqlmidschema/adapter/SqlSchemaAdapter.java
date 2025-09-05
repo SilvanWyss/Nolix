@@ -8,7 +8,6 @@ import ch.nolix.system.sqlmidschema.schemareader.SchemaReader;
 import ch.nolix.system.sqlmidschema.schemawriter.SchemaWriter;
 
 public final class SqlSchemaAdapter extends AbstractSchemaAdapter {
-
   private SqlSchemaAdapter(final String databaseName, final ISqlConnection sqlConnection) {
     super(
       DatabaseInitializer.forDatabaseNameAndSqlConnection(

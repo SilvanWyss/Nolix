@@ -20,7 +20,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {
-
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
 
   private static final IItemMenuSearcher ITEM_MENU_SEARCHER = new ItemMenuSearcher();
@@ -42,11 +41,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
-
     final var allItems = ContainerView.forElementAndArray(item, items);
 
     for (final var i : allItems) {
-
       ITEM_MENU_VALIDATOR.assertCanAddItem(this, i);
 
       i.internalSetParentMenu(this);
@@ -76,7 +73,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M addItemWithText(final String text, final String... texts) {
-
     final var allTexts = ContainerView.forElementAndArray(text, texts);
 
     for (final var t : allTexts) {
@@ -157,7 +153,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final String getUserInput() {
-
     if (isEmpty()) {
       return StringCatalog.EMPTY_STRING;
     }
@@ -187,7 +182,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M selectBlankItem() {
-
     final var blankItem = ITEM_MENU_SEARCHER.getStoredBlankItem(this);
 
     blankItem.select();
@@ -197,7 +191,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M selectFirstItem() {
-
     final var firstItem = ITEM_MENU_SEARCHER.getStoredFirstItem(this);
 
     firstItem.select();
@@ -207,7 +200,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M selectItemById(final String id) {
-
     final var item = ITEM_MENU_SEARCHER.getStoredItemById(this, id);
 
     item.select();
@@ -217,7 +209,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M selectItemByText(final String text) {
-
     final var item = ITEM_MENU_SEARCHER.getStoredItemByText(this, text);
 
     item.select();
@@ -227,7 +218,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M setSelectAction(final Runnable selectAction) {
-
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
     return setSelectAction(i -> selectAction.run());
@@ -235,7 +225,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
-
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
     this.selectAction = selectAction;
@@ -245,7 +234,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final M setUserInput(final String userInput) {
-
     if (userInput.isEmpty()) {
       getStoredItems().forEach(IItemMenuItem::unselect);
     } else {
@@ -264,7 +252,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   protected final void resetControl() {
-
     clear();
     removeSelectAction();
 

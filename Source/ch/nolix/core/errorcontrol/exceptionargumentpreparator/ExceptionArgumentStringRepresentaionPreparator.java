@@ -10,7 +10,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionArgum
  */
 public final class ExceptionArgumentStringRepresentaionPreparator
 implements IExceptionArgumentStringRepresentaionPreparator {
-
   private static final int MAX_STRING_REPRESENTATION_LENGTH = 200;
 
   /**
@@ -18,7 +17,6 @@ implements IExceptionArgumentStringRepresentaionPreparator {
    */
   @Override
   public String getSmartSpaceEnclosedQuotedStringRepresentationWithMaxLengthOfArgument(final Object argument) {
-
     if (argument == null) {
       return StringCatalog.SPACE;
     }
@@ -37,7 +35,6 @@ implements IExceptionArgumentStringRepresentaionPreparator {
    */
   @Override
   public String getStringRepresentationOfArgument(final Object argument) {
-
     if (argument != null) {
       return getStringRepresentationOfArgumentWhenIsNotNull(argument);
     }
@@ -50,7 +47,6 @@ implements IExceptionArgumentStringRepresentaionPreparator {
    */
   @Override
   public String getStringRepresentationWithMaxLengthOfArgument(final Object argument) {
-
     final var string = getStringRepresentationOfArgument(argument);
 
     if (string.length() > MAX_STRING_REPRESENTATION_LENGTH) {
@@ -67,7 +63,6 @@ implements IExceptionArgumentStringRepresentaionPreparator {
    */
   private String getStringRepresentationOfArgumentWhenIsNotNull(final Object argument) {
     try {
-
       final var string = argument.toString();
 
       if (string != null) {

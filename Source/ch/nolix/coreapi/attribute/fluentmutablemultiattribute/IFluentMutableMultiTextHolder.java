@@ -11,7 +11,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTextHolder;
  * @param <H> is the type of a {@link IFluentMutableMultiTextHolder}.
  */
 public interface IFluentMutableMultiTextHolder<H extends IFluentMutableMultiTextHolder<H>> extends IMultiTextHolder {
-
   /**
    * Adds the given text to the current {@link IFluentMutableMultiTextHolder}.
    * 

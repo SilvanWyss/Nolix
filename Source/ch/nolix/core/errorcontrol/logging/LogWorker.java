@@ -3,7 +3,6 @@ package ch.nolix.core.errorcontrol.logging;
 import ch.nolix.core.independent.list.List;
 
 final class LogWorker extends Thread {
-
   private boolean active = true;
 
   private final List<LogEntry> logEntries = new List<>();
@@ -14,7 +13,6 @@ final class LogWorker extends Thread {
 
   @Override
   public void run() {
-
     var idle = false;
     long startTimeOfLastIdleInMilliseconds = -1;
 
@@ -23,7 +21,6 @@ final class LogWorker extends Thread {
         idle = false;
         Logger.takeLogEntry(getAndRemoveNextLogEntry());
       } else {
-
         if (!idle) {
           idle = true;
           startTimeOfLastIdleInMilliseconds = System.currentTimeMillis();

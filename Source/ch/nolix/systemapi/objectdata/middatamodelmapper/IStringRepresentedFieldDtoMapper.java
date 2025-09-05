@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
  * @version 2024-12-25
  */
 public interface IStringRepresentedFieldDtoMapper {
-
   /**
    * @param fields
    * @return new {@link StringRepresentedFieldDto} from the given fields.

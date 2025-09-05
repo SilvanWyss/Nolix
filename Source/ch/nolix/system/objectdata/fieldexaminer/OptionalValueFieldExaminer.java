@@ -4,7 +4,6 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 public final class OptionalValueFieldExaminer extends FieldExaminer implements IOptionalValueFieldExaminer {
-
   @Override
   public boolean canSetValue(final IOptionalValueField<?> optionalValueField) {
     return //

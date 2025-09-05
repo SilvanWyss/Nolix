@@ -8,7 +8,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * @version 2025-06-19
  */
 public final class MultiBackReferenceEntryColumnNameCatalog {
-
   public static final String ENTITY_ID = "EntityId";
 
   public static final String MULTI_BACK_REFERENCE_COLUMN_ID = "MultiBackReferenceColumnId";

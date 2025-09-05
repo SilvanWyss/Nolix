@@ -7,7 +7,6 @@ package ch.nolix.coreapi.state.staterequest;
  * @version 2020-10-02
  */
 public interface ExpansionRequestable {
-
   /**
    * @return true if the current {@link ExpansionRequestable} is collapsed.
    */

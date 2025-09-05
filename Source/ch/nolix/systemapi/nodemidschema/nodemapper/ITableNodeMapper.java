@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
  * @version 2024-12-21
  */
 public interface ITableNodeMapper {
-
   /**
    * @param tableDto
    * @return a new {@link INode} from the given tableDto.

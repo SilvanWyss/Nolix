@@ -9,7 +9,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * @version 2025-07-11
  */
 public interface ISecuriyModeHolder {
-
   /**
    * @return the {@link SecurityMode} of the current {@link ISecuriyModeHolder}.
    */

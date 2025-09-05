@@ -12,7 +12,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 public final class MultiValueField<V> extends AbstractBaseValueField<V> implements IMultiValueField<V> {
-
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 
   private static final MultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
@@ -31,7 +30,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public void addValue(final V value) {
-
     assertCanAddValue(value);
 
     updateStateForAddValue(value);
@@ -41,7 +39,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public void clear() {
-
     getAllStoredValues().forEach(this::removeValue);
 
     setAsEditedAndRunPotentialUpdateAction();
@@ -49,7 +46,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public IContainer<V> getAllStoredValues() {
-
     updateStateForLoadAllPersistedValuesIfNotLoaded();
 
     return getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries();
@@ -88,7 +84,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public void removeFirstValue(final Predicate<V> selector) {
-
     final var value = getAllStoredValues().getOptionalStoredFirst(selector);
 
     value.ifPresent(this::removeValue);
@@ -96,7 +91,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public void removeValue(final V value) {
-
     MULTI_VALUE_VALIDATOR.assertCanRemoveValue(this, value);
 
     updateStateForLoadAllPersistedValuesIfNotLoaded();
@@ -109,7 +103,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   private IContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {
-
     final ILinkedList<V> values = LinkedList.createEmpty();
 
     for (final var e : localEntries) {
@@ -136,14 +129,12 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   private void updateStateForAddValue(final V value) {
-
     final var newEntry = MultiValueFieldEntry.newEntryForMultiValueAndValue(this, value);
 
     localEntries.addAtEnd(newEntry);
   }
 
   private void updateStateForLoadAllPersistedValues() {
-
     loadedAllPersistedValues = true;
 
     localEntries.addAtEnd(loadAllPersistedValues());
@@ -156,7 +147,6 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   private void updateStateForRemoveValue(final V value) {
-
     final var entry = localEntries.getStoredFirst(e -> e.getStoredValue() == value);
 
     entry.internalSetDeleted();

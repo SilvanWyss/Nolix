@@ -16,7 +16,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  *            maps from its elements.
  */
 public final class MappingContainerViewIterator<E, T> implements CopyableIterator<T> {
-
   private final CopyableIterator<E> iterator;
 
   private final Function<E, T> mapper;
@@ -31,7 +30,6 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
    * @throws ArgumentIsNullException if the given mapper is null.
    */
   private MappingContainerViewIterator(final CopyableIterator<E> iterator, final Function<E, T> mapper) {
-
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 

@@ -14,7 +14,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ArrayContainerView}.
  */
 public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
-
   private final E[] array;
 
   /**
@@ -24,7 +23,6 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if the given array is null.
    */
   private ArrayContainerView(final E[] array) {
-
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
     this.array = array; //NOSONAR: An ArrayView operates on the original instance.
@@ -63,7 +61,6 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
 
     return array[oneBasedIndex - 1];

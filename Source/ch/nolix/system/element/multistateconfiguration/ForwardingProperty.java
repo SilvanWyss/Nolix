@@ -7,7 +7,6 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 
 public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
-
   private final IContainer<AbstractMaterializedProperty<S, V>> abstractMaterializedProperties;
 
   @SafeVarargs
@@ -21,7 +20,6 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
   private ForwardingProperty(
     final String name,
     final IContainer<AbstractMaterializedProperty<S, V>> materializedProperties) {
-
     super(name);
 
     this.abstractMaterializedProperties = LinkedList.fromIterable(materializedProperties);

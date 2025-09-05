@@ -9,10 +9,8 @@ import ch.nolix.system.webgui.main.LayerStack;
 import ch.nolix.system.webgui.main.WebGui;
 
 final class LayerStackTest extends StandardTest {
-
   @Test
   void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {
-
     //setup
     final var control = new Label();
     final var testUnit = LayerStack.forWebGui(new WebGui());
@@ -29,7 +27,6 @@ final class LayerStackTest extends StandardTest {
 
   @Test
   void testCase_getOptionalStoredControlByInternalId_whenContainsSuchAControl() {
-
     //setup
     final var control = new Label();
     final var testUnit = LayerStack.forWebGui(new WebGui());
@@ -44,7 +41,6 @@ final class LayerStackTest extends StandardTest {
 
   @Test
   void testCase_getStoredControls_whenIsEmpty() {
-
     //setup
     final var testUnit = LayerStack.forWebGui(new WebGui());
 
@@ -60,7 +56,6 @@ final class LayerStackTest extends StandardTest {
 
   @Test
   void testCase_getStoredControls_whenContains1Control() {
-
     //setup
     final var testUnit = LayerStack.forWebGui(new WebGui());
     final var label = new Label();
@@ -75,7 +70,6 @@ final class LayerStackTest extends StandardTest {
 
   @Test
   void testCase_getStoredControls_whenContains4Control() {
-
     //setup
     final var testUnit = LayerStack.forWebGui(new WebGui());
     final var verticalStack = new VerticalStack();

@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public final class ListIterator<E> implements Iterator<E> {
-
   private ListNode<E> nextNode;
 
   private ListIterator() {
@@ -29,7 +28,6 @@ public final class ListIterator<E> implements Iterator<E> {
 
   @Override
   public E next() throws NoSuchElementException {
-
     assertHasNext();
 
     final var element = nextNode.getStoredElement();

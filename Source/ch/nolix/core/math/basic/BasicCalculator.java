@@ -9,7 +9,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
  * @version 2022-11-13
  */
 public final class BasicCalculator implements IBasicCalculator {
-
   /**
    * {@inheritDoc}
    */
@@ -39,7 +38,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getAbsoluteValue(final double value) {
-
     if (value < 0) {
       return -value;
     }
@@ -52,7 +50,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public int getAbsoluteValue(final int value) {
-
     if (value < 0) {
       return -value;
     }
@@ -65,7 +62,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public long getAbsoluteValue(final long value) {
-
     if (value < 0) {
       return -value;
     }
@@ -78,7 +74,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getAverage(final double value, final double... values) {
-
     final var sum = getSum(value, values);
     final var valueCount = 1 + values.length;
 
@@ -90,7 +85,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getAverage(final Iterable<Double> values) {
-
     var count = 0;
     var sum = 0.0;
     for (final var v : values) {
@@ -110,7 +104,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public int getAverage(final int value, final int... values) {
-
     final var sum = getSum(value, values);
     final var valueCount = 1 + values.length;
 
@@ -122,7 +115,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public long getAverage(final long value, final long... values) {
-
     final var sum = getSum(value, values);
     final var valueCount = 1 + values.length;
 
@@ -134,7 +126,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getMax(final double value, final double... values) {
-
     var max = value;
     for (final var v : values) {
       if (v > max) {
@@ -150,7 +141,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public int getMax(final int value, final int... values) {
-
     var max = value;
     for (final var v : values) {
       if (v > max) {
@@ -166,7 +156,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public long getMax(final long value, final long... values) {
-
     var max = value;
     for (final var v : values) {
       if (v > max) {
@@ -182,7 +171,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getMin(final double value, final double... values) {
-
     var min = value;
     for (final var v : values) {
       if (v < min) {
@@ -198,7 +186,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public int getMin(final int value, final int... values) {
-
     var min = value;
     for (final var v : values) {
       if (v < min) {
@@ -214,7 +201,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public long getMin(final long value, final long... values) {
-
     var min = value;
     for (final var v : values) {
       if (v < min) {
@@ -254,7 +240,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getSum(final double value, final double... values) {
-
     var sum = value;
 
     for (final var v : values) {
@@ -269,7 +254,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public int getSum(final int value, final int... values) {
-
     var sum = value;
     for (final var v : values) {
       sum += v;
@@ -283,7 +267,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public double getSum(final Iterable<Double> values) {
-
     var sum = 0.0;
     for (final var v : values) {
       sum += v;
@@ -297,7 +280,6 @@ public final class BasicCalculator implements IBasicCalculator {
    */
   @Override
   public long getSum(final long value, final long... values) {
-
     var sum = value;
     for (final var v : values) {
       sum += v;
