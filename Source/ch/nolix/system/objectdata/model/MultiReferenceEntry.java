@@ -7,6 +7,7 @@ import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
@@ -84,6 +85,11 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   }
 
   @Override
+  public boolean belongsToDatabase() {
+    return getStoredParentMultiReference().belongsToDatabase();
+  }
+
+  @Override
   public boolean belongsToTable() {
     return getStoredParentMultiReference().belongsToTable();
   }
@@ -97,15 +103,15 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   }
 
   @Override
-  public String getReferencedTableId() {
-    retrieveReferencedTableId();
-
-    return referencedEntityCache.nullableTableId();
+  public String getReferencedEntityId() {
+    return referencedEntityCache.id();
   }
 
   @Override
-  public String getReferencedEntityId() {
-    return referencedEntityCache.id();
+  public String getReferencedTableId() {
+    retrieveReferencedTableId();
+  
+    return referencedEntityCache.nullableTableId();
   }
 
   @Override
@@ -114,6 +120,11 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     updateStateFromParentMultiReference();
 
     return state;
+  }
+
+  @Override
+  public IDatabase getStoredParentDatabase() {
+    return getStoredParentTable().getStoredParentDatabase();
   }
 
   @Override
@@ -143,8 +154,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
       return (ITable<E>) referencedEntity.getStoredParentTable();
     }
 
-    //TODO: Make MultiReferenceEntry a DatabaseComponent
-    if (parentMultiReference.belongsToDatabase()) {
+    if (belongsToDatabase()) {
       final var database = parentMultiReference.getStoredParentDatabase();
 
       return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getReferencedTableId());
