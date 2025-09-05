@@ -73,6 +73,15 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return nullableReferencedEntityCache.id();
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  @Override
+  public String getReferencedTableId() {
+
+    retrieveReferencedTableId();
+
+    return nullableReferencedEntityCache.nullableTableId();
+  }
+
   @Override
   @SuppressWarnings("unchecked")
   public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
@@ -225,6 +234,23 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     && entity.getState() == DatabaseObjectState.NEW
     && !entity.belongsToTable()) {
       getStoredParentEntity().getStoredParentDatabase().insertEntity(entity);
+    }
+  }
+
+  private void retrieveReferencedTableId() {
+
+    REFERENCE_VALIDATOR.assertIsNotEmpty(this);
+
+    var referencedTableId = nullableReferencedEntityCache.nullableTableId();
+
+    if (referencedTableId == null) {
+
+      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
+      final var referencedTable = referencedEntity.getStoredParentTable();
+      referencedTableId = referencedTable.getId();
+
+      nullableReferencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, referencedEntity);
     }
   }
 
