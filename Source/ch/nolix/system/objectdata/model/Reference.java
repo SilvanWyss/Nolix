@@ -69,7 +69,6 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return nullableReferencedEntityCache.id();
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
   @Override
   public String getReferencedTableId() {
     retrieveReferencedTableId();
@@ -190,10 +189,6 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     }
   }
 
-  private void assertCanSetEntity(final E entity) {
-    REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
-  }
-
   private void clear() {
     if (containsAny()) {
       clearWhenContainsAny();
@@ -240,7 +235,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void setCastedEntity(final E entity) {
-    assertCanSetEntity(entity);
+    REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
 
     updatePropableBackReferencingFieldOfEntityForClear(entity);
 
