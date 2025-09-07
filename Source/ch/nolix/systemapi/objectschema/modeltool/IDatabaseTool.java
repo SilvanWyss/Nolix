@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschema.schematool;
+package ch.nolix.systemapi.objectschema.modeltool;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;

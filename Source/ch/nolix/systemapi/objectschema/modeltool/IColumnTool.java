@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.objectschema.schematool;
+package ch.nolix.systemapi.objectschema.modeltool;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;

@@ -1,10 +1,10 @@
 package ch.nolix.system.objectschema.modelexaminer;
 
-import ch.nolix.system.objectschema.schematool.ColumnTool;
+import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
-import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
+import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
  * @author Silvan Wyss

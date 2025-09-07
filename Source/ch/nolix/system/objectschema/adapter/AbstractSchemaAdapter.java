@@ -5,13 +5,13 @@ import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectschema.model.Database;
+import ch.nolix.system.objectschema.modeltool.DatabaseTool;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
-import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modeltool.IDatabaseTool;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
-import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();

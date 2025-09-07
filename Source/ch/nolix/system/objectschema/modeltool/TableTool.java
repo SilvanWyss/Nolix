@@ -1,11 +1,11 @@
-package ch.nolix.system.objectschema.schematool;
+package ch.nolix.system.objectschema.modeltool;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
-import ch.nolix.systemapi.objectschema.schematool.ITableTool;
+import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
+import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
 
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();

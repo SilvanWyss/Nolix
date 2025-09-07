@@ -1,4 +1,4 @@
-package ch.nolix.system.objectschema.schematool;
+package ch.nolix.system.objectschema.modeltool;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.IContentModelExaminer;
-import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
+import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
   private static final IContentModelExaminer CONTENT_MODEL_EXAMINER = new ContentModelExaminer();
