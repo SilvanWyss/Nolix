@@ -19,6 +19,7 @@ implements IFieldToContentModelMapper<IOptionalBackReference<?>> {
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 
-    return OptionalBackReferenceModel.forBackReferencedColumn(backReferencedColumn);
+    //TODO: Update
+    return OptionalBackReferenceModel.forBackReferenceableColumn(backReferencedColumn);
   }
 }

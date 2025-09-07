@@ -9,16 +9,22 @@ import ch.nolix.systemapi.objectschema.model.IOptionalBackReferenceModel;
 public final class OptionalBackReferenceModel
 extends AbstractBaseBackReferenceModel
 implements IOptionalBackReferenceModel {
-  private OptionalBackReferenceModel(final IContainer<IColumn> backReferenceableColumns) {
+  private OptionalBackReferenceModel(final IContainer<? extends IColumn> backReferenceableColumns) {
     super(backReferenceableColumns);
   }
 
-  public static OptionalBackReferenceModel forBackReferencedColumn(
-    final IColumn backReferencedColumn,
-    final IColumn... backReferencedColumns) {
-    final var allBackReferencedColumns = ContainerView.forElementAndArray(backReferencedColumn, backReferencedColumns);
+  public static OptionalBackReferenceModel forBackReferenceableColumn(
+    final IColumn backReferenceableColumn,
+    final IColumn... backReferenceableColumns) {
+    final var allBackReferenceableColumns = //
+    ContainerView.forElementAndArray(backReferenceableColumn, backReferenceableColumns);
 
-    return new OptionalBackReferenceModel(allBackReferencedColumns);
+    return new OptionalBackReferenceModel(allBackReferenceableColumns);
+  }
+
+  public static OptionalBackReferenceModel forBackReferenceableColumns(
+    final IContainer<? extends IColumn> backReferenceableColumns) {
+    return new OptionalBackReferenceModel(backReferenceableColumns);
   }
 
   @Override
