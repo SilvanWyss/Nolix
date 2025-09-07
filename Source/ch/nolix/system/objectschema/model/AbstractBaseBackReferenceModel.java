@@ -1,5 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.systemapi.objectschema.model.IBaseBackReferenceModel;
@@ -12,17 +14,17 @@ public abstract class AbstractBaseBackReferenceModel implements IBaseBackReferen
 
   private static final IColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
 
-  private final IColumn backReferencedColumn;
+  private final ImmutableList<IColumn> backReferenceableColumns;
 
-  protected AbstractBaseBackReferenceModel(final IColumn backReferencedColumn) {
-    COLUMN_VALIDATOR.assertIsAbstractReferenceColumn(backReferencedColumn);
+  protected AbstractBaseBackReferenceModel(final IContainer<IColumn> backReferenceableColumns) {
+    backReferenceableColumns.forEach(COLUMN_VALIDATOR::assertIsAbstractReferenceColumn);
 
-    this.backReferencedColumn = backReferencedColumn;
+    this.backReferenceableColumns = ImmutableList.forIterable(backReferenceableColumns);
   }
 
   @Override
-  public final IColumn getBackReferencedColumn() {
-    return backReferencedColumn;
+  public final IContainer<IColumn> getStoredBackReferenceableColumns() {
+    return backReferenceableColumns;
   }
 
   @Override
@@ -37,6 +39,6 @@ public abstract class AbstractBaseBackReferenceModel implements IBaseBackReferen
 
   @Override
   public final boolean referencesBackColumn(final IColumn column) {
-    return (getBackReferencedColumn() == column);
+    return getStoredBackReferenceableColumns().contains(column);
   }
 }

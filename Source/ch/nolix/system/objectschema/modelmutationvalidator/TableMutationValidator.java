@@ -54,9 +54,10 @@ public final class TableMutationValidator implements ITableMutationValidator {
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
       final var abstractBackReferenceModel = (AbstractBaseBackReferenceModel) (column.getContentModel());
-      final var backReferencedColumn = abstractBackReferenceModel.getBackReferencedColumn();
+      final var backReferenceableColumns = abstractBackReferenceModel.getStoredBackReferenceableColumns();
+      final var database = table.getStoredParentDatabase();
 
-      DATABASE_TOOL.assertContainsTableWithGivenColumn(table.getStoredParentDatabase(), backReferencedColumn);
+      backReferenceableColumns.forEach(c -> DATABASE_TOOL.assertContainsTableWithGivenColumn(database, c));
     }
   }
 

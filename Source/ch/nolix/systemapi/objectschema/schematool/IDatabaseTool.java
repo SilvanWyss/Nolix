@@ -6,6 +6,7 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+//TODO: Move assert methods to IDatabaseValidator
 public interface IDatabaseTool extends IDatabaseObjectExaminer {
   boolean allBackReferencesAreValid(IDatabase database);
 

@@ -91,14 +91,19 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     final var contentModel = column.getContentModel();
 
     if (contentModel instanceof IBaseBackReferenceModel baseBackReferenceModel) {
-      final var backReferencedColumn = baseBackReferenceModel.getBackReferencedColumn();
-      final var backReferencedColumnContentModel = backReferencedColumn.getContentModel();
+      final var table = column.getStoredParentTable();
+      final var backReferenceableColumns = baseBackReferenceModel.getStoredBackReferenceableColumns();
 
-      if (!CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(backReferencedColumnContentModel)) {
-        return false;
+      for (final var c : backReferenceableColumns) {
+        final var backReferenceableColumnContentModel = c.getContentModel();
+
+        if (!CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(backReferenceableColumnContentModel)
+        || !referencesGivenTable(c, table)) {
+          return false;
+        }
       }
 
-      return referencesGivenTable(backReferencedColumn, column.getStoredParentTable());
+      return true;
     }
 
     return false;
