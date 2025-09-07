@@ -10,9 +10,9 @@ public final class ValueFieldValidator extends FieldValidator implements IValueF
   private static final IValueFieldExaminer VALUE_TOOL = new ValueFieldExaminer();
 
   @Override
-  public void assertCanSetGivenValue(final IValueField<?> value, final Object valueToSet) {
-    if (!VALUE_TOOL.canSetValue(value, valueToSet)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot set the given value");
+  public void assertCanSetValue(final IValueField<?> valueField, final Object value) {
+    if (!VALUE_TOOL.canSetValue(valueField, value)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(valueField, "cannot set the given value");
     }
   }
 }

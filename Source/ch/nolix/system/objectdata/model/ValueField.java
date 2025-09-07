@@ -62,7 +62,7 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
   @Override
   public void setValue(final V value) {
-    VALUE_VALIDATOR.assertCanSetGivenValue(this, value);
+    VALUE_VALIDATOR.assertCanSetValue(this, value);
 
     updateStateForSetValue(value);
 
