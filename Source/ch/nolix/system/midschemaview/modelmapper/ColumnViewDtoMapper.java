@@ -19,8 +19,8 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
     final var id = columnDto.id();
     final var name = columnDto.name();
     final var contentModel = columnDto.contentModel();
-    final var fieldType = contentModel.getFieldType();
-    final var dataType = contentModel.getDataType();
+    final var fieldType = contentModel.fieldType();
+    final var dataType = contentModel.dataType();
 
     return new ColumnViewDto(id, name, oneBasedColumnOrdinalIndex, fieldType, dataType);
   }

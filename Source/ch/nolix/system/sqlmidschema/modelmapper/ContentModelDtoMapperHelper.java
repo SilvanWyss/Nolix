@@ -3,97 +3,119 @@ package ch.nolix.system.sqlmidschema.modelmapper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
-import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
-import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
-import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnTableFieldIndexCatalog;
 
 public final class ContentModelDtoMapperHelper {
   private ContentModelDtoMapperHelper() {
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForValueColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForValueColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new ValueModelDto(
-      DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)));
+    new ContentModelDto(
+      FieldType.VALUE_FIELD,
+      DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
+      ImmutableList.createEmpty(),
+      ImmutableList.createEmpty());
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalValueColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalValueColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new OptionalValueModelDto(
-      DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)));
+    new ContentModelDto(
+      FieldType.OPTIONAL_VALUE_FIELD,
+      DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
+      ImmutableList.createEmpty(),
+      ImmutableList.createEmpty());
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new MultiValueModelDto(
-      DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)));
+    new ContentModelDto(
+      FieldType.MULTI_VALUE_FIELD,
+      DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
+      ImmutableList.createEmpty(),
+      ImmutableList.createEmpty());
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForReferenceColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForReferenceColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new ReferenceModelDto(
+    new ContentModelDto(
+      FieldType.REFERENCE,
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
 
-      //TODO: Update model
+      //TODO: Update
       ImmutableList.withElement(
-        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
+        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)),
+
+      ImmutableList.createEmpty());
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new OptionalReferenceModelDto(
+    new ContentModelDto(
+      FieldType.OPTIONAL_REFERENCE,
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
 
-      //TODO: Update model
+      //TODO: Update
       ImmutableList.withElement(
-        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
+        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)),
+
+      ImmutableList.createEmpty());
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new MultiReferenceModelDto(
+    new ContentModelDto(
+      FieldType.MULTI_REFERENCE,
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
 
-      //TODO: Update model
+      //TODO: Update
       ImmutableList.withElement(
-        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)));
+        columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.REFERENCED_TABLE_ID_INDEX)),
+
+      ImmutableList.createEmpty());
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new BackReferenceModelDto(
+    new ContentModelDto(
+      FieldType.BACK_REFERENCE,
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-      columnTableSqlRecord.getStoredAtOneBasedIndex(6));
+      ImmutableList.createEmpty(),
+
+      //TODO: Update
+      ImmutableList.withElement(columnTableSqlRecord.getStoredAtOneBasedIndex(6)));
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalBackReferenceColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForOptionalBackReferenceColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new OptionalBackReferenceModelDto(
+    new ContentModelDto(
+      FieldType.OPTIONAL_BACK_REFERENCE,
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-      columnTableSqlRecord.getStoredAtOneBasedIndex(6));
+      ImmutableList.createEmpty(),
+
+      //TODO: Update
+      ImmutableList.withElement(columnTableSqlRecord.getStoredAtOneBasedIndex(6)));
   }
 
-  public static IContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiBackReferenceColumn(
+  public static ContentModelDto mapColumnTableSqlRecordToColumnDtoForMultiBackReferenceColumn(
     final ISqlRecord columnTableSqlRecord) {
     return //
-    new MultiBackReferenceModelDto(
+    new ContentModelDto(
+      FieldType.MULTI_BACK_REFERENCE,
       DataType.valueOf(columnTableSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX)),
-      columnTableSqlRecord.getStoredAtOneBasedIndex(6));
+      ImmutableList.createEmpty(),
+
+      //TODO: Update
+      ImmutableList.withElement(columnTableSqlRecord.getStoredAtOneBasedIndex(6)));
   }
 }

@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.objectschema.midschemamodelmapper;
 
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
 
 /**
@@ -10,8 +10,8 @@ import ch.nolix.systemapi.objectschema.model.IContentModel;
 public interface IContentModelDtoMapper {
   /**
    * @param contentModel
-   * @return a new {@link IContentModelDto} from the given contentModel.
+   * @return a new {@link ContentModelDto} from the given contentModel.
    * @throws RuntimeException if the given contentModel is null.
    */
-  IContentModelDto mapContentModelToContentModelDto(IContentModel contentModel);
+  ContentModelDto mapContentModelToContentModelDto(IContentModel contentModel);
 }

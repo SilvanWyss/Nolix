@@ -2,7 +2,7 @@ package ch.nolix.systemapi.midschema.adapter;
 
 import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
@@ -18,5 +18,5 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void renameTable(String tableName, String newTableName);
 
-  void setContentModel(String tableName, String columnName, IContentModelDto contentModel);
+  void setContentModel(String tableName, String columnName, ContentModelDto contentModel);
 }

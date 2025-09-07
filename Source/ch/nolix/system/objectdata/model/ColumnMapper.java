@@ -18,7 +18,7 @@ public final class ColumnMapper {
     final var name = midSchemaColumnDto.name();
 
     final var contentModelView = //
-    CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModel(midSchemaColumnDto.contentModel(), referencableTables);
+    CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModelView(midSchemaColumnDto.contentModel(), referencableTables);
 
     final var midDataDataAdapterAndSchemaReader = parentTable.getStoredMidDataDataAdapterAndSchemaReader();
 

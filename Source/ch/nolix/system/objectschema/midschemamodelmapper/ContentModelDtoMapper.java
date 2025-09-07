@@ -1,16 +1,8 @@
 package ch.nolix.system.objectschema.midschemamodelmapper;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
-import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
-import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschema.model.IBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
@@ -33,59 +25,71 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContentModelDto mapContentModelToContentModelDto(final IContentModel contentModel) {
+  public ContentModelDto mapContentModelToContentModelDto(final IContentModel contentModel) {
+    final var fieldType = contentModel.getFieldType();
+
     if (contentModel instanceof final IValueModel<?> valueModel) {
-      return new ValueModelDto(valueModel.getDataType());
+      return //
+      new ContentModelDto(fieldType, valueModel.getDataType(), ImmutableList.createEmpty(),
+        ImmutableList.createEmpty());
     }
 
     if (contentModel instanceof final IOptionalValueModel<?> optionalValueModel) {
-      return new OptionalValueModelDto(optionalValueModel.getDataType());
+      return new ContentModelDto(fieldType, optionalValueModel.getDataType(), ImmutableList.createEmpty(),
+        ImmutableList.createEmpty());
     }
 
     if (contentModel instanceof final IMultiValueModel<?> multiValueModel) {
-      return new MultiValueModelDto(multiValueModel.getDataType());
+      return new ContentModelDto(fieldType, multiValueModel.getDataType(), ImmutableList.createEmpty(),
+        ImmutableList.createEmpty());
     }
 
     if (contentModel instanceof final IReferenceModel referenceModel) {
       final var dataType = referenceModel.getDataType();
       final var referenceableTableIds = referenceModel.getReferenceableTables().to(ITable::getId);
 
-      return new ReferenceModelDto(dataType, referenceableTableIds);
+      return new ContentModelDto(fieldType, dataType, referenceableTableIds, ImmutableList.createEmpty());
     }
 
     if (contentModel instanceof final IOptionalReferenceModel optionalReferenceModel) {
       final var dataType = optionalReferenceModel.getDataType();
       final var referenceableTableIds = optionalReferenceModel.getReferenceableTables().to(ITable::getId);
 
-      return new OptionalReferenceModelDto(dataType, referenceableTableIds);
+      return new ContentModelDto(fieldType, dataType, referenceableTableIds, ImmutableList.createEmpty());
     }
 
     if (contentModel instanceof final IMultiReferenceModel multiReferenceModel) {
       final var dataType = multiReferenceModel.getDataType();
       final var referenceableTableIds = multiReferenceModel.getReferenceableTables().to(ITable::getId);
 
-      return new MultiReferenceModelDto(dataType, referenceableTableIds);
+      return new ContentModelDto(fieldType, dataType, referenceableTableIds, ImmutableList.createEmpty());
     }
 
     if (contentModel instanceof final IBackReferenceModel backReferenceModel) {
       final var dataType = backReferenceModel.getDataType();
       final var backReferencedColumnId = backReferenceModel.getBackReferencedColumn().getId();
 
-      return new BackReferenceModelDto(dataType, backReferencedColumnId);
+      //TODO: Add getBackReferencedColumns method to IBaseBackReferenceModel
+      return new ContentModelDto(fieldType, dataType, ImmutableList.createEmpty(),
+        ImmutableList.withElement(backReferencedColumnId));
     }
 
     if (contentModel instanceof final IOptionalBackReferenceModel optionalBackReferenceModel) {
       final var dataType = optionalBackReferenceModel.getDataType();
       final var backReferencedColumnId = optionalBackReferenceModel.getBackReferencedColumn().getId();
 
-      return new OptionalBackReferenceModelDto(dataType, backReferencedColumnId);
+      //TODO: Add getBackReferencedColumns method to IBaseBackReferenceModel
+      return new ContentModelDto(fieldType, dataType, ImmutableList.createEmpty(),
+        ImmutableList.withElement(backReferencedColumnId));
     }
 
     if (contentModel instanceof final IMultiBackReferenceModel multiBackReferenceModel) {
       final var dataType = multiBackReferenceModel.getDataType();
       final var backReferencedColumnId = multiBackReferenceModel.getBackReferencedColumn().getId();
 
-      return new MultiBackReferenceModelDto(dataType, backReferencedColumnId);
+      //TODO: Add getBackReferencedColumns method to IBaseBackReferenceModel
+      return new ContentModelDto(fieldType, dataType, ImmutableList.createEmpty(),
+        ImmutableList.withElement(backReferencedColumnId));
     }
 
     throw InvalidArgumentException.forArgument(contentModel);

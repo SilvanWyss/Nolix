@@ -1,18 +1,11 @@
 package ch.nolix.system.nodemidschema.modelmapper;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.ContentModelNodeSearcher;
-import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
-import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
-import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.nodemidschema.modelmapper.IContentModelDtoMapper;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
@@ -27,43 +20,38 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContentModelDto mapContentModelNodeToContentModelDto(final IMutableNode<?> contentModelNode) {
+  public ContentModelDto mapContentModelNodeToContentModelDto(final IMutableNode<?> contentModelNode) {
     final var fieldType = CONTENT_MODEL_NODE_SEARCHER.getFieldTypeFromContentModelNode(contentModelNode);
+    final var baseFieldType = fieldType.getBaseType();
+    final var dataType = CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode);
 
-    return //
-    switch (fieldType) {
-      case VALUE_FIELD ->
-        new ValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
-      case OPTIONAL_VALUE_FIELD ->
-        new OptionalValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
-      case MULTI_VALUE_FIELD ->
-        new MultiValueModelDto(CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode));
-      case REFERENCE ->
-        new ReferenceModelDto(
-          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getReferenceableTableIdsFromContentModelNode(contentModelNode));
-      case OPTIONAL_REFERENCE ->
-        new OptionalReferenceModelDto(
-          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getReferenceableTableIdsFromContentModelNode(contentModelNode));
-      case MULTI_REFERENCE ->
-        new MultiReferenceModelDto(
-          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getReferenceableTableIdsFromContentModelNode(contentModelNode));
-      case BACK_REFERENCE ->
-        new BackReferenceModelDto(
-          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
+    IContainer<String> referenceableTableIds;
+    IContainer<String> backReferenceableColumnIds;
+
+    switch (baseFieldType) {
+      case BASE_VALUE_FIELD:
+        referenceableTableIds = ImmutableList.createEmpty();
+        backReferenceableColumnIds = ImmutableList.createEmpty();
+        break;
+      case BASE_REFERENCE:
+        referenceableTableIds = //
+        CONTENT_MODEL_NODE_SEARCHER.getReferenceableTableIdsFromContentModelNode(contentModelNode);
+
+        backReferenceableColumnIds = ImmutableList.createEmpty();
+        break;
+      case BASE_BACK_REFERENCE:
+        referenceableTableIds = ImmutableList.createEmpty();
+
+        //TODO: Add getBackReferenceableColumnIds method to IContentModelNodeSearcher
+        backReferenceableColumnIds = //
+        ImmutableList.withElement(
           CONTENT_MODEL_NODE_SEARCHER.getBackReferencedColumnIdFromContentModelNode(contentModelNode));
-      case OPTIONAL_BACK_REFERENCE ->
-        new OptionalBackReferenceModelDto(
-          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getBackReferencedColumnIdFromContentModelNode(contentModelNode));
-      case MULTI_BACK_REFERENCE ->
-        new MultiBackReferenceModelDto(
-          CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode),
-          CONTENT_MODEL_NODE_SEARCHER.getBackReferencedColumnIdFromContentModelNode(contentModelNode));
-      default ->
-        throw InvalidArgumentException.forArgument(fieldType);
-    };
+
+        break;
+      default:
+        throw InvalidArgumentException.forArgument(baseFieldType);
+    }
+
+    return new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
   }
 }

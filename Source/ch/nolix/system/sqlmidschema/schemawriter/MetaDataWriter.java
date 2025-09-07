@@ -6,7 +6,7 @@ import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlmidschema.statementcreator.MetaDataStatementCreator;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
@@ -68,7 +68,7 @@ public final class MetaDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
+  public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
     final var statement = //
     META_DATA_STATEMENT_CREATOR.createStatementToSetContentModel(tableName, columnName, contentModel);
 

@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.nodemidschema.modelmapper;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 
 /**
  * @author Silvan Wyss
@@ -10,8 +10,8 @@ import ch.nolix.systemapi.midschema.model.IContentModelDto;
 public interface IContentModelDtoMapper {
   /**
    * @param contentModelNode
-   * @return a new {@link IContentModelDto} from the given contentModelNode.
+   * @return a new {@link ContentModelDto} from the given contentModelNode.
    * @throws RuntimeException if the given contentModelNode is not valid.
    */
-  IContentModelDto mapContentModelNodeToContentModelDto(IMutableNode<?> contentModelNode);
+  ContentModelDto mapContentModelNodeToContentModelDto(IMutableNode<?> contentModelNode);
 }

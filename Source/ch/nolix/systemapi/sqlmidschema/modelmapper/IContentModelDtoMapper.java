@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.sqlmidschema.modelmapper;
 
 import ch.nolix.coreapi.sql.model.ISqlRecord;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 
 /**
  * @author Silvan Wyss
@@ -10,8 +10,8 @@ import ch.nolix.systemapi.midschema.model.IContentModelDto;
 public interface IContentModelDtoMapper {
   /**
    * @param joinedColumnSqlRecord
-   * @return a new {@link IContentModelDto} from the given joinedColumnSqlRecord.
+   * @return a new {@link ContentModelDto} from the given joinedColumnSqlRecord.
    * @throws RuntimeException if the given joinedColumnSqlRecord is null.
    */
-  IContentModelDto mapJoinedColumnSqlRecordToColumnDto(ISqlRecord joinedColumnSqlRecord);
+  ContentModelDto mapJoinedColumnSqlRecordToColumnDto(ISqlRecord joinedColumnSqlRecord);
 }

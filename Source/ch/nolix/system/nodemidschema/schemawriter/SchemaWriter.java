@@ -16,7 +16,7 @@ import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
@@ -162,7 +162,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
+  public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
 

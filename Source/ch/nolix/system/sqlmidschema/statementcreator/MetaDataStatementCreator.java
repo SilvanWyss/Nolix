@@ -4,7 +4,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
@@ -137,7 +137,7 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
   public String createStatementToSetContentModel(
     final String tableName,
     final String columnName,
-    final IContentModelDto contentModel) {
+    final ContentModelDto contentModel) {
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
     return //

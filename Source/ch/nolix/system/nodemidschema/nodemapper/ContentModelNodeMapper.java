@@ -1,18 +1,11 @@
 package ch.nolix.system.nodemidschema.nodemapper;
 
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
-import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
-import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
+import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
 
 /**
@@ -34,43 +27,50 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapContentModelDtoToNode(final IContentModelDto contentModelDto) {
-    if (contentModelDto instanceof ValueModelDto valueModelDto) {
-      return ContentModelNodeMapperHelper.mapValueModelDtoToNode(valueModelDto);
-    }
+  public INode<?> mapContentModelDtoToNode(final ContentModelDto contentModelDto) {
+    final var fieldType = contentModelDto.fieldType();
+    final var baseFieldType = fieldType.getBaseType();
+    final var dataType = contentModelDto.dataType();
 
-    if (contentModelDto instanceof OptionalValueModelDto optionalValueModelDto) {
-      return ContentModelNodeMapperHelper.mapOptionalValueModelDtoToNode(optionalValueModelDto);
-    }
+    return //
+    switch (baseFieldType) {
+      case BASE_VALUE_FIELD ->
+        Node.withHeaderAndChildNode(
+          NodeHeaderCatalog.CONTENT_MODEL,
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.FIELD_TYPE,
+            fieldType.name()),
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.DATA_TYPE,
+            dataType.name()));
+      case BASE_REFERENCE ->
+        Node.withHeaderAndChildNode(
+          NodeHeaderCatalog.CONTENT_MODEL,
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.FIELD_TYPE,
+            fieldType.name()),
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.DATA_TYPE,
+            dataType.name()),
+          Node.withHeaderAndChildNodes(
+            NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS,
+            contentModelDto.referenceableTableIds().to(Node::withHeader)));
+      case BASE_BACK_REFERENCE ->
+        Node.withHeaderAndChildNode(
+          NodeHeaderCatalog.CONTENT_MODEL,
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.FIELD_TYPE,
+            fieldType.name()),
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.DATA_TYPE,
+            dataType.name()),
+          Node.withHeaderAndChildNode(
+            NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
 
-    if (contentModelDto instanceof MultiValueModelDto multiValueModelDto) {
-      return ContentModelNodeMapperHelper.mapMultiValueModelDtoToNode(multiValueModelDto);
-    }
-
-    if (contentModelDto instanceof ReferenceModelDto referenceModelDto) {
-      return ContentModelNodeMapperHelper.mapRefernceModelDtoToNode(referenceModelDto);
-    }
-
-    if (contentModelDto instanceof OptionalReferenceModelDto optionalReferenceModelDto) {
-      return ContentModelNodeMapperHelper.mapOptionalRefernceModelDtoToNode(optionalReferenceModelDto);
-    }
-
-    if (contentModelDto instanceof MultiReferenceModelDto multiReferenceModelDto) {
-      return ContentModelNodeMapperHelper.mapMultiRefernceModelDtoToNode(multiReferenceModelDto);
-    }
-
-    if (contentModelDto instanceof BackReferenceModelDto backReferenceModelDto) {
-      return ContentModelNodeMapperHelper.mapBackRefernceModelDtoToNode(backReferenceModelDto);
-    }
-
-    if (contentModelDto instanceof OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
-      return ContentModelNodeMapperHelper.mapOptionalBackRefernceModelDtoToNode(optionalBackReferenceModelDto);
-    }
-
-    if (contentModelDto instanceof MultiBackReferenceModelDto multiBackReferenceModelDto) {
-      return ContentModelNodeMapperHelper.mapMultiBackRefernceModelDtoToNode(multiBackReferenceModelDto);
-    }
-
-    throw InvalidArgumentException.forArgument(contentModelDto);
+            //TODO: Re-engineer
+            contentModelDto.backReferenceableColumnIds().getStoredFirst()));
+      default ->
+        throw InvalidArgumentException.forArgument(baseFieldType);
+    };
   }
 }

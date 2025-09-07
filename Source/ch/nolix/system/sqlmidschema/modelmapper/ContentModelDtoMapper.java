@@ -3,7 +3,7 @@ package ch.nolix.system.sqlmidschema.modelmapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnTableFieldIndexCatalog;
 import ch.nolix.systemapi.sqlmidschema.modelmapper.IContentModelDtoMapper;
 
@@ -16,7 +16,7 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContentModelDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
+  public ContentModelDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
     final var fieldTypeEntry = //
     joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.FIELD_TYPE_INDEX);
 

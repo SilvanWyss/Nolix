@@ -11,88 +11,72 @@ import ch.nolix.system.objectdata.schemaview.OptionalReferenceModelView;
 import ch.nolix.system.objectdata.schemaview.OptionalValueModelView;
 import ch.nolix.system.objectdata.schemaview.ReferenceModelView;
 import ch.nolix.system.objectdata.schemaview.ValueModelView;
-import ch.nolix.systemapi.midschema.model.BackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
-import ch.nolix.systemapi.midschema.model.MultiBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.MultiValueModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalBackReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.OptionalValueModelDto;
-import ch.nolix.systemapi.midschema.model.ReferenceModelDto;
-import ch.nolix.systemapi.midschema.model.ValueModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
 public final class ContentModelMapper {
   public IContentModelView<ITable<IEntity>> //
-  mapContentModelDtoToContentModel( //NOSONAR: This switch statement must handle all cases.
-    final IContentModelDto contentModelDto,
+  mapContentModelDtoToContentModelView( //NOSONAR: This switch statement must handle all cases.
+    final ContentModelDto contentModelDto,
     final IContainer<? extends ITable<IEntity>> tables) {
-    if (contentModelDto instanceof ValueModelDto) {
-      final var valueType = contentModelDto.getDataType().getDataTypeClass();
+    final var fieldType = contentModelDto.fieldType();
 
-      return ValueModelView.forValueType(valueType);
+    switch (fieldType) {
+      case VALUE_FIELD:
+        final var valueType = contentModelDto.dataType().getDataTypeClass();
+
+        return ValueModelView.forValueType(valueType);
+      case OPTIONAL_VALUE_FIELD:
+        final var valueType2 = contentModelDto.dataType().getDataTypeClass();
+
+        return OptionalValueModelView.forValueType(valueType2);
+      case MULTI_VALUE_FIELD:
+        final var valueType3 = contentModelDto.dataType().getDataTypeClass();
+
+        return MultiValueModelView.forValueType(valueType3);
+      case REFERENCE:
+        final var referenceableTableIds = contentModelDto.referenceableTableIds();
+        final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
+
+        return ReferenceModelView.forReferenceableTables(referenceableTables);
+      case OPTIONAL_REFERENCE:
+        final var referenceableTableIds2 = contentModelDto.referenceableTableIds();
+        final var referenceableTables2 = tables.getStoredSelected(t -> referenceableTableIds2.containsAny(t::hasId));
+
+        return OptionalReferenceModelView.forReferenceableTables(referenceableTables2);
+      case MULTI_REFERENCE:
+        final var referenceableTableIds3 = contentModelDto.referenceableTableIds();
+        final var referenceableTables3 = tables.getStoredSelected(t -> referenceableTableIds3.containsAny(t::hasId));
+
+        return MultiReferenceModelView.forReferenceableTables(referenceableTables3);
+      case BACK_REFERENCE:
+        final var backReferenceableColumnIds = contentModelDto.backReferenceableColumnIds();
+        final var columns = tables.toMultiples(ITable::getStoredColumns);
+
+        final var backReferenceableColumns = //
+        columns.getStoredSelected(c -> backReferenceableColumnIds.contains(c.getId()));
+
+        return BackReferenceModelView.forBackReferencedColumn(backReferenceableColumns.getStoredFirst());
+      case OPTIONAL_BACK_REFERENCE:
+        final var backReferenceableColumnIds2 = contentModelDto.backReferenceableColumnIds();
+        final var columns2 = tables.toMultiples(ITable::getStoredColumns);
+
+        final var backReferenceableColumns2 = //
+        columns2.getStoredSelected(c -> backReferenceableColumnIds2.contains(c.getId()));
+
+        return OptionalBackReferenceModelView.forBackReferencedColumn(backReferenceableColumns2.getStoredFirst());
+      case MULTI_BACK_REFERENCE:
+        final var backReferenceableColumnIds3 = contentModelDto.backReferenceableColumnIds();
+        final var columns3 = tables.toMultiples(ITable::getStoredColumns);
+
+        final var backReferenceableColumns3 = //
+        columns3.getStoredSelected(c -> backReferenceableColumnIds3.contains(c.getId()));
+
+        return MultiBackReferenceModelView.forBackReferencedColumn(backReferenceableColumns3.getStoredFirst());
+      default:
+        throw InvalidArgumentException.forArgument(contentModelDto);
     }
-
-    if (contentModelDto instanceof OptionalValueModelDto) {
-      final var valueType = contentModelDto.getDataType().getDataTypeClass();
-
-      return OptionalValueModelView.forValueType(valueType);
-    }
-
-    if (contentModelDto instanceof MultiValueModelDto) {
-      final var valueType = contentModelDto.getDataType().getDataTypeClass();
-
-      return MultiValueModelView.forValueType(valueType);
-    }
-
-    if (contentModelDto instanceof final ReferenceModelDto referenceModelDto) {
-      final var referenceableTableIds = referenceModelDto.referenceableTableIds();
-      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
-
-      return ReferenceModelView.forReferenceableTables(referenceableTables);
-    }
-
-    if (contentModelDto instanceof final OptionalReferenceModelDto optionalReferenceModelDto) {
-      final var referenceableTableIds = optionalReferenceModelDto.referenceableTableIds();
-      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
-
-      return OptionalReferenceModelView.forReferenceableTables(referenceableTables);
-    }
-
-    if (contentModelDto instanceof final MultiReferenceModelDto multiReferenceModelDto) {
-      final var referenceableTableIds = multiReferenceModelDto.referenceableTableIds();
-      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
-
-      return MultiReferenceModelView.forReferenceableTables(referenceableTables);
-    }
-
-    if (contentModelDto instanceof final BackReferenceModelDto backReferenceModelDto) {
-      final var backReferencedColumnId = backReferenceModelDto.backReferencedColumnId();
-      final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
-      final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
-
-      return BackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
-    }
-
-    if (contentModelDto instanceof final OptionalBackReferenceModelDto optionalBackReferenceModelDto) {
-      final var backReferencedColumnId = optionalBackReferenceModelDto.backReferencedColumnId();
-      final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
-      final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
-
-      return OptionalBackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
-    }
-
-    if (contentModelDto instanceof final MultiBackReferenceModelDto multiBackReferenceModelDto) {
-      final var backReferencedColumnId = multiBackReferenceModelDto.backReferencedColumnId();
-      final var referencableColumns = tables.toMultiples(ITable::getStoredColumns);
-      final var backReferencedColumn = referencableColumns.getStoredFirst(c -> c.hasId(backReferencedColumnId));
-
-      return MultiBackReferenceModelView.forBackReferencedColumn(backReferencedColumn);
-    }
-
-    throw InvalidArgumentException.forArgument(contentModelDto);
   }
 }

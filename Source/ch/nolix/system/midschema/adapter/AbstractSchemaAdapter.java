@@ -11,7 +11,7 @@ import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
@@ -124,7 +124,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   public final void setContentModel(
     final String tableName,
     final String columnName,
-    final IContentModelDto contentModel) {
+    final ContentModelDto contentModel) {
     schemaWriter.setContentModel(tableName, columnName, contentModel);
   }
 

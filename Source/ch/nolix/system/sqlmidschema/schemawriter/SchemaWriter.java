@@ -10,7 +10,7 @@ import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaTableDtoMapper
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
@@ -133,7 +133,7 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setContentModel(final String tableName, final String columnName, final IContentModelDto contentModel) {
+  public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
     metaDataWriter.setContentModel(tableName, columnName, contentModel);
   }
 }

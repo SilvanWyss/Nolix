@@ -2,7 +2,7 @@ package ch.nolix.systemapi.nodemidschema.nodemapper;
 
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.IContentModelDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 
 /**
  * @author Silvan Wyss
@@ -21,5 +21,5 @@ public interface IContentModelNodeMapper {
    * @return a new content model {@link INode} from the given contentModelDto.
    * @throws RuntimeException if the given contentModelDto is null.
    */
-  INode<?> mapContentModelDtoToNode(IContentModelDto contentModelDto);
+  INode<?> mapContentModelDtoToNode(ContentModelDto contentModelDto);
 }

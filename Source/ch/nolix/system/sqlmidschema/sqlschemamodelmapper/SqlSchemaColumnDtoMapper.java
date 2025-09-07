@@ -25,7 +25,7 @@ public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper
 
     sqlSchemaColumnDtos.addAtEnd(mainSqlSchemaColumnDto);
 
-    if (columnDto.contentModel().getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE) {
+    if (columnDto.contentModel().fieldType().getBaseType() == BaseFieldType.BASE_REFERENCE) {
       final var referenceSqlSchemaColumnDto = //
       SqlSchemaColumnDtoMapperHelper.mapColumnDtoToReferenceSqlSchemaColumnDto(columnDto);
 
