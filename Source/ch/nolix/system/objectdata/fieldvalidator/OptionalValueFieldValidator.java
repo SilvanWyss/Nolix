@@ -4,10 +4,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.OptionalValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalValueFieldExaminer;
-import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
-public final class OptionalValueValidator extends FieldValidator implements IOptionalValueValidator {
+public final class OptionalValueFieldValidator extends FieldValidator implements IOptionalValueFieldValidator {
   private static final IOptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
 
   @Override

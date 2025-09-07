@@ -5,13 +5,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.objectdata.fieldvalidator.OptionalValueValidator;
+import ch.nolix.system.objectdata.fieldvalidator.OptionalValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueValidator;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
-  private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
+  private static final IOptionalValueFieldValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueFieldValidator();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
