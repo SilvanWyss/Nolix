@@ -19,17 +19,17 @@ public abstract class AbstractBaseValueModelView<V> implements IBaseValueModelVi
   }
 
   @Override
-  public final IBaseBackReferenceModelView<?, ITable<IEntity>> asAbstractBackReferenceModel() {
+  public final IBaseBackReferenceModelView<?, ITable<IEntity>> asBaseBackReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractBackReferenceModel");
   }
 
   @Override
-  public final IBaseReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
+  public final IBaseReferenceModelView<ITable<IEntity>> asBaseReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractReferenceModel");
   }
 
   @Override
-  public final IBaseValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
+  public final IBaseValueModelView<?, ITable<IEntity>> asBaseValueModel() {
     return this;
   }
 

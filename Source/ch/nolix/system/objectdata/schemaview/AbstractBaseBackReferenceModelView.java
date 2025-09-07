@@ -20,17 +20,17 @@ implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
   }
 
   @Override
-  public final IBaseBackReferenceModelView<C, ITable<IEntity>> asAbstractBackReferenceModel() {
+  public final IBaseBackReferenceModelView<C, ITable<IEntity>> asBaseBackReferenceModel() {
     return this;
   }
 
   @Override
-  public final IBaseReferenceModelView<ITable<IEntity>> asAbstractReferenceModel() {
+  public final IBaseReferenceModelView<ITable<IEntity>> asBaseReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractReferenceModel");
   }
 
   @Override
-  public final IBaseValueModelView<?, ITable<IEntity>> asAbstractValueModel() {
+  public final IBaseValueModelView<?, ITable<IEntity>> asBaseValueModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractValueModel");
   }
 

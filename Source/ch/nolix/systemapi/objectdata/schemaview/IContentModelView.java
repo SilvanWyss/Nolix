@@ -3,13 +3,13 @@ package ch.nolix.systemapi.objectdata.schemaview;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IContentModelView<T> {
-  IBaseBackReferenceModelView<?, T> asAbstractBackReferenceModel();
+  IBaseBackReferenceModelView<?, T> asBaseBackReferenceModel();
 
-  IBaseReferenceModelView<T> asAbstractReferenceModel();
+  IBaseReferenceModelView<T> asBaseReferenceModel();
 
-  IBaseValueModelView<?, T> asAbstractValueModel();
-
-  boolean referencesTable(T table);
+  IBaseValueModelView<?, T> asBaseValueModel();
 
   FieldType getFieldType();
+
+  boolean referencesTable(T table);
 }

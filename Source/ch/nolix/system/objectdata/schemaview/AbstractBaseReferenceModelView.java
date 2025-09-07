@@ -17,17 +17,17 @@ public abstract class AbstractBaseReferenceModelView<E extends IEntity> implemen
   }
 
   @Override
-  public final IBaseBackReferenceModelView<?, ITable<E>> asAbstractBackReferenceModel() {
+  public final IBaseBackReferenceModelView<?, ITable<E>> asBaseBackReferenceModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractBackReferenceModel");
   }
 
   @Override
-  public final IBaseReferenceModelView<ITable<E>> asAbstractReferenceModel() {
+  public final IBaseReferenceModelView<ITable<E>> asBaseReferenceModel() {
     return this;
   }
 
   @Override
-  public final IBaseValueModelView<?, ITable<E>> asAbstractValueModel() {
+  public final IBaseValueModelView<?, ITable<E>> asBaseValueModel() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asAbstractValueModel");
   }
 
