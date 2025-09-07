@@ -48,7 +48,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
   @Override
   public V getStoredValue() {
-    OPTIONAL_VALUE_VALIDATOR.assertContainsValue(this);
+    OPTIONAL_VALUE_VALIDATOR.assertIsNotEmpty(this);
 
     return internalValue;
   }

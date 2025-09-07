@@ -13,12 +13,15 @@ public final class OptionalValueFieldValidator extends FieldValidator implements
   @Override
   public <V> void assertCanSetValue(final IOptionalValueField<V> optionalValueField, final V value) {
     if (!OPTIONAL_VALUE_TOOL.canSetValue(optionalValueField, value)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValueField, "cannot set the given value");
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        optionalValueField,
+        "cannot set the given value '" + value + "'");
     }
   }
 
   @Override
-  public void assertContainsValue(final IOptionalValueField<?> optionalValueField) {
+  public void assertIsNotEmpty(final IOptionalValueField<?> optionalValueField) {
     if (optionalValueField.isEmpty()) {
       throw EmptyArgumentException.forArgument(optionalValueField);
     }
