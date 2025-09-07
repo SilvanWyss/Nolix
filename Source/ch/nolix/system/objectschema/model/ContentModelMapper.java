@@ -61,8 +61,7 @@ public final class ContentModelMapper {
         final var backReferenceableColumns3 = //
         columns3.getStoredSelected(c -> backReferenceableColumnIds3.containsAny(c::hasId));
 
-        //TODO: Update
-        return MultiBackReferenceModel.forBackReferencedColumn(backReferenceableColumns3.getStoredFirst());
+        return MultiBackReferenceModel.forBackReferenceableColumns(backReferenceableColumns3);
       default:
         throw InvalidArgumentException.forArgument(fieldType);
     }

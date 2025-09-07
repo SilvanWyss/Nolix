@@ -7,16 +7,22 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IMultiBackReferenceModel;
 
 public final class MultiBackReferenceModel extends AbstractBaseBackReferenceModel implements IMultiBackReferenceModel {
-  private MultiBackReferenceModel(final IContainer<IColumn> backReferenceableColumns) {
+  private MultiBackReferenceModel(final IContainer<? extends IColumn> backReferenceableColumns) {
     super(backReferenceableColumns);
   }
 
   public static MultiBackReferenceModel forBackReferencedColumn(
-    final IColumn backReferencedColumn,
-    final IColumn... backReferencedColumns) {
-    final var allBackReferencedColumns = ContainerView.forElementAndArray(backReferencedColumn, backReferencedColumns);
+    final IColumn backReferenceableColumn,
+    final IColumn... backReferenceableColumns) {
+    final var allBackReferenceableColumns = //
+    ContainerView.forElementAndArray(backReferenceableColumn, backReferenceableColumns);
 
-    return new MultiBackReferenceModel(allBackReferencedColumns);
+    return new MultiBackReferenceModel(allBackReferenceableColumns);
+  }
+
+  public static MultiBackReferenceModel forBackReferenceableColumns(
+    final IContainer<? extends IColumn> backReferenceableColumns) {
+    return new MultiBackReferenceModel(backReferenceableColumns);
   }
 
   @Override
