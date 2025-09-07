@@ -77,13 +77,13 @@ public final class QueryCreator implements IQueryCreator {
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " FROM "
     + FixTable.COLUMN.getName()
-    + " INNER JOIN "
+    + " LEFT JOIN "
     + FixTable.TABLE.getName()
     + " ON "
     + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
-    + " INNER JOIN ON "
+    + " LEFT JOIN "
     + FixTable.CONTENT_MODEL.getName()
     + " ON "
     + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
@@ -113,13 +113,13 @@ public final class QueryCreator implements IQueryCreator {
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " FROM "
     + FixTable.COLUMN.getName()
-    + " INNER JOIN "
+    + " LEFT JOIN "
     + FixTable.TABLE.getName()
     + " ON "
     + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
-    + " INNER JOIN ON "
+    + " LEFT JOIN "
     + FixTable.CONTENT_MODEL.getName()
     + " ON "
     + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
