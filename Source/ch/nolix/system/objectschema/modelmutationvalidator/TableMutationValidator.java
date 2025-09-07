@@ -8,7 +8,6 @@ import ch.nolix.system.objectschema.model.AbstractBaseReferenceModel;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
-import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -16,7 +15,6 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationVali
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 import ch.nolix.systemapi.objectschema.schematool.IColumnTool;
-import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
 
 /**
  * @author Silvan Wyss
@@ -24,8 +22,6 @@ import ch.nolix.systemapi.objectschema.schematool.IDatabaseTool;
  */
 public final class TableMutationValidator implements ITableMutationValidator {
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
-
-  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
 
   private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
@@ -57,7 +53,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
       final var backReferenceableColumns = abstractBackReferenceModel.getStoredBackReferenceableColumns();
       final var database = table.getStoredParentDatabase();
 
-      backReferenceableColumns.forEach(c -> DATABASE_TOOL.assertContainsTableWithGivenColumn(database, c));
+      backReferenceableColumns.forEach(c -> DATABASE_VALIDATOR.assertContainsTableWithGivenColumn(database, c));
     }
   }
 
@@ -80,7 +76,7 @@ public final class TableMutationValidator implements ITableMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsOpen(table);
 
     if (table.belongsToDatabase()) {
-      DATABASE_TOOL.assertDoesNotContainTableWithGivenName(table.getStoredParentDatabase(), name);
+      DATABASE_VALIDATOR.assertDoesNotContainTableWithGivenName(table.getStoredParentDatabase(), name);
     }
 
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();

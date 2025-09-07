@@ -4,15 +4,16 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.system.objectschema.schematool.DatabaseTool;
+import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 
 public final class Database extends AbstractSchemaObject implements IDatabase {
-  private static final DatabaseTool DATABASE_TOOL = new DatabaseTool();
-
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+
+  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   private final String name;
 
@@ -23,7 +24,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
   public Database(final String name, final ISchemaAdapter midSchemaAdapter) {
-    DATABASE_TOOL.assertCanSetGivenNameToDatabase(name);
+    DATABASE_VALIDATOR.assertCanSetGivenNameToDatabase(name);
 
     Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
 
@@ -35,7 +36,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   public Database addTable(final ITable table) {
-    DATABASE_TOOL.assertCanAddGivenTable(this, table);
+    DATABASE_VALIDATOR.assertCanAddGivenTable(this, table);
     DatabaseMutationExecutor.addTableToDatabase(this, (Table) table);
 
     return this;

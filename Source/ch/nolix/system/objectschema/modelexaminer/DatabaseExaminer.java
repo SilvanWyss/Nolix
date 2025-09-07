@@ -2,6 +2,7 @@ package ch.nolix.system.objectschema.modelexaminer;
 
 import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
 import ch.nolix.system.objectschema.schematool.ColumnTool;
+import ch.nolix.system.objectschema.schematool.DatabaseTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -16,6 +17,14 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
+
+  @Override
+  public boolean allBackReferencesAreValid(final IDatabase database) {
+    return //
+    new DatabaseTool()
+      .getStoredAllBackReferenceColumns(database)
+      .containsOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
+  }
 
   @Override
   public boolean canAddTable(final IDatabase database) {

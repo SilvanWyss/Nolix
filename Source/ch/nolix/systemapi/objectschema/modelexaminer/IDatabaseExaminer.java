@@ -5,6 +5,8 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public interface IDatabaseExaminer {
+  boolean allBackReferencesAreValid(IDatabase database);
+
   boolean canAddTable(IDatabase database);
 
   boolean canAddTable(IDatabase database, ITable table);
