@@ -9,10 +9,11 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
 public final class ContentModelNodeSearcher implements IContentModelNodeSearcher {
   @Override
-  public String getBackReferencedColumnIdFromContentModelNode(final IMutableNode<?> contentModelNode) {
-    final var backReferencedColumnIdNode = getStoredBackReferencedColumnIdNodeFromContentModelNode(contentModelNode);
+  public IContainer<String> getBackReferenceableColumnIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
+    final var backReferenceableColumnIdsNode = //
+    getStoredBackReferenceableColumnIdsNodeFromContentModelNode(contentModelNode);
 
-    return backReferencedColumnIdNode.getSingleChildNodeHeader();
+    return backReferenceableColumnIdsNode.getChildNodesHeaders();
   }
 
   @Override
@@ -37,9 +38,9 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
   }
 
   @Override
-  public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromContentModelNode(
+  public IMutableNode<?> getStoredBackReferenceableColumnIdsNodeFromContentModelNode(
     final IMutableNode<?> contentModelNode) {
-    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID);
+    return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS);
   }
 
   @Override

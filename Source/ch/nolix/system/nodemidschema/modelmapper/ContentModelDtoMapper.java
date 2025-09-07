@@ -42,10 +42,8 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
       case BASE_BACK_REFERENCE:
         referenceableTableIds = ImmutableList.createEmpty();
 
-        //TODO: Add getBackReferenceableColumnIds method to IContentModelNodeSearcher
         backReferenceableColumnIds = //
-        ImmutableList.withElement(
-          CONTENT_MODEL_NODE_SEARCHER.getBackReferencedColumnIdFromContentModelNode(contentModelNode));
+        CONTENT_MODEL_NODE_SEARCHER.getBackReferenceableColumnIdsFromContentModelNode(contentModelNode);
 
         break;
       default:

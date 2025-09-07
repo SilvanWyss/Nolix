@@ -64,11 +64,9 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
           Node.withHeaderAndChildNode(
             NodeHeaderCatalog.DATA_TYPE,
             dataType.name()),
-          Node.withHeaderAndChildNode(
-            NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
-
-            //TODO: Re-engineer
-            contentModelDto.backReferenceableColumnIds().getStoredFirst()));
+          Node.withHeaderAndChildNodes(
+            NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS,
+            contentModelDto.backReferenceableColumnIds().to(Node::withHeader)));
       default ->
         throw InvalidArgumentException.forArgument(baseFieldType);
     };

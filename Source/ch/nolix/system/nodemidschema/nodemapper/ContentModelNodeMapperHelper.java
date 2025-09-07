@@ -26,9 +26,9 @@ public final class ContentModelNodeMapperHelper {
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
         backReferenceModelDto.dataType().name()),
-      Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
-        backReferenceModelDto.backReferencedColumnId()));
+      Node.withHeaderAndChildNodes(
+        NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS,
+        backReferenceModelDto.backReferenceableColumnIds().to(Node::withHeader)));
   }
 
   public static Node mapMultiBackRefernceModelDtoToNode(final MultiBackReferenceModelDto multiBackReferenceModelDto) {
@@ -41,9 +41,9 @@ public final class ContentModelNodeMapperHelper {
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
         multiBackReferenceModelDto.dataType().name()),
-      Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
-        multiBackReferenceModelDto.backReferencedColumnId()));
+      Node.withHeaderAndChildNodes(
+        NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS,
+        multiBackReferenceModelDto.backReferenceableColumnIds().to(Node::withHeader)));
   }
 
   public static Node mapMultiRefernceModelDtoToNode(final MultiReferenceModelDto multiReferenceModelDto) {
@@ -84,9 +84,9 @@ public final class ContentModelNodeMapperHelper {
       Node.withHeaderAndChildNode(
         NodeHeaderCatalog.DATA_TYPE,
         optionalBackReferenceModelDto.dataType().name()),
-      Node.withHeaderAndChildNode(
-        NodeHeaderCatalog.BACK_REFERENCED_COLUMN_ID,
-        optionalBackReferenceModelDto.backReferencedColumnId()));
+      Node.withHeaderAndChildNodes(
+        NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS,
+        optionalBackReferenceModelDto.backReferenceableColumnIds().to(Node::withHeader)));
   }
 
   public static Node mapOptionalRefernceModelDtoToNode(final OptionalReferenceModelDto optionalReferenceModelDto) {
