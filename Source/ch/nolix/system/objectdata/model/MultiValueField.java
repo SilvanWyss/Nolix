@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.system.objectdata.fieldvalidator.MultiValueValidator;
+import ch.nolix.system.objectdata.fieldvalidator.MultiValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 public final class MultiValueField<V> extends AbstractBaseValueField<V> implements IMultiValueField<V> {
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 
-  private static final MultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
+  private static final MultiValueFieldValidator MULTI_VALUE_VALIDATOR = new MultiValueFieldValidator();
 
   private boolean loadedAllPersistedValues;
 

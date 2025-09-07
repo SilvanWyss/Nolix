@@ -3,10 +3,10 @@ package ch.nolix.system.objectdata.fieldvalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.MultiValueFieldTool;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiValueFieldExaminer;
-import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueValidator;
+import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
-public final class MultiValueValidator extends FieldValidator implements IMultiValueValidator {
+public final class MultiValueFieldValidator extends FieldValidator implements IMultiValueFieldValidator {
   private static final IMultiValueFieldExaminer MULTI_VALUE_TOOL = new MultiValueFieldTool();
 
   @Override
