@@ -86,7 +86,11 @@ public final class FieldFromColumnCreator {
   private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(
     final IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
     abstractBackReferenceModelView) {
-    final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
+
+    //TODO: Update
+    final var backReferencedColumn = //
+    abstractBackReferenceModelView.getStoredBackReferenceableColumnViews().getStoredFirst();
+
     final var backReferencedTable = backReferencedColumn.getStoredParentTable();
     final var backReferencedTableName = backReferencedTable.getName();
     final var backReferencedFieldName = backReferencedColumn.getName();
@@ -98,7 +102,11 @@ public final class FieldFromColumnCreator {
   private static OptionalBackReference<AbstractEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
     final IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
     abstractBackReferenceModelView) {
-    final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
+
+    //TODO: Update
+    final var backReferencedColumn = //
+    abstractBackReferenceModelView.getStoredBackReferenceableColumnViews().getStoredFirst();
+
     final var backReferencedTable = backReferencedColumn.getStoredParentTable();
     final var backReferencedTableName = backReferencedTable.getName();
     final var backReferencedFieldName = backReferencedColumn.getName();
@@ -112,7 +120,11 @@ public final class FieldFromColumnCreator {
   private static MultiBackReference<AbstractEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
     final IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>> //
     abstractBackReferenceModelView) {
-    final var backReferencedColumn = abstractBackReferenceModelView.getBackReferencedColumn();
+
+    //TODO: Update
+    final var backReferencedColumn = //
+    abstractBackReferenceModelView.getStoredBackReferenceableColumnViews().getStoredFirst();
+
     final var backReferencedTable = backReferencedColumn.getStoredParentTable();
     final var backReferencedTableName = backReferencedTable.getName();
     final var backReferencedFieldName = backReferencedColumn.getName();

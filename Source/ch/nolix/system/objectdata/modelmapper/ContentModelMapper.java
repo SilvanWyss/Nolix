@@ -58,7 +58,7 @@ public final class ContentModelMapper {
         final var backReferenceableColumns = //
         columns.getStoredSelected(c -> backReferenceableColumnIds.contains(c.getId()));
 
-        return BackReferenceModelView.forBackReferencedColumn(backReferenceableColumns.getStoredFirst());
+        return BackReferenceModelView.forBackReferenceableColumnViews(backReferenceableColumns);
       case OPTIONAL_BACK_REFERENCE:
         final var backReferenceableColumnIds2 = contentModelDto.backReferenceableColumnIds();
         final var columns2 = tables.toMultiples(ITable::getStoredColumns);
@@ -66,7 +66,7 @@ public final class ContentModelMapper {
         final var backReferenceableColumns2 = //
         columns2.getStoredSelected(c -> backReferenceableColumnIds2.contains(c.getId()));
 
-        return OptionalBackReferenceModelView.forBackReferencedColumn(backReferenceableColumns2.getStoredFirst());
+        return OptionalBackReferenceModelView.forBackReferenceableColumnViews(backReferenceableColumns2);
       case MULTI_BACK_REFERENCE:
         final var backReferenceableColumnIds3 = contentModelDto.backReferenceableColumnIds();
         final var columns3 = tables.toMultiples(ITable::getStoredColumns);
@@ -74,7 +74,7 @@ public final class ContentModelMapper {
         final var backReferenceableColumns3 = //
         columns3.getStoredSelected(c -> backReferenceableColumnIds3.contains(c.getId()));
 
-        return MultiBackReferenceModelView.forBackReferencedColumn(backReferenceableColumns3.getStoredFirst());
+        return MultiBackReferenceModelView.forBackReferenceableColumnViews(backReferenceableColumns3);
       default:
         throw InvalidArgumentException.forArgument(contentModelDto);
     }

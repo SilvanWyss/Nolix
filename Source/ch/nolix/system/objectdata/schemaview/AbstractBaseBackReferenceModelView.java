@@ -1,7 +1,8 @@
 package ch.nolix.system.objectdata.schemaview;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
@@ -11,12 +12,10 @@ import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public abstract class AbstractBaseBackReferenceModelView<C extends IColumnView<ITable<IEntity>>>
 implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
-  private final C backReferencedColumn;
+  private final ImmutableList<? extends C> backReferenceableColumnViews;
 
-  protected AbstractBaseBackReferenceModelView(final C backReferencedColumn) {
-    Validator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
-
-    this.backReferencedColumn = backReferencedColumn;
+  protected AbstractBaseBackReferenceModelView(final IContainer<? extends C> backReferenceableColumnViews) {
+    this.backReferenceableColumnViews = ImmutableList.forIterable(backReferenceableColumnViews);
   }
 
   @Override
@@ -35,8 +34,8 @@ implements IBaseBackReferenceModelView<C, ITable<IEntity>> {
   }
 
   @Override
-  public final C getBackReferencedColumn() {
-    return backReferencedColumn;
+  public IContainer<? extends C> getStoredBackReferenceableColumnViews() {
+    return backReferenceableColumnViews;
   }
 
   @Override
