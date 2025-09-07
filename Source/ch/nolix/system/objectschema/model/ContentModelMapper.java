@@ -45,8 +45,7 @@ public final class ContentModelMapper {
         final var backReferenceableColumns = //
         columns.getStoredSelected(c -> backReferenceableColumnIds.containsAny(c::hasId));
 
-        //TODO: Update
-        return BackReferenceModel.forBackReferencedColumn(backReferenceableColumns.getStoredFirst());
+        return BackReferenceModel.forBackReferenceableColumns(backReferenceableColumns);
       case OPTIONAL_BACK_REFERENCE:
         final var backReferenceableColumnIds2 = midSchemaContentModelDto.backReferenceableColumnIds();
         final var columns2 = tables.toMultiples(ITable::getStoredColumns);

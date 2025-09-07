@@ -7,16 +7,22 @@ import ch.nolix.systemapi.objectschema.model.IBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 
 public final class BackReferenceModel extends AbstractBaseBackReferenceModel implements IBackReferenceModel {
-  private BackReferenceModel(final IContainer<IColumn> backReferenceableColumns) {
+  private BackReferenceModel(final IContainer<? extends IColumn> backReferenceableColumns) {
     super(backReferenceableColumns);
   }
 
-  public static BackReferenceModel forBackReferencedColumn(
-    final IColumn backReferencedColumn,
-    final IColumn... backReferencedColumns) {
-    final var allBackReferencedColumns = ContainerView.forElementAndArray(backReferencedColumn, backReferencedColumns);
+  public static BackReferenceModel forBackReferenceableColumn(
+    final IColumn backReferenceableColumn,
+    final IColumn... backReferenceableColumns) {
+    final var allBackReferenceableColumns = //
+    ContainerView.forElementAndArray(backReferenceableColumn, backReferenceableColumns);
 
-    return new BackReferenceModel(allBackReferencedColumns);
+    return new BackReferenceModel(allBackReferenceableColumns);
+  }
+
+  public static BackReferenceModel forBackReferenceableColumns(
+    final IContainer<? extends IColumn> backReferenceableColumns) {
+    return new BackReferenceModel(backReferenceableColumns);
   }
 
   @Override

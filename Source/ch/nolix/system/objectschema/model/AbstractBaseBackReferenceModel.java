@@ -14,16 +14,16 @@ public abstract class AbstractBaseBackReferenceModel implements IBaseBackReferen
 
   private static final IColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
 
-  private final ImmutableList<IColumn> backReferenceableColumns;
+  private final ImmutableList<? extends IColumn> backReferenceableColumns;
 
-  protected AbstractBaseBackReferenceModel(final IContainer<IColumn> backReferenceableColumns) {
+  protected AbstractBaseBackReferenceModel(final IContainer<? extends IColumn> backReferenceableColumns) {
     backReferenceableColumns.forEach(COLUMN_VALIDATOR::assertIsAbstractReferenceColumn);
 
     this.backReferenceableColumns = ImmutableList.forIterable(backReferenceableColumns);
   }
 
   @Override
-  public final IContainer<IColumn> getStoredBackReferenceableColumns() {
+  public final IContainer<? extends IColumn> getStoredBackReferenceableColumns() {
     return backReferenceableColumns;
   }
 

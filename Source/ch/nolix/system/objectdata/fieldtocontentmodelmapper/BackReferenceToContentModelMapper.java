@@ -18,6 +18,7 @@ public final class BackReferenceToContentModelMapper implements IFieldToContentM
     final var columns = backReferencedTable.getStoredColumns();
     final var backReferencedColumn = columns.getStoredFirst(c -> c.hasName(backReferencedColumnName));
 
-    return BackReferenceModel.forBackReferencedColumn(backReferencedColumn);
+    //TODO: Update
+    return BackReferenceModel.forBackReferenceableColumn(backReferencedColumn);
   }
 }
