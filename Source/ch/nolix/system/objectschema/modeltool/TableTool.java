@@ -16,7 +16,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   }
 
   @Override
-  public IContainer<? extends IColumn> getStoredBackReferenceColumns(final ITable table) {
+  public IContainer<? extends IColumn> getStoredBaseBackReferenceColumns(final ITable table) {
     return table.getStoredColumns().getStoredSelected(COLUMN_TOOL::isABackReferenceColumn);
   }
 

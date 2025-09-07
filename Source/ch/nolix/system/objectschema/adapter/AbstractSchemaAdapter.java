@@ -5,18 +5,18 @@ import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectschema.model.Database;
-import ch.nolix.system.objectschema.modeltool.DatabaseTool;
+import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modeltool.IDatabaseTool;
+import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
-  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
-  private static final IDatabaseTool DATABASE_TOOL = new DatabaseTool();
+  private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -55,7 +55,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   @Override
   public final ITable getStoredTableByName(final String name) {
-    return DATABASE_TOOL.getStoredTableWithGivenName(database, name);
+    return DATABASE_SEARCHER.getStoredTableByName(database, name);
   }
 
   @Override

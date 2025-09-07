@@ -1,17 +1,20 @@
 package ch.nolix.system.objectschema.modelexaminer;
 
 import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;
+import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
-import ch.nolix.system.objectschema.modeltool.DatabaseTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
 import ch.nolix.systemapi.objectschema.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExaminer;
+import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 public final class DatabaseExaminer implements IDatabaseExaminer {
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
+
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 
   private static final ITableMutationExaminer TABLE_MUTATION_EXAMINER = new TableMutationExaminer();
@@ -20,10 +23,10 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
   @Override
   public boolean allBackReferencesAreValid(final IDatabase database) {
-    return //
-    new DatabaseTool()
-      .getStoredAllBackReferenceColumns(database)
-      .containsOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
+
+    final var baseBackReferenceColumns = DATABASE_SEARCHER.getStoredBaseBackReferenceColumns(database);
+
+    return baseBackReferenceColumns.containsOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
   }
 
   @Override

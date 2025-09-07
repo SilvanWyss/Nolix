@@ -1,30 +1,17 @@
 package ch.nolix.system.objectschema.modeltool;
 
-import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.systemapi.objectschema.model.IColumn;
+import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
-import ch.nolix.systemapi.objectschema.model.ITable;
+import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modeltool.IDatabaseTool;
-import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
 
 public final class DatabaseTool extends DatabaseObjectExaminer implements IDatabaseTool {
-
-  private static final ITableTool TABLE_TOOL = new TableTool();
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   @Override
   public void deleteTableWithGivenName(final IDatabase database, final String name) {
-    getStoredTableWithGivenName(database, name).delete();
-  }
-
-  @Override
-  public IContainer<? extends IColumn> getStoredAllBackReferenceColumns(final IDatabase database) {
-    return database.getStoredTables().toMultiples(TABLE_TOOL::getStoredBackReferenceColumns);
-  }
-
-  @Override
-  public ITable getStoredTableWithGivenName(final IDatabase database, final String name) {
-    return database.getStoredTables().getStoredFirst(t -> t.hasName(name));
+    DATABASE_SEARCHER.getStoredTableByName(database, name).delete();
   }
 
   @Override

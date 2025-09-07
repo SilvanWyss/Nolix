@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface ITableTool extends IDatabaseObjectExaminer {
   int getColumnCount(ITable table);
 
-  IContainer<? extends IColumn> getStoredBackReferenceColumns(ITable table);
+  IContainer<? extends IColumn> getStoredBaseBackReferenceColumns(ITable table);
 
   IContainer<? extends IColumn> getStoredBackReferencingColumns(ITable table);
 
