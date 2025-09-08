@@ -277,7 +277,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void setCastedEntity(final E entity) {
-    REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
+    REFERENCE_VALIDATOR.assertCanSetEntity(this, entity);
 
     updatePropableBackReferencingFieldOfEntityForClear(entity);
 
