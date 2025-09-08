@@ -218,7 +218,7 @@ implements IOptionalReference<E> {
   }
 
   private void assertCanSetEntity(final E entity) {
-    OPTIONAL_REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
+    OPTIONAL_REFERENCE_VALIDATOR.assertCanSetEntity(this, entity);
   }
 
   private void clearWhenContainsAny() {

@@ -14,15 +14,17 @@ public final class OptionalReferenceValidator extends FieldValidator implements 
   @Override
   public void assertCanBeCleared(final IOptionalReference<?> optionalReference) {
     if (!OPTIONAL_REFERENCE_EXAMINER.canBeCleared(optionalReference)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot clear");
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot be cleared");
     }
   }
 
   @Override
-  public <E extends IEntity> void assertCanSetGivenEntity(final IOptionalReference<E> optionalReference,
-    final E entity) {
+  public <E extends IEntity> void assertCanSetEntity(final IOptionalReference<E> optionalReference, final E entity) {
     if (!OPTIONAL_REFERENCE_EXAMINER.canSetEntity(optionalReference, entity)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "does not reference an entity");
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        optionalReference,
+        "cannot set the given entity '" + entity + "'");
     }
   }
 
