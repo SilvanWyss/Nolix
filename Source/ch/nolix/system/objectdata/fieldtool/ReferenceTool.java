@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
-public final class ReferenceTool extends FieldTool implements IReferenceTool {
+public final class ReferenceTool implements IReferenceTool {
   @Override
   @SuppressWarnings("unchecked")
   public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(
