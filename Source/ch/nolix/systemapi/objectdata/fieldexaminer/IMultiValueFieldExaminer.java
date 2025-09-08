@@ -7,7 +7,7 @@ public interface IMultiValueFieldExaminer extends IFieldExaminer {
 
   boolean canAddValue(IMultiValueField<?> multiValueField, Object value);
 
-  boolean canClear(IMultiValueField<?> multiValueField);
+  boolean canBeCleared(IMultiValueField<?> multiValueField);
 
   boolean canRemoveValue(IMultiValueField<?> multiValueField);
 

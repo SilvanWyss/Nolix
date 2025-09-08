@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
 public final class OptionalReferenceExaminer extends FieldExaminer implements IOptionalReferenceExaminer {
   @Override
-  public <E extends IEntity> boolean canClear(final IOptionalReference<E> optionalReference) {
+  public <E extends IEntity> boolean canBeCleared(final IOptionalReference<E> optionalReference) {
     return //
     optionalReference != null
     && optionalReference.belongsToEntity()

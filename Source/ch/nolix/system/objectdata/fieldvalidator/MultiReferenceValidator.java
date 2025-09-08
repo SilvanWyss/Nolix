@@ -22,7 +22,7 @@ public final class MultiReferenceValidator extends FieldValidator implements IMu
 
   @Override
   public void assertCanBeCleared(final IMultiReference<?> multiReference) {
-    if (!MULTI_REFERENCE_EXAMINER.canClear(multiReference)) {
+    if (!MULTI_REFERENCE_EXAMINER.canBeCleared(multiReference)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot be cleared");
     }
   }

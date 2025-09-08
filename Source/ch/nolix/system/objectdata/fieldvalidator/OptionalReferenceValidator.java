@@ -12,8 +12,8 @@ public final class OptionalReferenceValidator extends FieldValidator implements 
   private static final IOptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
 
   @Override
-  public void assertCanClear(final IOptionalReference<?> optionalReference) {
-    if (!OPTIONAL_REFERENCE_EXAMINER.canClear(optionalReference)) {
+  public void assertCanBeCleared(final IOptionalReference<?> optionalReference) {
+    if (!OPTIONAL_REFERENCE_EXAMINER.canBeCleared(optionalReference)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot clear");
     }
   }

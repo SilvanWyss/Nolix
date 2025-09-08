@@ -213,8 +213,8 @@ implements IOptionalReference<E> {
     }
   }
 
-  private void assertCanClear() {
-    OPTIONAL_REFERENCE_VALIDATOR.assertCanClear(this);
+  private void assertCanBeCleared() {
+    OPTIONAL_REFERENCE_VALIDATOR.assertCanBeCleared(this);
   }
 
   private void assertCanSetEntity(final E entity) {
@@ -222,7 +222,7 @@ implements IOptionalReference<E> {
   }
 
   private void clearWhenContainsAny() {
-    assertCanClear();
+    assertCanBeCleared();
 
     updateProbableBackReferencingFieldForClear();
 

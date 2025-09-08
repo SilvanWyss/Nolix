@@ -20,8 +20,8 @@ public final class MultiValueFieldValidator extends FieldValidator implements IM
   }
 
   @Override
-  public void assertCanClear(final IMultiValueField<?> multiValueField) {
-    if (!MULTI_VALUE_EXAMINER.canClear(multiValueField)) {
+  public void assertCanBeCleared(final IMultiValueField<?> multiValueField) {
+    if (!MULTI_VALUE_EXAMINER.canBeCleared(multiValueField)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValueField, "cannot be cleared");
     }
   }

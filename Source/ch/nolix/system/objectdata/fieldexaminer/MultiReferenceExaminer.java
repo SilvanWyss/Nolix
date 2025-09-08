@@ -22,7 +22,7 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
   }
 
   @Override
-  public <E extends IEntity> boolean canClear(final IMultiReference<E> multiReference) {
+  public <E extends IEntity> boolean canBeCleared(final IMultiReference<E> multiReference) {
     return //
     multiReference != null
     && multiReference.isOpen();

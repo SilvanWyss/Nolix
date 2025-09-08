@@ -19,7 +19,7 @@ public final class MultiValueFieldTool extends FieldExaminer implements IMultiVa
   }
 
   @Override
-  public boolean canClear(final IMultiValueField<?> multiValueField) {
+  public boolean canBeCleared(final IMultiValueField<?> multiValueField) {
     return //
     multiValueField != null
     && multiValueField.isOpen();
