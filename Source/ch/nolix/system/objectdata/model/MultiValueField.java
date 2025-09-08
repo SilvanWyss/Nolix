@@ -99,7 +99,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   private void assertCanAddValue(final V value) {
-    MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
+    MULTI_VALUE_VALIDATOR.assertCanAddValue(this, value);
   }
 
   private IContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {

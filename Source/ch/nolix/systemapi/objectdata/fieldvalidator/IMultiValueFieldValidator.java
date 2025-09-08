@@ -3,9 +3,9 @@ package ch.nolix.systemapi.objectdata.fieldvalidator;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public interface IMultiValueFieldValidator extends IFieldValidator {
-  void assertCanAddGivenValue(IMultiValueField<?> multiValue, Object value);
+  <V> void assertCanAddValue(IMultiValueField<V> multiValueField, V value);
 
-  void assertCanClear(IMultiValueField<?> multiValue);
+  void assertCanClear(IMultiValueField<?> multiValueField);
 
-  <V> void assertCanRemoveValue(IMultiValueField<V> multiValue, V value);
+  <V> void assertCanRemoveValue(IMultiValueField<V> multiValueField, V value);
 }

@@ -7,27 +7,31 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 public final class MultiValueFieldValidator extends FieldValidator implements IMultiValueFieldValidator {
-  private static final IMultiValueFieldExaminer MULTI_VALUE_TOOL = new MultiValueFieldTool();
+  private static final IMultiValueFieldExaminer MULTI_VALUE_EXAMINER = new MultiValueFieldTool();
 
   @Override
-  public void assertCanAddGivenValue(final IMultiValueField<?> multiValue, final Object value) {
-    if (!MULTI_VALUE_TOOL.canAddValue(multiValue, value)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot add the given value");
+  public <V> void assertCanAddValue(final IMultiValueField<V> multiValueField, final V value) {
+    if (!MULTI_VALUE_EXAMINER.canAddValue(multiValueField, value)) {
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        multiValueField,
+        "cannot add the given value '" + value + "'");
     }
   }
 
   @Override
-  public void assertCanClear(final IMultiValueField<?> multiValue) {
-    if (!MULTI_VALUE_TOOL.canClear(multiValue)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot clear");
+  public void assertCanClear(final IMultiValueField<?> multiValueField) {
+    if (!MULTI_VALUE_EXAMINER.canClear(multiValueField)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValueField, "cannot be cleared");
     }
   }
 
   @Override
-  public <V> void assertCanRemoveValue(final IMultiValueField<V> multiValue, final V value) {
-    if (!MULTI_VALUE_TOOL.canRemoveValue(multiValue, value)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        multiValue,
+  public <V> void assertCanRemoveValue(final IMultiValueField<V> multiValueField, final V value) {
+    if (!MULTI_VALUE_EXAMINER.canRemoveValue(multiValueField, value)) {
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        multiValueField,
         "cannot remove the given value '" + value + "'");
     }
   }
