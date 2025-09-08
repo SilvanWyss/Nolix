@@ -196,7 +196,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   private void assertCanAddEntity(final E entity) {
-    MULTI_REFERENCE_VALIDATOR.assertCanAddGivenEntity(this, entity);
+    MULTI_REFERENCE_VALIDATOR.assertCanAddEntity(this, entity);
   }
 
   private void insertEntityIntoDatabaseIfPossible(final E entity) {

@@ -8,28 +8,30 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
 public final class MultiReferenceValidator extends FieldValidator implements IMultiReferenceValidator {
-  private static final IMultiReferenceExaminer MULTI_REFERENCE_TOOL = new MultiReferenceExaminer();
+  private static final IMultiReferenceExaminer MULTI_REFERENCE_EXAMINER = new MultiReferenceExaminer();
 
   @Override
-  public <E extends IEntity> void assertCanAddGivenEntity(final IMultiReference<E> multiReference, final E entity) {
-    if (!MULTI_REFERENCE_TOOL.canAddEntity(multiReference, entity)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot add the given entity");
+  public <E extends IEntity> void assertCanAddEntity(final IMultiReference<E> multiReference, final E entity) {
+    if (!MULTI_REFERENCE_EXAMINER.canAddEntity(multiReference, entity)) {
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        multiReference,
+        "cannot add the given entity '" + entity + "'");
     }
   }
 
   @Override
-  public void assertCanClear(final IMultiReference<?> multiReference) {
-    if (!MULTI_REFERENCE_TOOL.canClear(multiReference)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot clear");
+  public void assertCanBeCleared(final IMultiReference<?> multiReference) {
+    if (!MULTI_REFERENCE_EXAMINER.canClear(multiReference)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot be cleared");
     }
   }
 
   @Override
-  public <E extends IEntity> void assertCanRemoveEntity(
-    final IMultiReference<E> multiReference,
-    final E entity) {
-    if (!MULTI_REFERENCE_TOOL.canRemoveEntity(multiReference, entity)) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot remove the given " + entity);
+  public <E extends IEntity> void assertCanRemoveEntity(final IMultiReference<E> multiReference, final E entity) {
+    if (!MULTI_REFERENCE_EXAMINER.canRemoveEntity(multiReference, entity)) {
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot remove the given '" + entity + "'");
     }
   }
 }
