@@ -1,6 +1,7 @@
 package ch.nolix.system.sqlmidschema.modelmapper;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
@@ -22,30 +23,28 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
 
     final var fieldType = FieldType.valueOf(fieldTypeEntry);
 
-    return //
-    switch (fieldType) {
-      case VALUE_FIELD ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForValueColumn(joinedColumnSqlRecord);
-      case OPTIONAL_VALUE_FIELD ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalValueColumn(joinedColumnSqlRecord);
-      case MULTI_VALUE_FIELD ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiValueColumn(joinedColumnSqlRecord);
-      case REFERENCE ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForReferenceColumn(joinedColumnSqlRecord);
-      case OPTIONAL_REFERENCE ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForOptionalReferenceColumn(joinedColumnSqlRecord);
-      case MULTI_REFERENCE ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForMultiReferenceColumn(joinedColumnSqlRecord);
-      case BACK_REFERENCE ->
-        ContentModelDtoMapperHelper.mapColumnTableSqlRecordToColumnDtoForBackReferenceColumn(joinedColumnSqlRecord);
-      case OPTIONAL_BACK_REFERENCE ->
-        ContentModelDtoMapperHelper
-          .mapColumnTableSqlRecordToColumnDtoForOptionalBackReferenceColumn(joinedColumnSqlRecord);
-      case MULTI_BACK_REFERENCE ->
-        ContentModelDtoMapperHelper
-          .mapColumnTableSqlRecordToColumnDtoForMultiBackReferenceColumn(joinedColumnSqlRecord);
-      default ->
-        throw InvalidArgumentException.forArgument(fieldType);
-    };
+    final var dataTypeString = //
+    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX);
+
+    final var dataType = DataType.valueOf(dataTypeString);
+    final var referenceableTableIdsString = joinedColumnSqlRecord.getStoredAtOneBasedIndex(6);
+    ImmutableList<String> referenceableTableIds;
+
+    if (!referenceableTableIdsString.equals("NULL")) {
+      referenceableTableIds = ImmutableList.forArray(referenceableTableIdsString.split(","));
+    } else {
+      referenceableTableIds = ImmutableList.createEmpty();
+    }
+
+    final var backReferenceableTableIdsString = joinedColumnSqlRecord.getStoredAtOneBasedIndex(7);
+    ImmutableList<String> backReferenceableTableIds;
+
+    if (!backReferenceableTableIdsString.equals("NULL")) {
+      backReferenceableTableIds = ImmutableList.forArray(backReferenceableTableIdsString.split(","));
+    } else {
+      backReferenceableTableIds = ImmutableList.createEmpty();
+    }
+
+    return new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableTableIds);
   }
 }

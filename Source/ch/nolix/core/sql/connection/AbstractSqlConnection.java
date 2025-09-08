@@ -160,6 +160,8 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
         final var entry = resultSet.getString(i);
 
         if (entry == null) {
+
+          //TODO: Use List that can store null values
           entries.addAtEnd("NULL");
         } else {
           entries.addAtEnd(entry);
