@@ -12,11 +12,15 @@ public final class OptionalReferenceTool implements IOptionalReferenceTool {
   @SuppressWarnings("unchecked")
   public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(
     final IOptionalReference<?> optionalReference) {
-    return //
-    (Optional<IBaseBackReference<IEntity>>) //
-    optionalReference
-      .getStoredReferencedEntity()
-      .internalGetStoredFields()
-      .getOptionalStoredFirst(p -> p.referencesBackField(optionalReference));
+    if (optionalReference.containsAny()) {
+      final var referencedEntity = optionalReference.getStoredReferencedEntity();
+
+      final var backReference = //
+      referencedEntity.internalGetStoredFields().getOptionalStoredFirst(p -> p.referencesBackField(optionalReference));
+
+      return backReference.map(b -> (IBaseBackReference<IEntity>) b);
+    }
+
+    return Optional.empty();
   }
 }
