@@ -5,6 +5,7 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ContentModelColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
@@ -24,33 +25,6 @@ public final class QueryCreator implements IQueryCreator {
     + ") FROM "
     + FixTable.TABLE.getName()
     + ";";
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String createQueryToLoadCoumnsByTableId(final String tableId) {
-    return //
-    "SELECT "
-    + ColumnColumn.ID.getName()
-    + ", "
-    + ColumnColumn.NAME.getName()
-    + ", "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
-    + ", "
-    + ColumnColumn.FIELD_TYPE.getName()
-    + ", "
-    + ColumnColumn.DATA_TYPE.getName()
-    + ", "
-    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
-    + " FROM "
-    + FixTable.COLUMN.getName()
-    + " WHERE "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
-    + " = '"
-    + tableId
-    + "'";
   }
 
   /**
@@ -89,6 +63,19 @@ public final class QueryCreator implements IQueryCreator {
     + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
     + " = "
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.ID.getName()
+    + " LEFT JOIN (SELECT "
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + ", STRING_AGG("
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + ", ',') AS ReferenceableTableIds FROM"
+    + FixTable.REFERENCEABLE_TABLE.getName()
+    + " GROUP BY "
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + ")"
+    + " ON "
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + " = "
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ";";
   }
 
@@ -125,6 +112,19 @@ public final class QueryCreator implements IQueryCreator {
     + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
     + " = "
     + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.ID.getName()
+    + " LEFT JOIN (SELECT "
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + ", STRING_AGG("
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + ", ',') AS ReferenceableTableIds FROM"
+    + FixTable.REFERENCEABLE_TABLE.getName()
+    + " GROUP BY "
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + ")"
+    + " ON "
+    + FixTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + " = "
+    + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + " WHERE "
     + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
     + " = '"

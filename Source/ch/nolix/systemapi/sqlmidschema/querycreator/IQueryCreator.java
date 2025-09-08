@@ -11,12 +11,6 @@ public interface IQueryCreator {
   String createQueryToGetTableCount();
 
   /**
-   * @param tableId
-   * @return a query to load the columns of the table with the given tableId.
-   */
-  String createQueryToLoadCoumnsByTableId(String tableId);
-
-  /**
    * @return a query to load the joined columns.
    */
   String createQueryToLoadJoinedColumns();
