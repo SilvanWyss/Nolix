@@ -23,7 +23,7 @@ public final class ColumnMapper {
     final var midDataDataAdapterAndSchemaReader = parentTable.getStoredMidDataDataAdapterAndSchemaReader();
 
     return //
-    Column.withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
+    DeprecatedColumn.withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
       id,
       name,
       contentModelView,

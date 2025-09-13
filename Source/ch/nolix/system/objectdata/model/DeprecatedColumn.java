@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
-public final class Column extends AbstractImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
+public final class DeprecatedColumn extends AbstractImmutableDatabaseObject implements IColumnView<ITable<IEntity>> {
   private final String id;
 
   private final String name;
@@ -21,7 +21,7 @@ public final class Column extends AbstractImmutableDatabaseObject implements ICo
 
   private final IDataReader midDataReader;
 
-  private Column(
+  private DeprecatedColumn(
     final String id,
     final String name,
     final IContentModelView<ITable<IEntity>> contentModelView,
@@ -40,13 +40,13 @@ public final class Column extends AbstractImmutableDatabaseObject implements ICo
     this.midDataReader = midDataReader;
   }
 
-  static Column withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
+  static DeprecatedColumn withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
     final String id,
     final String name,
     final IContentModelView<ITable<IEntity>> contentModelView,
     final Table<IEntity> parentTable,
     final IDataReader midDataReader) {
-    return new Column(id, name, contentModelView, parentTable, midDataReader);
+    return new DeprecatedColumn(id, name, contentModelView, parentTable, midDataReader);
   }
 
   @Override
