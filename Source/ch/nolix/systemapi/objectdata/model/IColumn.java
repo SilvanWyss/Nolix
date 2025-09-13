@@ -9,9 +9,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
   boolean containsValueInPersistedData(String value);
 
-  boolean containsValueInPersistedDataIgnoringGivenEntities(
-    String value,
-    IContainer<String> entitiesToIgnoreIds);
+  boolean containsValueInPersistedDataIgnoringEntities(String value, IContainer<String> entitiesToIgnoreIds);
 
   Class<Object> getDataTypeClass();
 
