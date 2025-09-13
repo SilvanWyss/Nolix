@@ -2,6 +2,7 @@ package ch.nolix.systemapi.objectdata.modelsearcher;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
+import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
@@ -22,5 +23,5 @@ public interface ITableSearcher extends IDatabaseObjectExaminer {
    * @param table
    * @return the {@link IColumnView}s that references the given table.
    */
-  <E extends IEntity> IContainer<IColumnView<ITable<IEntity>>> getStoredColumsThatReferencesTable(ITable<E> table);
+  <E extends IEntity> IContainer<IColumn> getStoredColumsThatReferencesTable(ITable<E> table);
 }

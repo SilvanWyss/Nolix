@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
-import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public interface ITable<E extends IEntity>
 extends IDatabaseComponent<IDatabase>, IDatabaseObject, IIdHolder, INameHolder {
@@ -19,7 +18,7 @@ extends IDatabaseComponent<IDatabase>, IDatabaseObject, IIdHolder, INameHolder {
 
   Optional<E> getOptionalStoredEntityById(String id);
 
-  IContainer<IColumnView<ITable<IEntity>>> getStoredColumns();
+  IContainer<IColumn> getStoredColumns();
 
   IContainer<E> getStoredEntities();
 

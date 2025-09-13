@@ -262,7 +262,7 @@ public abstract class AbstractEntity implements IEntity {
     return //
     ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
-      .containsAny(c -> c.internalContainsGivenValueInPersistedData(localId));
+      .containsAny(c -> c.containsValueInPersistedData(localId));
   }
 
   private boolean isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(
@@ -272,7 +272,7 @@ public abstract class AbstractEntity implements IEntity {
     return //
     ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
-      .containsAny(c -> c.internalContainsGivenValueInPersistedDataIgnoringGivenEntities(localId, entitiesToIgnoreIds));
+      .containsAny(c -> c.containsValueInPersistedDataIgnoringEntities(localId, entitiesToIgnoreIds));
   }
 
   private void updateBackReferenceForDeletion(final BackReference<?> backReference) {

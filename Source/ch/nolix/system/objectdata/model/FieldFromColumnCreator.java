@@ -1,64 +1,57 @@
 package ch.nolix.system.objectdata.model;
 
+import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseBackReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseReferenceModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IBaseValueModelView;
 import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
-import ch.nolix.systemapi.objectdata.schemaview.IContentModelView;
 
 public final class FieldFromColumnCreator {
   private FieldFromColumnCreator() {
   }
 
-  public static AbstractField createFieldFromAndWithColumnView(final IColumnView<ITable<IEntity>> columnView) {
-    final var field = createFieldFromColumnView(columnView);
+  public static AbstractField createFieldFromAndWithColumnView(final IColumn column) {
+    final var field = createFieldFromColumn(column);
 
-    field.setParentColumn(columnView);
+    field.setParentColumn(column);
 
     return field;
   }
 
-  private static AbstractField createFieldFromColumnView(final IColumnView<ITable<IEntity>> columnView) {
-    final var contentModelView = columnView.getContentModel();
-
-    return createFieldFromContentModelView(contentModelView);
-  }
-
   @SuppressWarnings("unchecked")
-  private static AbstractField createFieldFromContentModelView(
-    final IContentModelView<ITable<IEntity>> contentModelView) {
-    final var fieldType = contentModelView.getFieldType();
+  private static AbstractField createFieldFromColumn(final IColumn column) {
+    final var fieldType = column.getFieldType();
 
     return //
     switch (fieldType) {
       case VALUE_FIELD ->
-        ValueField.withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
+        ValueField.withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) column).getValueType());
       case OPTIONAL_VALUE_FIELD ->
         OptionalValueField
-          .withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) contentModelView).getValueType());
+          .withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) column).getValueType());
       case MULTI_VALUE_FIELD ->
-        MultiValueField.withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) contentModelView)
+        MultiValueField.withValueType(((IBaseValueModelView<Object, ITable<IEntity>>) column)
           .getValueType());
       case REFERENCE ->
         createReferenceFromAbstractReferenceModelView(
-          (IBaseReferenceModelView<ITable<IEntity>>) contentModelView);
+          (IBaseReferenceModelView<ITable<IEntity>>) column);
       case OPTIONAL_REFERENCE ->
         createOptionalReferenceFromAbstractReferenceModelView(
-          (IBaseReferenceModelView<ITable<IEntity>>) contentModelView);
+          (IBaseReferenceModelView<ITable<IEntity>>) column);
       case MULTI_REFERENCE ->
         createMultiReferenceFromAbstractReferenceModelView(
-          (IBaseReferenceModelView<ITable<IEntity>>) contentModelView);
+          (IBaseReferenceModelView<ITable<IEntity>>) column);
       case BACK_REFERENCE ->
         createBackReferenceFromAbstractBackReferenceModelView(
-          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
+          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) column);
       case OPTIONAL_BACK_REFERENCE ->
         createOptionalBackReferenceFromAbstractBackReferenceModelView(
-          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
+          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) column);
       case MULTI_BACK_REFERENCE ->
         createMultiBackReferenceFromAbstractBackReferenceModelView(
-          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) contentModelView);
+          (IBaseBackReferenceModelView<IColumnView<ITable<IEntity>>, ITable<IEntity>>) column);
     };
   }
 

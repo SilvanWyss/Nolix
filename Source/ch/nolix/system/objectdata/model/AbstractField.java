@@ -10,12 +10,12 @@ import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
+import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
-import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public abstract class AbstractField implements IField {
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
@@ -24,7 +24,7 @@ public abstract class AbstractField implements IField {
 
   private AbstractEntity parentEntity;
 
-  private IColumnView<ITable<IEntity>> parentColumn;
+  private IColumn parentColumn;
 
   private IFieldFlyWeight fieldFlyWeight = VOID_FIELD_FLY_WEIGHT;
 
@@ -74,7 +74,7 @@ public abstract class AbstractField implements IField {
   }
 
   @Override
-  public final IColumnView<ITable<IEntity>> getStoredParentColumn() {
+  public final IColumn getStoredParentColumn() {
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
 
     return parentColumn;
@@ -161,7 +161,7 @@ public abstract class AbstractField implements IField {
 
   protected abstract void noteInsertIntoDatabase();
 
-  final void setParentColumn(final IColumnView<ITable<IEntity>> parentColumn) {
+  final void setParentColumn(final IColumn parentColumn) {
     Validator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 
     this.parentColumn = parentColumn;

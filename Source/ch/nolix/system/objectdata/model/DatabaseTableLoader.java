@@ -12,8 +12,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 final class DatabaseTableLoader {
   private static final TableMapper TABLE_MAPPER = new TableMapper();
 
-  private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
-
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 
@@ -43,7 +41,7 @@ final class DatabaseTableLoader {
     final var midBaseValueColumns = midTable.columns().getStoredSelected(this::isBaseValue);
 
     for (final var c : midBaseValueColumns) {
-      final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
+      final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
         c,
         table,
         ImmutableList.createEmpty());
@@ -70,7 +68,7 @@ final class DatabaseTableLoader {
     final var midBaseReferenceColumns = midTable.columns().getStoredSelected(this::isBaseReference);
 
     for (final var c : midBaseReferenceColumns) {
-      final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
+      final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
         c,
         table,
         referencableTables);
@@ -97,7 +95,7 @@ final class DatabaseTableLoader {
     final var midBaseValueColumns = midTable.columns().getStoredSelected(this::isBaseBackReference);
 
     for (final var c : midBaseValueColumns) {
-      final var column = COLUMN_MAPPER.mapMidSchemaColumnDtoToColumnView(
+      final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
         c,
         table,
         referencableTables);

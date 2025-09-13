@@ -1,33 +1,36 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.system.objectdata.modelmapper.ContentModelMapper;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class ColumnMapper {
-  private static final ContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
 
-  public IColumnView<ITable<IEntity>> mapMidSchemaColumnDtoToColumnView(
+  public static IColumn mapMidSchemaColumnDtoToColumn(
     final ColumnDto midSchemaColumnDto,
     final Table<IEntity> parentTable,
-    final IContainer<? extends ITable<IEntity>> referencableTables) {
+    final IContainer<? extends ITable<IEntity>> tables) {
+    final var contentModel = midSchemaColumnDto.contentModel();
     final var id = midSchemaColumnDto.id();
     final var name = midSchemaColumnDto.name();
-
-    final var contentModelView = //
-    CONTENT_MODEL_MAPPER.mapContentModelDtoToContentModelView(midSchemaColumnDto.contentModel(), referencableTables);
-
-    final var midDataDataAdapterAndSchemaReader = parentTable.getStoredMidDataDataAdapterAndSchemaReader();
+    final var fieldType = contentModel.fieldType();
+    final var dataTypeClass = (Class<Object>) contentModel.dataType().getDataTypeClass();
+    final var referenceableTableIds = contentModel.referenceableTableIds();
+    final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
+    final var columns = tables.toMultiples(ITable::getStoredColumns);
+    final var backReferenceableColumnIds = contentModel.backReferenceableColumnIds();
+    final var backReferenceableColumns = columns.getStoredSelected(c -> backReferenceableColumnIds.contains(c.getId()));
 
     return //
-    DeprecatedColumn.withIdAndNameAndContentModelViewAndParentTableAndMidDataReader(
+    Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
+      parentTable,
       id,
       name,
-      contentModelView,
-      parentTable,
-      midDataDataAdapterAndSchemaReader);
+      fieldType,
+      dataTypeClass,
+      referenceableTables,
+      backReferenceableColumns);
   }
 }

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.datamodel.fieldrequest.MandatorynessRequestable;
 import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public interface IField
 extends
@@ -24,7 +23,7 @@ MandatorynessRequestable {
 
   IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis();
 
-  IColumnView<ITable<IEntity>> getStoredParentColumn();
+  IColumn getStoredParentColumn();
 
   FieldType getType();
 

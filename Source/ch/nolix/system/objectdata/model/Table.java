@@ -6,6 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.datastructure.property.LazyCalculatedProperty;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.entitytool.EntityFiller;
@@ -18,13 +19,13 @@ import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
+import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
-import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 public final class Table<E extends IEntity> implements ITable<E> {
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
@@ -47,14 +48,14 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final Class<E> entityClass;
 
-  private final LazyCalculatedProperty<IContainer<IColumnView<ITable<IEntity>>>> columnsThatReferenceCurrentTable = //
+  private final LazyCalculatedProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable = //
   LazyCalculatedProperty.forValueCreater(() -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
 
-  private final LinkedList<IColumnView<ITable<IEntity>>> columnViews = LinkedList.createEmpty();
+  private final ILinkedList<IColumn> columns = LinkedList.createEmpty();
 
-  private final LinkedList<E> entitiesInLocalData = LinkedList.createEmpty();
+  private final ILinkedList<E> entitiesInLocalData = LinkedList.createEmpty();
 
   private Table(
     final Database parentDatabase,
@@ -139,8 +140,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   @Override
-  public IContainer<IColumnView<ITable<IEntity>>> getStoredColumns() {
-    return columnViews;
+  public IContainer<IColumn> getStoredColumns() {
+    return columns;
   }
 
   @Override
@@ -238,17 +239,17 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return parentDatabase.getStoredMidDataAdapterAndSchemaReader();
   }
 
-  void internalAddColumn(final IColumnView<ITable<IEntity>> columnView) {
-    columnViews.addAtEnd(columnView);
+  void internalAddColumn(final IColumn column) {
+    columns.addAtEnd(column);
   }
 
-  IContainer<IColumnView<ITable<IEntity>>> internalGetColumnsThatReferencesCurrentTable() {
+  IContainer<IColumn> internalGetColumnsThatReferencesCurrentTable() {
     return columnsThatReferenceCurrentTable.getStoredValue();
   }
 
-  void internalSetColumns(final IContainer<IColumnView<ITable<IEntity>>> columnViews) {
-    this.columnViews.clear();
-    this.columnViews.addAtEnd(columnViews);
+  void internalSetColumns(final IContainer<IColumn> columns) {
+    this.columns.clear();
+    this.columns.addAtEnd(columns);
   }
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {
