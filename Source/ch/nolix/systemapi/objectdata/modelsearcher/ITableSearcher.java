@@ -5,7 +5,6 @@ import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
-import ch.nolix.systemapi.objectdata.schemaview.IColumnView;
 
 /**
  * @author Silvan Wyss
@@ -21,7 +20,7 @@ public interface ITableSearcher extends IDatabaseObjectExaminer {
   /**
    * @param <E>
    * @param table
-   * @return the {@link IColumnView}s that references the given table.
+   * @return the {@link IColumn}s that references the given table.
    */
   <E extends IEntity> IContainer<IColumn> getStoredColumsThatReferencesTable(ITable<E> table);
 }
