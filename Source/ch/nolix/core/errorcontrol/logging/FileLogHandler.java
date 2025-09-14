@@ -19,10 +19,10 @@ public final class FileLogHandler extends AbstractLogHandler {
         logEntry.toString() + System.lineSeparator(),
         StandardOpenOption.APPEND);
 
-      for (final var ail : logEntry.getAdditionalInfoLines()) {
+      for (final var l : logEntry.getAdditionalInfoLines()) {
         Files.writeString(
           nolixLogFilePath,
-          "  " + ail + System.lineSeparator(),
+          "  " + l + System.lineSeparator(),
           StandardOpenOption.APPEND);
       }
     } catch (final IOException pIOException) {
