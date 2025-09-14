@@ -39,8 +39,8 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
   }
 
   public void setValueForState(final S state, final V value) {
-    for (final var mp : abstractMaterializedProperties) {
-      mp.setValueForState(state, value);
+    for (final var p : abstractMaterializedProperties) {
+      p.setValueForState(state, value);
     }
   }
 
@@ -56,8 +56,8 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
 
   @Override
   protected void setValueFromSpecification(final INode<?> specification) {
-    for (final var mp : abstractMaterializedProperties) {
-      mp.setValueFromSpecification(specification);
+    for (final var p : abstractMaterializedProperties) {
+      p.setValueFromSpecification(specification);
     }
   }
 }
