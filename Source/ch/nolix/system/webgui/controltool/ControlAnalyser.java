@@ -16,8 +16,8 @@ public final class ControlAnalyser implements IControlAnalyser {
   private boolean firstControlContainsSecondControlWhenFirstControlIsNotNull(
     final IControl<?, ?> firstControl,
     final IControl<?, ?> secondControl) {
-    for (final var cc : firstControl.getStoredChildControls()) {
-      if (cc == secondControl || firstControlContainsSecondControl(cc, secondControl)) {
+    for (final var c : firstControl.getStoredChildControls()) {
+      if (c == secondControl || firstControlContainsSecondControl(c, secondControl)) {
         return true;
       }
     }
