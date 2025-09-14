@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Properties;
 
-import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
@@ -154,18 +154,12 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     var index = 1;
 
     while (resultSet.next()) {
-      final ArrayList<String> entries = ArrayList.withInitialCapacity(columnCount);
+      final List<String> entries = List.of();
 
       for (var i = 1; i <= columnCount; i++) {
         final var entry = resultSet.getString(i);
 
-        if (entry == null) {
-
-          //TODO: Use List that can store null values
-          entries.addAtEnd("NULL");
-        } else {
-          entries.addAtEnd(entry);
-        }
+        entries.add(entry);
       }
 
       final var sqlRecord = ch.nolix.core.sql.model.SqlRecord.withOneBasedIndexAndValues(index, entries);

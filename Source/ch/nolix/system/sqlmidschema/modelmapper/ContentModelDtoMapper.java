@@ -30,7 +30,7 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     final var referenceableTableIdsString = joinedColumnSqlRecord.getStoredAtOneBasedIndex(6);
     ImmutableList<String> referenceableTableIds;
 
-    if (!referenceableTableIdsString.equals("NULL")) {
+    if (referenceableTableIdsString != null) {
       referenceableTableIds = ImmutableList.forArray(referenceableTableIdsString.split(","));
     } else {
       referenceableTableIds = ImmutableList.createEmpty();
@@ -39,7 +39,7 @@ public final class ContentModelDtoMapper implements IContentModelDtoMapper {
     final var backReferenceableTableIdsString = joinedColumnSqlRecord.getStoredAtOneBasedIndex(7);
     ImmutableList<String> backReferenceableTableIds;
 
-    if (!backReferenceableTableIdsString.equals("NULL")) {
+    if (backReferenceableTableIdsString != null) {
       backReferenceableTableIds = ImmutableList.forArray(backReferenceableTableIdsString.split(","));
     } else {
       backReferenceableTableIds = ImmutableList.createEmpty();
