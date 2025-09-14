@@ -67,8 +67,8 @@ public final class SchemaInitializer {
       .internalGetStoredFields()
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD);
 
-    for (final var bv : baseValues) {
-      final var column = COLUMN_MAPPER.mapFieldToColumn(bv, ImmutableList.createEmpty());
+    for (final var v : baseValues) {
+      final var column = COLUMN_MAPPER.mapFieldToColumn(v, ImmutableList.createEmpty());
 
       table.addColumn(column);
     }
@@ -94,8 +94,8 @@ public final class SchemaInitializer {
       .internalGetStoredFields()
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_REFERENCE);
 
-    for (final var br : baseReferences) {
-      final var column = COLUMN_MAPPER.mapFieldToColumn(br, referencableTables);
+    for (final var r : baseReferences) {
+      final var column = COLUMN_MAPPER.mapFieldToColumn(r, referencableTables);
 
       table.addColumn(column);
     }
