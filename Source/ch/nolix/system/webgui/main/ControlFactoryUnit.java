@@ -32,10 +32,10 @@ public final class ControlFactoryUnit {
     final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
     final var allControlClasses = ContainerView.forElementAndArray(controlClass, controlClasses);
 
-    for (final var cc : allControlClasses) {
-      assertDoesNotContainControlClassWithName(cc.getSimpleName());
+    for (final var c : allControlClasses) {
+      assertDoesNotContainControlClassWithName(c.getSimpleName());
 
-      this.controlClasses.addAtEnd(cc);
+      this.controlClasses.addAtEnd(c);
     }
   }
 
