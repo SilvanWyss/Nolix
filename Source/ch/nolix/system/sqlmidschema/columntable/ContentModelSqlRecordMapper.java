@@ -1,11 +1,11 @@
 package ch.nolix.system.sqlmidschema.columntable;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.sql.syntax.SqlKeywordCatalog;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.sqlmidschema.modelsqldto.ContentModelSqlDto;
 
 public final class ContentModelSqlRecordMapper {
-  private static final String NULL = "NULL";
 
   public ContentModelSqlDto mapContentModelDtoToContentModelSqlDto(final ContentModelDto contentModelDto) {
     final var fieldType = contentModelDto.fieldType();
@@ -19,33 +19,33 @@ public final class ContentModelSqlRecordMapper {
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
           "'" + dataTypeName + "'",
-          NULL);
+          SqlKeywordCatalog.NULL);
       case OPTIONAL_VALUE_FIELD ->
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
           "'" + dataTypeName + "'",
-          NULL);
+          SqlKeywordCatalog.NULL);
       case MULTI_VALUE_FIELD ->
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
           "'" + dataTypeName + "'",
-          NULL);
+          SqlKeywordCatalog.NULL);
       case REFERENCE ->
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
           "'" + dataTypeName + "'",
-          NULL);
+          SqlKeywordCatalog.NULL);
 
       case OPTIONAL_REFERENCE ->
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
           "'" + dataTypeName + "'",
-          NULL);
+          SqlKeywordCatalog.NULL);
       case MULTI_REFERENCE ->
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
           "'" + dataTypeName + "'",
-          NULL);
+          SqlKeywordCatalog.NULL);
       case BACK_REFERENCE ->
         new ContentModelSqlDto(
           "'" + fieldTypeName + "'",
