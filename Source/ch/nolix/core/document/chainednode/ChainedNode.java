@@ -608,11 +608,11 @@ implements IChainedNode {
       this.childNodes.addAtEnd(fromChainedNode(childNode));
     }
 
-    for (final var cn : childNodes) {
-      if (cn instanceof final ChainedNode chainedNode) {
+    for (final var c : childNodes) {
+      if (c instanceof final ChainedNode chainedNode) {
         this.childNodes.addAtEnd(chainedNode);
       } else {
-        this.childNodes.addAtEnd(fromChainedNode(cn));
+        this.childNodes.addAtEnd(fromChainedNode(c));
       }
     }
   }
@@ -626,8 +626,8 @@ implements IChainedNode {
   private void addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
     this.childNodes.addAtEnd(fromNode(childNode));
 
-    for (final var cn : childNodes) {
-      this.childNodes.addAtEnd(fromNode(cn));
+    for (final var c : childNodes) {
+      this.childNodes.addAtEnd(fromNode(c));
     }
   }
 
@@ -638,11 +638,11 @@ implements IChainedNode {
    * @throws ArgumentIsNullException if one of the given attribute is null.
    */
   private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
-    for (final var cn : childNodes) {
-      if (cn instanceof final ChainedNode chainedNode) {
+    for (final var c : childNodes) {
+      if (c instanceof final ChainedNode chainedNode) {
         this.childNodes.addAtEnd(chainedNode);
       } else {
-        this.childNodes.addAtEnd(fromChainedNode(cn));
+        this.childNodes.addAtEnd(fromChainedNode(c));
       }
     }
   }
