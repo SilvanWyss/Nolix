@@ -70,8 +70,8 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       column.getStoredMidSchemaAdapter().renameColumn(tableName, oldName, name);
     }
 
-    for (final var brc : backReferencingColumns) {
-      ((Column) brc).internalSetContentModelToDatabase();
+    for (final var c : backReferencingColumns) {
+      ((Column) c).internalSetContentModelToDatabase();
     }
 
     column.setEdited();
