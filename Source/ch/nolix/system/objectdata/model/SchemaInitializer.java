@@ -121,8 +121,8 @@ public final class SchemaInitializer {
       .internalGetStoredFields()
       .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
 
-    for (final var bbr : baseBackReferences) {
-      final var column = COLUMN_MAPPER.mapFieldToColumn(bbr, referencableTables);
+    for (final var r : baseBackReferences) {
+      final var column = COLUMN_MAPPER.mapFieldToColumn(r, referencableTables);
 
       table.addColumn(column);
     }
