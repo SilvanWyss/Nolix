@@ -150,13 +150,13 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    *                                  given element.
    */
   protected final void setAttachingAttributesToElement(IStylableElement<?> element) {
-    for (final var aa : getAttachingAttributes()) {
+    for (final var a : getAttachingAttributes()) {
       try {
-        element.addOrChangeAttribute(aa.getValue());
+        element.addOrChangeAttribute(a.getValue());
       } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-          aa,
+          a,
           "attaching attribute",
           "could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'");
 
