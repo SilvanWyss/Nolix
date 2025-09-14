@@ -297,14 +297,14 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateProbableBackReferencingFieldForClear() {
-    for (final var brp : getStoredBaseBackReferencesWhoReferencesBackThis()) {
-      BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(brp);
+    for (final var b : getStoredBaseBackReferencesWhoReferencesBackThis()) {
+      BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(b);
     }
   }
 
   private void updatePropableBackReferencingFieldOfEntityForClear(final E entity) {
-    for (final var bbr : getStoredBaseBackReferencesWhoReferencesBackThis()) {
-      if (FIELD_EXAMINER.isForSingleContent(bbr)) {
+    for (final var b : getStoredBaseBackReferencesWhoReferencesBackThis()) {
+      if (FIELD_EXAMINER.isForSingleContent(b)) {
         final var pendantReferencingField = getOptionalPendantReferencingFieldToEntity(entity);
 
         if (pendantReferencingField.isPresent()) {
