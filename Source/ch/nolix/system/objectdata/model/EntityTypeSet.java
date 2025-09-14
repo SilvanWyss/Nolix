@@ -30,8 +30,8 @@ public final class EntityTypeSet implements IEntityTypeSet {
 
     allEntityTypes.addAtEnd((Class<IEntity>) entityType);
 
-    for (final var et : entityTypes) {
-      allEntityTypes.addAtEnd((Class<IEntity>) et);
+    for (final var t : entityTypes) {
+      allEntityTypes.addAtEnd((Class<IEntity>) t);
     }
 
     return new EntityTypeSet(allEntityTypes);
