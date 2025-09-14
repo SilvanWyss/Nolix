@@ -44,8 +44,8 @@ public final class ValidationLabelTool implements IValidationLabelTool {
     if (control.belongsToControl()) {
       final var parentControl = control.getStoredParentControl();
 
-      for (final var cc : parentControl.getStoredChildControls()) {
-        if (cc instanceof final IValidationLabel validationLabel) {
+      for (final var c : parentControl.getStoredChildControls()) {
+        if (c instanceof final IValidationLabel validationLabel) {
           return Optional.of(validationLabel);
         }
       }
