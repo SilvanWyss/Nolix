@@ -209,8 +209,8 @@ implements IMultiStateConfiguration<C, S> {
   private void setParent(final AbstractMultiStateConfiguration<?, S> parentElement) {
     final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getStoredCascadingProperties());
 
-    for (final var cp : getStoredCascadingProperties()) {
-      cp.setParentProperty(parentCascadingProperties.removeAndGetStoredFirst(pp -> pp.hasSameNameAs(cp)));
+    for (final var p : getStoredCascadingProperties()) {
+      p.setParentProperty(parentCascadingProperties.removeAndGetStoredFirst(pp -> pp.hasSameNameAs(p)));
     }
 
     Validator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties")
