@@ -18,12 +18,12 @@ public final class X11ColorCatalogExtractor {
     final var colorStringFields = getColorNameConstantFields(paramClass);
     final var colorFields = getColorFields(paramClass);
 
-    for (final var csf : colorStringFields) {
-      final var colorStringFieldName = csf.getName();
+    for (final var f : colorStringFields) {
+      final var colorStringFieldName = f.getName();
       final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 
       x11Colors.addAtEnd(
-        new Pair<>(ReflectionTool.getValueOfStaticField(csf),
+        new Pair<>(ReflectionTool.getValueOfStaticField(f),
           ReflectionTool.getValueOfStaticField(colorField)));
     }
 
