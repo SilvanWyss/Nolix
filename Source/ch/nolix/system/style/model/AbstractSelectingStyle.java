@@ -78,16 +78,16 @@ implements ISelectingStyleWithSelectors {
       attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_TYPE_HEADER, getSelectorType()));
     }
 
-    for (final var sr : getSelectorRoles()) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_ROLE_HEADER, sr));
+    for (final var r : getSelectorRoles()) {
+      attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_ROLE_HEADER, r));
     }
 
-    for (final var aa : getAttachingAttributes()) {
-      attributes.addAtEnd(aa.getSpecification());
+    for (final var a : getAttachingAttributes()) {
+      attributes.addAtEnd(a.getSpecification());
     }
 
-    for (final var ss : getSubStyles()) {
-      attributes.addAtEnd(ss.getSpecification());
+    for (final var s : getSubStyles()) {
+      attributes.addAtEnd(s.getSpecification());
     }
 
     return attributes;
