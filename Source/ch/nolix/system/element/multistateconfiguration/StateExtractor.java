@@ -18,8 +18,8 @@ final class StateExtractor<S extends Enum<S>> {
     final ILinkedList<State<S>> states = LinkedList.createEmpty();
 
     var i = 0;
-    for (final var sev : stateEnumValues) {
-      states.addAtEnd(State.withQualifyingPrefixAndIndexAndEnumValue(sev.name(), i, sev));
+    for (final var v : stateEnumValues) {
+      states.addAtEnd(State.withQualifyingPrefixAndIndexAndEnumValue(v.name(), i, v));
 
       i++;
     }
