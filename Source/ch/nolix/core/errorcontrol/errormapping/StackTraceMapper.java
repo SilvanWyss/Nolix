@@ -29,8 +29,8 @@ public final class StackTraceMapper {
   }
 
   private void mapOwnStackTraceElementsOfErrorIntoList(final Throwable cause, final List<String> list) {
-    for (final var ste : cause.getStackTrace()) {
-      list.addAtEnd(ste.toString());
+    for (final var t : cause.getStackTrace()) {
+      list.addAtEnd(t.toString());
     }
   }
 }
