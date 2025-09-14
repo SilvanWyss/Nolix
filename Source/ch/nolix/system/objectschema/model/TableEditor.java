@@ -54,12 +54,12 @@ public final class TableEditor {
     if (table.isConnectedWithRealDatabase()) {
       table.getStoredMidSchemaAdapter().renameTable(oldTableName, name);
 
-      for (final var rc : referencingColumns) {
-        ((Column) rc).internalSetContentModelToDatabase();
+      for (final var c : referencingColumns) {
+        ((Column) c).internalSetContentModelToDatabase();
       }
 
-      for (final var brc : backReferencingColumns) {
-        ((Column) brc).internalSetContentModelToDatabase();
+      for (final var c : backReferencingColumns) {
+        ((Column) c).internalSetContentModelToDatabase();
       }
     }
 
