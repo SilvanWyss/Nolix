@@ -27,8 +27,8 @@ public final class List<E> implements Iterable<E> {
     final var array = new String[list.getElementCount()];
 
     var index = 0;
-    for (final var ail : list) {
-      array[index] = ail;
+    for (final var e : list) {
+      array[index] = e;
       index++;
     }
 
