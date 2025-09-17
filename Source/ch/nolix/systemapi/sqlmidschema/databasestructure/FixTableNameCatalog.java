@@ -19,6 +19,8 @@ public final class FixTableNameCatalog {
 
   public static final String REFERENCEABLE_TABLE = "ReferenceableTable";
 
+  public static final String BACK_REFERENCEABLE_COLUMN = "BackReferenceableColumn";
+
   public static final String ENTITY_INDEX = "EntityIndex";
 
   public static final String MULTI_VALUE_ENTRY = "MultiValueEntry";
