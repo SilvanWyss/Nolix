@@ -8,6 +8,7 @@ import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
 
@@ -53,6 +54,23 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
     + " = '"
     + tableName
     + "'";
+  }
+
+  @Override
+  public String createStatementToAddReferenceableTable(final String parentBaseReferenceColumnId,
+    final String referenceableTableId) {
+    return //
+    "INSERT INTO "
+    + FixTable.REFERENCEABLE_TABLE.getName()
+    + " ("
+    + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + ", "
+    + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + ") VALUES ('"
+    + parentBaseReferenceColumnId
+    + "', '"
+    + referenceableTableId
+    + "')";
   }
 
   @Override

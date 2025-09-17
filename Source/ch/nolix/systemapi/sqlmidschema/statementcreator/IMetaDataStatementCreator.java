@@ -8,6 +8,8 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 public interface IMetaDataStatementCreator {
   String createStatementToAddColumn(String tableName, ColumnDto column);
 
+  String createStatementToAddReferenceableTable(String parentBaseReferenceColumnId, String referenceableTableId);
+
   String createStatementToAddTable(String tableId, String tableName);
 
   IContainer<String> createStatementsToAddTable(TableDto table);
