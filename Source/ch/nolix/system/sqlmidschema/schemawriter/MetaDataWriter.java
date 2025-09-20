@@ -4,19 +4,19 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
-import ch.nolix.system.sqlmidschema.statementcreator.MetaDataStatementCreator;
+import ch.nolix.system.sqlmidschema.statementcreator.SchemaDataStatementCreator;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class MetaDataWriter {
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
-  private static final IMetaDataStatementCreator META_DATA_STATEMENT_CREATOR = new MetaDataStatementCreator();
+  private static final ISchemaDataStatementCreator META_DATA_STATEMENT_CREATOR = new SchemaDataStatementCreator();
 
   private final ISqlCollector sqlCollector;
 

@@ -11,9 +11,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
-import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 
-public final class MetaDataStatementCreator implements IMetaDataStatementCreator {
+public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
   private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
 
   @Override
