@@ -12,9 +12,9 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
   public DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
-    final var contentModelNode = getStoredContentModelNodeFromColumnNode(columnNode);
+    final var dataTypeNode = getStoredDataTypeNodeFromColumnNode(columnNode);
 
-    return CONTENT_MODEL_NODE_SEARCHER.getDataTypeFromContentModelNode(contentModelNode);
+    return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
   @Override
@@ -41,6 +41,11 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   @Override
   public IMutableNode<?> getStoredContentModelNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.CONTENT_MODEL);
+  }
+
+  @Override
+  public IMutableNode<?> getStoredDataTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
+    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.DATA_TYPE);
   }
 
   @Override

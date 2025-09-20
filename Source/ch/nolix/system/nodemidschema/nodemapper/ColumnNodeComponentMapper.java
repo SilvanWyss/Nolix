@@ -9,6 +9,10 @@ public final class ColumnNodeComponentMapper {
   private ColumnNodeComponentMapper() {
   }
 
+  public static INode<?> mapColumnDtoToDataTypeNode(final ColumnDto columnDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.DATA_TYPE, columnDto.contentModel().dataType().name());
+  }
+
   public static INode<?> mapColumnDtoToFieldTypeNode(final ColumnDto columnDto) {
     return Node.withHeaderAndChildNode(NodeHeaderCatalog.FIELD_TYPE, columnDto.contentModel().fieldType().name());
   }
