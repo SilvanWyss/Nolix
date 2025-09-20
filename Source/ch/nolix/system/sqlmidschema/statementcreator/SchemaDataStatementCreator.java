@@ -12,6 +12,7 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
+import ch.nolix.systemapi.sqlmidschema.modelsqldto.ContentModelSqlDto;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
@@ -38,45 +39,19 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   @Override
   public IContainer<String> createStatementsToAddColumn(final String tableName, final ColumnDto column) {
     final ILinkedList<String> statements = LinkedList.createEmpty();
+    final var columnId = column.id();
     final var contentModel = column.contentModel();
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
-    final var createStatementToAddColumnForColumnTable = //
-    "INSERT INTO "
-    + FixTable.COLUMN.getName()
-    + " ("
-    + ColumnColumn.ID.getName()
-    + ", "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
-    + ", "
-    + ColumnColumn.NAME.getName()
-    + ", "
-    + ColumnColumn.FIELD_TYPE.getName()
-    + ", "
-    + ColumnColumn.DATA_TYPE.getName()
-    + ", "
-    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
-    + ") SELECT '"
-    + column.id()
-    + "', "
-    + TableColumn.ID.getName()
-    + ", '"
-    + column.name()
-    + "', "
-    + contentModelSqlDto.fieldType()
-    + ", "
-    + contentModelSqlDto.dataType()
-    + ", "
-    + contentModelSqlDto.backReferencedColumnId()
-    + " FROM "
-    + FixTable.TABLE.getName()
-    + " WHERE "
-    + TableColumn.NAME.getName()
-    + " = '"
-    + tableName
-    + "'";
+    statements.addAtEnd(createStatementToAddColumnIntoColumnTable(tableName, column, contentModelSqlDto));
 
-    statements.addAtEnd(createStatementToAddColumnForColumnTable);
+    for (final var t : contentModel.referenceableTableIds()) {
+      statements.addAtEnd(createStatementToAddReferenceableTable(columnId, t));
+    }
+
+    for (final var c : contentModel.backReferenceableColumnIds()) {
+      statements.addAtEnd(createStatementToAddBackReferenceableColumn(columnId, c));
+    }
 
     return statements;
   }
@@ -216,6 +191,45 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + " = '"
     + newTableName
     + "' WHERE "
+    + TableColumn.NAME.getName()
+    + " = '"
+    + tableName
+    + "'";
+  }
+
+  private String createStatementToAddColumnIntoColumnTable(
+    final String tableName,
+    final ColumnDto column,
+    final ContentModelSqlDto contentModelSqlDto) {
+    return "INSERT INTO "
+    + FixTable.COLUMN.getName()
+    + " ("
+    + ColumnColumn.ID.getName()
+    + ", "
+    + ColumnColumn.PARENT_TABLE_ID.getName()
+    + ", "
+    + ColumnColumn.NAME.getName()
+    + ", "
+    + ColumnColumn.FIELD_TYPE.getName()
+    + ", "
+    + ColumnColumn.DATA_TYPE.getName()
+    + ", "
+    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ") SELECT '"
+    + column.id()
+    + "', "
+    + TableColumn.ID.getName()
+    + ", '"
+    + column.name()
+    + "', "
+    + contentModelSqlDto.fieldType()
+    + ", "
+    + contentModelSqlDto.dataType()
+    + ", "
+    + contentModelSqlDto.backReferencedColumnId()
+    + " FROM "
+    + FixTable.TABLE.getName()
+    + " WHERE "
     + TableColumn.NAME.getName()
     + " = '"
     + tableName
