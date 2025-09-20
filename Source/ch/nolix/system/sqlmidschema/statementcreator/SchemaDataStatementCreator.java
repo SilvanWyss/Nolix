@@ -3,7 +3,6 @@ package ch.nolix.system.sqlmidschema.statementcreator;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -12,12 +11,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
-import ch.nolix.systemapi.sqlmidschema.modelsqldto.ContentModelSqlDto;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
-  private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
-
   @Override
   public String createStatementToAddBackReferenceableColumn(
     final String parentBaseBackReferenceColumnId,
@@ -41,9 +37,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final ILinkedList<String> statements = LinkedList.createEmpty();
     final var columnId = column.id();
     final var contentModel = column.contentModel();
-    final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
-
-    statements.addAtEnd(createStatementToAddColumnIntoColumnTable(tableName, column, contentModelSqlDto));
+    statements.addAtEnd(createStatementToAddColumnIntoColumnTable(tableName, column));
 
     for (final var t : contentModel.referenceableTableIds()) {
       statements.addAtEnd(createStatementToAddReferenceableTable(columnId, t));
@@ -157,7 +151,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String tableName,
     final String columnName,
     final ContentModelDto contentModel) {
-    final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
     return //
     "UPDATE "
@@ -165,7 +158,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + " SET "
     + ColumnColumn.DATA_TYPE
     + " = "
-    + contentModelSqlDto.dataType()
+    + contentModel.dataType()
     + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID
     + " = '"
@@ -195,8 +188,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
 
   private String createStatementToAddColumnIntoColumnTable(
     final String tableName,
-    final ColumnDto column,
-    final ContentModelSqlDto contentModelSqlDto) {
+    final ColumnDto column) {
+    final var contentModel = column.contentModel();
+
     return "INSERT INTO "
     + FixTable.COLUMN.getName()
     + " ("
@@ -216,9 +210,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ", '"
     + column.name()
     + "', "
-    + contentModelSqlDto.fieldType()
+    + contentModel.fieldType()
     + ", "
-    + contentModelSqlDto.dataType()
+    + contentModel.dataType()
     + " FROM "
     + FixTable.TABLE.getName()
     + " WHERE "
