@@ -12,7 +12,7 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesState
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
-public final class MetaDataWriter {
+public final class SchemaDataWriter {
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();
 
@@ -20,14 +20,14 @@ public final class MetaDataWriter {
 
   private final ISqlCollector sqlCollector;
 
-  private MetaDataWriter(final ISqlCollector sqlCollector) {
+  private SchemaDataWriter(final ISqlCollector sqlCollector) {
     Validator.assertThat(sqlCollector).thatIsNamed(SqlCollector.class).isNotNull();
 
     this.sqlCollector = sqlCollector;
   }
 
-  public static MetaDataWriter forSqlCollector(final ISqlCollector sqlCollector) {
-    return new MetaDataWriter(sqlCollector);
+  public static SchemaDataWriter forSqlCollector(final ISqlCollector sqlCollector) {
+    return new SchemaDataWriter(sqlCollector);
   }
 
   public void addColumn(final String tableName, final ColumnDto column) {

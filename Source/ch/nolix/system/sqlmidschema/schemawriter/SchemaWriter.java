@@ -26,7 +26,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final MetaDataWriter metaDataWriter;
+  private final SchemaDataWriter schemaDataWriter;
 
   private final ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter sqlSchemaWriter;
 
@@ -38,7 +38,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   public SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
     this.sqlConnection = sqlConnection;
-    this.metaDataWriter = MetaDataWriter.forSqlCollector(sqlCollector);
+    this.schemaDataWriter = SchemaDataWriter.forSqlCollector(sqlCollector);
 
     this.sqlSchemaWriter = //
     ch.nolix.system.sqlschema.adapter.SchemaWriter.forDatabasNameAndSqlConnection(databaseName, sqlConnection);
@@ -55,13 +55,13 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addColumn(final String tableName, final ColumnDto column) {
-    metaDataWriter.addColumn(tableName, column);
+    schemaDataWriter.addColumn(tableName, column);
     sqlSchemaWriter.addColumns(tableName, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDtos(column));
   }
 
   @Override
   public void addTable(final TableDto table) {
-    metaDataWriter.addTable(table);
+    schemaDataWriter.addTable(table);
     sqlSchemaWriter.addTable(SQL_SCHEMA_TABLE_DTO_MAPPER.mapTableDtoSqlSchemaTableDto(table));
   }
 
@@ -69,14 +69,14 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteColumn(final String tableName, final String columnName) {
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
 
-    metaDataWriter.deleteColumn(tableName, columnName);
+    schemaDataWriter.deleteColumn(tableName, columnName);
     sqlSchemaWriter.deleteColumn(tableName, columnName);
     sqlSchemaWriter.deleteColumnIfExists(tableName, referencedTableColumnName);
   }
 
   @Override
   public void deleteTable(final String tableName) {
-    metaDataWriter.deleteTable(tableName);
+    schemaDataWriter.deleteTable(tableName);
     sqlSchemaWriter.deleteTable(tableName);
   }
 
@@ -104,14 +104,14 @@ public final class SchemaWriter implements ISchemaWriter {
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
 
-    metaDataWriter.renameColumn(tableName, columnName, newColumnName);
+    schemaDataWriter.renameColumn(tableName, columnName, newColumnName);
     sqlSchemaWriter.renameColumn(tableName, columnName, newColumnName);
     sqlSchemaWriter.renameColumnIfExists(tableName, columnName, referencedTableColumnName);
   }
 
   @Override
   public void renameTable(final String tableName, final String newTableName) {
-    metaDataWriter.renameTable(tableName, newTableName);
+    schemaDataWriter.renameTable(tableName, newTableName);
     sqlSchemaWriter.renameTable(tableName, newTableName);
   }
 
@@ -123,7 +123,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void saveChanges() {
     try {
-      metaDataWriter.setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
+      schemaDataWriter.setSchemaTimestamp(INCREMENTAL_CURRENT_TIME_CREATOR.getCurrentTime());
       sqlSchemaWriter.addAdditionalSqlStatements(sqlCollector.getSqlStatements());
       sqlCollector.executeAndClearUsingConnection(sqlConnection);
       saveCount++;
@@ -134,6 +134,6 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
-    metaDataWriter.setContentModel(tableName, columnName, contentModel);
+    schemaDataWriter.setContentModel(tableName, columnName, contentModel);
   }
 }
