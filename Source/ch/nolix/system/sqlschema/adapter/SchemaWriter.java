@@ -79,6 +79,15 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
+  public void addTables(final TableDto table, final TableDto... tables) {
+    addTable(table);
+
+    for (final var t : tables) {
+      addTable(t);
+    }
+  }
+
+  @Override
   public void deleteColumn(final String tableName, final String columnName) {
     final var statement = STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
 

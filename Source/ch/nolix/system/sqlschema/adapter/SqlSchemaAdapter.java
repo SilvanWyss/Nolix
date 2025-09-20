@@ -71,6 +71,15 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public void addTables(final TableDto table, final TableDto... tables) {
+    addTable(table);
+
+    for (final var t : tables) {
+      addTable(t);
+    }
+  }
+
+  @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
     return schemaReader.columnIsEmpty(tableName, columnName);
   }
