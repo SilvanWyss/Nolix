@@ -15,7 +15,7 @@ public final class ColumnMapper {
     final var contentModel = midSchemaColumnDto.contentModel();
     final var id = midSchemaColumnDto.id();
     final var name = midSchemaColumnDto.name();
-    final var fieldType = contentModel.fieldType();
+    final var fieldType = midSchemaColumnDto.fieldType();
     final var dataTypeClass = (Class<Object>) contentModel.dataType().getDataTypeClass();
     final var referenceableTableIds = contentModel.referenceableTableIds();
     final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));

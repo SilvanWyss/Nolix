@@ -21,7 +21,8 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var id = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX);
     final var name = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX);
     final var contentModel = CONTENT_MODEL_DTO_MAPPER.mapJoinedColumnSqlRecordToColumnDto(joinedColumnSqlRecord);
+    final var fieldType = contentModel.fieldType();
 
-    return new ColumnDto(id, name, contentModel);
+    return new ColumnDto(id, name, fieldType, contentModel);
   }
 }

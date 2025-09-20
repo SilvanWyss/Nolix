@@ -19,9 +19,10 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
   public ColumnDto mapColumnToMidSchemaColumnDto(final IColumn column) {
     final var id = column.getId();
     final var name = column.getName();
+    final var fieldType = column.getContentModel().getFieldType();
     final var contentModel = column.getContentModel();
     final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
 
-    return new ColumnDto(id, name, contentModelDto);
+    return new ColumnDto(id, name, fieldType, contentModelDto);
   }
 }

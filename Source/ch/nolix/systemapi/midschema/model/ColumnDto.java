@@ -1,4 +1,6 @@
 package ch.nolix.systemapi.midschema.model;
 
-public record ColumnDto(String id, String name, ContentModelDto contentModel) {
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+
+public record ColumnDto(String id, String name, FieldType fieldType, ContentModelDto contentModel) {
 }
