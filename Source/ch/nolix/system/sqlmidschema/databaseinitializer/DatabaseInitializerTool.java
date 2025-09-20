@@ -20,6 +20,8 @@ import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
+ * A {@link DatabaseInitializerTool} is not mutable.
+ * 
  * @author Silvan Wyss
  * @version 2025-01-18
  */
@@ -36,19 +38,21 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     schemaWriter.addTable(DatabasePropertyTableSqlSchemaDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
 
     //Adds schema tables.
-    schemaWriter.addTable(TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO);
-    schemaWriter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
-    schemaWriter.addTable(ContentModelTableSqlSchemaDtoCatalog.CONTENT_MODEL_TABLE_SQL_DTO);
-    schemaWriter.addTable(ReferenceableTableSqlSchemaDtoCatalog.REFERENCEABLE_TABLE_TABLE_SQL_DTO);
-    schemaWriter.addTable(BackReferenceableColumnTableSqlSchemaDtoCatalog.BACK_REFERENCEABLE_COLUMN_TABLE_SQL_DTO);
+    schemaWriter.addTables(
+      TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO,
+      ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO,
+      ContentModelTableSqlSchemaDtoCatalog.CONTENT_MODEL_TABLE_SQL_DTO,
+      ReferenceableTableSqlSchemaDtoCatalog.REFERENCEABLE_TABLE_TABLE_SQL_DTO,
+      BackReferenceableColumnTableSqlSchemaDtoCatalog.BACK_REFERENCEABLE_COLUMN_TABLE_SQL_DTO);
 
     //Adds entity index table.
     schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
 
     //Adds multi-entry tables.
-    schemaWriter.addTable(MultiValueEntryTableSqlSchemaDtoCatalog.MULTI_VALUE_ENTRY_TABLE_SQL_DTO);
-    schemaWriter.addTable(MultiReferenceEntryTableSqlSchemaDtoCatalog.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
-    schemaWriter.addTable(MultiBackReferenceEntryTableSqlSchemaDtoCatalog.MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO);
+    schemaWriter.addTables(
+      MultiValueEntryTableSqlSchemaDtoCatalog.MULTI_VALUE_ENTRY_TABLE_SQL_DTO,
+      MultiReferenceEntryTableSqlSchemaDtoCatalog.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO,
+      MultiBackReferenceEntryTableSqlSchemaDtoCatalog.MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO);
 
     //Saves the changes to the database.
     schemaWriter.saveChanges();
@@ -67,7 +71,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     final var query = //
     DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createStatementToCreateSchemaTimestampEntry(schemaTimestamp);
 
-    sqlConnection.executeStatement("USE " + databaseName);
+    sqlConnection.executeStatement("USE " + databaseName + ";");
 
     sqlConnection.executeStatement(query);
   }
