@@ -1,5 +1,6 @@
 package ch.nolix.system.nodemidschema.nodesearcher;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -39,6 +40,13 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   }
 
   @Override
+  public IContainer<String> getReferenceableTableIdsFromColumnNode(IMutableNode<?> columnNode) {
+    final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
+
+    return referenceableTableIdsNode.getChildNodesHeaders();
+  }
+
+  @Override
   public IMutableNode<?> getStoredContentModelNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.CONTENT_MODEL);
   }
@@ -61,5 +69,10 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
   @Override
   public IMutableNode<?> getStoredNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
+  }
+
+  @Override
+  public IMutableNode<?> getStoredReferenceableTableIdsNodeFromColumnNode(IMutableNode<?> columnNode) {
+    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS);
   }
 }
