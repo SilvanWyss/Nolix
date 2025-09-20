@@ -34,7 +34,8 @@ final class NodeSchemaAdapterTest extends StandardTest {
       ImmutableList.createEmpty());
 
     //Setups columnDto.
-    final var columnDto = new ColumnDto("column_id", columnName, FieldType.VALUE_FIELD, contentModelDto);
+    final var columnDto = //
+    new ColumnDto("column_id", columnName, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE, contentModelDto);
 
     //Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
@@ -96,7 +97,8 @@ final class NodeSchemaAdapterTest extends StandardTest {
       ImmutableList.createEmpty());
 
     //Setups columnDto
-    final var columnDto = new ColumnDto("column_id", columnName, FieldType.VALUE_FIELD, contentModelDto);
+    final var columnDto = //
+    new ColumnDto("column_id", columnName, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE, contentModelDto);
 
     //Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
