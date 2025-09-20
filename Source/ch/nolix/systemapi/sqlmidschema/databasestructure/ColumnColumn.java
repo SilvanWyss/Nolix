@@ -9,8 +9,7 @@ public enum ColumnColumn implements INameHolder {
   NAME(PascalCaseVariableCatalog.NAME),
   CONTENT_MODEL("ContentModel"),
   FIELD_TYPE("FieldType"),
-  DATA_TYPE(PascalCaseVariableCatalog.DATA_TYPE),
-  BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
+  DATA_TYPE(PascalCaseVariableCatalog.DATA_TYPE);
 
   private final String name;
 

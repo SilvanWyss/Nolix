@@ -166,10 +166,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ColumnColumn.DATA_TYPE
     + " = "
     + contentModelSqlDto.dataType()
-    + ", "
-    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
-    + " = "
-    + contentModelSqlDto.backReferencedColumnId()
     + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID
     + " = '"
@@ -213,8 +209,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ColumnColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnColumn.DATA_TYPE.getName()
-    + ", "
-    + ColumnColumn.BACK_REFERENCED_COLUM_ID.getName()
     + ") SELECT '"
     + column.id()
     + "', "
@@ -225,8 +219,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + contentModelSqlDto.fieldType()
     + ", "
     + contentModelSqlDto.dataType()
-    + ", "
-    + contentModelSqlDto.backReferencedColumnId()
     + " FROM "
     + FixTable.TABLE.getName()
     + " WHERE "
