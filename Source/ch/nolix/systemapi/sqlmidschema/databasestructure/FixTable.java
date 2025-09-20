@@ -10,7 +10,6 @@ public enum FixTable implements INameHolder {
   DATABASE_PROPERTY(FixTableNameCatalog.DATABASE_PROPERTY),
   TABLE(FixTableNameCatalog.TABLE),
   COLUMN(FixTableNameCatalog.COLUMN),
-  CONTENT_MODEL(FixTableNameCatalog.CONTENT_MODEL),
   REFERENCEABLE_TABLE(FixTableNameCatalog.REFERENCEABLE_TABLE),
   BACK_REFERENCEABLE_COLUMN(FixTableNameCatalog.BACK_REFERENCEABLE_COLUMN),
   ENTITY_INDEX(FixTableNameCatalog.ENTITY_INDEX),

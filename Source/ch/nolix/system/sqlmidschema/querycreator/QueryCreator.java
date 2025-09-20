@@ -2,7 +2,6 @@ package ch.nolix.system.sqlmidschema.querycreator;
 
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.ContentModelColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
@@ -42,13 +41,9 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
     + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.FIELD_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE.getName()
     + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.DATA_TYPE.getName()
-    + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.REFERENCED_TABLE_ID.getName()
-    + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ColumnColumn.DATA_TYPE.getName()
     + " FROM "
     + FixTable.COLUMN.getName()
     + " LEFT JOIN "
@@ -57,12 +52,6 @@ public final class QueryCreator implements IQueryCreator {
     + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
-    + " LEFT JOIN "
-    + FixTable.CONTENT_MODEL.getName()
-    + " ON "
-    + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
-    + " = "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.ID.getName()
     + " LEFT JOIN (SELECT "
     + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", STRING_AGG("
@@ -91,13 +80,9 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + FixTable.TABLE.getName() + "." + TableColumn.NAME.getName()
     + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.FIELD_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE.getName()
     + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.DATA_TYPE.getName()
-    + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.REFERENCED_TABLE_ID.getName()
-    + ", "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ColumnColumn.DATA_TYPE.getName()
     + " FROM "
     + FixTable.COLUMN.getName()
     + " LEFT JOIN "
@@ -106,12 +91,6 @@ public final class QueryCreator implements IQueryCreator {
     + FixTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
     + FixTable.TABLE.getName() + "." + TableColumn.ID.getName()
-    + " LEFT JOIN "
-    + FixTable.CONTENT_MODEL.getName()
-    + " ON "
-    + FixTable.COLUMN.getName() + "." + ColumnColumn.CONTENT_MODEL.getName()
-    + " = "
-    + FixTable.CONTENT_MODEL.getName() + "." + ContentModelColumn.ID.getName()
     + " LEFT JOIN (SELECT "
     + FixTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", STRING_AGG("
