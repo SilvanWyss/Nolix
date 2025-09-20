@@ -18,7 +18,9 @@ public final class ContentModelNodeMapper implements IContentModelNodeMapper {
    */
   @Override
   public INode<?> mapColumnDtoToContentModelNode(final ColumnDto columnDto) {
-    final var contentModel = columnDto.contentModel();
+    final var contentModel = new ContentModelDto(columnDto.fieldType(), columnDto.dataType(),
+      columnDto.referenceableTableIds(),
+      columnDto.backReferenceableColumnIds());
 
     return mapContentModelDtoToNode(contentModel);
   }

@@ -5,15 +5,12 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
-import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
 
 /**
  * @author Silvan Wyss
  * @version 2021-09-12
  */
 public final class ColumnNodeMapper implements IColumnNodeMapper {
-  private static final IContentModelNodeMapper CONTENT_MODEL_NODE_MAPPER = new ContentModelNodeMapper();
-
   /**
    * {@inheritDoc}
    */
@@ -28,8 +25,6 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
     final var backReferenceableColumnIdsNod = //
     ColumnNodeChildNodeMapper.mapColumnDtoToBackReferenceableColumnIdsNode(columnDto);
 
-    final var contentModelNode = CONTENT_MODEL_NODE_MAPPER.mapColumnDtoToContentModelNode(columnDto);
-
     return //
     Node.withHeaderAndChildNode(
       NodeHeaderCatalog.COLUMN,
@@ -38,7 +33,6 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
       fieldTypeNode,
       dataTypeNode,
       referenceableTableIdsNode,
-      backReferenceableColumnIdsNod,
-      contentModelNode);
+      backReferenceableColumnIdsNod);
   }
 }

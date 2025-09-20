@@ -4,15 +4,14 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.modelmapper.IColumnDtoMapper;
+import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 
 /**
  * @author Silvan Wyss
  * @version 2021-09-12
  */
 public final class ColumnDtoMapper implements IColumnDtoMapper {
-  private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
-
-  private static final ContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
+  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   /**
    * {@inheritDoc}
@@ -25,10 +24,7 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var dataType = COLUMN_NODE_SEARCHER.getColumnDataTypeFromColumnNode(columnNode);
     final var referenceableTableIds = COLUMN_NODE_SEARCHER.getReferenceableTableIdsFromColumnNode(columnNode);
     final var backReferenceableColumnIds = COLUMN_NODE_SEARCHER.getBackReferenceableColumnIdsFromColumnNode(columnNode);
-    final var contentModelNode = COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode);
-    final var contentModel = CONTENT_MODEL_DTO_MAPPER.mapContentModelNodeToContentModelDto(contentModelNode);
 
-    return new ColumnDto(columnId, columnName, fieldType, dataType, referenceableTableIds, backReferenceableColumnIds,
-      contentModel);
+    return new ColumnDto(columnId, columnName, fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
   }
 }

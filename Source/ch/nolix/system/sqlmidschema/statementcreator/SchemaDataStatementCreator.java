@@ -36,14 +36,14 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public IContainer<String> createStatementsToAddColumn(final String tableName, final ColumnDto column) {
     final ILinkedList<String> statements = LinkedList.createEmpty();
     final var columnId = column.id();
-    final var contentModel = column.contentModel();
+
     statements.addAtEnd(createStatementToAddColumnIntoColumnTable(tableName, column));
 
-    for (final var t : contentModel.referenceableTableIds()) {
+    for (final var t : column.referenceableTableIds()) {
       statements.addAtEnd(createStatementToAddReferenceableTable(columnId, t));
     }
 
-    for (final var c : contentModel.backReferenceableColumnIds()) {
+    for (final var c : column.backReferenceableColumnIds()) {
       statements.addAtEnd(createStatementToAddBackReferenceableColumn(columnId, c));
     }
 
@@ -186,12 +186,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + "'";
   }
 
-  private String createStatementToAddColumnIntoColumnTable(
-    final String tableName,
-    final ColumnDto column) {
-    final var contentModel = column.contentModel();
-
-    return "INSERT INTO "
+  private String createStatementToAddColumnIntoColumnTable(final String tableName, final ColumnDto column) {
+    return //
+    "INSERT INTO "
     + FixTable.COLUMN.getName()
     + " ("
     + ColumnColumn.ID.getName()
@@ -210,9 +207,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ", '"
     + column.name()
     + "', "
-    + contentModel.fieldType()
+    + column.fieldType()
     + ", "
-    + contentModel.dataType()
+    + column.dataType()
     + " FROM "
     + FixTable.TABLE.getName()
     + " WHERE "

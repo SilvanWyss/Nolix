@@ -9,7 +9,6 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 final class NodeSchemaAdapterTest extends StandardTest {
@@ -25,14 +24,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
 
-    //Setups contentModelDto.
-    final var contentModelDto = //
-    new ContentModelDto(
-      FieldType.VALUE_FIELD,
-      DataType.INTEGER_4BYTE,
-      ImmutableList.createEmpty(),
-      ImmutableList.createEmpty());
-
     //Setups columnDto.
     final var columnDto = //
     new ColumnDto(
@@ -41,8 +32,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
       FieldType.VALUE_FIELD,
       DataType.INTEGER_4BYTE,
       ImmutableList.createEmpty(),
-      ImmutableList.createEmpty(),
-      contentModelDto);
+      ImmutableList.createEmpty());
 
     //Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
@@ -95,14 +85,6 @@ final class NodeSchemaAdapterTest extends StandardTest {
     //Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
 
-    //Setups contentModelDto.
-    final var contentModelDto = //
-    new ContentModelDto(
-      FieldType.VALUE_FIELD,
-      DataType.INTEGER_4BYTE,
-      ImmutableList.createEmpty(),
-      ImmutableList.createEmpty());
-
     //Setups columnDto
     final var columnDto = //
     new ColumnDto(
@@ -111,8 +93,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
       FieldType.VALUE_FIELD,
       DataType.INTEGER_4BYTE,
       ImmutableList.createEmpty(),
-      ImmutableList.createEmpty(),
-      contentModelDto);
+      ImmutableList.createEmpty());
 
     //Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);

@@ -12,15 +12,17 @@ public final class ColumnMapper {
     final ColumnDto midSchemaColumnDto,
     final Table<IEntity> parentTable,
     final IContainer<? extends ITable<IEntity>> tables) {
-    final var contentModel = midSchemaColumnDto.contentModel();
     final var id = midSchemaColumnDto.id();
     final var name = midSchemaColumnDto.name();
     final var fieldType = midSchemaColumnDto.fieldType();
-    final var dataTypeClass = (Class<Object>) contentModel.dataType().getDataTypeClass();
-    final var referenceableTableIds = contentModel.referenceableTableIds();
+
+    @SuppressWarnings("unchecked")
+    final var dataTypeClass = (Class<Object>) midSchemaColumnDto.dataType().getDataTypeClass();
+
+    final var referenceableTableIds = midSchemaColumnDto.referenceableTableIds();
     final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
     final var columns = tables.toMultiples(ITable::getStoredColumns);
-    final var backReferenceableColumnIds = contentModel.backReferenceableColumnIds();
+    final var backReferenceableColumnIds = midSchemaColumnDto.backReferenceableColumnIds();
     final var backReferenceableColumns = columns.getStoredSelected(c -> backReferenceableColumnIds.contains(c.getId()));
 
     return //

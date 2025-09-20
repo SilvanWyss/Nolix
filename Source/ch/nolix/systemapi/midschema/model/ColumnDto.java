@@ -10,6 +10,5 @@ String name,
 FieldType fieldType,
 DataType dataType,
 IContainer<String> referenceableTableIds,
-IContainer<String> backReferenceableColumnIds,
-ContentModelDto contentModel) {
+IContainer<String> backReferenceableColumnIds) {
 }

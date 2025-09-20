@@ -2,6 +2,7 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 public final class ColumnMapper {
@@ -24,7 +25,14 @@ public final class ColumnMapper {
     final IContainer<Table> tables) {
     final var id = midColumnDto.id();
     final var name = midColumnDto.name();
-    final var midContentModel = midColumnDto.contentModel();
+    final var fieldType = midColumnDto.fieldType();
+    final var dataType = midColumnDto.dataType();
+    final var referenceableTableIds = midColumnDto.referenceableTableIds();
+    final var backReferenceableColumnsIds = midColumnDto.backReferenceableColumnIds();
+
+    final var midContentModel = //
+    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnsIds);
+
     final var contentModel = ContentModelMapper.mapMidSchemaContentModelDtoToContentModel(midContentModel, tables);
     final var column = Column.withIdAndNameAndContentModel(id, name, contentModel);
 
