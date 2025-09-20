@@ -10,7 +10,7 @@ public interface ISchemaDataStatementCreator {
     String parentBaseBackReferenceColumnId,
     String referenceableColumnId);
 
-  String createStatementToAddColumn(String tableName, ColumnDto column);
+  IContainer<String> createStatementsToAddColumn(String tableName, ColumnDto column);
 
   String createStatementToAddReferenceableTable(String parentBaseReferenceColumnId, String referenceableTableId);
 

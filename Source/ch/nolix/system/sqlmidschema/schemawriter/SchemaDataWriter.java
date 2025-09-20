@@ -31,9 +31,9 @@ public final class SchemaDataWriter {
   }
 
   public void addColumn(final String tableName, final ColumnDto column) {
-    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
+    final var statements = META_DATA_STATEMENT_CREATOR.createStatementsToAddColumn(tableName, column);
 
-    sqlCollector.addSqlStatement(statement);
+    sqlCollector.addSqlStatements(statements);
   }
 
   public void deleteColumn(String tableName, String columnName) {

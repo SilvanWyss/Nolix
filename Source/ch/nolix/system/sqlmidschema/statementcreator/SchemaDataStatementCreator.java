@@ -1,6 +1,7 @@
 package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
@@ -35,11 +36,12 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   }
 
   @Override
-  public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
+  public IContainer<String> createStatementsToAddColumn(final String tableName, final ColumnDto column) {
+    final ILinkedList<String> statements = LinkedList.createEmpty();
     final var contentModel = column.contentModel();
     final var contentModelSqlDto = CONTENT_MODEL_SQL_RECORD_MAPPER.mapContentModelDtoToContentModelSqlDto(contentModel);
 
-    return //
+    final var createStatementToAddColumnForColumnTable = //
     "INSERT INTO "
     + FixTable.COLUMN.getName()
     + " ("
@@ -73,6 +75,10 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + " = '"
     + tableName
     + "'";
+
+    statements.addAtEnd(createStatementToAddColumnForColumnTable);
+
+    return statements;
   }
 
   @Override
@@ -116,7 +122,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
 
     for (final var c : table.columns()) {
-      statements.addAtEnd(createStatementToAddColumn(table.name(), c));
+      statements.addAtEnd(createStatementsToAddColumn(table.name(), c));
     }
 
     return statements;
