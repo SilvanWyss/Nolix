@@ -9,6 +9,13 @@ public final class ColumnNodeChildNodeMapper {
   private ColumnNodeChildNodeMapper() {
   }
 
+  public static INode<?> mapColumnDtoToBackReferenceableColumnIdsNode(final ColumnDto columnDto) {
+
+    final var backReferenceableColumnIds = columnDto.backReferenceableColumnIds().to(Node::withHeader);
+
+    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS, backReferenceableColumnIds);
+  }
+
   public static INode<?> mapColumnDtoToDataTypeNode(final ColumnDto columnDto) {
     return Node.withHeaderAndChildNode(NodeHeaderCatalog.DATA_TYPE, columnDto.contentModel().dataType().name());
   }

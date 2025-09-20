@@ -41,6 +41,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
       FieldType.VALUE_FIELD,
       DataType.INTEGER_4BYTE,
       ImmutableList.createEmpty(),
+      ImmutableList.createEmpty(),
       contentModelDto);
 
     //Setups testUnit.
@@ -109,6 +110,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
       columnName,
       FieldType.VALUE_FIELD,
       DataType.INTEGER_4BYTE,
+      ImmutableList.createEmpty(),
       ImmutableList.createEmpty(),
       contentModelDto);
 

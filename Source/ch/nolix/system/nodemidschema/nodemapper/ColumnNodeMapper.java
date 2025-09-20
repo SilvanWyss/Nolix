@@ -24,6 +24,10 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
     final var fieldTypeNode = ColumnNodeChildNodeMapper.mapColumnDtoToFieldTypeNode(columnDto);
     final var dataTypeNode = ColumnNodeChildNodeMapper.mapColumnDtoToDataTypeNode(columnDto);
     final var referenceableTableIdsNode = ColumnNodeChildNodeMapper.mapColumnDtoToReferenceableTableIdsNode(columnDto);
+
+    final var backReferenceableColumnIdsNod = //
+    ColumnNodeChildNodeMapper.mapColumnDtoToBackReferenceableColumnIdsNode(columnDto);
+
     final var contentModelNode = CONTENT_MODEL_NODE_MAPPER.mapColumnDtoToContentModelNode(columnDto);
 
     return //
@@ -34,6 +38,7 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
       fieldTypeNode,
       dataTypeNode,
       referenceableTableIdsNode,
+      backReferenceableColumnIdsNod,
       contentModelNode);
   }
 }

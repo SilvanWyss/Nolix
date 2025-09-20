@@ -24,7 +24,9 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var fieldType = contentModel.fieldType();
     final var dataType = contentModel.dataType();
     final var referenceableTableIds = contentModel.referenceableTableIds();
+    final var backReferenceableColumnIds = contentModel.backReferenceableColumnIds();
 
-    return new ColumnDto(id, name, fieldType, dataType, referenceableTableIds, contentModel);
+    return new ColumnDto(id, name, fieldType, dataType, referenceableTableIds, backReferenceableColumnIds,
+      contentModel);
   }
 }
