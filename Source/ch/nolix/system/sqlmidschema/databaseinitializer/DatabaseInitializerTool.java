@@ -3,6 +3,7 @@ package ch.nolix.system.sqlmidschema.databaseinitializer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.BackReferenceableColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ContentModelTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;
@@ -39,6 +40,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     schemaWriter.addTable(ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO);
     schemaWriter.addTable(ContentModelTableSqlSchemaDtoCatalog.CONTENT_MODEL_TABLE_SQL_DTO);
     schemaWriter.addTable(ReferenceableTableSqlSchemaDtoCatalog.REFERENCEABLE_TABLE_TABLE_SQL_DTO);
+    schemaWriter.addTable(BackReferenceableColumnTableSqlSchemaDtoCatalog.BACK_REFERENCEABLE_COLUMN_TABLE_SQL_DTO);
 
     //Adds entity index table.
     schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
@@ -48,7 +50,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     schemaWriter.addTable(MultiReferenceEntryTableSqlSchemaDtoCatalog.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
     schemaWriter.addTable(MultiBackReferenceEntryTableSqlSchemaDtoCatalog.MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO);
 
-    //Save the changes to the database.
+    //Saves the changes to the database.
     schemaWriter.saveChanges();
   }
 
