@@ -19,11 +19,11 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
    */
   @Override
   public INode<?> mapColumnDtoToColumnNode(final ColumnDto columnDto) {
-    final var idNode = ColumnNodeComponentMapper.mapColumnDtoToIdNode(columnDto);
-    final var nameNode = ColumnNodeComponentMapper.mapColumnDtoToNameNode(columnDto);
-    final var fieldTypeNode = ColumnNodeComponentMapper.mapColumnDtoToFieldTypeNode(columnDto);
-    final var dataTypeNode = ColumnNodeComponentMapper.mapColumnDtoToDataTypeNode(columnDto);
-    final var referenceableTableIdsNode = ColumnNodeComponentMapper.mapColumnDtoToReferenceableTableIdsNode(columnDto);
+    final var idNode = ColumnNodeChildNodeMapper.mapColumnDtoToIdNode(columnDto);
+    final var nameNode = ColumnNodeChildNodeMapper.mapColumnDtoToNameNode(columnDto);
+    final var fieldTypeNode = ColumnNodeChildNodeMapper.mapColumnDtoToFieldTypeNode(columnDto);
+    final var dataTypeNode = ColumnNodeChildNodeMapper.mapColumnDtoToDataTypeNode(columnDto);
+    final var referenceableTableIdsNode = ColumnNodeChildNodeMapper.mapColumnDtoToReferenceableTableIdsNode(columnDto);
     final var contentModelNode = CONTENT_MODEL_NODE_MAPPER.mapColumnDtoToContentModelNode(columnDto);
 
     return //

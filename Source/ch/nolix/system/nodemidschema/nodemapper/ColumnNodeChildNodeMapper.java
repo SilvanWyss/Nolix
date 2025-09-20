@@ -5,8 +5,8 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
-public final class ColumnNodeComponentMapper {
-  private ColumnNodeComponentMapper() {
+public final class ColumnNodeChildNodeMapper {
+  private ColumnNodeChildNodeMapper() {
   }
 
   public static INode<?> mapColumnDtoToDataTypeNode(final ColumnDto columnDto) {
