@@ -6,10 +6,15 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
-  private static final IContentModelNodeSearcher CONTENT_MODEL_NODE_SEARCHER = new ContentModelNodeSearcher();
+
+  @Override
+  public IContainer<String> getBackReferenceableColumnIdsFromColumnNode(final IMutableNode<?> columnNode) {
+    final var backReferenceableColumnIdsNode = getStoredBackReferenceableColumnIdsNodeFromColumnNode(columnNode);
+
+    return backReferenceableColumnIdsNode.getChildNodesHeaders();
+  }
 
   @Override
   public DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
@@ -44,6 +49,11 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
 
     return referenceableTableIdsNode.getChildNodesHeaders();
+  }
+
+  @Override
+  public IMutableNode<?> getStoredBackReferenceableColumnIdsNodeFromColumnNode(final IMutableNode<?> columnNode) {
+    return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS);
   }
 
   @Override
