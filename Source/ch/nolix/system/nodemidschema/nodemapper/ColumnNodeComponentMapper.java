@@ -9,11 +9,15 @@ public final class ColumnNodeComponentMapper {
   private ColumnNodeComponentMapper() {
   }
 
-  public static INode<?> mapColumnDtoToIdNode(final ColumnDto column) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, column.id());
+  public static INode<?> mapColumnDtoToFieldTypeNode(final ColumnDto columnDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.FIELD_TYPE, columnDto.contentModel().fieldType().name());
   }
 
-  public static INode<?> mapColumnDtoToNameNode(final ColumnDto column) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, column.name());
+  public static INode<?> mapColumnDtoToIdNode(final ColumnDto columnDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, columnDto.id());
+  }
+
+  public static INode<?> mapColumnDtoToNameNode(final ColumnDto columnDto) {
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, columnDto.name());
   }
 }

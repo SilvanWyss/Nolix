@@ -21,8 +21,9 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
   public INode<?> mapColumnDtoToColumnNode(final ColumnDto columnDto) {
     final var idNode = ColumnNodeComponentMapper.mapColumnDtoToIdNode(columnDto);
     final var nameNode = ColumnNodeComponentMapper.mapColumnDtoToNameNode(columnDto);
+    final var fieldTypeNode = ColumnNodeComponentMapper.mapColumnDtoToFieldTypeNode(columnDto);
     final var contentModelNode = CONTENT_MODEL_NODE_MAPPER.mapColumnDtoToContentModelNode(columnDto);
 
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.COLUMN, idNode, nameNode, contentModelNode);
+    return Node.withHeaderAndChildNode(NodeHeaderCatalog.COLUMN, idNode, nameNode, fieldTypeNode, contentModelNode);
   }
 }

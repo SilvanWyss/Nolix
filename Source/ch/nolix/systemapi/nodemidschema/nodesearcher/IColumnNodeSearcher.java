@@ -15,6 +15,8 @@ public interface IColumnNodeSearcher {
 
   IMutableNode<?> getStoredContentModelNodeFromColumnNode(IMutableNode<?> columnNode);
 
+  IMutableNode<?> getStoredFieldTypeNodeFromColumnNode(IMutableNode<?> columnNode);
+
   IMutableNode<?> getStoredIdNodeFromColumnNode(IMutableNode<?> columnNode);
 
   IMutableNode<?> getStoredNameNodeFromColumnNode(IMutableNode<?> columnNode);
