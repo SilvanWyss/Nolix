@@ -23,7 +23,8 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var contentModel = CONTENT_MODEL_DTO_MAPPER.mapJoinedColumnSqlRecordToColumnDto(joinedColumnSqlRecord);
     final var fieldType = contentModel.fieldType();
     final var dataType = contentModel.dataType();
+    final var referenceableTableIds = contentModel.referenceableTableIds();
 
-    return new ColumnDto(id, name, fieldType, dataType, contentModel);
+    return new ColumnDto(id, name, fieldType, dataType, referenceableTableIds, contentModel);
   }
 }

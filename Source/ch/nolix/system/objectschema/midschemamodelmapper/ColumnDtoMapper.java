@@ -23,7 +23,8 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var dataType = column.getContentModel().getDataType();
     final var contentModel = column.getContentModel();
     final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
+    final var referenceableTableIds = contentModelDto.referenceableTableIds();
 
-    return new ColumnDto(id, name, fieldType, dataType, contentModelDto);
+    return new ColumnDto(id, name, fieldType, dataType, referenceableTableIds, contentModelDto);
   }
 }

@@ -23,9 +23,10 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     final var columnName = COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
     final var fieldType = COLUMN_NODE_SEARCHER.getColumnFieldTypeFromColumnNode(columnNode);
     final var dataType = COLUMN_NODE_SEARCHER.getColumnDataTypeFromColumnNode(columnNode);
+    final var referenceableTableIds = COLUMN_NODE_SEARCHER.getReferenceableTableIdsFromColumnNode(columnNode);
     final var contentModelNode = COLUMN_NODE_SEARCHER.getStoredContentModelNodeFromColumnNode(columnNode);
     final var contentModel = CONTENT_MODEL_DTO_MAPPER.mapContentModelNodeToContentModelDto(contentModelNode);
 
-    return new ColumnDto(columnId, columnName, fieldType, dataType, contentModel);
+    return new ColumnDto(columnId, columnName, fieldType, dataType, referenceableTableIds, contentModel);
   }
 }

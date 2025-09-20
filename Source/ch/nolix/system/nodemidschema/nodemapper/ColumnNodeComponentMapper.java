@@ -24,4 +24,10 @@ public final class ColumnNodeComponentMapper {
   public static INode<?> mapColumnDtoToNameNode(final ColumnDto columnDto) {
     return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, columnDto.name());
   }
+
+  public static INode<?> mapColumnDtoToReferenceableTableIdsNode(final ColumnDto columnDto) {
+    final var referenceableTableIdNodes = columnDto.referenceableTableIds().to(Node::withHeader);
+
+    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS, referenceableTableIdNodes);
+  }
 }
