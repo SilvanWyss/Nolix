@@ -6,6 +6,10 @@ import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 public interface IMetaDataStatementCreator {
+  String createStatementToAddBackReferenceableColumn(
+    String parentBaseBackReferenceColumnId,
+    String referenceableColumnId);
+
   String createStatementToAddColumn(String tableName, ColumnDto column);
 
   String createStatementToAddReferenceableTable(String parentBaseReferenceColumnId, String referenceableTableId);

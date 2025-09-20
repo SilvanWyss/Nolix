@@ -6,6 +6,7 @@ import ch.nolix.system.sqlmidschema.columntable.ContentModelSqlRecordMapper;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
@@ -14,6 +15,24 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.IMetaDataStatementCreato
 
 public final class MetaDataStatementCreator implements IMetaDataStatementCreator {
   private static final ContentModelSqlRecordMapper CONTENT_MODEL_SQL_RECORD_MAPPER = new ContentModelSqlRecordMapper();
+
+  @Override
+  public String createStatementToAddBackReferenceableColumn(
+    final String parentBaseBackReferenceColumnId,
+    final String referenceableColumnId) {
+    return //
+    "INSERT INTO "
+    + FixTable.BACK_REFERENCEABLE_COLUMN.getName()
+    + " ("
+    + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID.getName()
+    + ", "
+    + BackReferenceableColumnColumn.BACK_REFERENCEABLE_COLUMN_ID.getName()
+    + ") VALUES ('"
+    + parentBaseBackReferenceColumnId
+    + "', '"
+    + referenceableColumnId
+    + "');";
+  }
 
   @Override
   public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
@@ -57,7 +76,8 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
   }
 
   @Override
-  public String createStatementToAddReferenceableTable(final String parentBaseReferenceColumnId,
+  public String createStatementToAddReferenceableTable(
+    final String parentBaseReferenceColumnId,
     final String referenceableTableId) {
     return //
     "INSERT INTO "
@@ -70,7 +90,7 @@ public final class MetaDataStatementCreator implements IMetaDataStatementCreator
     + parentBaseReferenceColumnId
     + "', '"
     + referenceableTableId
-    + "')";
+    + "');";
   }
 
   @Override
