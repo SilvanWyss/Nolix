@@ -76,8 +76,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
     final IContentModel contentModel) {
-    return addColumn(new Column(name, fieldType, dataType, contentModel));
+    return addColumn(new Column(name, fieldType, dataType, referenceableTables, contentModel));
   }
 
   @Override

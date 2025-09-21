@@ -30,11 +30,15 @@ public final class ColumnMapper {
     final var referenceableTableIds = midColumnDto.referenceableTableIds();
     final var backReferenceableColumnsIds = midColumnDto.backReferenceableColumnIds();
 
+    final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
+
     final var midContentModel = //
     new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnsIds);
 
     final var contentModel = ContentModelMapper.mapMidSchemaContentModelDtoToContentModel(midContentModel, tables);
-    final var column = Column.withIdAndNameAndContentModel(id, name, fieldType, dataType, contentModel);
+
+    final var column = //
+    Column.withIdAndNameAndContentModel(id, name, fieldType, dataType, referenceableTables, contentModel);
 
     column.setLoaded();
     column.setParentTableAttribute(parentTable);

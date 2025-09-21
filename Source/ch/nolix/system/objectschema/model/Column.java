@@ -1,10 +1,12 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.datamodel.id.IdCreator;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
@@ -15,6 +17,7 @@ import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapp
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
+import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
@@ -37,14 +40,17 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private DataType dataType = DataType.STRING;
 
+  private final IArrayList<? extends ITable> referenceableTables = ArrayList.createEmpty();
+
   private IContentModel contentModel = ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
   public Column(
     final String name,
     final FieldType fieldType,
     final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
     final IContentModel contentModel) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, fieldType, dataType, contentModel);
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, fieldType, dataType, referenceableTables, contentModel);
   }
 
   private Column(
@@ -52,11 +58,13 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
     final IContentModel contentModel) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);
+    this.referenceableTables.addAtEnd(referenceableTables);
 
     setContentModel(fieldType, dataType, contentModel);
   }
@@ -66,8 +74,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
     final IContentModel contentModel) {
-    return new Column(id, name, fieldType, dataType, contentModel);
+    return new Column(id, name, fieldType, dataType, referenceableTables, contentModel);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -123,6 +132,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     COLUMN_TOOL.assertBelongsToTable(this);
 
     return parentTable;
+  }
+
+  @Override
+  public IContainer<? extends ITable> getStoredReferenceableTables() {
+    return referenceableTables;
   }
 
   @Override

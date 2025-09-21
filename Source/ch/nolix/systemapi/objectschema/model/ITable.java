@@ -24,6 +24,7 @@ IIdHolder {
     String name,
     FieldType fieldType,
     DataType dataType,
+    IContainer<? extends ITable> referenceableTables,
     IContentModel contentModel);
 
   IContainer<? extends IColumn> getStoredColumns();

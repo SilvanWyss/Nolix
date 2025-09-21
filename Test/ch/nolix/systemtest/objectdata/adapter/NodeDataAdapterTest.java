@@ -2,6 +2,7 @@ package ch.nolix.systemtest.objectdata.adapter;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -152,7 +153,12 @@ final class NodeDataAdapterTest extends StandardTest {
     final var schemaAdapter = NodeSchemaAdapter.forNodeDatabase("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")
-      .addColumn(new Column("Name", FieldType.VALUE_FIELD, DataType.STRING, ValueModel.forDataType(DataType.STRING)));
+      .addColumn(
+        new Column(
+          "Name",
+          FieldType.VALUE_FIELD, DataType.STRING,
+          ImmutableList.createEmpty(),
+          ValueModel.forDataType(DataType.STRING)));
     schemaAdapter.saveChanges();
 
     //execution & verification: Try to save the the changes to the database.
