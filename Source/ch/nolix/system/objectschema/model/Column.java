@@ -13,6 +13,7 @@ import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
@@ -58,6 +59,14 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return new Column(id, name, contentModel);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
+  @Override
+  public boolean belongsToDatabase() {
+    return //
+    parentTable != null
+    && parentTable.belongsToDatabase();
+  }
+
   @Override
   public boolean belongsToTable() {
     return (parentTable != null);
@@ -81,6 +90,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   @Override
   public IContentModel getContentModel() {
     return contentModel;
+  }
+
+  @Override
+  public IDatabase getStoredParentDatabase() {
+    return getStoredParentTable().getStoredParentDatabase();
   }
 
   @Override
