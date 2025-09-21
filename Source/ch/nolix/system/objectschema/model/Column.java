@@ -66,7 +66,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     setName(name);
     this.referenceableTables.addAtEnd(referenceableTables);
 
-    setContentModel(fieldType, dataType, contentModel);
+    setContentModel(fieldType, dataType, referenceableTables, contentModel);
   }
 
   public static Column withIdAndNameAndContentModel(
@@ -161,8 +161,12 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
-  public Column setContentModel(final FieldType fieldType, final DataType dataType, final IContentModel contentModel) {
-    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, contentModel);
+  public Column setContentModel(
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
+    final IContentModel contentModel) {
+    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, referenceableTables, contentModel);
 
     return this;
   }

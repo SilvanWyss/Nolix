@@ -1,19 +1,22 @@
 package ch.nolix.system.objectschema.model;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
+import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
+import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationValidator;
 
 /**
  * @author Silvan Wyss
  * @version 2021-07-11
  */
 public final class ColumnEditor implements IColumnEditor<Column> {
-  private static final ColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();
+  private static final IColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();
 
   private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
@@ -41,8 +44,9 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     final Column column,
     final FieldType fieldType,
     final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
     final IContentModel contentModel) {
-    COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(column, fieldType, dataType, contentModel);
+    COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(column, fieldType, dataType, referenceableTables, contentModel);
 
     column.setContentModelAttribute(contentModel);
 

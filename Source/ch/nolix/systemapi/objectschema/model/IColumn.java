@@ -30,5 +30,9 @@ ITableComponent<ITable> {
 
   boolean isBackReferenced();
 
-  IColumn setContentModel(FieldType fieldType, DataType dataType, IContentModel contentModel);
+  IColumn setContentModel(
+    FieldType fieldType,
+    DataType dataType,
+    IContainer<? extends ITable> referenceableTables,
+    IContentModel contentModel);
 }
