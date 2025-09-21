@@ -7,6 +7,7 @@ import ch.nolix.coreapi.component.datamodelcomponent.ITableComponent;
 import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface IColumn
 extends
@@ -19,7 +20,9 @@ IIdHolder,
 ITableComponent<ITable> {
   IContentModel getContentModel();
 
+  FieldType getFieldType();
+
   boolean isBackReferenced();
 
-  IColumn setContentModel(IContentModel contentModel);
+  IColumn setContentModel(FieldType fieldType, IContentModel contentModel);
 }

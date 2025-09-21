@@ -10,6 +10,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -72,8 +73,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
   @Override
   public Table addColumnWithNameAndContentModel(
     final String name,
+    final FieldType fieldType,
     final IContentModel contentModel) {
-    return addColumn(new Column(name, contentModel));
+    return addColumn(new Column(name, fieldType, contentModel));
   }
 
   @Override

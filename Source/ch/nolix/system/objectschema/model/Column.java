@@ -10,6 +10,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
@@ -28,35 +29,40 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private final String id;
 
+  private Table parentTable;
+
   private String name = INITIAL_HEADER;
+
+  private FieldType fieldType = FieldType.VALUE_FIELD;
 
   private IContentModel contentModel = ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
-  private Table parentTable;
-
   public Column(
     final String name,
+    final FieldType fieldType,
     final IContentModel contentModel) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, contentModel);
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, fieldType, contentModel);
   }
 
   private Column(
     final String id,
     final String name,
+    final FieldType fieldType,
     final IContentModel contentModel) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);
 
-    setContentModel(contentModel);
+    setContentModel(fieldType, contentModel);
   }
 
   public static Column withIdAndNameAndContentModel(
     final String id,
     final String name,
+    final FieldType fieldType,
     final IContentModel contentModel) {
-    return new Column(id, name, contentModel);
+    return new Column(id, name, fieldType, contentModel);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -75,6 +81,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   @Override
   public void delete() {
     COLUMN_EDITOR.deleteColumn(this);
+  }
+
+  @Override
+  public FieldType getFieldType() {
+    return fieldType;
   }
 
   @Override
@@ -126,8 +137,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
-  public Column setContentModel(final IContentModel contentModel) {
-    COLUMN_EDITOR.setContentModelToColumn(this, contentModel);
+  public Column setContentModel(final FieldType fieldType, final IContentModel contentModel) {
+    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, contentModel);
 
     return this;
   }

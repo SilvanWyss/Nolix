@@ -12,6 +12,7 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.system.objectschema.model.ValueModel;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 final class NodeDataAdapterTest extends StandardTest {
   private static final class Pet extends Entity {
@@ -151,7 +152,7 @@ final class NodeDataAdapterTest extends StandardTest {
     final var schemaAdapter = NodeSchemaAdapter.forNodeDatabase("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")
-      .addColumn(new Column("Name", ValueModel.forDataType(DataType.STRING)));
+      .addColumn(new Column("Name", FieldType.VALUE_FIELD, ValueModel.forDataType(DataType.STRING)));
     schemaAdapter.saveChanges();
 
     //execution & verification: Try to save the the changes to the database.

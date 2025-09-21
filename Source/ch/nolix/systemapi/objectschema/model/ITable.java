@@ -6,6 +6,7 @@ import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 public interface ITable
 extends
@@ -18,7 +19,7 @@ IIdHolder {
 
   ITable addColumns(IContainer<IColumn> columns);
 
-  ITable addColumnWithNameAndContentModel(String name, IContentModel contentModel);
+  ITable addColumnWithNameAndContentModel(String name, FieldType fieldType, IContentModel contentModel);
 
   IContainer<? extends IColumn> getStoredColumns();
 }
