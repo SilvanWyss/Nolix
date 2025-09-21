@@ -4,6 +4,7 @@ import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutable
 import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
 import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -19,7 +20,11 @@ IIdHolder {
 
   ITable addColumns(IContainer<IColumn> columns);
 
-  ITable addColumnWithNameAndContentModel(String name, FieldType fieldType, IContentModel contentModel);
+  ITable addColumnWithNameAndContentModel(
+    String name,
+    FieldType fieldType,
+    DataType dataType,
+    IContentModel contentModel);
 
   IContainer<? extends IColumn> getStoredColumns();
 }

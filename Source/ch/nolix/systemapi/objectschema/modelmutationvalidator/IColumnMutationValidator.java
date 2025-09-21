@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.objectschema.modelmutationvalidator;
 
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
@@ -18,12 +19,12 @@ public interface IColumnMutationValidator {
   /**
    * @param column
    * @param fieldType
+   * @param dataType
    * @param contentModel
-   * @throws RuntimeException if the given fieldType is null.
    * @throws RuntimeException if the given contentModel cannot be set to the given
    *                          column.
    */
-  void assertCanSetContentModel(IColumn column, FieldType fieldType, IContentModel contentModel);
+  void assertCanSetContentModel(IColumn column, FieldType fieldType, DataType dataType, IContentModel contentModel);
 
   /**
    * @param column

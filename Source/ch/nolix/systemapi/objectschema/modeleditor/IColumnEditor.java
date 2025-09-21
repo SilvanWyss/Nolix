@@ -1,5 +1,6 @@
 package ch.nolix.systemapi.objectschema.modeleditor;
 
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
@@ -25,11 +26,12 @@ public interface IColumnEditor<C extends IColumn> {
    * 
    * @param column
    * @param fieldType
+   * @param dataType
    * @param contentModel
    * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
    *                          given contentModel to the given column
    */
-  void setContentModelToColumn(C column, FieldType fieldType, IContentModel contentModel);
+  void setContentModelToColumn(C column, FieldType fieldType, DataType dataType, IContentModel contentModel);
 
   /**
    * Lets the current {@link IColumnEditor} set the given name to the given

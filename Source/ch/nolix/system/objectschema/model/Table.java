@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelong
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
@@ -74,8 +75,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
   public Table addColumnWithNameAndContentModel(
     final String name,
     final FieldType fieldType,
+    final DataType dataType,
     final IContentModel contentModel) {
-    return addColumn(new Column(name, fieldType, contentModel));
+    return addColumn(new Column(name, fieldType, dataType, contentModel));
   }
 
   @Override

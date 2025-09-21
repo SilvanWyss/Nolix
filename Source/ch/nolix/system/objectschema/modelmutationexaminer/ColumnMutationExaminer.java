@@ -1,5 +1,6 @@
 package ch.nolix.system.objectschema.modelmutationexaminer;
 
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
@@ -27,12 +28,17 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean canSetContentModel(final IColumn column, final FieldType fieldType, final IContentModel contentModel) {
+  public boolean canSetContentModel(
+    final IColumn column,
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContentModel contentModel) {
     return column != null
     && column.isOpen()
     && column.isEmpty()
     && !column.isBackReferenced()
-    && fieldType != null;
+    && fieldType != null
+    && dataType != null;
   }
 
   /**

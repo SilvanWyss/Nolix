@@ -35,34 +35,39 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private FieldType fieldType = FieldType.VALUE_FIELD;
 
+  private DataType dataType = DataType.STRING;
+
   private IContentModel contentModel = ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
   public Column(
     final String name,
     final FieldType fieldType,
+    final DataType dataType,
     final IContentModel contentModel) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, fieldType, contentModel);
+    this(IdCreator.createIdOf10HexadecimalCharacters(), name, fieldType, dataType, contentModel);
   }
 
   private Column(
     final String id,
     final String name,
     final FieldType fieldType,
+    final DataType dataType,
     final IContentModel contentModel) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);
 
-    setContentModel(fieldType, contentModel);
+    setContentModel(fieldType, dataType, contentModel);
   }
 
   public static Column withIdAndNameAndContentModel(
     final String id,
     final String name,
     final FieldType fieldType,
+    final DataType dataType,
     final IContentModel contentModel) {
-    return new Column(id, name, fieldType, contentModel);
+    return new Column(id, name, fieldType, dataType, contentModel);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -81,6 +86,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   @Override
   public void delete() {
     COLUMN_EDITOR.deleteColumn(this);
+  }
+
+  @Override
+  public DataType getDataType() {
+    return dataType;
   }
 
   @Override
@@ -137,8 +147,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
-  public Column setContentModel(final FieldType fieldType, final IContentModel contentModel) {
-    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, contentModel);
+  public Column setContentModel(final FieldType fieldType, final DataType dataType, final IContentModel contentModel) {
+    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, contentModel);
 
     return this;
   }

@@ -1,6 +1,7 @@
 package ch.nolix.system.objectschema.modelmutationvalidator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelmutationexaminer.ColumnMutationExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
@@ -39,9 +40,12 @@ public final class ColumnMutationValidator implements IColumnMutationValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertCanSetContentModel(final IColumn column, final FieldType fieldType,
+  public void assertCanSetContentModel(
+    final IColumn column,
+    final FieldType fieldType,
+    final DataType dataType,
     final IContentModel contentModel) {
-    if (!COLUMN_MUTATION_EXAMINER.canSetContentModel(column, fieldType, contentModel)) {
+    if (!COLUMN_MUTATION_EXAMINER.canSetContentModel(column, fieldType, dataType, contentModel)) {
       throw //
       InvalidArgumentException.forArgumentAndErrorPredicate(
         contentModel,
