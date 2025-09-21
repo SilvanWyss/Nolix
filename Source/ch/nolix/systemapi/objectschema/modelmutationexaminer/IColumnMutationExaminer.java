@@ -23,6 +23,7 @@ public interface IColumnMutationExaminer {
    * @param fieldType
    * @param dataType
    * @param referenceableTables
+   * @param backReferenceableColumns
    * @param contentModel
    * @return true if the given contentModel can be set to the given column, false
    *         otherwise.
@@ -32,6 +33,7 @@ public interface IColumnMutationExaminer {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
+    IContainer<? extends IColumn> backReferenceableColumns,
     IContentModel contentModel);
 
   /**

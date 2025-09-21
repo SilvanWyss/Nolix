@@ -30,6 +30,7 @@ public interface IColumnEditor<C extends IColumn> {
    * @param fieldType
    * @param dataType
    * @param referenceableTables
+   * @param backReferenceableColumns
    * @param contentModel
    * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
    *                          given contentModel to the given column
@@ -39,6 +40,7 @@ public interface IColumnEditor<C extends IColumn> {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
+    IContainer<? extends IColumn> backReferenceableColumns,
     IContentModel contentModel);
 
   /**

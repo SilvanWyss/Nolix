@@ -1,8 +1,10 @@
 package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.system.objectdata.model.AbstractBaseBackReference;
 import ch.nolix.system.objectdata.model.AbstractBaseReference;
 import ch.nolix.system.objectdata.model.AbstractBaseValueField;
 import ch.nolix.system.objectschema.model.Column;
@@ -24,6 +26,7 @@ public final class ColumnMapper implements IColumnMapper {
         field.getType(),
         DataType.forType(baseValueField.getValueType()),
         ImmutableList.createEmpty(),
+        ImmutableList.createEmpty(),
         CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
     }
 
@@ -38,15 +41,30 @@ public final class ColumnMapper implements IColumnMapper {
         field.getType(),
         DataType.STRING,
         referenceableTables,
+        ImmutableList.createEmpty(),
         CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
     }
 
-    return //
-    new Column(
-      field.getName(),
-      field.getType(),
-      DataType.STRING,
-      ImmutableList.createEmpty(),
-      CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
+    if (field instanceof final AbstractBaseBackReference<?> baseBackReference) {
+
+      //TODO: Add getBackReferenceableColumnNames method to AbstractBaseBackReference
+      final var backReferenceableColumnNames = //
+      ImmutableList.withElement(baseBackReference.getBackReferencedFieldName());
+
+      final var columns = tables.toMultiples(ITable::getStoredColumns);
+      final var backReferenceableColumns = //
+      columns.getStoredSelected(c -> backReferenceableColumnNames.containsAny(c.getName()));
+
+      return //
+      new Column(
+        field.getName(),
+        field.getType(),
+        DataType.STRING,
+        ImmutableList.createEmpty(),
+        backReferenceableColumns,
+        CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
+    }
+
+    throw InvalidArgumentException.forArgument(field);
   }
 }

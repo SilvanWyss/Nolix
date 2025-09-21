@@ -34,6 +34,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
     return //
     column != null
@@ -42,7 +43,8 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     && !column.isBackReferenced()
     && fieldType != null
     && dataType != null
-    && referenceableTables != null;
+    && referenceableTables != null
+    && backReferenceableColumns != null;
   }
 
   /**

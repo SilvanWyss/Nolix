@@ -47,8 +47,18 @@ public final class ColumnMutationValidator implements IColumnMutationValidator {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
-    if (!COLUMN_MUTATION_EXAMINER.canSetContentModel(column, fieldType, dataType, referenceableTables, contentModel)) {
+    final var canSetContentModel = //
+    COLUMN_MUTATION_EXAMINER.canSetContentModel(
+      column,
+      fieldType,
+      dataType,
+      referenceableTables,
+      backReferenceableColumns,
+      contentModel);
+
+    if (!canSetContentModel) {
       throw //
       InvalidArgumentException.forArgumentAndErrorPredicate(
         contentModel,

@@ -158,6 +158,7 @@ final class NodeDataAdapterTest extends StandardTest {
           "Name",
           FieldType.VALUE_FIELD, DataType.STRING,
           ImmutableList.createEmpty(),
+          ImmutableList.createEmpty(),
           ValueModel.forDataType(DataType.STRING)));
     schemaAdapter.saveChanges();
 

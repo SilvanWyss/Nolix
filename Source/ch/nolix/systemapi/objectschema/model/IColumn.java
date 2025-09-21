@@ -26,6 +26,8 @@ ITableComponent<ITable> {
 
   FieldType getFieldType();
 
+  IContainer<? extends IColumn> getStoredBackReferenceableColumns();
+
   IContainer<? extends ITable> getStoredReferenceableTables();
 
   boolean isBackReferenced();
@@ -34,5 +36,6 @@ ITableComponent<ITable> {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
+    IContainer<? extends IColumn> backReferenceableColumns,
     IContentModel contentModel);
 }

@@ -23,6 +23,7 @@ public interface IColumnMutationValidator {
    * @param fieldType
    * @param dataType
    * @param referenceableTables
+   * @param backReferenceableColumns
    * @param contentModel
    * @throws RuntimeException if the given contentModel cannot be set to the given
    *                          column.
@@ -32,6 +33,7 @@ public interface IColumnMutationValidator {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
+    IContainer<? extends IColumn> backReferenceableColumns,
     IContentModel contentModel);
 
   /**

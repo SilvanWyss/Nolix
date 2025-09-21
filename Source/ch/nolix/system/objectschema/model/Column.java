@@ -42,6 +42,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private final IArrayList<? extends ITable> referenceableTables = ArrayList.createEmpty();
 
+  private final IArrayList<? extends IColumn> backReferenceableColumns = ArrayList.createEmpty();
+
   private IContentModel contentModel = ValueModel.forDataType(DataType.INTEGER_4BYTE);
 
   public Column(
@@ -49,8 +51,16 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
-    this(IdCreator.createIdOf10HexadecimalCharacters(), name, fieldType, dataType, referenceableTables, contentModel);
+    this(
+      IdCreator.createIdOf10HexadecimalCharacters(),
+      name,
+      fieldType,
+      dataType,
+      referenceableTables,
+      backReferenceableColumns,
+      contentModel);
   }
 
   private Column(
@@ -59,6 +69,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
@@ -66,7 +77,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     setName(name);
     this.referenceableTables.addAtEnd(referenceableTables);
 
-    setContentModel(fieldType, dataType, referenceableTables, contentModel);
+    setContentModel(fieldType, dataType, referenceableTables, backReferenceableColumns, contentModel);
   }
 
   public static Column withIdAndNameAndContentModel(
@@ -75,8 +86,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
-    return new Column(id, name, fieldType, dataType, referenceableTables, contentModel);
+    return new Column(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns, contentModel);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -123,6 +135,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
+  public IContainer<? extends IColumn> getStoredBackReferenceableColumns() {
+    return backReferenceableColumns;
+  }
+
+  @Override
   public IDatabase getStoredParentDatabase() {
     return getStoredParentTable().getStoredParentDatabase();
   }
@@ -165,8 +182,10 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
-    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, referenceableTables, contentModel);
+    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, referenceableTables, backReferenceableColumns,
+      contentModel);
 
     return this;
   }

@@ -6,6 +6,7 @@ import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
@@ -45,8 +46,15 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
+    IContainer<? extends IColumn> backReferenceableColumns,
     final IContentModel contentModel) {
-    COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(column, fieldType, dataType, referenceableTables, contentModel);
+    COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(
+      column,
+      fieldType,
+      dataType,
+      referenceableTables,
+      backReferenceableColumns,
+      contentModel);
 
     column.setContentModelAttribute(contentModel);
 
