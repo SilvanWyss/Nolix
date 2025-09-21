@@ -15,21 +15,24 @@ extends AbstractField
 implements IBaseBackReference<E> {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
-  private final String backReferencedTableName;
+  private final ImmutableList<String> backReferenceableTableNames;
 
   private final String backReferencedFieldName;
 
   private Table<E> backReferencedTable;
 
-  protected AbstractBaseBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
-    Validator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
+  protected AbstractBaseBackReference(
+    final IContainer<String> backReferenceableTableNames,
+    final String backReferencedFieldName) {
+
+    Validator.assertThatTheStrings(backReferenceableTableNames).areNotBlank();
 
     Validator
       .assertThat(backReferencedFieldName)
       .thatIsNamed("back referenced field name")
       .isNotBlank();
 
-    this.backReferencedTableName = backReferencedTableName;
+    this.backReferenceableTableNames = ImmutableList.forIterable(backReferenceableTableNames);
     this.backReferencedFieldName = backReferencedFieldName;
   }
 
@@ -52,7 +55,8 @@ implements IBaseBackReference<E> {
 
   @Override
   public final String getBackReferencedTableName() {
-    return backReferencedTableName;
+    //TODO: Update
+    return backReferenceableTableNames.getStoredFirst();
   }
 
   @Override

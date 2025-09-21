@@ -2,37 +2,55 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
+import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
-public final class OptionalBackReference<E extends IEntity> extends AbstractBaseBackReference<E>
+public final class OptionalBackReference<E extends IEntity>
+extends AbstractBaseBackReference<E>
 implements IOptionalBackReference<E> {
+  private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
+
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
   private String backReferencedEntityId;
 
-  private OptionalBackReference(final String backReferencedTableName, final String backReferencedFieldName) {
-    super(backReferencedTableName, backReferencedFieldName);
+  private OptionalBackReference(final IContainer<String> backReferenceableTableNamese,
+    final String backReferencedFieldName) {
+    super(backReferenceableTableNamese, backReferencedFieldName);
   }
 
-  public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedFieldName(
-    final Class<E2> type,
+  public static <E2 extends IEntity> OptionalBackReference<E2> forBackReferenceableEntityTypesAndBackReferencedFieldName(
+    final IContainer<Class<? extends E2>> backReferenceableEntityTypes,
     final String backReferencedFieldName) {
-    return new OptionalBackReference<>(type.getSimpleName(), backReferencedFieldName);
+    final var backReferenceableTableNames = //
+    backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+
+    return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
-  public static OptionalBackReference<AbstractEntity> forEntityWithTableNameAndBackReferencedFieldName(
-    final String tableName,
+  public static <E2 extends IEntity> OptionalBackReference<E2> forBackReferenceableTableNamesAndBackReferencedFieldName(
+    final IContainer<String> backReferenceableTableNames,
     final String backReferencedFieldName) {
-    return new OptionalBackReference<>(tableName, backReferencedFieldName);
+    return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
+  }
+
+  public static <E2 extends IEntity> OptionalBackReference<E2> forBackReferenceableTablesAndBackReferencedFieldName(
+    final IContainer<ITable<IEntity>> backReferenceableTables,
+    final String backReferencedFieldName) {
+    final var backReferenceableTableNames = backReferenceableTables.getViewOf(ITable::getName);
+
+    return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
   @Override

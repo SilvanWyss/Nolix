@@ -4,20 +4,25 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
+import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
+import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity>
 extends AbstractBaseBackReference<E>
 implements IMultiBackReference<E> {
+  private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
+
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
@@ -28,22 +33,33 @@ implements IMultiBackReference<E> {
 
   private final ILinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
-  private MultiBackReference(final String backReferencedTableName, final String backReferencedBaseReferenceName) {
-    super(backReferencedTableName, backReferencedBaseReferenceName);
+  private MultiBackReference(
+    final IContainer<String> backReferenceableTableNames,
+    final String backReferencedFieldName) {
+    super(backReferenceableTableNames, backReferencedFieldName);
   }
 
-  public static <E2 extends AbstractEntity> MultiBackReference<E2> forBackReferencedEntityTypeAndBaseReference(
-    final Class<E2> backReferencedEntityType,
-    final String backReferencedBaseReferenceName) {
-    final var entityTypeName = backReferencedEntityType.getSimpleName();
+  public static <E2 extends IEntity> MultiBackReference<E2> forBackReferenceableEntityTypesAndBackReferencedFieldName(
+    final IContainer<Class<? extends E2>> backReferenceableEntityTypes,
+    final String backReferencedFieldName) {
+    final var backReferenceableTableNames = //
+    backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
-    return forBackReferencedTableAndBaseReference(entityTypeName, backReferencedBaseReferenceName);
+    return new MultiBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
-  public static <E2 extends AbstractEntity> MultiBackReference<E2> forBackReferencedTableAndBaseReference(
-    final String backReferencedTableName,
-    final String backReferencedBaseReference) {
-    return new MultiBackReference<>(backReferencedTableName, backReferencedBaseReference);
+  public static <E2 extends IEntity> MultiBackReference<E2> forBackReferenceableTableNamesAndBackReferencedFieldName(
+    final IContainer<String> backReferenceableTableNames,
+    final String backReferencedFieldName) {
+    return new MultiBackReference<>(backReferenceableTableNames, backReferencedFieldName);
+  }
+
+  public static <E2 extends IEntity> MultiBackReference<E2> forBackReferenceableTablesAndBackReferencedFieldName(
+    final IContainer<ITable<IEntity>> backReferenceableTables,
+    final String backReferencedFieldName) {
+    final var backReferenceableTableNames = backReferenceableTables.getViewOf(ITable::getName);
+
+    return new MultiBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
   @Override

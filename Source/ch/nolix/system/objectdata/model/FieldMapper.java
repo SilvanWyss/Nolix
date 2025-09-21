@@ -65,46 +65,39 @@ public final class FieldMapper {
   private static BackReference<AbstractEntity> createBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
-    //TODO: Update
-    final var backReferencedColumn = //
-    column.getStoredBackReferenceableColumns().getStoredFirst();
-
-    final var backReferencedTable = backReferencedColumn.getStoredParentTable();
-    final var backReferencedTableName = backReferencedTable.getName();
-    final var backReferencedFieldName = backReferencedColumn.getName();
+    final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
+    final var backReferenceableTables = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
+    final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
 
     return //
-    BackReference.forEntityWithTableNameAndBackReferencedFieldName(backReferencedTableName, backReferencedFieldName);
+    BackReference.forBackReferenceableTablesAndBackReferencedFieldName(
+      backReferenceableTables,
+      backReferencedFieldName);
   }
 
   private static OptionalBackReference<AbstractEntity> createOptionalBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
-    //TODO: Update
-    final var backReferencedColumn = //
-    column.getStoredBackReferenceableColumns().getStoredFirst();
-
-    final var backReferencedTable = backReferencedColumn.getStoredParentTable();
-    final var backReferencedTableName = backReferencedTable.getName();
-    final var backReferencedFieldName = backReferencedColumn.getName();
+    final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
+    final var backReferenceableTables = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
+    final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
 
     return //
-    OptionalBackReference.forEntityWithTableNameAndBackReferencedFieldName(
-      backReferencedTableName,
+    OptionalBackReference.forBackReferenceableTablesAndBackReferencedFieldName(
+      backReferenceableTables,
       backReferencedFieldName);
   }
 
   private static MultiBackReference<AbstractEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
     final IColumn column) {
 
-    //TODO: Update
-    final var backReferencedColumn = column.getStoredBackReferenceableColumns().getStoredFirst();
-
-    final var backReferencedTable = backReferencedColumn.getStoredParentTable();
-    final var backReferencedTableName = backReferencedTable.getName();
-    final var backReferencedFieldName = backReferencedColumn.getName();
+    final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
+    final var backReferenceableTables = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
+    final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
 
     return //
-    MultiBackReference.forBackReferencedTableAndBaseReference(backReferencedTableName, backReferencedFieldName);
+    MultiBackReference.forBackReferenceableTablesAndBackReferencedFieldName(
+      backReferenceableTables,
+      backReferencedFieldName);
   }
 }
