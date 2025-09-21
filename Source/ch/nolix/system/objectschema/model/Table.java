@@ -13,7 +13,6 @@ import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
 import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
@@ -77,11 +76,10 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
+    final IContainer<? extends IColumn> backReferenceableColumns) {
 
     final var column = //
-    new Column(name, fieldType, dataType, referenceableTables, backReferenceableColumns, contentModel);
+    new Column(name, fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     return addColumn(column);
   }

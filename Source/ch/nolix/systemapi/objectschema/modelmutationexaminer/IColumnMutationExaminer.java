@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**
@@ -24,7 +23,6 @@ public interface IColumnMutationExaminer {
    * @param dataType
    * @param referenceableTables
    * @param backReferenceableColumns
-   * @param contentModel
    * @return true if the given contentModel can be set to the given column, false
    *         otherwise.
    */
@@ -33,8 +31,7 @@ public interface IColumnMutationExaminer {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns,
-    IContentModel contentModel);
+    IContainer<? extends IColumn> backReferenceableColumns);
 
   /**
    * @param column

@@ -20,8 +20,6 @@ IDatabaseObject,
 IFluentMutableNameHolder<IColumn>,
 IIdHolder,
 ITableComponent<ITable> {
-  IContentModel getContentModel();
-
   DataType getDataType();
 
   FieldType getFieldType();
@@ -32,10 +30,13 @@ ITableComponent<ITable> {
 
   boolean isBackReferenced();
 
+  boolean referencesBackColumn(IColumn column);
+
+  boolean referencesTable(ITable table);
+
   IColumn setContentModel(
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns,
-    IContentModel contentModel);
+    IContainer<? extends IColumn> backReferenceableColumns);
 }

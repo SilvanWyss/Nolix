@@ -10,12 +10,10 @@ import ch.nolix.system.objectdata.model.AbstractBaseValueField;
 import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.schemamapper.IColumnMapper;
-import ch.nolix.systemapi.objectdata.schemamapper.IContentModelMapper;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 public final class ColumnMapper implements IColumnMapper {
-  private static final IContentModelMapper CONTENT_MODEL_MAPPER = new ContentModelMapper();
 
   @Override
   public IColumn mapFieldToColumn(final IField field, final IContainer<ITable> tables) {
@@ -26,8 +24,7 @@ public final class ColumnMapper implements IColumnMapper {
         field.getType(),
         DataType.forType(baseValueField.getValueType()),
         ImmutableList.createEmpty(),
-        ImmutableList.createEmpty(),
-        CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
+        ImmutableList.createEmpty());
     }
 
     if (field instanceof final AbstractBaseReference<?> baseReference) {
@@ -41,8 +38,7 @@ public final class ColumnMapper implements IColumnMapper {
         field.getType(),
         DataType.STRING,
         referenceableTables,
-        ImmutableList.createEmpty(),
-        CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
+        ImmutableList.createEmpty());
     }
 
     if (field instanceof final AbstractBaseBackReference<?> baseBackReference) {
@@ -61,8 +57,7 @@ public final class ColumnMapper implements IColumnMapper {
         field.getType(),
         DataType.STRING,
         ImmutableList.createEmpty(),
-        backReferenceableColumns,
-        CONTENT_MODEL_MAPPER.mapFieldToContentModel(field, tables));
+        backReferenceableColumns);
     }
 
     throw InvalidArgumentException.forArgument(field);

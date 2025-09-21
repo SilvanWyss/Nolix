@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelmutationexaminer.IColumnMutationExaminer;
 
@@ -34,8 +33,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
+    final IContainer<? extends IColumn> backReferenceableColumns) {
     return //
     column != null
     && column.isOpen()

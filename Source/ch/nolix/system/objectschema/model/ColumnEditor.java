@@ -2,12 +2,10 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationValidator;
@@ -18,8 +16,6 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationVal
  */
 public final class ColumnEditor implements IColumnEditor<Column> {
   private static final IColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();
-
-  private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   /**
    * {@inheritDoc}
@@ -46,23 +42,25 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
+    IContainer<? extends IColumn> backReferenceableColumns) {
     COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(
       column,
       fieldType,
       dataType,
       referenceableTables,
-      backReferenceableColumns,
-      contentModel);
+      backReferenceableColumns);
 
-    column.setContentModelAttribute(contentModel);
+    column.setContentModelAttribute(fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     if (column.isConnectedWithRealDatabase()) {
       final var table = column.getStoredParentTable();
       final var tableName = table.getName();
       final var columnName = column.getName();
-      final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(contentModel);
+      final var referenceableTableIds = referenceableTables.to(ITable::getId);
+      final var backReferenceableColumnIds = backReferenceableColumns.to(IColumn::getId);
+
+      final var contentModelDto = //
+      new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
 
       column.getStoredMidSchemaAdapter().setContentModel(tableName, columnName, contentModelDto);
     }

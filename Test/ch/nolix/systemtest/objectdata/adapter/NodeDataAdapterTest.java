@@ -12,7 +12,6 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.system.objectschema.model.Column;
-import ch.nolix.system.objectschema.model.ValueModel;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 final class NodeDataAdapterTest extends StandardTest {
@@ -158,8 +157,7 @@ final class NodeDataAdapterTest extends StandardTest {
           "Name",
           FieldType.VALUE_FIELD, DataType.STRING,
           ImmutableList.createEmpty(),
-          ImmutableList.createEmpty(),
-          ValueModel.forDataType(DataType.STRING)));
+          ImmutableList.createEmpty()));
     schemaAdapter.saveChanges();
 
     //execution & verification: Try to save the the changes to the database.

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**
@@ -31,7 +30,6 @@ public interface IColumnEditor<C extends IColumn> {
    * @param dataType
    * @param referenceableTables
    * @param backReferenceableColumns
-   * @param contentModel
    * @throws RuntimeException if the current {@link IColumnEditor} cannot set the
    *                          given contentModel to the given column
    */
@@ -40,8 +38,7 @@ public interface IColumnEditor<C extends IColumn> {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns,
-    IContentModel contentModel);
+    IContainer<? extends IColumn> backReferenceableColumns);
 
   /**
    * Lets the current {@link IColumnEditor} set the given name to the given

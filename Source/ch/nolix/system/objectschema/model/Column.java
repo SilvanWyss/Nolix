@@ -9,13 +9,11 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.objectschema.midschemamodelmapper.ContentModelDtoMapper;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectschema.midschemamodelmapper.IContentModelDtoMapper;
+import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.objectschema.model.IColumn;
-import ch.nolix.systemapi.objectschema.model.IContentModel;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
@@ -23,8 +21,6 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
-
-  private static final IContentModelDtoMapper CONTENT_MODEL_DTO_MAPPER = new ContentModelDtoMapper();
 
   private static final IColumnEditor<Column> COLUMN_EDITOR = new ColumnEditor();
 
@@ -44,23 +40,19 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private final IArrayList<? extends IColumn> backReferenceableColumns = ArrayList.createEmpty();
 
-  private IContentModel contentModel = ValueModel.forDataType(DataType.INTEGER_4BYTE);
-
   public Column(
     final String name,
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
+    final IContainer<? extends IColumn> backReferenceableColumns) {
     this(
       IdCreator.createIdOf10HexadecimalCharacters(),
       name,
       fieldType,
       dataType,
       referenceableTables,
-      backReferenceableColumns,
-      contentModel);
+      backReferenceableColumns);
   }
 
   private Column(
@@ -69,15 +61,14 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
+    final IContainer<? extends IColumn> backReferenceableColumns) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);
     this.referenceableTables.addAtEnd(referenceableTables);
 
-    setContentModel(fieldType, dataType, referenceableTables, backReferenceableColumns, contentModel);
+    setContentModel(fieldType, dataType, referenceableTables, backReferenceableColumns);
   }
 
   public static Column withIdAndNameAndContentModel(
@@ -86,9 +77,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
-    return new Column(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns, contentModel);
+    final IContainer<? extends IColumn> backReferenceableColumns) {
+    return new Column(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -127,11 +117,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   @Override
   public String getId() {
     return id;
-  }
-
-  @Override
-  public IContentModel getContentModel() {
-    return contentModel;
   }
 
   @Override
@@ -178,14 +163,22 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   }
 
   @Override
+  public boolean referencesBackColumn(final IColumn column) {
+    return getStoredBackReferenceableColumns().contains(column);
+  }
+
+  @Override
+  public boolean referencesTable(final ITable table) {
+    return referenceableTables.contains(table);
+  }
+
+  @Override
   public Column setContentModel(
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns,
-    final IContentModel contentModel) {
-    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, referenceableTables, backReferenceableColumns,
-      contentModel);
+    final IContainer<? extends IColumn> backReferenceableColumns) {
+    COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     return this;
   }
@@ -209,22 +202,37 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return ((Database) COLUMN_TOOL.getParentDatabase(this)).getStoredMidSchemaAdapter();
   }
 
-  void setContentModelAttribute(final IContentModel contentModel) {
-    Validator.assertThat(contentModel).thatIsNamed(IContentModel.class).isNotNull();
-
-    this.contentModel = contentModel;
-  }
-
   void internalSetContentModelToDatabase() {
     final var table = getStoredParentTable();
     final var tableName = table.getName();
-    final var contentModelDto = CONTENT_MODEL_DTO_MAPPER.mapContentModelToContentModelDto(getContentModel());
+    final var referenceableTableIds = getStoredReferenceableTables().to(ITable::getId);
+    final var backReferenceableColumnIds = getStoredBackReferenceableColumns().to(IColumn::getId);
+
+    final var contentModelDto = //
+    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
 
     getStoredMidSchemaAdapter().setContentModel(tableName, getName(), contentModelDto);
   }
 
   void setNameAttribute(final String header) {
     this.name = header;
+  }
+
+  void setContentModelAttribute(
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<? extends ITable> referenceableTables,
+    final IContainer<? extends IColumn> backReferenceableColumns) {
+    //TODO: Validate parameters
+
+    this.referenceableTables.clear();
+    this.backReferenceableColumns.clear();
+
+    this.fieldType = fieldType;
+    this.dataType = dataType;
+    this.referenceableTables.addAtEnd(referenceableTables);
+    this.backReferenceableColumns.addAtEnd(backReferenceableColumns);
+
   }
 
   void setParentTableAttribute(final Table parentTable) {

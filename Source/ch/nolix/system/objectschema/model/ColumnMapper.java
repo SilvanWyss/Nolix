@@ -2,7 +2,6 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
@@ -37,14 +36,8 @@ public final class ColumnMapper {
     final var backReferenceableColumns = //
     columns.getStoredSelected(c -> backReferenceableColumnsIds.containsAny(c::hasId));
 
-    final var midContentModel = //
-    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnsIds);
-
-    final var contentModel = ContentModelMapper.mapMidSchemaContentModelDtoToContentModel(midContentModel, tables);
-
     final var column = //
-    Column.withIdAndNameAndContentModel(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns,
-      contentModel);
+    Column.withIdAndNameAndContentModel(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     column.setLoaded();
     column.setParentTableAttribute(parentTable);

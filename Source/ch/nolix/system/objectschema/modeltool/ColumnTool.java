@@ -4,18 +4,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
-import ch.nolix.system.objectschema.modelexaminer.ContentModelExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
-import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.objectschema.model.IBaseBackReferenceModel;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelexaminer.IContentModelExaminer;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
-  private static final IContentModelExaminer CONTENT_MODEL_EXAMINER = new ContentModelExaminer();
 
   @Override
   public void assertBelongsToTable(final IColumn column) {
@@ -52,12 +47,7 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public BaseFieldType getBaseFieldType(IColumn column) {
-    return getFieldType(column).getBaseType();
-  }
-
-  @Override
-  public FieldType getFieldType(final IColumn column) {
-    return column.getContentModel().getFieldType();
+    return column.getFieldType().getBaseType();
   }
 
   @Override
@@ -67,38 +57,36 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
-    final var contentModel = column.getContentModel();
-
-    return CONTENT_MODEL_EXAMINER.isAbstractBackReferenceModel(contentModel);
+    return //
+    column != null &&
+    column.getFieldType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
-    final var contentModel = column.getContentModel();
-
-    return CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(contentModel);
+    return //
+    column != null &&
+    column.getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
   @Override
   public boolean isAValueColumn(final IColumn column) {
-    final var contentModel = column.getContentModel();
-
-    return CONTENT_MODEL_EXAMINER.isAbstractValueModel(contentModel);
+    return //
+    column != null &&
+    column.getFieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 
   @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
-    final var contentModel = column.getContentModel();
+    final var fieldType = column.getFieldType();
+    final var baseType = fieldType.getBaseType();
 
-    if (contentModel instanceof IBaseBackReferenceModel baseBackReferenceModel) {
+    if (baseType == BaseFieldType.BASE_BACK_REFERENCE) {
       final var table = column.getStoredParentTable();
-      final var backReferenceableColumns = baseBackReferenceModel.getStoredBackReferenceableColumns();
+      final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
 
       for (final var c : backReferenceableColumns) {
-        final var backReferenceableColumnContentModel = c.getContentModel();
-
-        if (!CONTENT_MODEL_EXAMINER.isAbstractReferenceModel(backReferenceableColumnContentModel)
-        || !referencesGivenTable(c, table)) {
+        if (!isAReferenceColumn(c) || !referencesGivenTable(c, table)) {
           return false;
         }
       }
@@ -111,11 +99,11 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
 
   @Override
   public boolean referencesBackGivenColumn(final IColumn column, final IColumn probableBackReferencedColumn) {
-    return column.getContentModel().referencesBackColumn(probableBackReferencedColumn);
+    return column.referencesBackColumn(probableBackReferencedColumn);
   }
 
   @Override
   public boolean referencesGivenTable(final IColumn column, final ITable table) {
-    return column.getContentModel().referencesTable(table);
+    return column.referencesTable(table);
   }
 }

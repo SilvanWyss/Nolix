@@ -25,8 +25,7 @@ IIdHolder {
     FieldType fieldType,
     DataType dataType,
     IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns,
-    IContentModel contentModel);
+    IContainer<? extends IColumn> backReferenceableColumns);
 
   IContainer<? extends IColumn> getStoredColumns();
 }

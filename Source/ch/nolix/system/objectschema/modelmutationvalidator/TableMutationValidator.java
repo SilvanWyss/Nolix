@@ -3,8 +3,6 @@ package ch.nolix.system.objectschema.modelmutationvalidator;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
-import ch.nolix.system.objectschema.model.AbstractBaseBackReferenceModel;
-import ch.nolix.system.objectschema.model.AbstractBaseReferenceModel;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
@@ -41,16 +39,14 @@ public final class TableMutationValidator implements ITableMutationValidator {
     DATABASE_OBJECT_VALIDATOR.assertIsNew(column);
 
     if (COLUMN_TOOL.isAReferenceColumn(column) && table.belongsToDatabase()) {
-      final var abstractReferenceModel = (AbstractBaseReferenceModel) column.getContentModel();
-      final var referencedTables = abstractReferenceModel.getReferenceableTables();
+      final var referencedTables = column.getStoredReferenceableTables();
 
       final var database = table.getStoredParentDatabase();
       referencedTables.forEach(t -> DATABASE_VALIDATOR.assertContainsTable(database, t));
     }
 
     if (COLUMN_TOOL.isABackReferenceColumn(column) && table.belongsToDatabase()) {
-      final var abstractBackReferenceModel = (AbstractBaseBackReferenceModel) (column.getContentModel());
-      final var backReferenceableColumns = abstractBackReferenceModel.getStoredBackReferenceableColumns();
+      final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
       final var database = table.getStoredParentDatabase();
 
       backReferenceableColumns.forEach(c -> DATABASE_VALIDATOR.assertContainsTableWithGivenColumn(database, c));
