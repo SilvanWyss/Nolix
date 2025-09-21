@@ -3,19 +3,19 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
-public final class FieldFromColumnCreator {
-  private FieldFromColumnCreator() {
+public final class FieldMapper {
+  private FieldMapper() {
   }
 
-  public static AbstractField createFieldFromAndWithColumnView(final IColumn column) {
-    final var field = createFieldFromColumn(column);
+  public static AbstractField mapColumnToField(final IColumn column) {
+    final var field = mapColumnToUnlinkedFeild(column);
 
     field.setParentColumn(column);
 
     return field;
   }
 
-  private static AbstractField createFieldFromColumn(final IColumn column) {
+  private static AbstractField mapColumnToUnlinkedFeild(final IColumn column) {
     final var fieldType = column.getFieldType();
 
     return //

@@ -9,6 +9,6 @@ public final class FieldFromTableCreator {
   }
 
   public static IContainer<AbstractField> createFieldsFromTable(final ITable<? extends IEntity> table) {
-    return table.getStoredColumns().to(FieldFromColumnCreator::createFieldFromAndWithColumnView);
+    return table.getStoredColumns().to(FieldMapper::mapColumnToField);
   }
 }
