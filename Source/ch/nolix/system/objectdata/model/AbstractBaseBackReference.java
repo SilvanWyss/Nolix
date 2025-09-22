@@ -37,6 +37,11 @@ implements IBaseBackReference<E> {
   }
 
   @Override
+  public final IContainer<String> getBackReferenceableTableNames() {
+    return backReferenceableTableNames;
+  }
+
+  @Override
   public final String getBackReferencedFieldName() {
     return backReferencedFieldName;
   }
