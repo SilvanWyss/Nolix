@@ -13,7 +13,9 @@ public final class ColumnColumnNameCatalog {
 
   public static final String NAME = "Name";
 
-  public static final String CONTENT_MODEL_ID = "ContentModelId";
+  public static final String FIELD_TYPE = "FieldType";
+
+  public static final String DATA_TYPE = "DataType";
 
   /**
    * Prevents that an instance of the {@link ColumnColumnNameCatalog} can be
