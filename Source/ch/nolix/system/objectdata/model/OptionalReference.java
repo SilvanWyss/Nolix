@@ -79,7 +79,7 @@ implements IOptionalReference<E> {
   public String getReferencedEntityId() {
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return nullableReferencedEntityCache.id();
+    return nullableReferencedEntityCache.entityId();
   }
 
   @Override
@@ -253,7 +253,7 @@ implements IOptionalReference<E> {
     var referencedEntity = nullableReferencedEntityCache.nullableEntity();
 
     if (referencedEntity == null) {
-      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedEntityId = nullableReferencedEntityCache.entityId();
       final var referencedTableId = nullableReferencedEntityCache.nullableTableId();
       referencedEntity = getStoredReferencedTable().getStoredEntityById(referencedEntityId);
 
@@ -267,7 +267,7 @@ implements IOptionalReference<E> {
     var referencedTableId = nullableReferencedEntityCache.nullableTableId();
 
     if (referencedTableId == null) {
-      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedEntityId = nullableReferencedEntityCache.entityId();
       final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
       final var referencedTable = referencedEntity.getStoredParentTable();
       referencedTableId = referencedTable.getId();

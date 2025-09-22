@@ -71,7 +71,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   public String getReferencedEntityId() {
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 
-    return nullableReferencedEntityCache.id();
+    return nullableReferencedEntityCache.entityId();
   }
 
   @Override
@@ -202,7 +202,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   @Override
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {
-      final var id = nullableReferencedEntityCache.id();
+      final var id = nullableReferencedEntityCache.entityId();
       final var entity = nullableReferencedEntityCache.nullableEntity();
       final var tableName = entity.getParentTableName();
 
@@ -253,7 +253,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     var referencedEntity = nullableReferencedEntityCache.nullableEntity();
 
     if (referencedEntity == null) {
-      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedEntityId = nullableReferencedEntityCache.entityId();
       final var referencedTableId = nullableReferencedEntityCache.nullableTableId();
       referencedEntity = getStoredReferencedTable().getStoredEntityById(referencedEntityId);
 
@@ -267,7 +267,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     var referencedTableId = nullableReferencedEntityCache.nullableTableId();
 
     if (referencedTableId == null) {
-      final var referencedEntityId = nullableReferencedEntityCache.id();
+      final var referencedEntityId = nullableReferencedEntityCache.entityId();
       final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
       final var referencedTable = referencedEntity.getStoredParentTable();
       referencedTableId = referencedTable.getId();

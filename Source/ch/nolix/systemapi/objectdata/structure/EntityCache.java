@@ -1,4 +1,4 @@
 package ch.nolix.systemapi.objectdata.structure;
 
-public record EntityCache<E>(String id, String nullableTableId, E nullableEntity) {
+public record EntityCache<E>(String entityId, String nullableTableId, E nullableEntity) {
 }

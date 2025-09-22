@@ -104,7 +104,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   @Override
   public String getReferencedEntityId() {
-    return referencedEntityCache.id();
+    return referencedEntityCache.entityId();
   }
 
   @Override
@@ -216,7 +216,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     var referencedEntity = referencedEntityCache.nullableEntity();
 
     if (referencedEntity == null) {
-      final var referencedEntityId = referencedEntityCache.id();
+      final var referencedEntityId = referencedEntityCache.entityId();
       final var referencedTableId = referencedEntityCache.nullableTableId();
       referencedEntity = getStoredReferencedTable().getStoredEntityById(referencedEntityId);
 
@@ -228,7 +228,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     var referencedTableId = referencedEntityCache.nullableTableId();
 
     if (referencedTableId == null) {
-      final var referencedEntityId = referencedEntityCache.id();
+      final var referencedEntityId = referencedEntityCache.entityId();
       final var referencedEntity = referencedEntityCache.nullableEntity();
       referencedTableId = referencedEntity.getStoredParentTable().getId();
 
