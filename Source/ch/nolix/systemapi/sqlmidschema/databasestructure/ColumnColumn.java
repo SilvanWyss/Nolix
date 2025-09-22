@@ -7,7 +7,6 @@ public enum ColumnColumn implements INameHolder {
   ID(PascalCaseVariableCatalog.ID),
   PARENT_TABLE_ID("ParentTableId"),
   NAME(PascalCaseVariableCatalog.NAME),
-  CONTENT_MODEL("ContentModel"),
   FIELD_TYPE("FieldType"),
   DATA_TYPE(PascalCaseVariableCatalog.DATA_TYPE);
 
