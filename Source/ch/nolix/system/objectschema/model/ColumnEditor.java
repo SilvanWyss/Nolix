@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
@@ -51,6 +50,7 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       backReferenceableColumns);
 
     column.setContentModelAttribute(fieldType, dataType, referenceableTables, backReferenceableColumns);
+    column.setEdited();
 
     if (column.isConnectedWithRealDatabase()) {
       final var table = column.getStoredParentTable();
@@ -58,14 +58,16 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       final var columnName = column.getName();
       final var referenceableTableIds = referenceableTables.to(ITable::getId);
       final var backReferenceableColumnIds = backReferenceableColumns.to(IColumn::getId);
+      final var midSchemaAdapter = column.getStoredMidSchemaAdapter();
 
-      final var contentModelDto = //
-      new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
-
-      column.getStoredMidSchemaAdapter().setContentModel(tableName, columnName, contentModelDto);
+      midSchemaAdapter.setColumnModel(
+        tableName,
+        columnName,
+        fieldType,
+        dataType,
+        referenceableTableIds,
+        backReferenceableColumnIds);
     }
-
-    column.setEdited();
   }
 
   /**

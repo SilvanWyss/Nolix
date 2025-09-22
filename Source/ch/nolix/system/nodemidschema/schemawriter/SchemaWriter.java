@@ -3,6 +3,8 @@ package ch.nolix.system.nodemidschema.schemawriter;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
@@ -15,6 +17,7 @@ import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -162,24 +165,32 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
-    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
-
-    columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-      NodeHeaderCatalog.CONTENT_MODEL,
-      CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(contentModel));
-
-    hasChanges = true;
-  }
-
-  @Override
   public void renameTable(final String tableName, final String newTableName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
       tableName);
 
     final var nameNode = TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode);
     nameNode.getStoredSingleChildNode().setHeader(newTableName);
+
+    hasChanges = true;
+  }
+
+  @Override
+  public void setColumnModel(
+    final String tableName,
+    final String columnName,
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<String> referenceableTableIds,
+    final IContainer<String> backReferenceableColumnIds) {
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
+    final var contentModelDto = //
+    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
+
+    columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
+      NodeHeaderCatalog.CONTENT_MODEL,
+      CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(contentModelDto));
 
     hasChanges = true;
   }

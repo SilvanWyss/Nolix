@@ -3,12 +3,15 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.core.sql.sqltool.SqlCollector;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaColumnDtoMapper;
 import ch.nolix.system.sqlmidschema.sqlschemamodelmapper.SqlSchemaTableDtoMapper;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -133,7 +136,16 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
-    schemaDataWriter.setContentModel(tableName, columnName, contentModel);
+  public void setColumnModel(
+    final String tableName,
+    final String columnName,
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<String> referenceableTableIds,
+    final IContainer<String> backReferenceableColumnIds) {
+    final var contentModelDto = //
+    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
+
+    schemaDataWriter.setContentModel(tableName, columnName, contentModelDto);
   }
 }

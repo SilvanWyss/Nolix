@@ -4,14 +4,15 @@ import java.util.function.Supplier;
 
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
@@ -121,15 +122,24 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public final void setContentModel(
-    final String tableName,
-    final String columnName,
-    final ContentModelDto contentModel) {
-    schemaWriter.setContentModel(tableName, columnName, contentModel);
+  public final void renameTable(final String tableName, final String newTableName) {
+    schemaWriter.renameTable(tableName, newTableName);
   }
 
   @Override
-  public final void renameTable(final String tableName, final String newTableName) {
-    schemaWriter.renameTable(tableName, newTableName);
+  public final void setColumnModel(
+    final String tableName,
+    final String columnName,
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<String> referenceableTableIds,
+    final IContainer<String> backReferenceableColumnIds) {
+    schemaWriter.setColumnModel(
+      tableName,
+      columnName,
+      fieldType,
+      dataType,
+      referenceableTableIds,
+      backReferenceableColumnIds);
   }
 }
