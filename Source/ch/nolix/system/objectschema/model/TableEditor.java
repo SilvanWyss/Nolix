@@ -1,17 +1,13 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.midschemamodelmapper.ColumnDtoMapper;
-import ch.nolix.system.objectschema.modeltool.TableTool;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IColumnDtoMapper;
-import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
 
 /**
  * @author Silvan Wyss
  * @version 2021-07-11
  */
 public final class TableEditor {
-  private static final ITableTool TABLE_TOOL = new TableTool();
-
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   private TableEditor() {
@@ -45,24 +41,13 @@ public final class TableEditor {
   }
 
   public static void setNameToTable(final Table table, final String name) {
-    final var oldTableName = table.getName();
-    final var referencingColumns = TABLE_TOOL.getStoredReferencingColumns(table);
-    final var backReferencingColumns = TABLE_TOOL.getStoredBackReferencingColumns(table);
+    final var oldName = table.getName();
 
     table.setNameAttribute(name);
+    table.setEdited();
 
     if (table.isConnectedWithRealDatabase()) {
-      table.getStoredMidSchemaAdapter().renameTable(oldTableName, name);
-
-      for (final var c : referencingColumns) {
-        ((Column) c).internalSetContentModelToDatabase();
-      }
-
-      for (final var c : backReferencingColumns) {
-        ((Column) c).internalSetContentModelToDatabase();
-      }
+      table.getStoredMidSchemaAdapter().renameTable(oldName, name);
     }
-
-    table.setEdited();
   }
 }
