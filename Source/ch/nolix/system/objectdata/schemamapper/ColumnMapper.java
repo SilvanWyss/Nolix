@@ -43,13 +43,14 @@ public final class ColumnMapper implements IColumnMapper {
 
     if (field instanceof final AbstractBaseBackReference<?> baseBackReference) {
 
-      //TODO: Add getBackReferenceableColumnNames method to AbstractBaseBackReference
-      final var backReferenceableColumnNames = //
-      ImmutableList.withElement(baseBackReference.getBackReferencedFieldName());
+      final var backReferencedFieldName = baseBackReference.getBackReferencedFieldName();
+      final var backReferenceableTableNames = baseBackReference.getBackReferenceableTableNames();
 
-      final var columns = tables.toMultiples(ITable::getStoredColumns);
+      final var backReferenceableTables = //
+      tables.getStoredSelected(t -> backReferenceableTableNames.contains(t.getName()));
+
       final var backReferenceableColumns = //
-      columns.getStoredSelected(c -> backReferenceableColumnNames.containsAny(c.getName()));
+      backReferenceableTables.to(t -> t.getStoredColumns().getStoredFirst(c -> c.hasName(backReferencedFieldName)));
 
       return //
       new Column(
