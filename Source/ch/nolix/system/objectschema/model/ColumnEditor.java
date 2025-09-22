@@ -76,20 +76,15 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     COLUMN_MUTATION_VALIDATOR.assertCanSetName(column, name);
 
     final var oldName = column.getName();
-    final var backReferencingColumns = column.getStoredBackReferencingColumns();
 
     column.setNameAttribute(name);
+    column.setEdited();
 
     if (column.isConnectedWithRealDatabase()) {
       final var tableName = column.getStoredParentTable().getName();
+      final var midSchemaAdapter = column.getStoredMidSchemaAdapter();
 
-      column.getStoredMidSchemaAdapter().renameColumn(tableName, oldName, name);
+      midSchemaAdapter.renameColumn(tableName, oldName, name);
     }
-
-    for (final var c : backReferencingColumns) {
-      ((Column) c).internalSetContentModelToDatabase();
-    }
-
-    column.setEdited();
   }
 }
