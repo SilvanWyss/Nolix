@@ -4,13 +4,14 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
 public interface ISchemaDataStatementCreator {
   String createStatementToAddBackReferenceableColumn(
     String parentBaseBackReferenceColumnId,
     String referenceableColumnId);
 
-  IContainer<String> createStatementsToAddColumn(String tableName, ColumnDto column);
+  IContainer<String> createStatementsToAddColumn(TableIdentification table, ColumnDto column);
 
   String createStatementToAddReferenceableTable(String parentBaseReferenceColumnId, String referenceableTableId);
 

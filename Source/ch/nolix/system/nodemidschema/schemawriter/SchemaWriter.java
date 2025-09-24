@@ -21,6 +21,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
@@ -74,9 +75,11 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void addColumn(final String tableName, final ColumnDto column) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
-      tableName);
+  public void addColumn(final TableIdentification table, final ColumnDto column) {
+    final var tableName = table.tableName();
+
+    final var tableNode = //
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase, tableName);
 
     tableNode.addChildNode(COLUMN_NODE_MAPPER.mapColumnDtoToColumnNode(column));
 

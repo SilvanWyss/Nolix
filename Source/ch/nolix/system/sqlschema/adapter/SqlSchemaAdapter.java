@@ -5,6 +5,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.resourcecontrol.resourcepool.IResourcePool;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
@@ -47,14 +48,14 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public void addColumn(final String tableName, final ColumnDto column) {
-    schemaWriter.addColumn(tableName, column);
+  public void addColumn(final TableIdentification table, final ColumnDto column) {
+    schemaWriter.addColumn(table, column);
   }
 
   @Override
-  public void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+  public void addColumns(final TableIdentification table, final IContainer<ColumnDto> columns) {
     for (final var c : columns) {
-      addColumn(tableName, c);
+      addColumn(table, c);
     }
   }
 

@@ -11,6 +11,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
@@ -51,16 +52,17 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void addColumn(final String tableName, final ColumnDto column) {
+  public void addColumn(final TableIdentification table, final ColumnDto column) {
+    final var tableName = table.tableName();
     final var statement = STATEMENT_CREATOR.createStatementToAddColumn(tableName, column);
 
     sqlCollector.addSqlStatement(statement);
   }
 
   @Override
-  public void addColumns(final String tableName, final IContainer<ColumnDto> columns) {
+  public void addColumns(final TableIdentification table, final IContainer<ColumnDto> columns) {
     for (final var c : columns) {
-      addColumn(tableName, c);
+      addColumn(table, c);
     }
   }
 

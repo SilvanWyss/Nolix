@@ -9,8 +9,8 @@ import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
 public final class StatementCreator implements IStatementCreator {
   @Override
-  public String createStatementToAddColumn(final String tabbleName, final ColumnDto column) {
-    return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column) + ";");
+  public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
+    return ("ALTER TABLE " + tableName + " ADD " + getColumnAsSql(column) + ";");
   }
 
   @Override

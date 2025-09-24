@@ -10,11 +10,13 @@ import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
 final class NodeSchemaAdapterTest extends StandardTest {
   @Test
   void testCase_addColumn() {
     //parameter definition
+    final var tableId = "table_id";
     final var tableName = "table_name";
     final var columnName = "column_name";
 
@@ -22,7 +24,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups tableDto.
-    final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
+    final var tableDto = new TableDto(tableId, tableName, ImmutableList.createEmpty());
 
     //Setups columnDto.
     final var columnDto = //
@@ -39,7 +41,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.addTable(tableDto);
 
     //execution
-    testUnit.addColumn(tableName, columnDto);
+    testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
     //verification
@@ -76,6 +78,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
   @Test
   void testCase_deleteColumn() {
     //parameter definition
+    final var tableId = "table_id";
     final var tableName = "table_name";
     final var columnName = "column_name";
 
@@ -83,7 +86,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     final var nodeDatabase = MutableNode.createEmpty();
 
     //Setups tableDto.
-    final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
+    final var tableDto = new TableDto(tableId, tableName, ImmutableList.createEmpty());
 
     //Setups columnDto
     final var columnDto = //
@@ -98,7 +101,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     //Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
-    testUnit.addColumn(tableName, columnDto);
+    testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
     //execution

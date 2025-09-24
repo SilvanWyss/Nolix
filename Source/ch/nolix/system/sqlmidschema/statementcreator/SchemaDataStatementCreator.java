@@ -6,6 +6,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
@@ -33,11 +34,11 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   }
 
   @Override
-  public IContainer<String> createStatementsToAddColumn(final String tableName, final ColumnDto column) {
+  public IContainer<String> createStatementsToAddColumn(final TableIdentification table, final ColumnDto column) {
     final ILinkedList<String> statements = LinkedList.createEmpty();
     final var columnId = column.id();
 
-    statements.addAtEnd(createStatementToAddColumnIntoColumnTable(tableName, column));
+    statements.addAtEnd(createStatementToAddColumnIntoColumnTable(table, column));
 
     for (final var t : column.referenceableTableIds()) {
       statements.addAtEnd(createStatementToAddReferenceableTable(columnId, t));
@@ -91,7 +92,10 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     statements.addAtEnd(createStatementToAddTable(table.id(), table.name()));
 
     for (final var c : table.columns()) {
-      statements.addAtEnd(createStatementsToAddColumn(table.name(), c));
+      final var tableId = table.id();
+      final var tablename = table.name();
+      final var tableIdentification = new TableIdentification(tableId, tablename);
+      statements.addAtEnd(createStatementsToAddColumn(tableIdentification, c));
     }
 
     return statements;
@@ -186,7 +190,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + "'";
   }
 
-  private String createStatementToAddColumnIntoColumnTable(final String tableName, final ColumnDto column) {
+  private String createStatementToAddColumnIntoColumnTable(final TableIdentification table, final ColumnDto column) {
     return //
     "INSERT INTO "
     + FixTable.COLUMN.getName()
@@ -200,22 +204,16 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ColumnColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnColumn.DATA_TYPE.getName()
-    + ") SELECT '"
+    + ") VALUES ('"
     + column.id()
-    + "', "
-    + TableColumn.ID.getName()
-    + ", '"
+    + "', '"
+    + table.tableId()
+    + "', '"
     + column.name()
-    + "', "
-    + column.fieldType()
-    + ", "
+    + "', '"
+    + column.fieldType().name()
+    + "', '"
     + column.dataType()
-    + " FROM "
-    + FixTable.TABLE.getName()
-    + " WHERE "
-    + TableColumn.NAME.getName()
-    + " = '"
-    + tableName
-    + "'";
+    + "');";
   }
 }

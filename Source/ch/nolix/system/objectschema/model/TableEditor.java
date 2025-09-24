@@ -1,6 +1,7 @@
 package ch.nolix.system.objectschema.model;
 
 import ch.nolix.system.objectschema.midschemamodelmapper.ColumnDtoMapper;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.midschemamodelmapper.IColumnDtoMapper;
 
 /**
@@ -19,10 +20,12 @@ public final class TableEditor {
 
     if (table.isConnectedWithRealDatabase()) {
       final var midSchemaAdapter = table.getStoredMidSchemaAdapter();
+      final var tableId = table.getId();
       final var tableName = table.getName();
+      final var tableIdentification = new TableIdentification(tableId, tableName);
       final var columnDto = COLUMN_DTO_MAPPER.mapColumnToMidSchemaColumnDto(column);
 
-      midSchemaAdapter.addColumn(tableName, columnDto);
+      midSchemaAdapter.addColumn(tableIdentification, columnDto);
     }
 
     table.setEdited();

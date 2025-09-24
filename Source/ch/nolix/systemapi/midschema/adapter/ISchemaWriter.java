@@ -6,9 +6,10 @@ import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
-  void addColumn(String tableName, ColumnDto column);
+  void addColumn(TableIdentification table, ColumnDto column);
 
   void addTable(TableDto table);
 

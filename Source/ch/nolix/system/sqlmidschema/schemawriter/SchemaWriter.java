@@ -15,6 +15,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
 import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
@@ -57,9 +58,9 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void addColumn(final String tableName, final ColumnDto column) {
-    schemaDataWriter.addColumn(tableName, column);
-    sqlSchemaWriter.addColumns(tableName, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDtos(column));
+  public void addColumn(final TableIdentification table, final ColumnDto column) {
+    schemaDataWriter.addColumn(table, column);
+    sqlSchemaWriter.addColumns(table, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDtos(column));
   }
 
   @Override

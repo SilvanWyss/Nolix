@@ -8,6 +8,7 @@ import ch.nolix.system.sqlmidschema.statementcreator.SchemaDataStatementCreator;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
@@ -30,8 +31,8 @@ public final class SchemaDataWriter {
     return new SchemaDataWriter(sqlCollector);
   }
 
-  public void addColumn(final String tableName, final ColumnDto column) {
-    final var statements = META_DATA_STATEMENT_CREATOR.createStatementsToAddColumn(tableName, column);
+  public void addColumn(final TableIdentification table, final ColumnDto column) {
+    final var statements = META_DATA_STATEMENT_CREATOR.createStatementsToAddColumn(table, column);
 
     sqlCollector.addSqlStatements(statements);
   }
