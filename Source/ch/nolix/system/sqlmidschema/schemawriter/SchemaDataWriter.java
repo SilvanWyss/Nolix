@@ -37,8 +37,8 @@ public final class SchemaDataWriter {
     sqlCollector.addSqlStatements(statements);
   }
 
-  public void deleteColumn(String tableName, String columnName) {
-    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
+  public void deleteColumn(final TableIdentification table, final String columnName) {
+    final var statement = META_DATA_STATEMENT_CREATOR.createStatementToDeleteColumn(table, columnName);
 
     sqlCollector.addSqlStatement(statement);
   }

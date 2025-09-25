@@ -105,7 +105,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     testUnit.saveChanges();
 
     //execution
-    testUnit.deleteColumn(tableName, columnName);
+    testUnit.deleteColumn(new TableIdentification(tableId, tableName), columnName);
     testUnit.saveChanges();
 
     //verification

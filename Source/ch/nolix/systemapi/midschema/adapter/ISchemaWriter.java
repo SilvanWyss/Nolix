@@ -13,7 +13,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void addTable(TableDto table);
 
-  void deleteColumn(String tableName, String columnName);
+  void deleteColumn(TableIdentification table, String columnName);
 
   void deleteTable(String tableName);
 

@@ -19,7 +19,7 @@ public interface ISchemaDataStatementCreator {
 
   IContainer<String> createStatementsToAddTable(TableDto table);
 
-  String createStatementToDeleteColumn(String tableName, String columnName);
+  String createStatementToDeleteColumn(TableIdentification table, String columnName);
 
   String createStatementToDeleteTable(String tableName);
 

@@ -70,12 +70,12 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void deleteColumn(final String tableName, final String columnName) {
+  public void deleteColumn(final TableIdentification table, final String columnName) {
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
 
-    schemaDataWriter.deleteColumn(tableName, columnName);
-    sqlSchemaWriter.deleteColumn(tableName, columnName);
-    sqlSchemaWriter.deleteColumnIfExists(tableName, referencedTableColumnName);
+    schemaDataWriter.deleteColumn(table, columnName);
+    sqlSchemaWriter.deleteColumn(table.tableName(), columnName);
+    sqlSchemaWriter.deleteColumnIfExists(table.tableName(), referencedTableColumnName);
   }
 
   @Override

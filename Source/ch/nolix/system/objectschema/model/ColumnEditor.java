@@ -4,6 +4,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
@@ -23,12 +24,12 @@ public final class ColumnEditor implements IColumnEditor<Column> {
   public void deleteColumn(final Column column) {
     COLUMN_MUTATION_VALIDATOR.assertCanBeDeleted(column);
 
-    if (column.belongsToTable()) {
-      column.getStoredParentTable().removeColumnAttribute(column);
-    }
+    final var table = column.getStoredParentTable();
+    final var tableId = table.getId();
+    final var tableName = table.getName();
 
-    column.getStoredMidSchemaAdapter().deleteColumn(column.getStoredParentTable().getName(), column.getName());
-
+    column.getStoredMidSchemaAdapter().deleteColumn(new TableIdentification(tableId, tableName), column.getName());
+    column.getStoredParentTable().removeColumnAttribute(column);
     column.setDeleted();
   }
 

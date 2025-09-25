@@ -94,9 +94,11 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void deleteColumn(final String tableName, final String columnName) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
-      tableName);
+  public void deleteColumn(final TableIdentification table, final String columnName) {
+    final var tableId = table.tableId();
+
+    final var tableNode = //
+    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(editedNodeDatabase, tableId);
 
     tableNode.removeFirstChildNodeThat(
       (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.COLUMN)

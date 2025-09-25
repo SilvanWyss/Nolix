@@ -102,19 +102,19 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   }
 
   @Override
-  public String createStatementToDeleteColumn(final String tableName, final String columnName) {
+  public String createStatementToDeleteColumn(final TableIdentification table, final String columnName) {
     return //
     "DELETE FROM "
     + FixTable.COLUMN.getName()
     + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID.getName()
-    + " = "
-    + tableName
-    + " AND "
+    + " = '"
+    + table.tableId()
+    + "' AND "
     + ColumnColumn.NAME.getName()
     + " = '"
     + columnName
-    + "'";
+    + "';";
   }
 
   @Override
