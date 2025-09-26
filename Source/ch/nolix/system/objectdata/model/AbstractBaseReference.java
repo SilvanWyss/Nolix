@@ -48,7 +48,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
           final var backReference = (BackReference<?>) p;
 
           if (backReference.referencesBackField(this)) {
-            backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
+            backReference.setBackReferencedEntityOnly(getStoredParentEntity());
           }
 
           break;

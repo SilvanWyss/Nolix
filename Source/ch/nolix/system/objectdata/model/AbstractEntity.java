@@ -276,7 +276,7 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   private void updateBackReferenceForDeletion(final BackReference<?> backReference) {
-    backReference.internalClear();
+    backReference.clear();
     backReference.setAsEditedAndRunPotentialUpdateAction();
   }
 

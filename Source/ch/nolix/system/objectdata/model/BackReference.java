@@ -1,7 +1,9 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
@@ -13,6 +15,7 @@ import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 public final class BackReference<E extends IEntity> extends AbstractBaseBackReference<E> implements IBackReference<E> {
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
@@ -21,7 +24,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
-  private String backReferencedEntityId;
+  private EntityCache<E> nullableBackReferencedEntityCache;
 
   private BackReference(final IContainer<String> backReferenceableTableNames, final String backReferencedFieldName) {
     super(backReferenceableTableNames, backReferencedFieldName);
@@ -32,7 +35,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     final String backReferencedFieldName) {
     final var backReferenceableTableNames = //
     backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
-  
+
     return new BackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
@@ -46,7 +49,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     final IContainer<ITable<IEntity>> backReferenceableTables,
     final String backReferencedFieldName) {
     final var backReferenceableTableNames = backReferenceableTables.getViewOf(ITable::getName);
-  
+
     return new BackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
@@ -72,7 +75,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   public String getBackReferencedEntityId() {
     FIELD_VALIDATOR.assertIsNotEmpty(this);
 
-    return backReferencedEntityId;
+    return nullableBackReferencedEntityCache.entityId();
   }
 
   @Override
@@ -82,12 +85,24 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    backReferencedEntityId = (String) nullableValue;
+    final var id = (String) nullableValue;
+
+    if (id == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ID);
+    }
+
+    final var tableId = nullableAdditionalValue;
+
+    if (tableId == null) {
+      throw ArgumentIsNullException.forArgumentName("table id");
+    }
+
+    nullableBackReferencedEntityCache = new EntityCache<>(id, tableId, null);
   }
 
   @Override
   public boolean isEmpty() {
-    return (backReferencedEntityId == null);
+    return (nullableBackReferencedEntityCache == null);
   }
 
   @Override
@@ -113,12 +128,22 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     return (containsAny() && getBackReferencedEntityId().equals(id));
   }
 
-  void internalClear() {
-    backReferencedEntityId = null;
+  void clear() {
+    nullableBackReferencedEntityCache = null;
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  void internalSetDirectlyBackReferencedEntityId(final String backReferencedEntityId) {
-    this.backReferencedEntityId = backReferencedEntityId;
+  @SuppressWarnings("unchecked")
+  void setBackReferencedEntityOnly(final IEntity entity) {
+    final var entityId = entity.getId();
+    final var castedEntity = (E) entity;
+    if (entity.belongsToTable()) {
+      final var table = entity.getStoredParentTable();
+      final var tableId = table.getId();
+      nullableBackReferencedEntityCache = new EntityCache<>(entityId, tableId, castedEntity);
+    } else {
+      nullableBackReferencedEntityCache = new EntityCache<>(entityId, null, castedEntity);
+    }
+    setAsEditedAndRunPotentialUpdateAction();
   }
 }

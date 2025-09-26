@@ -13,7 +13,7 @@ public final class BaseBackReferenceUpdater {
     switch (baseBackReferene.getType()) {
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReferene;
-        backReference.internalClear();
+        backReference.clear();
         backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:

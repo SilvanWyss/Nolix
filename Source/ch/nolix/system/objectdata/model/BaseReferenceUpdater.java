@@ -32,7 +32,7 @@ public final class BaseReferenceUpdater {
     switch (type) {
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReference;
-        backReference.internalSetDirectlyBackReferencedEntityId(entity.getId());
+        backReference.setBackReferencedEntityOnly(entity);
         backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
