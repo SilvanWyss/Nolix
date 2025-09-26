@@ -13,8 +13,8 @@ import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
@@ -139,14 +139,17 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnModel(
     final TableIdentification table,
-    final String columnName,
+    final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<String> referenceableTableIds,
     final IContainer<String> backReferenceableColumnIds) {
-    final var contentModelDto = //
-    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
-
-    schemaDataWriter.setContentModel(table, columnName, contentModelDto);
+    schemaDataWriter.setContentModel(
+      table,
+      column,
+      fieldType,
+      dataType,
+      referenceableTableIds,
+      backReferenceableColumnIds);
   }
 }

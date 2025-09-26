@@ -13,26 +13,39 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
 
   @Override
   public int getOneBasedIndexOfColumnInTableNodeByColumnName(final IMutableNode<?> tableNode, final String columnName) {
-    var localOneBasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;
+    var oneBasedColumnIndex = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + 1;
 
     for (final var c : getStoredColumnNodesFromTableNode(tableNode)) {
       if (COLUMN_NODE_SEARCHER.getColumnNameFromColumnNode(c).equals(columnName)) {
-        return localOneBasedColumnIndex;
+        return oneBasedColumnIndex;
       }
 
-      localOneBasedColumnIndex++;
+      oneBasedColumnIndex++;
     }
 
     throw InvalidArgumentException.forArgumentAndArgumentName(columnName, "column name");
   }
 
   @Override
+  public IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnId(
+    final IMutableNode<?> tableNode,
+    final String columnId) {
+    final var columnNodes = getStoredColumnNodesFromTableNode(tableNode);
+
+    return //
+    columnNodes.getStoredFirst(
+      c -> COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(c).getStoredSingleChildNode().hasHeader(columnId));
+  }
+
+  @Override
   public IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnName(
     final IMutableNode<?> tableNode,
     final String columnName) {
-    return getStoredColumnNodesFromTableNode(tableNode).getStoredFirst(
-      csn -> COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(csn).getStoredSingleChildNode()
-        .hasHeader(columnName));
+    final var columnNodes = getStoredColumnNodesFromTableNode(tableNode);
+
+    return //
+    columnNodes.getStoredFirst(
+      c -> COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(c).getStoredSingleChildNode().hasHeader(columnName));
   }
 
   @Override

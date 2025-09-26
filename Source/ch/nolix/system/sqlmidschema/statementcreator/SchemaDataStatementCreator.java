@@ -3,9 +3,11 @@ package ch.nolix.system.sqlmidschema.statementcreator;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
@@ -17,7 +19,7 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCrea
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
   @Override
   public String createStatementToAddBackReferenceableColumn(
-    final String parentBaseBackReferenceColumnId,
+    final ColumnIdentification parentBaseBackReferenceColumn,
     final String referenceableColumnId) {
     return //
     "INSERT INTO "
@@ -27,7 +29,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ", "
     + BackReferenceableColumnColumn.BACK_REFERENCEABLE_COLUMN_ID.getName()
     + ") VALUES ('"
-    + parentBaseBackReferenceColumnId
+    + parentBaseBackReferenceColumn.columnId()
     + "', '"
     + referenceableColumnId
     + "');";
@@ -37,15 +39,17 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public IContainer<String> createStatementsToAddColumn(final TableIdentification table, final ColumnDto column) {
     final ILinkedList<String> statements = LinkedList.createEmpty();
     final var columnId = column.id();
+    final var columnName = column.name();
+    final var columnIdentification = new ColumnIdentification(columnId, columnName);
 
     statements.addAtEnd(createStatementToAddColumnIntoColumnTable(table, column));
 
     for (final var t : column.referenceableTableIds()) {
-      statements.addAtEnd(createStatementToAddReferenceableTable(columnId, t));
+      statements.addAtEnd(createStatementToAddReferenceableTable(columnIdentification, t));
     }
 
     for (final var c : column.backReferenceableColumnIds()) {
-      statements.addAtEnd(createStatementToAddBackReferenceableColumn(columnId, c));
+      statements.addAtEnd(createStatementToAddBackReferenceableColumn(columnIdentification, c));
     }
 
     return statements;
@@ -53,7 +57,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
 
   @Override
   public String createStatementToAddReferenceableTable(
-    final String parentBaseReferenceColumnId,
+    final ColumnIdentification parentBaseReferenceColumn,
     final String referenceableTableId) {
     return //
     "INSERT INTO "
@@ -63,7 +67,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + ", "
     + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
     + ") VALUES ('"
-    + parentBaseReferenceColumnId
+    + parentBaseReferenceColumn.columnId()
     + "', '"
     + referenceableTableId
     + "');";
@@ -151,30 +155,6 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   }
 
   @Override
-  public String createStatementToSetContentModel(
-    final String tableName,
-    final String columnName,
-    final ContentModelDto contentModel) {
-
-    return //
-    "UPDATE "
-    + FixTable.COLUMN.getName()
-    + " SET "
-    + ColumnColumn.DATA_TYPE
-    + " = "
-    + contentModel.dataType()
-    + " WHERE "
-    + ColumnColumn.PARENT_TABLE_ID
-    + " = '"
-    + tableName
-    + "' AND "
-    + ColumnColumn.NAME.getName()
-    + " = '"
-    + columnName
-    + "'";
-  }
-
-  @Override
   public String createStatementToRenameTable(final String tableName, final String newTableName) {
     return //
     "UPDATE "
@@ -188,6 +168,34 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + " = '"
     + tableName
     + "'";
+  }
+
+  @Override
+  public IContainer<String> createStatementsToSetContentModel(
+    final TableIdentification table,
+    final ColumnIdentification column,
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<String> referenceableTableIds,
+    final IContainer<String> backReferenceableColumnIds) {
+    final ILinkedList<String> statements = LinkedList.createEmpty();
+
+    final var statementToSetContentModelInColumnTable = // 
+    createStatementToSetContentModelInColumnTable(table, column, fieldType, dataType);
+
+    statements.addAtEnd(statementToSetContentModelInColumnTable);
+
+    final var statementsToAddReferenceableTables = //
+    referenceableTableIds.getViewOf(t -> createStatementToAddReferenceableTable(column, t));
+
+    statements.addAtEnd(statementsToAddReferenceableTables);
+
+    final var statementsToAddBackReferenceableColumns = //
+    backReferenceableColumnIds.getViewOf(c -> createStatementToAddBackReferenceableColumn(column, c));
+
+    statements.addAtEnd(statementsToAddBackReferenceableColumns);
+
+    return statements;
   }
 
   private String createStatementToAddColumnIntoColumnTable(final TableIdentification table, final ColumnDto column) {
@@ -215,5 +223,27 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + "', '"
     + column.dataType()
     + "');";
+  }
+
+  private String createStatementToSetContentModelInColumnTable(
+    final TableIdentification table,
+    final ColumnIdentification column,
+    final FieldType fieldType, final DataType dataType) {
+    return //
+    "UPDATE "
+    + FixTable.COLUMN.getName()
+    + " SET "
+    + ColumnColumn.FIELD_TYPE
+    + " = '"
+    + fieldType.name()
+    + "', "
+    + ColumnColumn.DATA_TYPE
+    + " = '"
+    + dataType.name()
+    + "' WHERE "
+    + ColumnColumn.ID
+    + " = '"
+    + column.columnId()
+    + "';";
   }
 }

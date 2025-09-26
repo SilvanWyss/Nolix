@@ -12,6 +12,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
@@ -207,7 +208,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final var tableId = table.getId();
     final var tableName = table.getName();
     final var tableIdentification = new TableIdentification(tableId, tableName);
+    final var columnId = getId();
     final var columnName = getName();
+    final var columnIdentification = new ColumnIdentification(columnId, columnName);
     final var localFieldType = getFieldType();
     final var localDataType = getDataType();
     final var referenceableTableIds = getStoredReferenceableTables().to(ITable::getId);
@@ -215,7 +218,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
     getStoredMidSchemaAdapter().setColumnModel(
       tableIdentification,
-      columnName,
+      columnIdentification,
       localFieldType,
       localDataType,
       referenceableTableIds,

@@ -4,6 +4,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -58,14 +59,16 @@ public final class ColumnEditor implements IColumnEditor<Column> {
       final var tableId = table.getId();
       final var tableName = table.getName();
       final var tableIdentification = new TableIdentification(tableId, tableName);
+      final var columnId = column.getId();
       final var columnName = column.getName();
+      final var columnIdentification = new ColumnIdentification(columnId, columnName);
       final var referenceableTableIds = referenceableTables.to(ITable::getId);
       final var backReferenceableColumnIds = backReferenceableColumns.to(IColumn::getId);
       final var midSchemaAdapter = column.getStoredMidSchemaAdapter();
 
       midSchemaAdapter.setColumnModel(
         tableIdentification,
-        columnName,
+        columnIdentification,
         fieldType,
         dataType,
         referenceableTableIds,

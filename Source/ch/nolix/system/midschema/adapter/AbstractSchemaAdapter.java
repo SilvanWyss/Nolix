@@ -14,6 +14,7 @@ import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.time.moment.ITime;
 
@@ -130,14 +131,14 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   @Override
   public final void setColumnModel(
     final TableIdentification table,
-    final String columnName,
+    final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<String> referenceableTableIds,
     final IContainer<String> backReferenceableColumnIds) {
     schemaWriter.setColumnModel(
       table,
-      columnName,
+      column,
       fieldType,
       dataType,
       referenceableTableIds,

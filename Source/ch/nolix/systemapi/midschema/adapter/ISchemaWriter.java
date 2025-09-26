@@ -6,6 +6,7 @@ import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
 public interface ISchemaWriter extends IResettableChangeSaver {
@@ -23,7 +24,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 
   void setColumnModel(
     TableIdentification table,
-    String columnName,
+    ColumnIdentification columnIdentification,
     FieldType fieldType,
     DataType dataType,
     IContainer<String> referenceableTableIds,

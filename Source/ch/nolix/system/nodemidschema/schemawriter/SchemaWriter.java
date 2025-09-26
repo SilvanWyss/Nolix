@@ -20,6 +20,7 @@ import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
@@ -179,14 +180,15 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void setColumnModel(
     final TableIdentification table,
-    final String columnName,
+    final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<String> referenceableTableIds,
     final IContainer<String> backReferenceableColumnIds) {
     final var tableId = table.tableId();
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
-    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
+    final var columnId = column.columnId();
+    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnId(tableNode, columnId);
 
     final var fieldTypeNode = COLUMN_NODE_SEARCHER.getStoredFieldTypeNodeFromColumnNode(columnNode);
     fieldTypeNode.getStoredSingleChildNode().setHeader(fieldType.name());

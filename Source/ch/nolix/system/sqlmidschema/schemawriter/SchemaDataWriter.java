@@ -2,12 +2,15 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.sql.sqltool.SqlCollector;
+import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
 import ch.nolix.system.sqlmidschema.statementcreator.SchemaDataStatementCreator;
+import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
@@ -71,12 +74,21 @@ public final class SchemaDataWriter {
 
   public void setContentModel(
     final TableIdentification table,
-    final String columnName,
-    final ContentModelDto contentModel) {
-    final var statement = //
-    META_DATA_STATEMENT_CREATOR.createStatementToSetContentModel(table.tableName(), columnName, contentModel);
+    final ColumnIdentification column,
+    final FieldType fieldType,
+    final DataType dataType,
+    final IContainer<String> referenceableTableIds,
+    final IContainer<String> backReferenceableColumnIds) {
+    final var statements = //
+    META_DATA_STATEMENT_CREATOR.createStatementsToSetContentModel(
+      table,
+      column,
+      fieldType,
+      dataType,
+      referenceableTableIds,
+      backReferenceableColumnIds);
 
-    sqlCollector.addSqlStatement(statement);
+    sqlCollector.addSqlStatements(statements);
   }
 
   public void setSchemaTimestamp(ITime schemaTimestamp) {
