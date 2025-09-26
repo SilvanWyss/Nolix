@@ -55,14 +55,16 @@ public final class ColumnEditor implements IColumnEditor<Column> {
 
     if (column.isConnectedWithRealDatabase()) {
       final var table = column.getStoredParentTable();
+      final var tableId = table.getId();
       final var tableName = table.getName();
+      final var tableIdentification = new TableIdentification(tableId, tableName);
       final var columnName = column.getName();
       final var referenceableTableIds = referenceableTables.to(ITable::getId);
       final var backReferenceableColumnIds = backReferenceableColumns.to(IColumn::getId);
       final var midSchemaAdapter = column.getStoredMidSchemaAdapter();
 
       midSchemaAdapter.setColumnModel(
-        tableName,
+        tableIdentification,
         columnName,
         fieldType,
         dataType,

@@ -138,7 +138,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void setColumnModel(
-    final String tableName,
+    final TableIdentification table,
     final String columnName,
     final FieldType fieldType,
     final DataType dataType,
@@ -147,6 +147,6 @@ public final class SchemaWriter implements ISchemaWriter {
     final var contentModelDto = //
     new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
 
-    schemaDataWriter.setContentModel(tableName, columnName, contentModelDto);
+    schemaDataWriter.setContentModel(table, columnName, contentModelDto);
   }
 }

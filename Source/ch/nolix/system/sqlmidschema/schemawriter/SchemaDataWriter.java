@@ -69,9 +69,12 @@ public final class SchemaDataWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
-  public void setContentModel(final String tableName, final String columnName, final ContentModelDto contentModel) {
+  public void setContentModel(
+    final TableIdentification table,
+    final String columnName,
+    final ContentModelDto contentModel) {
     final var statement = //
-    META_DATA_STATEMENT_CREATOR.createStatementToSetContentModel(tableName, columnName, contentModel);
+    META_DATA_STATEMENT_CREATOR.createStatementToSetContentModel(table.tableName(), columnName, contentModel);
 
     sqlCollector.addSqlStatement(statement);
   }

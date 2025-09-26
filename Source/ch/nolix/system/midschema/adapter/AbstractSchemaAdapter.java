@@ -129,14 +129,14 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
 
   @Override
   public final void setColumnModel(
-    final String tableName,
+    final TableIdentification table,
     final String columnName,
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<String> referenceableTableIds,
     final IContainer<String> backReferenceableColumnIds) {
     schemaWriter.setColumnModel(
-      tableName,
+      table,
       columnName,
       fieldType,
       dataType,

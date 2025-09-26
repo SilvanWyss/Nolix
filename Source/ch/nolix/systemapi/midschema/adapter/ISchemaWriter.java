@@ -22,7 +22,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
   void renameTable(String tableName, String newTableName);
 
   void setColumnModel(
-    String tableName,
+    TableIdentification table,
     String columnName,
     FieldType fieldType,
     DataType dataType,

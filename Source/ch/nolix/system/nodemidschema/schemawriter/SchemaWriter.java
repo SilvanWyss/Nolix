@@ -182,13 +182,14 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void setColumnModel(
-    final String tableName,
+    final TableIdentification table,
     final String columnName,
     final FieldType fieldType,
     final DataType dataType,
     final IContainer<String> referenceableTableIds,
     final IContainer<String> backReferenceableColumnIds) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var tableId = table.tableId();
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
     final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
     final var contentModelDto = //
     new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
