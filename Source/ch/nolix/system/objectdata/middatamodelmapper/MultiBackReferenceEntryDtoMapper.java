@@ -22,8 +22,10 @@ public final class MultiBackReferenceEntryDtoMapper implements IMultiBackReferen
     final var entityId = entity.getId();
     final var multiBackReferenceColumn = multiBackReference.getStoredParentColumn();
     final var multiBackReferenceColumnId = multiBackReferenceColumn.getId();
-    final var backReferencedEntityId = multiBackReferenceEntry.getBackReferencedEntityId();
-    final var backReferencedEntityTableId = multiBackReference.getBackReferencedTableId();
+    final var backReferencedEntity = multiBackReferenceEntry.getStoredBackReferencedEntity();
+    final var backReferencedEntityId = backReferencedEntity.getId();
+    final var backReferencedEntityTable = backReferencedEntity.getStoredParentTable();
+    final var backReferencedEntityTableId = backReferencedEntityTable.getId();
 
     return //
     new MultiBackReferenceEntryDto(
