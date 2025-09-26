@@ -54,7 +54,7 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  public final String getBackReferencedTableId() {
+  public String getBackReferencedTableId() {
     return getStoredBackReferencedTable().getId();
   }
 

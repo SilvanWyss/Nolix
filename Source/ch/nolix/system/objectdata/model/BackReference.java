@@ -79,6 +79,13 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
+  public String getBackReferencedTableId() {
+    retrieveBackReferencedTableId();
+
+    return nullableBackReferencedEntityCache.nullableTableId();
+  }
+
+  @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
@@ -145,5 +152,21 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
       nullableBackReferencedEntityCache = new EntityCache<>(entityId, null, castedEntity);
     }
     setAsEditedAndRunPotentialUpdateAction();
+  }
+
+  private void retrieveBackReferencedTableId() {
+    FIELD_VALIDATOR.assertIsNotEmpty(this);
+
+    var backReferencedTableId = nullableBackReferencedEntityCache.nullableTableId();
+
+    if (backReferencedTableId == null) {
+      final var backReferencedEntityId = nullableBackReferencedEntityCache.entityId();
+      final var backReferencedEntity = nullableBackReferencedEntityCache.nullableEntity();
+      final var backReferencedTable = backReferencedEntity.getStoredParentTable();
+      backReferencedTableId = backReferencedTable.getId();
+
+      nullableBackReferencedEntityCache = //
+      new EntityCache<>(backReferencedEntityId, backReferencedTableId, backReferencedEntity);
+    }
   }
 }
