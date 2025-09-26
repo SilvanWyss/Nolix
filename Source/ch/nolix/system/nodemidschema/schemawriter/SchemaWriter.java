@@ -1,6 +1,7 @@
 package ch.nolix.system.nodemidschema.schemawriter;
 
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -9,7 +10,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.nodemidschema.nodemapper.ColumnNodeMapper;
-import ch.nolix.system.nodemidschema.nodemapper.ContentModelNodeMapper;
 import ch.nolix.system.nodemidschema.nodemapper.TableNodeMapper;
 import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
@@ -19,12 +19,10 @@ import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschema.model.ContentModelDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
-import ch.nolix.systemapi.nodemidschema.nodemapper.IContentModelNodeMapper;
 import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
@@ -46,8 +44,6 @@ public final class SchemaWriter implements ISchemaWriter {
   private static final ITableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
 
   private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
-
-  private static final IContentModelNodeMapper CONTENT_MODEL_NODE_MAPPER = new ContentModelNodeMapper();
 
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();
@@ -191,12 +187,26 @@ public final class SchemaWriter implements ISchemaWriter {
     final var tableId = table.tableId();
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
     final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
-    final var contentModelDto = //
-    new ContentModelDto(fieldType, dataType, referenceableTableIds, backReferenceableColumnIds);
 
-    columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-      NodeHeaderCatalog.CONTENT_MODEL,
-      CONTENT_MODEL_NODE_MAPPER.mapContentModelDtoToNode(contentModelDto));
+    final var fieldTypeNode = COLUMN_NODE_SEARCHER.getStoredFieldTypeNodeFromColumnNode(columnNode);
+    fieldTypeNode.getStoredSingleChildNode().setHeader(fieldType.name());
+
+    final var dataTypeNode = COLUMN_NODE_SEARCHER.getStoredDataTypeNodeFromColumnNode(columnNode);
+    dataTypeNode.getStoredSingleChildNode().setHeader(dataType.name());
+
+    final var referenceablteTableIdsNodes = referenceableTableIds.to(Node::withHeader);
+
+    final var referenceablteTableIdsNode = //
+    COLUMN_NODE_SEARCHER.getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
+
+    referenceablteTableIdsNode.setChildNodes(referenceablteTableIdsNodes);
+
+    final var backReferenceableColumnIdNodes = backReferenceableColumnIds.to(Node::withHeader);
+
+    final var backReferenceableColumnIdsNode = //
+    COLUMN_NODE_SEARCHER.getStoredBackReferenceableColumnIdsNodeFromColumnNode(columnNode);
+
+    backReferenceableColumnIdsNode.setChildNodes(backReferenceableColumnIdNodes);
 
     hasChanges = true;
   }
