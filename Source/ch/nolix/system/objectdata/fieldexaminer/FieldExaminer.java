@@ -43,7 +43,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
       final var abstractBackReference = (IBaseBackReference<IEntity>) field;
 
       return //
-      abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull(
+      baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(
         abstractBackReference,
         abstractReference);
     }
@@ -95,22 +95,24 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
   }
 
   /**
-   * @param abstractBackReference
-   * @param abstractReference
-   * @return true if the given abstractBackReference can reference back the given
-   *         abstractReference, false otherwise, for the case that the given
-   *         abstractBackReference and abstractReference are not null.
+   * @param baseBackReference
+   * @param baseReference
+   * @return true if the given baseBackReference can reference back the given
+   *         baseReference false otherwise. For the case that the given
+   *         baseBackReference and baseReference are not null.
    */
-  private boolean abstractBackReferenceCanReferenceBackAbstractReferenceWhenParametersAreNotNull(
-    final IBaseBackReference<IEntity> abstractBackReference,
-    final IBaseReference abstractReference) {
-    if (abstractReference.belongsToEntity()) {
-      final var backReferencedTableName = abstractBackReference.getBackReferencedTableName();
-      final var backReferencedFieldName = abstractBackReference.getBackReferencedFieldName();
+  private boolean baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(
+    final IBaseBackReference<IEntity> baseBackReference,
+    final IBaseReference baseReference) {
+    if (baseReference.belongsToEntity()) {
+      final var baseReferenceParentTableName = baseReference.getStoredParentEntity().getParentTableName();
+      final var baseReferenceName = baseReference.getName();
+      final var backReferenceableTableNames = baseBackReference.getBackReferenceableTableNames();
+      final var backReferencedFieldName = baseBackReference.getBackReferencedFieldName();
 
       return //
-      backReferencedTableName.equals(abstractReference.getStoredParentEntity().getParentTableName())
-      && backReferencedFieldName.equals(abstractReference.getName());
+      backReferenceableTableNames.contains(baseReferenceParentTableName)
+      && backReferencedFieldName.equals(baseReferenceName);
     }
 
     return false;
