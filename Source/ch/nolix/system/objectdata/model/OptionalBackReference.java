@@ -1,6 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
@@ -13,6 +14,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
+import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 public final class OptionalBackReference<E extends IEntity>
 extends AbstractBaseBackReference<E>
@@ -23,7 +25,7 @@ implements IOptionalBackReference<E> {
 
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 
-  private String backReferencedEntityId;
+  private EntityCache<E> nullableBackReferencedEntityCache;
 
   private OptionalBackReference(final IContainer<String> backReferenceableTableNamese,
     final String backReferencedFieldName) {
@@ -57,7 +59,14 @@ implements IOptionalBackReference<E> {
   public String getBackReferencedEntityId() {
     FIELD_VALIDATOR.assertIsNotEmpty(this);
 
-    return backReferencedEntityId;
+    return nullableBackReferencedEntityCache.entityId();
+  }
+
+  @Override
+  public String getBackReferencedTableId() {
+    retrieveBackReferencedTableId();
+
+    return nullableBackReferencedEntityCache.nullableTableId();
   }
 
   @Override
@@ -85,12 +94,26 @@ implements IOptionalBackReference<E> {
 
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    backReferencedEntityId = (String) nullableValue;
+
+    final var id = (String) nullableValue;
+
+    if (id == null) {
+      nullableBackReferencedEntityCache = null;
+    } else {
+
+      final var tableId = nullableAdditionalValue;
+
+      if (tableId == null) {
+        throw ArgumentIsNullException.forArgumentName("table id");
+      }
+
+      nullableBackReferencedEntityCache = new EntityCache<>(id, tableId, null);
+    }
   }
 
   @Override
   public boolean isEmpty() {
-    return (backReferencedEntityId == null);
+    return (nullableBackReferencedEntityCache == null);
   }
 
   @Override
@@ -110,12 +133,38 @@ implements IOptionalBackReference<E> {
     return (containsAny() && getBackReferencedEntityId().equals(id));
   }
 
-  void internalClear() {
-    backReferencedEntityId = null;
+  void clear() {
+    nullableBackReferencedEntityCache = null;
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  void internalSetDirectlyBackReferencedEntityId(final String backReferencedEntityId) {
-    this.backReferencedEntityId = backReferencedEntityId;
+  @SuppressWarnings("unchecked")
+  void setBackReferencedEntityOnly(final IEntity entity) {
+    final var entityId = entity.getId();
+    final var castedEntity = (E) entity;
+    if (entity.belongsToTable()) {
+      final var table = entity.getStoredParentTable();
+      final var tableId = table.getId();
+      nullableBackReferencedEntityCache = new EntityCache<>(entityId, tableId, castedEntity);
+    } else {
+      nullableBackReferencedEntityCache = new EntityCache<>(entityId, null, castedEntity);
+    }
+    setAsEditedAndRunPotentialUpdateAction();
+  }
+
+  private void retrieveBackReferencedTableId() {
+    FIELD_VALIDATOR.assertIsNotEmpty(this);
+
+    var backReferencedTableId = nullableBackReferencedEntityCache.nullableTableId();
+
+    if (backReferencedTableId == null) {
+      final var backReferencedEntityId = nullableBackReferencedEntityCache.entityId();
+      final var backReferencedEntity = nullableBackReferencedEntityCache.nullableEntity();
+      final var backReferencedTable = backReferencedEntity.getStoredParentTable();
+      backReferencedTableId = backReferencedTable.getId();
+
+      nullableBackReferencedEntityCache = //
+      new EntityCache<>(backReferencedEntityId, backReferencedTableId, backReferencedEntity);
+    }
   }
 }

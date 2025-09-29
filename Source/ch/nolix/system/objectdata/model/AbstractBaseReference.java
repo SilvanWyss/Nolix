@@ -44,7 +44,6 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     for (final var p : entity.internalGetStoredFields()) {
       switch (p.getType()) {
         case BACK_REFERENCE:
-
           final var backReference = (BackReference<?>) p;
 
           if (backReference.referencesBackField(this)) {
@@ -54,11 +53,10 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
           break;
 
         case OPTIONAL_BACK_REFERENCE:
-
           final var optionalBackReference = (OptionalBackReference<?>) p;
 
           if (optionalBackReference.referencesBackField(this)) {
-            optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
+            optionalBackReference.setBackReferencedEntityOnly(getStoredParentEntity());
           }
 
           break;

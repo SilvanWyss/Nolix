@@ -33,17 +33,14 @@ public final class BaseReferenceUpdater {
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReference;
         backReference.setBackReferencedEntityOnly(entity);
-        backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
         final var optionalBackReference = (OptionalBackReference<?>) baseBackReference;
-        optionalBackReference.internalSetDirectlyBackReferencedEntityId(entity.getId());
-        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
+        optionalBackReference.setBackReferencedEntityOnly(entity);
         break;
       case MULTI_BACK_REFERENCE:
         final var multiBackReference = (MultiBackReference<?>) baseBackReference;
         multiBackReference.internalAddBackReferencedEntityId(entity.getId());
-        multiBackReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       default:
         throw InvalidArgumentException.forArgument(type);

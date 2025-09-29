@@ -14,12 +14,10 @@ public final class BaseBackReferenceUpdater {
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReferene;
         backReference.clear();
-        backReference.setAsEditedAndRunPotentialUpdateAction();
         break;
       case OPTIONAL_BACK_REFERENCE:
         final var optionalBackReference = (OptionalBackReference<?>) baseBackReferene;
-        optionalBackReference.internalClear();
-        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
+        optionalBackReference.clear();
         break;
       case MULTI_BACK_REFERENCE:
         /*
