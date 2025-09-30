@@ -70,7 +70,7 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  public final boolean referencesBackField(final IField field) {
+  public boolean referencesBackField(final IField field) {
     return //
     canReferenceBackFieldBecauseOfName(field)
     && referencesBackEntityWithId(field.getStoredParentEntity().getId());
