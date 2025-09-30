@@ -40,7 +40,7 @@ public final class BaseReferenceUpdater {
         break;
       case MULTI_BACK_REFERENCE:
         final var multiBackReference = (MultiBackReference<?>) baseBackReference;
-        multiBackReference.internalAddBackReferencedEntityId(entity.getId());
+        multiBackReference.internalAddBackReferencedEntity(entity);
         break;
       default:
         throw InvalidArgumentException.forArgument(type);

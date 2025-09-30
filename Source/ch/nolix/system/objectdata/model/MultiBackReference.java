@@ -148,10 +148,11 @@ implements IMultiBackReference<E> {
     return getAllBackReferencedEntityIds().containsEqualing(id);
   }
 
-  void internalAddBackReferencedEntityId(final String backReferencedEntityId) {
-    final var newEntry = MultiBackReferenceEntry.newEntryForMultiBackReferenceAndReferencedEntityId(
+  void internalAddBackReferencedEntity(final IEntity backReferencedEntity) {
+    final var newEntry = //
+    MultiBackReferenceEntry.createNewEntryForMultiBackReferenceAndBackReferencedEntity(
       this,
-      backReferencedEntityId);
+      (E) backReferencedEntity);
 
     localEntries.addAtEnd(newEntry);
     setAsEditedAndRunPotentialUpdateAction();
@@ -160,7 +161,7 @@ implements IMultiBackReference<E> {
   void internalDeleteBackReferencedEntityId(final String backReferencedEntityId) {
     final var entry = localEntries.getStoredFirst(e -> e.getBackReferencedEntityId().equals(backReferencedEntityId));
 
-    entry.internalDelete();
+    entry.setDeleted();
   }
 
   private boolean isEmptyWhenDoesNotHaveLocalEntries() {
@@ -175,7 +176,10 @@ implements IMultiBackReference<E> {
       entity.getParentTableName(),
       entity.getId(),
       getName())
-      .to(e -> MultiBackReferenceEntry.loadedEntryForMultiBackReferenceAndReferencedEntityId(this, e));
+
+      //TODO: Update
+      .to(e -> MultiBackReferenceEntry
+        .createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(this, e, "0"));
   }
 
   private boolean needsToLoadAllPersistedBackReferencedEntityIds() {
