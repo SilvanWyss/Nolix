@@ -11,6 +11,7 @@ import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
@@ -131,6 +132,17 @@ implements IOptionalBackReference<E> {
   @Override
   public boolean referencesBackEntityWithId(final String id) {
     return (containsAny() && getBackReferencedEntityId().equals(id));
+  }
+
+  @Override
+  public boolean referencesBackField(final IField field) {
+    return //
+    field != null
+    && field.belongsToEntity()
+    && containsAny()
+    && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
+    && getBackReferencedFieldName().equals(field.getName())
+    && getBackReferencedEntityId().equals(field.getStoredParentEntity().getId());
   }
 
   void clear() {
