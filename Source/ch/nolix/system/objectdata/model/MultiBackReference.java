@@ -138,22 +138,14 @@ implements IMultiBackReference<E> {
 
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
-    final var backReferencedBaseReferenceName = getBackReferencedFieldName();
+    final var entityId = entity.getId();
 
-    for (final var p : entity.internalGetStoredFields()) {
-      if (p.hasName(backReferencedBaseReferenceName)) {
-        return p.referencesEntity(entity);
-      }
-    }
-
-    return false;
+    return referencesBackEntityWithId(entityId);
   }
 
   @Override
   public boolean referencesBackEntityWithId(final String id) {
-    final var entity = getStoredBackReferencedTable().getStoredEntityById(id);
-
-    return referencesBackEntity(entity);
+    return getAllBackReferencedEntityIds().containsEqualing(id);
   }
 
   void internalAddBackReferencedEntityId(final String backReferencedEntityId) {
