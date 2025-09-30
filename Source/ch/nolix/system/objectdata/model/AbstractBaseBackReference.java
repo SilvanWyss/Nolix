@@ -42,7 +42,7 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  public final ITable<E> getStoredBackReferencedTable() {
+  public ITable<E> getStoredBackReferencedTable() {
     extractBackReferencedTableIfNotExtracted();
 
     return backReferencedTable;

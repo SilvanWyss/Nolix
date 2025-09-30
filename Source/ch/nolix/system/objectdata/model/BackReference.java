@@ -6,6 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
+import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
@@ -15,10 +16,13 @@ import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 public final class BackReference<E extends IEntity> extends AbstractBaseBackReference<E> implements IBackReference<E> {
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
+
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
@@ -89,6 +93,24 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public ITable<E> getStoredBackReferencedTable() {
+    //This part is not mandatory, but provides a better performance.
+    final var backReferencedEntity = nullableBackReferencedEntityCache.nullableEntity();
+    if (backReferencedEntity != null && backReferencedEntity.belongsToTable()) {
+      return (ITable<E>) backReferencedEntity.getStoredParentTable();
+    }
+
+    if (belongsToDatabase()) {
+      return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(getStoredParentDatabase(), getBackReferencedTableId());
+    }
+
+    final var database = nullableBackReferencedEntityCache.nullableEntity().getStoredParentDatabase();
+
+    return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
   }
 
   @Override
