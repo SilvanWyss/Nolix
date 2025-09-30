@@ -3,18 +3,13 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public abstract class AbstractBaseBackReference<E extends IEntity>
 extends AbstractField
 implements IBaseBackReference<E> {
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
-
   private final ImmutableList<String> backReferenceableTableNames;
 
   private final String backReferencedFieldName;
@@ -70,13 +65,6 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  public boolean referencesBackField(final IField field) {
-    return //
-    canReferenceBackFieldBecauseOfName(field)
-    && referencesBackEntityWithId(field.getStoredParentEntity().getId());
-  }
-
-  @Override
   public final boolean referencesUninsertedEntity() {
     return false;
   }
@@ -84,14 +72,6 @@ implements IBaseBackReference<E> {
   @Override
   protected final void noteInsertIntoDatabase() {
     //Does nothing.
-  }
-
-  private boolean canReferenceBackFieldBecauseOfName(final IField field) {
-    return //
-    belongsToEntity()
-    && FIELD_EXAMINER.belongsToEntity(field)
-    && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
-    && getBackReferencedFieldName().equals(field.getName());
   }
 
   private boolean extractedBackReferencedTable() {
