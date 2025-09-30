@@ -13,6 +13,7 @@ import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -124,6 +125,15 @@ implements IMultiBackReference<E> {
   @Override
   public boolean loadedAllPersistedReferencedEntityIds() {
     return loadedAllPersistedBackReferencedEntityIds;
+  }
+
+  @Override
+  public boolean referencesBackField(final IField field) {
+    return //
+    field != null
+    && field.belongsToEntity()
+    && getBackReferencedFieldName().equals(field.getName())
+    && referencesBackEntity(field.getStoredParentEntity());
   }
 
   @Override
