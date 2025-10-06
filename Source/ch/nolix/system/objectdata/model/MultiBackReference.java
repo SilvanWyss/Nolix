@@ -149,6 +149,7 @@ implements IMultiBackReference<E> {
   }
 
   void internalAddBackReferencedEntity(final IEntity backReferencedEntity) {
+    @SuppressWarnings("unchecked")
     final var newEntry = //
     MultiBackReferenceEntry.createNewEntryForMultiBackReferenceAndBackReferencedEntity(
       this,
