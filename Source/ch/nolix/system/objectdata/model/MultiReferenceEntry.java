@@ -166,7 +166,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     }
 
     if (belongsToDatabase()) {
-      final var database = parentMultiReference.getStoredParentDatabase();
+      final var database = getStoredParentMultiReference().getStoredParentDatabase();
 
       return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getReferencedTableId());
     }
