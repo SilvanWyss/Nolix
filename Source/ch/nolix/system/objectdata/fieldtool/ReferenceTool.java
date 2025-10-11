@@ -9,15 +9,14 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 
 public final class ReferenceTool implements IReferenceTool {
   @Override
-  @SuppressWarnings("unchecked")
-  public Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(final IReference<IEntity> reference) {
+  public Optional<IBaseBackReference> getOptionalStoredBaseBackReference(final IReference<IEntity> reference) {
     if (reference.containsAny()) {
       final var referencedEntity = reference.getStoredReferencedEntity();
 
       final var backReference = //
       referencedEntity.internalGetStoredFields().getOptionalStoredFirst(p -> p.referencesBackField(reference));
 
-      return backReference.map(b -> (IBaseBackReference<IEntity>) b);
+      return backReference.map(b -> (IBaseBackReference) b);
     }
 
     return Optional.empty();

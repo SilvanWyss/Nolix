@@ -91,6 +91,19 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
+  public String getBackReferencedTableName() {
+    FIELD_VALIDATOR.assertIsNotEmpty(this);
+
+    final var backReferencedEntity = nullableBackReferencedEntityCache.nullableEntity();
+
+    if (backReferencedEntity != null) {
+      return backReferencedEntity.getParentTableName();
+    }
+
+    return getStoredBackReferencedTable().getName();
+  }
+
+  @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }

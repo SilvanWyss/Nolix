@@ -103,8 +103,7 @@ implements IOptionalReference<E> {
   }
 
   @Override
-  @SuppressWarnings("unchecked")
-  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -113,7 +112,7 @@ implements IOptionalReference<E> {
     final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
     if (abstractBackReferenceContainer.isPresent()) {
-      final var abstractBackReference = (IBaseBackReference<IEntity>) abstractBackReferenceContainer.get();
+      final var abstractBackReference = (IBaseBackReference) abstractBackReferenceContainer.get();
 
       return ImmutableList.withElement(abstractBackReference);
     }

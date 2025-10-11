@@ -98,9 +98,8 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @Override
-  @SuppressWarnings("unchecked")
-  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
-    final ILinkedList<IBaseBackReference<IEntity>> abstractBackReferences = LinkedList.createEmpty();
+  public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+    final ILinkedList<IBaseBackReference> abstractBackReferences = LinkedList.createEmpty();
 
     for (final var e : getAllStoredReferencedEntities()) {
       final var fields = e.internalGetStoredFields();
@@ -108,7 +107,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
       final var abstractBackReferenceContainer = fields.getOptionalStoredFirst(f -> f.referencesBackField(this));
 
       if (abstractBackReferenceContainer.isPresent()) {
-        final var abstractBackReference = (IBaseBackReference<IEntity>) abstractBackReferenceContainer.get();
+        final var abstractBackReference = (IBaseBackReference) abstractBackReferenceContainer.get();
 
         abstractBackReferences.addAtEnd(abstractBackReference);
       }

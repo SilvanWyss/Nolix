@@ -19,7 +19,7 @@ IEntityComponent<IEntity>,
 INameHolder,
 ITableComponent<ITable<? extends IEntity>>,
 MandatorynessRequestable {
-  IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis();
+  IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();
 
   IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis();
 

@@ -2,14 +2,12 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 
 public final class BaseBackReferenceUpdater {
   private BaseBackReferenceUpdater() {
   }
 
-  public static void updateBaseBackReferenceForClearBaseReference(
-    final IBaseBackReference<IEntity> baseBackReferene) {
+  public static void updateBaseBackReferenceForClearBaseReference(final IBaseBackReference baseBackReferene) {
     switch (baseBackReferene.getType()) {
       case BACK_REFERENCE:
         final var backReference = (BackReference<?>) baseBackReferene;

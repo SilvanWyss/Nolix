@@ -5,7 +5,6 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
-import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
@@ -39,13 +38,10 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
   @Override
   public boolean canReferenceBackBaseReference(final IField field, final IBaseReference abstractReference) {
     if (field instanceof IBaseBackReference && abstractReference != null) {
-      @SuppressWarnings("unchecked")
-      final var abstractBackReference = (IBaseBackReference<IEntity>) field;
+      final var abstractBackReference = (IBaseBackReference) field;
 
       return //
-      baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(
-        abstractBackReference,
-        abstractReference);
+      baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(abstractBackReference, abstractReference);
     }
 
     return false;
@@ -102,7 +98,7 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    *         baseBackReference and baseReference are not null.
    */
   private boolean baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(
-    final IBaseBackReference<IEntity> baseBackReference,
+    final IBaseBackReference baseBackReference,
     final IBaseReference baseReference) {
     if (baseReference.belongsToEntity()) {
       final var baseReferenceParentTableName = baseReference.getStoredParentEntity().getParentTableName();

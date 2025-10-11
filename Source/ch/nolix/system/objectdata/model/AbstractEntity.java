@@ -286,8 +286,7 @@ public abstract class AbstractEntity implements IEntity {
       .forEach(this::updateBackReferencingFieldsForDeletion);
   }
 
-  private void updateBackReferencingFieldsForDeletion(
-    final IBaseBackReference<?> baseBackReference) {
+  private void updateBackReferencingFieldsForDeletion(final IBaseBackReference baseBackReference) {
     switch (baseBackReference.getType()) {
       case BACK_REFERENCE:
         updateBackReferenceForDeletion((BackReference<?>) baseBackReference);

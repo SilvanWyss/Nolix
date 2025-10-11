@@ -25,7 +25,7 @@ public final class BaseReferenceUpdater {
   }
 
   private static void toBaseBackReferenceAddOrSetEntity(
-    final IBaseBackReference<?> baseBackReference,
+    final IBaseBackReference baseBackReference,
     final IEntity entity) {
     final var type = baseBackReference.getType();
 

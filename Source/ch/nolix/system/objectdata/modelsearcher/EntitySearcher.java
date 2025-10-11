@@ -22,15 +22,14 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
-  public Optional<IBaseBackReference<IEntity>> //
+  public Optional<IBaseBackReference> //
   getOptionalStoredBaseBackReferenceWhoCanBackReferenceTheBaseReference(
     final IEntity entity,
     final IBaseReference baseReference) {
     if (entity != null && baseReference != null) {
       for (final var f : entity.internalGetStoredFields()) {
         if (FIELD_EXAMINER.canReferenceBackBaseReference(f, baseReference)) {
-          return Optional.of((IBaseBackReference<IEntity>) f);
+          return Optional.of((IBaseBackReference) f);
         }
       }
     }
@@ -42,7 +41,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesThatReferenceBackEntity(
+  public IContainer<IBaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(
     final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 

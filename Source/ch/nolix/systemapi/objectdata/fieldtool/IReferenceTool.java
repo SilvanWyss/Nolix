@@ -7,5 +7,5 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
 public interface IReferenceTool {
-  Optional<IBaseBackReference<IEntity>> getOptionalStoredBaseBackReference(IReference<IEntity> reference);
+  Optional<IBaseBackReference> getOptionalStoredBaseBackReference(IReference<IEntity> reference);
 }

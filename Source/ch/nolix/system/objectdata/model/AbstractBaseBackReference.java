@@ -5,16 +5,13 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.ITable;
 
 public abstract class AbstractBaseBackReference<E extends IEntity>
 extends AbstractField
-implements IBaseBackReference<E> {
+implements IBaseBackReference {
   private final ImmutableList<String> backReferenceableTableNames;
 
   private final String backReferencedFieldName;
-
-  private Table<E> backReferencedTable;
 
   protected AbstractBaseBackReference(
     final IContainer<String> backReferenceableTableNames,
@@ -42,20 +39,7 @@ implements IBaseBackReference<E> {
   }
 
   @Override
-  public ITable<E> getStoredBackReferencedTable() {
-    extractBackReferencedTableIfNotExtracted();
-
-    return backReferencedTable;
-  }
-
-  @Override
-  public final String getBackReferencedTableName() {
-    //TODO: Update
-    return backReferenceableTableNames.getStoredFirst();
-  }
-
-  @Override
-  public final IContainer<IBaseBackReference<IEntity>> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public final IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 
@@ -72,27 +56,5 @@ implements IBaseBackReference<E> {
   @Override
   protected final void noteInsertIntoDatabase() {
     //Does nothing.
-  }
-
-  private boolean extractedBackReferencedTable() {
-    return (backReferencedTable != null);
-  }
-
-  private void extractBackReferencedTable() {
-    backReferencedTable = loadBackReferencedTable();
-  }
-
-  private void extractBackReferencedTableIfNotExtracted() {
-    if (!extractedBackReferencedTable()) {
-      extractBackReferencedTable();
-    }
-  }
-
-  @SuppressWarnings("unchecked")
-  private Table<E> loadBackReferencedTable() {
-    return (Table<E>) getStoredParentEntity()
-      .getStoredParentTable()
-      .getStoredParentDatabase()
-      .getStoredTableByName(getBackReferencedTableName());
   }
 }
