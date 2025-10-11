@@ -2,15 +2,20 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
+import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
+import ch.nolix.systemapi.objectdata.model.ITable;
+import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
+
+  private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private final IMultiBackReference<E> parentMultiBackReference;
 
@@ -88,6 +93,13 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   }
 
   @Override
+  public String getBackReferencedTableId() {
+    retrieveBackReferencedTableId();
+
+    return backReferencedEntityCache.nullableTableId();
+  }
+
+  @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiBackReference().getState()) {
       case NEW ->
@@ -103,9 +115,31 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
 
   @Override
   public E getStoredBackReferencedEntity() {
-    return getStoredParentMultiBackReference()
-      .getStoredBackReferencedTable()
-      .getStoredEntityById(getBackReferencedEntityId());
+
+    retrieveBackReferencedEntity();
+
+    return backReferencedEntityCache.nullableEntity();
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public ITable<E> getStoredBackReferencedTable() {
+    //This part is not mandatory, but provides a better performance.
+    final var backReferencedEntity = backReferencedEntityCache.nullableEntity();
+    if (backReferencedEntity != null && backReferencedEntity.belongsToTable()) {
+      return (ITable<E>) backReferencedEntity.getStoredParentTable();
+    }
+
+    //TODO: Make MultiBackReferenceEntry A DatabaseComponent
+    if (parentMultiBackReference.belongsToDatabase()) {
+      final var database = parentMultiBackReference.getStoredParentDatabase();
+
+      return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
+    }
+
+    final var database = backReferencedEntityCache.nullableEntity().getStoredParentDatabase();
+
+    return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
   }
 
   @Override
@@ -147,5 +181,31 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     DATABASE_OBJECT_VALIDATOR.assertIsLoaded(this);
 
     state = DatabaseObjectState.DELETED;
+  }
+
+  private void retrieveBackReferencedEntity() {
+    var backReferencedEntity = backReferencedEntityCache.nullableEntity();
+
+    if (backReferencedEntity == null) {
+      final var backReferencedEntityId = backReferencedEntityCache.entityId();
+      final var backReferencedTableId = backReferencedEntityCache.nullableTableId();
+      backReferencedEntity = getStoredBackReferencedTable().getStoredEntityById(backReferencedEntityId);
+
+      backReferencedEntityCache = //
+      new EntityCache<>(backReferencedEntityId, backReferencedTableId, backReferencedEntity);
+    }
+  }
+
+  private void retrieveBackReferencedTableId() {
+    var backReferencedTableId = backReferencedEntityCache.nullableTableId();
+
+    if (backReferencedTableId == null) {
+      final var backReferencedEntityId = backReferencedEntityCache.entityId();
+      final var backReferencedEntity = backReferencedEntityCache.nullableEntity();
+      backReferencedTableId = backReferencedEntity.getStoredParentTable().getId();
+
+      backReferencedEntityCache = //
+      new EntityCache<>(backReferencedEntityId, backReferencedTableId, backReferencedEntity);
+    }
   }
 }
