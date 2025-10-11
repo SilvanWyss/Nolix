@@ -5,6 +5,7 @@ import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
+import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
@@ -88,6 +89,11 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   }
 
   @Override
+  public boolean belongsToDatabase() {
+    return getStoredParentMultiBackReference().belongsToDatabase();
+  }
+
+  @Override
   public boolean belongsToTable() {
     return getStoredParentMultiBackReference().belongsToTable();
   }
@@ -135,8 +141,7 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
       return (ITable<E>) backReferencedEntity.getStoredParentTable();
     }
 
-    //TODO: Make MultiBackReferenceEntry A DatabaseComponent
-    if (getStoredParentMultiBackReference().belongsToDatabase()) {
+    if (belongsToDatabase()) {
       final var database = getStoredParentMultiBackReference().getStoredParentDatabase();
 
       return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
@@ -145,6 +150,11 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     final var database = backReferencedEntityCache.nullableEntity().getStoredParentDatabase();
 
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
+  }
+
+  @Override
+  public IDatabase getStoredParentDatabase() {
+    return getStoredParentTable().getStoredParentDatabase();
   }
 
   @Override
