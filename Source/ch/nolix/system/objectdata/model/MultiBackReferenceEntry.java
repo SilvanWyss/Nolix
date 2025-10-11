@@ -88,6 +88,11 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   }
 
   @Override
+  public boolean belongsToTable() {
+    return getStoredParentMultiBackReference().belongsToTable();
+  }
+
+  @Override
   public String getBackReferencedEntityId() {
     return backReferencedEntityCache.entityId();
   }
@@ -131,8 +136,8 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     }
 
     //TODO: Make MultiBackReferenceEntry A DatabaseComponent
-    if (parentMultiBackReference.belongsToDatabase()) {
-      final var database = parentMultiBackReference.getStoredParentDatabase();
+    if (getStoredParentMultiBackReference().belongsToDatabase()) {
+      final var database = getStoredParentMultiBackReference().getStoredParentDatabase();
 
       return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
     }
@@ -145,6 +150,11 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
   @Override
   public IMultiBackReference<E> getStoredParentMultiBackReference() {
     return parentMultiBackReference;
+  }
+
+  @Override
+  public ITable<? extends IEntity> getStoredParentTable() {
+    return getStoredParentMultiBackReference().getStoredParentTable();
   }
 
   @Override
