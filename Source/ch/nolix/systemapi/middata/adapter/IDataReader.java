@@ -4,7 +4,10 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
@@ -57,6 +60,17 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
     String tableName,
     String entityId,
     String multiBackReferenceColumnName);
+
+  /**
+   * @param table
+   * @param entityId
+   * @param multiBackReferenceColumn
+   * @return the multi back reference entries of the multi back reference that is
+   *         in the given table and in the entity with the given entityId and in
+   *         the given multiBackReferenceColumn.
+   */
+  IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(TableIdentification table, String entityId,
+    ColumnIdentification multiBackReferenceColumn);
 
   /**
    * @param tableName

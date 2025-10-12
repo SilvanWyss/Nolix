@@ -8,7 +8,10 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.systemapi.middata.adapter.IDataReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
@@ -67,6 +70,20 @@ public final class DataReader implements IDataReader {
 
     return //
     internalDataReader.loadMultiBackReferenceBackReferencedEntityIds(tableName, entityId, multiBackReferenceColumnView);
+  }
+
+  @Override
+  public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+    final TableIdentification table,
+    final String entityId,
+    final ColumnIdentification multiBackReferenceColumn) {
+    final var tableName = table.tableName();
+    final var multiBackReferenceColumnName = multiBackReferenceColumn.columnName();
+
+    final var multiBackReferenceColumnView = //
+    getColumnViewByTableNameAndColumnName(tableName, multiBackReferenceColumnName);
+
+    return internalDataReader.loadMultiBackReferenceEntries(tableName, entityId, multiBackReferenceColumnView);
   }
 
   @Override

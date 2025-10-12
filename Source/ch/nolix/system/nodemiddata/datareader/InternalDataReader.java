@@ -10,6 +10,7 @@ import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
@@ -82,6 +83,30 @@ public final class InternalDataReader {
     final var multiBackReferenceBackReferencedEntityNodes = multiBackReferenceNode.getStoredChildNodes();
 
     return multiBackReferenceBackReferencedEntityNodes.to(b -> b.getStoredFirstChildNode().getHeader());
+  }
+
+  public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+    final String tableName,
+    final String entityId,
+    final ColumnViewDto multiBackReferenceColumn) {
+    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
+    final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
+    final var oneBasedMultiBackReferenceColumnOrdinalIndex = multiBackReferenceColumn.oneBasedOrdinalIndex();
+    final var multiBackReferenceColumnId = multiBackReferenceColumn.id();
+
+    final var multiBackReferenceNode = //
+    entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedMultiBackReferenceColumnOrdinalIndex);
+
+    final var multiBackReferenceEntriesNode = multiBackReferenceNode.getStoredChildNodes();
+
+    //TODO: Create MultiBackReferenceEntryMapper
+    return multiBackReferenceEntriesNode
+      .to(e -> new MultiBackReferenceEntryDto(
+        tableName,
+        entityId,
+        multiBackReferenceColumnId,
+        e.getStoredChildNodeAtOneBasedIndex(1).getHeader(),
+        e.getStoredChildNodeAtOneBasedIndex(2).getHeader()));
   }
 
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(

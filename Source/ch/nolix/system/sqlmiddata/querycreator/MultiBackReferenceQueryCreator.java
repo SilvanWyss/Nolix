@@ -7,6 +7,32 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntry
 public final class MultiBackReferenceQueryCreator implements IMultiBackReferenceQueryCreator {
   @Override
   public String createQueryToLoadMultiBackReferenceEntries(
+    final String entityId,
+    final String multiBackReferenceColumnId) {
+    return //
+    "SELECT "
+    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + ", "
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + ", "
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + ", "
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID.getName()
+    + " FROM "
+    + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + " WHERE "
+    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + " = '"
+    + entityId
+    + "' AND "
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + " = '"
+    + multiBackReferenceColumnId
+    + "';";
+  }
+
+  @Override
+  public String createQueryToLoadMultiBackReferenceEntries(
     final String backReferencedTableName,
     final String backReferencedSingleReferenceColumnName,
     final String referencedEntityId) {
@@ -21,7 +47,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
   }
 
   @Override
-  public String createQueryToLoadMultiBackReferenceEntries(
+  public String createQueryToLoadMultiBackReferenceEntriesIds(
     final String entityId,
     final String multiBackReferenceColumnId) {
     return //

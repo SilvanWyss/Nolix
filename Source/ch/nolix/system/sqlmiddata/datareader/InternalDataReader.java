@@ -14,8 +14,10 @@ import ch.nolix.system.sqlmiddata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
+import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
@@ -76,11 +78,32 @@ final class InternalDataReader {
         .getStoredAtOneBasedIndex(1));
   }
 
-  public IContainer<String> loadMultiBackReferenceEntries(
+  public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+    final TableIdentification table,
     final String entityId,
     final String multiBackReferenceColumnId) {
     final var query = //
     MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(entityId, multiBackReferenceColumnId);
+
+    final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
+    final var tableName = table.tableName();
+
+    //TODO: Create MultiBackReferenceEntryDtoMapper
+    return sqlRecords.to(r -> new MultiBackReferenceEntryDto(
+      tableName,
+      entityId,
+      multiBackReferenceColumnId,
+      r.getStoredAtOneBasedIndex(3),
+      r.getStoredAtOneBasedIndex(4)));
+  }
+
+  public IContainer<String> loadMultiBackReferenceEntriesIds(
+    final String entityId,
+    final String multiBackReferenceColumnId) {
+    final var query = //
+    MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntriesIds(
+      entityId,
+      multiBackReferenceColumnId);
 
     return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAtOneBasedIndex(1));
   }

@@ -17,6 +17,8 @@ import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {
@@ -158,6 +160,14 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     final String entityId,
     final String multiBackReferenceColumnName) {
     return dataReader.loadMultiBackReferenceBackReferencedEntityIds(tableName, entityId, multiBackReferenceColumnName);
+  }
+
+  @Override
+  public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+    final TableIdentification table,
+    final String entityId,
+    final ColumnIdentification multiBackReferenceColumn) {
+    return dataReader.loadMultiBackReferenceEntries(table, entityId, multiBackReferenceColumn);
   }
 
   @Override
