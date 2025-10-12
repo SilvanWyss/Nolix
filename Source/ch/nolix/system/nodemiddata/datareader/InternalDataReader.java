@@ -5,6 +5,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.system.nodemiddata.modelmapper.EntityLoadingDtoMapper;
+import ch.nolix.system.nodemiddata.modelmapper.MultiBackReferenceEntryDtoMapper;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
@@ -15,6 +16,7 @@ import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.nodemiddata.modelmapper.IMultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
@@ -32,6 +34,8 @@ public final class InternalDataReader {
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
 
   private static final EntityLoadingDtoMapper ENTITY_LOADING_DTO_MAPPER = new EntityLoadingDtoMapper();
+
+  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = new MultiBackReferenceEntryDtoMapper();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
@@ -97,16 +101,12 @@ public final class InternalDataReader {
     final var multiBackReferenceNode = //
     entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedMultiBackReferenceColumnOrdinalIndex);
 
-    final var multiBackReferenceEntriesNode = multiBackReferenceNode.getStoredChildNodes();
-
-    //TODO: Create MultiBackReferenceEntryMapper
-    return multiBackReferenceEntriesNode
-      .to(e -> new MultiBackReferenceEntryDto(
-        tableName,
-        entityId,
-        multiBackReferenceColumnId,
-        e.getStoredChildNodeAtOneBasedIndex(1).getHeader(),
-        e.getStoredChildNodeAtOneBasedIndex(2).getHeader()));
+    return //
+    MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER.mapMultiBackReferenceNodeToMultiBackReferenceEntryDtos(
+      tableName,
+      entityId,
+      multiBackReferenceColumnId,
+      multiBackReferenceNode);
   }
 
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
