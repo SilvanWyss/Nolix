@@ -39,7 +39,7 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
             new Button()
               .setVisibility(hasParentSession())
               .setText("<-- Go back")
-              .setLeftMouseButtonPressAction(b -> pop()))
+              .setLeftMouseButtonPressAction(() -> pop()))
           .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20)));
   }
 }
