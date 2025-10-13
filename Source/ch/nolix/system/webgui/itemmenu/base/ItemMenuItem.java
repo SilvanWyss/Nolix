@@ -3,7 +3,6 @@ package ch.nolix.system.webgui.itemmenu.base;
 import java.util.function.Consumer;
 
 import ch.nolix.core.datamodel.id.IdCreator;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.document.node.INode;
@@ -25,37 +24,25 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
 
   private static final String SELECTION_FLAG_HEADER = "Selected";
 
-  private final OptionalValue<String> id = new OptionalValue<>(
-    ID_HEADER,
-    this::setId,
-    INode::getSingleChildNodeHeader,
-    Node::withChildNode);
+  private IItemMenu<?, ?> nullableParentMenu;
 
-  private final Value<String> text = new Value<>(
-    TEXT_HEADER,
-    this::setText,
-    INode::getSingleChildNodeHeader,
-    Node::withChildNode);
+  private final OptionalValue<String> id = OptionalValue.forString(ID_HEADER, this::setId);
 
-  private final MutableValue<Boolean> selectionFlag = new MutableValue<>(
-    SELECTION_FLAG_HEADER,
-    DEFAULT_SELECTION_FLAG,
-    this::setSelectionFlag,
-    INode::getSingleChildNodeAsBoolean,
-    Node::withChildNode);
+  private final Value<String> text = Value.forString(TEXT_HEADER, this::setText);
 
-  private IItemMenu<?, ?> parentMenu;
+  private final MutableValue<Boolean> selectionFlag = //
+  MutableValue.forBoolean(SELECTION_FLAG_HEADER, DEFAULT_SELECTION_FLAG, this::setSelectionFlag);
 
-  private final Consumer<IItemMenuItem<?>> selectAction;
+  private final Consumer<IItemMenuItem<?>> nullableSelectAction;
 
   private ItemMenuItem() {
-    selectAction = null;
+    nullableSelectAction = null;
   }
 
   private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
-    this.selectAction = selectAction;
+    this.nullableSelectAction = selectAction;
   }
 
   public static ItemMenuItem createBlankItem() {
@@ -83,7 +70,9 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
     final String id,
     final String text,
     final Runnable selectAction) {
+    @SuppressWarnings("unused")
     final var item = new ItemMenuItem(i -> selectAction.run());
+
     item.setId(id);
     item.setText(text);
 
@@ -113,7 +102,9 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   public static ItemMenuItem withTextAndSelectAction(
     final String text,
     final Runnable selectAction) {
+    @SuppressWarnings("unused")
     final var item = new ItemMenuItem(i -> selectAction.run());
+
     item.setId(IdCreator.createIdOf10HexadecimalCharacters());
     item.setText(text);
 
@@ -132,7 +123,7 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
 
   @Override
   public boolean belongsToMenu() {
-    return (parentMenu != null);
+    return (nullableParentMenu != null);
   }
 
   @Override
@@ -176,16 +167,16 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
     Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();
 
-    this.parentMenu = parentMenu;
+    this.nullableParentMenu = parentMenu;
   }
 
   private boolean hasSelectAction() {
-    return (selectAction != null);
+    return (nullableSelectAction != null);
   }
 
   private void runOptionalSelectAction() {
     if (hasSelectAction()) {
-      selectAction.accept(this);
+      nullableSelectAction.accept(this);
     }
   }
 
@@ -195,7 +186,7 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
     selectionFlag.setValue(true);
 
     if (belongsToMenu()) {
-      parentMenu.internalRunOptionalSelectActionForItem(this);
+      nullableParentMenu.internalRunOptionalSelectActionForItem(this);
     }
 
     runOptionalSelectAction();
@@ -221,7 +212,7 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
 
   private void unselectItemsOfOptionalParentMenu() {
     if (belongsToMenu()) {
-      parentMenu.getStoredItems().forEach(IItemMenuItem::unselect);
+      nullableParentMenu.getStoredItems().forEach(IItemMenuItem::unselect);
     }
   }
 }
