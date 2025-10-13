@@ -7,6 +7,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.LoadedEntityDtoMapper;
+import ch.nolix.system.sqlmiddata.modelmapper.MultiBackReferenceEntryDtoMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.MultiReferenceEntryDtoMapper;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiBackReferenceQueryCreator;
@@ -21,6 +22,7 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiBackReferenceEntryDtoMapper;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiBackReferenceQueryCreator;
@@ -41,6 +43,9 @@ final class InternalDataReader {
 
   private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiReferenceEntryDtoMapper();
+
+  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
+  new MultiBackReferenceEntryDtoMapper();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
@@ -82,19 +87,17 @@ final class InternalDataReader {
     final TableIdentification table,
     final String entityId,
     final String multiBackReferenceColumnId) {
+    final var tableName = table.tableName();
+
     final var query = //
     MULTI_BACK_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiBackReferenceEntries(entityId, multiBackReferenceColumnId);
 
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
-    final var tableName = table.tableName();
 
-    //TODO: Create MultiBackReferenceEntryDtoMapper
-    return sqlRecords.to(r -> new MultiBackReferenceEntryDto(
-      tableName,
-      entityId,
-      multiBackReferenceColumnId,
-      r.getStoredAtOneBasedIndex(3),
-      r.getStoredAtOneBasedIndex(4)));
+    return //
+    MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER.mapMultiBackReferenceEntrySqlRecordsToMultiBackReferenceEntryDtos(
+      sqlRecords,
+      tableName);
   }
 
   public IContainer<String> loadMultiBackReferenceEntriesIds(
