@@ -9,6 +9,8 @@ import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
+import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
+import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
@@ -169,18 +171,28 @@ implements IMultiBackReference<E> {
     return getAllStoredBackReferencedEntities().isEmpty();
   }
 
-  private IContainer<MultiBackReferenceEntry<E>> loadAllPersistedBackReferencedEntityIds() {
-    final var entity = getStoredParentEntity();
+  private IContainer<MultiBackReferenceEntry<E>> loadAllPersistedEntries() {
+    final var parentTable = getStoredParentTable();
+    final var tableId = parentTable.getId();
+    final var tableName = parentTable.getName();
+    final var table = new TableIdentification(tableId, tableName);
+    final var entityId = getStoredParentEntity().getId();
+    final var parentColumn = getStoredParentColumn();
+    final var columnId = parentColumn.getId();
+    final var columnName = parentColumn.getName();
+    final var multiBackReferenceColumn = new ColumnIdentification(columnId, columnName);
 
+    final var multiBackReferenceEntries = //
+    getStoredDataAndSchemaAdapter().loadMultiBackReferenceEntries(table, entityId, multiBackReferenceColumn);
+
+    //TODO: Create MultiBackReferenceEntryMapper
     return //
-    getStoredDataAndSchemaAdapter().loadMultiBackReferenceBackReferencedEntityIds(
-      entity.getParentTableName(),
-      entity.getId(),
-      getName())
-
-      //TODO: Update
-      .to(e -> MultiBackReferenceEntry
-        .createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(this, e, "0"));
+    multiBackReferenceEntries.to(e -> //
+    MultiBackReferenceEntry
+      .createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
+        this,
+        e.backReferencedEntityId(),
+        e.backReferencedEntityTableId()));
   }
 
   private boolean needsToLoadAllPersistedBackReferencedEntityIds() {
@@ -192,7 +204,7 @@ implements IMultiBackReference<E> {
   private void updateStateLoadingAllPersistedBackReferencedEntityIds() {
     loadedAllPersistedBackReferencedEntityIds = true;
 
-    localEntries.addAtEnd(loadAllPersistedBackReferencedEntityIds());
+    localEntries.addAtEnd(loadAllPersistedEntries());
   }
 
   private void updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded() {
