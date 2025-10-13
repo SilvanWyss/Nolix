@@ -150,6 +150,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   }
 
   @Override
+  @SuppressWarnings("unused")
   public IImageControl setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
     Validator
       .assertThat(leftMouseButtonPressAction)
@@ -172,6 +173,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   }
 
   @Override
+  @SuppressWarnings("unused")
   public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
     Validator
       .assertThat(leftMouseButtonReleaseAction)

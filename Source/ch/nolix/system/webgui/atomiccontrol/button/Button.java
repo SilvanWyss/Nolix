@@ -156,6 +156,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   }
 
   @Override
+  @SuppressWarnings("unused")
   public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
     Validator
       .assertThat(leftMouseButtonPressAction)
@@ -178,6 +179,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   }
 
   @Override
+  @SuppressWarnings("unused")
   public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
     Validator
       .assertThat(leftMouseButtonReleaseAction)

@@ -122,6 +122,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   }
 
   @Override
+  @SuppressWarnings("unused")
   public Textbox setUpdateTextAction(final Runnable updateTextAction) {
     Validator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 

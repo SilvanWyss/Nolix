@@ -217,6 +217,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   }
 
   @Override
+  @SuppressWarnings("unused")
   public final M setSelectAction(final Runnable selectAction) {
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
