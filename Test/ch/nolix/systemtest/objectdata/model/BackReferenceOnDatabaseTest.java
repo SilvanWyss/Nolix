@@ -23,7 +23,7 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
     final BackReference<Person> owner = //
     BackReference.forBackReferenceableEntityTypesAndBackReferencedFieldName(
-      ImmutableList.withElement(Person.class),
+      ImmutableList.withElements(Person.class),
       "pet");
 
     Pet() {

@@ -16,7 +16,7 @@ final class MultiBackReferenceOnDatabaseTest extends StandardTest {
     public final MultiBackReference<Flight> flights = //
     MultiBackReference
       .forBackReferenceableEntityTypesAndBackReferencedFieldName(
-        ImmutableList.withElement(Flight.class),
+        ImmutableList.withElements(Flight.class),
         "plane");
 
     public Plane() {
