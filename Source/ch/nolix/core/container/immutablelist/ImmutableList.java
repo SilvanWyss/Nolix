@@ -9,6 +9,7 @@ import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
@@ -20,17 +21,11 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
+  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
+
+  private static final ImmutableList<Object> EMPTY = new ImmutableList<>(new Object[0]);
 
   private final E[] elements;
-
-  /**
-   * Creates a new empty {@link ImmutableList}.
-   */
-  @SuppressWarnings("unchecked")
-  private ImmutableList() {
-    elements = (E[]) new Object[0];
-  }
 
   /**
    * Creates a new {@link ImmutableList} with the given elements.
@@ -59,8 +54,9 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @return a new empty {@link ImmutableList}.
    * @param <E2> is the type of the elements the {@link ImmutableList} could have.
    */
+  @SuppressWarnings("unchecked")
   public static <E2> ImmutableList<E2> createEmpty() {
-    return new ImmutableList<>();
+    return (ImmutableList<E2>) EMPTY;
   }
 
   public static <E2> ImmutableList<E2> forArray(final E2[] array) {
