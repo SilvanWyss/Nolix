@@ -81,8 +81,7 @@ implements IControlStyle<S> {
   private static final String PADDING_HEADER = "Padding";
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = //
-  new NonCascadingProperty //
-  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
+  new NonCascadingProperty<>(
     WIDTH_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -91,8 +90,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(100));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = //
-  new NonCascadingProperty //
-  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operator in this case.
+  new NonCascadingProperty<>(
     HEIGHT_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -171,8 +169,7 @@ implements IControlStyle<S> {
     DEFAULT_BACKGROUND);
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> leftPadding = //
-  new NonCascadingProperty //
-  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
+  new NonCascadingProperty<>(
     LEFT_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -181,8 +178,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> rightPadding = //
-  new NonCascadingProperty //
-  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
+  new NonCascadingProperty<>(
     RIGHT_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -191,8 +187,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> topPadding = //
-  new NonCascadingProperty //
-  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
+  new NonCascadingProperty<>(
     TOP_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -201,8 +196,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> bottomPadding = //
-  new NonCascadingProperty //
-  <ControlState, IAbsoluteOrRelativeInt>( //NOSONAR: Gradle fails on diamond operators in this case.
+  new NonCascadingProperty<>(
     BOTTOM_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -211,8 +205,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IContainer<CornerShadow>> cornerShadows = //
-  new NonCascadingProperty //
-  <ControlState, IContainer<CornerShadow>>( //NOSONAR: Gradle fails on diamond operators in this case.
+  new NonCascadingProperty<>(
     CORNER_SHADOWS_HEADER,
     ControlState.class,
     s -> s.getStoredChildNodes().to(CornerShadow::fromSpecification),
