@@ -22,7 +22,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 public final class MultiBackReference<E extends IEntity>
-extends AbstractBaseBackReference<E>
+extends AbstractBaseBackReference
 implements IMultiBackReference<E> {
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 

@@ -6,9 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
-public abstract class AbstractBaseBackReference<E extends IEntity>
-extends AbstractField
-implements IBaseBackReference {
+public abstract class AbstractBaseBackReference extends AbstractField implements IBaseBackReference {
   private final ImmutableList<String> backReferenceableTableNames;
 
   private final String backReferencedFieldName;

@@ -41,7 +41,7 @@ public final class ColumnMapper implements IColumnMapper {
         ImmutableList.createEmpty());
     }
 
-    if (field instanceof final AbstractBaseBackReference<?> baseBackReference) {
+    if (field instanceof final AbstractBaseBackReference baseBackReference) {
 
       final var backReferencedFieldName = baseBackReference.getBackReferencedFieldName();
       final var backReferenceableTableNames = baseBackReference.getBackReferenceableTableNames();

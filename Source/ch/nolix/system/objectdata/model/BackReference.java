@@ -20,7 +20,7 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
-public final class BackReference<E extends IEntity> extends AbstractBaseBackReference<E> implements IBackReference<E> {
+public final class BackReference<E extends IEntity> extends AbstractBaseBackReference implements IBackReference<E> {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 
   private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
