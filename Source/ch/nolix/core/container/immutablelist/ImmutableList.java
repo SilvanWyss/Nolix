@@ -131,7 +131,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    */
   @SafeVarargs
   public static <E2> ImmutableList<E2> withElements(final E2... elements) {
-    return new ImmutableList<E2>(elements);
+    return new ImmutableList<>(elements);
   }
 
   /**
