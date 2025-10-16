@@ -252,15 +252,15 @@ final class ColorTest extends StandardTest {
   "0x010203FF, 0x010203",
   })
   void testCase_withFullAlphaValue(
-    final String colorAsHexadecimalString,
-    final String expectedHexadecimaString) {
+    final String colorString,
+    final String expectedResult) {
     //setup
-    final var testUnit = Color.fromString("0x102030");
+    final var testUnit = Color.fromString(colorString);
 
     //execution
     final var result = testUnit.withFullAlphaValue();
 
     //verification
-    expect(result.toHexadecimalString()).isEqualTo("0x102030");
+    expect(result.toHexadecimalString()).isEqualTo(expectedResult);
   }
 }
