@@ -3,6 +3,7 @@ package ch.nolix.templatetest.webgui.dialog;
 import java.util.function.Consumer;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -47,7 +48,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     cancelButton.pressLeftMouseButton();
 
     //verification
-    Mockito.verify(valueTakerMock, Mockito.never()).accept(Mockito.any());
+    Mockito.verify(valueTakerMock, Mockito.never()).accept(ArgumentMatchers.any());
   }
 
   @Test
@@ -95,7 +96,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
 
     //verification
     expect(result.belongsToGui()).isFalse();
-    Mockito.verify(valueTakerMock, Mockito.never()).accept(Mockito.any());
+    Mockito.verify(valueTakerMock, Mockito.never()).accept(ArgumentMatchers.any());
   }
 
   @Test
