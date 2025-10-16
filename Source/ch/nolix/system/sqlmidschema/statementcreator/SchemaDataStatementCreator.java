@@ -181,7 +181,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final ILinkedList<String> statements = LinkedList.createEmpty();
 
     final var statementToSetContentModelInColumnTable = // 
-    createStatementToSetContentModelInColumnTable(table, column, fieldType, dataType);
+    createStatementToSetContentModelInColumnTable(column, fieldType, dataType);
 
     statements.addAtEnd(statementToSetContentModelInColumnTable);
 
@@ -226,18 +226,18 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   }
 
   private String createStatementToSetContentModelInColumnTable(
-    final TableIdentification table,
     final ColumnIdentification column,
-    final FieldType fieldType, final DataType dataType) {
+    final FieldType fieldType,
+    final DataType dataType) {
     return //
     "UPDATE "
     + FixTable.COLUMN.getName()
     + " SET "
-    + ColumnColumn.FIELD_TYPE
+    + ColumnColumn.FIELD_TYPE.getName()
     + " = '"
     + fieldType.name()
     + "', "
-    + ColumnColumn.DATA_TYPE
+    + ColumnColumn.DATA_TYPE.getName()
     + " = '"
     + dataType.name()
     + "' WHERE "
