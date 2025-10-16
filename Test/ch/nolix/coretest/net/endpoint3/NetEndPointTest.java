@@ -22,7 +22,7 @@ final class NetEndPointTest extends StandardTest {
       //execution & verification
       expectRunning(
         () -> {
-          try (final var result = new NetEndPoint(port)) {
+          try (final var _ = new NetEndPoint(port)) {
             FlowController.waitForMilliseconds(1);
           }
         })

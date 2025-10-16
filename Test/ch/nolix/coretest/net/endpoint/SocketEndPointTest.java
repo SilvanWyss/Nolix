@@ -23,7 +23,7 @@ final class SocketEndPointTest extends StandardTest {
       //execution & verification
       expectRunning(
         () -> {
-          try (final var result = new SocketEndPoint(port)) {
+          try (final var _ = new SocketEndPoint(port)) {
             FlowController.waitForMilliseconds(1);
           }
         })

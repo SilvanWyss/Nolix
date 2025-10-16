@@ -9,7 +9,7 @@ public final class FilterContainerViewTest extends ContainerTest {
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
     @SuppressWarnings("unchecked") final E... elements) {
-    return FilterContainerView.forElementAndArrayAndSelector(element, elements, x -> true);
+    return FilterContainerView.forElementAndArrayAndSelector(element, elements, _ -> true);
   }
 
   @Override

@@ -3,7 +3,7 @@ package ch.nolix.coreapi.errorcontrol.performanceanalysis;
 import java.util.function.LongToDoubleFunction;
 
 public final class TimeComplexityFunctionCatalog {
-  public static final LongToDoubleFunction CONSTANT = n -> 1.0;
+  public static final LongToDoubleFunction CONSTANT = _ -> 1.0;
 
   public static final LongToDoubleFunction LOGARITHM = Math::log;
 

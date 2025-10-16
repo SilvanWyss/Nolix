@@ -44,7 +44,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    *            {@link FilterContainerView}.
    */
   public static <T> FilterContainerView<T> createEmpty() {
-    return forContainerAndSelector(ArrayList.createEmpty(), x -> true);
+    return forContainerAndSelector(ArrayList.createEmpty(), _ -> true);
   }
 
   /**

@@ -22,7 +22,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
 
   private final int count;
 
-  private final Predicate<E> blankCondition = e -> true;
+  private final Predicate<E> blankCondition = _ -> true;
 
   /**
    * Creates a new {@link SequencePatternNextMediator} for the given
