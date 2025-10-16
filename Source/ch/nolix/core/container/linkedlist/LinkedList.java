@@ -598,6 +598,7 @@ implements ILinkedList<E> {
    * @param elements
    * @throws RuntimeException if one of the given elements is null.
    */
+  @SuppressWarnings("null")
   private void addAtBeginWhenContainsAny(E[] elements) {
     LinkedListNode<E> newFirstNode = null;
     LinkedListNode<E> iteratorNode = null;
