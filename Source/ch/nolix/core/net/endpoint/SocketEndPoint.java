@@ -95,7 +95,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     }
 
     sendTargetMessage();
-    new SocketEndPointMessageListener(this);
+    SocketEndPointMessageListener.forSocketEndPoint(this);
   }
 
   /**
@@ -128,7 +128,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     }
 
     sendTargetMessage();
-    new SocketEndPointMessageListener(this);
+    SocketEndPointMessageListener.forSocketEndPoint(this);
   }
 
   /**
@@ -158,7 +158,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     this.socketInputStream = socketInputStream;
     this.socketOutputStream = socketOutputStream;
 
-    new SocketEndPointMessageListener(this);
+    SocketEndPointMessageListener.forSocketEndPoint(this);
   }
 
   /**
@@ -192,7 +192,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     this.socketInputStream = socketInputStream;
     this.socketOutputStream = socketOutputStream;
 
-    new SocketEndPointMessageListener(this);
+    SocketEndPointMessageListener.forSocketEndPoint(this);
   }
 
   @Override

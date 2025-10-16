@@ -5,30 +5,34 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.AbstractWorker;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
 
-final class SocketEndPointMessageListener extends AbstractWorker {
+public final class SocketEndPointMessageListener extends AbstractWorker {
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
-  private final SocketEndPoint parentNetEndPoint;
+  private final SocketEndPoint parentSocketEndPoint;
 
-  public SocketEndPointMessageListener(final SocketEndPoint parentNetEndPoint) {
-    Validator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
+  private SocketEndPointMessageListener(final SocketEndPoint parentSocketEndPoint) {
+    Validator.assertThat(parentSocketEndPoint).thatIsNamed("parent SocketEndPoint").isNotNull();
 
-    this.parentNetEndPoint = parentNetEndPoint;
+    this.parentSocketEndPoint = parentSocketEndPoint;
 
     start();
   }
 
+  public static SocketEndPointMessageListener forSocketEndPoint(final SocketEndPoint parentSocketEndPoint) {
+    return new SocketEndPointMessageListener(parentSocketEndPoint);
+  }
+
   @Override
   protected void run() {
-    while (parentNetEndPoint.isOpen()) {
-      final var line = INPUT_STREAM_TOOL.readLineFromInputStream(parentNetEndPoint.getStoredInputStream());
+    while (parentSocketEndPoint.isOpen()) {
+      final var line = INPUT_STREAM_TOOL.readLineFromInputStream(parentSocketEndPoint.getStoredInputStream());
 
       if (line == null) {
-        parentNetEndPoint.close();
+        parentSocketEndPoint.close();
         break;
       }
 
-      parentNetEndPoint.receiveRawMessageInBackground(line);
+      parentSocketEndPoint.receiveRawMessageInBackground(line);
     }
   }
 }
