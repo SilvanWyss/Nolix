@@ -36,10 +36,14 @@ final class ValueToolTest extends StandardTest {
   void testCase_canSetValue_whenTheGivenValueIsClosed() {
     //setup
     final var pet = new Pet();
-    final var databaseAdapter = NodeDataAdapter.forTemporaryInMemoryDatabase().withName("my_database")
-      .andSchema(EntityTypeSet.withEntityType(Pet.class));
-    databaseAdapter.insertEntity(pet);
-    databaseAdapter.close();
+    try ( //
+    final var databaseAdapter = //
+    NodeDataAdapter
+      .forTemporaryInMemoryDatabase()
+      .withName("my_database")
+      .andSchema(EntityTypeSet.withEntityType(Pet.class))) {
+      databaseAdapter.insertEntity(pet);
+    }
     final String valueToSet = "Garfield";
     final var testUnit = new ValueFieldExaminer();
 
