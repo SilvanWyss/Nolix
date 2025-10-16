@@ -69,15 +69,15 @@ public final class ClosureMediator {
           "An exception was not expected, but a "
           + exception.getClass().getName()
           + " was thrown.");
-      } else {
-        throw //
-        GeneralException.withErrorMessage(
-          "An exception was not expected, but a "
-          + exception.getClass().getName()
-          + " was thrown with the message '"
-          + message
-          + "'");
       }
+
+      throw //
+      GeneralException.withErrorMessage(
+        "An exception was not expected, but a "
+        + exception.getClass().getName()
+        + " was thrown with the message '"
+        + message
+        + "'");
     }
   }
 }
