@@ -38,19 +38,16 @@ public final class BaseBackReferenceUpdater {
     final IBaseBackReference baseBackReference,
     final IEntity entity) {
     switch (baseBackReference) {
-      case BackReference<? extends IEntity> backReference -> {
+      case BackReference<? extends IEntity> backReference ->
         backReference.clear();
-        backReference.setAsEditedAndRunPossibleUpdateAction();
-      }
-      case OptionalBackReference<? extends IEntity> optionalBackReference -> {
+      case OptionalBackReference<? extends IEntity> optionalBackReference ->
         optionalBackReference.clear();
-        optionalBackReference.setAsEditedAndRunPossibleUpdateAction();
-      }
       case MultiBackReference<? extends IEntity> multiBackReference -> {
         final var backReferencedEntityId = entity.getId();
         multiBackReference.deleteEntryByBackReferencedEntityId(backReferencedEntityId);
       }
-      default -> throw InvalidArgumentException.forArgument(baseBackReference);
+      default ->
+        throw InvalidArgumentException.forArgument(baseBackReference);
     }
   }
 

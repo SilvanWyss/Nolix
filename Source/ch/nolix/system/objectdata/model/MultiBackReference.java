@@ -165,6 +165,7 @@ implements IMultiBackReference<E> {
     final var entry = localEntries.getStoredFirst(e -> e.getBackReferencedEntityId().equals(backReferencedEntityId));
 
     entry.setDeleted();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private boolean isEmptyWhenDoesNotHaveLocalEntries() {
