@@ -15,14 +15,36 @@ final class EntityTest extends StandardTest {
     //execution
     final var result = new Thing();
 
-    //verification
-    expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
-    expect(result.isClosed()).isFalse();
-    expect(result.isDeleted()).isFalse();
-    expect(result.getId()).hasLength(10);
-    expect(result.getShortDescription()).startsWith("Thing");
-    expect(result.isConnectedWithRealDatabase()).isFalse();
+    //verification part 1: parents
+    expect(result.belongsToDatabase()).isFalse();
     expect(result.belongsToTable()).isFalse();
+
+    //verification part 2: attributes
+    expect(result.getId()).hasLength(10);
+    expect(result.internalGetStoredFields()).isEmpty();
+    expect(result.hasSaveStamp()).isFalse();
+
+    //verification part 3: state
+    expect(result.getState()).is(DatabaseObjectState.NEW);
+    expect(result.isNew()).isTrue();
+    expect(result.isLoaded()).isFalse();
+    expect(result.isEdited()).isFalse();
+    expect(result.isDeleted()).isFalse();
+    expect(result.isOpen()).isTrue();
+    expect(result.isConnectedWithRealDatabase()).isFalse();
+    expect(result.isReferencedInPersistedData()).isFalse();
+  }
+
+  @Test
+  void testCase_getShortDescription() {
+    //setup
+    final var testUnit = new Thing();
+
+    //execution
+    final var result = testUnit.getShortDescription();
+
+    //verification
+    expect(result).isEqualTo("Thing (id: " + testUnit.getId() + ")");
   }
 
   @Test
@@ -34,6 +56,7 @@ final class EntityTest extends StandardTest {
     final var result = testUnit.toString();
 
     //verification
-    expect(result).isEqualTo("Thing (id: " + testUnit.getId() + ")");
+    final var shortDescription = testUnit.getShortDescription();
+    expect(result).isEqualTo(shortDescription);
   }
 }
