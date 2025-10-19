@@ -183,7 +183,7 @@ implements IOptionalBackReference<E> {
 
   void clear() {
     nullableBackReferencedEntityCache = null;
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @SuppressWarnings("unchecked")
@@ -197,7 +197,7 @@ implements IOptionalBackReference<E> {
     } else {
       nullableBackReferencedEntityCache = new EntityCache<>(entityId, null, castedEntity);
     }
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private void retrieveBackReferencedTableId() {

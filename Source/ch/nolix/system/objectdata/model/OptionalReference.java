@@ -227,7 +227,7 @@ implements IOptionalReference<E> {
 
     updateStateForClear();
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
@@ -288,7 +288,7 @@ implements IOptionalReference<E> {
 
     insertEntityIntoDatabaseIfPossible(entity);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {

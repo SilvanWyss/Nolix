@@ -34,14 +34,14 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
     updateStateForAddValue(value);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @Override
   public void clear() {
     getAllStoredValues().forEach(this::removeValue);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @Override

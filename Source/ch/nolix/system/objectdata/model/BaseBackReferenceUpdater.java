@@ -40,11 +40,11 @@ public final class BaseBackReferenceUpdater {
     switch (baseBackReference) {
       case BackReference<? extends IEntity> backReference -> {
         backReference.clear();
-        backReference.setAsEditedAndRunPotentialUpdateAction();
+        backReference.setAsEditedAndRunPossibleUpdateAction();
       }
       case OptionalBackReference<? extends IEntity> optionalBackReference -> {
         optionalBackReference.clear();
-        optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
+        optionalBackReference.setAsEditedAndRunPossibleUpdateAction();
       }
       case MultiBackReference<? extends IEntity> multiBackReference -> {
         final var backReferencedEntityId = entity.getId();

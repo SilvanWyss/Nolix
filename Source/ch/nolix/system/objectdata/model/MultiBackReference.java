@@ -158,7 +158,7 @@ implements IMultiBackReference<E> {
       (E) backReferencedEntity);
 
     localEntries.addAtEnd(newEntry);
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   void deleteEntryByBackReferencedEntityId(final String backReferencedEntityId) {

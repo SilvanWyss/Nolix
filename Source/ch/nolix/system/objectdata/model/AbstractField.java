@@ -149,7 +149,7 @@ public abstract class AbstractField implements IField {
     return getStoredParentEntity().getStoredMidDataAdapterAndSchemaReader();
   }
 
-  protected final void setAsEditedAndRunPotentialUpdateAction() {
+  protected final void setAsEditedAndRunPossibleUpdateAction() {
     if (belongsToEntity()) {
       getStoredParentEntity().setEdited();
     }

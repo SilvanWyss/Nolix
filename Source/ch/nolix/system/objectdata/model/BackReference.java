@@ -186,7 +186,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   void clear() {
     nullableBackReferencedEntityCache = null;
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @SuppressWarnings("unchecked")
@@ -200,7 +200,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     } else {
       nullableBackReferencedEntityCache = new EntityCache<>(entityId, null, castedEntity);
     }
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private void retrieveBackReferencedTableId() {

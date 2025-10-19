@@ -66,7 +66,7 @@ public final class ValueField<V> extends AbstractBaseValueField<V> implements IV
 
     updateStateForSetValue(value);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @Override

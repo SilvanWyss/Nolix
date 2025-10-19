@@ -38,7 +38,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
   public void clear() {
     internalValue = null;
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @Override
@@ -75,7 +75,7 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
 
     updateStateForSetValue(value);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @Override

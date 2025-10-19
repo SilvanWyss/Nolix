@@ -227,7 +227,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     updateStateForClear();
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private Optional<? extends IField> getOptionalPendantReferencingFieldToEntity(final E entity) {
@@ -288,7 +288,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
     insertEntityIntoDatabaseIfPossible(entity);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private void updatePotentialBaseBackReferenceOfEntityForSetEntity(final E entity) {

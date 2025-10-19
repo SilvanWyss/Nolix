@@ -76,7 +76,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   public void clear() {
     getAllStoredReferencedEntities().forEach(this::removeEntity);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   @Override
@@ -191,7 +191,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
     insertEntityIntoDatabaseIfPossible(entity);
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private void assertCanAddEntity(final E entity) {
@@ -232,7 +232,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
     localEntries.getStoredFirst(le -> le.getReferencedEntityId().equals(entity.getId())).setDeleted();
 
-    setAsEditedAndRunPotentialUpdateAction();
+    setAsEditedAndRunPossibleUpdateAction();
   }
 
   private void updatePotentialBaseBackReferenceOfEntityForAddEntity(final E entity) {
