@@ -554,7 +554,7 @@ implements IChainedNode {
 
     try {
       return Integer.parseInt(getHeader());
-    } catch (final NumberFormatException numberFormatException) {
+    } catch (final NumberFormatException _) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
   }

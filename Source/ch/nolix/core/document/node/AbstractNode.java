@@ -317,7 +317,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
     try {
       return Integer.parseInt(getHeader());
-    } catch (final NumberFormatException numberFormatException) {
+    } catch (final NumberFormatException _) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
   }
