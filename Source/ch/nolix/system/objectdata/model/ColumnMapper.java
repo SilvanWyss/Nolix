@@ -8,6 +8,9 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 
 public final class ColumnMapper {
 
+  private ColumnMapper() {
+  }
+
   public static IColumn mapMidSchemaColumnDtoToColumn(
     final ColumnDto midSchemaColumnDto,
     final Table<IEntity> parentTable,
