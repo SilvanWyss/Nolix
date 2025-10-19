@@ -62,7 +62,7 @@ public abstract class AbstractEntity implements IEntity {
      */
     BaseBackReferenceUpdater.updateBaseBackReferencesThatReferencesBackEntityForDeleteEntity(this);
 
-    updateStateForDeletion();
+    state = DatabaseObjectState.DELETED;
   }
 
   @Override
@@ -267,9 +267,5 @@ public abstract class AbstractEntity implements IEntity {
     ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
       .containsAny(c -> c.containsValueInPersistedDataIgnoringEntities(localId, entitiesToIgnoreIds));
-  }
-
-  private void updateStateForDeletion() {
-    state = DatabaseObjectState.DELETED;
   }
 }
