@@ -137,7 +137,7 @@ public final class ArrayTool implements IArrayTool {
     //Iterates the given values.
     for (var i = 0; i < values.length; i++) {
       if (i < values.length - 1) {
-        stringBuilder.append(values[i] + ", ");
+        stringBuilder.append(values[i]).append(", ");
       } else {
         stringBuilder.append(values[i]);
       }

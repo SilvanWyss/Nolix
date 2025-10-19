@@ -63,12 +63,12 @@ public final class PopupWindowProvider {
       }
 
       //Iterates the stack trace of the given exception.
-      for (final StackTraceElement ste : error.getStackTrace()) {
-        final String[] classPath = ste.getClassName().split("\\.");
+      for (final StackTraceElement e : error.getStackTrace()) {
+        final String[] classPath = e.getClassName().split("\\.");
         textStringBuilder.append(classPath[classPath.length - 1]);
 
-        if (ste.getLineNumber() > 0) {
-          textStringBuilder.append(" (line " + ste.getLineNumber() + ")");
+        if (e.getLineNumber() > 0) {
+          textStringBuilder.append(" (line ").append(e.getLineNumber()).append(")");
         }
 
         textStringBuilder.append(CharacterCatalog.NEW_LINE);

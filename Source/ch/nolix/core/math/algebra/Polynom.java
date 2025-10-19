@@ -336,7 +336,7 @@ public final class Polynom {
         }
 
         final var coefficientDegree = degree - i;
-        stringBuilder.append(parameterSymbol + "^" + coefficientDegree);
+        stringBuilder.append(parameterSymbol).append("^").append(coefficientDegree);
       }
     }
   }

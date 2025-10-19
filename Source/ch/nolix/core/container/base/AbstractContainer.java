@@ -2075,7 +2075,7 @@ implements IContainer<E> {
     for (final var e : getViewWithoutFirst()) {
       //Appends the separator and the String representation of the current element to
       //the StringBuilder.
-      stringBuilder.append(separator + e);
+      stringBuilder.append(separator).append(e);
     }
 
     return stringBuilder.toString();
