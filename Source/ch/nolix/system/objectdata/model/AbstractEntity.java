@@ -3,33 +3,27 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.datamodel.id.IdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
-import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.system.objectdata.modelvalidator.EntityValidator;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
-import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.modelvalidator.IEntityValidator;
 
 public abstract class AbstractEntity implements IEntity {
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
-
-  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
   private static final IEntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
@@ -62,11 +56,11 @@ public abstract class AbstractEntity implements IEntity {
     ENTITY_VALIDATOR.assertCanBeDeleted(this);
 
     /*
-     * An Entity must not be referenced on deletion. This will be validated. But the
-     * delete method of an Entity must update all abstract back references that
-     * references back the Entity.
+     * An Entity must not be referenced on deletion. This will be validated on
+     * saving. But the delete method of an Entity must update all base back
+     * references that references back the Entity.
      */
-    updateAbstractBackReferencesThatReferencesBackThisForDeleteThis();
+    BaseBackReferenceUpdater.updateBaseBackReferencesThatReferencesBackEntityForDeleteEntity(this);
 
     updateStateForDeletion();
   }
@@ -273,41 +267,6 @@ public abstract class AbstractEntity implements IEntity {
     ((Table<?>) getStoredParentTable())
       .internalGetColumnsThatReferencesCurrentTable()
       .containsAny(c -> c.containsValueInPersistedDataIgnoringEntities(localId, entitiesToIgnoreIds));
-  }
-
-  private void updateBackReferenceForDeletion(final BackReference<?> backReference) {
-    backReference.clear();
-    backReference.setAsEditedAndRunPotentialUpdateAction();
-  }
-
-  private void updateAbstractBackReferencesThatReferencesBackThisForDeleteThis() {
-    ENTITY_SEARCHER
-      .getStoredBaseBackReferencesThatReferenceBackEntity(this)
-      .forEach(this::updateBackReferencingFieldsForDeletion);
-  }
-
-  private void updateBackReferencingFieldsForDeletion(final IBaseBackReference baseBackReference) {
-    switch (baseBackReference.getType()) {
-      case BACK_REFERENCE:
-        updateBackReferenceForDeletion((BackReference<?>) baseBackReference);
-        break;
-      case OPTIONAL_BACK_REFERENCE:
-        updateOptionalBackReferenceForDeletion((OptionalBackReference<?>) baseBackReference);
-        break;
-      case MULTI_BACK_REFERENCE:
-        /*
-         * Does nothing. MultiBackReferences do not need to be updated, because
-         * MultiBackReferences do not have redundancies.
-         */
-        break;
-      default:
-        throw InvalidArgumentException.forArgument(baseBackReference.getType());
-    }
-  }
-
-  private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {
-    optionalBackReference.clear();
-    optionalBackReference.setAsEditedAndRunPotentialUpdateAction();
   }
 
   private void updateStateForDeletion() {

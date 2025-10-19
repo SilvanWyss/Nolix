@@ -161,7 +161,7 @@ implements IMultiBackReference<E> {
     setAsEditedAndRunPotentialUpdateAction();
   }
 
-  void internalDeleteBackReferencedEntityId(final String backReferencedEntityId) {
+  void deleteEntryByBackReferencedEntityId(final String backReferencedEntityId) {
     final var entry = localEntries.getStoredFirst(e -> e.getBackReferencedEntityId().equals(backReferencedEntityId));
 
     entry.setDeleted();
