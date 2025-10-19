@@ -36,12 +36,9 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    * {@inheritDoc}
    */
   @Override
-  public boolean canReferenceBackBaseReference(final IField field, final IBaseReference abstractReference) {
-    if (field instanceof IBaseBackReference && abstractReference != null) {
-      final var abstractBackReference = (IBaseBackReference) field;
-
-      return //
-      baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(abstractBackReference, abstractReference);
+  public boolean canReferenceBackBaseReference(final IField field, final IBaseReference baseReference) {
+    if (field instanceof IBaseBackReference baseBackReference) {
+      return baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(baseBackReference, baseReference);
     }
 
     return false;
