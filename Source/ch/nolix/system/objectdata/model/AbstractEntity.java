@@ -125,7 +125,9 @@ public abstract class AbstractEntity implements IEntity {
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
     ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
 
-    executeSetParentTable(parentTable);
+    this.parentTable = parentTable;
+
+    getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }
 
   @Override
@@ -220,12 +222,6 @@ public abstract class AbstractEntity implements IEntity {
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
     }
-  }
-
-  private void executeSetParentTable(final ITable<? extends IEntity> parentTable) {
-    this.parentTable = parentTable;
-
-    getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }
 
   private boolean extractedFields() {
