@@ -35,7 +35,8 @@ public final class InternalDataReader {
 
   private static final EntityLoadingDtoMapper ENTITY_LOADING_DTO_MAPPER = new EntityLoadingDtoMapper();
 
-  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = new MultiBackReferenceEntryDtoMapper();
+  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
+  new MultiBackReferenceEntryDtoMapper();
 
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();
 
