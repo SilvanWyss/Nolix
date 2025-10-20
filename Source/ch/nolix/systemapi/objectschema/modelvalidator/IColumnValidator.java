@@ -10,8 +10,7 @@ public interface IColumnValidator {
   /**
    * 
    * @param column
-   * @throws RuntimeException if the given column is not an abstract reference
-   *                          column
+   * @throws RuntimeException if the given column is not a base reference column.
    */
-  void assertIsAbstractReferenceColumn(IColumn column);
+  void assertIsBaseReferenceColumn(IColumn column);
 }

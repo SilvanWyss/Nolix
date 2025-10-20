@@ -13,7 +13,7 @@ public final class ColumnExaminer implements IColumnExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isAbstractReferenceColumn(IColumn column) {
+  public boolean isBaseReferenceColumn(IColumn column) {
     return //
     column != null
     && column.getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;

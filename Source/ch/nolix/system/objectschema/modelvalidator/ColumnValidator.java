@@ -17,8 +17,8 @@ public final class ColumnValidator implements IColumnValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertIsAbstractReferenceColumn(final IColumn column) {
-    if (!COLUMN_EXAMINER.isAbstractReferenceColumn(column)) {
+  public void assertIsBaseReferenceColumn(final IColumn column) {
+    if (!COLUMN_EXAMINER.isBaseReferenceColumn(column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(column, "is not an abstract refence column");
     }
   }

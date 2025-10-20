@@ -9,8 +9,7 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 public interface IColumnExaminer {
   /**
    * @param column
-   * @return true if the given column is an abstract reference column, false
-   *         otherwise.
+   * @return true if the given column is a base reference column, false otherwise.
    */
-  boolean isAbstractReferenceColumn(IColumn column);
+  boolean isBaseReferenceColumn(IColumn column);
 }
