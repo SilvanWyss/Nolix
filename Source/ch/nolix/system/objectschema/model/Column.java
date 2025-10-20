@@ -10,6 +10,7 @@ import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
+import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
@@ -19,6 +20,7 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
+import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
 public final class Column extends AbstractSchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
@@ -26,6 +28,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   private static final IColumnEditor<Column> COLUMN_EDITOR = new ColumnEditor();
 
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
+
+  private static final IColumnValidator COLUMN_VALIDATOR = new ColumnValidator();
 
   private final String id;
 
@@ -234,7 +238,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
     final IContainer<? extends IColumn> backReferenceableColumns) {
-    //TODO: Validate parameters
+    COLUMN_VALIDATOR.assertCanSetContentModel(this, fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     this.referenceableTables.clear();
     this.backReferenceableColumns.clear();
@@ -243,7 +247,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     this.dataType = dataType;
     this.referenceableTables.addAtEnd(referenceableTables);
     this.backReferenceableColumns.addAtEnd(backReferenceableColumns);
-
   }
 
   void setParentTableAttribute(final Table parentTable) {
