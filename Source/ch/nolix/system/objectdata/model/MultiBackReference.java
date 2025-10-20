@@ -186,14 +186,9 @@ implements IMultiBackReference<E> {
     final var multiBackReferenceEntries = //
     getStoredDataAndSchemaAdapter().loadMultiBackReferenceEntries(table, entityId, multiBackReferenceColumn);
 
-    //TODO: Create MultiBackReferenceEntryMapper
     return //
-    multiBackReferenceEntries.to(e -> //
-    MultiBackReferenceEntry
-      .createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
-        this,
-        e.backReferencedEntityId(),
-        e.backReferencedEntityTableId()));
+    multiBackReferenceEntries.getViewOf(
+      e -> MultiBackReferenceEntryMapper.mapMultiBackReferenceEntryDtoToLoadedMultiBackReferenceEntry(e, this));
   }
 
   private boolean needsToLoadAllPersistedBackReferencedEntityIds() {
