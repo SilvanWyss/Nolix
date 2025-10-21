@@ -126,10 +126,8 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return new IntervallContainerViewIterator<>(
-      abstractContainer,
-      startIndex,
-      endIndex);
+    return //
+    IntervallContainerViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractContainer, startIndex, endIndex);
   }
 
   /**

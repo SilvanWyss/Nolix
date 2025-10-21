@@ -5,6 +5,7 @@ import java.util.Iterator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
@@ -35,27 +36,49 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    * @throws ArgumentIsNullException      if the given parentContainer is null.
    * @throws NonPositiveArgumentException if the given startIndex is not positive.
    * @throws NonPositiveArgumentException if the given endIndex is not positive.
+   * @throws SmallerArgumentException     if the given endIndex is not bigger than
+   *                                      the given startIndex or does not equal
+   *                                      the given startIndex.
    */
-  public IntervallContainerViewIterator(final IContainer<E> parentContainer, final int startIndex, final int endIndex) {
+  private IntervallContainerViewIterator(
+    final IContainer<E> parentContainer,
+    final int startIndex,
+    final int endIndex) {
     Validator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
-
-    Validator
-      .assertThat(endIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
-      .isBiggerThanOrEquals(startIndex);
+    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isBiggerThanOrEquals(startIndex);
 
     this.parentContainer = parentContainer;
-
     this.endIndex = endIndex;
+    this.currentIndex = startIndex;
+    this.iterator = parentContainer.iterator();
 
-    currentIndex = startIndex;
-
-    iterator = parentContainer.iterator();
     for (var i = 1; i < startIndex; i++) {
       iterator.next();
     }
+  }
+
+  /**
+   * @param parentContainer
+   * @param startIndex
+   * @param endIndex
+   * @param <T>             is the type of the elements of the created
+   *                        {@link IntervallContainerViewIterator}.
+   * @return a new {@link IntervallContainerViewIterator} for the given
+   *         parentContainer, startIndex and endIndex.
+   * @throws ArgumentIsNullException      if the given parentContainer is null.
+   * @throws NonPositiveArgumentException if the given startIndex is not positive.
+   * @throws NonPositiveArgumentException if the given endIndex is not positive.
+   * @throws SmallerArgumentException     if the given endIndex is not bigger than
+   *                                      the given startIndex or does not equal
+   *                                      the given startIndex.
+   */
+  public static <T> IntervallContainerViewIterator<T> forParentContainerAndStartIndexAndEndIndex(
+    final IContainer<T> parentContainer,
+    final int startIndex,
+    final int endIndex) {
+    return new IntervallContainerViewIterator<>(parentContainer, startIndex, endIndex);
   }
 
   /**
@@ -67,30 +90,27 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
   }
 
   /**
-   * @return true if the current {@link IntervallContainerViewIterator} has a next
-   *         element.
+   * {@inheritDoc}
    */
   @Override
   public boolean hasNext() {
-    return (currentIndex <= endIndex);
+    return //
+    iterator.hasNext()
+    && currentIndex <= endIndex;
   }
 
   /**
-   * @return the next element of the current
-   *         {@link IntervallContainerViewIterator}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link IntervallContainerViewIterator}
-   *                                               does not have a next element.
+   * {@inheritDoc}
    */
   @Override
   public E next() {
-    //Asserts that the current @link SubContainerIterator has a next element.
     if (!hasNext()) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NEXT_ELEMENT);
     }
 
     currentIndex++;
+
     return iterator.next();
   }
 }
