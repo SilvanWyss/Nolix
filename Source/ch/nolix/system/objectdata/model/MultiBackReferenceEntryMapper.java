@@ -8,7 +8,8 @@ public final class MultiBackReferenceEntryMapper {
   private MultiBackReferenceEntryMapper() {
   }
 
-  public static <E extends IEntity> MultiBackReferenceEntry<E> mapMultiBackReferenceEntryDtoToLoadedMultiBackReferenceEntry(
+  public static <E extends IEntity> MultiBackReferenceEntry<E> //
+  mapMultiBackReferenceEntryDtoToLoadedMultiBackReferenceEntry(
     final MultiBackReferenceEntryDto multiBackReferenceEntryDto, final MultiBackReference<E> multiBackReference) {
     final var backReferencedEntityId = multiBackReferenceEntryDto.backReferencedEntityId();
     final var backReferencedTableId = multiBackReferenceEntryDto.backReferencedEntityTableId();
