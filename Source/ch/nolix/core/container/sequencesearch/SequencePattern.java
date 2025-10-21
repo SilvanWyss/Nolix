@@ -25,7 +25,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
   private final IContainer<Predicate<IContainer<E>>> sequenceConditions;
 
-  private final Predicate<E> blankCondition = _ -> true;
+  private final Predicate<E> blankCondition = _ -> true; //NOSONAR: This field must be a member.
 
   /**
    * Creates a new {@link SequencePattern}.
