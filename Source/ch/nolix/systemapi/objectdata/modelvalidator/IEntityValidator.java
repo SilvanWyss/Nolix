@@ -8,7 +8,7 @@ public interface IEntityValidator {
 
   void assertCanBeDeleted(IEntity entity);
 
-  <E extends IEntity> void assertCanSetParentTable(IEntity entity, ITable<E> table);
+  void assertCanSetParentTable(IEntity entity, ITable<? extends IEntity> table);
 
   void assertDoesNotBelongToTable(IEntity entity);
 

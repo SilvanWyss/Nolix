@@ -40,11 +40,10 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
    * 
    * @param entity
    * @param table
-   * @param <E>    is the type of the {@link IEntity}s of the givne table.
    * @return true if the given table can be set as parent table to the given
    *         entity, false otherwise.
    */
-  <E extends IEntity> boolean canSetParentTable(IEntity entity, ITable<E> table);
+  boolean canSetParentTable(IEntity entity, ITable<? extends IEntity> table);
 
   /**
    * @param entity

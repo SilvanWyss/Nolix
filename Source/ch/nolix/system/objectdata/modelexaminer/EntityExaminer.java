@@ -64,7 +64,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> boolean canSetParentTable(final IEntity entity, final ITable<E> table) {
+  public boolean canSetParentTable(final IEntity entity, final ITable<? extends IEntity> table) {
     return //
     canSetParentTable(entity)
     && table != null
