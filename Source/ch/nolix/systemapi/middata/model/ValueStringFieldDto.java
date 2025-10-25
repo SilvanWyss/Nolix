@@ -1,7 +1,7 @@
 package ch.nolix.systemapi.middata.model;
 
-public record StringRepresentedFieldDto(
+public record ValueStringFieldDto(
 String columnName,
-String nullableStringRepresentedValue,
+String nullableValueString,
 String nullableAdditionalValue) {
 }

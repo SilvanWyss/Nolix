@@ -5,5 +5,5 @@ import ch.nolix.coreapi.container.base.IContainer;
 public record EntityUpdateDto(
 String id,
 String saveStamp,
-IContainer<StringRepresentedFieldDto> updatedContentFields) {
+IContainer<ValueStringFieldDto> updatedContentFields) {
 }

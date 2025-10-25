@@ -5,7 +5,7 @@ import ch.nolix.system.sqlmiddata.sqlmapper.SqlValueMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
-import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
+import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlValueMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
@@ -79,7 +79,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     "INSERT INTO "
     + tableName
     + " (Id, SaveStamp, "
-    + newEntity.contentFields().to(StringRepresentedFieldDto::columnName).toStringWithSeparator(", ")
+    + newEntity.contentFields().to(ValueStringFieldDto::columnName).toStringWithSeparator(", ")
     + ") VALUES ('"
     + newEntity.id()
     + "', '"

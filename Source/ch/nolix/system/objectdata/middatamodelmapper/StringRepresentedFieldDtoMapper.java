@@ -2,7 +2,7 @@ package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
+import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IBackReference;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -24,7 +24,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
    * {@inheritDoc}
    */
   @Override
-  public IContainer<StringRepresentedFieldDto> mapFieldsToStringRepresentedFieldDtos(
+  public IContainer<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(
     final IContainer<? extends IField> fields) {
     return fields.to(this::mapFieldToStringRepresentedFieldDto);
   }
@@ -33,10 +33,10 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
    * {@inheritDoc}
    */
   @Override
-  public StringRepresentedFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
+  public ValueStringFieldDto mapFieldToStringRepresentedFieldDto(final IField field) {
     if (field instanceof final IValueField<?> value) {
       return //
-      new StringRepresentedFieldDto(value.getName(), value.getStoredValue().toString(), null);
+      new ValueStringFieldDto(value.getName(), value.getStoredValue().toString(), null);
     }
 
     if (field instanceof final IOptionalValueField<?> optionalValue) {
@@ -44,13 +44,13 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IMultiValueField<?> multiValue) {
-      return new StringRepresentedFieldDto(multiValue.getName(), null, null);
+      return new ValueStringFieldDto(multiValue.getName(), null, null);
     }
 
     if (field instanceof final IReference<?> reference) {
       return //
 
-      new StringRepresentedFieldDto(reference.getName(), reference.getReferencedEntityId(),
+      new ValueStringFieldDto(reference.getName(), reference.getReferencedEntityId(),
         reference.getReferencedTableId());
     }
 
@@ -59,13 +59,13 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IMultiReference<?> multiReference) {
-      return new StringRepresentedFieldDto(multiReference.getName(), null, null);
+      return new ValueStringFieldDto(multiReference.getName(), null, null);
     }
 
     if (field instanceof final IBackReference<?> backReference) {
       return //
 
-      new StringRepresentedFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(),
+      new ValueStringFieldDto(backReference.getName(), backReference.getBackReferencedEntityId(),
         backReference.getBackReferencedTableId());
     }
 
@@ -75,7 +75,7 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
     }
 
     if (field instanceof final IMultiBackReference<?> multiBackReference) {
-      return new StringRepresentedFieldDto(multiBackReference.getName(), null, null);
+      return new ValueStringFieldDto(multiBackReference.getName(), null, null);
     }
 
     throw InvalidArgumentException.forArgument(field);

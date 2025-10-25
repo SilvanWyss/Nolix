@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.systemapi.middata.model.StringRepresentedFieldDto;
+import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.objectdata.model.IOptionalBackReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
@@ -20,42 +20,42 @@ public final class StringRepresentedFieldDtoMapperHelper {
   private StringRepresentedFieldDtoMapperHelper() {
   }
 
-  public static StringRepresentedFieldDto mapOptionalValueToStringContentFieldDto(
+  public static ValueStringFieldDto mapOptionalValueToStringContentFieldDto(
     final IOptionalValueField<?> optionalValue) {
     final var columnName = optionalValue.getName();
 
     if (optionalValue.isEmpty()) {
-      return new StringRepresentedFieldDto(columnName, null, null);
+      return new ValueStringFieldDto(columnName, null, null);
     }
 
-    return new StringRepresentedFieldDto(columnName, optionalValue.getStoredValue().toString(), null);
+    return new ValueStringFieldDto(columnName, optionalValue.getStoredValue().toString(), null);
   }
 
-  public static StringRepresentedFieldDto mapOptionalReferenceToStringContentFieldDto(
+  public static ValueStringFieldDto mapOptionalReferenceToStringContentFieldDto(
     final IOptionalReference<?> optionalReference) {
     final var columnName = optionalReference.getName();
 
     if (optionalReference.isEmpty()) {
-      return new StringRepresentedFieldDto(columnName, null, null);
+      return new ValueStringFieldDto(columnName, null, null);
     }
 
     final var value = optionalReference.getReferencedEntityId();
     final var additionalValue = optionalReference.getReferencedTableId();
 
-    return new StringRepresentedFieldDto(columnName, value, additionalValue);
+    return new ValueStringFieldDto(columnName, value, additionalValue);
   }
 
-  public static StringRepresentedFieldDto mapOptionalBackReferenceToStringContentFieldDto(
+  public static ValueStringFieldDto mapOptionalBackReferenceToStringContentFieldDto(
     final IOptionalBackReference<?> optionalBackReference) {
     final var columnName = optionalBackReference.getName();
 
     if (optionalBackReference.isEmpty()) {
-      return new StringRepresentedFieldDto(columnName, null, null);
+      return new ValueStringFieldDto(columnName, null, null);
     }
 
     final var value = optionalBackReference.getBackReferencedEntityId();
     final var additionalValue = optionalBackReference.getBackReferencedTableId();
 
-    return new StringRepresentedFieldDto(columnName, value, additionalValue);
+    return new ValueStringFieldDto(columnName, value, additionalValue);
   }
 }
