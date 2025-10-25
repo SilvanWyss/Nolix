@@ -85,7 +85,10 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "', '"
     + 1
     + "', "
-    + newEntity.contentFields().to(SQL_VALUE_MAPPER::mapStringContentFieldDtoToSqlValue).toStringWithSeparator(", ")
+    //TODO: Handle nullableAdditionalValue of ValueStringFieldDtos
+    + newEntity.contentFields().to(
+      f -> SQL_VALUE_MAPPER.mapNullableValueStringToSqlValue(f.nullableValueString()))
+      .toStringWithSeparator(", ")
     + ");";
   }
 
@@ -107,9 +110,10 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
+    //TODO: Handle nullableAdditionalValue of ValueStringFieldDtos
     final var contentFieldSets = //
     entityUpdate.updatedContentFields()
-      .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapStringContentFieldDtoToSqlValue(f));
+      .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapNullableValueStringToSqlValue(f.nullableValueString()));
 
     var contentFieldSetsPrecessor = " ";
 

@@ -2,7 +2,6 @@ package ch.nolix.system.sqlmiddata.sqlmapper;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.sql.syntax.SqlKeywordCatalog;
-import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlValueMapper;
 
 /**
@@ -14,13 +13,11 @@ public class SqlValueMapper implements ISqlValueMapper {
    * {@inheritDoc}
    */
   @Override
-  public String mapStringContentFieldDtoToSqlValue(final ValueStringFieldDto valueStringFieldDto) {
-    final var nullableValue = valueStringFieldDto.nullableValueString();
-
-    if (nullableValue.isEmpty()) {
+  public String mapNullableValueStringToSqlValue(final String nullableValueString) {
+    if (nullableValueString == null) {
       return SqlKeywordCatalog.NULL;
     }
 
-    return StringTool.getInSingleQuotes(nullableValue);
+    return StringTool.getInSingleQuotes(nullableValueString);
   }
 }
