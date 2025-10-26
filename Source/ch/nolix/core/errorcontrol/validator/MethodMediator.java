@@ -8,12 +8,20 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class MethodMediator extends ArgumentMediator<Method> {
-  MethodMediator(final Method argument) {
+  protected MethodMediator(final Method argument) {
     super(LowerCaseVariableCatalog.METHOD, argument);
   }
 
-  MethodMediator(final String argumentName, final Method argument) {
+  private MethodMediator(final String argumentName, final Method argument) {
     super(argumentName, argument);
+  }
+
+  public static MethodMediator forArgument(final Method argument) {
+    return new MethodMediator(argument);
+  }
+
+  public static MethodMediator forArgumentNameAndArgument(final String argumentName, final Method argument) {
+    return new MethodMediator(argumentName, argument);
   }
 
   public final MethodMediator doesNotHaveAnnotations() {

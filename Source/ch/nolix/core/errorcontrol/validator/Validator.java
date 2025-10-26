@@ -147,7 +147,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link ExtendedMethodMediator} for the given argument.
    */
   public static ExtendedMethodMediator assertThat(final Method argument) {
-    return new ExtendedMethodMediator(argument);
+    return ExtendedMethodMediator.forArgument(argument);
   }
 
   /**
