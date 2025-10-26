@@ -8,14 +8,14 @@ public final class FieldMapper {
   }
 
   public static AbstractField mapColumnToField(final IColumn column) {
-    final var field = mapColumnToUnlinkedFeild(column);
+    final var field = mapColumnToUnlinkedField(column);
 
     field.setParentColumn(column);
 
     return field;
   }
 
-  private static AbstractField mapColumnToUnlinkedFeild(final IColumn column) {
+  private static AbstractField mapColumnToUnlinkedField(final IColumn column) {
     final var fieldType = column.getFieldType();
 
     return //
