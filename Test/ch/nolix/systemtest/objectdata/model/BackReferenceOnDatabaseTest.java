@@ -32,6 +32,41 @@ final class BackReferenceOnDatabaseTest extends StandardTest {
   }
 
   @Test
+  void testCase_getStoredBackReferencedBaseReferences_whenIsNewAndEmpty() {
+    //setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("database").andSchema(schema);
+    final var garfield = new Pet();
+    nodeDataAdapter.insertEntity(garfield);
+
+    //execution
+    final var result = garfield.owner.getStoredBackReferencedBaseReferences();
+
+    //verification
+    expect(result).isEmpty();
+  }
+
+  @Test
+  void testCase_getStoredBackReferencedBaseReferences_whenIsNewAndContainsAny() {
+    //setup
+    final var nodeDatabase = MutableNode.createEmpty();
+    final var schema = EntityTypeSet.withEntityType(Person.class, Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("database").andSchema(schema);
+    final var garfield = new Pet();
+    nodeDataAdapter.insertEntity(garfield);
+    final var john = new Person();
+    john.pet.setEntity(garfield);
+    nodeDataAdapter.insertEntity(john);
+
+    //execution
+    final var result = garfield.owner.getStoredBackReferencedBaseReferences();
+
+    //verification
+    expect(result).containsExactly(john.pet);
+  }
+
+  @Test
   void testCase_getStoredEntity_whenIsNewAndEmpty() {
     //setup
     final var nodeDatabase = MutableNode.createEmpty();
