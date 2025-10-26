@@ -87,10 +87,12 @@ public class MethodMediator extends ArgumentMediator<Method> {
       throw ArgumentIsNullException.forArgumentName("return type");
     }
 
-    if (getStoredArgument().getReturnType() != returnType) {
+    final var argument = getStoredArgument();
+
+    if (argument == null || argument.getReturnType() != returnType) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        getStoredArgument(),
+        argument,
         getArgumentName(),
         "does not have the return type '" + returnType.getName() + "'");
     }
