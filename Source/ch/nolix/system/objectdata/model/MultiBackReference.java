@@ -89,7 +89,7 @@ implements IMultiBackReference<E> {
   }
 
   @Override
-  public IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     final ILinkedList<IBaseReference> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 

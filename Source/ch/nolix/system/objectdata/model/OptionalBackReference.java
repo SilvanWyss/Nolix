@@ -112,7 +112,7 @@ implements IOptionalBackReference<E> {
   }
 
   @Override
-  public IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

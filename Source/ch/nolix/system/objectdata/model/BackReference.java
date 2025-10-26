@@ -59,7 +59,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   }
 
   @Override
-  public IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

@@ -73,6 +73,6 @@ public final class EntitySearcher implements IEntitySearcher {
   public IContainer<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
-    return fields.toMultiples(IField::getStoredBaseReferencesWhoAreBackReferencedFromThis);
+    return fields.toMultiples(IField::getStoredBackReferencedBaseReferences);
   }
 }

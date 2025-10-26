@@ -24,7 +24,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
   }
 
   @Override
-  public final IContainer<IBaseReference> getStoredBaseReferencesWhoAreBackReferencedFromThis() {
+  public final IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     return ImmutableList.createEmpty();
   }
 
