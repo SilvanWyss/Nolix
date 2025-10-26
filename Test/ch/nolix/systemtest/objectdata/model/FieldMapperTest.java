@@ -1,8 +1,7 @@
 package ch.nolix.systemtest.objectdata.model;
 
-import static org.mockito.Mockito.mock;
-
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.standardtest.StandardTest;
@@ -13,11 +12,10 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 final class FieldMapperTest extends StandardTest {
-
   @Test
   void testCase_mapColumnToField() {
     //setup part 1: Creates tableMock.
-    final var tableMock = mock(Table.class);
+    final var tableMock = Mockito.mock(Table.class);
 
     //setup part 1: Creates column.
     @SuppressWarnings("unchecked")
