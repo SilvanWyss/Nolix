@@ -11,7 +11,7 @@ public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
 
   boolean containsValueInPersistedDataIgnoringEntities(String value, IContainer<String> entitiesToIgnoreIds);
 
-  Class<Object> getDataTypeClass();
+  Class<?> getDataTypeClass();
 
   FieldType getFieldType();
 

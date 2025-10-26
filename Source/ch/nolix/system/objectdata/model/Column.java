@@ -21,7 +21,7 @@ public final class Column implements IColumn {
 
   private final FieldType fieldType;
 
-  private final Class<Object> dataTypeClass;
+  private final Class<?> dataTypeClass;
 
   private final ImmutableList<? extends ITable<IEntity>> referenceableTables;
 
@@ -31,7 +31,7 @@ public final class Column implements IColumn {
     final Table<IEntity> parentTable,
     final String id, final String name,
     final FieldType fieldType,
-    final Class<Object> dataTypeClass,
+    final Class<?> dataTypeClass,
     final IContainer<? extends ITable<IEntity>> referenceableTables,
     final IContainer<? extends IColumn> backReferenceableColumns) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
@@ -48,12 +48,13 @@ public final class Column implements IColumn {
     this.backReferenceableColumns = ImmutableList.forIterable(backReferenceableColumns);
   }
 
-  static Column //
+  public static Column //
   withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
     final Table<IEntity> parentTable,
-    final String id, final String name,
+    final String id,
+    final String name,
     final FieldType fieldType,
-    final Class<Object> dataTypeClass,
+    final Class<?> dataTypeClass,
     final IContainer<? extends ITable<IEntity>> referenceableTables,
     final IContainer<? extends IColumn> backReferenceableColumns) {
     return new Column(parentTable, id, name, fieldType, dataTypeClass, referenceableTables, backReferenceableColumns);
@@ -85,7 +86,7 @@ public final class Column implements IColumn {
   }
 
   @Override
-  public Class<Object> getDataTypeClass() {
+  public Class<?> getDataTypeClass() {
     return dataTypeClass;
   }
 
