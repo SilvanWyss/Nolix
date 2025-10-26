@@ -46,7 +46,9 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public IContainer<V> getAllStoredValues() {
-    updateStateForLoadAllPersistedValuesIfNotLoaded();
+    if (isConnectedWithRealDatabase()) {
+      updateStateForLoadAllPersistedValuesIfNotLoaded();
+    }
 
     return getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries();
   }
@@ -68,7 +70,8 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
 
   @Override
   public boolean isEmpty() {
-    return localEntries.isEmpty()
+    return //
+    localEntries.isEmpty()
     && isEmptyWhenDoesNotHaveLocalEntries();
   }
 
