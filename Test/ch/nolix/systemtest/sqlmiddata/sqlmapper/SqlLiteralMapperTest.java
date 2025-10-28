@@ -5,16 +5,16 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlmiddata.sqlmapper.SqlValueMapper;
+import ch.nolix.system.sqlmiddata.sqlmapper.SqlLiteralMapper;
 
-final class SqlValueMapperTest extends StandardTest {
+final class SqlLiteralMapperTest extends StandardTest {
   @Test
   void testCase_whenTheGivenNullableValueStringIsNull() {
     //setup
-    final var testUnit = new SqlValueMapper();
+    final var testUnit = new SqlLiteralMapper();
 
     //execution
-    final var result = testUnit.mapNullableValueStringToSqlValue(null);
+    final var result = testUnit.mapNullableValueStringToSqlLiteral(null);
 
     //verification
     expect(result).isEqualTo("NULL");
@@ -29,10 +29,10 @@ final class SqlValueMapperTest extends StandardTest {
   })
   void testCase_whenTheGivenNullableValueIsNotNull(final String nullableValue, final String expectedResult) {
     //setup
-    final var testUnit = new SqlValueMapper();
+    final var testUnit = new SqlLiteralMapper();
 
     //execution
-    final var result = testUnit.mapNullableValueStringToSqlValue(nullableValue);
+    final var result = testUnit.mapNullableValueStringToSqlLiteral(nullableValue);
 
     //verification
     expect(result).isEqualTo(expectedResult);

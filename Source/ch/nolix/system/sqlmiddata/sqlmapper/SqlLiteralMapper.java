@@ -2,18 +2,18 @@ package ch.nolix.system.sqlmiddata.sqlmapper;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.coreapi.sql.syntax.SqlKeywordCatalog;
-import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlValueMapper;
+import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 
 /**
  * @author Silvan Wyss
  * @version 2024-12-28
  */
-public class SqlValueMapper implements ISqlValueMapper {
+public class SqlLiteralMapper implements ISqlLiteralMapper {
   /**
    * {@inheritDoc}
    */
   @Override
-  public String mapNullableValueStringToSqlValue(final String nullableValueString) {
+  public String mapNullableValueStringToSqlLiteral(final String nullableValueString) {
     if (nullableValueString == null) {
       return SqlKeywordCatalog.NULL;
     }

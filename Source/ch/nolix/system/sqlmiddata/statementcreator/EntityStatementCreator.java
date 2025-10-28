@@ -1,13 +1,13 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.system.sqlmiddata.sqlmapper.SqlValueMapper;
+import ch.nolix.system.sqlmiddata.sqlmapper.SqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
-import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlValueMapper;
+import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
-  private static final ISqlValueMapper SQL_VALUE_MAPPER = new SqlValueMapper();
+  private static final ISqlLiteralMapper SQL_VALUE_MAPPER = new SqlLiteralMapper();
 
   @Override
   public String createStatementToDeleteEntity(final String tableName, final EntityDeletionDto entity) {
@@ -87,7 +87,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "', "
     //TODO: Handle nullableAdditionalValue of ValueStringFieldDtos
     + newEntity.contentFields().to(
-      f -> SQL_VALUE_MAPPER.mapNullableValueStringToSqlValue(f.nullableValueString()))
+      f -> SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(f.nullableValueString()))
       .toStringWithSeparator(", ")
     + ");";
   }
@@ -113,7 +113,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     //TODO: Handle nullableAdditionalValue of ValueStringFieldDtos
     final var contentFieldSets = //
     entityUpdate.updatedContentFields()
-      .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapNullableValueStringToSqlValue(f.nullableValueString()));
+      .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(f.nullableValueString()));
 
     var contentFieldSetsPrecessor = " ";
 
