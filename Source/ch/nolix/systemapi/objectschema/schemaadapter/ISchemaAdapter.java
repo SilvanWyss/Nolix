@@ -7,6 +7,8 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface ISchemaAdapter extends IResettableChangeSaver {
   ISchemaAdapter addTable(ITable table);
 
+  boolean databaseIsEmpty();
+
   ITable getStoredTableByName(String name);
 
   IContainer<ITable> getStoredTables();

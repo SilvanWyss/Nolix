@@ -49,6 +49,11 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
+  public final boolean databaseIsEmpty() {
+    return (getTableCount() == 0);
+  }
+
+  @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
@@ -69,7 +74,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   @Override
-  public int getTableCount() {
+  public final int getTableCount() {
     return database.getTableCount();
   }
 

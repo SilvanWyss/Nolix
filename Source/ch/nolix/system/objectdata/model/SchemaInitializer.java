@@ -26,13 +26,9 @@ public final class SchemaInitializer {
   public void initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter) {
-    if (databaseIsEmpty(schemaAdapter)) {
+    if (schemaAdapter.databaseIsEmpty()) {
       initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(entityTypeSet, schemaAdapter);
     }
-  }
-
-  private boolean databaseIsEmpty(final ISchemaAdapter schemaAdapter) {
-    return (schemaAdapter.getTableCount() == 0);
   }
 
   private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
