@@ -6,7 +6,7 @@ import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploader;
+import ch.nolix.systemapi.webgui.atomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader> {

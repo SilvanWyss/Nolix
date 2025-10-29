@@ -15,7 +15,7 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.LabelRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

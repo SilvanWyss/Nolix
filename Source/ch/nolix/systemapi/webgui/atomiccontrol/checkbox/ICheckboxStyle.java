@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.atomiccontrol.checkboxapi;
+package ch.nolix.systemapi.webgui.atomiccontrol.checkbox;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 

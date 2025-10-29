@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webgui.atomiccontrol.textbox;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
-import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.atomiccontrol.textbox.ITextbox;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class TextboxTest extends ControlTest<ITextbox> {

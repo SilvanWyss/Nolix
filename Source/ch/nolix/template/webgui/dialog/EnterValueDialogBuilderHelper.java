@@ -2,7 +2,7 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-import ch.nolix.systemapi.webgui.atomiccontrol.textboxapi.ITextbox;
+import ch.nolix.systemapi.webgui.atomiccontrol.textbox.ITextbox;
 
 public final class EnterValueDialogBuilderHelper {
   private EnterValueDialogBuilderHelper() {

@@ -2,7 +2,7 @@ package ch.nolix.systemtest.webgui.atomiccontrol.button;
 
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.button.ButtonCssBuilder;
-import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.IButton;
+import ch.nolix.systemapi.webgui.atomiccontrol.button.IButton;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlCssBuilderTest;
 
 final class ButtonCssBuilderTest extends ControlCssBuilderTest<ButtonCssBuilder, IButton> {

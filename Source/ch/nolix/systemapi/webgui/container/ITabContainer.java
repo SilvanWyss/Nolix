@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webgui.container;
 import java.util.function.Consumer;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.systemapi.webgui.atomiccontrol.labelapi.ILabelStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.label.ILabelStyle;
 
 public interface ITabContainer
 extends ch.nolix.systemapi.webgui.basecontainer.IContainer<ITabContainer, ITabContainerStyle> {

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.atomiccontrol.textboxapi;
+package ch.nolix.systemapi.webgui.atomiccontrol.textbox;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 

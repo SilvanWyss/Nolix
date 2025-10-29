@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.atomiccontrol.imagecontrolapi;
+package ch.nolix.systemapi.webgui.atomiccontrol.imagecontrol;
 
 import java.util.function.Consumer;
 

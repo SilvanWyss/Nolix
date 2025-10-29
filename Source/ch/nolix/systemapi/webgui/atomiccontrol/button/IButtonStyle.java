@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.atomiccontrol.buttonapi;
+package ch.nolix.systemapi.webgui.atomiccontrol.button;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 

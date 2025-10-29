@@ -12,7 +12,7 @@ import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
-import ch.nolix.systemapi.webgui.atomiccontrol.buttonapi.ButtonRole;
+import ch.nolix.systemapi.webgui.atomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;

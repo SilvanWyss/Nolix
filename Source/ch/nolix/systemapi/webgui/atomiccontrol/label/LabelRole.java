@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.atomiccontrol.labelapi;
+package ch.nolix.systemapi.webgui.atomiccontrol.label;
 
 import ch.nolix.coreapi.document.node.INode;
 

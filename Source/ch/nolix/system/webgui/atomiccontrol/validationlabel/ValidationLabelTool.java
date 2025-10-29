@@ -3,8 +3,8 @@ package ch.nolix.system.webgui.atomiccontrol.validationlabel;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabel;
-import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabelTool;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabel.IValidationLabel;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabel.IValidationLabelTool;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class ValidationLabelTool implements IValidationLabelTool {

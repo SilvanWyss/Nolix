@@ -1,7 +1,7 @@
 package ch.nolix.system.webgui.atomiccontrol.validationlabel;
 
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
-import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabelStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabel.IValidationLabelStyle;
 
 public final class ValidationLabelStyle
 extends AbstractControlStyle<IValidationLabelStyle>

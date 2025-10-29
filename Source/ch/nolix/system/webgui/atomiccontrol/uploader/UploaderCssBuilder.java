@@ -4,8 +4,8 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploader;
-import ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi.IUploaderStyle;
+import ch.nolix.systemapi.webgui.atomiccontrol.uploader.IUploader;
+import ch.nolix.systemapi.webgui.atomiccontrol.uploader.IUploaderStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploader, IUploaderStyle> {

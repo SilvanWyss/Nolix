@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.atomiccontrol.uploaderapi;
+package ch.nolix.systemapi.webgui.atomiccontrol.uploader;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 

@@ -7,7 +7,7 @@ import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.system.webgui.atomiccontrol.button.Button;
 import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.systemapi.webgui.atomiccontrol.validationlabelapi.IValidationLabel;
+import ch.nolix.systemapi.webgui.atomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class ValidationLabelTest extends ControlTest<IValidationLabel> {
