@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.container;
+package ch.nolix.system.webgui.container.grid;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
@@ -6,7 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.systemapi.webgui.container.IGrid;
+import ch.nolix.systemapi.webgui.container.grid.IGrid;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
 public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {

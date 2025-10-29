@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.container;
+package ch.nolix.systemapi.webgui.container.grid;
 
 import ch.nolix.coreapi.document.node.INode;
 

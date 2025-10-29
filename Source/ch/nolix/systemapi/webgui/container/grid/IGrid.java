@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.container;
+package ch.nolix.systemapi.webgui.container.grid;
 
 import ch.nolix.systemapi.webgui.basecontainer.IContainer;
 import ch.nolix.systemapi.webgui.main.IControl;

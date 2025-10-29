@@ -1,10 +1,10 @@
-package ch.nolix.systemtest.webgui.container;
+package ch.nolix.systemtest.webgui.container.grid;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
-import ch.nolix.system.webgui.container.Grid;
-import ch.nolix.systemapi.webgui.container.IGrid;
+import ch.nolix.system.webgui.container.grid.Grid;
+import ch.nolix.systemapi.webgui.container.grid.IGrid;
 import ch.nolix.systemtest.webgui.basecontainer.ContainerTest;
 
 final class GridTest extends ContainerTest<IGrid> {

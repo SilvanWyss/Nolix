@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.container;
+package ch.nolix.system.webgui.container.grid;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
@@ -10,8 +10,8 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.label.Label;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
-import ch.nolix.systemapi.webgui.container.IGrid;
-import ch.nolix.systemapi.webgui.container.IGridStyle;
+import ch.nolix.systemapi.webgui.container.grid.IGrid;
+import ch.nolix.systemapi.webgui.container.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;

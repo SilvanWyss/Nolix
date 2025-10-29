@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.container;
+package ch.nolix.system.webgui.container.grid;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.cssmodel.CssProperty;
@@ -9,8 +9,8 @@ import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
-import ch.nolix.systemapi.webgui.container.IGrid;
-import ch.nolix.systemapi.webgui.container.IGridStyle;
+import ch.nolix.systemapi.webgui.container.grid.IGrid;
+import ch.nolix.systemapi.webgui.container.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {

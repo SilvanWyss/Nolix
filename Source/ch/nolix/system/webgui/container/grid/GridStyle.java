@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.container;
+package ch.nolix.system.webgui.container.grid;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
@@ -7,8 +7,8 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.graphic.color.IColor;
-import ch.nolix.systemapi.webgui.container.GridType;
-import ch.nolix.systemapi.webgui.container.IGridStyle;
+import ch.nolix.systemapi.webgui.container.grid.GridType;
+import ch.nolix.systemapi.webgui.container.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridStyle extends AbstractControlStyle<IGridStyle> implements IGridStyle {
