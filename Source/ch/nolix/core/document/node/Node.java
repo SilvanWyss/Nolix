@@ -22,13 +22,15 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 public final class Node extends AbstractNode<Node> {
   public static final Node EMPTY_NODE = new Node();
 
-  private final String header;
+  private final String nullableHeader;
 
   private final ImmutableList<Node> childNodes;
 
+  /**
+   * Creates a new {@link Node}.
+   */
   private Node() {
-    header = null;
-
+    nullableHeader = null;
     childNodes = ImmutableList.forIterable(LinkedList.createEmpty());
   }
 
@@ -38,8 +40,7 @@ public final class Node extends AbstractNode<Node> {
    * @param childNodes
    */
   private Node(final Iterable<? extends INode<?>> childNodes) {
-    header = null;
-
+    this.nullableHeader = null;
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
   }
 
@@ -51,9 +52,8 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private Node(final String header) {
-    this.header = getValidHeaderFromHeader(header);
-
-    childNodes = ImmutableList.createEmpty();
+    this.nullableHeader = getValidHeaderFromHeader(header);
+    this.childNodes = ImmutableList.createEmpty();
   }
 
   /**
@@ -66,7 +66,7 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private Node(final String header, final INode<?> childNode, final INode<?>[] childNodes) {
-    this.header = getValidHeaderFromHeader(header);
+    this.nullableHeader = getValidHeaderFromHeader(header);
 
     this.childNodes = //
     ImmutableList.forIterable(createNodesFromNodes(ContainerView.forElementAndArray(childNode, childNodes)));
@@ -81,8 +81,7 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private Node(final String header, final Iterable<? extends INode<?>> childNodes) {
-    this.header = getValidHeaderFromHeader(header);
-
+    this.nullableHeader = getValidHeaderFromHeader(header);
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
   }
 
@@ -339,17 +338,16 @@ public final class Node extends AbstractNode<Node> {
     return withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public String getHeader() {
-    if (header == null) {
+    if (nullableHeader == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
     }
 
-    return header;
+    return nullableHeader;
   }
 
   /**
@@ -365,6 +363,6 @@ public final class Node extends AbstractNode<Node> {
    */
   @Override
   public boolean hasHeader() {
-    return (header != null);
+    return (nullableHeader != null);
   }
 }
