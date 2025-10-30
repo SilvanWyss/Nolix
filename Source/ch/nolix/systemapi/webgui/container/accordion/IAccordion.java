@@ -1,8 +1,9 @@
-package ch.nolix.systemapi.webgui.container;
+package ch.nolix.systemapi.webgui.container.accordion;
 
 import java.util.function.Consumer;
 
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.systemapi.webgui.container.TabExpansionBehavior;
 import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainerStyle;
 
 public interface IAccordion

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.container;
+package ch.nolix.systemapi.webgui.container.accordion;
 
 import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableHeaderHolder;
 import ch.nolix.systemapi.gui.selection.Selectable;
