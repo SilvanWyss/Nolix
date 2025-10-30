@@ -35,8 +35,6 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   private static final String JPG_STRING = "JPGString";
 
-  private static final BufferedImageTool BUFFERED_IMAGE_TOOL = new BufferedImageTool();
-
   private final Matrix<IColor> pixels;
 
   @SuppressWarnings("unused")
@@ -60,7 +58,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage fromBytes(final byte[] bytes) {
-    return fromBufferedImage(BUFFERED_IMAGE_TOOL.fromBytes(bytes));
+    final var bufferedImage = BufferedImageCreator.createBufferedImageFromBytes(bytes);
+
+    return fromBufferedImage(bufferedImage);
   }
 
   public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
@@ -83,7 +83,7 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage fromFile(final String filePath) {
-    final var bufferedImage = BUFFERED_IMAGE_TOOL.fromFile(filePath);
+    final var bufferedImage = BufferedImageCreator.createBufferedImageFromFileWithFilePath(filePath);
 
     return fromBufferedImage(bufferedImage);
   }

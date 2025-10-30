@@ -9,8 +9,11 @@ import javax.imageio.ImageIO;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 
-public final class BufferedImageTool {
-  public BufferedImage fromBytes(final byte[] bytes) {
+public final class BufferedImageCreator {
+  private BufferedImageCreator() {
+  }
+
+  public static BufferedImage createBufferedImageFromBytes(final byte[] bytes) {
     try {
       return ImageIO.read(new ByteArrayInputStream(bytes));
     } catch (final IOException pIOException) {
@@ -18,7 +21,7 @@ public final class BufferedImageTool {
     }
   }
 
-  public BufferedImage fromFile(final String filePath) {
+  public static BufferedImage createBufferedImageFromFileWithFilePath(final String filePath) {
     try {
       return ImageIO.read(new File(filePath));
     } catch (final IOException pIOException) {
