@@ -8,16 +8,18 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 public final class EnglishNounTool {
   private static final EnglishWordEndExaminer ENGLISH_WORD_END_EXAMINER = new EnglishWordEndExaminer();
 
-  public String getArticleOfNoun(final String noun) {
+  private EnglishNounTool() {
+  }
+
+  public static String getArticleOfNoun(final String noun) {
     final var firstLetter = noun.charAt(0);
 
     return getArticleOfNounWithFirstLetter(firstLetter);
   }
 
-  public String getPluralOfNoun(final String noun) {
-    Validator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalog.NOUN).isNotBlank();
-
-    return switch (noun) {
+  public static String getPluralOfNoun(final String noun) {
+    return //
+    switch (noun) {
       case "child" ->
         "children";
       case "foot" ->
@@ -33,7 +35,7 @@ public final class EnglishNounTool {
     };
   }
 
-  private String getArticleOfNounWithFirstLetter(final char firstLetter) {
+  private static String getArticleOfNounWithFirstLetter(final char firstLetter) {
     //Asserts that the given letter is valid.
     if (firstLetter < 65
     || (firstLetter > 90 && firstLetter < 97)
@@ -60,7 +62,9 @@ public final class EnglishNounTool {
     };
   }
 
-  private String getPluralOfNounDependingOnEnding(final String noun) {
+  private static String getPluralOfNounDependingOnEnding(final String noun) {
+    Validator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalog.NOUN).isNotBlank();
+
     if (noun.endsWith("man")) {
       return (noun.substring(0, noun.length() - 3) + "men");
     }
@@ -92,7 +96,7 @@ public final class EnglishNounTool {
     return (noun + "s");
   }
 
-  private boolean pluralOfNounEndsWithEs(final String noun) {
+  private static boolean pluralOfNounEndsWithEs(final String noun) {
     return //
     noun.endsWith("sh")
     || noun.endsWith("ss")

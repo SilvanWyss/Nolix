@@ -47,11 +47,8 @@ final class EnglishNounToolTest extends StandardTest {
   "Zebra"
   })
   void testCase_getArticleOfNoun_whenGivenNounHasArtilceA(final String noun) {
-    //setup
-    final var testUnit = new EnglishNounTool();
-
     //execution
-    final var result = testUnit.getArticleOfNoun(noun);
+    final var result = EnglishNounTool.getArticleOfNoun(noun);
 
     //verification
     expect(result).isEqualTo("a");
@@ -71,11 +68,8 @@ final class EnglishNounToolTest extends StandardTest {
   "Urial"
   })
   void testCase_getArticleOfNoun_whenGivenNounHasArtilceAn(final String noun) {
-    //setup
-    final var testUnit = new EnglishNounTool();
-
     //execution
-    final var result = testUnit.getArticleOfNoun(noun);
+    final var result = EnglishNounTool.getArticleOfNoun(noun);
 
     //verification
     expect(result).isEqualTo("an");
@@ -99,11 +93,8 @@ final class EnglishNounToolTest extends StandardTest {
   "tooth, teeth"
   })
   void testCase_getPluralOfNoun(final String noun, final String expectedPlural) {
-    //setup
-    final var testUnit = new EnglishNounTool();
-
     //execution
-    final var result = testUnit.getPluralOfNoun(noun);
+    final var result = EnglishNounTool.getPluralOfNoun(noun);
 
     //verification
     expect(result).isEqualTo(expectedPlural);
