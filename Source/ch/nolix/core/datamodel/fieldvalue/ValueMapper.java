@@ -1,4 +1,4 @@
-package ch.nolix.core.datamodel.fliedvalue;
+package ch.nolix.core.datamodel.fieldvalue;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.misc.dataobject.Blob;
