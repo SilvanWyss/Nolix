@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.container;
+package ch.nolix.system.webgui.container.singlecontainer;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -6,8 +6,8 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
-import ch.nolix.systemapi.webgui.container.ISingleContainer;
-import ch.nolix.systemapi.webgui.container.ISingleContainerStyle;
+import ch.nolix.systemapi.webgui.container.singlecontainer.ISingleContainer;
+import ch.nolix.systemapi.webgui.container.singlecontainer.ISingleContainerStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;

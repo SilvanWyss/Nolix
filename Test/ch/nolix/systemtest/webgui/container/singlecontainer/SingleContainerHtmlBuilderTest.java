@@ -1,8 +1,8 @@
-package ch.nolix.systemtest.webgui.container;
+package ch.nolix.systemtest.webgui.container.singlecontainer;
 
-import ch.nolix.system.webgui.container.SingleContainer;
-import ch.nolix.system.webgui.container.SingleContainerHtmlBuilder;
-import ch.nolix.systemapi.webgui.container.ISingleContainer;
+import ch.nolix.system.webgui.container.singlecontainer.SingleContainer;
+import ch.nolix.system.webgui.container.singlecontainer.SingleContainerHtmlBuilder;
+import ch.nolix.systemapi.webgui.container.singlecontainer.ISingleContainer;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class SingleContainerHtmlBuilderTest
