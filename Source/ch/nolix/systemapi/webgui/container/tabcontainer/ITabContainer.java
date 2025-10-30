@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.container;
+package ch.nolix.systemapi.webgui.container.tabcontainer;
 
 import java.util.function.Consumer;
 

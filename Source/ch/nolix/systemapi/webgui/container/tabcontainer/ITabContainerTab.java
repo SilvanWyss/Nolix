@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.container;
+package ch.nolix.systemapi.webgui.container.tabcontainer;
 
 import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableHeaderHolder;
 import ch.nolix.coreapi.attribute.mandatoryattribute.IHeaderHolder;
