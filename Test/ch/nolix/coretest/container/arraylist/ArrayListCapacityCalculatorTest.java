@@ -32,12 +32,12 @@ final class ArrayListCapacityCalculatorTest extends StandardTest {
     final int actualCapacity,
     final int requiredCapacity,
     final int expectedResult) {
-    //setup
-    final var testUnit = new ArrayListCapacityCalculator();
 
     //execution
     final var result = //
-    testUnit.calculateTargetCapacityForActualCapacityAndRequiredCapacity(actualCapacity, requiredCapacity);
+    ArrayListCapacityCalculator.calculateTargetCapacityForActualCapacityAndRequiredCapacity(
+      actualCapacity,
+      requiredCapacity);
 
     //verification
     expect(result).isEqualTo(expectedResult);

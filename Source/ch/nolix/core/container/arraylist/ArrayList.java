@@ -17,8 +17,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {
-  private static final ArrayListCapacityCalculator ARRAY_LIST_CAPACITY_CALCULATOR = new ArrayListCapacityCalculator();
-
   private int elementCount;
 
   @SuppressWarnings("unchecked")
@@ -309,7 +307,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   private int calculateTargetCapacityForRequiredCapacityWhenNeedsToGrowForIt(final int requiredCapacity) {
     return //
-    ARRAY_LIST_CAPACITY_CALCULATOR.calculateTargetCapacityForActualCapacityAndRequiredCapacity(
+    ArrayListCapacityCalculator.calculateTargetCapacityForActualCapacityAndRequiredCapacity(
       getCapacity(),
       requiredCapacity);
   }
@@ -370,6 +368,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    *         capacity the given requiredCapacity says, false otherwise.
    */
   private boolean needsToGrowForRequiredCapacity(final int requiredCapacity) {
-    return ARRAY_LIST_CAPACITY_CALCULATOR.arrayListNeedsToGrowForRequiredCapacity(getCapacity(), requiredCapacity);
+    return ArrayListCapacityCalculator.arrayListNeedsToGrowForRequiredCapacity(getCapacity(), requiredCapacity);
   }
 }

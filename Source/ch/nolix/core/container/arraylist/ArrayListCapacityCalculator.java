@@ -5,17 +5,26 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.math.number.IntCatalog;
 
 /**
+ * Of the {@link ArrayListCapacityCalculator} an instance cannot be created.
+ * 
  * @author Silvan Wyss
  * @version 2024-07-28
  */
 public final class ArrayListCapacityCalculator {
+  /**
+   * Prevents that an instance of the {@link ArrayListCapacityCalculator} can be
+   * created.
+   */
+  private ArrayListCapacityCalculator() {
+  }
+
   /**
    * @param capacity
    * @param requiredCapacity
    * @return true if an array list with the given capacity needs to grow to reach
    *         the given requiredCapacity, false otherwise.
    */
-  public boolean arrayListNeedsToGrowForRequiredCapacity(final int capacity, final int requiredCapacity) {
+  public static boolean arrayListNeedsToGrowForRequiredCapacity(final int capacity, final int requiredCapacity) {
     return (requiredCapacity > capacity);
   }
 
@@ -27,7 +36,7 @@ public final class ArrayListCapacityCalculator {
    * @throws SmallerArgumentException if the given requiredCapacity is not bigger
    *                                  or does not equal the given actualCapacity.
    */
-  public int calculateTargetCapacityForActualCapacityAndRequiredCapacity(
+  public static int calculateTargetCapacityForActualCapacityAndRequiredCapacity(
     final int actualCapacity,
     final int requiredCapacity) {
     Validator.assertThat(actualCapacity).thatIsNamed("actial capacity").isNotNegative();
@@ -51,9 +60,9 @@ public final class ArrayListCapacityCalculator {
   /**
    * @param value1
    * @param value2
-   * @return the bigger value from the given value1 and value2.
+   * @return the bigger value of the given value1 and value2.
    */
-  private int getMax(int value1, int value2) {
+  private static int getMax(int value1, int value2) {
     if (value1 > value2) {
       return value1;
     }
