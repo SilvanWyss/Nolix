@@ -63,9 +63,9 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new EntityCreationDto(
       "my_id",
       ImmutableList.withElement(
-        new ValueStringFieldDto("MyColumn1", "my_value1", "additional_value_1"),
-        new ValueStringFieldDto("MyColumn2", "my_value2", "additional_value_2"),
-        new ValueStringFieldDto("MyColumn3", "my_value3", "additional_value_3")));
+        new ValueStringFieldDto("MyColumn1", "my_value1", null),
+        new ValueStringFieldDto("MyColumn2", "my_value2", null),
+        new ValueStringFieldDto("MyColumn3", "my_value3", null)));
 
     //execution
     final var result = testUnit.createStatementToInsertEntity("MyTable", newEntityDto);
@@ -84,9 +84,9 @@ final class EntityStatementCreatorTest extends StandardTest {
       "my_id",
       "100",
       ImmutableList.withElement(
-        new ValueStringFieldDto("MyColumn1", "my_value1", "additional_value_1"),
-        new ValueStringFieldDto("MyColumn2", "my_value2", "additional_value_2"),
-        new ValueStringFieldDto("MyColumn3", "my_value3", "additional_value_3")));
+        new ValueStringFieldDto("MyColumn1", "my_value1", null),
+        new ValueStringFieldDto("MyColumn2", "my_value2", null),
+        new ValueStringFieldDto("MyColumn3", "my_value3", null)));
 
     //execution
     final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);

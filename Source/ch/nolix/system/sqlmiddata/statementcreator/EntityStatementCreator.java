@@ -1,11 +1,11 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.system.sqlmiddata.sqlmapper.SqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
-import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
@@ -75,20 +75,43 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
+    final var contentFields = newEntity.contentFields();
+
+    final var contentColumnNames = //
+    contentFields.toMultiples(
+      f -> {
+        final var columnName = f.columnName();
+
+        if (f.nullableAdditionalValue() != null) {
+          final var additionalColumnName = columnName + "Table";
+
+          return ImmutableList.withElement(columnName, additionalColumnName);
+        }
+
+        return ImmutableList.withElement(columnName);
+      });
+
+    final var values = //
+    contentFields.toMultiples(
+      f -> {
+        final var nullableValueString = f.nullableValueString();
+        final var valueSqlLiteral = SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);
+        final var nullableAdditionalValue = f.nullableAdditionalValue();
+
+        if (nullableAdditionalValue != null) {
+
+          final var additionalValueSqlLiteral = SQL_VALUE_MAPPER
+            .mapNullableValueStringToSqlLiteral(nullableAdditionalValue);
+          return ImmutableList.withElement(valueSqlLiteral, additionalValueSqlLiteral);
+        }
+
+        return ImmutableList.withElement(valueSqlLiteral);
+      });
+
     return //
-    "INSERT INTO "
-    + tableName
-    + " (Id, SaveStamp, "
-    + newEntity.contentFields().to(ValueStringFieldDto::columnName).toStringWithSeparator(", ")
-    + ") VALUES ('"
-    + newEntity.id()
-    + "', '"
-    + 1
-    + "', "
-    //TODO: Handle nullableAdditionalValue of ValueStringFieldDtos
-    + newEntity.contentFields().to(
-      f -> SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(f.nullableValueString()))
-      .toStringWithSeparator(", ")
+    "INSERT INTO " + tableName + " (Id, SaveStamp, " + contentColumnNames.toStringWithSeparator(", ") + ") VALUES ('"
+    + newEntity.id() + "', '" + 1 + "', "
+    + values.toStringWithSeparator(", ")
     + ");";
   }
 
@@ -110,14 +133,31 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
-    //TODO: Handle nullableAdditionalValue of ValueStringFieldDtos
-    final var contentFieldSets = //
-    entityUpdate.updatedContentFields()
-      .to(f -> f.columnName() + " = " + SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(f.nullableValueString()));
+    final var updatedContentFields = entityUpdate.updatedContentFields();
+    final var updatedContentFieldSetters = updatedContentFields.toMultiples(f -> {
+      final var columnName = f.columnName();
+      final var nullableValueString = f.nullableValueString();
+      final var valueSqlLiteral = SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);
+      final var nullableAdditionalValue = f.nullableAdditionalValue();
+
+      if (nullableAdditionalValue != null) {
+        final var additionalColumnName = columnName + "Table";
+
+        final var additionalValueSqlLiteral = //
+        SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableAdditionalValue);
+
+        return //
+        ImmutableList.withElement(
+          columnName + " = " + valueSqlLiteral,
+          additionalColumnName + " = " + additionalValueSqlLiteral);
+      }
+
+      return ImmutableList.withElement(columnName + " = " + valueSqlLiteral);
+    });
 
     var contentFieldSetsPrecessor = " ";
 
-    if (contentFieldSets.containsAny()) {
+    if (updatedContentFieldSetters.containsAny()) {
       contentFieldSetsPrecessor = ", ";
     }
 
@@ -128,7 +168,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + (Integer.valueOf(entityUpdate.saveStamp()) + 1)
     + "'"
     + contentFieldSetsPrecessor
-    + contentFieldSets.toStringWithSeparator(", ")
+    + updatedContentFieldSetters.toStringWithSeparator(", ")
     + " WHERE Id = '"
     + entityUpdate.id()
     + "' AND SaveStamp = '"
