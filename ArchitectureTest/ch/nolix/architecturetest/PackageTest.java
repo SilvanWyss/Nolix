@@ -1,6 +1,5 @@
 package ch.nolix.architecturetest;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -8,7 +7,6 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 final class PackageTest {
   @Test
-  @Disabled
   void testCase_packagesHaveAMaxHierarchyDepthOf5() {
     //parameter definition
     final var maxPackageHierarchyDepth = 5;
