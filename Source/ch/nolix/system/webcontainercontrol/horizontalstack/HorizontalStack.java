@@ -1,12 +1,13 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.horizontalstack;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.element.property.MutableValue;
+import ch.nolix.system.webgui.linearcontainer.AbstractLinearContainer;
 import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
+import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
+import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStackStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
-import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStackStyle;
 
 public final class HorizontalStack //NOSONAR: A HorizontalStack is a LinearContainer.
 extends AbstractLinearContainer<IHorizontalStack, IHorizontalStackStyle>

@@ -8,7 +8,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.label.Label;
-import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
+import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webatomiccontrol.button.ButtonRole;

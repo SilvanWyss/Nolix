@@ -1,7 +1,7 @@
-package ch.nolix.systemtest.webgui.linearcontainer;
+package ch.nolix.systemtest.webcontainercontrol.horizontalstack;
 
-import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
-import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
+import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStack;
+import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
 final class HorizontalStackTest extends ControlTest<IHorizontalStack> {

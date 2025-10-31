@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.horizontalstack;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.cssmodel.CssProperty;
@@ -10,8 +10,8 @@ import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
-import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
-import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStackStyle;
+import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
+import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStackStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class HorizontalStackCssBuilder

@@ -1,10 +1,10 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.horizontalstack;
 
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.linearcontainer.IHorizontalStack;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHorizontalStack> {
