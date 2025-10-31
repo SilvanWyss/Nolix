@@ -3,7 +3,6 @@ package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 import ch.nolix.core.container.arraylist.ArrayList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.IArrayList;
-import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 
@@ -22,14 +21,24 @@ public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper
     ArrayList.withInitialCapacity(2);
 
     final var mainSqlSchemaColumnDto = SqlSchemaColumnDtoMapperHelper.mapColumnDtoToMainSqlSchemaColumnDto(columnDto);
+    final var fieldType = columnDto.fieldType();
 
     sqlSchemaColumnDtos.addAtEnd(mainSqlSchemaColumnDto);
 
-    if (columnDto.fieldType().getBaseType() == BaseFieldType.BASE_REFERENCE) {
-      final var referenceSqlSchemaColumnDto = //
-      SqlSchemaColumnDtoMapperHelper.mapColumnDtoToReferenceSqlSchemaColumnDto(columnDto);
+    switch (fieldType) {
+      case REFERENCE, OPTIONAL_REFERENCE:
+        final var referenceSqlSchemaColumnDto = //
+        SqlSchemaColumnDtoMapperHelper.mapColumnDtoToReferenceSqlSchemaColumnDto(columnDto);
 
-      sqlSchemaColumnDtos.addAtEnd(referenceSqlSchemaColumnDto);
+        sqlSchemaColumnDtos.addAtEnd(referenceSqlSchemaColumnDto);
+        break;
+      case BACK_REFERENCE, OPTIONAL_BACK_REFERENCE:
+        final var backReferenceSqlSchemaColumnDto = //
+        SqlSchemaColumnDtoMapperHelper.mapColumnDtoToBackReferenceSqlSchemaColumnDto(columnDto);
+
+        sqlSchemaColumnDtos.addAtEnd(backReferenceSqlSchemaColumnDto);
+        break;
+      default:
     }
 
     return sqlSchemaColumnDtos;
