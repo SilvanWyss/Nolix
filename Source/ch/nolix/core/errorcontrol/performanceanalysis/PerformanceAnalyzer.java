@@ -128,14 +128,10 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
   private boolean resultIsFinalAccordingToTotalRunningTimeInMillisecondsAndTotalRunCount(
     final long totalRunningTimeInMilliseconds,
     final int totalRunCount) {
-    if (totalRunningTimeInMilliseconds > 500) {
-      return (totalRunCount >= 5);
+    if (totalRunningTimeInMilliseconds > 5_000) {
+      return (totalRunCount >= 25 /* 5^2 */);
     }
 
-    if (totalRunningTimeInMilliseconds > 100) {
-      return (totalRunCount >= 15_625 /* 5^6 */);
-    }
-
-    return (totalRunCount >= 390_625 /* 5^8 */);
+    return (totalRunCount >= 1_953_125 /* 5^9 */);
   }
 }
