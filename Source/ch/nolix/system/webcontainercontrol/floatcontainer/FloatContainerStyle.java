@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.floatcontainer;
 
 import ch.nolix.system.webcontainercontrol.linearcontainer.AbstractLinearContainerStyle;
 

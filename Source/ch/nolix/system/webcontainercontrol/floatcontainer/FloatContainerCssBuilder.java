@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.floatcontainer;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.cssmodel.CssProperty;

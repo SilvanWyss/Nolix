@@ -8,9 +8,9 @@ import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webatomiccontrol.link.Link;
 import ch.nolix.system.webatomiccontrol.textbox.Textbox;
+import ch.nolix.system.webcontainercontrol.floatcontainer.FloatContainer;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
-import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 
 final class ControlAnalyserTest extends StandardTest {
   @Test
