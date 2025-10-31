@@ -1,0 +1,24 @@
+package ch.nolix.systemtest.webcontainercontrol.singlecontainer;
+
+import ch.nolix.system.webcontainercontrol.singlecontainer.SingleContainer;
+import ch.nolix.system.webcontainercontrol.singlecontainer.SingleContainerHtmlBuilder;
+import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
+import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
+
+final class SingleContainerHtmlBuilderTest
+extends ControlHtmlBuilderTest<SingleContainerHtmlBuilder, ISingleContainer> {
+  @Override
+  protected ISingleContainer createControl() {
+    return new SingleContainer();
+  }
+
+  @Override
+  protected SingleContainerHtmlBuilder createTestUnit() {
+    return new SingleContainerHtmlBuilder();
+  }
+
+  @Override
+  protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
+    return "<div />";
+  }
+}

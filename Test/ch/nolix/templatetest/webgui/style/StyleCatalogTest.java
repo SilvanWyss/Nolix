@@ -10,7 +10,7 @@ import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webatomiccontrol.link.Link;
 import ch.nolix.system.webatomiccontrol.textbox.Textbox;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
-import ch.nolix.system.webgui.container.singlecontainer.SingleContainer;
+import ch.nolix.system.webcontainercontrol.singlecontainer.SingleContainer;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
