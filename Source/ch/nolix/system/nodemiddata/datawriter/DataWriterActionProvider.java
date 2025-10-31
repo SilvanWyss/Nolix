@@ -268,7 +268,7 @@ public final class DataWriterActionProvider {
       if (columnView.fieldType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE) {
         final var oneBasedColumnIndex = columnView.oneBasedOrdinalIndex();
         final var fieldNode = entityNode.getStoredChildNodeAtOneBasedIndex(oneBasedColumnIndex);
-        final var newFieldNode = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
+        final var newFieldNode = CONTENT_FIELD_NODE_MAPPER.mapValueStringFieldDtoToContentFieldNode(f);
 
         fieldNode.resetFromNode(newFieldNode);
       }

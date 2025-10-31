@@ -44,7 +44,7 @@ public final class FieldNodeMapper implements IFieldNodeMapper {
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());
       final var columnZeroBasedOrdinalIndex = columnView.oneBasedOrdinalIndex() - 1;
 
-      attributes[columnZeroBasedOrdinalIndex] = CONTENT_FIELD_NODE_MAPPER.mapStringContentFieldDtoToContentFieldNode(f);
+      attributes[columnZeroBasedOrdinalIndex] = CONTENT_FIELD_NODE_MAPPER.mapValueStringFieldDtoToContentFieldNode(f);
     }
 
     return ContainerView.forArray(attributes);

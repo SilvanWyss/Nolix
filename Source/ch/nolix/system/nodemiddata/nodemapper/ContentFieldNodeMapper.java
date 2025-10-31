@@ -14,8 +14,7 @@ public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> mapStringContentFieldDtoToContentFieldNode(
-    final ValueStringFieldDto valueStringFieldDto) {
+  public INode<?> mapValueStringFieldDtoToContentFieldNode(final ValueStringFieldDto valueStringFieldDto) {
     final var nullableValue = valueStringFieldDto.nullableValueString();
 
     if (nullableValue != null) {
