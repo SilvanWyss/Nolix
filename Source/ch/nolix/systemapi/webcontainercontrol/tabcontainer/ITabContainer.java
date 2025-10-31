@@ -6,7 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabelStyle;
 
 public interface ITabContainer
-extends ch.nolix.systemapi.webgui.basecontainer.IContainer<ITabContainer, ITabContainerStyle> {
+extends ch.nolix.systemapi.webcontainercontrol.container.IContainer<ITabContainer, ITabContainerStyle> {
   ITabContainer addTab(ITabContainerTab tab, ITabContainerTab... tabs);
 
   ITabContainer addTabs(IContainer<ITabContainerTab> tabs);

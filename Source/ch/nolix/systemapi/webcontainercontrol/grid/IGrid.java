@@ -1,6 +1,6 @@
 package ch.nolix.systemapi.webcontainercontrol.grid;
 
-import ch.nolix.systemapi.webgui.basecontainer.IContainer;
+import ch.nolix.systemapi.webcontainercontrol.container.IContainer;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public interface IGrid extends IContainer<IGrid, IGridStyle> {

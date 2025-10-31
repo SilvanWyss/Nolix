@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.basecontainer;
+package ch.nolix.systemapi.webcontainercontrol.container;
 
 import ch.nolix.coreapi.document.node.INode;
 

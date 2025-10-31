@@ -9,7 +9,7 @@ import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
-import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
+import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class UnderConstructionPageSession extends WebClientSession<Object> {

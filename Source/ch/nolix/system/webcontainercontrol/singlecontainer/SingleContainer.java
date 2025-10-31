@@ -4,7 +4,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.webgui.basecontainer.AbstractContainer;
+import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainerStyle;

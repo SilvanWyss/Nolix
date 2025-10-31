@@ -4,7 +4,7 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
-import ch.nolix.system.webgui.basecontainer.AbstractContainer;
+import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainer;
 import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainerStyle;
