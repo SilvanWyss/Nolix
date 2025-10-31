@@ -1,8 +1,8 @@
-package ch.nolix.systemtest.webgui.itemmenu;
+package ch.nolix.systemtest.webatomiccontrol.dropdownmenu;
 
-import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
-import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenuHtmlBuilder;
-import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenu;
+import ch.nolix.system.webatomiccontrol.dropdownmenu.DropdownMenu;
+import ch.nolix.system.webatomiccontrol.dropdownmenu.DropdownMenuHtmlBuilder;
+import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class DropdownMenuHtmlBuilderTest extends ControlHtmlBuilderTest<DropdownMenuHtmlBuilder, IDropdownMenu> {

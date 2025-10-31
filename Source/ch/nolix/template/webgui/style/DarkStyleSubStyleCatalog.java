@@ -2,13 +2,13 @@ package ch.nolix.template.webgui.style;
 
 import ch.nolix.system.style.model.DeepSelectingStyle;
 import ch.nolix.system.webatomiccontrol.button.Button;
+import ch.nolix.system.webatomiccontrol.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webatomiccontrol.link.Link;
 import ch.nolix.system.webatomiccontrol.textbox.Textbox;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.container.grid.Grid;
-import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.AbstractLinearContainer;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;

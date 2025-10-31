@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi;
+package ch.nolix.systemapi.webatomiccontrol.dropdownmenu;
 
 import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuStyle;
 

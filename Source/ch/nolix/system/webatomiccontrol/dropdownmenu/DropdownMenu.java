@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.itemmenu.dropdownmenu;
+package ch.nolix.system.webatomiccontrol.dropdownmenu;
 
 import java.util.Optional;
 
@@ -6,10 +6,10 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.itemmenu.base.AbstractItemMenu;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
+import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
+import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenuStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenu;
-import ch.nolix.systemapi.webgui.itemmenu.dropdownmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
