@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.linearcontainer;
+package ch.nolix.systemapi.webcontainercontrol.linearcontainer;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;

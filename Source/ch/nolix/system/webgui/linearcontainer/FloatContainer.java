@@ -1,5 +1,6 @@
 package ch.nolix.system.webgui.linearcontainer;
 
+import ch.nolix.system.webcontainercontrol.linearcontainer.AbstractLinearContainer;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.linearcontainer;
+package ch.nolix.systemapi.webcontainercontrol.linearcontainer;
 
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.webgui.main.IControl;

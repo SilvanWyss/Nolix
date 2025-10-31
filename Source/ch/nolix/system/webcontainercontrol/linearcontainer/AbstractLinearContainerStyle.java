@@ -1,10 +1,10 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.linearcontainer;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
-import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainerStyle;
+import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public abstract class AbstractLinearContainerStyle< //

@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.linearcontainer;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -6,8 +6,8 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
-import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainer;
-import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainerStyle;
+import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainer;
+import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 

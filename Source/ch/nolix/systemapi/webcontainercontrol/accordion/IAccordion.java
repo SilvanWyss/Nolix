@@ -3,8 +3,8 @@ package ch.nolix.systemapi.webcontainercontrol.accordion;
 import java.util.function.Consumer;
 
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.webcontainercontrol.tabcontainer.TabExpansionBehavior;
-import ch.nolix.systemapi.webgui.linearcontainer.ILinearContainerStyle;
 
 public interface IAccordion
 extends ch.nolix.systemapi.webcontainercontrol.container.IContainer<IAccordion, IAccordionStyle> {
