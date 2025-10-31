@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.generalexception.GeneralException;
 import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 

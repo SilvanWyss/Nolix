@@ -6,7 +6,7 @@ import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webatomiccontrol.label.Label;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;

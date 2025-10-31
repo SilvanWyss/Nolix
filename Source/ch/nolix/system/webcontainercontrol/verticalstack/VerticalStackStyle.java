@@ -1,6 +1,7 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.verticalstack;
 
-import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStackStyle;
+import ch.nolix.system.webgui.linearcontainer.AbstractLinearContainerStyle;
+import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStackStyle;
 
 public final class VerticalStackStyle //NOSONAR: A VerticalStackStyle is a LinearContainerStyle.
 extends AbstractLinearContainerStyle<IVerticalStackStyle>

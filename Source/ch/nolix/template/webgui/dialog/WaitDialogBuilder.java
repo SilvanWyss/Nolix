@@ -4,7 +4,7 @@ import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.coreapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.webatomiccontrol.label.Label;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;

@@ -1,12 +1,13 @@
-package ch.nolix.system.webgui.linearcontainer;
+package ch.nolix.system.webcontainercontrol.verticalstack;
 
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.element.property.MutableValue;
+import ch.nolix.system.webgui.linearcontainer.AbstractLinearContainer;
 import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
+import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
+import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStackStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStack;
-import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStackStyle;
 
 public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer.
 extends AbstractLinearContainer<IVerticalStack, IVerticalStackStyle>

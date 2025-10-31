@@ -1,12 +1,12 @@
-package ch.nolix.systemtest.webgui.linearcontainer;
+package ch.nolix.systemtest.webcontainercontrol.verticalstack;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webatomiccontrol.label.Label;
-import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.system.webgui.linearcontainer.VerticalStackHtmlBuilder;
-import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStack;
+import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStackHtmlBuilder;
+import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
 final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<VerticalStackHtmlBuilder, IVerticalStack> {
