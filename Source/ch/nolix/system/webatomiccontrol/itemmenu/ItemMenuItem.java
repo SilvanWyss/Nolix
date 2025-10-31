@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.itemmenu.base;
+package ch.nolix.system.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
@@ -12,8 +12,8 @@ import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
 import ch.nolix.system.element.property.Value;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 
 public final class ItemMenuItem extends AbstractMutableElement implements IItemMenuItem<ItemMenuItem> {
   public static final boolean DEFAULT_SELECTION_FLAG = false;

@@ -1,8 +1,8 @@
-package ch.nolix.system.webgui.itemmenu.base;
+package ch.nolix.system.webatomiccontrol.itemmenu;
 
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuSearcher;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuSearcher;
 
 /**
  * @author Silvan Wyss

@@ -2,7 +2,7 @@ package ch.nolix.system.webatomiccontrol.dropdownmenu;
 
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
-import ch.nolix.system.webgui.itemmenu.base.AbstractItemMenuCssBuilder;
+import ch.nolix.system.webatomiccontrol.itemmenu.AbstractItemMenuCssBuilder;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;

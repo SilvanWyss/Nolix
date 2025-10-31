@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.itemmenu.base;
+package ch.nolix.system.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
@@ -11,11 +11,11 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.model.CursorIcon;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuItem;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuSearcher;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuStyle;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuValidator;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuSearcher;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuStyle;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuValidator;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>

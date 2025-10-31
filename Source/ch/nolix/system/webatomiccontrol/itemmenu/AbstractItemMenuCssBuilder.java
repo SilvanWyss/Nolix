@@ -1,10 +1,10 @@
-package ch.nolix.system.webgui.itemmenu.base;
+package ch.nolix.system.webatomiccontrol.itemmenu;
 
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenu;
-import ch.nolix.systemapi.webgui.itemmenu.baseapi.IItemMenuStyle;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
+import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public abstract class AbstractItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>

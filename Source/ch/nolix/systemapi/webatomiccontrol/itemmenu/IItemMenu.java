@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.webgui.itemmenu.baseapi;
+package ch.nolix.systemapi.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
