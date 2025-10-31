@@ -1,11 +1,11 @@
 package ch.nolix.template.webgui.style;
 
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webgui.atomiccontrol.button.Button;
-import ch.nolix.system.webgui.atomiccontrol.label.Label;
-import ch.nolix.system.webgui.atomiccontrol.link.Link;
-import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
-import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
+import ch.nolix.system.webatomiccontrol.button.Button;
+import ch.nolix.system.webatomiccontrol.label.Label;
+import ch.nolix.system.webatomiccontrol.link.Link;
+import ch.nolix.system.webatomiccontrol.textbox.Textbox;
+import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.system.webgui.container.grid.Grid;
 import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
@@ -15,7 +15,7 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.webgui.atomiccontrol.label.LabelRole;
+import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

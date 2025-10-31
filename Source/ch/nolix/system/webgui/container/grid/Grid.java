@@ -8,7 +8,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValueExtractor;
-import ch.nolix.system.webgui.atomiccontrol.label.Label;
+import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webgui.basecontainer.AbstractContainer;
 import ch.nolix.systemapi.webgui.container.grid.IGrid;
 import ch.nolix.systemapi.webgui.container.grid.IGridStyle;

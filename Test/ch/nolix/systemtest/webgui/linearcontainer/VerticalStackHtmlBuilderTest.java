@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webgui.linearcontainer;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.system.webgui.atomiccontrol.label.Label;
+import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStackHtmlBuilder;
 import ch.nolix.systemapi.webgui.linearcontainer.IVerticalStack;

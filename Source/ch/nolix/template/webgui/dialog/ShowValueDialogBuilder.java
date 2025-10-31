@@ -6,13 +6,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.objectcreation.builder.IBuilder;
-import ch.nolix.system.webgui.atomiccontrol.button.Button;
-import ch.nolix.system.webgui.atomiccontrol.label.Label;
+import ch.nolix.system.webatomiccontrol.button.Button;
+import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
-import ch.nolix.systemapi.webgui.atomiccontrol.button.ButtonRole;
-import ch.nolix.systemapi.webgui.atomiccontrol.button.IButton;
+import ch.nolix.systemapi.webatomiccontrol.button.ButtonRole;
+import ch.nolix.systemapi.webatomiccontrol.button.IButton;
 import ch.nolix.systemapi.webgui.basecontainer.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;

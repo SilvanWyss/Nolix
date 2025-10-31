@@ -3,12 +3,12 @@ package ch.nolix.templatetest.webgui.style;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.webgui.atomiccontrol.button.Button;
-import ch.nolix.system.webgui.atomiccontrol.imagecontrol.ImageControl;
-import ch.nolix.system.webgui.atomiccontrol.label.Label;
-import ch.nolix.system.webgui.atomiccontrol.link.Link;
-import ch.nolix.system.webgui.atomiccontrol.textbox.Textbox;
-import ch.nolix.system.webgui.atomiccontrol.validationlabel.ValidationLabel;
+import ch.nolix.system.webatomiccontrol.button.Button;
+import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.webatomiccontrol.label.Label;
+import ch.nolix.system.webatomiccontrol.link.Link;
+import ch.nolix.system.webatomiccontrol.textbox.Textbox;
+import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webgui.container.singlecontainer.SingleContainer;
 import ch.nolix.system.webgui.itemmenu.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
