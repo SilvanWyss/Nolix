@@ -1,4 +1,4 @@
-package ch.nolix.system.webgui.basecontroltool;
+package ch.nolix.system.webgui.controltool;
 
 import java.util.Locale;
 
@@ -13,7 +13,6 @@ import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
-import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;

@@ -3,7 +3,7 @@ package ch.nolix.system.webatomiccontrol.button;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
-import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
+import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webatomiccontrol.button.IButton;
 import ch.nolix.systemapi.webatomiccontrol.button.IButtonStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;

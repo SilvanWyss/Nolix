@@ -7,7 +7,7 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.system.webgui.basecontroltool.AbstractControlCssBuilder;
+import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.ControlCssValueTool;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGridStyle;
