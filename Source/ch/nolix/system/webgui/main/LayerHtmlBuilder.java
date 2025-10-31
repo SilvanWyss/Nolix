@@ -6,12 +6,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.system.webgui.layertool.LayerTool;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerHtmlBuilder {
-  private static final LayerTool LAYER_TOOL = new LayerTool();
-
   public IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
       HtmlElementTypeCatalog.DIV,
@@ -20,7 +17,9 @@ public final class LayerHtmlBuilder {
   }
 
   private IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer<?> layer) {
-    return ImmutableList.withElement(LAYER_TOOL.createIdHtmlAttributeForLayer(layer));
+    final var idHtmlAttribute = LayerHtmlBuilderHelper.createIdHtmlAttributeForLayer(layer);
+
+    return ImmutableList.withElement(idHtmlAttribute);
   }
 
   private IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
