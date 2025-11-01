@@ -1,12 +1,8 @@
 package ch.nolix.system.webatomiccontrol.dropdownmenu;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
@@ -33,17 +29,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
   private IHtmlElement createHtmlElementForItem(final IItemMenuItem<?> item) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
       HtmlElementTypeCatalog.OPTION,
-      createHtmlAttributesForItem(item),
+      DropdownMenuHtmlBuilderHelper.createHtmlAttributesForDropdownMenuItem(item),
       item.getText());
-  }
-
-  private IContainer<IHtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
-    final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
-
-    if (item.isSelected()) {
-      htmlAttributes.addAtEnd(HtmlAttribute.withNameAndValue("selected", "selected"));
-    }
-
-    return htmlAttributes;
   }
 }
