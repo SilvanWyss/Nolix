@@ -5,12 +5,56 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.webcontainercontrol.floatcontainer.FloatContainer;
+import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
   protected abstract C createTestUnit();
+
+  @Test
+  final void testCase_belongsToGui_whenDoesNotBelongToGui() {
+    //setup
+    final var testUnit = createTestUnit();
+
+    //execution
+    final var result = testUnit.belongsToGui();
+
+    //verification
+    expect(result).isFalse();
+  }
+
+  @Test
+  final void testCase_belongsToGui_whenBelongsDirectlyToGui() {
+    //setup
+    final var webGui = new WebGui();
+    final var testUnit = createTestUnit();
+    webGui.pushLayerWithRootControl(testUnit);
+
+    //execution
+    final var result = testUnit.belongsToGui();
+
+    //verification
+    expect(result).isTrue();
+  }
+
+  @Test
+  final void testCase_belongsToGui_whenBelongsToControlThatBelongsToGui() {
+    //setup
+    final var webGui = new WebGui();
+    final var floatContainer = new FloatContainer();
+    webGui.pushLayerWithRootControl(floatContainer);
+    final var testUnit = createTestUnit();
+    floatContainer.addControl(testUnit);
+
+    //execution
+    final var result = testUnit.belongsToGui();
+
+    //verification
+    expect(result).isTrue();
+  }
 
   @Test
   final void testCase_editStyle() {
