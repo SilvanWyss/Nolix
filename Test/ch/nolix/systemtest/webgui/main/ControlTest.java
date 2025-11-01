@@ -2,6 +2,7 @@ package ch.nolix.systemtest.webgui.main;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -67,6 +68,19 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     //verification
     final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);
     expect(actualBaseTextColor).isEqualTo(X11ColorCatalog.DARK_CYAN);
+  }
+
+  @Test
+  final void testCase_getAttributes_whenIsCollapsed() {
+    //setup
+    final var testUnit = createTestUnit();
+    testUnit.setCollapsed();
+
+    //execution
+    final var result = testUnit.getAttributes();
+
+    //verification
+    expect(result).containsEqualing(Node.fromString("Presence(COLLAPSED)"));
   }
 
   @Test
