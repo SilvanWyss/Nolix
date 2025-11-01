@@ -154,6 +154,27 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
+  public void containsEqualing(final Object object) {
+    isNotNull();
+
+    final var argument = getStoredArgument();
+    var found = false;
+
+    for (final E e : argument) {
+      if (Objects.equals(e, object)) {
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      throw //
+      InvalidArgumentException.forArgumentAndErrorPredicate(
+        argument,
+        "does not contain an element that equals '" + object + "'");
+    }
+  }
+
   public void containsExactly(final Object firstElement, final Object... elements) {
     final var allElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
 
