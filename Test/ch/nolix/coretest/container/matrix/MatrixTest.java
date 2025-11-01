@@ -168,12 +168,10 @@ final class MatrixTest extends ContainerTest {
   }
 
   @Override
-  protected <E> IContainer<E> createContainerWithElements(
-    final E element,
-    final @SuppressWarnings("unchecked") E... elements) {
+  protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     final Matrix<E> matrix = Matrix.createEmpty();
 
-    matrix.addRow(element, elements);
+    matrix.addRow(elements);
 
     return matrix;
   }

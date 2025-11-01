@@ -18,7 +18,7 @@ public final class BackgroundToCssMapperHelper {
   private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();
 
   public static final ImmutableList<ICssProperty> TRANSPARENT_BACKGROUND_CSS_PROPERTIES = ImmutableList
-    .withElement(TRANSPARENT_BACKGROUND_CSS_PROPERTY);
+    .withElements(TRANSPARENT_BACKGROUND_CSS_PROPERTY);
 
   private BackgroundToCssMapperHelper() {
   }
@@ -51,7 +51,7 @@ public final class BackgroundToCssMapperHelper {
     final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
     final var backgroundCssProperty = CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, colorCssValue);
 
-    return ImmutableList.withElement(backgroundCssProperty);
+    return ImmutableList.withElements(backgroundCssProperty);
   }
 
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(final IBackground background) {
@@ -64,7 +64,7 @@ public final class BackgroundToCssMapperHelper {
     final var backgroundCssProperty = //
     CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, linearGradientCode);
 
-    return ImmutableList.withElement(backgroundCssProperty);
+    return ImmutableList.withElements(backgroundCssProperty);
   }
 
   public static IContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsImage(final IBackground background) {
@@ -76,7 +76,7 @@ public final class BackgroundToCssMapperHelper {
     CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_IMAGE, imageUrl);
 
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       backgroundImageCssProperty,
       CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_SIZE, "100% 100%"));
   }

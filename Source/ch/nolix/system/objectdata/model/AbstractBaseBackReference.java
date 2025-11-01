@@ -22,7 +22,7 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
       .thatIsNamed("back referenced field name")
       .isNotBlank();
 
-    this.backReferenceableTableNames = ImmutableList.forIterable(backReferenceableTableNames);
+    this.backReferenceableTableNames = ImmutableList.fromIterable(backReferenceableTableNames);
     this.backReferencedFieldName = backReferencedFieldName;
   }
 

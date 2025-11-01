@@ -13,7 +13,7 @@ final class SslCertificateKeyReaderTest extends StandardTest {
   void testCase_getKeyFromPemFileLines() {
     //setup
     final var pemFileLines = //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       "-----BEGIN PRIVATE KEY-----",
       "AAAAA",
       "BBBBB",

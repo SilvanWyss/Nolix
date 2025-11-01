@@ -71,10 +71,8 @@ final class ContainerViewTest extends ContainerTest {
   }
 
   @Override
-  protected <E> IContainer<E> createContainerWithElements(
-    final E element,
-    final @SuppressWarnings("unchecked") E... elements) {
-    return ContainerView.forElementAndArray(element, elements);
+  protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+    return ContainerView.forArray(elements);
   }
 
   @Override

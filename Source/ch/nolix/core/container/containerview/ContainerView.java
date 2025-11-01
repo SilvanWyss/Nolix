@@ -44,7 +44,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if the given arrays is null.
    * @throws ArgumentIsNullException if one array of the given arrays is null.
    */
-  @SuppressWarnings("unchecked")
+  @SafeVarargs
   public static <E2> ContainerView<E2> forArray(final E2[] array, final E2[]... arrays) {
     final var container = MultiContainerView.forArray(array, arrays);
 
@@ -117,9 +117,11 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
     final Iterable<? extends E2> iterable,
     final E2 element,
     final E2... elements) {
-    @SuppressWarnings("unchecked")
     final var container = //
-    MultiContainerView.forIterable(iterable, ImmutableList.withElement(element), ArrayContainerView.forArray(elements));
+    MultiContainerView.forIterable(
+      iterable,
+      ImmutableList.withElements(element),
+      ArrayContainerView.forArray(elements));
 
     return new ContainerView<>(container);
   }

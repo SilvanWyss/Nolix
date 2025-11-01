@@ -35,7 +35,7 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   public void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
-    final IContainer<IControl<?, ?>> controls = ImmutableList.withElement(control);
+    final IContainer<IControl<?, ?>> controls = ImmutableList.withElements(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }

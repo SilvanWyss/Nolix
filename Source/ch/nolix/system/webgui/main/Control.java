@@ -182,7 +182,7 @@ implements IControl<C, S> {
       return ImmutableList.createEmpty();
     }
 
-    return ImmutableList.withElement(linkedObject);
+    return ImmutableList.withElements(linkedObject);
   }
 
   @Override

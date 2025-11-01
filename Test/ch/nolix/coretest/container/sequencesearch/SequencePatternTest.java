@@ -10,7 +10,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_1A() {
     //setup
-    final var letters = ImmutableList.withElement("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
+    final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -31,7 +31,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_1B() {
     //setup
-    final var letters = ImmutableList.withElement("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
+    final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -52,7 +52,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_2A() {
     //setup
-    final var letters = ImmutableList.withElement("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
+    final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -74,7 +74,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_2B() {
     //setup
-    final var letters = ImmutableList.withElement("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
+    final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -96,7 +96,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_1A() {
     //setup
-    final var letters = ImmutableList.withElement("A", "A", "C", "A", "A", "C", "A", "A", "C", "A", "A", "C");
+    final var letters = ImmutableList.withElements("A", "A", "C", "A", "A", "C", "A", "A", "C", "A", "A", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -113,7 +113,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_1B() {
     //setup
-    final var letters = ImmutableList.withElement("A", "A", "C", "A", "A", "C", "A", "A", "C", "A", "A", "C");
+    final var letters = ImmutableList.withElements("A", "A", "C", "A", "A", "C", "A", "A", "C", "A", "A", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -130,7 +130,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_2A() {
     //setup
-    final var letters = ImmutableList.withElement("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
+    final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)
@@ -148,7 +148,7 @@ final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_2B() {
     //setup
-    final var letters = ImmutableList.withElement("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
+    final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
       .forElementType(String.class)

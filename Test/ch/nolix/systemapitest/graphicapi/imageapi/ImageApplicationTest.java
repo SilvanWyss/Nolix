@@ -15,7 +15,7 @@ final class ImageApplicationTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirImageApplications() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Node.withChildNode("SCALE_TO_FRAME"), ImageApplication.SCALE_TO_FRAME),
       Arguments.of(Node.withChildNode("REPEAT"), ImageApplication.REPEAT));
   }

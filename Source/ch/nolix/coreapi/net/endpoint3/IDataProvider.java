@@ -7,7 +7,7 @@ import ch.nolix.coreapi.document.node.INode;
 public interface IDataProvider {
   INode<?> getDataForRequest(IChainedNode request);
 
-  IContainer<? extends INode<?>> getDataForRequests(IChainedNode request, IChainedNode... requests);
+  IContainer<? extends INode<?>> getDataForRequests(IChainedNode... requests);
 
   IContainer<? extends INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
 }

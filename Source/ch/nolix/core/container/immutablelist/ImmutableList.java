@@ -3,123 +3,132 @@ package ch.nolix.core.container.immutablelist;
 import java.util.stream.Stream;
 
 import ch.nolix.core.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.commontypetool.iteratortool.IterableTool;
 import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
-import ch.nolix.core.container.base.AbstractContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
+import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link ImmutableList} is a {@link AbstractContainer} that is not mutable.
+ * A {@link ImmutableList} is not mutable.
  * 
  * @author Silvan Wyss
  * @version 2022-07-08
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
-  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
-
   private static final ImmutableList<Object> EMPTY = new ImmutableList<>(new Object[0]);
 
   private final E[] elements;
 
   /**
-   * Creates a new {@link ImmutableList} with the given elements.
+   * Creates a new {@link ImmutableList} with the given element.
    * 
-   * @param elements
+   * @param element
+   * @throws ArgumentIsNullException if the given element is null.
    */
-  private ImmutableList(final E[] elements) {
-    this.elements = elements; //NOSONAR: A ImmutableList operates on the original instance.
+  @SuppressWarnings("unchecked")
+  private ImmutableList(final E element) {
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+
+    elements = (E[]) new Object[] { element };
   }
 
   /**
-   * Creates a new {@link ImmutableList} with the given element and elements.
+   * Creates a new {@link ImmutableList} with the given elements.
    * 
-   * @param element
    * @param elements
    * @throws ArgumentIsNullException if the given element is null.
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
-  private ImmutableList(final E element, final E[] elements) {
-    this.elements = ARRAY_TOOL.createArrayWithElement(element, elements);
-
+  private ImmutableList(final E[] elements) {
     Validator.assertThatTheElements(elements).areNotNull();
+
+    this.elements = elements.clone();
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * Creates a new {@link ImmutableList} with the given elements.
+   * 
+   * @param elements
+   * @throws ArgumentIsNullException if the given element is null.
+   * @throws ArgumentIsNullException if one of the given elements is null.
+   */
+  @SuppressWarnings("unchecked")
+  private ImmutableList(final Iterable<E> elements) {
+    final var elementCount = IterableTool.getCount(elements);
+
+    this.elements = (E[]) new Object[elementCount];
+
+    var index = 0;
+
+    for (final var e : elements) {
+      if (e == null) {
+        throw ArgumentIsNullException.forArgumentName((index + 1) + "th element");
+      }
+
+      this.elements[index] = e;
+
+      index++;
+    }
   }
 
   /**
    * @return a new empty {@link ImmutableList}.
-   * @param <E2> is the type of the elements the {@link ImmutableList} could have.
+   * @param <E2> is the type of the elements the {@link ImmutableList} would have.
    */
   @SuppressWarnings("unchecked")
   public static <E2> ImmutableList<E2> createEmpty() {
     return (ImmutableList<E2>) EMPTY;
   }
 
-  public static <E2> ImmutableList<E2> forArray(final E2[] array) {
+  public static <E2> ImmutableList<E2> fromArray(final E2[] array) {
     return new ImmutableList<>(array.clone());
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
   /**
-   * @param <E2>
-   * @param container
-   * @return a new {@link ImmutableList} with the elements from the given
-   *         container.
-   * @throws ArgumentIsNullException if one of the elements of the given container
+   * @param <T>
+   * @param iterable
+   * @return a new {@link ImmutableList} with the elements of the given iterable.
+   * @throws ArgumentIsNullException if the given iterable is null.
+   * @throws ArgumentIsNullException if one of the elements of the given iterable
    *                                 is null.
    */
-  @SuppressWarnings("unchecked")
-  public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
-    if (container instanceof final ImmutableList<E2> immutableList) {
+  public static <T> ImmutableList<T> fromIterable(final Iterable<T> iterable) {
+    //This part is not mandatory, but provides a better performance.
+    if (iterable instanceof final ImmutableList<T> immutableList) {
       return immutableList;
     }
 
-    final var elementCount = IterableTool.getCount(container);
-    final var elements = new Object[elementCount];
-    var index = 0;
-    for (final var e : container) {
-      if (e == null) {
-        throw ArgumentIsNullException.forArgumentName((index + 1) + "th element");
-      }
-
-      elements[index] = e;
-
-      index++;
-    }
-
-    return new ImmutableList<>((E2[]) elements);
+    return new ImmutableList<>(iterable);
   }
 
   /**
    * @param stream
-   * @param <E2>   is the type of the elements of the given stream.
+   * @param <T>    is the type of the elements of the given stream.
    * @return a new {@link ImmutableList} with the elements from the given stream.
    * @throws ArgumentIsNullException if the given stream is null.
    * @throws ArgumentIsNullException if one of the elements of the given stream is
    *                                 null.
    */
-  public static <E2> ImmutableList<E2> fromStream(final Stream<E2> stream) {
+  public static <T> ImmutableList<T> fromStream(final Stream<T> stream) {
     Validator.assertThat(stream).thatIsNamed(Stream.class).isNotNull();
 
-    return forIterable(stream.toList());
+    return fromIterable(stream.toList());
   }
 
   /**
    * @param element
-   * @param elements
-   * @param <E2>     is the type of the given element and of the given elements.
-   * @return a new {@link ImmutableList} with the given element and elements.
+   * @param <T>     is the type of the given element.
+   * @return a new {@link ImmutableList} with the given element.
    * @throws ArgumentIsNullException if the given element is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
    */
-  public static <E2> ImmutableList<E2> withElement(
-    final E2 element,
-    final @SuppressWarnings("unchecked") E2... elements) {
-    return new ImmutableList<>(element, elements);
+  public static <T> ImmutableList<T> withElement(final T element) {
+    return new ImmutableList<>(element);
   }
 
   /**

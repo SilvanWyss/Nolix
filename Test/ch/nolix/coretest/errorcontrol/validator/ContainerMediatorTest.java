@@ -14,7 +14,7 @@ final class ContainerMediatorTest extends StandardTest {
   @Test
   void testCase_contains_whenTheGivenConditionIsNull() {
     //setup
-    final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
+    final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final Predicate<String> condition = null;
     final var testUnit = new IterableMediator<>(list);
 
@@ -28,7 +28,7 @@ final class ContainerMediatorTest extends StandardTest {
   @Test
   void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
     //setup
-    final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
+    final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = new IterableMediator<>(list);
 
     //execution & verification
@@ -43,7 +43,7 @@ final class ContainerMediatorTest extends StandardTest {
   @Test
   void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
     //setup
-    final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
+    final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = new IterableMediator<>(list);
 
     //execution & verification

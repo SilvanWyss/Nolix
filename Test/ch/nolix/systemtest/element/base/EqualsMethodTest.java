@@ -17,7 +17,7 @@ final class EqualsMethodTest extends StandardTest {
     final var testUnit = new AbstractElement() {
       @Override
       public IContainer<INode<?>> getAttributes() {
-        return ImmutableList.withElement(Node.withHeader("my_flag"));
+        return ImmutableList.withElements(Node.withHeader("my_flag"));
       }
     };
 
@@ -35,7 +35,7 @@ final class EqualsMethodTest extends StandardTest {
     final var testUnit = new AbstractElement() {
       @Override
       public IContainer<INode<?>> getAttributes() {
-        return ImmutableList.withElement(Node.withHeader("my_flag"));
+        return ImmutableList.withElements(Node.withHeader("my_flag"));
       }
     };
 
@@ -52,7 +52,7 @@ final class EqualsMethodTest extends StandardTest {
     final var testUnit = new AbstractElement() {
       @Override
       public IContainer<INode<?>> getAttributes() {
-        return ImmutableList.withElement(Node.withHeader("my_flag"));
+        return ImmutableList.withElements(Node.withHeader("my_flag"));
       }
     };
 

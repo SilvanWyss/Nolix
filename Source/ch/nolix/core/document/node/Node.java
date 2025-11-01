@@ -31,7 +31,7 @@ public final class Node extends AbstractNode<Node> {
    */
   private Node() {
     nullableHeader = null;
-    childNodes = ImmutableList.forIterable(LinkedList.createEmpty());
+    childNodes = ImmutableList.fromIterable(LinkedList.createEmpty());
   }
 
   /**
@@ -41,7 +41,7 @@ public final class Node extends AbstractNode<Node> {
    */
   private Node(final Iterable<? extends INode<?>> childNodes) {
     this.nullableHeader = null;
-    this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
+    this.childNodes = ImmutableList.fromIterable(createNodesFromNodes(childNodes));
   }
 
   /**
@@ -69,7 +69,7 @@ public final class Node extends AbstractNode<Node> {
     this.nullableHeader = getValidHeaderFromHeader(header);
 
     this.childNodes = //
-    ImmutableList.forIterable(createNodesFromNodes(ContainerView.forElementAndArray(childNode, childNodes)));
+    ImmutableList.fromIterable(createNodesFromNodes(ContainerView.forElementAndArray(childNode, childNodes)));
   }
 
   /**
@@ -82,7 +82,7 @@ public final class Node extends AbstractNode<Node> {
    */
   private Node(final String header, final Iterable<? extends INode<?>> childNodes) {
     this.nullableHeader = getValidHeaderFromHeader(header);
-    this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
+    this.childNodes = ImmutableList.fromIterable(createNodesFromNodes(childNodes));
   }
 
   /**

@@ -44,8 +44,8 @@ public final class Column implements IColumn {
     this.name = name;
     this.fieldType = fieldType;
     this.dataTypeClass = dataTypeClass;
-    this.referenceableTables = ImmutableList.forIterable(referenceableTables);
-    this.backReferenceableColumns = ImmutableList.forIterable(backReferenceableColumns);
+    this.referenceableTables = ImmutableList.fromIterable(referenceableTables);
+    this.backReferenceableColumns = ImmutableList.fromIterable(backReferenceableColumns);
   }
 
   public static Column //

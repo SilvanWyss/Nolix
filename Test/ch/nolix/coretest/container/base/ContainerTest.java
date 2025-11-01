@@ -57,7 +57,7 @@ public abstract class ContainerTest extends StandardTest {
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope);
-    final var list = ImmutableList.withElement(baboon, elephant, lion);
+    final var list = ImmutableList.withElements(baboon, elephant, lion);
 
     //execution
     final var result = testUnit.containsAll(list);
@@ -90,7 +90,7 @@ public abstract class ContainerTest extends StandardTest {
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
-    final var list = ImmutableList.withElement(antelope, baboon, elephant, lion);
+    final var list = ImmutableList.withElements(antelope, baboon, elephant, lion);
 
     //execution
     final var result = testUnit.containsAll(list);
@@ -123,7 +123,7 @@ public abstract class ContainerTest extends StandardTest {
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
-    final var list = ImmutableList.withElement(antelope, baboon, elephant);
+    final var list = ImmutableList.withElements(antelope, baboon, elephant);
 
     //execution
     final var result = testUnit.containsAll(list);
@@ -1247,9 +1247,7 @@ public abstract class ContainerTest extends StandardTest {
     expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxxx");
   }
 
-  protected abstract <E> IContainer<E> createContainerWithElements(
-    E element,
-    @SuppressWarnings("unchecked") E... elements);
+  protected abstract <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") E... elements);
 
   protected abstract <E> IContainer<E> createEmptyContainerForType(Class<E> type);
 }

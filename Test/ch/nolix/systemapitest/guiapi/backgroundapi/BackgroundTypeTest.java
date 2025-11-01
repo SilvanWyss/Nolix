@@ -15,7 +15,7 @@ final class BackgroundTypeTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirBackgroundTypes() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Node.withChildNode("COLOR"), BackgroundType.COLOR),
       Arguments.of(Node.withChildNode("COLOR_GRADIENT"), BackgroundType.COLOR_GRADIENT),
       Arguments.of(Node.withChildNode("IMAGE"), BackgroundType.IMAGE),

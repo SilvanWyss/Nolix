@@ -21,7 +21,7 @@ public abstract class Component //NOSONAR: A component class is expected to be a
       return ImmutableList.createEmpty();
     }
 
-    return ImmutableList.withElement(childControl);
+    return ImmutableList.withElements(childControl);
   }
 
   @Override

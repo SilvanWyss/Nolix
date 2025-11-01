@@ -61,7 +61,7 @@ final class SqlCollectorTest extends StandardTest {
     //setup
     final var sqlStatement1 = "CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);";
     final var sqlStatement2 = "CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);";
-    final var sqlStatements = ImmutableList.withElement(sqlStatement1, sqlStatement2);
+    final var sqlStatements = ImmutableList.withElements(sqlStatement1, sqlStatement2);
     final var testUnit = new SqlCollector();
 
     //execution

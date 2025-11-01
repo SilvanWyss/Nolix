@@ -159,6 +159,6 @@ public final class Database implements IDatabase {
   }
 
   private IContainer<Table<IEntity>> loadTables() {
-    return ImmutableList.forIterable(DATABASE_TABLE_LOADER.loadTablesForDatabase(this));
+    return ImmutableList.fromIterable(DATABASE_TABLE_LOADER.loadTablesForDatabase(this));
   }
 }

@@ -10,7 +10,6 @@ public abstract class CopyableIteratorTest extends StandardTest {
   protected abstract <E> CopyableIterator<E> createIteratorForEmptyContainerForType(Class<E> type);
 
   protected abstract <E> CopyableIterator<E> createIteratorForContainerWithElements(
-    E element,
     @SuppressWarnings("unchecked") final E... elements);
 
   @Test

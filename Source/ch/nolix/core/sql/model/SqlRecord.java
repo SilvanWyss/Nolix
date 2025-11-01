@@ -53,7 +53,7 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * @throws ArgumentIsNullException      if the given value is null.
    */
   public static SqlRecord withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
-    final var values = ImmutableList.withElement(value);
+    final var values = ImmutableList.withElements(value);
 
     return withOneBasedIndexAndValues(oneBasedIndex, values);
   }
@@ -68,7 +68,7 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * @throws ArgumentIsNullException      if one of the given values is null.
    */
   public static SqlRecord withOneBasedIndexAndValues(final int oneBasedIndex, final Iterable<String> values) {
-    return new SqlRecord(oneBasedIndex, ImmutableList.forIterable(values));
+    return new SqlRecord(oneBasedIndex, ImmutableList.fromIterable(values));
   }
 
   /**

@@ -63,7 +63,6 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   /**
-   * @param element
    * @param array
    * @param selector
    * @param <T>      is the type of the given element and elements of the given
@@ -72,11 +71,10 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if the given selector is null.
    */
-  public static <T> FilterContainerView<T> forElementAndArrayAndSelector(
-    final T element,
+  public static <T> FilterContainerView<T> forArrayAndSelector(
     final T[] array,
     final Predicate<T> selector) {
-    final var container = ContainerView.forElementAndArray(element, array);
+    final var container = ContainerView.forArray(array);
 
     return forContainerAndSelector(container, selector);
   }

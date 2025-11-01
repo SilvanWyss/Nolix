@@ -29,7 +29,7 @@ final class SchemaStatementCreatorTest extends StandardTest {
     //setup
     final var tableDto = new TableDto(
       "Pet",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         new ColumnDto("Name", new DataTypeDto("nvarchar", "100"), ImmutableList.createEmpty()),
         new ColumnDto("WeightInKilogram", new DataTypeDto("float", null), ImmutableList.createEmpty())));
     final var testUnit = new StatementCreator();

@@ -43,7 +43,7 @@ public final class WebClientCounterpartUpdater {
   }
 
   private IContainer<IChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
-    return ImmutableList.withElement(
+    return ImmutableList.withElements(
       UPDATE_COMMAND_CREATOR.createSetTitleCommandFromWebGui(webGui),
       UPDATE_COMMAND_CREATOR.createSetIconCommandFromWebGui(webGui),
       UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromWebGui(webGui),

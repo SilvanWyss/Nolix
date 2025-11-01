@@ -27,7 +27,7 @@ public final class WebGuiCssBuilder {
     cssRules.addAtEnd(
       CssRule.withSelectorAndProperties(
         HtmlElementTypeCatalog.BODY,
-        ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalog.MARGIN, "0px"))));
+        ImmutableList.withElements(CssProperty.withNameAndValue(CssPropertyNameCatalog.MARGIN, "0px"))));
 
     cssRules.addAtEnd(
       CssRule.withSelectorAndProperty(

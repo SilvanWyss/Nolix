@@ -144,7 +144,7 @@ final class BasicCalculatorTest extends StandardTest {
   @Test
   void testCase_getAverage() {
     //setup
-    final var values = ImmutableList.withElement(80.0, 90.0, 100.0, 110.0, 120.0);
+    final var values = ImmutableList.withElements(80.0, 90.0, 100.0, 110.0, 120.0);
     final var testUnit = new BasicCalculator();
 
     //execution

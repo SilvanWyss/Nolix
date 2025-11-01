@@ -19,7 +19,7 @@ public final class LayerHtmlBuilder {
   private IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer<?> layer) {
     final var idHtmlAttribute = LayerHtmlBuilderHelper.createIdHtmlAttributeForLayer(layer);
 
-    return ImmutableList.withElement(idHtmlAttribute);
+    return ImmutableList.withElements(idHtmlAttribute);
   }
 
   private IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
@@ -27,7 +27,7 @@ public final class LayerHtmlBuilder {
       return ImmutableList.createEmpty();
     }
 
-    return ImmutableList.withElement(getContentHtmlElementForLayer(layer));
+    return ImmutableList.withElements(getContentHtmlElementForLayer(layer));
   }
 
   private IHtmlElement getContentHtmlElementForLayer(final ILayer<?> layer) {

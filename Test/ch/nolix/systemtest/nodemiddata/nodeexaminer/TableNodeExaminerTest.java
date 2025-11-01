@@ -59,7 +59,7 @@ final class TableNodeExaminerTest extends StandardTest {
       tableNode,
       oneBasedColumnIndex,
       value,
-      ImmutableList.withElement(ingoredEntityId));
+      ImmutableList.withElements(ingoredEntityId));
 
     //verification
     expect(Boolean.valueOf(result)).isEqualTo(expectedResult);

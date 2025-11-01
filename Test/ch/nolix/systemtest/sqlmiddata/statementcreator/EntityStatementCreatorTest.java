@@ -62,7 +62,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var testUnit = new EntityStatementCreator();
     final var newEntityDto = new EntityCreationDto(
       "my_id",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         new ValueStringFieldDto("MyColumn1", "my_value1", null),
         new ValueStringFieldDto("MyColumn2", "my_value2", null),
         new ValueStringFieldDto("MyColumn3", "my_value3", null)));
@@ -83,7 +83,7 @@ final class EntityStatementCreatorTest extends StandardTest {
     final var newEntityDto = new EntityUpdateDto(
       "my_id",
       "100",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         new ValueStringFieldDto("MyColumn1", "my_value1", null),
         new ValueStringFieldDto("MyColumn2", "my_value2", null),
         new ValueStringFieldDto("MyColumn3", "my_value3", null)));

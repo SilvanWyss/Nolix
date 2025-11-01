@@ -25,7 +25,7 @@ public final class UpdateTicket {
   private UpdateTicket(final IContainer<IControl<?, ?>> controls, final boolean updateConstellationOrStyle) {
     this.updateConstellationOrStyle = updateConstellationOrStyle;
     webGui = null;
-    this.controls = ImmutableList.forIterable(controls);
+    this.controls = ImmutableList.fromIterable(controls);
   }
 
   public static UpdateTicket forControls(

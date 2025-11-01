@@ -35,7 +35,7 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     ImmutableList<String> referenceableTableIds;
 
     if (referenceableTableIdsString != null) {
-      referenceableTableIds = ImmutableList.forArray(referenceableTableIdsString.split(","));
+      referenceableTableIds = ImmutableList.fromArray(referenceableTableIdsString.split(","));
     } else {
       referenceableTableIds = ImmutableList.createEmpty();
     }
@@ -44,7 +44,7 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
     ImmutableList<String> backReferenceableColumnIds;
 
     if (backReferenceableColumnIdsString != null) {
-      backReferenceableColumnIds = ImmutableList.forArray(backReferenceableColumnIdsString.split(","));
+      backReferenceableColumnIds = ImmutableList.fromArray(backReferenceableColumnIdsString.split(","));
     } else {
       backReferenceableColumnIds = ImmutableList.createEmpty();
     }

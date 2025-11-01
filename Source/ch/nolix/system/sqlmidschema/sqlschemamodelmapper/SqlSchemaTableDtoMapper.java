@@ -14,7 +14,7 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
  */
 public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
   private static final ImmutableList<ColumnDto> META_COLUMN_SQL_SCHEMA_COLUMNS = //
-  ImmutableList.withElement(
+  ImmutableList.withElements(
     EntitySqlSchemaColumnDtoCatalog.ID_COLUMN_DTO,
     EntitySqlSchemaColumnDtoCatalog.SAVE_STAMP_COLUMN_DTO);
 

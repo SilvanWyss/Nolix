@@ -15,7 +15,7 @@ final class LayerRoleTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirLayerRole() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Node.withChildNode("BACKGROUND_LAYER"), LayerRole.BACKGROUND_LAYER),
       Arguments.of(Node.withChildNode("MAIN_LAYER"), LayerRole.MAIN_LAYER),
       Arguments.of(Node.withChildNode("DIALOG_LAYER"), LayerRole.DIALOG_LAYER));

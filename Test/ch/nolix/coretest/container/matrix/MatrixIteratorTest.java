@@ -13,11 +13,10 @@ final class MatrixIteratorTest extends CopyableIteratorTest {
 
   @Override
   protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
-    final E element,
     @SuppressWarnings("unchecked") final E... elements) {
     final Matrix<E> matrix = Matrix.createEmpty();
 
-    matrix.addRow(element, elements);
+    matrix.addRow(elements);
 
     return MatrixIterator.forMatrix(matrix);
   }

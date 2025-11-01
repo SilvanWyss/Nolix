@@ -13,7 +13,7 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsAndTheirNumbers() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(WebSocketFrameOpcodeMeaning.CONTINUATION_FRAME, 0x0),
       Arguments.of(WebSocketFrameOpcodeMeaning.TEXT_FRAME, 0x1),
       Arguments.of(WebSocketFrameOpcodeMeaning.BINARY_FRAME, 0x2),
@@ -25,7 +25,7 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getNumbersAndTheirWebSocketFrameOpcodeMeanings() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(0x0, WebSocketFrameOpcodeMeaning.CONTINUATION_FRAME, 0x0),
       Arguments.of(0x1, WebSocketFrameOpcodeMeaning.TEXT_FRAME, 0x1),
       Arguments.of(0x2, WebSocketFrameOpcodeMeaning.BINARY_FRAME, 0x2),
@@ -41,7 +41,7 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
 
   @MethodSource
   private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber() {
-    return ImmutableList.withElement(Arguments.of(WebSocketFrameOpcodeMeaning.RESERVED));
+    return ImmutableList.withElements(Arguments.of(WebSocketFrameOpcodeMeaning.RESERVED));
   }
 
   @ParameterizedTest

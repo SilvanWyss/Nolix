@@ -44,7 +44,7 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         "table, th, td",
-        ImmutableList.withElement(
+        ImmutableList.withElements(
           CssProperty.withNameAndValue("border-collapse", "collapse"),
           CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
           CssProperty.withNameAndValue("border-color",
@@ -53,7 +53,7 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
     list.addAtEnd(
       CssRule.withSelectorAndProperties(
         HtmlElementTypeCatalog.TD,
-        ImmutableList.withElement(
+        ImmutableList.withElements(
           CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
   }
 

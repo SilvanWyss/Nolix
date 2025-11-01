@@ -35,9 +35,9 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
     final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     this.attachingAttributes = //
-    ImmutableList.forIterable(attachingAttributes.to(AttachingAttribute::fromAttachingAttribute));
+    ImmutableList.fromIterable(attachingAttributes.to(AttachingAttribute::fromAttachingAttribute));
 
-    this.subStyles = ImmutableList.forIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
+    this.subStyles = ImmutableList.fromIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
   }
 
   /**
@@ -70,7 +70,7 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   @Override
   public final S withAttachingAttribute(final Enum<?> tag, final String value) {
     final var attachingAttribute = AttachingAttribute.forTagAndValue(tag, value);
-    final var attachingAttribtues = ImmutableList.withElement(attachingAttribute);
+    final var attachingAttribtues = ImmutableList.withElements(attachingAttribute);
 
     return withAttachingAttributes(attachingAttribtues);
   }

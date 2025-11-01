@@ -26,7 +26,7 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
   void testCase_toString_whenContainsAttributes() {
     //setup
     final var htmlElement = //
-    HtmlElement.withTypeAndAttribute(
+    HtmlElement.withTypeAndAttributes(
       "div",
       HtmlAttribute.withNameAndValue("class", "my_class"),
       HtmlAttribute.withNameAndValue("title", "my_title"));
@@ -43,9 +43,9 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
   void testCase_toString_whenContainsAttributesAndChildElements() {
     //setup
     final var htmlElement = //
-    HtmlElement.withTypeAndAttributesAndChildElement(
+    HtmlElement.withTypeAndAttributesAndChildElements(
       "div",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         HtmlAttribute.withNameAndValue("class", "my_class"),
         HtmlAttribute.withNameAndValue("title", "my_title")),
       HtmlElement.withType("h1"),
@@ -65,7 +65,7 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
     final var htmlElement = //
     HtmlElement.withTypeAndAttributesAndInnerText(
       "div",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         HtmlAttribute.withNameAndValue("class", "my_class"),
         HtmlAttribute.withNameAndValue("title", "my_title")),
       "my_content");
@@ -82,7 +82,7 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
   void testCase_toString_whenContainsChildElements() {
     //setup
     final var htmlElement = //
-    HtmlElement.withTypeAndChildElement(
+    HtmlElement.withTypeAndChildElements(
       "div",
       HtmlElement.withType("h1"),
       HtmlElement.withType("p"));

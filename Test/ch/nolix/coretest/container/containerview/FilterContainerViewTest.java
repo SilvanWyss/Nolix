@@ -6,10 +6,8 @@ import ch.nolix.coretest.container.base.ContainerTest;
 
 public final class FilterContainerViewTest extends ContainerTest {
   @Override
-  protected <E> IContainer<E> createContainerWithElements(
-    final E element,
-    @SuppressWarnings("unchecked") final E... elements) {
-    return FilterContainerView.forElementAndArrayAndSelector(element, elements, _ -> true);
+  protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
+    return FilterContainerView.forArrayAndSelector(elements, _ -> true);
   }
 
   @Override

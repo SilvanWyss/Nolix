@@ -68,7 +68,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     (IBaseReference) //
     ENTITY_SEARCHER.getStoredFieldByName(getStoredBackReferencedEntity(), getBackReferencedFieldName());
 
-    return ImmutableList.withElement(backReferencedField);
+    return ImmutableList.withElements(backReferencedField);
   }
 
   @Override

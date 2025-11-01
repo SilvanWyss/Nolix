@@ -45,9 +45,9 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+  public IContainer<INode<?>> getDataForRequests(final IChainedNode... requests) {
     //Concatenates the given requests.
-    final var concatenatedRequests = ImmutableList.withElement(request, requests);
+    final var concatenatedRequests = ImmutableList.withElements(requests);
 
     //Calls other method.
     return getDataForRequests(concatenatedRequests);
@@ -73,12 +73,10 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public void runCommands(final IChainedNode command, final IChainedNode... commands) {
-    //Concatenates the given commands.
-    final var concatenatedCommands = ImmutableList.withElement(command, commands);
-
-    //Calls other method.
-    runCommands(concatenatedCommands);
+  public void runCommands(final IChainedNode... commands) {
+    for (final var c : commands) {
+      parentClient.runHere(c);
+    }
   }
 
   /**
@@ -86,7 +84,6 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
-    //Iterates the given commands.
     for (final var c : commands) {
       parentClient.runHere(c);
     }

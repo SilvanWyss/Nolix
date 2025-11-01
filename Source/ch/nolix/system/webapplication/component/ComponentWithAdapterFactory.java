@@ -26,7 +26,7 @@ extends AbstractComponent<C, S> {
       return ImmutableList.createEmpty();
     }
 
-    return ImmutableList.withElement(childControl);
+    return ImmutableList.withElements(childControl);
   }
 
   @Override

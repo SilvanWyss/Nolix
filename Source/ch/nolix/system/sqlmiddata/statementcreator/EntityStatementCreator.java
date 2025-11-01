@@ -85,10 +85,10 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         if (f.nullableAdditionalValue() != null) {
           final var additionalColumnName = columnName + "Table";
 
-          return ImmutableList.withElement(columnName, additionalColumnName);
+          return ImmutableList.withElements(columnName, additionalColumnName);
         }
 
-        return ImmutableList.withElement(columnName);
+        return ImmutableList.withElements(columnName);
       });
 
     final var values = //
@@ -102,10 +102,10 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 
           final var additionalValueSqlLiteral = SQL_VALUE_MAPPER
             .mapNullableValueStringToSqlLiteral(nullableAdditionalValue);
-          return ImmutableList.withElement(valueSqlLiteral, additionalValueSqlLiteral);
+          return ImmutableList.withElements(valueSqlLiteral, additionalValueSqlLiteral);
         }
 
-        return ImmutableList.withElement(valueSqlLiteral);
+        return ImmutableList.withElements(valueSqlLiteral);
       });
 
     return //
@@ -147,12 +147,12 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableAdditionalValue);
 
         return //
-        ImmutableList.withElement(
+        ImmutableList.withElements(
           columnName + " = " + valueSqlLiteral,
           additionalColumnName + " = " + additionalValueSqlLiteral);
       }
 
-      return ImmutableList.withElement(columnName + " = " + valueSqlLiteral);
+      return ImmutableList.withElements(columnName + " = " + valueSqlLiteral);
     });
 
     var contentFieldSetsPrecessor = " ";

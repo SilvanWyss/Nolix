@@ -51,14 +51,13 @@ public final class HtmlElement implements IHtmlElement {
     new HtmlElement(type, ImmutableList.createEmpty(), StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
-  public static HtmlElement withTypeAndAttribute(
+  public static HtmlElement withTypeAndAttributes(
     final String type,
-    final IHtmlAttribute attribute,
     final IHtmlAttribute... attributes) {
     return //
     new HtmlElement(
       type,
-      ImmutableList.withElement(attribute, attributes),
+      ImmutableList.withElements(attributes),
       StringCatalog.EMPTY_STRING,
       ImmutableList.createEmpty());
   }
@@ -69,9 +68,9 @@ public final class HtmlElement implements IHtmlElement {
     final IHtmlElement childElement) {
     return new HtmlElement(
       type,
-      ImmutableList.withElement(attribute),
+      ImmutableList.withElements(attribute),
       StringCatalog.EMPTY_STRING,
-      ImmutableList.withElement(childElement));
+      ImmutableList.withElements(childElement));
   }
 
   public static HtmlElement withTypeAndAttributes(
@@ -80,14 +79,13 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
-  public static HtmlElement withTypeAndAttributesAndChildElement(
+  public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
-    final IHtmlElement childElement,
     final IHtmlElement... childElements) {
-    final var allChildElements = ImmutableList.withElement(childElement, childElements);
+    final var childElementsContainerView = ContainerView.forArray(childElements);
 
-    return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, allChildElements);
+    return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, childElementsContainerView);
   }
 
   public static HtmlElement withTypeAndAttributesAndChildElements(
@@ -106,14 +104,24 @@ public final class HtmlElement implements IHtmlElement {
 
   public static HtmlElement withTypeAndChildElement(
     final String type,
-    final IHtmlElement childElement,
+    final IHtmlElement childElement) {
+    return //
+    new HtmlElement(
+      type,
+      ImmutableList.createEmpty(),
+      StringCatalog.EMPTY_STRING,
+      ImmutableList.withElement(childElement));
+  }
+
+  public static HtmlElement withTypeAndChildElements(
+    final String type,
     final IHtmlElement... childElements) {
     return //
     new HtmlElement(
       type,
       ImmutableList.createEmpty(),
       StringCatalog.EMPTY_STRING,
-      ImmutableList.withElement(childElement, childElements));
+      ContainerView.forArray(childElements));
   }
 
   public static HtmlElement withTypeAndChildElements(

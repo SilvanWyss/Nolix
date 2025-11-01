@@ -23,7 +23,7 @@ public final class ReferenceableTableSqlSchemaDtoCatalog {
   public static final TableDto REFERENCEABLE_TABLE_TABLE_SQL_DTO = //
   new TableDto(
     FixTable.COLUMN.getName(),
-    ImmutableList.withElement(PARENT_BASE_REFERENCE_COLUMN_ID_SQL_DTO, REFERENCEABLE_TABLE_ID_SQL_DTO));
+    ImmutableList.withElements(PARENT_BASE_REFERENCE_COLUMN_ID_SQL_DTO, REFERENCEABLE_TABLE_ID_SQL_DTO));
 
   private ReferenceableTableSqlSchemaDtoCatalog() {
   }

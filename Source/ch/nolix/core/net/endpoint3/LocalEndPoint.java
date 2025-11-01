@@ -2,7 +2,6 @@ package ch.nolix.core.net.endpoint3;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -129,8 +128,8 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-    return counterpart.getStoredReceiverController().getDataForRequests(request, requests);
+  public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+    return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 
   /**
@@ -181,18 +180,10 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Lets this local duplex controller run the given command.
-   * 
-   * @param command
-   * @throws ClosedArgumentException               if this local duplex controller
-   *                                               is closed.
-   * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller
-   *                                               does not have a receiver
-   *                                               controller.
+   * {@inheritDoc}
    */
   @Override
   public void runCommand(final IChainedNode command) {
-    //Asserts that this local duplex controller is not aborted.
     assertIsOpen();
 
     counterpart.getStoredReceiverController().runCommand(command);
@@ -203,7 +194,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
-    //Asserts that this local duplex controller is open.
     assertIsOpen();
 
     final var counterpartReceiverController = counterpart.getStoredReceiverController();

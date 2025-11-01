@@ -12,7 +12,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
 
   protected AbstractBaseReference(final IContainer<String> referenceableTableNames) {
     Validator.assertThatTheStrings(referenceableTableNames).areNotBlank();
-    this.referenceableTableNames = ImmutableList.forIterable(referenceableTableNames);
+    this.referenceableTableNames = ImmutableList.fromIterable(referenceableTableNames);
   }
 
   @Override

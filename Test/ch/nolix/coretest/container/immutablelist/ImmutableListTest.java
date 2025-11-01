@@ -6,10 +6,8 @@ import ch.nolix.coretest.container.base.ContainerTest;
 
 final class ImmutableListTest extends ContainerTest {
   @Override
-  protected <E> IContainer<E> createContainerWithElements(
-    final E element,
-    final @SuppressWarnings("unchecked") E... elements) {
-    return ImmutableList.withElement(element, elements);
+  protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+    return ImmutableList.fromArray(elements);
   }
 
   @Override

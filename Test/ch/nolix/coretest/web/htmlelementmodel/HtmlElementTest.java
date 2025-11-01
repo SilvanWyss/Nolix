@@ -18,7 +18,7 @@ final class HtmlElementTest extends StandardTest {
     final var attribute4 = HtmlAttribute.withNameAndValue("n4", "v4");
     final var testUnit = HtmlElement.withTypeAndAttributesAndInnerText(
       HtmlElementTypeCatalog.DIV,
-      ImmutableList.withElement(attribute1, attribute2),
+      ImmutableList.withElements(attribute1, attribute2),
       "my inner text");
 
     //setup verification
@@ -26,7 +26,7 @@ final class HtmlElementTest extends StandardTest {
       .isEqualTo(
         HtmlElement.withTypeAndAttributesAndInnerText(
           HtmlElementTypeCatalog.DIV,
-          ImmutableList.withElement(attribute1, attribute2),
+          ImmutableList.withElements(attribute1, attribute2),
           "my inner text"));
 
     //execution
@@ -36,7 +36,7 @@ final class HtmlElementTest extends StandardTest {
     expect(result).isEqualTo(
       HtmlElement.withTypeAndAttributesAndInnerText(
         HtmlElementTypeCatalog.DIV,
-        ImmutableList.withElement(attribute1, attribute2, attribute3, attribute4),
+        ImmutableList.withElements(attribute1, attribute2, attribute3, attribute4),
         "my inner text"));
   }
 }

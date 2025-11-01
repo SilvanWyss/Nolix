@@ -116,13 +116,12 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * Runs the given commands on the counterpart of the current
    * {@link AbstractClient}.
    * 
-   * @param command
    * @param commands
    * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
    *                                      not connected.
    */
-  protected final void runOnCounterpart(final ChainedNode command, final ChainedNode... commands) {
-    getStoredEndPoint().runCommands(command, commands);
+  protected final void runOnCounterpart(final ChainedNode... commands) {
+    getStoredEndPoint().runCommands(commands);
   }
 
   /**

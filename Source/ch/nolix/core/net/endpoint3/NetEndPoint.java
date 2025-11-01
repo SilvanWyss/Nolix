@@ -140,7 +140,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public INode<?> getDataForRequest(final IChainedNode request) {
-    final var requests = ImmutableList.withElement(request);
+    final var requests = ImmutableList.withElements(request);
 
     return getDataForRequests(requests).getStoredOne();
   }
@@ -149,9 +149,9 @@ public final class NetEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+  public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
     //Concatenates the given requests.
-    final var concatenatedRequests = ImmutableList.withElement(request, requests);
+    final var concatenatedRequests = ImmutableList.withElements(requests);
 
     //Calls other method.
     return getDataForRequests(concatenatedRequests);

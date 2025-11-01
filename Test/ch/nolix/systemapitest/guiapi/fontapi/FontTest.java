@@ -15,7 +15,7 @@ final class FontTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirFonts() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Node.withChildNode("ARIAL"), Font.ARIAL),
       Arguments.of(Node.withChildNode("ARIAL_BLACK"), Font.ARIAL_BLACK),
       Arguments.of(Node.withChildNode("COMIC_SANS_MS"), Font.COMIC_SANS_MS),

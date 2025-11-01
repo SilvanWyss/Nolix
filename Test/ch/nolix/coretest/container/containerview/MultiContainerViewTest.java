@@ -24,9 +24,8 @@ final class MultiContainerViewTest extends ContainerTest {
 
   @Override
   protected <E> IContainer<E> createContainerWithElements(
-    final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-    final var container = ImmutableList.withElement(element, elements);
+    final var container = ImmutableList.withElements(elements);
 
     return MultiContainerView.forIterable(container);
   }

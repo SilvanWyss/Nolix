@@ -32,7 +32,7 @@ final class EntityQueryCreatorTest extends StandardTest {
     final var tableView = new TableViewDto(
       "ttttttt1",
       "Cat",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         new ColumnViewDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
         new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
@@ -51,7 +51,7 @@ final class EntityQueryCreatorTest extends StandardTest {
     final var tableView = new TableViewDto(
       "ttttttt1",
       "Cat",
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         new ColumnViewDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
         new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 

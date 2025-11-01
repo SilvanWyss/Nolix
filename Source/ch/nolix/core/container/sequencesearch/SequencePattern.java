@@ -50,8 +50,8 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   private SequencePattern(
     final IContainer<Predicate<E>> elementConditions,
     final IContainer<Predicate<IContainer<E>>> sequenceConditions) {
-    this.elementConditions = ImmutableList.forIterable(elementConditions);
-    this.sequenceConditions = ImmutableList.forIterable(sequenceConditions);
+    this.elementConditions = ImmutableList.fromIterable(elementConditions);
+    this.sequenceConditions = ImmutableList.fromIterable(sequenceConditions);
   }
 
   /**

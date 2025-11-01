@@ -19,7 +19,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
       .thatIsNamed(PluralLowerCaseVariableCatalog.ENTITY_TYPES)
       .containsDistinctNonNullElemensOnly();
 
-    this.entityTypes = ImmutableList.forIterable(entityTypes);
+    this.entityTypes = ImmutableList.fromIterable(entityTypes);
   }
 
   @SuppressWarnings("unchecked")

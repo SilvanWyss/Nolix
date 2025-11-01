@@ -15,7 +15,7 @@ final class PresenceTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirPresences() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Node.withChildNode("VISIBLE"), Presence.VISIBLE),
       Arguments.of(Node.withChildNode("INVISIBLE"), Presence.INVISIBLE),
       Arguments.of(Node.withChildNode("COLLAPSED"), Presence.COLLAPSED));

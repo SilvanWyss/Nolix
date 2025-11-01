@@ -15,7 +15,7 @@ final class ContainerRoleTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirContainerRole() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Node.withChildNode("DIALOG_CONTAINER"), ContainerRole.DIALOG_CONTAINER),
       Arguments.of(Node.withChildNode("OVERALL_CONTAINER"), ContainerRole.OVERALL_CONTAINER),
       Arguments.of(Node.withChildNode("MAIN_CONTENT_CONTAINER"), ContainerRole.MAIN_CONTENT_CONTAINER),

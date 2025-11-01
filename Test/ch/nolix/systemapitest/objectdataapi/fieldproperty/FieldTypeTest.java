@@ -13,7 +13,7 @@ final class FieldTypeTest extends StandardTest {
   @MethodSource
   private static ImmutableList<Arguments> getFieldTypesAndTheirCardinality() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(FieldType.VALUE_FIELD, Cardinality.TO_ONE),
       Arguments.of(FieldType.OPTIONAL_VALUE_FIELD, Cardinality.TO_ONE_OR_NONE),
       Arguments.of(FieldType.MULTI_VALUE_FIELD, Cardinality.TO_MANY),

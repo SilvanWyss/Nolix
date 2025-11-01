@@ -114,7 +114,7 @@ implements IOptionalReference<E> {
     if (abstractBackReferenceContainer.isPresent()) {
       final var abstractBackReference = (IBaseBackReference) abstractBackReferenceContainer.get();
 
-      return ImmutableList.withElement(abstractBackReference);
+      return ImmutableList.withElements(abstractBackReference);
     }
 
     return ImmutableList.createEmpty();

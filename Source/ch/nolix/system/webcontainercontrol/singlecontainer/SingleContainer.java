@@ -39,7 +39,7 @@ implements ISingleContainer {
       return ImmutableList.createEmpty();
     }
 
-    return ImmutableList.withElement(getStoredControl());
+    return ImmutableList.withElements(getStoredControl());
   }
 
   @Override

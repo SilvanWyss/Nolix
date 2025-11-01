@@ -14,7 +14,7 @@ public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader>
   public IHtmlElement createHtmlElementForControl(final IUploader control) {
     return HtmlElement.withTypeAndAttributes(
       HtmlElementTypeCatalog.INPUT,
-      ImmutableList.withElement(
+      ImmutableList.withElements(
         HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.TYPE, "file"),
         HtmlAttribute.withNameAndValue("multiple", "none"),
         HtmlAttribute.withNameAndValue("data-uploader", "any")));

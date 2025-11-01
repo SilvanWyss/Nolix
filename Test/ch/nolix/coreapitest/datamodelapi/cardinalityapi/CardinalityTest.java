@@ -14,7 +14,7 @@ final class CardinalityTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getCardinalitysAndTheirBaseCardinality() {
     return //
-    ImmutableList.withElement(
+    ImmutableList.withElements(
       Arguments.of(Cardinality.TO_ONE, BaseCardinality.SINGLE),
       Arguments.of(Cardinality.TO_ONE_OR_NONE, BaseCardinality.SINGLE),
       Arguments.of(Cardinality.TO_MANY, BaseCardinality.MULTI));

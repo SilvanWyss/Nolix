@@ -15,7 +15,7 @@ public final class WebGuiHtmlBuilder {
     return //
     HtmlElement.withTypeAndAttributesAndChildElements(
       HtmlElementTypeCatalog.DIV,
-      ImmutableList.withElement(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, "root")),
+      ImmutableList.withElements(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, "root")),
       createLayerHtmlElementsForWebGui(webGui));
   }
 

@@ -7,10 +7,8 @@ import ch.nolix.coretest.container.base.ContainerTest;
 
 final class IterableViewTest extends ContainerTest {
   @Override
-  protected <E> IContainer<E> createContainerWithElements(
-    final E element,
-    final @SuppressWarnings("unchecked") E... elements) {
-    return IterableContainerView.forIterable(ArrayList.withElement(element, elements));
+  protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+    return IterableContainerView.forIterable(ArrayList.withElements(elements));
   }
 
   @Override
