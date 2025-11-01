@@ -41,7 +41,7 @@ final class ControlAnalyserTest extends StandardTest {
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlDirectly() {
     //setup
     final var label = new Label();
-    final var verticalStack = new VerticalStack().addControl(new Button(), new Link(), label);
+    final var verticalStack = new VerticalStack().addControls(new Button(), new Link(), label);
     final var testUnit = new ControlAnalyser();
 
     //execution
@@ -57,11 +57,11 @@ final class ControlAnalyserTest extends StandardTest {
     final var label = new Label();
     final var verticalStack = //
     new VerticalStack()
-      .addControl(
+      .addControls(
         new Button(),
         new Link(),
         new FloatContainer()
-          .addControl(
+          .addControls(
             new Textbox(),
             new ImageControl(),
             label));

@@ -1,6 +1,5 @@
 package ch.nolix.system.webcontainercontrol.linearcontainer;
 
-import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
@@ -23,10 +22,21 @@ implements ILinearContainer<C, S> {
     IControl::getSpecification);
 
   @Override
-  public final C addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
-    final var allControls = ContainerView.forElementAndArray(control, controls);
+  public final C addControl(final IControl<?, ?> control) {
+    control.internalSetParentControl(this);
 
-    return addControls(allControls);
+    this.childControls.add(control);
+
+    return asConcrete();
+  }
+
+  @Override
+  public final C addControls(final IControl<?, ?>... controls) {
+    for (final var c : controls) {
+      addControl(c);
+    }
+
+    return asConcrete();
   }
 
   @Override
@@ -59,11 +69,5 @@ implements ILinearContainer<C, S> {
   @Override
   public final void removeControl(final IControl<?, ?> control) {
     childControls.remove(control);
-  }
-
-  private void addControl(final IControl<?, ?> control) {
-    control.internalSetParentControl(this);
-
-    this.childControls.add(control);
   }
 }

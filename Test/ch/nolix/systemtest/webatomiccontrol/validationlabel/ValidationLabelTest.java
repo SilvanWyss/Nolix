@@ -17,7 +17,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     //error.
     final var testUnit = new ValidationLabel();
     final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionService::throwException);
-    new VerticalStack().addControl(testUnit, actionButton);
+    new VerticalStack().addControls(testUnit, actionButton);
     actionButton.pressLeftMouseButton();
 
     //setup part 2: Prepares an action that does not produce an error.
@@ -35,7 +35,7 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     //setup
     final var testUnit = new ValidationLabel();
     final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionService::throwException);
-    new VerticalStack().addControl(testUnit, actionButton);
+    new VerticalStack().addControls(testUnit, actionButton);
 
     //setup verification
     expect(testUnit.isEmpty()).isTrue();

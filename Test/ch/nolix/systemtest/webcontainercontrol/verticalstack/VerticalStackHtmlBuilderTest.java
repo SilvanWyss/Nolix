@@ -13,7 +13,7 @@ final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<Vertical
   @Test
   void testCase_createHtmlElement_whenContainsChildControls() {
     //setup control
-    final var control = createControl().addControl(new Label(), new Label(), new Label());
+    final var control = createControl().addControls(new Label(), new Label(), new Label());
 
     //setup testUnit
     final var testUnit = createTestUnit();

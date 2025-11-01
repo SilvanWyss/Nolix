@@ -51,13 +51,13 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
       .setRootControl(
         new VerticalStack()
           .setRole(ContainerRole.DIALOG_CONTAINER)
-          .addControl(
+          .addControls(
             new Label()
               .setText(getInfoText()),
             new ValidationLabel(),
             valueTextbox,
             new HorizontalStack()
-              .addControl(
+              .addControls(
                 new Button()
                   .setRole(ButtonRole.CANCEL_BUTTON)
                   .setText(getCancelButtonText())

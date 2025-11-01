@@ -37,11 +37,11 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
       .setRootControl(
         new VerticalStack()
           .setRole(ContainerRole.DIALOG_CONTAINER)
-          .addControl(
+          .addControls(
             new Label()
               .setText(getValueName() + ":"),
             new HorizontalStack()
-              .addControl(
+              .addControls(
                 new Label()
                   .setText(getValue()),
                 new Button()

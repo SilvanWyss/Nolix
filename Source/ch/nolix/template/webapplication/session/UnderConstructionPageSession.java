@@ -23,7 +23,7 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
       .pushLayerWithRootControl(
         new VerticalStack()
           .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-          .addControl(
+          .addControls(
             new Label()
               .setRole(LabelRole.TITLE)
               .setText(getApplicationName()),

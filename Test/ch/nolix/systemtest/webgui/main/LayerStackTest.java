@@ -76,7 +76,7 @@ final class LayerStackTest extends StandardTest {
     final var label1 = new Label();
     final var label2 = new Label();
     final var label3 = new Label();
-    verticalStack.addControl(label1, label2, label3);
+    verticalStack.addControls(label1, label2, label3);
     testUnit.pushLayerWithRootControl(verticalStack);
 
     //execution

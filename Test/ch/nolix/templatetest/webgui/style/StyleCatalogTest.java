@@ -35,7 +35,7 @@ final class StyleCatalogTest extends StandardTest {
         new Layer()
           .setRootControl(
             new VerticalStack()
-              .addControl(
+              .addControls(
                 new Button(),
                 new DropdownMenu(),
                 new FloatContainer(),
