@@ -8,14 +8,12 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
-import ch.nolix.system.webgui.controltool.ControlCssValueTool;
+import ch.nolix.system.webgui.controltool.CssValueMapper;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
 public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
-  private static final ControlCssValueTool CONTROL_CSS_VALUE_TOOL = new ControlCssValueTool();
-
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IGrid control,
@@ -48,7 +46,7 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
           CssProperty.withNameAndValue("border-collapse", "collapse"),
           CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
           CssProperty.withNameAndValue("border-color",
-            CONTROL_CSS_VALUE_TOOL.getCssValueFromColor(gridcolor)))));
+            CssValueMapper.mapColorToCssValue(gridcolor)))));
 
     list.addAtEnd(
       CssRule.withSelectorAndProperties(

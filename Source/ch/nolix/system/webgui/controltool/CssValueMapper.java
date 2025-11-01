@@ -3,12 +3,15 @@ package ch.nolix.system.webgui.controltool;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
 
-public final class ControlCssValueTool {
-  public String getCssValueFromColor(final IColor color) {
+public final class CssValueMapper {
+  private CssValueMapper() {
+  }
+
+  public static String mapColorToCssValue(final IColor color) {
     return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
   }
 
-  public String getCssValueFromRelativeOrAbsoluteInt(
+  public static String mapRelativeOrAbsoluteIntToCssValue(
     final IAbsoluteOrRelativeInt absoluteOrRelativeInt,
     final String relativeIntCssUnit) {
     if (absoluteOrRelativeInt.isAbsolute()) {
