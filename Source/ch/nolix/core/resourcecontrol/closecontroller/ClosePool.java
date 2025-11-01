@@ -3,7 +3,6 @@ package ch.nolix.core.resourcecontrol.closecontroller;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
@@ -103,7 +102,7 @@ final class ClosePool implements IClosePool {
   private void closeElementsWhenStateIsOpen() {
     state = CloseState.ON_CLOSING;
 
-    elements.forEach(this::letNoteClose);
+    elements.forEach(ClosePoolHelper::letNoteClose);
 
     state = CloseState.CLOSED;
   }
@@ -114,18 +113,5 @@ final class ClosePool implements IClosePool {
    */
   private boolean containsElement(final GroupCloseable element) {
     return elements.contains(element);
-  }
-
-  /**
-   * Lets the given element note a close.
-   * 
-   * @param element
-   */
-  private void letNoteClose(final GroupCloseable element) {
-    try {
-      element.noteClose();
-    } catch (final Throwable exception) { //NOSONAR: All Throwables must be caught.
-      Logger.logError(exception);
-    }
   }
 }
