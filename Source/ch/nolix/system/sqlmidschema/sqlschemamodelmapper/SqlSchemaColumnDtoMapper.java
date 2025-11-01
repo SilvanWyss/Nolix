@@ -26,17 +26,11 @@ public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper
     sqlSchemaColumnDtos.addAtEnd(mainSqlSchemaColumnDto);
 
     switch (fieldType) {
-      case REFERENCE, OPTIONAL_REFERENCE:
-        final var referenceSqlSchemaColumnDto = //
-        SqlSchemaColumnDtoMapperHelper.mapColumnDtoToReferenceSqlSchemaColumnDto(columnDto);
+      case REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE:
+        final var tableSqlSchemaColumnDto = //
+        SqlSchemaColumnDtoMapperHelper.mapColumnDtoToTableSqlSchemaColumnDto(columnDto);
 
-        sqlSchemaColumnDtos.addAtEnd(referenceSqlSchemaColumnDto);
-        break;
-      case BACK_REFERENCE, OPTIONAL_BACK_REFERENCE:
-        final var backReferenceSqlSchemaColumnDto = //
-        SqlSchemaColumnDtoMapperHelper.mapColumnDtoToBackReferenceSqlSchemaColumnDto(columnDto);
-
-        sqlSchemaColumnDtos.addAtEnd(backReferenceSqlSchemaColumnDto);
+        sqlSchemaColumnDtos.addAtEnd(tableSqlSchemaColumnDto);
         break;
       default:
     }

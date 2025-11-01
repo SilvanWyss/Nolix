@@ -10,15 +10,6 @@ public final class SqlSchemaColumnDtoMapperHelper {
   private SqlSchemaColumnDtoMapperHelper() {
   }
 
-  public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToBackReferenceSqlSchemaColumnDto(
-    final ColumnDto columnDto) {
-    final var columnName = columnDto.name() + "Table";
-    final var dataType = DataTypeTypeCatalog.TEXT;
-    final IContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
-
-    return new ch.nolix.systemapi.sqlschema.model.ColumnDto(columnName, dataType, constraints);
-  }
-
   public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToMainSqlSchemaColumnDto(
     final ColumnDto columnDto) {
     final var columnName = columnDto.name();
@@ -28,7 +19,7 @@ public final class SqlSchemaColumnDtoMapperHelper {
     return new ch.nolix.systemapi.sqlschema.model.ColumnDto(columnName, dataType, constraints);
   }
 
-  public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToReferenceSqlSchemaColumnDto(
+  public static ch.nolix.systemapi.sqlschema.model.ColumnDto mapColumnDtoToTableSqlSchemaColumnDto(
     final ColumnDto columnDto) {
     final var columnName = columnDto.name() + "Table";
     final var dataType = DataTypeTypeCatalog.TEXT;
