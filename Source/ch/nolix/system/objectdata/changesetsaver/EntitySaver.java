@@ -4,6 +4,7 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.changesetsaver.IEntitySaver;
 import ch.nolix.systemapi.objectdata.changesetsaver.IMultiValueFieldSaver;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -12,7 +13,11 @@ import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
-public final class EntitySaver {
+/**
+ * @author Silvan Wyss
+ * @version 2024-02-12
+ */
+public final class EntitySaver implements IEntitySaver {
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
   private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
@@ -41,6 +46,19 @@ public final class EntitySaver {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void saveEntityDeletion(
+    final IEntity entity,
+    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final var tableName = entity.getStoredParentTable().getName();
+    final var entityDeletionDto = ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(entity);
+
+    dataAndSchemaAdapter.deleteEntity(tableName, entityDeletionDto);
+  }
+
   private void saveNewEntity(
     final IEntity newEntity,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
@@ -59,14 +77,6 @@ public final class EntitySaver {
       ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity));
 
     saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
-  }
-
-  private void saveEntityDeletion(
-    final IEntity deletedEntity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    dataAndSchemaAdapter.deleteEntity(
-      deletedEntity.getStoredParentTable().getName(),
-      ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(deletedEntity));
   }
 
   private void saveMultiPropertyChangesOfEntity(
