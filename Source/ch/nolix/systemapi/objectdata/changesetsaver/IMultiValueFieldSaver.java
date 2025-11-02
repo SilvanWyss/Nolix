@@ -14,7 +14,7 @@ public interface IMultiValueFieldSaver {
    * @param multiValueField
    * @param dataAndSchemaAdapter
    */
-  void saveChangesOfMultiValueField(
+  void saveMultiValueFieldChanges(
     IMultiValueField<?> multiValueField,
     IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

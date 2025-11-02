@@ -16,7 +16,7 @@ public final class MultiValueFieldSaver implements IMultiValueFieldSaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveChangesOfMultiValueField(
+  public void saveMultiValueFieldChanges(
     final IMultiValueField<?> multiValueField,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     for (final var e : multiValueField.getStoredNewAndDeletedEntries()) {

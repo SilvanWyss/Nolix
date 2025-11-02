@@ -100,7 +100,7 @@ public final class EntitySaver implements IEntitySaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field.getType()) {
       case MULTI_VALUE_FIELD:
-        MULTI_VALUE_FIELD_SAVER.saveChangesOfMultiValueField((IMultiValueField<?>) field, dataAndSchemaAdapter);
+        MULTI_VALUE_FIELD_SAVER.saveMultiValueFieldChanges((IMultiValueField<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
         MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) field, dataAndSchemaAdapter);
