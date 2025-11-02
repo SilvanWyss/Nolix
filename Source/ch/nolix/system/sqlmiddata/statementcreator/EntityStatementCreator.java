@@ -9,6 +9,7 @@ import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
+import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
@@ -16,6 +17,8 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
   private static final ISqlLiteralMapper SQL_VALUE_MAPPER = new SqlLiteralMapper();
+
+  private static final ISqlValueAssignmentMapper SQL_VALUE_ASSIGNMENT_MAPPER = new SqlValueAssignmentMapper();
 
   @Override
   public String createStatementToDeleteEntity(final String tableName, final EntityDeletionDto entity) {
@@ -134,30 +137,13 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
     final var updatedContentFields = entityUpdate.updatedContentFields();
-    final var updatedContentFieldSetters = updatedContentFields.toMultiples(f -> {
-      final var columnName = f.columnName();
-      final var nullableValueString = f.nullableValueString();
-      final var valueSqlLiteral = SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);
-      final var nullableAdditionalValue = f.nullableAdditionalValue();
 
-      if (nullableAdditionalValue != null) {
-        final var additionalColumnName = columnName + "Table";
-
-        final var additionalValueSqlLiteral = //
-        SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableAdditionalValue);
-
-        return //
-        ImmutableList.withElements(
-          columnName + " = " + valueSqlLiteral,
-          additionalColumnName + " = " + additionalValueSqlLiteral);
-      }
-
-      return ImmutableList.withElements(columnName + " = " + valueSqlLiteral);
-    });
+    final var updatedContentFieldSqlValueAssignments = //
+    updatedContentFields.toMultiples(SQL_VALUE_ASSIGNMENT_MAPPER::mapValueStringFieldDtoToSqlValueAssignemnts);
 
     var contentFieldSetsPrecessor = " ";
 
-    if (updatedContentFieldSetters.containsAny()) {
+    if (updatedContentFieldSqlValueAssignments.containsAny()) {
       contentFieldSetsPrecessor = ", ";
     }
 
@@ -168,7 +154,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + (Integer.valueOf(entityUpdate.saveStamp()) + 1)
     + "'"
     + contentFieldSetsPrecessor
-    + updatedContentFieldSetters.toStringWithSeparator(", ")
+    + updatedContentFieldSqlValueAssignments.toStringWithSeparator(", ")
     + " WHERE Id = '"
     + entityUpdate.id()
     + "' AND SaveStamp = '"
