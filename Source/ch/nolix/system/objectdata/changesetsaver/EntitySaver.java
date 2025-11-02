@@ -4,6 +4,7 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.changesetsaver.IMultiValueFieldSaver;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -16,7 +17,7 @@ public final class EntitySaver {
 
   private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
 
-  private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
+  private static final IMultiValueFieldSaver MULTI_VALUE_FIELD_SAVER = new MultiValueFieldSaver();
 
   private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
 
@@ -89,7 +90,7 @@ public final class EntitySaver {
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (field.getType()) {
       case MULTI_VALUE_FIELD:
-        MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValueField<?>) field, dataAndSchemaAdapter);
+        MULTI_VALUE_FIELD_SAVER.saveChangesOfMultiValueField((IMultiValueField<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
         MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) field, dataAndSchemaAdapter);
