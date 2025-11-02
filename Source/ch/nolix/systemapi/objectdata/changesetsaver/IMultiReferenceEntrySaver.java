@@ -1,0 +1,40 @@
+package ch.nolix.systemapi.objectdata.changesetsaver;
+
+import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
+
+/**
+ * @author Silvan Wyss
+ * @version 2025-11-02
+ */
+public interface IMultiReferenceEntrySaver {
+  /**
+   * Saves the change of the given multiReferenceEntry.
+   * 
+   * @param multiReferenceEntry
+   * @param dataAndSchemaAdapter
+   */
+  void saveMultiReferenceEntryChange(
+    IMultiReferenceEntry<?> multiReferenceEntry,
+    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+
+  /**
+   * Saves the creation of the given multiReferenceEntry.
+   * 
+   * @param multiReferenceEntry
+   * @param dataAndSchemaAdapter
+   */
+  void saveMultiReferenceEntryCreation(
+    IMultiReferenceEntry<?> multiReferenceEntry,
+    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+
+  /**
+   * Saves the deletion of the given multiReferenceEntry.
+   * 
+   * @param multiReferenceEntry
+   * @param dataAndSchemaAdapter
+   */
+  void saveMultiReferenceEntryDeletion(
+    IMultiReferenceEntry<?> multiReferenceEntry,
+    IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+}
