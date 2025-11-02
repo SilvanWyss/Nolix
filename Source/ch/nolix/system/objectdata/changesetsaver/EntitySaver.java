@@ -103,7 +103,7 @@ public final class EntitySaver implements IEntitySaver {
         MULTI_VALUE_FIELD_SAVER.saveMultiValueFieldChanges((IMultiValueField<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_REFERENCE:
-        MULTI_REFERENCE_SAVER.saveMultiReference((IMultiReference<?>) field, dataAndSchemaAdapter);
+        MULTI_REFERENCE_SAVER.saveMultiReferenceChanges((IMultiReference<?>) field, dataAndSchemaAdapter);
         break;
       case MULTI_BACK_REFERENCE:
         MULTI_BACK_REFERENCE_SAVER.saveMultiBackReference((IMultiBackReference<?>) field, dataAndSchemaAdapter);
