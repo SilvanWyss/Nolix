@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
@@ -33,9 +34,13 @@ public final class EntitySaver implements IEntitySaver {
    */
   @Override
   public void saveEntityChanges(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    switch (entity.getState()) {
+    final var entityState = entity.getState();
+
+    switch (entityState) {
       case NEW:
         saveEntityCreation(entity, dataAndSchemaAdapter);
+        break;
+      case UNEDITED:
         break;
       case EDITED:
         saveEntityUpdates(entity, dataAndSchemaAdapter);
@@ -44,7 +49,7 @@ public final class EntitySaver implements IEntitySaver {
         saveEntityDeletion(entity, dataAndSchemaAdapter);
         break;
       default:
-        //Does nothing.
+        throw InvalidArgumentException.forArgumentAndArgumentName(entityState, "entity state");
     }
   }
 
