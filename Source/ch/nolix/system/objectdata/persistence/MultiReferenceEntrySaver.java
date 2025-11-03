@@ -1,13 +1,13 @@
-package ch.nolix.system.objectdata.changesetsaver;
+package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.changesetsaver.IMultiReferenceEntrySaver;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IMultiReferenceEntryDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
+import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceEntrySaver;
 
 /**
  * @author Silvan Wyss

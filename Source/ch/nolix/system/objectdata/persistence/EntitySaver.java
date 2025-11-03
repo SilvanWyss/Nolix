@@ -1,12 +1,12 @@
-package ch.nolix.system.objectdata.changesetsaver;
+package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.changesetsaver.IEntitySaver;
-import ch.nolix.systemapi.objectdata.changesetsaver.IMultiFieldSaver;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
+import ch.nolix.systemapi.objectdata.perstistence.IEntitySaver;
+import ch.nolix.systemapi.objectdata.perstistence.IMultiFieldSaver;
 
 /**
  * @author Silvan Wyss

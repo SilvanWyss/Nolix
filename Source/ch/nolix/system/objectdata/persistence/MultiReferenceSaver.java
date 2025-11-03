@@ -1,9 +1,9 @@
-package ch.nolix.system.objectdata.changesetsaver;
+package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.changesetsaver.IMultiReferenceEntrySaver;
-import ch.nolix.systemapi.objectdata.changesetsaver.IMultiReferenceSaver;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
+import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceEntrySaver;
+import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceSaver;
 
 /**
  * @author Silvan Wyss

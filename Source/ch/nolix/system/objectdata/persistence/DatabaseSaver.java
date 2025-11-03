@@ -1,10 +1,10 @@
-package ch.nolix.system.objectdata.changesetsaver;
+package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.changesetsaver.IDatabaseSaver;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
+import ch.nolix.systemapi.objectdata.perstistence.IDatabaseSaver;
 
 /**
  * @author Silvan Wyss

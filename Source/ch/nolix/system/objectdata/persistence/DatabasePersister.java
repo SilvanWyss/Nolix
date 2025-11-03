@@ -1,11 +1,11 @@
-package ch.nolix.system.objectdata.changesetsaver;
+package ch.nolix.system.objectdata.persistence;
 
 import ch.nolix.system.objectdata.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
-import ch.nolix.systemapi.objectdata.changesetsaver.IDatabasePersister;
-import ch.nolix.systemapi.objectdata.changesetsaver.IDatabaseSaver;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
+import ch.nolix.systemapi.objectdata.perstistence.IDatabasePersister;
+import ch.nolix.systemapi.objectdata.perstistence.IDatabaseSaver;
 
 /**
  * @author Silvan Wyss
