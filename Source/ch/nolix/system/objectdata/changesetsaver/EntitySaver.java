@@ -35,7 +35,7 @@ public final class EntitySaver implements IEntitySaver {
   public void saveEntityChanges(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (entity.getState()) {
       case NEW:
-        saveNewEntity(entity, dataAndSchemaAdapter);
+        saveEntityCreation(entity, dataAndSchemaAdapter);
         break;
       case EDITED:
         saveEntityUpdates(entity, dataAndSchemaAdapter);
@@ -46,6 +46,19 @@ public final class EntitySaver implements IEntitySaver {
       default:
         //Does nothing.
     }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void saveEntityCreation(final IEntity newEntity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final var tableName = newEntity.getStoredParentTable().getName();
+    final var entityCreationDto = ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity);
+
+    dataAndSchemaAdapter.insertEntity(tableName, entityCreationDto);
+
+    saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
   }
 
   /**
@@ -70,16 +83,6 @@ public final class EntitySaver implements IEntitySaver {
     dataAndSchemaAdapter.updateEntity(tableName, entityUpdateDto);
 
     saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
-  }
-
-  private void saveNewEntity(
-    final IEntity newEntity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    dataAndSchemaAdapter.insertEntity(
-      newEntity.getStoredParentTable().getName(),
-      ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity));
-
-    saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
   }
 
   private void saveMultiPropertyChangesOfEntity(

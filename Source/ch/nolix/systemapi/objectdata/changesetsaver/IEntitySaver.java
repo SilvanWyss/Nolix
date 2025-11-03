@@ -17,6 +17,14 @@ public interface IEntitySaver {
   void saveEntityChanges(IEntity entity, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
+   * Saves the creation of the given entity.
+   * 
+   * @param entity
+   * @param dataAndSchemaAdapter
+   */
+  void saveEntityCreation(IEntity entity, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+
+  /**
    * Saves the deletion of the given entity.
    * 
    * @param entity
