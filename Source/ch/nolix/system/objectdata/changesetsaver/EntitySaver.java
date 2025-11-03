@@ -28,7 +28,11 @@ public final class EntitySaver implements IEntitySaver {
 
   private static final MultiBackReferenceSaver MULTI_BACK_REFERENCE_SAVER = new MultiBackReferenceSaver();
 
-  public void saveChangesOfEntity(
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void saveEntityChanges(
     final IEntity entity,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (entity.getState()) {

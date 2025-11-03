@@ -54,7 +54,7 @@ public final class ChangeSetSaver implements IChangeSetSaver {
     final var entitiesInLocalData = DATABASE_TOOL.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
-      ENTITY_SAVER.saveChangesOfEntity(e, dataAndSchemaAdapter);
+      ENTITY_SAVER.saveEntityChanges(e, dataAndSchemaAdapter);
     }
   }
 

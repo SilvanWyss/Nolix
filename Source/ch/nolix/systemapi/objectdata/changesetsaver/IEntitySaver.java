@@ -9,6 +9,14 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  */
 public interface IEntitySaver {
   /**
+   * Saves the changes of the given entity.
+   * 
+   * @param entity
+   * @param dataAndSchemaAdapter
+   */
+  void saveEntityChanges(IEntity entity, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+
+  /**
    * Saves the deletion of the given entity.
    * 
    * @param entity
