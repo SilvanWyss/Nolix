@@ -1,33 +1,21 @@
 package ch.nolix.system.objectdata.changesetsaver;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.middatamodelmapper.EntityDtoMapper;
-import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.changesetsaver.IEntitySaver;
-import ch.nolix.systemapi.objectdata.changesetsaver.IMultiValueFieldSaver;
+import ch.nolix.systemapi.objectdata.changesetsaver.IMultiFieldSaver;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IEntityDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IEntity;
-import ch.nolix.systemapi.objectdata.model.IField;
-import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
-import ch.nolix.systemapi.objectdata.model.IMultiReference;
-import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
 /**
  * @author Silvan Wyss
  * @version 2024-02-12
  */
 public final class EntitySaver implements IEntitySaver {
-  private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
-
   private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();
 
-  private static final IMultiValueFieldSaver MULTI_VALUE_FIELD_SAVER = new MultiValueFieldSaver();
-
-  private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
-
-  private static final MultiBackReferenceSaver MULTI_BACK_REFERENCE_SAVER = new MultiBackReferenceSaver();
+  private static final IMultiFieldSaver MULTI_FIELD_SAVER = new MultiFieldSaver();
 
   /**
    * {@inheritDoc}
@@ -57,13 +45,12 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityCreation(final IEntity newEntity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    final var tableName = newEntity.getStoredParentTable().getName();
-    final var entityCreationDto = ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity);
+  public void saveEntityCreation(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final var tableName = entity.getStoredParentTable().getName();
+    final var entityCreationDto = ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(entity);
 
     dataAndSchemaAdapter.insertEntity(tableName, entityCreationDto);
-
-    saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
+    MULTI_FIELD_SAVER.saveMultiFieldChangesOfEntity(entity, dataAndSchemaAdapter);
   }
 
   /**
@@ -75,52 +62,18 @@ public final class EntitySaver implements IEntitySaver {
     final var entityDeletionDto = ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(entity);
 
     dataAndSchemaAdapter.deleteEntity(tableName, entityDeletionDto);
+    MULTI_FIELD_SAVER.saveMultiFieldChangesOfEntity(entity, dataAndSchemaAdapter);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityUpdates(final IEntity editedEntity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    final var tableName = editedEntity.getStoredParentTable().getName();
-    final var entityUpdateDto = ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity);
+  public void saveEntityUpdates(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final var tableName = entity.getStoredParentTable().getName();
+    final var entityUpdateDto = ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(entity);
 
     dataAndSchemaAdapter.updateEntity(tableName, entityUpdateDto);
-
-    saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
-  }
-
-  private void saveMultiPropertyChangesOfEntity(
-    final IEntity entity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    for (final var p : entity.internalGetStoredFields()) {
-      saveChangesOfPotentialMultiProperty(p, dataAndSchemaAdapter);
-    }
-  }
-
-  private void saveChangesOfPotentialMultiProperty(
-    final IField p,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    if (DATABASE_OBJECT_EXAMINER.isNewOrEdited(p)) {
-      saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(p, dataAndSchemaAdapter);
-    }
-  }
-
-  private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(
-    final IField field,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    switch (field.getType()) {
-      case MULTI_VALUE_FIELD:
-        MULTI_VALUE_FIELD_SAVER.saveMultiValueFieldChanges((IMultiValueField<?>) field, dataAndSchemaAdapter);
-        break;
-      case MULTI_REFERENCE:
-        MULTI_REFERENCE_SAVER.saveMultiReferenceChanges((IMultiReference<?>) field, dataAndSchemaAdapter);
-        break;
-      case MULTI_BACK_REFERENCE:
-        MULTI_BACK_REFERENCE_SAVER.saveMultiBackReferenceChanges((IMultiBackReference<?>) field, dataAndSchemaAdapter);
-        break;
-      default:
-        //Does nothing.
-    }
+    MULTI_FIELD_SAVER.saveMultiFieldChangesOfEntity(entity, dataAndSchemaAdapter);
   }
 }
