@@ -32,15 +32,13 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityChanges(
-    final IEntity entity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveEntityChanges(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     switch (entity.getState()) {
       case NEW:
         saveNewEntity(entity, dataAndSchemaAdapter);
         break;
       case EDITED:
-        saveChangesOfEditedEntity(entity, dataAndSchemaAdapter);
+        saveEntityUpdates(entity, dataAndSchemaAdapter);
         break;
       case DELETED:
         saveEntityDeletion(entity, dataAndSchemaAdapter);
@@ -54,13 +52,24 @@ public final class EntitySaver implements IEntitySaver {
    * {@inheritDoc}
    */
   @Override
-  public void saveEntityDeletion(
-    final IEntity entity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+  public void saveEntityDeletion(final IEntity entity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var tableName = entity.getStoredParentTable().getName();
     final var entityDeletionDto = ENTITY_DTO_MAPPER.mapEntityToEntityDeletionDto(entity);
 
     dataAndSchemaAdapter.deleteEntity(tableName, entityDeletionDto);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void saveEntityUpdates(final IEntity editedEntity, final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
+    final var tableName = editedEntity.getStoredParentTable().getName();
+    final var entityUpdateDto = ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity);
+
+    dataAndSchemaAdapter.updateEntity(tableName, entityUpdateDto);
+
+    saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
   }
 
   private void saveNewEntity(
@@ -71,16 +80,6 @@ public final class EntitySaver implements IEntitySaver {
       ENTITY_DTO_MAPPER.mapEntityToEntityCreationDto(newEntity));
 
     saveMultiPropertyChangesOfEntity(newEntity, dataAndSchemaAdapter);
-  }
-
-  private void saveChangesOfEditedEntity(
-    final IEntity editedEntity,
-    final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
-    dataAndSchemaAdapter.updateEntity(
-      editedEntity.getStoredParentTable().getName(),
-      ENTITY_DTO_MAPPER.mapEntityToEntityUpdateDto(editedEntity));
-
-    saveMultiPropertyChangesOfEntity(editedEntity, dataAndSchemaAdapter);
   }
 
   private void saveMultiPropertyChangesOfEntity(

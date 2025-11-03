@@ -23,4 +23,12 @@ public interface IEntitySaver {
    * @param dataAndSchemaAdapter
    */
   void saveEntityDeletion(IEntity entity, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+
+  /**
+   * Saves the updates of the given entity.
+   * 
+   * @param entity
+   * @param dataAndSchemaAdapter
+   */
+  void saveEntityUpdates(IEntity entity, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 }
