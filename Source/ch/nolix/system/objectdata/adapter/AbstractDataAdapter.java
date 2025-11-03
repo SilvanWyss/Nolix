@@ -6,11 +6,12 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.system.objectdata.changesetsaver.ChangeSetSaver;
+import ch.nolix.system.objectdata.changesetsaver.DatabasePersister;
 import ch.nolix.system.objectdata.model.Database;
 import ch.nolix.system.objectdata.model.SchemaInitializer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.adapter.IDataAdapter;
+import ch.nolix.systemapi.objectdata.changesetsaver.IDatabasePersister;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -19,7 +20,7 @@ import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 public abstract class AbstractDataAdapter implements IDataAdapter {
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
-  private static final ChangeSetSaver DATA_SAVER = new ChangeSetSaver();
+  private static final IDatabasePersister DATABASE_PERSISTER = new DatabasePersister();
 
   private final String databaseName;
 
@@ -121,7 +122,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
   }
 
   private synchronized void saveChangesAndIncrementSaveCount() {
-    DATA_SAVER.saveChangesOfDatabaseAtOnce(database, midDataAdapterAndSchemaReader);
+    DATABASE_PERSISTER.persistDatabaseChangesTransactional(database, midDataAdapterAndSchemaReader);
 
     saveCount++;
   }

@@ -5,15 +5,14 @@ import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**
  * @author Silvan Wyss
- * @version 2025-08-15
+ * @version 2025-11-03
  */
-public interface IChangeSetSaver {
+public interface IDatabaseSaver {
   /**
-   * Saves the changes of the given database at once using the given
-   * dataAndSchemaAdapter.
+   * Saves the changes of the given database.
    * 
    * @param database
    * @param dataAndSchemaAdapter
    */
-  void saveChangesOfDatabaseAtOnce(IDatabase database, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
+  void saveDatabaseChanges(IDatabase database, IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 }
