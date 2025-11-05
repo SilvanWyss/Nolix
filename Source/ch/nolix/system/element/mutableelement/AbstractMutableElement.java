@@ -20,8 +20,6 @@ import ch.nolix.systemapi.element.property.IProperty;
  * @version 2017-10-29
  */
 public abstract class AbstractMutableElement implements IMutableElement {
-  private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
-
   private LinkedList<IProperty> properties;
 
   /**
@@ -90,7 +88,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
    */
   @Override
   public final INode<?> getSpecification() {
-    return SPECIFICATION_CREATOR.getSpecificationOfElement(this);
+    return SpecificationCreator.getSpecificationOfElement(this);
   }
 
   /**

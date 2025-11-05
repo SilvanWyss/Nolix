@@ -6,15 +6,23 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 
 public final class SpecificationCreator {
-  public INode<?> getSpecificationOfElement(final IElement element) {
-    return Node.withHeaderAndChildNodes(getSpecificationHeaderOfElement(element), element.getAttributes());
+  private SpecificationCreator() {
   }
 
-  private String getSpecificationHeaderOfElement(final IElement element) {
-    return getSpecificationHeaderOfElementClass(element.getClass());
+  public static INode<?> getSpecificationOfElement(final IElement element) {
+    final var header = getSpecificationHeaderOfElement(element);
+    final var attributes = element.getAttributes();
+
+    return Node.withHeaderAndChildNodes(header, attributes);
   }
 
-  private String getSpecificationHeaderOfElementClass(final Class<?> elementClass) {
+  private static String getSpecificationHeaderOfElement(final IElement element) {
+    final var elementClass = element.getClass();
+
+    return getSpecificationHeaderOfElementClass(elementClass);
+  }
+
+  private static String getSpecificationHeaderOfElementClass(final Class<?> elementClass) {
     if (!elementClass.isAnonymousClass()) {
       return elementClass.getSimpleName();
     }
