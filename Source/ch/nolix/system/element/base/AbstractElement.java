@@ -8,13 +8,13 @@ import ch.nolix.systemapi.element.base.IElement;
  * @version 2022-07-08
  */
 public abstract class AbstractElement implements IElement {
-
   /**
    * {@inheritDoc}
    */
   @Override
   public final boolean equals(final Object object) {
-    return object != null
+    return //
+    object != null
     && getClass() == object.getClass()
     && hasSameSpecificationAs((AbstractElement) object);
   }
@@ -46,7 +46,7 @@ public abstract class AbstractElement implements IElement {
   /**
    * @param abstractElement
    * @return true if the current {@link AbstractElement} has the same
-   *         specification as the given element.
+   *         specification as the given element, false otherwise.
    */
   private boolean hasSameSpecificationAs(final AbstractElement abstractElement) {
     return getSpecification().equals(abstractElement.getSpecification());
