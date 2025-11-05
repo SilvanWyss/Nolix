@@ -1,6 +1,6 @@
 package ch.nolix.system.objectdata.expectation;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.expectation.IFieldExpectationAdder;
@@ -37,7 +37,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
       case IMultiReference<? extends IEntity> multiReference ->
         addExpectationThatNewlyReferencedEntitiesExist(multiReference, dataAndSchemaAdapter);
       default ->
-        throw InvalidArgumentException.forArgument(field);
+        FunctionService.doNothing();
     }
   }
 
@@ -46,7 +46,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
-    final IMultiReference<IEntity> multiReference,
+    final IMultiReference<? extends IEntity> multiReference,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var newAndDeletedEntries = multiReference.getStoredNewAndDeletedEntries();
     for (final var e : newAndDeletedEntries) {
@@ -61,7 +61,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
-    final IOptionalReference<IEntity> optionalReference,
+    final IOptionalReference<? extends IEntity> optionalReference,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (optionalReference.containsAny()) {
       final var referencedTableName = optionalReference.getReferencedTableName();
@@ -76,7 +76,7 @@ public final class FieldExpectationAdder implements IFieldExpectationAdder {
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
-    final IReference<IEntity> reference,
+    final IReference<? extends IEntity> reference,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var referencedTableName = reference.getReferencedTableName();
     final var referencedEntityId = reference.getReferencedEntityId();

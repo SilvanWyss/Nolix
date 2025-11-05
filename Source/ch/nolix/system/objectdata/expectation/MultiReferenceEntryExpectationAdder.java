@@ -16,7 +16,7 @@ public final class MultiReferenceEntryExpectationAdder implements IMultiReferenc
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExist(
-    final IMultiReferenceEntry<IEntity> multiReferenceEntry,
+    final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     final var referencedTableName = multiReferenceEntry.getReferencedTableName();
     final var referencedEntityId = multiReferenceEntry.getReferencedEntityId();
@@ -29,7 +29,7 @@ public final class MultiReferenceEntryExpectationAdder implements IMultiReferenc
    */
   @Override
   public void addExpectationThatNewlyReferencedEntitiesExistIfMultiReferenceEntryIsNew(
-    final IMultiReferenceEntry<IEntity> multiReferenceEntry,
+    final IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
     final IDataAdapterAndSchemaReader dataAndSchemaAdapter) {
     if (multiReferenceEntry.isNew()) {
       addExpectationThatNewlyReferencedEntitiesExist(multiReferenceEntry, dataAndSchemaAdapter);

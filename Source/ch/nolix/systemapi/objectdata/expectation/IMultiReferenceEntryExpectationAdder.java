@@ -17,7 +17,7 @@ public interface IMultiReferenceEntryExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IMultiReferenceEntry<IEntity> multiReferenceEntry,
+    IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
     IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
@@ -28,6 +28,6 @@ public interface IMultiReferenceEntryExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExistIfMultiReferenceEntryIsNew(
-    IMultiReferenceEntry<IEntity> multiReferenceEntry,
+    IMultiReferenceEntry<? extends IEntity> multiReferenceEntry,
     IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 }

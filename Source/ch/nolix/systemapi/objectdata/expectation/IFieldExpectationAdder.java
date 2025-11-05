@@ -29,7 +29,7 @@ public interface IFieldExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IMultiReference<IEntity> multiReference,
+    IMultiReference<? extends IEntity> multiReference,
     IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
@@ -40,7 +40,7 @@ public interface IFieldExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IOptionalReference<IEntity> optionalReference,
+    IOptionalReference<? extends IEntity> optionalReference,
     IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
@@ -51,7 +51,7 @@ public interface IFieldExpectationAdder {
    * @param dataAndSchemaAdapter
    */
   void addExpectationThatNewlyReferencedEntitiesExist(
-    IReference<IEntity> reference,
+    IReference<? extends IEntity> reference,
     IDataAdapterAndSchemaReader dataAndSchemaAdapter);
 
   /**
