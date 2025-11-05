@@ -1,7 +1,9 @@
 package ch.nolix.system.objectdata.persistence;
 
+import ch.nolix.system.objectdata.expectation.DatabaseExpectationAdder;
 import ch.nolix.system.objectdata.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
+import ch.nolix.systemapi.objectdata.expectation.IDatabaseExpectationAdder;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.modelvalidator.IDatabaseValidator;
 import ch.nolix.systemapi.objectdata.perstistence.IDatabasePersister;
@@ -16,7 +18,7 @@ public final class DatabasePersister implements IDatabasePersister {
 
   private static final IDatabaseSaver DATABASE_SAVER = new DatabaseSaver();
 
-  private static final ChangeSetSaveValidator DATABASE_SAVE_VALIDATOR = new ChangeSetSaveValidator();
+  private static final IDatabaseExpectationAdder DATABASE_EXPECTATION_ADDER = new DatabaseExpectationAdder();
 
   /**
    * {@inheritDoc}
@@ -31,7 +33,7 @@ public final class DatabasePersister implements IDatabasePersister {
 
     DATABASE_SAVER.saveDatabaseChanges(database, dataAndSchemaAdapter);
 
-    DATABASE_SAVE_VALIDATOR.addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, dataAndSchemaAdapter);
+    DATABASE_EXPECTATION_ADDER.addExpectationThatNewlyReferencedEntitiesExist(database, dataAndSchemaAdapter);
 
     dataAndSchemaAdapter.saveChanges();
   }
