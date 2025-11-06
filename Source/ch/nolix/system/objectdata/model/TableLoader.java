@@ -9,7 +9,7 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
-final class DatabaseTableLoader {
+final class TableLoader {
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 

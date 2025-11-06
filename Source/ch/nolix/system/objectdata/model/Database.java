@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class Database implements IDatabase {
-  private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
+  private static final TableLoader DATABASE_TABLE_LOADER = new TableLoader();
 
   private final IEntityTypeSet entityTypeSet;
 
