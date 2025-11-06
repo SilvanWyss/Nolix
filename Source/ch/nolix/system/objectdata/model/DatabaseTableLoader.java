@@ -10,13 +10,11 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 final class DatabaseTableLoader {
-  private static final TableMapper TABLE_MAPPER = new TableMapper();
-
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 
     final var tables = midTables
-      .to(rt -> TABLE_MAPPER.mapTableDtoToTableWithoutColumnsAndWithoutEntities(rt, database));
+      .to(rt -> TableMapper.mapMidSchemaTableDtoToTableWithoutColumns(rt, database));
 
     addBaseValueColumnsToTablesFromMidTables(tables, midTables);
     addBaseReferenceColumnsToTablesFromMidTables(tables, midTables, tables);
