@@ -15,8 +15,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class Database implements IDatabase {
-  private static final TableLoader DATABASE_TABLE_LOADER = new TableLoader();
-
   private final IEntityTypeSet entityTypeSet;
 
   private final ITime schemaTimestamp;
@@ -159,6 +157,6 @@ public final class Database implements IDatabase {
   }
 
   private IContainer<Table<IEntity>> loadTables() {
-    return ImmutableList.fromIterable(DATABASE_TABLE_LOADER.loadTablesForDatabase(this));
+    return ImmutableList.fromIterable(TableLoader.loadTablesForDatabase(this));
   }
 }

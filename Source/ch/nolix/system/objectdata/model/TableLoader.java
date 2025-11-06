@@ -9,8 +9,8 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
-final class TableLoader {
-  public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
+public final class TableLoader {
+  public static LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 
     final var tables = midTables
@@ -23,7 +23,7 @@ final class TableLoader {
     return LinkedList.fromIterable(tables);
   }
 
-  private void addBaseValueColumnsToTablesFromMidTables(
+  private static void addBaseValueColumnsToTablesFromMidTables(
     final IContainer<Table<IEntity>> tables,
     final IContainer<TableDto> midTables) {
     for (final var t : tables) {
@@ -33,10 +33,10 @@ final class TableLoader {
     }
   }
 
-  private void addBaseValueColumnsToTableFromMidTable(
+  private static void addBaseValueColumnsToTableFromMidTable(
     final Table<IEntity> table,
     final TableDto midTable) {
-    final var midBaseValueColumns = midTable.columns().getStoredSelected(this::isBaseValue);
+    final var midBaseValueColumns = midTable.columns().getStoredSelected(TableLoader::isBaseValue);
 
     for (final var c : midBaseValueColumns) {
       final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
@@ -48,7 +48,7 @@ final class TableLoader {
     }
   }
 
-  private void addBaseReferenceColumnsToTablesFromMidTables(
+  private static void addBaseReferenceColumnsToTablesFromMidTables(
     final IContainer<Table<IEntity>> tables,
     final IContainer<TableDto> midTables,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
@@ -59,11 +59,11 @@ final class TableLoader {
     }
   }
 
-  private void addBaseReferenceColumnsToTableFromMidTable(
+  private static void addBaseReferenceColumnsToTableFromMidTable(
     final Table<IEntity> table,
     final TableDto midTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    final var midBaseReferenceColumns = midTable.columns().getStoredSelected(this::isBaseReference);
+    final var midBaseReferenceColumns = midTable.columns().getStoredSelected(TableLoader::isBaseReference);
 
     for (final var c : midBaseReferenceColumns) {
       final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
@@ -75,7 +75,7 @@ final class TableLoader {
     }
   }
 
-  private void addBaseBackReferenceColumnsToTablesFromMidTables(
+  private static void addBaseBackReferenceColumnsToTablesFromMidTables(
     final IContainer<Table<IEntity>> tables,
     final IContainer<TableDto> midTables,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
@@ -86,11 +86,11 @@ final class TableLoader {
     }
   }
 
-  private void addBaseBackReferenceColumnsToTableFromMidTable(
+  private static void addBaseBackReferenceColumnsToTableFromMidTable(
     final Table<IEntity> table,
     final TableDto midTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    final var midBaseValueColumns = midTable.columns().getStoredSelected(this::isBaseBackReference);
+    final var midBaseValueColumns = midTable.columns().getStoredSelected(TableLoader::isBaseBackReference);
 
     for (final var c : midBaseValueColumns) {
       final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
@@ -102,16 +102,18 @@ final class TableLoader {
     }
   }
 
-  private boolean isBaseBackReference(final ColumnDto columnDto) {
+  private static boolean isBaseBackReference(final ColumnDto columnDto) {
     return columnDto.fieldType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
-  private boolean isBaseReference(final ColumnDto columnDto) {
+  private static boolean isBaseReference(final ColumnDto columnDto) {
     return columnDto.fieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
-  private boolean isBaseValue(final ColumnDto columnDto) {
+  private static boolean isBaseValue(final ColumnDto columnDto) {
     return columnDto.fieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 
+  private TableLoader() {
+  }
 }
