@@ -54,8 +54,6 @@ implements ILayer<Layer> {
 
   private static final LayerHtmlBuilder HTML_CREATOR = new LayerHtmlBuilder();
 
-  private static final LayerCssBuilder CSS_RULE_CREATOR = new LayerCssBuilder();
-
   private static final LayerValidator LAYER_VALIDATOR = new LayerValidator();
 
   private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
@@ -158,7 +156,7 @@ implements ILayer<Layer> {
 
   @Override
   public ICssRule getCssRule() {
-    return CSS_RULE_CREATOR.getCssRuleForLayer(this);
+    return LayerCssBuilder.getCssRuleForLayer(this);
   }
 
   @Override

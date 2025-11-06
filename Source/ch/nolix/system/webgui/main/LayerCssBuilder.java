@@ -13,15 +13,15 @@ import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerCssBuilder {
-  public CssRule getCssRuleForLayer(final ILayer<?> layer) {
+  public static CssRule getCssRuleForLayer(final ILayer<?> layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }
 
-  private String getCssSelectorForLayer(final ILayer<?> layer) {
+  private static String getCssSelectorForLayer(final ILayer<?> layer) {
     return ("#" + layer.getInternalId());
   }
 
-  private IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
+  private static IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     if (layer.getStoredParentGui().getStoredTopLayer() == layer) {
@@ -49,11 +49,11 @@ public final class LayerCssBuilder {
     return cssProperties;
   }
 
-  private CssProperty getZIndexCssPropertyForLayer(final ILayer<?> layer) {
+  private static CssProperty getZIndexCssPropertyForLayer(final ILayer<?> layer) {
     return CssProperty.withNameAndValue(CssPropertyNameCatalog.Z_INDEX, getCssZIndexForLayer(layer));
   }
 
-  private int getCssZIndexForLayer(final ILayer<?> layer) {
+  private static int getCssZIndexForLayer(final ILayer<?> layer) {
     if (!layer.belongsToGui()) {
       return 0;
     }
@@ -61,11 +61,11 @@ public final class LayerCssBuilder {
     return layer.getStoredParentGui().getStoredLayers().getOneBasedIndexOfFirstOccurrenceOf(layer);
   }
 
-  private CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
+  private static CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
     return getJustifyContentCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
-  private CssProperty getJustifyContentCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
+  private static CssProperty getJustifyContentCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case TOP_LEFT, LEFT, BOTTOM_LEFT ->
         CssProperty.withNameAndValue(CssPropertyNameCatalog.JUSTIFY_CONTENT, "left");
@@ -78,11 +78,11 @@ public final class LayerCssBuilder {
     };
   }
 
-  private CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
+  private static CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
     return getAlignItemsCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
-  private CssProperty getAlignItemsCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
+  private static CssProperty getAlignItemsCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT ->
         CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "end");
@@ -93,5 +93,8 @@ public final class LayerCssBuilder {
       default ->
         throw InvalidArgumentException.forArgument(contentAlignment);
     };
+  }
+
+  private LayerCssBuilder() {
   }
 }
