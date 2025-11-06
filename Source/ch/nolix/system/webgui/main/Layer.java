@@ -52,8 +52,6 @@ implements ILayer<Layer> {
 
   private static final String ROOT_CONTROL_HEADER = "RootControl";
 
-  private static final LayerHtmlBuilder HTML_CREATOR = new LayerHtmlBuilder();
-
   private static final LayerValidator LAYER_VALIDATOR = new LayerValidator();
 
   private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
@@ -161,7 +159,7 @@ implements ILayer<Layer> {
 
   @Override
   public IHtmlElement getHtml() {
-    return HTML_CREATOR.getHtmlElementForLayer(this);
+    return LayerHtmlBuilder.getHtmlElementForLayer(this);
   }
 
   @Override
