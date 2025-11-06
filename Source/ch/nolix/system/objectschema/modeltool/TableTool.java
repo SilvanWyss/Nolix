@@ -23,47 +23,18 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
   @Override
   public IContainer<? extends IColumn> getStoredBackReferencingColumns(final ITable table) {
     if (!table.belongsToDatabase()) {
-      return getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(table);
+      return TableToolHelper.getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(table);
     }
 
-    return getStoredBackReferencingColumnsWhenBelongsToDatabase(table);
+    return TableToolHelper.getStoredBackReferencingColumnsWhenBelongsToDatabase(table);
   }
 
   @Override
   public IContainer<? extends IColumn> getStoredReferencingColumns(final ITable table) {
     if (!table.belongsToDatabase()) {
-      return getStoredReferencingColumnsWhenDoesNotBelongToDatabase(table);
+      return TableToolHelper.getStoredReferencingColumnsWhenDoesNotBelongToDatabase(table);
     }
 
-    return getStoredReferencingColumnsWhenBelongsToDatabase(table);
-  }
-
-  private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
-    final ITable table) {
-    final var columns = table.getStoredParentDatabase().getStoredTables().toMultiples(ITable::getStoredColumns);
-
-    return table
-      .getStoredColumns()
-      .getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
-  }
-
-  private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
-    final ITable table) {
-    final var columns = table.getStoredColumns();
-
-    return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
-  }
-
-  private IContainer<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
-    return table
-      .getStoredParentDatabase()
-      .getStoredTables()
-      .toMultiples(ITable::getStoredColumns)
-      .getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
-  }
-
-  private IContainer<? extends IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
-    final ITable table) {
-    return table.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
+    return TableToolHelper.getStoredReferencingColumnsWhenBelongsToDatabase(table);
   }
 }
