@@ -4,4 +4,5 @@ import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;
 
 public final class BaseComponentStyle extends AbstractControlStyle<IComponentStyle> implements IComponentStyle {
+  //This class is just a sub class without additional methods.
 }

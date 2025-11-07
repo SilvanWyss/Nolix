@@ -8,6 +8,7 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
 final class EntityTest extends StandardTest {
   private static final class Thing extends Entity {
+    //This class is just a sub class without additional methods.
   }
 
   @Test

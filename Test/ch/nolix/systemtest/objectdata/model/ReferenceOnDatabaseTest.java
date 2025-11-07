@@ -11,6 +11,7 @@ import ch.nolix.system.objectdata.model.Reference;
 
 final class ReferenceOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
+    //This class is just a sub class without additional methods.
   }
 
   private static final class Person extends Entity {

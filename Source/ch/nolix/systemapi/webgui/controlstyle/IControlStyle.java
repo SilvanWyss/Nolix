@@ -9,4 +9,5 @@ ICornerStyle<S>,
 IShadowStyle<S>,
 ISizeStyle<S>,
 IPaddingStyle<S> {
+  //This interface is just an union of other interfaces.
 }

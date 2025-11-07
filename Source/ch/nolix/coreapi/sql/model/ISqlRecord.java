@@ -12,4 +12,5 @@ import ch.nolix.coreapi.container.base.IContainer;
  * @version 2024-12-28
  */
 public interface ISqlRecord extends IContainer<String>, IOneBasedIndexHolder {
+  //This interface is just an union of other interfaces.
 }

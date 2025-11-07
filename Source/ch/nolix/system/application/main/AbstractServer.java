@@ -333,6 +333,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    */
   @Override
   public final void noteClose() {
+    //Does nothing.
   }
 
   /**

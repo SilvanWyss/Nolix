@@ -17,7 +17,9 @@ final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
     //execution & verification
-    expectRunning(() -> new ArgumentCaptor<String, VoidObject>(null) {
+    expectRunning(() -> //
+    new ArgumentCaptor<String, VoidObject>(null) {
+      //This class is just a sub class without additional methods.
     }) //
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -26,7 +28,9 @@ final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNotValid() {
     //execution & verification
-    expectRunning(() -> new ArgumentCaptor<String, VoidObject>(new VoidObject()) {
+    expectRunning(() -> //
+    new ArgumentCaptor<String, VoidObject>(new VoidObject()) {
+      //This class is just a sub class without additional methods.
     }) //
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -35,7 +39,9 @@ final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_defaultConstructor() {
     //execution & verification
-    expectRunning(() -> new ArgumentCaptor<String, VoidObject>() {
+    expectRunning(() -> //
+    new ArgumentCaptor<String, VoidObject>() {
+      //This class is just a sub class without additional methods.
     }) //
       .doesNotThrowException();
   }
@@ -43,7 +49,9 @@ final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_nxtArgCpt_whenDoesNotHaveNextArgumentCaptor() {
     //setup
-    final var testUnit = new ArgumentCaptor<String, VoidObject>() {
+    final var testUnit = //
+    new ArgumentCaptor<String, VoidObject>() {
+      //This class is just a sub class without additional methods.
     };
 
     //execution & verification

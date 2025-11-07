@@ -31,6 +31,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void noteClose() {
+    //Does nothing.
   }
 
   /**

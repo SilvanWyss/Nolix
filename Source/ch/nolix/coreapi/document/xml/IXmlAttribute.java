@@ -4,4 +4,5 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.attribute.mandatoryattribute.IValueHolder;
 
 public interface IXmlAttribute extends INameHolder, IValueHolder<String> {
+  //This interface is just an union of other interfaces.
 }

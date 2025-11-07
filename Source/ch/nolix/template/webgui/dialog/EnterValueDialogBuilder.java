@@ -28,6 +28,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
 
   private static final Consumer<String> DEFAULT_VALUE_TAKER = //
   _ -> {
+    //This class is just a sub class without additional methods.
   };
 
   private String infoText = DEFAULT_INFO_TEXT;

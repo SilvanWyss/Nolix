@@ -24,4 +24,5 @@ DeletionRequestable,
 EditingRequestable,
 LoadingRequestable,
 StateRequestable<DatabaseObjectState> {
+  //This interface is just an union of other interfaces.
 }

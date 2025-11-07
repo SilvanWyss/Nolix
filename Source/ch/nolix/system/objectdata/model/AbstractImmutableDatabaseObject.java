@@ -46,5 +46,6 @@ abstract class AbstractImmutableDatabaseObject implements GroupCloseable, IDatab
 
   @Override
   public final void noteClose() {
+    //Does nothing.
   }
 }
