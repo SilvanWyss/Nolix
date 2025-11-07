@@ -578,6 +578,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public Color withAlphaValue(final int alphaValue) {
-    return withRedValueAndGreenValueAndBlueValueAndAlphaValue(memberRedValue, memberGreenValue, memberBlueValue, alphaValue);
+    return //
+    withRedValueAndGreenValueAndBlueValueAndAlphaValue(memberRedValue, memberGreenValue, memberBlueValue, alphaValue);
   }
 }
