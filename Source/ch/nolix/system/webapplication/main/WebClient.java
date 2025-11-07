@@ -153,7 +153,9 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void updateCounterpartWhenOpen(final IComponent component) {
-    switch (component.getRefreshBehavior()) {
+    final var refreshBehavior = component.getRefreshBehavior();
+
+    switch (refreshBehavior) {
       case DO_NOT_REFRESH_ANYTHING:
         break;
       case REFRESH_GUI:
@@ -162,6 +164,8 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
       case REFRESH_SELF:
         ((WebClientSession<C>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
         break;
+      default:
+        throw InvalidArgumentException.forArgument(refreshBehavior);
     }
   }
 

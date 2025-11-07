@@ -1,6 +1,7 @@
 package ch.nolix.system.midschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.generalexception.GeneralException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
 import ch.nolix.systemapi.time.moment.ITime;
@@ -15,7 +16,9 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
    */
   @Override
   public final void initializeDatabaseIfNotInitialized() {
-    switch (getDatabaseState()) {
+    final var databaseState = getDatabaseState();
+
+    switch (databaseState) {
       case UNINITIALIZED:
         initializeDatabase();
         break;
@@ -24,6 +27,8 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
         break;
       case INVALID:
         throw GeneralException.withErrorMessage("The database has a schema that does not suit.");
+      default:
+        throw InvalidArgumentException.forArgument(databaseState);
     }
   }
 

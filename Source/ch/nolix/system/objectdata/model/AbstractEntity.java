@@ -3,6 +3,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.core.datamodel.id.IdCreator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.DeletedArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
@@ -207,7 +208,9 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   final void setEdited() {
-    switch (getState()) {
+    final var localState = getState();
+
+    switch (state) {
       case NEW:
         //Does nothing.
         break;
@@ -221,6 +224,8 @@ public abstract class AbstractEntity implements IEntity {
         throw DeletedArgumentException.forArgument(this);
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
+      default:
+        throw InvalidArgumentException.forArgument(localState);
     }
   }
 

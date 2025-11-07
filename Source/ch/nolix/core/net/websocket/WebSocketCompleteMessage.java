@@ -6,6 +6,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.state.staterequest.CompletenessRequestable;
 
 public final class WebSocketCompleteMessage implements CompletenessRequestable {
@@ -55,13 +56,17 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   }
 
   private void addFrame(final WebSocketFrame frame, final Consumer<WebSocketFrame> controlFrameTaker) {
-    switch (frame.getFrameType()) { //NOSONAR: A switch-statement allows to add probable additional cases.
+    final var frameType = frame.getFrameType();
+
+    switch (frameType) {
       case CONTROL_FRAME:
         controlFrameTaker.accept(frame);
         break;
       case DATA_FRAME:
         addDataFrame(frame);
         break;
+      default:
+        throw InvalidArgumentException.forArgument(frameType);
     }
   }
 }

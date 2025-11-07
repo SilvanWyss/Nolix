@@ -1,5 +1,6 @@
 package ch.nolix.core.net.websocket;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.misc.dataobject.UnsignedByte;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
@@ -83,7 +84,9 @@ final class WebSocketFrameFirstNibble {
       byte2 |= 0b1000000;
     }
 
-    switch (getPayloadLengthType()) {
+    final var payloadLengthType = getPayloadLengthType();
+
+    switch (payloadLengthType) {
       case BITS_7:
         byte2 |= m7BitPayloadLength;
         break;
@@ -93,6 +96,8 @@ final class WebSocketFrameFirstNibble {
       case BITS_64:
         byte2 |= 0b1111111;
         break;
+      default:
+        throw InvalidArgumentException.forArgument(payloadLengthType);
     }
 
     return (byte) byte2;

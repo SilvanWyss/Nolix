@@ -120,8 +120,9 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
   protected final void fillUpValuesSpecificationInto(final ILinkedList<INode<?>> list) {
     for (final var s : parent.getAvailableStates()) {
       final var stateProperty = stateProperties[s.getIndex()];
+      final var assignmentType = stateProperty.getAssignmentType();
 
-      switch (stateProperty.getAssignmentType()) {
+      switch (assignmentType) {
         case STORING_VALUE:
 
           final var valueSpecification = Node.withHeaderAndChildNode(
@@ -138,7 +139,8 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
           break;
         case FORWARDING:
           break;
-
+        default:
+          throw InvalidArgumentException.forArgument(assignmentType);
       }
     }
   }
@@ -182,7 +184,9 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
 
   private void setFrom(final AbstractMaterializedProperty<S, V> materializedProperty) {
     for (var i = 0; i < stateProperties.length; i++) {
-      switch (materializedProperty.stateProperties[i].getAssignmentType()) {
+      final var assignemntType = materializedProperty.stateProperties[i].getAssignmentType();
+
+      switch (assignemntType) {
         case STORING_VALUE:
           stateProperties[i].setValue(materializedProperty.stateProperties[i].getValue());
           break;
@@ -192,6 +196,8 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
         case FORWARDING:
           stateProperties[i].setForwarding();
           break;
+        default:
+          throw InvalidArgumentException.forArgument(assignemntType);
       }
     }
   }

@@ -208,7 +208,9 @@ public final class WebSocketFrame {
 
     var i = 2;
     final var payloadLengthBytes = payloadLength.toBytes();
-    switch (getPayloadLengthType()) {
+    final var payloadLengthType = getPayloadLengthType();
+
+    switch (payloadLengthType) {
       case BITS_7:
         break;
       case BITS_16:
@@ -226,6 +228,8 @@ public final class WebSocketFrame {
         i += 8;
 
         break;
+      default:
+        throw InvalidArgumentException.forArgument(payloadLengthType);
     }
 
     if (firstNibble.getMaskBit()) {

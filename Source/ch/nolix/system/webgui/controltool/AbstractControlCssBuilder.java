@@ -250,7 +250,9 @@ implements IControlCssBuilder<C, S> {
   private void onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(
     final C control,
     final ILinkedList<ICssProperty> list) {
-    switch (control.getPresence()) {
+    final var presence = control.getPresence();
+
+    switch (presence) {
       case VISIBLE:
         //Does nothing. Since presence is configured for all states, the Control will
         //be visible per default.
@@ -260,6 +262,9 @@ implements IControlCssBuilder<C, S> {
         break;
       case COLLAPSED:
         list.addAtEnd(CssProperty.withNameAndValue("display", "none"));
+        break;
+      default:
+        throw InvalidArgumentException.forArgument(presence);
     }
 
     if (control.hasMinWidth()) {

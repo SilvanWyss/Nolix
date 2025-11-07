@@ -64,7 +64,9 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
   }
 
   final void setEdited() {
-    switch (getState()) {
+    final var localState = getState();
+
+    switch (localState) {
       case NEW:
         break;
       case UNEDITED:
@@ -76,6 +78,8 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
         throw DeletedArgumentException.forArgument(this);
       case CLOSED:
         throw ClosedArgumentException.forArgument(this);
+      default:
+        throw InvalidArgumentException.forArgument(localState);
     }
   }
 

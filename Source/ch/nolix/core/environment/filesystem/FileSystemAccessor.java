@@ -116,6 +116,8 @@ public final class FileSystemAccessor {
               "file system item",
               path,
               "exists already");
+          default:
+            throw InvalidArgumentException.forArgument(writeMode);
         }
       }
 

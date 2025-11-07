@@ -1,5 +1,6 @@
 package ch.nolix.core.commontypetool.stringtool;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
@@ -51,6 +52,8 @@ public final class PascalCaseTransformer {
             stringBuilder.append(character);
           }
           break;
+        default:
+          throw InvalidArgumentException.forArgument(characterType);
       }
 
       previousCharacter = character;
