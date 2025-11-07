@@ -12,7 +12,7 @@ final class State<S extends Enum<S>> implements INameHolder {
 
   private final int index;
 
-  private final S enumValue;
+  private final S memberEnumValue;
 
   private State(final String prefix, final int index, final S enumValue) {
     Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
@@ -21,7 +21,7 @@ final class State<S extends Enum<S>> implements INameHolder {
 
     this.qualifyingPrefix = prefix;
     this.index = index;
-    this.enumValue = enumValue;
+    this.memberEnumValue = enumValue;
   }
 
   public static <S2 extends Enum<S2>> State<S2> withQualifyingPrefixAndIndexAndEnumValue(
@@ -32,7 +32,7 @@ final class State<S extends Enum<S>> implements INameHolder {
   }
 
   public S getEnumValue() {
-    return enumValue;
+    return memberEnumValue;
   }
 
   public int getIndex() {

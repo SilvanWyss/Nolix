@@ -21,9 +21,9 @@ import ch.nolix.coreapi.programcontrol.trigger.IRefreshableSubscriber;
  */
 public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
 implements IClientComponent<C>, IRefreshableSubscriber {
-  private C parentClient;
+  private C memberParentClient;
 
-  private Object result;
+  private Object memberResult;
 
   /**
    * @return true if the current {@link AbstractSession} belongs to a
@@ -31,7 +31,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    */
   @Override
   public final boolean belongsToClient() {
-    return (parentClient != null);
+    return (memberParentClient != null);
   }
 
   /**
@@ -60,7 +60,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
     //Asserts that the current {@link Session} belonts to a client.
     assertBelongsToClient();
 
-    return parentClient;
+    return memberParentClient;
   }
 
   public final boolean hasParentSession() {
@@ -73,8 +73,8 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    */
   @Override
   public final boolean isAlive() {
-    return parentClient != null
-    && parentClient.isOpen();
+    return memberParentClient != null
+    && memberParentClient.isOpen();
   }
 
   /**
@@ -146,18 +146,18 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   protected abstract Class<?> getClientClass();
 
   final Object internalGetStoredResult() {
-    if (result == null) {
+    if (memberResult == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.RESULT);
     }
 
-    return result;
+    return memberResult;
   }
 
   /**
    * Removes the parent client of the current {@link AbstractSession}.
    */
   final void internalRemoveParentClient() {
-    parentClient = null;
+    memberParentClient = null;
   }
 
   /**
@@ -176,13 +176,13 @@ implements IClientComponent<C>, IRefreshableSubscriber {
     assertDoesNotBelongToClient();
 
     //Sets the parent client of the current session.
-    this.parentClient = parentClient;
+    this.memberParentClient = parentClient;
   }
 
   final void internalSetResult(final Object result) {
     Validator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
 
-    this.result = result;
+    this.memberResult = result;
   }
 
   /**

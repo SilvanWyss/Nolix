@@ -20,7 +20,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   private int elementCount;
 
   @SuppressWarnings("unchecked")
-  private E[] elements = (E[]) new Object[0];
+  private E[] memberElements = (E[]) new Object[0];
 
   /**
    * Creates a new empty {@link ArrayList}.
@@ -129,7 +129,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     final var newElementCount = localElementCount + 1;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    this.elements[localElementCount] = element;
+    this.memberElements[localElementCount] = element;
     elementCount = newElementCount;
   }
 
@@ -148,8 +148,8 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     final var newElementCount = localElementCount + 1 + elements.length;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    this.elements[localElementCount] = element;
-    System.arraycopy(elements, 0, this.elements, localElementCount + 1, elements.length);
+    this.memberElements[localElementCount] = element;
+    System.arraycopy(elements, 0, this.memberElements, localElementCount + 1, elements.length);
     elementCount = newElementCount;
   }
 
@@ -167,7 +167,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     final var newElementCount = localElementCount + elements.length;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    System.arraycopy(elements, 0, this.elements, localElementCount, elements.length);
+    System.arraycopy(elements, 0, this.memberElements, localElementCount, elements.length);
     elementCount = newElementCount;
   }
 
@@ -188,7 +188,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     var index = getCount();
 
     for (final var e : elements) {
-      this.elements[index] = e;
+      this.memberElements[index] = e;
 
       index++;
     }
@@ -204,7 +204,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   @Override
   @SuppressWarnings("unchecked")
   public void clear() {
-    elements = (E[]) new Object[0];
+    memberElements = (E[]) new Object[0];
 
     elementCount = 0;
   }
@@ -217,7 +217,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public IArrayList<E> getCopy() {
-    return withElements(elements);
+    return withElements(memberElements);
   }
 
   /**
@@ -239,7 +239,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
     Validator.assertThat(oneBasedIndex).thatIsNamed("one-based index").isBetween(1, getCount());
 
-    return elements[oneBasedIndex - 1];
+    return memberElements[oneBasedIndex - 1];
   }
 
   /**
@@ -260,7 +260,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     if (oneBasedIndex <= getCount()) {
       Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
 
-      elements[oneBasedIndex - 1] = element;
+      memberElements[oneBasedIndex - 1] = element;
     } else {
       addAtEnd(element);
     }
@@ -283,7 +283,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return ArrayListIterator.forArrayAndMaxNextIndex(elements, getCount());
+    return ArrayListIterator.forArrayAndMaxNextIndex(memberElements, getCount());
   }
 
   /**
@@ -318,7 +318,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @return the capacity of the current {@link ArrayList}.
    */
   private int getCapacity() {
-    return elements.length;
+    return memberElements.length;
   }
 
   /**
@@ -357,9 +357,9 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     @SuppressWarnings("unchecked")
     final var newElements = (E[]) new Object[capacity];
 
-    System.arraycopy(elements, 0, newElements, 0, getCount());
+    System.arraycopy(memberElements, 0, newElements, 0, getCount());
 
-    elements = newElements;
+    memberElements = newElements;
   }
 
   /**

@@ -7,7 +7,7 @@ import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.document.node.INode;
 
 public final class ControlFactoryUnit {
-  private final LinkedList<Class<Control<?, ?>>> controlClasses = LinkedList.createEmpty();
+  private final LinkedList<Class<Control<?, ?>>> memberControlClasses = LinkedList.createEmpty();
 
   public boolean canCreateControlOfType(final String type) {
     return containsControlClassWithName(type);
@@ -35,7 +35,7 @@ public final class ControlFactoryUnit {
     for (final var c : allControlClasses) {
       assertDoesNotContainControlClassWithName(c.getSimpleName());
 
-      this.controlClasses.addAtEnd(c);
+      this.memberControlClasses.addAtEnd(c);
     }
   }
 
@@ -48,10 +48,10 @@ public final class ControlFactoryUnit {
   }
 
   private boolean containsControlClassWithName(final String name) {
-    return controlClasses.containsAny(cc -> cc.getSimpleName().equals(name));
+    return memberControlClasses.containsAny(cc -> cc.getSimpleName().equals(name));
   }
 
   private Class<Control<?, ?>> getControlClassByName(final String name) {
-    return controlClasses.getStoredFirst(cc -> cc.getSimpleName().equals(name));
+    return memberControlClasses.getStoredFirst(cc -> cc.getSimpleName().equals(name));
   }
 }

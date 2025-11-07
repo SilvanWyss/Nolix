@@ -39,17 +39,17 @@ implements IChainedNode {
 
   private static final String NEXT_NODE_VARIABLE_NAME = "next node";
 
-  private String header;
+  private String memberHeader;
 
   private ChainedNode nextNode;
 
-  private final LinkedList<ChainedNode> childNodes = LinkedList.createEmpty();
+  private final LinkedList<ChainedNode> memberChildNodes = LinkedList.createEmpty();
 
   /**
    * Creates a new {@link ChainedNode}.
    */
   public ChainedNode() {
-    header = null;
+    memberHeader = null;
     nextNode = null;
   }
 
@@ -360,7 +360,7 @@ implements IChainedNode {
    */
   @Override
   public boolean containsChildNodes() {
-    return childNodes.containsAny();
+    return memberChildNodes.containsAny();
   }
 
   /**
@@ -378,7 +378,7 @@ implements IChainedNode {
    */
   @Override
   public int getChildNodeCount() {
-    return childNodes.getCount();
+    return memberChildNodes.getCount();
   }
 
   /**
@@ -393,7 +393,7 @@ implements IChainedNode {
    */
   @Override
   public ChainedNode getChildNodeAtOneBasedIndex(final int index) {
-    return childNodes.getStoredAtOneBasedIndex(index);
+    return memberChildNodes.getStoredAtOneBasedIndex(index);
   }
 
   /**
@@ -401,7 +401,7 @@ implements IChainedNode {
    */
   @Override
   public IContainer<ChainedNode> getChildNodes() {
-    return childNodes;
+    return memberChildNodes;
   }
 
   /**
@@ -427,11 +427,11 @@ implements IChainedNode {
   @Override
   public String getHeader() {
     //Asserts that the current ChainedNode has a header.
-    if (header == null) {
+    if (memberHeader == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
     }
 
-    return header;
+    return memberHeader;
   }
 
   /**
@@ -459,7 +459,7 @@ implements IChainedNode {
    */
   @Override
   public ChainedNode getSingleChildNode() {
-    return childNodes.getStoredOne();
+    return memberChildNodes.getStoredOne();
   }
 
   /**
@@ -507,7 +507,7 @@ implements IChainedNode {
    */
   @Override
   public boolean hasHeader() {
-    return (header != null);
+    return (memberHeader != null);
   }
 
   /**
@@ -533,11 +533,11 @@ implements IChainedNode {
   @Override
   public double toDouble() {
     //Asserts that the current ChainedNode can represent a Double.
-    if (header == null || childNodes.containsAny()) {
+    if (memberHeader == null || memberChildNodes.containsAny()) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
 
-    return Double.valueOf(header);
+    return Double.valueOf(memberHeader);
   }
 
   /**
@@ -594,16 +594,16 @@ implements IChainedNode {
    */
   private void addChildNode(final IChainedNode childNode, final IChainedNode... childNodes) {
     if (childNode instanceof final ChainedNode chainedNode) {
-      this.childNodes.addAtEnd(chainedNode);
+      this.memberChildNodes.addAtEnd(chainedNode);
     } else {
-      this.childNodes.addAtEnd(fromChainedNode(childNode));
+      this.memberChildNodes.addAtEnd(fromChainedNode(childNode));
     }
 
     for (final var c : childNodes) {
       if (c instanceof final ChainedNode chainedNode) {
-        this.childNodes.addAtEnd(chainedNode);
+        this.memberChildNodes.addAtEnd(chainedNode);
       } else {
-        this.childNodes.addAtEnd(fromChainedNode(c));
+        this.memberChildNodes.addAtEnd(fromChainedNode(c));
       }
     }
   }
@@ -615,10 +615,10 @@ implements IChainedNode {
    * @param childNodes
    */
   private void addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    this.childNodes.addAtEnd(fromNode(childNode));
+    this.memberChildNodes.addAtEnd(fromNode(childNode));
 
     for (final var c : childNodes) {
-      this.childNodes.addAtEnd(fromNode(c));
+      this.memberChildNodes.addAtEnd(fromNode(c));
     }
   }
 
@@ -631,9 +631,9 @@ implements IChainedNode {
   private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
     for (final var c : childNodes) {
       if (c instanceof final ChainedNode chainedNode) {
-        this.childNodes.addAtEnd(chainedNode);
+        this.memberChildNodes.addAtEnd(chainedNode);
       } else {
-        this.childNodes.addAtEnd(fromChainedNode(c));
+        this.memberChildNodes.addAtEnd(fromChainedNode(c));
       }
     }
   }
@@ -645,7 +645,7 @@ implements IChainedNode {
    */
   private void addChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
     for (final var a : attributes) {
-      this.childNodes.addAtEnd(fromNode(a));
+      this.memberChildNodes.addAtEnd(fromNode(a));
     }
   }
 
@@ -657,16 +657,16 @@ implements IChainedNode {
    */
   private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
     //Handles the case that the current ChainedNode has a header.
-    if (header != null) {
-      stringBuilder.append(getEscapeStringFor(header));
+    if (memberHeader != null) {
+      stringBuilder.append(getEscapeStringFor(memberHeader));
     }
 
     //Handles the case that the current ChainedNode contains attributes.
-    if (childNodes.containsAny()) {
+    if (memberChildNodes.containsAny()) {
       stringBuilder.append("(");
 
       var atBegin = true;
-      for (final var a : childNodes) {
+      for (final var a : memberChildNodes) {
         if (atBegin) {
           atBegin = false;
         } else {
@@ -736,7 +736,7 @@ implements IChainedNode {
 
     final var node = new ChainedNode();
     nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
-    this.childNodes.addAtEnd(node);
+    this.memberChildNodes.addAtEnd(node);
 
     while (nextIndex < string.length()) {
       final var character = string.charAt(nextIndex);
@@ -744,7 +744,7 @@ implements IChainedNode {
       if (character == ',') {
         final var node2 = new ChainedNode();
         nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
-        this.childNodes.addAtEnd(node2);
+        this.memberChildNodes.addAtEnd(node2);
       } else if (character == ')') {
         nextIndex++;
         break;
@@ -771,8 +771,8 @@ implements IChainedNode {
    * Resets the current {@link ChainedNode}.
    */
   private void reset() {
-    header = null;
-    childNodes.clear();
+    memberHeader = null;
+    memberChildNodes.clear();
     nextNode = null;
   }
 
@@ -845,7 +845,7 @@ implements IChainedNode {
         "is blank");
     }
 
-    this.header = header;
+    this.memberHeader = header;
   }
 
   /**
@@ -881,7 +881,7 @@ implements IChainedNode {
     final int startIndex,
     final int headerLength) {
     if (headerLength > 0) {
-      header = getStoredginStringFromEscapeString(string.substring(startIndex, startIndex + headerLength));
+      memberHeader = getStoredginStringFromEscapeString(string.substring(startIndex, startIndex + headerLength));
     }
   }
 }

@@ -53,7 +53,7 @@ implements IControl<C, S> {
   private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalog.CURSOR_ICON;
 
   //An id works correctly for CSS only when it begins with a letter.
-  private final String internalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
+  private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
   private final MutableValue<Presence> presence = new MutableValue<>(
     PRESENCE_HEADER,
@@ -138,7 +138,7 @@ implements IControl<C, S> {
 
   @Override
   public final String getInternalId() {
-    return internalId;
+    return memberInternalId;
   }
 
   @Override

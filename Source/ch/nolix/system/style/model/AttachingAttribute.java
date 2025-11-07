@@ -19,13 +19,13 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   private final String optionalTag;
 
-  private final Node value;
+  private final Node memberValue;
 
   private AttachingAttribute(final INode<?> value) {
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = null;
-    this.value = Node.fromNode(value);
+    this.memberValue = Node.fromNode(value);
   }
 
   private AttachingAttribute(final String tag, final INode<?> value) {
@@ -33,7 +33,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = tag;
-    this.value = Node.fromNode(value);
+    this.memberValue = Node.fromNode(value);
   }
 
   private AttachingAttribute(final String tag, final String value) {
@@ -41,7 +41,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.optionalTag = tag;
-    this.value = Node.fromString(value);
+    this.memberValue = Node.fromString(value);
   }
 
   public static AttachingAttribute forTagAndValue(final Enum<?> tag, final INode<?> value) {
@@ -98,7 +98,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
       attributes.addAtEnd(Node.withHeaderAndChildNode(PascalCaseVariableCatalog.TAG, optionalTag));
     }
 
-    attributes.addAtEnd(value);
+    attributes.addAtEnd(memberValue);
 
     return attributes;
   }
@@ -112,7 +112,7 @@ public final class AttachingAttribute extends AbstractElement implements IAttach
 
   @Override
   public Node getValue() {
-    return value;
+    return memberValue;
   }
 
   @Override

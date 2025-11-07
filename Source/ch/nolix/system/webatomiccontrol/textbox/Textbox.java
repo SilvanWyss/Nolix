@@ -37,7 +37,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   private static final TextboxCssBuilder CSS_BUILDER = new TextboxCssBuilder();
 
-  private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final MutableValue<String> memberText = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   private MutableValue<TextMode> textMode = new MutableValue<>(
     TEXT_MODE_HEADER,
@@ -72,7 +72,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public String getText() {
-    return text.getValue();
+    return memberText.getValue();
   }
 
   @Override
@@ -107,7 +107,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public Textbox setText(final String text) {
-    this.text.setValue(text);
+    this.memberText.setValue(text);
 
     runOptionalUpdateTextActionForText(text);
 

@@ -12,7 +12,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> {
-  private final int index;
+  private final int memberIndex;
 
   private final C content;
 
@@ -28,7 +28,7 @@ public class IndexedPackage<C> {
     Validator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNotNull();
 
     //Sets the index of the current IndexedPackage.
-    this.index = index;
+    this.memberIndex = index;
 
     //Sets the content of the current IndexedPackage.
     this.content = content;
@@ -56,7 +56,7 @@ public class IndexedPackage<C> {
    * @return the index of the current {@link IndexedPackage}.
    */
   public final int getIndex() {
-    return index;
+    return memberIndex;
   }
 
   /**

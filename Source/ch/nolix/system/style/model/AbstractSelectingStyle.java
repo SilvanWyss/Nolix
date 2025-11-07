@@ -24,13 +24,13 @@ implements ISelectingStyleWithSelectors {
 
   protected static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
 
-  private final String selectorId;
+  private final String memberSelectorId;
 
-  private final String selectorType;
+  private final String memberSelectorType;
 
-  private final ImmutableList<String> selectorRoles;
+  private final ImmutableList<String> memberSelectorRoles;
 
-  private final ImmutableList<String> selectorTokens;
+  private final ImmutableList<String> memberSelectorTokens;
 
   protected AbstractSelectingStyle(
     final String optionalSelectorId,
@@ -44,26 +44,26 @@ implements ISelectingStyleWithSelectors {
     Validator.assertThatTheStrings(selectorRoles).areNotBlank();
     Validator.assertThatTheStrings(selectorTokens).areNotBlank();
 
-    selectorId = optionalSelectorId;
-    selectorType = optionalSelectorType;
-    this.selectorRoles = ImmutableList.fromIterable(selectorRoles);
-    this.selectorTokens = ImmutableList.fromIterable(selectorTokens);
+    memberSelectorId = optionalSelectorId;
+    memberSelectorType = optionalSelectorType;
+    this.memberSelectorRoles = ImmutableList.fromIterable(selectorRoles);
+    this.memberSelectorTokens = ImmutableList.fromIterable(selectorTokens);
   }
 
   public final boolean containsSelectorRole(final String selectorRole) {
-    return selectorRoles.containsEqualing(selectorRole);
+    return memberSelectorRoles.containsEqualing(selectorRole);
   }
 
   public final boolean containsSelectorRoles() {
-    return selectorRoles.containsAny();
+    return memberSelectorRoles.containsAny();
   }
 
   public final boolean containsSelectorToken(final String selectorToken) {
-    return selectorTokens.containsEqualing(selectorToken);
+    return memberSelectorTokens.containsEqualing(selectorToken);
   }
 
   public final boolean containsSelectorTokens() {
-    return selectorTokens.containsAny();
+    return memberSelectorTokens.containsAny();
   }
 
   @Override
@@ -97,29 +97,29 @@ implements ISelectingStyleWithSelectors {
   public final String getSelectorId() {
     assertHasSelectorId();
 
-    return selectorId;
+    return memberSelectorId;
   }
 
   @Override
   public final IContainer<String> getSelectorRoles() {
-    return selectorRoles;
+    return memberSelectorRoles;
   }
 
   @Override
   public final IContainer<String> getSelectorTokens() {
-    return selectorTokens;
+    return memberSelectorTokens;
   }
 
   @Override
   public final String getSelectorType() {
     assertHasSelectorType();
 
-    return selectorType;
+    return memberSelectorType;
   }
 
   @Override
   public final boolean hasSelectorId() {
-    return (selectorId != null);
+    return (memberSelectorId != null);
   }
 
   public final boolean hasSelectorId(final String selectorId) {
@@ -132,7 +132,7 @@ implements ISelectingStyleWithSelectors {
 
   @Override
   public final boolean hasSelectorType() {
-    return (selectorType != null);
+    return (memberSelectorType != null);
   }
 
   public final boolean hasSelectorType(final Class<?> selectorType) {

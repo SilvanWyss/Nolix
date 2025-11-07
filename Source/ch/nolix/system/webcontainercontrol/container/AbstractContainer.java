@@ -16,7 +16,7 @@ public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IC
 extends Control<C, S> implements IContainer<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
-  private final MutableOptionalValue<ContainerRole> role = new MutableOptionalValue<>(
+  private final MutableOptionalValue<ContainerRole> memberRole = new MutableOptionalValue<>(
     ROLE_HEADER,
     this::setRole,
     ContainerRole::fromSpecification,
@@ -29,7 +29,7 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final ContainerRole getRole() {
-    return role.getValue();
+    return memberRole.getValue();
   }
 
   @Override
@@ -39,7 +39,7 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final boolean hasRole() {
-    return role.containsAny();
+    return memberRole.containsAny();
   }
 
   @Override
@@ -49,7 +49,7 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final void removeRole() {
-    role.clear();
+    memberRole.clear();
   }
 
   @Override
@@ -59,7 +59,7 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final C setRole(final ContainerRole role) {
-    this.role.setValue(role);
+    this.memberRole.setValue(role);
 
     return asConcrete();
   }

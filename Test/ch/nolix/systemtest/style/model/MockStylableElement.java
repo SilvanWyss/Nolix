@@ -8,12 +8,12 @@ import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 public final class MockStylableElement extends AbstractStylableElement<MockStylableElement> {
-  private String role;
+  private String memberRole;
 
   public String getRole() {
     assertHasRole();
 
-    return role;
+    return memberRole;
   }
 
   @Override
@@ -27,7 +27,7 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
   }
 
   public void removeRole() {
-    role = null;
+    memberRole = null;
   }
 
   @Override
@@ -47,6 +47,6 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
   }
 
   private boolean hasRole() {
-    return (role != null);
+    return (memberRole != null);
   }
 }

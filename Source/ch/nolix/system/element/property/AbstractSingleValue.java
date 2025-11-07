@@ -20,7 +20,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 abstract class AbstractSingleValue<V> extends AbstractValue<V> {
   private final Consumer<V> setterMethod;
 
-  private V value;
+  private V memberValue;
 
   /**
    * Creates a new {@link AbstractSingleValue} with the given name, setterMethod,
@@ -69,7 +69,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    */
   public final V getValue() {
     //Asserts that the current SingleProperty has a value.
-    if (value == null) {
+    if (memberValue == null) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndArgumentNameAndAttributeName(
         this,
@@ -77,7 +77,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
         LowerCaseVariableCatalog.VALUE);
     }
 
-    return value;
+    return memberValue;
   }
 
   /**
@@ -85,7 +85,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    */
   @Override
   public final boolean isEmpty() {
-    return (value == null);
+    return (memberValue == null);
   }
 
   /**
@@ -107,7 +107,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
     }
 
     //Sets the value of the current SingleProperty.
-    this.value = value;
+    this.memberValue = value;
   }
 
   @Override
@@ -132,6 +132,6 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * Removes the value of the current {@link AbstractSingleValue}.
    */
   protected final void internalClear() {
-    value = null;
+    memberValue = null;
   }
 }

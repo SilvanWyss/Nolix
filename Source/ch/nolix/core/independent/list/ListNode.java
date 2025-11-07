@@ -3,7 +3,7 @@ package ch.nolix.core.independent.list;
 import java.util.NoSuchElementException;
 
 final class ListNode<E> {
-  private final E element;
+  private final E memberElement;
 
   private ListNode<E> nextNode;
 
@@ -12,15 +12,15 @@ final class ListNode<E> {
       throw new IllegalArgumentException("The given element is null.");
     }
 
-    this.element = element;
+    this.memberElement = element;
   }
 
   public boolean contains(final E element) {
-    return (this.element == element);
+    return (this.memberElement == element);
   }
 
   public E getStoredElement() {
-    return element;
+    return memberElement;
   }
 
   public ListNode<E> getStoredNextNode() {

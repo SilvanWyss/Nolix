@@ -12,9 +12,9 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class MutableNode extends AbstractMutableNode<MutableNode> {
-  private String header;
+  private String memberHeader;
 
-  private final LinkedList<MutableNode> childNodes = LinkedList.createEmpty();
+  private final LinkedList<MutableNode> memberChildNodes = LinkedList.createEmpty();
 
   /**
    * Creates a new empty {@link MutableNode}.
@@ -78,10 +78,10 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    this.childNodes.addAtEnd(fromNode(childNode));
+    this.memberChildNodes.addAtEnd(fromNode(childNode));
 
     for (final var c : childNodes) {
-      this.childNodes.addAtEnd(fromNode(c));
+      this.memberChildNodes.addAtEnd(fromNode(c));
     }
 
     return this;
@@ -107,7 +107,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   @Override
   public <N extends INode<?>> MutableNode addChildNodes(final Iterable<N> pChildNodes) {
     for (final var c : pChildNodes) {
-      childNodes.addAtEnd(fromNode(c));
+      memberChildNodes.addAtEnd(fromNode(c));
     }
 
     return this;
@@ -138,7 +138,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public IContainer<MutableNode> getStoredChildNodes() {
-    return childNodes;
+    return memberChildNodes;
   }
 
   /**
@@ -148,7 +148,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   public String getHeader() {
     assertHasHeader();
 
-    return header;
+    return memberHeader;
   }
 
   /**
@@ -156,7 +156,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public boolean hasHeader() {
-    return (header != null);
+    return (memberHeader != null);
   }
 
   /**
@@ -164,7 +164,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public void removeChildNodes() {
-    childNodes.clear();
+    memberChildNodes.clear();
   }
 
   /**
@@ -172,7 +172,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode removeAndGetStoredFirstChildNodeThat(final Predicate<INode<?>> selector) {
-    return childNodes.removeAndGetStoredFirst(selector::test);
+    return memberChildNodes.removeAndGetStoredFirst(selector::test);
   }
 
   /**
@@ -180,7 +180,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public void removeFirstChildNodeThat(final Predicate<INode<?>> selector) {
-    childNodes.removeFirst(selector::test);
+    memberChildNodes.removeFirst(selector::test);
   }
 
   /**
@@ -188,7 +188,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public void removeFirstChildNodeWithHeader(String header) {
-    childNodes.removeFirst(cn -> cn.hasHeader(header));
+    memberChildNodes.removeFirst(cn -> cn.hasHeader(header));
   }
 
   /**
@@ -196,7 +196,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public void removeHeader() {
-    header = null;
+    memberHeader = null;
   }
 
   /**
@@ -204,7 +204,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public void replaceFirstChildNodeWithGivenHeaderByGivenNode(final String header, final INode<?> childNode) {
-    childNodes.replaceFirst(a -> a.hasHeader(header), fromNode(childNode));
+    memberChildNodes.replaceFirst(a -> a.hasHeader(header), fromNode(childNode));
   }
 
   /**
@@ -223,7 +223,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   public MutableNode setHeader(final String header) {
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
-    this.header = header;
+    this.memberHeader = header;
 
     return this;
   }

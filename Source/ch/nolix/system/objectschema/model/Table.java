@@ -24,11 +24,11 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   private final String id;
 
-  private String name;
+  private String memberName;
 
   private Database parentDatabase;
 
-  private ILinkedList<Column> columns = LinkedList.createEmpty();
+  private ILinkedList<Column> memberColumns = LinkedList.createEmpty();
 
   private Table(final String id, final String name) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
@@ -98,7 +98,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public String getName() {
-    return name;
+    return memberName;
   }
 
   @Override
@@ -110,7 +110,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
 
   @Override
   public IContainer<? extends IColumn> getStoredColumns() {
-    return columns;
+    return memberColumns;
   }
 
   @Override
@@ -131,13 +131,13 @@ public final class Table extends AbstractSchemaObject implements ITable {
   protected void noteClose() {
     //Does not call getStoredColumns method to avoid that the columns need to be
     //loaded from the database.
-    for (final var c : columns) {
+    for (final var c : memberColumns) {
       c.close();
     }
   }
 
   void addColumnAttribute(final Column column) {
-    columns.addAtEnd(column);
+    memberColumns.addAtEnd(column);
   }
 
   ISchemaAdapter getStoredMidSchemaAdapter() {
@@ -145,11 +145,11 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   void removeColumnAttribute(final Column column) {
-    columns.removeStrictlyFirstOccurrenceOf(column);
+    memberColumns.removeStrictlyFirstOccurrenceOf(column);
   }
 
   void setNameAttribute(final String name) {
-    this.name = name;
+    this.memberName = name;
   }
 
   void setParentDatabase(final Database parentDatabase) {

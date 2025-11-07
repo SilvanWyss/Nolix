@@ -13,13 +13,13 @@ import ch.nolix.coreapi.document.xml.IXmlNode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class MutableXmlNode implements IMutableXmlNode {
-  private String name;
+  private String memberName;
 
-  private String value;
+  private String memberValue;
 
-  private final LinkedList<IXmlAttribute> attributes = LinkedList.createEmpty();
+  private final LinkedList<IXmlAttribute> memberAttributes = LinkedList.createEmpty();
 
-  private final LinkedList<IMutableXmlNode> childNodes = LinkedList.createEmpty();
+  private final LinkedList<IMutableXmlNode> memberChildNodes = LinkedList.createEmpty();
 
   private MutableXmlNode() {
   }
@@ -101,7 +101,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public MutableXmlNode addAttribute(final IXmlAttribute attribute) {
-    attributes.addAtEnd(attribute);
+    memberAttributes.addAtEnd(attribute);
 
     return this;
   }
@@ -115,7 +115,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
-    this.attributes.addAtEnd(attributes);
+    this.memberAttributes.addAtEnd(attributes);
 
     return this;
   }
@@ -127,7 +127,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public MutableXmlNode addChildNode(final IMutableXmlNode childNode) {
-    childNodes.addAtEnd(childNode);
+    memberChildNodes.addAtEnd(childNode);
 
     return this;
   }
@@ -141,53 +141,53 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
-    this.childNodes.addAtEnd(childNodes);
+    this.memberChildNodes.addAtEnd(childNodes);
 
     return this;
   }
 
   @Override
   public boolean containsAttributes() {
-    return attributes.containsAny();
+    return memberAttributes.containsAny();
   }
 
   @Override
   public boolean containsChildNodes() {
-    return childNodes.containsAny();
+    return memberChildNodes.containsAny();
   }
 
   @Override
   public IContainer<IXmlAttribute> getAttributes() {
-    return attributes;
+    return memberAttributes;
   }
 
   public int getAttributeCount() {
-    return attributes.getCount();
+    return memberAttributes.getCount();
   }
 
   public int getChildNodeCount() {
-    return childNodes.getCount();
+    return memberChildNodes.getCount();
   }
 
   @Override
   public String getName() {
-    if (name == null) {
+    if (memberName == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NAME);
     }
 
-    return name;
+    return memberName;
   }
 
   @Override
   public IContainer<IMutableXmlNode> getStoredChildNodes() {
-    return childNodes;
+    return memberChildNodes;
   }
 
   @Override
   public String getValue() {
     supposeHasValue();
 
-    return value;
+    return memberValue;
   }
 
   @Override
@@ -197,41 +197,41 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   @Override
   public boolean hasName() {
-    return (name != null);
+    return (memberName != null);
   }
 
   @Override
   public boolean hasValue() {
-    return (value != null);
+    return (memberValue != null);
   }
 
   public IMutableXmlNode removeAttributes() {
-    attributes.clear();
+    memberAttributes.clear();
 
     return this;
   }
 
   public IMutableXmlNode removeChildNodes() {
-    childNodes.clear();
+    memberChildNodes.clear();
 
     return this;
   }
 
   @Override
   public void removeName() {
-    name = null;
+    memberName = null;
   }
 
   @Override
   public void removeValue() {
-    value = null;
+    memberValue = null;
   }
 
   @Override
   public IMutableXmlNode setName(final String name) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
-    this.name = name;
+    this.memberName = name;
 
     return this;
   }
@@ -240,7 +240,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   public IMutableXmlNode setValue(final String value) {
     Validator.assertThat(value).isNotEmpty();
 
-    this.value = value;
+    this.memberValue = value;
 
     return this;
   }

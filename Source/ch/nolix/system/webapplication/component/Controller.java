@@ -5,19 +5,19 @@ import ch.nolix.system.webapplication.main.WebClientSession;
 
 public abstract class Controller<AS> { //NOSONAR: This class is a base type that does not have abstract methods.
 
-  private WebClientSession<AS> webClientSession;
+  private WebClientSession<AS> memberWebClientSession;
 
   protected final AS getStoredApplicationService() {
     return getStoredWebClientSession().getStoredApplicationService();
   }
 
   protected final WebClientSession<AS> getStoredWebClientSession() {
-    return webClientSession;
+    return memberWebClientSession;
   }
 
   final void internalSetSession(final WebClientSession<AS> webClientSession) {
     Validator.assertThat(webClientSession).thatIsNamed(WebClientSession.class).isNotNull();
 
-    this.webClientSession = webClientSession;
+    this.memberWebClientSession = webClientSession;
   }
 }

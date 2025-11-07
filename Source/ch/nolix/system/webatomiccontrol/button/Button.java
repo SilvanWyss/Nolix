@@ -37,7 +37,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
 
-  private final MutableOptionalValue<ButtonRole> role = //
+  private final MutableOptionalValue<ButtonRole> memberRole = //
   new MutableOptionalValue<>(
     ButtonAttributeHeaderCatalog.ROLE_HEADER,
     this::setRole,
@@ -76,7 +76,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public ButtonRole getRole() {
-    return role.getValue();
+    return memberRole.getValue();
   }
 
   @Override
@@ -96,7 +96,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public boolean hasRole() {
-    return role.containsAny();
+    return memberRole.containsAny();
   }
 
   @Override
@@ -140,7 +140,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public void removeRole() {
-    role.clear();
+    memberRole.clear();
   }
 
   @Override
@@ -203,7 +203,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setRole(final ButtonRole role) {
-    this.role.setValue(role);
+    this.memberRole.setValue(role);
 
     return this;
   }

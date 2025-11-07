@@ -33,13 +33,13 @@ public final class Color extends AbstractElement implements IColor {
 
   private static IContainer<IPair<String, IColor>> x11Colors;
 
-  private final short redValue;
+  private final short memberRedValue;
 
-  private final short greenValue;
+  private final short memberGreenValue;
 
-  private final short blueValue;
+  private final short memberBlueValue;
 
-  private final short alphaValue;
+  private final short memberAlphaValue;
 
   /**
    * Creates a new {@link Color} with the given redValue, greenValue and
@@ -99,10 +99,10 @@ public final class Color extends AbstractElement implements IColor {
       .thatIsNamed("alpha value")
       .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
-    this.redValue = (short) redValue;
-    this.greenValue = (short) greenValue;
-    this.blueValue = (short) blueValue;
-    this.alphaValue = (short) alphaValue;
+    this.memberRedValue = (short) redValue;
+    this.memberGreenValue = (short) greenValue;
+    this.memberBlueValue = (short) blueValue;
+    this.memberAlphaValue = (short) alphaValue;
   }
 
   public static Color createAverageFrom(final IColor color, final IColor... colors) {
@@ -365,7 +365,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public int getAlphaValue() {
-    return alphaValue;
+    return memberAlphaValue;
   }
 
   /**
@@ -389,7 +389,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public int getBlueValue() {
-    return blueValue;
+    return memberBlueValue;
   }
 
   /**
@@ -420,7 +420,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public int getGreenValue() {
-    return greenValue;
+    return memberGreenValue;
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -430,10 +430,10 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public Color getInvertedColor() {
     return new Color(
-      MAX_COLOR_COMPONENT - redValue,
-      MAX_COLOR_COMPONENT - greenValue,
-      MAX_COLOR_COMPONENT - blueValue,
-      alphaValue);
+      MAX_COLOR_COMPONENT - memberRedValue,
+      MAX_COLOR_COMPONENT - memberGreenValue,
+      MAX_COLOR_COMPONENT - memberBlueValue,
+      memberAlphaValue);
   }
 
   /**
@@ -449,7 +449,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public int getRedValue() {
-    return redValue;
+    return memberRedValue;
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -458,7 +458,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullAlphaValue() {
-    return (alphaValue == MAX_COLOR_COMPONENT);
+    return (memberAlphaValue == MAX_COLOR_COMPONENT);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -467,7 +467,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullBlueValue() {
-    return (blueValue == MAX_COLOR_COMPONENT);
+    return (memberBlueValue == MAX_COLOR_COMPONENT);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -476,7 +476,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullGreenValue() {
-    return (greenValue == MAX_COLOR_COMPONENT);
+    return (memberGreenValue == MAX_COLOR_COMPONENT);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -485,7 +485,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public boolean hasFullRedValue() {
-    return (redValue == MAX_COLOR_COMPONENT);
+    return (memberRedValue == MAX_COLOR_COMPONENT);
   }
 
   /**
@@ -502,13 +502,13 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public String toHexadecimalString() {
     var string = StringCatalog.HEXADECIMAL_PREFIX
-    + String.format("%02X", redValue)
-    + String.format("%02X", greenValue)
-    + String.format("%02X", blueValue);
+    + String.format("%02X", memberRedValue)
+    + String.format("%02X", memberGreenValue)
+    + String.format("%02X", memberBlueValue);
 
     //Handles the case that the current color does not have a full alpha value.
     if (!hasFullAlphaValue()) {
-      string += String.format("%02X", alphaValue);
+      string += String.format("%02X", memberAlphaValue);
     }
 
     return string;
@@ -520,10 +520,10 @@ public final class Color extends AbstractElement implements IColor {
   @Override
   public String toHexadecimalStringWithAlphaValue() {
     return StringCatalog.HEXADECIMAL_PREFIX
-    + String.format("%02X", redValue)
-    + String.format("%02X", greenValue)
-    + String.format("%02X", blueValue)
-    + String.format("%02X", alphaValue);
+    + String.format("%02X", memberRedValue)
+    + String.format("%02X", memberGreenValue)
+    + String.format("%02X", memberBlueValue)
+    + String.format("%02X", memberAlphaValue);
   }
 
   /**
@@ -557,9 +557,9 @@ public final class Color extends AbstractElement implements IColor {
       .isBetween(0.0, 1.0);
 
     return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-      redValue,
-      greenValue,
-      blueValue,
+      memberRedValue,
+      memberGreenValue,
+      memberBlueValue,
       (int) (MAX_COLOR_COMPONENT * floatingPointAlphaValue));
   }
 
@@ -569,7 +569,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public Color withFullAlphaValue() {
-    return new Color(redValue, greenValue, blueValue);
+    return new Color(memberRedValue, memberGreenValue, memberBlueValue);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -578,6 +578,6 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public Color withAlphaValue(final int alphaValue) {
-    return withRedValueAndGreenValueAndBlueValueAndAlphaValue(redValue, greenValue, blueValue, alphaValue);
+    return withRedValueAndGreenValueAndBlueValueAndAlphaValue(memberRedValue, memberGreenValue, memberBlueValue, alphaValue);
   }
 }

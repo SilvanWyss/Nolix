@@ -26,7 +26,7 @@ import ch.nolix.systemapi.application.main.IServer;
 public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer<S> {
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private Application<?, ?> defaultApplication;
+  private Application<?, ?> memberDefaultApplication;
 
   private final ILinkedList<Application<?, ?>> applications = LinkedList.createEmpty();
 
@@ -156,7 +156,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     defaultApplication.setParentServer(this);
 
     addApplicationToList(defaultApplication);
-    this.defaultApplication = defaultApplication;
+    this.memberDefaultApplication = defaultApplication;
 
     noteAddedDefaultApplication(defaultApplication);
 
@@ -243,7 +243,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *         {@link Application}, false otherwise.
    */
   public final boolean containsDefaultApplication() {
-    return (defaultApplication != null);
+    return (memberDefaultApplication != null);
   }
 
   /**
@@ -309,7 +309,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     //Asserts that the current Server contains a default Application.
     assertContainsDefaultApplication();
 
-    return defaultApplication;
+    return memberDefaultApplication;
   }
 
   /**
@@ -479,8 +479,8 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
   private void removeApplication(final IApplication<?, ?> application) {
     applications.removeStrictlyFirstOccurrenceOf(application);
 
-    if (application == defaultApplication) {
-      defaultApplication = null;
+    if (application == memberDefaultApplication) {
+      memberDefaultApplication = null;
     }
 
     noteRemovedApplication(application);

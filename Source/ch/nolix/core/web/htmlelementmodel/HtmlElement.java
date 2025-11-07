@@ -17,7 +17,7 @@ public final class HtmlElement implements IHtmlElement {
 
   private final String innerText;
 
-  private final IContainer<HtmlAttribute> attributes;
+  private final IContainer<HtmlAttribute> memmberAttributes;
 
   private final IContainer<HtmlElement> childElements;
 
@@ -30,7 +30,7 @@ public final class HtmlElement implements IHtmlElement {
     Validator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
     this.type = type;
-    this.attributes = attributes.to(HtmlAttribute::fromHtmlAttribute);
+    this.memmberAttributes = attributes.to(HtmlAttribute::fromHtmlAttribute);
     this.innerText = innerText;
     this.childElements = childElements.to(HtmlElement::fromHtmlElement);
   }
@@ -146,7 +146,7 @@ public final class HtmlElement implements IHtmlElement {
 
   @Override
   public IContainer<? extends IHtmlAttribute> getAttributes() {
-    return attributes;
+    return memmberAttributes;
   }
 
   @Override

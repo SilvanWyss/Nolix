@@ -26,7 +26,7 @@ extends Control<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
   private static final String ERROR_HEADER = PascalCaseVariableCatalog.ERROR;
 
-  private final MutableOptionalValue<Throwable> error = new MutableOptionalValue<>(
+  private final MutableOptionalValue<Throwable> memberError = new MutableOptionalValue<>(
     ERROR_HEADER,
     this::showError,
     s -> GeneralException.withErrorMessage(s.getHeader()),
@@ -41,12 +41,12 @@ implements IValidationLabel {
 
   @Override
   public void clear() {
-    error.clear();
+    memberError.clear();
   }
 
   @Override
   public Throwable getError() {
-    return error.getValue();
+    return memberError.getValue();
   }
 
   @Override
@@ -71,7 +71,7 @@ implements IValidationLabel {
 
   @Override
   public boolean isEmpty() {
-    return error.isEmpty();
+    return memberError.isEmpty();
   }
 
   @Override
@@ -91,7 +91,7 @@ implements IValidationLabel {
 
   @Override
   public void showError(final Throwable error) {
-    this.error.setValue(error);
+    this.memberError.setValue(error);
   }
 
   @Override

@@ -44,7 +44,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final String name;
 
-  private final String id;
+  private final String memberId;
 
   private final Class<E> entityClass;
 
@@ -53,7 +53,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private boolean loadedAllEntitiesInLocalData;
 
-  private final ILinkedList<IColumn> columns = LinkedList.createEmpty();
+  private final ILinkedList<IColumn> memberColumns = LinkedList.createEmpty();
 
   private final ILinkedList<E> entitiesInLocalData = LinkedList.createEmpty();
 
@@ -69,7 +69,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     this.parentDatabase = parentDatabase;
     this.name = name;
-    this.id = id;
+    this.memberId = id;
     this.entityClass = entityClass;
   }
 
@@ -114,7 +114,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public String getId() {
-    return id;
+    return memberId;
   }
 
   @Override
@@ -141,7 +141,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   @Override
   public IContainer<IColumn> getStoredColumns() {
-    return columns;
+    return memberColumns;
   }
 
   @Override
@@ -240,7 +240,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   void internalAddColumn(final IColumn column) {
-    columns.addAtEnd(column);
+    memberColumns.addAtEnd(column);
   }
 
   IContainer<IColumn> internalGetColumnsThatReferencesCurrentTable() {
@@ -248,8 +248,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   void internalSetColumns(final IContainer<IColumn> columns) {
-    this.columns.clear();
-    this.columns.addAtEnd(columns);
+    this.memberColumns.clear();
+    this.memberColumns.addAtEnd(columns);
   }
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {

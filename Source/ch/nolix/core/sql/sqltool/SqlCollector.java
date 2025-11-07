@@ -8,7 +8,7 @@ import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 
 public final class SqlCollector implements ISqlCollector {
-  private final LinkedList<String> sqlStatements = LinkedList.createEmpty();
+  private final LinkedList<String> memberSqlStatements = LinkedList.createEmpty();
 
   @Override
   public SqlCollector addSqlStatement(final String sqlstatement, final String... sqlStatements) {
@@ -28,7 +28,7 @@ public final class SqlCollector implements ISqlCollector {
 
   @Override
   public void clear() {
-    sqlStatements.clear();
+    memberSqlStatements.clear();
   }
 
   @Override
@@ -42,21 +42,21 @@ public final class SqlCollector implements ISqlCollector {
 
   @Override
   public IContainer<String> getSqlStatements() {
-    return sqlStatements;
+    return memberSqlStatements;
   }
 
   @Override
   public boolean isEmpty() {
-    return sqlStatements.isEmpty();
+    return memberSqlStatements.isEmpty();
   }
 
   private void addSingleSqlStatement(final String sqlstatement) {
     Validator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
 
-    this.sqlStatements.addAtEnd(sqlstatement);
+    this.memberSqlStatements.addAtEnd(sqlstatement);
   }
 
   private void executeUsingConnection(final ISqlConnection sqlConnection) {
-    sqlConnection.executeStatements(sqlStatements);
+    sqlConnection.executeStatements(memberSqlStatements);
   }
 }

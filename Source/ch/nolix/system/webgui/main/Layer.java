@@ -57,9 +57,9 @@ implements ILayer<Layer> {
   private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
 
   //For CSS an id works only when it begins with a letter.
-  private final String internalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
+  private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final MutableOptionalValue<LayerRole> role = new MutableOptionalValue<>(
+  private final MutableOptionalValue<LayerRole> memberRole = new MutableOptionalValue<>(
     ROLE_HEADER,
     this::setRole,
     LayerRole::fromSpecification,
@@ -91,7 +91,7 @@ implements ILayer<Layer> {
     ControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
-  private IWebGui<?> parentGui;
+  private IWebGui<?> memberParentGui;
 
   public static Layer fromSpecification(final INode<?> specification) {
     final var layer = new Layer();
@@ -102,7 +102,7 @@ implements ILayer<Layer> {
 
   @Override
   public boolean belongsToGui() {
-    return (parentGui != null);
+    return (memberParentGui != null);
   }
 
   @Override
@@ -164,7 +164,7 @@ implements ILayer<Layer> {
 
   @Override
   public String getInternalId() {
-    return internalId;
+    return memberInternalId;
   }
 
   @Override
@@ -199,7 +199,7 @@ implements ILayer<Layer> {
   public IWebGui<?> getStoredParentGui() {
     LAYER_VALIDATOR.assertBelongsToGui(this);
 
-    return parentGui;
+    return memberParentGui;
   }
 
   @Override
@@ -209,7 +209,7 @@ implements ILayer<Layer> {
 
   @Override
   public LayerRole getRole() {
-    return role.getValue();
+    return memberRole.getValue();
   }
 
   @Override
@@ -235,7 +235,7 @@ implements ILayer<Layer> {
 
   @Override
   public boolean hasRole() {
-    return role.containsAny();
+    return memberRole.containsAny();
   }
 
   @Override
@@ -248,7 +248,7 @@ implements ILayer<Layer> {
     Validator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
     LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
 
-    this.parentGui = parentGui;
+    this.memberParentGui = parentGui;
   }
 
   @Override
@@ -262,7 +262,7 @@ implements ILayer<Layer> {
   }
 
   public void removeRole() {
-    role.clear();
+    memberRole.clear();
   }
 
   @Override
@@ -324,7 +324,7 @@ implements ILayer<Layer> {
 
   @Override
   public Layer setRole(final LayerRole role) {
-    this.role.setValue(role);
+    this.memberRole.setValue(role);
 
     return this;
   }
@@ -389,6 +389,6 @@ implements ILayer<Layer> {
 
   private void removeSelfFromGuiWhenBelongsToGui() {
     getStoredParentGui().removeLayer(this);
-    parentGui = null;
+    memberParentGui = null;
   }
 }

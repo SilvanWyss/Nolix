@@ -28,13 +28,13 @@ public abstract class AbstractEntity implements IEntity {
 
   private static final IEntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
-  private ITable<? extends IEntity> parentTable;
+  private ITable<? extends IEntity> memberParentTable;
 
-  private String id = IdCreator.createIdOf10HexadecimalCharacters();
+  private String memberId = IdCreator.createIdOf10HexadecimalCharacters();
 
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
-  private String saveStamp;
+  private String memberSaveStamp;
 
   private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
 
@@ -43,13 +43,13 @@ public abstract class AbstractEntity implements IEntity {
   @Override
   public final boolean belongsToDatabase() {
     return //
-    parentTable != null
-    && parentTable.belongsToDatabase();
+    memberParentTable != null
+    && memberParentTable.belongsToDatabase();
   }
 
   @Override
   public final boolean belongsToTable() {
-    return (parentTable != null);
+    return (memberParentTable != null);
   }
 
   @Override
@@ -68,7 +68,7 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final String getId() {
-    return id;
+    return memberId;
   }
 
   @Override
@@ -80,14 +80,14 @@ public abstract class AbstractEntity implements IEntity {
   public final ITable<? extends IEntity> getStoredParentTable() {
     ENTITY_VALIDATOR.assertBelongsToTable(this);
 
-    return parentTable;
+    return memberParentTable;
   }
 
   @Override
   public final String getSaveStamp() {
     ENTITY_VALIDATOR.assertHasSaveStamp(this);
 
-    return saveStamp;
+    return memberSaveStamp;
   }
 
   @Override
@@ -102,7 +102,7 @@ public abstract class AbstractEntity implements IEntity {
 
   @Override
   public final boolean hasSaveStamp() {
-    return (saveStamp != null);
+    return (memberSaveStamp != null);
   }
 
   @Override
@@ -118,15 +118,15 @@ public abstract class AbstractEntity implements IEntity {
     Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
 
     this.state = DatabaseObjectState.UNEDITED;
-    this.id = id;
-    this.saveStamp = saveStamp;
+    this.memberId = id;
+    this.memberSaveStamp = saveStamp;
   }
 
   @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
     ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
 
-    this.parentTable = parentTable;
+    this.memberParentTable = parentTable;
 
     getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }

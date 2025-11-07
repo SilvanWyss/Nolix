@@ -11,7 +11,7 @@ import ch.nolix.systemapi.element.property.IProperty;
 public abstract class AbstractSubElement<E extends IMutableElement> implements IProperty {
   private final String attributePrefix;
 
-  private E internalSubElement;
+  private E memberInternalSubElement;
 
   protected AbstractSubElement(
     final String attributePrefix,
@@ -27,7 +27,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
   }
 
   public E getSubElement() {
-    return internalSubElement;
+    return memberInternalSubElement;
   }
 
   public abstract boolean isExchangable();
@@ -35,7 +35,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
     if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
-      internalSubElement.addOrChangeAttribute(
+      memberInternalSubElement.addOrChangeAttribute(
         Node.withHeaderAndChildNodes(
           attribute.getHeader().substring(attributePrefix.length()),
           attribute.getStoredChildNodes()));
@@ -48,7 +48,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
 
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
-    for (final var a : internalSubElement.getAttributes()) {
+    for (final var a : memberInternalSubElement.getAttributes()) {
       list.addAtEnd(
         Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getStoredChildNodes()));
     }
@@ -57,10 +57,10 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
   protected final void internalSetSubElement(final E internalSubElement) {
     Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 
-    if (this.internalSubElement != null && !isExchangable()) {
+    if (this.memberInternalSubElement != null && !isExchangable()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");
     }
 
-    this.internalSubElement = internalSubElement;
+    this.memberInternalSubElement = internalSubElement;
   }
 }

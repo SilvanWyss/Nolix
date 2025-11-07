@@ -21,9 +21,9 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElement implements IAbstractStyle<S> {
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
-  private final ImmutableList<AttachingAttribute> attachingAttributes;
+  private final ImmutableList<AttachingAttribute> memberAttachingAttributes;
 
-  private final ImmutableList<AbstractSelectingStyle> subStyles;
+  private final ImmutableList<AbstractSelectingStyle> memberSubStyles;
 
   /**
    * Creates a new {@link AbstractStyle}.
@@ -34,10 +34,10 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
   protected AbstractStyle(
     final IContainer<? extends IAttachingAttribute> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
-    this.attachingAttributes = //
+    this.memberAttachingAttributes = //
     ImmutableList.fromIterable(attachingAttributes.to(AttachingAttribute::fromAttachingAttribute));
 
-    this.subStyles = ImmutableList.fromIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
+    this.memberSubStyles = ImmutableList.fromIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
   }
 
   /**
@@ -45,7 +45,7 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    */
   @Override
   public final IContainer<? extends IAttachingAttribute> getAttachingAttributes() {
-    return attachingAttributes;
+    return memberAttachingAttributes;
   }
 
   /**
@@ -53,7 +53,7 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    */
   @Override
   public final IContainer<? extends ISelectingStyleWithSelectors> getSubStyles() {
-    return subStyles;
+    return memberSubStyles;
   }
 
   /**
@@ -61,7 +61,7 @@ abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElemen
    */
   @Override
   public final boolean hasAttachingAttributes() {
-    return attachingAttributes.containsAny();
+    return memberAttachingAttributes.containsAny();
   }
 
   /**

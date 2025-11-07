@@ -23,7 +23,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 
   private static final UploaderCssBuilder CSS_BUILDER = new UploaderCssBuilder();
 
-  private byte[] file;
+  private byte[] memberFile;
 
   public Uploader() {
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
@@ -34,7 +34,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   public byte[] getFile() {
     assertHasFile();
 
-    return file.clone();
+    return memberFile.clone();
   }
 
   @Override
@@ -54,7 +54,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 
   @Override
   public boolean hasFile() {
-    return (file != null);
+    return (memberFile != null);
   }
 
   @Override
@@ -66,7 +66,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   public void internalSetFile(final byte[] file) {
     Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
 
-    this.file = file; //NOSONAR: A Uploader operates on the original input.
+    this.memberFile = file; //NOSONAR: A Uploader operates on the original input.
   }
 
   @Override
@@ -111,6 +111,6 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   }
 
   private void removeFile() {
-    file = null;
+    memberFile = null;
   }
 }

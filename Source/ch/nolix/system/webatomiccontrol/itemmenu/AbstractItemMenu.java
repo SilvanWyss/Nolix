@@ -26,13 +26,13 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   private static final IItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
-  private final MultiValue<IItemMenuItem<?>> items = new MultiValue<>(
+  private final MultiValue<IItemMenuItem<?>> memberItems = new MultiValue<>(
     ITEM_HEADER,
     this::addItem,
     ItemMenuItem::fromSpecification,
     IItemMenuItem::getSpecification);
 
-  private Consumer<IItemMenuItem<?>> selectAction;
+  private Consumer<IItemMenuItem<?>> memberSelectAction;
 
   @Override
   public final M addBlankItem() {
@@ -47,7 +47,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
       ITEM_MENU_VALIDATOR.assertCanAddItem(this, i);
 
       i.internalSetParentMenu(this);
-      this.items.add(i);
+      this.memberItems.add(i);
     }
 
     return asConcrete();
@@ -103,7 +103,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final void clear() {
-    items.clear();
+    memberItems.clear();
   }
 
   @Override
@@ -138,7 +138,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final IContainer<IItemMenuItem<?>> getStoredItems() {
-    return items.getStoredValues();
+    return memberItems.getStoredValues();
   }
 
   @Override
@@ -172,7 +172,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   @Override
   public final void removeSelectAction() {
-    selectAction = null;
+    memberSelectAction = null;
   }
 
   @Override
@@ -228,7 +228,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   public final M setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
-    this.selectAction = selectAction;
+    this.memberSelectAction = selectAction;
 
     return asConcrete();
   }
@@ -247,7 +247,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   @Override
   public final void internalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
     if (hasSelectAction()) {
-      selectAction.accept(item);
+      memberSelectAction.accept(item);
     }
   }
 
@@ -260,6 +260,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
   }
 
   private boolean hasSelectAction() {
-    return (selectAction != null);
+    return (memberSelectAction != null);
   }
 }

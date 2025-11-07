@@ -15,14 +15,14 @@ import ch.nolix.coreapi.programcontrol.process.IUpdaterCollector;
  *            {@link UpdaterCollector} can mutate.
  */
 public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
-  private final ILinkedList<Consumer<O>> updaters = LinkedList.createEmpty();
+  private final ILinkedList<Consumer<O>> memberUpdaters = LinkedList.createEmpty();
 
   /**
    * {@inheritDoc}
    */
   @Override
   public void addUpdater(final Consumer<O> updater) {
-    updaters.addAtEnd(updater);
+    memberUpdaters.addAtEnd(updater);
   }
 
   /**
@@ -30,7 +30,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
    */
   @Override
   public void addUpdaters(final IContainer<Consumer<O>> updaters) {
-    this.updaters.addAtEnd(updaters);
+    this.memberUpdaters.addAtEnd(updaters);
   }
 
   /**
@@ -38,7 +38,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
    */
   @Override
   public void clear() {
-    updaters.clear();
+    memberUpdaters.clear();
   }
 
   /**
@@ -46,7 +46,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
    */
   @Override
   public boolean isEmpty() {
-    return updaters.isEmpty();
+    return memberUpdaters.isEmpty();
   }
 
   /**
@@ -67,7 +67,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
    */
   private void updateObjectAndClearWhenObjectIsNotNull(final O object) {
     try {
-      updaters.forEach(u -> u.accept(object));
+      memberUpdaters.forEach(u -> u.accept(object));
     } finally {
       clear();
     }

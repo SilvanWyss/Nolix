@@ -23,7 +23,7 @@ implements IBackendClient<S> {
   /**
    * The {@link Application} the current {@link AbstractBackendClient} belongs to.
    */
-  private Application<C, S> parentApplication;
+  private Application<C, S> memberParentApplication;
 
   /**
    * @return the name of the parent {@link Application} of the current
@@ -175,7 +175,7 @@ implements IBackendClient<S> {
     assertDoesNotReferenceParentApplication();
 
     //Sets the parent Application of the current Client.
-    this.parentApplication = parentApplication;
+    this.memberParentApplication = parentApplication;
   }
 
   /**
@@ -209,7 +209,7 @@ implements IBackendClient<S> {
   private Application<C, S> getStoredParentApplication() {
     assertReferencesParentApplication();
 
-    return parentApplication;
+    return memberParentApplication;
   }
 
   /**
@@ -217,6 +217,6 @@ implements IBackendClient<S> {
    *         parent {@link Application}, false otherwise.
    */
   private boolean referencesParentApplication() {
-    return (parentApplication != null);
+    return (memberParentApplication != null);
   }
 }

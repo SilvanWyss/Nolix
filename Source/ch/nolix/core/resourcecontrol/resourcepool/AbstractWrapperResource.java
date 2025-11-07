@@ -9,7 +9,7 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 public abstract class AbstractWrapperResource<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements GroupCloseable {
-  private AbstractResourcePool<W, R> parentResourcePool;
+  private AbstractResourcePool<W, R> memberParentResourcePool;
 
   private final R resource;
 
@@ -28,7 +28,7 @@ implements GroupCloseable {
 
   @Override
   public final void noteClose() {
-    parentResourcePool.internalTakeBackResource(resource);
+    memberParentResourcePool.internalTakeBackResource(resource);
   }
 
   protected final R getStoredResource() {
@@ -43,16 +43,16 @@ implements GroupCloseable {
 
     assertDoesNotBelongToResourcePool();
 
-    this.parentResourcePool = parentResourcePool;
+    this.memberParentResourcePool = parentResourcePool;
   }
 
   private void assertDoesNotBelongToResourcePool() {
     if (belongsToResourcePool()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(this, parentResourcePool);
+      throw ArgumentBelongsToParentException.forArgumentAndParent(this, memberParentResourcePool);
     }
   }
 
   private boolean belongsToResourcePool() {
-    return (parentResourcePool != null);
+    return (memberParentResourcePool != null);
   }
 }

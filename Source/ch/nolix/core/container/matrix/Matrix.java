@@ -29,7 +29,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMatrix<E> {
-  private Object[][] elements = new Object[0][0];
+  private Object[][] memberElements = new Object[0][0];
 
   /**
    * Creates a new empty {@link Matrix}.
@@ -107,12 +107,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
-        this.elements = new Object[lElements.getCount()][1];
+        this.memberElements = new Object[lElements.getCount()][1];
 
         //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
-          this.elements[i][0] = e;
+          this.memberElements[i][0] = e;
 
           i++;
         }
@@ -132,10 +132,10 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
       //Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
-        final var row = Arrays.copyOf(this.elements[i], columnCount + 1);
+        final var row = Arrays.copyOf(this.memberElements[i], columnCount + 1);
         row[columnCount] = e;
 
-        this.elements[i] = row;
+        this.memberElements[i] = row;
 
         i++;
       }
@@ -190,12 +190,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Handles the case that the current matrix is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
-        this.elements = new Object[1][lElements.getCount()];
+        this.memberElements = new Object[1][lElements.getCount()];
 
         //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
-          this.elements[0][i] = e;
+          this.memberElements[0][i] = e;
 
           i++;
         }
@@ -211,7 +211,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
         .isEqualTo(getColumnCount());
 
       final var rowCount = getRowCount();
-      final var newElements = Arrays.copyOf(this.elements, rowCount + 1);
+      final var newElements = Arrays.copyOf(this.memberElements, rowCount + 1);
       newElements[rowCount] = new Object[getColumnCount()];
 
       //Iterates the given elements.
@@ -222,7 +222,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
         i++;
       }
 
-      this.elements = newElements;
+      this.memberElements = newElements;
     }
 
     return this;
@@ -234,7 +234,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    */
   @Override
   public void clear() {
-    elements = new Object[0][0];
+    memberElements = new Object[0][0];
   }
 
   /**
@@ -258,12 +258,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   @Override
   public int getColumnCount() {
     //Handles the case that the current {@link Matrix} is empty.
-    if (elements.length < 1) {
+    if (memberElements.length < 1) {
       return 0;
     }
 
     //Handles the case that the current {@link Matrix} is not empty.
-    return elements[0].length;
+    return memberElements[0].length;
   }
 
   /**
@@ -315,9 +315,9 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     final var rowCounnt = getRowCount();
     final var columnCount = getColumnCount();
 
-    matrix.elements = new Object[rowCounnt][columnCount];
+    matrix.memberElements = new Object[rowCounnt][columnCount];
     for (var i = 0; i < rowCounnt; i++) {
-      matrix.elements[i] = Arrays.copyOf(elements[i], columnCount);
+      matrix.memberElements[i] = Arrays.copyOf(memberElements[i], columnCount);
     }
 
     return matrix;
@@ -392,7 +392,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //and column index.
     assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
 
-    return (E) elements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
+    return (E) memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
   }
 
   /**
@@ -452,12 +452,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   @Override
   public int getRowCount() {
     //Handles the case that the current {@link Matrix} is empty.
-    if (elements.length < 1) {
+    if (memberElements.length < 1) {
       return 0;
     }
 
     //Handles the case that the current {@link Matrix} is not empty.
-    return elements.length;
+    return memberElements.length;
   }
 
   /**
@@ -498,7 +498,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
       .isNotNull();
 
     //Sets the given element at the given index to the current matrix.
-    elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
+    memberElements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
   }
 
   /**
@@ -536,7 +536,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
       .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
       .isNotNull();
 
-    elements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1] = element;
+    memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1] = element;
   }
 
   /**
@@ -554,11 +554,11 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     final var matrix = new Matrix<O>();
 
     //Fills up the elements of the matrix.
-    matrix.elements = new Object[getRowCount()][getColumnCount()];
+    matrix.memberElements = new Object[getRowCount()][getColumnCount()];
     for (var i = 0; i < getRowCount(); i++) {
       //Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
-        matrix.elements[i][j] = transformer.apply((E) elements[i][j]);
+        matrix.memberElements[i][j] = transformer.apply((E) memberElements[i][j]);
       }
     }
 
@@ -579,13 +579,13 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
     final var leftRotatedMatrixElements = new Object[leftRotatedMatrixRowCount][leftRotatedMatrixColumnCount];
 
-    leftRotatedMatrix.elements = leftRotatedMatrixElements;
+    leftRotatedMatrix.memberElements = leftRotatedMatrixElements;
 
     //Iterates the rows of the left rotated matrix.
     for (var i = 0; i < leftRotatedMatrixRowCount; i++) {
       //Iterates the columns of the current row.
       for (var j = 0; j < leftRotatedMatrixColumnCount; j++) {
-        leftRotatedMatrixElements[i][j] = elements[j][leftRotatedMatrixRowCount - i - 1];
+        leftRotatedMatrixElements[i][j] = memberElements[j][leftRotatedMatrixRowCount - i - 1];
       }
     }
 
@@ -606,13 +606,13 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
     final var rightRotatedMatrixElements = new Object[rightRotatedMatrixRowCount][rightRotatedMatrixColumnCount];
 
-    rightRotatedMatrix.elements = rightRotatedMatrixElements;
+    rightRotatedMatrix.memberElements = rightRotatedMatrixElements;
 
     //Iterates the rows of the right rotated matrix.
     for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
       //Iterates the columns of the current row.
       for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
-        rightRotatedMatrixElements[i][j] = elements[rightRotatedMatrixColumnCount - j - 1][i];
+        rightRotatedMatrixElements[i][j] = memberElements[rightRotatedMatrixColumnCount - j - 1][i];
       }
     }
 
@@ -642,7 +642,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
           stringBuilder.append(CharacterCatalog.COMMA);
         }
 
-        stringBuilder.append(elements[i][j].toString());
+        stringBuilder.append(memberElements[i][j].toString());
       }
     }
 

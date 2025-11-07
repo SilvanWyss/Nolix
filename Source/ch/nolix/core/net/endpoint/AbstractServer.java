@@ -19,7 +19,7 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 public abstract class AbstractServer implements IServer {
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private ISlot defaultSlot;
+  private ISlot memberDefaultSlot;
 
   private final LinkedList<ISlot> slots = LinkedList.createEmpty();
 
@@ -30,7 +30,7 @@ public abstract class AbstractServer implements IServer {
   public final void addDefaultSlot(final ISlot defaultSlot) {
     addSlot(defaultSlot);
 
-    this.defaultSlot = defaultSlot;
+    this.memberDefaultSlot = defaultSlot;
   }
 
   /**
@@ -50,7 +50,7 @@ public abstract class AbstractServer implements IServer {
   public final void clear() {
     slots.clear();
 
-    defaultSlot = null;
+    memberDefaultSlot = null;
   }
 
   /**
@@ -58,7 +58,7 @@ public abstract class AbstractServer implements IServer {
    */
   @Override
   public final boolean containsDefaultSlot() {
-    return (defaultSlot != null);
+    return (memberDefaultSlot != null);
   }
 
   /**
@@ -161,7 +161,7 @@ public abstract class AbstractServer implements IServer {
   private ISlot getStoredDefaultSlot() {
     assertContainsDefaultSlot();
 
-    return defaultSlot;
+    return memberDefaultSlot;
   }
 
   /**
@@ -189,8 +189,8 @@ public abstract class AbstractServer implements IServer {
   private void removeSlot(final ISlot slot) {
     slots.removeStrictlyFirstOccurrenceOf(slot);
 
-    if (slot == defaultSlot) {
-      defaultSlot = null;
+    if (slot == memberDefaultSlot) {
+      memberDefaultSlot = null;
     }
   }
 }

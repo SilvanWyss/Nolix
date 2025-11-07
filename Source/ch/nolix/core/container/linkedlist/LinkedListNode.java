@@ -16,7 +16,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the element of a {@link LinkedListNode}.
  */
 final class LinkedListNode<E> {
-  private E element;
+  private E memberElement;
 
   private LinkedListNode<E> nextNode;
 
@@ -52,7 +52,7 @@ final class LinkedListNode<E> {
    * @return the element of the current {@link LinkedListNode}.
    */
   public E getElement() {
-    return element;
+    return memberElement;
   }
 
   /**
@@ -99,7 +99,7 @@ final class LinkedListNode<E> {
       .isNotNull();
 
     //Sets the element of the current list node.
-    this.element = element;
+    this.memberElement = element;
   }
 
   /**

@@ -15,7 +15,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
-  private final String name;
+  private final String memberName;
 
   private boolean loadedTablesFromDatabase;
 
@@ -28,7 +28,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
     Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
 
-    this.name = name;
+    this.memberName = name;
     this.midSchemaAdapter = midSchemaAdapter;
 
     setLoaded();
@@ -51,7 +51,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   @Override
   public String getName() {
-    return name;
+    return memberName;
   }
 
   @Override

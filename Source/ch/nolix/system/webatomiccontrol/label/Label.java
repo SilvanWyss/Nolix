@@ -34,7 +34,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   private static final LabelCssBuilder CSS_BUILDER = new LabelCssBuilder();
 
-  private final MutableOptionalValue<LabelRole> role = new MutableOptionalValue<>(
+  private final MutableOptionalValue<LabelRole> memberRole = new MutableOptionalValue<>(
     ROLE_HEADER,
     this::setRole,
     LabelRole::fromSpecification,
@@ -59,7 +59,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public LabelRole getRole() {
-    return role.getValue();
+    return memberRole.getValue();
   }
 
   @Override
@@ -74,7 +74,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public boolean hasRole() {
-    return role.containsAny();
+    return memberRole.containsAny();
   }
 
   @Override
@@ -89,7 +89,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public void removeRole() {
-    role.clear();
+    memberRole.clear();
   }
 
   @Override
@@ -99,7 +99,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public ILabel setRole(final LabelRole role) {
-    this.role.setValue(role);
+    this.memberRole.setValue(role);
 
     return this;
   }
