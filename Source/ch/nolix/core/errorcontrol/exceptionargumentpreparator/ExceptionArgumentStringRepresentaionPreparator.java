@@ -70,7 +70,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
       }
 
       return StringCatalog.NULL_HEADER;
-    } catch (final Throwable error) { //NOSONAR: All Throwable must be caught.
+    } catch (final Throwable _) { //NOSONAR: All Throwable must be caught.
       return StringCatalog.EMPTY_STRING;
     }
   }

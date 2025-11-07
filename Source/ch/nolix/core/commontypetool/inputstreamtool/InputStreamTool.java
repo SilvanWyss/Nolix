@@ -11,7 +11,7 @@ public final class InputStreamTool implements IInputStreamTool {
    * {@inheritDoc}
    */
   @Override
-  public String readLineFromInputStream(final InputStream inputStream) {
+  public String readLineFromInputStreamOrNull(final InputStream inputStream) {
     final var bytes = new List<Byte>();
 
     while (true) {
@@ -31,7 +31,7 @@ public final class InputStreamTool implements IInputStreamTool {
         }
 
         bytes.addAtEnd((byte) lByte);
-      } catch (final Exception exception) { //NOSONAR: All Exceptions must be caught.
+      } catch (final Exception _) { //NOSONAR: All Exception must be caught.
         return null;
       }
     }

@@ -25,7 +25,7 @@ public final class SocketEndPointMessageListener extends AbstractWorker {
   @Override
   protected void run() {
     while (parentSocketEndPoint.isOpen()) {
-      final var line = INPUT_STREAM_TOOL.readLineFromInputStream(parentSocketEndPoint.getStoredInputStream());
+      final var line = INPUT_STREAM_TOOL.readLineFromInputStreamOrNull(parentSocketEndPoint.getStoredInputStream());
 
       if (line == null) {
         parentSocketEndPoint.close();

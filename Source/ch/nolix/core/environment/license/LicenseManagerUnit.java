@@ -190,8 +190,9 @@ public final class LicenseManagerUnit {
     try {
       return new FolderAccessor(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH)
         .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
-    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
-      throw GeneralException.withErrorMessage(
+    } catch (final Throwable _) { //NOSONAR: All Throwable must be caught.
+      throw //
+      GeneralException.withErrorMessage(
         "There does not exist a license file with the key for the License '" + licenseName + "'");
     }
   }

@@ -414,8 +414,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
     try {
       inverseMatrix = matrix.getInverse();
-    } catch (final Throwable error //NOSONAR: If there does not exist an inverse matrix, a pseudo-inverse matrix
-                                   //will be calculated.
+    } catch (final Throwable _ //NOSONAR: If an inverse matrix does not exists, a pseudo-inverse matrix will be calculated.
     ) {
       inverseMatrix = matrix.getPseudoInverse();
     }

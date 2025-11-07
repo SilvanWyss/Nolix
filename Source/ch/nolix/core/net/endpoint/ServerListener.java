@@ -75,7 +75,7 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
 
         handleSocket(socket);
       }
-    } catch (final SocketException socketException) { //NOSONAR: serverSocket.accept will throw a SocketException when the serverSocket is stopped.
+    } catch (final SocketException _) { //NOSONAR: serverSocket.accept will throw a SocketException if the serverSocket is stopped.
       parentServer.close();
     } catch (final IOException ioException) {
       parentServer.close();

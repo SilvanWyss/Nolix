@@ -9,7 +9,7 @@ public final class Nolix2026Pro extends License {
     try {
       final var keyAsInt = Integer.valueOf(filteredKey);
       return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
-    } catch (final Throwable error) { //NOSONAR: This method just discovers if the given filteredKey would work.
+    } catch (final Throwable _) { //NOSONAR: This method just checks if the given filteredKey is valid.
       return false;
     }
   }

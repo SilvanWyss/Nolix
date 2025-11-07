@@ -72,7 +72,7 @@ public final class SocketHandler {
       return Optional.empty();
     }
 
-    final var firstReveivedLine = INPUT_STREAM_TOOL.readLineFromInputStream(socketInputStream.get());
+    final var firstReveivedLine = INPUT_STREAM_TOOL.readLineFromInputStreamOrNull(socketInputStream.get());
 
     Logger.logInfo(
       "The current SocketHandler received the first line from the given socket: "
@@ -150,7 +150,7 @@ public final class SocketHandler {
     final LinkedList<String> lines,
     final InputStream inputStream) {
     while (true) {
-      final var line = INPUT_STREAM_TOOL.readLineFromInputStream(inputStream);
+      final var line = INPUT_STREAM_TOOL.readLineFromInputStreamOrNull(inputStream);
 
       if (line == null) {
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.LINE);
