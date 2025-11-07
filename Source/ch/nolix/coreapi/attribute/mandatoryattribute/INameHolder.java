@@ -21,7 +21,8 @@ public interface INameHolder {
 
   /**
    * @param name
-   * @return true if the current {@link INameHolder} has the given name.
+   * @return true if the current {@link INameHolder} has the given name, false
+   *         otherwise.
    */
   default boolean hasName(final String name) {
     return getName().equals(name);
@@ -30,7 +31,7 @@ public interface INameHolder {
   /**
    * @param nameHolder
    * @return true if the current {@link INameHolder} has the same name as the
-   *         given nameHolder.
+   *         given nameHolder, false otherwise.
    */
   default boolean hasSameNameAs(final INameHolder nameHolder) {
     //Handles the case that the given nameHolder is null.

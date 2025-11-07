@@ -51,7 +51,8 @@ final class ResultJobExecutor<R> extends Thread {
   }
 
   /**
-   * @return true if the current {@link ResultJobExecutor} has caught an error.
+   * @return true if the current {@link ResultJobExecutor} has caught an error,
+   *         false otherwise.
    */
   public boolean caughtError() {
     return (error != null);
@@ -90,7 +91,8 @@ final class ResultJobExecutor<R> extends Thread {
   }
 
   /**
-   * @return true if the current {@link ResultJobExecutor} is finished.
+   * @return true if the current {@link ResultJobExecutor} is finished, false
+   *         otherwise.
    */
   public boolean isFinished() {
     return !isRunning();
@@ -98,7 +100,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @return true if the current {@link ResultJobExecutor} is finished
-   *         successfully.
+   *         successfully, false otherwise.
    */
   public boolean isFinsishedSuccessfully() {
     return //
@@ -107,7 +109,8 @@ final class ResultJobExecutor<R> extends Thread {
   }
 
   /**
-   * @return true if the current {@link ResultJobExecutor} is running.
+   * @return true if the current {@link ResultJobExecutor} is running, false
+   *         otherwise.
    */
   public boolean isRunning() {
     return running;

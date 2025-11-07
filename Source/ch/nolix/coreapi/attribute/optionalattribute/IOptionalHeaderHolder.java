@@ -42,14 +42,15 @@ public interface IOptionalHeaderHolder {
   }
 
   /**
-   * @return true if the current {@link IOptionalHeaderHolder} has a header.
+   * @return true if the current {@link IOptionalHeaderHolder} has a header, false
+   *         otherwise.
    */
   boolean hasHeader();
 
   /**
    * @param header
    * @return true if the current {@link IOptionalHeaderHolder} has the given
-   *         header.
+   *         header, false otherwise.
    */
   default boolean hasHeader(String header) {
     return hasHeader()

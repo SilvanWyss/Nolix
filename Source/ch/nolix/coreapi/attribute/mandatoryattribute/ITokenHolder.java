@@ -14,7 +14,8 @@ public interface ITokenHolder {
 
   /**
    * @param token
-   * @return true if the current {@link ITokenHolder} has the given token.
+   * @return true if the current {@link ITokenHolder} has the given token, false
+   *         otherwise.
    */
   default boolean hasToken(final String token) {
     return getToken().equals(token);

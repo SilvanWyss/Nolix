@@ -16,7 +16,7 @@ public interface IOptionalCardinalityHolder {
 
   /**
    * @return true if the current {@link IOptionalCardinalityHolder} has a
-   *         cardinality.
+   *         cardinality, false otherwise.
    */
   boolean hasCardinality();
 }

@@ -17,7 +17,7 @@ public interface IDatabaseExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param database
-   * @return true if the given database can save its chances.
+   * @return true if the given database can save its chances, false otherwise.
    */
   boolean canSaveChanges(IDatabase database);
 }

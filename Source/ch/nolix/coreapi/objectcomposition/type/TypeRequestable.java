@@ -17,7 +17,7 @@ public interface TypeRequestable {
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
-   *         type.
+   *         type, false otherwise.
    */
   default boolean isOfConcreteType(final Class<?> concreteType) {
     return (getClass() == concreteType);
@@ -27,7 +27,7 @@ public interface TypeRequestable {
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
-   *         type.
+   *         type, false otherwise.
    */
   default boolean isOfConcreteType(final String concreteType) {
     return getClass().getSimpleName().equals(concreteType);
@@ -35,7 +35,8 @@ public interface TypeRequestable {
 
   /**
    * @param type
-   * @return true if the current {@link TypeRequestable} is of the given type.
+   * @return true if the current {@link TypeRequestable} is of the given type,
+   *         false otherwise.
    */
   default boolean isOfType(final Class<?> type) {
     return type.isAssignableFrom(getClass());
@@ -43,7 +44,8 @@ public interface TypeRequestable {
 
   /**
    * @param type
-   * @return true if the current {@link TypeRequestable} is of the given type.
+   * @return true if the current {@link TypeRequestable} is of the given type,
+   *         false otherwise.
    */
   default boolean isOfType(final String type) {
     //Iterates the classes of this type requestable object.

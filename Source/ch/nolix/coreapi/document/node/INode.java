@@ -32,26 +32,28 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
   INode<?> asWithHeader(String header);
 
   /**
-   * @return true if the current {@link INode} contains child {@link INode}s.
+   * @return true if the current {@link INode} contains child {@link INode}s,
+   *         false otherwise.
    */
   boolean containsChildNodes();
 
   /**
    * @param selector
    * @return true if the current {@link INode} contains a child {@link INode} the
-   *         given selector selects.
+   *         given selector selects, false otherwise.
    */
   boolean containsChildNodeThat(Predicate<INode<?>> selector);
 
   /**
    * @param header
    * @return true if the current {@link INode} contains a child {@link INode} with
-   *         the given header.
+   *         the given header, false otherwise.
    */
   boolean containsChildNodeWithHeader(String header);
 
   /**
-   * @return true if the current {@link INode} contains 1 child {@link INode}.
+   * @return true if the current {@link INode} contains 1 child {@link INode},
+   *         false otherwise.
    */
   boolean containsOneChildNode();
 

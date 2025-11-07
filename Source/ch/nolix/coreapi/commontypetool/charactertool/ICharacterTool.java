@@ -9,13 +9,13 @@ package ch.nolix.coreapi.commontypetool.charactertool;
 public interface ICharacterTool {
   /**
    * @param character
-   * @return true if the given character is a digit.
+   * @return true if the given character is a digit, false otherwise.
    */
   boolean isDigit(char character);
 
   /**
    * @param character
-   * @return true if the given character is a hexadecimal digit.
+   * @return true if the given character is a hexadecimal digit, false otherwise.
    */
   boolean isHexadecimalDigit(char character);
 }

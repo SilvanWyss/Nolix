@@ -14,7 +14,7 @@ public interface IRespondingMutableElement<E extends IRespondingMutableElement<E
    * 
    * @param attribute
    * @return true if the given attribute was added or changed to the current
-   *         {@link IRespondingMutableElement}.
+   *         {@link IRespondingMutableElement}, false otherwise.
    */
   boolean addedOrChangedAttribute(INode<?> attribute);
 }

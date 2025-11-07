@@ -8,7 +8,7 @@ package ch.nolix.coreapi.state.staterequest;
  */
 public interface BlanknessRequestable {
   /**
-   * @return true if {@link BlanknessRequestable} is blank.
+   * @return true if {@link BlanknessRequestable} is blank, false otherwise.
    */
   boolean isBlank();
 }

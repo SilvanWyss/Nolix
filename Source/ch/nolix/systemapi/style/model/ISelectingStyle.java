@@ -13,20 +13,22 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IAbstractStyle<S> {
   /**
    * @return true if the current {@link ISelectingStyle} would select the child
-   *         elements of a given {@link IStylableElement} to style.
+   *         elements of a given {@link IStylableElement} to style, false
+   *         otherwise.
    */
   boolean selectsChildElements();
 
   /**
    * @param element
    * @return true if the current {@link ISelectingStyle} would select the given
-   *         element to style.
+   *         element to style, false otherwise.
    */
   boolean selectsElement(IStylableElement<?> element);
 
   /**
    * @return true if the current {@link ISelectingStyle} would not (!) select the
-   *         child elements of a given {@link IStylableElement} to style.
+   *         child elements of a given {@link IStylableElement} to style, false
+   *         otherwise.
    */
   default boolean skipsChildElements() {
     return !selectsChildElements();
@@ -35,7 +37,7 @@ public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IAbstract
   /**
    * @param element
    * @return true if the current {@link ISelectingStyle} would not (!) select the
-   *         given element to style.
+   *         given element to style, false otherwise.
    */
   default boolean skipsElement(final IStylableElement<?> element) {
     return !selectsElement(element);

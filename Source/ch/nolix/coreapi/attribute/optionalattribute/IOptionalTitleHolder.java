@@ -24,7 +24,8 @@ public interface IOptionalTitleHolder {
   }
 
   /**
-   * @return true if the current {@link IOptionalTitleHolder} has a title.
+   * @return true if the current {@link IOptionalTitleHolder} has a title, false
+   *         otherwise.
    */
   boolean hasTitle();
 }

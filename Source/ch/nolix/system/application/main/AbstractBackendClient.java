@@ -214,7 +214,7 @@ implements IBackendClient<S> {
 
   /**
    * @return true if the current {@link AbstractBackendClient} references its
-   *         parent {@link Application}.
+   *         parent {@link Application}, false otherwise.
    */
   private boolean referencesParentApplication() {
     return (parentApplication != null);

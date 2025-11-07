@@ -16,7 +16,8 @@ public interface IOptionalValueHolder<V> {
   V getValue();
 
   /**
-   * @return true if the current {@link IOptionalValueHolder} has a value.
+   * @return true if the current {@link IOptionalValueHolder} has a value, false
+   *         otherwise.
    */
   boolean hasValue();
 }

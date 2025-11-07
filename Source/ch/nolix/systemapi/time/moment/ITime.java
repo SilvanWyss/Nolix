@@ -81,7 +81,7 @@ public interface ITime extends IElement {
   boolean isBefore(ITime time);
 
   /**
-   * @return true if the current {@link ITime} is in a leap year.
+   * @return true if the current {@link ITime} is in a leap year, false otherwise.
    */
   boolean isInLeapYear();
 

@@ -19,10 +19,12 @@ public interface IOptionalTokenHolder {
 
   /**
    * @param token
-   * @return true if the current {@link IOptionalTokenHolder} has the given token.
+   * @return true if the current {@link IOptionalTokenHolder} has the given token,
+   *         false otherwise.
    */
   default boolean hasToken(String token) {
-    return hasToken()
+    return //
+    hasToken()
     && getToken().equals(token);
   }
 }

@@ -119,7 +119,8 @@ public interface StoringRequestable<E> {
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} does not contain an
-   *         element the given selector selects. Ignores null elements.
+   *         element the given selector selects, false otherwise. Ignores null
+   *         elements.
    * @throws RuntimeException if the given selector is null.
    */
   boolean containsNone(Predicate<E> selector);
@@ -136,7 +137,7 @@ public interface StoringRequestable<E> {
   /**
    * @param objects
    * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects.
+   *         of the given objects, false otherwise.
    * @throws RuntimeException if the given objects is null.
    */
   boolean containsNoneOf(Iterable<?> objects);
@@ -173,8 +174,8 @@ public interface StoringRequestable<E> {
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} contains only elements
-   *         the given selector selects. Null element are regarded as
-   *         unselectable.
+   *         the given selector selects, false otherwise.. Null element are
+   *         regarded as unselectable.
    * @throws RuntimeException if the given selector is null.
    */
   boolean containsOnly(Predicate<E> selector);

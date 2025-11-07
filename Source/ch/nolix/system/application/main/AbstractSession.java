@@ -27,7 +27,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
 
   /**
    * @return true if the current {@link AbstractSession} belongs to a
-   *         {@link AbstractClient}.
+   *         {@link AbstractClient}, false otherwise.
    */
   @Override
   public final boolean belongsToClient() {

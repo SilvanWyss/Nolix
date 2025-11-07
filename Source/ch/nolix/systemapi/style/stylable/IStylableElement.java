@@ -30,7 +30,8 @@ TypeRequestable {
 
   /**
    * @param role
-   * @return true if the current {@link IStylableElement} has the given role.
+   * @return true if the current {@link IStylableElement} has the given role,
+   *         false otherwise.
    */
   boolean hasRole(String role);
 

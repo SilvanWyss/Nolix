@@ -20,7 +20,8 @@ import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
  */
 public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolder {
   /**
-   * @return true if the current {@link IChainedNode} contains child nodes.
+   * @return true if the current {@link IChainedNode} contains child nodes, false
+   *         otherwise.
    */
   boolean containsChildNodes();
 
@@ -112,7 +113,8 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
   String getSingleChildNodeAsString();
 
   /**
-   * @return true if the current {@link IChainedNode} has a next node.
+   * @return true if the current {@link IChainedNode} has a next node, false
+   *         otherwise.
    */
   boolean hasNextNode();
 

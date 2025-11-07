@@ -11,7 +11,8 @@ public final class IterableExaminer implements IIterableExaminer {
    * @param iterable
    * @param element
    * @return true if the given iterable contains the given element multiple times,
-   *         false otherwise, for the case that the given iterable is not null.
+   *         false otherwise, for the case that the given iterable is not null,
+   *         false otherwise.
    */
   private static boolean containsElementMultipleTimesWhenIsNotNull(final Iterable<?> iterable, final Object element) {
     var found = false;

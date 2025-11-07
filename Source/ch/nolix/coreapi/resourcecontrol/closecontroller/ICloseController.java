@@ -28,7 +28,8 @@ public interface ICloseController {
   IClosePool getParentClosePool();
 
   /**
-   * @return true if the current {@link ICloseController} has closed its elements.
+   * @return true if the current {@link ICloseController} has closed its elements,
+   *         false otherwise.
    */
   boolean hasClosed();
 

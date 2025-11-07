@@ -19,7 +19,8 @@ public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElem
   void applyStyleIfHasStyle();
 
   /**
-   * @return true if the current {@link IStyleElement} has a {@link IStyle}.
+   * @return true if the current {@link IStyleElement} has a {@link IStyle}, false
+   *         otherwise.
    */
   boolean hasStyle();
 

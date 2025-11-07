@@ -605,14 +605,15 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   /**
    * @param matrix
    * @return true if the current {@link Matrix} has the same size as the given
-   *         matrix
+   *         matrix, false otherwise.
    */
   public boolean hasSameSize(Matrix matrix) {
     return (getRowCount() == matrix.getRowCount() && getColumnCount() == matrix.getColumnCount());
   }
 
   /**
-   * @return true if the current {@link Matrix} is an identity matrix
+   * @return true if the current {@link Matrix} is an identity matrix, false
+   *         otherwise.
    */
   public boolean isIdentityMatrix() {
     if (!isQuadratic()) {
@@ -631,14 +632,15 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
-   * @return true if the current {@link Matrix} is a quadratic matrix
+   * @return true if the current {@link Matrix} is a quadratic matrix, false
+   *         otherwise.
    */
   public boolean isQuadratic() {
     return (getRowCount() == getColumnCount());
   }
 
   /**
-   * @return true if the current {@link Matrix} is regular
+   * @return true if the current {@link Matrix} is regular, false otherwise.
    */
   public boolean isRegular() {
     return (isQuadratic() && getRank() == getRowCount());
@@ -1078,7 +1080,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   /**
    * @param lineIndex
    * @return true if the line with the given index of the current {@link Matrix}
-   *         allows to the current {@link Matrix} to be a identity {@link Matrix}.
+   *         allows to the current {@link Matrix} to be a identity {@link Matrix},
+   *         false otherwise.
    */
   private boolean canBeLineInIdentityMatrix(final int lineIndex) {
     final var columnCount = getColumnCount();
@@ -1098,7 +1101,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @param matrix
-   * @return true if the current {@link Matrix} equals the given matrix.
+   * @return true if the current {@link Matrix} equals the given matrix, false
+   *         otherwise.
    */
   private boolean equalsMatrix(Matrix matrix) {
     if (!hasSameSize(matrix)) {

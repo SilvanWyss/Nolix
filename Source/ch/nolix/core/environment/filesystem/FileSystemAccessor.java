@@ -246,7 +246,8 @@ public final class FileSystemAccessor {
 
   /**
    * @param path
-   * @return true if there exists a file system item with given path.
+   * @return true if there exists a file system item with given path, false
+   *         otherwise.
    */
   public static boolean exists(final String path) {
     return new File(path).exists();
@@ -306,7 +307,7 @@ public final class FileSystemAccessor {
 
   /**
    * @param path
-   * @return true if there exists a file with the given path.
+   * @return true if there exists a file with the given path, false otherwise.
    */
   public static boolean isFile(final String path) {
     return new File(path).isFile();
@@ -314,7 +315,7 @@ public final class FileSystemAccessor {
 
   /**
    * @param path
-   * @return true if there exists a folder with the given path.
+   * @return true if there exists a folder with the given path, false otherwise.
    */
   public static boolean isFolder(final String path) {
     return new File(path).isDirectory();

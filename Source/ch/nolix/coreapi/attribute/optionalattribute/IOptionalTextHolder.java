@@ -15,7 +15,8 @@ public interface IOptionalTextHolder {
   String getText();
 
   /**
-   * @return true if the current {@link IOptionalTextHolder} has a text.
+   * @return true if the current {@link IOptionalTextHolder} has a text, false
+   *         otherwise.
    */
   boolean hasText();
 }

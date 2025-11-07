@@ -33,7 +33,7 @@ final class LinkedListNode<E> {
   /**
    * @param selector
    * @return true if the current {@link LinkedListNode} contains an element the
-   *         given selector selects.
+   *         given selector selects, false otherwise.
    */
   public boolean contains(final Predicate<E> selector) {
     return selector.test(getElement());
@@ -42,7 +42,7 @@ final class LinkedListNode<E> {
   /**
    * @param element
    * @return true if the current {@link LinkedListNode} contains the given
-   *         element.
+   *         element, false otherwise.
    */
   public boolean contains(final Object element) {
     return (getElement() == element);
@@ -71,7 +71,8 @@ final class LinkedListNode<E> {
   }
 
   /**
-   * @return true if the current {@link LinkedListNode} has a next node.
+   * @return true if the current {@link LinkedListNode} has a next node, false
+   *         otherwise.
    */
   public boolean hasNextNode() {
     return (nextNode != null);

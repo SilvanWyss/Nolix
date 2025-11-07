@@ -44,7 +44,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
   /**
    * @param relativePath
    * @return true if the folder of the current {@link FolderAccessor} contains an
-   *         item with the given relative path.
+   *         item with the given relative path, false otherwise.
    */
   public boolean containsItem(final String relativePath) {
     return FileSystemAccessor.exists(getPath() + "/" + relativePath);

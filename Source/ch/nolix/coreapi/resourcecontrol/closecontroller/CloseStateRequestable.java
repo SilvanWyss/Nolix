@@ -8,12 +8,14 @@ package ch.nolix.coreapi.resourcecontrol.closecontroller;
  */
 public interface CloseStateRequestable {
   /**
-   * @return true if the current {@link CloseStateRequestable} is closed.
+   * @return true if the current {@link CloseStateRequestable} is closed, false
+   *         otherwise.
    */
   boolean isClosed();
 
   /**
-   * @return true if the current {@link CloseStateRequestable} is not closed.
+   * @return true if the current {@link CloseStateRequestable} is not closed,
+   *         false otherwise.
    */
   default boolean isOpen() {
     return !isClosed();

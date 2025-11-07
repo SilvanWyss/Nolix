@@ -16,7 +16,7 @@ public interface IOptionalSaveStampHolder {
 
   /**
    * @return true if the current {@link IOptionalSaveStampHolder} has a save
-   *         stamp.
+   *         stamp, false otherwise.
    */
   boolean hasSaveStamp();
 }

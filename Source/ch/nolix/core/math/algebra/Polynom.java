@@ -197,7 +197,7 @@ public final class Polynom {
   /**
    * @param polynom
    * @return true if the current {@link Polynom} has the same degree as the given
-   *         polynom.
+   *         polynom, false otherwise.
    */
   public boolean hasSameDegreeAs(final Polynom polynom) {
     return (polynom != null && getDegree() == polynom.getDegree());
@@ -206,7 +206,8 @@ public final class Polynom {
   /**
    * A {@link Polynom} is a zero {@link Polynom} if all its coefficients are 0.0.
    * 
-   * @return true if the current {@link Polynom} is a zero {@link Polynom}.
+   * @return true if the current {@link Polynom} is a zero {@link Polynom}, false
+   *         otherwise.
    */
   public boolean isZeroPolynom() {
     return (coefficients.length == 0);

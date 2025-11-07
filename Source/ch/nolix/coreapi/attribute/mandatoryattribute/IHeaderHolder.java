@@ -21,7 +21,8 @@ public interface IHeaderHolder {
 
   /**
    * @param header
-   * @return true if the current {@link IHeaderHolder} has the given header.
+   * @return true if the current {@link IHeaderHolder} has the given header, false
+   *         otherwise.
    */
   default boolean hasHeader(final String header) {
     return getHeader().equals(header);
@@ -30,7 +31,7 @@ public interface IHeaderHolder {
   /**
    * @param object
    * @return true if the current {@link IHeaderHolder} has the same header as the
-   *         given object.
+   *         given object, false otherwise.
    */
   default boolean hasSameHeaderAs(final IHeaderHolder object) {
     //Handles the case that the given object is null.

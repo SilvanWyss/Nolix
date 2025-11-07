@@ -21,7 +21,8 @@ public interface IIdHolder {
 
   /**
    * @param id
-   * @return true if the current {@link IIdHolder} has the given id.
+   * @return true if the current {@link IIdHolder} has the given id, false
+   *         otherwise.
    */
   default boolean hasId(final String id) {
     return getId().equals(id);

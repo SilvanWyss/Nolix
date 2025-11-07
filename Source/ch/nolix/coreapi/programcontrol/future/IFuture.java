@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programcontrol.process.FinishRequestable;
  */
 public interface IFuture extends FinishRequestable {
   /**
-   * @return true if the current {@link IFuture} caught an error.
+   * @return true if the current {@link IFuture} caught an error, false otherwise.
    */
   boolean caughtError();
 
@@ -22,12 +22,14 @@ public interface IFuture extends FinishRequestable {
   Throwable getError();
 
   /**
-   * @return true if the current {@link IFuture} is finished successfully.
+   * @return true if the current {@link IFuture} is finished successfully, false
+   *         otherwise.
    */
   boolean isFinishedSuccessfully();
 
   /**
-   * @return true if the current {@link IFuture} is finished with an error.
+   * @return true if the current {@link IFuture} is finished with an error, false
+   *         otherwise.
    */
   boolean isFinishedWithError();
 

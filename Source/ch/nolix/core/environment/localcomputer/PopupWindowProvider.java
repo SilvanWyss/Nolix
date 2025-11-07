@@ -99,7 +99,7 @@ public final class PopupWindowProvider {
    * Shows a request window with the given question.
    * 
    * @param question
-   * @return true if the yes-button was selected.
+   * @return true if the yes-button was selected, false otherwise.
    */
   public static boolean showRequestWindow(final String question) {
     final var result = JOptionPane.showConfirmDialog(

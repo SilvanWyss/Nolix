@@ -35,7 +35,7 @@ public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
 
   /**
    * @return true if the current {@link IOptionalQualifiedNameHolder} has a
-   *         qualifiedName.
+   *         qualifiedName, false otherwise.
    */
   default boolean hasQualifiedName() {
     return hasName();

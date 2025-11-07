@@ -76,7 +76,8 @@ public class FileSystemItemAccessorUnit {
   /**
    * @param extension
    * @return true if the file system item of the current
-   *         {@link FileSystemItemAccessorUnit} has the given extension.
+   *         {@link FileSystemItemAccessorUnit} has the given extension, false
+   *         otherwise.
    */
   public final boolean hasExtension(final String extension) {
     return getExtension().equals(extension);
@@ -92,7 +93,7 @@ public class FileSystemItemAccessorUnit {
 
   /**
    * @return true if the file system item is a file in the file system on the
-   *         local machine.
+   *         local machine, false otherwise.
    */
   public final boolean isFile() {
     return getInternalAccessor().isFile();
@@ -100,7 +101,7 @@ public class FileSystemItemAccessorUnit {
 
   /**
    * @return true if this path is a folder in the file system on the local
-   *         machine.
+   *         machine, false otherwise.
    */
   public final boolean isFolder() {
     return getInternalAccessor().isDirectory();

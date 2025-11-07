@@ -244,7 +244,8 @@ final class JobExecutor extends Thread {
   }
 
   /**
-   * @return true if the current {@link JobExecutor} has caught an error.
+   * @return true if the current {@link JobExecutor} has caught an error, false
+   *         otherwise.
    */
   public boolean caughtError() {
     return (error != null);
@@ -274,42 +275,46 @@ final class JobExecutor extends Thread {
   }
 
   /**
-   * @return true if the current {@link JobExecutor} has a condition.
+   * @return true if the current {@link JobExecutor} has a condition, false
+   *         otherwise.
    */
   public boolean hasCondition() {
     return (condition != null);
   }
 
   /**
-   * @return true if the current {@link JobExecutor} has a max run count.
+   * @return true if the current {@link JobExecutor} has a max run count, false
+   *         otherwise.
    */
   public boolean hasMaxRunCount() {
     return (maxRunCount != null);
   }
 
   /**
-   * @return true if the current {@link JobExecutor} has a time interval.
+   * @return true if the current {@link JobExecutor} has a time interval, false
+   *         otherwise.
    */
   public boolean hasTimeInterval() {
     return (timeIntervalInMilliseconds != null);
   }
 
   /**
-   * @return true if the current {@link JobExecutor} is finished.
+   * @return true if the current {@link JobExecutor} is finished, false otherwise.
    */
   public boolean isFinished() {
     return !isRunning();
   }
 
   /**
-   * @return true if the current {@link JobExecutor} is finished successfully.
+   * @return true if the current {@link JobExecutor} is finished successfully,
+   *         false otherwise.
    */
   public boolean isFinishedSuccessfully() {
     return (isFinished() && !caughtError());
   }
 
   /**
-   * @return true if the current {@link JobExecutor} is running.
+   * @return true if the current {@link JobExecutor} is running, false otherwise.
    */
   public boolean isRunning() {
     return running;
@@ -332,7 +337,7 @@ final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a max run count and has
-   *         reached it.
+   *         reached it, false otherwise.
    */
   private boolean reachedProbableMaxRunCount() {
     return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
@@ -365,7 +370,7 @@ final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} has a condition and violates
-   *         it.
+   *         it, false otherwise.
    */
   private boolean violatesProbableCondition() {
     return (hasCondition() && !condition.getAsBoolean());

@@ -8,12 +8,14 @@ package ch.nolix.coreapi.state.staterequest;
  */
 public interface AlivenessRequestable {
   /**
-   * @return true if the current {@link AlivenessRequestable} is alive.
+   * @return true if the current {@link AlivenessRequestable} is alive, false
+   *         otherwise.
    */
   boolean isAlive();
 
   /**
-   * @return true if the current {@link AlivenessRequestable} is outdated.
+   * @return true if the current {@link AlivenessRequestable} is outdated, false
+   *         otherwise.
    */
   default boolean isOutdated() {
     return !isAlive();

@@ -8,14 +8,16 @@ package ch.nolix.coreapi.state.staterequest;
  */
 public interface ExpansionRequestable {
   /**
-   * @return true if the current {@link ExpansionRequestable} is collapsed.
+   * @return true if the current {@link ExpansionRequestable} is collapsed, false
+   *         otherwise.
    */
   default boolean isCollapsed() {
     return !isExpanded();
   }
 
   /**
-   * @return true if the current {@link ExpansionRequestable} is expanded.
+   * @return true if the current {@link ExpansionRequestable} is expanded, false
+   *         otherwise.
    */
   boolean isExpanded();
 }

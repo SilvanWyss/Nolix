@@ -24,7 +24,8 @@ public interface IOptionalLabelHolder {
   }
 
   /**
-   * @return true if the current {@link IOptionalLabelHolder} has a label.
+   * @return true if the current {@link IOptionalLabelHolder} has a label, false
+   *         otherwise.
    */
   boolean hasLabel();
 }

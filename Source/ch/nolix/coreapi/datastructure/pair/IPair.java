@@ -22,14 +22,14 @@ public interface IPair<E1, E2> {
   /**
    * @param object
    * @return true if the element1 of the current {@link IPair} is the given
-   *         object.
+   *         object, false otherwise.
    */
   boolean hasElement1(Object object);
 
   /**
    * @param object
    * @return true if the element2 of the current {@link IPair} is the given
-   *         object.
+   *         object, false otherwise.
    */
   boolean hasElement2(Object object);
 }

@@ -108,14 +108,16 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   }
 
   /**
-   * @return true if the current {@link AfterEveryMediator} has a condition.
+   * @return true if the current {@link AfterEveryMediator} has a condition, false
+   *         otherwise.
    */
   private boolean hasCondition() {
     return (condition != null);
   }
 
   /**
-   * @return true if the current {@link AfterEveryMediator} has a max run count.
+   * @return true if the current {@link AfterEveryMediator} has a max run count,
+   *         false otherwise.
    */
   private boolean hasMaxRunCount() {
     return (maxRunCount != null);

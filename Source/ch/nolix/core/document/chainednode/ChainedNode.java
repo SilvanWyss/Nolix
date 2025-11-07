@@ -511,7 +511,7 @@ implements IChainedNode {
   }
 
   /**
-   * @return true if the current {@link ChainedNode} has a next node.
+   * {@inheritDoc}
    */
   @Override
   public boolean hasNextNode() {
@@ -519,8 +519,7 @@ implements IChainedNode {
   }
 
   /**
-   * @return true if the current {@link ChainedNode} does not have a header and
-   *         does not contains attributes.
+   * {@inheritDoc}
    */
   @Override
   public boolean isBlank() {
@@ -529,9 +528,7 @@ implements IChainedNode {
   }
 
   /**
-   * @return a {@link Double} representation of the current {@link ChainedNode}.
-   * @throws UnrepresentingArgumentException if the current {@link ChainedNode}
-   *                                         does not represent a {@link Double}.
+   * {@inheritDoc}
    */
   @Override
   public double toDouble() {
@@ -560,13 +557,7 @@ implements IChainedNode {
   }
 
   /**
-   * A {@link ChainedNode} represents a {@link Node} if: -The {@link ChainedNode}
-   * does not have a next node. -Each attribute of the {@link ChainedNode}
-   * represents a {@link Node}.
-   * 
-   * @return a {@link Node} representation of the current {@link ChainedNode}.
-   * @throws UnrepresentingArgumentException if the current {@link ChainedNode}
-   *                                         does not represent a {@link Node}.
+   * {@inheritDoc}
    */
   @Override
   public Node toNode() {

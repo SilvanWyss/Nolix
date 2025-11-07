@@ -36,14 +36,15 @@ public final class JobPool {
   }
 
   /**
-   * @return true if the current {@link JobPool} contains waiting jobs.
+   * @return true if the current {@link JobPool} contains waiting jobs, false
+   *         otherwise.
    */
   public boolean containsWaitingJobs() {
     return jobWrappers.containsAny(JobWrapper::isFresh);
   }
 
   /**
-   * @return true if the current {@link JobPool} is idle.
+   * @return true if the current {@link JobPool} is idle, false otherwise.
    */
   public boolean isIdle() {
     return jobWrappers.containsAny();

@@ -70,22 +70,26 @@ public interface IColor extends IElement {
   int getRedValue();
 
   /**
-   * @return true if the current {@link IColor} has a full alpha value.
+   * @return true if the current {@link IColor} has a full alpha value, false
+   *         otherwise.
    */
   boolean hasFullAlphaValue();
 
   /**
-   * @return true if the current {@link IColor} has a full blue value.
+   * @return true if the current {@link IColor} has a full blue value, false
+   *         otherwise.
    */
   boolean hasFullBlueValue();
 
   /**
-   * @return true if the current {@link IColor} has a full green value.
+   * @return true if the current {@link IColor} has a full green value, false
+   *         otherwise.
    */
   boolean hasFullGreenValue();
 
   /**
-   * @return true if the current {@link IColor} has a full red value.
+   * @return true if the current {@link IColor} has a full red value, false
+   *         otherwise.
    */
   boolean hasFullRedValue();
 

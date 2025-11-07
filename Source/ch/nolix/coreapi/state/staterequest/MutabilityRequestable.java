@@ -8,14 +8,16 @@ package ch.nolix.coreapi.state.staterequest;
  */
 public interface MutabilityRequestable {
   /**
-   * @return true if the current {@link MutabilityRequestable} is not mutable.
+   * @return true if the current {@link MutabilityRequestable} is not mutable,
+   *         false otherwise.
    */
   default boolean isImmutable() {
     return !isMutable();
   }
 
   /**
-   * @return true if the current {@link MutabilityRequestable} is mutable.
+   * @return true if the current {@link MutabilityRequestable} is mutable, false
+   *         otherwise.
    */
   boolean isMutable();
 }

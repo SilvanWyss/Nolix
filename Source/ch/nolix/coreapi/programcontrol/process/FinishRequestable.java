@@ -8,12 +8,14 @@ package ch.nolix.coreapi.programcontrol.process;
  */
 public interface FinishRequestable {
   /**
-   * @return true if the current {@link FinishRequestable} is finished.
+   * @return true if the current {@link FinishRequestable} is finished, false
+   *         otherwise.
    */
   boolean isFinished();
 
   /**
-   * @return true if the current {@link FinishRequestable} is still running.
+   * @return true if the current {@link FinishRequestable} is still running, false
+   *         otherwise.
    */
   default boolean isRunning() {
     return !isFinished();

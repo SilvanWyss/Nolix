@@ -8,14 +8,16 @@ package ch.nolix.coreapi.state.staterequest;
  */
 public interface TransparencyRequestable {
   /**
-   * @return true if the current {@link TransparencyRequestable} is opaque.
+   * @return true if the current {@link TransparencyRequestable} is opaque, false
+   *         otherwise.
    */
   default boolean isOpaque() {
     return !isTransparent();
   }
 
   /**
-   * @return true if the current {@link TransparencyRequestable} is transparent.
+   * @return true if the current {@link TransparencyRequestable} is transparent,
+   *         false otherwise.
    */
   boolean isTransparent();
 }

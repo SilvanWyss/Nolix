@@ -164,7 +164,8 @@ public class ThrownExceptionMediator {
   }
 
   /**
-   * @return true if the current {@link ThrownExceptionMediator} has an exception.
+   * @return true if the current {@link ThrownExceptionMediator} has an exception,
+   *         false otherwise.
    */
   final boolean hasException() {
     return (exception != null);

@@ -13,7 +13,7 @@ public interface IStringExaminer {
 
   /**
    * @param string
-   * @return true if the given string is in pascal case.
+   * @return true if the given string is in pascal case, false otherwise.
    */
   boolean isPascalCase(String string);
 

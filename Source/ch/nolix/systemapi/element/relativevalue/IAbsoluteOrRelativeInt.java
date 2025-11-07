@@ -31,17 +31,20 @@ public interface IAbsoluteOrRelativeInt extends IElement {
   int getValueRelativeToHundredPercentValue(int hundredPercentValue);
 
   /**
-   * @return true if the current {@link IAbsoluteOrRelativeInt} is absolute.
+   * @return true if the current {@link IAbsoluteOrRelativeInt} is absolute, false
+   *         otherwise.
    */
   boolean isAbsolute();
 
   /**
-   * @return true if the current {@link IAbsoluteOrRelativeInt} is positive.
+   * @return true if the current {@link IAbsoluteOrRelativeInt} is positive, false
+   *         otherwise.
    */
   boolean isPositive();
 
   /**
-   * @return true if the current {@link IAbsoluteOrRelativeInt} is relative.
+   * @return true if the current {@link IAbsoluteOrRelativeInt} is relative, false
+   *         otherwise.
    */
   boolean isRelative();
 }

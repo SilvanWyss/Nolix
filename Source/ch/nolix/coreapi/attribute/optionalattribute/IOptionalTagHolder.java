@@ -16,7 +16,7 @@ public interface IOptionalTagHolder {
 
   /**
    * @return true if the current {@link IOptionalTagHolder} has a tag, false
-   *         otherwise.
+   *         otherwise, false otherwise.
    */
   boolean hasTag();
 }

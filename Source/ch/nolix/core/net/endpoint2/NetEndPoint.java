@@ -144,7 +144,8 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return true if the current {@link NetEndPoint} is a net end point.
+   * @return true if the current {@link NetEndPoint} is a net end point, false
+   *         otherwise.
    */
   public boolean isNetEndPoint() {
     return internalEndPoint.isSocketEndPoint();
@@ -237,7 +238,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @param index
    * @return true if the current {@link NetEndPoint} has received a package with
-   *         the given index.
+   *         the given index, false otherwise.
    */
   private boolean receivedPackage(final int index) {
     return getStoredReceivedPackages().containsAny(rp -> rp.hasIndex(index));

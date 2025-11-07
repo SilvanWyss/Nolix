@@ -218,7 +218,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
   /**
    * @return true if the {@link AbstractProperty}s of the current
-   *         {@link AbstractMutableElement} are extracted.
+   *         {@link AbstractMutableElement} are extracted, false otherwise.
    */
   private boolean hasExtractedProperties() {
     return (properties != null);
@@ -227,7 +227,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
   /**
    * @param element
    * @return true if the current {@link AbstractMutableElement} has the same
-   *         specification as the given element.
+   *         specification as the given element, false otherwise.
    */
   private boolean hasSameSpecificationAs(final IElement element) {
     return getSpecification().equals(element.getSpecification());

@@ -8,13 +8,14 @@ package ch.nolix.coreapi.resourcecontrol.savecontrol;
  */
 public interface ChangeRequestable {
   /**
-   * @return true if the current {@link ChangeRequestable} has uncomitted changes.
+   * @return true if the current {@link ChangeRequestable} has uncomitted changes,
+   *         false otherwise.
    */
   boolean hasChanges();
 
   /**
    * @return true if the current {@link ChangeRequestable} does not have
-   *         uncommitted changes.
+   *         uncommitted changes, false otherwise.
    */
   default boolean isChangeFree() {
     return !hasChanges();
