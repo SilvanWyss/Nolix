@@ -303,10 +303,12 @@ implements IOptionalReference<E> {
 
   private void updateProbableBackReferencingFieldForClearWhenIsNotEmpty() {
     final var backReferencingField = OPTIONAL_REFERENCE_TOOL.getOptionalStoredBaseBackReference(this);
+    final var backReferencedEntityId = getStoredParentEntity().getId();
 
     if (backReferencingField.isPresent()) {
       BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(
-        backReferencingField.get());
+        backReferencingField.get(),
+        backReferencedEntityId);
     }
   }
 

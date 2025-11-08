@@ -296,8 +296,10 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   private void updateProbableBackReferencingFieldForClear() {
+    final var backReferencedEntityId = getStoredParentEntity().getId();
+
     for (final var b : getStoredBaseBackReferencesWhoReferencesBackThis()) {
-      BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(b);
+      BaseBackReferenceUpdater.updateBaseBackReferenceForClearBaseReference(b, backReferencedEntityId);
     }
   }
 

@@ -12,25 +12,18 @@ public final class BaseBackReferenceUpdater {
   private BaseBackReferenceUpdater() {
   }
 
-  public static void updateBaseBackReferenceForClearBaseReference(final IBaseBackReference baseBackReferene) {
-    switch (baseBackReferene.getType()) {
-      case BACK_REFERENCE:
-        final var backReference = (BackReference<?>) baseBackReferene;
+  public static void updateBaseBackReferenceForClearBaseReference(
+    final IBaseBackReference baseBackReference,
+    final String backReferencedEntityId) {
+    switch (baseBackReference) {
+      case BackReference<? extends IEntity> backReference ->
         backReference.clear();
-        break;
-      case OPTIONAL_BACK_REFERENCE:
-        final var optionalBackReference = (OptionalBackReference<?>) baseBackReferene;
+      case OptionalBackReference<? extends IEntity> optionalBackReference ->
         optionalBackReference.clear();
-        break;
-      case MULTI_BACK_REFERENCE:
-        /*
-         * Does nothing. MultiBackReferences do not need to be updated, because
-         * MultiBackReferences do not have redundancies.
-         */
-        break;
-      default:
-        throw InvalidArgumentException.forArgumentAndArgumentName(baseBackReferene, "back referencing field");
-      //Does nothing.
+      case MultiBackReference<? extends IEntity> multiBackReference ->
+        multiBackReference.deleteEntryByBackReferencedEntityId(backReferencedEntityId);
+      default ->
+        throw InvalidArgumentException.forArgument(baseBackReference);
     }
   }
 
