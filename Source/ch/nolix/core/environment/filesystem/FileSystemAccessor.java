@@ -261,8 +261,9 @@ public final class FileSystemAccessor {
    *         path.
    */
   public static IContainer<FileAccessor> getFileAccessors(final String path) {
-    return ContainerView.forArray(new File(path).listFiles())
-      .getStoredSelected(File::isFile)
+    return //
+    ContainerView.forArray(new File(path).listFiles())
+      .getViewOfStoredSelected(File::isFile)
       .to(f -> new FileAccessor(f.getAbsolutePath()));
   }
 

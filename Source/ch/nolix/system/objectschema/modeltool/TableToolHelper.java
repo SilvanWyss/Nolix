@@ -12,7 +12,8 @@ public final class TableToolHelper {
     final ITable table) {
     final var columns = table.getStoredParentDatabase().getStoredTables().toMultiples(ITable::getStoredColumns);
 
-    return table
+    return //
+    table
       .getStoredColumns()
       .getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
@@ -25,7 +26,8 @@ public final class TableToolHelper {
   }
 
   public static IContainer<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
-    return table
+    return //
+    table
       .getStoredParentDatabase()
       .getStoredTables()
       .toMultiples(ITable::getStoredColumns)

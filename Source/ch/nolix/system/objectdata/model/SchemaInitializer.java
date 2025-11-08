@@ -59,11 +59,12 @@ public final class SchemaInitializer {
     final Class<? extends IEntity> entityType) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
-    final var baseValues = entity
+    final var baseValuesView = //
+    entity
       .internalGetStoredFields()
-      .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD);
+      .getViewOfStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD);
 
-    for (final var v : baseValues) {
+    for (final var v : baseValuesView) {
       final var column = COLUMN_MAPPER.mapFieldToColumn(v, ImmutableList.createEmpty());
 
       table.addColumn(column);
@@ -86,11 +87,12 @@ public final class SchemaInitializer {
     final IContainer<ITable> referencableTables) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
-    final var baseReferences = entity
+    final var baseReferencesView = //
+    entity
       .internalGetStoredFields()
-      .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_REFERENCE);
+      .getViewOfStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_REFERENCE);
 
-    for (final var r : baseReferences) {
+    for (final var r : baseReferencesView) {
       final var column = COLUMN_MAPPER.mapFieldToColumn(r, referencableTables);
 
       table.addColumn(column);
@@ -113,12 +115,13 @@ public final class SchemaInitializer {
     final IContainer<ITable> referencableTables) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
-    final var baseBackReferences = entity
+    final var baseBackReferencesView = //
+    entity
       .internalGetStoredFields()
-      .getStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
+      .getViewOfStoredSelected(p -> p.getType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE);
 
-    for (final var r : baseBackReferences) {
-      final var column = COLUMN_MAPPER.mapFieldToColumn(r, referencableTables);
+    for (final var b : baseBackReferencesView) {
+      final var column = COLUMN_MAPPER.mapFieldToColumn(b, referencableTables);
 
       table.addColumn(column);
     }

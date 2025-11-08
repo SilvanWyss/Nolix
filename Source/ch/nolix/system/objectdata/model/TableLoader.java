@@ -36,9 +36,9 @@ public final class TableLoader {
   private static void addBaseValueColumnsToTableFromMidTable(
     final Table<IEntity> table,
     final TableDto midTable) {
-    final var midBaseValueColumns = midTable.columns().getStoredSelected(TableLoader::isBaseValue);
+    final var midBaseValueColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseValue);
 
-    for (final var c : midBaseValueColumns) {
+    for (final var c : midBaseValueColumnsView) {
       final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
         c,
         table,
@@ -63,9 +63,9 @@ public final class TableLoader {
     final Table<IEntity> table,
     final TableDto midTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    final var midBaseReferenceColumns = midTable.columns().getStoredSelected(TableLoader::isBaseReference);
+    final var midBaseReferenceColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseReference);
 
-    for (final var c : midBaseReferenceColumns) {
+    for (final var c : midBaseReferenceColumnsView) {
       final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
         c,
         table,
@@ -90,9 +90,9 @@ public final class TableLoader {
     final Table<IEntity> table,
     final TableDto midTable,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    final var midBaseValueColumns = midTable.columns().getStoredSelected(TableLoader::isBaseBackReference);
+    final var midBaseValueColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseBackReference);
 
-    for (final var c : midBaseValueColumns) {
+    for (final var c : midBaseValueColumnsView) {
       final var column = ColumnMapper.mapMidSchemaColumnDtoToColumn(
         c,
         table,

@@ -28,7 +28,7 @@ public final class TableSearcher extends DatabaseObjectExaminer implements ITabl
       return ImmutableList.createEmpty();
     }
 
-    return table.internalGetStoredEntitiesInLocalData().getStoredSelected(IEntity::isDeleted).to(IEntity::getId);
+    return table.internalGetStoredEntitiesInLocalData().getViewOfStoredSelected(IEntity::isDeleted).to(IEntity::getId);
   }
 
   /**

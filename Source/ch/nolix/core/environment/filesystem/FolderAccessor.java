@@ -111,8 +111,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    *         {@link FolderAccessor}, that have the given extension, recursively.
    */
   public IContainer<FileAccessor> getFileAccessorsRecursively(final String extension) {
-    return getFileAccessorsRecursively()
-      .getStoredSelected(fa -> fa.hasExtension(extension));
+    return getFileAccessorsRecursively().getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
   /**

@@ -83,8 +83,9 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   public IContainer<String> getAllReferencedEntityIds() {
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
-    return localEntries
-      .getStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
+    return //
+    localEntries
+      .getViewOfStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
       .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
@@ -92,8 +93,9 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   public IContainer<E> getAllStoredReferencedEntities() {
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
-    return localEntries
-      .getStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
+    return //
+    localEntries
+      .getViewOfStoredSelected(MULTI_REFERENCE_TOOL::isNewOrLoadedOrEdited)
       .to(IMultiReferenceEntry::getStoredReferencedEntity);
   }
 

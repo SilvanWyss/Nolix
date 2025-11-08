@@ -69,8 +69,9 @@ implements IMultiBackReference<E> {
   public IContainer<String> getAllBackReferencedEntityIds() {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
-    return localEntries
-      .getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
+    return //
+    localEntries
+      .getViewOfStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
       .to(IMultiBackReferenceEntry::getBackReferencedEntityId);
   }
 
@@ -78,8 +79,9 @@ implements IMultiBackReference<E> {
   public IContainer<E> getAllStoredBackReferencedEntities() {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
-    return localEntries
-      .getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
+    return //
+    localEntries
+      .getViewOfStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrLoadedOrEdited)
       .to(IMultiBackReferenceEntry::getStoredBackReferencedEntity);
   }
 

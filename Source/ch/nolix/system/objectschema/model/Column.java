@@ -267,8 +267,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     }
 
     if (belongsToTable()) {
-      return getStoredParentTable().getStoredColumns()
-        .getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
+      return //
+      getStoredParentTable().getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
     return LinkedList.createEmpty();

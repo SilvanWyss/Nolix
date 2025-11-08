@@ -31,7 +31,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   private final MultiValueExtractor<GridCell> cellExtractor = new MultiValueExtractor<>(
     CELL_HEADER,
     this::addCell,
-    () -> cells.getStoredSelected(GridCell::containsAny),
+    () -> cells.getViewOfStoredSelected(GridCell::containsAny),
     GridCell::fromSpecification,
     GridCell::getSpecification);
 
