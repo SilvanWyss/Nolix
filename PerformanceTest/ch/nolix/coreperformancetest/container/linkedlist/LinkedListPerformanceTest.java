@@ -47,6 +47,13 @@ final class LinkedListPerformanceTest extends PerformanceTest {
   }
 
   @Test
+  void testCase_getViewOfStoredSelected() {
+    expectOnAnObjectFrom(this::createLinkedList)
+      .running(l -> l.getViewOfStoredSelected(n -> n % 3 == 0))
+      .hasConstantOrLowerTimeComplexity();
+  }
+
+  @Test
   void testCase_removeFirst() {
     expectOnAnObjectFrom(this::createLinkedList).running(ILinkedList::removeFirst).hasConstantOrLowerTimeComplexity();
 
