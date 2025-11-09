@@ -7,8 +7,8 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * A {@link IBaseStyle} can style {@link IStylableElement}s. A
- * {@link IBaseStyle} can distinguish if it would style also the child
- * elements of a given {@link IStylableElement}.
+ * {@link IBaseStyle} can distinguish if it would style also the child elements
+ * of a given {@link IStylableElement}.
  * 
  * @author Silvan Wyss
  * @version 2023-07-09
@@ -39,16 +39,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   boolean hasAttachingAttributes();
 
   /**
-   * @param tag
-   * @param value
-   * @return a new {@link IStyle} from the current {@link IStyle} with an
-   *         attaching attribute added that has the given tag and value.
-   * @throws RuntimeException if the given tag is null.
-   * @throws RuntimeException if the given attachingAttribute is not valid.
-   */
-  S withAttachingAttribute(Enum<?> tag, String value);
-
-  /**
    * @param attachingAttribute
    * @param attachingAttributes
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
@@ -73,10 +63,9 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @param selectorType
    * @param newAttachingAttributes
-   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle}
-   *         where each of the given newAttachingAttributes was either added or
-   *         updated the according attachingAttributes where the given
-   *         selectorType is.
+   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
+   *         each of the given newAttachingAttributes was either added or updated
+   *         the according attachingAttributes where the given selectorType is.
    */
   S withNewAttachingAttributesWhereSelectorType(String selectorType, IContainer<String> newAttachingAttributes);
 
@@ -84,8 +73,8 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @param selectorType
    * @param newAttachingAttribute
    * @param newAttachingAttributes
-   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle}
-   *         where the newAttachingAttribute and each of the given
+   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
+   *         the newAttachingAttribute and each of the given
    *         newAttachingAttributes either was added or updated the according
    *         attachingAttributes where the given selectorType is.
    */

@@ -8,8 +8,8 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.IAttachingAttribute;
+import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
@@ -62,17 +62,6 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
   @Override
   public final boolean hasAttachingAttributes() {
     return memberAttachingAttributes.containsAny();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final S withAttachingAttribute(final Enum<?> tag, final String value) {
-    final var attachingAttribute = AttachingAttribute.forTagAndValue(tag, value);
-    final var attachingAttribtues = ImmutableList.withElements(attachingAttribute);
-
-    return withAttachingAttributes(attachingAttribtues);
   }
 
   /**
