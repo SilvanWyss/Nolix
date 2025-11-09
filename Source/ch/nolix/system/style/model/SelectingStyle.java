@@ -7,16 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.style.tool.AttributeMerger;
-import ch.nolix.system.style.tool.AttributeReplacer;
-import ch.nolix.systemapi.style.model.IAttachingAttribute;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
-import ch.nolix.systemapi.style.tool.IAttributeMerger;
-import ch.nolix.systemapi.style.tool.IAttributeReplacer;
 
 /**
  * @author Silvan Wyss
@@ -24,10 +18,6 @@ import ch.nolix.systemapi.style.tool.IAttributeReplacer;
  */
 public final class SelectingStyle extends AbstractSelectingStyle {
   public static final String TYPE_NAME = "SelectingStyle";
-
-  private static final IAttributeMerger ATTRIBUTE_MERGER = new AttributeMerger();
-
-  private static final IAttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
   /**
    * Creates a new empty {@link SelectingStyle}.
@@ -52,7 +42,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
     final String optionalSelectorType,
     final IContainer<String> selectorRoles,
     final IContainer<String> selectorTokens,
-    final IContainer<? extends IAttachingAttribute> attachingAttributes,
+    final IContainer<String> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(
       optionalSelectorId,
@@ -92,7 +82,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
     String optionalSelectorType = null;
     final ILinkedList<String> selectorRoles = LinkedList.createEmpty();
     final ILinkedList<String> selectorTokens = LinkedList.createEmpty();
-    final ILinkedList<IAttachingAttribute> attachingAttributes = LinkedList.createEmpty();
+    final ILinkedList<String> attachingAttributes = LinkedList.createEmpty();
     final ILinkedList<AbstractSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
@@ -110,7 +100,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
           selectorTokens.addAtEnd(a.getSingleChildNodeHeader());
           break;
         case ATTACHING_ATTRIBUTE_HEADER:
-          attachingAttributes.addAtEnd(AttachingAttribute.fromSpecification(a));
+          attachingAttributes.addAtEnd(a.getStoredSingleChildNode().toString());
           break;
         case SelectingStyle.TYPE_NAME:
           subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
@@ -156,8 +146,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAttachingAttributes(
-    final IContainer<? extends IAttachingAttribute> attachingAttributes) {
+  public ISelectingStyleWithSelectors withAttachingAttributes(final IContainer<String> attachingAttributes) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
 
@@ -190,7 +179,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
     final IContainer<String> newAttachingAttributes) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
-    IContainer<? extends IAttachingAttribute> attachingAttributes;
+    IContainer<String> attachingAttributes;
 
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
@@ -201,8 +190,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
     }
 
     if (hasSelectorType(selectorType)) {
-      attachingAttributes = //
-      ATTRIBUTE_MERGER.getAttributesMergedWithNewAttributes(getAttachingAttributes(), newAttachingAttributes);
+      attachingAttributes = ContainerView.forIterable(getAttachingAttributes(), newAttachingAttributes);
     } else {
       attachingAttributes = getAttachingAttributes();
     }
@@ -218,76 +206,6 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       getSelectorTokens(),
       attachingAttributes,
       subStylesWithNewAttachingAttributes);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISelectingStyleWithSelectors withReplacedAttachingAttributes(
-    final IContainer<IPair<String, String>> attachingAttributeReplacements) {
-    String optionalSelectorId = null;
-    String optionalSelectorType = null;
-
-    if (hasSelectorId()) {
-      optionalSelectorId = getSelectorId();
-    }
-
-    if (hasSelectorType()) {
-      optionalSelectorType = getSelectorType();
-    }
-
-    final var replacedAttachingAttributes = //
-    ATTRIBUTE_REPLACER.getReplacedAttributesFromAttributesAndAttributeReplacements(
-      getAttachingAttributes(),
-      attachingAttributeReplacements);
-
-    final var subStylesWithReplacedAttachingAttributes = //
-    getSubStyles().to(ss -> ss.withReplacedAttachingAttributes(attachingAttributeReplacements));
-
-    return //
-    new SelectingStyle(
-      optionalSelectorId,
-      optionalSelectorType,
-      getSelectorRoles(),
-      getSelectorTokens(),
-      replacedAttachingAttributes,
-      subStylesWithReplacedAttachingAttributes);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISelectingStyleWithSelectors withReplacedTaggedAttachingAttributes(
-    final IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements) {
-    String optionalSelectorId = null;
-    String optionalSelectorType = null;
-
-    if (hasSelectorId()) {
-      optionalSelectorId = getSelectorId();
-    }
-
-    if (hasSelectorType()) {
-      optionalSelectorType = getSelectorType();
-    }
-
-    final var replacedAttachingAttributes = //
-    ATTRIBUTE_REPLACER.getReplacedTaggedAttributesFromAttributesAndAttributeReplacements(
-      getAttachingAttributes(),
-      attachingAttributeReplacements);
-
-    final var subStylesWithReplacedAttachingAttributes = //
-    getSubStyles().to(ss -> ss.withReplacedTaggedAttachingAttributes(attachingAttributeReplacements));
-
-    return //
-    new SelectingStyle(
-      optionalSelectorId,
-      optionalSelectorType,
-      getSelectorRoles(),
-      getSelectorTokens(),
-      replacedAttachingAttributes,
-      subStylesWithReplacedAttachingAttributes);
   }
 
   /**

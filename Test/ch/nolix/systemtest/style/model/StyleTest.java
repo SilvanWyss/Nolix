@@ -6,7 +6,6 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.style.model.AttachingAttribute;
 import ch.nolix.system.style.model.DeepSelectingStyle;
 import ch.nolix.system.style.model.SelectingStyle;
 import ch.nolix.system.style.model.Style;
@@ -43,8 +42,8 @@ final class StyleTest extends StandardTest {
 
     //verification
     expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing(
-      "AttachingAttribute(test_attaching_attribute_1)",
-      "AttachingAttribute(test_attaching_attribute_2)");
+      "test_attaching_attribute_1",
+      "test_attaching_attribute_2");
     expect(result.getSubStyles()).containsExactlyEqualing(
       new SelectingStyle(),
       new DeepSelectingStyle());
@@ -56,10 +55,9 @@ final class StyleTest extends StandardTest {
     final var webGui = new WebGui();
 
     //setup part 2: create testUnit
-    final var testUnit = new Style(
-      ImmutableList.withElements(
-        AttachingAttribute.forValue("Title(my_title)"),
-        AttachingAttribute.forValue("Background(Color(Blue))")),
+    final var testUnit = //
+    new Style(
+      ImmutableList.withElements("Title(my_title)", "Background(Color(Blue))"),
       ImmutableList.createEmpty());
 
     //execution
@@ -81,7 +79,7 @@ final class StyleTest extends StandardTest {
     //verification
     expect(result.getAttachingAttributes()
       .toStrings())
-      .containsExactlyEqualing("AttachingAttribute(p1(v1))", "AttachingAttribute(p2(v2))");
+      .containsExactlyEqualing("p1(v1)", "p2(v2)");
     expect(result.getSubStyles()).isEmpty();
   }
 
@@ -114,10 +112,10 @@ final class StyleTest extends StandardTest {
     //verification
     expect(result.getAttachingAttributes().toStrings())
       .containsExactlyEqualing(
-        "AttachingAttribute(p1(v1))",
-        "AttachingAttribute(p2(v2))",
-        "AttachingAttribute(p3(v3))",
-        "AttachingAttribute(p4(v4))");
+        "p1(v1)",
+        "p2(v2)",
+        "p3(v3)",
+        "p4(v4)");
     expect(result.getSubStyles()).isEmpty();
   }
 

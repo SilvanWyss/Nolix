@@ -6,9 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.style.model.IAttachingAttribute;
 import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
@@ -21,7 +19,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement implements IBaseStyle<S> {
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
-  private final ImmutableList<AttachingAttribute> memberAttachingAttributes;
+  private final ImmutableList<String> memberAttachingAttributes;
 
   private final ImmutableList<AbstractSelectingStyle> memberSubStyles;
 
@@ -32,10 +30,9 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * @param subStyles
    */
   protected AbstractStyle(
-    final IContainer<? extends IAttachingAttribute> attachingAttributes,
+    final IContainer<String> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
-    this.memberAttachingAttributes = //
-    ImmutableList.fromIterable(attachingAttributes.to(AttachingAttribute::fromAttachingAttribute));
+    this.memberAttachingAttributes = ImmutableList.fromIterable(attachingAttributes);
 
     this.memberSubStyles = ImmutableList.fromIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
   }
@@ -44,7 +41,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends IAttachingAttribute> getAttachingAttributes() {
+  public final IContainer<String> getAttachingAttributes() {
     return memberAttachingAttributes;
   }
 
@@ -69,13 +66,10 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    */
   @Override
   public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
-    final ILinkedList<IAttachingAttribute> allAttachingAttributes = LinkedList.createEmpty();
+    final ILinkedList<String> allAttachingAttributes = LinkedList.createEmpty();
 
-    allAttachingAttributes.addAtEnd(AttachingAttribute.forValue(attachingAttribute));
-
-    for (final var a : attachingAttributes) {
-      allAttachingAttributes.addAtEnd(AttachingAttribute.forValue(a));
-    }
+    allAttachingAttributes.addAtEnd(attachingAttribute);
+    allAttachingAttributes.addAtEnd(attachingAttributes);
 
     return withAttachingAttributes(allAttachingAttributes);
   }
@@ -89,32 +83,6 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
     ContainerView.forElementAndArray(newAttachingAttribute, newAttachingAttributes);
 
     return withNewAttachingAttributesWhereSelectorType(selectorType, allNewAttachingAttribtues);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final S withReplacedAttachingAttributes(
-    final IPair<String, String> attachingAttributeReplacement,
-    @SuppressWarnings("unchecked") final IPair<String, String>... attachingAttributeReplacements) {
-    final var allAttachingAttributeReplacements = //
-    ContainerView.forElementAndArray(attachingAttributeReplacement, attachingAttributeReplacements);
-
-    return withReplacedAttachingAttributes(allAttachingAttributeReplacements);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final S withReplacedTaggedAttachingAttributes(
-    final IPair<Enum<?>, String> attachingAttributeReplacement,
-    @SuppressWarnings("unchecked") final IPair<Enum<?>, String>... attachingAttributeReplacements) {
-    final var allAttachingAttributeReplacements = //
-    ContainerView.forElementAndArray(attachingAttributeReplacement, attachingAttributeReplacements);
-
-    return withReplacedTaggedAttachingAttributes(allAttachingAttributeReplacements);
   }
 
   /**
@@ -141,8 +109,8 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
   protected final void setAttachingAttributesToElement(IStylableElement<?> element) {
     for (final var a : getAttachingAttributes()) {
       try {
-        element.addOrChangeAttribute(a.getValue());
-      } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
+        element.addOrChangeAttribute(a);
+      } catch (final Throwable error) { //NOSONAR: All Throwable must be caught.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,

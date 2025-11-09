@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.systemapi.style.model.IAttachingAttribute;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
@@ -37,7 +36,7 @@ implements ISelectingStyleWithSelectors {
     final String optionalSelectorType,
     IContainer<String> selectorRoles,
     IContainer<String> selectorTokens,
-    final IContainer<? extends IAttachingAttribute> attachingAttributes,
+    final IContainer<String> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
 
@@ -83,7 +82,7 @@ implements ISelectingStyleWithSelectors {
     }
 
     for (final var a : getAttachingAttributes()) {
-      attributes.addAtEnd(a.getSpecification());
+      attributes.addAtEnd(Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, Node.fromString(a)));
     }
 
     for (final var s : getSubStyles()) {

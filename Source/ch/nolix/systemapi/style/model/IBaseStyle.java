@@ -1,7 +1,6 @@
 package ch.nolix.systemapi.style.model;
 
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
@@ -25,7 +24,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
-  IContainer<? extends IAttachingAttribute> getAttachingAttributes();
+  IContainer<String> getAttachingAttributes();
 
   /**
    * @return the sub styles of the current {@link IBaseStyle}.
@@ -58,7 +57,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
    */
-  S withAttachingAttributes(IContainer<? extends IAttachingAttribute> attachingAttributes);
+  S withAttachingAttributes(IContainer<String> attachingAttributes);
 
   /**
    * @param selectorType
@@ -82,44 +81,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
     String selectorType,
     String newAttachingAttribute,
     String... newAttachingAttributes);
-
-  /**
-   * @param attachingAttributeReplacements
-   * @return a new {@link IStyle} from the current {@link IStyle} where the given
-   *         attachingAttributeReplacements replaced all the according attaching
-   *         attributes.
-   */
-  S withReplacedAttachingAttributes(IContainer<IPair<String, String>> attachingAttributeReplacements);
-
-  /**
-   * @param attachingAttributeReplacement
-   * @param attachingAttributeReplacements
-   * @return a new {@link IStyle} from the current {@link IStyle} where the given
-   *         attributeAttributeReplacement and attachingAttributeReplacements
-   *         replaced all the according attachingAttributes.
-   */
-  S withReplacedAttachingAttributes(
-    IPair<String, String> attachingAttributeReplacement,
-    @SuppressWarnings("unchecked") IPair<String, String>... attachingAttributeReplacements);
-
-  /**
-   * @param attachingAttributeReplacements
-   * @return a new {@link IStyle} from the current {@link IStyle} where the given
-   *         attachingAttributeReplacements replaced all the according attaching
-   *         attributes.
-   */
-  S withReplacedTaggedAttachingAttributes(IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements);
-
-  /**
-   * @param attachingAttributeReplacement
-   * @param attachingAttributeReplacements
-   * @return a new {@link IStyle} from the current {@link IStyle} where the given
-   *         attributeAttributeReplacement and attachingAttributeReplacements
-   *         replaced all the according attachingAttributes.
-   */
-  S withReplacedTaggedAttachingAttributes(
-    IPair<Enum<?>, String> attachingAttributeReplacement,
-    @SuppressWarnings("unchecked") IPair<Enum<?>, String>... attachingAttributeReplacements);
 
   /**
    * @param subStyle

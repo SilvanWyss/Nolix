@@ -7,24 +7,18 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.style.tool.AttributeReplacer;
-import ch.nolix.systemapi.element.base.IElement;
-import ch.nolix.systemapi.style.model.IAttachingAttribute;
 import ch.nolix.systemapi.style.model.ISelectingStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.model.IStyle;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
-import ch.nolix.systemapi.style.tool.IAttributeReplacer;
 
 /**
  * @author Silvan Wyss
  * @version 2016-02-01
  */
 public final class Style extends AbstractStyle<IStyle> implements IStyle {
-  private static final IAttributeReplacer ATTRIBUTE_REPLACER = new AttributeReplacer();
 
   /**
    * Creates a new empty {@link Style}.
@@ -40,7 +34,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @param subStyles
    */
   public Style(
-    final IContainer<? extends IAttachingAttribute> attachingAttributes,
+    final IContainer<String> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
   }
@@ -64,13 +58,13 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static Style fromSpecification(final INode<?> specification) {
-    final ILinkedList<IAttachingAttribute> attachingAttributes = LinkedList.createEmpty();
+    final ILinkedList<String> attachingAttributes = LinkedList.createEmpty();
     final ILinkedList<AbstractSelectingStyle> subStyles = LinkedList.createEmpty();
 
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case ATTACHING_ATTRIBUTE_HEADER:
-          attachingAttributes.addAtEnd(AttachingAttribute.fromSpecification(a));
+          attachingAttributes.addAtEnd(a.getStoredSingleChildNode().toString());
           break;
         case SelectingStyle.TYPE_NAME:
           subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
@@ -94,7 +88,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   public IContainer<INode<?>> getAttributes() {
     return //
     ContainerView.forIterable(
-      getAttachingAttributes().to(IElement::getSpecification),
+      getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
       getSubStyles().to(ISelectingStyle::getSpecification));
   }
 
@@ -111,7 +105,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public IStyle withAttachingAttributes(final IContainer<? extends IAttachingAttribute> attachingAttributes) {
+  public IStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
     final var allAttachingAttributes = ContainerView.forIterable(getAttachingAttributes(), attachingAttributes);
 
     return new Style(allAttachingAttributes, getSubStyles());
@@ -128,40 +122,6 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
     getSubStyles().to(ss -> ss.withNewAttachingAttributesWhereSelectorType(selectorType, newAttachingAttributes));
 
     return new Style(getAttachingAttributes(), subStylesWtihNewAttachingAttribtues);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public IStyle withReplacedAttachingAttributes(
-    final IContainer<IPair<String, String>> attachingAttributeReplacements) {
-    final var replacedAttachingAttributes = //
-    ATTRIBUTE_REPLACER.getReplacedAttributesFromAttributesAndAttributeReplacements(
-      getAttachingAttributes(),
-      attachingAttributeReplacements);
-
-    final var subStylesWithReplacedAttachingAttributes = //
-    getSubStyles().to(ss -> ss.withReplacedAttachingAttributes(attachingAttributeReplacements));
-
-    return new Style(replacedAttachingAttributes, subStylesWithReplacedAttachingAttributes);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public IStyle withReplacedTaggedAttachingAttributes(
-    final IContainer<IPair<Enum<?>, String>> attachingAttributeReplacements) {
-    final var replacedAttachingAttributes = //
-    ATTRIBUTE_REPLACER.getReplacedTaggedAttributesFromAttributesAndAttributeReplacements(
-      getAttachingAttributes(),
-      attachingAttributeReplacements);
-
-    final var subStylesWithReplacedAttachingAttributes = //
-    getSubStyles().to(ss -> ss.withReplacedTaggedAttachingAttributes(attachingAttributeReplacements));
-
-    return new Style(replacedAttachingAttributes, subStylesWithReplacedAttachingAttributes);
   }
 
   /**
