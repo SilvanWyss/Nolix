@@ -8,7 +8,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.systemapi.style.model.IAbstractStyle;
+import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.IAttachingAttribute;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @version 2016-01-01
  * @param <S> is the type of a {@link AbstractStyle}.
  */
-abstract class AbstractStyle<S extends IAbstractStyle<S>> extends AbstractElement implements IAbstractStyle<S> {
+abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement implements IBaseStyle<S> {
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
   private final ImmutableList<AttachingAttribute> memberAttachingAttributes;
