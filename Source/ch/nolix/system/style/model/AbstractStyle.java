@@ -57,7 +57,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasAttachingAttributes() {
+  public final boolean containsAttachingAttributes() {
     return memberAttachingAttributes.containsAny();
   }
 
