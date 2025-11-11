@@ -86,7 +86,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
   }
 
   public static <E2> ImmutableList<E2> fromArray(final E2[] array) {
-    return new ImmutableList<>(array.clone());
+    return new ImmutableList<>(array);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
