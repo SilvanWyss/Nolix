@@ -213,7 +213,8 @@ implements IControlStyle<S> {
     this::setCornerShadowsForState,
     ImmutableList.createEmpty());
 
-  private final ForwardingProperty<ControlState, Integer> memberBorderThickness = ForwardingProperty.withNameAndForProperty(
+  private final ForwardingProperty<ControlState, Integer> memberBorderThickness = //
+  ForwardingProperty.withNameAndForProperty(
     BORDER_THICKNESS_HEADER,
     memberLeftBorderThickness,
     memberRightBorderThickness,
