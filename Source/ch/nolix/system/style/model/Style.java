@@ -115,19 +115,6 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public IStyle withNewAttachingAttributesWhereSelectorType(
-    final String selectorType,
-    final IContainer<String> newAttachingAttributes) {
-    final var subStylesWtihNewAttachingAttribtues = //
-    getSubStyles().to(ss -> ss.withNewAttachingAttributesWhereSelectorType(selectorType, newAttachingAttributes));
-
-    return new Style(getAttachingAttributes(), subStylesWtihNewAttachingAttribtues);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public IStyle withStyle(final IStyle style) {
     return withAttachingAttributes(style.getAttachingAttributes()).withSubStyles(style.getSubStyles());
   }

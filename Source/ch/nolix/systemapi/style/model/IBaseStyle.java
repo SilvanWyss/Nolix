@@ -58,29 +58,6 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   S withAttachingAttributes(String... attachingAttributes);
 
   /**
-   * @param selectorType
-   * @param newAttachingAttributes
-   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
-   *         each of the given newAttachingAttributes was either added or updated
-   *         the according attachingAttributes where the given selectorType is.
-   */
-  S withNewAttachingAttributesWhereSelectorType(String selectorType, IContainer<String> newAttachingAttributes);
-
-  /**
-   * @param selectorType
-   * @param newAttachingAttribute
-   * @param newAttachingAttributes
-   * @return a new {@link IBaseStyle} from the current {@link IBaseStyle} where
-   *         the newAttachingAttribute and each of the given
-   *         newAttachingAttributes either was added or updated the according
-   *         attachingAttributes where the given selectorType is.
-   */
-  S withNewAttachingAttributesWhereSelectorType(
-    String selectorType,
-    String newAttachingAttribute,
-    String... newAttachingAttributes);
-
-  /**
    * @param subStyle
    * @param subStyles
    * @return a new {@link IStyle} from the current {@link IStyle} with the given

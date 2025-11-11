@@ -69,17 +69,6 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
     return withAttachingAttributes(attachingAttributesView);
   }
 
-  @Override
-  public final S withNewAttachingAttributesWhereSelectorType(
-    final String selectorType,
-    final String newAttachingAttribute,
-    final String... newAttachingAttributes) {
-    final var allNewAttachingAttribtues = //
-    ContainerView.forElementAndArray(newAttachingAttribute, newAttachingAttributes);
-
-    return withNewAttachingAttributesWhereSelectorType(selectorType, allNewAttachingAttribtues);
-  }
-
   /**
    * {@inheritDoc}
    */

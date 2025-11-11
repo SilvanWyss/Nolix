@@ -174,44 +174,6 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withNewAttachingAttributesWhereSelectorType(
-    final String selectorType,
-    final IContainer<String> newAttachingAttributes) {
-    String optionalSelectorId = null;
-    String optionalSelectorType = null;
-    IContainer<String> attachingAttributes;
-
-    if (hasSelectorId()) {
-      optionalSelectorId = getSelectorId();
-    }
-
-    if (hasSelectorType()) {
-      optionalSelectorType = getSelectorType();
-    }
-
-    if (hasSelectorType(selectorType)) {
-      attachingAttributes = ContainerView.forIterable(getAttachingAttributes(), newAttachingAttributes);
-    } else {
-      attachingAttributes = getAttachingAttributes();
-    }
-
-    final var subStylesWithNewAttachingAttributes = //
-    getSubStyles().to(ss -> ss.withNewAttachingAttributesWhereSelectorType(selectorType, newAttachingAttributes));
-
-    return //
-    new DeepSelectingStyle(
-      optionalSelectorId,
-      optionalSelectorType,
-      getSelectorRoles(),
-      getSelectorTokens(),
-      attachingAttributes,
-      subStylesWithNewAttachingAttributes);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ISelectingStyleWithSelectors withSelectorId(final String selectorId) {
     Validator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
 
