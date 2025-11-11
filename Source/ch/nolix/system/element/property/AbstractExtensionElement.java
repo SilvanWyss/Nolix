@@ -33,10 +33,10 @@ public abstract class AbstractExtensionElement<E extends IRespondingMutableEleme
   protected final void internalSetExtensionElement(final E internalExtensionElement) {
     Validator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
 
-    if (this.memberInternalExtensionElement != null && !isExchangable()) {
+    if (memberInternalExtensionElement != null && !isExchangable()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");
     }
 
-    this.memberInternalExtensionElement = internalExtensionElement;
+    memberInternalExtensionElement = internalExtensionElement;
   }
 }

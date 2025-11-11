@@ -43,7 +43,7 @@ implements GroupCloseable {
 
     assertDoesNotBelongToResourcePool();
 
-    this.memberParentResourcePool = parentResourcePool;
+    memberParentResourcePool = parentResourcePool;
   }
 
   private void assertDoesNotBelongToResourcePool() {

@@ -59,7 +59,7 @@ extends Control<C, S> implements IContainer<C, S> {
 
   @Override
   public final C setRole(final ContainerRole role) {
-    this.memberRole.setValue(role);
+    memberRole.setValue(role);
 
     return asConcrete();
   }

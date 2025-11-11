@@ -47,7 +47,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
       ITEM_MENU_VALIDATOR.assertCanAddItem(this, i);
 
       i.internalSetParentMenu(this);
-      this.memberItems.add(i);
+      memberItems.add(i);
     }
 
     return asConcrete();
@@ -228,7 +228,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   public final M setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
-    this.memberSelectAction = selectAction;
+    memberSelectAction = selectAction;
 
     return asConcrete();
   }

@@ -107,7 +107,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   @Override
   public Textbox setText(final String text) {
-    this.memberText.setValue(text);
+    memberText.setValue(text);
 
     runOptionalUpdateTextActionForText(text);
 

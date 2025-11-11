@@ -69,7 +69,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
     this.parentDatabase = parentDatabase;
     this.name = name;
-    this.memberId = id;
+    memberId = id;
     this.entityClass = entityClass;
   }
 
@@ -248,8 +248,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
   }
 
   void internalSetColumns(final IContainer<IColumn> columns) {
-    this.memberColumns.clear();
-    this.memberColumns.addAtEnd(columns);
+    memberColumns.clear();
+    memberColumns.addAtEnd(columns);
   }
 
   private void addEntityWithIdWhenIsNotAdded(final String id) {

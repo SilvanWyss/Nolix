@@ -40,7 +40,7 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
       throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.VALUES);
     }
 
-    this.memberOneBasedIndex = oneBasedIndex;
+    memberOneBasedIndex = oneBasedIndex;
     this.values = values;
   }
 

@@ -248,7 +248,7 @@ implements ILayer<Layer> {
     Validator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
     LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
 
-    this.memberParentGui = parentGui;
+    memberParentGui = parentGui;
   }
 
   @Override
@@ -324,7 +324,7 @@ implements ILayer<Layer> {
 
   @Override
   public Layer setRole(final LayerRole role) {
-    this.memberRole.setValue(role);
+    memberRole.setValue(role);
 
     return this;
   }

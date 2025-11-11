@@ -149,7 +149,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
   }
 
   void setNameAttribute(final String name) {
-    this.memberName = name;
+    memberName = name;
   }
 
   void setParentDatabase(final Database parentDatabase) {

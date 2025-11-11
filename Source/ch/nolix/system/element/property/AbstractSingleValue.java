@@ -107,7 +107,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
     }
 
     //Sets the value of the current SingleProperty.
-    this.memberValue = value;
+    memberValue = value;
   }
 
   @Override

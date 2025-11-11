@@ -91,7 +91,7 @@ implements IValidationLabel {
 
   @Override
   public void showError(final Throwable error) {
-    this.memberError.setValue(error);
+    memberError.setValue(error);
   }
 
   @Override

@@ -118,15 +118,15 @@ public abstract class AbstractEntity implements IEntity {
     Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
 
     this.state = DatabaseObjectState.UNEDITED;
-    this.memberId = id;
-    this.memberSaveStamp = saveStamp;
+    memberId = id;
+    memberSaveStamp = saveStamp;
   }
 
   @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
     ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
 
-    this.memberParentTable = parentTable;
+    memberParentTable = parentTable;
 
     getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }

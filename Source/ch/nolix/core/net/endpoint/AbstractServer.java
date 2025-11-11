@@ -30,7 +30,7 @@ public abstract class AbstractServer implements IServer {
   public final void addDefaultSlot(final ISlot defaultSlot) {
     addSlot(defaultSlot);
 
-    this.memberDefaultSlot = defaultSlot;
+    memberDefaultSlot = defaultSlot;
   }
 
   /**

@@ -99,10 +99,10 @@ public final class Color extends AbstractElement implements IColor {
       .thatIsNamed("alpha value")
       .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
-    this.memberRedValue = (short) redValue;
-    this.memberGreenValue = (short) greenValue;
-    this.memberBlueValue = (short) blueValue;
-    this.memberAlphaValue = (short) alphaValue;
+    memberRedValue = (short) redValue;
+    memberGreenValue = (short) greenValue;
+    memberBlueValue = (short) blueValue;
+    memberAlphaValue = (short) alphaValue;
   }
 
   public static Color createAverageFrom(final IColor color, final IColor... colors) {

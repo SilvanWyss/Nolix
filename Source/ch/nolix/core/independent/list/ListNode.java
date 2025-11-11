@@ -12,11 +12,11 @@ final class ListNode<E> {
       throw new IllegalArgumentException("The given element is null.");
     }
 
-    this.memberElement = element;
+    memberElement = element;
   }
 
   public boolean contains(final E element) {
-    return (this.memberElement == element);
+    return (memberElement == element);
   }
 
   public E getStoredElement() {

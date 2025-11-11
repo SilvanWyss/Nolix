@@ -99,7 +99,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   @Override
   public ILabel setRole(final LabelRole role) {
-    this.memberRole.setValue(role);
+    memberRole.setValue(role);
 
     return this;
   }

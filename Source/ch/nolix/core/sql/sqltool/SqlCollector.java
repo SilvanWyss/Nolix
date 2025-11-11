@@ -53,7 +53,7 @@ public final class SqlCollector implements ISqlCollector {
   private void addSingleSqlStatement(final String sqlstatement) {
     Validator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
 
-    this.memberSqlStatements.addAtEnd(sqlstatement);
+    memberSqlStatements.addAtEnd(sqlstatement);
   }
 
   private void executeUsingConnection(final ISqlConnection sqlConnection) {

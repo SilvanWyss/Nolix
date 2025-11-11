@@ -66,7 +66,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   public void internalSetFile(final byte[] file) {
     Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
 
-    this.memberFile = file; //NOSONAR: A Uploader operates on the original input.
+    memberFile = file; //NOSONAR: A Uploader operates on the original input.
   }
 
   @Override

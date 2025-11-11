@@ -99,7 +99,7 @@ final class LinkedListNode<E> {
       .isNotNull();
 
     //Sets the element of the current list node.
-    this.memberElement = element;
+    memberElement = element;
   }
 
   /**

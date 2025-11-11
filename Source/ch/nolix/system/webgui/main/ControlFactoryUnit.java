@@ -35,7 +35,7 @@ public final class ControlFactoryUnit {
     for (final var c : allControlClasses) {
       assertDoesNotContainControlClassWithName(c.getSimpleName());
 
-      this.memberControlClasses.addAtEnd(c);
+      memberControlClasses.addAtEnd(c);
     }
   }
 

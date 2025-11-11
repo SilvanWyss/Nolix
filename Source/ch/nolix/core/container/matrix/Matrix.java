@@ -107,12 +107,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
-        this.memberElements = new Object[lElements.getCount()][1];
+        memberElements = new Object[lElements.getCount()][1];
 
         //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
-          this.memberElements[i][0] = e;
+          memberElements[i][0] = e;
 
           i++;
         }
@@ -132,10 +132,10 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
       //Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
-        final var row = Arrays.copyOf(this.memberElements[i], columnCount + 1);
+        final var row = Arrays.copyOf(memberElements[i], columnCount + 1);
         row[columnCount] = e;
 
-        this.memberElements[i] = row;
+        memberElements[i] = row;
 
         i++;
       }
@@ -190,12 +190,12 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Handles the case that the current matrix is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
-        this.memberElements = new Object[1][lElements.getCount()];
+        memberElements = new Object[1][lElements.getCount()];
 
         //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
-          this.memberElements[0][i] = e;
+          memberElements[0][i] = e;
 
           i++;
         }
@@ -211,7 +211,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
         .isEqualTo(getColumnCount());
 
       final var rowCount = getRowCount();
-      final var newElements = Arrays.copyOf(this.memberElements, rowCount + 1);
+      final var newElements = Arrays.copyOf(memberElements, rowCount + 1);
       newElements[rowCount] = new Object[getColumnCount()];
 
       //Iterates the given elements.
@@ -222,7 +222,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
         i++;
       }
 
-      this.memberElements = newElements;
+      memberElements = newElements;
     }
 
     return this;

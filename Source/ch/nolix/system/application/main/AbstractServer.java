@@ -156,7 +156,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     defaultApplication.setParentServer(this);
 
     addApplicationToList(defaultApplication);
-    this.memberDefaultApplication = defaultApplication;
+    memberDefaultApplication = defaultApplication;
 
     noteAddedDefaultApplication(defaultApplication);
 

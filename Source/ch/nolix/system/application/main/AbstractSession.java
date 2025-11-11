@@ -176,13 +176,13 @@ implements IClientComponent<C>, IRefreshableSubscriber {
     assertDoesNotBelongToClient();
 
     //Sets the parent client of the current session.
-    this.memberParentClient = parentClient;
+    memberParentClient = parentClient;
   }
 
   final void internalSetResult(final Object result) {
     Validator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
 
-    this.memberResult = result;
+    memberResult = result;
   }
 
   /**

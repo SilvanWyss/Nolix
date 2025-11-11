@@ -57,10 +57,10 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
   protected final void internalSetSubElement(final E internalSubElement) {
     Validator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();
 
-    if (this.memberInternalSubElement != null && !isExchangable()) {
+    if (memberInternalSubElement != null && !isExchangable()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");
     }
 
-    this.memberInternalSubElement = internalSubElement;
+    memberInternalSubElement = internalSubElement;
   }
 }

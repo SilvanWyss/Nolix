@@ -115,7 +115,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
-    this.memberAttributes.addAtEnd(attributes);
+    memberAttributes.addAtEnd(attributes);
 
     return this;
   }
@@ -141,7 +141,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //For a better performance, this implementation does not use all available comfort methods.
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
-    this.memberChildNodes.addAtEnd(childNodes);
+    memberChildNodes.addAtEnd(childNodes);
 
     return this;
   }
@@ -231,7 +231,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   public IMutableXmlNode setName(final String name) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
 
-    this.memberName = name;
+    memberName = name;
 
     return this;
   }
@@ -240,7 +240,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   public IMutableXmlNode setValue(final String value) {
     Validator.assertThat(value).isNotEmpty();
 
-    this.memberValue = value;
+    memberValue = value;
 
     return this;
   }

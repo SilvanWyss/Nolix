@@ -21,7 +21,7 @@ final class State<S extends Enum<S>> implements INameHolder {
 
     this.qualifyingPrefix = prefix;
     this.index = index;
-    this.memberEnumValue = enumValue;
+    memberEnumValue = enumValue;
   }
 
   public static <S2 extends Enum<S2>> State<S2> withQualifyingPrefixAndIndexAndEnumValue(

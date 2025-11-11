@@ -78,10 +78,10 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public MutableNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    this.memberChildNodes.addAtEnd(fromNode(childNode));
+    memberChildNodes.addAtEnd(fromNode(childNode));
 
     for (final var c : childNodes) {
-      this.memberChildNodes.addAtEnd(fromNode(c));
+      memberChildNodes.addAtEnd(fromNode(c));
     }
 
     return this;
@@ -223,7 +223,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   public MutableNode setHeader(final String header) {
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
-    this.memberHeader = header;
+    memberHeader = header;
 
     return this;
   }

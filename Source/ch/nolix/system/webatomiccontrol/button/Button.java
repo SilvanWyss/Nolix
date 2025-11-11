@@ -203,7 +203,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   @Override
   public IButton setRole(final ButtonRole role) {
-    this.memberRole.setValue(role);
+    memberRole.setValue(role);
 
     return this;
   }

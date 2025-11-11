@@ -594,16 +594,16 @@ implements IChainedNode {
    */
   private void addChildNode(final IChainedNode childNode, final IChainedNode... childNodes) {
     if (childNode instanceof final ChainedNode chainedNode) {
-      this.memberChildNodes.addAtEnd(chainedNode);
+      memberChildNodes.addAtEnd(chainedNode);
     } else {
-      this.memberChildNodes.addAtEnd(fromChainedNode(childNode));
+      memberChildNodes.addAtEnd(fromChainedNode(childNode));
     }
 
     for (final var c : childNodes) {
       if (c instanceof final ChainedNode chainedNode) {
-        this.memberChildNodes.addAtEnd(chainedNode);
+        memberChildNodes.addAtEnd(chainedNode);
       } else {
-        this.memberChildNodes.addAtEnd(fromChainedNode(c));
+        memberChildNodes.addAtEnd(fromChainedNode(c));
       }
     }
   }
@@ -615,10 +615,10 @@ implements IChainedNode {
    * @param childNodes
    */
   private void addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    this.memberChildNodes.addAtEnd(fromNode(childNode));
+    memberChildNodes.addAtEnd(fromNode(childNode));
 
     for (final var c : childNodes) {
-      this.memberChildNodes.addAtEnd(fromNode(c));
+      memberChildNodes.addAtEnd(fromNode(c));
     }
   }
 
@@ -631,9 +631,9 @@ implements IChainedNode {
   private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
     for (final var c : childNodes) {
       if (c instanceof final ChainedNode chainedNode) {
-        this.memberChildNodes.addAtEnd(chainedNode);
+        memberChildNodes.addAtEnd(chainedNode);
       } else {
-        this.memberChildNodes.addAtEnd(fromChainedNode(c));
+        memberChildNodes.addAtEnd(fromChainedNode(c));
       }
     }
   }
@@ -645,7 +645,7 @@ implements IChainedNode {
    */
   private void addChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
     for (final var a : attributes) {
-      this.memberChildNodes.addAtEnd(fromNode(a));
+      memberChildNodes.addAtEnd(fromNode(a));
     }
   }
 
@@ -736,7 +736,7 @@ implements IChainedNode {
 
     final var node = new ChainedNode();
     nextIndex = node.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex);
-    this.memberChildNodes.addAtEnd(node);
+    memberChildNodes.addAtEnd(node);
 
     while (nextIndex < string.length()) {
       final var character = string.charAt(nextIndex);
@@ -744,7 +744,7 @@ implements IChainedNode {
       if (character == ',') {
         final var node2 = new ChainedNode();
         nextIndex = node2.setFromStringAndStartIndexAndGetNextIndex(string, nextIndex + 1);
-        this.memberChildNodes.addAtEnd(node2);
+        memberChildNodes.addAtEnd(node2);
       } else if (character == ')') {
         nextIndex++;
         break;
@@ -845,7 +845,7 @@ implements IChainedNode {
         "is blank");
     }
 
-    this.memberHeader = header;
+    memberHeader = header;
   }
 
   /**

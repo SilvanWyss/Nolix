@@ -28,7 +28,7 @@ public class IndexedPackage<C> {
     Validator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNotNull();
 
     //Sets the index of the current IndexedPackage.
-    this.memberIndex = index;
+    memberIndex = index;
 
     //Sets the content of the current IndexedPackage.
     this.content = content;

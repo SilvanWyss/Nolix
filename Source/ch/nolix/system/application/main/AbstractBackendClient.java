@@ -175,7 +175,7 @@ implements IBackendClient<S> {
     assertDoesNotReferenceParentApplication();
 
     //Sets the parent Application of the current Client.
-    this.memberParentApplication = parentApplication;
+    memberParentApplication = parentApplication;
   }
 
   /**

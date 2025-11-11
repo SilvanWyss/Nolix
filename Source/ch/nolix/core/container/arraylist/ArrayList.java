@@ -129,7 +129,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     final var newElementCount = localElementCount + 1;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    this.memberElements[localElementCount] = element;
+    memberElements[localElementCount] = element;
     elementCount = newElementCount;
   }
 
@@ -148,8 +148,8 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     final var newElementCount = localElementCount + 1 + elements.length;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    this.memberElements[localElementCount] = element;
-    System.arraycopy(elements, 0, this.memberElements, localElementCount + 1, elements.length);
+    memberElements[localElementCount] = element;
+    System.arraycopy(elements, 0, memberElements, localElementCount + 1, elements.length);
     elementCount = newElementCount;
   }
 
@@ -167,7 +167,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     final var newElementCount = localElementCount + elements.length;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    System.arraycopy(elements, 0, this.memberElements, localElementCount, elements.length);
+    System.arraycopy(elements, 0, memberElements, localElementCount, elements.length);
     elementCount = newElementCount;
   }
 
@@ -188,7 +188,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
     var index = getCount();
 
     for (final var e : elements) {
-      this.memberElements[index] = e;
+      memberElements[index] = e;
 
       index++;
     }

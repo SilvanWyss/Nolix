@@ -30,7 +30,7 @@ public final class UpdaterCollector<O> implements IUpdaterCollector<O> {
    */
   @Override
   public void addUpdaters(final IContainer<Consumer<O>> updaters) {
-    this.memberUpdaters.addAtEnd(updaters);
+    memberUpdaters.addAtEnd(updaters);
   }
 
   /**

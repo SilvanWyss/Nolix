@@ -11,10 +11,10 @@ public final class LongMediator {
     Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 
     this.parentLicenseManager = parentLicenseManager;
-    this.memberValue = value;
+    memberValue = value;
   }
 
   public ConditionMediator isBiggerThan(final long value) {
-    return new ConditionMediator(parentLicenseManager, this.memberValue > value);
+    return new ConditionMediator(parentLicenseManager, memberValue > value);
   }
 }

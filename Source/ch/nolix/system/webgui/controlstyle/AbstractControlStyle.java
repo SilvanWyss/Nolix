@@ -445,7 +445,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetBackground(ControlState state, IBackground background) {
-    this.memberBackground.setValueForState(state, background);
+    memberBackground.setValueForState(state, background);
 
     return asConcrete();
   }
@@ -462,21 +462,21 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetBorderColor(final ControlState state, final IColor borderColor) {
-    this.memberBorderColor.setValueForState(state, borderColor);
+    memberBorderColor.setValueForState(state, borderColor);
 
     return asConcrete();
   }
 
   @Override
   public final S forStateSetBorderThickness(final ControlState state, final int borderThickness) {
-    this.memberBorderThickness.setValueForState(state, borderThickness);
+    memberBorderThickness.setValueForState(state, borderThickness);
 
     return asConcrete();
   }
 
   @Override
   public final S forStateSetBottomBorderColor(final ControlState state, final IColor bottomBorderColor) {
-    this.memberBottomBorderColor.setValueForState(state, bottomBorderColor);
+    memberBottomBorderColor.setValueForState(state, bottomBorderColor);
 
     return asConcrete();
   }
@@ -485,7 +485,7 @@ implements IControlStyle<S> {
   public final S forStateSetBottomBorderThickness(final ControlState state, final int bottomBorderThickness) {
     Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 
-    this.memberBottomBorderThickness.setValueForState(state, bottomBorderThickness);
+    memberBottomBorderThickness.setValueForState(state, bottomBorderThickness);
 
     return asConcrete();
   }
@@ -544,7 +544,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetLeftBorderColor(final ControlState state, final IColor leftBorderColor) {
-    this.memberLeftBorderColor.setValueForState(state, leftBorderColor);
+    memberLeftBorderColor.setValueForState(state, leftBorderColor);
 
     return asConcrete();
   }
@@ -553,7 +553,7 @@ implements IControlStyle<S> {
   public final S forStateSetLeftBorderThickness(final ControlState state, final int leftBorderThickness) {
     Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 
-    this.memberLeftBorderThickness.setValueForState(state, leftBorderThickness);
+    memberLeftBorderThickness.setValueForState(state, leftBorderThickness);
 
     return asConcrete();
   }
@@ -576,7 +576,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetRightBorderColor(final ControlState state, final IColor rightBorderColor) {
-    this.memberRightBorderColor.setValueForState(state, rightBorderColor);
+    memberRightBorderColor.setValueForState(state, rightBorderColor);
 
     return asConcrete();
   }
@@ -585,7 +585,7 @@ implements IControlStyle<S> {
   public final S forStateSetRightBorderThickness(final ControlState state, final int rightBorderThickness) {
     Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 
-    this.memberRightBorderThickness.setValueForState(state, rightBorderThickness);
+    memberRightBorderThickness.setValueForState(state, rightBorderThickness);
 
     return asConcrete();
   }
@@ -601,7 +601,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetTopBorderColor(final ControlState state, final IColor topBorderColor) {
-    this.memberTopBorderColor.setValueForState(state, topBorderColor);
+    memberTopBorderColor.setValueForState(state, topBorderColor);
 
     return asConcrete();
   }
@@ -610,7 +610,7 @@ implements IControlStyle<S> {
   public final S forStateSetTopBorderThickness(final ControlState state, final int topBorderThickness) {
     Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 
-    this.memberTopBorderThickness.setValueForState(state, topBorderThickness);
+    memberTopBorderThickness.setValueForState(state, topBorderThickness);
 
     return asConcrete();
   }

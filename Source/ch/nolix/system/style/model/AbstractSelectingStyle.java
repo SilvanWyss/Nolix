@@ -45,8 +45,8 @@ implements ISelectingStyleWithSelectors {
 
     memberSelectorId = optionalSelectorId;
     memberSelectorType = optionalSelectorType;
-    this.memberSelectorRoles = ImmutableList.fromIterable(selectorRoles);
-    this.memberSelectorTokens = ImmutableList.fromIterable(selectorTokens);
+    memberSelectorRoles = ImmutableList.fromIterable(selectorRoles);
+    memberSelectorTokens = ImmutableList.fromIterable(selectorTokens);
   }
 
   public final boolean containsSelectorRole(final String selectorRole) {

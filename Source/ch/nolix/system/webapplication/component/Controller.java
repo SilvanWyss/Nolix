@@ -18,6 +18,6 @@ public abstract class Controller<AS> { //NOSONAR: This class is a base type that
   final void internalSetSession(final WebClientSession<AS> webClientSession) {
     Validator.assertThat(webClientSession).thatIsNamed(WebClientSession.class).isNotNull();
 
-    this.memberWebClientSession = webClientSession;
+    memberWebClientSession = webClientSession;
   }
 }

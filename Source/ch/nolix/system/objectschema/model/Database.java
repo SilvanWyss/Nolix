@@ -28,7 +28,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
     Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
 
-    this.memberName = name;
+    memberName = name;
     this.midSchemaAdapter = midSchemaAdapter;
 
     setLoaded();
