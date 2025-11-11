@@ -4,7 +4,7 @@ public interface IControlStyle<S extends IControlStyle<S>>
 extends
 IBackgroundStyle<S>,
 IBorderStyle<S>,
-IControlHeadStyle<S>,
+IControlBaseStyle<S>,
 ICornerStyle<S>,
 IShadowStyle<S>,
 ISizeStyle<S>,

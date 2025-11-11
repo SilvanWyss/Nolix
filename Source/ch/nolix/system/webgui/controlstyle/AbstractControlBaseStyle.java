@@ -11,12 +11,12 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
-import ch.nolix.systemapi.webgui.controlstyle.IControlHeadStyle;
+import ch.nolix.systemapi.webgui.controlstyle.IControlBaseStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
-abstract class AbstractControlHeadStyle<C extends IControlHeadStyle<C>>
+abstract class AbstractControlBaseStyle<C extends IControlBaseStyle<C>>
 extends AbstractMultiStateConfiguration<C, ControlState>
-implements IControlHeadStyle<C> {
+implements IControlBaseStyle<C> {
   public static final double DEFAULT_OPACITY = 1.0;
 
   public static final Font DEFAULT_FONT = Font.ARIAL;
@@ -77,7 +77,7 @@ implements IControlHeadStyle<C> {
     IColor::getSpecification,
     DEFAULT_TEXT_COLOR);
 
-  protected AbstractControlHeadStyle() {
+  protected AbstractControlBaseStyle() {
     super(ControlState.BASE);
 
     textLineDecoration.setUndefined();
@@ -85,7 +85,7 @@ implements IControlHeadStyle<C> {
 
   @Override
   @SuppressWarnings("unchecked")
-  public final <C2 extends IControlHeadStyle<C2>> void addChild(final C2 controlStyle) {
+  public final <C2 extends IControlBaseStyle<C2>> void addChild(final C2 controlStyle) {
     internalAddChild((C) controlStyle);
   }
 

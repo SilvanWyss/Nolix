@@ -6,9 +6,9 @@ import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
-public interface IControlHeadStyle<S extends IControlHeadStyle<S>>
+public interface IControlBaseStyle<S extends IControlBaseStyle<S>>
 extends IMultiStateConfiguration<S, ControlState> {
-  <S2 extends IControlHeadStyle<S2>> void addChild(S2 controlStyle);
+  <S2 extends IControlBaseStyle<S2>> void addChild(S2 controlStyle);
 
   boolean definesTextLineDecorationForState(ControlState state);
 

@@ -28,7 +28,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 public abstract //
 class AbstractControlStyle< //NOSONAR: A AbstractControlStyle is a principal object thus it has many methods.
 S extends IControlStyle<S> & IMultiStateConfiguration<S, ControlState>>
-extends AbstractControlHeadStyle<S>
+extends AbstractControlBaseStyle<S>
 implements IControlStyle<S> {
   public static final int DEFAULT_CORNER_RADIUS = 0;
 
