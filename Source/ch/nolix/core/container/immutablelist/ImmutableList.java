@@ -8,6 +8,7 @@ import ch.nolix.core.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -59,7 +60,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    */
   @SuppressWarnings("unchecked")
   private ImmutableList(final Iterable<E> elements) {
-    final var elementCount = IterableTool.getCount(elements);
+    final var elementCount = getCountOfIterable(elements);
 
     this.elements = (E[]) new Object[elementCount];
 
@@ -74,6 +75,21 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
 
       index++;
     }
+  }
+
+  /**
+   * @param <T>      is the type of the element of the given iterable.
+   * @param iterable
+   * @return the number of element of the given iterable.
+   */
+  private static <T> int getCountOfIterable(final Iterable<T> iterable) {
+    int elementCount;
+    if (iterable instanceof final IContainer container) {
+      elementCount = container.getCount();
+    } else {
+      elementCount = IterableTool.getCount(iterable);
+    }
+    return elementCount;
   }
 
   /**
