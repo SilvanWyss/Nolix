@@ -23,9 +23,9 @@ public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdow
     reset();
 
     getStoredStyle()
-      .setBackgroundColorForState(ControlState.BASE, X11ColorCatalog.AQUAMARINE)
-      .setBackgroundColorForState(ControlState.HOVER, X11ColorCatalog.MEDIUM_AQUA_MARINE)
-      .setBackgroundColorForState(ControlState.FOCUS, X11ColorCatalog.MEDIUM_AQUA_MARINE);
+      .forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.AQUAMARINE)
+      .forStateSetBackgroundColor(ControlState.HOVER, X11ColorCatalog.MEDIUM_AQUA_MARINE)
+      .forStateSetBackgroundColor(ControlState.FOCUS, X11ColorCatalog.MEDIUM_AQUA_MARINE);
   }
 
   @Override

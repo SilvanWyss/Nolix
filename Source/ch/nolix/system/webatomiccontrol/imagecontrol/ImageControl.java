@@ -54,7 +54,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
-    getStoredStyle().setBackgroundColorForState(ControlState.BASE, X11ColorCatalog.LIGHT_GREY);
+    getStoredStyle().forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.LIGHT_GREY);
   }
 
   @Override

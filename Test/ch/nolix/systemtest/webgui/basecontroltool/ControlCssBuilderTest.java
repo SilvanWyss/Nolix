@@ -18,7 +18,7 @@ extends StandardTest {
   final void testCase_createCssRulesForControl_whenGivenControlHasAHoverBackgroundColor() {
     //setup
     final var control = createControl();
-    control.editStyle(s -> s.setBackgroundColorForState(ControlState.HOVER, Color.fromString("0x102030")));
+    control.editStyle(s -> s.forStateSetBackgroundColor(ControlState.HOVER, Color.fromString("0x102030")));
     final B testUnit = createTestUnit();
 
     //execution

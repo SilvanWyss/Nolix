@@ -12,11 +12,11 @@ public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {
 
   void removeCustomBackgrounds();
 
-  S setBackgroundColorForState(ControlState state, IColor backgroundColor);
+  S forStateSetBackgroundColor(ControlState state, IColor backgroundColor);
 
-  S setBackgroundColorGradientForState(ControlState state, IColorGradient backgroundColorGradient);
+  S forStateSetBackgroundColorGradient(ControlState state, IColorGradient backgroundColorGradient);
 
-  S setBackgroundImageForState(ControlState state, IImage backgroundImage, ImageApplication imageApplication);
+  S forStateSetBackgroundImage(ControlState state, IImage backgroundImage, ImageApplication imageApplication);
 
-  S setBackgroundForState(ControlState state, IBackground background);
+  S forStateSetBackground(ControlState state, IBackground background);
 }

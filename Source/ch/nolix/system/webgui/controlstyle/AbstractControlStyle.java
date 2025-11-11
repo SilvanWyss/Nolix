@@ -161,7 +161,7 @@ implements IControlStyle<S> {
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IBackground> background = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IBackground> memberBackground = new NonCascadingProperty<>(
     BACKGROUND_HEADER,
     ControlState.class,
     Background::fromSpecification,
@@ -242,7 +242,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IBackground getBackgroundWhenHasState(final ControlState state) {
-    return background.getValueWhenHasState(state);
+    return memberBackground.getValueWhenHasState(state);
   }
 
   @Override
@@ -327,7 +327,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomBackgrounds() {
-    background.setUndefined();
+    memberBackground.setUndefined();
   }
 
   @Override
@@ -432,30 +432,30 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
-    return setBackgroundForState(state, Background.withColor(backgroundColor));
+  public final S forStateSetBackgroundColor(final ControlState state, final IColor backgroundColor) {
+    return forStateSetBackground(state, Background.withColor(backgroundColor));
   }
 
   @Override
-  public final S setBackgroundColorGradientForState(
+  public final S forStateSetBackgroundColorGradient(
     final ControlState state,
     final IColorGradient backgroundColorGradient) {
-    return setBackgroundForState(state, Background.withColorGradient(backgroundColorGradient));
+    return forStateSetBackground(state, Background.withColorGradient(backgroundColorGradient));
   }
 
   @Override
-  public final S setBackgroundForState(ControlState state, IBackground background) {
-    this.background.setValueForState(state, background);
+  public final S forStateSetBackground(ControlState state, IBackground background) {
+    this.memberBackground.setValueForState(state, background);
 
     return asConcrete();
   }
 
   @Override
-  public final S setBackgroundImageForState(
+  public final S forStateSetBackgroundImage(
     final ControlState state,
     final IImage backgroundImage,
     final ImageApplication imageApplication) {
-    return setBackgroundForState(
+    return forStateSetBackground(
       state,
       Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
