@@ -105,56 +105,56 @@ implements IControlStyle<S> {
     this::setCornerRadiusForState,
     DEFAULT_CORNER_RADIUS);
 
-  private final NonCascadingProperty<ControlState, Integer> leftBorderThickness = NonCascadingProperty
+  private final NonCascadingProperty<ControlState, Integer> memberLeftBorderThickness = NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       LEFT_BORDER_THICKNESS_HEADER,
       ControlState.class,
       this::forStateSetLeftBorderThickness,
       DEFAULT_BORDER_THICKNESS);
 
-  private final NonCascadingProperty<ControlState, Integer> rightBorderThickness = NonCascadingProperty
+  private final NonCascadingProperty<ControlState, Integer> memberRightBorderThickness = NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       RIGHT_BORDER_THICKNESS_HEADER,
       ControlState.class,
       this::forStateSetRightBorderThickness,
       DEFAULT_BORDER_THICKNESS);
 
-  private final NonCascadingProperty<ControlState, Integer> topBorderThickness = NonCascadingProperty
+  private final NonCascadingProperty<ControlState, Integer> memberTopBorderThickness = NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       TOP_BORDER_THICKNESS_HEADER,
       ControlState.class,
       this::forStateSetTopBorderThickness,
       DEFAULT_BORDER_THICKNESS);
 
-  private final NonCascadingProperty<ControlState, Integer> bottomBorderThickness = NonCascadingProperty
+  private final NonCascadingProperty<ControlState, Integer> memberBottomBorderThickness = NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       BOTTOM_BORDER_THICKNESS_HEADER,
       ControlState.class,
       this::forStateSetBottomBorderThickness,
       DEFAULT_BORDER_THICKNESS);
 
-  private final NonCascadingProperty<ControlState, IColor> leftBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberLeftBorderColor = new NonCascadingProperty<>(
     LEFT_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IColor> rightBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberRightBorderColor = new NonCascadingProperty<>(
     RIGHT_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IColor> topBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberTopBorderColor = new NonCascadingProperty<>(
     TOP_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IColor> bottomBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberBottomBorderColor = new NonCascadingProperty<>(
     BOTTOM_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
@@ -213,19 +213,19 @@ implements IControlStyle<S> {
     this::setCornerShadowsForState,
     ImmutableList.createEmpty());
 
-  private final ForwardingProperty<ControlState, Integer> borderThickness = ForwardingProperty.withNameAndForProperty(
+  private final ForwardingProperty<ControlState, Integer> memberBorderThickness = ForwardingProperty.withNameAndForProperty(
     BORDER_THICKNESS_HEADER,
-    leftBorderThickness,
-    rightBorderThickness,
-    topBorderThickness,
-    bottomBorderThickness);
+    memberLeftBorderThickness,
+    memberRightBorderThickness,
+    memberTopBorderThickness,
+    memberBottomBorderThickness);
 
-  private final ForwardingProperty<ControlState, IColor> borderColor = ForwardingProperty.withNameAndForProperty(
+  private final ForwardingProperty<ControlState, IColor> memberBorderColor = ForwardingProperty.withNameAndForProperty(
     BORDER_COLOR_HEADER,
-    leftBorderColor,
-    rightBorderColor,
-    topBorderColor,
-    bottomBorderColor);
+    memberLeftBorderColor,
+    memberRightBorderColor,
+    memberTopBorderColor,
+    memberBottomBorderColor);
 
   private final ForwardingProperty<ControlState, IAbsoluteOrRelativeInt> padding = //
   ForwardingProperty.withNameAndForProperty(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
@@ -247,12 +247,12 @@ implements IControlStyle<S> {
 
   @Override
   public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
-    return bottomBorderColor.getValueWhenHasState(state);
+    return memberBottomBorderColor.getValueWhenHasState(state);
   }
 
   @Override
   public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
-    return bottomBorderThickness.getValueWhenHasState(state);
+    return memberBottomBorderThickness.getValueWhenHasState(state);
   }
 
   @Override
@@ -272,12 +272,12 @@ implements IControlStyle<S> {
 
   @Override
   public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
-    return leftBorderColor.getValueWhenHasState(state);
+    return memberLeftBorderColor.getValueWhenHasState(state);
   }
 
   @Override
   public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
-    return leftBorderThickness.getValueWhenHasState(state);
+    return memberLeftBorderThickness.getValueWhenHasState(state);
   }
 
   @Override
@@ -292,12 +292,12 @@ implements IControlStyle<S> {
 
   @Override
   public final IColor getRightBorderColorWhenHasState(final ControlState state) {
-    return rightBorderColor.getValueWhenHasState(state);
+    return memberRightBorderColor.getValueWhenHasState(state);
   }
 
   @Override
   public final int getRightBorderThicknessWhenHasState(final ControlState state) {
-    return rightBorderThickness.getValueWhenHasState(state);
+    return memberRightBorderThickness.getValueWhenHasState(state);
   }
 
   @Override
@@ -307,12 +307,12 @@ implements IControlStyle<S> {
 
   @Override
   public final IColor getTopBorderColorWhenHasState(final ControlState state) {
-    return topBorderColor.getValueWhenHasState(state);
+    return memberTopBorderColor.getValueWhenHasState(state);
   }
 
   @Override
   public final int getTopBorderThicknessWhenHasState(final ControlState state) {
-    return topBorderThickness.getValueWhenHasState(state);
+    return memberTopBorderThickness.getValueWhenHasState(state);
   }
 
   @Override
@@ -332,7 +332,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomBorderColors() {
-    borderColor.setUndefined();
+    memberBorderColor.setUndefined();
   }
 
   @Override
@@ -345,12 +345,12 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomBottomBorderColors() {
-    bottomBorderColor.setUndefined();
+    memberBottomBorderColor.setUndefined();
   }
 
   @Override
   public final void removeCustomBottomBorderThicknesses() {
-    bottomBorderThickness.setUndefined();
+    memberBottomBorderThickness.setUndefined();
   }
 
   @Override
@@ -375,12 +375,12 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomLeftBorderColors() {
-    leftBorderColor.setUndefined();
+    memberLeftBorderColor.setUndefined();
   }
 
   @Override
   public final void removeCustomLeftBorderThicknesses() {
-    leftBorderThickness.setUndefined();
+    memberLeftBorderThickness.setUndefined();
   }
 
   @Override
@@ -398,12 +398,12 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomRightBorderColors() {
-    rightBorderColor.setUndefined();
+    memberRightBorderColor.setUndefined();
   }
 
   @Override
   public final void removeCustomRightBorderThicknesses() {
-    rightBorderThickness.setUndefined();
+    memberRightBorderThickness.setUndefined();
   }
 
   @Override
@@ -413,12 +413,12 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomTopBorderColors() {
-    topBorderColor.setUndefined();
+    memberTopBorderColor.setUndefined();
   }
 
   @Override
   public final void removeCustomTopBorderThicknesses() {
-    topBorderThickness.setUndefined();
+    memberTopBorderThickness.setUndefined();
   }
 
   @Override
@@ -462,21 +462,21 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetBorderColor(final ControlState state, final IColor borderColor) {
-    this.borderColor.setValueForState(state, borderColor);
+    this.memberBorderColor.setValueForState(state, borderColor);
 
     return asConcrete();
   }
 
   @Override
   public final S forStateSetBorderThickness(final ControlState state, final int borderThickness) {
-    this.borderThickness.setValueForState(state, borderThickness);
+    this.memberBorderThickness.setValueForState(state, borderThickness);
 
     return asConcrete();
   }
 
   @Override
   public final S forStateSetBottomBorderColor(final ControlState state, final IColor bottomBorderColor) {
-    this.bottomBorderColor.setValueForState(state, bottomBorderColor);
+    this.memberBottomBorderColor.setValueForState(state, bottomBorderColor);
 
     return asConcrete();
   }
@@ -485,7 +485,7 @@ implements IControlStyle<S> {
   public final S forStateSetBottomBorderThickness(final ControlState state, final int bottomBorderThickness) {
     Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 
-    this.bottomBorderThickness.setValueForState(state, bottomBorderThickness);
+    this.memberBottomBorderThickness.setValueForState(state, bottomBorderThickness);
 
     return asConcrete();
   }
@@ -544,7 +544,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetLeftBorderColor(final ControlState state, final IColor leftBorderColor) {
-    this.leftBorderColor.setValueForState(state, leftBorderColor);
+    this.memberLeftBorderColor.setValueForState(state, leftBorderColor);
 
     return asConcrete();
   }
@@ -553,7 +553,7 @@ implements IControlStyle<S> {
   public final S forStateSetLeftBorderThickness(final ControlState state, final int leftBorderThickness) {
     Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
 
-    this.leftBorderThickness.setValueForState(state, leftBorderThickness);
+    this.memberLeftBorderThickness.setValueForState(state, leftBorderThickness);
 
     return asConcrete();
   }
@@ -576,7 +576,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetRightBorderColor(final ControlState state, final IColor rightBorderColor) {
-    this.rightBorderColor.setValueForState(state, rightBorderColor);
+    this.memberRightBorderColor.setValueForState(state, rightBorderColor);
 
     return asConcrete();
   }
@@ -585,7 +585,7 @@ implements IControlStyle<S> {
   public final S forStateSetRightBorderThickness(final ControlState state, final int rightBorderThickness) {
     Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
 
-    this.rightBorderThickness.setValueForState(state, rightBorderThickness);
+    this.memberRightBorderThickness.setValueForState(state, rightBorderThickness);
 
     return asConcrete();
   }
@@ -601,7 +601,7 @@ implements IControlStyle<S> {
 
   @Override
   public final S forStateSetTopBorderColor(final ControlState state, final IColor topBorderColor) {
-    this.topBorderColor.setValueForState(state, topBorderColor);
+    this.memberTopBorderColor.setValueForState(state, topBorderColor);
 
     return asConcrete();
   }
@@ -610,7 +610,7 @@ implements IControlStyle<S> {
   public final S forStateSetTopBorderThickness(final ControlState state, final int topBorderThickness) {
     Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
 
-    this.topBorderThickness.setValueForState(state, topBorderThickness);
+    this.memberTopBorderThickness.setValueForState(state, topBorderThickness);
 
     return asConcrete();
   }
