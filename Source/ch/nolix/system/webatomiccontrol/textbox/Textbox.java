@@ -52,7 +52,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
-    getStoredStyle().setBorderThicknessForState(ControlState.BASE, 1);
+    getStoredStyle().forStateSetBorderThickness(ControlState.BASE, 1);
   }
 
   @Override

@@ -40,23 +40,23 @@ public interface IBorderStyle<S extends IBorderStyle<S>> {
 
   void removeCustomTopBorderThicknesses();
 
-  S setBorderColorForState(ControlState state, IColor borderColor);
+  S forStateSetBorderColor(ControlState state, IColor borderColor);
 
-  S setBorderThicknessForState(ControlState state, int borderThickness);
+  S forStateSetBorderThickness(ControlState state, int borderThickness);
 
-  S setBottomBorderColorForState(ControlState state, IColor bottomBorderColor);
+  S forStateSetBottomBorderColor(ControlState state, IColor bottomBorderColor);
 
-  S setBottomBorderThicknessForState(ControlState state, int bottomBorderThickness);
+  S forStateSetBottomBorderThickness(ControlState state, int bottomBorderThickness);
 
-  S setLeftBorderColorForState(ControlState state, IColor leftBorderColor);
+  S forStateSetLeftBorderColor(ControlState state, IColor leftBorderColor);
 
-  S setLeftBorderThicknessForState(ControlState state, int leftBorderThickness);
+  S forStateSetLeftBorderThickness(ControlState state, int leftBorderThickness);
 
-  S setRightBorderColorForState(ControlState state, IColor rightBorderColor);
+  S forStateSetRightBorderColor(ControlState state, IColor rightBorderColor);
 
-  S setRightBorderThicknessForState(ControlState state, int rightBorderThickness);
+  S forStateSetRightBorderThickness(ControlState state, int rightBorderThickness);
 
-  S setTopBorderColorForState(ControlState state, IColor topBorderColor);
+  S forStateSetTopBorderColor(ControlState state, IColor topBorderColor);
 
-  S setTopBorderThicknessForState(ControlState state, int topBorderThickness);
+  S forStateSetTopBorderThickness(ControlState state, int topBorderThickness);
 }
