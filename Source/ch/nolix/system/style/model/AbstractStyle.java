@@ -2,10 +2,8 @@ package ch.nolix.system.style.model;
 
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
@@ -65,13 +63,10 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
-  public final S withAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
-    final ILinkedList<String> allAttachingAttributes = LinkedList.createEmpty();
+  public final S withAttachingAttributes(final String... attachingAttributes) {
+    final var attachingAttributesView = ContainerView.forArray(attachingAttributes);
 
-    allAttachingAttributes.addAtEnd(attachingAttribute);
-    allAttachingAttributes.addAtEnd(attachingAttributes);
-
-    return withAttachingAttributes(allAttachingAttributes);
+    return withAttachingAttributes(attachingAttributesView);
   }
 
   @Override

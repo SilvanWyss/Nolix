@@ -74,7 +74,7 @@ final class StyleTest extends StandardTest {
     final var testUnit = new Style();
 
     //execution
-    final var result = testUnit.withAttachingAttribute("p1(v1)", "p2(v2)");
+    final var result = testUnit.withAttachingAttributes("p1(v1)", "p2(v2)");
 
     //verification
     expect(result.getAttachingAttributes()
@@ -104,10 +104,10 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_withAttachingAttribute_whenContainsAny() {
     //setup
-    final var testUnit = new Style().withAttachingAttribute("p1(v1)", "p2(v2)");
+    final var testUnit = new Style().withAttachingAttributes("p1(v1)", "p2(v2)");
 
     //execution
-    final var result = testUnit.withAttachingAttribute("p3(v3)", "p4(v4)");
+    final var result = testUnit.withAttachingAttributes("p3(v3)", "p4(v4)");
 
     //verification
     expect(result.getAttachingAttributes().toStrings())

@@ -15,7 +15,7 @@ final class DeepSelectingStyleTest extends StandardTest {
     final var testUnit = //
     new DeepSelectingStyle()
       .withSelectorId("selector_id")
-      .withAttachingAttribute("BaseBorderThickness(1)", "BaseBackgroundColor(Anthrazit)");
+      .withAttachingAttributes("BaseBorderThickness(1)", "BaseBackgroundColor(Anthrazit)");
 
     //execution
     final var specification = testUnit.getSpecification();
@@ -32,7 +32,7 @@ final class DeepSelectingStyleTest extends StandardTest {
     final var testUnit = //
     new DeepSelectingStyle()
       .withSelectorRole(LabelRole.TITLE)
-      .withAttachingAttribute("BaseTextSize(50)", "BaseTextColor(Black)");
+      .withAttachingAttributes("BaseTextSize(50)", "BaseTextColor(Black)");
 
     //execution
     final var specification = testUnit.getSpecification();
@@ -76,7 +76,7 @@ final class DeepSelectingStyleTest extends StandardTest {
       .withSelectorType(Button.class)
       .withSelectorRole(ButtonRole.CREATE_BUTTON, ButtonRole.DELETE_BUTTON)
       .withSelectorToken("token1", "token2")
-      .withAttachingAttribute("BaseTextSize(20)", "BaseTextColor(Black)");
+      .withAttachingAttributes("BaseTextSize(20)", "BaseTextColor(Black)");
 
     //execution
     final var result = testUnit.withSelectorToken("token3", "token4");

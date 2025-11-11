@@ -38,16 +38,14 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   boolean containsAttachingAttributes();
 
   /**
-   * @param attachingAttribute
    * @param attachingAttributes
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
-   *         attachingAttribute and attachingAttributes added.
-   * @throws RuntimeException if the given attachingAttribute is not valid.
+   *         attachingAttributes added.
    * @throws RuntimeException if the given attachingAttributes is null.
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
    */
-  S withAttachingAttribute(String attachingAttribute, String... attachingAttributes);
+  S withAttachingAttributes(IContainer<String> attachingAttributes);
 
   /**
    * @param attachingAttributes
@@ -57,7 +55,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
    */
-  S withAttachingAttributes(IContainer<String> attachingAttributes);
+  S withAttachingAttributes(String... attachingAttributes);
 
   /**
    * @param selectorType
