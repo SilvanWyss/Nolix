@@ -204,13 +204,13 @@ implements IControlStyle<S> {
     this::setBottomPaddingForState,
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
-  private final NonCascadingProperty<ControlState, IContainer<CornerShadow>> cornerShadows = //
+  private final NonCascadingProperty<ControlState, IContainer<CornerShadow>> memberCornerShadows = //
   new NonCascadingProperty<>(
     CORNER_SHADOWS_HEADER,
     ControlState.class,
     s -> s.getStoredChildNodes().to(CornerShadow::fromSpecification),
     s -> Node.withChildNodes(s.to(CornerShadow::getSpecification)),
-    this::setCornerShadowsForState,
+    this::forStateSetCornerShadows,
     ImmutableList.createEmpty());
 
   private final ForwardingProperty<ControlState, Integer> memberBorderThickness = //
@@ -269,7 +269,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
-    return cornerShadows.getValueWhenHasState(state);
+    return memberCornerShadows.getValueWhenHasState(state);
   }
 
   @Override
@@ -367,7 +367,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomCornerShadows() {
-    cornerShadows.setUndefined();
+    memberCornerShadows.setUndefined();
   }
 
   @Override
@@ -511,19 +511,19 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setCornerShadowForState(
+  public final S forStateSetCornerShadow(
     final ControlState state,
     final ICornerShadow cornerShadow,
     final ICornerShadow... cornerShadows) {
     final var allCornerShadows = ContainerView.forElementAndArray(cornerShadow, cornerShadows);
 
-    return setCornerShadowsForState(state, allCornerShadows);
+    return forStateSetCornerShadows(state, allCornerShadows);
   }
 
   @Override
-  public final S setCornerShadowsForState(final ControlState state,
+  public final S forStateSetCornerShadows(final ControlState state,
     final IContainer<? extends ICornerShadow> cornerShadows) {
-    this.cornerShadows.setValueForState(state, cornerShadows.to(CornerShadow::fromCornerShadow));
+    memberCornerShadows.setValueForState(state, cornerShadows.to(CornerShadow::fromCornerShadow));
 
     return asConcrete();
   }
