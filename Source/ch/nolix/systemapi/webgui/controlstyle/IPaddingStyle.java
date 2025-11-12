@@ -22,13 +22,13 @@ public interface IPaddingStyle<S extends IPaddingStyle<S>> {
 
   void removeCustomTopPaddings();
 
-  S setBottomPaddingForState(ControlState state, int bottomPadding);
+  S forStateSetBottomPadding(ControlState state, int bottomPadding);
 
-  S setLeftPaddingForState(ControlState state, int leftPadding);
+  S forStateSetLeftPadding(ControlState state, int leftPadding);
 
-  S setPaddingForState(ControlState state, int padding);
+  S forStateSetPadding(ControlState state, int padding);
 
-  S setRightPaddingForState(ControlState state, int rightPadding);
+  S forStateSetRightPadding(ControlState state, int rightPadding);
 
-  S setTopPaddingForState(ControlState state, int topPadding);
+  S forStateSetTopPadding(ControlState state, int topPadding);
 }

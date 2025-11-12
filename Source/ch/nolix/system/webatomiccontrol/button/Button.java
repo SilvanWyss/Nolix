@@ -57,8 +57,8 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
     setMinWidth(200);
     getStoredStyle()
-      .setLeftPaddingForState(ControlState.BASE, 20)
-      .setRightPaddingForState(ControlState.BASE, 20)
+      .forStateSetLeftPadding(ControlState.BASE, 20)
+      .forStateSetRightPadding(ControlState.BASE, 20)
       .forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.LIGHT_GREY)
       .forStateSetBackgroundColor(ControlState.HOVER, X11ColorCatalog.DARK_GREY)
       .forStateSetBackgroundColor(ControlState.FOCUS, X11ColorCatalog.DARK_GREY);

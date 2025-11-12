@@ -168,7 +168,7 @@ implements IControlStyle<S> {
     IBackground::getSpecification,
     DEFAULT_BACKGROUND);
 
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> leftPadding = //
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberLeftPadding = //
   new NonCascadingProperty<>(
     LEFT_PADDING_HEADER,
     ControlState.class,
@@ -177,7 +177,7 @@ implements IControlStyle<S> {
     this::setLeftPaddingForState,
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> rightPadding = //
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberRightPadding = //
   new NonCascadingProperty<>(
     RIGHT_PADDING_HEADER,
     ControlState.class,
@@ -186,7 +186,7 @@ implements IControlStyle<S> {
     this::setRightPaddingForState,
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> topPadding = //
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberTopPadding = //
   new NonCascadingProperty<>(
     TOP_PADDING_HEADER,
     ControlState.class,
@@ -195,7 +195,7 @@ implements IControlStyle<S> {
     this::setTopPaddingForState,
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> bottomPadding = //
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberBottomPadding = //
   new NonCascadingProperty<>(
     BOTTOM_PADDING_HEADER,
     ControlState.class,
@@ -228,8 +228,9 @@ implements IControlStyle<S> {
     memberTopBorderColor,
     memberBottomBorderColor);
 
-  private final ForwardingProperty<ControlState, IAbsoluteOrRelativeInt> padding = //
-  ForwardingProperty.withNameAndForProperty(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
+  private final ForwardingProperty<ControlState, IAbsoluteOrRelativeInt> memberPadding = //
+  ForwardingProperty.withNameAndForProperty(PADDING_HEADER, memberLeftPadding, memberRightPadding, memberTopPadding,
+    memberBottomPadding);
 
   @Override
   public final boolean definesHeightForState(final ControlState state) {
@@ -258,7 +259,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(final ControlState state) {
-    return bottomPadding.getValueWhenHasState(state);
+    return memberBottomPadding.getValueWhenHasState(state);
   }
 
   @Override
@@ -288,7 +289,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(final ControlState state) {
-    return leftPadding.getValueWhenHasState(state);
+    return memberLeftPadding.getValueWhenHasState(state);
   }
 
   @Override
@@ -303,7 +304,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IAbsoluteOrRelativeInt getRightPaddingWhenHasState(final ControlState state) {
-    return rightPadding.getValueWhenHasState(state);
+    return memberRightPadding.getValueWhenHasState(state);
   }
 
   @Override
@@ -318,7 +319,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IAbsoluteOrRelativeInt getTopPaddingWhenHasState(final ControlState state) {
-    return topPadding.getValueWhenHasState(state);
+    return memberTopPadding.getValueWhenHasState(state);
   }
 
   @Override
@@ -356,7 +357,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomBottomPaddings() {
-    bottomPadding.setUndefined();
+    memberBottomPadding.setUndefined();
   }
 
   @Override
@@ -386,7 +387,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomLeftPaddings() {
-    leftPadding.setUndefined();
+    memberLeftPadding.setUndefined();
   }
 
   @Override
@@ -409,7 +410,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomRightPaddings() {
-    rightPadding.setUndefined();
+    memberRightPadding.setUndefined();
   }
 
   @Override
@@ -424,7 +425,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomTopPaddings() {
-    topPadding.setUndefined();
+    memberTopPadding.setUndefined();
   }
 
   @Override
@@ -492,10 +493,10 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setBottomPaddingForState(final ControlState state, final int bottomPadding) {
+  public final S forStateSetBottomPadding(final ControlState state, final int bottomPadding) {
     Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 
-    this.bottomPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(bottomPadding));
+    memberBottomPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(bottomPadding));
 
     return asConcrete();
   }
@@ -560,17 +561,17 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setLeftPaddingForState(final ControlState state, final int leftPadding) {
+  public final S forStateSetLeftPadding(final ControlState state, final int leftPadding) {
     Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
 
-    this.leftPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(leftPadding));
+    memberLeftPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(leftPadding));
 
     return asConcrete();
   }
 
   @Override
-  public final S setPaddingForState(final ControlState state, final int padding) {
-    this.padding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(padding));
+  public final S forStateSetPadding(final ControlState state, final int padding) {
+    memberPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(padding));
 
     return asConcrete();
   }
@@ -592,10 +593,10 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setRightPaddingForState(final ControlState state, final int rightPadding) {
+  public final S forStateSetRightPadding(final ControlState state, final int rightPadding) {
     Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
 
-    this.rightPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(rightPadding));
+    memberRightPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(rightPadding));
 
     return asConcrete();
   }
@@ -617,10 +618,10 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setTopPaddingForState(final ControlState state, final int topPadding) {
+  public final S forStateSetTopPadding(final ControlState state, final int topPadding) {
     Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
 
-    this.topPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(topPadding));
+    memberTopPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(topPadding));
 
     return asConcrete();
   }
@@ -644,7 +645,7 @@ implements IControlStyle<S> {
   private void setBottomPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt bottomPadding) {
     AbsoluteOrRelativeIntValidator.assertIsPositive(bottomPadding);
 
-    this.bottomPadding.setValueForState(state, bottomPadding);
+    memberBottomPadding.setValueForState(state, bottomPadding);
   }
 
   private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
@@ -656,19 +657,19 @@ implements IControlStyle<S> {
   private void setLeftPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt leftPadding) {
     AbsoluteOrRelativeIntValidator.assertIsPositive(leftPadding);
 
-    this.leftPadding.setValueForState(state, leftPadding);
+    memberLeftPadding.setValueForState(state, leftPadding);
   }
 
   private void setRightPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt rightPadding) {
     AbsoluteOrRelativeIntValidator.assertIsPositive(rightPadding);
 
-    this.rightPadding.setValueForState(state, rightPadding);
+    memberRightPadding.setValueForState(state, rightPadding);
   }
 
   private void setTopPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt topPadding) {
     AbsoluteOrRelativeIntValidator.assertIsPositive(topPadding);
 
-    this.topPadding.setValueForState(state, topPadding);
+    memberTopPadding.setValueForState(state, topPadding);
   }
 
   private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
