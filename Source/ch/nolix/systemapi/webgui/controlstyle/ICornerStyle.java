@@ -5,7 +5,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 public interface ICornerStyle<S extends ICornerStyle<S>> {
   int getCornerRadiusWhenHasState(ControlState state);
 
-  void removeCustomCornerRadiuses();
+  S forStateSetCornerRadius(ControlState state, int cornerRadius);
 
-  S setCornerRadiusForState(ControlState state, int cornerRadius);
+  void removeCustomCornerRadiuses();
 }

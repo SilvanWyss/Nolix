@@ -98,11 +98,11 @@ implements IControlStyle<S> {
     this::setHeightForState,
     AbsoluteOrRelativeInt.withIntValue(100));
 
-  private final NonCascadingProperty<ControlState, Integer> cornerRadius = //
+  private final NonCascadingProperty<ControlState, Integer> memberCornerRadius = //
   NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
     CORNER_RADIUS_HEADER,
     ControlState.class,
-    this::setCornerRadiusForState,
+    this::forStateSetCornerRadius,
     DEFAULT_CORNER_RADIUS);
 
   private final NonCascadingProperty<ControlState, Integer> memberLeftBorderThickness = NonCascadingProperty
@@ -263,7 +263,7 @@ implements IControlStyle<S> {
 
   @Override
   public final int getCornerRadiusWhenHasState(final ControlState state) {
-    return cornerRadius.getValueWhenHasState(state);
+    return memberCornerRadius.getValueWhenHasState(state);
   }
 
   @Override
@@ -361,7 +361,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomCornerRadiuses() {
-    cornerRadius.setUndefined();
+    memberCornerRadius.setUndefined();
   }
 
   @Override
@@ -501,10 +501,10 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setCornerRadiusForState(final ControlState state, final int cornerRadius) {
+  public final S forStateSetCornerRadius(final ControlState state, final int cornerRadius) {
     Validator.assertThat(cornerRadius).thatIsNamed("corner radius").isNotNegative();
 
-    this.cornerRadius.setValueForState(state, cornerRadius);
+    memberCornerRadius.setValueForState(state, cornerRadius);
 
     return asConcrete();
   }
