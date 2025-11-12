@@ -18,7 +18,7 @@ public final class StatementCreator implements IStatementCreator {
     return //
     "CREATE TABLE "
     + table.name()
-    + " (" + table.columns().to(this::getColumnAsSql).toStringWithSeparator(", ")
+    + " (" + table.columns().getViewOf(this::getColumnAsSql).toStringWithSeparator(", ")
     + ");";
   }
 
@@ -101,7 +101,7 @@ public final class StatementCreator implements IStatementCreator {
   }
 
   private String getConstraintsAsSql(final ColumnDto column) {
-    return column.constraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
+    return column.constraints().getViewOf(this::getConstraintAsSql).toStringWithSeparator(",");
   }
 
   private String getConstraintParametersAsSql(final ColumnConstraintDto constraint) {

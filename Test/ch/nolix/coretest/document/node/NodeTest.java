@@ -73,6 +73,6 @@ final class NodeTest extends BaseNodeTest<Node> {
 
   @Override
   protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
-    return Node.withHeaderAndChildNodes(header, ContainerView.forArray(childNodeHeaders).to(Node::withHeader));
+    return Node.withHeaderAndChildNodes(header, ContainerView.forArray(childNodeHeaders).getViewOf(Node::withHeader));
   }
 }

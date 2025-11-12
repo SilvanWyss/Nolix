@@ -173,7 +173,7 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   public static Node withChildNode(final String childNode, final String... childNodes) {
-    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
+    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).getViewOf(Node::withHeader);
 
     return withChildNodes(allChildNodes);
   }
@@ -279,7 +279,7 @@ public final class Node extends AbstractNode<Node> {
    * @throws InvalidArgumentException if one of the given childNodes is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
-    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).to(Node::withHeader);
+    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).getViewOf(Node::withHeader);
 
     return withHeaderAndChildNodes(header, allChildNodes);
   }

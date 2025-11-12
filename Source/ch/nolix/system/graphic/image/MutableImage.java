@@ -397,7 +397,7 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
     final Matrix<IColor> localPixels = Matrix.createEmpty();
     for (final var r : pixels.getRows()) {
-      localPixels.addRow(r.to(p -> p.withFloatingPointAlphaValue(alphaValue)));
+      localPixels.addRow(r.getViewOf(p -> p.withFloatingPointAlphaValue(alphaValue)));
     }
 
     return new MutableImage(localPixels);
@@ -449,7 +449,7 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
       Node.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
       Node.withHeaderAndChildNodes(
         PluralPascalCaseVariableCatalog.PIXELS,
-        pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
+        pixels.getViewOf(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
   }
 
   private Node getPixelArraySpecification() {

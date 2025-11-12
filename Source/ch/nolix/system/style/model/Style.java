@@ -88,8 +88,8 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   public IContainer<INode<?>> getAttributes() {
     return //
     ContainerView.forIterable(
-      getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
-      getSubStyles().to(ISelectingStyle::getSpecification));
+      getAttachingAttributes().getViewOf(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
+      getSubStyles().getViewOf(ISelectingStyle::getSpecification));
   }
 
   /**

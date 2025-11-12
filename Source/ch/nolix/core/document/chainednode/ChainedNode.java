@@ -568,11 +568,11 @@ implements IChainedNode {
 
     //Handles the case that the current ChainedNode does not have a header.
     if (!hasHeader()) {
-      return Node.withChildNodes(getChildNodes().to(ChainedNode::toNode));
+      return Node.withChildNodes(getChildNodes().getViewOf(ChainedNode::toNode));
     }
 
     //Handles the case that the current ChainedNode has a header.
-    return Node.withHeaderAndChildNodes(getHeader(), getChildNodes().to(ChainedNode::toNode));
+    return Node.withHeaderAndChildNodes(getHeader(), getChildNodes().getViewOf(ChainedNode::toNode));
   }
 
   /**

@@ -32,7 +32,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     memberAttachingAttributes = ImmutableList.fromIterable(attachingAttributes);
 
-    memberSubStyles = ImmutableList.fromIterable(subStyles.to(this::createSelectingStyleFromSelectingStyle));
+    memberSubStyles = ImmutableList.fromIterable(subStyles.getViewOf(this::createSelectingStyleFromSelectingStyle));
   }
 
   /**

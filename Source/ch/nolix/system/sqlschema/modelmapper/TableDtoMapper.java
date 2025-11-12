@@ -32,11 +32,11 @@ public final class TableDtoMapper implements ITableDtoMapper {
   @Override
   public IContainer<TableDto> mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(
     final IContainer<ISqlRecord> sqlRecordsWithTableNameAndNameAndDataType) {
-    final var columns = //
-    sqlRecordsWithTableNameAndNameAndDataType.to(
+    final var columnsView = //
+    sqlRecordsWithTableNameAndNameAndDataType.getViewOf(
       COLUMN_DTO_MAPPER::mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto);
 
-    final var columnsGroupedByTable = columns.getStoredInGroups(ColumnDto::name);
+    final var columnsGroupedByTable = columnsView.getStoredInGroups(ColumnDto::name);
 
     return columnsGroupedByTable.to(c -> new TableDto(c.getStoredFirst().name(), c));
   }

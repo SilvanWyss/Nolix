@@ -196,12 +196,12 @@ public final class SchemaWriter implements ISchemaWriter {
     final var dataTypeNode = COLUMN_NODE_SEARCHER.getStoredDataTypeNodeFromColumnNode(columnNode);
     dataTypeNode.getStoredSingleChildNode().setHeader(dataType.name());
 
-    final var referenceablteTableIdsNodes = referenceableTableIds.to(Node::withHeader);
+    final var referenceablteTableIdsNodesView = referenceableTableIds.getViewOf(Node::withHeader);
 
     final var referenceablteTableIdsNode = //
     COLUMN_NODE_SEARCHER.getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
 
-    referenceablteTableIdsNode.setChildNodes(referenceablteTableIdsNodes);
+    referenceablteTableIdsNode.setChildNodes(referenceablteTableIdsNodesView);
 
     final var backReferenceableColumnIdNodes = backReferenceableColumnIds.to(Node::withHeader);
 

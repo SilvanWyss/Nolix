@@ -7,9 +7,9 @@ import ch.nolix.systemapi.element.base.IStructureElement;
 public final class StructureSpecificationCreator {
   public INode<?> getStructureSpecificationOfElement(final IStructureElement element) {
     final var header = getSpecificationHeaderOfElement(element);
-    final var attributes = element.getChildStructureElements().to(this::getStructureSpecificationOfElement);
+    final var childNodesView = element.getChildStructureElements().getViewOf(this::getStructureSpecificationOfElement);
 
-    return Node.withHeaderAndChildNodes(header, attributes);
+    return Node.withHeaderAndChildNodes(header, childNodesView);
   }
 
   private String getSpecificationHeaderOfElement(final IStructureElement element) {

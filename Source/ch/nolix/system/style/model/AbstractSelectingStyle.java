@@ -159,9 +159,10 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
     final Enum<?>... selectorRoles) {
-    final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles).to(Object::toString);
+    final var allSelectorRolesView = ContainerView.forElementAndArray(selectorRole, selectorRoles)
+      .getViewOf(Object::toString);
 
-    return withSelectorRoles(allSelectorRoles);
+    return withSelectorRoles(allSelectorRolesView);
   }
 
   @Override

@@ -66,7 +66,7 @@ public final class WebClientPartialCounterpartUpdater {
 
     final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
 
-    updatedCommands.addAtEnd(controls.to(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
+    updatedCommands.addAtEnd(controls.getViewOf(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
 
     if (updateConstellationOrStyle) {
       updatedCommands.addAtEnd(

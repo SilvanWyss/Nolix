@@ -52,7 +52,7 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
     testUnit.addItemWithText("my_text1", "my_text2", "my_text3", "my_text4");
 
     //verification
-    expect(testUnit.getStoredItems().to(IItemMenuItem::getText))
+    expect(testUnit.getStoredItems().getViewOf(IItemMenuItem::getText))
       .containsExactlyEqualing("my_text1", "my_text2", "my_text3", "my_text4");
   }
 

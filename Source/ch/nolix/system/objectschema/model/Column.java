@@ -217,16 +217,16 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final var columnIdentification = new ColumnIdentification(columnId, columnName);
     final var localFieldType = getFieldType();
     final var localDataType = getDataType();
-    final var referenceableTableIds = getStoredReferenceableTables().to(ITable::getId);
-    final var backReferenceableColumnIds = getStoredBackReferenceableColumns().to(IColumn::getId);
+    final var referenceableTableIdsView = getStoredReferenceableTables().getViewOf(ITable::getId);
+    final var backReferenceableColumnIdsView = getStoredBackReferenceableColumns().getViewOf(IColumn::getId);
 
     getStoredMidSchemaAdapter().setColumnModel(
       tableIdentification,
       columnIdentification,
       localFieldType,
       localDataType,
-      referenceableTableIds,
-      backReferenceableColumnIds);
+      referenceableTableIdsView,
+      backReferenceableColumnIdsView);
   }
 
   void setNameAttribute(final String header) {

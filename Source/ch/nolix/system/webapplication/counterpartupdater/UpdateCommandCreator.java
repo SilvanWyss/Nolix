@@ -93,14 +93,15 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
 
   private ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
     final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
-    final var eventFunctions = htmlElementEventRegistrations.to(
+    final var eventFunctionsView = //
+    htmlElementEventRegistrations.getViewOf(
       e -> Node.withChildNode(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
 
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
       ChainedNode.withHeaderAndChildNodesFromNodes(
         CommandProtocol.SET_EVENT_FUNCTIONS,
-        eventFunctions));
+        eventFunctionsView));
   }
 
   private ChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement htmlElement) {
