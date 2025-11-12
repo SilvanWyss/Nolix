@@ -6,8 +6,7 @@ import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
-public interface IControlBaseStyle<S extends IControlBaseStyle<S>>
-extends IMultiStateConfiguration<S, ControlState> {
+public interface IControlBaseStyle<S extends IControlBaseStyle<S>> extends IMultiStateConfiguration<S, ControlState> {
   <S2 extends IControlBaseStyle<S2>> void addChild(S2 controlStyle);
 
   boolean definesTextLineDecorationForState(ControlState state);
@@ -36,15 +35,15 @@ extends IMultiStateConfiguration<S, ControlState> {
 
   void removeCustomTextSizes();
 
-  S setBoldTextFlagForState(ControlState state, boolean boldTextFlag);
+  S forStateSetBoldTextFlag(ControlState state, boolean boldTextFlag);
 
-  S setFontForState(ControlState state, Font font);
+  S forStateSetFont(ControlState state, Font font);
 
-  S setOpacityForState(ControlState state, double opacity);
+  S forStateSetOpacity(ControlState state, double opacity);
 
-  S setTextColorForState(ControlState state, IColor textColor);
+  S forStateSetTextColor(ControlState state, IColor textColor);
 
-  S setTextLineDecorationForState(ControlState state, LineDecoration textLineDecoration);
+  S forStateSetTextLineDecoration(ControlState state, LineDecoration textLineDecoration);
 
-  S setTextSizeForState(ControlState state, int textSize);
+  S forStateSetTextSize(ControlState state, int textSize);
 }

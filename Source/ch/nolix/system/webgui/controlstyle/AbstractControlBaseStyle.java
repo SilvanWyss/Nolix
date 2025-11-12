@@ -29,16 +29,16 @@ implements IControlBaseStyle<C> {
 
   public static final Color DEFAULT_TEXT_COLOR = X11ColorCatalog.BLACK;
 
-  private final NonCascadingProperty<ControlState, Double> opacity = //
+  private final NonCascadingProperty<ControlState, Double> memberOpacity = //
   new NonCascadingProperty<>(
     ControlHeadStyleAttributeHeaderCatalog.OPACITY_HEADER,
     ControlState.class,
     s -> getOpacityFromString(s.getSingleChildNodeHeader()),
     Node::withChildNode,
-    this::setOpacityForState,
+    this::forStateSetOpacity,
     DEFAULT_OPACITY);
 
-  private final CascadingProperty<ControlState, Font> font = //
+  private final CascadingProperty<ControlState, Font> memberFont = //
   new CascadingProperty<>(
     ControlHeadStyleAttributeHeaderCatalog.FONT_HEADER,
     ControlState.class,
@@ -46,22 +46,22 @@ implements IControlBaseStyle<C> {
     Node::fromEnum,
     DEFAULT_FONT);
 
-  private final CascadingProperty<ControlState, Boolean> boldTextFlag = //
+  private final CascadingProperty<ControlState, Boolean> memberBoldTextFlag = //
   CascadingProperty
     .forBooleanWithNameAndStateClassAndDefaultValue(
       ControlHeadStyleAttributeHeaderCatalog.BOLD_TEXT_FLAG_HEADER,
       ControlState.class,
       DEFAULT_BOLD_TEXT_FLAG);
 
-  private final CascadingProperty<ControlState, Integer> textSize = //
+  private final CascadingProperty<ControlState, Integer> memberTextSize = //
   CascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       ControlHeadStyleAttributeHeaderCatalog.TEXT_SIZE_HEADER,
       ControlState.class,
-      this::setTextSizeForState,
+      this::forStateSetTextSize,
       DEAULT_TEXT_SIZE);
 
-  private final CascadingProperty<ControlState, LineDecoration> textLineDecoration = //
+  private final CascadingProperty<ControlState, LineDecoration> memberTextLineDecoration = //
   new CascadingProperty<>(
     ControlHeadStyleAttributeHeaderCatalog.TEXT_LINE_DECORATION_HEADER,
     ControlState.class,
@@ -69,7 +69,7 @@ implements IControlBaseStyle<C> {
     Node::fromEnum,
     DEFAULT_TEXT_LINE_DECORATION);
 
-  private final CascadingProperty<ControlState, IColor> textColor = //
+  private final CascadingProperty<ControlState, IColor> memberTextColor = //
   new CascadingProperty<>(
     ControlHeadStyleAttributeHeaderCatalog.TEXT_COLOR_HEADER,
     ControlState.class,
@@ -80,7 +80,7 @@ implements IControlBaseStyle<C> {
   protected AbstractControlBaseStyle() {
     super(ControlState.BASE);
 
-    textLineDecoration.setUndefined();
+    memberTextLineDecoration.setUndefined();
   }
 
   @Override
@@ -91,111 +91,111 @@ implements IControlBaseStyle<C> {
 
   @Override
   public boolean definesTextLineDecorationForState(final ControlState state) {
-    return textLineDecoration.hasValueForState(state);
+    return memberTextLineDecoration.hasValueForState(state);
   }
 
   @Override
   public final boolean getBoldTextFlagWhenHasState(final ControlState state) {
-    return boldTextFlag.getValueWhenHasState(state);
+    return memberBoldTextFlag.getValueWhenHasState(state);
   }
 
   @Override
   public final Font getFontWhenHasState(final ControlState state) {
-    return font.getValueWhenHasState(state);
+    return memberFont.getValueWhenHasState(state);
   }
 
   @Override
   public final double getOpacityWhenHasState(final ControlState state) {
-    return opacity.getValueWhenHasState(state);
+    return memberOpacity.getValueWhenHasState(state);
   }
 
   @Override
   public final IColor getTextColorWhenHasState(final ControlState state) {
-    return textColor.getValueWhenHasState(state);
+    return memberTextColor.getValueWhenHasState(state);
   }
 
   @Override
   public LineDecoration getTextLineDecorationWhenHasState(ControlState state) {
-    return textLineDecoration.getValueWhenHasState(state);
+    return memberTextLineDecoration.getValueWhenHasState(state);
   }
 
   @Override
   public final int getTextSizeWhenHasState(final ControlState state) {
-    return textSize.getValueWhenHasState(state);
+    return memberTextSize.getValueWhenHasState(state);
   }
 
   @Override
   public final void removeCustomBoldTextFlags() {
-    boldTextFlag.setUndefined();
+    memberBoldTextFlag.setUndefined();
   }
 
   @Override
   public final void removeCustomFonts() {
-    font.setUndefined();
+    memberFont.setUndefined();
   }
 
   @Override
   public final void removeCustomOpacities() {
-    opacity.setUndefined();
+    memberOpacity.setUndefined();
   }
 
   @Override
   public final void removeCustomTextColors() {
-    textColor.setUndefined();
+    memberTextColor.setUndefined();
   }
 
   @Override
   public void removeCustomTextLineDecorations() {
-    textLineDecoration.setUndefined();
+    memberTextLineDecoration.setUndefined();
   }
 
   @Override
   public final void removeCustomTextSizes() {
-    textSize.setUndefined();
+    memberTextSize.setUndefined();
   }
 
   @Override
-  public final C setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
-    this.boldTextFlag.setValueForState(state, boldTextFlag);
+  public final C forStateSetBoldTextFlag(final ControlState state, final boolean boldTextFlag) {
+    memberBoldTextFlag.setValueForState(state, boldTextFlag);
 
     return asConcrete();
   }
 
   @Override
-  public final C setFontForState(final ControlState state, final Font font) {
-    this.font.setValueForState(state, font);
+  public final C forStateSetFont(final ControlState state, final Font font) {
+    memberFont.setValueForState(state, font);
 
     return asConcrete();
   }
 
   @Override
-  public final C setOpacityForState(final ControlState state, final double opacity) {
+  public final C forStateSetOpacity(final ControlState state, final double opacity) {
     Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
 
-    this.opacity.setValueForState(state, opacity);
+    memberOpacity.setValueForState(state, opacity);
 
     return asConcrete();
   }
 
   @Override
-  public final C setTextColorForState(final ControlState state, final IColor textColor) {
-    this.textColor.setValueForState(state, textColor);
+  public final C forStateSetTextColor(final ControlState state, final IColor textColor) {
+    memberTextColor.setValueForState(state, textColor);
 
     return asConcrete();
   }
 
   @Override
-  public C setTextLineDecorationForState(final ControlState state, final LineDecoration textLineDecoration) {
-    this.textLineDecoration.setValueForState(state, textLineDecoration);
+  public C forStateSetTextLineDecoration(final ControlState state, final LineDecoration textLineDecoration) {
+    memberTextLineDecoration.setValueForState(state, textLineDecoration);
 
     return asConcrete();
   }
 
   @Override
-  public final C setTextSizeForState(final ControlState state, final int textSize) {
+  public final C forStateSetTextSize(final ControlState state, final int textSize) {
     Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();
 
-    this.textSize.setValueForState(state, textSize);
+    memberTextSize.setValueForState(state, textSize);
 
     return asConcrete();
   }

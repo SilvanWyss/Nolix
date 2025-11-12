@@ -62,8 +62,8 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     reset();
 
     getStoredStyle()
-      .setTextLineDecorationForState(ControlState.HOVER, LineDecoration.UNDERLINE)
-      .setTextColorForState(ControlState.BASE, X11ColorCatalog.BLUE);
+      .forStateSetTextLineDecoration(ControlState.HOVER, LineDecoration.UNDERLINE)
+      .forStateSetTextColor(ControlState.BASE, X11ColorCatalog.BLUE);
   }
 
   @Override
@@ -182,6 +182,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     removeUrl();
 
     setCursorIcon(CursorIcon.HAND);
-    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalog.BLUE);
+    getStoredStyle().forStateSetTextColor(ControlState.BASE, X11ColorCatalog.BLUE);
   }
 }

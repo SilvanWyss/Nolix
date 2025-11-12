@@ -63,7 +63,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     final var testUnit = createTestUnit();
 
     //execution
-    testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, X11ColorCatalog.DARK_CYAN));
+    testUnit.editStyle(s -> s.forStateSetTextColor(ControlState.BASE, X11ColorCatalog.DARK_CYAN));
 
     //verification
     final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);

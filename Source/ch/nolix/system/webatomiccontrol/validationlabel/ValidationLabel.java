@@ -113,6 +113,6 @@ implements IValidationLabel {
   protected void resetControl() {
     clear();
 
-    getStoredStyle().setTextColorForState(ControlState.BASE, X11ColorCatalog.RED);
+    getStoredStyle().forStateSetTextColor(ControlState.BASE, X11ColorCatalog.RED);
   }
 }

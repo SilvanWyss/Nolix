@@ -34,8 +34,8 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
               .setText("This is page is under construction.")
               .editStyle(
                 s -> s
-                  .setTextSizeForState(ControlState.BASE, 30)
-                  .setTextColorForState(ControlState.BASE, X11ColorCatalog.GREY)),
+                  .forStateSetTextSize(ControlState.BASE, 30)
+                  .forStateSetTextColor(ControlState.BASE, X11ColorCatalog.GREY)),
             new Button()
               .setVisibility(hasParentSession())
               .setText("<-- Go back")
