@@ -80,7 +80,7 @@ implements IControlStyle<S> {
 
   private static final String PADDING_HEADER = "Padding";
 
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = //
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberWidth = //
   new NonCascadingProperty<>(
     WIDTH_HEADER,
     ControlState.class,
@@ -89,7 +89,7 @@ implements IControlStyle<S> {
     this::setWidthForState,
     AbsoluteOrRelativeInt.withIntValue(100));
 
-  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = //
+  private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberHeight = //
   new NonCascadingProperty<>(
     HEIGHT_HEADER,
     ControlState.class,
@@ -234,12 +234,12 @@ implements IControlStyle<S> {
 
   @Override
   public final boolean definesHeightForState(final ControlState state) {
-    return height.hasValueForState(state);
+    return memberHeight.hasValueForState(state);
   }
 
   @Override
   public final boolean definesWidthForState(final ControlState state) {
-    return width.hasValueForState(state);
+    return memberWidth.hasValueForState(state);
   }
 
   @Override
@@ -284,7 +284,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
-    return height.getValueWhenHasState(state);
+    return memberHeight.getValueWhenHasState(state);
   }
 
   @Override
@@ -324,7 +324,7 @@ implements IControlStyle<S> {
 
   @Override
   public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
-    return width.getValueWhenHasState(state);
+    return memberWidth.getValueWhenHasState(state);
   }
 
   @Override
@@ -372,7 +372,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomHeights() {
-    height.setUndefined();
+    memberHeight.setUndefined();
   }
 
   @Override
@@ -430,7 +430,7 @@ implements IControlStyle<S> {
 
   @Override
   public final void removeCustomWidths() {
-    width.setUndefined();
+    memberWidth.setUndefined();
   }
 
   @Override
@@ -529,14 +529,14 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setHeightForState(final ControlState state, final int height) {
+  public final S forStateSetHeight(final ControlState state, final int height) {
     setHeightForState(state, AbsoluteOrRelativeInt.withIntValue(height));
 
     return asConcrete();
   }
 
   @Override
-  public final S setHeightInPercentOfViewAreaForState(
+  public final S forStateSetHeightInPercentOfViewArea(
     final ControlState state,
     final double heightInPercentOfViewAreaHeight) {
     setHeightForState(state, AbsoluteOrRelativeInt.withPercentage(heightInPercentOfViewAreaHeight));
@@ -627,14 +627,14 @@ implements IControlStyle<S> {
   }
 
   @Override
-  public final S setWidthForState(final ControlState state, final int width) {
+  public final S forStateSetWidth(final ControlState state, final int width) {
     setWidthForState(state, AbsoluteOrRelativeInt.withIntValue(width));
 
     return asConcrete();
   }
 
   @Override
-  public final S setWidthInPercentOfViewAreaWidthForState(
+  public final S forStateSetWidthInPercentOfViewAreaWidth(
     final ControlState state,
     final double widthInPercentOfViewAreaWidth) {
     setWidthForState(state, AbsoluteOrRelativeInt.withPercentage(widthInPercentOfViewAreaWidth));
@@ -651,7 +651,7 @@ implements IControlStyle<S> {
   private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
     AbsoluteOrRelativeIntValidator.assertIsPositive(height);
 
-    this.height.setValueForState(state, height);
+    memberHeight.setValueForState(state, height);
   }
 
   private void setLeftPaddingForState(final ControlState state, final IAbsoluteOrRelativeInt leftPadding) {
@@ -675,6 +675,6 @@ implements IControlStyle<S> {
   private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
     AbsoluteOrRelativeIntValidator.assertIsPositive(width);
 
-    this.width.setValueForState(state, width);
+    memberWidth.setValueForState(state, width);
   }
 }

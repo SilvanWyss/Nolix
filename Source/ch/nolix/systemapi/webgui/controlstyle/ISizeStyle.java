@@ -16,11 +16,11 @@ public interface ISizeStyle<S extends ISizeStyle<S>> {
 
   void removeCustomWidths();
 
-  S setHeightForState(ControlState state, int height);
+  S forStateSetHeight(ControlState state, int height);
 
-  S setHeightInPercentOfViewAreaForState(ControlState state, double heightInPercentOfViewAreaHeight);
+  S forStateSetHeightInPercentOfViewArea(ControlState state, double heightInPercentOfViewAreaHeight);
 
-  S setWidthForState(ControlState state, int width);
+  S forStateSetWidth(ControlState state, int width);
 
-  S setWidthInPercentOfViewAreaWidthForState(ControlState state, double widthInPercentOfViewAreaWidth);
+  S forStateSetWidthInPercentOfViewAreaWidth(ControlState state, double widthInPercentOfViewAreaWidth);
 }

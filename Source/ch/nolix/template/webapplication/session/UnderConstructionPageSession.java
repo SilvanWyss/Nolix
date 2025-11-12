@@ -29,7 +29,7 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
               .setText(getApplicationName()),
             new ImageControl()
               .setImage(CRANE_IMAGE)
-              .editStyle(s -> s.setHeightForState(ControlState.BASE, 500)),
+              .editStyle(s -> s.forStateSetHeight(ControlState.BASE, 500)),
             new Label()
               .setText("This is page is under construction.")
               .editStyle(
