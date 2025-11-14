@@ -14,7 +14,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 final class PublicConstructorTest {
   @Disabled
   @Test
-  void testCase_publicConstructorsAreDefaultConstructors() {
+  void testCase_publicConstructorsDoNotContainParameters() {
     //setup
     final var rule = //
     ArchRuleDefinition
