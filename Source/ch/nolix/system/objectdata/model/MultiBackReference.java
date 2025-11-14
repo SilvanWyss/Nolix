@@ -1,5 +1,7 @@
 package ch.nolix.system.objectdata.model;
 
+import java.util.Iterator;
+
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
@@ -124,6 +126,11 @@ implements IMultiBackReference<E> {
   @Override
   public boolean isMandatory() {
     return false;
+  }
+
+  @Override
+  public Iterator<E> iterator() {
+    return getAllStoredBackReferencedEntities().iterator();
   }
 
   @Override
