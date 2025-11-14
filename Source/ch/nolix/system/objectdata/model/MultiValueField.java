@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
+import java.util.Iterator;
 import java.util.function.Predicate;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -78,6 +79,11 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   @Override
   public boolean isMandatory() {
     return false;
+  }
+
+  @Override
+  public Iterator<V> iterator() {
+    return getAllStoredValues().iterator();
   }
 
   @Override
