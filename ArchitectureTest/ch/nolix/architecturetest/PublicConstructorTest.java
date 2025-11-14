@@ -12,8 +12,8 @@ import com.tngtech.archunit.lang.SimpleConditionEvent;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
 final class PublicConstructorTest {
-  @Test
   @Disabled
+  @Test
   void testCase_publicConstructorsAreDefaultConstructors() {
     //setup
     final var rule = //
@@ -28,13 +28,14 @@ final class PublicConstructorTest {
       .areDeclaredInClassesThat()
       .haveModifier(JavaModifier.FINAL)
       .should(
-        new ArchCondition<JavaConstructor>("have public constructors only without parameters") {
+        new ArchCondition<JavaConstructor>("Public constructors do not contain parameters.") {
           @Override
           public void check(final JavaConstructor item, final ConditionEvents events) {
-            final var isDefaultConstructor = item.getParameters().isEmpty();
-            final var message = item.getFullName() + " is not a default constructor";
+            if (!item.getParameters().isEmpty()) {
+              final var message = "The " + item.getFullName() + " constructor is public and contains parameters.";
 
-            events.add(new SimpleConditionEvent(item, isDefaultConstructor, message));
+              events.add(new SimpleConditionEvent(item, false, message));
+            }
           }
         });
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix...");
