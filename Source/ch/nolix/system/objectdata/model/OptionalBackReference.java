@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
+import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -32,32 +33,36 @@ implements IOptionalBackReference<E> {
 
   private EntityCache<E> nullableBackReferencedEntityCache;
 
-  private OptionalBackReference(final IContainer<String> backReferenceableTableNamese,
+  private OptionalBackReference(
+    final IContainer<String> backReferenceableTableNamese,
     final String backReferencedFieldName) {
     super(backReferenceableTableNamese, backReferencedFieldName);
   }
 
-  public static <E2 extends IEntity> OptionalBackReference<E2> //
-  forBackReferenceableEntityTypesAndBackReferencedFieldName(
-    final IContainer<Class<? extends E2>> backReferenceableEntityTypes,
-    final String backReferencedFieldName) {
-    final var backReferenceableTableNames = //
+  @SafeVarargs
+  public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+    final String backReferencedFieldName,
+    final Class<T>... backReferenceableEntityTypes) {
+    final var backReferenceableEntityTypesContainerView = ContainerView.forArray(backReferenceableEntityTypes);
+
+    final var backReferenceableTableNamesView = //
+    backReferenceableEntityTypesContainerView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+
+    return new OptionalBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
+  }
+
+  public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
+    final String backReferencedFieldName,
+    final IContainer<Class<? extends T>> backReferenceableEntityTypes) {
+    final var backReferenceableTableNamesView = //
     backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
-    return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
+    return new OptionalBackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
 
-  public static <E2 extends IEntity> OptionalBackReference<E2> forBackReferenceableTableNamesAndBackReferencedFieldName(
-    final IContainer<String> backReferenceableTableNames,
-    final String backReferencedFieldName) {
-    return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
-  }
-
-  public static <E2 extends IEntity> OptionalBackReference<E2> forBackReferenceableTablesAndBackReferencedFieldName(
-    final IContainer<ITable<IEntity>> backReferenceableTables,
-    final String backReferencedFieldName) {
-    final var backReferenceableTableNames = backReferenceableTables.getViewOf(ITable::getName);
-
+  public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
+    final String backReferencedFieldName,
+    final IContainer<String> backReferenceableTableNames) {
     return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 

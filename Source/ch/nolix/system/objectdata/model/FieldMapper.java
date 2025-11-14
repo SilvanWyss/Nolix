@@ -80,13 +80,14 @@ public final class FieldMapper {
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
-    final var backReferenceableTables = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
     final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
+    final var backReferenceableTablesView = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
+    final var backReferenceableTableNamesView = backReferenceableTablesView.getViewOf(ITable::getName);
 
     return //
-    OptionalBackReference.forBackReferenceableTablesAndBackReferencedFieldName(
-      backReferenceableTables,
-      backReferencedFieldName);
+    OptionalBackReference.forBackReferencedFieldNameAndBackReferenceableTableNames(
+      backReferencedFieldName,
+      backReferenceableTableNamesView);
   }
 
   private static MultiBackReference<AbstractEntity> createMultiBackReferenceFromAbstractBackReferenceModelView(
