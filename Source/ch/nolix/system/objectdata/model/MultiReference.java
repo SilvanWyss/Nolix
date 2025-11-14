@@ -1,5 +1,6 @@
 package ch.nolix.system.objectdata.model;
 
+import java.util.Iterator;
 import java.util.function.Predicate;
 
 import ch.nolix.core.container.containerview.ContainerView;
@@ -141,6 +142,11 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   @Override
   public boolean isMandatory() {
     return false;
+  }
+
+  @Override
+  public Iterator<E> iterator() {
+    return getAllStoredReferencedEntities().iterator();
   }
 
   @Override
