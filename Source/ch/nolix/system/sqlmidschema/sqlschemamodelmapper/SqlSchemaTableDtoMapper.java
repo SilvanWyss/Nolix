@@ -30,7 +30,7 @@ public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
     final var contentColumns = //
     tableDto.columns().toMultiples(SQL_SCHEMA_COLUMN_DTO_MAPPER::mapColumnDtoToSqlSchemaColumnDtos);
 
-    final var columns = ContainerView.forIterable(META_COLUMN_SQL_SCHEMA_COLUMNS, contentColumns);
+    final var columns = ContainerView.forIterables(META_COLUMN_SQL_SCHEMA_COLUMNS, contentColumns);
 
     return new ch.nolix.systemapi.sqlschema.model.TableDto(tableName, columns);
   }

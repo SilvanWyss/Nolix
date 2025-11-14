@@ -16,10 +16,8 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     containers = ImmutableList.createEmpty();
   }
 
-  private MultiContainerView(final E[] array, @SuppressWarnings("unchecked") final E[]... arrays) {
+  private MultiContainerView(@SuppressWarnings("unchecked") final E[]... arrays) {
     final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
-
-    localContainers.addAtEnd(ArrayContainerView.forArray(array));
 
     for (final var a : arrays) {
       localContainers.addAtEnd(ArrayContainerView.forArray(a));
@@ -28,12 +26,8 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     containers = localContainers;
   }
 
-  private MultiContainerView(
-    final Iterable<? extends E> iterable,
-    @SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
+  private MultiContainerView(@SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
     final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
-
-    localContainers.addAtEnd(IterableContainerView.forIterable(iterable));
 
     for (final var i : iterables) {
       localContainers.addAtEnd(IterableContainerView.forIterable(i));
@@ -42,10 +36,9 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     containers = localContainers;
   }
 
-  public static <E2> MultiContainerView<E2> forArray(
-    final E2[] array,
+  public static <E2> MultiContainerView<E2> forArrays(
     @SuppressWarnings("unchecked") final E2[]... arrays) {
-    return new MultiContainerView<>(array, arrays);
+    return new MultiContainerView<>(arrays);
   }
 
   public static <E2> MultiContainerView<E2> forEmpty() {
@@ -53,10 +46,8 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   @SafeVarargs
-  public static <E2> MultiContainerView<E2> forIterable(
-    final Iterable<? extends E2> iterable,
-    final Iterable<? extends E2>... iterables) {
-    return new MultiContainerView<>(iterable, iterables);
+  public static <E2> MultiContainerView<E2> forIterables(final Iterable<? extends E2>... iterables) {
+    return new MultiContainerView<>(iterables);
   }
 
   @Override

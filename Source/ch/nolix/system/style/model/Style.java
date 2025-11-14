@@ -87,7 +87,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   @Override
   public IContainer<INode<?>> getAttributes() {
     return //
-    ContainerView.forIterable(
+    ContainerView.forIterables(
       getAttachingAttributes().getViewOf(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
       getSubStyles().getViewOf(ISelectingStyle::getSpecification));
   }
@@ -106,7 +106,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    */
   @Override
   public IStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
-    final var allAttachingAttributes = ContainerView.forIterable(getAttachingAttributes(), attachingAttributes);
+    final var allAttachingAttributes = ContainerView.forIterables(getAttachingAttributes(), attachingAttributes);
 
     return new Style(allAttachingAttributes, getSubStyles());
   }

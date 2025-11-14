@@ -15,7 +15,7 @@ final class ContainerViewTest extends ContainerTest {
     final String[] array3 = { "flower", "tree", "palm" };
 
     //execution
-    final var testUnit = ContainerView.forArray(array1, array2, array3);
+    final var testUnit = ContainerView.forArrays(array1, array2, array3);
 
     //execution
     expect(testUnit.containsEqualing("apple")).isTrue();
@@ -40,7 +40,7 @@ final class ContainerViewTest extends ContainerTest {
     final String[] array3 = { "flower", "tree", "palm" };
 
     //execution
-    final var testUnit = ContainerView.forArray(array1, array2, array3);
+    final var testUnit = ContainerView.forArrays(array1, array2, array3);
 
     //verification
     expect(testUnit.getStoredAtOneBasedIndex(1)).isEqualTo("apple");
@@ -62,7 +62,7 @@ final class ContainerViewTest extends ContainerTest {
     final String[] array3 = { "C", "CC", "CCC" };
 
     //execution
-    final var testUnit = ContainerView.forArray(array1, array2, array3);
+    final var testUnit = ContainerView.forArrays(array1, array2, array3);
 
     //verification
     expect(testUnit.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
@@ -77,6 +77,6 @@ final class ContainerViewTest extends ContainerTest {
 
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
-    return ContainerView.forEmpty();
+    return ContainerView.createEmpty();
   }
 }

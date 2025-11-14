@@ -9,16 +9,21 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link ContainerView} can read a given {@link Iterable} or array. A
- * {@link ContainerView} prevents that its accessed {@link Iterable} or array
- * can be mutated. A {@link ContainerView} does not prevent that the elements of
- * its {@link Iterable} or array can be mutated.
+ * A {@link ContainerView} wraps one or several given {@link Iterable}s or
+ * arrays.
+ * 
+ * A {@link ContainerView} prevents that its accessed {@link Iterable}s or
+ * arrays are mutated. A {@link ContainerView} does not prevent that the
+ * elements of its {@link Iterable} or array are mutated.
  * 
  * @author Silvan Wyss
  * @version 2017-07-01
  * @param <E> is the type of the elements of a {@link ContainerView}.
  */
 public final class ContainerView<E> extends AbstractExtendedContainer<E> {
+  private static final ContainerView<Object> EMPTY_ARRAY_CONTAINER_VIEW = //
+  new ContainerView<>(ImmutableList.createEmpty());
+
   private final IContainer<E> internalContainer;
 
   /**
@@ -28,25 +33,42 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws ArgumentIsNullException if the given container is null.
    */
   private ContainerView(final IContainer<E> container) {
-    //Asserts that the given container is not null.
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
-    //Sets the container of the current ContainerView.
     internalContainer = container;
   }
 
   /**
+   * @return an empty {@link ContainerView}.
+   * @param <T> is the types the elements the {@link ContainerView} would have.
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> ContainerView<T> createEmpty() {
+    return (ContainerView<T>) EMPTY_ARRAY_CONTAINER_VIEW;
+  }
+
+  /**
    * @param array
-   * @param arrays
-   * @param <E2>   is the type of the elements of the given array and arrays.
-   * @return a new {@link ContainerView} for the given array and arrays.
+   * @param <T>   is the type of the elements of the given array.
+   * @return a new {@link ContainerView} for the given array.
    * @throws ArgumentIsNullException if the given array is null.
+   */
+  public static <T> ContainerView<T> forArray(final T[] array) {
+    final var container = ArrayContainerView.forArray(array);
+
+    return new ContainerView<>(container);
+  }
+
+  /**
+   * @param arrays
+   * @param <T>    is the type of the elements of the given arrays.
+   * @return a new {@link ContainerView} for the given arrays.
    * @throws ArgumentIsNullException if the given arrays is null.
-   * @throws ArgumentIsNullException if one array of the given arrays is null.
+   * @throws ArgumentIsNullException if one of the given arrays is null.
    */
   @SafeVarargs
-  public static <E2> ContainerView<E2> forArray(final E2[] array, final E2[]... arrays) {
-    final var container = MultiContainerView.forArray(array, arrays);
+  public static <T> ContainerView<T> forArrays(final T[]... arrays) {
+    final var container = MultiContainerView.forArrays(arrays);
 
     return new ContainerView<>(container);
   }
@@ -54,93 +76,75 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
   /**
    * @param element
    * @param array
-   * @param <E2>    is the type of the given element and elements of the given
+   * @param <T>     is the type of the given element and the elements of the given
    *                array.
    * @return a new {@link ContainerView} for the given element and array.
-   * @throws ArgumentIsNullException if the given element is null.
    * @throws ArgumentIsNullException if the given array is null.
-   * @throws ArgumentIsNullException if one element of the given arrays is null.
    */
-  public static <E2> ContainerView<E2> forElementAndArray(final E2 element, final E2[] array) {
+  public static <T> ContainerView<T> forElementAndArray(final T element, final T[] array) {
     @SuppressWarnings("unchecked")
-    final var arrayWithElement = (E2[]) new Object[] { element };
+    final var arrayWithElement = (T[]) new Object[] { element };
 
     @SuppressWarnings("unchecked")
-    final var container = MultiContainerView.forArray(arrayWithElement, array);
-
-    return new ContainerView<>(container);
-  }
-
-  /**
-   * @param <E2> is the type of the hypothetical elements of the created empty
-   *             {@link ContainerView}.
-   * @return a new empty {@link ContainerView}.
-   */
-  public static <E2> ContainerView<E2> forEmpty() {
-    final IContainer<E2> container = ImmutableList.createEmpty();
+    final var container = MultiContainerView.forArrays(arrayWithElement, array);
 
     return new ContainerView<>(container);
   }
 
   /**
    * @param iterable
-   * @param iterables
-   * @param <E2>      is the type of the elements of the given iterable and
-   *                  iterables.
-   * @return a new {@link ContainerView} for the given iterable and iterables.
+   * @param <T>      is the type of the elements of the given iterable.
+   * @return a new {@link ContainerView} for the given iterable.
    * @throws ArgumentIsNullException if the given iterable is null.
+   */
+  public static <T> ContainerView<T> forIterable(final Iterable<T> iterable) {
+    final var container = IterableContainerView.forIterable(iterable);
+
+    return new ContainerView<>(container);
+  }
+
+  /**
+   * @param iterable
+   * @param element
+   * @param <T>      is the type of the elements of the given iterable and
+   *                 element.
+   * @return a new {@link ContainerView} for the given iterable and element.
+   * @throws ArgumentIsNullException if the given iterable is null.
+   */
+  public static <T> ContainerView<T> forIterableAndElement(final Iterable<T> iterable, final T element) {
+    final var iterableWithElement = ImmutableList.withElement(element);
+    final var container = MultiContainerView.forIterables(iterable, iterableWithElement);
+
+    return new ContainerView<>(container);
+  }
+
+  /**
+   * @param iterables
+   * @param <T>       is the type of the elements of the given iterables.
+   * @return a new {@link ContainerView} for the given iterables.
    * @throws ArgumentIsNullException if the given iterables is null.
    * @throws ArgumentIsNullException if one of the given iterables is null.
    */
   @SafeVarargs
-  public static <E2> ContainerView<E2> forIterable(
-    final Iterable<? extends E2> iterable,
-    final Iterable<? extends E2>... iterables) {
-    final var container = MultiContainerView.forIterable(iterable, iterables);
+  public static <T> ContainerView<T> forIterables(final Iterable<? extends T>... iterables) {
+    final var container = MultiContainerView.forIterables(iterables);
 
     return new ContainerView<>(container);
   }
 
   /**
-   * @param iterable
-   * @param element
-   * @param elements
-   * @param <E2>     is the type of the elements of the given iterable and element
-   *                 and elements.
-   * @return a new {@link ContainerView} for the given iterable and element and
-   *         elements.
-   * @throws ArgumentIsNullException if the given iterable is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
-   */
-  @SafeVarargs
-  public static <E2> ContainerView<E2> forIterableAndElement(
-    final Iterable<? extends E2> iterable,
-    final E2 element,
-    final E2... elements) {
-    final var container = //
-    MultiContainerView.forIterable(
-      iterable,
-      ImmutableList.withElements(element),
-      ArrayContainerView.forArray(elements));
-
-    return new ContainerView<>(container);
-  }
-
-  /**
-   * An object equals a {@link ContainerView} when the object is a
-   * {@link Iterable} that contains exactly the same elements in the same order
-   * like the {@link ContainerView}.
+   * A {@link Object} equals a {@link ContainerView} when the object is a
+   * {@link Iterable} that contains exactly the same elements in the same order as
+   * the {@link ContainerView}.
    * 
    * {@inheritDoc}
    */
   @Override
   public boolean equals(final Object object) {
-    //Handles the case that the given object is a Iterable.
     if (object instanceof final Iterable<?> iterable) {
       return containsExactlyInSameOrder(iterable);
     }
 
-    //Handles the case that the given object is not a Iterable.
     return false;
   }
 

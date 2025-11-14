@@ -69,7 +69,7 @@ public final class ShellProvider {
   private static String[] createRuntimeCommandFromCommand(final String[] command) {
     final var preCommand = new String[] { "cmd.exe", "/c" };
 
-    return ContainerView.forArray(preCommand, command).toStringArray();
+    return ContainerView.forArrays(preCommand, command).toStringArray();
   }
 
   private static String getUrlWithHttpPrefix(final String url) {

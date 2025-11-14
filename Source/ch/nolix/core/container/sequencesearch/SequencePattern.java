@@ -110,7 +110,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   public ISequencePattern<E> withConditionsForNexts(IContainer<Predicate<E>> conditions) {
     Validator.assertThatTheElements(conditions).areNotNull();
 
-    final var allElementConditions = ContainerView.forIterable(elementConditions, conditions);
+    final var allElementConditions = ContainerView.forIterables(elementConditions, conditions);
 
     return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
   }

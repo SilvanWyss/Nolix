@@ -31,9 +31,9 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   /**
-   * @return a {@link ArrayContainerView} for an empty array.
-   * @param <T> is the types the elements the empty array of the
-   *            {@link ArrayContainerView} would have.
+   * @return an empty {@link ArrayContainerView}.
+   * @param <T> is the types the elements the {@link ArrayContainerView} would
+   *            have.
    */
   @SuppressWarnings("unchecked")
   public static <T> ArrayContainerView<T> createEmpty() {

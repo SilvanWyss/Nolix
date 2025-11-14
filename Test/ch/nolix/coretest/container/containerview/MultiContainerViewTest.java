@@ -16,7 +16,7 @@ final class MultiContainerViewTest extends ContainerTest {
     final var array3 = new String[] { "z", "zz" };
 
     //execution
-    final var result = MultiContainerView.forArray(array1, array2, array3);
+    final var result = MultiContainerView.forArrays(array1, array2, array3);
 
     //verification
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
@@ -27,7 +27,7 @@ final class MultiContainerViewTest extends ContainerTest {
     final @SuppressWarnings("unchecked") E... elements) {
     final var container = ImmutableList.withElements(elements);
 
-    return MultiContainerView.forIterable(container);
+    return MultiContainerView.forIterables(container);
   }
 
   @Override

@@ -189,7 +189,7 @@ public final class HtmlElement implements IHtmlElement {
   @Override
   public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
     final var allAttributes = //
-    ContainerView.forIterable(getAttributes(), ContainerView.forElementAndArray(attribute, attributes));
+    ContainerView.forIterables(getAttributes(), ContainerView.forElementAndArray(attribute, attributes));
 
     if (containsChildElements()) {
       return withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());

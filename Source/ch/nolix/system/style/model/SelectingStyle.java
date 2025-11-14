@@ -158,7 +158,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       optionalSelectorType = getSelectorType();
     }
 
-    final var allAttachingAttributes = ContainerView.forIterable(getAttachingAttributes(), attachingAttributes);
+    final var allAttachingAttributes = ContainerView.forIterables(getAttachingAttributes(), attachingAttributes);
 
     return //
     new SelectingStyle(
