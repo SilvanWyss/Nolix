@@ -41,8 +41,8 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     final String backReferencedFieldName,
     final Class<T>... backReferenceableEntityTypes) {
     final var backReferenceableEntityTypesContainerView = ContainerView.forArray(backReferenceableEntityTypes);
-    final var backReferenceableTableNamesView = backReferenceableEntityTypesContainerView
-      .getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+    final var backReferenceableTableNamesView = //
+    backReferenceableEntityTypesContainerView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new BackReference<>(backReferenceableTableNamesView, backReferencedFieldName);
   }
