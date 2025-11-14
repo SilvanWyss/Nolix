@@ -14,6 +14,8 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ArrayContainerView}.
  */
 public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
+  private static final ArrayContainerView<Object> EMPTY_ARRAY_CONTAINER_VIEW = new ArrayContainerView<>(new Object[0]);
+
   private final E[] array;
 
   /**
@@ -25,26 +27,26 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
   private ArrayContainerView(final E[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
-    this.array = array; //NOSONAR: An ArrayView operates on the original instance.
+    this.array = array; //NOSONAR: An ArrayContainerView operates on the original instance.
   }
 
   /**
-   * @return a new {@link ArrayContainerView} for a new empty array.
-   * @param <E2> is the types of the elements of the array of the
-   *             {@link ArrayContainerView}.
+   * @return a {@link ArrayContainerView} for an empty array.
+   * @param <T> is the types the elements the empty array of the
+   *            {@link ArrayContainerView} would have.
    */
   @SuppressWarnings("unchecked")
-  public static <E2> ArrayContainerView<E2> createEmpty() {
-    return forArray((E2[]) new Object[0]);
+  public static <T> ArrayContainerView<T> createEmpty() {
+    return (ArrayContainerView<T>) EMPTY_ARRAY_CONTAINER_VIEW;
   }
 
   /**
    * @param array
-   * @param <E2>  is the type of the elements of the given array.
+   * @param <T>   is the type of the elements of the given array.
    * @return a new {@link ArrayContainerView} for the given array.
    * @throws ArgumentIsNullException if the given array is null.
    */
-  public static <E2> ArrayContainerView<E2> forArray(final E2[] array) {
+  public static <T> ArrayContainerView<T> forArray(final T[] array) {
     return new ArrayContainerView<>(array);
   }
 
@@ -63,7 +65,9 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(0, getCount());
 
-    return array[oneBasedIndex - 1];
+    final var zeroBasedIndex = oneBasedIndex - 1;
+
+    return array[zeroBasedIndex];
   }
 
   /**
