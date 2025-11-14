@@ -8,7 +8,8 @@ import ch.nolix.coreapi.net.ssl.ISslCertificate;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
-import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.MultiThreadIoEventLoopGroup;
+import io.netty.channel.nio.NioIoHandler;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
@@ -47,8 +48,8 @@ final class SslServerWorker extends AbstractWorker {
   @Override
   protected void run() {
     final var sslContext = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
-    final var bossGroup = new NioEventLoopGroup(1);
-    final var workerGroup = new NioEventLoopGroup();
+    final var bossGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
+    final var workerGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
 
     try { //NOSONAR: bossGroup and workerGroup will be shut down gracefully.
 
