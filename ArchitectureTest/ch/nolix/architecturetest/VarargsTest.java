@@ -13,7 +13,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 final class VarargsTest {
   @Disabled
   @Test
-  void testCase_packagesHaveAMaxHierarchyDepthOf5() {
+  void testCase_methodsWithVarargsParametersDoNotHaveOtherParameters() {
     //setup
     final var rule = //
     ArchRuleDefinition
