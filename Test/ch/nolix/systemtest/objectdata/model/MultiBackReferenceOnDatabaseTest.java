@@ -2,7 +2,6 @@ package ch.nolix.systemtest.objectdata.model;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
@@ -14,10 +13,7 @@ import ch.nolix.system.objectdata.model.Reference;
 final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   private static final class Plane extends Entity {
     public final MultiBackReference<Flight> flights = //
-    MultiBackReference
-      .forBackReferenceableEntityTypesAndBackReferencedFieldName(
-        ImmutableList.withElements(Flight.class),
-        "plane");
+    MultiBackReference.forBackReferencedFieldNameAndBackReferenceableEntityTypes("plane", Flight.class);
 
     public Plane() {
       initialize();
