@@ -25,7 +25,7 @@ extends Control<IComponent, IComponentStyle>
 implements IComponent {
   private static final ComponentHtmlBuilder HTML_BUILDER = new ComponentHtmlBuilder();
 
-  private static final BaseComponentCssBuilder CSS_BUILDER = new BaseComponentCssBuilder();
+  private static final ComponentCssBuilder CSS_BUILDER = new ComponentCssBuilder();
 
   private final C memberController;
 
