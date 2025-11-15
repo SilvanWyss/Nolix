@@ -11,7 +11,7 @@ import ch.nolix.system.objectdata.model.MultiReference;
 
 final class MultiReferenceOnDatabaseTest extends StandardTest {
   private static final class Person extends Entity {
-    final MultiReference<Pet> pets = MultiReference.forEntityType(Pet.class);
+    final MultiReference<Pet> pets = MultiReference.forEntityTypes(Pet.class);
 
     Person() {
       initialize();

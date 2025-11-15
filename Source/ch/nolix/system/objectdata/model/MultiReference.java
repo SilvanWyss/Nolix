@@ -44,27 +44,31 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   @SafeVarargs
-  public static <E2 extends IEntity> MultiReference<E2> forEntityType(
-    final Class<? extends E2> entity,
-    final Class<? extends E2>... entityTypes) {
-    final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
-    final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+  public static <T extends IEntity> MultiReference<T> forEntityTypes(
+    final Class<? extends T>... entityTypes) {
+    final var entityTypesView = ContainerView.forArray(entityTypes);
+    final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
-    return new MultiReference<>(referenceableTableNames);
+    return new MultiReference<>(referenceableTableNamesView);
   }
 
-  public static <E2 extends IEntity> MultiReference<E2> forReferenceableTableName(
-    final String referenceableTableName,
-    final String... referenceableTableNames) {
-    final var allReferenceableTableNames = //
-    ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
+  public static <T extends IEntity> MultiReference<T> forEntityTypes(
+    final IContainer<Class<? extends T>> entityTypes) {
+    final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
-    return new MultiReference<>(allReferenceableTableNames);
+    return new MultiReference<>(referenceableTableNamesView);
   }
 
-  public static <E2 extends IEntity> MultiReference<E2> forReferenceableTableNames(
+  public static <T extends IEntity> MultiReference<T> forReferenceableTableNames(
     final IContainer<String> referenceableTableNames) {
     return new MultiReference<>(referenceableTableNames);
+  }
+
+  public static <T extends IEntity> MultiReference<T> forReferenceableTableNames(
+    final String... referenceableTableNames) {
+    final var referenceableTableNamesView = ContainerView.forArray(referenceableTableNames);
+
+    return new MultiReference<>(referenceableTableNamesView);
   }
 
   @Override
