@@ -7,7 +7,7 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
-public final class BaseComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {
+public final class ComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {
   @Override
   public IHtmlElement createHtmlElementForControl(final IComponent control) {
     final var childControls = control.getStoredChildControls();

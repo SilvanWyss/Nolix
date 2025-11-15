@@ -23,7 +23,7 @@ public abstract class ComponentWithAdapterFactory //NOSONAR: A component class i
 <C extends Controller<F>, F extends IAdapterFactory<A>, A>
 extends Control<IComponent, IComponentStyle>
 implements IComponent {
-  private static final BaseComponentHtmlBuilder HTML_BUILDER = new BaseComponentHtmlBuilder();
+  private static final ComponentHtmlBuilder HTML_BUILDER = new ComponentHtmlBuilder();
 
   private static final BaseComponentCssBuilder CSS_BUILDER = new BaseComponentCssBuilder();
 

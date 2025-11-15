@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 public abstract class Component<C extends Controller<S>, S> //NOSONAR: A component class is expected to be abstract.
 extends Control<IComponent, IComponentStyle>
 implements IComponent {
-  private static final BaseComponentHtmlBuilder HTML_BUILDER = new BaseComponentHtmlBuilder();
+  private static final ComponentHtmlBuilder HTML_BUILDER = new ComponentHtmlBuilder();
 
   private static final BaseComponentCssBuilder CSS_BUILDER = new BaseComponentCssBuilder();
 
