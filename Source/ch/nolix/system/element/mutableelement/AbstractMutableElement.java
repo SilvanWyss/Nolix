@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.errormapping.IllegalAccessErrorMapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
@@ -119,21 +120,6 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * @param illegalAccessException
-   * @return a new {@link IllegalAccessError} for the given
-   *         illegalAccessException.
-   */
-  private IllegalAccessError createIllegalAccessErrorFor(final IllegalAccessException illegalAccessException) {
-    final var message = illegalAccessException.getMessage();
-
-    if (message == null || message.isBlank()) {
-      throw new IllegalAccessError();
-    }
-
-    throw new IllegalAccessError(message);
-  }
-
-  /**
    * Lets the current {@link AbstractMutableElement} extract the
    * {@link AbstractProperty} from the given field if the given field stores a
    * {@link AbstractProperty}.
@@ -202,7 +188,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
       properties.addAtEnd(property);
     } catch (final IllegalAccessException illegalAccessException) {
-      throw createIllegalAccessErrorFor(illegalAccessException);
+      throw IllegalAccessErrorMapper.mapIllegalAccessExceptionToIllegalAccessError(illegalAccessException);
     }
   }
 
