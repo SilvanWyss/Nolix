@@ -28,7 +28,7 @@ implements IComponent {
     Validator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 
     this.controller = controller;
-    this.controller.internalSetSession(webClientSession);
+    this.controller.setWebClientSession(webClientSession);
   }
 
   @Override

@@ -1,21 +1,27 @@
 package ch.nolix.system.webapplication.component;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.webapplication.main.WebClientSession;
 
-public abstract class Controller<AS> { //NOSONAR: This class is a base type that does not have abstract methods.
+public abstract class Controller<S> { //NOSONAR: A Controller is a base class without abstract methods.
 
-  private WebClientSession<AS> memberWebClientSession;
+  private WebClientSession<S> memberWebClientSession;
 
-  protected final AS getStoredApplicationService() {
+  protected final S getStoredApplicationService() {
     return getStoredWebClientSession().getStoredApplicationService();
   }
 
-  protected final WebClientSession<AS> getStoredWebClientSession() {
+  //For a better performance, this implementation does not use all available comfort methods.
+  protected final WebClientSession<S> getStoredWebClientSession() {
+    if (memberWebClientSession == null) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, WebClientSession.class);
+    }
+
     return memberWebClientSession;
   }
 
-  final void internalSetSession(final WebClientSession<AS> webClientSession) {
+  final void setWebClientSession(final WebClientSession<S> webClientSession) {
     Validator.assertThat(webClientSession).thatIsNamed(WebClientSession.class).isNotNull();
 
     memberWebClientSession = webClientSession;
