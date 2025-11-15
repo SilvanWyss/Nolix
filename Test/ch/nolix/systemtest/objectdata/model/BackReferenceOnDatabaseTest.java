@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.model.Reference;
 
 final class BackReferenceOnDatabaseTest extends StandardTest {
   private static final class Person extends Entity {
-    final Reference<Pet> pet = Reference.forEntityType(Pet.class);
+    final Reference<Pet> pet = Reference.forEntityTypes(Pet.class);
 
     Person() {
       initialize();

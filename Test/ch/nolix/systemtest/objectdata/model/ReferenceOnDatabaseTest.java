@@ -15,7 +15,7 @@ final class ReferenceOnDatabaseTest extends StandardTest {
   }
 
   private static final class Person extends Entity {
-    final Reference<Pet> pet = Reference.forEntityType(Pet.class);
+    final Reference<Pet> pet = Reference.forEntityTypes(Pet.class);
 
     Person() {
       initialize();

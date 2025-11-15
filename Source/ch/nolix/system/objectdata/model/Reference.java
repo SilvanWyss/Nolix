@@ -44,27 +44,30 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   @SafeVarargs
-  public static <E2 extends IEntity> Reference<E2> forEntityType(
-    final Class<? extends E2> entity,
-    final Class<? extends E2>... entityTypes) {
-    final var allEntityTypes = ContainerView.forElementAndArray(entity, entityTypes);
-    final var referenceableTableNames = allEntityTypes.to(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
+  public static <T extends IEntity> Reference<T> forEntityTypes(
+    final Class<? extends T>... entityTypes) {
+    final var entityTypesView = ContainerView.forArray(entityTypes);
+    final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
-    return new Reference<>(referenceableTableNames);
+    return new Reference<>(referenceableTableNamesView);
   }
 
-  public static <E2 extends IEntity> Reference<E2> forReferenceableTableName(
-    final String referenceableTableName,
-    final String... referenceableTableNames) {
-    final var allReferenceableTableNames = //
-    ContainerView.forElementAndArray(referenceableTableName, referenceableTableNames);
+  public static <T extends IEntity> Reference<T> forEntityTypes(
+    final IContainer<Class<? extends T>> entityTypes) {
+    final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
-    return new Reference<>(allReferenceableTableNames);
+    return new Reference<>(referenceableTableNamesView);
   }
 
-  public static <E2 extends IEntity> Reference<E2> forReferenceableTableNames(
+  public static <T extends IEntity> Reference<T> forReferenceableTableNames(
     final IContainer<String> referenceableTableNames) {
     return new Reference<>(referenceableTableNames);
+  }
+
+  public static <T extends IEntity> Reference<T> forReferenceableTableNames(final String... referenceableTableNames) {
+    final var referenceableTableNamesView = ContainerView.forArray(referenceableTableNames);
+
+    return new Reference<>(referenceableTableNamesView);
   }
 
   @Override
