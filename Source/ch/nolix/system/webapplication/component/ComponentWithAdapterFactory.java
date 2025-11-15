@@ -118,7 +118,7 @@ implements IComponent {
 
   @Override
   protected IComponentStyle createStyle() {
-    return new BaseComponentStyle();
+    return new ComponentStyle();
   }
 
   @Override
