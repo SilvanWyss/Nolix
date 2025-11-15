@@ -12,7 +12,7 @@ import ch.nolix.system.objectdata.model.OptionalReference;
 
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   private static final class Person extends Entity {
-    final OptionalReference<Pet> pet = OptionalReference.forEntityType(Pet.class);
+    final OptionalReference<Pet> pet = OptionalReference.forEntityTypes(Pet.class);
 
     Person() {
       initialize();
