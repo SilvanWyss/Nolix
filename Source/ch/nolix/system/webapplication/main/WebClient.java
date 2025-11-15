@@ -156,12 +156,12 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     final var refreshBehavior = component.getRefreshBehavior();
 
     switch (refreshBehavior) {
-      case DO_NOT_REFRESH_ANYTHING:
+      case DO_NOT_REFRESH:
         break;
       case REFRESH_GUI:
         refreshCounterpartGui();
         break;
-      case REFRESH_SELF:
+      case REFRESH_COMPONENT:
         ((WebClientSession<C>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
         break;
       default:

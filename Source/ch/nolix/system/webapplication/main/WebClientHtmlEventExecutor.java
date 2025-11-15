@@ -5,7 +5,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.systemapi.webapplication.component.IComponent;
-import ch.nolix.systemapi.webapplication.component.RefreshBehavior;
+import ch.nolix.systemapi.webapplication.component.RefreshTrigger;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 public final class WebClientHtmlEventExecutor {
@@ -20,13 +20,13 @@ public final class WebClientHtmlEventExecutor {
 
     triggeredControl.runHtmlEvent(htmlEvent);
 
-    final var refreshBehaviour = getRefreshBehavior(triggeredControl, originalLayerCount, openStateRequester);
+    final var refreshBehaviour = getRefreshTrigger(triggeredControl, originalLayerCount, openStateRequester);
 
     switch (refreshBehaviour) {
       case REFRESH_GUI:
         guiUpdater.run();
         break;
-      case REFRESH_SELF:
+      case REFRESH_COMPONENT:
         final var controlToUpdate = getStoredControlToUpdateFromTriggeredConntrol(triggeredControl);
         controlUpdater.accept(controlToUpdate);
         break;
@@ -47,26 +47,26 @@ public final class WebClientHtmlEventExecutor {
     return Optional.empty();
   }
 
-  private RefreshBehavior getRefreshBehavior(
+  private RefreshTrigger getRefreshTrigger(
     final IControl<?, ?> triggeredControl,
     final int originalLayerCount,
     final BooleanSupplier openStateRequester) {
     if (!openStateRequester.getAsBoolean()) {
-      return RefreshBehavior.DO_NOT_REFRESH_ANYTHING;
+      return RefreshTrigger.DO_NOT_REFRESH;
     }
 
     if (!triggeredControl.belongsToGui()) {
-      return RefreshBehavior.REFRESH_GUI;
+      return RefreshTrigger.REFRESH_GUI;
     }
 
     final var gui = triggeredControl.getStoredParentGui();
     final var layerCount = gui.getLayerCount();
 
     if (layerCount != originalLayerCount || !gui.containsControl(triggeredControl)) {
-      return RefreshBehavior.REFRESH_GUI;
+      return RefreshTrigger.REFRESH_GUI;
     }
 
-    return RefreshBehavior.REFRESH_SELF;
+    return RefreshTrigger.REFRESH_COMPONENT;
   }
 
   private IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {

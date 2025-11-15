@@ -88,11 +88,11 @@ implements IComponent {
         rebuild();
         getStoredWebClientSession().refresh();
         break;
-      case REFRESH_SELF:
+      case REFRESH_COMPONENT:
         rebuild();
         getStoredWebClientSession().updateControlOnCounterpart(this, true);
         break;
-      case DO_NOT_REFRESH_ANYTHING:
+      case DO_NOT_REFRESH:
         break;
       default:
         throw InvalidArgumentException.forArgument(refreshBehavior);
