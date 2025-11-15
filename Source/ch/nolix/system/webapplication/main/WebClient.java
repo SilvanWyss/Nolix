@@ -153,7 +153,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   private void updateCounterpartWhenOpen(final IComponent component) {
-    final var refreshBehavior = component.getRefreshBehavior();
+    final var refreshBehavior = component.getRefreshTrigger();
 
     switch (refreshBehavior) {
       case DO_NOT_REFRESH:

@@ -76,7 +76,7 @@ implements IComponent {
 
   @Override
   public final void refresh() {
-    final var refreshBehavior = getRefreshBehavior();
+    final var refreshBehavior = getRefreshTrigger();
 
     switch (refreshBehavior) {
       case REFRESH_GUI:
