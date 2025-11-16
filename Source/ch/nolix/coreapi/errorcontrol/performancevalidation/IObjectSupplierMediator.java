@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrol.performancevalidator;
+package ch.nolix.coreapi.errorcontrol.performancevalidation;
 
 import java.util.function.Consumer;
 

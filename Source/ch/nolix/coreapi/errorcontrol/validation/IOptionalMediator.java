@@ -1,4 +1,4 @@
-package ch.nolix.coreapi.errorcontrol.validator;
+package ch.nolix.coreapi.errorcontrol.validation;
 
 public interface IOptionalMediator {
   void containsEqualObject(Object object);

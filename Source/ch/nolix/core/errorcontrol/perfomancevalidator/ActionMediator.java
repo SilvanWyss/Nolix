@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.performanceanalysis.PerformanceAnalyzer;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
-import ch.nolix.coreapi.errorcontrol.performancevalidator.IActionMediator;
+import ch.nolix.coreapi.errorcontrol.performancevalidation.IActionMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public final class ActionMediator<O> implements IActionMediator {

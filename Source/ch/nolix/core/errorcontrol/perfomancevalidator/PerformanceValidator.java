@@ -2,7 +2,7 @@ package ch.nolix.core.errorcontrol.perfomancevalidator;
 
 import java.util.function.IntFunction;
 
-import ch.nolix.coreapi.errorcontrol.performancevalidator.IObjectSupplierMediator;
+import ch.nolix.coreapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
 
 public final class PerformanceValidator {
   private PerformanceValidator() {

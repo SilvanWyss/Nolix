@@ -4,8 +4,8 @@ import java.util.function.Consumer;
 import java.util.function.IntFunction;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.errorcontrol.performancevalidator.IActionMediator;
-import ch.nolix.coreapi.errorcontrol.performancevalidator.IObjectSupplierMediator;
+import ch.nolix.coreapi.errorcontrol.performancevalidation.IActionMediator;
+import ch.nolix.coreapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
 
 public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<O> {
   private final IntFunction<O> objectSupplier;

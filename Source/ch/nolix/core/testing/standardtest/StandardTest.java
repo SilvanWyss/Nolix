@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.OptionalMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
-import ch.nolix.coreapi.errorcontrol.validator.IOptionalMediator;
+import ch.nolix.coreapi.errorcontrol.validation.IOptionalMediator;
 
 /**
  * @author Silvan Wyss

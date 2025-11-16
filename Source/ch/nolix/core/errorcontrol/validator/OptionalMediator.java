@@ -5,7 +5,7 @@ import java.util.Optional;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.errorcontrol.validator.IOptionalMediator;
+import ch.nolix.coreapi.errorcontrol.validation.IOptionalMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implements IOptionalMediator {

@@ -3,7 +3,7 @@ package ch.nolix.core.testing.performancetest;
 import java.util.function.IntFunction;
 
 import ch.nolix.core.errorcontrol.perfomancevalidator.ObjectSupplierMediator;
-import ch.nolix.coreapi.errorcontrol.performancevalidator.IObjectSupplierMediator;
+import ch.nolix.coreapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
 
 public abstract class PerformanceTest { //NOSONAR: PerformanceTest does not have abstract methods.
 
