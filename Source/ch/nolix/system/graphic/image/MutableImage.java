@@ -99,10 +99,24 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
       return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
     }
 
-    final var image = MutableImage.withWidthAndHeightAndWhiteColor(
-      specification.getStoredFirstChildNodeWithHeader(PascalCaseVariableCatalog.WIDTH).getSingleChildNodeAsInt(),
-      specification.getStoredFirstChildNodeWithHeader(PascalCaseVariableCatalog.HEIGHT).getSingleChildNodeAsInt());
-    image.setPixelArray(specification.getStoredFirstChildNodeThat(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
+    final var pixelArraySpecification = specification.getStoredFirstChildNodeWithHeader(PIXEL_ARRAY_HEADER);
+
+    final var width = //
+    pixelArraySpecification
+      .getStoredFirstChildNodeWithHeader(PascalCaseVariableCatalog.WIDTH)
+      .getSingleChildNodeAsInt();
+
+    final var height = //
+    pixelArraySpecification
+      .getStoredFirstChildNodeWithHeader(PascalCaseVariableCatalog.HEIGHT)
+      .getSingleChildNodeAsInt();
+
+    final var pixelArray = //
+    pixelArraySpecification.getStoredFirstChildNodeThat(a -> a.hasHeader(PluralPascalCaseVariableCatalog.PIXELS));
+
+    final var image = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
+
+    image.setPixelArray(pixelArray);
 
     return image;
   }
@@ -447,6 +461,7 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     Node.withHeaderAndChildNode(
       PIXEL_ARRAY_HEADER,
       Node.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
+      Node.withHeaderAndChildNode(PascalCaseVariableCatalog.HEIGHT, getHeight()),
       Node.withHeaderAndChildNodes(
         PluralPascalCaseVariableCatalog.PIXELS,
         pixels.getViewOf(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
