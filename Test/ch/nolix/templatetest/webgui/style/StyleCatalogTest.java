@@ -23,7 +23,7 @@ final class StyleCatalogTest extends StandardTest {
   void testCase_DarkStyle() {
     //setup
     final var webGuiWithVariousContent = createWebGuiWithVariousContent();
-    final var testUnit = StyleCatalog.DARK_STYLE;
+    final var testUnit = StyleCatalog.DARK_EDGE_STYLE;
 
     //execution & verification
     expectRunning(() -> testUnit.applyToElement(webGuiWithVariousContent)).doesNotThrowException();
