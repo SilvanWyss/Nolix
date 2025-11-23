@@ -1,0 +1,24 @@
+package ch.nolix.template.webgui.colormode;
+
+import ch.nolix.system.style.model.Style;
+import ch.nolix.systemapi.style.model.IStyle;
+
+public final class ColorModeCatalog {
+  public static final IStyle DARK_MODE = //
+  new Style()
+    .withSubStyle(
+      DarkModeSubStyleCatalog.LAYER_STYLE,
+      DarkModeSubStyleCatalog.DIALOG_LAYER_STYLE,
+      DarkModeSubStyleCatalog.CONTROL_STYLE,
+      DarkModeSubStyleCatalog.DIALOG_CONTAINER_STYLE,
+      DarkModeSubStyleCatalog.BUTTON_STYLE,
+      DarkModeSubStyleCatalog.DROPDOWN_MENU_STYLE,
+      DarkModeSubStyleCatalog.LEVEL1_HEADER_STYLE,
+      DarkModeSubStyleCatalog.LINK_STYLE,
+      DarkModeSubStyleCatalog.TEXT_BOX_STYLE,
+      DarkModeSubStyleCatalog.TITLE_STYLE,
+      DarkModeSubStyleCatalog.VALIDATION_LABEL_STYLE);
+
+  private ColorModeCatalog() {
+  }
+}
