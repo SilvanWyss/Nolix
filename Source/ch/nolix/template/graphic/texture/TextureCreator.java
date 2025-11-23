@@ -1,14 +1,14 @@
 package ch.nolix.template.graphic.texture;
 
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.systemapi.graphic.image.IImage;
 
 public final class TextureCreator {
   private TextureCreator() {
   }
 
-  public static IImage createConcreteTexture() {
+  public static Image createConcreteTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0x808080);
@@ -30,7 +30,7 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  public static IImage createFirWoodTexture() {
+  public static Image createFirWoodTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var mainColor = Color.fromLong(0xE0D0B0);
@@ -52,7 +52,7 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  public static IImage createJuteTexture() {
+  public static Image createJuteTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0xC0C0A0);
@@ -74,7 +74,7 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  public static IImage createParchmentTexture() {
+  public static Image createParchmentTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0xEFEFCF);
@@ -96,7 +96,7 @@ public final class TextureCreator {
     return texture.toImmutableImage();
   }
 
-  public static IImage createWhiteMarbleTexture() {
+  public static Image createWhiteMarbleTexture() {
     final var texture = MutableImage.withWidthAndHeightAndWhiteColor(16, 16);
 
     final var color1 = Color.fromLong(0x282820);
