@@ -7,6 +7,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
+import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
@@ -75,9 +76,21 @@ public final class BackgroundToCssMapperHelper {
     final var backgroundImageCssProperty = //
     CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_IMAGE, imageUrl);
 
+    final var imageApplication = background.getImageApplication();
+    final var backgroundRepeatCssProperty = mapImageApplicationToBackgroundRepeatCssProperty(imageApplication);
+
+    return ImmutableList.withElements(backgroundImageCssProperty, backgroundRepeatCssProperty);
+  }
+
+  public static ICssProperty mapImageApplicationToBackgroundRepeatCssProperty(final ImageApplication imageApplication) {
     return //
-    ImmutableList.withElements(
-      backgroundImageCssProperty,
-      CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_SIZE, "100% 100%"));
+    switch (imageApplication) {
+      case SCALE_TO_FRAME ->
+        CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND_SIZE, "100% 100%");
+      case REPEAT ->
+        CssProperty.withNameAndValue("background-repeat", "repeat");
+      default ->
+        throw InvalidArgumentException.forArgument(imageApplication);
+    };
   }
 }
