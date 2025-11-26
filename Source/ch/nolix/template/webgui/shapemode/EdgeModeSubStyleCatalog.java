@@ -90,7 +90,8 @@ public final class EdgeModeSubStyleCatalog {
     .withSelectorType(DropdownMenu.class)
     .withAttachingAttributes(
       "MinWidth(200)",
-      "BaseBorderThickness(1)");
+      "BaseBorderThickness(1)",
+      "BasePadding(2)");
 
   public static final ISelectingStyleWithSelectors LEVEL1_HEADER_STYLE = //
   new DeepSelectingStyle()
@@ -101,13 +102,17 @@ public final class EdgeModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors TEXT_BOX_STYLE = //
   new DeepSelectingStyle()
     .withSelectorType(Textbox.class)
-    .withAttachingAttributes("BaseWidth(200)");
+    .withAttachingAttributes(
+      "BaseWidth(200)",
+      "BasePadding(2)");
 
   public static final ISelectingStyleWithSelectors TITLE_STYLE = //
   new DeepSelectingStyle()
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.TITLE)
-    .withAttachingAttributes("BaseTextSize(50)");
+    .withAttachingAttributes(
+      "BaseBottomPadding(50)",
+      "BaseTextSize(50)");
 
   private EdgeModeSubStyleCatalog() {
   }
