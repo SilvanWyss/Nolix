@@ -17,7 +17,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {
-  private int elementCount;
+  private int memberElementCount;
 
   @SuppressWarnings("unchecked")
   private E[] memberElements = (E[]) new Object[0];
@@ -37,23 +37,6 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   }
 
   /**
-   * @param element
-   * @param elements
-   * @param <E2>     is the type of the given element and the given elements.
-   * @return a new {@link ArrayList} with the given element and elements.
-   * @throws ArgumentIsNullException if the given element is null.
-   * @throws ArgumentIsNullException if the given elements is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
-   */
-  public static <E2> ArrayList<E2> withElement(final E2 element, final @SuppressWarnings("unchecked") E2... elements) {
-    final var arrayList = new ArrayList<E2>();
-
-    arrayList.addAtEnd(element, elements);
-
-    return arrayList;
-  }
-
-  /**
    * The time complexity of this implementation is O(n) when n elements are given.
    * 
    * @param elements
@@ -62,7 +45,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @throws ArgumentIsNullException if the given elements is null.
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
-  public static <E2> ArrayList<E2> withElements(final E2[] elements) {
+  public static <E2> ArrayList<E2> withElements(final @SuppressWarnings("unchecked") E2... elements) {
     final var arrayList = new ArrayList<E2>();
 
     arrayList.addAtEnd(elements);
@@ -130,7 +113,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
 
     growAtLeastToRequiredCapacity(newElementCount);
     memberElements[localElementCount] = element;
-    elementCount = newElementCount;
+    memberElementCount = newElementCount;
   }
 
   /**
@@ -140,35 +123,15 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * {@inheritDoc}
    */
   @Override
-  public void addAtEnd(final E element, @SuppressWarnings("unchecked") final E... elements) {
-    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+  public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") final T... elements) {
     Validator.assertThatTheElements(elements).areNotNull();
 
-    final var localElementCount = getCount();
-    final var newElementCount = localElementCount + 1 + elements.length;
+    final var elementCount = getCount();
+    final var newElementCount = elementCount + elements.length;
 
     growAtLeastToRequiredCapacity(newElementCount);
-    memberElements[localElementCount] = element;
-    System.arraycopy(elements, 0, memberElements, localElementCount + 1, elements.length);
-    elementCount = newElementCount;
-  }
-
-  /**
-   * The time complexity of this implementation is O(n+m) when the current
-   * {@link ArrayList} contains n elements and m elements are given.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public void addAtEnd(E[] elements) {
-    Validator.assertThatTheElements(elements).areNotNull();
-
-    final var localElementCount = getCount();
-    final var newElementCount = localElementCount + elements.length;
-
-    growAtLeastToRequiredCapacity(newElementCount);
-    System.arraycopy(elements, 0, memberElements, localElementCount, elements.length);
-    elementCount = newElementCount;
+    System.arraycopy(elements, 0, memberElements, elementCount, elements.length);
+    memberElementCount = newElementCount;
   }
 
   /**
@@ -193,7 +156,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
       index++;
     }
 
-    elementCount = newElementCount;
+    memberElementCount = newElementCount;
   }
 
   /**
@@ -206,7 +169,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   public void clear() {
     memberElements = (E[]) new Object[0];
 
-    elementCount = 0;
+    memberElementCount = 0;
   }
 
   /**
@@ -227,7 +190,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    */
   @Override
   public int getCount() {
-    return elementCount;
+    return memberElementCount;
   }
 
   /**

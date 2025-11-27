@@ -21,7 +21,7 @@ final class ArrayListTest extends ContainerTest {
   @Test
   void testCase_addAtEnd_whenHasAvailableCapacity() {
     //setup
-    final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
+    final var elements = new String[] {};
     final var testUnit = ArrayList.withInitialCapacity(10);
 
     //execution
@@ -59,7 +59,7 @@ final class ArrayListTest extends ContainerTest {
   @Test
   void testCase_clear_whenContainsAny() {
     //setup
-    final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
+    final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
     //execution
     testUnit.clear();
@@ -71,7 +71,7 @@ final class ArrayListTest extends ContainerTest {
   @Test
   void testCase_getCopy() {
     //setup
-    final var testUnit = ArrayList.withElement("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
+    final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
     //execution
     final var result = testUnit.getCopy();

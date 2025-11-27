@@ -205,7 +205,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
   @Override
   public IContainer<INode<?>> getAttributes() {
     return //
-    ArrayList.withElement(
+    ArrayList.withElements(
       Node.fromEnum(getCorner()),
       Node.fromEnum(getLocation()),
       Node.withHeaderAndChildNode(SIDE1_THICKNESS_HEADER, getSide1Thickness()),
