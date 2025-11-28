@@ -1,8 +1,8 @@
-package ch.nolix.system.sqlmiddata.sqlmapper;
+package ch.nolix.core.sql.sqltool;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
+import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.coreapi.sql.syntax.SqlKeywordCatalog;
-import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 
 /**
  * @author Silvan Wyss

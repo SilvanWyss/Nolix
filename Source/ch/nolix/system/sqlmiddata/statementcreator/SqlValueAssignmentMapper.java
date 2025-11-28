@@ -1,10 +1,10 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.system.sqlmiddata.sqlmapper.SqlLiteralMapper;
+import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
-import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 
 public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper {

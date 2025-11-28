@@ -1,4 +1,4 @@
-package ch.nolix.systemapi.sqlmiddata.sqlmapper;
+package ch.nolix.coreapi.sql.sqltool;
 
 /**
  * @author Silvan Wyss

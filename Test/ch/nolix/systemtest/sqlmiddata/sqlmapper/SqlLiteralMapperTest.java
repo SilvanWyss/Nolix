@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
 import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.system.sqlmiddata.sqlmapper.SqlLiteralMapper;
 
 final class SqlLiteralMapperTest extends StandardTest {
   @Test

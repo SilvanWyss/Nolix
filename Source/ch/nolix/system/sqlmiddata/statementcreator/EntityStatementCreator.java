@@ -2,12 +2,12 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.system.sqlmiddata.sqlmapper.SqlLiteralMapper;
+import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
+import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
-import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlLiteralMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
