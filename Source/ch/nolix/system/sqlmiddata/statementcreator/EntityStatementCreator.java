@@ -4,10 +4,12 @@ import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
 import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
+import ch.nolix.system.sqlmiddata.sqlmapper.SqlPartsMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
+import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlPartsMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
@@ -17,6 +19,8 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
   private static final ISqlLiteralMapper SQL_VALUE_MAPPER = new SqlLiteralMapper();
+
+  private static final ISqlPartsMapper SQL_PARTS_MAPPER = new SqlPartsMapper();
 
   private static final ISqlValueAssignmentMapper SQL_VALUE_ASSIGNMENT_MAPPER = new SqlValueAssignmentMapper();
 
@@ -79,20 +83,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
     final var contentFields = newEntity.contentFields();
-
-    final var contentColumnNames = //
-    contentFields.toMultiples(
-      f -> {
-        final var columnName = f.columnName();
-
-        if (f.nullableAdditionalValue() != null) {
-          final var additionalColumnName = columnName + "Table";
-
-          return ImmutableList.withElements(columnName, additionalColumnName);
-        }
-
-        return ImmutableList.withElements(columnName);
-      });
+    final var contentColumnNames = contentFields.toMultiples(SQL_PARTS_MAPPER::mapValueStringFieldDtoToColumnNames);
 
     final var values = //
     contentFields.toMultiples(
