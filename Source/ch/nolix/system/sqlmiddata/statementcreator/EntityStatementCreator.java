@@ -1,9 +1,6 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
-import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.system.sqlmiddata.sqlmapper.SqlPartsMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
@@ -18,8 +15,6 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class EntityStatementCreator implements IEntityStatementCreator {
-  private static final ISqlLiteralMapper SQL_VALUE_MAPPER = new SqlLiteralMapper();
-
   private static final ISqlPartsMapper SQL_PARTS_MAPPER = new SqlPartsMapper();
 
   private static final ISqlValueAssignmentMapper SQL_VALUE_ASSIGNMENT_MAPPER = new SqlValueAssignmentMapper();
@@ -84,26 +79,13 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
     final var contentFields = newEntity.contentFields();
     final var contentColumnNames = contentFields.toMultiples(SQL_PARTS_MAPPER::mapValueStringFieldDtoToColumnNames);
-
-    final var values = //
-    contentFields.toMultiples(
-      f -> {
-        final var nullableValueString = f.nullableValueString();
-        final var valueSqlLiteral = SQL_VALUE_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);
-        final var nullableAdditionalValue = f.nullableAdditionalValue();
-
-        if (nullableAdditionalValue != null) {
-
-          final var additionalValueSqlLiteral = SQL_VALUE_MAPPER
-            .mapNullableValueStringToSqlLiteral(nullableAdditionalValue);
-          return ImmutableList.withElements(valueSqlLiteral, additionalValueSqlLiteral);
-        }
-
-        return ImmutableList.withElements(valueSqlLiteral);
-      });
+    final var values = contentFields.toMultiples(SQL_PARTS_MAPPER::mapValueStringFieldDtoToSqlValueLiterals);
 
     return //
-    "INSERT INTO " + tableName + " (Id, SaveStamp, " + contentColumnNames.toStringWithSeparator(", ") + ") VALUES ('"
+    "INSERT INTO " + tableName
+    + " (Id, SaveStamp, "
+    + contentColumnNames.toStringWithSeparator(", ")
+    + ") VALUES ('"
     + newEntity.id() + "', '" + 1 + "', "
     + values.toStringWithSeparator(", ")
     + ");";

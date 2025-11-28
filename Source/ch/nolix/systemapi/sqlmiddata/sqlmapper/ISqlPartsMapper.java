@@ -9,4 +9,6 @@ import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
  */
 public interface ISqlPartsMapper {
   IContainer<String> mapValueStringFieldDtoToColumnNames(ValueStringFieldDto valueStringFieldDto);
+
+  IContainer<String> mapValueStringFieldDtoToSqlValueLiterals(ValueStringFieldDto valueStringFieldDto);
 }
