@@ -29,11 +29,11 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
    * Creates a new {@link IterableContainerView} for the given container.
    * 
    * @param container
-   * @param <E2>      is the type of the elements of the given container.
+   * @param <T>      is the type of the elements of the given container.
    * @throws ArgumentIsNullException if the given container is null.
    */
   @SuppressWarnings("unchecked")
-  private <E2 extends E> IterableContainerView(final Iterable<E2> container) {
+  private <T extends E> IterableContainerView(final Iterable<T> container) {
     //Asserts that the given container is not null.
     Validator
       .assertThat(container)
@@ -46,11 +46,11 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
 
   /**
    * @param iterable
-   * @param <E2>     is the type of the elements of the given iterable.
+   * @param <T>     is the type of the elements of the given iterable.
    * @return a new {@link IterableContainerView} for the given iterable.
    * @throws ArgumentIsNullException if the given iterable is null.
    */
-  public static <E2> IterableContainerView<E2> forIterable(final Iterable<? extends E2> iterable) {
+  public static <T> IterableContainerView<T> forIterable(final Iterable<? extends T> iterable) {
     return new IterableContainerView<>(iterable);
   }
 

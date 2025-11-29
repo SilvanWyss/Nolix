@@ -14,7 +14,7 @@ public final class SingleContainer<E> extends AbstractExtendedContainer<E> {
     this.element = element;
   }
 
-  public static <E2> SingleContainer<E2> withElement(final E2 element) {
+  public static <T> SingleContainer<T> withElement(final T element) {
     return new SingleContainer<>(element);
   }
 

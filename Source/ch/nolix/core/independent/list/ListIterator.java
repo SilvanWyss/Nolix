@@ -13,11 +13,11 @@ public final class ListIterator<E> implements Iterator<E> {
     this.nextNode = startNode;
   }
 
-  public static <E2> ListIterator<E2> forEmptyList() {
+  public static <T> ListIterator<T> forEmptyList() {
     return new ListIterator<>();
   }
 
-  public static <E2> ListIterator<E2> forStartNode(final ListNode<E2> startNode) {
+  public static <T> ListIterator<T> forStartNode(final ListNode<T> startNode) {
     return new ListIterator<>(startNode);
   }
 

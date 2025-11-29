@@ -10,12 +10,12 @@ import java.util.function.Predicate;
 public interface Filterable<E> {
   /**
    * @param type
-   * @param <E2> is the type of the elements of the returned {@link IContainer}.
+   * @param <T> is the type of the elements of the returned {@link IContainer}.
    * @return a new {@link IContainer} with the elements from the current
    *         {@link Filterable} that are of the given type. Ignores null elements.
    * @throws RuntimeException if the given type is null.
    */
-  <E2 extends E> IContainer<E2> getStoredOfType(Class<E2> type);
+  <T extends E> IContainer<T> getStoredOfType(Class<T> type);
 
   /**
    * @param selector

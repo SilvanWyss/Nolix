@@ -40,7 +40,7 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
   /**
    * @param iterator
    * @param mapper
-   * @param <E2>     is the type of the elements of the created
+   * @param <T>     is the type of the elements of the created
    *                 {@link MappingContainerViewIterator}.
    * @param <T2>     is the type of the elements the created
    *                 {@link MappingContainerViewIterator} maps from its elements.
@@ -49,9 +49,9 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
    * @throws ArgumentIsNullException if the given container is null.
    * @throws ArgumentIsNullException if the given mapper is null.
    */
-  public static <E2, T2> MappingContainerViewIterator<E2, T2> forIteratorAndMapper(
-    final CopyableIterator<E2> iterator,
-    final Function<E2, T2> mapper) {
+  public static <T, T2> MappingContainerViewIterator<T, T2> forIteratorAndMapper(
+    final CopyableIterator<T> iterator,
+    final Function<T, T2> mapper) {
     return new MappingContainerViewIterator<>(iterator, mapper);
   }
 

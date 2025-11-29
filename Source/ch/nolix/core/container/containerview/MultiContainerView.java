@@ -36,17 +36,17 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     containers = localContainers;
   }
 
-  public static <E2> MultiContainerView<E2> forArrays(
-    @SuppressWarnings("unchecked") final E2[]... arrays) {
+  public static <T> MultiContainerView<T> forArrays(
+    @SuppressWarnings("unchecked") final T[]... arrays) {
     return new MultiContainerView<>(arrays);
   }
 
-  public static <E2> MultiContainerView<E2> forEmpty() {
+  public static <T> MultiContainerView<T> forEmpty() {
     return new MultiContainerView<>();
   }
 
   @SafeVarargs
-  public static <E2> MultiContainerView<E2> forIterables(final Iterable<? extends E2>... iterables) {
+  public static <T> MultiContainerView<T> forIterables(final Iterable<? extends T>... iterables) {
     return new MultiContainerView<>(iterables);
   }
 

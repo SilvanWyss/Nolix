@@ -55,13 +55,13 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
     nextElementOneBasedIndex = oneBasedStartIndex;
   }
 
-  public static <E2> MatrixIterator<E2> forMatrix(final Matrix<E2> matrix) {
+  public static <T> MatrixIterator<T> forMatrix(final Matrix<T> matrix) {
     return new MatrixIterator<>(matrix);
   }
 
   //static mehtod
-  public static <E2> MatrixIterator<E2> forMatrixAndOneBasedStartIndex(
-    final Matrix<E2> matrix,
+  public static <T> MatrixIterator<T> forMatrixAndOneBasedStartIndex(
+    final Matrix<T> matrix,
     final int oneBasedStartIndex) {
     return new MatrixIterator<>(matrix, oneBasedStartIndex);
   }

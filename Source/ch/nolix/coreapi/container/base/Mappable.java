@@ -11,7 +11,7 @@ import java.util.function.Function;
 public interface Mappable<E> {
   /**
    * @param mapper
-   * @param <E2>   is the type of the elements the given mapper maps from the
+   * @param <T>   is the type of the elements the given mapper maps from the
    *               elements of the current {@link Mappable}.
    * @return a new {@link IContainer} with the elements the given mapper maps from
    *         the elements of the current {@link Mappable}.
@@ -19,11 +19,11 @@ public interface Mappable<E> {
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
-  <E2> IContainer<E2> to(Function<E, E2> mapper);
+  <T> IContainer<T> to(Function<E, T> mapper);
 
   /**
    * @param multipleMapper
-   * @param <E2>           is the type of the elements of the {@link IContainer}s
+   * @param <T>           is the type of the elements of the {@link IContainer}s
    *                       the given multipleMapper maps from the elements of the
    *                       current {@link Mappable}.
    * @return a new {@link IContainer} with the elements of the {@link IContainer}s
@@ -33,7 +33,7 @@ public interface Mappable<E> {
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
-  <E2> IContainer<E2> toMultiples(Function<E, IContainer<E2>> multipleMapper);
+  <T> IContainer<T> toMultiples(Function<E, IContainer<T>> multipleMapper);
 
   /**
    * @param numberMapper
@@ -54,7 +54,7 @@ public interface Mappable<E> {
 
   /**
    * @param mapper
-   * @param <E2>   is the type of the elements the given mapper maps from the
+   * @param <T>   is the type of the elements the given mapper maps from the
    *               elements of the current {@link Mappable} and from the one-based
    *               index of these elements.
    * @return a new {@link IContainer} with the elements the given mapper maps from
@@ -64,5 +64,5 @@ public interface Mappable<E> {
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
-  <E2> IContainer<E2> toWithOneBasedIndex(BiFunction<Integer, E, E2> mapper);
+  <T> IContainer<T> toWithOneBasedIndex(BiFunction<Integer, E, T> mapper);
 }

@@ -27,8 +27,8 @@ public final class MultiContainerViewIterator<E> implements CopyableIterator<E> 
     this.currentSubIterator = currentIterator;
   }
 
-  public static <E2> MultiContainerViewIterator<E2> forContainers(
-    final IContainer<IContainer<E2>> containers) {
+  public static <T> MultiContainerViewIterator<T> forContainers(
+    final IContainer<IContainer<T>> containers) {
     return new MultiContainerViewIterator<>(containers);
   }
 

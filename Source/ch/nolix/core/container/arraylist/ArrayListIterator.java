@@ -32,12 +32,12 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
     nextIndex = startIndex;
   }
 
-  public static <E2> ArrayListIterator<E2> forArrayAndMaxNextIndex(final E2[] array, final int maxNextIndex) {
+  public static <T> ArrayListIterator<T> forArrayAndMaxNextIndex(final T[] array, final int maxNextIndex) {
     return new ArrayListIterator<>(array, maxNextIndex);
   }
 
-  public static <E2> ArrayListIterator<E2> forArrayAndStartIndexAndMaxNextIndex(
-    final E2[] array,
+  public static <T> ArrayListIterator<T> forArrayAndStartIndexAndMaxNextIndex(
+    final T[] array,
     final int startIndex,
     final int maxIndex) {
     return new ArrayListIterator<>(array, startIndex, maxIndex);

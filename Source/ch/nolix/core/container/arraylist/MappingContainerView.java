@@ -41,7 +41,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
   /**
    * @param container
    * @param mapper
-   * @param <E2>      is the type of the elements of the created
+   * @param <T>      is the type of the elements of the created
    *                  {@link MappingContainerView}.
    * @param <T2>      is the type of the elements the created
    *                  {@link MappingContainerView} maps from its elements.
@@ -50,9 +50,9 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws ArgumentIsNullException if the given container is null.
    * @throws ArgumentIsNullException if the given mapper is null.
    */
-  public static <E2, T2> MappingContainerView<E2, T2> forContainerAndMapper(
-    final AbstractContainer<E2> container,
-    final Function<E2, T2> mapper) {
+  public static <T, T2> MappingContainerView<T, T2> forContainerAndMapper(
+    final AbstractContainer<T> container,
+    final Function<T, T2> mapper) {
     return new MappingContainerView<>(container, mapper);
   }
 

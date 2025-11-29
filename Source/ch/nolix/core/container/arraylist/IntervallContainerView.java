@@ -70,7 +70,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @param container
    * @param startIndex
    * @param endIndex
-   * @param <E2>       is the type of the elements of the created
+   * @param <T>       is the type of the elements of the created
    *                   {@link IntervallContainerView}.
    * @return a new {@link IntervallContainerView} with the given container,
    *         startIndex and endIndex.
@@ -83,8 +83,8 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    *                                      number of elements of the given
    *                                      container.
    */
-  public static <E2> IntervallContainerView<E2> forContainerAndStartIndexAndEndIndex(
-    final AbstractContainer<E2> container,
+  public static <T> IntervallContainerView<T> forContainerAndStartIndexAndEndIndex(
+    final AbstractContainer<T> container,
     final int startIndex,
     final int endIndex) {
     return new IntervallContainerView<>(container, startIndex, endIndex);

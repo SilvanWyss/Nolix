@@ -39,19 +39,19 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
   /**
    * @return a new empty {@link Matrix}.
-   * @param <E2> is the type of the elements of the created {@link Matrix}.
+   * @param <T> is the type of the elements of the created {@link Matrix}.
    */
-  public static <E2> Matrix<E2> createEmpty() {
+  public static <T> Matrix<T> createEmpty() {
     return new Matrix<>();
   }
 
   /**
    * @param matrix
-   * @param <E2>   is the type of the elements of the given matrix.
+   * @param <T>   is the type of the elements of the given matrix.
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
-  public static <E2> Matrix<E2> fromMatrix(final IMatrix<E2> matrix) {
-    final var newMatrix = new Matrix<E2>();
+  public static <T> Matrix<T> fromMatrix(final IMatrix<T> matrix) {
+    final var newMatrix = new Matrix<T>();
 
     for (final var r : matrix.getRows()) {
       newMatrix.addRow(r);

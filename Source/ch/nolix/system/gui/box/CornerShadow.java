@@ -39,7 +39,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
 
   private static final String SIDE1_THICKNESS_HEADER = "Side1Thickness";
 
-  private static final String SIDE2_THICKNESS_HEADER = "Side2Thickness";
+  private static final String SIDT_THICKNESS_HEADER = "Side2Thickness";
 
   private static final String BLUR_RADIUS_HEADER = "BlurRadius";
 
@@ -149,7 +149,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
         case SIDE1_THICKNESS_HEADER:
           side1Thickness = a.getSingleChildNodeAsInt();
           break;
-        case SIDE2_THICKNESS_HEADER:
+        case SIDT_THICKNESS_HEADER:
           side2Thickness = a.getSingleChildNodeAsInt();
           break;
         case BLUR_RADIUS_HEADER:
@@ -209,7 +209,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
       Node.fromEnum(getCorner()),
       Node.fromEnum(getLocation()),
       Node.withHeaderAndChildNode(SIDE1_THICKNESS_HEADER, getSide1Thickness()),
-      Node.withHeaderAndChildNode(SIDE2_THICKNESS_HEADER, getSide2Thickness()),
+      Node.withHeaderAndChildNode(SIDT_THICKNESS_HEADER, getSide2Thickness()),
       Node.withHeaderAndChildNode(BLUR_RADIUS_HEADER, getBlurRadius()),
       getColor().getSpecification());
   }

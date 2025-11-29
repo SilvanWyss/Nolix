@@ -54,9 +54,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     this.backReferencedEntityCache = new EntityCache<>(backReferencedEntityId, backReferencedTableId, null);
   }
 
-  public static <E2 extends IEntity> MultiBackReferenceEntry<E2> //
+  public static <T extends IEntity> MultiBackReferenceEntry<T> //
   createLoadedEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
-    final IMultiBackReference<E2> multiBackReference,
+    final IMultiBackReference<T> multiBackReference,
     final String backReferencedEntityId,
     final String backReferencedTableId) {
     return //
@@ -67,9 +67,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
       backReferencedTableId);
   }
 
-  public static <E2 extends IEntity> MultiBackReferenceEntry<E2> //
+  public static <T extends IEntity> MultiBackReferenceEntry<T> //
   createNewEntryForMultiBackReferenceAndBackReferencedEntityIdAndBackReferencedTableId(
-    final IMultiBackReference<E2> multiBackReference,
+    final IMultiBackReference<T> multiBackReference,
     final String backReferencedEntityId,
     final String backReferencedTableId) {
     return //
@@ -80,10 +80,10 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
       backReferencedTableId);
   }
 
-  public static <E2 extends IEntity> MultiBackReferenceEntry<E2> //
+  public static <T extends IEntity> MultiBackReferenceEntry<T> //
   createNewEntryForMultiBackReferenceAndBackReferencedEntity(
-    final IMultiBackReference<E2> multiBackReference,
-    final E2 backReferencedEntity) {
+    final IMultiBackReference<T> multiBackReference,
+    final T backReferencedEntity) {
     return //
     new MultiBackReferenceEntry<>(multiBackReference, DatabaseObjectState.NEW, backReferencedEntity);
   }

@@ -31,7 +31,7 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
     this.nextElementOneBasedColumnIndex = nextElementOneBasedColumnIndex;
   }
 
-  public static <E2> MatrixRowIterator<E2> forMatrixRow(final MatrixRow<E2> matrixRow) {
+  public static <T> MatrixRowIterator<T> forMatrixRow(final MatrixRow<T> matrixRow) {
     return new MatrixRowIterator<>(matrixRow);
   }
 

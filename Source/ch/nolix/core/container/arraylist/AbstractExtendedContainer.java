@@ -69,7 +69,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> 
    * {@inheritDoc}
    */
   @Override
-  protected final <E2> IArrayList<E2> createEmptyMutableList(Marker<E2> marker) {
+  protected final <T> IArrayList<T> createEmptyMutableList(Marker<T> marker) {
     return ArrayList.createEmpty();
   }
 }

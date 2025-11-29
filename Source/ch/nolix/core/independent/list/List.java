@@ -35,8 +35,8 @@ public final class List<E> implements Iterable<E> {
     return array;
   }
 
-  public static <E2> List<E2> withElements(final Iterable<E2> elements) {
-    final var list = new List<E2>();
+  public static <T> List<T> withElements(final Iterable<T> elements) {
+    final var list = new List<T>();
 
     for (final var e : elements) {
       list.addAtEnd(e);

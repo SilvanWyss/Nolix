@@ -57,9 +57,9 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.referencedEntityCache = new EntityCache<>(referencedEntityId, referencedTableId, null);
   }
 
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> //
+  public static <T extends IEntity> MultiReferenceEntry<T> //
   createLoadedEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
-    final IMultiReference<E2> multiReference,
+    final IMultiReference<T> multiReference,
     final String referencedEntityId,
     final String referencedTableId) {
     return //
@@ -70,15 +70,15 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
       referencedTableId);
   }
 
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> createNewEntryForMultiReferenceAndReferencedEntity(
-    final IMultiReference<E2> multiReference,
-    final E2 referencedEntity) {
+  public static <T extends IEntity> MultiReferenceEntry<T> createNewEntryForMultiReferenceAndReferencedEntity(
+    final IMultiReference<T> multiReference,
+    final T referencedEntity) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntity);
   }
 
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> //
+  public static <T extends IEntity> MultiReferenceEntry<T> //
   createNewEntryForMultiReferenceAndReferencedEntityIdAndReferencedTableId(
-    final IMultiReference<E2> multiReference,
+    final IMultiReference<T> multiReference,
     final String referencedEntityId,
     final String referencedTableId) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId, referencedTableId);

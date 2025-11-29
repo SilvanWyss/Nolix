@@ -1104,12 +1104,12 @@ implements IContainer<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public final <E2 extends E> E2 getStoredFirstOfType(final Class<E2> type) {
+  public final <T extends E> T getStoredFirstOfType(final Class<T> type) {
     //Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
-    return (E2) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
+    return (T) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
   }
 
   /**
@@ -1184,12 +1184,12 @@ implements IContainer<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
+  public final <T extends E> IContainer<T> getStoredOfType(final Class<T> type) {
     //Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
-    return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
+    return (IContainer<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -1536,12 +1536,12 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> to(final Function<E, E2> mapper) {
+  public final <T> IContainer<T> to(final Function<E, T> mapper) {
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<E2>());
+    final var list = createEmptyMutableList(new Marker<T>());
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1783,12 +1783,12 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> toMultiples(final Function<E, IContainer<E2>> multipleMapper) {
+  public final <T> IContainer<T> toMultiples(final Function<E, IContainer<T>> multipleMapper) {
     //Asserts that the given multipleMapper is not null.
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<E2>());
+    final var list = createEmptyMutableList(new Marker<T>());
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1945,12 +1945,12 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> toWithOneBasedIndex(final BiFunction<Integer, E, E2> mapper) {
+  public final <T> IContainer<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<E2>());
+    final var list = createEmptyMutableList(new Marker<T>());
 
     //Declares index.
     var index = 1;
@@ -1979,11 +1979,11 @@ implements IContainer<E> {
 
   /**
    * @param marker
-   * @param <E2>   is the type of the elements the created {@link ILinkedList} can
+   * @param <T>   is the type of the elements the created {@link ILinkedList} can
    *               contain.
    * @return a new empty {@link ILinkedList}.
    */
-  protected abstract <E2> IArrayList<E2> createEmptyMutableList(final Marker<E2> marker);
+  protected abstract <T> IArrayList<T> createEmptyMutableList(final Marker<T> marker);
 
   /**
    * The time complexity of this implementation is O(1).

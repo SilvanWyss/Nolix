@@ -94,14 +94,14 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
 
   /**
    * @return a new empty {@link ImmutableList}.
-   * @param <E2> is the type of the elements the {@link ImmutableList} would have.
+   * @param <T> is the type of the elements the {@link ImmutableList} would have.
    */
   @SuppressWarnings("unchecked")
-  public static <E2> ImmutableList<E2> createEmpty() {
-    return (ImmutableList<E2>) EMPTY;
+  public static <T> ImmutableList<T> createEmpty() {
+    return (ImmutableList<T>) EMPTY;
   }
 
-  public static <E2> ImmutableList<E2> fromArray(final E2[] array) {
+  public static <T> ImmutableList<T> fromArray(final T[] array) {
     return new ImmutableList<>(array);
   }
 
@@ -149,13 +149,13 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
 
   /**
    * @param elements
-   * @param <E2>     is the type of the given elements.
+   * @param <T>     is the type of the given elements.
    * @return a new {@link ImmutableList} with the given elements.
    * @throws ArgumentIsNullException if the given elements is null.
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   @SafeVarargs
-  public static <E2> ImmutableList<E2> withElements(final E2... elements) {
+  public static <T> ImmutableList<T> withElements(final T... elements) {
     return new ImmutableList<>(elements);
   }
 

@@ -13,7 +13,7 @@ public final class SingleContainerIterator<E> implements CopyableIterator<E> {
     this.nullableElement = nullableElement;
   }
 
-  public static <E2> SingleContainerIterator<E2> forNullableElement(final E2 nullableElement) {
+  public static <T> SingleContainerIterator<T> forNullableElement(final T nullableElement) {
     return new SingleContainerIterator<>(nullableElement);
   }
 

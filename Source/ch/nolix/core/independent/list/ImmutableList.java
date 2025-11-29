@@ -30,17 +30,17 @@ public final class ImmutableList<E> implements Iterable<E> {
     ARRAY_VALIDATOR.assertDoesNotContainNull(paramElements);
   }
 
-  public static <E2> ImmutableList<E2> createEmptyList() {
+  public static <T> ImmutableList<T> createEmptyList() {
     return new ImmutableList<>();
   }
 
-  public static <E2> ImmutableList<E2> withElement(
-    final E2 element,
-    final @SuppressWarnings("unchecked") E2... elements) {
+  public static <T> ImmutableList<T> withElement(
+    final T element,
+    final @SuppressWarnings("unchecked") T... elements) {
     return new ImmutableList<>(element, elements);
   }
 
-  public static <E2> ImmutableList<E2> withElements(final E2[] array) {
+  public static <T> ImmutableList<T> withElements(final T[] array) {
     return new ImmutableList<>(array);
   }
 

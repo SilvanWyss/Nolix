@@ -45,25 +45,25 @@ implements ILinkedList<E> {
   }
 
   /**
-   * @param <E2> is the type of the elements of the created {@link LinkedList}.
+   * @param <T> is the type of the elements of the created {@link LinkedList}.
    * @return a new empty {@link LinkedList}.
    */
-  public static <E2> LinkedList<E2> createEmpty() {
+  public static <T> LinkedList<T> createEmpty() {
     return new LinkedList<>();
   }
 
   /**
    * @param array
-   * @param <E2>  is the type of the elements of the given array.
+   * @param <T>  is the type of the elements of the given array.
    * @return a new {@link LinkedList} with the elements in the given array.
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if one of the elements in the given array is
    *                                 null.
    */
-  public static <E2> LinkedList<E2> fromArray(final E2[] array) {
+  public static <T> LinkedList<T> fromArray(final T[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
 
-    final var list = new LinkedList<E2>();
+    final var list = new LinkedList<T>();
     list.addAtEnd(array);
 
     return list;
@@ -71,14 +71,14 @@ implements ILinkedList<E> {
 
   /**
    * @param container
-   * @param <E2>      is the type of the elements of the given container.
+   * @param <T>      is the type of the elements of the given container.
    * @return a new {@link LinkedList} with the elements in the given container.
    * @throws ArgumentIsNullException if the given container is null.
    * @throws ArgumentIsNullException if one of the elements in the given container
    *                                 is null.
    */
-  public static <E2> LinkedList<E2> fromIterable(final Iterable<E2> container) {
-    final var list = new LinkedList<E2>();
+  public static <T> LinkedList<T> fromIterable(final Iterable<T> container) {
+    final var list = new LinkedList<T>();
     list.addAtEnd(container);
 
     return list;
@@ -87,14 +87,14 @@ implements ILinkedList<E> {
   /**
    * @param element
    * @param elements
-   * @param <E2>     is the type of the given elements.
+   * @param <T>     is the type of the given elements.
    * @return a new {@link LinkedList} with the given elements.
    * @throws ArgumentIsNullException if the given element or one of the given
    *                                 elements is null.
    */
   @SuppressWarnings("unchecked")
-  public static <E2> LinkedList<E2> withElement(final E2 element, final E2... elements) {
-    final var list = new LinkedList<E2>();
+  public static <T> LinkedList<T> withElement(final T element, final T... elements) {
+    final var list = new LinkedList<T>();
     list.addAtEnd(element, elements);
 
     return list;

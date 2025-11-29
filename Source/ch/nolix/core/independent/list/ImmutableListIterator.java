@@ -17,7 +17,7 @@ public final class ImmutableListIterator<E> implements Iterator<E> {
     nextIndex = 0;
   }
 
-  public static <E2> ImmutableListIterator<E2> forArray(final E2[] array) {
+  public static <T> ImmutableListIterator<T> forArray(final T[] array) {
     return new ImmutableListIterator<>(array);
   }
 

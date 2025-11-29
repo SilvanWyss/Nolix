@@ -10,12 +10,12 @@ import ch.nolix.coreapi.datastructure.pair.IPair;
  * @author Silvan Wyss
  * @version 2016-01-01
  * @param <E1> is the type of the element 1 of a {@link Pair}.
- * @param <E2> is the type of the element 2 of a {@link Pair}.
+ * @param <T> is the type of the element 2 of a {@link Pair}.
  */
-public final class Pair<E1, E2> implements IPair<E1, E2> {
+public final class Pair<E1, T> implements IPair<E1, T> {
   private final E1 element1;
 
-  private final E2 element2;
+  private final T element2;
 
   /**
    * Creates a new {@link Pair} with the given elements.
@@ -25,7 +25,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
    * @throws ArgumentIsNullException if the given element 1 is null.
    * @throws ArgumentIsNullException if the given element 2 is null.
    */
-  public Pair(final E1 element1, final E2 element2) {
+  public Pair(final E1 element1, final T element2) {
     //Asserts that the given element 1 is not null.
     Validator.assertThat(element1).thatIsNamed("element 1").isNotNull();
 
@@ -51,7 +51,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
    * {@inheritDoc}
    */
   @Override
-  public E2 getStoredElement2() {
+  public T getStoredElement2() {
     return element2;
   }
 

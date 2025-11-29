@@ -28,11 +28,11 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
     nextIndex = startIndex;
   }
 
-  public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
+  public static <T> ArrayIterator<T> forArray(final T[] array) {
     return new ArrayIterator<>(array);
   }
 
-  public static <E2> ArrayIterator<E2> forArrayAndStartIndex(final E2[] array, final int startIndex) {
+  public static <T> ArrayIterator<T> forArrayAndStartIndex(final T[] array, final int startIndex) {
     return new ArrayIterator<>(array, startIndex);
   }
 

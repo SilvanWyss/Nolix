@@ -30,9 +30,9 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
 
   /**
    * @return a new empty {@link ArrayList}.
-   * @param <E2> is the type of the elements of the {@link ArrayList}.
+   * @param <T> is the type of the elements of the {@link ArrayList}.
    */
-  public static <E2> ArrayList<E2> createEmpty() {
+  public static <T> ArrayList<T> createEmpty() {
     return new ArrayList<>();
   }
 
@@ -40,13 +40,13 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * The time complexity of this implementation is O(n) when n elements are given.
    * 
    * @param elements
-   * @param <E2>     is the type of the given elements.
+   * @param <T>     is the type of the given elements.
    * @return a new {@link ArrayList} with the given elements.
    * @throws ArgumentIsNullException if the given elements is null.
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
-  public static <E2> ArrayList<E2> withElements(final @SuppressWarnings("unchecked") E2... elements) {
-    final var arrayList = new ArrayList<E2>();
+  public static <T> ArrayList<T> withElements(final @SuppressWarnings("unchecked") T... elements) {
+    final var arrayList = new ArrayList<T>();
 
     arrayList.addAtEnd(elements);
 
@@ -57,18 +57,18 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * The time complexity of this implementation is O(1).
    * 
    * @param initialCapacity
-   * @param <E2>            is the type of the elements of the created
+   * @param <T>            is the type of the elements of the created
    *                        {@link ArrayList}.
    * @return a new {@link ArrayList} with the given initialCapacity
    * @throws NegativeArgumentException if the given initialCapacity is negative.
    */
-  public static <E2> ArrayList<E2> withInitialCapacity(final int initialCapacity) {
+  public static <T> ArrayList<T> withInitialCapacity(final int initialCapacity) {
     Validator
       .assertThat(initialCapacity)
       .thatIsNamed(LowerCaseVariableCatalog.INITIAL_CAPACITY)
       .isNotNegative();
 
-    final var arrayList = new ArrayList<E2>();
+    final var arrayList = new ArrayList<T>();
     arrayList.growToCapacityWhenCapacityIsBiggerThanCurrentCapacity(initialCapacity);
 
     return arrayList;
@@ -78,13 +78,13 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * The time complexity of this implementation is O(1).
    * 
    * @param container
-   * @param <E2>      is the type of the elements of the created
+   * @param <T>      is the type of the elements of the created
    *                  {@link ArrayList}.
    * @return a new {@link ArrayList} with a initialCapacity that is the size of
    *         the given container.
    * @throws NullPointerException if the given container is null.
    */
-  public static <E2> ArrayList<E2> withInitialCapacityFromSizeOfContainer(final CountRequestable<?> container) {
+  public static <T> ArrayList<T> withInitialCapacityFromSizeOfContainer(final CountRequestable<?> container) {
     final var initialCapacity = container.getCount();
 
     return withInitialCapacity(initialCapacity);

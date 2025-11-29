@@ -73,11 +73,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
     this.entityClass = entityClass;
   }
 
-  static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityType(
+  static <T extends IEntity> Table<T> withParentDatabaseAndNameAndIdAndEntityType(
     final Database parentDatabase,
     final String name,
     final String id,
-    final Class<E2> entityType) {
+    final Class<T> entityType) {
     return new Table<>(parentDatabase, name, id, entityType);
   }
 

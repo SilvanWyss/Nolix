@@ -33,7 +33,7 @@ public final class IterableContainerViewIterator<E> implements CopyableIterator<
     this.iterationCount = iterationCount;
   }
 
-  public static <E2> IterableContainerViewIterator<E2> forIterable(final Iterable<E2> iterable) {
+  public static <T> IterableContainerViewIterator<T> forIterable(final Iterable<T> iterable) {
     return new IterableContainerViewIterator<>(iterable);
   }
 

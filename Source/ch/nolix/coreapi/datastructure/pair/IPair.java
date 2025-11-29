@@ -6,9 +6,9 @@ package ch.nolix.coreapi.datastructure.pair;
  * @author Silvan Wyss
  * @version 2022-07-02
  * @param <E1> is the type of the element1 of a {@link IPair}.
- * @param <E2> is the type of the element2 of a {@link IPair}.
+ * @param <T> is the type of the element2 of a {@link IPair}.
  */
-public interface IPair<E1, E2> {
+public interface IPair<E1, T> {
   /**
    * @return the element1 of the current {@link IPair}.
    */
@@ -17,7 +17,7 @@ public interface IPair<E1, E2> {
   /**
    * @return the element2 of the current {@link IPair}.
    */
-  E2 getStoredElement2();
+  T getStoredElement2();
 
   /**
    * @param object
