@@ -13,6 +13,9 @@ import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerCssBuilder {
+  private LayerCssBuilder() {
+  }
+
   public static CssRule getCssRuleForLayer(final ILayer<?> layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }
@@ -93,8 +96,5 @@ public final class LayerCssBuilder {
       default ->
         throw InvalidArgumentException.forArgument(contentAlignment);
     };
-  }
-
-  private LayerCssBuilder() {
   }
 }

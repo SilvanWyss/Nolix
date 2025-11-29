@@ -8,6 +8,9 @@ import ch.nolix.systemapi.objectdata.schemamodelsearcher.ISchemaSearcher;
 public final class TableMapper {
   private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 
+  private TableMapper() {
+  }
+
   @SuppressWarnings("unchecked")
   public static Table<IEntity> mapMidSchemaTableDtoToTableWithoutColumns(
     final TableDto midTableDto,
@@ -18,8 +21,5 @@ public final class TableMapper {
     final var entityType = (Class<IEntity>) (SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, tableName));
 
     return Table.withParentDatabaseAndNameAndIdAndEntityType(database, tableName, tableId, entityType);
-  }
-
-  private TableMapper() {
   }
 }

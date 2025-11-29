@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
 public final class TableLoader {
+  private TableLoader() {
+  }
+
   public static LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
 
@@ -112,8 +115,5 @@ public final class TableLoader {
 
   private static boolean isBaseValue(final ColumnDto columnDto) {
     return columnDto.fieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
-  }
-
-  private TableLoader() {
   }
 }

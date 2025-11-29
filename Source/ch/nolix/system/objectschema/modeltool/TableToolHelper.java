@@ -8,6 +8,9 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 public final class TableToolHelper {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 
+  private TableToolHelper() {
+  }
+
   public static IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
     final ITable table) {
     final var columns = table.getStoredParentDatabase().getStoredTables().toMultiples(ITable::getStoredColumns);
@@ -37,8 +40,5 @@ public final class TableToolHelper {
   public static IContainer<? extends IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
     return table.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesGivenTable(c, table));
-  }
-
-  private TableToolHelper() {
   }
 }

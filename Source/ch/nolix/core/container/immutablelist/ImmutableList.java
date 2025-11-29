@@ -84,7 +84,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    */
   private static <T> int getCountOfIterable(final Iterable<T> iterable) {
     int elementCount;
-    if (iterable instanceof final IContainer container) {
+    if (iterable instanceof final IContainer<T> container) {
       elementCount = container.getCount();
     } else {
       elementCount = IterableTool.getCount(iterable);

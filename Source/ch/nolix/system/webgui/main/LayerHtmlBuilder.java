@@ -11,6 +11,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 public final class LayerHtmlBuilder {
+  private LayerHtmlBuilder() {
+  }
+
   public static IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
       HtmlElementTypeCatalog.DIV,
@@ -38,8 +41,5 @@ public final class LayerHtmlBuilder {
 
   private static IHtmlElement getContentHtmlElementForLayer(final ILayer<?> layer) {
     return layer.getStoredRootControl().getHtml();
-  }
-
-  private LayerHtmlBuilder() {
   }
 }
