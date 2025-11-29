@@ -1,20 +1,12 @@
 package ch.nolix.system.nodemidschema.schemawriter;
 
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.system.nodemidschema.nodemapper.ColumnNodeMapper;
-import ch.nolix.system.nodemidschema.nodemapper.TableNodeMapper;
-import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;
-import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
-import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -22,30 +14,10 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
-import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
-import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 public final class SchemaWriter implements ISchemaWriter {
-  private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
-
-  private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
-  new DatabasePropertiesNodeSearcher();
-
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
-
-  private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
-
-  private static final ITableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
-
-  private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
-
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();
 
@@ -73,45 +45,25 @@ public final class SchemaWriter implements ISchemaWriter {
 
   @Override
   public void addColumn(final TableIdentification table, final ColumnDto column) {
-    final var tableName = table.tableName();
-
-    final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase, tableName);
-
-    tableNode.addChildNode(COLUMN_NODE_MAPPER.mapColumnDtoToColumnNode(column));
-
+    SchemaWriterActionProvider.addColumn(editedNodeDatabase, table, column);
     hasChanges = true;
   }
 
   @Override
   public void addTable(final TableDto table) {
-    editedNodeDatabase.addChildNode(TABLE_NODE_MAPPER.mapTableDtoToNode(table));
-
+    SchemaWriterActionProvider.addTable(editedNodeDatabase, table);
     hasChanges = true;
   }
 
   @Override
   public void deleteColumn(final TableIdentification table, final String columnName) {
-    final var tableId = table.tableId();
-
-    final var tableNode = //
-    DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(editedNodeDatabase, tableId);
-
-    tableNode.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.COLUMN)
-      && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode((IMutableNode<?>) a).getStoredSingleChildNode()
-        .hasHeader(columnName));
-
+    SchemaWriterActionProvider.deleteColumn(editedNodeDatabase, table, columnName);
     hasChanges = true;
   }
 
   @Override
   public void deleteTable(final String tableName) {
-    editedNodeDatabase.removeFirstChildNodeThat(
-      (final INode<?> a) -> a.hasHeader(NodeHeaderCatalog.TABLE)
-      && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode((IMutableNode<?>) a).getStoredSingleChildNode()
-        .hasHeader(tableName));
-
+    SchemaWriterActionProvider.deleteTable(editedNodeDatabase, tableName);
     hasChanges = true;
   }
 
@@ -136,6 +88,18 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
+  public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
+    SchemaWriterActionProvider.renameColumn(editedNodeDatabase, tableName, columnName, newColumnName);
+    hasChanges = true;
+  }
+
+  @Override
+  public void renameTable(final String tableName, final String newTableName) {
+    SchemaWriterActionProvider.renameTable(editedNodeDatabase, tableName, newTableName);
+    hasChanges = true;
+  }
+
+  @Override
   public void reset() {
     editedNodeDatabase = MutableNode.fromNode(nodeDatabase);
 
@@ -155,29 +119,6 @@ public final class SchemaWriter implements ISchemaWriter {
   }
 
   @Override
-  public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
-      tableName);
-
-    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
-    final var headerNode = COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode);
-    headerNode.setHeader(newColumnName);
-
-    hasChanges = true;
-  }
-
-  @Override
-  public void renameTable(final String tableName, final String newTableName) {
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(editedNodeDatabase,
-      tableName);
-
-    final var nameNode = TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode);
-    nameNode.getStoredSingleChildNode().setHeader(newTableName);
-
-    hasChanges = true;
-  }
-
-  @Override
   public void setColumnModel(
     final TableIdentification table,
     final ColumnIdentification column,
@@ -185,45 +126,20 @@ public final class SchemaWriter implements ISchemaWriter {
     final DataType dataType,
     final IContainer<String> referenceableTableIds,
     final IContainer<String> backReferenceableColumnIds) {
-    final var tableId = table.tableId();
-    final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
-    final var columnId = column.columnId();
-    final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnId(tableNode, columnId);
-
-    final var fieldTypeNode = COLUMN_NODE_SEARCHER.getStoredFieldTypeNodeFromColumnNode(columnNode);
-    fieldTypeNode.getStoredSingleChildNode().setHeader(fieldType.name());
-
-    final var dataTypeNode = COLUMN_NODE_SEARCHER.getStoredDataTypeNodeFromColumnNode(columnNode);
-    dataTypeNode.getStoredSingleChildNode().setHeader(dataType.name());
-
-    final var referenceablteTableIdsNodesView = referenceableTableIds.getViewOf(Node::withHeader);
-
-    final var referenceablteTableIdsNode = //
-    COLUMN_NODE_SEARCHER.getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
-
-    referenceablteTableIdsNode.setChildNodes(referenceablteTableIdsNodesView);
-
-    final var backReferenceableColumnIdNodes = backReferenceableColumnIds.to(Node::withHeader);
-
-    final var backReferenceableColumnIdsNode = //
-    COLUMN_NODE_SEARCHER.getStoredBackReferenceableColumnIdsNodeFromColumnNode(columnNode);
-
-    backReferenceableColumnIdsNode.setChildNodes(backReferenceableColumnIdNodes);
+    SchemaWriterActionProvider.setColumnModel(
+      editedNodeDatabase,
+      table,
+      column,
+      fieldType,
+      dataType,
+      referenceableTableIds,
+      backReferenceableColumnIds);
 
     hasChanges = true;
   }
 
   private void setSchemaTimestamp(final ITime schemaTimestamp) {
-    final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-      .getStoredDatabasePropertiesNodeFromNodeDatabase(editedNodeDatabase);
-
-    final var schemaTimestampNode = DATABASE_PROPERTIES_NODE_SEARCHER
-      .getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
-
-    schemaTimestampNode
-      .getStoredSingleChildNode()
-      .setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
-
+    SchemaWriterActionProvider.setSchemaTimestamp(editedNodeDatabase, schemaTimestamp);
     hasChanges = true;
   }
 }
