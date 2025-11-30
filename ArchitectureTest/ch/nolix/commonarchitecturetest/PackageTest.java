@@ -1,4 +1,4 @@
-package ch.nolix.architecturetest;
+package ch.nolix.commonarchitecturetest;
 
 import org.junit.jupiter.api.Test;
 
