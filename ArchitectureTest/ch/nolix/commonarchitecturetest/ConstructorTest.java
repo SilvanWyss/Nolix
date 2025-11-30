@@ -11,7 +11,7 @@ import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
-final class PublicConstructorTest {
+final class ConstructorTest {
   @Disabled
   @Test
   void testCase_publicConstructorsDoNotContainParameters() {
