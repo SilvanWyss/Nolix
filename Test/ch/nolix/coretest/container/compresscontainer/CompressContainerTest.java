@@ -1,16 +1,16 @@
-package ch.nolix.coretest.container.cachingcontainer;
+package ch.nolix.coretest.container.compresscontainer;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.cachingcontainer.CachingContainer;
+import ch.nolix.core.container.compresscontainer.CompressContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
-final class CachingContainerTest extends StandardTest {
+final class CompressContainerTest extends StandardTest {
   @Test
   void testCase_constructor() {
     //execution
-    final var result = new CachingContainer<String>();
+    final var result = new CompressContainer<String>();
 
     //verification
     expect(result.isEmpty()).isTrue();
@@ -19,7 +19,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_getStoredById() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfield = "Garfield";
     final var garfieldId = testUnit.registerAndGetId(garfield);
 
@@ -33,7 +33,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
 
     //execution
     expectRunning(() -> testUnit.getStoredById("G"))
@@ -44,7 +44,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_registerAndGetId() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfield = "Garfield";
 
     //execution
@@ -59,7 +59,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfield = "Garfield";
     testUnit.registerAndGetId(garfield);
 
@@ -70,7 +70,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_registerAt() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfieldId = "G";
     final var garfield = "Garfield";
 
@@ -86,7 +86,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfieldId = "G";
     final var garfield = "Garfield";
     testUnit.registerAtId(garfieldId, garfield);
@@ -98,7 +98,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_registerIfNotRegisterAndGetId() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfield = "Garfield";
 
     //execution
@@ -113,7 +113,7 @@ final class CachingContainerTest extends StandardTest {
   @Test
   void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
     //setup
-    final var testUnit = new CachingContainer<String>();
+    final var testUnit = new CompressContainer<String>();
     final var garfieldId = "G";
     final var garfield = "Garfield";
     testUnit.registerAtId(garfieldId, garfield);

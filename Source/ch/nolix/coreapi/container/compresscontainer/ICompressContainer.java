@@ -1,8 +1,8 @@
-package ch.nolix.coreapi.container.cachingcontainer;
+package ch.nolix.coreapi.container.compresscontainer;
 
 import ch.nolix.coreapi.container.base.IContainer;
 
-public interface ICachingContainer<E> extends IContainer<E> {
+public interface ICompressContainer<E> extends IContainer<E> {
   boolean containsWithId(String id);
 
   String getIdOf(E element);

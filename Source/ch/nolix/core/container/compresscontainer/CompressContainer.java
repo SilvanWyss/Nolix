@@ -1,4 +1,4 @@
-package ch.nolix.core.container.cachingcontainer;
+package ch.nolix.core.container.compresscontainer;
 
 import java.util.Optional;
 
@@ -7,11 +7,11 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.datastructure.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.cachingcontainer.ICachingContainer;
+import ch.nolix.coreapi.container.compresscontainer.ICompressContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
-public final class CachingContainer<E> extends AbstractExtendedContainer<E> implements ICachingContainer<E> {
+public final class CompressContainer<E> extends AbstractExtendedContainer<E> implements ICompressContainer<E> {
   private static final String AUTO_ID_PREFIX = "Z";
 
   private long autoIdCounter = 1;
@@ -60,7 +60,7 @@ public final class CachingContainer<E> extends AbstractExtendedContainer<E> impl
 
   @Override
   public CopyableIterator<E> iterator() {
-    return new CachingContainerIterator<>(elements.iterator());
+    return new CompressContainerIterator<>(elements.iterator());
   }
 
   @Override
