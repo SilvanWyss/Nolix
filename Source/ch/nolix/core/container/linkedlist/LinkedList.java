@@ -54,7 +54,7 @@ implements ILinkedList<E> {
 
   /**
    * @param array
-   * @param <T>  is the type of the elements of the given array.
+   * @param <T>   is the type of the elements of the given array.
    * @return a new {@link LinkedList} with the elements in the given array.
    * @throws ArgumentIsNullException if the given array is null.
    * @throws ArgumentIsNullException if one of the elements in the given array is
@@ -71,7 +71,7 @@ implements ILinkedList<E> {
 
   /**
    * @param container
-   * @param <T>      is the type of the elements of the given container.
+   * @param <T>       is the type of the elements of the given container.
    * @return a new {@link LinkedList} with the elements in the given container.
    * @throws ArgumentIsNullException if the given container is null.
    * @throws ArgumentIsNullException if one of the elements in the given container
@@ -87,7 +87,7 @@ implements ILinkedList<E> {
   /**
    * @param element
    * @param elements
-   * @param <T>     is the type of the given elements.
+   * @param <T>      is the type of the given elements.
    * @return a new {@link LinkedList} with the given elements.
    * @throws ArgumentIsNullException if the given element or one of the given
    *                                 elements is null.
@@ -105,7 +105,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void addAtBegin(final E element) {
-    final var node = new LinkedListNode<>(element);
+    final var node = LinkedListNode.withElement(element);
 
     if (isEmpty()) {
       firstNode = node;
@@ -154,7 +154,7 @@ implements ILinkedList<E> {
 
     //Handles the case that the given elements is not empty.
     if (ITERABLE_EXAMINER.containsAny(elements)) {
-      final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
+      final LinkedListNode<E> newFirstNode = LinkedListNode.withElement(elements.iterator().next());
 
       LinkedListNode<E> node = null;
 
@@ -162,7 +162,7 @@ implements ILinkedList<E> {
         if (node == null) {
           node = newFirstNode;
         } else {
-          final var currentNode = new LinkedListNode<>(e);
+          final var currentNode = LinkedListNode.withElement(e);
           node.setNextNode(currentNode);
           node = currentNode;
         }
@@ -190,7 +190,7 @@ implements ILinkedList<E> {
   @Override
   public void addAtEnd(final E element) {
     //Creates new node.
-    final var node = new LinkedListNode<>(element);
+    final var node = LinkedListNode.withElement(element);
 
     if (isEmpty()) {
       firstNode = node;
@@ -604,7 +604,7 @@ implements ILinkedList<E> {
     LinkedListNode<E> iteratorNode = null;
 
     for (final var e : elements) {
-      final var newNode = new LinkedListNode<>(e);
+      final var newNode = LinkedListNode.withElement(e);
 
       if (iteratorNode == null) {
         newFirstNode = newNode;
@@ -635,7 +635,7 @@ implements ILinkedList<E> {
     LinkedListNode<E> iteratorNode = null;
 
     for (final var e : elements) {
-      final var newNode = new LinkedListNode<>(e);
+      final var newNode = LinkedListNode.withElement(e);
 
       if (iteratorNode == null) {
         firstNode = newNode;
