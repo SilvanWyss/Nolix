@@ -41,9 +41,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private DataType dataType = DataType.STRING;
 
-  private final IArrayList<? extends ITable> referenceableTables = ArrayList.createEmpty();
+  private final IArrayList<ITable> referenceableTables = ArrayList.createEmpty();
 
-  private final IArrayList<? extends IColumn> backReferenceableColumns = ArrayList.createEmpty();
+  private final IArrayList<IColumn> backReferenceableColumns = ArrayList.createEmpty();
 
   public Column(
     final String name,
