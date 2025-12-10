@@ -37,8 +37,17 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
    */
   @Override
   public boolean canReferenceBackBaseReference(final IField field, final IBaseReference baseReference) {
-    if (field instanceof IBaseBackReference baseBackReference) {
-      return baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(baseBackReference, baseReference);
+    if (field instanceof final IBaseBackReference baseBackReference
+    && baseReference != null
+    && baseReference.belongsToEntity()) {
+      final var baseReferenceParentTableName = baseReference.getStoredParentEntity().getParentTableName();
+      final var baseReferenceName = baseReference.getName();
+      final var backReferenceableTableNames = baseBackReference.getBackReferenceableTableNames();
+      final var backReferencedFieldName = baseBackReference.getBackReferencedFieldName();
+
+      return //
+      backReferenceableTableNames.contains(baseReferenceParentTableName)
+      && backReferencedFieldName.equals(baseReferenceName);
     }
 
     return false;
@@ -85,29 +94,5 @@ public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExami
     && (!field.isMandatory()
     || !isNewOrEdited(field)
     || field.containsAny());
-  }
-
-  /**
-   * @param baseBackReference
-   * @param baseReference
-   * @return true if the given baseBackReference can reference back the given
-   *         baseReference false otherwise. For the case that the given
-   *         baseBackReference and baseReference are not null.
-   */
-  private boolean baseBackReferenceCanReferenceBackBaseReferenceWhenParametersAreNotNull(
-    final IBaseBackReference baseBackReference,
-    final IBaseReference baseReference) {
-    if (baseReference.belongsToEntity()) {
-      final var baseReferenceParentTableName = baseReference.getStoredParentEntity().getParentTableName();
-      final var baseReferenceName = baseReference.getName();
-      final var backReferenceableTableNames = baseBackReference.getBackReferenceableTableNames();
-      final var backReferencedFieldName = baseBackReference.getBackReferencedFieldName();
-
-      return //
-      backReferenceableTableNames.contains(baseReferenceParentTableName)
-      && backReferencedFieldName.equals(baseReferenceName);
-    }
-
-    return false;
   }
 }
