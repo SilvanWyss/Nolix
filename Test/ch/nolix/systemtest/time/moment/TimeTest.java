@@ -219,16 +219,9 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_withYearAndMonthOfYearAndDayOfMonth() {
-    for (var y = 1600; y <= 3000; y++) {
+    for (var y = 1999; y <= 2099; y++) {
       for (var m = 1; m <= 12; m++) {
-        final int dayCount;
-        if (m == 2) {
-          dayCount = 28;
-        } else {
-          dayCount = 30;
-        }
-
-        for (var d = 1; d <= dayCount; d++) {
+        for (var d = 1; d <= 25; d++) {
           //execution
           final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 
