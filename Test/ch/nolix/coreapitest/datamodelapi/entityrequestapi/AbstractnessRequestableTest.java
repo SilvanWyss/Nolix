@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class AbstractnessRequestableTest extends StandardTest {
   @Test
   void testCase_isConcrete_whenIsAbstract() {

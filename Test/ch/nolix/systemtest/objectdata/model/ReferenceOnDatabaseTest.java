@@ -9,6 +9,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.Reference;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ReferenceOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
     //This class is just a sub class without additional methods.

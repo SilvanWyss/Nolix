@@ -7,6 +7,9 @@ import ch.nolix.system.webcontainercontrol.grid.Grid;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
 import ch.nolix.systemtest.webcontainercontrol.container.ContainerTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class GridTest extends ContainerTest<IGrid> {
   @Override
   protected IGrid createTestUnit() {

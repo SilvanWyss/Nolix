@@ -10,6 +10,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.IterableMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ContainerMediatorTest extends StandardTest {
   @Test
   void testCase_contains_whenTheGivenConditionIsNull() {

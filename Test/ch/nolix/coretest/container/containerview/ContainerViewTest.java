@@ -6,6 +6,9 @@ import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ContainerViewTest extends ContainerTest {
   @Test
   void testCase_containsEqualing() {

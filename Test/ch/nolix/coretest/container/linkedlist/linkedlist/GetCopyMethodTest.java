@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class GetCopyMethodTest extends StandardTest {
   @Test
   void testCase_getCopy_whenIsEmpty() {

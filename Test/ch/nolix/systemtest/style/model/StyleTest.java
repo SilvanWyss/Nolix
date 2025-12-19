@@ -11,6 +11,9 @@ import ch.nolix.system.style.model.SelectingStyle;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.system.webgui.main.WebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 final class StyleTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenIsEmpty() {

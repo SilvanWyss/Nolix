@@ -6,6 +6,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.independent.math.NumberComparator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NumberComparatorTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({

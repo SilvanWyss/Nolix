@@ -9,6 +9,9 @@ import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStackHtmlBu
 import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class HorizontalStackHtmlBuilderTest
 extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
   @Test

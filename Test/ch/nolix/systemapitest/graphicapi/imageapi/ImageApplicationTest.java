@@ -11,6 +11,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ImageApplicationTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirImageApplications() {

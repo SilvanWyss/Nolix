@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiDoubleMediatorTest extends StandardTest {
   @Test
   void testCase_arePositive_whenTheGivenArgumentsAreAllPositive() {

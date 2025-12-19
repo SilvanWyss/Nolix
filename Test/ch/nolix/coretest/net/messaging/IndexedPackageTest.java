@@ -6,6 +6,9 @@ import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.net.messaging.IndexedPackage;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class IndexedPackageTest extends StandardTest {
   @Test
   void testCase_hasIndex_whenHasTheGivenIndex() {

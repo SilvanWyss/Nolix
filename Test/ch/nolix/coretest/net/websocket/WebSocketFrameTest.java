@@ -10,6 +10,9 @@ import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WebSocketFrameTest extends StandardTest {
   @Test
   void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {

@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.MethodMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MethodMediatorTest extends StandardTest {
   @Test
   void testCase_hasReturnType_whenIsNull() {

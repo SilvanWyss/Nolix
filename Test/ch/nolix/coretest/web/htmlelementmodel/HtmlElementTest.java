@@ -8,6 +8,9 @@ import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class HtmlElementTest extends StandardTest {
   @Test
   void testCase_withAttribute_whenContainsAttributesAndHasNonEmptyInnerText() {

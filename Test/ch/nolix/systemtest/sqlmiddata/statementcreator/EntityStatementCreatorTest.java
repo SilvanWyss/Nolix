@@ -10,6 +10,9 @@ import ch.nolix.systemapi.middata.model.EntityDeletionDto;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EntityStatementCreatorTest extends StandardTest {
   @Test
   void testCase_createStatementToDeleteEntity() {

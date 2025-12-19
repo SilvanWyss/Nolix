@@ -6,6 +6,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.container.arraylist.ArrayListCapacityCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ArrayListCapacityCalculatorTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({

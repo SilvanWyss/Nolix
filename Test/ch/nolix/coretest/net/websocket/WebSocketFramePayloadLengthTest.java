@@ -7,6 +7,9 @@ import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WebSocketFramePayloadLengthTest extends StandardTest {
   @Test
   void testCase_getType_whenPayloadLengthIs0() {

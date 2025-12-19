@@ -8,6 +8,9 @@ import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.textbox.Textbox;
 import ch.nolix.system.webgui.main.WebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 final class UpdateCommandCreatorTest extends StandardTest {
   @Test
   void testCase_createSetCssCommandFromWebGui() {

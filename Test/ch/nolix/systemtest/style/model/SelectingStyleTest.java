@@ -7,6 +7,9 @@ import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.style.model.SelectingStyle;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SelectingStyleTest extends StandardTest {
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveId() {

@@ -8,6 +8,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.FractalTool;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FractalToolTest extends StandardTest {
   @Test
   void testCase_getMaxX() {

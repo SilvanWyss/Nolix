@@ -12,6 +12,9 @@ import ch.nolix.coreapi.net.netproperty.ConnectionType;
 import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LocalEndPointTest extends StandardTest {
   @Test
   void testCase_sendMessage_whenSends1Message() {

@@ -8,6 +8,9 @@ import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.template.graphic.texture.TextureCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TextureCatalogTest extends StandardTest {
   @Test
   void testCase_constantsOfTextureCatalog() {

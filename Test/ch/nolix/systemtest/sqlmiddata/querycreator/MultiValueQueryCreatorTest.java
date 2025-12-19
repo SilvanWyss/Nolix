@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.querycreator.MultiValueQueryCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiValueQueryCreatorTest extends StandardTest {
   @Test
   void testCase_createQueryToLoadMultiValueEntries() {

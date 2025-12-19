@@ -10,6 +10,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ClosedIntervalTest extends StandardTest {
   @Test
   void testCase_containsValue_whenNullIsGiven() {

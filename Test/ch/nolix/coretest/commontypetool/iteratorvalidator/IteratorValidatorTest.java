@@ -11,6 +11,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class IteratorValidatorTest extends StandardTest {
   @Test
   void testCase_whenTheGivenIteratorIsNull() {

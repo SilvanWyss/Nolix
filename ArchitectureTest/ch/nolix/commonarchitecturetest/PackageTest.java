@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
+/**
+ * @author Silvan Wyss
+ */
 final class PackageTest {
   @Test
   void testCase_packagesHaveAMaxHierarchyDepthOf5() {

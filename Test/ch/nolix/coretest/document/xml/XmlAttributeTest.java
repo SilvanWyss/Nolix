@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.document.xml.XmlAttribute;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class XmlAttributeTest extends StandardTest {
   @Test
   void testCase_constructor() {

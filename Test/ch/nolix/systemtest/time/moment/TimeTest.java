@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.time.timestructure.Weekday;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TimeTest extends StandardTest {
   @Test
   void testCase_getWeekday_whenIs2020_01_01() {

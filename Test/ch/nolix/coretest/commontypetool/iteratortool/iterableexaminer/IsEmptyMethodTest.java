@@ -6,6 +6,9 @@ import ch.nolix.core.commontypetool.iteratortool.IterableExaminer;
 import ch.nolix.core.independent.list.List;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class IsEmptyMethodTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableIsNull() {

@@ -8,6 +8,9 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.systemapi.gui.box.Direction;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ColorGradientTest extends StandardTest {
   @Test
   void testCase_getSpecification() {

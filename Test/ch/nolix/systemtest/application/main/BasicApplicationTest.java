@@ -8,6 +8,9 @@ import ch.nolix.system.application.main.BasicApplication;
 import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.webapplication.main.WebClient;
 
+/**
+ * @author Silvan Wyss
+ */
 final class BasicApplicationTest extends StandardTest {
   @Test
   void testCase_withNameAndInitialSessionClassAndContext() {

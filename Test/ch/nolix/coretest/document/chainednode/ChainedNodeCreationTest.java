@@ -9,6 +9,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_fromNode_whenNodeIsBlank() {

@@ -10,6 +10,9 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.OptionalBackReference;
 import ch.nolix.system.objectdata.model.OptionalReference;
 
+/**
+ * @author Silvan Wyss
+ */
 final class OptionalBackReferenceOnDatabaseTest extends StandardTest {
   private static final class Person extends Entity {
     final OptionalReference<Pet> pet = OptionalReference.forEntityTypes(Pet.class);

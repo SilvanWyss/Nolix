@@ -7,6 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SqlLiteralMapperTest extends StandardTest {
   @Test
   void testCase_whenTheGivenNullableValueStringIsNull() {

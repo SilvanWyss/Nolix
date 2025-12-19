@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ARModelTest extends StandardTest {
   @Test
   void testCase_constructor_1() {

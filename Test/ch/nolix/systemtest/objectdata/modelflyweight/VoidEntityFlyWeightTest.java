@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 
+/**
+ * @author Silvan Wyss
+ */
 final class VoidEntityFlyWeightTest extends StandardTest {
   @Test
   void testCase_creation() {

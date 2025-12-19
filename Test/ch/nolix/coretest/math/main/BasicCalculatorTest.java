@@ -9,6 +9,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.math.basic.BasicCalculator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class BasicCalculatorTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({

@@ -7,6 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ToStringMethodTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({

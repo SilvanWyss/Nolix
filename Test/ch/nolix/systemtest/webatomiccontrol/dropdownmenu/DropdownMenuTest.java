@@ -5,6 +5,9 @@ import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenuStyle;
 import ch.nolix.systemtest.webatomiccontrol.itemmenu.ItemMenuTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class DropdownMenuTest extends ItemMenuTest<IDropdownMenu, IDropdownMenuStyle> {
   @Override
   protected IDropdownMenu createTestUnit() {

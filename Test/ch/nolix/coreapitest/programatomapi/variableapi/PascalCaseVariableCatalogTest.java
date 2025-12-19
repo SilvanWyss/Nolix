@@ -9,6 +9,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.IStringExaminer;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class PascalCaseVariableCatalogTest extends StandardTest {
   private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
 

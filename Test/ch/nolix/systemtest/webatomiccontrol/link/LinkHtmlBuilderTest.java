@@ -5,6 +5,9 @@ import ch.nolix.system.webatomiccontrol.link.LinkHtmlBuilder;
 import ch.nolix.systemapi.webatomiccontrol.link.ILink;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LinkHtmlBuilderTest extends ControlHtmlBuilderTest<LinkHtmlBuilder, ILink> {
   @Override
   protected ILink createControl() {

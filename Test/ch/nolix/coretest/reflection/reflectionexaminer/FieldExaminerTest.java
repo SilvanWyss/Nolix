@@ -13,6 +13,9 @@ import ch.nolix.coreapi.container.list.IArrayList;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.container.matrix.IMatrix;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FieldExaminerTest extends StandardTest {
   private static final class Lecture {
     @SuppressWarnings("unused")

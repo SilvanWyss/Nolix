@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FixDatabasePropertyCatalogueTest extends StandardTest {
   @Test
   void testCase_numberOfEntityFields() {

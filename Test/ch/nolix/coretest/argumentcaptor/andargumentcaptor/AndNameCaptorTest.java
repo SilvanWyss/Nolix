@@ -6,6 +6,9 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class AndNameCaptorTest extends StandardTest {
   @Test
   void testCase_andName_whenHasNext() {

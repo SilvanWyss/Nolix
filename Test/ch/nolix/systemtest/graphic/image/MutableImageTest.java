@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MutableImageTest extends StandardTest {
   @Test
   void testCase_constructor() {

@@ -7,6 +7,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.system.objectschema.model.Table;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NodeSchemaAdapterTest extends StandardTest {
   @Test
   void test_creation() {

@@ -5,6 +5,9 @@ import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabelHtmlBuild
 import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValidationLabelHtmlBuilderTest
 extends ControlHtmlBuilderTest<ValidationLabelHtmlBuilder, IValidationLabel> {
   @Override

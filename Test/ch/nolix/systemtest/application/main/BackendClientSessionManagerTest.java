@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
+/**
+ * @author Silvan Wyss
+ */
 final class BackendClientSessionManagerTest extends StandardTest {
   @Test
   void testCase_forClient() {

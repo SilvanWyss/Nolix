@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.independent.arraytool.ArrayValidator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ArrayValidatorTest extends StandardTest {
   @Test
   void testCase_assertDoesNotContainNull_whenGivenArrayIsNull() {

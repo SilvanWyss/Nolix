@@ -9,6 +9,9 @@ import ch.nolix.core.net.endpoint3.Server;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NetEndPointTest extends StandardTest {
   @Test
   void testCase_constructor() {

@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {

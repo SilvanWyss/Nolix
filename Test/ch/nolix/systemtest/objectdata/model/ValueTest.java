@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.model.ValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValueTest extends StandardTest {
   @Test
   void testCase_constructor() {

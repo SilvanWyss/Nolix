@@ -5,6 +5,9 @@ import ch.nolix.system.webatomiccontrol.button.ButtonHtmlBuilder;
 import ch.nolix.systemapi.webatomiccontrol.button.IButton;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHtmlBuilder, IButton> {
   @Override
   protected IButton createControl() {

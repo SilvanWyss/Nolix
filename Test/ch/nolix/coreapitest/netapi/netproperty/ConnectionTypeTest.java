@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.netproperty.BaseConnectionType;
 import ch.nolix.coreapi.net.netproperty.ConnectionType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ConnectionTypeTest extends StandardTest {
   @Test
   void testCase_getBaseType_whenIsLocal() {

@@ -8,6 +8,9 @@ import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
 import ch.nolix.core.web.htmlelementmodel.HtmlElementStringRepresentator;
 
+/**
+ * @author Silvan Wyss
+ */
 final class HtmlElementStringRepresentatorTest extends StandardTest {
   @Test
   void testCase_toString() {

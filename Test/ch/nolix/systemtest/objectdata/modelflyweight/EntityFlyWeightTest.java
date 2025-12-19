@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EntityFlyWeightTest extends StandardTest {
   @Test
   void testCase_noteInsert() {

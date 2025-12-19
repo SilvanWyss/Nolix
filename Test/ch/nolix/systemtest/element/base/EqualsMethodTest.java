@@ -10,6 +10,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EqualsMethodTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectIsNull() {

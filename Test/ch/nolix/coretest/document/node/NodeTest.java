@@ -7,6 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.container.containerview.ContainerView;
 import ch.nolix.core.document.node.Node;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NodeTest extends BaseNodeTest<Node> {
   @Test
   void testCase_asWithHeader_1A() {

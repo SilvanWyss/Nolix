@@ -9,6 +9,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WithDatabaseCaptorTest extends StandardTest {
   @Test
   void testCase_getStoredDatabase_whenDoesNotHaveDatabase() {

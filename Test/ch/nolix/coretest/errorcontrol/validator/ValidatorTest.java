@@ -12,6 +12,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValidatorTest extends StandardTest {
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByte() {

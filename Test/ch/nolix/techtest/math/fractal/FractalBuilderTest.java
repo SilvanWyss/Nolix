@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FractalBuilderTest extends StandardTest {
   @Test
   void testCase_build() {

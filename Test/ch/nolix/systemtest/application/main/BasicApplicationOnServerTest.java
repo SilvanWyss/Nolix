@@ -9,6 +9,9 @@ import ch.nolix.system.application.main.LocalServer;
 import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.webapplication.main.WebClient;
 
+/**
+ * @author Silvan Wyss
+ */
 final class BasicApplicationOnServerTest extends StandardTest {
   @Test
   void testCase_getNameAddendum_whenBelongsToServer() {

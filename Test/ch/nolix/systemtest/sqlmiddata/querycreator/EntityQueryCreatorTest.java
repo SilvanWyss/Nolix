@@ -10,6 +10,9 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EntityQueryCreatorTest extends StandardTest {
   @Test
   void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {

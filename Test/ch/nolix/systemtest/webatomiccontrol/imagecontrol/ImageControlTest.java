@@ -9,6 +9,9 @@ import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.systemapi.webatomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ImageControlTest extends ControlTest<IImageControl> {
   @Override
   protected IImageControl createTestUnit() {

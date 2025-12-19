@@ -12,6 +12,9 @@ import ch.nolix.system.objectdata.model.Table;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FieldMapperTest extends StandardTest {
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForValueFields() {

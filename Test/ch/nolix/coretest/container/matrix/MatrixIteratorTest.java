@@ -5,6 +5,9 @@ import ch.nolix.core.container.matrix.MatrixIterator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coretest.container.base.CopyableIteratorTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MatrixIteratorTest extends CopyableIteratorTest {
   @Override
   protected <E> CopyableIterator<E> createIteratorForEmptyContainerForType(final Class<E> type) {

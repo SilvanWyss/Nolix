@@ -9,6 +9,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FieldTypeTest extends StandardTest {
   @MethodSource
   private static ImmutableList<Arguments> getFieldTypesAndTheirCardinality() {

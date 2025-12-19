@@ -10,6 +10,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coretest.container.base.ContainerTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LinkedListTest extends ContainerTest {
   @Test
   void testCase_addAtBegin_whenIsEmpty() {

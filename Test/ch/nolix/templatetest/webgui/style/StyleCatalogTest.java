@@ -23,6 +23,9 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.style.model.IStyle;
 import ch.nolix.template.webgui.style.StyleCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class StyleCatalogTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getStyles() {

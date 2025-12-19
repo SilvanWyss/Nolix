@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EntityTest extends StandardTest {
   private static final class Thing extends Entity {
     //This class is just a sub class without additional methods.

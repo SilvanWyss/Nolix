@@ -7,6 +7,9 @@ import ch.nolix.core.misc.function.FunctionService;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.property.Value;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValueTest extends StandardTest {
   @Test
   void testCase_forInt() {

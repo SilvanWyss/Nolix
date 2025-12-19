@@ -9,6 +9,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ColorTest extends StandardTest {
   @Test
   void testCase_equals_whenGivenColorIsEqual() {

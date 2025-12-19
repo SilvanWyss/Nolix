@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NameHolderTest extends StandardTest {
   @Test
   void testCase_getNameInQuotes() {

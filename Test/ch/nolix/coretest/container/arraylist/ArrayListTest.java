@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ArrayListTest extends ContainerTest {
   @Override
   protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {

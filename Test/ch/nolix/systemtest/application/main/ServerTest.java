@@ -8,6 +8,9 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ServerTest extends StandardTest {
   @Test
   void testCase_forHttpPort() {

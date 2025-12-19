@@ -9,6 +9,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TableTest extends StandardTest {
   private static final class Person extends Entity {
     private final ValueField<String> firstName = ValueField.withValueType(String.class);

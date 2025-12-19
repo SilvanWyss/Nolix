@@ -9,6 +9,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.OptionalValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 final class OptionalValueOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
     private final OptionalValueField<String> name = OptionalValueField.withValueType(String.class);

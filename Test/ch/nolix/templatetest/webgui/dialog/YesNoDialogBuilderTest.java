@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 final class YesNoDialogBuilderTest extends StandardTest {
   @Test
   void testCase_build() {

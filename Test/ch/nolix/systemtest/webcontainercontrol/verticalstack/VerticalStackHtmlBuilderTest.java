@@ -9,6 +9,9 @@ import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStackHtmlBuilde
 import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<VerticalStackHtmlBuilder, IVerticalStack> {
   @Test
   void testCase_createHtmlElement_whenContainsChildControls() {

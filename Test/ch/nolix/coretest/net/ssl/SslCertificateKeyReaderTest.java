@@ -8,6 +8,9 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.net.ssl.SslCertificateKeyReader;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SslCertificateKeyReaderTest extends StandardTest {
   @Test
   void testCase_getKeyFromPemFileLines() {

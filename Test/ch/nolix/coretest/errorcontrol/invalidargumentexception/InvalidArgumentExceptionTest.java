@@ -8,6 +8,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class InvalidArgumentExceptionTest extends StandardTest {
   @Test
   void testCase_forArgument_whenArgumentIsNull() {

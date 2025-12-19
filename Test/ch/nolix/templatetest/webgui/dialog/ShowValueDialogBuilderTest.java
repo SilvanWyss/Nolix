@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ShowValueDialogBuilderTest extends StandardTest {
   @Test
   void testCase_build() {

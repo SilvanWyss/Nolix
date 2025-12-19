@@ -13,6 +13,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SqlCollectorTest extends StandardTest {
   @Test
   void testCase_addSqlStatement() {

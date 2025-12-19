@@ -9,6 +9,9 @@ import ch.nolix.core.testing.performancetest.PerformanceTest;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LinkedListPerformanceTest extends PerformanceTest {
   @Test
   void testCase_addAtBegin() {

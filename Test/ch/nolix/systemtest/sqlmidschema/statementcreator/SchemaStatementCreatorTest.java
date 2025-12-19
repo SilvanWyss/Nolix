@@ -9,6 +9,9 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.DataTypeDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SchemaStatementCreatorTest extends StandardTest {
   @Test
   void testCase_createStatementToAddColumn() {

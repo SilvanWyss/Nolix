@@ -7,6 +7,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {

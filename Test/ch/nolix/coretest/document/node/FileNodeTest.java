@@ -6,6 +6,9 @@ import ch.nolix.core.document.node.FileNode;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
   @AfterEach
   void cleanup() {

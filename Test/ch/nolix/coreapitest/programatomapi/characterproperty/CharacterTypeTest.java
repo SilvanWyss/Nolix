@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class CharacterTypeTest extends StandardTest {
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsANumber() {

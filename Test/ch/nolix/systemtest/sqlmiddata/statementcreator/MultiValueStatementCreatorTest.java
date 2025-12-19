@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiValueStatementCreatorTest extends StandardTest {
   @Test
   void testCase_createStatementToDeleteMultiValueEntries() {

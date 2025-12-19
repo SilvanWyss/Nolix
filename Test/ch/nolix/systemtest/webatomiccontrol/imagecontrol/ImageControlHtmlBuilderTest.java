@@ -5,6 +5,9 @@ import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControlHtmlBuilder;
 import ch.nolix.systemapi.webatomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ImageControlHtmlBuilderTest extends ControlHtmlBuilderTest<ImageControlHtmlBuilder, IImageControl> {
   @Override
   protected IImageControl createControl() {

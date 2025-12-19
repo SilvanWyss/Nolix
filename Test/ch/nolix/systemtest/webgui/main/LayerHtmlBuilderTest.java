@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.LayerHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LayerHtmlBuilderTest extends StandardTest {
   @Test
   void testCase_createIdHtmlAttributeForLayer() {

@@ -9,6 +9,9 @@ import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LayerValidatorTest extends StandardTest {
   @Test
   void testCase_assertBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {

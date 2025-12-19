@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.model.OptionalValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
+/**
+ * @author Silvan Wyss
+ */
 final class OptionalValueTest extends StandardTest {
   @Test
   void testCase_clear() {

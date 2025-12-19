@@ -5,6 +5,9 @@ import ch.nolix.system.webatomiccontrol.textbox.TextboxCssBuilder;
 import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlCssBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TextboxCssBuilderTest extends ControlCssBuilderTest<TextboxCssBuilder, ITextbox> {
   @Override
   protected ITextbox createControl() {

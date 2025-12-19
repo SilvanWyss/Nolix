@@ -7,6 +7,9 @@ import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class GetCopyMethodTest extends StandardTest {
   @Test
   void testCase_getCopy_whenIsAtStartIndex() {

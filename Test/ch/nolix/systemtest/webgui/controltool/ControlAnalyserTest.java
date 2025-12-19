@@ -12,6 +12,9 @@ import ch.nolix.system.webcontainercontrol.floatcontainer.FloatContainer;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ControlAnalyserTest extends StandardTest {
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlIsNull() {

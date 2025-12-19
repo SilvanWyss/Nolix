@@ -11,6 +11,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LayerRoleTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirLayerRole() {

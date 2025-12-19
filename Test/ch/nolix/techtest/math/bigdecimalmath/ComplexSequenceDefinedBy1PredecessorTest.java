@@ -8,6 +8,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_1() {

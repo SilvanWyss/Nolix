@@ -9,6 +9,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TableNodeExaminerTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({

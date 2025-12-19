@@ -6,6 +6,9 @@ import ch.nolix.core.datastructure.pair.KeyValuePair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class KeyValuePairTest extends StandardTest {
   @Test
   void testCase_toString() {

@@ -10,6 +10,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 
+/**
+ * @author Silvan Wyss
+ */
 final class CardinalityTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getCardinalitysAndTheirBaseCardinality() {

@@ -4,6 +4,9 @@ import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.systemapi.webatomiccontrol.button.IButton;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ButtonTest extends ControlTest<IButton> {
   @Override
   protected Button createTestUnit() {

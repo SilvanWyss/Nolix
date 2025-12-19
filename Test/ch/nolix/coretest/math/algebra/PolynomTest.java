@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class PolynomTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectIsNull() {

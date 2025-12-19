@@ -6,6 +6,9 @@ import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class StringCatalogTest extends StandardTest {
   @Test
   void testCase_constants() {

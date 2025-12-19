@@ -6,6 +6,9 @@ import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ServerTargetTest extends StandardTest {
   @Test
   void testCase_forIpOrDomainAndPortAndSecurityModeForConnections() {

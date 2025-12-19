@@ -2,6 +2,9 @@ package ch.nolix.coretest.document.node;
 
 import ch.nolix.core.document.node.MutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
   @Override
   protected MutableNode createBlankNode() {

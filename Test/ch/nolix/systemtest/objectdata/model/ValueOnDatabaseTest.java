@@ -10,6 +10,9 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValueOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
     final ValueField<String> name = ValueField.withValueType(String.class);

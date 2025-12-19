@@ -9,6 +9,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValueToolTest extends StandardTest {
   private static class Pet extends Entity {
     private final ValueField<String> name = ValueField.withValueType(String.class);

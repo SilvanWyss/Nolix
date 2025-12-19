@@ -10,6 +10,9 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiBackReference;
 import ch.nolix.system.objectdata.model.Reference;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiBackReferenceOnDatabaseTest extends StandardTest {
   private static final class Plane extends Entity {
     public final MultiBackReference<Flight> flights = //

@@ -6,6 +6,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ch.nolix.core.commontypetool.charactertool.CharacterTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class CharacterToolTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' })

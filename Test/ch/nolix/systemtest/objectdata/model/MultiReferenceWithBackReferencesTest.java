@@ -10,6 +10,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiReference;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiReferenceWithBackReferencesTest extends StandardTest {
   private static final class Person extends Entity {
     final MultiReference<Pet> pets = MultiReference.forEntityTypes(Pet.class);

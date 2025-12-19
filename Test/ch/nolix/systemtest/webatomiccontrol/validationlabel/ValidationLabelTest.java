@@ -10,6 +10,9 @@ import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ValidationLabelTest extends ControlTest<IValidationLabel> {
   @Test
   void testCase_letsClear() {

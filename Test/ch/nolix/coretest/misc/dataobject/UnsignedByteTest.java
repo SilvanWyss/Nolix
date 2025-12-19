@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.misc.dataobject.UnsignedByte;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_getBitAtAsInt_1A() {

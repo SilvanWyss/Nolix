@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.errorcontrol.validator.ExtendedStringMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ExtendedStringMediatorTest extends StandardTest {
   @Test
   void testCase_thatIsNamed() {

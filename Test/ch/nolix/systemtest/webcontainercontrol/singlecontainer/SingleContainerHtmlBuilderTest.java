@@ -5,6 +5,9 @@ import ch.nolix.system.webcontainercontrol.singlecontainer.SingleContainerHtmlBu
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SingleContainerHtmlBuilderTest
 extends ControlHtmlBuilderTest<SingleContainerHtmlBuilder, ISingleContainer> {
   @Override

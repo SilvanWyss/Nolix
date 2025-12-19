@@ -7,6 +7,9 @@ import ch.nolix.core.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ForIpOrDomainCaptorTest extends StandardTest {
   @Test
   void testCase_forIpOrDomain_whenDoesNotHaveNext() {

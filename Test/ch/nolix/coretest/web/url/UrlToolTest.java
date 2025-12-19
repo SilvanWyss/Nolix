@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.url.UrlTool;
 
+/**
+ * @author Silvan Wyss
+ */
 final class UrlToolTest extends StandardTest {
   @Test
   void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNull() {

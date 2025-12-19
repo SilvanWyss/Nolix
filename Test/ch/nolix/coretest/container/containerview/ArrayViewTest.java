@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ArrayViewTest extends ContainerTest {
   @Test
   void testCase_forArray_whenTheGivenArrayIsNull() {

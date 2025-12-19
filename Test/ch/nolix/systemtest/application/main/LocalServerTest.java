@@ -10,6 +10,9 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.LocalServer;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LocalServerTest extends StandardTest {
   @Test
   void testCase_addApplication() {

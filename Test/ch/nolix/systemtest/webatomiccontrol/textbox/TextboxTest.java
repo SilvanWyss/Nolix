@@ -6,6 +6,9 @@ import ch.nolix.system.webatomiccontrol.textbox.Textbox;
 import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TextboxTest extends ControlTest<ITextbox> {
   @Test
   void testCase_emptyText() {

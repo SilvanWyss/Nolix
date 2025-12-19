@@ -10,6 +10,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class StringMediatorTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenTheGivenArgumentIsNull() {

@@ -14,6 +14,9 @@ import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.system.objectschema.model.Column;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NodeDataAdapterTest extends StandardTest {
   private static final class Pet extends Entity {
     Pet() {

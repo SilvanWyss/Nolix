@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.misc.dataobject.VoidObject;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class AndSchemaCaptorTest extends StandardTest {
   @Test
   void testCase_andSchema_whenHasNext() {

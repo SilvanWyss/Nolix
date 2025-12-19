@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.SequenceFactory;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SequenceCreatorTest extends StandardTest {
   @Test
   void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {

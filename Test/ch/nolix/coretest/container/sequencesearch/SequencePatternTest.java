@@ -6,6 +6,9 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.sequencesearch.SequencePattern;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_1A() {

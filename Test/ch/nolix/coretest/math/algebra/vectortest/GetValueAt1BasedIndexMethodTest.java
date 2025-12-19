@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({

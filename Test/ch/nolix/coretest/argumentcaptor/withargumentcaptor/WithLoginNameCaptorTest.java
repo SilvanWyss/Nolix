@@ -7,6 +7,9 @@ import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WithLoginNameCaptorTest extends StandardTest {
   @Test
   void testCase_getLoginName_whenDoesNotHaveLoginName() {

@@ -5,6 +5,9 @@ import ch.nolix.system.webatomiccontrol.label.LabelHtmlBuilder;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
 import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LabelHtmlBuilderTest extends ControlHtmlBuilderTest<LabelHtmlBuilder, ILabel> {
   @Override
   protected ILabel createControl() {

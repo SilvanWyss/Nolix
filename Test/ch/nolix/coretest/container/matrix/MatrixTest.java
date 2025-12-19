@@ -6,6 +6,9 @@ import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coretest.container.base.ContainerTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MatrixTest extends ContainerTest {
   @Test
   void testCase_addColumn() {

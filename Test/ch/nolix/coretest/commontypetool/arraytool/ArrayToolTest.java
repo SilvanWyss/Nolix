@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.commontypetool.arraytool.ArrayTool;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ArrayToolTest extends StandardTest {
   @Test
   void testCase_onArray_fromIndex_write() {

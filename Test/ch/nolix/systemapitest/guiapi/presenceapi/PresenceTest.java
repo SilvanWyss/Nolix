@@ -11,6 +11,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.gui.presence.Presence;
 
+/**
+ * @author Silvan Wyss
+ */
 final class PresenceTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirPresences() {

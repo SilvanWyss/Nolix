@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class DoubleMediatorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(doubles = { 0.0, 0.0001, 0.5, 1.0, 1.5, 1000.0 })

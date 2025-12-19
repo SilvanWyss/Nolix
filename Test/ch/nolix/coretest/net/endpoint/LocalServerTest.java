@@ -6,6 +6,9 @@ import ch.nolix.core.net.endpoint.LocalServer;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LocalServerTest extends StandardTest {
   @Test
   void testCase_constructor() {

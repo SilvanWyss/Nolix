@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.programcontrol.flowcontrol.ForCountMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ForCountMediatorTest extends StandardTest {
   @Test
   void testCase_forMaxRunCount_whenTheGivenMaxRunCountIsNegative() {

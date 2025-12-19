@@ -10,6 +10,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.Reference;
 
+/**
+ * @author Silvan Wyss
+ */
 final class BackReferenceOnDatabaseTest extends StandardTest {
   private static final class Person extends Entity {
     final Reference<Pet> pet = Reference.forEntityTypes(Pet.class);

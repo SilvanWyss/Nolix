@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.ImageGenerator;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ImageGeneratorTest extends StandardTest {
   @Test
   void testCase_getStoredImage() {

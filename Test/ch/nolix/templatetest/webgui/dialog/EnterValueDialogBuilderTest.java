@@ -16,6 +16,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.EnterValueDialogBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EnterValueDialogBuilderTest extends StandardTest {
   @Test
   void testCase_build() {

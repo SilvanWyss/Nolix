@@ -8,6 +8,9 @@ import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.LayerStack;
 import ch.nolix.system.webgui.main.WebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LayerStackTest extends StandardTest {
   @Test
   void testCase_getOptionalStoredControlByInternalId_whenIsEmpty() {

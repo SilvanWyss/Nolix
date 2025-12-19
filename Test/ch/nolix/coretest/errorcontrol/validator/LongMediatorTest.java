@@ -15,6 +15,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LongMediatorTest extends StandardTest {
   @Test
   void testCase_isBetween_whenTheGivenArgumentIsSmallerThanTheGivenMin() {

@@ -8,6 +8,9 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MatrixTest extends StandardTest {
   @Test
   void testCase_add() {

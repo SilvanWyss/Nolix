@@ -11,6 +11,9 @@ import ch.nolix.core.environment.license.LicenseManager;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LicenseManagerTest extends StandardTest {
   private static final class TestLicense extends License {
     @Override

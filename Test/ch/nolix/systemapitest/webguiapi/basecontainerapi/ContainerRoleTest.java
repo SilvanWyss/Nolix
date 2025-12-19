@@ -11,6 +11,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ContainerRoleTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getSpecificationsAndTheirContainerRole() {

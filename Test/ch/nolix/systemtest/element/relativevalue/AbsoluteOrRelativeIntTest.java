@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
+/**
+ * @author Silvan Wyss
+ */
 final class AbsoluteOrRelativeIntTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {

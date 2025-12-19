@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MutableXmlNodeTest extends StandardTest {
   @Test
   void test_toString() {

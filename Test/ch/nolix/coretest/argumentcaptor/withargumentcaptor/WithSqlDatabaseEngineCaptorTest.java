@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
   @Test
   void testCase_getSqlDatabaseEngine_whenDoesNotHaveSqlDatabaseEngine() {

@@ -10,6 +10,9 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 
+/**
+ * @author Silvan Wyss
+ */
 final class BackgroundTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(strings = {

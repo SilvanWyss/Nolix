@@ -8,6 +8,9 @@ import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.systemapi.webatomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 
+/**
+ * @author Silvan Wyss
+ */
 final class DeepSelectingStyleTest extends StandardTest {
   @Test
   void testCase_getSpecification_whenHasSelectorIdAndContainsAttachingeAttributes() {

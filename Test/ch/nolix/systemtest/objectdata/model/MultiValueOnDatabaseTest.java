@@ -9,6 +9,9 @@ import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.MultiValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiValueOnDatabaseTest extends StandardTest {
   private static final class Round extends Entity {
     final MultiValueField<Integer> amounts = MultiValueField.withValueType(Integer.class);

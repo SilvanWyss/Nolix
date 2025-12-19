@@ -7,6 +7,9 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 
+/**
+ * @author Silvan Wyss
+ */
 final class CoreApiArchitectureTest {
   private static final JavaClasses TEST_UNIT = new ClassFileImporter().importPackages("ch.nolix.coreapi..");
 

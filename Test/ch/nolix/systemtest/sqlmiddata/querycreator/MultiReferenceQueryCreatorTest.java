@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.querycreator.MultiReferenceQueryCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 final class MultiReferenceQueryCreatorTest extends StandardTest {
   @Test
   void testCase_createQueryToLoadMultiReferenceEntries() {

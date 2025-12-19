@@ -8,6 +8,9 @@ import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest {
   private enum CustomState {
     A,

@@ -12,6 +12,9 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
+/**
+ * @author Silvan Wyss
+ */
 final class NodeSchemaAdapterTest extends StandardTest {
   @Test
   void testCase_addColumn() {

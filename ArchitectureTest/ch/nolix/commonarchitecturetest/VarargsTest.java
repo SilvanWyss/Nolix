@@ -10,6 +10,9 @@ import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 
+/**
+ * @author Silvan Wyss
+ */
 final class VarargsTest {
   @Disabled
   @Test

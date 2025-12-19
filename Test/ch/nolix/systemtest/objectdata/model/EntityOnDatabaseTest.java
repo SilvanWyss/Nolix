@@ -11,6 +11,9 @@ import ch.nolix.system.objectdata.model.EntityTypeSet;
 import ch.nolix.system.objectdata.model.ValueField;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
+/**
+ * @author Silvan Wyss
+ */
 final class EntityOnDatabaseTest extends StandardTest {
   private static final class Pet extends Entity {
     final ValueField<Integer> ageInYears = ValueField.withValueType(Integer.class);

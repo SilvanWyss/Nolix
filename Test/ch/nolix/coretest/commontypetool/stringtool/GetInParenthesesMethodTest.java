@@ -8,6 +8,9 @@ import ch.nolix.core.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class GetInParenthesesMethodTest extends StandardTest {
   @Test
   void testCase_getInParantheses_whenGivenObjectIsNull() {

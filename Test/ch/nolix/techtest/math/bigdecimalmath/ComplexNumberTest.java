@@ -10,6 +10,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_constructor_1A() {

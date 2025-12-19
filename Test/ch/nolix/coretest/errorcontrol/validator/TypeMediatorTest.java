@@ -12,6 +12,9 @@ import ch.nolix.core.errorcontrol.validator.TypeMediator;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class TypeMediatorTest extends StandardTest {
   @Test
   void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {

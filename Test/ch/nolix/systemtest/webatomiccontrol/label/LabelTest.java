@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LabelTest extends ControlTest<ILabel> {
   @Test
   void testCase_removeRole() {

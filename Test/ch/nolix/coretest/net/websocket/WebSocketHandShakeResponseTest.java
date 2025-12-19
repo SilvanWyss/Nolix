@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.net.websocket.WebSocketHandShakeResponse;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WebSocketHandShakeResponseTest extends StandardTest {
   @Test
   void testCase_getSecWebSocketAccept() {

@@ -9,6 +9,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WaitDialogBuilderTest extends StandardTest {
   @Test
   void testCase_build() {

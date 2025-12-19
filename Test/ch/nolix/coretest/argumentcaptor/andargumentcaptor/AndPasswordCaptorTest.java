@@ -7,6 +7,9 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPasswordCaptor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class AndPasswordCaptorTest extends StandardTest {
   @Test
   void testCase_andPassword_whenHasNext() {

@@ -9,6 +9,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class VectorTest extends StandardTest {
   @Test
   void testCase_equals_whenEquals() {

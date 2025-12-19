@@ -6,6 +6,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WebSocketHandShakeRequestTest extends StandardTest {
   @Test
   void testCase() {

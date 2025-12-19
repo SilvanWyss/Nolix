@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ChangeRequestableTest extends StandardTest {
   @Test
   void testCase_isChangeFree_whenIsChangeFree() {

@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.system.time.moment.Time;
 
+/**
+ * @author Silvan Wyss
+ */
 final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
   @Test
   void testCase_createSqlStatementToCreateSchemaTimestampEntry() {

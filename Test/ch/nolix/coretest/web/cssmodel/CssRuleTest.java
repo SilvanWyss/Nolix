@@ -6,6 +6,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.core.web.cssmodel.CssProperty;
 import ch.nolix.core.web.cssmodel.CssRule;
 
+/**
+ * @author Silvan Wyss
+ */
 final class CssRuleTest extends StandardTest {
   @Test
   void testCase_withPrefixedSelector() {

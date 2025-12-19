@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.testing.standardtest.StandardTest;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WrapperExceptionTest extends StandardTest {
   @Test
   void testCase_forError() {

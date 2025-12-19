@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.programcontrol.process.FinishRequestable;
 
+/**
+ * @author Silvan Wyss
+ */
 final class FinishRequestableTest extends StandardTest {
   @Test
   void testCase_isRunning_whenIsNotFinished() {

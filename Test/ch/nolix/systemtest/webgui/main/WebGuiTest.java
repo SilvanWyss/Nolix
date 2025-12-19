@@ -8,6 +8,9 @@ import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WebGuiTest extends StandardTest {
   @Test
   void testCase_constructor() {

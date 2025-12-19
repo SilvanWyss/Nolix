@@ -9,6 +9,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.net.endpoint.ISlot;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
+/**
+ * @author Silvan Wyss
+ */
 final class ServerTest extends StandardTest {
   @Test
   void testCase_addDefaultSlot() {

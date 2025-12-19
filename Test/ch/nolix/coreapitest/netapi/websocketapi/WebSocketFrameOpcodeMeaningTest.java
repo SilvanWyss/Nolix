@@ -9,6 +9,9 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
+/**
+ * @author Silvan Wyss
+ */
 final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   @MethodSource
   private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsAndTheirNumbers() {

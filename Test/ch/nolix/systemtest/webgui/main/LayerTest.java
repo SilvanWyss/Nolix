@@ -10,6 +10,9 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 final class LayerTest extends StandardTest {
   @Test
   void testCase_clear_whenIsEmpty() {
