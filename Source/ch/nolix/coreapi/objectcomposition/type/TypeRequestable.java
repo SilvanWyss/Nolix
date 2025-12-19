@@ -4,7 +4,6 @@ package ch.nolix.coreapi.objectcomposition.type;
  * A {@link TypeRequestable} is of a certain type.
  * 
  * @author Silvan Wyss
- * @version 2018-11-25
  */
 public interface TypeRequestable {
   /**

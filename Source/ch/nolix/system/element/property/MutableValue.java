@@ -10,7 +10,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2018-03-01
  * @param <V> is the type of the value of a {@link MutableValue}.
  */
 public final class MutableValue<V> extends AbstractSingleValue<V> {

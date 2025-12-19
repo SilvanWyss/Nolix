@@ -10,7 +10,6 @@ import ch.nolix.coreapi.misc.time.TimeUnitConversionCatalog;
  * {@link Waiter} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2017-06-04
  */
 final class Waiter {
   /**

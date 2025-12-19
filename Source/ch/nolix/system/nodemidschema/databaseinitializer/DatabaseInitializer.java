@@ -11,7 +11,6 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public final class DatabaseInitializer extends AbstractDatabaseInitializer {
   private static final IDatabaseStateAnalyser DATABASE_STATE_ANALYSER = new DatabaseStateAnalyser();

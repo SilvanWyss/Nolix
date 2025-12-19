@@ -13,7 +13,6 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
- * @version 2021-09-19
  */
 public interface IDataWriter extends IResettableChangeSaver {
   /**

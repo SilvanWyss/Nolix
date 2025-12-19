@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 /**
  * @author Silvan Wyss
- * @version 2024-05-12
  */
 public interface IIteratorValidator {
   /**

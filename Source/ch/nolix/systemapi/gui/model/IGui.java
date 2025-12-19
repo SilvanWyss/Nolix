@@ -8,7 +8,6 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 /**
  * @author Silvan Wyss
- * @version 2022-07-31
  * @param <G> is the type of a {@link IGui}.
  */
 public interface IGui<G extends IGui<G>> extends IFluentMutableTitleHolder<G>, RootRequestable {

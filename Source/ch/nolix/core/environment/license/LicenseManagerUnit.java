@@ -21,7 +21,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link LicenseManagerUnit} contains {@link License}s.
  * 
  * @author Silvan Wyss
- * @version 2019-11-16
  */
 public final class LicenseManagerUnit {
   private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();

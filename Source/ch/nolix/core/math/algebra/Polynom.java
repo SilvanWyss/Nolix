@@ -20,7 +20,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * lowest coefficient. -degree: n -array: [a_n,... ,a_0]
  * 
  * @author Silvan Wyss
- * @version 2016-03-01
  */
 public final class Polynom {
   public static final Polynom EMPTY_POLYNOM = new Polynom();

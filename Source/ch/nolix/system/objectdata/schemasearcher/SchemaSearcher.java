@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectdata.schemamodelsearcher.ISchemaSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public final class SchemaSearcher implements ISchemaSearcher {
   /***

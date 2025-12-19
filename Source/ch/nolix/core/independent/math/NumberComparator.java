@@ -4,7 +4,6 @@ import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-13
  */
 public final class NumberComparator {
   /**

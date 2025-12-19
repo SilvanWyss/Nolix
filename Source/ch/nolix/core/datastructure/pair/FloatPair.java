@@ -7,7 +7,6 @@ import ch.nolix.core.independent.math.NumberComparator;
  * A {@link FloatPair} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-08-01
  */
 public final class FloatPair {
   public static final double DEFAULT_VALUE = 0.0;

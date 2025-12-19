@@ -11,7 +11,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument does undesirably not have a given attribute.
  * 
  * @author Silvan Wyss
- * @version 2019-01-31
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalidArgumentException {

@@ -16,7 +16,6 @@ import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
  * A {@link IChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2022-07-05
  */
 public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolder {
   /**

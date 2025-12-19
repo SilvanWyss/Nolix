@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
  * Of the {@link FixTableNameCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-03-22
  */
 public final class FixTableNameCatalog {
   public static final String DATABASE_PROPERTY = "DatabaseProperty";

@@ -5,7 +5,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
 
 /**
  * @author Silvan Wyss
- * @version 2022-07-08
  */
 public interface IClosePool {
   /**

@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-05
  */
 public interface IMultiReferenceEntryExpectationAdder {
   /**

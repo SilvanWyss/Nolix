@@ -14,7 +14,6 @@ import ch.nolix.systemapi.application.main.IApplication;
  * {@link AbstractClient}s on a specific port.
  * 
  * @author Silvan Wyss
- * @version 2017-09-10
  */
 public final class Server extends AbstractServer<Server> implements ISinglePortServer {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-10
  * @param id
  * @param name
  * @param columnViews

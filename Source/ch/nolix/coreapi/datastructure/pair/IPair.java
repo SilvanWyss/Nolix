@@ -4,7 +4,6 @@ package ch.nolix.coreapi.datastructure.pair;
  * A {@link IPair} contains 2 elements.
  * 
  * @author Silvan Wyss
- * @version 2022-07-02
  * @param <E1> is the type of the element1 of a {@link IPair}.
  * @param <T> is the type of the element2 of a {@link IPair}.
  */

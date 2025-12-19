@@ -11,7 +11,6 @@ import ch.nolix.coreapi.net.endpoint2.IEndPoint;
 
 /**
  * @author Silvan Wyss
- * @version 2017-05-21
  */
 public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;

@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2022-11-13
  */
 public final class BasicCalculator implements IBasicCalculator {
   /**

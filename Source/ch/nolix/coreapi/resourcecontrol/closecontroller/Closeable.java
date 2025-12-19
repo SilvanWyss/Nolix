@@ -7,7 +7,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  * declare a {@link Exception}.
  * 
  * @author Silvan Wyss
- * @version 2023-09-10
  */
 public interface Closeable extends AutoCloseable, CloseStateRequestable {
   /**

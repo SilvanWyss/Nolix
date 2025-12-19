@@ -5,7 +5,6 @@ package ch.nolix.coreapi.environment.filesystem;
  * {@link FileExtensionCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2018-12-16
  */
 public final class FileExtensionCatalog {
   public static final String AVI = ".avi";

@@ -4,7 +4,6 @@ package ch.nolix.coreapi.commontypetool.stringtool;
  * The {@link IStringTool} provides methods to handle {@link String}s.
  * 
  * @author Silvan Wyss
- * @version 2024-07-22
  */
 public interface IStringTool {
   /**

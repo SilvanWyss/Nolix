@@ -19,7 +19,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A file accessor can access a given file.
  * 
  * @author Silvan Wyss
- * @version 2017-07-10
  */
 public final class FileAccessor extends FileSystemItemAccessorUnit {
   /**

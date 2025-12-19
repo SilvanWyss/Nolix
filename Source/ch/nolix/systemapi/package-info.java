@@ -3,6 +3,5 @@
  * example web applications.
  * 
  * @author Silvan Wyss
- * @version 2021-06-30
  */
 package ch.nolix.systemapi;

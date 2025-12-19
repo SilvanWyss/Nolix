@@ -8,7 +8,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @version 2023-11-19
  * @param <S> is the type of a {@link IServer}.
  */
 public interface IServer<S extends IServer<S>>

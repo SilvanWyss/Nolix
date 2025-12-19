@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiBackReferenceSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2024-02-17
  */
 public final class MultiBackReferenceSaver implements IMultiBackReferenceSaver {
   private static final IMultiBackReferenceEntrySaver MULTI_BACK_REFERENCE_ENTRY_SAVER = //

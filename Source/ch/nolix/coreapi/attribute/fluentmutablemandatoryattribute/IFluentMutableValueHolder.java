@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IValueHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2018-09-06
  * @param <H> is the type of a {@link IFluentMutableValueHolder}.
  * @param <V> is the type of the value of a {@link IFluentMutableValueHolder}.
  */

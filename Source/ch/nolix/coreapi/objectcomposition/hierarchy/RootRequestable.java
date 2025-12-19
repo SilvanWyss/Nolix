@@ -5,7 +5,6 @@ package ch.nolix.coreapi.objectcomposition.hierarchy;
  * child object.
  * 
  * @author Silvan Wyss
- * @version 2025-08-09
  */
 public interface RootRequestable {
   /**

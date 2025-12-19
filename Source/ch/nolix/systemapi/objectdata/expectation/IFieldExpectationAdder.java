@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-05
  */
 public interface IFieldExpectationAdder {
   /**

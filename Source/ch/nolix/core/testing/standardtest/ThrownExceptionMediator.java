@@ -14,7 +14,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * given to it.
  * 
  * @author Silvan Wyss
- * @version 2018-12-09
  */
 public class ThrownExceptionMediator {
   private final Throwable exception;

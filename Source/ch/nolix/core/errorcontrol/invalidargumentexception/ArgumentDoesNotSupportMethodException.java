@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument does undesirably not support an invoked method.
  * 
  * @author Silvan Wyss
- * @version 2019-02-03
  */
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends AbstractInvalidArgumentException {

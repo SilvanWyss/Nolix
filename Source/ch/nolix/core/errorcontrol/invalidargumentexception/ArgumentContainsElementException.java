@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument contains undesirably a given element.
  * 
  * @author Silvan Wyss
- * @version 2021-07-15
  */
 @SuppressWarnings("serial")
 public final class ArgumentContainsElementException extends AbstractInvalidArgumentException {

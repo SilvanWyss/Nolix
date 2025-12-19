@@ -2,7 +2,6 @@ package ch.nolix.coreapi.commontypetool.stringtool;
 
 /**
  * @author Silvan Wyss
- * @version 2025-03-01
  */
 public interface IStringExaminer {
   /**

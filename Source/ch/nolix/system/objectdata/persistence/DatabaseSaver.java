@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IDatabaseSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-03
  */
 public final class DatabaseSaver implements IDatabaseSaver {
   private static final IDatabaseSearcher DATABASE_TOOL = new DatabaseSearcher();

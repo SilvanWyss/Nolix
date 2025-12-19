@@ -15,7 +15,6 @@ import ch.nolix.systemapi.nodemiddata.modelmapper.IContentFieldDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2021-10-20
  */
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();

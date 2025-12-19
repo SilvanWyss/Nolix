@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.INode;
  * a box.
  * 
  * @author Silvan Wyss
- * @version 2017-09-16
  */
 public enum Direction {
   HORIZONTAL,

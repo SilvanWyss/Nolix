@@ -11,7 +11,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * {@link NetEndPoint} on a specific port.
  * 
  * @author Silvan Wyss
- * @version 2016-11-01
  */
 public final class Server extends AbstractServer {
   private final ch.nolix.core.net.endpoint2.Server internalServer;

@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalOneBasedIndexHolder
  * removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  * @param <H> is the type of a
  *            {@link IFluentMutableOptionalOneBasedIndexHolder}.
  */

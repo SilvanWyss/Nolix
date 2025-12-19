@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-30
  */
 public class FieldExaminer extends DatabaseObjectExaminer implements IFieldExaminer {
   /**

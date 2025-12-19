@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-25
  */
 public final class EntityDtoMapper implements IEntityDtoMapper {
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();

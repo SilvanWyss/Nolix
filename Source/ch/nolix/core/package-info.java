@@ -3,6 +3,5 @@
  * {@link ch.nolix.coreapi} package.
  * 
  * @author Silvan Wyss
- * @version 2019-09-01
  */
 package ch.nolix.core;

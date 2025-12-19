@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IHeaderHolder;
  * can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2018-04-15
  * @param <H> is the type of a {@link IFluentMutableHeaderHolder}.
  */
 public interface IFluentMutableHeaderHolder<H extends IHeaderHolder> extends IHeaderHolder {

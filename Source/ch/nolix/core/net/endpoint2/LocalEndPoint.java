@@ -14,7 +14,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * A local end point can send messages to an other local end point.
  * 
  * @author Silvan Wyss
- * @version 2017-05-22
  */
 public final class LocalEndPoint extends AbstractEndPoint {
   private final PeerType peerType;

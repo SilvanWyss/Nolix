@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-31
  */
 public final class EntityLoadingDtoMapper implements IEntityLoadingDtoMapper {
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();

@@ -5,7 +5,6 @@ package ch.nolix.coreapi.programcontrol.processproperty;
  * closed.
  * 
  * @author Silvan Wyss
- * @version 2022-07-08
  */
 public enum CloseState {
   OPEN,

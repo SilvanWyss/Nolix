@@ -9,7 +9,6 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
  * Of the {@link FunctionService} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public final class FunctionService {
   private static final double ZERO = 0.0;

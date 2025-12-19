@@ -7,7 +7,6 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
  * {@link CopyableIterator}s.
  * 
  * @author Silvan Wyss
- * @version 2023-02-12
  * @param <E> is the type of the elements a
  *            {@link IterableWithCopyableIterator}.
  */

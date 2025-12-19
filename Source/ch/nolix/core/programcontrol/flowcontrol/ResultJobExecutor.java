@@ -11,7 +11,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2017-09-29
  * @param <R> is the type of the result of the resulltJob of a
  *            {@link ResultJobExecutor}.
  */

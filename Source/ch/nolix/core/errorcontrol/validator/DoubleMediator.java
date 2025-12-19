@@ -17,7 +17,6 @@ import ch.nolix.core.independent.math.NumberComparator;
  * mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public class DoubleMediator extends Mediator {
   private final double argument;

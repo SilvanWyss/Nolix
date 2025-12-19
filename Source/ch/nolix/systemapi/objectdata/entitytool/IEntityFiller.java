@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-21
  */
 public interface IEntityFiller {
   /**

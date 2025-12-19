@@ -10,7 +10,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * {@link IMutableElement} can be reset together.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public interface IMutableElement extends Resettable, IElement {
   /**

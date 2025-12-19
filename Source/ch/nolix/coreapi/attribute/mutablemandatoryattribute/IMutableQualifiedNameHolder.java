@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IQualifiedNameHolder;
  * name can be set programmatically.
  * 
  * @author Silvan Wyss
- * @version 2024-01-19
  */
 public interface IMutableQualifiedNameHolder extends IQualifiedNameHolder, IMutableNameHolder {
   //This interface is just an union of other interfaces.

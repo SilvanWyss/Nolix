@@ -2,7 +2,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-07
  */
 public final class ColumnTableFieldIndexCatalog {
   public static final int ID_INDEX = 1;

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given value is undesirably in a given range.
  * 
  * @author Silvan Wyss
- * @version 2017-10-14
  */
 @SuppressWarnings("serial")
 public final class ArgumentIsInRangeException extends AbstractInvalidArgumentException {

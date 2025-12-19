@@ -7,7 +7,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2016-06-01
  */
 public enum CursorIcon {
   ARROW,

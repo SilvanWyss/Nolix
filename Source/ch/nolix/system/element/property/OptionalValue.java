@@ -10,7 +10,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2018-03-01
  * @param <V> is the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends AbstractSingleValue<V> {

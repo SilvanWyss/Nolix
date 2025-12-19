@@ -4,7 +4,6 @@ import ch.nolix.core.environment.license.License;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-30
  */
 public interface ILicenseValidator {
   /**

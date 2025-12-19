@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceEntrySaver;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-02
  */
 public final class MultiReferenceEntrySaver implements IMultiReferenceEntrySaver {
   private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //

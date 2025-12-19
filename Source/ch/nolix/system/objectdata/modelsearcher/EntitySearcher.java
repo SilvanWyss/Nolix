@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public final class EntitySearcher implements IEntitySearcher {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();

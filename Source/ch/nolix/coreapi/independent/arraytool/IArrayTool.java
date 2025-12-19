@@ -4,7 +4,6 @@ package ch.nolix.coreapi.independent.arraytool;
  * A {@link IArrayTool} provides functions to handle arrays.
  * 
  * @author Silvan Wyss
- * @version 2024-12-25
  */
 public interface IArrayTool {
   /**

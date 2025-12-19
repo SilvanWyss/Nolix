@@ -8,7 +8,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-10
  */
 public final class ColumnSchemaViewDtoMapper implements IColumnSchemaViewDtoMapper {
   private static final IColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();

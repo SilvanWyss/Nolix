@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public final class DatabaseSearcher extends DatabaseObjectExaminer implements IDatabaseSearcher {
   /**

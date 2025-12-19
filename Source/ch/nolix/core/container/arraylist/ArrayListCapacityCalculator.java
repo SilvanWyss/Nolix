@@ -8,7 +8,6 @@ import ch.nolix.coreapi.math.number.IntCatalog;
  * Of the {@link ArrayListCapacityCalculator} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2024-07-28
  */
 public final class ArrayListCapacityCalculator {
   /**

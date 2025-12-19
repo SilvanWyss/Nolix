@@ -5,7 +5,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * {@link IQualifiedNameHolder} is its name headed by its qualifying prefix.
  * 
  * @author Silvan Wyss
- * @version 2024-01-19
  */
 public interface IQualifiedNameHolder extends INameHolder {
   /**

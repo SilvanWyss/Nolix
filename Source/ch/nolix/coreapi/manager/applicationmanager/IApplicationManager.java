@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-11
  * @param <A> is the type of the applications of a {@link IApplicationManager}.
  */
 public interface IApplicationManager<A> {

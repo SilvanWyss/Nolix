@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument has undesirably a given attribute.
  * 
  * @author Silvan Wyss
- * @version 2022-01-30
  */
 @SuppressWarnings("serial")
 public final class ArgumentHasAttributeException extends AbstractInvalidArgumentException {

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.state.statemutation.Resettable;
  * A {@link IMutableNode} is a {@link INode} that is mutable.
  * 
  * @author Silvan Wyss
- * @version 2022-06-25
  * @param <N> is the type of a {@link IMutableNode}.
  */
 public interface IMutableNode<N extends IMutableNode<N>>

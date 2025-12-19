@@ -22,7 +22,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
  * with a name. A named container mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-08-15
  * @param <E> is the type of the elements of the argument of a container
  *            mediator.
  */

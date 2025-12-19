@@ -17,7 +17,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * elements of its {@link Iterable} or array are mutated.
  * 
  * @author Silvan Wyss
- * @version 2017-07-01
  * @param <E> is the type of the elements of a {@link ContainerView}.
  */
 public final class ContainerView<E> extends AbstractExtendedContainer<E> {

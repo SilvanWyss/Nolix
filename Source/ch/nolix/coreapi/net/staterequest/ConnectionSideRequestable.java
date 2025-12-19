@@ -5,7 +5,6 @@ package ch.nolix.coreapi.net.staterequest;
  * front-end.
  * 
  * @author Silvan Wyss
- * @version 2025-07-11
  */
 public interface ConnectionSideRequestable {
   /**

@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalTextHolder;
  * text can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-02-09
  */
 public interface IMutableOptionalTextHolder extends IOptionalTextHolder {
   /**

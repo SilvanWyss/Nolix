@@ -9,7 +9,6 @@ import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
  * A {@link CssValueMapper} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2025-08-10
  */
 public final class CssValueMapper implements ICssValueMapper {
   /**

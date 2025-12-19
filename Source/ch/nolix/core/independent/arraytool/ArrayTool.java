@@ -5,7 +5,6 @@ import ch.nolix.coreapi.independent.arraytool.IArrayTool;
 
 /**
  * @author Silvan Wyss
- * @version 2017-08-14
  */
 public final class ArrayTool implements IArrayTool {
   /**

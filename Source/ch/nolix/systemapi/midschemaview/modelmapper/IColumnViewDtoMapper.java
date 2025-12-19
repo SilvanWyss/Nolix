@@ -5,7 +5,6 @@ import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-10
  */
 public interface IColumnViewDtoMapper {
   /**

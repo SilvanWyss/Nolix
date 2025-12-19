@@ -8,7 +8,6 @@ import ch.nolix.core.testing.standardtest.StandardTest;
 
 /**
  * @author Silvan Wyss
- * @version 2025-03-01
  */
 final class StringExaminerTest extends StandardTest {
   @ParameterizedTest

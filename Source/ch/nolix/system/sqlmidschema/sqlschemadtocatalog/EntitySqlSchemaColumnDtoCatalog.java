@@ -7,7 +7,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-02
  */
 public final class EntitySqlSchemaColumnDtoCatalog {
   public static final ColumnDto ID_COLUMN_DTO = //

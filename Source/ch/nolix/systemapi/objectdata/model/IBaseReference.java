@@ -4,7 +4,6 @@ import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss
- * @version 2021-11-13
  */
 public interface IBaseReference extends IField {
   /**

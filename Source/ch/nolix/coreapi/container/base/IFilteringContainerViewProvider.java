@@ -4,7 +4,6 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @version 2025-03-09
  * @param <E> is the type of the elements of a
  *            {@link IFilteringContainerViewProvider}.
  */

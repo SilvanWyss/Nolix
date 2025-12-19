@@ -9,7 +9,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * Of the {@link ControlHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-08-10
  */
 public final class ControlHelper {
   /**

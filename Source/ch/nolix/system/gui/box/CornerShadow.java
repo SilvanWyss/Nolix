@@ -20,7 +20,6 @@ import ch.nolix.systemapi.gui.location.Location;
  * A {@link CornerShadow} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2025-08-09
  */
 public final class CornerShadow extends AbstractElement implements ICornerShadow {
   private static final Corner DEFAULT_CORNER = Corner.BOTTOM_RIGHT;

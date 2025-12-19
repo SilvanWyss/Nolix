@@ -5,7 +5,6 @@ import ch.nolix.systemapi.element.base.IElement;
 
 /**
  * @author Silvan Wyss
- * @version 2022-07-08
  */
 public abstract class AbstractElement implements IElement {
   /**

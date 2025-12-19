@@ -14,7 +14,6 @@ import java.time.ZonedDateTime;
  * {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss
- * @version 2024-12-14
  */
 public interface IIncrementalCurrentTimeCreator {
   /**

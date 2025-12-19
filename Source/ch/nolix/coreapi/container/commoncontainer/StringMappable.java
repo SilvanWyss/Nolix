@@ -2,7 +2,6 @@ package ch.nolix.coreapi.container.commoncontainer;
 
 /**
  * @author Silvan Wyss
- * @version 2024-11-14
  */
 public interface StringMappable {
   /**

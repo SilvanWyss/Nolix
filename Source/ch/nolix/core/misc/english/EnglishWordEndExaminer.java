@@ -4,7 +4,6 @@ import ch.nolix.coreapi.misc.english.IEnglishWordEndExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2023-12-17
  */
 public final class EnglishWordEndExaminer implements IEnglishWordEndExaminer {
   /**

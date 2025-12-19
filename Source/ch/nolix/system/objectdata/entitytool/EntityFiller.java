@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-21
  */
 public final class EntityFiller implements IEntityFiller {
   private static final IEntityContentFieldsFiller ENTITY_CONTENT_FIELDS_FILLER = new EntityContentFieldsFiller();

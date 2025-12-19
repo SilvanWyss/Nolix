@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTokenHolder;
  * tokens can be added and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-07-16
  */
 public interface IMutableMultiTokenHolder extends IMultiTokenHolder {
   /**

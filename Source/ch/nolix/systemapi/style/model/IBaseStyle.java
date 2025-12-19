@@ -10,7 +10,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * of a given {@link IStylableElement}.
  * 
  * @author Silvan Wyss
- * @version 2023-07-09
  * @param <S> is the type of a {@link IBaseStyle}.
  */
 public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {

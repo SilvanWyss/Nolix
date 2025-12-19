@@ -10,7 +10,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-02
  */
 public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
   private static final ImmutableList<ColumnDto> META_COLUMN_SQL_SCHEMA_COLUMNS = //

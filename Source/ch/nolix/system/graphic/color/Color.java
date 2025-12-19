@@ -18,7 +18,6 @@ import ch.nolix.systemapi.graphic.color.IColor;
  * A {@link Color} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class Color extends AbstractElement implements IColor {
   public static final int DEFAULT_ALPHA_VALUE = 255;

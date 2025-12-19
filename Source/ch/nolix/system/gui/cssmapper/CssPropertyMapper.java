@@ -16,7 +16,6 @@ import ch.nolix.systemapi.gui.font.LineDecoration;
  * A {@link CssPropertyMapper} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2025-08-10
  */
 public final class CssPropertyMapper implements ICssPropertyMapper {
   /**

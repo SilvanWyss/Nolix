@@ -15,7 +15,6 @@ import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
  * for the {@link AbstractEndPoint} of a {@link AbstractClient}.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 final class ClientDataProviderController implements IDataProviderController {
   private final AbstractClient<?> parentClient;

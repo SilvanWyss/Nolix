@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirably not (!) null.
  * 
  * @author Silvan Wyss
- * @version 2017-01-08
  */
 @SuppressWarnings("serial")
 public final class ArgumentIsNotNullException extends AbstractInvalidArgumentException {

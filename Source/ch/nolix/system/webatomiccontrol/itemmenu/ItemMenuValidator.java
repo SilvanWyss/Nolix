@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuValidator;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public final class ItemMenuValidator implements IItemMenuValidator {
   private static final IItemMenuExaminer ITEM_MENU_EXAMINER = new ItemMenuExaminer();

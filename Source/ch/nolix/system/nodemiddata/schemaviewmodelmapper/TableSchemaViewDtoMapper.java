@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.ITableSchemaViewDtoM
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-11
  */
 public final class TableSchemaViewDtoMapper implements ITableSchemaViewDtoMapper {
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();

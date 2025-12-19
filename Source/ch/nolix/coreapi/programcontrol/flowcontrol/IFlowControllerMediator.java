@@ -8,7 +8,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-28
  */
 public interface IFlowControllerMediator {
   /**

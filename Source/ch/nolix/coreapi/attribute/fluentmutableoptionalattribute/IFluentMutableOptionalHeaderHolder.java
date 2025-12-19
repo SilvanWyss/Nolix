@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2019-02-24
  * @param <H> is the type of a {@link IFluentMutableOptionalHeaderHolder}.
  */
 public interface IFluentMutableOptionalHeaderHolder<H extends IFluentMutableOptionalHeaderHolder<H>>

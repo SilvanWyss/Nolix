@@ -14,7 +14,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
  * @author Silvan Wyss
- * @version 2017-06-16
  */
 public abstract class AbstractServer implements IServer {
   private final ICloseController closeController = CloseController.forElement(this);

@@ -14,7 +14,6 @@ import ch.nolix.systemapi.objectdata.model.IReference;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-05
  */
 public final class FieldExpectationAdder implements IFieldExpectationAdder {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();

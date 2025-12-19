@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiReferenceSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2023-01-07
  */
 public final class MultiReferenceSaver implements IMultiReferenceSaver {
   private static final IMultiReferenceEntrySaver MULTI_REFERENCE_ENTRY_SAVER = new MultiReferenceEntrySaver();

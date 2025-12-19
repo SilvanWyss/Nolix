@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTextHolder;
  * texts can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2023-10-25
  * @param <H> is the type of a {@link IFluentMutableMultiTextHolder}.
  */
 public interface IFluentMutableMultiTextHolder<H extends IFluentMutableMultiTextHolder<H>> extends IMultiTextHolder {

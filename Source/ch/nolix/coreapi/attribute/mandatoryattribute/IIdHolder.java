@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * A {@link IIdHolder} has an id.
  * 
  * @author Silvan Wyss
- * @version 2019-06-10
  */
 public interface IIdHolder {
   /**

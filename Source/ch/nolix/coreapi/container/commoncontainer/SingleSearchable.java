@@ -6,7 +6,6 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @version 2024-11-12
  * @param <E> is the type of the elements a {@link SingleSearchable}.
  */
 public interface SingleSearchable<E> {

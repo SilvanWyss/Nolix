@@ -23,7 +23,6 @@ import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <C> is the type of the {@link AbstractBackendClient}s of a
  *            {@link Application}.
  * @param <S> is the type of the application service of a {@link Application}.

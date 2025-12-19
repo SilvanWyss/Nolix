@@ -11,7 +11,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IDatabaseSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-03
  */
 public final class DatabasePersister implements IDatabasePersister {
   private static final IDatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link LinkedListNode} contains an element and can have a next node.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <E> is the type of the element of a {@link LinkedListNode}.
  */
 public final class LinkedListNode<E> {

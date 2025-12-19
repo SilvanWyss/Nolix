@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**
  * @author Silvan Wyss
- * @version 2022-02-25
  */
 public abstract class AbstractDataAdapterAndSchemaReader
 extends AbstractDataAdapter

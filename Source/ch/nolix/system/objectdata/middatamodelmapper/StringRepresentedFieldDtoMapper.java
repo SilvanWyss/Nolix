@@ -17,7 +17,6 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-25
  */
 public final class StringRepresentedFieldDtoMapper implements IStringRepresentedFieldDtoMapper {
   /**

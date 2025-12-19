@@ -6,7 +6,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionArgum
 
 /**
  * @author Silvan Wyss
- * @version 2025-04-06
  */
 public final class ExceptionArgumentStringRepresentaionPreparator
 implements IExceptionArgumentStringRepresentaionPreparator {

@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public interface IFieldExaminer {
   /**

@@ -27,7 +27,6 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-29
  */
 public final class SchemaWriterActionProvider {
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();

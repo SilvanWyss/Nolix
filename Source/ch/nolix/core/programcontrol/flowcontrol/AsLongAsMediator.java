@@ -14,7 +14,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * A {@link AsLongAsMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-06-01
  */
 public final class AsLongAsMediator implements IAsLongAsMediator {
   private final BooleanSupplier condition;

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
  * A {@link FieldExaminer} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public final class FieldExaminer implements IFieldExaminer {
   /**

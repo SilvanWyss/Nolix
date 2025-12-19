@@ -12,7 +12,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
  * The {@link StringToolUnit} provides methods to handle {@link String}s.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class StringToolUnit implements IStringTool {
   /**

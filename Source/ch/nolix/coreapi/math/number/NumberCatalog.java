@@ -7,7 +7,6 @@ package ch.nolix.coreapi.math.number;
  * Of the {@link NumberCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2017-12-08
  */
 public final class NumberCatalog {
   public static final double EULERS_NUMBER = 2.718281828459045;

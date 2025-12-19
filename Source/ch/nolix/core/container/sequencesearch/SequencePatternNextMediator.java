@@ -13,7 +13,6 @@ import ch.nolix.coreapi.container.sequencesearch.ISequencePatternNextMediator;
 
 /**
  * @author Silvan Wyss
- * @version 2016-10-01
  * @param <E> is the type of the elements of the sequences of the
  *            {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */

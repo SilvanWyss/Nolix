@@ -4,7 +4,6 @@ package ch.nolix.core.errorcontrol.errormapping;
  * Of the {@link IllegalAccessErrorMapper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-11-15
  */
 public final class IllegalAccessErrorMapper {
 

@@ -7,7 +7,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * a {@link IStylableElement} that is given to be styled.
  * 
  * @author Silvan Wyss
- * @version 2023-07-08
  * @param <S> is the type of a {@link ISelectingStyle}.
  */
 public interface ISelectingStyle<S extends ISelectingStyle<S>> extends IBaseStyle<S> {

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.independent.arraytool.IArrayValidator;
 
 /**
  * @author Silvan Wyss
- * @version 2023-02-17
  */
 public final class ArrayValidator implements IArrayValidator {
   /**

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiFieldSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2024-02-12
  */
 public final class EntitySaver implements IEntitySaver {
   private static final IEntityDtoMapper ENTITY_DTO_MAPPER = new EntityDtoMapper();

@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTagHolder;
  * be added and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2025-11-07
  */
 public interface IMutableMultiTagHolder extends IMultiTagHolder {
   /**

@@ -8,7 +8,6 @@ import ch.nolix.coreapi.datamodel.cardinality.ICardinalityHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2023-10-23
  * @param <H> is the type of a {@link IFluentMutableOptionalCardinalityHolder}.
  */
 public interface IFluentMutableOptionalCardinalityHolder<H extends IFluentMutableOptionalCardinalityHolder<H>>

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2021-10-19
  */
 public final class EntityNodeMapper implements IEntityNodeMapper {
   private static final IFieldNodeMapper FIELD_NODE_MAPPER = new FieldNodeMapper();

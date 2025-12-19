@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
- * @version 2025-08-22
  */
 public interface IEntityContentFieldsFiller {
   /**

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
  * created.
  * 
  * @author Silvan Wyss
- * @version 2025-08-22
  */
 public final class StringRepresentedFieldDtoMapperHelper {
   /**

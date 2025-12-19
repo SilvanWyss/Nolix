@@ -13,7 +13,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
 
 /**
  * @author Silvan Wyss
- * @version 2020-08-15
  */
 public final class FlowControllerMediator implements IFlowControllerMediator {
   /**

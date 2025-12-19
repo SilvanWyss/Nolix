@@ -5,7 +5,6 @@ package ch.nolix.coreapi.programcontrol.processproperty;
  * created, exists already.
  * 
  * @author Silvan Wyss
- * @version 2019-04-14
  */
 public enum WriteMode {
   THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY,

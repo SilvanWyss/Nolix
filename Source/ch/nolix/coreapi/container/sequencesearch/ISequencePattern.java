@@ -16,7 +16,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * conditions of the {@link ISequencePattern}.
  * 
  * @author Silvan Wyss
- * @version 2023-02-13
  * @param <E> is the type of the elements of the sequences a
  *            {@link ISequencePattern} selects.
  */

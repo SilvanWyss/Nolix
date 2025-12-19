@@ -5,7 +5,6 @@ import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-21
  */
 public interface IContentFieldNodeMapper {
   /**

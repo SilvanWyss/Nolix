@@ -16,7 +16,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * A local duplex controller can interact with another local duplex controller.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class LocalEndPoint extends AbstractEndPoint {
   private final PeerType peerType;

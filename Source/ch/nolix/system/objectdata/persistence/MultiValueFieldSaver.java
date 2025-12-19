@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-02
  */
 public final class MultiValueFieldSaver implements IMultiValueFieldSaver {
   private static final IMultiValueFieldEntrySaver MULTI_VALUE_FIELD_ENTRY_SAVER = new MultiValueFieldEntrySaver();

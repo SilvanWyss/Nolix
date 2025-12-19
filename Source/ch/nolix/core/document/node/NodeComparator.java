@@ -5,7 +5,6 @@ import ch.nolix.coreapi.document.node.INodeComparator;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-01
  */
 public final class NodeComparator implements INodeComparator {
   /**

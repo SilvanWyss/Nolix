@@ -4,7 +4,6 @@ package ch.nolix.coreapi.component.datamodelcomponent;
  * A {@link IDatabaseComponent} can belong to a database.
  * 
  * @author Silvan Wyss
- * @version 2024-12-14
  * @param <D> is the type of the database a {@link IDatabaseComponent} can
  *            belong to.
  */

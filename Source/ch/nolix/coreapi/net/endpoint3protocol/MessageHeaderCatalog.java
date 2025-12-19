@@ -4,7 +4,6 @@ package ch.nolix.coreapi.net.endpoint3protocol;
  * Of the {@link MessageHeaderCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class MessageHeaderCatalog {
   public static final String COMMANDS_HEADER = "Commands";

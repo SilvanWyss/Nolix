@@ -5,7 +5,6 @@ package ch.nolix.coreapi.datamodel.cardinality;
  * whose {@link Cardinality} can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2023-08-25
  * @param <H> is the type of a {@link IFluentMutableCardinalityHolder}.
  */
 public interface IFluentMutableCardinalityHolder<H extends IFluentMutableCardinalityHolder<H>>

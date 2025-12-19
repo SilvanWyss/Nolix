@@ -21,7 +21,6 @@ import ch.nolix.systemapi.application.main.IServer;
  * 
  * @param <S> is the type of a {@link AbstractServer}.
  * @author Silvan Wyss
- * @version 2016-11-01
  */
 public abstract class AbstractServer<S extends AbstractServer<S>> implements IServer<S> {
   private final ICloseController closeController = CloseController.forElement(this);

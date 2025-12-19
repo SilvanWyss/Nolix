@@ -6,7 +6,6 @@ import ch.nolix.systemapi.gui.box.Direction;
 
 /**
  * @author Silvan Wyss
- * @version 2022-05-28
  */
 public interface IColorGradient extends IElement {
   /**

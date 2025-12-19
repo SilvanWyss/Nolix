@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
  * whose one-based index can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  * @param <I> is the type of a {@link IFluentMutableOneBasedIndexHolder}.
  */
 public interface IFluentMutableOneBasedIndexHolder<I extends IFluentMutableOneBasedIndexHolder<I>>

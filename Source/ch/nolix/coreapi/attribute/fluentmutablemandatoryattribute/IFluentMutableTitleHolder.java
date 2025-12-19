@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITitleHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2019-07-26
  * @param <H> is the type of a {@link IFluentMutableTitleHolder}.
  */
 public interface IFluentMutableTitleHolder<H extends IFluentMutableTitleHolder<H>> extends ITitleHolder {

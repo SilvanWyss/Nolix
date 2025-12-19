@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalOneBasedIndexHolder} can have a one-based index.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  */
 public interface IOptionalOneBasedIndexHolder {
   /**

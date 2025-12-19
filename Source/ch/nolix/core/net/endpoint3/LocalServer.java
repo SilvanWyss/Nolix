@@ -5,7 +5,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss
- * @version 2021-06-28
  */
 public final class LocalServer extends AbstractServer {
   /**

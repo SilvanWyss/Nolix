@@ -18,7 +18,6 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
- * @version 2017-10-29
  */
 public abstract class AbstractMutableElement implements IMutableElement {
   private LinkedList<IProperty> properties;

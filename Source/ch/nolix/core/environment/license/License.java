@@ -6,7 +6,6 @@ import ch.nolix.coreapi.environment.licenseapi.ILicenseValidator;
 
 /**
  * @author Silvan Wyss
- * @version 2017-05-16
  */
 public abstract class License //NOSONAR: A license class is expected to be abstract.
 implements ILicense {

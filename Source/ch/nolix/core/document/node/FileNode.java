@@ -14,7 +14,6 @@ import ch.nolix.coreapi.document.node.INode;
  * A {@link FileNode} is a specification that is stored in a file.
  * 
  * @author Silvan Wyss
- * @version 2017-07-14
  */
 public final class FileNode extends AbstractMutableNode<FileNode> {
   private final IMutableNode<?> internalSpecification;

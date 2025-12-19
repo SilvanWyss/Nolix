@@ -8,7 +8,6 @@ import ch.nolix.systemapi.webgui.mainvalidator.ILayerValidator;
 
 /**
  * @author Silvan Wyss
- * @version 2023-10-29
  */
 public final class LayerValidator implements ILayerValidator {
   /**

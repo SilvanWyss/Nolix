@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirably referenced.
  * 
  * @author Silvan Wyss
- * @version 2021-07-16
  */
 @SuppressWarnings("serial")
 public final class ReferencedArgumentException extends AbstractInvalidArgumentException {

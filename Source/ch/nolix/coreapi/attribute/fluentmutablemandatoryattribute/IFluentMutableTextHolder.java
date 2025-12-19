@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITextHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2021-06-19
  * @param <H> is the type of a {@link IFluentMutableTextHolder}.
  */
 public interface IFluentMutableTextHolder<H extends IFluentMutableTextHolder<H>> extends ITextHolder {

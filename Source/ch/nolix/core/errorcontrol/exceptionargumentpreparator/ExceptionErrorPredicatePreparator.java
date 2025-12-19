@@ -5,7 +5,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionError
 
 /**
  * @author Silvan Wyss
- * @version 2025-04-06
  */
 public final class ExceptionErrorPredicatePreparator implements IExceptionErrorPredicatePreparator {
   /**

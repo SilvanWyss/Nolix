@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IQualifiedNameHolder;
  * whose name can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2024-01-19
  * @param <H> is the type of a {@link IFluentMutableQualifiedNameHolder}.
  */
 public interface IFluentMutableQualifiedNameHolder<H extends IFluentMutableQualifiedNameHolder<H>>

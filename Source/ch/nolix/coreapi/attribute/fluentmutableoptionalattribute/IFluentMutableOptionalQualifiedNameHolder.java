@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalQualifiedNameHolder
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2024-02-11
  * @param <H> is the type of a
  *            {@link IFluentMutableOptionalQualifiedNameHolder}.
  */

@@ -5,7 +5,6 @@ import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-19
  */
 public class ResourceValidatorUnit implements IResourceValidator {
   /**

@@ -15,7 +15,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * The {@link Calculator} provides mathematical functions.
  * 
  * @author Silvan Wyss
- * @version 2016-05-01
  */
 public final class Calculator {
   private static final BasicCalculator BASIC_CALCULATOR = new BasicCalculator();

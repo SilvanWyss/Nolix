@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalOneBasedIndexHolder
  * removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  */
 public interface IMutableOptionalOneBasedIndexHolder extends IOptionalOneBasedIndexHolder {
   /**

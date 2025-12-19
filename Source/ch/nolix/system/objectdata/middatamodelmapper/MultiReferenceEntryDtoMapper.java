@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-21
  */
 public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryDtoMapper {
   /**

@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalDatabaseNameHolder} can have a database name.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  */
 public interface IOptionalDatabaseNameHolder {
   /**

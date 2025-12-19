@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiValueHolder;
  * values can be added and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-09-11
  * @param <V> is the type of the values of a {@link IMutableMultiValueHolder}.
  */
 public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {

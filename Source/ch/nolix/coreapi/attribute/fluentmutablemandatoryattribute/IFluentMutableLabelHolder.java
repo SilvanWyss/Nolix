@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ILabelHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2023-10-25
  * @param <H> is the type of a {@link IFluentMutableLabelHolder}.
  */
 public interface IFluentMutableLabelHolder<H extends IFluentMutableLabelHolder<H>> extends ILabelHolder {

@@ -2,7 +2,6 @@ package ch.nolix.systemapi.sqlmidschema.querycreator;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-19
  */
 public interface IQueryCreator {
   /**

@@ -3,6 +3,5 @@
  * {@link ch.nolix.techapi} package.
  * 
  * @author Silvan Wyss
- * @version 2022-04-03
  */
 package ch.nolix.tech;

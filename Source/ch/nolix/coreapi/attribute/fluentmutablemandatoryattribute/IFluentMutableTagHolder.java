@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITagHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-11-07
  * @param <H> is the type of a {@link IFluentMutableTagHolder}.
  */
 public interface IFluentMutableTagHolder<H extends IFluentMutableTagHolder<H>> extends ITagHolder {

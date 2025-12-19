@@ -6,7 +6,6 @@ package ch.nolix.coreapi.math.number;
  * Of the {@link IntCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-05-29
  */
 public final class IntCatalog {
   public static final int THOUSAND = 1_000;

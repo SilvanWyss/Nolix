@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IColumnExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2025-09-14
  */
 public final class ColumnExaminer extends DatabaseObjectExaminer implements IColumnExaminer {
   /**

@@ -10,7 +10,6 @@ import ch.nolix.coreapi.programcontrol.process.IUpdaterCollector;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  * @param <O> is the type of the {@link Object}s the updaters of a
  *            {@link UpdaterCollector} can mutate.
  */

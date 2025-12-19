@@ -26,7 +26,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class NetEndPoint extends AbstractEndPoint {
   private final ch.nolix.coreapi.net.endpoint2.IEndPoint internalEndPoint;

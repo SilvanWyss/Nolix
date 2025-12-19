@@ -5,7 +5,6 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-21
  */
 public interface IColumnNodeMapper {
   /**

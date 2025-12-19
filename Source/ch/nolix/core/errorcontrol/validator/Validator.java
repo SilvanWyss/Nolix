@@ -13,7 +13,6 @@ import ch.nolix.core.independent.arraytool.ArrayTool;
  * Of the {@link Validator} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2016-12-01
  */
 public final class Validator { //NOSONAR: The GlobalValidator bundles all validation methods.
 

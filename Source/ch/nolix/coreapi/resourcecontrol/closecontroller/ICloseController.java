@@ -2,7 +2,6 @@ package ch.nolix.coreapi.resourcecontrol.closecontroller;
 
 /**
  * @author Silvan Wyss
- * @version 2022-07-05
  */
 public interface ICloseController {
   /**

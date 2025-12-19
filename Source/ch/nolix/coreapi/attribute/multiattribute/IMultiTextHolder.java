@@ -6,7 +6,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * A {@link IMultiTextHolder} can contain several texts.
  * 
  * @author Silvan Wyss
- * @version 2023-10-25
  */
 public interface IMultiTextHolder {
   /**

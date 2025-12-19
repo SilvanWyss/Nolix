@@ -5,7 +5,6 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-10
  */
 public interface IColumnDtoMapper {
   /**

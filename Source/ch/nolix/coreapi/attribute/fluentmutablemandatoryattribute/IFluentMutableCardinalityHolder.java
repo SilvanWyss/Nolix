@@ -8,7 +8,6 @@ import ch.nolix.coreapi.datamodel.cardinality.ICardinalityHolder;
  * whose cardinality can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-11-07
  * @param <H> is the type of a {@link IFluentMutableCardinalityHolder}.
  */
 public interface IFluentMutableCardinalityHolder<H extends IFluentMutableCardinalityHolder<H>>

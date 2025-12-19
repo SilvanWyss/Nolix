@@ -6,7 +6,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * A {@link ISecuriyModeHolder} has a {@link SecurityMode}.
  * 
  * @author Silvan Wyss
- * @version 2025-07-11
  */
 public interface ISecuriyModeHolder {
   /**

@@ -8,7 +8,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-28
  */
 public final class TableNodeExaminer implements ITableNodeExaminer {
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();

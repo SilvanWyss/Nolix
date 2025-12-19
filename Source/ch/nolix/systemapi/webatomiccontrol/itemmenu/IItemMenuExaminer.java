@@ -2,7 +2,6 @@ package ch.nolix.systemapi.webatomiccontrol.itemmenu;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public interface IItemMenuExaminer {
   /**

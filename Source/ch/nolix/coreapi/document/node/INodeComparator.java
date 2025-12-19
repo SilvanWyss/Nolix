@@ -2,7 +2,6 @@ package ch.nolix.coreapi.document.node;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-01
  */
 public interface INodeComparator {
   /**

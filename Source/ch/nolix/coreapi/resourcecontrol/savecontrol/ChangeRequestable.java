@@ -4,7 +4,6 @@ package ch.nolix.coreapi.resourcecontrol.savecontrol;
  * A {@link ChangeRequestable} can be asked if it has uncommitted changes.
  * 
  * @author Silvan Wyss
- * @version 2021-02-26
  */
 public interface ChangeRequestable {
   /**

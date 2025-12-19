@@ -11,7 +11,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2017-11-26
  * @param <E> is the type of the elements of a {@link IterableContainerView}.
  */
 public final class IterableContainerView<E> extends AbstractExtendedContainer<E> {

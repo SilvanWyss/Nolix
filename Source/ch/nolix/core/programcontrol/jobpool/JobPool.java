@@ -11,7 +11,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * optimal number of {@link Worker}s to run several jobs efficiently.
  * 
  * @author Silvan Wyss
- * @version 2019-04-14
  */
 public final class JobPool {
   private static final int OPTIMAL_WORKER_COUNT = 100;

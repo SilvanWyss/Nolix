@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
  * one-based index can be set programmatically.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  */
 public interface IMutableOneBasedIndexHolder extends IOneBasedIndexHolder {
   /**

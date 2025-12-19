@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given key is not accepted.
  * 
  * @author Silvan Wyss
- * @version 2020-12-18
  */
 @SuppressWarnings("serial")
 public final class UnacceptedKeyException extends AbstractInvalidArgumentException {

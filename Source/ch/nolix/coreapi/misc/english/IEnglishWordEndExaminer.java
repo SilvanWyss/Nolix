@@ -2,7 +2,6 @@ package ch.nolix.coreapi.misc.english;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public interface IEnglishWordEndExaminer {
   /**

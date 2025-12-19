@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalQualifiedNameHolder} can have a qualified name.
  * 
  * @author Silvan Wyss
- * @version 2024-02-11
  */
 public interface IOptionalQualifiedNameHolder extends IOptionalNameHolder {
   /**

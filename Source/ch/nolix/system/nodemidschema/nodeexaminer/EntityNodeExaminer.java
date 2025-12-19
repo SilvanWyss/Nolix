@@ -7,7 +7,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-28
  */
 public final class EntityNodeExaminer implements IEntityNodeExaminer {
   private static final IEntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();

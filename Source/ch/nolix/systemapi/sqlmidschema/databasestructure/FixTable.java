@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-17
  */
 public enum FixTable implements INameHolder {
   DATABASE_PROPERTY(FixTableNameCatalog.DATABASE_PROPERTY),

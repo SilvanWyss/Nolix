@@ -4,7 +4,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-19
  */
 public interface IResourceValidator {
   /**

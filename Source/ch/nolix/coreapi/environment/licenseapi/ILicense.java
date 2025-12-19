@@ -2,7 +2,6 @@ package ch.nolix.coreapi.environment.licenseapi;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-30
  */
 public interface ILicense {
   /**

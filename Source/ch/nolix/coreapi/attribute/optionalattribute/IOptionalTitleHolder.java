@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalTitleHolder} can have a title.
  * 
  * @author Silvan Wyss
- * @version 2023-02-06
  */
 public interface IOptionalTitleHolder {
   /**

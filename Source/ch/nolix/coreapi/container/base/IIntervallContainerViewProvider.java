@@ -2,7 +2,6 @@ package ch.nolix.coreapi.container.base;
 
 /**
  * @author Silvan Wyss
- * @version 2024-07-28
  * @param <E> is the type of the elements of a
  *            {@link IIntervallContainerViewProvider}.
  */

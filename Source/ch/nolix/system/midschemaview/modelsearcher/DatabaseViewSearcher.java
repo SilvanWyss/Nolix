@@ -7,7 +7,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2025-06-19
  */
 public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
   /**

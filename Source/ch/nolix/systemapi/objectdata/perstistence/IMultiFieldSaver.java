@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-03
  */
 public interface IMultiFieldSaver {
   /**

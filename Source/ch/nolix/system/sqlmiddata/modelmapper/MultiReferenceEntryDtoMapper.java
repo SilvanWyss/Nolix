@@ -9,7 +9,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-06-20
  */
 public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryDtoMapper {
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();

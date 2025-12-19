@@ -5,7 +5,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * prepare {@link String} representations of arguments for {@link Exception}s.
  * 
  * @author Silvan Wyss
- * @version 2025-04-06
  */
 public interface IExceptionArgumentStringRepresentaionPreparator {
   /**

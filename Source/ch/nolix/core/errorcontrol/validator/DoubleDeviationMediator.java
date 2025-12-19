@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
 
 /**
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public final class DoubleDeviationMediator extends Mediator {
   private final double argument;

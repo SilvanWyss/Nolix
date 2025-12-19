@@ -4,7 +4,6 @@ package ch.nolix.coreapi.state.staterequest;
  * A {@link CompletenessRequestable} can be asked if it is complete.
  * 
  * @author Silvan Wyss
- * @version 2023-02-17
  */
 public interface CompletenessRequestable {
   /**

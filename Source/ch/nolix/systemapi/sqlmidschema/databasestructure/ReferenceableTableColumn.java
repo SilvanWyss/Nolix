@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss
- * @version 2025-09-05
  */
 public enum ReferenceableTableColumn implements INameHolder {
   PARENT_BASE_REFERENCE_COLUMN_ID(ReferenceableTableNameCatalog.PARENT_BASE_REFERENCE_COLUMN_ID),

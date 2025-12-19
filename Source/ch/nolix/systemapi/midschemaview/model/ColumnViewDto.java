@@ -5,7 +5,6 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-10
  * @param id
  * @param name
  * @param oneBasedOrdinalIndex

@@ -4,7 +4,6 @@ package ch.nolix.coreapi.commontypetool.stringtool;
  * Of the {@link StringCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2016-10-01
  */
 public final class StringCatalog {
   public static final String APOSTROPH = "'";

@@ -2,7 +2,6 @@ package ch.nolix.systemapi.style.model;
 
 /**
  * @author Silvan Wyss
- * @version 2022-05-29
  */
 public interface IStyle extends IBaseStyle<IStyle> {
   /**

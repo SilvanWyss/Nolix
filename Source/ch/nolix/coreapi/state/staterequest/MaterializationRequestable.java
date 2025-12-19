@@ -16,7 +16,6 @@ package ch.nolix.coreapi.state.staterequest;
  * of the origin object.
  * 
  * @author Silvan Wyss
- * @version 2023-02-12
  */
 public interface MaterializationRequestable {
   /**

@@ -26,7 +26,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * -The matrix [0.9999999999, 0; 0, 1] is interpreted as a identity matrix.
  * 
  * @author Silvan Wyss
- * @version 2016-02-01
  */
 public final class Matrix { //NOSONAR: A Matrix is a principal object thus it has many methods.
 

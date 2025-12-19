@@ -19,7 +19,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * an other {@link NetEndPoint}.
  * 
  * @author Silvan Wyss
- * @version 2017-05-22
  */
 public final class NetEndPoint extends AbstractEndPoint {
   private int nextSentPackageIndex = 1;

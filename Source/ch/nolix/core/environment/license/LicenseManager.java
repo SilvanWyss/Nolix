@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * Of the {@link LicenseManager} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2019-11-16
  */
 public final class LicenseManager {
   private static final LicenseManagerUnit LICENSE_MANAGER = new LicenseManagerUnit();

@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-01
  * @param <E> is the type of the {@link IEntity}s a
  *            {@link IEntityFieldExtractor} can extract {@link IField}s from.
  * @param <F> is the type of the {@link IField}s of the {@link IEntity}s a

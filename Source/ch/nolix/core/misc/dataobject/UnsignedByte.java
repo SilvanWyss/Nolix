@@ -8,7 +8,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link UnsignedByte} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2019-09-06
  */
 public final class UnsignedByte {
   /**

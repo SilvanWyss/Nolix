@@ -17,7 +17,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link Node} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class Node extends AbstractNode<Node> {
   public static final Node EMPTY_NODE = new Node();

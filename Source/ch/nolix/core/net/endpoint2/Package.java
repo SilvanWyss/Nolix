@@ -8,7 +8,6 @@ import ch.nolix.coreapi.net.endpoint2protocol.MessageRole;
  * A package in end point 3 is a package with a message role.
  * 
  * @author Silvan Wyss
- * @version 2016-10-01
  */
 final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
   private final MessageRole messageRole;

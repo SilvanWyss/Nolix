@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-05-30
  */
 public interface ITableDtoMapper {
   /**

@@ -7,7 +7,6 @@ import ch.nolix.coreapi.datamodel.fieldproperty.FieldType;
  * values or references.
  * 
  * @author Silvan Wyss
- * @version 2023-09-08
  */
 public interface FieldTypeRequestable {
   /**

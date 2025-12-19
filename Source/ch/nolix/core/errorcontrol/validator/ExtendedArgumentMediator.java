@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * An extended generic argument mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-11-12
  * @param <A> is the type of the argument of an extended generic argument
  *            mediator.
  */

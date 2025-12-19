@@ -12,7 +12,6 @@ import ch.nolix.core.independent.math.NumberComparator;
  * A {@link Vector} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-02-01
  */
 public final class Vector {
   public static final Vector EMPTY_VECTOR = new Vector();

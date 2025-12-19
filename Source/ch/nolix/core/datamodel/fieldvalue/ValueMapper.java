@@ -7,7 +7,6 @@ import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-03-02
  */
 public final class ValueMapper implements IValueMapper {
   /**

@@ -4,7 +4,6 @@ package ch.nolix.system.graphic.color;
  * Of the {@link X11ColorCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2024-12-30
  * @see <a href="https://en.wikipedia.org/wiki/X11_color_names">X11 color
  *      names</a>
  */

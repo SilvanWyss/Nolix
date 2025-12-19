@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public interface IDatabaseExaminer extends IDatabaseObjectExaminer {
   /**

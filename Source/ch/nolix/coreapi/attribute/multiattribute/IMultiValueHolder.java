@@ -6,7 +6,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * A {@link IMultiValueHolder} can contain several values.
  * 
  * @author Silvan Wyss
- * @version 2023-08-25
  * @param <V> is the type of the values of a {@link IMultiValueHolder}.
  */
 public interface IMultiValueHolder<V> {

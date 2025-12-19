@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalIdHolder;
  * id can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2020-02-01
  * @param <H> is the type of a {@link IFluentMutableOptionalIdHolder}.
  */
 public interface IFluentMutableOptionalIdHolder<H extends IFluentMutableOptionalIdHolder<H>> extends IOptionalIdHolder {

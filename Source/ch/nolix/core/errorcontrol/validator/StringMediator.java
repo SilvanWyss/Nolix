@@ -12,7 +12,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * {@link String}. A {@link StringMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-09-01
  */
 public class StringMediator extends ArgumentMediator<String> {
   /**

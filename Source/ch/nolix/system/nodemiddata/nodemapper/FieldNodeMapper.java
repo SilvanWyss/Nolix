@@ -14,7 +14,6 @@ import ch.nolix.systemapi.nodemiddata.nodemapper.IFieldNodeMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-26
  */
 public final class FieldNodeMapper implements IFieldNodeMapper {
   private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();

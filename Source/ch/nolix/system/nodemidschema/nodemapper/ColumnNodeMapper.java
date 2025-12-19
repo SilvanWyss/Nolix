@@ -9,7 +9,6 @@ import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2021-09-12
  */
 public final class ColumnNodeMapper implements IColumnNodeMapper {
   private static final IColumnNodeChildNodeMapper COLUMN_NODE_CHILD_NODE_MAPPER = new ColumnNodeChildNodeMapper();

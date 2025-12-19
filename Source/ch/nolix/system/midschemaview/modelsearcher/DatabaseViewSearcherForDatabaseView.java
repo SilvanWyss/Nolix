@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcherForDa
 
 /**
  * @author Silvan Wyss
- * @version 2025-06-27
  */
 public final class DatabaseViewSearcherForDatabaseView implements IDatabaseViewSearcherForDatabaseView {
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();

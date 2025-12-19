@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 /**
  * @author Silvan Wyss
- * @version 2025-06-20
  */
 public interface IMultiValueEntryDtoMapper {
   /**

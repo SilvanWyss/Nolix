@@ -2,7 +2,6 @@ package ch.nolix.coreapi.independent.iterabletool;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-07
  */
 public interface IIterableExaminer {
   /**

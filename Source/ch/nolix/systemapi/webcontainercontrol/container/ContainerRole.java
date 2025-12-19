@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2016-09-01
  */
 public enum ContainerRole {
   DIALOG_CONTAINER,

@@ -4,7 +4,6 @@ package ch.nolix.coreapi.misc.time;
  * Of the {@link TimeUnitConversionCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2017-02-05
  */
 public final class TimeUnitConversionCatalog {
   public static final int NANOSECONDS_PER_MICROSECOND = 1000;

@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlmiddata.schemaviewloader.IDatabaseSchemaViewLoader;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-31
  */
 public final class DatabaseSchemaViewLoader implements IDatabaseSchemaViewLoader {
   private static final ITableViewDtoMapper TABLE_DEFINITION_MAPPER = new TableViewDtoMapper();

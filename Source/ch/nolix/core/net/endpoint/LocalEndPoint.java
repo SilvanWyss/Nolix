@@ -15,7 +15,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * to another {@link LocalEndPoint}.
  * 
  * @author Silvan Wyss
- * @version 2017-05-06
  */
 public final class LocalEndPoint extends AbstractEndPoint {
   private final PeerType peerType;

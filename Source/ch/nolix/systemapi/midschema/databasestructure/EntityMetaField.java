@@ -5,7 +5,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public enum EntityMetaField implements INameHolder {
   ID(PascalCaseVariableCatalog.ID),

@@ -11,7 +11,6 @@ import ch.nolix.coreapi.programcontrol.flowcontrol.IForMaxMillisecondsMediator;
  * A {@link ForMaxMillisecondsMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2019-11-24
  */
 public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMediator {
   private final int maxDurationInMilliseconds;

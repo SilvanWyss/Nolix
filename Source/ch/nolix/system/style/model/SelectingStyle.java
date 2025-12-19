@@ -14,7 +14,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
- * @version 2023-07-09
  */
 public final class SelectingStyle extends AbstractSelectingStyle {
   public static final String TYPE_NAME = "SelectingStyle";

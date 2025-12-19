@@ -4,7 +4,6 @@ import java.lang.reflect.Member;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public interface IMemberExaminer {
   /**

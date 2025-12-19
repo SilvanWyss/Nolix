@@ -8,7 +8,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link IndexedPackage} bundles an index and a content.
  * 
  * @author Silvan Wyss
- * @version 2016-06-01
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> {

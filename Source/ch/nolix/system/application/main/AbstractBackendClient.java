@@ -9,7 +9,6 @@ import ch.nolix.systemapi.application.client.IBackendClient;
 
 /**
  * @author Silvan Wyss
- * @version 2022-03-18
  * @param <C> is the type of a {@link AbstractBackendClient}.
  * @param <S> is the type of the context of the parent {@link Application} of a
  *            {@link AbstractBackendClient}.

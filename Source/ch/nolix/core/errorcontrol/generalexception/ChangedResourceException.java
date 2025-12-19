@@ -7,7 +7,6 @@ package ch.nolix.core.errorcontrol.generalexception;
  * connection.
  * 
  * @author Silvan Wyss
- * @version 2022-02-27
  */
 @SuppressWarnings("serial")
 public final class ChangedResourceException extends RuntimeException {

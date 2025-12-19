@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument does undesirable not represent an object of a given type.
  * 
  * @author Silvan Wyss
- * @version 2017-03-05
  */
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends AbstractInvalidArgumentException {

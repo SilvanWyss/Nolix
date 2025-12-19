@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2022-07-15
  */
 public enum BackgroundType {
   COLOR,

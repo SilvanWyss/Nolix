@@ -16,7 +16,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.ILoadedEntityDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2021-10-10
  */
 public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   private static final IContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();

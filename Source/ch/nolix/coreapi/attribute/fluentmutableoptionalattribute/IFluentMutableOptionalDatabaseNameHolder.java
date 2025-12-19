@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  * @param <H> is the type of a {@link IFluentMutableOptionalDatabaseNameHolder}.
  */
 public interface IFluentMutableOptionalDatabaseNameHolder<H extends IFluentMutableOptionalDatabaseNameHolder<H>>

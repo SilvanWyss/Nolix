@@ -14,7 +14,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldSaver;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-03
  */
 public final class MultiFieldSaver implements IMultiFieldSaver {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();

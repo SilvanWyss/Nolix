@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <H> is the type of a {@link IFluentMutableNameHolder}.
  */
 public interface IFluentMutableNameHolder<H extends IFluentMutableNameHolder<H>> extends INameHolder {

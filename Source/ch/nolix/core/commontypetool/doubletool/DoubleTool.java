@@ -8,7 +8,6 @@ import ch.nolix.coreapi.commontypetool.doubletool.IDoubleTool;
 
 /**
  * @author Silvan Wyss
- * @version 2016-08-01
  */
 public final class DoubleTool implements IDoubleTool {
   /**

@@ -9,7 +9,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-11
  */
 public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   private static final IValueMapper VALUE_MAPPER = new ValueMapper();

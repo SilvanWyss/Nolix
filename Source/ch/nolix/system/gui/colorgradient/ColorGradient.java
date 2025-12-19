@@ -18,7 +18,6 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
  * A {@link ColorGradient} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-08-01
  */
 public final class ColorGradient extends AbstractElement implements IColorGradient {
   public static final Direction DEFAULT_DIRECTION = Direction.VERTICAL;

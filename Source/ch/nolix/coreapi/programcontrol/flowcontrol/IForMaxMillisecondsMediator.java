@@ -4,7 +4,6 @@ import java.util.function.BooleanSupplier;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-28
  */
 public interface IForMaxMillisecondsMediator {
   /**

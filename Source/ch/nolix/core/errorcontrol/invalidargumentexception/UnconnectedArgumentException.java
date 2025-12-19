@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirable not connected.
  * 
  * @author Silvan Wyss
- * @version 2020-07-24
  */
 @SuppressWarnings("serial")
 public final class UnconnectedArgumentException extends AbstractInvalidArgumentException {

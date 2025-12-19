@@ -2,7 +2,6 @@ package ch.nolix.coreapi.web.url;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-09
  */
 public interface IUrlTool {
   /**

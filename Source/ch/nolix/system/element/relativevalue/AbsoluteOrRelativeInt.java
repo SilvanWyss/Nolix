@@ -20,7 +20,6 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
  * {@link AbsoluteOrRelativeInt} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2022-10-15
  */
 public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbsoluteOrRelativeInt {
   private final boolean isAbsolute;

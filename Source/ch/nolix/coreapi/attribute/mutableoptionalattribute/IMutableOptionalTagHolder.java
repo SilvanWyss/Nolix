@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalTagHolder;
  * can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2025-11-07
  */
 public interface IMutableOptionalTagHolder extends IOptionalTagHolder {
   /**

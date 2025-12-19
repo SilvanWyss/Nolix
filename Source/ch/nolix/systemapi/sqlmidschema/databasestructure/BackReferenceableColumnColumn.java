@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss
- * @version 2025-09-20
  */
 public enum BackReferenceableColumnColumn implements INameHolder {
   PARENT_BASE_BACK_REFERENCE_COLUMN_ID(BackReferenceableColumnColumnNameCatalog.PARENT_BASE_BACK_REFERENCE_COLUMN_ID),

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss
- * @version 2022-01-01
  */
 public enum MultiReferenceEntryColumn implements INameHolder {
   ENTITY_ID(MultiReferenceEntryColumnNameCatalog.ENTITY_ID),

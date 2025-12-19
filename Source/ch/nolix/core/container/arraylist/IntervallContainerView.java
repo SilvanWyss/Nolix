@@ -20,7 +20,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
- * @version 2017-08-27
  * @param <E> is the type of the elements of a {@link IntervallContainerView}.
  */
 public final class IntervallContainerView<E> extends AbstractExtendedContainer<E> {

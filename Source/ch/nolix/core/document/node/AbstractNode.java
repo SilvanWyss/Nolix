@@ -18,7 +18,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 
 /**
  * @author Silvan Wyss
- * @version 2017-06-24
  * @param <N> is the type of a {@link AbstractNode}.
  */
 public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N> {

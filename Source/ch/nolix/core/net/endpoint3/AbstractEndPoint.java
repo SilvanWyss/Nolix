@@ -12,7 +12,6 @@ import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements IEndPoint {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2019-05-18
  */
 public enum FreeableContentAlignment {
   TOP_LEFT,

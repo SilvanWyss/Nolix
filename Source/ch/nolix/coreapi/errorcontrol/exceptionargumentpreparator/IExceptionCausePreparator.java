@@ -5,7 +5,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * {@link Exception}s.
  * 
  * @author Silvan Wyss
- * @version 2025-04-05
  */
 public interface IExceptionCausePreparator {
   /**

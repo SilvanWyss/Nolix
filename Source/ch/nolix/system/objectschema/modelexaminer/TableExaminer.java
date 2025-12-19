@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-30
  */
 public final class TableExaminer implements ITableExaminer {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();

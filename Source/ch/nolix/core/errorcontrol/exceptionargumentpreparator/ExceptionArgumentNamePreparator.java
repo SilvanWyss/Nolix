@@ -4,7 +4,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionArgum
 
 /**
  * @author Silvan Wyss
- * @version 2025-04-04
  */
 public final class ExceptionArgumentNamePreparator implements IExceptionArgumentNamePreparator {
   private static final String DEFAULT_ARGUMENT_NAME = "argument";

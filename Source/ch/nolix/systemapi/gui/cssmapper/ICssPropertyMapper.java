@@ -10,7 +10,6 @@ import ch.nolix.systemapi.gui.font.LineDecoration;
 
 /**
  * @author Silvan Wyss
- * @version 2025-08-10
  */
 public interface ICssPropertyMapper {
   /**

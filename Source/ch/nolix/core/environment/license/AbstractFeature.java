@@ -7,7 +7,6 @@ import ch.nolix.coreapi.container.base.IContainer;
  * A {@link AbstractFeature} can be required for certain functionalities.
  * 
  * @author Silvan Wyss
- * @version 2019-11-16
  */
 public abstract class AbstractFeature implements INameHolder {
   /**

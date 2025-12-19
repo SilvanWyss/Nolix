@@ -2,7 +2,6 @@ package ch.nolix.coreapi.errorcontrol.errormapping;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-28
  */
 public interface IErrorMessageExtractor {
   /**

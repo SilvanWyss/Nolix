@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalNameHolder} can have a name.
  * 
  * @author Silvan Wyss
- * @version 2020-03-29
  */
 public interface IOptionalNameHolder {
   /**

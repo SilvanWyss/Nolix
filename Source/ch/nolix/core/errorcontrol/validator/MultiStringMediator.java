@@ -8,7 +8,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * A string container mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
   /**

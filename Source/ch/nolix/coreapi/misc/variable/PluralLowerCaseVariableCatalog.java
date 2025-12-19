@@ -4,7 +4,6 @@ package ch.nolix.coreapi.misc.variable;
  * Of the {@link PluralLowerCaseVariableCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2018-03-24
  */
 public final class PluralLowerCaseVariableCatalog {
   public static final String ACTIONS = "actions";

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-28
  */
 public interface ITableNodeExaminer {
   /**

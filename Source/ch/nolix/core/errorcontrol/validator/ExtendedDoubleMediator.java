@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * An extended double mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-11-12
  */
 public class ExtendedDoubleMediator extends DoubleMediator {
   /**

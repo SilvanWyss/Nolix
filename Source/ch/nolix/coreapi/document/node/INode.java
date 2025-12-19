@@ -18,7 +18,6 @@ import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
  * A sub type of {@link INode} may be or may be not mutable.
  * 
  * @author Silvan Wyss
- * @version 2022-06-24
  * @param <N> is the type of a {@link INode}.
  */
 public interface INode<N extends INode<N>> extends BlanknessRequestable, IOptionalHeaderHolder {

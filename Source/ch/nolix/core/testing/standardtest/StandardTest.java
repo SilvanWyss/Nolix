@@ -16,7 +16,6 @@ import ch.nolix.coreapi.errorcontrol.validation.IOptionalMediator;
 
 /**
  * @author Silvan Wyss
- * @version 2016-09-01
  */
 public abstract class StandardTest { //NOSONAR: StandardTest does not have abstract methods.
 

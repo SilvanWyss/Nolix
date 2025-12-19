@@ -10,7 +10,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
 /**
  * @author Silvan Wyss
- * @version 2020-07-06
  */
 final class ClosePool implements IClosePool {
   private CloseState state = CloseState.OPEN;

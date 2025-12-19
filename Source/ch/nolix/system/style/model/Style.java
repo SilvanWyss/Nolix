@@ -16,7 +16,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
- * @version 2016-02-01
  */
 public final class Style extends AbstractStyle<IStyle> implements IStyle {
 

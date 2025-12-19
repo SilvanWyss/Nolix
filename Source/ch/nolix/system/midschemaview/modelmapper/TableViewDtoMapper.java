@@ -8,7 +8,6 @@ import ch.nolix.systemapi.midschemaview.modelmapper.ITableViewDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-24
  */
 public final class TableViewDtoMapper implements ITableViewDtoMapper {
   private static final IColumnViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnViewDtoMapper();

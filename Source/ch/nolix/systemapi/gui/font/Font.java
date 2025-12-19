@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2017-08-19
  */
 public enum Font {
   ARIAL(FontCodeCatalog.ARIAL),

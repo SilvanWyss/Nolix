@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalLabelHolder} can have a label.
  * 
  * @author Silvan Wyss
- * @version 2023-02-07
  */
 public interface IOptionalLabelHolder {
   /**

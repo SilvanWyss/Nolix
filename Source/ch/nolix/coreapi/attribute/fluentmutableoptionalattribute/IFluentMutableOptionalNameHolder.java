@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalNameHolder;
  * whose name can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <H> is the type of a {@link IFluentMutableOptionalNameHolder}.
  */
 public interface IFluentMutableOptionalNameHolder<H extends IFluentMutableOptionalNameHolder<H>>

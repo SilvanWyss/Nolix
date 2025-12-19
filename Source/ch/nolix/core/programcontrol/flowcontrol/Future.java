@@ -8,7 +8,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss
- * @version 2017-05-23
  */
 public final class Future extends AbstractFuture {
   private final JobExecutor jobExecutor;

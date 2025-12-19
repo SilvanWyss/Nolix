@@ -8,7 +8,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * Of the {@link KeyRefinder} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-07-30
  */
 public final class KeyRefinder {
   /**

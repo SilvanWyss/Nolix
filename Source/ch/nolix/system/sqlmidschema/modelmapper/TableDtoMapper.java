@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-05-30
  */
 public final class TableDtoMapper implements ITableDtoMapper {
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();

@@ -4,7 +4,6 @@ package ch.nolix.coreapi.net.netconstant;
  * Of the {@link PortCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class PortCatalog {
   public static final int MIN_PORT = 0;

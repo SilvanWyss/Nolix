@@ -8,7 +8,6 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public abstract class AbstractDatabaseInitializer implements IDatabaseInitializer {
   /**

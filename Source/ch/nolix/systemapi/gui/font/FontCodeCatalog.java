@@ -4,7 +4,6 @@ package ch.nolix.systemapi.gui.font;
  * Of the {@link FontCodeCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2020-08-02
  */
 public final class FontCodeCatalog {
   public static final String ARIAL = "Arial";

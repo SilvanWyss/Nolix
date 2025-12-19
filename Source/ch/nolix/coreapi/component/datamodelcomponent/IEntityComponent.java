@@ -4,7 +4,6 @@ package ch.nolix.coreapi.component.datamodelcomponent;
  * A {@link IEntityComponent} can belong to an entity.
  * 
  * @author Silvan Wyss
- * @version 2024-12-14
  * @param <E> is the type of the entity a {@link IEntityComponent} can belong
  *            to.
  */

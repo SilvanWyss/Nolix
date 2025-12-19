@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * A {@link INameHolder} has a name.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public interface INameHolder {
   /**

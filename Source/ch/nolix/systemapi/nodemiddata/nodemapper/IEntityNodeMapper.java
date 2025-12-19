@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-11
  */
 public interface IEntityNodeMapper {
   /**

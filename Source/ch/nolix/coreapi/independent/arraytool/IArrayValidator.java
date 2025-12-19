@@ -2,7 +2,6 @@ package ch.nolix.coreapi.independent.arraytool;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-14
  */
 public interface IArrayValidator {
   /**

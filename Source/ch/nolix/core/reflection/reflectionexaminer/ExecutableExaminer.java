@@ -6,7 +6,6 @@ import ch.nolix.coreapi.reflection.reflectionexaminer.IExecutableExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2023-01-22
  */
 public final class ExecutableExaminer implements IExecutableExaminer {
   /**

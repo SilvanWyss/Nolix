@@ -8,7 +8,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-27
  * @param <C> is the type of {@link IColumn}s a {@link IColumnEditor} can edit.
  */
 public interface IColumnEditor<C extends IColumn> {

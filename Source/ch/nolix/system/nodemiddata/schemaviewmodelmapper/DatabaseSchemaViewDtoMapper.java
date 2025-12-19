@@ -9,7 +9,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-31
  */
 public final class DatabaseSchemaViewDtoMapper implements IDatabaseSchemaViewDtoMapper {
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();

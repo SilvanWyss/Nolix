@@ -8,7 +8,6 @@ import ch.nolix.coreapi.net.endpoint2.ISlot;
 
 /**
  * @author Silvan Wyss
- * @version 2021-06-28
  */
 final class ServerSlot implements ISlot {
   private final String name;

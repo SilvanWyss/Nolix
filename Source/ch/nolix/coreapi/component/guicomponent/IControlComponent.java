@@ -4,7 +4,6 @@ package ch.nolix.coreapi.component.guicomponent;
  * A {@link IControlComponent} can belong to a control.
  * 
  * @author Silvan Wyss
- * @version 2024-12-14
  * @param <C> is the type of the control a {@link IControlComponent} can belong
  *            to.
  */

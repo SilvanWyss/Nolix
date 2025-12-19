@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-09
  */
 public final class ItemMenuExaminer implements IItemMenuExaminer {
   @Override

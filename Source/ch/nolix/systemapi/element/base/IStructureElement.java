@@ -5,7 +5,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2024-01-05
  */
 public interface IStructureElement extends IElement {
   /**

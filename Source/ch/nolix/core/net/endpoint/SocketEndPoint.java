@@ -22,7 +22,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.TargetInfoState;
 
 /**
  * @author Silvan Wyss
- * @version 2017-05-06
  */
 public final class SocketEndPoint extends AbstractNetEndPoint {
   private final PeerType peerType;

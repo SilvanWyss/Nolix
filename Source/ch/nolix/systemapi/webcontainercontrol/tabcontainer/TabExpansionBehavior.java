@@ -6,7 +6,6 @@ import ch.nolix.coreapi.document.node.INode;
  * A {@link TabExpansionBehavior} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2018-08-13
  */
 public enum TabExpansionBehavior {
   OPEN_ONE_TAB_OR_NONE,

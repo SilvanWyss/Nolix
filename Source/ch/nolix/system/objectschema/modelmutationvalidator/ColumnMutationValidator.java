@@ -12,7 +12,6 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationVal
 
 /**
  * @author Silvan Wyss
- * @version 2021-07-11
  */
 public final class ColumnMutationValidator implements IColumnMutationValidator {
   private static final IColumnMutationExaminer COLUMN_MUTATION_EXAMINER = new ColumnMutationExaminer();

@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ITagHolder;
  * programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-02-09
  */
 public interface IMutableTagHolder extends ITagHolder {
   /**

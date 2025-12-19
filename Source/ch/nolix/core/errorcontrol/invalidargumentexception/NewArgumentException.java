@@ -7,7 +7,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * that is supposed to be thrown when a given argument is undesirably new.
  * 
  * @author Silvan Wyss
- * @version 2021-07-16
  */
 @SuppressWarnings("serial")
 public final class NewArgumentException extends AbstractInvalidArgumentException {

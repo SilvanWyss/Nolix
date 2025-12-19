@@ -6,7 +6,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-11
  */
 public interface IClient extends ConnectionSideRequestable, GroupCloseable, ISecuriyModeHolder {
   /**

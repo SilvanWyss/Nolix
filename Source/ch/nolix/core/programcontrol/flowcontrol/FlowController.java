@@ -23,7 +23,6 @@ import ch.nolix.coreapi.programcontrol.future.IResultFuture;
  * Of the {@link FlowController} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2016-06-01
  */
 public final class FlowController {
   private static final JobPool JOB_POOL = new JobPool();

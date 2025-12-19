@@ -21,7 +21,6 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
  * {@link LongMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public class LongMediator extends Mediator {
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();

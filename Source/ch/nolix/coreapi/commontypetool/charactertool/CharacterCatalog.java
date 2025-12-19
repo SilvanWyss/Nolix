@@ -4,7 +4,6 @@ package ch.nolix.coreapi.commontypetool.charactertool;
  * Of the {@link CharacterCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2017-06-24
  */
 public final class CharacterCatalog {
   public static final char APOSTROPH = '\'';

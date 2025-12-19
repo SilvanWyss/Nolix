@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalNameHolder;
  * name can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-02-07
  */
 public interface IMutableOptionalNameHolder extends IOptionalNameHolder {
   /**

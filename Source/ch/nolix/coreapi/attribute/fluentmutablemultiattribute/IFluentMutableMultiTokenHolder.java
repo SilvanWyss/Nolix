@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTokenHolder;
  * tokens can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2023-06-16
  * @param <H> is the type of a {@link IFluentMutableMultiTokenHolder}.
  */
 public interface IFluentMutableMultiTokenHolder<H extends IFluentMutableMultiTokenHolder<H>> extends IMultiTokenHolder {

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link FolderAccessor} can access a folder.
  * 
  * @author Silvan Wyss
- * @version 2017-07-10
  */
 public final class FolderAccessor extends FileSystemItemAccessorUnit {
   /**

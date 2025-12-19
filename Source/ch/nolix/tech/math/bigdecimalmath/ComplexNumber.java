@@ -13,7 +13,6 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
  * A {@link ComplexNumber} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2019-02-19
  */
 public final class ComplexNumber implements IComplexNumber {
   private final BigDecimal realComponent;

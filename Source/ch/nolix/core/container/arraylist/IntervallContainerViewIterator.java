@@ -13,7 +13,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2017-08-27
  * @param <E> is the type of the elements of a
  *            {@link IntervallContainerViewIterator}.
  */

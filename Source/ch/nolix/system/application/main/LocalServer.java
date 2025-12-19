@@ -7,7 +7,6 @@ import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
- * @version 2021-06-29
  */
 public final class LocalServer extends AbstractServer<LocalServer> {
   @Override

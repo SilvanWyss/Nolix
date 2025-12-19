@@ -7,7 +7,6 @@ import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2021-11-05
  */
 public final class ValueMapper implements IValueMapper {
   @Override

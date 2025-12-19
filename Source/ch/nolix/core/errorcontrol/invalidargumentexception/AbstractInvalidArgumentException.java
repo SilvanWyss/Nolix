@@ -23,7 +23,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionError
  * the {@link AbstractInvalidArgumentException} was created for.
  * 
  * @author Silvan Wyss
- * @version 2025-04-11
  */
 @SuppressWarnings("serial")
 public abstract class AbstractInvalidArgumentException extends RuntimeException {

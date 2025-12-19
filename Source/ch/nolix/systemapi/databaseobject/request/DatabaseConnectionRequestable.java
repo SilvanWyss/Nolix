@@ -5,7 +5,6 @@ package ch.nolix.systemapi.databaseobject.request;
  * a real database.
  * 
  * @author Silvan Wyss
- * @version 2024-12-21
  */
 public interface DatabaseConnectionRequestable {
   /**

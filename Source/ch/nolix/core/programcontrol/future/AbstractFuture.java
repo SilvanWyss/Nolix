@@ -5,7 +5,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss
- * @version 2022-06-18
  */
 public abstract class AbstractFuture implements IFuture {
   /**

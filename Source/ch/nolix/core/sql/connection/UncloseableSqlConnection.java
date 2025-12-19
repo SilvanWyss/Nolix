@@ -16,7 +16,6 @@ import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
  * not be closed.
  * 
  * @author Silvan Wyss
- * @version 2025-02-07
  */
 public final class UncloseableSqlConnection implements ISqlConnection {
   private final ISqlConnection sqlConnection;

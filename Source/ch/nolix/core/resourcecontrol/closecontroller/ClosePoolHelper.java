@@ -7,7 +7,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
  * Of the {@link ClosePoolHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-11-01
  */
 public final class ClosePoolHelper {
   /**

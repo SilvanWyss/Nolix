@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument does undesirably not equal a given value.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends AbstractInvalidArgumentException {

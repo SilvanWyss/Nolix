@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public interface INodeDatabaseExaminer {
   /**

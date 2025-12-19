@@ -2,7 +2,6 @@ package ch.nolix.coreapi.math.basic;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-27
  */
 public interface IBasicCalculator {
   /**

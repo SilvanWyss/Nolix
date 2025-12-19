@@ -14,7 +14,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public final class TableSearcher extends DatabaseObjectExaminer implements ITableSearcher {
   private static final IColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();

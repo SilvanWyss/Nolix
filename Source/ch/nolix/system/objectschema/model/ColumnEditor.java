@@ -13,7 +13,6 @@ import ch.nolix.systemapi.objectschema.modelmutationvalidator.IColumnMutationVal
 
 /**
  * @author Silvan Wyss
- * @version 2021-07-11
  */
 public final class ColumnEditor implements IColumnEditor<Column> {
   private static final IColumnMutationValidator COLUMN_MUTATION_VALIDATOR = new ColumnMutationValidator();

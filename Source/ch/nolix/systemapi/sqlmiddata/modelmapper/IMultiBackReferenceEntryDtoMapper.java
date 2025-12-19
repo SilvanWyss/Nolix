@@ -6,7 +6,6 @@ import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-10-13
  */
 public interface IMultiBackReferenceEntryDtoMapper {
   /**

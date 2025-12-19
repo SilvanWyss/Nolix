@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalDatabaseNameHolder;
  * removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  */
 public interface IMutableOptionalDatabaseNameHolder extends IOptionalDatabaseNameHolder {
   /**

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-21
  */
 public final class NodeHeaderCatalog {
   public static final String BACK_REFERENCEABLE_COLUMN_IDS = "BackReferenceableColumnIds";

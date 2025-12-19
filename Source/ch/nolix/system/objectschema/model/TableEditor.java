@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectschema.midschemamodelmapper.IColumnDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2021-07-11
  */
 public final class TableEditor {
   private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();

@@ -31,7 +31,6 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <E> is the type of the elements of a {@link AbstractContainer}.
  */
 public abstract class AbstractContainer<E> //NOSONAR: An AbstractContainer is a principal object thus it has many methods.

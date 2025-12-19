@@ -6,7 +6,6 @@ package ch.nolix.coreapi.misc.english;
  * Of the {@link EnglishArticleCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2024-12-25
  */
 public final class EnglishArticleCatalog {
   public static final String A = "a";

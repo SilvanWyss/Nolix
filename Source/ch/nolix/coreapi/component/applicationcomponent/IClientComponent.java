@@ -4,7 +4,6 @@ package ch.nolix.coreapi.component.applicationcomponent;
  * A {@link IClientComponent} can belong to a client.
  * 
  * @author Silvan Wyss
- * @version 2024-12-14
  * @param <C> is the type of the client a {@link IClientComponent} can belong
  *            to.
  */

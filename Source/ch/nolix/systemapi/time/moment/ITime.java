@@ -8,7 +8,6 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  * A {@link ITime} stores a time with a precision of 1 microsecond.
  * 
  * @author Silvan Wyss
- * @version 2022-05-28
  */
 public interface ITime extends IElement {
   /**

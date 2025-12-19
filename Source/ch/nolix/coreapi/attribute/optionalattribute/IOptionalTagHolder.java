@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalTagHolder} can have a tag.
  * 
  * @author Silvan Wyss
- * @version 2025-11-07
  */
 public interface IOptionalTagHolder {
   /**

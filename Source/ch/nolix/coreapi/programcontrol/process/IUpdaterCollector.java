@@ -7,7 +7,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  * @param <O> is the type of the {@link Object}s the updaters of a
  *            {@link IUpdaterCollector} can mutate.
  */

@@ -6,7 +6,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * A {@link IAbsoluteOrRelativeInt} stores either an integer or a percentage.
  * 
  * @author Silvan Wyss
- * @version 2022-10-15
  */
 public interface IAbsoluteOrRelativeInt extends IElement {
   /**

@@ -11,7 +11,6 @@ import ch.nolix.coreapi.container.list.IArrayList;
 
 /**
  * @author Silvan Wyss
- * @version 2025-05-18
  * @param <E> is the type of the elements of a
  *            {@link AbstractExtendedContainer}.
  */

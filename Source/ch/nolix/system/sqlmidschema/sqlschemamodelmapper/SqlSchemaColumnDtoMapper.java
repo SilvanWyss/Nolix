@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoM
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-01
  */
 public final class SqlSchemaColumnDtoMapper implements ISqlSchemaColumnDtoMapper {
   /**

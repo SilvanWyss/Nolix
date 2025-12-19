@@ -7,7 +7,6 @@ import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiBackReferenceEntryDtoMapp
 
 /**
  * @author Silvan Wyss
- * @version 2025-10-13
  */
 public final class MultiBackReferenceEntryDtoMapper implements IMultiBackReferenceEntryDtoMapper {
   /**

@@ -4,7 +4,6 @@ package ch.nolix.coreapi.state.staterequest;
  * A {@link MutabilityRequestable} can be asked if it is mutable.
  * 
  * @author Silvan Wyss
- * @version 2021-03-19
  */
 public interface MutabilityRequestable {
   /**

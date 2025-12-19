@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalSaveStampHolder;
  * programmatically.
  * 
  * @author Silvan Wyss
- * @version 2024-02-11
  */
 public interface IMutableOptionalSaveStampHolder extends IOptionalSaveStampHolder {
   /**

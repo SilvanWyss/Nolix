@@ -14,7 +14,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2018-03-04
  * @param <V> is the type of the value of a {@link AbstractSingleValue}.
  */
 abstract class AbstractSingleValue<V> extends AbstractValue<V> {

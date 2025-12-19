@@ -9,7 +9,6 @@ import ch.nolix.core.net.endpoint3.NetEndPoint;
 
 /**
  * @author Silvan Wyss
- * @version 2022-03-18
  * @param <C> is the type of a {@link AbstractFrontendClient}.
  */
 public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>> extends AbstractClient<C> {

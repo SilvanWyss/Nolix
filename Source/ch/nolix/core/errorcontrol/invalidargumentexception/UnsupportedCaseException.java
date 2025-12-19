@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirable not a supported case.
  * 
  * @author Silvan Wyss
- * @version 2021-03-23
  */
 @SuppressWarnings("serial")
 public final class UnsupportedCaseException extends AbstractInvalidArgumentException {

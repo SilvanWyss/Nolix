@@ -5,7 +5,6 @@ import ch.nolix.systemapi.middata.model.EntityCreationDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public interface IEntityIndexNodeMapper {
   /**

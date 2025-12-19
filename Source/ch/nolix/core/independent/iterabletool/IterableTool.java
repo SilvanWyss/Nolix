@@ -4,7 +4,6 @@ import ch.nolix.coreapi.independent.iterabletool.IIterableTool;
 
 /**
  * @author Silvan Wyss
- * @version 2017-12-16
  */
 public final class IterableTool implements IIterableTool {
   /**

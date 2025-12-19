@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExami
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-30
  */
 public final class TableMutationExaminer implements ITableMutationExaminer {
   /**

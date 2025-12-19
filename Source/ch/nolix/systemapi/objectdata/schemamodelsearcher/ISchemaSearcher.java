@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public interface ISchemaSearcher {
   /**

@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalQualifiedNameHolder
  * removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2024-02-11
  */
 public interface IMutableOptionalQualifiedNameHolder extends IMutableOptionalNameHolder, IOptionalQualifiedNameHolder {
   //This interface is just an union of other interfaces.

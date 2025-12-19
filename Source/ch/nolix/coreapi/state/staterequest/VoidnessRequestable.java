@@ -4,7 +4,6 @@ package ch.nolix.coreapi.state.staterequest;
  * A {@link VoidnessRequestable} can be asked if it is void.
  * 
  * @author Silvan Wyss
- * @version 2022-03-10
  */
 public interface VoidnessRequestable {
   /**

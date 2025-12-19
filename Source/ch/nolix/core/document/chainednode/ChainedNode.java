@@ -23,7 +23,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link ChainedNode} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class ChainedNode //NOSONAR: A ChainedNode is a principal object thus it has many methods.
 implements IChainedNode {

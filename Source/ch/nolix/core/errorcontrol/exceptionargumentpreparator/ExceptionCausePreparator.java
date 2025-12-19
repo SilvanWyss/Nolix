@@ -4,7 +4,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator.IExceptionCause
 
 /**
  * @author Silvan Wyss
- * @version 2025-04-05
  */
 public final class ExceptionCausePreparator implements IExceptionCausePreparator {
   /**

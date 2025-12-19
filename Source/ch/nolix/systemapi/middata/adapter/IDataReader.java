@@ -12,7 +12,6 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
- * @version 2021-09-18
  */
 public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
   /**

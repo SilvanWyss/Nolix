@@ -16,7 +16,6 @@ import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss
- * @version 2021-07-11
  */
 public final class TableMutationValidator implements ITableMutationValidator {
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();

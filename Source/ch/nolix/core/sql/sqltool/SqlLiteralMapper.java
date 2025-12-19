@@ -6,7 +6,6 @@ import ch.nolix.coreapi.sql.syntax.SqlKeywordCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-28
  */
 public class SqlLiteralMapper implements ISqlLiteralMapper {
   /**

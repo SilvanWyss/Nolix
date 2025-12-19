@@ -9,7 +9,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2025-05-14
  * @param <E> is the type of the elements of a
  *            {@link MappingContainerViewIterator}.
  * @param <T> is the type of the elements a {@link MappingContainerViewIterator}

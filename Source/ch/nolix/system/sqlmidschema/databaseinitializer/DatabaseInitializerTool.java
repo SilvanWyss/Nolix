@@ -22,7 +22,6 @@ import ch.nolix.systemapi.time.moment.ITime;
  * A {@link DatabaseInitializerTool} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2025-01-18
  */
 public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
   private static final IDatabaseInitializationStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //

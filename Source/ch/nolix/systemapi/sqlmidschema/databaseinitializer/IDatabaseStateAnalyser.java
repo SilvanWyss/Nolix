@@ -5,7 +5,6 @@ import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-05
  */
 public interface IDatabaseStateAnalyser {
   /**

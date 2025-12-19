@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public final class EntityExaminer extends DatabaseObjectExaminer implements IEntityExaminer {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();

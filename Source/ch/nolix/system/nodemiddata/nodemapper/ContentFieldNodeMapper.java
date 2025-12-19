@@ -7,7 +7,6 @@ import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-21
  */
 public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
   /**

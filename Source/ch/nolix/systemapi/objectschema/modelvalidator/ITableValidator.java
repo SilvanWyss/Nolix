@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-30
  */
 public interface ITableValidator {
   /**

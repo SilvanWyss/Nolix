@@ -5,7 +5,6 @@ import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-31
  */
 public interface IDatabaseSchemaViewDtoMapper {
   /**

@@ -10,7 +10,6 @@ import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
  * Of the {@link CornerShadowToCssMapperHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-08-10
  */
 public final class CornerShadowToCssMapperHelper {
   private static final ICssValueMapper CSS_VALUE_MAPPER = new CssValueMapper();

@@ -4,7 +4,6 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-20
  */
 public interface IEntityCreator {
   /**

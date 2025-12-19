@@ -8,7 +8,6 @@ import ch.nolix.systemapi.sqlschema.modelmapper.IColumnDtoMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-10
  */
 public final class ColumnDtoMapper implements IColumnDtoMapper {
   /**

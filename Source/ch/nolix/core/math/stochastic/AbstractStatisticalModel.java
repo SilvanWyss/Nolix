@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2016-09-01
  */
 public abstract class AbstractStatisticalModel {
   private final int backStepCount;

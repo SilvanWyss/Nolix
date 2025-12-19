@@ -7,7 +7,6 @@ import ch.nolix.systemapi.style.model.IStyle;
  * its child elements.
  * 
  * @author Silvan Wyss
- * @version 2022-07-23
  * @param <E> is the type of a {@link IStyleElement}.
  */
 public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElement<E> {

@@ -5,7 +5,6 @@ import ch.nolix.systemapi.application.client.IBackendClient;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-11
  * @param <S> is the type of the application service of a {@link IApplication}.
  * @param <C> is the type of the {@link IBackendClient}s of a
  *            {@link IApplication}.

@@ -16,7 +16,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link ImmutableList} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2022-07-08
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends AbstractExtendedContainer<E> {

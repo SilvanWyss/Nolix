@@ -5,7 +5,6 @@ import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-14
  */
 public final class IncrementalCurrentTimeCreator implements IIncrementalCurrentTimeCreator {
   private ITime latestTime = Time.ofNow();

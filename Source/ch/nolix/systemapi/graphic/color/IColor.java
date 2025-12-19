@@ -9,7 +9,6 @@ import ch.nolix.systemapi.element.base.IElement;
  * integers in [0, 255].
  * 
  * @author Silvan
- * @version 2022-05-28
  */
 public interface IColor extends IElement {
   /**

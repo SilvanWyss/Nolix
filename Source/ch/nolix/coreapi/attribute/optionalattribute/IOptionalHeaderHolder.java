@@ -6,7 +6,6 @@ import java.util.Optional;
  * A {@link IOptionalHeaderHolder} can have a header.
  * 
  * @author Silvan Wyss
- * @version 2020-03-28
  */
 public interface IOptionalHeaderHolder {
   /**

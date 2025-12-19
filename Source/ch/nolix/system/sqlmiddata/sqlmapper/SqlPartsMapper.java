@@ -9,7 +9,6 @@ import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlPartsMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-28
  */
 public final class SqlPartsMapper implements ISqlPartsMapper {
   private static final ISqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();

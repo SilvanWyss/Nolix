@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.ILabelHolder;
  * set programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-10-25
  */
 public interface IMutableLabelHolder extends ILabelHolder {
   /**

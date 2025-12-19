@@ -16,7 +16,6 @@ import ch.nolix.systemapi.application.client.IClient;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <C> is the type of a {@link AbstractClient}.
  */
 public abstract class AbstractClient<C extends AbstractClient<C>> implements IClient {

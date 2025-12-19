@@ -9,7 +9,6 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
  * elements.
  * 
  * @author Silvan Wyss
- * @version 2024-01-30
  * @param <E> is the type of the elements of a {@link IArrayList}.
  */
 public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IContainer<E> {

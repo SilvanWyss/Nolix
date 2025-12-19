@@ -9,7 +9,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-18
  */
 public interface IContentFieldDtoMapper {
   /**

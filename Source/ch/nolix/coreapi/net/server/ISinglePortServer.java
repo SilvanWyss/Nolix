@@ -2,7 +2,6 @@ package ch.nolix.coreapi.net.server;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public interface ISinglePortServer {
   /**

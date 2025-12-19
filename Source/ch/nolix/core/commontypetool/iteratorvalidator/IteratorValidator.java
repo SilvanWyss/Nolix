@@ -9,7 +9,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2024-05-12
  */
 public final class IteratorValidator implements IIteratorValidator {
   //For a better performance, this implementation does not use all available comfort methods.

@@ -13,7 +13,6 @@ import ch.nolix.systemapi.element.property.IBaseValue;
 
 /**
  * @author Silvan Wyss
- * @version 2017-10-29
  * @param <V> is the type of the values of a {@link AbstractValue}.
  */
 public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {

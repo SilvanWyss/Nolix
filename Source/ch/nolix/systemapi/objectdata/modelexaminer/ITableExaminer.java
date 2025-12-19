@@ -6,7 +6,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-29
  */
 public interface ITableExaminer extends IDatabaseObjectExaminer {
   /**

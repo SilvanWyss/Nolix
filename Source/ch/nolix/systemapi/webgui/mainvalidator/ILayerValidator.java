@@ -4,7 +4,6 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-19
  */
 public interface ILayerValidator {
   /**

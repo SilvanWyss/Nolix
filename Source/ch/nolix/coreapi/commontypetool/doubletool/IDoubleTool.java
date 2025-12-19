@@ -4,7 +4,6 @@ package ch.nolix.coreapi.commontypetool.doubletool;
  * A {@link IDoubleTool} provides methods to handle doubles.
  * 
  * @author Silvan Wyss
- * @version 2022-07-22
  */
 public interface IDoubleTool {
   /**

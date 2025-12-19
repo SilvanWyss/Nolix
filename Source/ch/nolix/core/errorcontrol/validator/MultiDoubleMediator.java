@@ -10,7 +10,6 @@ import ch.nolix.core.independent.arraytool.ArrayTool;
  * A multi double mediator is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();

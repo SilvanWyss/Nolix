@@ -4,7 +4,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * Of the {@link ColumnColumnNameCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-05-12
  */
 public final class ColumnColumnNameCatalog {
   public static final String ID = "Id";

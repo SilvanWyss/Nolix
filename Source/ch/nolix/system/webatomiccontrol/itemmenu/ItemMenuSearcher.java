@@ -6,7 +6,6 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-10
  */
 public final class ItemMenuSearcher implements IItemMenuSearcher {
   /**

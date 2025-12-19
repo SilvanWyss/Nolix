@@ -13,7 +13,6 @@ import ch.nolix.coreapi.sql.model.ISqlRecord;
  * A {@link SqlRecord} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2024-12-28
  */
 public final class SqlRecord extends AbstractExtendedContainer<String> implements ISqlRecord {
   private final int memberOneBasedIndex;

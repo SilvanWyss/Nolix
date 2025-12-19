@@ -5,7 +5,6 @@ package ch.nolix.coreapi.errorcontrol.exceptionargumentpreparator;
  * argument names for {@link Exception}s.
  * 
  * @author Silvan Wyss
- * @version 2025-04-04
  */
 public interface IExceptionArgumentNamePreparator {
   /**

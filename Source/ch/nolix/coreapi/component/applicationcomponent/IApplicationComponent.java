@@ -4,7 +4,6 @@ package ch.nolix.coreapi.component.applicationcomponent;
  * A {@link IApplicationComponent} can belong to an application.
  * 
  * @author Silvan Wyss
- * @version 2024-12-14
  * @param <A> is the type of the application a {@link IApplicationComponent} can
  *            belong to.
  */

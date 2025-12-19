@@ -5,7 +5,6 @@ import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
- * @version 2023-10-14
  * @param <E> is the type of the elements a {@link Mappable}.
  */
 public interface Mappable<E> {

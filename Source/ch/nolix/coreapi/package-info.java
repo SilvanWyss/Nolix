@@ -3,6 +3,5 @@
  * example containers.
  * 
  * @author Silvan Wyss
- * @version 2022-06-24
  */
 package ch.nolix.coreapi;

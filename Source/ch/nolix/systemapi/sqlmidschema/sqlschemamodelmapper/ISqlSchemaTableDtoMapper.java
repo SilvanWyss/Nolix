@@ -4,7 +4,6 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-02
  */
 public interface ISqlSchemaTableDtoMapper {
   /**

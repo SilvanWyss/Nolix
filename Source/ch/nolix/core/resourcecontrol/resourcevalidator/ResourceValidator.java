@@ -11,7 +11,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
  * Of the {@link ResourceValidator} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2025-04-13
  */
 public final class ResourceValidator {
   /**

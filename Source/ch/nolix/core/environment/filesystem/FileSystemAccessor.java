@@ -23,7 +23,6 @@ import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
  * machine.
  * 
  * @author Silvan Wyss
- * @version 2017-07-14
  */
 public final class FileSystemAccessor {
   /**

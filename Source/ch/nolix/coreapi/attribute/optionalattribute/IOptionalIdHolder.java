@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalIdHolder} can have an id.
  * 
  * @author Silvan Wyss
- * @version 2020-01-05
  */
 public interface IOptionalIdHolder {
   /**

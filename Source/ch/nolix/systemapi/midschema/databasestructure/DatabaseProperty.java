@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss
- * @version 2021-08-25
  */
 public enum DatabaseProperty implements INameHolder {
   SCHEMA_TIMESTAMP(DatabasePropertyNameCatalog.SCHEMA_TIMESTAMP);

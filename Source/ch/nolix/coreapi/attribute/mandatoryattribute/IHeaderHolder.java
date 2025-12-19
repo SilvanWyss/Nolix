@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * A {@link IHeaderHolder} has a header.
  * 
  * @author Silvan Wyss
- * @version 2018-04-07
  */
 public interface IHeaderHolder {
   /**

@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirably deleted.
  * 
  * @author Silvan Wyss
- * @version 2021-07-12
  */
 @SuppressWarnings("serial")
 public final class DeletedArgumentException extends AbstractInvalidArgumentException {

@@ -16,7 +16,6 @@ import ch.nolix.coreapi.container.sequencesearch.ISequencePattern;
  * A {@link SequencePattern} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-10-01
  * @param <E> is the type of the elements of the sequences of a
  *            {@link SequencePattern}.
  */

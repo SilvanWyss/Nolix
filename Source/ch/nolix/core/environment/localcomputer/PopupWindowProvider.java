@@ -9,7 +9,6 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
  * windows. Of the {@link PopupWindowProvider} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2017-08-15
  */
 public final class PopupWindowProvider {
   private static final String ERROR_WINDOW_TITLE = "Error";

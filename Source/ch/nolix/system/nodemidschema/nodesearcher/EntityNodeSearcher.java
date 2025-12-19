@@ -5,7 +5,6 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IEntityNodeSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-25
  */
 public final class EntityNodeSearcher implements IEntityNodeSearcher {
   /**

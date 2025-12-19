@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2025-08-09
  */
 public enum Location {
   INSIDE,

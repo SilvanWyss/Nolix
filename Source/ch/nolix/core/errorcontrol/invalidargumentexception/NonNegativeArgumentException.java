@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirably not (!) negative.
  * 
  * @author Silvan Wyss
- * @version 2016-12-01
  */
 @SuppressWarnings("serial")
 public final class NonNegativeArgumentException extends AbstractInvalidArgumentException {

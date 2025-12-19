@@ -8,7 +8,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */
 final class LinkedListIterator<E> implements CopyableIterator<E> {

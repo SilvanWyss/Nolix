@@ -7,7 +7,6 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 
 /**
  * @author Silvan Wyss
- * @version 2025-09-14
  */
 public interface IColumnExaminer extends IDatabaseObjectExaminer {
   /**

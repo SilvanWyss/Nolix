@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * A {@link Mediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-12-01
  */
 abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 

@@ -4,7 +4,6 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 
 /**
  * @author Silvan Wyss
- * @version 2025-03-02
  */
 public interface IValueMapper {
   /**

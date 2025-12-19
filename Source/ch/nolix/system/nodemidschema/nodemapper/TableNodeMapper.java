@@ -10,7 +10,6 @@ import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2021-09-12
  */
 public final class TableNodeMapper implements ITableNodeMapper {
   /**

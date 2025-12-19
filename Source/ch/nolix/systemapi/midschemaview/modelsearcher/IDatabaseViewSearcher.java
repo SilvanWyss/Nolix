@@ -6,7 +6,6 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 
 /**
  * @author Silvan Wyss
- * @version 2025-06-19
  */
 public interface IDatabaseViewSearcher {
   /**

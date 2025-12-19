@@ -4,7 +4,6 @@ import ch.nolix.coreapi.commontypetool.charactertool.ICharacterTool;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class CharacterTool implements ICharacterTool {
   /**

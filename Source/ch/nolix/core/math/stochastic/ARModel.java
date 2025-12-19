@@ -6,7 +6,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2016-08-01
  */
 public final class ARModel extends AbstractStatisticalModel {
   private final double constant;

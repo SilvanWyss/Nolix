@@ -13,7 +13,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2024-01-30
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {

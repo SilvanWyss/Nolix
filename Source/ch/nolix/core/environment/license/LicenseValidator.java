@@ -9,7 +9,6 @@ import ch.nolix.coreapi.environment.licenseapi.ILicenseValidator;
  * A {@link LicenseValidator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2025-07-30
  */
 public final class LicenseValidator implements ILicenseValidator {
   /**

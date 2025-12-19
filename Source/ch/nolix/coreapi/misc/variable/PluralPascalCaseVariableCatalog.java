@@ -4,7 +4,6 @@ package ch.nolix.coreapi.misc.variable;
  * Of the {@link PluralPascalCaseVariableCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
- * @version 2018-04-26
  */
 public final class PluralPascalCaseVariableCatalog {
   public static final String ACTIONS = "Actions";

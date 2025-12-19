@@ -7,7 +7,6 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
 /**
  * @author Silvan Wyss
- * @version 2022-01-30
  */
 public final class PascalCaseTransformer {
   private PascalCaseTransformer() {

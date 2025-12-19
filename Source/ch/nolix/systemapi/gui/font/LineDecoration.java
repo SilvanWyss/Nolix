@@ -4,7 +4,6 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-08
  */
 public enum LineDecoration {
   UNDERLINE,

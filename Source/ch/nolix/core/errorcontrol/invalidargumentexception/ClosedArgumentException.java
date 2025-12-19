@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * an argument is undesirably closed.
  * 
  * @author Silvan Wyss
- * @version 2019-01-26
  */
 @SuppressWarnings("serial")
 public final class ClosedArgumentException extends AbstractInvalidArgumentException {

@@ -2,7 +2,6 @@ package ch.nolix.coreapi.net.endpoint2protocol;
 
 /**
  * @author Silvan Wyss
- * @version 2016-10-01
  */
 public enum MessageRole {
   TARGET_APPLICATION_MESSAGE(MessageRolePrefixCatalog.TARGET_APPLICATION_PREFIX),

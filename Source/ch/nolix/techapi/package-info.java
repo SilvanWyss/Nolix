@@ -3,6 +3,5 @@
  * example fractal builders.
  * 
  * @author Silvan Wyss
- * @version 2020-12-01
  */
 package ch.nolix.techapi;

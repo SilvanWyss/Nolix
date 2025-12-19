@@ -12,7 +12,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * A {@link ForCountMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2016-06-01
  */
 public final class ForCountMediator implements IForCountMediator {
   private final int maxRunCount;

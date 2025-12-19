@@ -4,7 +4,6 @@ import ch.nolix.coreapi.independent.iterabletool.IIterableExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-07
  */
 public final class IterableExaminer implements IIterableExaminer {
   /**

@@ -8,7 +8,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalCardinalityHolder;
  * programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-10-24
  */
 public interface IMutableOptionalCardinalityHolder extends IOptionalCardinalityHolder {
   /**

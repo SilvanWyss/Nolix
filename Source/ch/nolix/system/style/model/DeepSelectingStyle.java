@@ -14,7 +14,6 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class DeepSelectingStyle extends AbstractSelectingStyle {
   public static final String TYPE_NAME = "DeepSelectingStyle";

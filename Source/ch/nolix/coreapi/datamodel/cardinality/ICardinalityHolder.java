@@ -4,7 +4,6 @@ package ch.nolix.coreapi.datamodel.cardinality;
  * A {@link ICardinalityHolder} has a {@link Cardinality}.
  * 
  * @author Silvan Wyss
- * @version 2023-08-25
  */
 public interface ICardinalityHolder {
   /**

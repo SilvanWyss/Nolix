@@ -6,7 +6,6 @@ import ch.nolix.coreapi.document.xml.IXmlNode;
 
 /**
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public interface IElement {
   /**

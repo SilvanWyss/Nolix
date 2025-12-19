@@ -4,7 +4,6 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @version 2024-11-26
  * @param <E> is the type of the elements a {@link CountRequestable}.
  */
 public interface CountRequestable<E> {

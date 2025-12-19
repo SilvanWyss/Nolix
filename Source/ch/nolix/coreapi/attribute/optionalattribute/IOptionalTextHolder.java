@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.optionalattribute;
  * A {@link IOptionalTextHolder} can have a text.
  * 
  * @author Silvan Wyss
- * @version 2023-02-03
  */
 public interface IOptionalTextHolder {
   /**

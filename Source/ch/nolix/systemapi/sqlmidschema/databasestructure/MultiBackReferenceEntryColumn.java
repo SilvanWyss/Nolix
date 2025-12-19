@@ -4,7 +4,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss
- * @version 2024-02-13
  */
 public enum MultiBackReferenceEntryColumn implements INameHolder {
   ENTITY_ID(MultiBackReferenceEntryColumnNameCatalog.ENTITY_ID),

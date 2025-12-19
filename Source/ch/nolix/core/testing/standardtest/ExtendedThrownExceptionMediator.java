@@ -8,7 +8,6 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  * A {@link ExtendedThrownExceptionMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2018-12-09
  */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
   /**

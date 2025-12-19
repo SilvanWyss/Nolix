@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * An {@link ExtendedLongMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-11-12
  */
 public final class ExtendedLongMediator extends LongMediator {
   /**

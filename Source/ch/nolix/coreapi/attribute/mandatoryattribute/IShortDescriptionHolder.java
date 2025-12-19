@@ -4,7 +4,6 @@ package ch.nolix.coreapi.attribute.mandatoryattribute;
  * A {@link IShortDescriptionHolder} has a short description.
  * 
  * @author Silvan Wyss
- * @version 2025-08-15
  */
 public interface IShortDescriptionHolder {
   /**

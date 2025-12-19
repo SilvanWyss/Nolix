@@ -9,7 +9,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
 /**
  * @author Silvan Wyss
- * @version 2020-07-05
  */
 public final class CloseController implements ICloseController {
   private IClosePool parentClosePool;

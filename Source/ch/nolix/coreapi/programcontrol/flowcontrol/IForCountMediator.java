@@ -6,7 +6,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-27
  */
 public interface IForCountMediator {
   /**

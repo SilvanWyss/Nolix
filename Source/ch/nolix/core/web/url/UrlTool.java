@@ -6,7 +6,6 @@ import ch.nolix.coreapi.web.url.IUrlTool;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-09
  */
 public final class UrlTool implements IUrlTool {
   /**

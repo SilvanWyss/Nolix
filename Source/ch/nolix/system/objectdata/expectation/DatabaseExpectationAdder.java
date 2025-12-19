@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-05
  */
 public final class DatabaseExpectationAdder implements IDatabaseExpectationAdder {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();

@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2020-03-29
  * @param <H> is the type of a {@link IFluentMutableIdHolder}.
  */
 public interface IFluentMutableIdHolder<H> extends IIdHolder {

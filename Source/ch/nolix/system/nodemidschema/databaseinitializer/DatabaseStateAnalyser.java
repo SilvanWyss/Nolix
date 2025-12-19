@@ -8,7 +8,6 @@ import ch.nolix.systemapi.nodemidschema.nodeexaminer.INodeDatabaseExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2025-01-12
  */
 public final class DatabaseStateAnalyser implements IDatabaseStateAnalyser {
   private static final INodeDatabaseExaminer NODE_DATABASE_EXAMINER = new NodeDatabaseExaminer();

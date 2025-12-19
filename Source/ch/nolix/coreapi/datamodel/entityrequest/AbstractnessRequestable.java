@@ -5,7 +5,6 @@ package ch.nolix.coreapi.datamodel.entityrequest;
  * concrete.
  * 
  * @author Silvan Wyss
- * @version 2023-08-25
  */
 public interface AbstractnessRequestable {
   /**

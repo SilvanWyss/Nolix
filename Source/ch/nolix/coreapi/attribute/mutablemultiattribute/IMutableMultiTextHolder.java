@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTextHolder;
  * can be added and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-10-25
  */
 public interface IMutableMultiTextHolder extends IMultiTextHolder {
   /**

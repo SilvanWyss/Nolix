@@ -4,7 +4,6 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @version 2024-11-22
  * @param <E> is the type of the elements of the sequences of the
  *            {@link ISequencePattern} of a
  *            {@link ISequencePatternNextMediator}.

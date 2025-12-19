@@ -5,7 +5,6 @@ import ch.nolix.systemapi.application.basewebapplicationprotocol.RequestProtocol
 
 /**
  * @author Silvan Wyss
- * @version 2022-08-15
  */
 public final class RequestCreator {
   private RequestCreator() {

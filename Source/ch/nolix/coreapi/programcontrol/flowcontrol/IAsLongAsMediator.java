@@ -4,7 +4,6 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-13
  */
 public interface IAsLongAsMediator {
   /**

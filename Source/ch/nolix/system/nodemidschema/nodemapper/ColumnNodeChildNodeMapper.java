@@ -8,7 +8,6 @@ import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeChildNodeMapper;
 
 /**
  * @author Silvan Wyss
- * @version 2025-03-02
  */
 public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapper {
   /**

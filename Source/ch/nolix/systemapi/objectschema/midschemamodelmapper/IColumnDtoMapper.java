@@ -5,7 +5,6 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-18
  */
 public interface IColumnDtoMapper {
   /**

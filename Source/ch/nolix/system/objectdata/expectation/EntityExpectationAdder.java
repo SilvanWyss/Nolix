@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-05
  */
 public final class EntityExpectationAdder implements IEntityExpectationAdder {
   private static final IEntityExaminer ENTITY_EXAMINER = new EntityExaminer();

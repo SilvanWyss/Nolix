@@ -4,7 +4,6 @@ package ch.nolix.coreapi.state.staterequest;
  * A {@link EnablingRequestable} can be asked if it is enabled or disabled.
  * 
  * @author Silvan Wyss
- * @version 2020-10-02
  */
 public interface EnablingRequestable {
   /**

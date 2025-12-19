@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.multiattribute.IMultiTagHolder;
  * tags can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-11-07
  * @param <H> is the type of a {@link IFluentMutableMultiTagHolder}.
  */
 public interface IFluentMutableMultiTagHolder<H extends IFluentMutableMultiTagHolder<H>> extends IMultiTagHolder {

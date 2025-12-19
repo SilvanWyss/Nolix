@@ -13,7 +13,6 @@ import ch.nolix.systemapi.databaseobject.request.LoadingRequestable;
  * A {@link IDatabaseObject} can be connected with a real database.
  * 
  * @author Silvan Wyss
- * @version 2021-07-03
  */
 public interface IDatabaseObject
 extends

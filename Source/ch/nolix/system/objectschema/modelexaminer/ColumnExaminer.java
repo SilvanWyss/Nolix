@@ -10,7 +10,6 @@ import ch.nolix.systemapi.objectschema.modelexaminer.IColumnExaminer;
 
 /**
  * @author Silvan Wyss
- * @version 2024-12-30
  */
 public final class ColumnExaminer implements IColumnExaminer {
   /**

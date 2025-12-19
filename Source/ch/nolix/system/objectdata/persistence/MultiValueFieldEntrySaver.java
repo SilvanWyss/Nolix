@@ -9,7 +9,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IMultiValueFieldEntrySaver;
 
 /**
  * @author Silvan Wyss
- * @version 2025-11-02
  */
 public final class MultiValueFieldEntrySaver implements IMultiValueFieldEntrySaver {
   private static final IMultiValueEntryDtoMapper MULTI_VALUE_ENTRY_DTO_MAPPER = new MultiValueEntryDtoMapper();

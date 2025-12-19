@@ -23,7 +23,6 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  * around a JDK's {@link ZonedDateTime}.
  * 
  * @author Silvan Wyss
- * @version 2016-09-01
  */
 public final class Time //NOSONAR: A Time is a principal object thus it has many methods.
 extends AbstractElement implements ITime {

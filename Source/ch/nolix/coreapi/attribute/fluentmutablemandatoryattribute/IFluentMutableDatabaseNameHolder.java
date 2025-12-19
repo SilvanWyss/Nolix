@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
  * whose database name can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @version 2025-06-01
  * @param <H> is the type of a {@link IFluentMutableDatabaseNameHolder}.
  */
 public interface IFluentMutableDatabaseNameHolder<H extends IFluentMutableDatabaseNameHolder<H>>

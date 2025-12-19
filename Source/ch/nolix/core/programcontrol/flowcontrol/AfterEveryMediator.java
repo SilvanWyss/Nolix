@@ -13,7 +13,6 @@ import ch.nolix.coreapi.programcontrol.flowcontrol.IAfterEveryMediator;
  * A {@link AfterEveryMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @version 2017-01-01
  */
 public final class AfterEveryMediator implements IAfterEveryMediator {
   private final int timeIntervalInMilliseconds;

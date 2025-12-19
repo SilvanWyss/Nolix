@@ -16,7 +16,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
  * {@link Server}.
  * 
  * @author Silvan Wyss
- * @version 2017-05-06
  */
 public final class ServerListener extends AbstractWorker implements CloseStateRequestable {
   private static final SocketHandler SOCKET_HANDLER = new SocketHandler();

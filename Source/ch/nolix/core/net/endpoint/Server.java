@@ -20,7 +20,6 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
  * WebSocket.
  * 
  * @author Silvan Wyss
- * @version 2016-01-01
  */
 public final class Server extends AbstractServer {
   public static final String DEFAULT_INITIAL_HTTP_MESSAGE = //

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.datastructure.property.ILazyCalculatedProperty;
 
 /**
  * @author Silvan Wyss
- * @version 2025-07-07
  * @param <V> is the type of the value of a {@link LazyCalculatedProperty}.
  */
 public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<V> {

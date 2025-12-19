@@ -7,7 +7,6 @@ import ch.nolix.coreapi.attribute.optionalattribute.IOptionalLabelHolder;
  * label can be set and removed programmatically.
  * 
  * @author Silvan Wyss
- * @version 2023-10-25
  */
 public interface IMutableOptionalLabelHolder extends IOptionalLabelHolder {
   /**

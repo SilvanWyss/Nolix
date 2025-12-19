@@ -5,7 +5,6 @@ package ch.nolix.coreapi.state.staterequest;
  * elements.
  * 
  * @author Silvan Wyss
- * @version 2020-06-11
  */
 public interface EmptinessRequestable {
   /**

@@ -9,7 +9,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument is undesirably bigger than a given max.
  * 
  * @author Silvan Wyss
- * @version 2016-03-01
  */
 @SuppressWarnings("serial")
 public final class BiggerArgumentException extends AbstractInvalidArgumentException {

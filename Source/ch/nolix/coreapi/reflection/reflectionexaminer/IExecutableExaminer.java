@@ -4,7 +4,6 @@ import java.lang.reflect.Executable;
 
 /**
  * @author Silvan Wyss
- * @version 2025-02-08
  */
 public interface IExecutableExaminer {
   /**

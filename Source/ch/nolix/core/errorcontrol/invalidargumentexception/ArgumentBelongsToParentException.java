@@ -8,7 +8,6 @@ import ch.nolix.coreapi.errorcontrol.exceptionargumentbox.ErrorPredicateDto;
  * given argument belongs undesirably to a parent.
  * 
  * @author Silvan Wyss
- * @version 2019-10-01
  */
 @SuppressWarnings("serial")
 public final class ArgumentBelongsToParentException extends AbstractInvalidArgumentException {
