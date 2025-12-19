@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.net.netproperty;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum ConnectionType {
   LOCAL(BaseConnectionType.LOCAL),
   SOCKET(BaseConnectionType.NET),

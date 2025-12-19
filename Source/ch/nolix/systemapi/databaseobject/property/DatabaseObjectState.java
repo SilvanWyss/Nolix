@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.databaseobject.property;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum DatabaseObjectState {
   //not persisted in database
   NEW,

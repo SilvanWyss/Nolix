@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.datamodel.cardinality;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum Cardinality {
   TO_ONE(BaseCardinality.SINGLE),
   TO_ONE_OR_NONE(BaseCardinality.SINGLE),

@@ -4,6 +4,9 @@ import java.time.DayOfWeek;
 
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum Weekday {
   MONDAY,
   TUESDAY,

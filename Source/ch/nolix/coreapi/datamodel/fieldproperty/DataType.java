@@ -2,6 +2,9 @@ package ch.nolix.coreapi.datamodel.fieldproperty;
 
 import ch.nolix.coreapi.misc.dataobject.IBlob;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum DataType {
   INTEGER_1BYTE(Byte.class),
   INTEGER_2BYTE(Short.class),

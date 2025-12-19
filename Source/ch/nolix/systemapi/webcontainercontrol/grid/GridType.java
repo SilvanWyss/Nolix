@@ -2,6 +2,9 @@ package ch.nolix.systemapi.webcontainercontrol.grid;
 
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum GridType {
   INNER_LINES,
   INNER_AND_OUTER_LINES,

@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.commontypetool.charactertool;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum CharacterType {
   UPPER_CASE_LETTER,
   LOWER_CASE_LETTER,

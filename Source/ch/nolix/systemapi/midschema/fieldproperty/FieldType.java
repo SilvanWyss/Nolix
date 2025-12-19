@@ -3,6 +3,9 @@ package ch.nolix.systemapi.midschema.fieldproperty;
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum FieldType {
   VALUE_FIELD(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_ONE),
   OPTIONAL_VALUE_FIELD(BaseFieldType.BASE_VALUE_FIELD, Cardinality.TO_ONE_OR_NONE),

@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.net.endpointprotocol;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum MessageType {
   TARGET_MESSAGE(MessagePrefixCatalog.TARGET_MESSAGE),
   DEFAULT_TARGET_MESSAGE(MessagePrefixCatalog.DEFAULT_TARGET_MESSAGE),

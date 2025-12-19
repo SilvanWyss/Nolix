@@ -2,6 +2,9 @@ package ch.nolix.systemapi.time.timestructure;
 
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum Month {
   JANUARY,
   FEBRUARY,

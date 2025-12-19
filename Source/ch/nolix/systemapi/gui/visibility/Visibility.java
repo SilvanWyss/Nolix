@@ -2,6 +2,9 @@ package ch.nolix.systemapi.gui.visibility;
 
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum Visibility {
   VISIBLE,
   INVISIBLE;

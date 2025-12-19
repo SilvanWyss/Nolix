@@ -4,6 +4,9 @@ import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum DatabasePropertyColumn implements INameHolder {
   //'Key' is a reserved word in MSSQL databases.
   KEY("ValueKey"),

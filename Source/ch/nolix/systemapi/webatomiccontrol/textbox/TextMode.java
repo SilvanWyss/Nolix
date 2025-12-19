@@ -2,6 +2,9 @@ package ch.nolix.systemapi.webatomiccontrol.textbox;
 
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum TextMode {
   NORMAL,
   SECRET;

@@ -2,6 +2,9 @@ package ch.nolix.systemapi.webatomiccontrol.label;
 
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public enum LabelRole {
   TITLE,
   SUB_TITLE,
