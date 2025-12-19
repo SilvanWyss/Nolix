@@ -6,6 +6,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <N> is the type of the next thing of a {@link ToDatabaseNameCaptor}.
  */
 public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
   public ToDatabaseNameCaptor() {

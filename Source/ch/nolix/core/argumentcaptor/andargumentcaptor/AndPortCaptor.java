@@ -7,6 +7,7 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <N> is the type of the next thing of a {@link AndPortCaptor}.
  */
 public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
   public AndPortCaptor() {
