@@ -134,7 +134,7 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String toPascalCase(final String string) {
-    return new PascalCaseTransformer().toPascalCase(string);
+    return PascalCaseTransformer.toPascalCase(string);
   }
 
   /**

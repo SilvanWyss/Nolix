@@ -5,16 +5,23 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
+/**
+ * @author Silvan Wyss
+ * @version 2022-01-30
+ */
 public final class PascalCaseTransformer {
-  public String toPascalCase(final String string) {
+  private PascalCaseTransformer() {
+  }
+
+  public static String toPascalCase(final String string) {
     if (string.isEmpty()) {
       return StringCatalog.EMPTY_STRING;
     }
 
-    return toPascalCaseWhenStringIsNotEmpty(string);
+    return toPascalCaseWhenIsNotEmpty(string);
   }
 
-  private String toPascalCaseWhenStringIsNotEmpty(final String string) {
+  private static String toPascalCaseWhenIsNotEmpty(final String string) {
     final var stringBuilder = new StringBuilder();
 
     final var firstCharacter = string.charAt(0);
@@ -63,7 +70,7 @@ public final class PascalCaseTransformer {
     return stringBuilder.toString();
   }
 
-  private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(
+  private static char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndLowerCaseLetter(
     final char sourceCharacter,
     final char previousCharacter,
     final CharacterType previousCharacterType) {
@@ -76,7 +83,7 @@ public final class PascalCaseTransformer {
     return sourceCharacter;
   }
 
-  private char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndUpperCaseLetter(
+  private static char getTargetCharacterWhenSourceCharacterIsNotAtBeginAndUpperCaseLetter(
     final char sourceCharacter,
     final char previousCharacter,
     final CharacterType previousCharacterType) {
