@@ -28,6 +28,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   public static final String DEFAULT_DISPLAY_TEXT = StringCatalog.QUESTION_MARK;
 

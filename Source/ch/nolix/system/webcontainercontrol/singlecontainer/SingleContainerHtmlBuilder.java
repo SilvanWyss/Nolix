@@ -8,6 +8,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
   @Override
   public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {

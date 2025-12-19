@@ -18,6 +18,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Uploader extends Control<IUploader, IUploaderStyle> implements IUploader {
   private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
 

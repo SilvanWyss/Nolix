@@ -7,6 +7,9 @@ import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.core.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithSqlDatabaseEngineCaptor;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlConnectionPoolBuilder
 extends
 ForIpOrDomainCaptor< //

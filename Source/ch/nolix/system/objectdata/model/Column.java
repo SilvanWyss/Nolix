@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Column implements IColumn {
   private static final String DATA_TYPE_CLASS_VARIABLE = "data type class";
 

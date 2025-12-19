@@ -13,6 +13,9 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiBackReferenceEntry<E> {
   private static final IDatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 

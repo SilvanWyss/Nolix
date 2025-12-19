@@ -22,6 +22,9 @@ import ch.nolix.coreapi.net.endpoint.IEndPoint;
 import ch.nolix.coreapi.net.endpoint.SocketType;
 import ch.nolix.coreapi.net.endpointprotocol.MessageType;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SocketHandler {
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 

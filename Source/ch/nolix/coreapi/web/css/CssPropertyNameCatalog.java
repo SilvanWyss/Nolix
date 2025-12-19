@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.web.css;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CssPropertyNameCatalog {
   public static final String ALIGN_ITEMS = "align-items";
 

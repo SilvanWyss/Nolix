@@ -20,6 +20,9 @@ import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoM
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaTableDtoMapper;
 import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaWriter implements ISchemaWriter {
   private static final ISqlSchemaTableDtoMapper SQL_SCHEMA_TABLE_DTO_MAPPER = new SqlSchemaTableDtoMapper();
 

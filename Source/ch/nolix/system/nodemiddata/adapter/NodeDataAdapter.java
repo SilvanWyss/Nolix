@@ -8,6 +8,9 @@ import ch.nolix.system.nodemiddata.schemaviewmodelmapper.DatabaseSchemaViewDtoMa
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IDatabaseSchemaViewDtoMapper;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NodeDataAdapter extends AbstractDataAdapter {
   private static final IDatabaseSchemaViewDtoMapper DATABASE_SCHEMA_VIEW_DTO_MAPPER = new DatabaseSchemaViewDtoMapper();
 

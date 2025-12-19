@@ -11,6 +11,9 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class RunningJar {
   private RunningJar() {
   }

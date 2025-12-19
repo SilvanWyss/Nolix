@@ -5,6 +5,9 @@ import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
   @Override
   public String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(

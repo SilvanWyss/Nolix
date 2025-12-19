@@ -12,6 +12,9 @@ import ch.nolix.systemapi.sqlschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlSchemaAdapter implements ISchemaAdapter {
   private final ICloseController closeController = CloseController.forElement(this);
 

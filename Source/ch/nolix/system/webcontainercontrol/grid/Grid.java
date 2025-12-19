@@ -18,6 +18,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements IGrid {
   private static final String CELL_HEADER = PascalCaseVariableCatalog.CELL;
 

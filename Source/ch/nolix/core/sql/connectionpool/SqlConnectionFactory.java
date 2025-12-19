@@ -5,6 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseExcept
 import ch.nolix.core.sql.connection.AbstractSqlConnection;
 import ch.nolix.core.sql.connection.MsSqlConnection;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlConnectionFactory {
   public AbstractSqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {

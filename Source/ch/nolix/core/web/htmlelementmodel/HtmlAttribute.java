@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class HtmlAttribute implements IHtmlAttribute {
   private final String name;
 

@@ -1,5 +1,8 @@
 package ch.nolix.core.errorcontrol.validator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ExtendedTypeMediator<T> extends TypeMediator<T> {
   private ExtendedTypeMediator(final Class<T> argument) {
     super(argument);

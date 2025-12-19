@@ -8,6 +8,9 @@ import ch.nolix.core.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.coreapi.reflection.reflectiontool.IFieldTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FieldTool implements IFieldTool {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 

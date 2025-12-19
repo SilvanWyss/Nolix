@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 
+/**
+ * @author Silvan Wyss
+ */
 public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
   BigDecimalMediator(final BigDecimal argument) {
     //Calls constructor of the base class.

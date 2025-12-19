@@ -2,6 +2,9 @@ package ch.nolix.system.gui.iconresource;
 
 import ch.nolix.system.graphic.image.Image;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class IconCatalog {
   private static final String NOLIX_ICON_RESOURCE_PATH = "icon/nolix_icon.png";
 

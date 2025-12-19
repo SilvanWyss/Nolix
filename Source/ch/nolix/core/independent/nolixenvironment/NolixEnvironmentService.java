@@ -7,6 +7,9 @@ import java.nio.file.Path;
 
 import ch.nolix.coreapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NolixEnvironmentService {
   private NolixEnvironmentService() {
   }

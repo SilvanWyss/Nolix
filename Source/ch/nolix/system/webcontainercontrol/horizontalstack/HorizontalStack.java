@@ -9,6 +9,9 @@ import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStackSt
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class HorizontalStack //NOSONAR: A HorizontalStack is a LinearContainer.
 extends AbstractLinearContainer<IHorizontalStack, IHorizontalStackStyle>
 implements IHorizontalStack {

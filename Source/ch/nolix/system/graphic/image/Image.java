@@ -12,6 +12,9 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Image extends AbstractElement implements IImage {
   private final MutableImage internalImage;
 

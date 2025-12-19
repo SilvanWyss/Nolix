@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.application.basewebapplicationprotocol;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CommandProtocol {
   public static final String DELETE_COOKIE_BY_NAME = "DeleteCookieByName";
 

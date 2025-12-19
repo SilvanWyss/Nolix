@@ -9,6 +9,9 @@ import ch.nolix.systemapi.webatomiccontrol.link.ILink;
 import ch.nolix.systemapi.webatomiccontrol.link.ILinkStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILinkStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

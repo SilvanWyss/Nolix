@@ -2,6 +2,9 @@ package ch.nolix.core.web.htmlelementmodel;
 
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class HtmlElementStringRepresentator {
   public String toString(final IHtmlElement htmlElement) {
     if (!htmlElement.containsChildElements()) {

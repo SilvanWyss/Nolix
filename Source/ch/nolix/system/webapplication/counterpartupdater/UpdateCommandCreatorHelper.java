@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class UpdateCommandCreatorHelper {
   private UpdateCommandCreatorHelper() {
   }

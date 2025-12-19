@@ -4,6 +4,9 @@ import java.util.function.IntFunction;
 
 import ch.nolix.coreapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class PerformanceValidator {
   private PerformanceValidator() {
   }

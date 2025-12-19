@@ -4,6 +4,9 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
+/**
+ * @author Silvan Wyss
+ */
 public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
   @Override
   public boolean isNewOrDeleted(IDatabaseObject databaseObject) {

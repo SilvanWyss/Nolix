@@ -9,6 +9,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class HtmlElement implements IHtmlElement {
   private static final HtmlElementStringRepresentator HTML_ELEMENT_STRING_REPRESENTATOR = //
   new HtmlElementStringRepresentator();

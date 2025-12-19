@@ -4,6 +4,9 @@ import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.net.ssl.ISslCertificateKeyReader;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
   public String getKeyFromPemFileLines(final IContainer<String> pemFileLines) {
     final var keyLines = getKeyLinesFromPemFileLines(pemFileLines);

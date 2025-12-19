@@ -6,6 +6,9 @@ import java.util.function.IntFunction;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ComplexExplicitSequence extends AbstractSequence<IComplexNumber> {
   private final IntFunction<IComplexNumber> valueFunction;
 

@@ -3,6 +3,9 @@ package ch.nolix.system.objectdata.fieldexaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ValueFieldExaminer extends FieldExaminer implements IValueFieldExaminer {
   @Override
   public boolean canSetValue(final IValueField<?> valueField) {

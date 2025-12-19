@@ -5,6 +5,9 @@ import ch.nolix.core.independent.nolixenvironment.NolixEnvironmentService;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NolixConfigurationSSLCertificateReader {
   private static final String DEFAULT_SSL_CERTIFICATE_HEADER = "DefaultSSLCertificate";
 

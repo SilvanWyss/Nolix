@@ -5,6 +5,9 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ColumnMapper {
   private ColumnMapper() {
   }

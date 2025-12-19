@@ -9,6 +9,9 @@ import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MsSqlDataAdapterBuilder
 extends
 ToIpOrDomainCaptor< //

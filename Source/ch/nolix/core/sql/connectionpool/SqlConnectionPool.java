@@ -10,6 +10,9 @@ import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.sql.connection.ISqlDatabaseTarget;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlConnectionPool
 extends AbstractResourcePool<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlDatabaseTarget {

@@ -5,6 +5,9 @@ import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
   private final ISqlConnection sqlConnection;
 

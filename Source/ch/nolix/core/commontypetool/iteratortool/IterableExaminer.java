@@ -2,6 +2,9 @@ package ch.nolix.core.commontypetool.iteratortool;
 
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableExaminer;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class IterableExaminer implements IIterableExaminer {
   @Override
   public boolean containsAny(final Iterable<?> iterable) {

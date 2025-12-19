@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.application.main.AbstractSession;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends AbstractSession<C, S> {
   private final Class<?> clientClass;
 

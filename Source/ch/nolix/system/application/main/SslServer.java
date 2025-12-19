@@ -8,6 +8,9 @@ import ch.nolix.coreapi.net.ssl.ISslCertificate;
 import ch.nolix.coreapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SslServer extends AbstractServer<SslServer> {
   public static final int DEFAULT_PORT = PortCatalog.HTTPS;
 

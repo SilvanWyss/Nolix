@@ -8,6 +8,9 @@ import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableNodeSearcher implements ITableNodeSearcher {
   @Override
   public int getEntityNodeCountOfTableNode(final IMutableNode<?> tableNode) {

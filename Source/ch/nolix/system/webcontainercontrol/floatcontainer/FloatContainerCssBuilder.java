@@ -11,6 +11,9 @@ import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FloatContainerCssBuilder
 extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
   @Override

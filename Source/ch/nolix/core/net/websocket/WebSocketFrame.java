@@ -14,6 +14,9 @@ import ch.nolix.coreapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.coreapi.net.websocket.WebSocketFramePayloadLengthType;
 import ch.nolix.coreapi.net.websocket.WebSocketFrameType;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebSocketFrame {
   private static final int MASK_LENGTH_IN_BYTES = 4;
 

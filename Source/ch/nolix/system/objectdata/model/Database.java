@@ -14,6 +14,9 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Database implements IDatabase {
   private final IEntityTypeSet entityTypeSet;
 

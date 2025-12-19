@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMaterializedProperty<S, V> {
   private final V defaultValue;
 

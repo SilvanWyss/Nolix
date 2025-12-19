@@ -5,6 +5,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
   public AndPortCaptor() {
   }

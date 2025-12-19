@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BaseReferenceUpdater {
   private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 

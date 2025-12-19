@@ -2,6 +2,9 @@ package ch.nolix.coreapitest.attributeapi.mandatoryattributeapi;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MockNameHolder implements INameHolder {
   private final String name;
 

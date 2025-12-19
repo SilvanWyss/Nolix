@@ -3,6 +3,9 @@ package ch.nolix.system.objectschema.model;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableLoader {
   private TableLoader() {
   }

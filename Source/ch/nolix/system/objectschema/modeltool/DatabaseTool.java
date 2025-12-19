@@ -6,6 +6,9 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modeltool.IDatabaseTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabaseTool extends DatabaseObjectExaminer implements IDatabaseTool {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 

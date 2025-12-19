@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableValidator implements ITableValidator {
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
 

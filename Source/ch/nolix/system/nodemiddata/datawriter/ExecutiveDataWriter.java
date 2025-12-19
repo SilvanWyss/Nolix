@@ -12,6 +12,9 @@ import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ExecutiveDataWriter {
   private final IMutableNode<?> nodeDatabase;
 

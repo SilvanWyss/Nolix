@@ -24,6 +24,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
   public static final String DEFAULT_TEXT = StringCatalog.EMPTY_STRING;
 

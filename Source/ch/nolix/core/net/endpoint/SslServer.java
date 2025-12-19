@@ -4,6 +4,9 @@ import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SslServer extends AbstractServer {
   public static final String DEFAULT_HTML_PAGE = """
   <!DOCTYPE html>

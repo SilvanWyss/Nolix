@@ -9,6 +9,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   @Override
   public IHtmlElement createHtmlElementForControl(final IGrid control) {

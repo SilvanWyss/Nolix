@@ -7,6 +7,9 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.main.AbstractBackendClient;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MockBackendClient extends AbstractBackendClient<MockBackendClient, Object> {
   private IChainedNode latestRunHereCommand;
 

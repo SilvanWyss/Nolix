@@ -4,6 +4,9 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class UncloseableCloseController implements ICloseController {
   private static final UncloseableClosePool UNCLOSEABLE_CLOSE_POOL = new UncloseableClosePool();
 

@@ -9,6 +9,9 @@ import javax.imageio.ImageIO;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BufferedImageCreator {
   private BufferedImageCreator() {
   }

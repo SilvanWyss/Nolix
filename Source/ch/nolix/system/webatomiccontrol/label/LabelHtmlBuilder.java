@@ -6,6 +6,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
   @Override
   public IHtmlElement createHtmlElementForControl(final ILabel control) {

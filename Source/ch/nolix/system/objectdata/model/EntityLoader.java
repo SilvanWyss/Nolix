@@ -8,6 +8,9 @@ import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityLoader {
   private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
 

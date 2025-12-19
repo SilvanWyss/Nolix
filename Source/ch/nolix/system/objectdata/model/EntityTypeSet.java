@@ -9,6 +9,9 @@ import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityTypeSet implements IEntityTypeSet {
   public static final EntityTypeSet EMPTY_SCHEMA = new EntityTypeSet(ImmutableList.createEmpty());
 

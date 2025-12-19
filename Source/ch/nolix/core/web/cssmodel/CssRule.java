@@ -8,6 +8,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CssRule implements ICssRule {
   private final String selector;
 

@@ -6,6 +6,9 @@ import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<FloatContainer> {
   @Override
   public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {

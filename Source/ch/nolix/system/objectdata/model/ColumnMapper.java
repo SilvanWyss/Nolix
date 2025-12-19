@@ -6,6 +6,9 @@ import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ColumnMapper {
 
   private ColumnMapper() {

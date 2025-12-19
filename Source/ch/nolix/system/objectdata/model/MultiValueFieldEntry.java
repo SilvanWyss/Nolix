@@ -7,6 +7,9 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 

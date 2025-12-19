@@ -1,5 +1,8 @@
 package ch.nolix.system.application.mainresource;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ResourcePathCatalog {
   public static final String NOLIX_JS = "script/nolix.js";
 

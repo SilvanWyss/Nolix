@@ -2,6 +2,9 @@ package ch.nolix.core.errorcontrol.validator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
+/**
+ * @author Silvan Wyss
+ */
 public class ByteMediator extends Mediator {
   private final byte argument;
 

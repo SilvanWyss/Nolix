@@ -3,6 +3,9 @@ package ch.nolix.template.webgui.colormode;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ColorModeCatalog {
   public static final IStyle DARK_MODE = //
   new Style()

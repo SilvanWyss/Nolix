@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ReferenceValidator extends FieldValidator implements IReferenceValidator {
   private static final IReferenceExaminer REFERENCE_EXAMINER = new ReferenceExaminer();
 

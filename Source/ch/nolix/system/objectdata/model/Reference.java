@@ -26,6 +26,9 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 

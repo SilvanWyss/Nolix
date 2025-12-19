@@ -23,6 +23,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 

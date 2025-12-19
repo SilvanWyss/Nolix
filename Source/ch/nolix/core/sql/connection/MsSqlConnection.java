@@ -4,6 +4,9 @@ import java.sql.Connection;
 
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MsSqlConnection extends AbstractSqlConnection {
   public static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MSSQL;
 

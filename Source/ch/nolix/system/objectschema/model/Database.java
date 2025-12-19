@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Database extends AbstractSchemaObject implements IDatabase {
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();
 

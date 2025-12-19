@@ -4,6 +4,9 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiBackReferenceStateme
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntryColumn;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiBackReferenceStatementCreator implements IMultiBackReferenceStatementCreator {
   @Override
   public String createStatementToDeleteMultiBackReferenceEntries(

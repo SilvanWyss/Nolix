@@ -8,6 +8,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.programcontrol.flowcontrol.IAsSoonAsMediator;
 import ch.nolix.coreapi.programcontrol.future.IFuture;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class AsSoonAsMediator implements IAsSoonAsMediator {
   private final BooleanSupplier condition;
 

@@ -28,6 +28,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Button extends Control<IButton, IButtonStyle> implements IButton {
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 

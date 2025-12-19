@@ -8,6 +8,9 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();

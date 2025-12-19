@@ -1,5 +1,8 @@
 package ch.nolix.core.independent.stopwatch;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StopWatch {
   private long totalRunningTimeInMilliseconds;
 

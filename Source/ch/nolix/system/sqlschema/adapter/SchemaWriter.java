@@ -17,6 +17,9 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaWriter implements ISchemaWriter {
   private static final IStatementCreator STATEMENT_CREATOR = new StatementCreator();
 

@@ -5,6 +5,9 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableToolHelper {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 

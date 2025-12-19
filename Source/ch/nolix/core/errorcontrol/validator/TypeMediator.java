@@ -5,6 +5,9 @@ import java.lang.reflect.Modifier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   protected TypeMediator(final Class<T> argument) {
     super(LowerCaseVariableCatalog.TYPE, argument);

@@ -3,6 +3,9 @@ package ch.nolix.system.sqlmiddata.adapter;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MsSqlDataAdapter extends AbstractSqlDataAdapter {
   private MsSqlDataAdapter(final String databaseName, final ISqlConnection sqlConnection) {
     super(

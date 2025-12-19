@@ -24,6 +24,9 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {
   private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 

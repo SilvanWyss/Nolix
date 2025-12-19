@@ -5,6 +5,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.worker.AbstractWorker;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SocketEndPointMessageListener extends AbstractWorker {
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 

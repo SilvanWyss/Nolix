@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(

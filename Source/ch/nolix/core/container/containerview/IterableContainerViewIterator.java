@@ -5,6 +5,9 @@ import java.util.Iterator;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
   private final Iterable<E> parentIterable;
 

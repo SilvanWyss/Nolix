@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ColumnTool extends DatabaseObjectExaminer implements IColumnTool {
 
   @Override

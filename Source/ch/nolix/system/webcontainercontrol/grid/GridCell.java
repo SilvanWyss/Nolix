@@ -11,6 +11,9 @@ import ch.nolix.system.element.property.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class GridCell extends AbstractMutableElement implements Clearable {
   private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalog.ROW_INDEX;
 

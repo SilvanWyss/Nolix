@@ -7,6 +7,9 @@ import ch.nolix.system.nodemidschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.nodemidschema.schemareader.SchemaReader;
 import ch.nolix.system.nodemidschema.schemawriter.SchemaWriter;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
   private NodeSchemaAdapter(final IMutableNode<?> nodeDatabase) {
     super(

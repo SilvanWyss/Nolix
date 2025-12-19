@@ -5,6 +5,9 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CapitalSnakeCaseTransformer {
   public String toCapitalSnakeCase(final String string) {
     if (string.isEmpty()) {

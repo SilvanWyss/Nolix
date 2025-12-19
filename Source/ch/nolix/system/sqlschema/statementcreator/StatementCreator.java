@@ -7,6 +7,9 @@ import ch.nolix.systemapi.sqlschema.model.DataTypeDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StatementCreator implements IStatementCreator {
   @Override
   public String createStatementToAddColumn(final String tableName, final ColumnDto column) {

@@ -11,6 +11,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.systemapi.webatomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
   @Override
   public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {

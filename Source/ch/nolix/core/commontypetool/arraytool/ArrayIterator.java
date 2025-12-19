@@ -6,6 +6,9 @@ import ch.nolix.core.commontypetool.iteratorvalidator.IteratorValidator;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ArrayIterator<E> implements CopyableIterator<E> {
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
 

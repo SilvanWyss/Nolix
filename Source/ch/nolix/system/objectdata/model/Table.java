@@ -27,6 +27,9 @@ import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Table<E extends IEntity> implements ITable<E> {
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 

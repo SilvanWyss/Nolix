@@ -9,6 +9,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webatomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader> {
   @Override
   public IHtmlElement createHtmlElementForControl(final IUploader control) {

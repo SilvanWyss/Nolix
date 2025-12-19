@@ -5,6 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StateProperty<V> {
   private boolean hasValueOrDefinesEmpty;
 

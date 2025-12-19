@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
   private static final Runnable DEFAULT_JOB = FunctionService::doNothing;
 

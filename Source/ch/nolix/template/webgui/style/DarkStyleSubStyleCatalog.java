@@ -19,6 +19,9 @@ import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors LAYER_STYLE = //
   new DeepSelectingStyle()

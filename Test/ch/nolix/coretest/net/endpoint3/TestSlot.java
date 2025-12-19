@@ -3,6 +3,9 @@ package ch.nolix.coretest.net.endpoint3;
 import ch.nolix.coreapi.net.endpoint3.IEndPoint;
 import ch.nolix.coreapi.net.endpoint3.ISlot;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TestSlot implements ISlot {
   private TestReceivingDataProviderController latestCreatedReceivingDataProviderController;
 

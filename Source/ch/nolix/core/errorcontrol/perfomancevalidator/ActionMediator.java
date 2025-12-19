@@ -12,6 +12,9 @@ import ch.nolix.coreapi.errorcontrol.performanceanalysis.TimeComplexityFunctionC
 import ch.nolix.coreapi.errorcontrol.performancevalidation.IActionMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ActionMediator<O> implements IActionMediator {
   private static final IPerformanceAnalyzer PERFORMANCE_ANALYZER = new PerformanceAnalyzer();
 

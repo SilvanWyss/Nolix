@@ -18,6 +18,9 @@ import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DataReader implements IDataReader {
   private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
 

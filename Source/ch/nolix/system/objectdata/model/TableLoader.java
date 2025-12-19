@@ -9,6 +9,9 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableLoader {
   private TableLoader() {
   }

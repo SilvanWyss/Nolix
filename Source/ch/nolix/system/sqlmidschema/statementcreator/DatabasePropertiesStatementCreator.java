@@ -6,6 +6,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabasePropertiesStatementCreator implements IDatabasePropertiesStatementCreator {
   @Override
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {

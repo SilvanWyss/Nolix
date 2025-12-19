@@ -12,6 +12,9 @@ import ch.nolix.systemapi.gui.box.Direction;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BackgroundToCssMapperHelper {
   private static final ICssProperty TRANSPARENT_BACKGROUND_CSS_PROPERTY = //
   CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, "none");

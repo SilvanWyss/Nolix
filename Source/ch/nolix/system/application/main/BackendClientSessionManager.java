@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.programcontrol.flowcontrol.FlowController;
 import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
 

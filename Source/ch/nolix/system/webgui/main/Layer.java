@@ -33,6 +33,9 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
 extends AbstractStylableElement<Layer>
 implements ILayer<Layer> {

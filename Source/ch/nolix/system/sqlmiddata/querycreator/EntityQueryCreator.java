@@ -8,6 +8,9 @@ import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToCountEntities(final String tableName) {

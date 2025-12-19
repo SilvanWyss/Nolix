@@ -21,6 +21,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ValidationLabel
 extends Control<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {

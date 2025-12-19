@@ -5,6 +5,9 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N> {
   public ForNodeDatabaseCaptor() {
   }

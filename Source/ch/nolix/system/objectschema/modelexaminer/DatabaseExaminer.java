@@ -12,6 +12,9 @@ import ch.nolix.systemapi.objectschema.modelmutationexaminer.ITableMutationExami
 import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabaseExaminer implements IDatabaseExaminer {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 

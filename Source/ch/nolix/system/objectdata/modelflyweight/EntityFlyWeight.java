@@ -3,6 +3,9 @@ package ch.nolix.system.objectdata.modelflyweight;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityFlyWeight implements IEntityFlyWeight {
   private final Runnable insertAction;
 

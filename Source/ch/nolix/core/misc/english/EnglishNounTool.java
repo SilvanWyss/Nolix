@@ -5,6 +5,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.english.EnglishArticleCatalog;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EnglishNounTool {
   private static final EnglishWordEndExaminer ENGLISH_WORD_END_EXAMINER = new EnglishWordEndExaminer();
 

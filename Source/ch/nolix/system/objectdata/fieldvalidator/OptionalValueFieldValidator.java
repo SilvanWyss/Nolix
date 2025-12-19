@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class OptionalValueFieldValidator extends FieldValidator implements IOptionalValueFieldValidator {
   private static final IOptionalValueFieldExaminer OPTIONAL_VALUE_TOOL = new OptionalValueFieldExaminer();
 

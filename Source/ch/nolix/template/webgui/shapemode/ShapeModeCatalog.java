@@ -3,6 +3,9 @@ package ch.nolix.template.webgui.shapemode;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ShapeModeCatalog {
   public static final IStyle EDGE_STYLE = //
   new Style()

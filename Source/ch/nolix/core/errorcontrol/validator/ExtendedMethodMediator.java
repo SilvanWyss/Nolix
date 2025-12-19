@@ -2,6 +2,9 @@ package ch.nolix.core.errorcontrol.validator;
 
 import java.lang.reflect.Method;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ExtendedMethodMediator extends MethodMediator {
   private ExtendedMethodMediator(final Method argument) {
     super(argument);

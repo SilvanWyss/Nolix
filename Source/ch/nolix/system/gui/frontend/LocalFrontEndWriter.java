@@ -10,6 +10,9 @@ import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.programcontrol.processproperty.WriteMode;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LocalFrontEndWriter implements IFrontEndWriter {
   @Override
   public void openNewTabWithUrl(final String url) {

@@ -2,6 +2,9 @@ package ch.nolix.core.errorcontrol.validation;
 
 import ch.nolix.coreapi.errorcontrol.validation.IValidationResponse;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ValidationResponse implements IValidationResponse {
   public static final ValidationResponse OK_VALIDATION_RESPONSE = new ValidationResponse(true, "Ok");
 

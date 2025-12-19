@@ -22,6 +22,9 @@ import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityIndexNodeMapper;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityNodeMapper;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DataWriter implements IDataWriter {
   public static final int INITIAL_ENTITY_SAVE_STAMP = 0;
 

@@ -3,6 +3,9 @@ package ch.nolix.core.independent.list;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ListIterator<E> implements Iterator<E> {
   private ListNode<E> nextNode;
 

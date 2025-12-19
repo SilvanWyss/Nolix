@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.errormapping.StackTraceMapper;
 import ch.nolix.core.independent.list.ImmutableList;
 import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LogEntry {
   private static final StackTraceMapper STACK_TRACE_MAPPER = new StackTraceMapper();
 

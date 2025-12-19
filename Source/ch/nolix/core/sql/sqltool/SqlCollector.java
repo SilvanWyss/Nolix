@@ -7,6 +7,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.coreapi.sql.sqltool.ISqlCollector;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlCollector implements ISqlCollector {
   private final LinkedList<String> memberSqlStatements = LinkedList.createEmpty();
 

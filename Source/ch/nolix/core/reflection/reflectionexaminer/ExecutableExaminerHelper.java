@@ -2,6 +2,9 @@ package ch.nolix.core.reflection.reflectionexaminer;
 
 import java.lang.reflect.Executable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ExecutableExaminerHelper {
   private ExecutableExaminerHelper() {
   }

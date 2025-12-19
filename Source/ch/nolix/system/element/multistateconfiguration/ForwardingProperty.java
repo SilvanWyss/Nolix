@@ -6,6 +6,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
   private final IContainer<AbstractMaterializedProperty<S, V>> abstractMaterializedProperties;
 

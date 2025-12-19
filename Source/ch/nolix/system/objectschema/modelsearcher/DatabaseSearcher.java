@@ -8,6 +8,9 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabaseSearcher implements IDatabaseSearcher {
 
   private static final ITableTool TABLE_TOOL = new TableTool();

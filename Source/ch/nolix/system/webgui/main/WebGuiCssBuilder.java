@@ -12,6 +12,9 @@ import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebGuiCssBuilder {
   public Css createCssForWebGui(final IWebGui<?> webGui) {
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();

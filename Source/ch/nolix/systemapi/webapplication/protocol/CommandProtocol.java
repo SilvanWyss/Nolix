@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.webapplication.protocol;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CommandProtocol {
   public static final String SET_CSS = "SetCSS";
 

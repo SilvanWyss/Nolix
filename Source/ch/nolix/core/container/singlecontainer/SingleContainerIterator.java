@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SingleContainerIterator<E> implements CopyableIterator<E> {
   private E nullableElement;
 

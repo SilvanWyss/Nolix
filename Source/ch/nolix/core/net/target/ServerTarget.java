@@ -6,6 +6,9 @@ import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.target.IServerTarget;
 
+/**
+ * @author Silvan Wyss
+ */
 public class ServerTarget implements IServerTarget {
   private final String ipOrDomain;
 

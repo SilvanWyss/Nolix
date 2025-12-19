@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabelStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ValidationLabelCssBuilder
 extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   @Override

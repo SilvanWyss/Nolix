@@ -16,6 +16,9 @@ import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabasePropertiesState
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaDataWriter {
   private static final IDatabasePropertiesStatementCreator DATABASE_PROPERTIES_STATEMENT_CREATOR = //
   new DatabasePropertiesStatementCreator();

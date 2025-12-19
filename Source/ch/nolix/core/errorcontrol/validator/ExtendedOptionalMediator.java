@@ -2,6 +2,9 @@ package ch.nolix.core.errorcontrol.validator;
 
 import java.util.Optional;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ExtendedOptionalMediator<T> extends OptionalMediator<T> {
   private ExtendedOptionalMediator(
     final Optional<T> argument //NOSONAR: An Optional is the argument of an ExtendedOptionalMediator.

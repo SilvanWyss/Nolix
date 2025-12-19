@@ -5,6 +5,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.datastructure.pair.IKeyValuePair;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   private final K key;
 

@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 import ch.nolix.systemapi.objectschema.modeltool.ITableTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableTool extends DatabaseObjectExaminer implements ITableTool {
   private static final IColumnTool COLUMN_TOOL = new ColumnTool();
 

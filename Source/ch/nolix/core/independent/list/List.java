@@ -3,6 +3,9 @@ package ch.nolix.core.independent.list;
 import java.util.Iterator;
 import java.util.function.Function;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class List<E> implements Iterable<E> {
   private int elementCount;
 

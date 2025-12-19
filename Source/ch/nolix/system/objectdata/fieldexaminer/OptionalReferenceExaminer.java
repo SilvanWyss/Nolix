@@ -4,6 +4,9 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalReferenceExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class OptionalReferenceExaminer extends FieldExaminer implements IOptionalReferenceExaminer {
   @Override
   public <E extends IEntity> boolean canBeCleared(final IOptionalReference<E> optionalReference) {

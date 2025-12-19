@@ -8,6 +8,9 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class OptionalReferenceValidator extends FieldValidator implements IOptionalReferenceValidator {
   private static final IOptionalReferenceExaminer OPTIONAL_REFERENCE_EXAMINER = new OptionalReferenceExaminer();
 

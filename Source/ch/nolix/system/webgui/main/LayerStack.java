@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.ILayerStack;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LayerStack implements ILayerStack {
   private final IWebGui<?> parentGui;
 

@@ -7,6 +7,9 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override

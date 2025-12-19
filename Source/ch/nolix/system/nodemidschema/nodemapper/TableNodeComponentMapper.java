@@ -7,6 +7,9 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableNodeComponentMapper {
   private static final IColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 

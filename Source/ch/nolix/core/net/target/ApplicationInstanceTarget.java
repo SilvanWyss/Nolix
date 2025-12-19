@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 
+/**
+ * @author Silvan Wyss
+ */
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
   private final String applicationInstanceName;
 

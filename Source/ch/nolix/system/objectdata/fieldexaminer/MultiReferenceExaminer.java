@@ -4,6 +4,9 @@ import ch.nolix.systemapi.objectdata.fieldexaminer.IMultiReferenceExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiReferenceExaminer extends FieldExaminer implements IMultiReferenceExaminer {
   @Override
   public <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference) {

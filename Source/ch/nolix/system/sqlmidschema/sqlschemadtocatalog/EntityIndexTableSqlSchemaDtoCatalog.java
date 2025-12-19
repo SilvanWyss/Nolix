@@ -7,6 +7,9 @@ import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityIndexTableSqlSchemaDtoCatalog {
   private static final ColumnDto ENTITY_ID_SQL_SCHEMA_COLUMN_DTO = //
   new ColumnDto(EntityIndexColumn.ENTITY_ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());

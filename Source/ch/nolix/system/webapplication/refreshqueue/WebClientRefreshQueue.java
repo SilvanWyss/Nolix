@@ -14,6 +14,9 @@ import ch.nolix.system.webapplication.counterpartupdater.WebClientPartialCounter
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebClientRefreshQueue {
   private final BooleanSupplier openStateRequestable;
 

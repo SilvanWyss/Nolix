@@ -2,6 +2,9 @@ package ch.nolix.core.errorcontrol.validator;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BooleanMediator extends Mediator {
   private final boolean argument;
 

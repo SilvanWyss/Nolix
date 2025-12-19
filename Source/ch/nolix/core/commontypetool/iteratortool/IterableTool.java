@@ -3,6 +3,9 @@ package ch.nolix.core.commontypetool.iteratortool;
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableExaminer;
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class IterableTool {
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 

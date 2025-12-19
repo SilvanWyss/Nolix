@@ -4,6 +4,9 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.systemapi.element.base.IStructureElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StructureSpecificationCreator {
   public INode<?> getStructureSpecificationOfElement(final IStructureElement element) {
     final var header = getSpecificationHeaderOfElement(element);

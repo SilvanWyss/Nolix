@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.errorcontrol.validation.IOptionalMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implements IOptionalMediator {
   protected OptionalMediator(final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {

@@ -5,6 +5,9 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.coreapi.document.xml.IXmlAttribute;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class XmlAttribute implements IXmlAttribute {
   private final String name;
 

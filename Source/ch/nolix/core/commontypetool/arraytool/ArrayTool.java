@@ -3,6 +3,9 @@ package ch.nolix.core.commontypetool.arraytool;
 import ch.nolix.coreapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ArrayTool implements IArrayTool {
   @Override
   public <E> E[] createArrayWithElement(final E element, final @SuppressWarnings("unchecked") E... elements) {

@@ -4,6 +4,9 @@ import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public class WithIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
   public WithIpOrDomainCaptor() {
   }

@@ -9,6 +9,9 @@ import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStackStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer.
 extends AbstractLinearContainer<IVerticalStack, IVerticalStackStyle>
 implements IVerticalStack {

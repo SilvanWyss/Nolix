@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ControlFactoryUnit {
   private final LinkedList<Class<Control<?, ?>>> memberControlClasses = LinkedList.createEmpty();
 

@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.reflection.reflectiontool.IObjectTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ObjectTool implements IObjectTool {
   @Override
   public String getNameOfFirstFieldThatHasValue(final Object object, final Object value) {

@@ -10,6 +10,9 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
   private static final IOptionalValueFieldValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueFieldValidator();
 

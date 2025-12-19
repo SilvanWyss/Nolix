@@ -17,6 +17,9 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.time.moment.IIncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaWriter implements ISchemaWriter {
   private static final IIncrementalCurrentTimeCreator INCREMENTAL_CURRENT_TIME_CREATOR = //
   new IncrementalCurrentTimeCreator();

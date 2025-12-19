@@ -6,6 +6,9 @@ import ch.nolix.systemapi.objectdata.fieldtool.IOptionalReferenceTool;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class OptionalReferenceTool implements IOptionalReferenceTool {
   @Override
   public Optional<IBaseBackReference> getOptionalStoredBaseBackReference(

@@ -2,6 +2,9 @@ package ch.nolix.system.time.timevalidator;
 
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TimeValidator {
   private TimeValidator() {
   }

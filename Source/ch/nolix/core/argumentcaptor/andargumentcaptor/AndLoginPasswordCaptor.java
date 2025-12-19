@@ -4,6 +4,9 @@ import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public class AndLoginPasswordCaptor<N> extends ArgumentCaptor<String, N> {
   public AndLoginPasswordCaptor() {
   }

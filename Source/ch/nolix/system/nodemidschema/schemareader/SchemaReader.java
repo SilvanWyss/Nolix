@@ -20,6 +20,9 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaReader implements ISchemaReader {
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 

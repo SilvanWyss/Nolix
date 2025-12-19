@@ -7,6 +7,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {
   @Override
   public IHtmlElement createHtmlElementForControl(final IComponent control) {

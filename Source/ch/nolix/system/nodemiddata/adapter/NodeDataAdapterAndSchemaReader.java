@@ -6,6 +6,9 @@ import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAndSchemaReader {
   private final IMutableNode<?> nodeDatabase;
 

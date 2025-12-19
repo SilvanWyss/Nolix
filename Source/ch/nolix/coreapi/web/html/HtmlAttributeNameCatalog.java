@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.web.html;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class HtmlAttributeNameCatalog {
   public static final String ALT = "alt";
 

@@ -14,6 +14,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityStatementCreator implements IEntityStatementCreator {
   private static final ISqlPartsMapper SQL_PARTS_MAPPER = new SqlPartsMapper();
 

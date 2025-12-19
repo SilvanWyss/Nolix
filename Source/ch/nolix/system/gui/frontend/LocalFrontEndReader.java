@@ -19,6 +19,9 @@ import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LocalFrontEndReader implements IFrontEndReader {
   private static final JFileChooser FILE_CHOOSER;
 

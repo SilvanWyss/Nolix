@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediator;
 import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ByteArrayMediator implements IByteArrayMediator {
   private final byte[] byteArray;
 

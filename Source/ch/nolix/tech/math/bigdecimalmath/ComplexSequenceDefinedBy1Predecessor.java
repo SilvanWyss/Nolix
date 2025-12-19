@@ -8,6 +8,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ComplexSequenceDefinedBy1Predecessor
 extends AbstractSequence<IComplexNumber>
 implements ISequenceDefinedBy1Predecessor<IComplexNumber> {

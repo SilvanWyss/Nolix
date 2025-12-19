@@ -9,6 +9,9 @@ import ch.nolix.core.math.main.Calculator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ClosedInterval implements IClosedInterval {
   private final BigDecimal min;
 

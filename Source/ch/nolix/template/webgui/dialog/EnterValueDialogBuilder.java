@@ -17,6 +17,9 @@ import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   private static final String DEFAULT_INFO_TEXT = "Enter value";
 

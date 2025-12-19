@@ -2,6 +2,9 @@ package ch.nolix.core.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;
 
+/**
+ * @author Silvan Wyss
+ */
 public class AndSchemaCaptor<S, N> extends ArgumentCaptor<S, N> {
   public AndSchemaCaptor() {
   }

@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public class TimeMediator extends ArgumentMediator<ITime> {
   TimeMediator(final String argumentName, final ITime argument) {
     super(argumentName, argument);

@@ -7,6 +7,9 @@ import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WrapperSqlConnection
 extends AbstractWrapperResource<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlConnection {

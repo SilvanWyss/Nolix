@@ -7,6 +7,9 @@ import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DropdownMenuCssBuilder extends AbstractItemMenuCssBuilder<IDropdownMenu, IDropdownMenuStyle> {
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(

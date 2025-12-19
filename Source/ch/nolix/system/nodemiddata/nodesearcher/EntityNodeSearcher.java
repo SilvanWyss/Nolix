@@ -4,6 +4,9 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityNodeSearcher implements IEntityNodeSearcher {
   @Override
   public String getIdFromEntityNode(final IMutableNode<?> entityNode) {

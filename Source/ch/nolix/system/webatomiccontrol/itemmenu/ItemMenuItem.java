@@ -15,6 +15,9 @@ import ch.nolix.system.element.property.Value;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ItemMenuItem extends AbstractMutableElement implements IItemMenuItem<ItemMenuItem> {
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 

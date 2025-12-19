@@ -7,6 +7,9 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ContentModelNodeSearcher implements IContentModelNodeSearcher {
   @Override
   public IContainer<String> getBackReferenceableColumnIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {

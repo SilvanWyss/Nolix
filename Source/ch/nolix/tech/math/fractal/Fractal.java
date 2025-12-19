@@ -14,6 +14,9 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 import ch.nolix.techapi.math.fractal.IFractal;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Fractal implements IFractal {
   public static final Color CONVERGENCE_COLOR = X11ColorCatalog.BLACK;
 

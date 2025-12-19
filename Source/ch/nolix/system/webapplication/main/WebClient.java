@@ -18,6 +18,9 @@ import ch.nolix.systemapi.webatomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
 

@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {

@@ -17,6 +17,9 @@ import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   private static final String DEFAULT_VALUE_NAME = LowerCaseVariableCatalog.VALUE;
 

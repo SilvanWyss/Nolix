@@ -3,6 +3,9 @@ package ch.nolix.core.commontypetool.iteratortool;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.coreapi.commontypetool.iterabletool.IIterableTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class IterableToolUnit implements IIterableTool {
   @Override
   public int getCount(final Iterable<?> iterable) {

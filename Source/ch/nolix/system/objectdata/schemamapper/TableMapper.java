@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.schemamapper.ITableMapper;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableMapper implements ITableMapper {
   @Override
   public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {

@@ -7,6 +7,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MockStylableElement extends AbstractStylableElement<MockStylableElement> {
   private String memberRole;
 

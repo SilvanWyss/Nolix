@@ -6,6 +6,9 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.commontypetool.inputstreamtool.IInputStreamTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class InputStreamTool implements IInputStreamTool {
   /**
    * {@inheritDoc}

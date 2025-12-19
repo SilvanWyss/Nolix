@@ -16,6 +16,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColum
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
   @Override
   public String createStatementToAddBackReferenceableColumn(

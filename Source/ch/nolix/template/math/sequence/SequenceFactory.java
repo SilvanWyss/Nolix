@@ -5,6 +5,9 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SequenceFactory {
   private SequenceFactory() {
   }

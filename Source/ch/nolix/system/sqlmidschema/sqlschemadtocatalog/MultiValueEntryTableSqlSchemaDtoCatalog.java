@@ -8,6 +8,9 @@ import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiValueEntryTableSqlSchemaDtoCatalog {
   private static final ColumnDto MULTI_VALUE_COLUMN_COLUMN_SQL_DTO = //
   new ColumnDto(

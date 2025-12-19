@@ -3,6 +3,9 @@ package ch.nolix.system.objectschema.adapter;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
   public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 

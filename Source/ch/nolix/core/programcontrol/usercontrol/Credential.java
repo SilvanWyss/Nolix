@@ -3,6 +3,9 @@ package ch.nolix.core.programcontrol.usercontrol;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Credential {
   private final String loginName;
 

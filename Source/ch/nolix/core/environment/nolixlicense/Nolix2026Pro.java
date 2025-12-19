@@ -2,6 +2,9 @@ package ch.nolix.core.environment.nolixlicense;
 
 import ch.nolix.core.environment.license.License;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Nolix2026Pro extends License {
   //key = '45680060'
   @Override

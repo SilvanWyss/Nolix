@@ -14,6 +14,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webatomiccontrol.link.ILink;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {

@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.net.endpoint2protocol;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MessageRolePrefixCatalog {
   public static final char TARGET_APPLICATION_PREFIX = 'T';
 

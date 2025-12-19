@@ -20,6 +20,9 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class OptionalBackReference<E extends IEntity>
 extends AbstractBaseBackReference
 implements IOptionalBackReference<E> {

@@ -5,6 +5,9 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.dataobject.IBlob;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Blob implements IBlob {
   private final byte[] bytes;
 

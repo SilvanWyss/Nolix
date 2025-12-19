@@ -7,6 +7,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DropdownMenuHtmlBuilderHelper {
   private DropdownMenuHtmlBuilderHelper() {
   }

@@ -6,6 +6,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SslServerPage {
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalog.REQUIRE_JS);
 

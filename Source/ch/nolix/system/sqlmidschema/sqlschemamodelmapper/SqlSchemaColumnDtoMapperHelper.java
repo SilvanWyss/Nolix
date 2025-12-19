@@ -6,6 +6,9 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnConstraintDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlSchemaColumnDtoMapperHelper {
   private SqlSchemaColumnDtoMapperHelper() {
   }

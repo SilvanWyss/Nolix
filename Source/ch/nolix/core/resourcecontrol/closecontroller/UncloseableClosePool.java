@@ -6,6 +6,9 @@ import ch.nolix.coreapi.programcontrol.processproperty.CloseState;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.IClosePool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class UncloseableClosePool implements IClosePool {
   @Override
   public void addElements(final IContainer<GroupCloseable> elements) {

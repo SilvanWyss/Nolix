@@ -8,6 +8,9 @@ import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TestReceivingDataProviderController implements IDataProviderController {
   private IChainedNode latestReceivedCommand;
 

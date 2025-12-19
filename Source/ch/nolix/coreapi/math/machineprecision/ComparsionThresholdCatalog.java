@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.math.machineprecision;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ComparsionThresholdCatalog {
   public static final double COMMON_DOUBLE_COMPARSION_THRESHOLD = 0.000_001; //10E^6
 

@@ -6,6 +6,9 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabasePropertiesNodeSearcher implements IDatabasePropertiesNodeSearcher {
   @Override
   public String getDatabaseNameFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {

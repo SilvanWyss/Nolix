@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webcontainercontrol.grid.GridType;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class GridStyle extends AbstractControlStyle<IGridStyle> implements IGridStyle {
   public static final GridType DEFAULT_GRID_TYPE = GridType.INNER_LINES;
 

@@ -12,6 +12,9 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LayerCssBuilder {
   private LayerCssBuilder() {
   }

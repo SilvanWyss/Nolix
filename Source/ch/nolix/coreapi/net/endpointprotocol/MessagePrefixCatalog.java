@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.net.endpointprotocol;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MessagePrefixCatalog {
   public static final String TARGET_MESSAGE = "T";
 

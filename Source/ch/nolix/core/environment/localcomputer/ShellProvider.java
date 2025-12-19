@@ -12,6 +12,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ShellProvider {
   private ShellProvider() {
   }

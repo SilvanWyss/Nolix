@@ -8,6 +8,9 @@ import java.nio.file.StandardOpenOption;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.independent.nolixenvironment.NolixEnvironmentService;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FileLogHandler extends AbstractLogHandler {
   @Override
   protected void log(final LogEntry logEntry) {

@@ -2,6 +2,9 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends Application<C, S> {
   private final String applicationName;
 

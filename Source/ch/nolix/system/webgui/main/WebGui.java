@@ -38,6 +38,9 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.ILayerStack;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
 extends AbstractStyleElement<WebGui>
 implements IWebGui<WebGui> {

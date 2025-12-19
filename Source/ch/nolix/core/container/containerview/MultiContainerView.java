@@ -9,6 +9,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.container.list.IArrayList;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   private final IContainer<IContainer<E>> containers;
 

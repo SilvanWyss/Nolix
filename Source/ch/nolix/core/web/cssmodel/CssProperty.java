@@ -4,6 +4,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CssProperty implements ICssProperty {
   private final String name;
 

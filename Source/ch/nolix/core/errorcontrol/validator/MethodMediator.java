@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public class MethodMediator extends ArgumentMediator<Method> {
   protected MethodMediator(final Method argument) {
     super(LowerCaseVariableCatalog.METHOD, argument);

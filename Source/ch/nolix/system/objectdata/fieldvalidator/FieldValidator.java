@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
+/**
+ * @author Silvan Wyss
+ */
 public class FieldValidator implements IFieldValidator {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 

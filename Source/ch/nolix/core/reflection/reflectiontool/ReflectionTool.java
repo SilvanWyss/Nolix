@@ -14,6 +14,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ReflectionTool {
   private static final ClassTool CLASS_TOOL = new ClassTool();
 

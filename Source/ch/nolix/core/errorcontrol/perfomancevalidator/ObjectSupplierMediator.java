@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.errorcontrol.performancevalidation.IActionMediator;
 import ch.nolix.coreapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<O> {
   private final IntFunction<O> objectSupplier;
 

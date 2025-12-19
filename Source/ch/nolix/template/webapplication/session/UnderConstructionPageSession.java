@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
   private static final String CRANE_IMAGE_RESOURCE_PATH = "image/crane.jpg";
 

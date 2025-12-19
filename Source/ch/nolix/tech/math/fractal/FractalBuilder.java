@@ -13,6 +13,9 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 import ch.nolix.techapi.math.fractal.IFractalBuilder;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FractalBuilder implements IFractalBuilder {
   public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
 

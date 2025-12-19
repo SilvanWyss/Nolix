@@ -5,6 +5,9 @@ import java.util.Iterator;
 
 import ch.nolix.core.independent.arraytool.ArrayValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ImmutableList<E> implements Iterable<E> {
   private static final ArrayValidator ARRAY_VALIDATOR = new ArrayValidator();
 

@@ -6,6 +6,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.net.endpoint2.IEndPoint;
 import ch.nolix.coreapi.net.endpoint2.ISlot;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MockSlot implements ISlot {
   public static final String REPLY = "reply";
 

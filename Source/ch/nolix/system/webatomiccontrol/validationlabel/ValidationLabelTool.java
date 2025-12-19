@@ -7,6 +7,9 @@ import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabelTool;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ValidationLabelTool implements IValidationLabelTool {
   @Override
   public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {

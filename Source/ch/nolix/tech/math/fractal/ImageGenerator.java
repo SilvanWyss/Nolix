@@ -25,6 +25,9 @@ import ch.nolix.techapi.math.fractal.IFractal;
 import ch.nolix.techapi.math.fractal.IFractalTool;
 import ch.nolix.techapi.math.fractal.IImageGenerator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ImageGenerator extends AbstractFuture implements IImageGenerator {
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 

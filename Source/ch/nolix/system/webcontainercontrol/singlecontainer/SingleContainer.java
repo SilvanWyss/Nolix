@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SingleContainer
 extends AbstractContainer<ISingleContainer, ISingleContainerStyle>
 implements ISingleContainer {

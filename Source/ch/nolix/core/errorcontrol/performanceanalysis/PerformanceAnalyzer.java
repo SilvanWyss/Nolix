@@ -10,6 +10,9 @@ import ch.nolix.core.independent.stopwatch.RuntimeMeter;
 import ch.nolix.core.independent.stopwatch.StopWatch;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
   private static final RuntimeMeter RUNTIME_METER = new RuntimeMeter();
 

@@ -4,6 +4,9 @@ import java.util.function.Function;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ArraySorter {
   private ArraySorter() {
   }

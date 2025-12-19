@@ -29,6 +29,9 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MutableImage //NOSONAR: A MutableImage is a principal object thus it has many methods.
 extends AbstractMutableElement implements IMutableImage<MutableImage> {
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";

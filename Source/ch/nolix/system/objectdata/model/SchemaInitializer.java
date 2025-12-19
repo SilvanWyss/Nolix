@@ -14,6 +14,9 @@ import ch.nolix.systemapi.objectdata.schemamodelsearcher.ISchemaSearcher;
 import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaInitializer {
   private static final ISchemaSearcher SCHEMA_SEARCHER = new SchemaSearcher();
 

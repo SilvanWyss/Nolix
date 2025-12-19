@@ -6,6 +6,9 @@ import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MatrixRow<E> extends AbstractExtendedContainer<E> {
   private final Matrix<E> parentMatrix;
 

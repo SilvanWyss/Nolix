@@ -10,6 +10,9 @@ import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.datastructure.pair.IPair;
 import ch.nolix.systemapi.graphic.color.IColor;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class X11ColorCatalogExtractor {
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 

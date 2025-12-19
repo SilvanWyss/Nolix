@@ -5,6 +5,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.iterator.CopyableIterator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
   private final CopyableIterator<IContainer<E>> mainIterator;
 

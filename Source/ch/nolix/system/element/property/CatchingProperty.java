@@ -10,6 +10,9 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.property.IProperty;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CatchingProperty<V> implements IProperty, INameHolder {
   private final String name;
 

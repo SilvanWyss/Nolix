@@ -23,6 +23,9 @@ import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Background extends AbstractElement implements IBackground {
   public static final Background TRANSPARENT_BACKGROUND = new Background();
 

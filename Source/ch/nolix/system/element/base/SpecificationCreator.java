@@ -5,6 +5,9 @@ import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SpecificationCreator {
   private SpecificationCreator() {
   }

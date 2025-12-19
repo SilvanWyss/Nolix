@@ -1,5 +1,8 @@
 package ch.nolix.core.errorcontrol.logging;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StandardConsoleLogHandler extends AbstractLogHandler {
   @Override
   protected void log(final LogEntry logEntry) {

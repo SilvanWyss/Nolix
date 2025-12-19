@@ -12,6 +12,9 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiValueField<V> extends AbstractBaseValueField<V> implements IMultiValueField<V> {
   private static final DatabaseObjectExaminer DATABASE_OBJECT_TOOL = new DatabaseObjectExaminer();
 

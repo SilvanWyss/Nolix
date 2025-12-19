@@ -4,6 +4,9 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.graphic.image.MutableImage;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TextureCreator {
   private TextureCreator() {
   }

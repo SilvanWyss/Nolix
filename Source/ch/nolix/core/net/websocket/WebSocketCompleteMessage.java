@@ -9,6 +9,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.state.staterequest.CompletenessRequestable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebSocketCompleteMessage implements CompletenessRequestable {
   private boolean complete;
 

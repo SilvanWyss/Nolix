@@ -10,6 +10,9 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LayerHtmlBuilder {
   private LayerHtmlBuilder() {
   }

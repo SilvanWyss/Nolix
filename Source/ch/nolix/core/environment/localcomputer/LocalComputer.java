@@ -5,6 +5,9 @@ import java.net.UnknownHostException;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class LocalComputer {
   private LocalComputer() {
   }

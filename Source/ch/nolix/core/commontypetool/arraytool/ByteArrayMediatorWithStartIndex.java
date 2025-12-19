@@ -5,6 +5,9 @@ import ch.nolix.coreapi.commontypetool.arraytool.IByteArrayMediatorWithStartInde
 import ch.nolix.coreapi.commontypetool.arraytool.INextIndexMediator;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
   private final byte[] byteArray;
 

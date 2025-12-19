@@ -9,6 +9,9 @@ import ch.nolix.system.objectschema.adapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlmiddata.adapter.MsSqlDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MsSqlDataAdapter extends AbstractDataAdapter {
   private final IResourcePool<? extends ISqlConnection> sqlConnectionPool;
 

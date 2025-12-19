@@ -8,6 +8,9 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IValueFieldValidator;
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ValueField<V> extends AbstractBaseValueField<V> implements IValueField<V> {
   private static final IValueFieldValidator VALUE_VALIDATOR = new ValueFieldValidator();
 

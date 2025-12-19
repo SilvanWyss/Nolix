@@ -5,6 +5,9 @@ import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
 import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NodeDataAdapterBuilder
 extends ForNodeDatabaseCaptor<WithNameCaptor<AndSchemaCaptor<IEntityTypeSet, NodeDataAdapter>>> {
   private NodeDataAdapterBuilder() {

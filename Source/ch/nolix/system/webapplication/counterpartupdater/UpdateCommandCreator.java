@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class UpdateCommandCreator implements IUpdateCommandCreator {
   @Override
   public IChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {

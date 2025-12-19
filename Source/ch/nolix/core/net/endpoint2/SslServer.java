@@ -5,6 +5,9 @@ import ch.nolix.coreapi.net.endpoint2.ISlot;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SslServer extends AbstractServer {
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();

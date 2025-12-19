@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webatomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemapi.webatomiccontrol.imagecontrol.IImageControlStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ImageControlCssBuilder
 extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
   @Override

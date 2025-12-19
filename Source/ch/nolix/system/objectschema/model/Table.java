@@ -17,6 +17,9 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelmutationvalidator.ITableMutationValidator;
 import ch.nolix.systemapi.objectschema.modelvalidator.ITableValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Table extends AbstractSchemaObject implements ITable {
   private static final ITableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 

@@ -7,6 +7,9 @@ import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper {
   private static final ISqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();
 

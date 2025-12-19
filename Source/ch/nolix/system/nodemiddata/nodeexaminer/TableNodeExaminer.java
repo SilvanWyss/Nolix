@@ -6,6 +6,9 @@ import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableNodeExaminer implements ITableNodeExaminer {
   @Override
   public boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(

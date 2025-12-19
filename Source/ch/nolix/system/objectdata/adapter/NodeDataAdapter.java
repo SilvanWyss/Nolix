@@ -7,6 +7,9 @@ import ch.nolix.system.nodemiddata.adapter.NodeDataAdapterAndSchemaReader;
 import ch.nolix.system.objectschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NodeDataAdapter extends AbstractDataAdapter {
   private final IMutableNode<?> nodeDatabase;
 

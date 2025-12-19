@@ -4,6 +4,9 @@ import java.util.function.Consumer;
 
 import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EnterValueDialogBuilderHelper {
   private EnterValueDialogBuilderHelper() {
   }

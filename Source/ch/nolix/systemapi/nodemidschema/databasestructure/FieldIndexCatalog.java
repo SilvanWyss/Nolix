@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.nodemidschema.databasestructure;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FieldIndexCatalog {
   public static final int ID_INDEX = 1;
 

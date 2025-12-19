@@ -9,6 +9,9 @@ import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
 import ch.nolix.systemapi.webatomiccontrol.textbox.ITextboxStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox, ITextboxStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(

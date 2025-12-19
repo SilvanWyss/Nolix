@@ -3,6 +3,9 @@ package ch.nolix.system.webgui.controltool;
 import ch.nolix.systemapi.webgui.controltool.IControlAnalyser;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ControlAnalyser implements IControlAnalyser {
   @Override
   public boolean firstControlContainsSecondControl(

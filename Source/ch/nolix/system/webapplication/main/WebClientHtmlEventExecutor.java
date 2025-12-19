@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.RefreshTrigger;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebClientHtmlEventExecutor {
   public void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
     final IControl<?, ?> triggeredControl,

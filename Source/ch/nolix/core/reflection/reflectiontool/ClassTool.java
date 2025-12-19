@@ -9,6 +9,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.coreapi.reflection.reflectiontool.IClassTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ClassTool implements IClassTool {
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 

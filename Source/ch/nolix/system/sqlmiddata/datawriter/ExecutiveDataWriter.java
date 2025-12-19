@@ -17,6 +17,9 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiReferenceStatementCr
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreator;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ExecutiveDataWriter {
   private static final IEntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
 

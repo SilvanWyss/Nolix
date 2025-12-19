@@ -12,6 +12,9 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.modelmapper.ITableDtoMapper;
 import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SchemaReader implements ISchemaReader {
   private static final IQueryCreator QUERY_CREATOR = new QueryCreator();
 

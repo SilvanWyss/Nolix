@@ -7,6 +7,9 @@ import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVerticalStack> {
   @Override
   public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {

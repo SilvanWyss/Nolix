@@ -4,6 +4,9 @@ import ch.nolix.systemapi.style.model.IStyle;
 import ch.nolix.template.webgui.colormode.ColorModeCatalog;
 import ch.nolix.template.webgui.shapemode.ShapeModeCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StyleCatalog {
   public static final IStyle DARK_EDGE_STYLE = ColorModeCatalog.DARK_MODE.withStyle(ShapeModeCatalog.EDGE_STYLE);
 

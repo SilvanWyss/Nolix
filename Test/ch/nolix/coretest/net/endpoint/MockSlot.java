@@ -3,6 +3,9 @@ package ch.nolix.coretest.net.endpoint;
 import ch.nolix.coreapi.net.endpoint.IEndPoint;
 import ch.nolix.coreapi.net.endpoint.ISlot;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MockSlot implements ISlot {
   private String latestReceivedMessage;
 

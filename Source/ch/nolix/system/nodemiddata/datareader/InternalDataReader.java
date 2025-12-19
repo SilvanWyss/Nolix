@@ -23,6 +23,9 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class InternalDataReader {
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 

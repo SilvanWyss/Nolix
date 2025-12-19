@@ -7,6 +7,9 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.fractal.IFractal;
 import ch.nolix.techapi.math.fractal.IFractalTool;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FractalTool implements IFractalTool {
   @Override
   public BigDecimal getHeightInPixelAsBigDecimal(final IFractal fractal) {

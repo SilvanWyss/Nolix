@@ -12,6 +12,9 @@ import ch.nolix.coreapi.document.xml.IXmlAttribute;
 import ch.nolix.coreapi.document.xml.IXmlNode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MutableXmlNode implements IMutableXmlNode {
   private String memberName;
 

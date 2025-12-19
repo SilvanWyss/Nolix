@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainerStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class SingleContainerCssBuilder
 extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
   @Override

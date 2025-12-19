@@ -5,6 +5,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.cssmodel.ICss;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Css implements ICss {
   private final IContainer<CssRule> rules;
 

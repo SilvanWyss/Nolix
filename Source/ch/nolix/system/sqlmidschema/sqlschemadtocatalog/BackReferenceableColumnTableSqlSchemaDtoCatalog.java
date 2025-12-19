@@ -7,6 +7,9 @@ import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class BackReferenceableColumnTableSqlSchemaDtoCatalog {
   private static final ColumnDto PARENT_BASE_BACK_REFERENCE_COLUMN_ID_SQL_DTO = //
   new ColumnDto(

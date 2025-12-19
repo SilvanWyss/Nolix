@@ -7,6 +7,9 @@ import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TableTableSqlSchemaDtoCatalog {
   private static final ColumnDto ID_COLUMN_SQL_DTO = //
   new ColumnDto(

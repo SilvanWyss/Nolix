@@ -10,6 +10,9 @@ import ch.nolix.system.objectdata.model.AbstractField;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFieldExtractor;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity, AbstractField> {
   private static IContainer<AbstractField> extractStoredFieldsFromEntityWhenEntityIsNotNull(final IEntity entity) {
     final ILinkedList<AbstractField> fields = LinkedList.createEmpty();

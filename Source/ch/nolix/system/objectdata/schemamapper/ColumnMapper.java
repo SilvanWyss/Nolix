@@ -13,6 +13,9 @@ import ch.nolix.systemapi.objectdata.schemamapper.IColumnMapper;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ColumnMapper implements IColumnMapper {
 
   @Override

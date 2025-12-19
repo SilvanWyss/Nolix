@@ -3,6 +3,9 @@ package ch.nolix.core.errorcontrol.errormapping;
 import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.errorcontrol.errormapping.IErrorMessageExtractor;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class StackTraceMapper {
   private static final IErrorMessageExtractor ERROR_MESSAGE_EXTRACTOR = new ErrorMessageExtractor();
 

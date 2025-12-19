@@ -7,6 +7,9 @@ import ch.nolix.systemapi.objectdata.fieldvalidator.IMultiReferenceValidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IMultiReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class MultiReferenceValidator extends FieldValidator implements IMultiReferenceValidator {
   private static final IMultiReferenceExaminer MULTI_REFERENCE_EXAMINER = new MultiReferenceExaminer();
 

@@ -14,6 +14,9 @@ import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStackStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class VerticalStackCssBuilder
 extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   @Override

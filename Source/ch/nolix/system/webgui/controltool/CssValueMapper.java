@@ -3,6 +3,9 @@ package ch.nolix.system.webgui.controltool;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphic.color.IColor;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class CssValueMapper {
   private CssValueMapper() {
   }

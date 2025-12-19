@@ -12,6 +12,9 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 import ch.nolix.systemapi.objectschema.modelexaminer.IDatabaseExaminer;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class DatabaseValidator implements IDatabaseValidator {
   private static final IDatabaseExaminer DATABASE_EXAMINER = new DatabaseExaminer();
 

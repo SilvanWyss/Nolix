@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webatomiccontrol.button.IButton;
 import ch.nolix.systemapi.webatomiccontrol.button.IButtonStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, IButtonStyle> {
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

@@ -2,6 +2,9 @@ package ch.nolix.template.graphic.texture;
 
 import ch.nolix.system.graphic.image.Image;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class TextureCatalog {
   public static final Image CONCRETE_TEXTURE = TextureCreator.createConcreteTexture();
 

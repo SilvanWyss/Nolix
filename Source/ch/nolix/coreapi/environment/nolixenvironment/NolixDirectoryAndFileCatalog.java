@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.environment.nolixenvironment;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class NolixDirectoryAndFileCatalog {
   private static final String APP_DATA = "APPDATA";
 

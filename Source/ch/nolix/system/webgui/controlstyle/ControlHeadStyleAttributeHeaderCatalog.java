@@ -2,6 +2,9 @@ package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class ControlHeadStyleAttributeHeaderCatalog {
   public static final String OPACITY_HEADER = PascalCaseVariableCatalog.OPACITY;
 

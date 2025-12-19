@@ -3,6 +3,9 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class FieldMapper {
   private FieldMapper() {
   }

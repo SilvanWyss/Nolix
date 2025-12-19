@@ -22,6 +22,9 @@ import ch.nolix.systemapi.objectschema.modeleditor.IColumnEditor;
 import ch.nolix.systemapi.objectschema.modeltool.IColumnTool;
 import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Column extends AbstractSchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
 

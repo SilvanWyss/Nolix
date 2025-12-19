@@ -3,6 +3,9 @@ package ch.nolix.core.errorcontrol.logging;
 import ch.nolix.core.independent.list.List;
 import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class Logger {
   //static attribute
   private static boolean active = true;

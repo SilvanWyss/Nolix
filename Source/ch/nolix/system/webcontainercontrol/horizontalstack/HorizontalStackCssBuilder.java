@@ -14,6 +14,9 @@ import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
 import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStackStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class HorizontalStackCssBuilder
 extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
   @Override

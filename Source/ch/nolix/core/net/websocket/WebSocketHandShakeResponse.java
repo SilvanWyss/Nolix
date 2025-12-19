@@ -8,6 +8,9 @@ import java.util.Base64;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 
+/**
+ * @author Silvan Wyss
+ */
 public final class WebSocketHandShakeResponse {
   public static final String WEB_SOCKET_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 
