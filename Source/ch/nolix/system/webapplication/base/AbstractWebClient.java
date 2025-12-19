@@ -16,11 +16,7 @@ import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
 extends AbstractBackendClient<C, S>
 implements ICookieManager {
-  private static final ClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
-  new ClientCommandCreator();
-
-  private static final RequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
-  new RequestCreator();
+  private static final ClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = new ClientCommandCreator();
 
   private final FileReader fileReader = FileReader.forBackendWebClient(this);
 
@@ -33,15 +29,14 @@ implements ICookieManager {
 
   @Override
   public final Optional<String> getOptionalCookieValueByCookieName(final String cookieName) {
-    final var getCookieValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
-      .createGetCookieValueRequestForCookieName(cookieName);
+    final var getCookieValueRequest = RequestCreator.createGetCookieValueRequestForCookieName(cookieName);
 
     return getOptionalCookieValueByCookieNameFromData(getDataFromCounterpart(getCookieValueRequest));
   }
 
   public final Optional<String> getOptionalUrlParameterValueByUrlParameterName(final String urlParameterName) {
-    final var getUrlParameterValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
-      .createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
+    final var getUrlParameterValueRequest = //
+    RequestCreator.createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
 
     final var urlParameterValueReply = getDataFromCounterpart(getUrlParameterValueRequest);
 
@@ -73,7 +68,7 @@ implements ICookieManager {
   }
 
   final String internalGetTextFromClipboardOfCounterpart() {
-    final var getTextFromClipBoardCommand = BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetTextFromClipboardRequest();
+    final var getTextFromClipBoardCommand = RequestCreator.createGetTextFromClipboardRequest();
 
     return getDataFromCounterpart(getTextFromClipBoardCommand).getHeader();
   }
