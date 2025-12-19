@@ -9,7 +9,7 @@ import ch.nolix.coreapi.datastructure.pair.IPair;
  * 
  * @author Silvan Wyss
  * @param <E1> is the type of the element 1 of a {@link Pair}.
- * @param <T> is the type of the element 2 of a {@link Pair}.
+ * @param <T>  is the type of the element 2 of a {@link Pair}.
  */
 public final class Pair<E1, T> implements IPair<E1, T> {
   private final E1 element1;

@@ -10,7 +10,7 @@ import java.util.function.Function;
 public interface Mappable<E> {
   /**
    * @param mapper
-   * @param <T>   is the type of the elements the given mapper maps from the
+   * @param <T>    is the type of the elements the given mapper maps from the
    *               elements of the current {@link Mappable}.
    * @return a new {@link IContainer} with the elements the given mapper maps from
    *         the elements of the current {@link Mappable}.
@@ -22,7 +22,7 @@ public interface Mappable<E> {
 
   /**
    * @param multipleMapper
-   * @param <T>           is the type of the elements of the {@link IContainer}s
+   * @param <T>            is the type of the elements of the {@link IContainer}s
    *                       the given multipleMapper maps from the elements of the
    *                       current {@link Mappable}.
    * @return a new {@link IContainer} with the elements of the {@link IContainer}s
@@ -53,7 +53,7 @@ public interface Mappable<E> {
 
   /**
    * @param mapper
-   * @param <T>   is the type of the elements the given mapper maps from the
+   * @param <T>    is the type of the elements the given mapper maps from the
    *               elements of the current {@link Mappable} and from the one-based
    *               index of these elements.
    * @return a new {@link IContainer} with the elements the given mapper maps from

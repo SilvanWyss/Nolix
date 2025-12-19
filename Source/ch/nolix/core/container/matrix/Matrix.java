@@ -46,7 +46,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
   /**
    * @param matrix
-   * @param <T>   is the type of the elements of the given matrix.
+   * @param <T>    is the type of the elements of the given matrix.
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
   public static <T> Matrix<T> fromMatrix(final IMatrix<T> matrix) {

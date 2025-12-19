@@ -48,7 +48,7 @@ implements IComponent {
     if (childControl == null) {
       return ImmutableList.createEmpty();
     }
-  
+
     return ImmutableList.withElements(childControl);
   }
 

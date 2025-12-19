@@ -1978,7 +1978,7 @@ implements IContainer<E> {
 
   /**
    * @param marker
-   * @param <T>   is the type of the elements the created {@link ILinkedList} can
+   * @param <T>    is the type of the elements the created {@link ILinkedList} can
    *               contain.
    * @return a new empty {@link ILinkedList}.
    */

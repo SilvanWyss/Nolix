@@ -39,7 +39,7 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
   /**
    * @param iterator
    * @param mapper
-   * @param <T>     is the type of the elements of the created
+   * @param <T>      is the type of the elements of the created
    *                 {@link MappingContainerViewIterator}.
    * @param <T2>     is the type of the elements the created
    *                 {@link MappingContainerViewIterator} maps from its elements.

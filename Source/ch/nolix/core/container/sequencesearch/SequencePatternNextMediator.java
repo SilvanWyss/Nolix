@@ -46,7 +46,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * 
    * @param sequencePattern
    * @param count
-   * @param <T>            is the type of the elements of the sequences of the
+   * @param <T>             is the type of the elements of the sequences of the
    *                        {@link ISequencePattern} of the
    *                        {@link ISequencePatternNextMediator}.
    * @throws ArgumentIsNullException   if the sequencePattern is null.

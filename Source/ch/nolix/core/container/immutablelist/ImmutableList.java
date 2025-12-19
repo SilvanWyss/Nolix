@@ -148,7 +148,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
 
   /**
    * @param elements
-   * @param <T>     is the type of the given elements.
+   * @param <T>      is the type of the given elements.
    * @return a new {@link ImmutableList} with the given elements.
    * @throws ArgumentIsNullException if the given elements is null.
    * @throws ArgumentIsNullException if one of the given elements is null.

@@ -82,7 +82,7 @@ public interface SingleSearchable<E> {
 
   /**
    * @param type
-   * @param <T> is the given type.
+   * @param <T>  is the given type.
    * @return the first element from the current {@link SingleSearchable} that is
    *         of the given type.
    * @throws RuntimeException if the given type is null.

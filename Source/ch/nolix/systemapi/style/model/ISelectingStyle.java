@@ -3,8 +3,8 @@ package ch.nolix.systemapi.style.model;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
- * A {@link ISelectingStyle} is a {@link IBaseStyle} that can select or skip
- * a {@link IStylableElement} that is given to be styled.
+ * A {@link ISelectingStyle} is a {@link IBaseStyle} that can select or skip a
+ * {@link IStylableElement} that is given to be styled.
  * 
  * @author Silvan Wyss
  * @param <S> is the type of a {@link ISelectingStyle}.

@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 public interface Filterable<E> {
   /**
    * @param type
-   * @param <T> is the type of the elements of the returned {@link IContainer}.
+   * @param <T>  is the type of the elements of the returned {@link IContainer}.
    * @return a new {@link IContainer} with the elements from the current
    *         {@link Filterable} that are of the given type. Ignores null elements.
    * @throws RuntimeException if the given type is null.

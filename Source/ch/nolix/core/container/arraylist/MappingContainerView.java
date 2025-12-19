@@ -40,7 +40,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
   /**
    * @param container
    * @param mapper
-   * @param <T>      is the type of the elements of the created
+   * @param <T>       is the type of the elements of the created
    *                  {@link MappingContainerView}.
    * @param <T2>      is the type of the elements the created
    *                  {@link MappingContainerView} maps from its elements.
