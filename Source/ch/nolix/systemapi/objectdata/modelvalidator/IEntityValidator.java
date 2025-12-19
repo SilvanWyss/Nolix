@@ -3,6 +3,9 @@ package ch.nolix.systemapi.objectdata.modelvalidator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IEntityValidator {
   void assertBelongsToTable(IEntity entity);
 

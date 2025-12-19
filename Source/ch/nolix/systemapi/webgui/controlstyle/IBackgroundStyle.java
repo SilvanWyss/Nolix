@@ -7,6 +7,9 @@ import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {
   IBackground getBackgroundWhenHasState(ControlState state);
 

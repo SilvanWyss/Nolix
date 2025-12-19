@@ -7,6 +7,9 @@ import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
   String getAlternateText();
 

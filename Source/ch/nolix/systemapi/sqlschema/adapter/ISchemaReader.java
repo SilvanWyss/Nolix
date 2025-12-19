@@ -4,6 +4,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISchemaReader extends GroupCloseable {
   boolean columnIsEmpty(String tableName, String columnName);
 

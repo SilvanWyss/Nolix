@@ -12,6 +12,9 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 import ch.nolix.systemapi.gui.model.IGui;
 import ch.nolix.systemapi.style.stylable.IStyleElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHolder<G>, IGui<G>, IStyleElement<G> {
   boolean containsControl(IControl<?, ?> control);
 

@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.commontypetool.arraytool;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IArrayTool {
   <E> E[] createArrayWithElement(E element, @SuppressWarnings("unchecked") E... elements);
 

@@ -6,6 +6,9 @@ import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IDatabaseNameHolder, IResettableChangeSaver {
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 

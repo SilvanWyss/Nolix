@@ -4,6 +4,9 @@ import java.util.function.Consumer;
 
 import ch.nolix.coreapi.net.baseendpoint.IBaseEndPoint;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IEndPoint extends IBaseEndPoint {
   boolean hasReceiver();
 

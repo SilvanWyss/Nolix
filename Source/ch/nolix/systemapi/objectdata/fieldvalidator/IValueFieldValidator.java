@@ -2,6 +2,9 @@ package ch.nolix.systemapi.objectdata.fieldvalidator;
 
 import ch.nolix.systemapi.objectdata.model.IValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IValueFieldValidator extends IFieldValidator {
   void assertCanSetValue(IValueField<?> valueField, Object value);
 }

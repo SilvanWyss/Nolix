@@ -2,6 +2,9 @@ package ch.nolix.coreapi.attribute.mutableoptionalattribute;
 
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalValueHolder;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IMutableOptionalValueHolder<V> extends IOptionalValueHolder<V> {
   void removeValue();
 

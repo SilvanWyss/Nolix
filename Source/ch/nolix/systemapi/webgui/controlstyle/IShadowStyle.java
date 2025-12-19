@@ -4,6 +4,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IShadowStyle<S extends IShadowStyle<S>> {
   IContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(ControlState state);
 

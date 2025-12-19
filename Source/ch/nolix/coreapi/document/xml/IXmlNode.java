@@ -4,6 +4,9 @@ import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableO
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalValueHolder;
 import ch.nolix.coreapi.container.base.IContainer;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IXmlNode<N extends IXmlNode<N>>
 extends IFluentMutableOptionalNameHolder<N>, IOptionalValueHolder<String> {
   IContainer<IXmlAttribute> getAttributes();

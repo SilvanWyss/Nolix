@@ -2,6 +2,9 @@ package ch.nolix.systemapi.objectdata.fieldvalidator;
 
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IMultiValueFieldValidator extends IFieldValidator {
   <V> void assertCanAddValue(IMultiValueField<V> multiValueField, V value);
 

@@ -2,6 +2,9 @@ package ch.nolix.techapi.math.bigdecimalmath;
 
 import java.math.BigDecimal;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IComplexNumber extends Comparable<IComplexNumber> {
   IComplexNumber getConjugate();
 

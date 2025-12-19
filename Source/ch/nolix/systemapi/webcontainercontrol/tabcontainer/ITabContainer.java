@@ -5,6 +5,9 @@ import java.util.function.Consumer;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabelStyle;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITabContainer
 extends ch.nolix.systemapi.webcontainercontrol.container.IContainer<ITabContainer, ITabContainerStyle> {
   ITabContainer addTab(ITabContainerTab tab, ITabContainerTab... tabs);

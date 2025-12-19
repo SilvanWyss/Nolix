@@ -3,6 +3,9 @@ package ch.nolix.systemapi.databaseobject.modelvalidator;
 import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IDatabaseObjectValidator extends IResourceValidator {
   void assertIsConnectedWithRealDatabase(IDatabaseObject databaseObject);
 

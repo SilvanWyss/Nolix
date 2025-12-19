@@ -9,6 +9,9 @@ import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITable
 extends
 Deletable,

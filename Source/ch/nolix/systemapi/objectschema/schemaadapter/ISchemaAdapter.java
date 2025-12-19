@@ -4,6 +4,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISchemaAdapter extends IResettableChangeSaver {
   ISchemaAdapter addTable(ITable table);
 

@@ -2,6 +2,9 @@ package ch.nolix.systemapi.gui.frontend;
 
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IFrontEndWriter {
   void openNewTabWithUrl(String url);
 

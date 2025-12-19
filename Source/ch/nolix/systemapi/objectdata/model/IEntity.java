@@ -9,6 +9,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IEntity
 extends
 Deletable,

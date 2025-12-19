@@ -8,6 +8,9 @@ import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITable<E extends IEntity>
 extends IDatabaseComponent<IDatabase>, IDatabaseObject, IIdHolder, INameHolder {
   boolean containsEntityWithId(String id);

@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.gui.presence;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface PresenceRequestable {
   Presence getPresence();
 

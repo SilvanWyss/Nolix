@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import ch.nolix.coreapi.datastructure.pair.IPair;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IClosedInterval {
   boolean containsValue(BigDecimal value);
 

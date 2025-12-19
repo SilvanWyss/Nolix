@@ -4,6 +4,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISqlCollector extends Clearable {
   ISqlCollector addSqlStatement(String sqlstatement, String... sqlStatements);
 

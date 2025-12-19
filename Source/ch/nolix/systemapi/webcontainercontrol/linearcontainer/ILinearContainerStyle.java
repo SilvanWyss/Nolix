@@ -3,6 +3,9 @@ package ch.nolix.systemapi.webcontainercontrol.linearcontainer;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ILinearContainerStyle<S extends ILinearContainerStyle<S>> extends IControlStyle<S> {
   int getChildControlMarginWhenHasState(ControlState state);
 

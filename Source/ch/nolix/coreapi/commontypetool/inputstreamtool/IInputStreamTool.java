@@ -2,6 +2,9 @@ package ch.nolix.coreapi.commontypetool.inputstreamtool;
 
 import java.io.InputStream;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IInputStreamTool {
   /**
    * @param inputStream

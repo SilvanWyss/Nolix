@@ -5,6 +5,9 @@ import java.util.Optional;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITableNodeSearcher {
   int getEntityNodeCountOfTableNode(IMutableNode<?> tableNode);
 

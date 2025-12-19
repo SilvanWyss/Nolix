@@ -5,6 +5,9 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
 import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISqlConnection extends GroupCloseable {
   void executeStatement(String statement, String... statements);
 

@@ -6,6 +6,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
   boolean containsValueInPersistedData(String value);
 

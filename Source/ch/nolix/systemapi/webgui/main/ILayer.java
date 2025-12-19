@@ -7,6 +7,9 @@ import ch.nolix.systemapi.gui.background.IBackgroundHolder;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ILayer<L extends ILayer<L>>
 extends
 IBackgroundHolder<L>,

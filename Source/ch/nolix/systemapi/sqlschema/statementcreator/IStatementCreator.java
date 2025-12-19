@@ -3,6 +3,9 @@ package ch.nolix.systemapi.sqlschema.statementcreator;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IStatementCreator {
   String createStatementToAddColumn(String tableName, ColumnDto column);
 

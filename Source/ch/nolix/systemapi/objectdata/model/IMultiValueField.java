@@ -5,6 +5,9 @@ import java.util.function.Predicate;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IMultiValueField<V> extends Clearable, IBaseValueField<V>, Iterable<V> {
   void addValue(V value);
 

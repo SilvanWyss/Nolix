@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.sqlschema.querycreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IQueryCreator {
   String createQueryToGetTableCount();
 

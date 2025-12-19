@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.sqlmiddata.querycreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IMultiBackReferenceQueryCreator {
   String createQueryToLoadMultiBackReferenceEntries(String entityId, String multiBackReferenceColumnId);
 

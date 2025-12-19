@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.errorcontrol.logging;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ILinePrinter {
   void printEmptyLine();
 

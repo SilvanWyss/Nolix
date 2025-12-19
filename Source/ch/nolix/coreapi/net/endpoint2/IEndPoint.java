@@ -4,6 +4,9 @@ import java.util.function.UnaryOperator;
 
 import ch.nolix.coreapi.net.baseendpoint.IBaseEndPoint;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IEndPoint extends IBaseEndPoint {
   String getReplyForRequest(String request);
 

@@ -3,6 +3,9 @@ package ch.nolix.systemapi.objectdata.fieldexaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IOptionalReference;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IOptionalReferenceExaminer extends IFieldExaminer {
   <E extends IEntity> boolean canBeCleared(IOptionalReference<E> optionalReference);
 

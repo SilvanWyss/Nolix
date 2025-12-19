@@ -5,6 +5,9 @@ import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>> {
   IContainer<ICssRule> createCssRulesForControl(C control);
 }

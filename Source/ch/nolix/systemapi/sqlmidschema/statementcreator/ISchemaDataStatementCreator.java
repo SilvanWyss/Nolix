@@ -8,6 +8,9 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISchemaDataStatementCreator {
   String createStatementToAddBackReferenceableColumn(
     ColumnIdentification parentBaseBackReferenceColumn,

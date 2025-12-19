@@ -10,6 +10,9 @@ import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IField
 extends
 EmptinessRequestable,

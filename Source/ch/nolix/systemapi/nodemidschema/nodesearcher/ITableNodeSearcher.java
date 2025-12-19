@@ -3,6 +3,9 @@ package ch.nolix.systemapi.nodemidschema.nodesearcher;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITableNodeSearcher {
   int getOneBasedIndexOfColumnInTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
 

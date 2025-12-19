@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.objectdata.model;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IReference<E extends IEntity> extends IBaseReference {
   String getReferencedEntityId();
 

@@ -14,6 +14,9 @@ import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IControl<C extends IControl<C, S>, S extends IControlStyle<S>>
 extends
 ISizeAdjustableBox<C>,

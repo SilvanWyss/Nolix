@@ -5,6 +5,9 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITableMapper {
   ITable mapEntityTypeToEmptyTable(Class<? extends IEntity> entityType);
 

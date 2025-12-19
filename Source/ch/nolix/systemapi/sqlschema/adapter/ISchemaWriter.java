@@ -6,6 +6,9 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISchemaWriter extends IResettableChangeSaver {
   void addAdditionalSqlStatements(IContainer<String> additionalSqlStatements);
 

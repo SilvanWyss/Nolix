@@ -2,6 +2,9 @@ package ch.nolix.coreapi.errorcontrol.performancevalidation;
 
 import java.util.function.LongToDoubleFunction;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IActionMediator {
   void hasConstantOrLowerTimeComplexity();
 

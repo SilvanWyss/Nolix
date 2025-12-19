@@ -6,6 +6,9 @@ import ch.nolix.coreapi.container.matrix.IMatrix;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IImage extends IElement {
   IColor getBottomLeftPixel();
 

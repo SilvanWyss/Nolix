@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.sqlmiddata.statementcreator;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IMultiBackReferenceStatementCreator {
   String createStatementToDeleteMultiBackReferenceEntries(String entityId, String multiBackReferenceColumnId);
 

@@ -2,6 +2,9 @@ package ch.nolix.systemapi.nodemiddata.nodesearcher;
 
 import ch.nolix.coreapi.document.node.IMutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IEntityNodeSearcher {
   String getIdFromEntityNode(IMutableNode<?> entityNode);
 

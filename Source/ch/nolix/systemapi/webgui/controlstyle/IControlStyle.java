@@ -1,5 +1,8 @@
 package ch.nolix.systemapi.webgui.controlstyle;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IControlStyle<S extends IControlStyle<S>>
 extends
 IBackgroundStyle<S>,

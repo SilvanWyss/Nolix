@@ -8,6 +8,9 @@ import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequence;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IFractal {
   ISequence<IComplexNumber> createSequenceFor(IComplexNumber complexNumber);
 

@@ -9,6 +9,9 @@ import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISchemaWriter extends IResettableChangeSaver {
   void addColumn(TableIdentification table, ColumnDto column);
 

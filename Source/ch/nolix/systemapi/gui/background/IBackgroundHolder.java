@@ -4,6 +4,9 @@ import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IBackgroundHolder<B extends IBackgroundHolder<B>> {
   IBackground getBackground();
 

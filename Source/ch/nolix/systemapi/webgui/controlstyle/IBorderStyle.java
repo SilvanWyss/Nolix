@@ -3,6 +3,9 @@ package ch.nolix.systemapi.webgui.controlstyle;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IBorderStyle<S extends IBorderStyle<S>> {
   IColor getBottomBorderColorWhenHasState(ControlState state);
 

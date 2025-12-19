@@ -3,6 +3,9 @@ package ch.nolix.systemapi.nodemiddata.nodeexaminer;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITableNodeExaminer {
   boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
     IMutableNode<?> tableNode,

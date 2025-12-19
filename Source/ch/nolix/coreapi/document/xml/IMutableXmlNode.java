@@ -2,6 +2,9 @@ package ch.nolix.coreapi.document.xml;
 
 import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalValueHolder;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IMutableXmlNode
 extends IFluentMutableOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
   IMutableXmlNode addAttribute(IXmlAttribute attribute);

@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IFractalTool {
   BigDecimal getHeightInPixelAsBigDecimal(IFractal fractal);
 

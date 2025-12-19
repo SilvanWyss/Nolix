@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.commontypetool.iterabletool;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IIterableTool {
   int getCount(Iterable<?> iterable);
 

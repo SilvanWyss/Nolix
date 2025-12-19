@@ -4,6 +4,9 @@ import java.util.Optional;
 
 import ch.nolix.coreapi.container.base.IContainer;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IFrontEndReader {
   IContainer<byte[]> getFilesFromClipboard();
 

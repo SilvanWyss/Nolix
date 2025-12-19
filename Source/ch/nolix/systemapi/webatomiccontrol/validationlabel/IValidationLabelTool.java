@@ -5,6 +5,9 @@ import java.util.function.Consumer;
 
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IValidationLabelTool {
   void clearNearestValidationLabelOfControl(IControl<?, ?> control);
 

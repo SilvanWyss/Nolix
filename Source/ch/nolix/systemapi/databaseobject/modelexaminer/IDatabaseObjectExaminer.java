@@ -2,6 +2,9 @@ package ch.nolix.systemapi.databaseobject.modelexaminer;
 
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IDatabaseObjectExaminer {
   boolean isNewOrDeleted(IDatabaseObject databaseObject);
 

@@ -5,6 +5,9 @@ import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IColumnNodeSearcher {
   IContainer<String> getBackReferenceableColumnIdsFromColumnNode(IMutableNode<?> columnNode);
 

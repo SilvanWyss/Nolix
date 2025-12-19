@@ -3,6 +3,9 @@ package ch.nolix.systemapi.webapplication.protocol;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.net.target.IServerTarget;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IClientCommandCreator {
   IChainedNode createAddOrSetCookieCommand(String cookieName, String cookieValue);
 

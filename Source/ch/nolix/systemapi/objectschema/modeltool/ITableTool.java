@@ -5,6 +5,9 @@ import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ITableTool extends IDatabaseObjectExaminer {
   int getColumnCount(ITable table);
 

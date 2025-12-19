@@ -6,6 +6,9 @@ import ch.nolix.systemapi.gui.font.Font;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IControlBaseStyle<S extends IControlBaseStyle<S>> extends IMultiStateConfiguration<S, ControlState> {
   <S2 extends IControlBaseStyle<S2>> void addChild(S2 controlStyle);
 

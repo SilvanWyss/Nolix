@@ -3,6 +3,9 @@ package ch.nolix.systemapi.webgui.controlstyle;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface ISizeStyle<S extends ISizeStyle<S>> {
   boolean definesHeightForState(ControlState state);
 

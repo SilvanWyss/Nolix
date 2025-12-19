@@ -3,6 +3,9 @@ package ch.nolix.systemapi.webcontainercontrol.grid;
 import ch.nolix.systemapi.webcontainercontrol.container.IContainer;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IGrid extends IContainer<IGrid, IGridStyle> {
   boolean containsControlAtOneBasedRowAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
 

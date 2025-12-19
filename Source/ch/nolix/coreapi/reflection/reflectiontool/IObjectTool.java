@@ -2,6 +2,9 @@ package ch.nolix.coreapi.reflection.reflectiontool;
 
 import java.lang.reflect.Field;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IObjectTool {
   String getNameOfFirstFieldThatHasValue(Object object, Object value);
 

@@ -4,6 +4,9 @@ import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.coreapi.document.node.INode;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IDataProvider {
   INode<?> getDataForRequest(IChainedNode request);
 

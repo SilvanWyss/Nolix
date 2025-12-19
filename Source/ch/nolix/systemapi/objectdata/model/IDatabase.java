@@ -6,6 +6,9 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IDatabase extends GroupCloseable, IDatabaseObject, INameHolder {
   IEntityTypeSet getEntityTypeSet();
 

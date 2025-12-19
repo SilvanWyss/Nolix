@@ -5,6 +5,9 @@ import ch.nolix.coreapi.net.netproperty.PeerType;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IBaseEndPoint extends GroupCloseable {
   ConnectionType getConnectionType();
 

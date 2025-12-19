@@ -2,6 +2,9 @@ package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.coreapi.state.statemutation.Clearable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseReference {
   String getReferencedEntityId();
 

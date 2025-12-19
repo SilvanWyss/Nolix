@@ -6,6 +6,9 @@ import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IColumnTool extends IDatabaseObjectExaminer {
   void assertBelongsToTable(IColumn column);
 

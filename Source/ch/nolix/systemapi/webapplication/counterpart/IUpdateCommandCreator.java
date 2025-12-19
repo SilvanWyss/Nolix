@@ -5,6 +5,9 @@ import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IUpdateCommandCreator {
   IChainedNode createSetCssCommandFromWebGui(IWebGui<?> webGui);
 

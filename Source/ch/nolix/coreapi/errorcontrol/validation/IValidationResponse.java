@@ -1,5 +1,8 @@
 package ch.nolix.coreapi.errorcontrol.validation;
 
+/**
+ * @author Silvan Wyss
+ */
 public interface IValidationResponse {
   String getMessage();
 
