@@ -7,6 +7,9 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of the parent
+ *            {@link MultiContainerView} of a
+ *            {@link MultiContainerViewIterator}.
  */
 public final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
   private final CopyableIterator<IContainer<E>> mainIterator;

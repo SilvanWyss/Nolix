@@ -14,6 +14,8 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <O> is the type of the {@link Object}s a {@link ActionMediator} is
+ *            for.
  */
 public final class ActionMediator<O> implements IActionMediator {
   private static final IPerformanceAnalyzer PERFORMANCE_ANALYZER = new PerformanceAnalyzer();

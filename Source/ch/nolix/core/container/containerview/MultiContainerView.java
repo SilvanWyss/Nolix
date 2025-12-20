@@ -11,6 +11,7 @@ import ch.nolix.coreapi.container.list.IArrayList;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of a {@link MultiContainerView}.
  */
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   private final IContainer<IContainer<E>> containers;

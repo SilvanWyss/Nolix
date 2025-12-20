@@ -5,6 +5,8 @@ import java.util.NoSuchElementException;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of the parent {@link List} of a
+ *            {@link ListIterator}.
  */
 public final class ListIterator<E> implements Iterator<E> {
   private ListNode<E> nextNode;

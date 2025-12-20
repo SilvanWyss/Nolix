@@ -8,6 +8,8 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the element of the parent {@link SingleContainer}
+ *            of a {@link SingleContainerIterator}.
  */
 public final class SingleContainerIterator<E> implements CopyableIterator<E> {
   private E nullableElement;

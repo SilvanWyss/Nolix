@@ -7,6 +7,8 @@ import ch.nolix.coreapi.container.iterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of the parent {@link Iterable} of a
+ *            {@link IterableContainerViewIterator}.
  */
 public final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
   private final Iterable<E> parentIterable;

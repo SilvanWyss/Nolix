@@ -5,6 +5,7 @@ import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of a {@link List}.
  */
 public final class List<E> implements Iterable<E> {
   private int elementCount;

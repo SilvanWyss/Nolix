@@ -7,6 +7,7 @@ import ch.nolix.core.independent.arraytool.ArrayValidator;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> implements Iterable<E> {
   private static final ArrayValidator ARRAY_VALIDATOR = new ArrayValidator();

@@ -4,6 +4,8 @@ import java.util.Optional;
 
 /**
  * @author Silvan Wyss
+ * @param <T> is the type of the element of the {@link Optional} of a
+ *            {@link ExtendedOptionalMediator}.
  */
 public final class ExtendedOptionalMediator<T> extends OptionalMediator<T> {
   private ExtendedOptionalMediator(

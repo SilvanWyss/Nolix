@@ -2,6 +2,7 @@ package ch.nolix.core.errorcontrol.validator;
 
 /**
  * @author Silvan Wyss
+ * @param <T> is the type a {@link ExtendedTypeMediator} is for.
  */
 public final class ExtendedTypeMediator<T> extends TypeMediator<T> {
   private ExtendedTypeMediator(final Class<T> argument) {

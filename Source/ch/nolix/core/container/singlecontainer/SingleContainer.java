@@ -7,6 +7,7 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the element of a {@link SingleContainer}.
  */
 public final class SingleContainer<E> extends AbstractExtendedContainer<E> {
   private final E element;
