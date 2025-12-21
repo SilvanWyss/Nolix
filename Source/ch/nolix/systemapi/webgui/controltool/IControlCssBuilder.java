@@ -7,6 +7,10 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the {@link IControl}s a {@link IControlCssBuilder}
+ *            is for.
+ * @param <S> is the type of the {@link IControlStyle} of the {@link IControl}s
+ *            a {@link IControlCssBuilder} is for.
  */
 public interface IControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>> {
   IContainer<ICssRule> createCssRulesForControl(C control);

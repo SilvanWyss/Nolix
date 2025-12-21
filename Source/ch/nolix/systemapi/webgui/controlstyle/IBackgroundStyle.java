@@ -9,6 +9,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of a {@link IBackgroundStyle}.
  */
 public interface IBackgroundStyle<S extends IBackgroundStyle<S>> {
   IBackground getBackgroundWhenHasState(ControlState state);

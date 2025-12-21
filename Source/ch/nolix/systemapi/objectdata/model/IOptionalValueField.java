@@ -4,6 +4,7 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the value of a {@link IOptionalValueField}.
  */
 public interface IOptionalValueField<V> extends Clearable, IBaseValueField<V> {
   V getStoredValue();

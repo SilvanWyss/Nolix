@@ -5,6 +5,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of a {@link ILinearContainerStyle}.
  */
 public interface ILinearContainerStyle<S extends ILinearContainerStyle<S>> extends IControlStyle<S> {
   int getChildControlMarginWhenHasState(ControlState state);

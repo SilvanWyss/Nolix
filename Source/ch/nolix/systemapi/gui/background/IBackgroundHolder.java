@@ -6,6 +6,7 @@ import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 
 /**
  * @author Silvan Wyss
+ * @param <B> is the type of a {@link IBackgroundHolder}.
  */
 public interface IBackgroundHolder<B extends IBackgroundHolder<B>> {
   IBackground getBackground();

@@ -8,6 +8,8 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the {@link IEntity} a {@link IMultiReferenceEntry}
+ *            references.
  */
 public interface IMultiReferenceEntry<E extends IEntity>
 extends IDatabaseComponent<IDatabase>, IDatabaseObject, ITableComponent<ITable<? extends IEntity>> {

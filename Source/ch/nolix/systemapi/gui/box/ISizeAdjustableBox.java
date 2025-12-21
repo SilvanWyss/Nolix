@@ -4,8 +4,9 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 /**
  * @author Silvan Wyss
+ * @param <B> is the type of a {@link ISizeAdjustableBox}.
  */
-public interface ISizeAdjustableBox<D extends ISizeAdjustableBox<D>> {
+public interface ISizeAdjustableBox<B extends ISizeAdjustableBox<B>> {
   IAbsoluteOrRelativeInt getMaxHeight();
 
   IAbsoluteOrRelativeInt getMaxWidth();
@@ -30,19 +31,19 @@ public interface ISizeAdjustableBox<D extends ISizeAdjustableBox<D>> {
 
   void removeMinWidth();
 
-  D setMaxHeight(int maxHeight);
+  B setMaxHeight(int maxHeight);
 
-  D setMaxHeightInPercentOfViewAreaHeight(double maxHeightInPercentOfViewAreaHeight);
+  B setMaxHeightInPercentOfViewAreaHeight(double maxHeightInPercentOfViewAreaHeight);
 
-  D setMaxWidth(int maxWidth);
+  B setMaxWidth(int maxWidth);
 
-  D setMaxWidthInPercentOfViewAreaWidth(double maxWidthInPercentOfViewAreaWidth);
+  B setMaxWidthInPercentOfViewAreaWidth(double maxWidthInPercentOfViewAreaWidth);
 
-  D setMinHeight(int minHeight);
+  B setMinHeight(int minHeight);
 
-  D setMinHeightInPercentOfViewAreaHeight(double minHeightInPercentOfViewAreaHeight);
+  B setMinHeightInPercentOfViewAreaHeight(double minHeightInPercentOfViewAreaHeight);
 
-  D setMinWidth(int minWidth);
+  B setMinWidth(int minWidth);
 
-  D setMinWidthInPercentOfViewAreaWidth(double minWidthInPercentOfViewAreaWidth);
+  B setMinWidthInPercentOfViewAreaWidth(double minWidthInPercentOfViewAreaWidth);
 }

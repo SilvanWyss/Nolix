@@ -4,6 +4,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of a {@link ICornerStyle}.
  */
 public interface ICornerStyle<S extends ICornerStyle<S>> {
   int getCornerRadiusWhenHasState(ControlState state);

@@ -5,6 +5,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of a {@link ISizeStyle}.
  */
 public interface ISizeStyle<S extends ISizeStyle<S>> {
   boolean definesHeightForState(ControlState state);

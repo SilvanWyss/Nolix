@@ -8,6 +8,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of a {@link IControlBaseStyle}.
  */
 public interface IControlBaseStyle<S extends IControlBaseStyle<S>> extends IMultiStateConfiguration<S, ControlState> {
   <S2 extends IControlBaseStyle<S2>> void addChild(S2 controlStyle);

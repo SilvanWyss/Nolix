@@ -16,6 +16,8 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of a {@link IControl}.
+ * @param <S> is the type of the {@link IControlStyle} of a {@link IControl}.
  */
 public interface IControl<C extends IControl<C, S>, S extends IControlStyle<S>>
 extends

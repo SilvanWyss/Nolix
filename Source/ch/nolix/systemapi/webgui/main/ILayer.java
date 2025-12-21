@@ -9,6 +9,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
+ * @param <L> is the type of a {@link ILayer}.
  */
 public interface ILayer<L extends ILayer<L>>
 extends

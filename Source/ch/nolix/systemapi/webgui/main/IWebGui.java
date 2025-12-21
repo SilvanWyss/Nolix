@@ -14,6 +14,7 @@ import ch.nolix.systemapi.style.stylable.IStyleElement;
 
 /**
  * @author Silvan Wyss
+ * @param <G> is the type of a {@link IWebGui}.
  */
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHolder<G>, IGui<G>, IStyleElement<G> {
   boolean containsControl(IControl<?, ?> control);

@@ -5,6 +5,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of a {@link IBorderStyle}.
  */
 public interface IBorderStyle<S extends IBorderStyle<S>> {
   IColor getBottomBorderColorWhenHasState(ControlState state);
