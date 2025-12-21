@@ -6,6 +6,7 @@ import ch.nolix.coreapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss
+ * @param <N> is the type of a {@link IXmlNode}.
  */
 public interface IXmlNode<N extends IXmlNode<N>>
 extends IFluentMutableOptionalNameHolder<N>, IOptionalValueHolder<String> {

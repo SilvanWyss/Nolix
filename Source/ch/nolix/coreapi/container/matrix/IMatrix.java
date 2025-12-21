@@ -5,6 +5,7 @@ import ch.nolix.coreapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the elements of a {@link IMatrix}.
  */
 public interface IMatrix<E> extends Clearable, IContainer<E> {
   int getColumnCount();
