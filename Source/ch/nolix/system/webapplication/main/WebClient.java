@@ -20,12 +20,13 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of a {@link WebClient}.
  */
 public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
 
-  private final WebClientRefreshQueue refreshQueue = WebClientRefreshQueue
-    .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
+  private final WebClientRefreshQueue refreshQueue = //
+  WebClientRefreshQueue.forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {

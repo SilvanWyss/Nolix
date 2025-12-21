@@ -10,6 +10,8 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of the states of a {@link CascadingProperty}.
+ * @param <V> is the type of the values of a {@link CascadingProperty}.
  */
 public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMaterializedProperty<S, V> {
   private final V defaultValue;

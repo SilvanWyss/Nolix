@@ -14,9 +14,9 @@ import ch.nolix.coreapi.programcontrol.trigger.IRefreshableSubscriber;
  * @author Silvan Wyss
  * @param <C> is the type of the {@link AbstractBackendClient} of a
  *            {@link AbstractSession}.
- * @param <S> is the type of the context of the parent {@link Application} of
- *            the parent {@link AbstractBackendClient} of a
- *            {@link AbstractSession}.
+ * @param <S> is the type of the application service of the parent
+ *            {@link Application} of the parent {@link AbstractBackendClient} of
+ *            a {@link AbstractSession}.
  */
 public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
 implements IClientComponent<C>, IRefreshableSubscriber {

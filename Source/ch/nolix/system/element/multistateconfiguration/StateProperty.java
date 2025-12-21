@@ -7,6 +7,7 @@ import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the value of a {@link StateProperty}.
  */
 public final class StateProperty<V> {
   private boolean hasValueOrDefinesEmpty;

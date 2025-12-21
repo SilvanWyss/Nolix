@@ -9,6 +9,11 @@ import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the parent {@link AbstractBackendClient} of a
+ *            {@link BackendClientSessionManager}.
+ * @param <S> is the type of the application service of the parent
+ *            {@link Application} of the parent {@link AbstractBackendClient} of
+ *            a {@link BackendClientSessionManager}.
  */
 public final class BackendClientSessionManager<C extends AbstractBackendClient<C, S>, S> {
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;

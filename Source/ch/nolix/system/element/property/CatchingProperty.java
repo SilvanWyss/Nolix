@@ -12,6 +12,7 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the values of a {@link CatchingProperty}.
  */
 public final class CatchingProperty<V> implements IProperty, INameHolder {
   private final String name;

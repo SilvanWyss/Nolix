@@ -4,6 +4,10 @@ import ch.nolix.core.errorcontrol.validator.Validator;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the {@link AbstractBackendClient}s of a
+ *            {@link BasicApplication}.
+ * @param <S> is the type of the application service of a
+ *            {@link BasicApplication}.
  */
 public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> extends Application<C, S> {
   private final String applicationName;

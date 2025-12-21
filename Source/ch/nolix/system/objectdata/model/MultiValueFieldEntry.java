@@ -9,6 +9,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueFieldEntry;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the value of a {@link MultiValueFieldEntry}.
  */
 public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
   private static final DatabaseObjectValidator DATABASE_OBJECT_VALIDATOR = new DatabaseObjectValidator();

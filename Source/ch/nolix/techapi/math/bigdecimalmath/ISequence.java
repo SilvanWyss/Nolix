@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the values of a {@link ISequence}.
  */
 public interface ISequence<V> {
   int getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal limit, int maxIndex);

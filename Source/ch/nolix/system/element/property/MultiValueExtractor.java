@@ -14,6 +14,7 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the values a {@link MultiValueExtractor} extracts.
  */
 public final class MultiValueExtractor<V> implements IProperty, INameHolder {
   private final String name;

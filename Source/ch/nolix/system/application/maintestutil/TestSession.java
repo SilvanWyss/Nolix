@@ -3,9 +3,15 @@ package ch.nolix.system.application.maintestutil;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.application.main.AbstractSession;
+import ch.nolix.system.application.main.Application;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the parent {@link AbstractBackendClient} of a
+ *            {@link TestSession}.
+ * @param <S> is the type of the application service of the parent
+ *            {@link Application} of the parent {@link AbstractBackendClient} of
+ *            a {@link TestSession}.
  */
 public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends AbstractSession<C, S> {
   private final Class<?> clientClass;

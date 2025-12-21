@@ -8,6 +8,8 @@ import ch.nolix.coreapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of the states of a {@link ForwardingProperty}.
+ * @param <V> is the type of the values of a {@link ForwardingProperty}.
  */
 public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
   private final IContainer<AbstractMaterializedProperty<S, V>> abstractMaterializedProperties;

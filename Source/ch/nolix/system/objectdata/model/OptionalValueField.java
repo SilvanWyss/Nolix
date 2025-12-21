@@ -12,6 +12,7 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the value of a {@link OptionalValueField}.
  */
 public final class OptionalValueField<V> extends AbstractBaseValueField<V> implements IOptionalValueField<V> {
   private static final IOptionalValueFieldValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueFieldValidator();

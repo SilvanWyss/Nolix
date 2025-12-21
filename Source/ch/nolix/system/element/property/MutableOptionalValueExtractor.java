@@ -14,6 +14,8 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
+ * @param <V> is the type of the values a {@link MutableOptionalValueExtractor}
+ *            extracts.
  */
 public final class MutableOptionalValueExtractor<V> implements IProperty, INameHolder {
   private final String name;

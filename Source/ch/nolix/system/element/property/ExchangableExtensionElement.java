@@ -4,6 +4,8 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the extension element of a
+ *            {@link ExchangableExtensionElement}.
  */
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
 extends AbstractExtensionElement<E> {

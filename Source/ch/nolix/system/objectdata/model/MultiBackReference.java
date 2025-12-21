@@ -25,6 +25,8 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the {@link IEntity}s a {@link MultiBackReference}
+ *            can reference back.
  */
 public final class MultiBackReference<E extends IEntity>
 extends AbstractBaseBackReference
