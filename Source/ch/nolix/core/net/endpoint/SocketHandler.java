@@ -28,7 +28,10 @@ import ch.nolix.coreapi.net.endpointprotocol.MessageType;
 public final class SocketHandler {
   private static final IInputStreamTool INPUT_STREAM_TOOL = new InputStreamTool();
 
-  public void handleSocketForServer(final Socket socket, final Server server) {
+  private SocketHandler() {
+  }
+
+  public static void handleSocketForServer(final Socket socket, final Server server) {
     final var backendNetEndPoint = createOptionalBackendNetEndPointForSocketAndServer(socket, server);
 
     if (backendNetEndPoint.isEmpty()) {
@@ -38,7 +41,7 @@ public final class SocketHandler {
     }
   }
 
-  private void closeSocket(final Socket socket) {
+  private static void closeSocket(final Socket socket) {
     try {
       socket.close();
     } catch (final IOException ioException) {
@@ -46,7 +49,7 @@ public final class SocketHandler {
     }
   }
 
-  private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
+  private static Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
@@ -65,7 +68,7 @@ public final class SocketHandler {
     };
   }
 
-  private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
+  private static Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServer(
     final Socket socket,
     final Server server) {
     final var socketInputStream = getOptionalInputStreamOfSocket(socket);
@@ -96,7 +99,7 @@ public final class SocketHandler {
       server);
   }
 
-  private Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServerWhenIsHttpSocketOrWebSocket(
+  private static Optional<IEndPoint> createOptionalBackendNetEndPointForSocketAndServerWhenIsHttpSocketOrWebSocket(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
@@ -130,7 +133,7 @@ public final class SocketHandler {
     return Optional.empty();
   }
 
-  private SocketEndPoint createSocketEndPointWithCustomTarget(
+  private static SocketEndPoint createSocketEndPointWithCustomTarget(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
@@ -142,14 +145,14 @@ public final class SocketHandler {
       Node.fromString(firstReveivedLine.substring(1)).getHeader());
   }
 
-  private SocketEndPoint createSocketEndPointWithDefaultTarget(
+  private static SocketEndPoint createSocketEndPointWithDefaultTarget(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
     return new SocketEndPoint(socket, socketInputStream, socketOutputStream);
   }
 
-  private void fillUpLinesIntoListUntilReceivesEmptyLine(
+  private static void fillUpLinesIntoListUntilReceivesEmptyLine(
     final LinkedList<String> lines,
     final InputStream inputStream) {
     while (true) {
@@ -167,7 +170,7 @@ public final class SocketHandler {
     }
   }
 
-  private Optional<InputStream> getOptionalInputStreamOfSocket(final Socket socket) {
+  private static Optional<InputStream> getOptionalInputStreamOfSocket(final Socket socket) {
     try {
       return Optional.of(socket.getInputStream());
     } catch (final IOException ioException) {
@@ -177,7 +180,7 @@ public final class SocketHandler {
     }
   }
 
-  private Optional<OutputStream> getOptionalOutputStreamOfSocket(final Socket socket) {
+  private static Optional<OutputStream> getOptionalOutputStreamOfSocket(final Socket socket) {
     try {
       return Optional.of(socket.getOutputStream());
     } catch (final IOException ioException) {
@@ -187,7 +190,7 @@ public final class SocketHandler {
     }
   }
 
-  private Optional<SocketType> getSocketTypeFromFirstReceivedLine(
+  private static Optional<SocketType> getSocketTypeFromFirstReceivedLine(
     final String firstReceivedLine) {
     if (firstReceivedLine.equals(MessageType.DEFAULT_TARGET_MESSAGE.getPrefix())) {
       return Optional.of(SocketType.NET_SOCKET_WITH_DEFAULT_TARGET);
@@ -204,7 +207,7 @@ public final class SocketHandler {
     return Optional.empty();
   }
 
-  private void sendRawMessageToOutputStream(final OutputStream outputStream, final String rawMessage) {
+  private static void sendRawMessageToOutputStream(final OutputStream outputStream, final String rawMessage) {
     try {
       outputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));
       outputStream.flush();

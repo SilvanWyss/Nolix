@@ -18,8 +18,6 @@ import ch.nolix.coreapi.resourcecontrol.closecontroller.CloseStateRequestable;
  * @author Silvan Wyss
  */
 public final class ServerListener extends AbstractWorker implements CloseStateRequestable {
-  private static final SocketHandler SOCKET_HANDLER = new SocketHandler();
-
   /**
    * The {@link Server} the current {@link ServerListener} is for.
    */
@@ -89,6 +87,6 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
    * @param socket
    */
   private void handleSocket(final Socket socket) {
-    FlowController.runInBackground(() -> SOCKET_HANDLER.handleSocketForServer(socket, parentServer));
+    FlowController.runInBackground(() -> SocketHandler.handleSocketForServer(socket, parentServer));
   }
 }
