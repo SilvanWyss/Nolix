@@ -18,8 +18,10 @@ dependencies {
   implementation 'com.microsoft.sqlserver:mssql-jdbc:13.2.1.jre11'
   implementation 'io.netty:netty-all:4.2.7.Final'
 
-  //dependencies for tests
+  //dependencies for architecture tests
   testImplementation 'com.tngtech.archunit:archunit:1.4.1'
+
+  //dependencies for function tests
   testImplementation 'net.bytebuddy:byte-buddy:1.18.1'
   testImplementation 'net.bytebuddy:byte-buddy-agent:1.18.1'
   testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.1'
