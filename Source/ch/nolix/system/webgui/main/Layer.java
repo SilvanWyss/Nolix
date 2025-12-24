@@ -192,10 +192,10 @@ implements ILayer<Layer> {
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
     if (isEmpty()) {
-      return getStoredControlsWhenIsEmpty();
+      return ImmutableList.createEmpty();
     }
 
-    return getStoredControlsWhenIsNotEmpty();
+    return getStoredControlsWhenContainsAny();
   }
 
   @Override
@@ -365,7 +365,7 @@ implements ILayer<Layer> {
     final var childControls = control.getStoredChildControls();
 
     list.addAtEnd(childControls);
-    childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
+    childControls.forEach(c -> fillUpChildControlsOfControlIntoListRecursively(c, list));
   }
 
   private double getOpacityFromString(final String string) {
@@ -378,12 +378,9 @@ implements ILayer<Layer> {
     return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
   }
 
-  private IContainer<IControl<?, ?>> getStoredControlsWhenIsEmpty() {
-    return ImmutableList.createEmpty();
-  }
-
-  private IContainer<IControl<?, ?>> getStoredControlsWhenIsNotEmpty() {
+  private IContainer<IControl<?, ?>> getStoredControlsWhenContainsAny() {
     final ILinkedList<IControl<?, ?>> controls = LinkedList.createEmpty();
+
     controls.addAtEnd(getStoredRootControl());
     fillUpChildControlsOfControlIntoListRecursively(getStoredRootControl(), controls);
 
