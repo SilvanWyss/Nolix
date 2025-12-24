@@ -14,6 +14,8 @@ public final class HtmlAttributeNameCatalog {
 
   public static final String STYLE = "style";
 
+  public static final String TARGET = "target";
+
   public static final String TYPE = "type";
 
   public static final String VALUE = "value";

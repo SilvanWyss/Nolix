@@ -6,6 +6,7 @@ import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.coreapi.web.htmlattribute.LinkTarget;
 import ch.nolix.coreapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.systemapi.webatomiccontrol.link.ILink;
@@ -36,11 +37,12 @@ public final class LinkHtmlBuilderHelper {
   }
 
   private static HtmlAttribute createTargetHtmlAttributeForTarget(final LinkTarget target) {
-    return switch (target) {
+    return //
+    switch (target) {
       case CURRENT_TAB ->
-        HtmlAttribute.withNameAndValue("target", "_self");
+        HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.TARGET, "_self");
       case NEW_TAB ->
-        HtmlAttribute.withNameAndValue("target", "_blank");
+        HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.TARGET, "_blank");
       default ->
         throw InvalidArgumentException.forArgumentAndArgumentName(target, LowerCaseVariableCatalog.TARGET);
     };
