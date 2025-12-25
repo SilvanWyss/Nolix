@@ -11,22 +11,11 @@ import ch.nolix.systemapi.webgui.main.IControl;
  */
 public final class ControlTool implements IControlTool {
   @Override
-  public IContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(
-    final IControl<?, ?> control) {
+  public IContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(final IControl<?, ?> control) {
     final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
 
-    fillUpChildControlsOfControlIntoListRecursively(control, list);
+    ControlToolHelper.fillUpChildControlsOfControlIntoListRecursively(control, list);
+
     return list;
-  }
-
-  private void fillUpChildControlsOfControlIntoListRecursively(
-    final IControl<?, ?> control,
-    final IArrayList<IControl<?, ?>> list) {
-    final var childControls = control.getStoredChildControls();
-
-    for (final var c : childControls) {
-      list.addAtEnd(c);
-      fillUpChildControlsOfControlIntoListRecursively(c, list);
-    }
   }
 }
