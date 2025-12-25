@@ -44,7 +44,8 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @throws ArgumentIsNullException if the given elements is null.
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
-  public static <T> ArrayList<T> withElements(final @SuppressWarnings("unchecked") T... elements) {
+  @SafeVarargs
+  public static <T> ArrayList<T> withElements(T... elements) {
     final var arrayList = new ArrayList<T>();
 
     arrayList.addAtEnd(elements);

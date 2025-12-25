@@ -19,6 +19,7 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
+import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -28,6 +29,7 @@ import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.webgui.controltool.IControlTool;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
@@ -58,6 +60,8 @@ implements ILayer<Layer> {
   private static final LayerValidator LAYER_VALIDATOR = new LayerValidator();
 
   private static final ControlAnalyser CONTROL_ANALYSER = new ControlAnalyser();
+
+  private static final IControlTool CONTROL_TOOL = new ControlTool();
 
   //For CSS an id works only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
@@ -195,7 +199,7 @@ implements ILayer<Layer> {
       return ImmutableList.createEmpty();
     }
 
-    return getStoredControlsWhenContainsAny();
+    return CONTROL_TOOL.getListWithControlAndChildControlsRecursively(getStoredRootControl());
   }
 
   @Override
@@ -359,15 +363,6 @@ implements ILayer<Layer> {
     return CONTROL_ANALYSER.firstControlContainsSecondControl(localRootControl, control);
   }
 
-  private void fillUpChildControlsOfControlIntoListRecursively(
-    final IControl<?, ?> control,
-    final ILinkedList<IControl<?, ?>> list) {
-    final var childControls = control.getStoredChildControls();
-
-    list.addAtEnd(childControls);
-    childControls.forEach(c -> fillUpChildControlsOfControlIntoListRecursively(c, list));
-  }
-
   private double getOpacityFromString(final String string) {
     Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
 
@@ -376,15 +371,6 @@ implements ILayer<Layer> {
     }
 
     return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
-  }
-
-  private IContainer<IControl<?, ?>> getStoredControlsWhenContainsAny() {
-    final ILinkedList<IControl<?, ?>> controls = LinkedList.createEmpty();
-
-    controls.addAtEnd(getStoredRootControl());
-    fillUpChildControlsOfControlIntoListRecursively(getStoredRootControl(), controls);
-
-    return controls;
   }
 
   private void removeSelfFromGuiWhenBelongsToGui() {
