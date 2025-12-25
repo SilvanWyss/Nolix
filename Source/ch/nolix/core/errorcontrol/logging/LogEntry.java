@@ -8,8 +8,6 @@ import ch.nolix.coreapi.errorcontrol.logging.HarmLevel;
  * @author Silvan Wyss
  */
 public final class LogEntry {
-  private static final StackTraceMapper STACK_TRACE_MAPPER = new StackTraceMapper();
-
   private final String message;
 
   private final HarmLevel harmLevel;
@@ -49,7 +47,7 @@ public final class LogEntry {
   }
 
   private static String[] getAdditionalInfoLinesFromError(Throwable error) {
-    return STACK_TRACE_MAPPER.mapErrorToStackTrace(error);
+    return StackTraceMapper.mapErrorToStackTrace(error);
   }
 
   private static String getMessageFromError(final Throwable error) {
