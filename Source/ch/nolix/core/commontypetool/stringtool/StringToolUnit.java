@@ -120,6 +120,14 @@ public final class StringToolUnit implements IStringTool {
    * {@inheritDoc}
    */
   @Override
+  public String toCapitalSnakeCase(final String string) {
+    return new CapitalSnakeCaseTransformer().toCapitalSnakeCase(string);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public double toDouble(final String string) {
     if (!RegularExpressionPatternCatalog.DOUBLE_PATTERN.matcher(string).matches()) {
       throw UnrepresentingArgumentException.forArgumentAndType(string, Double.TYPE);
@@ -140,7 +148,17 @@ public final class StringToolUnit implements IStringTool {
    * {@inheritDoc}
    */
   @Override
-  public String toCapitalSnakeCase(final String string) {
-    return new CapitalSnakeCaseTransformer().toCapitalSnakeCase(string);
+  public double toProportion(final String string) {
+    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
+
+    if (string.endsWith("%")) {
+      final var percentageStringLength = string.length() - 1;
+      final var percentageString = string.substring(0, percentageStringLength);
+      final var percentage = Double.valueOf(percentageString);
+
+      return 0.01 * percentage;
+    }
+
+    return Double.valueOf(string);
   }
 }

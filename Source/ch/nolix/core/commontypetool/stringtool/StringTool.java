@@ -103,4 +103,14 @@ public final class StringTool {
   public static String toPascalCase(String string) {
     return STRING_TOOL_UNIT.toPascalCase(string);
   }
+
+  /**
+   * @param string
+   * @return a proportion in [0, 1] from the given string.
+   * @throws RuntimeException if the given string does not represent a proportion.
+   * 
+   */
+  public static double toProportion(String string) {
+    return STRING_TOOL_UNIT.toProportion(string);
+  }
 }

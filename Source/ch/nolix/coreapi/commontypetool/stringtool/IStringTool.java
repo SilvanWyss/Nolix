@@ -73,4 +73,12 @@ public interface IStringTool {
    * @return a new {@link String} in pascal case for the given string.
    */
   String toPascalCase(String string);
+
+  /**
+   * @param string
+   * @return a proportion in [0, 1] from the given string.
+   * @throws RuntimeException if the given string does not represent a proportion.
+   * 
+   */
+  double toProportion(String string);
 }

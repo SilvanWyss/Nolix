@@ -2,6 +2,7 @@ package ch.nolix.system.webgui.main;
 
 import java.util.Optional;
 
+import ch.nolix.core.commontypetool.stringtool.StringTool;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.datamodel.id.IdCreator;
@@ -76,7 +77,7 @@ implements ILayer<Layer> {
     OPACITY_HEADER,
     DEFAULT_OPACITY,
     this::setOpacity,
-    s -> getOpacityFromString(s.getSingleChildNodeHeader()),
+    s -> StringTool.toProportion(s.getSingleChildNodeHeader()),
     Node::withChildNode);
 
   private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
@@ -361,16 +362,6 @@ implements ILayer<Layer> {
     }
 
     return CONTROL_ANALYSER.firstControlContainsSecondControl(localRootControl, control);
-  }
-
-  private double getOpacityFromString(final String string) {
-    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
-
-    if (!string.endsWith("%")) {
-      return Double.valueOf(string);
-    }
-
-    return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
   }
 
   private void removeSelfFromGuiWhenBelongsToGui() {
