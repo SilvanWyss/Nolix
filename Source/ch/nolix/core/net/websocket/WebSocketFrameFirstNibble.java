@@ -40,13 +40,13 @@ final class WebSocketFrameFirstNibble {
     final var wrapperByte1 = new UnsignedByte(byte1);
     final var wrapperByte2 = new UnsignedByte(byte2);
 
-    final var RSV1Bit = wrapperByte1.getBitAt(2);
-    final var RSV2Bit = wrapperByte1.getBitAt(3);
-    final var RSV3Bit = wrapperByte1.getBitAt(4);
+    final var rsv1Bit = wrapperByte1.getBitAt(2);
+    final var rsv2Bit = wrapperByte1.getBitAt(3);
+    final var rsv3Bit = wrapperByte1.getBitAt(4);
 
-    Validator.assertThatTheBit(RSV1Bit).thatIsNamed("RSV1Bit").isCleared();
-    Validator.assertThatTheBit(RSV2Bit).thatIsNamed("RSV2Bit").isCleared();
-    Validator.assertThatTheBit(RSV3Bit).thatIsNamed("RSV3Bit").isCleared();
+    Validator.assertThatTheBit(rsv1Bit).thatIsNamed("RSV1Bit").isCleared();
+    Validator.assertThatTheBit(rsv2Bit).thatIsNamed("RSV2Bit").isCleared();
+    Validator.assertThatTheBit(rsv3Bit).thatIsNamed("RSV3Bit").isCleared();
 
     mFINBit = wrapperByte1.getBitAt(1);
     opcode = byte1 & 0b1111;
