@@ -685,49 +685,6 @@ implements IChainedNode {
     }
   }
 
-  private int calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
-    final int startIndex,
-    final int headerLength,
-    final TaskAfterSetHeader taskAfterSetHeader) {
-    var nextIndex = startIndex + headerLength;
-    if (taskAfterSetHeader == TaskAfterSetHeader.MAP_CHILD_NODES_AND_POTENTIAL_NEXT_NODE
-    || taskAfterSetHeader == TaskAfterSetHeader.MAP_NEXT_NODE) {
-      nextIndex++;
-    }
-    return nextIndex;
-  }
-
-  /**
-   * @param string
-   * @param startIndex
-   * @return the length of the probable header of the {@link ChainedNode} the
-   *         given string represents starting from the given startIndex.
-   */
-  private HeaderLengthAndTaskAfterSetHeaderParameter getHeaderLengthAndTaskAfterSetHeader(
-    final String string,
-    final int startIndex) {
-    var nextIndex = startIndex;
-    while (nextIndex < string.length()) {
-      switch (string.charAt(nextIndex)) {
-        case CharacterCatalog.OPEN_BRACKET:
-          return new HeaderLengthAndTaskAfterSetHeaderParameter(
-            nextIndex - startIndex,
-            TaskAfterSetHeader.MAP_CHILD_NODES_AND_POTENTIAL_NEXT_NODE);
-        case CharacterCatalog.COMMA:
-          return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
-        case CharacterCatalog.CLOSED_BRACKET:
-          return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
-        case CharacterCatalog.DOT:
-          return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex,
-            TaskAfterSetHeader.MAP_NEXT_NODE);
-        default:
-          nextIndex++;
-      }
-    }
-
-    return new HeaderLengthAndTaskAfterSetHeaderParameter(nextIndex - startIndex, TaskAfterSetHeader.DO_NOTHING);
-  }
-
   private int mapChildNodesAndPotentialNextNodeFromStingAndStartIndexAndGetNextIndex(
     final String string,
     final int startIndex) {
@@ -802,13 +759,15 @@ implements IChainedNode {
    * @return the next index the given string can be processed from.
    */
   private int setFromStringAndStartIndexAndGetNextIndex(final String string, final int startIndex) {
-    final var headerLengthAndTaskAfterSetHeader = getHeaderLengthAndTaskAfterSetHeader(string, startIndex);
+    final var headerLengthAndTaskAfterSetHeader = //
+    ChainedNodeStringHelper.getHeaderLengthAndTaskAfterSetHeader(string, startIndex);
+
     final var headerLength = headerLengthAndTaskAfterSetHeader.getHeaderLength();
     final var taskAfterSetHeader = headerLengthAndTaskAfterSetHeader.getTaskAfterSetHeader();
 
     setPotentialHeaderFromStringAndStartIndexAndHeaderLength(string, startIndex, headerLength);
 
-    var nextIndex = calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
+    var nextIndex = ChainedNodeStringHelper.calculateNextIndexFromStartIndexAndHeaderLengthAndTaskAfterSetHeader(
       startIndex,
       headerLength,
       taskAfterSetHeader);
