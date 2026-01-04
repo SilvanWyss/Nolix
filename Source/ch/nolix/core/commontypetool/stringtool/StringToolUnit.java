@@ -121,7 +121,7 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String toCapitalSnakeCase(final String string) {
-    return new CapitalSnakeCaseTransformer().toCapitalSnakeCase(string);
+    return CapitalSnakeCaseTransformer.toCapitalSnakeCase(string);
   }
 
   /**

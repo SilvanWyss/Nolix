@@ -9,7 +9,10 @@ import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
  * @author Silvan Wyss
  */
 public final class CapitalSnakeCaseTransformer {
-  public String toCapitalSnakeCase(final String string) {
+  private CapitalSnakeCaseTransformer() {
+  }
+
+  public static String toCapitalSnakeCase(final String string) {
     if (string.isEmpty()) {
       return StringCatalog.EMPTY_STRING;
     }
@@ -17,7 +20,7 @@ public final class CapitalSnakeCaseTransformer {
     return toCapitalSnakeCaseWhenStringNotEmpty(string);
   }
 
-  private String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
+  private static String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
     final var stringBuilder = new StringBuilder();
     final var firstCharacter = string.charAt(0);
 
@@ -59,7 +62,7 @@ public final class CapitalSnakeCaseTransformer {
     return stringBuilder.toString();
   }
 
-  private CharacterType appendFirstTargetCharacterAccordingToFirstCharacterAndGetFirstCharacterType(
+  private static CharacterType appendFirstTargetCharacterAccordingToFirstCharacterAndGetFirstCharacterType(
     final char firstCharacter,
     final StringBuilder stringBuilder) {
     final var firstCharacterType = CharacterType.ofCharacter(firstCharacter);
