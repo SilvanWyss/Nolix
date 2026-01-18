@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.sql.model.SqlRecord;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.sql.model.ISqlRecord;
@@ -41,7 +42,7 @@ public final class SqlConnectionHelper {
         entries.add(entry);
       }
 
-      final var sqlRecord = ch.nolix.core.sql.model.SqlRecord.withOneBasedIndexAndValues(index, entries);
+      final var sqlRecord = SqlRecord.withOneBasedIndexAndValues(index, entries);
 
       sqlRecords.addAtEnd(sqlRecord);
       index++;
