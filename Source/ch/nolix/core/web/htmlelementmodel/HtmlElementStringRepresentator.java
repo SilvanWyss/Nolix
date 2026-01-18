@@ -6,7 +6,10 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
  * @author Silvan Wyss
  */
 public final class HtmlElementStringRepresentator {
-  public String toString(final IHtmlElement htmlElement) {
+  private HtmlElementStringRepresentator() {
+  }
+
+  public static String toString(final IHtmlElement htmlElement) {
     if (!htmlElement.containsChildElements()) {
       return toStringWhenDoesNotContainChildElements(htmlElement);
     }
@@ -14,7 +17,7 @@ public final class HtmlElementStringRepresentator {
     return toStringWhenContainsChildElements(htmlElement);
   }
 
-  private String toStringWhenDoesNotContainChildElements(final IHtmlElement htmlElement) {
+  private static String toStringWhenDoesNotContainChildElements(final IHtmlElement htmlElement) {
     if (htmlElement.getInnerText().isEmpty()) {
       return toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(htmlElement);
     }
@@ -22,7 +25,7 @@ public final class HtmlElementStringRepresentator {
     return toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(htmlElement);
   }
 
-  private String toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
+  private static String toStringWhenDoesNotContainChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
     if (!htmlElement.containsAttributes()) {
       return ("<" + htmlElement.getType() + " />");
     }
@@ -30,7 +33,7 @@ public final class HtmlElementStringRepresentator {
     return ("<" + htmlElement.getType() + " " + getAttributesAsString(htmlElement) + " />");
   }
 
-  private String toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
+  private static String toStringWhenDoesNotContainChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
     if (!htmlElement.containsAttributes()) {
       return ("<" + htmlElement.getType() + ">" + htmlElement.getInnerText() + "</" + htmlElement.getType() + ">");
     }
@@ -46,7 +49,7 @@ public final class HtmlElementStringRepresentator {
     + ">";
   }
 
-  private String toStringWhenContainsChildElements(final IHtmlElement htmlElement) {
+  private static String toStringWhenContainsChildElements(final IHtmlElement htmlElement) {
     if (htmlElement.getInnerText().isEmpty()) {
       return toStringWhenContainsChildElementsAndHasEmptyInnerText(htmlElement);
     }
@@ -54,7 +57,7 @@ public final class HtmlElementStringRepresentator {
     return toStringWhenContainsChildElementsAndHasNonEmptyInnerText(htmlElement);
   }
 
-  private String toStringWhenContainsChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
+  private static String toStringWhenContainsChildElementsAndHasEmptyInnerText(final IHtmlElement htmlElement) {
     if (!htmlElement.containsAttributes()) {
       return "<"
       + htmlElement.getType()
@@ -76,7 +79,7 @@ public final class HtmlElementStringRepresentator {
     + ">";
   }
 
-  private String toStringWhenContainsChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
+  private static String toStringWhenContainsChildElementsAndHasNonEmptyInnerText(final IHtmlElement htmlElement) {
     if (!htmlElement.containsAttributes()) {
       return "<"
       + htmlElement.getType()
@@ -99,11 +102,11 @@ public final class HtmlElementStringRepresentator {
     + ">";
   }
 
-  private String getChildElementsAsString(final IHtmlElement htmlElement) {
+  private static String getChildElementsAsString(final IHtmlElement htmlElement) {
     return htmlElement.getChildElements().toStringWithSeparator("");
   }
 
-  private String getAttributesAsString(final IHtmlElement htmlElement) {
+  private static String getAttributesAsString(final IHtmlElement htmlElement) {
     return htmlElement.getAttributes().toStringWithSeparator(" ");
   }
 }

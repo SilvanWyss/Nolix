@@ -13,9 +13,6 @@ import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
  * @author Silvan Wyss
  */
 public final class HtmlElement implements IHtmlElement {
-  private static final HtmlElementStringRepresentator HTML_ELEMENT_STRING_REPRESENTATOR = //
-  new HtmlElementStringRepresentator();
-
   private final String type;
 
   private final String innerText;
@@ -186,7 +183,7 @@ public final class HtmlElement implements IHtmlElement {
 
   @Override
   public String toString() {
-    return HTML_ELEMENT_STRING_REPRESENTATOR.toString(this);
+    return HtmlElementStringRepresentator.toString(this);
   }
 
   @Override
