@@ -41,6 +41,9 @@ public final class MsSqlConnection extends AbstractSqlConnection {
       userPassword);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getSqlDatabaseEngineDriverClass() {
     return MSSQL_DATABASE_ENINGE_DRIVER_CLASS;

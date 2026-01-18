@@ -33,6 +33,9 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableCatalog.REQUEST);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.

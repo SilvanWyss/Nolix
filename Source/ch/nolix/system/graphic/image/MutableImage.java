@@ -157,41 +157,65 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return withWidthAndHeightAndColor(width, height, X11ColorCatalog.WHITE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getBottomLeftPixel() {
     return getPixel(1, getHeight());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getBottomRightPixel() {
     return getPixel(getWidth(), getHeight());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage getCopy() {
     return new MutableImage(pixels.getCopy());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getHeight() {
     return pixels.getRowCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getPixel(final int xPosition, final int yPosition) {
     return pixels.getStoredAtOneBasedRowIndexAndColumnIndex(yPosition, xPosition);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getPixelCount() {
     return pixels.getCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Matrix<IColor> getPixels() {
     return pixels.getCopy();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage getSection(final int xPosition, final int yPosition, final int width, final int height) {
     Validator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
@@ -217,21 +241,33 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return section;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getTopLeftPixel() {
     return getPixel(1, 1);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getTopRightPixel() {
     return getPixel(getWidth(), 1);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getWidth() {
     return pixels.getColumnCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     removeGeneratedOutputs();
@@ -242,6 +278,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage setPixel(int xPosition, int yPosition, final IColor color) {
     removeGeneratedOutputs();
@@ -281,6 +320,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toBase64Jpg() {
     if (nullableBase64JpgString == null) {
@@ -290,6 +332,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return nullableBase64JpgString;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toBase64Png() {
     if (nullableBase64PngString == null) {
@@ -299,6 +344,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return nullableBase64PngString;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BufferedImage toBufferedImage() {
     if (nullableBufferedImage == null) {
@@ -308,11 +356,17 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return nullableBufferedImage;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Image toImmutableImage() {
     return Image.withPixels(pixels);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public byte[] toJpg() {
     final var byteArrayOutputStream = new ByteArrayOutputStream();
@@ -333,11 +387,17 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toLeftRotatedImage() {
     return new MutableImage(pixels.toLeftRotatedMatrix());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public byte[] toPng() {
     final var byteArrayOutputStream = new ByteArrayOutputStream();
@@ -351,6 +411,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toRepeatedImage(final int width, final int height) {
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
@@ -367,11 +430,17 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return image;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toRightRotatedImage() {
     return new MutableImage(pixels.toRightRotatedMatrix());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toScaledImage(final double factor) {
     Validator.assertThat(factor).thatIsNamed(LowerCaseVariableCatalog.FACTOR).isPositive();
@@ -379,6 +448,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return toScaledImage(factor, factor);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toScaledImage(final double widthFactor, final double heightFactor) {
     Validator.assertThat(widthFactor).thatIsNamed("width factor").isPositive();
@@ -410,6 +482,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return image;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
     final Matrix<IColor> localPixels = Matrix.createEmpty();
@@ -420,6 +495,9 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
     return new MutableImage(localPixels);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableImage<?> withWidthAndHeight(final int width, final int height) {
     return toScaledImage((double) width / getWidth(), (double) height / getHeight());

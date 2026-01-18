@@ -32,6 +32,9 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
             "left"))));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IHorizontalStack horizontalStack,
@@ -46,6 +49,9 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
             horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IHorizontalStack control,
@@ -56,6 +62,9 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
       createCssPropertyForContentAlignmentOfControl(control));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IHorizontalStack horizontalStack,

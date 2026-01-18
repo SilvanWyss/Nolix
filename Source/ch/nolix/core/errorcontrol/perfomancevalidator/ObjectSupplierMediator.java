@@ -25,6 +25,9 @@ public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<
     return new ObjectSupplierMediator<>(objectSupplier);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IActionMediator running(final Consumer<O> action) {
     return ActionMediator.forObjectSupplierAndAction(objectSupplier, action);

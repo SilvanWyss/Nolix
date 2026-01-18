@@ -17,6 +17,9 @@ public final class DatabaseTool extends DatabaseObjectExaminer implements IDatab
     DATABASE_SEARCHER.getStoredTableByName(database, name).delete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getTableCount(final IDatabase database) {
     return database.getStoredTables().getCount();

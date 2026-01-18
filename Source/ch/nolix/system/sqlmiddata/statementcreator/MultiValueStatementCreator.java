@@ -24,6 +24,9 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteMultiValueEntry(
     final String entityId,
@@ -47,6 +50,9 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToInsertMultiValueEntry(
     final String entityId,

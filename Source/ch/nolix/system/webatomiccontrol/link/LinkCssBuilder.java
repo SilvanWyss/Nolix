@@ -20,6 +20,9 @@ public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILink
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ILink control,
@@ -28,6 +31,9 @@ public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILink
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ILink control,
@@ -35,6 +41,9 @@ public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILink
     list.addAtEnd(CssProperty.withNameAndValue("text-decoration", "none"));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final ILink control,

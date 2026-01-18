@@ -14,6 +14,9 @@ public final class MultiValueFieldTool extends FieldExaminer implements IMultiVa
     && multiValueField.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canAddValue(final IMultiValueField<?> multiValueField, final Object value) {
     return //
@@ -21,6 +24,9 @@ public final class MultiValueFieldTool extends FieldExaminer implements IMultiVa
     && value != null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canBeCleared(final IMultiValueField<?> multiValueField) {
     return //
@@ -28,6 +34,9 @@ public final class MultiValueFieldTool extends FieldExaminer implements IMultiVa
     && multiValueField.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canRemoveValue(final IMultiValueField<?> multiValueField) {
     return //
@@ -35,6 +44,9 @@ public final class MultiValueFieldTool extends FieldExaminer implements IMultiVa
     && multiValueField.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canRemoveValue(final IMultiValueField<?> multiValueField, final Object value) {
     return //

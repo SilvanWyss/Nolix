@@ -38,16 +38,25 @@ public final class MultiContainerViewIterator<E> implements CopyableIterator<E> 
     return new MultiContainerViewIterator<>(containers);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> getCopy() {
     return new MultiContainerViewIterator<>(mainIterator.getCopy(), currentSubIterator.getCopy());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (currentSubIterator != null && currentSubIterator.hasNext());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     if (!hasNext()) {

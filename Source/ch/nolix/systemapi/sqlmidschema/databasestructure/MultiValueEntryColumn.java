@@ -16,6 +16,9 @@ public enum MultiValueEntryColumn implements INameHolder {
     this.name = name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getName() {
     return name;

@@ -58,56 +58,89 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     getStoredStyle().forStateSetBorderThickness(ControlState.BASE, 1);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void emptyText() {
     setText(StringCatalog.EMPTY_STRING);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.of("return x.value;");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getText() {
     return memberText.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public TextMode getTextMode() {
     return textMode.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return getText();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeUpdateTextAction() {
     updateTextAction = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Textbox setText(final String text) {
     memberText.setValue(text);
@@ -117,6 +150,9 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Textbox setTextMode(final TextMode textMode) {
     this.textMode.setValue(textMode);
@@ -124,6 +160,9 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unused")
   public Textbox setUpdateTextAction(final Runnable updateTextAction) {
@@ -132,6 +171,9 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return setUpdateTextAction(t -> updateTextAction.run());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Textbox setUpdateTextAction(final Consumer<String> updateTextAction) {
     Validator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
@@ -141,26 +183,41 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Textbox setUserInput(final String userInput) {
     return setText(userInput);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected TextboxStyle createStyle() {
     return new TextboxStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<ITextbox, ITextboxStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<ITextbox> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     emptyText();

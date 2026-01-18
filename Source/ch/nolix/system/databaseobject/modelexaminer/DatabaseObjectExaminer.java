@@ -21,6 +21,9 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
     || state == DatabaseObjectState.DELETED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
     if (databaseObject == null) {
@@ -34,6 +37,9 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
     || state == DatabaseObjectState.EDITED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNewOrEditedOrDeleted(final IDatabaseObject databaseObject) {
     if (databaseObject == null) {
@@ -47,6 +53,9 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
     };
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNewOrLoaded(final IDatabaseObject databaseObject) {
     if (databaseObject == null) {
@@ -60,6 +69,9 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
     || state == DatabaseObjectState.UNEDITED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNewOrLoadedOrEdited(final IDatabaseObject databaseObject) {
     if (databaseObject == null) {

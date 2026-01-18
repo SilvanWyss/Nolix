@@ -34,11 +34,17 @@ public final class CatchingProperty<V> implements IProperty, INameHolder {
     this.valueCreator = valueCreator;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addedOrChangedAttribute(INode<?> attribute) {
     if (hasName(attribute.getHeader())) {
@@ -49,6 +55,9 @@ public final class CatchingProperty<V> implements IProperty, INameHolder {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     //Does nothing.

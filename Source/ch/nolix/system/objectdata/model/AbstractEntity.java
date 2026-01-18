@@ -47,11 +47,17 @@ public abstract class AbstractEntity implements IEntity {
     && memberParentTable.belongsToDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToTable() {
     return (memberParentTable != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void delete() {
     ENTITY_VALIDATOR.assertCanBeDeleted(this);
@@ -66,16 +72,25 @@ public abstract class AbstractEntity implements IEntity {
     state = DatabaseObjectState.DELETED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getId() {
     return memberId;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IDatabase getStoredParentDatabase() {
     return getStoredParentTable().getStoredParentDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ITable<? extends IEntity> getStoredParentTable() {
     ENTITY_VALIDATOR.assertBelongsToTable(this);
@@ -83,6 +98,9 @@ public abstract class AbstractEntity implements IEntity {
     return memberParentTable;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getSaveStamp() {
     ENTITY_VALIDATOR.assertHasSaveStamp(this);
@@ -90,26 +108,41 @@ public abstract class AbstractEntity implements IEntity {
     return memberSaveStamp;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getShortDescription() {
     return (getClass().getSimpleName() + " (id: " + getId() + ")");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final DatabaseObjectState getState() {
     return state;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasSaveStamp() {
     return (memberSaveStamp != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<? extends IField> internalGetStoredFields() {
     return getStoredFields();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void internalSetLoadedAndIdAndSaveStamp(final String id, final String saveStamp) {
     DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
@@ -122,6 +155,9 @@ public abstract class AbstractEntity implements IEntity {
     memberSaveStamp = saveStamp;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void internalSetParentTable(final ITable<? extends IEntity> parentTable) {
     ENTITY_VALIDATOR.assertCanSetParentTable(this, parentTable);
@@ -131,37 +167,58 @@ public abstract class AbstractEntity implements IEntity {
     getStoredFields().forEach(AbstractField::setParentColumnFromParentTable);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isConnectedWithRealDatabase() {
     return belongsToTable()
     && getStoredParentTable().isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isReferencedInPersistedData() {
     return //
@@ -169,6 +226,9 @@ public abstract class AbstractEntity implements IEntity {
     && isReferencedInPersistedDataWhenBelongsToTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isReferencedInPersistedDataIgnoringGivenEntities(final IContainer<String> entitiesToIgnoreIds) {
     return //
@@ -176,6 +236,9 @@ public abstract class AbstractEntity implements IEntity {
     && isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(entitiesToIgnoreIds);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return getShortDescription();

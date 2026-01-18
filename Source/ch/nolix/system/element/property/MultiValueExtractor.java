@@ -46,11 +46,17 @@ public final class MultiValueExtractor<V> implements IProperty, INameHolder {
     this.specificationCreator = specificationCreator;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
     if (attribute.hasHeader(getName())) {
@@ -61,6 +67,9 @@ public final class MultiValueExtractor<V> implements IProperty, INameHolder {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var v : getter.get()) {

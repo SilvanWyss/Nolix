@@ -14,11 +14,17 @@ final class DropdownMenuHtmlBuilderTest extends ControlHtmlBuilderTest<DropdownM
     return new DropdownMenu();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected DropdownMenuHtmlBuilder createTestUnit() {
     return new DropdownMenuHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<select />";

@@ -14,11 +14,17 @@ final class LinkHtmlBuilderTest extends ControlHtmlBuilderTest<LinkHtmlBuilder, 
     return new Link();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected LinkHtmlBuilder createTestUnit() {
     return new LinkHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<a target=\"_blank\">?</a>";

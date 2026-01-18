@@ -15,26 +15,41 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
     this.referenceableTableNames = ImmutableList.fromIterable(referenceableTableNames);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<String> getReferenceableTableNames() {
     return referenceableTableNames;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean referencesBackEntity(final IEntity entity) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean referencesBackEntityWithId(final String id) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean referencesBackField(final IField field) {
     return false;

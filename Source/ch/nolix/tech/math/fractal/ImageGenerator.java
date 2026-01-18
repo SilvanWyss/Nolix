@@ -61,11 +61,17 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
     return new ImageGenerator(fractal);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean caughtError() {
     return futures.containsAny(IFuture::caughtError);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Throwable getError() {
     final var futureWithError = futures.getOptionalStoredFirst(IFuture::caughtError);
@@ -77,21 +83,33 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
     return futureWithError.get().getError();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage getStoredImage() {
     return image;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isFinished() {
     return futures.containsOnly(IFuture::isFinished);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void waitUntilIsFinished() {
     futures.forEach(IFuture::waitUntilIsFinished);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
     final var startTimeInMilliseconds = System.currentTimeMillis();

@@ -60,71 +60,113 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     getStoredStyle().forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.LIGHT_GREY);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     image.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return image.isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getAlternateText() {
     return alternateText.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage getStoredImage() {
     return image.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasLeftMouseButtonPressAction() {
     return (leftMouseButtonPressAction != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasLeftMouseButtonReleaseAction() {
     return (leftMouseButtonReleaseAction != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onclick"));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeLeftMouseButtonPressAction() {
     leftMouseButtonPressAction = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeLeftMouseButtonReleaseAction() {
     leftMouseButtonReleaseAction = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     Validator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onclick");
@@ -134,6 +176,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImageControl setAlternateText(final String alternateText) {
     this.alternateText.setValue(alternateText);
@@ -141,6 +186,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImageControl setImage(final IImage image) {
     if (image instanceof final MutableImage mutableImage) {
@@ -152,6 +200,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unused")
   public IImageControl setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
@@ -163,6 +214,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImageControl setLeftMouseButtonPressAction(final Consumer<IImageControl> leftMouseButtonPressAction) {
     Validator
@@ -175,6 +229,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unused")
   public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
@@ -186,6 +243,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImageControl setLeftMouseButtonRelaseAction(
     final Consumer<IImageControl> leftMouseButtonReleaseAction) {
@@ -199,26 +259,41 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImageControl setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IImageControlStyle createStyle() {
     return new ImageControlStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<IImageControl, IImageControlStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<IImageControl> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     clear();

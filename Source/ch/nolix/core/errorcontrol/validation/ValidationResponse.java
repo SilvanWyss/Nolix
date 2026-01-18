@@ -29,11 +29,17 @@ public final class ValidationResponse implements IValidationResponse {
     return new ValidationResponse(false, message);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getMessage() {
     return message;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isOk() {
     return ok;

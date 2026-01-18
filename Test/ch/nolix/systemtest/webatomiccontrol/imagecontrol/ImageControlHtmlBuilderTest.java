@@ -14,11 +14,17 @@ final class ImageControlHtmlBuilderTest extends ControlHtmlBuilderTest<ImageCont
     return new ImageControl();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ImageControlHtmlBuilder createTestUnit() {
     return new ImageControlHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<img alt=\"\" />";

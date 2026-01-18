@@ -11,6 +11,9 @@ public final class VoidEntityFlyWeight implements IEntityFlyWeight {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteInsertIntoDatabase() {
     //Does nothing.

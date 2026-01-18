@@ -24,6 +24,9 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
     this.sslCtx = sslCtx;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void initChannel(SocketChannel ch) throws Exception {
     ChannelPipeline pipeline = ch.pipeline();

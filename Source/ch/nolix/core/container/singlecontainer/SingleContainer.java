@@ -22,11 +22,17 @@ public final class SingleContainer<E> extends AbstractExtendedContainer<E> {
     return new SingleContainer<>(element);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getCount() {
     return 1;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
     Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.ONE_BASED_INDEX).isEqualTo(1);
@@ -34,11 +40,17 @@ public final class SingleContainer<E> extends AbstractExtendedContainer<E> {
     return element;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMaterialized() {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> iterator() {
     return SingleContainerIterator.forNullableElement(element);

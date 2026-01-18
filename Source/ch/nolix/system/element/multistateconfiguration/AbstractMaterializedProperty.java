@@ -101,6 +101,9 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     return stateProperties[getStateOf(state).getIndex()].hasValueOrDefinesEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setUndefined() {
     for (final var p : stateProperties) {
@@ -116,6 +119,9 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     stateProperties[getStateOf(state).getIndex()].setValue(value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void fillUpValuesSpecificationInto(final ILinkedList<INode<?>> list) {
     for (final var s : parent.getAvailableStates()) {
@@ -164,6 +170,9 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     setFrom((AbstractMaterializedProperty<S, V>) property);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void setValueFromSpecification(final INode<?> specification) {
     for (final var s : parent.getAvailableStates()) {

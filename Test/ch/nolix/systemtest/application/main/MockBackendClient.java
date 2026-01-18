@@ -24,6 +24,9 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
     return Node.EMPTY_NODE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void runHere(final IChainedNode command) {
     Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();

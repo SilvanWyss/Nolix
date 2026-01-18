@@ -52,11 +52,17 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, INameH
     this.specificationCreator = specificationCreator;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
     if (attribute.hasHeader(getName())) {
@@ -67,6 +73,9 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, INameH
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     if (valuePresenceChecker.getAsBoolean()) {

@@ -16,6 +16,9 @@ public final class OptionalReferenceExaminer extends FieldExaminer implements IO
     && optionalReference.getStoredParentEntity().isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canSetEntity(final IOptionalReference<E> optionalReference) {
     return //
@@ -24,6 +27,9 @@ public final class OptionalReferenceExaminer extends FieldExaminer implements IO
     && optionalReference.belongsToEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canSetEntity(final IOptionalReference<E> optionalReference, final E entity) {
     return //

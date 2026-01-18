@@ -11,6 +11,9 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
     return MutableNode.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected MutableNode createNodeWithHeader(final String header) {
     final var mutableNode = MutableNode.createEmpty();
@@ -20,6 +23,9 @@ final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
     return mutableNode;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected MutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
     final var mutableNode = MutableNode.createEmpty();

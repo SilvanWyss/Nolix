@@ -30,6 +30,9 @@ implements ILinearContainer<C, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C addControls(final IControl<?, ?>... controls) {
     for (final var c : controls) {
@@ -39,6 +42,9 @@ implements ILinearContainer<C, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C addControls(final IContainer<? extends IControl<?, ?>> controls) {
     controls.forEach(this::addControl);
@@ -46,26 +52,41 @@ implements ILinearContainer<C, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void clear() {
     childControls.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     return childControls.getStoredValues();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isEmpty() {
     return childControls.isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeControl(final IControl<?, ?> control) {
     childControls.remove(control);

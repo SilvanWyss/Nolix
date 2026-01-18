@@ -37,6 +37,9 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     setLoaded();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Database addTable(final ITable table) {
     DATABASE_VALIDATOR.assertCanAddGivenTable(this, table);
@@ -45,6 +48,9 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Database createTableWithName(final String name) {
     final var table = Table.withName(name);
@@ -52,11 +58,17 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     return addTable(table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return memberName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<ITable> getStoredTables() {
     loadTablesFromDatabaseIfNeeded();
@@ -64,6 +76,9 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     return tables;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getTableCount() {
     if (!isConnectedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
@@ -73,11 +88,17 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
     return midSchemaAdapter.getTableCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return (midSchemaAdapter != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteClose() {
     //Does not call getStoredTables method to avoid that the tables need to be

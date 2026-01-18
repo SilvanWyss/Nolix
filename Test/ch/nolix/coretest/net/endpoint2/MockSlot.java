@@ -31,6 +31,9 @@ public final class MockSlot implements ISlot {
     return (latestReceivedMessage != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void takeBackendEndPoint(final IEndPoint endPoint) {
     endPoint.setReplier(this::getReply);

@@ -49,11 +49,17 @@ public final class SchemaWriter implements ISchemaWriter {
     return new SchemaWriter(databaseName, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addAdditionalSqlStatements(IContainer<String> additionalSqlStatements) {
     addiditionalSqlStatements.addAtEnd(additionalSqlStatements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addColumn(final TableIdentification table, final ColumnDto column) {
     final var tableName = table.tableName();
@@ -62,6 +68,9 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addColumns(final TableIdentification table, final IContainer<ColumnDto> columns) {
     for (final var c : columns) {
@@ -69,6 +78,9 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addTable(final TableDto table) {
     final var statement = STATEMENT_CREATOR.createStatementToAddTable(table);
@@ -76,6 +88,9 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addTables(final IContainer<TableDto> tables) {
     for (final var t : tables) {
@@ -83,6 +98,9 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addTables(final TableDto table, final TableDto... tables) {
     addTable(table);
@@ -92,6 +110,9 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
     final var statement = STATEMENT_CREATOR.createStatementToDeleteColumn(tableName, columnName);
@@ -99,6 +120,9 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteColumnIfExists(final String tableName, final String columnName) {
     final var statement = STATEMENT_CREATOR.createStatementToDeleteColumnIfExists(tableName, columnName);
@@ -106,6 +130,9 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteTable(final String tableName) {
     final var statement = STATEMENT_CREATOR.createStatementToDeleteTable(tableName);
@@ -113,26 +140,41 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getSaveCount() {
     return saveCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasChanges() {
     return sqlCollector.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     final var statement = STATEMENT_CREATOR.createStatementToRenameColumn(tableName, columnName, newColumnName);
@@ -140,6 +182,9 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameColumnIfExists(final String tableName, final String columnName, final String newColumnName) {
     final var statement = STATEMENT_CREATOR.createStatementToRenameColumnIfExists(tableName, columnName, newColumnName);
@@ -147,6 +192,9 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameTable(final String tableName, final String newTableName) {
     final var statement = STATEMENT_CREATOR.createStatementToRenameTable(tableName, newTableName);
@@ -154,12 +202,18 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlCollector.addSqlStatement(statement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     sqlCollector.clear();
     addiditionalSqlStatements.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveChanges() {
     try {

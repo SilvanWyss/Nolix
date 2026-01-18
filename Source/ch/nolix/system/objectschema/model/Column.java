@@ -97,46 +97,73 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     && parentTable.belongsToDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToTable() {
     return (parentTable != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void delete() {
     COLUMN_EDITOR.deleteColumn(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DataType getDataType() {
     return dataType;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getFieldType() {
     return fieldType;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getId() {
     return id;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IColumn> getStoredBackReferenceableColumns() {
     return backReferenceableColumns;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDatabase getStoredParentDatabase() {
     return getStoredParentTable().getStoredParentDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Table getStoredParentTable() {
     COLUMN_TOOL.assertBelongsToTable(this);
@@ -144,11 +171,17 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return parentTable;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends ITable> getStoredReferenceableTables() {
     return referenceableTables;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isBackReferenced() {
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
@@ -158,11 +191,17 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return isBackReferencedWhenIsAnyReferenceColumn();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return (belongsToTable() && getStoredParentTable().isConnectedWithRealDatabase());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return //
@@ -170,16 +209,25 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     || getStoredMidSchemaAdapter().columnIsEmpty(getStoredParentTable().getName(), getName());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackColumn(final IColumn column) {
     return getStoredBackReferenceableColumns().contains(column);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesTable(final ITable table) {
     return referenceableTables.contains(table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Column setContentModel(
     final FieldType fieldType,
@@ -191,6 +239,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Column setName(final String name) {
     COLUMN_EDITOR.setNameToColumn(this, name);
@@ -256,6 +307,9 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     this.parentTable = parentTable;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteClose() {
     //Does nothing.

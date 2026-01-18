@@ -22,6 +22,9 @@ public final class GeneralException extends RuntimeException {
     return errorMessage;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(final Object object) {
     if (object instanceof final GeneralException generalException) {
@@ -31,6 +34,9 @@ public final class GeneralException extends RuntimeException {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode() {
     return getMessage().hashCode();

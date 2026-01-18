@@ -42,16 +42,25 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
       securityModeForConnections);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getApplicationInstanceName() {
     return applicationInstanceName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getApplicationUrlInstanceName() {
     return applicationUrlInstanceName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toUrl() {
     return (super.toUrl() + "?app=" + getApplicationUrlInstanceName());

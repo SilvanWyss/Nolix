@@ -42,6 +42,9 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
     return NodeDataAdapterBuilder.createNodeDataAdapter().forTemporaryInMemoryNodeDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public AbstractDataAdapter createEmptyCopy() {
     return forNodeDatabase(nodeDatabase).withName(getDatabaseName()).andSchema(getSchema());

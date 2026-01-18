@@ -14,36 +14,57 @@ abstract class AbstractImmutableDatabaseObject implements GroupCloseable, IDatab
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final DatabaseObjectState getState() {
     return DatabaseObjectState.UNEDITED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isDeleted() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isConnectedWithRealDatabase() {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isNew() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void noteClose() {
     //Does nothing.

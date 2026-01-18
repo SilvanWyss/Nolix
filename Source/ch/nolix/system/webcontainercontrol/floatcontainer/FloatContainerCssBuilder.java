@@ -30,6 +30,9 @@ extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
             "left"))));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final FloatContainer floatContainer,
@@ -45,6 +48,9 @@ extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
             floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final FloatContainer control,
@@ -52,6 +58,9 @@ extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final FloatContainer floatContainer,

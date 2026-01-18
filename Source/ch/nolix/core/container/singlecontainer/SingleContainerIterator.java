@@ -22,16 +22,25 @@ public final class SingleContainerIterator<E> implements CopyableIterator<E> {
     return new SingleContainerIterator<>(nullableElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> getCopy() {
     return forNullableElement(nullableElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (nullableElement != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     assertHasNext();

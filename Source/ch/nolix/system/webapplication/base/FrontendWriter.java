@@ -18,26 +18,41 @@ final class FrontendWriter implements IFrontEndWriter {
     return new FrontendWriter(backendWebClient);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void openNewTabWithUrl(final String url) {
     parentBackendWebClient.internalOpenNewTabOnCounterpartWithUrl(url);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
     parentBackendWebClient.internalRedirectCounterpartTo(applicationInstanceTarget);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void redirectToUrl(final String url) {
     parentBackendWebClient.internalRedirectCounterpartToUrl(url);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveFile(final byte[] bytes) {
     parentBackendWebClient.internalSaveFileOnCounterpart(bytes);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void writeTextToClipboard(final String text) {
     parentBackendWebClient.internalWriteTextToClipboardOfCounterpart(text);

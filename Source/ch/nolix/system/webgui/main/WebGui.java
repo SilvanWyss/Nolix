@@ -108,61 +108,97 @@ implements IWebGui<WebGui> {
     return layerStack.containsControl(control);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     layerStack.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFrontEndReader fromFrontEnd() {
     return frontEndReader;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IBackground getBackground() {
     return background.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getBackgroundColor() {
     return getBackground().getColor();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColorGradient getBackgroundColorGradient() {
     return getBackground().getColorGradient();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImage getBackgroundImage() {
     return getBackground().getImage();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ImageApplication getBackgroundImageApplication() {
     return getBackground().getImageApplication();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BackgroundType getBackgroundType() {
     return getBackground().getType();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICss getCss() {
     return WEB_GUI_CSS_BUILDER.createCssForWebGui(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement getHtml() {
     return WEB_GUI_HTML_BUILDER.createHtmlForWebGui(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImage getIcon() {
     return icon.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations() {
     final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations = LinkedList.createEmpty();
@@ -172,71 +208,113 @@ implements IWebGui<WebGui> {
     return htmlElementEventRegistrations;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getLayerCount() {
     return layerStack.getLayerCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
     return layerStack.getOptionalStoredControlByInternalId(internalId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return getStoredLayers();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
     return layerStack.getStoredControls();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<ILayer<?>> getStoredLayers() {
     return layerStack.getStoredLayers();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer<?> getStoredTopLayer() {
     return layerStack.getStoredTopLayer();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getTitle() {
     return title.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasBackground() {
     return background.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRemoveLayerAction() {
     return layerStack.hasRemoveLayerAction();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return layerStack.isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isRoot() {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFrontEndWriter onFrontEnd() {
     return frontEndWriter;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui pushLayer(final ILayer<?> layer) {
     layerStack.pushLayer(layer);
@@ -244,6 +322,9 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui pushLayerWithRootControl(final IControl<?, ?> rootControl) {
     layerStack.pushLayerWithRootControl(rootControl);
@@ -251,11 +332,17 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeBackground() {
     background.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeLayer(final ILayer<?> layer) {
     layerStack.removeLayer(layer);
@@ -267,26 +354,41 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setBackgroundColor(final IColor backgroundColor) {
     return setBackground(Background.withColor(backgroundColor));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
     return setBackground(Background.withColorGradient(backgroundColorGradient));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setBackgroundImage(final IImage backgroundImage) {
     return setBackground(Background.withImage(backgroundImage));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
     return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setFrontEndReaderAndFrontEndWriter(
     final IFrontEndReader frontEndReader,
@@ -300,6 +402,9 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setIcon(final IImage icon) {
     this.icon.setValue(Image.fromAnyImage(icon));
@@ -307,6 +412,9 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setRemoveLayerAction(Runnable removeLayerAction) {
     layerStack.setRemoveLayerAction(removeLayerAction);
@@ -314,6 +422,9 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public WebGui setTitle(final String title) {
     Validator.assertThat(title).thatIsNamed(LowerCaseVariableCatalog.TITLE).isNotBlank();
@@ -323,6 +434,9 @@ implements IWebGui<WebGui> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetConfigurationElement() {
     setTitle(DEFAULT_TITLE);
@@ -331,6 +445,9 @@ implements IWebGui<WebGui> {
     clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetStyle() {
     //An image will not be reset since an image is not supposed to be applied from

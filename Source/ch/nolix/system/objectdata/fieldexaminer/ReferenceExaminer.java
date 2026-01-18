@@ -16,6 +16,9 @@ public final class ReferenceExaminer extends FieldExaminer implements IReference
     && reference.belongsToEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canSetEntity(final IReference<E> reference, final E entity) {
     return //

@@ -25,6 +25,9 @@ public final class SocketEndPointMessageListener extends AbstractWorker {
     return new SocketEndPointMessageListener(parentSocketEndPoint);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void run() {
     while (parentSocketEndPoint.isOpen()) {

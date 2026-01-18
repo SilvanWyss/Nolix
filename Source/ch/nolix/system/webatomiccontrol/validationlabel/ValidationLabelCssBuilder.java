@@ -20,6 +20,9 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IValidationLabel text,
@@ -28,6 +31,9 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IValidationLabel text,
@@ -35,6 +41,9 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IValidationLabel text,

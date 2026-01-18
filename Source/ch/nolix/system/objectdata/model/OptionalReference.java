@@ -77,6 +77,9 @@ implements IOptionalReference<E> {
     return new OptionalReference<>(referenceableTableNamesView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     if (containsAny()) {
@@ -84,6 +87,9 @@ implements IOptionalReference<E> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedEntityId() {
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
@@ -91,6 +97,9 @@ implements IOptionalReference<E> {
     return nullableReferencedEntityCache.entityId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedTableId() {
     retrieveReferencedTableId();
@@ -98,6 +107,9 @@ implements IOptionalReference<E> {
     return nullableReferencedEntityCache.nullableTableId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedTableName() {
     OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
@@ -111,6 +123,9 @@ implements IOptionalReference<E> {
     return getStoredReferencedTable().getName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
@@ -129,6 +144,9 @@ implements IOptionalReference<E> {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredReferencedEntity() {
     retrieveReferencedEntity();
@@ -136,6 +154,9 @@ implements IOptionalReference<E> {
     return nullableReferencedEntityCache.nullableEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
@@ -154,11 +175,17 @@ implements IOptionalReference<E> {
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getReferencedTableId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getType() {
     return FieldType.OPTIONAL_REFERENCE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
 
@@ -178,16 +205,25 @@ implements IOptionalReference<E> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return (nullableReferencedEntityCache == null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMandatory() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesEntity(IEntity entity) {
     return containsAny()
@@ -195,18 +231,27 @@ implements IOptionalReference<E> {
     && getReferencedEntityId().equals(entity.getId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
     && !getStoredReferencedEntity().belongsToTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public void setEntity(final Object entity) {
     setCastedEntity((E) entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setEntityById(final String id) {
     final var entity = getStoredReferencedTable().getStoredEntityById(id);
@@ -214,6 +259,9 @@ implements IOptionalReference<E> {
     setEntity(entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {

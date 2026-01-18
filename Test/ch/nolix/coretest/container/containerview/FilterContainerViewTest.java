@@ -13,6 +13,9 @@ public final class FilterContainerViewTest extends ContainerTest {
     return FilterContainerView.forArrayAndSelector(elements, _ -> true);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return FilterContainerView.createEmpty();

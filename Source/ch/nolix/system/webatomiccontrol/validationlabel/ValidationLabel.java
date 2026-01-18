@@ -42,76 +42,121 @@ implements IValidationLabel {
     setMinWidth(500);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     memberError.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Throwable getError() {
     return memberError.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return memberError.isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ValidationLabel setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void showError(final Throwable error) {
     memberError.setValue(error);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ValidationLabelStyle createStyle() {
     return new ValidationLabelStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<IValidationLabel, IValidationLabelStyle> getCssBuilder() {
     return new ValidationLabelCssBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<IValidationLabel> getHtmlBuilder() {
     return new ValidationLabelHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     clear();

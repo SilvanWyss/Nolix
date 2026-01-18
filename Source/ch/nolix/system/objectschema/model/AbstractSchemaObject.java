@@ -15,26 +15,41 @@ abstract class AbstractSchemaObject implements IDatabaseObject {
     return state;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);

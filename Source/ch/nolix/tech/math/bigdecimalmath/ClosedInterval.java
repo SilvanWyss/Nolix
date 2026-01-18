@@ -43,6 +43,9 @@ public final class ClosedInterval implements IClosedInterval {
     this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), decimalPlaces);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsValue(final BigDecimal value) {
     return value != null
@@ -50,6 +53,9 @@ public final class ClosedInterval implements IClosedInterval {
     && value.compareTo(max) <= 0;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(final Object object) {
     return //
@@ -57,11 +63,17 @@ public final class ClosedInterval implements IClosedInterval {
     && equalsClosedIntervall(closedInterval);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getDecimalPlaces() {
     return min.scale();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Pair<IClosedInterval, IClosedInterval> getHalfs() {
     final var decimalPlaces = getDecimalPlaces();
@@ -72,42 +84,66 @@ public final class ClosedInterval implements IClosedInterval {
       new ClosedInterval(midPoint, max, decimalPlaces));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getLength() {
     return max.subtract(min);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getMax() {
     return max;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getMidPoint() {
     return min.add(max).divide(BigDecimal.valueOf(2.0)).setScale(min.scale());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getMin() {
     return min;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ClosedInterval inDecimalPlaces(final int decimalPlaces) {
     return new ClosedInterval(min, max, decimalPlaces);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean intersectsWith(final IClosedInterval closedInterval) {
     return getMin().compareTo(closedInterval.getMax()) < 0
     && getMax().compareTo(closedInterval.getMin()) > 0;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return ("[" + min + ", " + max + "]");

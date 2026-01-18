@@ -26,31 +26,49 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
     this.backReferencedFieldName = backReferencedFieldName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<String> getBackReferenceableTableNames() {
     return backReferenceableTableNames;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getBackReferencedFieldName() {
     return backReferencedFieldName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean referencesEntity(final IEntity entity) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean referencesUninsertedEntity() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void noteInsertIntoDatabase() {
     //Does nothing.

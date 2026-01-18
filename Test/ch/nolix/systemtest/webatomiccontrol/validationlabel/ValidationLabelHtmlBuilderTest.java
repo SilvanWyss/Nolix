@@ -15,11 +15,17 @@ extends ControlHtmlBuilderTest<ValidationLabelHtmlBuilder, IValidationLabel> {
     return new ValidationLabel();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ValidationLabelHtmlBuilder createTestUnit() {
     return new ValidationLabelHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div>\u2800</div>";

@@ -188,6 +188,9 @@ public final class Polynom {
     return getValueAtWhenIsNotZeroPolynom(x);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode() {
     return toString().hashCode();

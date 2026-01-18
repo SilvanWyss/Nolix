@@ -15,6 +15,9 @@ public final class EntityNodeSearcher implements IEntityNodeSearcher {
     return idNode.getHeader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getSaveStampFromEntityNode(final IMutableNode<?> entityNode) {
     final var saveStampNode = getStoredSaveStampNodeFromEntityNode(entityNode);
@@ -22,11 +25,17 @@ public final class EntityNodeSearcher implements IEntityNodeSearcher {
     return saveStampNode.getHeader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredIdNodeFromEntityNode(final IMutableNode<?> entityNode) {
     return entityNode.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredSaveStampNodeFromEntityNode(final IMutableNode<?> entityNode) {
     return entityNode.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.SAVE_STAMP_INDEX);

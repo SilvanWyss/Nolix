@@ -14,11 +14,17 @@ final class TextboxHtmlBuilderTest extends ControlHtmlBuilderTest<TextboxHtmlBui
     return new Textbox();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected TextboxHtmlBuilder createTestUnit() {
     return new TextboxHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<input value=\"\" />";

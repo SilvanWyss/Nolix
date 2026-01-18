@@ -15,6 +15,9 @@ public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
     return keyLines.toConcatenatedString();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String readKeyFromPemFile(final String pemFilePath) {
     final var pemFileLines = FileSystemAccessor.readFileToLines(pemFilePath);

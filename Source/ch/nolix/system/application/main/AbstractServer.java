@@ -232,6 +232,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
     return addDefaultApplication(localDefaultApplication);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void clear() {
     getStoredApplications().forEach(this::removeApplication);

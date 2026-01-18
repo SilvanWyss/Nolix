@@ -13,11 +13,17 @@ public final class TestSlot implements ISlot {
     return latestCreatedReceivingDataProviderController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return "test_slot";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void takeBackendEndPoint(final IEndPoint backendEndPoint) {
     latestCreatedReceivingDataProviderController = new TestReceivingDataProviderController();

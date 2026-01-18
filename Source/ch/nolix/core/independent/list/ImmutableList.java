@@ -48,6 +48,9 @@ public final class ImmutableList<E> implements Iterable<E> {
     return new ImmutableList<>(array);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Iterator<E> iterator() {
     return ImmutableListIterator.forArray(elements);

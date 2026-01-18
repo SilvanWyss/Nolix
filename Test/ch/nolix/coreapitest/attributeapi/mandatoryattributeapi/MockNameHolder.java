@@ -16,6 +16,9 @@ public final class MockNameHolder implements INameHolder {
     return new MockNameHolder(name);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;

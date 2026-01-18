@@ -36,11 +36,17 @@ public final class BasicApplication<C extends AbstractBackendClient<C, S>, S> ex
     return new BasicApplication<>(applicationName, initialSessionClass, applicationService);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getApplicationName() {
     return applicationName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Class<?> getInitialSessionClass() {
     return initialSessionClass;

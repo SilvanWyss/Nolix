@@ -30,6 +30,9 @@ public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediator
     return new ByteArrayMediatorWithStartIndex(byteArray, startIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public INextIndexMediator write(final byte[] bytes) {
     for (var i = 0; i < bytes.length; i++) {

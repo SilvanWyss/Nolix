@@ -16,6 +16,9 @@ public final class StatementCreator implements IStatementCreator {
     return ("ALTER TABLE " + tableName + " ADD " + getColumnAsSql(column) + ";");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToAddTable(TableDto table) {
     return //
@@ -25,11 +28,17 @@ public final class StatementCreator implements IStatementCreator {
     + ");";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return ("ALTER TABLE " + tableName + " DROP COLUMN " + columnName + ";");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteColumnIfExists(final String tableName, final String columnName) {
     return //
@@ -45,11 +54,17 @@ public final class StatementCreator implements IStatementCreator {
     + " END;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteTable(final String tableName) {
     return ("DROP TABLE " + tableName + ";");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToRenameColumn(
     final String tableName,
@@ -58,6 +73,9 @@ public final class StatementCreator implements IStatementCreator {
     return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToRenameColumnIfExists(
     final String tableName,
@@ -78,6 +96,9 @@ public final class StatementCreator implements IStatementCreator {
     + " END;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToRenameTable(final String tableName, final String newTableName) {
     return ("ALTER TABLE " + tableName + " RENAME TO " + newTableName + ";");

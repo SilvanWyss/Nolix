@@ -14,6 +14,9 @@ final class IterableViewTest extends ContainerTest {
     return IterableContainerView.forIterable(ArrayList.withElements(elements));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return new IterableContainerView<>();

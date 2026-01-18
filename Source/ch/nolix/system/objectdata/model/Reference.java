@@ -74,6 +74,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return new Reference<>(referenceableTableNamesView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedEntityId() {
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
@@ -81,6 +84,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return nullableReferencedEntityCache.entityId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedTableId() {
     retrieveReferencedTableId();
@@ -88,6 +94,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return nullableReferencedEntityCache.nullableTableId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedTableName() {
     REFERENCE_VALIDATOR.assertIsNotEmpty(this);
@@ -101,6 +110,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return getStoredReferencedTable().getName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
@@ -119,6 +131,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredReferencedEntity() {
     retrieveReferencedEntity();
@@ -126,6 +141,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return nullableReferencedEntityCache.nullableEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
@@ -144,6 +162,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getReferencedTableId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getType() {
     return FieldType.REFERENCE;
@@ -167,16 +188,25 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     nullableReferencedEntityCache = new EntityCache<>(id, tableId, null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return (nullableReferencedEntityCache == null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMandatory() {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesEntity(final IEntity entity) {
     return //
@@ -185,6 +215,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     && getReferencedEntityId().equals(entity.getId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesUninsertedEntity() {
     return //
@@ -192,12 +225,18 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     && !getStoredReferencedEntity().belongsToTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public void setEntity(final Object entity) {
     setCastedEntity((E) entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setEntityById(final String id) {
     final var entity = getStoredReferencedTable().getStoredEntityById(id);
@@ -205,6 +244,9 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     setEntity(entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {

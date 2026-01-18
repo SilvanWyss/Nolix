@@ -69,61 +69,97 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
       .forStateSetTextColor(ControlState.BASE, X11ColorCatalog.BLUE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getDisplayText() {
     return displayText.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public LinkTarget getTarget() {
     return target.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUrl() {
     return url.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasUrl() {
     return url.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeUrl() {
     url.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILink setDisplayText(final String displayText) {
     Validator.assertThat(displayText).thatIsNamed("dipslay text").isNotBlank();
@@ -133,6 +169,9 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILink setTarget(final LinkTarget target) {
     this.target.setValue(target);
@@ -140,6 +179,9 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILink setUrl(final String url) {
     Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotBlank();
@@ -149,6 +191,9 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILink setUrlAndDisplayTextFromIt(final String url) {
     final var localDisplayText = URL_TOOL.getDisplayTextForUrl(url);
@@ -159,26 +204,41 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILink setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ILinkStyle createStyle() {
     return new LinkStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<ILink, ILinkStyle> getCssBuilder() {
     return LINK_CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<ILink> getHtmlBuilder() {
     return LINK_HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     setDisplayText(DEFAULT_DISPLAY_TEXT);

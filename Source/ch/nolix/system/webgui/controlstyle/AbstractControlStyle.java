@@ -237,106 +237,169 @@ implements IControlStyle<S> {
     return memberHeight.hasValueForState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean definesWidthForState(final ControlState state) {
     return memberWidth.hasValueForState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IBackground getBackgroundWhenHasState(final ControlState state) {
     return memberBackground.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
     return memberBottomBorderColor.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
     return memberBottomBorderThickness.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IAbsoluteOrRelativeInt getBottomPaddingWhenHasState(final ControlState state) {
     return memberBottomPadding.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getCornerRadiusWhenHasState(final ControlState state) {
     return memberCornerRadius.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
     return memberCornerShadows.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
     return memberLeftBorderColor.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
     return memberLeftBorderThickness.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
     return memberHeight.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IAbsoluteOrRelativeInt getLeftPaddingWhenHasState(final ControlState state) {
     return memberLeftPadding.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IColor getRightBorderColorWhenHasState(final ControlState state) {
     return memberRightBorderColor.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getRightBorderThicknessWhenHasState(final ControlState state) {
     return memberRightBorderThickness.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IAbsoluteOrRelativeInt getRightPaddingWhenHasState(final ControlState state) {
     return memberRightPadding.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IColor getTopBorderColorWhenHasState(final ControlState state) {
     return memberTopBorderColor.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getTopBorderThicknessWhenHasState(final ControlState state) {
     return memberTopBorderThickness.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IAbsoluteOrRelativeInt getTopPaddingWhenHasState(final ControlState state) {
     return memberTopPadding.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
     return memberWidth.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBackgrounds() {
     memberBackground.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBorderColors() {
     memberBorderColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBorderThicknesses() {
     removeCustomLeftBorderColors();
@@ -345,51 +408,81 @@ implements IControlStyle<S> {
     removeCustomBottomBorderColors();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBottomBorderColors() {
     memberBottomBorderColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBottomBorderThicknesses() {
     memberBottomBorderThickness.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBottomPaddings() {
     memberBottomPadding.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomCornerRadiuses() {
     memberCornerRadius.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomCornerShadows() {
     memberCornerShadows.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomHeights() {
     memberHeight.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomLeftBorderColors() {
     memberLeftBorderColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomLeftBorderThicknesses() {
     memberLeftBorderThickness.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomLeftPaddings() {
     memberLeftPadding.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomPaddings() {
     removeCustomLeftPaddings();
@@ -398,46 +491,73 @@ implements IControlStyle<S> {
     removeCustomBottomPaddings();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomRightBorderColors() {
     memberRightBorderColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomRightBorderThicknesses() {
     memberRightBorderThickness.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomRightPaddings() {
     memberRightPadding.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomTopBorderColors() {
     memberTopBorderColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomTopBorderThicknesses() {
     memberTopBorderThickness.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomTopPaddings() {
     memberTopPadding.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomWidths() {
     memberWidth.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBackgroundColor(final ControlState state, final IColor backgroundColor) {
     return forStateSetBackground(state, Background.withColor(backgroundColor));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBackgroundColorGradient(
     final ControlState state,
@@ -445,6 +565,9 @@ implements IControlStyle<S> {
     return forStateSetBackground(state, Background.withColorGradient(backgroundColorGradient));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBackground(ControlState state, IBackground background) {
     memberBackground.setValueForState(state, background);
@@ -452,6 +575,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBackgroundImage(
     final ControlState state,
@@ -462,6 +588,9 @@ implements IControlStyle<S> {
       Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBorderColor(final ControlState state, final IColor borderColor) {
     memberBorderColor.setValueForState(state, borderColor);
@@ -469,6 +598,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBorderThickness(final ControlState state, final int borderThickness) {
     memberBorderThickness.setValueForState(state, borderThickness);
@@ -476,6 +608,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBottomBorderColor(final ControlState state, final IColor bottomBorderColor) {
     memberBottomBorderColor.setValueForState(state, bottomBorderColor);
@@ -483,6 +618,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBottomBorderThickness(final ControlState state, final int bottomBorderThickness) {
     Validator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
@@ -492,6 +630,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetBottomPadding(final ControlState state, final int bottomPadding) {
     Validator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
@@ -501,6 +642,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetCornerRadius(final ControlState state, final int cornerRadius) {
     Validator.assertThat(cornerRadius).thatIsNamed("corner radius").isNotNegative();
@@ -510,6 +654,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetCornerShadow(
     final ControlState state,
@@ -520,6 +667,9 @@ implements IControlStyle<S> {
     return forStateSetCornerShadows(state, allCornerShadows);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetCornerShadows(final ControlState state,
     final IContainer<? extends ICornerShadow> cornerShadows) {
@@ -528,6 +678,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetHeight(final ControlState state, final int height) {
     setHeightForState(state, AbsoluteOrRelativeInt.withIntValue(height));
@@ -535,6 +688,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetHeightInPercentOfViewArea(
     final ControlState state,
@@ -544,6 +700,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetLeftBorderColor(final ControlState state, final IColor leftBorderColor) {
     memberLeftBorderColor.setValueForState(state, leftBorderColor);
@@ -551,6 +710,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetLeftBorderThickness(final ControlState state, final int leftBorderThickness) {
     Validator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
@@ -560,6 +722,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetLeftPadding(final ControlState state, final int leftPadding) {
     Validator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
@@ -569,6 +734,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetPadding(final ControlState state, final int padding) {
     memberPadding.setValueForState(state, AbsoluteOrRelativeInt.withIntValue(padding));
@@ -576,6 +744,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetRightBorderColor(final ControlState state, final IColor rightBorderColor) {
     memberRightBorderColor.setValueForState(state, rightBorderColor);
@@ -583,6 +754,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetRightBorderThickness(final ControlState state, final int rightBorderThickness) {
     Validator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
@@ -592,6 +766,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetRightPadding(final ControlState state, final int rightPadding) {
     Validator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
@@ -601,6 +778,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetTopBorderColor(final ControlState state, final IColor topBorderColor) {
     memberTopBorderColor.setValueForState(state, topBorderColor);
@@ -608,6 +788,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetTopBorderThickness(final ControlState state, final int topBorderThickness) {
     Validator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
@@ -617,6 +800,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetTopPadding(final ControlState state, final int topPadding) {
     Validator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
@@ -626,6 +812,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetWidth(final ControlState state, final int width) {
     setWidthForState(state, AbsoluteOrRelativeInt.withIntValue(width));
@@ -633,6 +822,9 @@ implements IControlStyle<S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S forStateSetWidthInPercentOfViewAreaWidth(
     final ControlState state,

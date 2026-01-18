@@ -25,6 +25,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertContainsTables(final IDatabase database, final IContainer<ITable> tables) {
     for (final var t : tables) {
@@ -32,6 +35,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertAllBackReferencesAreValid(final IDatabase database) {
     if (!DATABASE_EXAMINER.allBackReferencesAreValid(database)) {
@@ -39,6 +45,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanAddGivenTable(final IDatabase database, final ITable table) {
     if (!DATABASE_EXAMINER.canAddTable(database, table)) {
@@ -52,6 +61,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanSetGivenNameToDatabase(final String name) {
     if (!DATABASE_EXAMINER.canSetName(name)) {
@@ -62,6 +74,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertContainsTableReferencedByGivenColumn(
     final IDatabase database,
@@ -73,6 +88,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertContainsTableWithColumnBackReferencedByGivenColumn(
     final IDatabase database,
@@ -85,6 +103,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
 
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertContainsTableWithGivenColumn(final IDatabase database, final IColumn column) {
     if (!DATABASE_EXAMINER.containsTableWithColumn(database, column)) {
@@ -92,6 +113,9 @@ public final class DatabaseValidator implements IDatabaseValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertDoesNotContainTableWithGivenName(final IDatabase database, final String name) {
     if (DATABASE_EXAMINER.containsTableWithName(database, name)) {

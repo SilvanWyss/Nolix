@@ -58,6 +58,9 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
     this.sqlConnectionPool = sqlConnectionPool;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public AbstractDataAdapter createEmptyCopy() {
     return new MsSqlDataAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);

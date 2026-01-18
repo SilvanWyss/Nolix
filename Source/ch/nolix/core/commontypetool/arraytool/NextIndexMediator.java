@@ -16,6 +16,9 @@ public final class NextIndexMediator implements INextIndexMediator {
     return new NextIndexMediator(nextIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int andGetNextIndex() {
     return nextIndex;

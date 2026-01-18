@@ -45,6 +45,9 @@ public final class WebSocketHandShakeResponse {
     return secWebSocketKey;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return "HTTP/1.1 101 Switching Protocols\r\n"

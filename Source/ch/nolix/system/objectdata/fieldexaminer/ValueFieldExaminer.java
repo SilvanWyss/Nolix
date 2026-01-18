@@ -14,6 +14,9 @@ public final class ValueFieldExaminer extends FieldExaminer implements IValueFie
     && valueField.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canSetValue(final IValueField<?> valueField, final Object value) {
     return //

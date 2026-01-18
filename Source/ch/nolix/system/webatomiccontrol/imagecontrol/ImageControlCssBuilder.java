@@ -22,6 +22,9 @@ extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IImageControl imageControl,
@@ -30,6 +33,9 @@ extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IImageControl control,
@@ -37,6 +43,9 @@ extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IImageControl imageControl,

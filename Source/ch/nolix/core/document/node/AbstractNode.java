@@ -142,6 +142,9 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     return getStoredChildNodes().to(INode::getHeader);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<N> getOptionalStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
     return getStoredChildNodes().getOptionalStoredFirst(selector);

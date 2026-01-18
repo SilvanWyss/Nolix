@@ -37,11 +37,17 @@ public final class SslServer extends AbstractServer {
     return SecurityMode.SSL;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
     internalWebSocketServer.addDefaultSlot(new ServerSlot(defaultSlot.getName(), this));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteAddedSlot(final ISlot slot) {
     internalWebSocketServer.addSlot(new ServerSlot(slot.getName(), this));

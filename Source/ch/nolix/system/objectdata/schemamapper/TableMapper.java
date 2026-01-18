@@ -18,6 +18,9 @@ public final class TableMapper implements ITableMapper {
     return Table.withName(name);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<ITable> mapSchemaToEmptyTables(final IEntityTypeSet entityTypeSet) {
     final var entityTypes = entityTypeSet.getEntityTypes();

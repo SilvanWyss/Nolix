@@ -71,6 +71,9 @@ implements IOptionalBackReference<E> {
     return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getBackReferencedEntityId() {
     FIELD_VALIDATOR.assertIsNotEmpty(this);
@@ -78,6 +81,9 @@ implements IOptionalBackReference<E> {
     return nullableBackReferencedEntityCache.entityId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getBackReferencedTableId() {
     retrieveBackReferencedTableId();
@@ -85,6 +91,9 @@ implements IOptionalBackReference<E> {
     return nullableBackReferencedEntityCache.nullableTableId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getBackReferencedTableName() {
     FIELD_VALIDATOR.assertIsNotEmpty(this);
@@ -98,11 +107,17 @@ implements IOptionalBackReference<E> {
     return getStoredBackReferencedTable().getName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredBackReferencedEntity() {
     return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredBackReferencedTable() {
@@ -121,6 +136,9 @@ implements IOptionalBackReference<E> {
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     if (isEmpty()) {
@@ -134,11 +152,17 @@ implements IOptionalBackReference<E> {
     return ImmutableList.withElements(backReferencedField);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getType() {
     return FieldType.OPTIONAL_BACK_REFERENCE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
 
@@ -158,16 +182,25 @@ implements IOptionalBackReference<E> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return (nullableBackReferencedEntityCache == null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMandatory() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackEntity(IEntity entity) {
     return containsAny()
@@ -175,11 +208,17 @@ implements IOptionalBackReference<E> {
     && getBackReferencedEntityId().equals(entity.getId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackEntityWithId(final String id) {
     return (containsAny() && getBackReferencedEntityId().equals(id));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackField(final IField field) {
     return //

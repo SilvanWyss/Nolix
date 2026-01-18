@@ -65,46 +65,73 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     initialize();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getChildControlMarginWhenHasState(final ControlState state) {
     return childControlMargin.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getGridColorWhenHasState(final ControlState state) {
     return gridColor.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getGridThicknessWhenHasState(final ControlState state) {
     return gridThickness.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public GridType getGridTypeWhenHasState(final ControlState state) {
     return gridType.getValueOfState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeCustomChildControlMargins() {
     childControlMargin.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeCustomGridColors() {
     gridColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeCustomGridThicknesses() {
     gridThickness.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeCustomGridTypes() {
     gridType.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IGridStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
     Validator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
@@ -114,6 +141,9 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IGridStyle setGridColorForState(final ControlState state, final IColor gridColor) {
     this.gridColor.setValueForState(state, gridColor);
@@ -121,6 +151,9 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IGridStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
     Validator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
@@ -130,6 +163,9 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IGridStyle setGridTypeForState(final ControlState state, final GridType gridType) {
     this.gridType.setValueForState(state, gridType);

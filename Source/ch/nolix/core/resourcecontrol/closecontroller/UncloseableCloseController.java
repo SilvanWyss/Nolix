@@ -15,21 +15,33 @@ public final class UncloseableCloseController implements ICloseController {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void createCloseDependencyTo(final GroupCloseable element) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IClosePool getParentClosePool() {
     return UNCLOSEABLE_CLOSE_POOL;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasClosed() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setParentClosePool(final IClosePool parentClosePool) {
     //Does nothing.

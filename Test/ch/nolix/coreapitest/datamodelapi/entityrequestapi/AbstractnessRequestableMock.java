@@ -16,6 +16,9 @@ public final class AbstractnessRequestableMock implements AbstractnessRequestabl
     return new AbstractnessRequestableMock(isAbstractFlag);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isAbstract() {
     return isAbstract;

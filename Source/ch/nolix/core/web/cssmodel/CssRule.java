@@ -42,21 +42,33 @@ public final class CssRule implements ICssRule {
     return new CssRule(selector, allProperties);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<CssProperty> getProperties() {
     return properties;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getSelector() {
     return selector;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return (getSelector() + StringTool.getInBraces(getProperties().toConcatenatedString()));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICssRule withPrefixedSelector(final String selectorPrefix) {
     Validator.assertThat(selectorPrefix).thatIsNamed("selector prefix").isNotNull();

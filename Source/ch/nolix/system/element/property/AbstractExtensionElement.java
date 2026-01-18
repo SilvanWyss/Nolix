@@ -25,6 +25,9 @@ public abstract class AbstractExtensionElement<E extends IRespondingMutableEleme
     return memberInternalExtensionElement.addedOrChangedAttribute(attribute);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
     list.addAtEnd(memberInternalExtensionElement.getAttributes());

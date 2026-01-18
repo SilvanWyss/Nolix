@@ -19,11 +19,17 @@ public record HtmlElementEvent(String htmlElementId, String htmlEvent) implement
     this.htmlEvent = htmlEvent;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getHtmlElementId() {
     return htmlElementId;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getHtmlEvent() {
     return htmlEvent;

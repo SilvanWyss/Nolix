@@ -33,6 +33,9 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
     reset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public byte[] getFile() {
     assertHasFile();
@@ -40,31 +43,49 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
     return memberFile.clone();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasFile() {
     return (memberFile != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetFile(final byte[] file) {
     Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
@@ -72,36 +93,57 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
     memberFile = file; //NOSONAR: A Uploader operates on the original input.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IUploader setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IUploaderStyle createStyle() {
     return new UploaderStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<IUploader, IUploaderStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<IUploader> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     removeFile();

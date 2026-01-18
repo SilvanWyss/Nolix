@@ -78,11 +78,17 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
       });
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addedOrChangedAttribute(INode<?> attribute) {
     if (hasName(attribute.getHeader())) {
@@ -93,6 +99,9 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     list.addAtEnd(specificationCreator.apply(getter.get()));

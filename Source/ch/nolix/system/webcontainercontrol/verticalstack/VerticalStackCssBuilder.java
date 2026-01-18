@@ -33,6 +33,9 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
             verticalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IVerticalStack verticalStack,
@@ -40,6 +43,9 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IVerticalStack control,
@@ -50,6 +56,9 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
       createCssPropertyForContentAlignmentOfControl(control));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IVerticalStack verticalStack,

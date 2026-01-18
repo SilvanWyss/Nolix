@@ -13,26 +13,41 @@ final class Future extends AbstractFuture {
     this.jobWrapper = jobWrapper;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean caughtError() {
     return jobWrapper.caughtError();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Throwable getError() {
     return jobWrapper.getError();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isFinished() {
     return jobWrapper.isFinished();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void waitUntilIsFinished() {
     jobWrapper.waitUntilIsFinished();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
     jobWrapper.waitUntilIsFinished(timeoutInMilliseconds);

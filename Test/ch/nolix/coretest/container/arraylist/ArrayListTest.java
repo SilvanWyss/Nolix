@@ -16,6 +16,9 @@ final class ArrayListTest extends ContainerTest {
     return ArrayList.withElements(elements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ArrayList.createEmpty();

@@ -25,6 +25,9 @@ final class MultiContainerViewTest extends ContainerTest {
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(
     final @SuppressWarnings("unchecked") E... elements) {
@@ -33,6 +36,9 @@ final class MultiContainerViewTest extends ContainerTest {
     return MultiContainerView.forIterables(container);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return MultiContainerView.forEmpty();

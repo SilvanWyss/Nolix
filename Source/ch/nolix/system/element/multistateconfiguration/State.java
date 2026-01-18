@@ -39,6 +39,9 @@ final class State<S extends Enum<S>> implements INameHolder {
     return index;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return NAME;

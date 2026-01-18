@@ -72,6 +72,9 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
       defaultValue);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected V getValueWhenHasState(final State<S> state) {
     final var stateProperty = stateProperties[state.getIndex()];
@@ -91,6 +94,9 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     return defaultValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
     final var stateProperty = stateProperties[state.getIndex()];

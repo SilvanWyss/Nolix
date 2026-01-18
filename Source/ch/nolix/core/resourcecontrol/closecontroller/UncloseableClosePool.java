@@ -15,16 +15,25 @@ public final class UncloseableClosePool implements IClosePool {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void closeElementsIfStateIsOpen() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CloseState getState() {
     return CloseState.OPEN;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<GroupCloseable> getStoredElements() {
     return ImmutableList.createEmpty();

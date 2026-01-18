@@ -21,6 +21,9 @@ public final class OptionalReferenceValidator extends FieldValidator implements 
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> void assertCanSetEntity(final IOptionalReference<E> optionalReference, final E entity) {
     if (!OPTIONAL_REFERENCE_EXAMINER.canSetEntity(optionalReference, entity)) {
@@ -31,6 +34,9 @@ public final class OptionalReferenceValidator extends FieldValidator implements 
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertIsNotEmpty(final IOptionalReference<?> optionalReference) {
     if (optionalReference.isEmpty()) {

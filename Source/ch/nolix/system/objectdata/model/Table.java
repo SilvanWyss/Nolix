@@ -85,16 +85,25 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return new Table<>(parentDatabase, name, id, entityType);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToDatabase() {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsEntityWithId(final String id) {
     return getStoredMidDataDataAdapterAndSchemaReader().tableContainsEntity(getName(), id);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getEntityCount() {
     var entityCount = getStoredMidDataDataAdapterAndSchemaReader().getEntityCount(getName());
@@ -111,21 +120,33 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entityCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Class<E> getEntityType() {
     return entityClass;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getId() {
     return memberId;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<E> getOptionalStoredEntityById(final String id) {
     final var entity = internalGetStoredEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
@@ -143,11 +164,17 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entity;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IColumn> getStoredColumns() {
     return memberColumns;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<E> getStoredEntities() {
     loadAllEntitiesInLocalDataIfNotLoaded();
@@ -155,6 +182,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entitiesInLocalData;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredEntityById(final String id) {
     final var entity = internalGetStoredEntitiesInLocalData().getOptionalStoredFirst(e -> e.hasId(id));
@@ -168,11 +198,17 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entity.get();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDatabase getStoredParentDatabase() {
     return parentDatabase;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DatabaseObjectState getState() {
     if (parentDatabase.isClosed()) {
@@ -186,6 +222,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return DatabaseObjectState.UNEDITED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable<E> insertEntity(final E entity) {
     //The Entity must know its Table that it can be inserted into the Table.
@@ -198,36 +237,57 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isClosed() {
     return parentDatabase.isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isDeleted() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return parentDatabase.isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNew() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<E> internalGetStoredEntitiesInLocalData() {
     return entitiesInLocalData;

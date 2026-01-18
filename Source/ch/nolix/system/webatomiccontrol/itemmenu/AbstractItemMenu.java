@@ -39,6 +39,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return addItem(ItemMenuItem.createBlankItem());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
     final var allItems = ContainerView.forElementAndArray(item, items);
@@ -53,16 +56,25 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItemWithIdAndText(final String id, final String text) {
     return addItem(ItemMenuItem.withIdAndText(id, text));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItemWithIdAndTextAndSelectAction(final String id, String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItemWithIdAndTextAndSelectAction(
     final String id,
@@ -71,6 +83,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItemWithText(final String text, final String... texts) {
     final var allTexts = ContainerView.forElementAndArray(text, texts);
@@ -82,11 +97,17 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItemWithTextAndSelectAction(final String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addItemWithTextAndSelectAction(
     final String text,
@@ -94,6 +115,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean blankItemIsSelected() {
     return //
@@ -101,56 +125,89 @@ extends Control<M, S> implements IItemMenu<M, S> {
     && ITEM_MENU_SEARCHER.getStoredBlankItem(this).isSelected();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void clear() {
     memberItems.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean containsBlankItem() {
     return getStoredItems().containsAny(IItemMenuItem::isBlank);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean containsItemWithId(final String id) {
     return getStoredItems().containsAny(i -> i.hasId(id));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean containsItemWithText(final String text) {
     return getStoredItems().containsAny(i -> i.getText().equals(text));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean containsSelectedItem() {
     return getStoredItems().containsAny(IItemMenuItem::isSelected);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getIdByItemText(final String itemText) {
     return ITEM_MENU_SEARCHER.getStoredItemByText(this, itemText).getId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<IItemMenuItem<?>> getStoredItems() {
     return memberItems.getStoredValues();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IItemMenuItem<?> getStoredSelectedItem() {
     return getStoredItems().getStoredFirst(IItemMenuItem::isSelected);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getTextByItemId(final String itemId) {
     return ITEM_MENU_SEARCHER.getStoredItemById(this, itemId).getText();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getUserInput() {
     if (isEmpty()) {
@@ -160,26 +217,41 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return getStoredItems().getStoredFirst(IItemMenuItem::isSelected).getText();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isEmpty() {
     return getStoredItems().isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeSelectAction() {
     memberSelectAction = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void runHtmlEvent(final String htmlEvent) {
     Validator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onchange");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M selectBlankItem() {
     final var blankItem = ITEM_MENU_SEARCHER.getStoredBlankItem(this);
@@ -189,6 +261,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M selectFirstItem() {
     final var firstItem = ITEM_MENU_SEARCHER.getStoredFirstItem(this);
@@ -198,6 +273,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M selectItemById(final String id) {
     final var item = ITEM_MENU_SEARCHER.getStoredItemById(this, id);
@@ -207,6 +285,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M selectItemByText(final String text) {
     final var item = ITEM_MENU_SEARCHER.getStoredItemByText(this, text);
@@ -216,6 +297,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unused")
   public final M setSelectAction(final Runnable selectAction) {
@@ -224,6 +308,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return setSelectAction(i -> selectAction.run());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
     Validator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
@@ -233,6 +320,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M setUserInput(final String userInput) {
     if (userInput.isEmpty()) {
@@ -244,6 +334,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void internalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
     if (hasSelectAction()) {
@@ -251,6 +344,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void resetControl() {
     clear();

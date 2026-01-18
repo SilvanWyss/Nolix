@@ -26,6 +26,9 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteMultiReferenceEntry(
     final String entityId,
@@ -49,6 +52,9 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToInsertMultiReferenceEntry(
     final String entityId,

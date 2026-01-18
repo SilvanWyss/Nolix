@@ -51,6 +51,9 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogThrowExceptionMethod());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IValidationLabel createTestUnit() {
     return new ValidationLabel();

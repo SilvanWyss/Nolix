@@ -34,11 +34,17 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     this.getter = getter;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
     if (attribute.hasHeader(getName())) {
@@ -49,6 +55,9 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     list.addAtEnd(getter.get());

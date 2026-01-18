@@ -60,18 +60,27 @@ public final class SchemaWriter implements ISchemaWriter {
     return new SchemaWriter(databaseName, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addColumn(final TableIdentification table, final ColumnDto column) {
     schemaDataWriter.addColumn(table, column);
     sqlSchemaWriter.addColumns(table, SQL_SCHEMA_COLUMN_DTO_MAPPER.mapColumnDtoToSqlSchemaColumnDtos(column));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addTable(final TableDto table) {
     schemaDataWriter.addTable(table);
     sqlSchemaWriter.addTable(SQL_SCHEMA_TABLE_DTO_MAPPER.mapTableDtoSqlSchemaTableDto(table));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteColumn(final TableIdentification table, final String columnName) {
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
@@ -81,32 +90,50 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlSchemaWriter.deleteColumnIfExists(table.tableName(), referencedTableColumnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteTable(final String tableName) {
     schemaDataWriter.deleteTable(tableName);
     sqlSchemaWriter.deleteTable(tableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getSaveCount() {
     return saveCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasChanges() {
     return sqlCollector.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     final var referencedTableColumnName = columnName + StringCatalog.DOLLAR + "ReferencedTable";
@@ -116,17 +143,26 @@ public final class SchemaWriter implements ISchemaWriter {
     sqlSchemaWriter.renameColumnIfExists(tableName, columnName, referencedTableColumnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameTable(final String tableName, final String newTableName) {
     schemaDataWriter.renameTable(tableName, newTableName);
     sqlSchemaWriter.renameTable(tableName, newTableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     sqlCollector.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveChanges() {
     try {
@@ -139,6 +175,9 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setColumnModel(
     final TableIdentification table,

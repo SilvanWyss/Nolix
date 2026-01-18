@@ -41,16 +41,25 @@ public final class SchemaReader implements ISchemaReader {
     return new SchemaReader(databaseName, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
     return sqlSchemaReader.columnIsEmpty(tableName, columnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getTableCount() {
     final var query = QUERY_CREATOR.createQueryToGetTableCount();
@@ -60,6 +69,9 @@ public final class SchemaReader implements ISchemaReader {
     return Integer.valueOf(value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Time getSchemaTimestamp() {
     final var query = QUERY_CREATOR.createQueryToLoadSchemaTimestamp();
@@ -69,6 +81,9 @@ public final class SchemaReader implements ISchemaReader {
     return Time.fromString(value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public TableDto loadTable(final String tableName) {
     final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns(tableName);
@@ -77,6 +92,9 @@ public final class SchemaReader implements ISchemaReader {
     return TABLE_DTO_MAPPER.mapJoinedColumnSqlRecordsToTableDto(sqlRecords);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<TableDto> loadTables() {
     final var query = QUERY_CREATOR.createQueryToLoadJoinedColumns();
@@ -85,6 +103,9 @@ public final class SchemaReader implements ISchemaReader {
     return TABLE_DTO_MAPPER.mapJoinedColumnSqlRecordsToTableDtos(sqlRecords);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.

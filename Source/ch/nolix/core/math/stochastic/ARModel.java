@@ -65,6 +65,9 @@ public final class ARModel extends AbstractStatisticalModel {
     return pCoefficients.length;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected double calculateNextValue() {
     var nextValue = constant;

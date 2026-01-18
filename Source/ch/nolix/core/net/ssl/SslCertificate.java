@@ -9,6 +9,9 @@ public record SslCertificate(String publicKeyPemFilePath, String privateKeyPemFi
     return privateKeyPemFilePath;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getPublicKeyPemFilePath() {
     return publicKeyPemFilePath;

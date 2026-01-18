@@ -62,6 +62,9 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<AbstractField> extractStoredFieldsFromEntity(final IEntity entity) {
     if (entity == null) {

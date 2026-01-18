@@ -20,6 +20,9 @@ public enum DatabasePropertyColumn implements INameHolder {
     this.name = name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;

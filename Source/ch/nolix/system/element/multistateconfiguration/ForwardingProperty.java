@@ -36,6 +36,9 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
     return new ForwardingProperty<>(name, materializedProperties);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setUndefined() {
     abstractMaterializedProperties.forEach(AbstractMaterializedProperty::setUndefined);
@@ -47,16 +50,25 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void setFrom(AbstractProperty<S> property) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void setValueFromSpecification(final INode<?> specification) {
     for (final var p : abstractMaterializedProperties) {

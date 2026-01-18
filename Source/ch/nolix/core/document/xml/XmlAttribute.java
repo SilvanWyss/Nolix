@@ -25,16 +25,25 @@ public final class XmlAttribute implements IXmlAttribute {
     this.value = value;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getValue() {
     return value;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return (getName() + "='" + getValue() + "'");

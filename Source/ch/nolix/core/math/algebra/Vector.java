@@ -157,6 +157,9 @@ public final class Vector {
     return values[oneBasedIndex - 1];
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode() {
     return toString().hashCode();

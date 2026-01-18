@@ -107,6 +107,9 @@ public final class List<E> implements Iterable<E> {
     return (beginNode == null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Iterator<E> iterator() {
     if (isEmpty()) {

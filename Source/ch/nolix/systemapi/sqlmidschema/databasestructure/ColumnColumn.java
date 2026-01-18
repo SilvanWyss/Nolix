@@ -18,6 +18,9 @@ public enum ColumnColumn implements INameHolder {
     this.name = name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;

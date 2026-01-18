@@ -22,6 +22,9 @@ public final class ClassTool implements IClassTool {
     return CONSTRUCTOR_TOOL.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
     try {
@@ -35,6 +38,9 @@ public final class ClassTool implements IClassTool {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
     final var publicStaticFields = LinkedList.createEmpty();

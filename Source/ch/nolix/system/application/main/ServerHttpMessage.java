@@ -31,6 +31,9 @@ record ServerHttpMessage(String serverIP, int serverPort) {
     return serverPort;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return "HTTP/1.1 200 OK\r\n"

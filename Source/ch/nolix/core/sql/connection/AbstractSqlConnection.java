@@ -69,6 +69,9 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void executeStatements(final IContainer<String> statements) {
     try (final var statement = connection.createStatement()) {
@@ -91,6 +94,9 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void executeStatement(final String statement, final String... statements) {
     final var allStatements = ContainerView.forElementAndArray(statement, statements);
@@ -98,11 +104,17 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     executeStatements(allStatements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final SqlDatabaseEngine getDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<ISqlRecord> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
@@ -112,16 +124,25 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ISqlRecord getSingleRecordFromQuery(final String query) {
     return getRecordsFromQuery(query).getStoredOne();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void noteClose() {
     try {

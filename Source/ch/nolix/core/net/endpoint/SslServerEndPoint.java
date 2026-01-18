@@ -19,11 +19,17 @@ final class SslServerEndPoint extends AbstractNetEndPoint {
     this.channelHandlerContext = channelHandlerContext;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ConnectionType getConnectionType() {
     return ConnectionType.WEB_SOCKET;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public PeerType getPeerType() {
     return PeerType.BACKEND;
@@ -37,11 +43,17 @@ final class SslServerEndPoint extends AbstractNetEndPoint {
     return SecurityMode.SSL;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     channelHandlerContext.close();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void sendRawMessage(final String rawMessage) {
     channelHandlerContext.channel().writeAndFlush(new TextWebSocketFrame(rawMessage + "\r\n"));

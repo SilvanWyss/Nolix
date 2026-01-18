@@ -14,11 +14,17 @@ final class UploaderHtmlBuilderTest extends ControlHtmlBuilderTest<UploaderHtmlB
     return new Uploader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected UploaderHtmlBuilder createTestUnit() {
     return new UploaderHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<input type=\"file\" multiple=\"none\" data-uploader=\"any\" />";

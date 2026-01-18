@@ -79,6 +79,9 @@ public final class LogEntry {
     return message;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return (getHarmLevel() + ": " + getMessage());

@@ -109,6 +109,9 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
     memberValue = value;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void addOrChangeValue(final V value) {
     setterMethod.accept(value);

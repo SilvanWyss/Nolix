@@ -46,62 +46,95 @@ public final class SchemaWriter implements ISchemaWriter {
     return new SchemaWriter(nodeDatabase);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addColumn(final TableIdentification table, final ColumnDto column) {
     SchemaWriterActionProvider.addColumn(editedNodeDatabase, table, column);
     hasChanges = true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addTable(final TableDto table) {
     SchemaWriterActionProvider.addTable(editedNodeDatabase, table);
     hasChanges = true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteColumn(final TableIdentification table, final String columnName) {
     SchemaWriterActionProvider.deleteColumn(editedNodeDatabase, table, columnName);
     hasChanges = true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteTable(final String tableName) {
     SchemaWriterActionProvider.deleteTable(editedNodeDatabase, tableName);
     hasChanges = true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getSaveCount() {
     return saveCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasChanges() {
     return hasChanges;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     SchemaWriterActionProvider.renameColumn(editedNodeDatabase, tableName, columnName, newColumnName);
     hasChanges = true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void renameTable(final String tableName, final String newTableName) {
     SchemaWriterActionProvider.renameTable(editedNodeDatabase, tableName, newTableName);
     hasChanges = true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     editedNodeDatabase = MutableNode.fromNode(nodeDatabase);
@@ -109,6 +142,9 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveChanges() {
     try {
@@ -121,6 +157,9 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setColumnModel(
     final TableIdentification table,

@@ -28,6 +28,9 @@ public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAnd
     return forNodeDatabase(nodeDatabase);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDataAdapterAndSchemaReader createEmptyCopy() {
     return forNodeDatabase(nodeDatabase);

@@ -35,6 +35,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteEntityIndex(final String entityId) {
     return //
@@ -47,6 +50,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return //
@@ -63,6 +69,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
     return //
@@ -78,6 +87,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ".', 0) END;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToInsertEntity(final String tableName, final EntityCreationDto newEntity) {
     final var contentFields = newEntity.contentFields();
@@ -94,6 +106,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ");";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToInsertEntityIndex(final String tableId, final String entityId) {
     return //
@@ -110,6 +125,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + ");";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final EntityUpdateDto entityUpdate) {
     final var updatedContentFields = entityUpdate.updatedContentFields();

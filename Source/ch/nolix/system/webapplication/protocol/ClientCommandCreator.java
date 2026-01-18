@@ -25,12 +25,18 @@ public final class ClientCommandCreator implements IClientCommandCreator {
         ChainedNode.withHeader(value)));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createDeleteCookieCommand(final String cookieName) {
     return //
     ChainedNode.withHeaderAndChildNode(CommandProtocol.DELETE_COOKIE_BY_NAME, ChainedNode.withHeader(cookieName));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createOpenNewTabCommand(final String url) {
     return //
@@ -41,6 +47,9 @@ public final class ClientCommandCreator implements IClientCommandCreator {
         ChainedNode.withHeader(url)));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createRedirectCommand(final IServerTarget serverTarget) {
     final var url = serverTarget.toUrl();
@@ -48,11 +57,17 @@ public final class ClientCommandCreator implements IClientCommandCreator {
     return createRedirectCommand(url);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createRedirectCommand(final String url) {
     return ChainedNode.withHeaderAndChildNode(CommandProtocol.REDIRECT, ChainedNode.withHeader(url));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSaveFileCommand(final byte[] bytes) {
     return //
@@ -61,6 +76,9 @@ public final class ClientCommandCreator implements IClientCommandCreator {
       Node.withHeader(new String(bytes, StandardCharsets.UTF_8)));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createWriteTextToClipBoardCommand(final String text) {
     return ChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD, ChainedNode.withHeader(text));

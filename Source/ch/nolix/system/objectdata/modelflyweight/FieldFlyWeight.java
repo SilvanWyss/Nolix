@@ -19,11 +19,17 @@ public final class FieldFlyWeight implements IFieldFlyWeight {
     return new FieldFlyWeight(updateAction);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isVoid() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteUpdate() {
     updateAction.run();

@@ -19,6 +19,9 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
     return backReferenceableColumnIdsNode.getChildNodesHeaders();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DataType getDataTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
     final var dataTypeNode = getStoredDataTypeNodeFromContentModelNode(contentModelNode);
@@ -26,6 +29,9 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getFieldTypeFromContentModelNode(final IMutableNode<?> contentModelNode) {
     final var fieldTypeNode = getStoredFieldTypeNodeFromContentModelNode(contentModelNode);
@@ -33,6 +39,9 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
     return FieldType.fromSpecification(fieldTypeNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode) {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromContentModelNode(contentModelNode);
@@ -40,23 +49,35 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
     return referenceableTableIdsNode.getChildNodesHeaders();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredBackReferenceableColumnIdsNodeFromContentModelNode(
     final IMutableNode<?> contentModelNode) {
     return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredDataTypeNodeFromContentModelNode(final IMutableNode<?> contentModelNode) {
     return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.DATA_TYPE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredFieldTypeNodeFromContentModelNode(
     final IMutableNode<?> contentModelNode) {
     return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.FIELD_TYPE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredReferenceableTableIdsNodeFromContentModelNode(IMutableNode<?> contentModelNode) {
     return contentModelNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS);

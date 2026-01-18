@@ -75,6 +75,9 @@ implements IMultiBackReference<E> {
     return new MultiBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> getAllBackReferencedEntityIds() {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
@@ -85,6 +88,9 @@ implements IMultiBackReference<E> {
       .to(IMultiBackReferenceEntry::getBackReferencedEntityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<E> getAllStoredBackReferencedEntities() {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
@@ -95,11 +101,17 @@ implements IMultiBackReference<E> {
       .to(IMultiBackReferenceEntry::getStoredBackReferencedEntity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     final ILinkedList<IBaseReference> abstractReferences = LinkedList.createEmpty();
@@ -115,37 +127,58 @@ implements IMultiBackReference<E> {
     return abstractReferences;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getType() {
     return FieldType.MULTI_BACK_REFERENCE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return localEntries.isEmpty()
     && isEmptyWhenDoesNotHaveLocalEntries();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMandatory() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Iterator<E> iterator() {
     return getAllStoredBackReferencedEntities().iterator();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean loadedAllPersistedReferencedEntityIds() {
     return loadedAllPersistedBackReferencedEntityIds;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackField(final IField field) {
     return //
@@ -155,6 +188,9 @@ implements IMultiBackReference<E> {
     && referencesBackEntity(field.getStoredParentEntity());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
     final var entityId = entity.getId();
@@ -162,6 +198,9 @@ implements IMultiBackReference<E> {
     return referencesBackEntityWithId(entityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackEntityWithId(final String id) {
     return getAllBackReferencedEntityIds().containsEqualing(id);

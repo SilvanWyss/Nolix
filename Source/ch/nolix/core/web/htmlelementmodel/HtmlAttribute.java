@@ -42,16 +42,25 @@ public final class HtmlAttribute implements IHtmlAttribute {
     return new HtmlAttribute(name, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getValue() {
     return value;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return (getName() + "=\"" + getValue() + "\"");

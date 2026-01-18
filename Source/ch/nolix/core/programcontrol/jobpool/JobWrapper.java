@@ -45,6 +45,9 @@ final class JobWrapper implements Runnable {
     return running;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void run() {
     assertIsFresh();

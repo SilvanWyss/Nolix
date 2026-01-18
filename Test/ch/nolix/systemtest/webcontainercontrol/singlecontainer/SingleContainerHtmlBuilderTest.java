@@ -15,11 +15,17 @@ extends ControlHtmlBuilderTest<SingleContainerHtmlBuilder, ISingleContainer> {
     return new SingleContainer();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected SingleContainerHtmlBuilder createTestUnit() {
     return new SingleContainerHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div />";

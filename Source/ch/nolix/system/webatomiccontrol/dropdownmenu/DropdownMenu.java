@@ -31,26 +31,41 @@ public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdow
       .forStateSetBackgroundColor(ControlState.FOCUS, X11ColorCatalog.MEDIUM_AQUA_MARINE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.of("if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onchange"));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IDropdownMenuStyle createStyle() {
     return new DropdownMenuStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<IDropdownMenu> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<IDropdownMenu, IDropdownMenuStyle> getCssBuilder() {
     return CSS_BUILDER;

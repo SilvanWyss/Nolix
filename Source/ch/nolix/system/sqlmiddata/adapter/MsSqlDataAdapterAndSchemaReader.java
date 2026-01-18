@@ -27,6 +27,9 @@ public final class MsSqlDataAdapterAndSchemaReader extends AbstractDataAdapterAn
     return new MsSqlDataAdapterAndSchemaReader(databaseName, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDataAdapterAndSchemaReader createEmptyCopy() {
     return forDatabaseNameAndSqlConnection(getDatabaseName(), sqlConnection);

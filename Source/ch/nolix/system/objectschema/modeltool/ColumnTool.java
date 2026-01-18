@@ -22,6 +22,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertDoesNotBelongToTable(final IColumn column) {
     if (column.belongsToTable()) {
@@ -29,6 +32,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertIsABackReferenceColumn(final IColumn column) {
     if (!isABackReferenceColumn(column)) {
@@ -36,6 +42,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertIsAReferenceColumn(final IColumn column) {
     if (!isAReferenceColumn(column)) {
@@ -43,21 +52,33 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToDatabase(final IColumn column) {
     return (column.belongsToTable() && column.getStoredParentTable().belongsToDatabase());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BaseFieldType getBaseFieldType(IColumn column) {
     return column.getFieldType().getBaseType();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDatabase getParentDatabase(final IColumn column) {
     return column.getStoredParentTable().getStoredParentDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
     return //
@@ -65,6 +86,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     column.getFieldType().getBaseType() == BaseFieldType.BASE_BACK_REFERENCE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
     return //
@@ -72,6 +96,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     column.getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isAValueColumn(final IColumn column) {
     return //
@@ -79,6 +106,9 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     column.getFieldType().getBaseType() == BaseFieldType.BASE_VALUE_FIELD;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
     final var fieldType = column.getFieldType();
@@ -100,11 +130,17 @@ public final class ColumnTool extends DatabaseObjectExaminer implements IColumnT
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesBackGivenColumn(final IColumn column, final IColumn probableBackReferencedColumn) {
     return column.referencesBackColumn(probableBackReferencedColumn);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesGivenTable(final IColumn column, final ITable table) {
     return column.referencesTable(table);

@@ -470,6 +470,9 @@ extends AbstractElement implements ITime {
     return Weekday.fromDayOfWeek(internalZonedDateTime.getDayOfWeek());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getWeekOfYear() {
     return ((internalZonedDateTime.getDayOfYear() / 7) + 1);

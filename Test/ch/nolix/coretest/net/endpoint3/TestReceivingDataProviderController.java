@@ -23,11 +23,17 @@ public final class TestReceivingDataProviderController implements IDataProviderC
     return Node.withHeader("test_data");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
     return getDataForRequests(ImmutableList.fromArray(requests));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return ContainerView.forIterable(requests).to(this::getDataForRequest);
@@ -41,11 +47,17 @@ public final class TestReceivingDataProviderController implements IDataProviderC
     return latestReceivedRequest;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runCommand(final IChainedNode command) {
     latestReceivedCommand = command;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runCommands(final IChainedNode... commands) {
     final var commandsList = ImmutableList.fromArray(commands);
@@ -53,6 +65,9 @@ public final class TestReceivingDataProviderController implements IDataProviderC
     runCommands(commandsList);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runCommands(Iterable<? extends IChainedNode> commands) {
     commands.forEach(this::runCommand);

@@ -65,6 +65,9 @@ implements ISelectingStyleWithSelectors {
     return memberSelectorTokens.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
@@ -92,6 +95,9 @@ implements ISelectingStyleWithSelectors {
     return attributes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getSelectorId() {
     assertHasSelectorId();
@@ -99,16 +105,25 @@ implements ISelectingStyleWithSelectors {
     return memberSelectorId;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<String> getSelectorRoles() {
     return memberSelectorRoles;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<String> getSelectorTokens() {
     return memberSelectorTokens;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getSelectorType() {
     assertHasSelectorType();
@@ -116,6 +131,9 @@ implements ISelectingStyleWithSelectors {
     return memberSelectorType;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasSelectorId() {
     return (memberSelectorId != null);
@@ -129,6 +147,9 @@ implements ISelectingStyleWithSelectors {
     return getSelectorId().equals(selectorId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasSelectorType() {
     return (memberSelectorType != null);
@@ -148,6 +169,9 @@ implements ISelectingStyleWithSelectors {
     return getSelectorType().equals(selectorType);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean selectsElement(IStylableElement<?> element) {
     return selectorIdAllowsToSelectElement(element)
@@ -156,6 +180,9 @@ implements ISelectingStyleWithSelectors {
     && selectorTokensAllowToSelectElement(element);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
     final Enum<?>... selectorRoles) {
@@ -165,6 +192,9 @@ implements ISelectingStyleWithSelectors {
     return withSelectorRoles(allSelectorRolesView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
     final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles);
@@ -172,6 +202,9 @@ implements ISelectingStyleWithSelectors {
     return withSelectorRoles(allSelectorRoles);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ISelectingStyleWithSelectors withSelectorToken(
     final String selectorToken,
@@ -181,6 +214,9 @@ implements ISelectingStyleWithSelectors {
     return withSelectorTokens(allSelectorTokens);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType) {
     return withSelectorType(selectorType.getSimpleName());

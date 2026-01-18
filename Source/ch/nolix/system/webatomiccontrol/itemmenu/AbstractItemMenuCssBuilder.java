@@ -17,6 +17,9 @@ extends AbstractControlCssBuilder<M, S> {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final M itemMenu,

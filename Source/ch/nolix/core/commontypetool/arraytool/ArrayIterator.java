@@ -41,16 +41,25 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
     return new ArrayIterator<>(array, startIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> getCopy() {
     return forArrayAndStartIndex(parentArray, nextIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (nextIndex < parentArray.length);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     assertHasNext();

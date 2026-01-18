@@ -16,11 +16,17 @@ public final class GeneralEntity extends AbstractEntity {
     return new GeneralEntity(table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getParentTableName() {
     return tableName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   IContainer<AbstractField> findFields() {
     return FieldFromTableCreator.createFieldsFromTable(getStoredParentTable());

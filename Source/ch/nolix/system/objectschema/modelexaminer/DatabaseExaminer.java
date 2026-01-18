@@ -32,6 +32,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     return baseBackReferenceColumns.containsOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canAddTable(final IDatabase database) {
     return //
@@ -39,6 +42,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && database.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canAddTable(final IDatabase database, final ITable table) {
     return //
@@ -48,6 +54,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && canAddGivenTableBecauseOfColumns(database, table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canSetName(final String name) {
     return //
@@ -55,6 +64,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && !name.isBlank();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsBackReferencededColumnByColumn(
     final IDatabase database,
@@ -70,6 +82,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     database.getStoredTables().containsAny(t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsTable(final IDatabase database, ITable table) {
     return //
@@ -77,6 +92,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && database.getStoredTables().contains(table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsTableReferencedByColumn(final IDatabase database, final IColumn column) {
     //This part is not mandatory, but provides a better performance.
@@ -89,6 +107,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && database.getStoredTables().containsAny(t -> COLUMN_TOOL.referencesGivenTable(column, t));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsTableWithColumn(final IDatabase database, final IColumn column) {
     return //
@@ -96,6 +117,9 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     && database.getStoredTables().containsAny(t -> TABLE_EXAMINER.containsColumn(t, column));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsTableWithName(final IDatabase database, final String name) {
     return //

@@ -11,6 +11,9 @@ public final class VoidFieldFlyWeight implements IFieldFlyWeight {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteUpdate() {
     //Does nothing.

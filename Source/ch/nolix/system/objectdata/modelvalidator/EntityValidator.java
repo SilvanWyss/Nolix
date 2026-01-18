@@ -25,6 +25,9 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanBeDeleted(final IEntity entity) {
     if (!ENTITY_EXAMINER.canBeDeleted(entity)) {
@@ -32,6 +35,9 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanSetParentTable(final IEntity entity, final ITable<? extends IEntity> table) {
     if (!ENTITY_EXAMINER.canSetParentTable(entity, table)) {
@@ -39,6 +45,9 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertDoesNotBelongToTable(final IEntity entity) {
     if (entity.belongsToTable()) {
@@ -46,6 +55,9 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertHasSaveStamp(final IEntity entity) {
     if (!entity.hasSaveStamp()) {
@@ -54,6 +66,9 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertIsNotReferenced(final IEntity entity) {
     if (ENTITY_EXAMINER.isReferenced(entity)) {

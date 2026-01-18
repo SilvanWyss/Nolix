@@ -28,6 +28,9 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     + ");";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
@@ -46,6 +49,9 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
     final String columnId,

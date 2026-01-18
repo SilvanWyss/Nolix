@@ -16,6 +16,9 @@ public final class ArrayTool implements IArrayTool {
     return array;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public double[] createArrayWithValue(final double value, final double... values) {
     final var array = new double[1 + values.length];
@@ -25,6 +28,9 @@ public final class ArrayTool implements IArrayTool {
     return array;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IByteArrayMediator onArray(final byte[] byteArray) {
     return ByteArrayMediator.forByteArray(byteArray);

@@ -194,6 +194,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     SocketEndPointMessageListener.forSocketEndPoint(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public PeerType getPeerType() {
     return peerType;

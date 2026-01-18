@@ -14,6 +14,9 @@ public final class OptionalValueFieldExaminer extends FieldExaminer implements I
     && optionalValueField.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canSetValue(final IOptionalValueField<?> optionalValueField, final Object value) {
     return //

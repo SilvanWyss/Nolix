@@ -108,16 +108,25 @@ implements ILayer<Layer> {
     return layer;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToGui() {
     return (memberParentGui != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsControl(final IControl<?, ?> control) {
     return (containsAny() && containsControlWhenContainsAny(control));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     if (containsAny()) {
@@ -125,61 +134,97 @@ implements ILayer<Layer> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IBackground getBackground() {
     return background.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getBackgroundColor() {
     return getBackground().getColor();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColorGradient getBackgroundColorGradient() {
     return getBackground().getColorGradient();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImage getBackgroundImage() {
     return getBackground().getImage();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ImageApplication getBackgroundImageApplication() {
     return getBackground().getImageApplication();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BackgroundType getBackgroundType() {
     return getBackground().getType();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ContentAlignment getContentAlignment() {
     return contentAlignment.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICssRule getCssRule() {
     return LayerCssBuilder.getCssRuleForLayer(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement getHtml() {
     return LayerHtmlBuilder.getHtmlElementForLayer(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getInternalId() {
     return memberInternalId;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public double getOpacity() {
     return opacity.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
     if (isEmpty()) {
@@ -194,6 +239,9 @@ implements ILayer<Layer> {
     return localRootControl.getOptionalStoredChildControlByInternalId(internalId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
     if (isEmpty()) {
@@ -203,6 +251,9 @@ implements ILayer<Layer> {
     return CONTROL_TOOL.getListWithControlAndChildControlsRecursively(getStoredRootControl());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IWebGui<?> getStoredParentGui() {
     LAYER_VALIDATOR.assertBelongsToGui(this);
@@ -210,16 +261,25 @@ implements ILayer<Layer> {
     return memberParentGui;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IControl<?, ?> getStoredRootControl() {
     return rootControl.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public LayerRole getRole() {
     return memberRole.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     final ILinkedList<IControl<?, ?>> childConfigurableElements = LinkedList.createEmpty();
@@ -231,26 +291,41 @@ implements ILayer<Layer> {
     return childConfigurableElements;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasBackground() {
     return background.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasInternalId(final String internalId) {
     return getInternalId().equals(internalId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole() {
     return memberRole.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetParentGui(final IWebGui<?> parentGui) {
     Validator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
@@ -259,11 +334,17 @@ implements ILayer<Layer> {
     memberParentGui = parentGui;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return rootControl.isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeBackground() {
     background.clear();
@@ -273,6 +354,9 @@ implements ILayer<Layer> {
     memberRole.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeSelfFromGui() {
     if (belongsToGui()) {
@@ -286,26 +370,41 @@ implements ILayer<Layer> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setBackgroundColor(final IColor backgroundColor) {
     return setBackground(Background.withColor(backgroundColor));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
     return setBackground(Background.withColorGradient(backgroundColorGradient));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setBackgroundImage(final IImage backgroundImage) {
     return setBackground(Background.withImage(backgroundImage));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
     return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setRootControl(final IControl<?, ?> rootControl) {
     rootControl.internalSetParentLayer(this);
@@ -314,6 +413,9 @@ implements ILayer<Layer> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setContentAlignment(final ContentAlignment contentAlignment) {
     this.contentAlignment.setValue(contentAlignment);
@@ -321,6 +423,9 @@ implements ILayer<Layer> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setOpacity(final double opacity) {
     Validator.assertThat(opacity).thatIsNamed("opacity").isBetween(0.0, 1.0);
@@ -330,6 +435,9 @@ implements ILayer<Layer> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Layer setRole(final LayerRole role) {
     memberRole.setValue(role);
@@ -337,12 +445,18 @@ implements ILayer<Layer> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetStylableElement() {
     removeRole();
     clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetStyle() {
     setOpacity(DEFAULT_OPACITY);

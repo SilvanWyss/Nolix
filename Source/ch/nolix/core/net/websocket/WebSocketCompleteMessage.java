@@ -43,6 +43,9 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
     return byteArray;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isComplete() {
     return complete;

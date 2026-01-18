@@ -47,51 +47,81 @@ implements ISqlDatabaseTarget {
     credential = Credential.withLoginNameAndPassword(loginName, loginPassword);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getDatabaseName() {
     return databaseName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getIpOrDomain() {
     return ipOrDomain;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getLoginName() {
     return credential.getLoginName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getLoginPassword() {
     return credential.getPassword();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getPort() {
     return port;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public SecurityMode getSecurityModeForConnection() {
     return SECURITY_MODE_FOR_CONNECTIONS;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public SqlDatabaseEngine getSqlDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toUrl() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "toUrl");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected AbstractSqlConnection createResource() {
     return SqlConnectionFactory.createSqlConnectionForSqlConnectionPool(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected WrapperSqlConnection createWrapperResourceWithResource(final AbstractSqlConnection resource) {
     return WrapperSqlConnection.forSqlConnection(resource);

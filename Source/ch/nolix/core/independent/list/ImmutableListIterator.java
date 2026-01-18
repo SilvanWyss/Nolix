@@ -26,11 +26,17 @@ public final class ImmutableListIterator<E> implements Iterator<E> {
     return new ImmutableListIterator<>(array);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (nextIndex < parentArray.length);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     assertHasNext();

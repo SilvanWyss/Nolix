@@ -34,16 +34,25 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
     expect(childElements.getStoredAtOneBasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IHorizontalStack createControl() {
     return new HorizontalStack();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected HorizontalStackHtmlBuilder createTestUnit() {
     return new HorizontalStackHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div />";

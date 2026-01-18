@@ -170,6 +170,9 @@ final class MatrixTest extends ContainerTest {
     expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,baboon,cerish");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     final Matrix<E> matrix = Matrix.createEmpty();
@@ -179,6 +182,9 @@ final class MatrixTest extends ContainerTest {
     return matrix;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return Matrix.createEmpty();

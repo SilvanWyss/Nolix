@@ -20,11 +20,17 @@ final class ArrayViewTest extends ContainerTest {
       .withMessage("The given array is null.");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return ArrayContainerView.forArray(elements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return ArrayContainerView.createEmpty();

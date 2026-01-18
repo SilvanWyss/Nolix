@@ -15,6 +15,9 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
     && multiReference.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canAddEntity(final IMultiReference<E> multiReference, final E entity) {
     return //
@@ -24,6 +27,9 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
     && multiReference.getReferenceableTableNames().contains(entity.getParentTableName());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canBeCleared(final IMultiReference<E> multiReference) {
     return //
@@ -31,6 +37,9 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
     && multiReference.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canRemoveEntity(final IMultiReference<E> multiReference) {
     return //
@@ -38,6 +47,9 @@ public final class MultiReferenceExaminer extends FieldExaminer implements IMult
     && multiReference.isOpen();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canRemoveEntity(final IMultiReference<E> multiReference, final E entity) {
     return //

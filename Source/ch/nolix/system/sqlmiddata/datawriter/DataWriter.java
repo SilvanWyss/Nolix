@@ -50,6 +50,9 @@ public final class DataWriter implements IDataWriter {
     return new DataWriter(databaseName, databaseView, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clearMultiReference(
     final String tableName,
@@ -61,6 +64,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteEntriesFromMultiReference(entityId, multiReferenceColumnId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clearMultiValue(
     final String tableName,
@@ -72,11 +78,17 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteEntriesFromMultiValue(entityId, multiValueColumnId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
     executiveDataWriter.deleteEntity(tableName, entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
     final var entityId = multiBackReferenceEntry.entityId();
@@ -86,6 +98,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteMultiBackReferenceEntry(entityId, multiBackReferenceColumnId, backReferencedEntityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
     final var entityId = multiReferenceEntry.entityId();
@@ -95,6 +110,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteEntryFromMultiReference(entityId, multiReferenceColumnId, referencedEntityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
     final var entityId = multiValueEntry.entityId();
@@ -104,36 +122,57 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteMultiValueEntry(entityId, multiValueColumnId, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void expectSchemaTimestamp(final ITime schemaTimestamp) {
     executiveDataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     executiveDataWriter.expectTableContainsEntity(tableName, entityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getSaveCount() {
     return executiveDataWriter.getSaveCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasChanges() {
     return executiveDataWriter.hasChanges();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertEntity(final String tableName, final EntityCreationDto newEntity) {
     executiveDataWriter.insertEntity(tableName, newEntity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
     final var entityId = multiBackReferenceEntry.entityId();
@@ -148,6 +187,9 @@ public final class DataWriter implements IDataWriter {
       backReferencedEntityTableId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
     final var entityId = multiReferenceEntry.entityId();
@@ -162,6 +204,9 @@ public final class DataWriter implements IDataWriter {
       referencedEntityTableId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
     final var entityId = multiValueEntry.entityId();
@@ -171,21 +216,33 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.insertEntryIntoMultiValue(entityId, multiValueColumnId, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     executiveDataWriter.reset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveChanges() {
     executiveDataWriter.saveChangesAndReset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
     executiveDataWriter.updateEntityOnTable(tableName, entityUpdate);

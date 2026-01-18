@@ -28,6 +28,9 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     parentWebSocketServerEndPoint.close();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void channelRead0(
     final ChannelHandlerContext channelHandlerContext,

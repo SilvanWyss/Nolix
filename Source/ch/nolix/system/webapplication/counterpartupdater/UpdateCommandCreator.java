@@ -21,6 +21,9 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
     return UpdateCommandCreatorHelper.createSetCssCommandFromCss(css);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     final var htmlElementEventRegistrations = webGui.getHtmlElementEventRegistrations();
@@ -30,11 +33,17 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
       htmlElementEventRegistrations);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetIconCommandForIcon(webGui.getIcon());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetIconCommandForIcon(final IImage icon) {
     return //
@@ -43,6 +52,9 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
       ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
     final var htmlElementId = control.getInternalId();
@@ -51,6 +63,9 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
     return UpdateCommandCreatorHelper.createSetHtmlElementCommandFromHtmlElement(htmlElementId, htmlElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
     final var htmlElement = webGui.getHtml();
@@ -58,11 +73,17 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
     return UpdateCommandCreatorHelper.createSetRootHtmlElementCommandFromHtmlElement(htmlElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetTitleCommandForTitle(final String title) {
     return ChainedNode.withHeaderAndNextNode(
@@ -72,6 +93,9 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
         Node.withHeader(title)));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return UpdateCommandCreatorHelper.createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());

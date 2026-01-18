@@ -64,6 +64,9 @@ public final class SslServer extends AbstractServer<SslServer> {
     return new SslServer(port, domain, paramSSLCertificate);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IServerTarget asTarget() {
     return ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(
@@ -88,11 +91,17 @@ public final class SslServer extends AbstractServer<SslServer> {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteAddedApplication(final Application<?, ?> application) {
     internalWebSocketServer.addSlot(new ServerSlot(application.getUrlInstanceName(), this));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
     internalWebSocketServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));

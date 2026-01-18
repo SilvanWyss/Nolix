@@ -77,6 +77,9 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     stateProperties[(getStateOf(state).getIndex())].setEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected V getValueWhenHasState(final State<S> state) {
     final var stateProperty = stateProperties[state.getIndex()];
@@ -92,6 +95,9 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     return defaultValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
     final var stateProperty = stateProperties[state.getIndex()];

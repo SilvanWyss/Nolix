@@ -15,6 +15,9 @@ public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final TargetSlotDefinition getTargetSlotDefinition() {
     if (hasCustomTargetSlot()) {
@@ -24,31 +27,49 @@ public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
     return TargetSlotDefinition.DEFAULT;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasDefaultTargetSlot() {
     return (getTargetSlotDefinition() == TargetSlotDefinition.DEFAULT);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isBackendEndPoint() {
     return (getPeerType() == PeerType.BACKEND);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isFrontendEndPoint() {
     return (getPeerType() == PeerType.FRONTEND);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isLocalEndPoint() {
     return (getConnectionType() == ConnectionType.LOCAL);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isSocketEndPoint() {
     return (getConnectionType() == ConnectionType.SOCKET);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isWebSocketEndPoint() {
     return (getConnectionType() == ConnectionType.WEB_SOCKET);

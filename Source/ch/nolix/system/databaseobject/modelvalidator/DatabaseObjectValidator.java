@@ -17,6 +17,9 @@ public class DatabaseObjectValidator extends ResourceValidatorUnit implements ID
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertIsLoaded(final IDatabaseObject databaseObject) {
     if (!databaseObject.isLoaded()) {
@@ -24,6 +27,9 @@ public class DatabaseObjectValidator extends ResourceValidatorUnit implements ID
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertIsNew(final IDatabaseObject databaseObject) {
     if (!databaseObject.isNew()) {
@@ -31,6 +37,9 @@ public class DatabaseObjectValidator extends ResourceValidatorUnit implements ID
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertIsNotDeleted(final IDatabaseObject databaseObject) {
     if (databaseObject.isDeleted()) {
@@ -38,6 +47,9 @@ public class DatabaseObjectValidator extends ResourceValidatorUnit implements ID
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertIsNotConnectedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (databaseObject.isConnectedWithRealDatabase()) {
@@ -45,6 +57,9 @@ public class DatabaseObjectValidator extends ResourceValidatorUnit implements ID
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertIsNotNew(final IDatabaseObject databaseObject) {
     if (databaseObject.isNew()) {

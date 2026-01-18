@@ -14,11 +14,17 @@ final class GridHtmlBuilderTest extends ControlHtmlBuilderTest<GridHtmlBuilder, 
     return new Grid();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected GridHtmlBuilder createTestUnit() {
     return new GridHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div><table><tbody /></table></div>";

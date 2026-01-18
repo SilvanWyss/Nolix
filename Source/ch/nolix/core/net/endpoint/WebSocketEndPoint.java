@@ -46,21 +46,33 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     createMessageListenerAndWaitToTargetInfo();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public PeerType getPeerType() {
     return peerType;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ConnectionType getConnectionType() {
     return ConnectionType.WEB_SOCKET;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     if (canWork()) {
@@ -74,6 +86,9 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void sendRawMessage(final String rawMessage) {
     sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));

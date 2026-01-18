@@ -46,6 +46,9 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var a : memberInternalSubElement.getAttributes()) {

@@ -22,6 +22,9 @@ public final class SqlCollector implements ISqlCollector {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public SqlCollector addSqlStatements(final Iterable<String> sqlStatements) {
     sqlStatements.forEach(this::addSqlStatement);
@@ -29,11 +32,17 @@ public final class SqlCollector implements ISqlCollector {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     memberSqlStatements.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void executeAndClearUsingConnection(final ISqlConnection sqlConnection) {
     try {
@@ -43,11 +52,17 @@ public final class SqlCollector implements ISqlCollector {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> getSqlStatements() {
     return memberSqlStatements;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return memberSqlStatements.isEmpty();

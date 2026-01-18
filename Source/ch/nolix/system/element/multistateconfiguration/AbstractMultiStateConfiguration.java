@@ -34,6 +34,9 @@ implements IMultiStateConfiguration<C, S> {
     return AbstractProperty.class.isAssignableFrom(field.getType());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
     for (final var p : getStoredProperties()) {
@@ -46,6 +49,9 @@ implements IMultiStateConfiguration<C, S> {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void addOrChangeAttribute(final String attribtue, final String... attributes) {
     //Calls other method.
@@ -58,6 +64,9 @@ implements IMultiStateConfiguration<C, S> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
     if (!addedOrChangedAttribute(attribute)) {
@@ -65,6 +74,9 @@ implements IMultiStateConfiguration<C, S> {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
@@ -76,11 +88,17 @@ implements IMultiStateConfiguration<C, S> {
     return attributes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final S getBaseState() {
     return baseState.getEnumValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void reset() {
     getStoredProperties().forEach(AbstractProperty::setUndefined);

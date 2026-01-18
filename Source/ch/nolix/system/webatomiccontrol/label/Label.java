@@ -50,56 +50,89 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     reset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public LabelRole getRole() {
     return memberRole.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getText() {
     return text.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole() {
     return memberRole.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeRole() {
     memberRole.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILabel setRole(final LabelRole role) {
     memberRole.setValue(role);
@@ -107,6 +140,9 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILabel setText(final String text) {
     Validator.assertThat(text).thatIsNamed(LowerCaseVariableCatalog.TEXT).isNotNull();
@@ -116,26 +152,41 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILabel setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected LabelStyle createStyle() {
     return new LabelStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<ILabel, ILabelStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<ILabel> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     removeRole();

@@ -23,6 +23,9 @@ final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHt
     this.htmlPage = htmlPage;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
     //Handle a bad request.
@@ -47,6 +50,9 @@ final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHt
     sendHttpResponse(ctx, req, res);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
     cause.printStackTrace();

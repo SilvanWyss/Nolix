@@ -45,16 +45,25 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
     return new MultiValueFieldEntry<>(multiValue, DatabaseObjectState.NEW, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMultiValueField<V> getStoredParentMultiValue() {
     return parentMultiValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public V getStoredValue() {
     return value;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiValue().getState()) {
@@ -67,31 +76,49 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
     };
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isClosed() {
     return getStoredParentMultiValue().isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isDeleted() {
     return getStoredParentMultiValue().isDeleted();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return getStoredParentMultiValue().isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);

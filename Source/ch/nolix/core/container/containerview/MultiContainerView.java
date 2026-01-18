@@ -54,16 +54,25 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     return new MultiContainerView<>(iterables);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> iterator() {
     return MultiContainerViewIterator.forContainers(containers);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getCount() {
     return containers.getSumOfInts(IContainer::getCount).intValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
     var i = 1;
@@ -83,11 +92,17 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
       getCount());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMaterialized() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);

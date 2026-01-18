@@ -21,26 +21,41 @@ implements ISqlConnection {
     return new WrapperSqlConnection(abstractSqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void executeStatement(final String statement, final String... statements) {
     getStoredResource().executeStatement(statement, statements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void executeStatements(final IContainer<String> statements) {
     getStoredResource().executeStatements(statements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public SqlDatabaseEngine getDatabaseEngine() {
     return getStoredResource().getDatabaseEngine();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<ISqlRecord> getRecordsFromQuery(final String query) {
     return getStoredResource().getRecordsFromQuery(query);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISqlRecord getSingleRecordFromQuery(final String query) {
     return getStoredResource().getSingleRecordFromQuery(query);

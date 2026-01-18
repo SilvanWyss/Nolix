@@ -19,11 +19,17 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
     return memberRole;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(String role) {
     return (hasRole() && getRole().equals(role));
@@ -33,11 +39,17 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
     memberRole = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetStylableElement() {
     removeRole();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetStyle() {
     //Does nothing.

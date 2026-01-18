@@ -11,6 +11,9 @@ public final class ExchangableSubElement<E extends IMutableElement> extends Abst
     super(attributePrefix, internalSubElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isExchangable() {
     return true;

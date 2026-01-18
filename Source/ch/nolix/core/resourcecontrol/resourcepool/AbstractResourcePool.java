@@ -22,11 +22,17 @@ implements IResourcePool<W> {
     return createWrapperResourceWithCurrentResourcePoolAndResource(resource);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final synchronized void noteClose() {
     resources.forEach(Closeable::close);

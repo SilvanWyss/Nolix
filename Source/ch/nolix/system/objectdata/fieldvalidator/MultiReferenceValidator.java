@@ -23,6 +23,9 @@ public final class MultiReferenceValidator extends FieldValidator implements IMu
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertCanBeCleared(final IMultiReference<?> multiReference) {
     if (!MULTI_REFERENCE_EXAMINER.canBeCleared(multiReference)) {
@@ -30,6 +33,9 @@ public final class MultiReferenceValidator extends FieldValidator implements IMu
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> void assertCanRemoveEntity(final IMultiReference<E> multiReference, final E entity) {
     if (!MULTI_REFERENCE_EXAMINER.canRemoveEntity(multiReference, entity)) {

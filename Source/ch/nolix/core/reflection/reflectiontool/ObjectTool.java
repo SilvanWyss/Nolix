@@ -17,6 +17,9 @@ public final class ObjectTool implements IObjectTool {
     return field.getName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Field getStoredFirstFieldThatHasValue(final Object object, final Object value) {
     var localClass = object.getClass();
@@ -40,6 +43,9 @@ public final class ObjectTool implements IObjectTool {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(object, "null");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Object getStoredValueOfField(final Object object, final Field field) {
     field.setAccessible(true);

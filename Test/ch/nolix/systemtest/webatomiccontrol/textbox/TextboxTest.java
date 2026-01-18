@@ -23,6 +23,9 @@ final class TextboxTest extends ControlTest<ITextbox> {
     expect(testUnit.getText()).isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ITextbox createTestUnit() {
     return new Textbox();

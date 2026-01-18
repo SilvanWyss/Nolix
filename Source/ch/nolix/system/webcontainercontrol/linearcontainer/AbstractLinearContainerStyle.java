@@ -28,11 +28,17 @@ implements ILinearContainerStyle<S> {
     return childControlMargin.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeCustomChildControlMargins() {
     childControlMargin.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public S setChildControlMarginForState(final ControlState state, final int childControlMargin) {
     Validator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();

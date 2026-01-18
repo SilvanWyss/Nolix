@@ -31,6 +31,9 @@ public final class MatrixRow<E> extends AbstractExtendedContainer<E> {
     this.rowIndex = rowIndex;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getCount() {
     return parentMatrix.getColumnCount();
@@ -40,21 +43,33 @@ public final class MatrixRow<E> extends AbstractExtendedContainer<E> {
     return rowIndex;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredAtOneBasedIndex(final int columnIndex) {
     return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(getRowIndex(), columnIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMaterialized() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> iterator() {
     return MatrixRowIterator.forMatrixRow(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);

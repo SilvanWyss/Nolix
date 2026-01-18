@@ -70,11 +70,17 @@ public final class FractalBuilder implements IFractalBuilder {
       decimalPlaces);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getMaxIterationCount() {
     return sequencesMaxIterationCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setDecimalPlaces(final int decimalPlaces) {
     this.decimalPlaces = decimalPlaces;
@@ -82,6 +88,9 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setColorFunction(final IntFunction<IColor> colorFunction) {
     this.colorFunction = colorFunction;
@@ -89,6 +98,9 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setHeightInPixel(final int heightInPixel) {
     this.heightInPixel = heightInPixel;
@@ -96,11 +108,17 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setImaginaryComponentInterval(final double min, final double max) {
     return setImaginaryComponentInterval(new ClosedInterval(min, max));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setImaginaryComponentInterval(final IClosedInterval imaginaryComponentInterval) {
     this.imaginaryComponentInterval = imaginaryComponentInterval;
@@ -108,11 +126,17 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setRealComponentInterval(final double min, final double max) {
     return setRealComponentInterval(new ClosedInterval(min, max));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setRealComponentInterval(final IClosedInterval realComponentInterval) {
     this.realComponentInterval = realComponentInterval;
@@ -120,6 +144,9 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setMaxIterationCount(final int sequencesMaxIterationCount) {
     this.sequencesMaxIterationCount = sequencesMaxIterationCount;
@@ -127,6 +154,9 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setMinMagnitudeForDivergence(final BigDecimal sequencesMinDivergenceMagnitude) {
     this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
@@ -134,11 +164,17 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setMinMagnitudeForDivergence(final double minMagnitudeForDivergence) {
     return setMinMagnitudeForDivergence(BigDecimal.valueOf(minMagnitudeForDivergence));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setSequenceCreator(
     final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
@@ -147,6 +183,9 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IFractalBuilder setWidthInPixel(final int widthInPixel) {
     this.widthInPixel = widthInPixel;

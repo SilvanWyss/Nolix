@@ -19,6 +19,9 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     return backReferenceableColumnIdsNode.getChildNodesHeaders();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
     final var dataTypeNode = getStoredDataTypeNodeFromColumnNode(columnNode);
@@ -26,6 +29,9 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getColumnFieldTypeFromColumnNode(final IMutableNode<?> columnNode) {
     final var fieldTypeNode = getStoredFieldTypeNodeFromColumnNode(columnNode);
@@ -33,6 +39,9 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     return FieldType.fromSpecification(fieldTypeNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
     final var idNode = getStoredIdNodeFromColumnNode(columnNode);
@@ -40,6 +49,9 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     return idNode.getSingleChildNodeHeader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
     final var columnNameNode = getStoredNameNodeFromColumnNode(columnNode);
@@ -47,6 +59,9 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     return columnNameNode.getSingleChildNodeHeader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> getReferenceableTableIdsFromColumnNode(IMutableNode<?> columnNode) {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
@@ -54,36 +69,57 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
     return referenceableTableIdsNode.getChildNodesHeaders();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredBackReferenceableColumnIdsNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredContentModelNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.CONTENT_MODEL);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredDataTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.DATA_TYPE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredFieldTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.FIELD_TYPE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredIdNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ID);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredReferenceableTableIdsNodeFromColumnNode(IMutableNode<?> columnNode) {
     return columnNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS);

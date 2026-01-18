@@ -17,6 +17,9 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
     return databaseNameNode.getSingleChildNodeHeader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITime getSchemaTimestampFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
     final var schemaTimeStampNode = getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
@@ -24,11 +27,17 @@ public final class DatabasePropertiesNodeSearcher implements IDatabaseProperties
     return Time.fromSpecification(schemaTimeStampNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredDatabaseNameNodeFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
     return databasePropertiesNode.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.NAME);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredSchemaTimestampNodeFromDatabasePropertiesNode(
     final IMutableNode<?> databasePropertiesNode) {

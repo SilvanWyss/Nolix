@@ -30,6 +30,9 @@ public record HttpRequest(String content) {
     return content;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return HTTP_HEADER + "\n";

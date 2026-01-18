@@ -32,11 +32,17 @@ public final class LayerStack implements ILayerStack {
     return new LayerStack(webGui);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsControl(final IControl<?, ?> control) {
     return getStoredLayers().containsAny(l -> l.containsControl(control));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     while (containsAny()) {
@@ -44,11 +50,17 @@ public final class LayerStack implements ILayerStack {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getLayerCount() {
     return getStoredLayers().getCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
     for (final var l : getStoredLayers()) {
@@ -62,31 +74,49 @@ public final class LayerStack implements ILayerStack {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
     return getStoredLayers().toMultiples(ILayer::getStoredControls);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<ILayer<?>> getStoredLayers() {
     return layers;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayer<?> getStoredTopLayer() {
     return getStoredLayers().getStoredLast();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRemoveLayerAction() {
     return (removeLayerAction != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return getStoredLayers().isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayerStack pushLayer(ILayer<?> layer) {
     layer.internalSetParentGui(parentGui);
@@ -96,11 +126,17 @@ public final class LayerStack implements ILayerStack {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ILayerStack pushLayerWithRootControl(IControl<?, ?> rootControl) {
     return pushLayer(new Layer().setRootControl(rootControl));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeLayer(final ILayer<?> layer) {
     layers.removeStrictlyFirstOccurrenceOf(layer);

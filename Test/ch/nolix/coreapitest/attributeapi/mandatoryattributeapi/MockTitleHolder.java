@@ -16,6 +16,9 @@ public final class MockTitleHolder implements ITitleHolder {
     return new MockTitleHolder(title);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getTitle() {
     return title;

@@ -19,6 +19,9 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
     return new WebEndPointMessageListener(webSocketEndPoint);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void runStep() {
     final var message = new WebSocketCompleteMessage(
@@ -29,6 +32,9 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
     receiveMessage(message);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected boolean shouldRunNextStep() {
     return parentWebEndPoint.isOpen();

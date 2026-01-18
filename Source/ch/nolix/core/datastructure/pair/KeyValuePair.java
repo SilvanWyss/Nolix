@@ -33,11 +33,17 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
     return new KeyValuePair<>(key, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public K getKey() {
     return key;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public V getStoredValue() {
     return value;

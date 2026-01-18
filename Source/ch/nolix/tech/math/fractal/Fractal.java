@@ -104,16 +104,25 @@ public final class Fractal implements IFractal {
     this.decimalPlaces = decimalPlaces;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISequence<IComplexNumber> createSequenceFor(final IComplexNumber complexNumber) {
     return sequenceCreator.apply(complexNumber);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getDecimalPlaces() {
     return decimalPlaces;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
     if (iterationCount == -1) {
@@ -123,41 +132,65 @@ public final class Fractal implements IFractal {
     return colorFunction.apply(iterationCount);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getHeightInPixel() {
     return heightInPixel;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IClosedInterval getImaginaryComponentInterval() {
     return imaginaryComponentInterval;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IClosedInterval getRealComponentInterval() {
     return realComponentInterval;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getMaxIterationCount() {
     return sequencesMaxIterationCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getMinMagnitudeForDivergence() {
     return sequencesMinDivergenceMagnitude;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getWidthInPixel() {
     return widthInPixel;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ImageGenerator startImageGeneration() {
     return ImageGenerator.forFractal(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toImage() {
     final var imageBuilder = startImageGeneration();

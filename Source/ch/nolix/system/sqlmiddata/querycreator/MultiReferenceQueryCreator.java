@@ -32,6 +32,9 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     + ");";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadMultiReferenceEntries(
     final String entityId,
@@ -59,6 +62,9 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadOptionalFirstMultiReferenceEntry(
     final String multiReferenceColumnId,

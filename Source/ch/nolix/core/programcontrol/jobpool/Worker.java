@@ -13,6 +13,9 @@ final class Worker extends Thread {
     start();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void run() {
     while (true) {

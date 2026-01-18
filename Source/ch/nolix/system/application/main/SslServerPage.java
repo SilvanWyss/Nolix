@@ -30,6 +30,9 @@ public final class SslServerPage {
     return new SslServerPage(domain, port);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return "<!DOCTYPE html>\n"

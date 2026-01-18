@@ -14,6 +14,9 @@ extends AbstractWebClientSession<WebClient<S>, S> {
     return webGui;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void refresh() {
     getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui(), true);
@@ -29,6 +32,9 @@ extends AbstractWebClientSession<WebClient<S>, S> {
     getStoredParentClient().internalUpdateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void fullInitialize() {
     getStoredGui()

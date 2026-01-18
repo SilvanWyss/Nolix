@@ -11,11 +11,17 @@ public final class MockBackendClientSession extends AbstractSession<MockBackendC
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fullInitialize() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Class<?> getClientClass() {
     return MockBackendClient.class;

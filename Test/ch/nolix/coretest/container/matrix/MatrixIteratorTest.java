@@ -14,6 +14,9 @@ final class MatrixIteratorTest extends CopyableIteratorTest {
     return MatrixIterator.forMatrix(Matrix.createEmpty());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> CopyableIterator<E> createIteratorForContainerWithElements(
     @SuppressWarnings("unchecked") final E... elements) {

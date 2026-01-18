@@ -102,6 +102,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return stringBuilder.toString();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableXmlNode addAttribute(final IXmlAttribute attribute) {
     memberAttributes.addAtEnd(attribute);
@@ -109,6 +112,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableXmlNode addAttributes(final IXmlAttribute attribute, final IXmlAttribute... attributes) {
     addAttribute(attribute);
@@ -123,11 +129,17 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableXmlNode addAttributeWithNameAndValue(final String name, final String value) {
     return addAttribute(new XmlAttribute(name, value));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableXmlNode addChildNode(final IMutableXmlNode childNode) {
     memberChildNodes.addAtEnd(childNode);
@@ -135,6 +147,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableXmlNode addChildNodes(final IMutableXmlNode childNode, final IMutableXmlNode... childNodes) {
     addChildNode(childNode);
@@ -149,16 +164,25 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsAttributes() {
     return memberAttributes.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsChildNodes() {
     return memberChildNodes.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IXmlAttribute> getAttributes() {
     return memberAttributes;
@@ -172,6 +196,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return memberChildNodes.getCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     if (memberName == null) {
@@ -181,11 +208,17 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return memberName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IMutableXmlNode> getStoredChildNodes() {
     return memberChildNodes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getValue() {
     supposeHasValue();
@@ -193,16 +226,25 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return memberValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasMixedContent() {
     return (hasValue() && containsChildNodes());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasName() {
     return (memberName != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasValue() {
     return (memberValue != null);
@@ -220,16 +262,25 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeName() {
     memberName = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeValue() {
     memberValue = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableXmlNode setName(final String name) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
@@ -239,6 +290,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableXmlNode setValue(final String value) {
     Validator.assertThat(value).isNotEmpty();
@@ -252,6 +306,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return toFormatedString(this, 0);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     final var stringBuilder = new StringBuilder();

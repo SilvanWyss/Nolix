@@ -35,16 +35,25 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
     return new MatrixRowIterator<>(matrixRow);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> getCopy() {
     return new MatrixRowIterator<>(parentMatrixRow, nextElementOneBasedColumnIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (nextElementOneBasedColumnIndex <= parentMatrixRow.getCount());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     assertHasNext();

@@ -49,26 +49,41 @@ public final class DataReader implements IDataReader {
     return new DataReader(databaseName, databaseView, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getDatabaseName() {
     return internalDataReader.getDatabaseName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getEntityCount(final String tableName) {
     return internalDataReader.getEntityCount(tableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Time getSchemaTimestamp() {
     return internalDataReader.getSchemaTimestamp();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
@@ -82,6 +97,9 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadMultiBackReferenceEntriesIds(entityId, multiBackReferenceColumnId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final TableIdentification table,
@@ -92,6 +110,9 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadMultiBackReferenceEntries(table, entityId, multiBackReferenceColumnId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
@@ -103,6 +124,9 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadMultiReferenceEntries(entityId, multiReferenceColumnId, databaseView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<Object> loadMultiValueValues(
     final String tableName,
@@ -113,6 +137,9 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadMultiValueEntries(entityId, multiValueColumnView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<EntityLoadingDto> loadEntities(final String tableName) {
     final var tableView = getTableViewByTableName(tableName);
@@ -120,6 +147,9 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadEntitiesOfTable(tableView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public EntityLoadingDto loadEntity(final String tableName, final String entityId) {
     final var tableView = getTableViewByTableName(tableName);
@@ -127,11 +157,17 @@ public final class DataReader implements IDataReader {
     return internalDataReader.loadEntity(tableView, entityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableContainsEntityWithValueAtColumn(
     final String tableName,
@@ -142,6 +178,9 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnview, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableContainsEntityWithValueAtColumnIgnoringEntities(
     final String tableName,
@@ -158,6 +197,9 @@ public final class DataReader implements IDataReader {
       entitiesToIgnoreIds);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableContainsEntity(final String tableName, final String entityId) {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, entityId);

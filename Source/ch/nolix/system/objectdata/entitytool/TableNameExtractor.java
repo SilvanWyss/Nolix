@@ -14,6 +14,9 @@ public final class TableNameExtractor implements ITableNameExtractor {
     return getTableNameOfEntityType(entityType);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getTableNameOfEntityType(final Class<? extends IEntity> entityType) {
     return entityType.getSimpleName();

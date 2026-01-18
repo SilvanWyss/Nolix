@@ -67,41 +67,65 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
       .forStateSetBackgroundColor(ControlState.FOCUS, X11ColorCatalog.DARK_GREY);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ButtonRole getRole() {
     return memberRole.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getText() {
     return text.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasRole() {
     return memberRole.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void pressLeftMouseButton() {
     if (hasLeftMouseButtonPressAction()) {
@@ -111,6 +135,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     if (hasLeftMouseButtonPressAction()) {
@@ -122,6 +149,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void releaseLeftMouseButton() {
     if (hasLeftMouseButtonReleaseAction()) {
@@ -131,21 +161,33 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeLeftMouseButtonPressAction() {
     leftMouseButtonPressAction = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeLeftMouseButtonReleaseAction() {
     leftMouseButtonReleaseAction = null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeRole() {
     memberRole.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     switch (htmlEvent) {
@@ -158,6 +200,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unused")
   public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
@@ -169,6 +214,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IButton setLeftMouseButtonPressAction(final Consumer<IButton> leftMouseButtonPressAction) {
     Validator
@@ -181,6 +229,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unused")
   public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
@@ -192,6 +243,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
     Validator
@@ -204,6 +258,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IButton setRole(final ButtonRole role) {
     memberRole.setValue(role);
@@ -211,6 +268,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IButton setText(final String text) {
     this.text.setValue(text);
@@ -218,26 +278,41 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IButton setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IButtonStyle createStyle() {
     return new ButtonStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<IButton, IButtonStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<IButton> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetControl() {
     removeRole();

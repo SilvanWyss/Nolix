@@ -17,6 +17,9 @@ public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder
     this.name = name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getName() {
     return name;

@@ -34,6 +34,9 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadMultiBackReferenceEntries(
     final String backReferencedTableName,
@@ -49,6 +52,9 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadMultiBackReferenceEntriesIds(
     final String entityId,
@@ -69,6 +75,9 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadOptionalFirstMultiBackReferenceEntry(
     final String multiBackReferenceColumnId,

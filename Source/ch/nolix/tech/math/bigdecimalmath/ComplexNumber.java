@@ -59,6 +59,9 @@ public final class ComplexNumber implements IComplexNumber {
     this.imaginaryComponent = BigDecimal.valueOf(imaginaryComponent).setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int compareTo(final IComplexNumber complexNumber) {
     Validator.assertThat(complexNumber).thatIsNamed("complex number").isNotNull();
@@ -76,21 +79,33 @@ public final class ComplexNumber implements IComplexNumber {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getConjugate() {
     return new ComplexNumber(realComponent, imaginaryComponent.negate(), getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getDecimalPlaces() {
     return realComponent.scale();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getImaginaryComponent() {
     return imaginaryComponent;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getMagnitude() {
     return realComponent
@@ -100,6 +115,9 @@ public final class ComplexNumber implements IComplexNumber {
       .setScale(getScale(), RoundingMode.HALF_UP);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getPower(final int exponent) {
     Validator.assertThat(exponent).thatIsNamed(LowerCaseVariableCatalog.EXPONENT).isPositive();
@@ -112,6 +130,9 @@ public final class ComplexNumber implements IComplexNumber {
     return complexNumber;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getPower2() {
     return new ComplexNumber(
@@ -124,6 +145,9 @@ public final class ComplexNumber implements IComplexNumber {
       getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getPower3() {
     return new ComplexNumber(
@@ -138,6 +162,9 @@ public final class ComplexNumber implements IComplexNumber {
       getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getPower4() {
     return new ComplexNumber(
@@ -152,16 +179,25 @@ public final class ComplexNumber implements IComplexNumber {
       getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getProduct(final BigDecimal number) {
     return new ComplexNumber(realComponent.multiply(number), imaginaryComponent.multiply(number), getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber getProduct(final double number) {
     return getSum(BigDecimal.valueOf(number));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getProduct(final IComplexNumber complexNumber) {
     return new ComplexNumber(
@@ -176,16 +212,25 @@ public final class ComplexNumber implements IComplexNumber {
       getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getRealComponent() {
     return realComponent;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getScale() {
     return realComponent.scale();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getSquaredMagnitude() {
     return realComponent
@@ -194,11 +239,17 @@ public final class ComplexNumber implements IComplexNumber {
       .setScale(getScale(), RoundingMode.HALF_UP);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber getSum(final BigDecimal number) {
     return new ComplexNumber(realComponent.add(number), imaginaryComponent, getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ComplexNumber getSum(final IComplexNumber complexNumber) {
     return new ComplexNumber(
@@ -207,31 +258,49 @@ public final class ComplexNumber implements IComplexNumber {
       getDecimalPlaces());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber getSum(final double number) {
     return getSum(BigDecimal.valueOf(number));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber inDecimalPlaces(final int decimalPlaces) {
     return new ComplexNumber(realComponent, imaginaryComponent, decimalPlaces);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isPureImaginary() {
     return (realComponent.compareTo(BigDecimal.ZERO) == 0);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isPureReal() {
     return (imaginaryComponent.compareTo(BigDecimal.ZERO) == 0);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     if (isPureReal()) {

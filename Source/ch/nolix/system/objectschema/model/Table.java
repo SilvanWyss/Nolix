@@ -50,6 +50,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
     return new Table(id, name);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Table addColumn(final IColumn column) {
     MUTATION_VALIDATOR.assertCanAddColumnToTable(this, column);
@@ -59,6 +62,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable addColumns(final IContainer<IColumn> columns) {
     for (final var c : columns) {
@@ -68,11 +74,17 @@ public final class Table extends AbstractSchemaObject implements ITable {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToDatabase() {
     return (parentDatabase != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Table addColumnWithNameAndContentModel(
     final String name,
@@ -87,6 +99,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
     return addColumn(column);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void delete() {
     MUTATION_VALIDATOR.assertCanDeleteTable(this);
@@ -94,16 +109,25 @@ public final class Table extends AbstractSchemaObject implements ITable {
     TableEditor.deleteTable(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getId() {
     return id;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return memberName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Database getStoredParentDatabase() {
     assertBelongsToDatabase();
@@ -111,16 +135,25 @@ public final class Table extends AbstractSchemaObject implements ITable {
     return parentDatabase;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IColumn> getStoredColumns() {
     return memberColumns;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return (belongsToDatabase() && getStoredParentDatabase().isConnectedWithRealDatabase());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Table setName(final String name) {
     MUTATION_VALIDATOR.assertCanSetNameToTable(this, name);
@@ -130,6 +163,9 @@ public final class Table extends AbstractSchemaObject implements ITable {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteClose() {
     //Does not call getStoredColumns method to avoid that the columns need to be

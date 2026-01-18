@@ -44,6 +44,9 @@ public final class EntityTypeSet implements IEntityTypeSet {
     return new EntityTypeSet(entityTypes);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<Class<? extends IEntity>> getEntityTypes() {
     return entityTypes;

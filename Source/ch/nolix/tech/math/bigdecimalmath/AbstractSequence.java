@@ -22,6 +22,9 @@ abstract class AbstractSequence<V> implements ISequence<V> {
     return -1;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getSquaredMagnitudeOfValueAtOneBasedIndex(final int oneBasedIndex) {
     calculateValuesAndSquaredMagnitudesToIndex(oneBasedIndex);
@@ -29,6 +32,9 @@ abstract class AbstractSequence<V> implements ISequence<V> {
     return valuesAndSquaredMagnitudes.get(oneBasedIndex - 1).getStoredElement2();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public V getValueAtOneBasedIndex(final int oneBasedIndex) {
     calculateValuesAndSquaredMagnitudesToIndex(oneBasedIndex);

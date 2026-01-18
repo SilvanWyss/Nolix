@@ -63,6 +63,9 @@ public final class Column implements IColumn {
     return new Column(parentTable, id, name, fieldType, dataTypeClass, referenceableTables, backReferenceableColumns);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsValueInPersistedData(final String value) {
     final var midDataAdapterAndSchemaReader = parentTable.getStoredMidDataDataAdapterAndSchemaReader();
@@ -72,6 +75,9 @@ public final class Column implements IColumn {
     return midDataAdapterAndSchemaReader.tableContainsEntityWithValueAtColumn(tableName, columnName, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsValueInPersistedDataIgnoringEntities(
     final String value,
@@ -88,26 +94,41 @@ public final class Column implements IColumn {
       entitiesToIgnoreIds);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Class<?> getDataTypeClass() {
     return dataTypeClass;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getFieldType() {
     return fieldType;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getId() {
     return id;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DatabaseObjectState getState() {
     if (getStoredParentTable().isClosed()) {
@@ -116,46 +137,73 @@ public final class Column implements IColumn {
     return DatabaseObjectState.UNEDITED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IColumn> getStoredBackReferenceableColumns() {
     return backReferenceableColumns;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable<IEntity> getStoredParentTable() {
     return parentTable;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends ITable<IEntity>> getStoredReferenceableTables() {
     return referenceableTables;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isClosed() {
     return getStoredParentTable().isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return getStoredParentTable().isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isDeleted() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEdited() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isLoaded() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNew() {
     return false;

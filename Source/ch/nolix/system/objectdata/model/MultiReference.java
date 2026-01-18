@@ -76,12 +76,18 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     return new MultiReference<>(referenceableTableNamesView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public void addEntity(final Object entity) {
     addCastedEntity((E) entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     getAllStoredReferencedEntities().forEach(this::removeEntity);
@@ -89,6 +95,9 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     setAsEditedAndRunPossibleUpdateAction();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> getAllReferencedEntityIds() {
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
@@ -99,6 +108,9 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
       .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<E> getAllStoredReferencedEntities() {
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
@@ -109,6 +121,9 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
       .to(IMultiReferenceEntry::getStoredReferencedEntity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     final ILinkedList<IBaseBackReference> abstractBackReferences = LinkedList.createEmpty();
@@ -128,41 +143,65 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     return abstractBackReferences;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IMultiReferenceEntry<E>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getType() {
     return FieldType.MULTI_REFERENCE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return getAllReferencedEntityIds().isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMandatory() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Iterator<E> iterator() {
     return getAllStoredReferencedEntities().iterator();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean loadedAllPersistedReferencedEntityIds() {
     return loadedAllPersistedReferencedEntityIds;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesEntity(final IEntity entity) {
     if (entity == null) {
@@ -172,17 +211,26 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     return getAllReferencedEntityIds().containsEqualing(entity.getId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean referencesUninsertedEntity() {
     return getAllStoredReferencedEntities().containsAny(e -> !e.belongsToTable());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public void removeEntity(final Object entity) {
     removeCastedEntity((E) entity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeFirstEntity(final Predicate<E> selector) {
     final var entity = getAllStoredReferencedEntities().getOptionalStoredFirst(selector);
@@ -190,6 +238,9 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     entity.ifPresent(this::removeEntity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void noteInsertIntoDatabase() {
     if (containsAny()) {

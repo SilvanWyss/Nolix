@@ -27,36 +27,57 @@ extends Control<C, S> implements IContainer<C, S> {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ContainerRole getRole() {
     return memberRole.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasRole() {
     return memberRole.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeRole() {
     memberRole.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C setRole(final ContainerRole role) {
     memberRole.setValue(role);
@@ -64,6 +85,9 @@ extends Control<C, S> implements IContainer<C, S> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");

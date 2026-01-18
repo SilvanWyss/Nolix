@@ -16,6 +16,9 @@ public final class ChangeRequestableMock implements ChangeRequestable {
     return new ChangeRequestableMock(hasChanges);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasChanges() {
     return hasChanges;

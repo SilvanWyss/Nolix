@@ -35,6 +35,9 @@ implements IHorizontalStack {
     return contentAlignment.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHorizontalStack setContentAlignment(final VerticalContentAlignment contentAlignment) {
     this.contentAlignment.setValue(contentAlignment);
@@ -42,21 +45,33 @@ implements IHorizontalStack {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IHorizontalStackStyle createStyle() {
     return new HorizontalStackStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<IHorizontalStack> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetContainer() {
     setContentAlignment(DEFAULT_CONTENT_ALIGNMENT);

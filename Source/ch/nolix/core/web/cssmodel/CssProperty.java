@@ -50,16 +50,25 @@ public final class CssProperty implements ICssProperty {
     return new CssProperty(name, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getValue() {
     return value;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return (getName() + ": " + getValue() + ";");

@@ -18,16 +18,25 @@ extends AbstractLinearContainer<FloatContainer, FloatContainerStyle> {
     return new FloatContainerStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<FloatContainer, FloatContainerStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<FloatContainer> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetContainer() {
     //Does nothing.

@@ -11,6 +11,9 @@ final class LogWorker extends Thread {
     start();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void run() {
     var idle = false;

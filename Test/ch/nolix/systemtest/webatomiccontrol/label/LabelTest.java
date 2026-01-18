@@ -87,6 +87,9 @@ final class LabelTest extends ControlTest<ILabel> {
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Label createTestUnit() {
     return new Label();

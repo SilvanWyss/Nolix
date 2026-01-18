@@ -40,21 +40,33 @@ public class ServerTarget implements IServerTarget {
     return new ServerTarget(ipOrDomain, port, securityModeForConnections);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getIpOrDomain() {
     return ipOrDomain;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getPort() {
     return port;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final SecurityMode getSecurityModeForConnection() {
     return securityModeForConnections;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toUrl() {
     return switch (getSecurityModeForConnection()) {

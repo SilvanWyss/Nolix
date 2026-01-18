@@ -19,16 +19,25 @@ public final class Css implements ICss {
     return new Css(rules);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<CssRule> getRules() {
     return rules;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return StringTool.getInBraces(toStringWithoutEnclosingBrackets());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toStringWithoutEnclosingBrackets() {
     return getRules().toConcatenatedString();

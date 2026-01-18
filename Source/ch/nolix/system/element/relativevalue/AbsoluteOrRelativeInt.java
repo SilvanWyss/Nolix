@@ -103,6 +103,9 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
     return attributes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getAbsoluteValue() {
     assertIsAbsolute();
@@ -110,6 +113,9 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
     return absoluteValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public double getPercentage() {
     assertIsRelative();

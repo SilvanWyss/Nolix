@@ -12,6 +12,9 @@ public final class ExtensionElement<E extends IRespondingMutableElement<E>> exte
     super(internalExtensionElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isExchangable() {
     return true;

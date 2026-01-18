@@ -84,16 +84,25 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId, referencedTableId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToDatabase() {
     return getStoredParentMultiReference().belongsToDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToTable() {
     return getStoredParentMultiReference().belongsToTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<? extends IField> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis() {
     return //
@@ -102,11 +111,17 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
       .getOptionalStoredFirst(p -> p.referencesBackField(getStoredParentMultiReference()));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedEntityId() {
     return referencedEntityCache.entityId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedTableId() {
     retrieveReferencedTableId();
@@ -114,6 +129,9 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return referencedEntityCache.nullableTableId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getReferencedTableName() {
     final var referencedEntity = referencedEntityCache.nullableEntity();
@@ -125,6 +143,9 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return getStoredReferencedTable().getName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DatabaseObjectState getState() {
 
@@ -133,21 +154,33 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return state;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDatabase getStoredParentDatabase() {
     return getStoredParentTable().getStoredParentDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMultiReference<E> getStoredParentMultiReference() {
     return parentMultiReference;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable<? extends IEntity> getStoredParentTable() {
     return getStoredParentMultiReference().getStoredParentTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredReferencedEntity() {
 
@@ -156,6 +189,9 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return referencedEntityCache.nullableEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
@@ -176,31 +212,49 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getReferencedTableId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isClosed() {
     return getStoredParentMultiReference().isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return getStoredParentMultiReference().isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isDeleted() {
     return getStoredParentMultiReference().isDeleted();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEdited() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);

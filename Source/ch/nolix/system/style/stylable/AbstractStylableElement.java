@@ -35,46 +35,73 @@ implements IStylableElement<E> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<? extends IStructureElement> getChildStructureElements() {
     return getStoredChildStylableElements();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getId() {
     return id.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<String> getTokens() {
     return tokens.getStoredValues();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final INode<?> getStructureSpecification() {
     return STRUCTURE_SPECIFICATION_CREATOR.getStructureSpecificationOfElement(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasId() {
     return id.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeId() {
     id.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeToken(final String token) {
     tokens.remove(token);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeTokens() {
     tokens.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void reset() {
     removeId();
@@ -85,6 +112,9 @@ implements IStylableElement<E> {
     resetStylableElement();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void resetStyleRecursively() {
     resetStyle();
@@ -92,6 +122,9 @@ implements IStylableElement<E> {
     getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final E setId(final String id) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();

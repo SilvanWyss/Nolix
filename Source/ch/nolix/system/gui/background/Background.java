@@ -130,6 +130,9 @@ public final class Background extends AbstractElement implements IBackground {
       Background.class);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<INode<?>> getAttributes() {
     return switch (getType()) {
@@ -146,6 +149,9 @@ public final class Background extends AbstractElement implements IBackground {
     };
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getColor() {
     assertIsColor();
@@ -153,6 +159,9 @@ public final class Background extends AbstractElement implements IBackground {
     return color;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColorGradient getColorGradient() {
     assertIsColorGradient();
@@ -160,6 +169,9 @@ public final class Background extends AbstractElement implements IBackground {
     return colorGradient;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IImage getImage() {
     assertIsImage();
@@ -167,6 +179,9 @@ public final class Background extends AbstractElement implements IBackground {
     return image;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ImageApplication getImageApplication() {
     assertIsImage();
@@ -174,6 +189,9 @@ public final class Background extends AbstractElement implements IBackground {
     return imageApplication;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BackgroundType getType() { //NOSONAR: The type of a Background is determined by all of its other attributes.
 
@@ -208,6 +226,9 @@ public final class Background extends AbstractElement implements IBackground {
     return !isColor() && !isColorGradient() && !isImage();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<ICssProperty> toCssProperties() {
     return CSS_PROPERTY_MAPPER.mapBackgroundToCssProperties(this);

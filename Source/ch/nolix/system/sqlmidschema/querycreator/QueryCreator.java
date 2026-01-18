@@ -67,6 +67,9 @@ public final class QueryCreator implements IQueryCreator {
     + ";";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadJoinedColumns(String tableName) {
     return //

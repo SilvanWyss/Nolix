@@ -45,6 +45,9 @@ final class SslServerWorker extends AbstractWorker {
     start();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void run() {
     final var sslContext = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);

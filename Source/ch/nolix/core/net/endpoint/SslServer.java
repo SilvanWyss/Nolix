@@ -52,6 +52,9 @@ public final class SslServer extends AbstractServer {
     return SecurityMode.SSL;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     sslServerWorker.internalStop();

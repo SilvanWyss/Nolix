@@ -26,6 +26,9 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
     return DATABASE_PROPERTIES_NODE_SEARCHER.getDatabaseNameFromDatabasePropertiesNode(databasePropertiesNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredColumnNodeByColumnIdFromNodeDatabase(
     final IMutableNode<?> nodeDatabase,
@@ -37,16 +40,25 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
           .hasHeader(columnId));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredDatabasePropertiesNodeFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return nodeDatabase.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.DATABASE_PROPERTIES);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredEntityIndexesNodeFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return nodeDatabase.getStoredFirstChildNodeWithHeader(NodeHeaderCatalog.ENTITY_INDEXES);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredTableNodeByTableIdFromNodeDatabase(
     final IMutableNode<?> nodeDatabase,
@@ -56,6 +68,9 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
         .hasHeader(tableId));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableNode<?> getStoredTableNodeByTableNameFromNodeDatabase(
     final IMutableNode<?> nodeDatabase,
@@ -67,11 +82,17 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
         .hasHeader(tableName));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return nodeDatabase.getStoredChildNodesWithHeader(NodeHeaderCatalog.TABLE);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getTableNodeCount(final IMutableNode<?> nodeDatabase) {
     return nodeDatabase.getStoredChildNodes().getCount(a -> a.hasHeader(NodeHeaderCatalog.TABLE));

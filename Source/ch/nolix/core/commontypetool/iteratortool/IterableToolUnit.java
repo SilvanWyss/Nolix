@@ -20,6 +20,9 @@ public final class IterableToolUnit implements IIterableTool {
     return elementCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
     var iteratingOneBasedIndex = 1;

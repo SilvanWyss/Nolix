@@ -19,11 +19,17 @@ public final class EntityFlyWeight implements IEntityFlyWeight {
     return new EntityFlyWeight(insertAction);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isVoid() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteInsertIntoDatabase() {
     insertAction.run();

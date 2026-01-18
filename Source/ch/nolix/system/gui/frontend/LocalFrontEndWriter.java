@@ -19,16 +19,25 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
     ShellProvider.startDefaultWebBrowserOpeningUrl(url);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectTo");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void redirectToUrl(String url) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectToUrl");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveFile(final byte[] bytes) {
     final var fileChooser = new JFileChooser();
@@ -47,6 +56,9 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void writeTextToClipboard(final String text) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "writeTextToClipboard");

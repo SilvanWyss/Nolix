@@ -16,6 +16,9 @@ extends AbstractEntity {
     return TABLE_NAME_EXTRACTOR.getTableNameOfEntity(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   final IContainer<AbstractField> findFields() {
     return ENTITY_FIELD_EXTRACTOR.extractStoredFieldsFromEntity(this);

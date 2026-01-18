@@ -20,6 +20,9 @@ public final class ByteArrayMediator implements IByteArrayMediator {
     return new ByteArrayMediator(byteArray);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IByteArrayMediatorWithStartIndex fromIndex(final int index) {
     return ByteArrayMediatorWithStartIndex.forByteArrayAndStartIndex(byteArray, index);

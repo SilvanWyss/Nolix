@@ -33,21 +33,33 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
     this.nextValueFunction = nextValueFunction;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber getFirstValue() {
     return firstValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber getSecondValue() {
     return secondValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IComplexNumber calculateValue(final int index) {
     if (index == 1) {

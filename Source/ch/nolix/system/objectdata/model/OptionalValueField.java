@@ -38,6 +38,9 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
     return new OptionalValueField<>(valueType);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     internalValue = null;
@@ -45,11 +48,17 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
     setAsEditedAndRunPossibleUpdateAction();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return (internalValue == null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public V getStoredValue() {
     OPTIONAL_VALUE_VALIDATOR.assertIsNotEmpty(this);
@@ -57,22 +66,34 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
     return internalValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public FieldType getType() {
     return FieldType.OPTIONAL_VALUE_FIELD;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
     internalValue = (V) nullableValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isMandatory() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setValue(final V value) {
     OPTIONAL_VALUE_VALIDATOR.assertCanSetValue(this, value);
@@ -82,6 +103,9 @@ public final class OptionalValueField<V> extends AbstractBaseValueField<V> imple
     setAsEditedAndRunPossibleUpdateAction();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setValueFromString(final String string) {
     final var dataType = DataType.forType(getValueType());

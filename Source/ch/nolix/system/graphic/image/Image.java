@@ -54,86 +54,137 @@ public final class Image extends AbstractElement implements IImage {
     return new Image(MutableImage.withPixels(pixels));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<INode<?>> getAttributes() {
     return internalImage.getAttributes();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getBottomLeftPixel() {
     return internalImage.getBottomLeftPixel();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getBottomRightPixel() {
     return internalImage.getBottomRightPixel();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getHeight() {
     return internalImage.getHeight();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getPixel(int xPosition, int yPosition) {
     return internalImage.getPixel(xPosition, yPosition);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getPixelCount() {
     return internalImage.getPixelCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Matrix<IColor> getPixels() {
     return internalImage.getPixels();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage getSection(int xPosition, int yPosition, int width, int height) {
     return internalImage.getSection(xPosition, yPosition, width, height);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getTopLeftPixel() {
     return internalImage.getTopLeftPixel();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IColor getTopRightPixel() {
     return internalImage.getTopRightPixel();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getWidth() {
     return internalImage.getWidth();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toBase64Jpg() {
     return internalImage.toBase64Jpg();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toBase64Png() {
     return internalImage.toBase64Png();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BufferedImage toBufferedImage() {
     return internalImage.toBufferedImage();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Image toImmutableImage() {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public byte[] toJpg() {
     return internalImage.toJpg();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toLeftRotatedImage() {
     return internalImage.toLeftRotatedImage();
@@ -143,36 +194,57 @@ public final class Image extends AbstractElement implements IImage {
     return internalImage.getCopy();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public byte[] toPng() {
     return internalImage.toPng();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toRepeatedImage(int width, int height) {
     return internalImage.toRepeatedImage(width, height);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toRightRotatedImage() {
     return internalImage.toRightRotatedImage();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toScaledImage(double factor) {
     return internalImage.toScaledImage(factor);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MutableImage toScaledImage(double widthFactor, double heightFactor) {
     return internalImage.toScaledImage(widthFactor, heightFactor);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableImage<?> withAlphaValue(final double alphaValue) {
     return internalImage.withAlphaValue(alphaValue);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMutableImage<?> withWidthAndHeight(final int width, final int height) {
     return internalImage.withWidthAndHeight(width, height);

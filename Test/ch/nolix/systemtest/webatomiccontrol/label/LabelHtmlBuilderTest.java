@@ -14,11 +14,17 @@ final class LabelHtmlBuilderTest extends ControlHtmlBuilderTest<LabelHtmlBuilder
     return new Label();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected LabelHtmlBuilder createTestUnit() {
     return new LabelHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div>-</div>";

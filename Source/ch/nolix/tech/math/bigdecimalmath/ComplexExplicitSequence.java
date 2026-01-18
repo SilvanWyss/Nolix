@@ -18,11 +18,17 @@ public final class ComplexExplicitSequence extends AbstractSequence<IComplexNumb
     this.valueFunction = valueFunction;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IComplexNumber calculateValue(final int index) {
     return valueFunction.apply(index);

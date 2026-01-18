@@ -38,6 +38,9 @@ public abstract class AbstractField implements IField {
     && parentEntity.belongsToDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean belongsToEntity() {
     return (parentEntity != null);
@@ -51,6 +54,9 @@ public abstract class AbstractField implements IField {
     && parentEntity.belongsToTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getName() {
     if (knowsParentColumn()) {
@@ -64,6 +70,9 @@ public abstract class AbstractField implements IField {
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate name");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final DatabaseObjectState getState() {
     if (!belongsToEntity()) {
@@ -73,6 +82,9 @@ public abstract class AbstractField implements IField {
     return getStateWhenBelongsToEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IColumn getStoredParentColumn() {
     FIELD_VALIDATOR.assertKnowsParentColumn(this);
@@ -80,11 +92,17 @@ public abstract class AbstractField implements IField {
     return parentColumn;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IDatabase getStoredParentDatabase() {
     return getStoredParentEntity().getStoredParentDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final AbstractEntity getStoredParentEntity() {
     FIELD_VALIDATOR.assertBelongsToEntity(this);
@@ -92,11 +110,17 @@ public abstract class AbstractField implements IField {
     return parentEntity;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ITable<? extends IEntity> getStoredParentTable() {
     return getStoredParentEntity().getStoredParentTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isClosed() {
     return //
@@ -104,6 +128,9 @@ public abstract class AbstractField implements IField {
     && getStoredParentEntity().isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isDeleted() {
     return //
@@ -111,11 +138,17 @@ public abstract class AbstractField implements IField {
     && getStoredParentEntity().isDeleted();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isConnectedWithRealDatabase() {
     return //
@@ -123,11 +156,17 @@ public abstract class AbstractField implements IField {
     && getStoredParentEntity().isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isNew() {
     return //
@@ -135,11 +174,17 @@ public abstract class AbstractField implements IField {
     || getStoredParentEntity().isDeleted();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean knowsParentColumn() {
     return (parentColumn != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void setUpdateAction(final Runnable updateAction) {
     fieldFlyWeight = FieldFlyWeight.wihUpdateAction(updateAction);

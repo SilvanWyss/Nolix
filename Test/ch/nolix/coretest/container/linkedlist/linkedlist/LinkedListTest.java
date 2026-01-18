@@ -354,11 +354,17 @@ final class LinkedListTest extends ContainerTest {
     expect(result).isEqualTo("");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return LinkedList.fromArray(elements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return LinkedList.createEmpty();

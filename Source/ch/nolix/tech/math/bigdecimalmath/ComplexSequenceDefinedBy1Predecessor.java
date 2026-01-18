@@ -34,16 +34,25 @@ implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
     return new ComplexSequenceDefinedBy1Predecessor(firstValue, nextValueFunction);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IComplexNumber getFirstValue() {
     return firstValue;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IComplexNumber calculateValue(final int index) {
     if (index == 1) {

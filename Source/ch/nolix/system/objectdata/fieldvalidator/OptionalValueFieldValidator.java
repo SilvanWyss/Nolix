@@ -23,6 +23,9 @@ public final class OptionalValueFieldValidator extends FieldValidator implements
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertIsNotEmpty(final IOptionalValueField<?> optionalValueField) {
     if (optionalValueField.isEmpty()) {

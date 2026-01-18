@@ -73,11 +73,17 @@ final class ContainerViewTest extends ContainerTest {
     expect(testUnit.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return ContainerView.forArray(elements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ContainerView.createEmpty();

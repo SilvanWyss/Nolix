@@ -20,6 +20,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ";";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
     return //
@@ -30,6 +33,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToCountEntitiesWithGivenValueAtGivenColumn(
     final String tableName,
@@ -47,6 +53,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
@@ -67,6 +76,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ");";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadEntitiesOfTable(final TableViewDto tableView) {
     return "SELECT Id, SaveStamp, "
@@ -76,6 +88,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + ";";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadEntity(String id, TableViewDto tableView) {
     return "SELECT Id, SaveStamp, "
@@ -87,6 +102,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "

@@ -64,16 +64,25 @@ final class NodeTest extends BaseNodeTest<Node> {
     expect(result).hasStringRepresentation(expectedXmlStringRepresentation);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Node createBlankNode() {
     return Node.EMPTY_NODE;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Node createNodeWithHeader(final String header) {
     return Node.withHeader(header);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
     return Node.withHeaderAndChildNodes(header, ContainerView.forArray(childNodeHeaders).getViewOf(Node::withHeader));

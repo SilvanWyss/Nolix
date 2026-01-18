@@ -33,16 +33,25 @@ final class VerticalStackHtmlBuilderTest extends ControlHtmlBuilderTest<Vertical
     expect(childElements.getStoredAtOneBasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IVerticalStack createControl() {
     return new VerticalStack();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected VerticalStackHtmlBuilder createTestUnit() {
     return new VerticalStackHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<div />";

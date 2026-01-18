@@ -11,21 +11,33 @@ public final class QueryCreator implements IQueryCreator {
     return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToGetTableCount(final String tableName) {
     return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + tableName + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadNameAndDataTypeOfColumns(final String tableName) {
     return "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + tableName + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadTableNameAndNameAndDataTypeOfColumns() {
     return "SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS;";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToLoadTopFirstRecordWhereColumnIsNotNull(
     final String tableName,

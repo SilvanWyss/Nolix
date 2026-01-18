@@ -13,6 +13,9 @@ public final class IterableExaminer implements IIterableExaminer {
     && iterable.iterator().hasNext();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty(final Iterable<?> iterable) {
     return //

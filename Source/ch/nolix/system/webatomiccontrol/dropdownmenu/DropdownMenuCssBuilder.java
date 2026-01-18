@@ -18,6 +18,9 @@ public final class DropdownMenuCssBuilder extends AbstractItemMenuCssBuilder<IDr
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final IDropdownMenu dropdownMenu,

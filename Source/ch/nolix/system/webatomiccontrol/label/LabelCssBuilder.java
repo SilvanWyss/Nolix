@@ -19,6 +19,9 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ILabel label,
@@ -27,6 +30,9 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ILabel label,
@@ -34,6 +40,9 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
     final ILabel label,

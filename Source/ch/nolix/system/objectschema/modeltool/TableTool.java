@@ -18,11 +18,17 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     return table.getStoredColumns().getCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IColumn> getStoredBaseBackReferenceColumns(final ITable table) {
     return table.getStoredColumns().getStoredSelected(COLUMN_TOOL::isABackReferenceColumn);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IColumn> getStoredBackReferencingColumns(final ITable table) {
     if (!table.belongsToDatabase()) {
@@ -32,6 +38,9 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
     return TableToolHelper.getStoredBackReferencingColumnsWhenBelongsToDatabase(table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IColumn> getStoredReferencingColumns(final ITable table) {
     if (!table.belongsToDatabase()) {

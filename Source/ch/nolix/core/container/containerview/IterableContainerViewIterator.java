@@ -42,16 +42,25 @@ public final class IterableContainerViewIterator<E> implements CopyableIterator<
     return new IterableContainerViewIterator<>(iterable);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> getCopy() {
     return new IterableContainerViewIterator<>(parentIterable, iterationCount);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return internalIterator.hasNext();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     iterationCount++;

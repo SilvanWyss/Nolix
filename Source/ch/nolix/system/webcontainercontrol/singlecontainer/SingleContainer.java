@@ -36,6 +36,9 @@ implements ISingleContainer {
     control.clear();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     if (isEmpty()) {
@@ -45,21 +48,33 @@ implements ISingleContainer {
     return ImmutableList.withElements(getStoredControl());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IControl<?, ?> getStoredControl() {
     return control.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEmpty() {
     return !control.containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public SingleContainer setControl(final IControl<?, ?> control) {
     control.internalSetParentControl(this);
@@ -68,21 +83,33 @@ implements ISingleContainer {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected SingleContainerStyle createStyle() {
     return new SingleContainerStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlCssBuilder<ISingleContainer, ISingleContainerStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IControlHtmlBuilder<ISingleContainer> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void resetContainer() {
     clear();

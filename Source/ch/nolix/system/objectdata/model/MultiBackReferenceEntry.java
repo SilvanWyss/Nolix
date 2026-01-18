@@ -93,21 +93,33 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     new MultiBackReferenceEntry<>(multiBackReference, DatabaseObjectState.NEW, backReferencedEntity);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToDatabase() {
     return getStoredParentMultiBackReference().belongsToDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToTable() {
     return getStoredParentMultiBackReference().belongsToTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getBackReferencedEntityId() {
     return backReferencedEntityCache.entityId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getBackReferencedTableId() {
     retrieveBackReferencedTableId();
@@ -115,6 +127,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     return backReferencedEntityCache.nullableTableId();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiBackReference().getState()) {
@@ -129,6 +144,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     };
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E getStoredBackReferencedEntity() {
 
@@ -137,6 +155,9 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     return backReferencedEntityCache.nullableEntity();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredBackReferencedTable() {
@@ -157,46 +178,73 @@ public final class MultiBackReferenceEntry<E extends IEntity> implements IMultiB
     return (ITable<E>) DATABASE_SEARCHER.getStoredTableById(database, getBackReferencedTableId());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IDatabase getStoredParentDatabase() {
     return getStoredParentTable().getStoredParentDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IMultiBackReference<E> getStoredParentMultiBackReference() {
     return parentMultiBackReference;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable<? extends IEntity> getStoredParentTable() {
     return getStoredParentMultiBackReference().getStoredParentTable();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isClosed() {
     return getStoredParentMultiBackReference().isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return getStoredParentMultiBackReference().isConnectedWithRealDatabase();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isDeleted() {
     return getStoredParentMultiBackReference().isDeleted();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEdited() {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);

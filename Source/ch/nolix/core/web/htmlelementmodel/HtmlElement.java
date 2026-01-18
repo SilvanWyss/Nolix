@@ -134,36 +134,57 @@ public final class HtmlElement implements IHtmlElement {
     return new HtmlElement(type, ImmutableList.createEmpty(), innerText, ImmutableList.createEmpty());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsAttributes() {
     return getAttributes().containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsChildElements() {
     return getChildElements().containsAny();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IHtmlAttribute> getAttributes() {
     return memmberAttributes;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends IHtmlElement> getChildElements() {
     return childElements;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getInnerText() {
     return innerText;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getType() {
     return type;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(final Object object) {
     if (object instanceof final HtmlElement htmlElement) {
@@ -176,16 +197,25 @@ public final class HtmlElement implements IHtmlElement {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String toString() {
     return HtmlElementStringRepresentator.toString(this);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
     final var allAttributes = //

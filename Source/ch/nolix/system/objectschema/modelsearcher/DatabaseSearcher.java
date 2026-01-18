@@ -23,6 +23,9 @@ public final class DatabaseSearcher implements IDatabaseSearcher {
     return tables.toMultiples(TABLE_TOOL::getStoredBaseBackReferenceColumns);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable getStoredTableByName(final IDatabase database, final String tableName) {
 

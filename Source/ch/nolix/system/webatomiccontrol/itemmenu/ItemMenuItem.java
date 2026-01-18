@@ -124,36 +124,57 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
     return item;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean belongsToMenu() {
     return (nullableParentMenu != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getId() {
     return id.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getText() {
     return text.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isBlank() {
     return getText().isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isSelected() {
     return selectionFlag.getValue();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     unselect();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void select() {
     if (!isSelected()) {
@@ -161,11 +182,17 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void unselect() {
     selectionFlag.setValue(false);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void internalSetParentMenu(final IItemMenu<?, ?> parentMenu) {
     Validator.assertThat(parentMenu).thatIsNamed("parent menu").isNotNull();

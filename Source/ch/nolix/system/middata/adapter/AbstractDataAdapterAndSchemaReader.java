@@ -25,21 +25,33 @@ implements IDataAdapterAndSchemaReader {
     createCloseDependencyTo(schemaReader);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean columnIsEmpty(final String tableName, final String columnName) {
     return schemaReader.columnIsEmpty(tableName, columnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getTableCount() {
     return schemaReader.getTableCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final TableDto loadTable(final String tableName) {
     return schemaReader.loadTable(tableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<TableDto> loadTables() {
     return schemaReader.loadTables();

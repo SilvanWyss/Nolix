@@ -49,6 +49,9 @@ public final class DataWriter implements IDataWriter {
     return new DataWriter(nodeDatabase, databaseView);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clearMultiReference(
     final String tableName,
@@ -62,6 +65,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.clearMultiReference(tableName, entityId, multiReferencedColumnOneBasedOrdinalIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clearMultiValue(
     final String tableName,
@@ -75,6 +81,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.clearMultiValue(tableName, entityId, multiValueColumnOneBasedOrdinalIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
     final var entityId = entity.id();
@@ -83,6 +92,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteEntity(tableName, entityId, entitySaveStamp);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteMultiBackReferenceEntry(final MultiBackReferenceEntryDeletionDto multiBackReferenceEntry) {
     final var tableName = multiBackReferenceEntry.tableName();
@@ -102,6 +114,9 @@ public final class DataWriter implements IDataWriter {
       backReferencedEntityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteMultiReferenceEntry(final MultiReferenceEntryDeletionDto multiReferenceEntry) {
     final var tableName = multiReferenceEntry.tableName();
@@ -121,6 +136,9 @@ public final class DataWriter implements IDataWriter {
       referencedEntityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void deleteMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
     final var tableName = multiValueEntry.tableName();
@@ -136,26 +154,41 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.deleteMultiValueEntry(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void expectSchemaTimestamp(ITime schemaTimestamp) {
     executiveDataWriter.expectSchemaTimestamp(schemaTimestamp);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     executiveDataWriter.expectTableContainsEntity(tableName, entityId);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getSaveCount() {
     return executiveDataWriter.getSaveCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasChanges() {
     return executiveDataWriter.hasUpdates();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertEntity(final String tableName, final EntityCreationDto entity) {
     final var tableView = databaseViewSearcherForDatabaseView.getTableViewByTableName(tableName);
@@ -168,6 +201,9 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.insertEntity(tableName, entityId, entityIndexNode, entityNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertMultiBackReferenceEntry(final MultiBackReferenceEntryDto multiBackReferenceEntry) {
     final var tableName = multiBackReferenceEntry.tableName();
@@ -189,6 +225,9 @@ public final class DataWriter implements IDataWriter {
       multiBackReferenceEntryNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertMultiReferenceEntry(final MultiReferenceEntryDto multiReferenceEntry) {
     final var tableName = multiReferenceEntry.tableName();
@@ -210,6 +249,9 @@ public final class DataWriter implements IDataWriter {
       multiReferenceEntryNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void insertMultiValueEntry(final MultiValueEntryDto multiValueEntry) {
     final var tableName = multiValueEntry.tableName();
@@ -225,26 +267,41 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.insertMultiValueEntry(tableName, entityId, multiValueColumnOneBasedOrdinalIndex, value);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void reset() {
     executiveDataWriter.reset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void saveChanges() {
     executiveDataWriter.saveChangesAndReset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void updateEntity(final String tableName, final EntityUpdateDto entityUpdate) {
     final var tableView = databaseViewSearcherForDatabaseView.getTableViewByTableName(tableName);

@@ -54,37 +54,58 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     createCloseDependencyTo(this.midDataAdapterAndSchemaReader);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void createCloseDependencyTo(final GroupCloseable element) {
     IDataAdapter.super.createCloseDependencyTo(element);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getDatabaseName() {
     return databaseName;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getSaveCount() {
     return saveCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final <E extends IEntity> ITable<E> getStoredTableByEntityType(
     final Class<E> entityType) {
     return database.getStoredTableByEntityType(entityType);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasChanges() {
     return database.isEdited();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IDataAdapter insertEntity(final IEntity entity) {
     database.insertEntity(entity);
@@ -92,11 +113,17 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void noteClose() {
     database.close();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final synchronized void reset() {
     database.close();
@@ -106,6 +133,9 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     database = Database.withEntityTypeSetAndMidDataAdapterAndSchemaReader(entityTypeSet, midDataAdapterAndSchemaReader);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final synchronized void saveChanges() {
     try {

@@ -22,6 +22,9 @@ public enum FixTable implements INameHolder {
     this.name = name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;

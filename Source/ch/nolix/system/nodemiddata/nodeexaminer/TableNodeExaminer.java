@@ -24,11 +24,17 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
         .containsEqualing(a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
     return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalog.ID_INDEX, id);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
     final IMutableNode<?> tableNode,
@@ -45,6 +51,9 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
       });
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(
     final IMutableNode<?> tableNode,

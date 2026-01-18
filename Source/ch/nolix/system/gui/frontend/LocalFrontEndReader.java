@@ -40,11 +40,17 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     FILE_CHOOSER = new JFileChooser();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<byte[]> getFilesFromClipboard() {
     return getFilePathsFromClipboard().to(FileSystemAccessor::readFileToBytes);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getTextFromClipboard() {
     try {
@@ -54,6 +60,9 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<byte[]> readFileToBytes() {
     if (FILE_CHOOSER.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {

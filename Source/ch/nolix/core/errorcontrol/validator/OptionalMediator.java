@@ -38,6 +38,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     return new OptionalMediator<>(argumentName, argument);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void containsEqualObject(Object object) {
     final var argument = getStoredArgument();
@@ -53,6 +56,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void containsObject(Object object) {
     final var argument = getStoredArgument();
@@ -65,6 +71,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void containsObjectOfType(Class<Object> type) {
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
@@ -82,6 +91,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void isEmpty() {
     isNotNull();
@@ -93,6 +105,9 @@ public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implement
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void isPresent() {
     isNotNull();

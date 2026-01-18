@@ -43,11 +43,17 @@ implements IComponent {
     rebuild(initialAdapter);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     if (childControl == null) {
@@ -57,21 +63,33 @@ implements IComponent {
     return ImmutableList.withElements(childControl);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final String getUserInput() {
     return StringCatalog.EMPTY_STRING;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasRole(final String role) {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean isAlive() {
     return getStoredWebClientSession().isAlive();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void rebuild() {
     final var adapter = createAdapter();
@@ -79,6 +97,9 @@ implements IComponent {
     rebuild(adapter);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void refresh() {
     final var refreshBehavior = getRefreshTrigger();
@@ -99,16 +120,25 @@ implements IComponent {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IComponent setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
@@ -121,11 +151,17 @@ implements IComponent {
     return new ComponentStyle();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final IControlCssBuilder<IComponent, IComponentStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final IControlHtmlBuilder<IComponent> getHtmlBuilder() {
     return HTML_BUILDER;
@@ -143,6 +179,9 @@ implements IComponent {
     return getStoredController().getStoredWebClientSession();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void resetControl() {
     rebuild();

@@ -20,16 +20,25 @@ final class FrontendReader implements IFrontEndReader {
     return new FrontendReader(backendWebClient);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<byte[]> getFilesFromClipboard() {
     return parentBackendWebClient.internalGetFilesFromClipboardOfCounterpart();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getTextFromClipboard() {
     return parentBackendWebClient.internalGetTextFromClipboardOfCounterpart();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<byte[]> readFileToBytes() {
     return parentBackendWebClient.internalReadOptionalFileFromCounterpart();

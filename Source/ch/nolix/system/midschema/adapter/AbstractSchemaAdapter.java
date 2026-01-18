@@ -38,96 +38,153 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     createCloseDependencyTo(schemaWriter);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void addColumn(final TableIdentification table, final ColumnDto column) {
     schemaWriter.addColumn(table, column);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void addTable(final TableDto table) {
     schemaWriter.addTable(table);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean columnIsEmpty(final String tableName, final String columnName) {
     return schemaReader.columnIsEmpty(tableName, columnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void createCloseDependencyTo(final GroupCloseable element) {
     ISchemaAdapter.super.createCloseDependencyTo(element);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void deleteColumn(final TableIdentification table, final String columnName) {
     schemaWriter.deleteColumn(table, columnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void deleteTable(final String tableName) {
     schemaWriter.deleteTable(tableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getSaveCount() {
     return schemaWriter.getSaveCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getTableCount() {
     return schemaReader.getTableCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasChanges() {
     return schemaWriter.hasChanges();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ITime getSchemaTimestamp() {
     return schemaReader.getSchemaTimestamp();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final TableDto loadTable(final String tableName) {
     return schemaReader.loadTable(tableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void reset() {
     schemaWriter.reset();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void saveChanges() {
     schemaWriter.saveChanges();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     schemaWriter.renameColumn(tableName, columnName, newColumnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void renameTable(final String tableName, final String newTableName) {
     schemaWriter.renameTable(tableName, newTableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void setColumnModel(
     final TableIdentification table,

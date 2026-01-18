@@ -38,11 +38,17 @@ public final class ActionMediator<O> implements IActionMediator {
     return new ActionMediator<>(objectSupplier, action);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void hasConstantOrLowerTimeComplexity() {
     hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalog.CONSTANT);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void hasGivenOrLowerTimeComplexity(final LongToDoubleFunction timeComplexityFunction) {
     final var passed = //
@@ -58,11 +64,17 @@ public final class ActionMediator<O> implements IActionMediator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void hasLinearOrLowerTimeComplexity() {
     hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalog.LINEAR);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void hasQuadraticOrLowerTimeComplexity() {
     hasGivenOrLowerTimeComplexity(TimeComplexityFunctionCatalog.QUADRATIC);

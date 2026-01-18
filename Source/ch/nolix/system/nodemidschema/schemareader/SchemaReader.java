@@ -49,6 +49,9 @@ public final class SchemaReader implements ISchemaReader {
     return new SchemaReader(nodeDatabase);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean columnIsEmpty(String tableName, String columnName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
@@ -56,16 +59,25 @@ public final class SchemaReader implements ISchemaReader {
     return TABLE_NODE_EXAMINER.columnOfTableNodeIsEmptyByColumnName(tableNode, columnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getTableCount() {
     return DATABASE_NODE_SEARCHER.getTableNodeCount(nodeDatabase);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Time getSchemaTimestamp() {
     final var databasePropertiesNode = //
@@ -77,6 +89,9 @@ public final class SchemaReader implements ISchemaReader {
     return Time.fromSpecification(timestampNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public TableDto loadTable(final String tableName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
@@ -84,6 +99,9 @@ public final class SchemaReader implements ISchemaReader {
     return loadTableFromTableNode(tableNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<TableDto> loadTables() {
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
@@ -91,6 +109,9 @@ public final class SchemaReader implements ISchemaReader {
     return tableNodes.to(this::loadTableFromTableNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing.

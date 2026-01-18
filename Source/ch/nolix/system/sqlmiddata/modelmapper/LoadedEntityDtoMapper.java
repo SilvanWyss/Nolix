@@ -31,6 +31,9 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
       mapSqlRecordToContentFieldDtos(sqlRecord, tableView.columnViews()));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<FieldDto> mapSqlRecordToContentFieldDtos(
     final ISqlRecord sqlRecord,

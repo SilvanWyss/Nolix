@@ -21,11 +21,17 @@ implements GroupCloseable {
     this.resource = resource;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void noteClose() {
     memberParentResourcePool.internalTakeBackResource(resource);

@@ -14,11 +14,17 @@ final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHtmlBuild
     return new Button();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ButtonHtmlBuilder createTestUnit() {
     return new ButtonHtmlBuilder();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
     return "<button>-</button>";

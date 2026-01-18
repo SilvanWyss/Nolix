@@ -27,16 +27,25 @@ public final class TestSession<C extends AbstractBackendClient<C, S>, S> extends
     return new TestSession<>(clientClass);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void refresh() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fullInitialize() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Class<?> getClientClass() {
     return clientClass;

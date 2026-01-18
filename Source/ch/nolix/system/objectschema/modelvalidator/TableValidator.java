@@ -24,6 +24,9 @@ public final class TableValidator implements ITableValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertDoesNotBelongToDatabase(final ITable table) {
     if (table.belongsToDatabase()) {
@@ -31,6 +34,9 @@ public final class TableValidator implements ITableValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertDoesNotContainColumn(final ITable table, final IColumn column) {
     if (TABLE_EXAMINER.containsColumn(table, column)) {
@@ -38,6 +44,9 @@ public final class TableValidator implements ITableValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertDoesNotContainColumnWithName(final ITable table, final String name) {
     if (TABLE_EXAMINER.containsColumnWithName(table, name)) {
@@ -48,6 +57,9 @@ public final class TableValidator implements ITableValidator {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void assertIsNotReferenced(final ITable table) {
     if (TABLE_EXAMINER.isReferenced(table)) {

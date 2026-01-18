@@ -27,6 +27,9 @@ implements ICookieManager {
     runOnCounterpart(deleteCookieCommand);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final Optional<String> getOptionalCookieValueByCookieName(final String cookieName) {
     final var getCookieValueRequest = RequestCreator.createGetCookieValueRequestForCookieName(cookieName);
@@ -43,6 +46,9 @@ implements ICookieManager {
     return urlParameterValueReply.getOptionalHeader();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
     final var addOrSetCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createAddOrSetCookieCommand(name, value);
@@ -50,6 +56,9 @@ implements ICookieManager {
     runOnCounterpart(addOrSetCookieCommand);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void runHere(final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.

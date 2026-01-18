@@ -25,6 +25,9 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     + "';";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteMultiBackReferenceEntry(
     final String entityId,
@@ -47,6 +50,9 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     + "'";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToInsertMultiBackReferenceEntry(
     final String entityId,

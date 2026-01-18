@@ -48,16 +48,25 @@ public final class ArrayListIterator<E> implements CopyableIterator<E> {
     return new ArrayListIterator<>(array, startIndex, maxIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public CopyableIterator<E> getCopy() {
     return forArrayAndStartIndexAndMaxNextIndex(parentArray, nextIndex, maxNextIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (nextIndex < maxNextIndex);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() {
     assertHasNext();

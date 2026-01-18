@@ -26,11 +26,17 @@ public final class ListIterator<E> implements Iterator<E> {
     return new ListIterator<>(startNode);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean hasNext() {
     return (nextNode != null);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public E next() throws NoSuchElementException {
     assertHasNext();

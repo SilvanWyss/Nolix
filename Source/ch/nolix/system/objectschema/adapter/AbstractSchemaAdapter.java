@@ -41,6 +41,9 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     resetUsingDatabaseName(databaseName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ISchemaAdapter addTable(final ITable table) {
     database.addTable(table);
@@ -48,51 +51,81 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean databaseIsEmpty() {
     return (getTableCount() == 0);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final ITable getStoredTableByName(final String name) {
     return DATABASE_SEARCHER.getStoredTableByName(database, name);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IContainer<ITable> getStoredTables() {
     return database.getStoredTables();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getSaveCount() {
     return saveCount;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getTableCount() {
     return database.getTableCount();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean hasChanges() {
     return midSchemaAdapter.hasChanges();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void noteClose() {
     //Does nothing.
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void reset() {
     resetUsingDatabaseName(database.getName());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void saveChanges() {
     try {

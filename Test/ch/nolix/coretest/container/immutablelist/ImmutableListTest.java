@@ -13,6 +13,9 @@ final class ImmutableListTest extends ContainerTest {
     return ImmutableList.fromArray(elements);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ImmutableList.createEmpty();

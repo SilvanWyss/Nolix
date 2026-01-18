@@ -29,6 +29,9 @@ public final class SqlPartsMapper implements ISqlPartsMapper {
     return ImmutableList.withElements(columnName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> mapValueStringFieldDtoToSqlValueLiterals(final ValueStringFieldDto valueStringFieldDto) {
     final var nullableValueString = valueStringFieldDto.nullableValueString();

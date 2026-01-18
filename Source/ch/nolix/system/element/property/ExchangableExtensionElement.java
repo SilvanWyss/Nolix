@@ -13,6 +13,9 @@ extends AbstractExtensionElement<E> {
     super(internalExtensionElement);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isExchangable() {
     return true;

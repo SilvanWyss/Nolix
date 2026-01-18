@@ -47,21 +47,33 @@ public final class Database implements IDatabase {
     return new Database(entityTypeSet, midDataAdapterAndSchemaReader);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IEntityTypeSet getEntityTypeSet() {
     return entityTypeSet;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return getStoredMidDataAdapterAndSchemaReader().getDatabaseName();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITime getSchemaTimestamp() {
     return schemaTimestamp;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public DatabaseObjectState getState() {
     if (getStoredMidDataAdapterAndSchemaReader().isClosed()) {
@@ -75,11 +87,17 @@ public final class Database implements IDatabase {
     return DatabaseObjectState.UNEDITED;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> IContainer<E> getStoredEntitiesByType(final Class<E> type) {
     final var table = getStoredTableByEntityType(type);
@@ -87,6 +105,9 @@ public final class Database implements IDatabase {
     return table.getStoredEntities();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType) {
@@ -95,16 +116,25 @@ public final class Database implements IDatabase {
     return (ITable<E>) getStoredTableByName(tableName);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable<IEntity> getStoredTableByName(final String name) {
     return getStoredTables().getStoredFirst(t -> t.hasName(name));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<? extends ITable<IEntity>> getStoredTables() {
     return tables;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> IDatabase insertEntity(final E entity) {
@@ -116,36 +146,57 @@ public final class Database implements IDatabase {
     return this;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isClosed() {
     return getStoredMidDataAdapterAndSchemaReader().isClosed();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isConnectedWithRealDatabase() {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isEdited() {
     return (getState() == DatabaseObjectState.EDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isLoaded() {
     return (getState() == DatabaseObjectState.UNEDITED);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNew() {
     return (getState() == DatabaseObjectState.NEW);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     for (final var t : getStoredTables()) {

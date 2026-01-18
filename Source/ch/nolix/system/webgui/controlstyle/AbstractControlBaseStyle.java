@@ -83,77 +83,122 @@ implements IControlBaseStyle<C> {
     memberTextLineDecoration.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   @SuppressWarnings("unchecked")
   public final <C2 extends IControlBaseStyle<C2>> void addChild(final C2 controlStyle) {
     internalAddChild((C) controlStyle);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean definesTextLineDecorationForState(final ControlState state) {
     return memberTextLineDecoration.hasValueForState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final boolean getBoldTextFlagWhenHasState(final ControlState state) {
     return memberBoldTextFlag.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final Font getFontWhenHasState(final ControlState state) {
     return memberFont.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final double getOpacityWhenHasState(final ControlState state) {
     return memberOpacity.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final IColor getTextColorWhenHasState(final ControlState state) {
     return memberTextColor.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public LineDecoration getTextLineDecorationWhenHasState(ControlState state) {
     return memberTextLineDecoration.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final int getTextSizeWhenHasState(final ControlState state) {
     return memberTextSize.getValueWhenHasState(state);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomBoldTextFlags() {
     memberBoldTextFlag.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomFonts() {
     memberFont.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomOpacities() {
     memberOpacity.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomTextColors() {
     memberTextColor.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void removeCustomTextLineDecorations() {
     memberTextLineDecoration.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void removeCustomTextSizes() {
     memberTextSize.setUndefined();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C forStateSetBoldTextFlag(final ControlState state, final boolean boldTextFlag) {
     memberBoldTextFlag.setValueForState(state, boldTextFlag);
@@ -161,6 +206,9 @@ implements IControlBaseStyle<C> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C forStateSetFont(final ControlState state, final Font font) {
     memberFont.setValueForState(state, font);
@@ -168,6 +216,9 @@ implements IControlBaseStyle<C> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C forStateSetOpacity(final ControlState state, final double opacity) {
     Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
@@ -177,6 +228,9 @@ implements IControlBaseStyle<C> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C forStateSetTextColor(final ControlState state, final IColor textColor) {
     memberTextColor.setValueForState(state, textColor);
@@ -184,6 +238,9 @@ implements IControlBaseStyle<C> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public C forStateSetTextLineDecoration(final ControlState state, final LineDecoration textLineDecoration) {
     memberTextLineDecoration.setValueForState(state, textLineDecoration);
@@ -191,6 +248,9 @@ implements IControlBaseStyle<C> {
     return asConcrete();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final C forStateSetTextSize(final ControlState state, final int textSize) {
     Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();

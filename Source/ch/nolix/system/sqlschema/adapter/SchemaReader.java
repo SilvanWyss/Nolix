@@ -42,6 +42,9 @@ public final class SchemaReader implements ISchemaReader {
     return new SchemaReader(databaseName, sqlConnection);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean columnIsEmpty(final String tableName, final String columnName) {
     final var query = QUERY_CREATOR.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName);
@@ -50,11 +53,17 @@ public final class SchemaReader implements ISchemaReader {
     return records.isEmpty();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ICloseController getStoredCloseController() {
     return closeController;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getTableCount() {
     final var query = QUERY_CREATOR.createQueryToGetTableCount();
@@ -63,6 +72,9 @@ public final class SchemaReader implements ISchemaReader {
     return Integer.valueOf(sqlRecord.getStoredFirst());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public TableDto loadTable(String tableName) {
     final var query = QUERY_CREATOR.createQueryToLoadNameAndDataTypeOfColumns(tableName);
@@ -71,6 +83,9 @@ public final class SchemaReader implements ISchemaReader {
     return TABLE_DTO_MAPPER.mapSqlRecordsWithNameAndDataTypeToTableDto(tableName, sqlRecords);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<TableDto> loadTables() {
     final var query = QUERY_CREATOR.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
@@ -79,16 +94,25 @@ public final class SchemaReader implements ISchemaReader {
     return TABLE_DTO_MAPPER.mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(sqlRecords);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void noteClose() {
     //Does nothing
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableExist() {
     return (getTableCount() > 0);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableExists(String tableName) {
     final var query = QUERY_CREATOR.createQueryToGetTableCount(tableName);
