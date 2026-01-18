@@ -18,8 +18,6 @@ extends AbstractResourcePool<WrapperSqlConnection, AbstractSqlConnection>
 implements ISqlDatabaseTarget {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
-
   private final String ipOrDomain;
 
   private final int port;
@@ -91,7 +89,7 @@ implements ISqlDatabaseTarget {
 
   @Override
   protected AbstractSqlConnection createResource() {
-    return SQL_CONNECTION_FACTORY.createSqlConnectionForSqlConnectionPool(this);
+    return SqlConnectionFactory.createSqlConnectionForSqlConnectionPool(this);
   }
 
   @Override

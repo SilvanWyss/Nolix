@@ -9,7 +9,11 @@ import ch.nolix.core.sql.connection.MsSqlConnection;
  * @author Silvan Wyss
  */
 public final class SqlConnectionFactory {
-  public AbstractSqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
+  private SqlConnectionFactory() {
+  }
+
+  public static AbstractSqlConnection createSqlConnectionForSqlConnectionPool(
+    final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {
       case MSSQL ->
         createMsSqlConnectionForSqlConnectionPool(sqlConnectionPool);
@@ -20,7 +24,7 @@ public final class SqlConnectionFactory {
     };
   }
 
-  private MsSqlConnection createMsSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
+  private static MsSqlConnection createMsSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return //
     new MsSqlConnection(
       sqlConnectionPool.getIpOrDomain(),
