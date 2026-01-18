@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.net.target;
 
 import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;

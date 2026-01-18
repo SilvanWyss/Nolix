@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.web.cssmodel;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

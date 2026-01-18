@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.webapplication.protocol;
 
 import java.nio.charset.StandardCharsets;

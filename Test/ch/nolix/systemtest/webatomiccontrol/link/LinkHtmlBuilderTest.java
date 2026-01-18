@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemtest.webatomiccontrol.link;
 
 import ch.nolix.system.webatomiccontrol.link.Link;

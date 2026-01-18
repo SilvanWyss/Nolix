@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.objectdata.entitytool;
 
 import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;

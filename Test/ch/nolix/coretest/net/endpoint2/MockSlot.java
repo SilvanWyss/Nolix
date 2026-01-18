@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coretest.net.endpoint2;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

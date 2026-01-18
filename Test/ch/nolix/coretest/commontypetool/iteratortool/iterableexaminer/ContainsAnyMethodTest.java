@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coretest.commontypetool.iteratortool.iterableexaminer;
 
 import org.junit.jupiter.api.Test;

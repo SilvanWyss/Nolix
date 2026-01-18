@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.errorcontrol.logging;
 
 import ch.nolix.core.errorcontrol.errormapping.StackTraceMapper;

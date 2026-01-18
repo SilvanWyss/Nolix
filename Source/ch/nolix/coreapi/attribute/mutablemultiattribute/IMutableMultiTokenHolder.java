@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.attribute.mutablemultiattribute;
 
 import ch.nolix.coreapi.attribute.multiattribute.IMultiTokenHolder;

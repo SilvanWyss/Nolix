@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.datastructure.property;
 
 import java.util.function.BooleanSupplier;

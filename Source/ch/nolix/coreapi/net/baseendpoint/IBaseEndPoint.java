@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.net.baseendpoint;
 
 import ch.nolix.coreapi.net.netproperty.ConnectionType;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapitest.graphicapi.imageapi;
 
 import org.junit.jupiter.params.ParameterizedTest;

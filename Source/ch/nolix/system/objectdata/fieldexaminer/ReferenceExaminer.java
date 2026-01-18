@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.objectdata.fieldexaminer;
 
 import ch.nolix.systemapi.objectdata.fieldexaminer.IReferenceExaminer;

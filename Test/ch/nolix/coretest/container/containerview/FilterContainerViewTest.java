@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coretest.container.containerview;
 
 import ch.nolix.core.container.arraylist.FilterContainerView;

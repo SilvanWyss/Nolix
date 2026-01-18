@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.environment.nolixlicense;
 
 import ch.nolix.core.environment.license.License;

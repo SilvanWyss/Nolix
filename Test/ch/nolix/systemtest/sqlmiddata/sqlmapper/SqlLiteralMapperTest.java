@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemtest.sqlmiddata.sqlmapper;
 
 import org.junit.jupiter.api.Test;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemtest.webcontainercontrol.horizontalstack;
 
 import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStack;

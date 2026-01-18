@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.objectschema.modeltool;
 
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;

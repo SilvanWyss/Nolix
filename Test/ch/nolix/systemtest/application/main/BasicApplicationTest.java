@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemtest.application.main;
 
 import org.junit.jupiter.api.Test;

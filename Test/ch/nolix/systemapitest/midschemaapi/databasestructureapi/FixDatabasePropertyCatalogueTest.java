@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapitest.midschemaapi.databasestructureapi;
 
 import org.junit.jupiter.api.Test;

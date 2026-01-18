@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coretest.argumentcaptor.base;
 
 import java.util.function.Supplier;

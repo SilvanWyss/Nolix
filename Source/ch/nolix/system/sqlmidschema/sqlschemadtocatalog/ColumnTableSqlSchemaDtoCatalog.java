@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.application.main;
 
 import ch.nolix.coreapi.manager.applicationmanager.IApplicationManager;

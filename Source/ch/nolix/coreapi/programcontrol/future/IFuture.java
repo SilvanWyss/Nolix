@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.programcontrol.future;
 
 import ch.nolix.coreapi.programcontrol.process.FinishRequestable;

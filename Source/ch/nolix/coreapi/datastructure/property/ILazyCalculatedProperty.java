@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.datastructure.property;
 
 import ch.nolix.coreapi.state.staterequest.UpToDateRequestable;

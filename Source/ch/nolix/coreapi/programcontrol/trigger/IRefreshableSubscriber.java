@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.programcontrol.trigger;
 
 import ch.nolix.coreapi.state.staterequest.AlivenessRequestable;

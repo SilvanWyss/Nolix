@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.template.webgui.shapemode;
 
 import ch.nolix.system.style.model.DeepSelectingStyle;

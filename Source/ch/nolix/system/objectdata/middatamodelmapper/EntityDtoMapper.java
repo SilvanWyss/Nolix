@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.objectdata.middatamodelmapper;
 
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;

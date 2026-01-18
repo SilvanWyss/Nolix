@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.webcontainercontrol.linearcontainer;
 
 import ch.nolix.coreapi.container.base.IContainer;

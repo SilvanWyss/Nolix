@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.webatomiccontrol.uploader;
 
 import ch.nolix.coreapi.container.list.ILinkedList;

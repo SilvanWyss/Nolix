@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.argumentcaptor.forargumentcaptor;
 
 import ch.nolix.core.argumentcaptor.base.ArgumentCaptor;

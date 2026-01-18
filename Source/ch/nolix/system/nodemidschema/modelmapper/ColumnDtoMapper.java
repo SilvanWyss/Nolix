@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.nodemidschema.modelmapper;
 
 import ch.nolix.coreapi.document.node.IMutableNode;

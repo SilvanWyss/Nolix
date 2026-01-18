@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.sqlschema.statementcreator;
 
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;

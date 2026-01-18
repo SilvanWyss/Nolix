@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.webapplication.component;
 
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.template.gui.colorgradient;
 
 import ch.nolix.system.graphic.color.X11ColorCatalog;

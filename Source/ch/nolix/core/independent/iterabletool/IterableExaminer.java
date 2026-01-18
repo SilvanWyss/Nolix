@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.independent.iterabletool;
 
 import ch.nolix.coreapi.independent.iterabletool.IIterableExaminer;

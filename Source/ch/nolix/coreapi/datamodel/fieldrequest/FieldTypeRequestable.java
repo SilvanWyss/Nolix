@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.datamodel.fieldrequest;
 
 import ch.nolix.coreapi.datamodel.fieldproperty.FieldType;

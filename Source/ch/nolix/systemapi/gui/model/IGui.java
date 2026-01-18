@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.gui.model;
 
 import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTitleHolder;

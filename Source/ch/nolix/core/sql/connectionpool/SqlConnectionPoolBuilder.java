@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.sql.connectionpool;
 
 import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;

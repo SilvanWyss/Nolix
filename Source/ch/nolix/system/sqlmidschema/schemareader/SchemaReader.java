@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.sqlmidschema.schemareader;
 
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;

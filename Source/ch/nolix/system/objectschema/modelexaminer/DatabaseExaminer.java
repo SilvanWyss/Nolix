@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.objectschema.modelexaminer;
 
 import ch.nolix.system.objectschema.modelmutationexaminer.TableMutationExaminer;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.webcontainercontrol.grid;
 
 import ch.nolix.systemapi.graphic.color.IColor;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.core.container.containerview.ContainerView;

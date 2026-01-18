@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.reflection.reflectiontool;
 
 import java.lang.reflect.Field;

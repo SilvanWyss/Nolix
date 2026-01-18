@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.nodemiddata.nodeexaminer;
 
 import ch.nolix.coreapi.container.base.IContainer;

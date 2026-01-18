@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemtest.webatomiccontrol.uploader;
 
 import ch.nolix.system.webatomiccontrol.uploader.Uploader;

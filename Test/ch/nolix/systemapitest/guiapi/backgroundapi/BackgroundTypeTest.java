@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapitest.guiapi.backgroundapi;
 
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.objectdata.entitytool;
 
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;

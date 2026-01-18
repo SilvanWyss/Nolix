@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.sqlschema.querycreator;
 
 import ch.nolix.systemapi.sqlschema.querycreator.IQueryCreator;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.nodemidschema.nodemapper;
 
 import ch.nolix.coreapi.document.node.INode;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.errorcontrol.errormapping;
 
 import ch.nolix.core.independent.list.List;

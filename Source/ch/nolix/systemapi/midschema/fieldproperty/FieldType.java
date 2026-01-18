@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.midschema.fieldproperty;
 
 import ch.nolix.coreapi.datamodel.cardinality.Cardinality;

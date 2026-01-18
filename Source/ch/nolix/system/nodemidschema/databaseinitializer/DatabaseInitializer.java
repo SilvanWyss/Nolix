@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.nodemidschema.databaseinitializer;
 
 import ch.nolix.core.errorcontrol.validator.Validator;

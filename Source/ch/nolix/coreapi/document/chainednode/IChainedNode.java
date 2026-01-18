@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.coreapi.document.chainednode;
 
 import ch.nolix.coreapi.attribute.optionalattribute.IOptionalHeaderHolder;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.webgui.controltool;
 
 import ch.nolix.systemapi.webgui.controltool.IControlAnalyser;

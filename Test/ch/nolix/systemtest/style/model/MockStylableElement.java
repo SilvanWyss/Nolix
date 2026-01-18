@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemtest.style.model;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;

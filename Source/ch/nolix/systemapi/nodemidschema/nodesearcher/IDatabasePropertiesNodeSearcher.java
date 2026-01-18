@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.nodemidschema.nodesearcher;
 
 import ch.nolix.coreapi.document.node.IMutableNode;

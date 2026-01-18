@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.systemapi.webcontainercontrol.verticalstack;
 
 import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;

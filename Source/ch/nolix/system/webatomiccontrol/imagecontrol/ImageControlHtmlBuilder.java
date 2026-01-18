@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.webatomiccontrol.imagecontrol;
 
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;

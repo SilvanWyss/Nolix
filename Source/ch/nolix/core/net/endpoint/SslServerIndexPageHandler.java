@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.net.endpoint;
 
 import io.netty.buffer.ByteBuf;

@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.core.container.linkedlist.LinkedList;

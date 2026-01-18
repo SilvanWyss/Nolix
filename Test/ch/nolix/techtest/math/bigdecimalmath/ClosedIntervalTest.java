@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.techtest.math.bigdecimalmath;
 
 import java.math.BigDecimal;

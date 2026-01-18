@@ -1,3 +1,6 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 package ch.nolix.core.independent.math;
 
 import ch.nolix.coreapi.math.machineprecision.ComparsionThresholdCatalog;
