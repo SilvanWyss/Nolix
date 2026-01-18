@@ -10,14 +10,16 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.logging.Logger;
 import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.core.programcontrol.job.JobTool;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.coreapi.programcontrol.job.IJobTool;
 
 /**
  * @author Silvan Wyss
  */
 final class JobExecutor extends Thread {
-  private static final JobMerger JOB_MERGER = new JobMerger();
+  private static final IJobTool JOB_TOOL = new JobTool();
 
   private final Runnable job;
 
@@ -242,7 +244,7 @@ final class JobExecutor extends Thread {
   }
 
   public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
-    return new JobExecutor(JOB_MERGER.createMergedJobForJobs(jobs), 1);
+    return new JobExecutor(JOB_TOOL.createConcatenatedJobFromJobs(jobs), 1);
   }
 
   /**

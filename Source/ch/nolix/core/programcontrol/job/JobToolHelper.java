@@ -1,29 +1,25 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.core.programcontrol.flowcontrol;
+package ch.nolix.core.programcontrol.job;
 
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  */
-public final class JobMerger {
-  public Runnable createMergedJobForJobs(IContainer<Runnable> jobs) {
-    Validator.assertThat(jobs).thatIsNamed(PluralLowerCaseVariableCatalog.JOBS).isNotNull();
-
-    return () -> runJobs(jobs);
+public final class JobToolHelper {
+  private JobToolHelper() {
   }
 
-  private void runJobs(IContainer<Runnable> jobs) {
+  public static void runJobs(final IContainer<Runnable> jobs) {
     for (var i = 1; i <= jobs.getCount(); i++) {
       try {
         jobs.getStoredAtOneBasedIndex(i).run();
       } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
-        throw WrapperException.forErrorMessageAndError(
+        throw //
+        WrapperException.forErrorMessageAndError(
           "An error occured by running the " + i + "th job of the given " + jobs.getCount() + " jobs.",
           error);
       }
