@@ -2,19 +2,14 @@ package ch.nolix.core.sql.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
 import java.util.Properties;
 
 import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.generalexception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.net.netconstant.IPv4Catalog;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.coreapi.sql.connection.ISqlConnection;
@@ -111,7 +106,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
   @Override
   public final IContainer<ISqlRecord> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
-      return getRecordsFromStatement(query, statement);
+      return SqlConnectionHelper.getRecordsFromStatement(query, statement);
     } catch (final SQLException sqlException) {
       throw WrapperException.forError(sqlException);
     }
@@ -137,39 +132,6 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
   }
 
   protected abstract String getSqlDatabaseEngineDriverClass();
-
-  private IContainer<ISqlRecord> getRecordsFromStatement(
-    final String query,
-    final Statement statement)
-  throws SQLException {
-    try (final var resultSet = statement.executeQuery(query)) {
-      return getRecordsFromResultSet(resultSet);
-    }
-  }
-
-  private final IContainer<ISqlRecord> getRecordsFromResultSet(final ResultSet resultSet)
-  throws SQLException {
-    final ILinkedList<ISqlRecord> sqlRecords = LinkedList.createEmpty();
-    final var columnCount = resultSet.getMetaData().getColumnCount();
-    var index = 1;
-
-    while (resultSet.next()) {
-      final List<String> entries = List.of();
-
-      for (var i = 1; i <= columnCount; i++) {
-        final var entry = resultSet.getString(i);
-
-        entries.add(entry);
-      }
-
-      final var sqlRecord = ch.nolix.core.sql.model.SqlRecord.withOneBasedIndexAndValues(index, entries);
-
-      sqlRecords.addAtEnd(sqlRecord);
-      index++;
-    }
-
-    return sqlRecords;
-  }
 
   private void registerSqlDatabaseEngineDriver() {
     try {
