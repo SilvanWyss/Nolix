@@ -6,6 +6,7 @@ import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
+import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectdata.schemamapper.IColumnMapper;
@@ -22,42 +23,45 @@ public final class SchemaInitializer {
 
   private static final ITableMapper TABLE_MAPPER = new ch.nolix.system.objectdata.schemamapper.TableMapper();
 
-  private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
+  private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
 
   private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
-  public void initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
+  private SchemaInitializer() {
+  }
+
+  public static void initializeDatabaseIfDatabaseIsEmpty(
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter) {
     if (schemaAdapter.databaseIsEmpty()) {
-      initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(entityTypeSet, schemaAdapter);
+      initializeDatabase(entityTypeSet, schemaAdapter);
     }
   }
 
-  private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
+  private static void initializeDatabase(
     final IEntityTypeSet entityTypeSet,
     final ISchemaAdapter schemaAdapter) {
     final var tables = TABLE_MAPPER.mapSchemaToEmptyTables(entityTypeSet);
 
     tables.forEach(schemaAdapter::addTable);
 
-    addBaseValueColumnsToTablesFromSchema(tables, entityTypeSet);
-    addBaseReferenceColumnsToTablesFromSchema(tables, entityTypeSet, tables);
-    addBaseBackReferenceColumnsToTablesFromSchema(tables, entityTypeSet, tables);
+    addBaseValueColumnsToTables(tables, entityTypeSet);
+    addBaseReferenceColumnsToTables(tables, entityTypeSet, tables);
+    addBaseBackReferenceColumnsToTables(tables, entityTypeSet, tables);
 
     schemaAdapter.saveChanges();
   }
 
-  private void addBaseValueColumnsToTablesFromSchema(
+  private static void addBaseValueColumnsToTables(
     final IContainer<ITable> tables,
     final IEntityTypeSet entityTypeSet) {
     for (final var t : tables) {
       final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, t.getName());
-      addBaseValueColumnsToTableFromEntityType(t, entityType);
+      addBaseValueColumnsToTable(t, entityType);
     }
   }
 
-  private void addBaseValueColumnsToTableFromEntityType(
+  private static void addBaseValueColumnsToTable(
     final ITable table,
     final Class<? extends IEntity> entityType) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
@@ -74,17 +78,17 @@ public final class SchemaInitializer {
     }
   }
 
-  private void addBaseReferenceColumnsToTablesFromSchema(
+  private static void addBaseReferenceColumnsToTables(
     final IContainer<ITable> tables,
     final IEntityTypeSet entityTypeSet,
     final IContainer<ITable> referencableTables) {
     for (final var t : tables) {
       final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, t.getName());
-      addBaseReferenceColumnsToTableFromEntityType(t, entityType, referencableTables);
+      addBaseReferenceColumnsToTable(t, entityType, referencableTables);
     }
   }
 
-  private void addBaseReferenceColumnsToTableFromEntityType(
+  private static void addBaseReferenceColumnsToTable(
     final ITable table,
     final Class<? extends IEntity> entityType,
     final IContainer<ITable> referencableTables) {
@@ -102,17 +106,17 @@ public final class SchemaInitializer {
     }
   }
 
-  private void addBaseBackReferenceColumnsToTablesFromSchema(
+  private static void addBaseBackReferenceColumnsToTables(
     final IContainer<ITable> tables,
     final IEntityTypeSet entityTypeSet,
     final IContainer<ITable> referencableTables) {
     for (final var t : tables) {
       final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, t.getName());
-      addBaseBackReferenceColumnsToTableFromEntityType(t, entityType, referencableTables);
+      addBaseBackReferenceColumnsToTable(t, entityType, referencableTables);
     }
   }
 
-  private void addBaseBackReferenceColumnsToTableFromEntityType(
+  private static void addBaseBackReferenceColumnsToTable(
     final ITable table,
     final Class<? extends IEntity> entityType,
     final IContainer<ITable> referencableTables) {

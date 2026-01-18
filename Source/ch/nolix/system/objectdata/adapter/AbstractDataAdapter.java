@@ -18,8 +18,6 @@ import ch.nolix.systemapi.objectdata.perstistence.IDatabasePersister;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
 public abstract class AbstractDataAdapter implements IDataAdapter {
-  private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
-
   private static final IDatabasePersister DATABASE_PERSISTER = new DatabasePersister();
 
   private final String databaseName;
@@ -41,7 +39,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     final Supplier<IDataAdapterAndSchemaReader> midDataAdapterAndSchemaReader) {
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 
-    SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(entityTypeSet, schemaAdapter);
+    SchemaInitializer.initializeDatabaseIfDatabaseIsEmpty(entityTypeSet, schemaAdapter);
     schemaAdapter.close();
 
     this.midDataAdapterAndSchemaReader = midDataAdapterAndSchemaReader.get();
