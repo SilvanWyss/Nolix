@@ -1,10 +1,10 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
 /**
  * The {@link ch.nolix.core} package defines the types that are declared in the
  * {@link ch.nolix.coreapi} package.
  * 
  * @author Silvan Wyss
- */
-/*
- * Copyright © by Silvan Wyss. All rights reserved.
  */
 package ch.nolix.core;
