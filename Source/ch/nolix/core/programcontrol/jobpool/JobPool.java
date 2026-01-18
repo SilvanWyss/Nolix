@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programcontrol.future.IFuture;
  * @author Silvan Wyss
  */
 public final class JobPool {
-  private static final int OPTIMAL_WORKER_COUNT = 100;
+  private static final int MAX_WORKER_COUNT = 100;
 
   private final LinkedList<Worker> workers = LinkedList.createEmpty();
 
@@ -74,10 +74,6 @@ public final class JobPool {
     }
   }
 
-  private int getOptimalWorkerCount() {
-    return OPTIMAL_WORKER_COUNT;
-  }
-
   private int getWorkerCount() {
     return workers.getCount();
   }
@@ -85,8 +81,9 @@ public final class JobPool {
   private synchronized boolean newWorkerIsNeeded() {
     final var workerCount = getWorkerCount();
 
-    return jobWrappers.containsAny()
-    && workerCount < getOptimalWorkerCount()
+    return //
+    jobWrappers.containsAny()
+    && workerCount < MAX_WORKER_COUNT
     && 10 * workerCount < jobWrappers.getCount();
   }
 }
