@@ -9,7 +9,7 @@ import java.util.function.IntFunction;
 import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.core.independent.math.NumberComparator;
-import ch.nolix.core.independent.stopwatch.RuntimeMeter;
+import ch.nolix.core.independent.stopwatch.DurationFinder;
 import ch.nolix.core.independent.stopwatch.StopWatch;
 import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 
@@ -17,8 +17,6 @@ import ch.nolix.coreapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
  * @author Silvan Wyss
  */
 public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
-  private static final RuntimeMeter RUNTIME_METER = new RuntimeMeter();
-
   @Override
   public <O> boolean onObjectsFromObjectSupplierActionHasGivenOrLowerTimeComplexity(
     final IntFunction<O> objectSupplier,
@@ -128,7 +126,7 @@ public final class PerformanceAnalyzer implements IPerformanceAnalyzer {
   }
 
   private int getRuntimeOfActionInMilliseconds(final Runnable actionOnObject) {
-    return (int) RUNTIME_METER.getRuntimeOfActionInMilliseconds(actionOnObject);
+    return (int) DurationFinder.getDurationOfActionInMilliseconds(actionOnObject);
   }
 
   private boolean resultIsFinalAccordingToTotalRunningTimeInMillisecondsAndTotalRunCount(
