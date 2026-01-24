@@ -299,7 +299,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   private static IContainer<IPair<String, IColor>> getX11Colors() {
     if (x11Colors == null) {
-      x11Colors = new X11ColorCatalogExtractor().getColorConstantsFromClass(X11ColorCatalog.class);
+      x11Colors = X11ColorCatalogExtractor.getColorConstantsFromClass(X11ColorCatalog.class);
     }
 
     return x11Colors;

@@ -19,7 +19,10 @@ import ch.nolix.systemapi.graphic.color.IColor;
 public final class X11ColorCatalogExtractor {
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 
-  public IContainer<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
+  private X11ColorCatalogExtractor() {
+  }
+
+  public static IContainer<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
     final LinkedList<IPair<String, IColor>> x11Colors = LinkedList.createEmpty();
     final var colorStringFields = getColorNameConstantFields(paramClass);
     final var colorFields = getColorFields(paramClass);
@@ -36,17 +39,17 @@ public final class X11ColorCatalogExtractor {
     return x11Colors;
   }
 
-  private boolean declaresColor(final Field field) {
+  private static boolean declaresColor(final Field field) {
     return //
     ReflectionTool.isStatic(field)
     && ReflectionTool.canStoreValueOfTypeOrSuperType(field, Color.class);
   }
 
-  private boolean declaresColorName(final Field field) {
+  private static boolean declaresColorName(final Field field) {
     return (ReflectionTool.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
   }
 
-  private ILinkedList<Field> getColorFields(final Class<?> paramClass) {
+  private static ILinkedList<Field> getColorFields(final Class<?> paramClass) {
     final ILinkedList<Field> colorFields = LinkedList.createEmpty();
 
     for (final var f : paramClass.getDeclaredFields()) {
@@ -58,7 +61,7 @@ public final class X11ColorCatalogExtractor {
     return colorFields;
   }
 
-  private ILinkedList<Field> getColorNameConstantFields(final Class<?> paramClass) {
+  private static ILinkedList<Field> getColorNameConstantFields(final Class<?> paramClass) {
     final ILinkedList<Field> colorNameConstantFields = LinkedList.createEmpty();
 
     for (final var f : paramClass.getDeclaredFields()) {
