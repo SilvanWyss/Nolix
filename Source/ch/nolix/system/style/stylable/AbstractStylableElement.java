@@ -5,10 +5,8 @@ package ch.nolix.system.style.stylable;
 
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.base.StructureSpecificationCreator;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.element.property.MutableOptionalValue;
@@ -21,9 +19,6 @@ implements IStylableElement<E> {
   private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
 
   private static final String TOKEN_HEADER = PascalCaseVariableCatalog.TOKEN;
-
-  private static final StructureSpecificationCreator STRUCTURE_SPECIFICATION_CREATOR = //
-  new StructureSpecificationCreator();
 
   private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
 
@@ -60,14 +55,6 @@ implements IStylableElement<E> {
   @Override
   public final IContainer<String> getTokens() {
     return tokens.getStoredValues();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final INode<?> getStructureSpecification() {
-    return STRUCTURE_SPECIFICATION_CREATOR.getStructureSpecificationOfElement(this);
   }
 
   /**
