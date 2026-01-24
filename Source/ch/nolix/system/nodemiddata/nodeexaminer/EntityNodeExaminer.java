@@ -16,14 +16,11 @@ public final class EntityNodeExaminer implements IEntityNodeExaminer {
 
   @Override
   public boolean entityNodeHasSaveStamp(final IMutableNode<?> entityNode, final String saveStamp) {
-    return //
-    entityNode != null
-    && entityNodeHasSaveStampWhenIsNotNull(entityNode, saveStamp);
-  }
+    if (entityNode != null) {
+      final var entityNodeSaveStamp = ENTITY_NODE_SEARCHER.getSaveStampFromEntityNode(entityNode);
 
-  private boolean entityNodeHasSaveStampWhenIsNotNull(final IMutableNode<?> entityNode, final String saveStamp) {
-    final var entityNodeSaveStamp = ENTITY_NODE_SEARCHER.getSaveStampFromEntityNode(entityNode);
-
-    return entityNodeSaveStamp.equals(saveStamp);
+      return entityNodeSaveStamp.equals(saveStamp);
+    }
+    return false;
   }
 }
