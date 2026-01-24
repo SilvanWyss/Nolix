@@ -22,7 +22,6 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
-import ch.nolix.system.gui.frontend.LocalFrontEndWriter;
 import ch.nolix.system.gui.iconresource.IconCatalog;
 import ch.nolix.system.style.stylable.AbstractStyleElement;
 import ch.nolix.systemapi.graphic.color.IColor;
@@ -96,7 +95,7 @@ implements IWebGui<WebGui> {
 
   private IFrontEndReader frontEndReader;
 
-  private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
+  private IFrontEndWriter frontEndWriter;
 
   public WebGui() {
     reset();
