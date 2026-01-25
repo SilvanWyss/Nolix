@@ -8,35 +8,29 @@ import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.system.nodemidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.nodemidschema.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
-import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
-import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.nodemidschema.modelmapper.IColumnDtoMapper;
 import ch.nolix.systemapi.nodemidschema.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.nodemidschema.nodesearcher.ITableNodeSearcher;
+import ch.nolix.systemapi.nodemidschema.schemareader.ISchemaReaderHelper;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaReader implements ISchemaReader {
+  private static final ISchemaReaderHelper SCHEMA_READER_HELPER = new SchemaReaderHelper();
+
   private static final IDatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
-
   private static final ITableNodeExaminer TABLE_NODE_EXAMINER = new TableNodeExaminer();
-
-  private static final IColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
@@ -99,7 +93,7 @@ public final class SchemaReader implements ISchemaReader {
   public TableDto loadTable(final String tableName) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
 
-    return loadTableFromTableNode(tableNode);
+    return SCHEMA_READER_HELPER.loadTableFromTableNode(tableNode);
   }
 
   /**
@@ -109,7 +103,7 @@ public final class SchemaReader implements ISchemaReader {
   public IContainer<TableDto> loadTables() {
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
 
-    return tableNodes.to(this::loadTableFromTableNode);
+    return tableNodes.to(SCHEMA_READER_HELPER::loadTableFromTableNode);
   }
 
   /**
@@ -118,19 +112,5 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public void noteClose() {
     //Does nothing.
-  }
-
-  private IContainer<ColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
-    final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
-
-    return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);
-  }
-
-  private TableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
-    final var tableId = TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
-    final var tableName = TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
-    final var columns = loadColumnsFromTableNode(tableNode);
-
-    return new TableDto(tableId, tableName, columns);
   }
 }
