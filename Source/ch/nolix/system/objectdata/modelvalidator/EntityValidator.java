@@ -73,8 +73,8 @@ public final class EntityValidator implements IEntityValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertIsNotReferenced(final IEntity entity) {
-    if (ENTITY_EXAMINER.isReferenced(entity)) {
+  public void assertIsNotReferencedIgnoringLocallyDeletedEntities(final IEntity entity) {
+    if (ENTITY_EXAMINER.isReferencedIgnoringLocallyDeletedEntities(entity)) {
       throw ReferencedArgumentException.forArgument(entity);
     }
   }

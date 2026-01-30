@@ -20,5 +20,5 @@ public interface IEntityValidator {
 
   void assertHasSaveStamp(IEntity entity);
 
-  void assertIsNotReferenced(IEntity entity);
+  void assertIsNotReferencedIgnoringLocallyDeletedEntities(IEntity entity);
 }
