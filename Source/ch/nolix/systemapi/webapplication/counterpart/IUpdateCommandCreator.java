@@ -12,21 +12,21 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public interface IUpdateCommandCreator {
-  IChainedNode createSetCssCommandFromWebGui(IWebGui<?> webGui);
+  IChainedNode createSetCssCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetEventFunctionsCommandFromWebGui(IWebGui<?> webGui);
+  IChainedNode createSetEventFunctionsCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetIconCommandFromWebGui(IWebGui<?> webGui);
+  IChainedNode createSetIconCommandForWebGui(IWebGui<?> webGui);
 
   IChainedNode createSetIconCommandForIcon(IImage icon);
 
-  IChainedNode createSetRootHtmlElementCommandFromControl(IControl<?, ?> control);
+  IChainedNode createSetRootHtmlElementCommandForControl(IControl<?, ?> control);
 
-  IChainedNode createSetRootHtmlElementCommandFromWebGui(IWebGui<?> webGui);
+  IChainedNode createSetRootHtmlElementCommandForWebGui(IWebGui<?> webGui);
 
-  IChainedNode createSetTitleCommandFromWebGui(IWebGui<?> webGui);
+  IChainedNode createSetTitleCommandForWebGui(IWebGui<?> webGui);
 
   IChainedNode createSetTitleCommandForTitle(String title);
 
-  IChainedNode createSetUserInputFunctionsCommandFromWebGui(IWebGui<?> webGui);
+  IChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
 }

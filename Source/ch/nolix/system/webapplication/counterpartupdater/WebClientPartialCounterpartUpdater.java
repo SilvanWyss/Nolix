@@ -72,13 +72,13 @@ public final class WebClientPartialCounterpartUpdater {
 
     final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
 
-    updatedCommands.addAtEnd(controls.getViewOf(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
+    updatedCommands.addAtEnd(controls.getViewOf(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandForControl));
 
     if (updateConstellationOrStyle) {
       updatedCommands.addAtEnd(
-        UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+        UPDATE_COMMAND_CREATOR.createSetCssCommandForWebGui(webGui),
+        UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandForWebGui(webGui),
+        UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandForWebGui(webGui));
     }
 
     return updatedCommands;

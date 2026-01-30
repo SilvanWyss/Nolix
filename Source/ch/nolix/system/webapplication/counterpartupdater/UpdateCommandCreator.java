@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  */
 public final class UpdateCommandCreator implements IUpdateCommandCreator {
   @Override
-  public IChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
+  public IChainedNode createSetCssCommandForWebGui(final IWebGui<?> webGui) {
     final var css = webGui.getCss();
 
     return UpdateCommandCreatorHelper.createSetCssCommandFromCss(css);
@@ -28,7 +28,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
+  public IChainedNode createSetEventFunctionsCommandForWebGui(final IWebGui<?> webGui) {
     final var htmlElementEventRegistrations = webGui.getHtmlElementEventRegistrations();
 
     return //
@@ -40,7 +40,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
+  public IChainedNode createSetIconCommandForWebGui(final IWebGui<?> webGui) {
     return createSetIconCommandForIcon(webGui.getIcon());
   }
 
@@ -59,7 +59,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
+  public IChainedNode createSetRootHtmlElementCommandForControl(final IControl<?, ?> control) {
     final var htmlElementId = control.getInternalId();
     final var htmlElement = control.getHtml();
 
@@ -70,7 +70,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
+  public IChainedNode createSetRootHtmlElementCommandForWebGui(final IWebGui<?> webGui) {
     final var htmlElement = webGui.getHtml();
 
     return UpdateCommandCreatorHelper.createSetRootHtmlElementCommandFromHtmlElement(htmlElement);
@@ -80,7 +80,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
+  public IChainedNode createSetTitleCommandForWebGui(final IWebGui<?> webGui) {
     return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
@@ -100,7 +100,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
+  public IChainedNode createSetUserInputFunctionsCommandForWebGui(final IWebGui<?> webGui) {
     return UpdateCommandCreatorHelper.createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
   }
 }

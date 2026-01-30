@@ -22,7 +22,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var testUnit = new UpdateCommandCreator();
 
     //execution
-    final var result = testUnit.createSetCssCommandFromWebGui(webGui);
+    final var result = testUnit.createSetCssCommandForWebGui(webGui);
 
     //verification
     expect(result.toString()).matches("GUI.SetCSS(.*)");
@@ -47,7 +47,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var testUnit = new UpdateCommandCreator();
 
     //execution
-    final var result = testUnit.createSetTitleCommandFromWebGui(webGui);
+    final var result = testUnit.createSetTitleCommandForWebGui(webGui);
 
     //verification
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
@@ -60,7 +60,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var testUnit = new UpdateCommandCreator();
 
     //execution
-    final var result = testUnit.createSetUserInputFunctionsCommandFromWebGui(webGui);
+    final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
     //verification
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
@@ -74,7 +74,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var testUnit = new UpdateCommandCreator();
 
     //execution
-    final var result = testUnit.createSetUserInputFunctionsCommandFromWebGui(webGui);
+    final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
     //verification
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
@@ -88,7 +88,7 @@ final class UpdateCommandCreatorTest extends StandardTest {
     final var testUnit = new UpdateCommandCreator();
 
     //execution
-    final var result = testUnit.createSetUserInputFunctionsCommandFromWebGui(webGui);
+    final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
     //verification
     expect(result).hasStringRepresentation(

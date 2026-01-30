@@ -50,11 +50,11 @@ public final class WebClientCounterpartUpdater {
 
   private IContainer<IChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
     return ImmutableList.withElements(
-      UPDATE_COMMAND_CREATOR.createSetTitleCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetIconCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+      UPDATE_COMMAND_CREATOR.createSetTitleCommandForWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetIconCommandForWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandForWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetCssCommandForWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandForWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandForWebGui(webGui));
   }
 }
