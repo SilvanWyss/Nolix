@@ -21,7 +21,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
 
   private final ImmutableList<String> memberAttachingAttributes;
 
-  private final ImmutableList<AbstractSelectingStyle> memberSubStyles;
+  private final ImmutableList<? extends ISelectingStyleWithSelectors> memberSubStyles;
 
   /**
    * Creates a new {@link AbstractStyle}.
@@ -34,7 +34,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     memberAttachingAttributes = ImmutableList.fromIterable(attachingAttributes);
 
-    memberSubStyles = ImmutableList.fromIterable(subStyles.getViewOf(this::createSelectingStyleFromSelectingStyle));
+    memberSubStyles = ImmutableList.fromIterable(subStyles);
   }
 
   /**
@@ -120,22 +120,5 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
     final var childElements = element.getStoredChildStylableElements();
 
     getSubStyles().forEach(ss -> childElements.forEach(ss::applyToElement));
-  }
-
-  /**
-   * @param selectingStyle
-   * @return a {@link AbstractSelectingStyle} from the given selectingStyle.
-   */
-  private AbstractSelectingStyle createSelectingStyleFromSelectingStyle(
-    final ISelectingStyleWithSelectors selectingStyle) {
-    if (selectingStyle instanceof final SelectingStyle elementSelectingStyle) {
-      return elementSelectingStyle;
-    }
-
-    if (selectingStyle instanceof final DeepSelectingStyle deepSelectingStyle) {
-      return deepSelectingStyle;
-    }
-
-    throw InvalidArgumentException.forArgument(selectingStyle);
   }
 }
