@@ -82,7 +82,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
   @Override
   public boolean isReferenced(final IEntity entity) {
     return //
-    isReferencedInLocalData(entity)
+    isReferencedInLocalDataIgnoringLocallyDeletedEntities(entity)
     || entity.isReferencedInPersistedData();
   }
 
@@ -92,7 +92,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
   @Override
   public boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity) {
     return //
-    isReferencedInLocalData(entity)
+    isReferencedInLocalDataIgnoringLocallyDeletedEntities(entity)
     || isReferencedInPersistedDataIgnoringLocallyDeletedEntities(entity);
   }
 
@@ -100,14 +100,15 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    * {@inheritDoc}
    */
   @Override
-  public boolean isReferencedInLocalData(final IEntity entity) {
-    if (!entity.belongsToTable()) {
-      return false;
-    }
+  public boolean isReferencedInLocalDataIgnoringLocallyDeletedEntities(final IEntity entity) {
+    if (entity.belongsToDatabase()) {
+      final var tables = entity.getStoredParentDatabase().getStoredTables();
 
-    for (final var t : entity.getStoredParentTable().getStoredParentDatabase().getStoredTables()) {
-      if (t.internalGetStoredEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
-        return true;
+      for (final var t : tables) {
+        if (t.internalGetStoredEntitiesInLocalData().containsAny(e -> !e.isDeleted()
+        && referencesGivenEntity(e, entity))) {
+          return true;
+        }
       }
     }
 

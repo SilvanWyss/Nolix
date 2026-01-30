@@ -65,7 +65,7 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
    * @return true if the given entity is referenced in the local data, false
    *         otherwise.
    */
-  boolean isReferencedInLocalData(IEntity entity);
+  boolean isReferencedInLocalDataIgnoringLocallyDeletedEntities(IEntity entity);
 
   /**
    * @param sourceEntity
