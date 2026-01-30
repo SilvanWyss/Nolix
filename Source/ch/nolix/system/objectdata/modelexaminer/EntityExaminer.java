@@ -109,11 +109,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    * {@inheritDoc}
    */
   @Override
-  public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
-    return sourceEntity.internalGetStoredFields().containsAny(p -> p.referencesEntity(entity));
-  }
-
-  private boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
+  public boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
     if (entity.isReferencedInPersistedData()) {
       final var locallyDeletedEntities = //
       ENTITY_EXAMINER_HELPER.getLocallyDeletedEntitiesIds(entity.getStoredParentDatabase());
@@ -122,5 +118,13 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
     }
 
     return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
+    return sourceEntity.internalGetStoredFields().containsAny(p -> p.referencesEntity(entity));
   }
 }

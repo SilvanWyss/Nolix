@@ -49,17 +49,24 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param entity
-   * @return true if the given entity is referenced where the locally deleted
-   *         {@link IEntity}s are ignored, false otherwise.
+   * @return true if the given entity is referenced ignoring the locally deleted
+   *         {@link IEntity}s, false otherwise.
    */
   boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity);
 
   /**
    * @param entity
-   * @return true if the given entity is referenced in the local data, false
-   *         otherwise.
+   * @return true if the given entity is referenced in the local data ignoring the
+   *         locally deleted {@link IEntity}s, false otherwise.
    */
   boolean isReferencedInLocalDataIgnoringLocallyDeletedEntities(IEntity entity);
+
+  /**
+   * @param entity
+   * @return true if the given entity is referenced in the persisted data ignoring
+   *         the locally deleted {@link IEntity}s, false otherwise.
+   */
+  boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(IEntity entity);
 
   /**
    * @param sourceEntity
