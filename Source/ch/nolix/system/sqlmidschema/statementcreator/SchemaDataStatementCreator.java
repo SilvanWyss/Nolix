@@ -17,12 +17,15 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
+import ch.nolix.systemapi.sqlmidschema.statementcreator.IColumnTableStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
 
 /**
  * @author Silvan Wyss
  */
 public final class SchemaDataStatementCreator implements ISchemaDataStatementCreator {
+  private static final IColumnTableStatementCreator COLUMN_TABLE_STATEMENT_CREATOR = new ColumnTableStatementCreator();
+
   @Override
   public String createStatementToAddBackReferenceableColumn(
     final ColumnIdentification parentBaseBackReferenceColumn,
@@ -51,7 +54,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final var columnName = column.name();
     final var columnIdentification = new ColumnIdentification(columnId, columnName);
 
-    statements.addAtEnd(createStatementToAddColumnIntoColumnTable(table, column));
+    statements.addAtEnd(COLUMN_TABLE_STATEMENT_CREATOR.createStatementToAddColumnIntoColumnTable(table, column));
 
     for (final var t : column.referenceableTableIds()) {
       statements.addAtEnd(createStatementToAddReferenceableTable(columnIdentification, t));
@@ -214,7 +217,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final ILinkedList<String> statements = LinkedList.createEmpty();
 
     final var statementToSetContentModelInColumnTable = // 
-    createStatementToSetContentModelInColumnTable(column, fieldType, dataType);
+    COLUMN_TABLE_STATEMENT_CREATOR.createStatementToSetContentModelInColumnTable(column, fieldType, dataType);
 
     statements.addAtEnd(statementToSetContentModelInColumnTable);
 
@@ -231,52 +234,4 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     return statements;
   }
 
-  private String createStatementToAddColumnIntoColumnTable(final TableIdentification table, final ColumnDto column) {
-    return //
-    "INSERT INTO "
-    + FixTable.COLUMN.getName()
-    + " ("
-    + ColumnColumn.ID.getName()
-    + ", "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
-    + ", "
-    + ColumnColumn.NAME.getName()
-    + ", "
-    + ColumnColumn.FIELD_TYPE.getName()
-    + ", "
-    + ColumnColumn.DATA_TYPE.getName()
-    + ") VALUES ('"
-    + column.id()
-    + "', '"
-    + table.tableId()
-    + "', '"
-    + column.name()
-    + "', '"
-    + column.fieldType().name()
-    + "', '"
-    + column.dataType()
-    + "');";
-  }
-
-  private String createStatementToSetContentModelInColumnTable(
-    final ColumnIdentification column,
-    final FieldType fieldType,
-    final DataType dataType) {
-    return //
-    "UPDATE "
-    + FixTable.COLUMN.getName()
-    + " SET "
-    + ColumnColumn.FIELD_TYPE.getName()
-    + " = '"
-    + fieldType.name()
-    + "', "
-    + ColumnColumn.DATA_TYPE.getName()
-    + " = '"
-    + dataType.name()
-    + "' WHERE "
-    + ColumnColumn.ID
-    + " = '"
-    + column.columnId()
-    + "';";
-  }
 }
