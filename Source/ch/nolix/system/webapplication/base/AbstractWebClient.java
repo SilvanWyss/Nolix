@@ -9,7 +9,6 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.coreapi.web.cookie.ICookieManager;
 import ch.nolix.system.application.main.AbstractBackendClient;
@@ -35,9 +34,10 @@ implements ICookieManager {
    */
   @Override
   public final Optional<String> getOptionalCookieValueByCookieName(final String cookieName) {
-    final var getCookieValueRequest = RequestCreator.createGetCookieValueRequestForCookieName(cookieName);
+    final var cookieValueRequest = RequestCreator.createGetCookieValueRequestForCookieName(cookieName);
+    final var cookieValueData = getDataFromCounterpart(cookieValueRequest);
 
-    return getOptionalCookieValueByCookieNameFromData(getDataFromCounterpart(getCookieValueRequest));
+    return cookieValueData.getOptionalHeader();
   }
 
   public final Optional<String> getOptionalUrlParameterValueByUrlParameterName(final String urlParameterName) {
@@ -121,10 +121,6 @@ implements ICookieManager {
     final var writeTextToClipboardCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createWriteTextToClipBoardCommand(text);
 
     runOnCounterpart(writeTextToClipboardCommand);
-  }
-
-  private Optional<String> getOptionalCookieValueByCookieNameFromData(final INode<?> data) {
-    return data.getOptionalHeader();
   }
 
   private void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
