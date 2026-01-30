@@ -3,18 +3,20 @@
  */
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
+import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminerHelper;
 
 /**
  * @author Silvan Wyss
  */
 public final class EntityExaminer extends DatabaseObjectExaminer implements IEntityExaminer {
+  private static final IEntityExaminerHelper ENTITY_EXAMINER_HELPER = new EntityExaminerHelper();
+
   private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   /**
@@ -120,20 +122,10 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
     return sourceEntity.internalGetStoredFields().containsAny(p -> p.referencesEntity(entity));
   }
 
-  private IContainer<String> getLocallyDeletedEntities(final IEntity entity) {
-    return //
-    entity
-      .getStoredParentTable()
-      .getStoredParentDatabase()
-      .getStoredTables()
-      .toMultiples(ITable::internalGetStoredEntitiesInLocalData)
-      .getViewOfStoredSelected(IEntity::isDeleted)
-      .to(IEntity::getId);
-  }
-
   private boolean isReferencedInPersistedDataIgnoringLocallyDeletedEntities(final IEntity entity) {
     if (entity.isReferencedInPersistedData()) {
-      final var locallyDeletedEntities = getLocallyDeletedEntities(entity);
+      final var locallyDeletedEntities = //
+      ENTITY_EXAMINER_HELPER.getLocallyDeletedEntitiesIds(entity.getStoredParentDatabase());
 
       return entity.isReferencedInPersistedDataIgnoringGivenEntities(locallyDeletedEntities);
     }
