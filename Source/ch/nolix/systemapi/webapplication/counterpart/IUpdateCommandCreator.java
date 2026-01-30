@@ -31,5 +31,9 @@ public interface IUpdateCommandCreator {
 
   IChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
 
+  IContainer<IChainedNode> createUpdateCommandsForControls(
+    IContainer<IControl<?, ?>> controls,
+    boolean updateConstellationOrStyle);
+
   IContainer<IChainedNode> createUpdateCommandsForWebGui(IWebGui<?> webGui);
 }

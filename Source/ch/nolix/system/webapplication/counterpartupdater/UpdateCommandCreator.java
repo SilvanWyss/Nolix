@@ -4,9 +4,12 @@
 package ch.nolix.system.webapplication.counterpartupdater;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
@@ -108,6 +111,31 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   @Override
   public IChainedNode createSetUserInputFunctionsCommandForWebGui(final IWebGui<?> webGui) {
     return UpdateCommandCreatorHelper.createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<IChainedNode> createUpdateCommandsForControls(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
+    Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
+
+    final var webGui = controls.getStoredFirst().getStoredParentGui();
+
+    final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
+
+    updatedCommands.addAtEnd(controls.getViewOf(this::createSetRootHtmlElementCommandForControl));
+
+    if (updateConstellationOrStyle) {
+      updatedCommands.addAtEnd(
+        createSetCssCommandForWebGui(webGui),
+        createSetEventFunctionsCommandForWebGui(webGui),
+        createSetUserInputFunctionsCommandForWebGui(webGui));
+    }
+
+    return updatedCommands;
   }
 
   /**

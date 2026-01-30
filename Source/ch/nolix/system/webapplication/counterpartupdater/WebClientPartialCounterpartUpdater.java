@@ -7,10 +7,8 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.webgui.main.IControl;
 
@@ -56,31 +54,11 @@ public final class WebClientPartialCounterpartUpdater {
       webGui.applyStyleIfHasStyle();
     }
 
-    final var updateCommands = createUpdateCommandsForControls(controls, updateConstellationOrStyle);
+    final var updateCommands = //
+    UPDATE_COMMAND_CREATOR.createUpdateCommandsForControls(controls, updateConstellationOrStyle);
 
     if (openStateRequestable.getAsBoolean()) {
       counterpartRunner.accept(updateCommands);
     }
-  }
-
-  private IContainer<IChainedNode> createUpdateCommandsForControls(
-    final IContainer<IControl<?, ?>> controls,
-    final boolean updateConstellationOrStyle) {
-    Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
-
-    final var webGui = controls.getStoredFirst().getStoredParentGui();
-
-    final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
-
-    updatedCommands.addAtEnd(controls.getViewOf(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandForControl));
-
-    if (updateConstellationOrStyle) {
-      updatedCommands.addAtEnd(
-        UPDATE_COMMAND_CREATOR.createSetCssCommandForWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandForWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandForWebGui(webGui));
-    }
-
-    return updatedCommands;
   }
 }
