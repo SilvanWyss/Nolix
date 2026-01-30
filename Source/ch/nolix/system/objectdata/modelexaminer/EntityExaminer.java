@@ -80,16 +80,6 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    * {@inheritDoc}
    */
   @Override
-  public boolean isReferenced(final IEntity entity) {
-    return //
-    isReferencedInLocalDataIgnoringLocallyDeletedEntities(entity)
-    || entity.isReferencedInPersistedData();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean isReferencedIgnoringLocallyDeletedEntities(IEntity entity) {
     return //
     isReferencedInLocalDataIgnoringLocallyDeletedEntities(entity)

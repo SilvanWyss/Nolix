@@ -49,12 +49,6 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
 
   /**
    * @param entity
-   * @return true if the given entity is referenced, false otherwise.
-   */
-  boolean isReferenced(IEntity entity);
-
-  /**
-   * @param entity
    * @return true if the given entity is referenced where the locally deleted
    *         {@link IEntity}s are ignored, false otherwise.
    */
