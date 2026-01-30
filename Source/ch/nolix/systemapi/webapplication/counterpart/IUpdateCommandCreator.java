@@ -3,6 +3,7 @@
  */
 package ch.nolix.systemapi.webapplication.counterpart;
 
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -29,4 +30,6 @@ public interface IUpdateCommandCreator {
   IChainedNode createSetTitleCommandForTitle(String title);
 
   IChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
+
+  IContainer<IChainedNode> createUpdateCommandsForWebGui(IWebGui<?> webGui);
 }

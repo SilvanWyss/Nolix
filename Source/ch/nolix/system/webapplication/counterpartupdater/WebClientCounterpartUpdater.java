@@ -6,7 +6,6 @@ package ch.nolix.system.webapplication.counterpartupdater;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
@@ -41,20 +40,11 @@ public final class WebClientCounterpartUpdater {
   public void updateCounterpartFromWebGui(final IWebGui<?> webGui) {
     webGui.applyStyleIfHasStyle();
 
-    final var updateCommands = createUpdateCommandsFromWebGui(webGui);
+    final var updateCommands = UPDATE_COMMAND_CREATOR.createUpdateCommandsForWebGui(webGui);
 
     if (openStateRequestable.getAsBoolean()) {
       counterpartRunner.accept(updateCommands);
     }
   }
 
-  private IContainer<IChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
-    return ImmutableList.withElements(
-      UPDATE_COMMAND_CREATOR.createSetTitleCommandForWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetIconCommandForWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandForWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetCssCommandForWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandForWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandForWebGui(webGui));
-  }
 }

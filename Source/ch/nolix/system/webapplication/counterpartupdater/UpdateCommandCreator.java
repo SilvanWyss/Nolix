@@ -3,8 +3,10 @@
  */
 package ch.nolix.system.webapplication.counterpartupdater;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
@@ -17,6 +19,9 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public final class UpdateCommandCreator implements IUpdateCommandCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createSetCssCommandForWebGui(final IWebGui<?> webGui) {
     final var css = webGui.getCss();
@@ -89,7 +94,8 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    */
   @Override
   public IChainedNode createSetTitleCommandForTitle(final String title) {
-    return ChainedNode.withHeaderAndNextNode(
+    return //
+    ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
       ChainedNode.withHeaderAndChildNodesFromNodes(
         CommandProtocol.SET_TITLE,
@@ -102,5 +108,20 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   @Override
   public IChainedNode createSetUserInputFunctionsCommandForWebGui(final IWebGui<?> webGui) {
     return UpdateCommandCreatorHelper.createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<IChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
+    return //
+    ImmutableList.withElements(
+      createSetTitleCommandForWebGui(webGui),
+      createSetIconCommandForWebGui(webGui),
+      createSetRootHtmlElementCommandForWebGui(webGui),
+      createSetCssCommandForWebGui(webGui),
+      createSetEventFunctionsCommandForWebGui(webGui),
+      createSetUserInputFunctionsCommandForWebGui(webGui));
   }
 }
