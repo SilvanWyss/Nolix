@@ -11,6 +11,9 @@ import ch.nolix.coretest.container.base.ContainerTest;
  * @author Silvan Wyss
  */
 final class ImmutableListTest extends ContainerTest {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return ImmutableList.fromArray(elements);

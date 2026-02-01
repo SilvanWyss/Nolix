@@ -9,6 +9,9 @@ import ch.nolix.coreapi.commontypetool.iterabletool.IIterableExaminer;
  * @author Silvan Wyss
  */
 public final class IterableExaminer implements IIterableExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean containsAny(final Iterable<?> iterable) {
     return //

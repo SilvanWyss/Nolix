@@ -15,6 +15,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @author Silvan Wyss
  */
 public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, IButtonStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IButton button,

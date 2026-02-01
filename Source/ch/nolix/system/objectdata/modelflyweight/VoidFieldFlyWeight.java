@@ -9,6 +9,9 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
  * @author Silvan Wyss
  */
 public final class VoidFieldFlyWeight implements IFieldFlyWeight {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isVoid() {
     return true;

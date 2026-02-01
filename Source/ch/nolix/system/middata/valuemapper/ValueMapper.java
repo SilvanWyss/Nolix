@@ -12,6 +12,9 @@ import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
  * @author Silvan Wyss
  */
 public final class ValueMapper implements IValueMapper {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Object mapStringToValue(final String string, final DataType dataType) {
     return //

@@ -14,6 +14,9 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IContentModelNodeSearcher;
  * @author Silvan Wyss
  */
 public final class ContentModelNodeSearcher implements IContentModelNodeSearcher {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<String> getBackReferenceableColumnIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
     final var backReferenceableColumnIdsNode = //

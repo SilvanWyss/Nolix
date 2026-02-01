@@ -12,6 +12,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
  * @author Silvan Wyss
  */
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
     final String columnId,

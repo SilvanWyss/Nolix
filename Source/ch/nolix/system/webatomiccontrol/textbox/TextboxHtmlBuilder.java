@@ -15,6 +15,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public HtmlElement createHtmlElementForControl(final ITextbox textbox) {
     return HtmlElement.withTypeAndAttributes(

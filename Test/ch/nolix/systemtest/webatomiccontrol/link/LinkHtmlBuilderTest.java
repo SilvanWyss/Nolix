@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  * @author Silvan Wyss
  */
 final class LinkHtmlBuilderTest extends ControlHtmlBuilderTest<LinkHtmlBuilder, ILink> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ILink createControl() {
     return new Link();

@@ -15,6 +15,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
     return HtmlElement.withTypeAndChildElements(

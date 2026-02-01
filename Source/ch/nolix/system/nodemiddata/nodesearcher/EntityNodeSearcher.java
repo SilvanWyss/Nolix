@@ -11,6 +11,9 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
  * @author Silvan Wyss
  */
 public final class EntityNodeSearcher implements IEntityNodeSearcher {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getIdFromEntityNode(final IMutableNode<?> entityNode) {
     final var idNode = getStoredIdNodeFromEntityNode(entityNode);

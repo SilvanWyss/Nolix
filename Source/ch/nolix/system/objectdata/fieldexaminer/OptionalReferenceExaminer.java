@@ -11,6 +11,9 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
  * @author Silvan Wyss
  */
 public final class OptionalReferenceExaminer extends FieldExaminer implements IOptionalReferenceExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canBeCleared(final IOptionalReference<E> optionalReference) {
     return //

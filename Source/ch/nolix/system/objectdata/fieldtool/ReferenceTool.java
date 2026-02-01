@@ -14,6 +14,9 @@ import ch.nolix.systemapi.objectdata.model.IReference;
  * @author Silvan Wyss
  */
 public final class ReferenceTool implements IReferenceTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<IBaseBackReference> getOptionalStoredBaseBackReference(final IReference<IEntity> reference) {
     if (reference.containsAny()) {

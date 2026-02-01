@@ -20,6 +20,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @author Silvan Wyss
  */
 public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IGrid control,

@@ -11,6 +11,9 @@ import ch.nolix.coretest.container.base.CopyableIteratorTest;
  * @author Silvan Wyss
  */
 final class ArrayListIteratorTest extends CopyableIteratorTest {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> CopyableIterator<E> createIteratorForEmptyContainerForType(final Class<E> type) {
     final ArrayList<E> arrayList = ArrayList.createEmpty();

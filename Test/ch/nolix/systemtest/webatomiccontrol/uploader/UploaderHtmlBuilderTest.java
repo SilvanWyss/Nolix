@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  * @author Silvan Wyss
  */
 final class UploaderHtmlBuilderTest extends ControlHtmlBuilderTest<UploaderHtmlBuilder, IUploader> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IUploader createControl() {
     return new Uploader();

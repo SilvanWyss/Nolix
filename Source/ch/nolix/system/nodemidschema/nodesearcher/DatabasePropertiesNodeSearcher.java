@@ -13,6 +13,9 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @author Silvan Wyss
  */
 public final class DatabasePropertiesNodeSearcher implements IDatabasePropertiesNodeSearcher {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getDatabaseNameFromDatabasePropertiesNode(IMutableNode<?> databasePropertiesNode) {
     final var databaseNameNode = getStoredDatabaseNameNodeFromDatabasePropertiesNode(databasePropertiesNode);

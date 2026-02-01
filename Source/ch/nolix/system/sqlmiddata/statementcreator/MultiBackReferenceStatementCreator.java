@@ -11,6 +11,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntry
  * @author Silvan Wyss
  */
 public final class MultiBackReferenceStatementCreator implements IMultiBackReferenceStatementCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteMultiBackReferenceEntries(
     final String entityId,

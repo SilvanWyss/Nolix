@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlCssBuilderTest;
  * @author Silvan Wyss
  */
 final class ButtonCssBuilderTest extends ControlCssBuilderTest<ButtonCssBuilder, IButton> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IButton createControl() {
     return new Button();

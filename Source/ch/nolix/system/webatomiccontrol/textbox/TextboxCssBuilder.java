@@ -16,6 +16,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @author Silvan Wyss
  */
 public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox, ITextboxStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final ITextbox textbox,

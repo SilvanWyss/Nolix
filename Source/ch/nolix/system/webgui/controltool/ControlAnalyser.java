@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class ControlAnalyser implements IControlAnalyser {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean firstControlContainsSecondControl(
     final IControl<?, ?> firstControl,

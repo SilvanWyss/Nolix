@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 public abstract class AbstractItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends AbstractControlCssBuilder<M, S> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final M itemMenu,

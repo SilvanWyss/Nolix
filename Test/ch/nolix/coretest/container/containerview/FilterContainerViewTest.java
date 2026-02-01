@@ -11,6 +11,9 @@ import ch.nolix.coretest.container.base.ContainerTest;
  * @author Silvan Wyss
  */
 public final class FilterContainerViewTest extends ContainerTest {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
     return FilterContainerView.forArrayAndSelector(elements, _ -> true);

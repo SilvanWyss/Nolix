@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement createHtmlElementForControl(final ILabel control) {
     return HtmlElement.withTypeAndInnerText(

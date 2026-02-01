@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class ButtonHtmlBuilder implements IControlHtmlBuilder<IButton> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement createHtmlElementForControl(final IButton button) {
     return HtmlElement.withTypeAndInnerText(

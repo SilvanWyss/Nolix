@@ -11,6 +11,9 @@ import ch.nolix.coreapi.net.ssl.ISslCertificateKeyReader;
  * @author Silvan Wyss
  */
 public final class SslCertificateKeyReader implements ISslCertificateKeyReader {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getKeyFromPemFileLines(final IContainer<String> pemFileLines) {
     final var keyLines = SslCertificateKeyReaderHelper.getKeyLinesFromPemFileLines(pemFileLines);

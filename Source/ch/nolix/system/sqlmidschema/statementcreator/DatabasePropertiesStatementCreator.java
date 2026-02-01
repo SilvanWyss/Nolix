@@ -13,6 +13,9 @@ import ch.nolix.systemapi.time.moment.ITime;
  * @author Silvan Wyss
  */
 public final class DatabasePropertiesStatementCreator implements IDatabasePropertiesStatementCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToSetSchemaTimestamp(final ITime schemaTimestamp) {
     return //

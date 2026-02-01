@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  * @author Silvan Wyss
  */
 final class TextboxHtmlBuilderTest extends ControlHtmlBuilderTest<TextboxHtmlBuilder, ITextbox> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ITextbox createControl() {
     return new Textbox();

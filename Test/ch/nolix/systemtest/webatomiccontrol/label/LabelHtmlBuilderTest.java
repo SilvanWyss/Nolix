@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  * @author Silvan Wyss
  */
 final class LabelHtmlBuilderTest extends ControlHtmlBuilderTest<LabelHtmlBuilder, ILabel> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ILabel createControl() {
     return new Label();

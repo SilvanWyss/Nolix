@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webatomiccontrol.itemmenu.ItemMenuTest;
  * @author Silvan Wyss
  */
 final class DropdownMenuTest extends ItemMenuTest<IDropdownMenu, IDropdownMenuStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IDropdownMenu createTestUnit() {
     return new DropdownMenu();

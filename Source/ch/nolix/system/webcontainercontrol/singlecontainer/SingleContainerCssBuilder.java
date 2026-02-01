@@ -16,6 +16,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  */
 public final class SingleContainerCssBuilder
 extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ISingleContainer control,

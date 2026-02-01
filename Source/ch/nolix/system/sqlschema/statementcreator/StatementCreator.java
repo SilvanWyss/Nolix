@@ -11,6 +11,9 @@ import ch.nolix.systemapi.sqlschema.statementcreator.IStatementCreator;
  * @author Silvan Wyss
  */
 public final class StatementCreator implements IStatementCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToAddColumn(final String tableName, final ColumnDto column) {
     return ("ALTER TABLE " + tableName + " ADD " + StatementCreatorHelper.getColumnAsSql(column) + ";");

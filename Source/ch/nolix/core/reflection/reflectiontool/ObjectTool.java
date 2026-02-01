@@ -13,6 +13,9 @@ import ch.nolix.coreapi.reflection.reflectiontool.IObjectTool;
  * @author Silvan Wyss
  */
 public final class ObjectTool implements IObjectTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getNameOfFirstFieldThatHasValue(final Object object, final Object value) {
     final var field = getStoredFirstFieldThatHasValue(object, value);

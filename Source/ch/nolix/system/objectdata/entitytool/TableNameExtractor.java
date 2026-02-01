@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @author Silvan Wyss
  */
 public final class TableNameExtractor implements ITableNameExtractor {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getTableNameOfEntity(final IEntity entity) {
     final var entityType = entity.getClass();

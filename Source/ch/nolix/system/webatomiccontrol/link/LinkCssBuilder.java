@@ -16,6 +16,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @author Silvan Wyss
  */
 public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILinkStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ILink control,

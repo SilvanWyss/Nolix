@@ -12,6 +12,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  * @author Silvan Wyss
  */
 final class DropdownMenuHtmlBuilderTest extends ControlHtmlBuilderTest<DropdownMenuHtmlBuilder, IDropdownMenu> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IDropdownMenu createControl() {
     return new DropdownMenu();

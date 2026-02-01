@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
     final var type = HtmlElementTypeCatalog.IMG;

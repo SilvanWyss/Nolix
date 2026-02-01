@@ -15,6 +15,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @author Silvan Wyss
  */
 public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploader, IUploaderStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IUploader button,

@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<FloatContainer> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {
     return HtmlElement.withTypeAndChildElements(

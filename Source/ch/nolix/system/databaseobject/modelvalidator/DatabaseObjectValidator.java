@@ -13,6 +13,9 @@ import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator
  * @author Silvan Wyss
  */
 public class DatabaseObjectValidator extends ResourceValidatorUnit implements IDatabaseObjectValidator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final void assertIsConnectedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (!databaseObject.isConnectedWithRealDatabase()) {

@@ -11,6 +11,9 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
  * @author Silvan Wyss
  */
 public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isNewOrDeleted(IDatabaseObject databaseObject) {
     if (databaseObject == null) {

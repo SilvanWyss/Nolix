@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IValidationLabel> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement createHtmlElementForControl(final IValidationLabel control) {
     return HtmlElement.withTypeAndInnerText(

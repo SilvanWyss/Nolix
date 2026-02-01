@@ -9,6 +9,9 @@ import ch.nolix.core.document.node.MutableNode;
  * @author Silvan Wyss
  */
 final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected MutableNode createBlankNode() {
     return MutableNode.createEmpty();

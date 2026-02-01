@@ -14,6 +14,9 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public final class TableMapper implements ITableMapper {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public ITable mapEntityTypeToEmptyTable(final Class<? extends IEntity> entityType) {
     final var name = entityType.getSimpleName();

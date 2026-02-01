@@ -13,6 +13,9 @@ import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
  * @author Silvan Wyss
  */
 public final class TableNodeExaminer implements ITableNodeExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
     final IMutableNode<?> tableNode,

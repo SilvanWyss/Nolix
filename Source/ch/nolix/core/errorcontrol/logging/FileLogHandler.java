@@ -15,6 +15,9 @@ import ch.nolix.core.independent.nolixenvironment.NolixEnvironmentService;
  * @author Silvan Wyss
  */
 public final class FileLogHandler extends AbstractLogHandler {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void log(final LogEntry logEntry) {
     try {

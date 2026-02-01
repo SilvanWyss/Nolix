@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
  * @author Silvan Wyss
  */
 public final class ItemMenuExaminer implements IItemMenuExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canAddItem(final IItemMenu<?, ?> itemMenu, final IItemMenuItem<?> item) {
     return itemMenu != null

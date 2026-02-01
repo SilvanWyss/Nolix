@@ -11,6 +11,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
  * @author Silvan Wyss
  */
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //

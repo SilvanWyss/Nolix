@@ -14,6 +14,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class ComponentHtmlBuilder implements IControlHtmlBuilder<IComponent> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement createHtmlElementForControl(final IComponent control) {
     final var childControls = control.getStoredChildControls();

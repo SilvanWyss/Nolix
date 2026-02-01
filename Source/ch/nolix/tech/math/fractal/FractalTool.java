@@ -14,6 +14,9 @@ import ch.nolix.techapi.math.fractal.IFractalTool;
  * @author Silvan Wyss
  */
 public final class FractalTool implements IFractalTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public BigDecimal getHeightInPixelAsBigDecimal(final IFractal fractal) {
     return BigDecimal.valueOf(fractal.getHeightInPixel()).setScale(fractal.getDecimalPlaces());

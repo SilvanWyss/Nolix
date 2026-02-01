@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IOptionalValueField;
  * @author Silvan Wyss
  */
 public final class OptionalValueFieldExaminer extends FieldExaminer implements IOptionalValueFieldExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canSetValue(final IOptionalValueField<?> optionalValueField) {
     return //

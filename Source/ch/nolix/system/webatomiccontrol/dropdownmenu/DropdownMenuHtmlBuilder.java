@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
     final var type = HtmlElementTypeCatalog.SELECT;

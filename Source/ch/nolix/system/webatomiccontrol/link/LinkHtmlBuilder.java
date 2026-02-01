@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
  * @author Silvan Wyss
  */
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {
     final var type = HtmlElementTypeCatalog.A;

@@ -12,6 +12,9 @@ import ch.nolix.coretest.container.base.CopyableIteratorTest;
  * @author Silvan Wyss
  */
 final class MatrixIteratorTest extends CopyableIteratorTest {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> CopyableIterator<E> createIteratorForEmptyContainerForType(final Class<E> type) {
     return MatrixIterator.forMatrix(Matrix.createEmpty());

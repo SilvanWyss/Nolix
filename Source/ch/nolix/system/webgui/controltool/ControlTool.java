@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class ControlTool implements IControlTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(final IControl<?, ?> control) {
     final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);

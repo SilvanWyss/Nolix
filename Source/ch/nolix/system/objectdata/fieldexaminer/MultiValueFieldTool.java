@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IMultiValueField;
  * @author Silvan Wyss
  */
 public final class MultiValueFieldTool extends FieldExaminer implements IMultiValueFieldExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canAddValue(final IMultiValueField<?> multiValueField) {
     return //

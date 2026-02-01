@@ -9,6 +9,9 @@ import ch.nolix.system.application.main.AbstractSession;
  * @author Silvan Wyss
  */
 public final class MockBackendClientSession extends AbstractSession<MockBackendClient, Object> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void refresh() {
     //Does nothing.

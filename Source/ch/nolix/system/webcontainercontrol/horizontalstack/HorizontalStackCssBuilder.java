@@ -22,6 +22,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  */
 public final class HorizontalStackCssBuilder
 extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IHorizontalStack horizontalStack,

@@ -14,6 +14,9 @@ import ch.nolix.coretest.container.base.ContainerTest;
  * @author Silvan Wyss
  */
 final class ArrayListTest extends ContainerTest {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
     return ArrayList.withElements(elements);

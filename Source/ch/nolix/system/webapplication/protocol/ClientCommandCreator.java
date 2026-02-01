@@ -18,6 +18,9 @@ import ch.nolix.systemapi.webapplication.protocol.IClientCommandCreator;
  * @author Silvan Wyss
  */
 public final class ClientCommandCreator implements IClientCommandCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IChainedNode createAddOrSetCookieCommand(final String name, final String value) {
     return //

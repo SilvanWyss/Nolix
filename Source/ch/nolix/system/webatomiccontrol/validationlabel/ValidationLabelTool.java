@@ -14,6 +14,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class ValidationLabelTool implements IValidationLabelTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
     final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);

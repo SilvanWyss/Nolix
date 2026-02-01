@@ -13,6 +13,9 @@ import ch.nolix.coreapi.reflection.reflectiontool.IConstructorTool;
  * @author Silvan Wyss
  */
 public final class ConstructorTool implements IConstructorTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <T> T createInstanceFromDefaultConstructor(final Constructor<T> defaultConstructor) {
     try {

@@ -11,6 +11,9 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class LinkTest extends ControlTest<ILink> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Link createTestUnit() {
     return new Link();

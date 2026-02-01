@@ -14,6 +14,9 @@ import ch.nolix.systemtest.webcontainercontrol.container.ContainerTest;
  * @author Silvan Wyss
  */
 final class GridTest extends ContainerTest<IGrid> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IGrid createTestUnit() {
     return new Grid();

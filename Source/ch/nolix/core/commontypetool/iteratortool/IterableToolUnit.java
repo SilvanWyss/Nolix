@@ -10,6 +10,9 @@ import ch.nolix.coreapi.commontypetool.iterabletool.IIterableTool;
  * @author Silvan Wyss
  */
 public final class IterableToolUnit implements IIterableTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getCount(final Iterable<?> iterable) {
     final var iterator = iterable.iterator();

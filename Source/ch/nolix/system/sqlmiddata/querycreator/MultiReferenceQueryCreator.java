@@ -12,6 +12,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColu
  * @author Silvan Wyss
  */
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
     final String columnId,

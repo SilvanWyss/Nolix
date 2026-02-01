@@ -15,6 +15,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @author Silvan Wyss
  */
 public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILabelStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ILabel control,

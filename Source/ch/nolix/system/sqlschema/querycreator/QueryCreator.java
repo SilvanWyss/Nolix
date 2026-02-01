@@ -9,6 +9,9 @@ import ch.nolix.systemapi.sqlschema.querycreator.IQueryCreator;
  * @author Silvan Wyss
  */
 public final class QueryCreator implements IQueryCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToGetTableCount() {
     return "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES;";

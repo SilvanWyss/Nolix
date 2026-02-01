@@ -9,6 +9,9 @@ import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
  * @author Silvan Wyss
  */
 public final class VoidEntityFlyWeight implements IEntityFlyWeight {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isVoid() {
     return true;

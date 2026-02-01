@@ -11,6 +11,9 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class HorizontalStackTest extends ControlTest<IHorizontalStack> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IHorizontalStack createTestUnit() {
     return new HorizontalStack();

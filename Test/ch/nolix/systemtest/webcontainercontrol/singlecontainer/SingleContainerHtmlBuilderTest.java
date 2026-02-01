@@ -13,6 +13,9 @@ import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
  */
 final class SingleContainerHtmlBuilderTest
 extends ControlHtmlBuilderTest<SingleContainerHtmlBuilder, ISingleContainer> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ISingleContainer createControl() {
     return new SingleContainer();

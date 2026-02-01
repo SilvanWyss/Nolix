@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
  * @author Silvan Wyss
  */
 public final class ValueFieldExaminer extends FieldExaminer implements IValueFieldExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean canSetValue(final IValueField<?> valueField) {
     return //

@@ -16,6 +16,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  */
 public final class ValidationLabelCssBuilder
 extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IValidationLabel control,

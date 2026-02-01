@@ -19,6 +19,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  */
 public final class FloatContainerCssBuilder
 extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final FloatContainer floatContainer,

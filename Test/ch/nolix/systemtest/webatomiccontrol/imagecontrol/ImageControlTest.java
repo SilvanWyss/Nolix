@@ -16,6 +16,9 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class ImageControlTest extends ControlTest<IImageControl> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected IImageControl createTestUnit() {
     return new ImageControl();

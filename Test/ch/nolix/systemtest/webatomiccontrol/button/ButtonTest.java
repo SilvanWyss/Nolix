@@ -11,6 +11,9 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
  * @author Silvan Wyss
  */
 final class ButtonTest extends ControlTest<IButton> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected Button createTestUnit() {
     return new Button();

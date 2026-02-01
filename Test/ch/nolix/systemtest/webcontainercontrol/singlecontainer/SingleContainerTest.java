@@ -11,6 +11,9 @@ import ch.nolix.systemtest.webcontainercontrol.container.ContainerTest;
  * @author Silvan Wyss
  */
 final class SingleContainerTest extends ContainerTest<ISingleContainer> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected ISingleContainer createTestUnit() {
     return new SingleContainer();

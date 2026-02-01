@@ -7,6 +7,9 @@ import ch.nolix.coreapi.net.ssl.ISslCertificate;
 
 //record
 public record SslCertificate(String publicKeyPemFilePath, String privateKeyPemFilePath) implements ISslCertificate {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getPrivateKeyPemFilePath() {
     return privateKeyPemFilePath;

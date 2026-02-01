@@ -13,6 +13,9 @@ import ch.nolix.systemapi.objectdata.model.IOptionalReference;
  * @author Silvan Wyss
  */
 public final class OptionalReferenceTool implements IOptionalReferenceTool {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Optional<IBaseBackReference> getOptionalStoredBaseBackReference(
     final IOptionalReference<?> optionalReference) {

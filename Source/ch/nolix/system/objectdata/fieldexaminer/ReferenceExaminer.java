@@ -11,6 +11,9 @@ import ch.nolix.systemapi.objectdata.model.IReference;
  * @author Silvan Wyss
  */
 public final class ReferenceExaminer extends FieldExaminer implements IReferenceExaminer {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public <E extends IEntity> boolean canSetEntity(final IReference<E> reference) {
     return //

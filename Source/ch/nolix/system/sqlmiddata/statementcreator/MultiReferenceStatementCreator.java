@@ -11,6 +11,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColu
  * @author Silvan Wyss
  */
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createStatementToDeleteMultiReferenceEntries(
     final String entityId,

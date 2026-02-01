@@ -15,6 +15,9 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
  * @author Silvan Wyss
  */
 public final class EntityQueryCreator implements IEntityQueryCreator {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String createQueryToCountEntities(final String tableName) {
     return //
