@@ -12,7 +12,6 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
 import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
 import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStackStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -65,7 +64,7 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     list.addAtEnd(
       CssProperty.withNameAndValue("display", "flex"),
       CssProperty.withNameAndValue("overflow", "auto"),
-      createCssPropertyForContentAlignmentOfControl(control));
+      HorizontalStackCssBuilderHelper.createCssPropertyForContentAlignmentOfHorizontalStack(control));
   }
 
   /**
@@ -77,22 +76,5 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
     //Does nothing.
-  }
-
-  private CssProperty createCssPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
-    return switch (contentAlignment) {
-      case TOP ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "start");
-      case CENTER ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "center");
-      case BOTTOM ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "end");
-    };
-  }
-
-  private CssProperty createCssPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
-    final var contentAlignment = control.getContentAlignment();
-
-    return createCssPropertyForContentAlignment(contentAlignment);
   }
 }
