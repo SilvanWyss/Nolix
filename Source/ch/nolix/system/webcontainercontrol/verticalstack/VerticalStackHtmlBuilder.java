@@ -4,29 +4,22 @@
 package ch.nolix.system.webcontainercontrol.verticalstack;
 
 import ch.nolix.core.web.htmlelementmodel.HtmlElement;
-import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
  */
 public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVerticalStack> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {
-    return HtmlElement.withTypeAndChildElements(
+    return //
+    HtmlElement.withTypeAndChildElements(
       HtmlElementTypeCatalog.DIV,
-      createHtmlElementsForChildControlsOfVerticalStack(verticalStack));
-  }
-
-  private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(
-    final IVerticalStack verticalStack) {
-    return verticalStack.getStoredChildControls().to(this::createHtmlElementsForChildControl);
-  }
-
-  private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
-    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalog.DIV, childControl.getHtml());
+      VerticalStackHtmlBuilderHelper.createHtmlElementsForChildControlsOfVerticalStack(verticalStack));
   }
 }
