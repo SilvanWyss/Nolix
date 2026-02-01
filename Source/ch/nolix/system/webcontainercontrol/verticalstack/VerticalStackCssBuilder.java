@@ -58,7 +58,7 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
     list.addAtEnd(
       CssProperty.withNameAndValue("display", "flex"),
       CssProperty.withNameAndValue("flex-direction", "column"),
-      HorizontalContentAlignmentHelper.createCssPropertyForContentAlignmentOfVerticalStack(control));
+      VerticalStackCssBuilderHelper.createCssPropertyForContentAlignmentOfVerticalStack(control));
   }
 
   /**

@@ -11,8 +11,8 @@ import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 /**
  * @author Silvan Wyss
  */
-public final class HorizontalContentAlignmentHelper {
-  private HorizontalContentAlignmentHelper() {
+public final class VerticalStackCssBuilderHelper {
+  private VerticalStackCssBuilderHelper() {
   }
 
   public static CssProperty createCssPropertyForContentAlignmentOfVerticalStack(final IVerticalStack verticalStack) {
