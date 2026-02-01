@@ -19,9 +19,6 @@ public final class SslServer extends AbstractServer<SslServer> {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
-  private static final NolixConfigurationSslCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-  new NolixConfigurationSslCertificateReader();
-
   private final ch.nolix.core.net.endpoint3.SslServer internalWebSocketServer;
 
   private final String domain;
@@ -42,18 +39,18 @@ public final class SslServer extends AbstractServer<SslServer> {
   }
 
   public static SslServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
-    final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
+    final var domain = NolixConfigurationSslCertificateReader.getDefaultDomainFromLocalNolixConfiguration();
 
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-      .getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var paramSSLCertificate = //
+    NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SslServer(PortCatalog.HTTPS, domain, paramSSLCertificate);
   }
 
   public static SslServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final String domain) {
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-      .getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var paramSSLCertificate = //
+    NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SslServer(DEFAULT_PORT, domain, paramSSLCertificate);
   }
@@ -61,8 +58,8 @@ public final class SslServer extends AbstractServer<SslServer> {
   public static SslServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String domain) {
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-      .getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var paramSSLCertificate = //
+    NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SslServer(port, domain, paramSSLCertificate);
   }

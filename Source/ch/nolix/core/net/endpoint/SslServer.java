@@ -25,9 +25,6 @@ public final class SslServer extends AbstractServer {
   </html>
   """;
 
-  private static final NolixConfigurationSslCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-  new NolixConfigurationSslCertificateReader();
-
   private final SslServerWorker sslServerWorker;
 
   public SslServer(final int port, final ISslCertificate paramSSLCertificate) {
@@ -41,8 +38,8 @@ public final class SslServer extends AbstractServer {
   public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-      .getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var paramSSLCertificate = //
+    NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SslServer(port, htmlPage, paramSSLCertificate);
   }
