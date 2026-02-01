@@ -19,7 +19,10 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public final class WebGuiCssBuilder {
-  public Css createCssForWebGui(final IWebGui<?> webGui) {
+  private WebGuiCssBuilder() {
+  }
+
+  public static Css createCssForWebGui(final IWebGui<?> webGui) {
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
 
     fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
@@ -27,7 +30,7 @@ public final class WebGuiCssBuilder {
     return Css.withRules(cssRules);
   }
 
-  private void fillUpCssRulesOfWebGuiIntoList(
+  private static void fillUpCssRulesOfWebGuiIntoList(
     final IWebGui<?> webGui,
     final ILinkedList<ICssRule> cssRules) {
     cssRules.addAtEnd(
@@ -50,7 +53,7 @@ public final class WebGuiCssBuilder {
     fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
   }
 
-  private void fillUpCssRulesOfLayersOfWebGuiIntoList(
+  private static void fillUpCssRulesOfLayersOfWebGuiIntoList(
     final IWebGui<?> webGui,
     final ILinkedList<ICssRule> cssRules) {
     for (final var l : webGui.getStoredLayers()) {
@@ -58,7 +61,7 @@ public final class WebGuiCssBuilder {
     }
   }
 
-  private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final ILinkedList<ICssRule> cssRules) {
+  private static void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final ILinkedList<ICssRule> cssRules) {
     cssRules.addAtEnd(layer.getCssRule());
 
     for (final var c : layer.getStoredControls()) {
