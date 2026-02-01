@@ -18,16 +18,9 @@ public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IVa
    */
   @Override
   public IHtmlElement createHtmlElementForControl(final IValidationLabel control) {
-    return HtmlElement.withTypeAndInnerText(
+    return //
+    HtmlElement.withTypeAndInnerText(
       HtmlElementTypeCatalog.DIV,
-      getHtmlDivInnerTextForControl(control));
-  }
-
-  private String getHtmlDivInnerTextForControl(final IValidationLabel control) {
-    if (control.isEmpty()) {
-      return "\u2800";
-    }
-
-    return (control.getError().getMessage() + "\u2800");
+      ValidationLabelHtmlBuilderHelper.getHtmlDivInnerTextForValidationLabel(control));
   }
 }
