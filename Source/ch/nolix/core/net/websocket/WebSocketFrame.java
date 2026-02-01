@@ -229,7 +229,7 @@ public final class WebSocketFrame {
         break;
       case BITS_64:
 
-        writePayloadLengthIntoBytesWhenPayloadLengthTypeisBits64(bytes, payloadLengthBytes);
+        WebSocketFrameHelper.writePayloadLengthIntoBytesWhenPayloadLengthTypeIsBits64(bytes, payloadLengthBytes);
 
         i += 8;
 
@@ -252,9 +252,9 @@ public final class WebSocketFrame {
       case BITS_7 ->
         calculatePayloadLengthWhenPayloadLengthIs7Bits();
       case BITS_16 ->
-        calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
+        WebSocketFrameHelper.calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
       case BITS_64 ->
-        calculatePayloadLengthWhenPayloadLengthIs64Bits(inputStream);
+        WebSocketFrameHelper.calculatePayloadLengthWhenPayloadLengthIs64Bits(inputStream);
       default ->
         throw InvalidArgumentException.forArgument(getPayloadLengthType());
     };
@@ -262,44 +262,5 @@ public final class WebSocketFrame {
 
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs7Bits() {
     return new WebSocketFramePayloadLength(firstNibble.get7BitsPayloadLength());
-  }
-
-  private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs16Bits(
-    final InputStream inputStream)
-  throws IOException {
-    final var headerNext2Bytes = inputStream.readNBytes(2);
-
-    return new WebSocketFramePayloadLength(
-      (0x100L * (headerNext2Bytes[0] & 0b11111111))
-      + (headerNext2Bytes[1] & 0b11111111));
-  }
-
-  private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs64Bits(
-    final InputStream inputStream)
-  throws IOException {
-    final var headerNext8Bytes = inputStream.readNBytes(8);
-
-    return new WebSocketFramePayloadLength(
-      (0x100_000_000_000_000L * (headerNext8Bytes[0] & 0b11111111))
-      + (0x1_000_000_000_000L * (headerNext8Bytes[1] & 0b11111111))
-      + (0x10_000_000_000L * (headerNext8Bytes[2] & 0b11111111))
-      + (0x100_000_000L * (headerNext8Bytes[3] & 0b11111111))
-      + (0x1_000_000L * (headerNext8Bytes[4] & 0b11111111))
-      + (0x10_000L * (headerNext8Bytes[5] & 0b11111111))
-      + (0x100L * (headerNext8Bytes[6] & 0b11111111))
-      + (headerNext8Bytes[7] & 0b11111111));
-  }
-
-  private void writePayloadLengthIntoBytesWhenPayloadLengthTypeisBits64(
-    final byte[] bytes,
-    final byte[] payloadLengthBytes) {
-    bytes[2] = payloadLengthBytes[0];
-    bytes[3] = payloadLengthBytes[1];
-    bytes[4] = payloadLengthBytes[2];
-    bytes[5] = payloadLengthBytes[3];
-    bytes[6] = payloadLengthBytes[4];
-    bytes[7] = payloadLengthBytes[5];
-    bytes[8] = payloadLengthBytes[6];
-    bytes[9] = payloadLengthBytes[7];
   }
 }
