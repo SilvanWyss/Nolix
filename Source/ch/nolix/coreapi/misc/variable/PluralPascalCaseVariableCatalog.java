@@ -83,6 +83,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String CONTEXTS = "Contexts";
 
+  public static final String CONTROLS = "Controls";
+
   public static final String CONTROLLERS = "Controllers";
 
   public static final String CREATION_DATES = "CreationDates";

@@ -83,6 +83,8 @@ public final class PluralLowerCaseVariableCatalog {
 
   public static final String CONTEXTS = "contexts";
 
+  public static final String CONTROLS = "controls";
+
   public static final String CONTROLLERS = "controllers";
 
   public static final String CREATION_DATES = "creation dates";

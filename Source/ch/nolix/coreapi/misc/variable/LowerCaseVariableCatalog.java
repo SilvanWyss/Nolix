@@ -83,6 +83,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String CONTEXT = "context";
 
+  public static final String CONTROL = "control";
+
   public static final String CONTROLLER = "controller";
 
   public static final String CREATION_DATE = "creation date";

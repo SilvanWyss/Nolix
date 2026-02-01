@@ -10,6 +10,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.container.base.IContainer;
 import ch.nolix.coreapi.document.chainednode.IChainedNode;
+import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
@@ -47,7 +48,7 @@ public final class WebClientPartialCounterpartUpdater {
   public void updateControlsOnCounterpart(
     final IContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
-    Validator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
+    Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableCatalog.CONTROLS).isNotEmpty();
 
     if (updateConstellationOrStyle) {
       final var webGui = controls.getStoredFirst().getStoredParentGui();

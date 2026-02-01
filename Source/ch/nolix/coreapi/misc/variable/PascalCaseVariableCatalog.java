@@ -83,6 +83,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String CONTEXT = "Context";
 
+  public static final String CONTROL = "Control";
+
   public static final String CONTROLLER = "Controller";
 
   public static final String CREATION_DATE = "CreationDate";
