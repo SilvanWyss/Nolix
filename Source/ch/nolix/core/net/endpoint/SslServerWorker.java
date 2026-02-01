@@ -18,9 +18,6 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 final class SslServerWorker extends AbstractWorker {
-  private static final SslServerSslContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
-  new SslServerSslContextCreator();
-
   private final SslServer parentWebSocketServer;
 
   private final int port;
@@ -53,13 +50,13 @@ final class SslServerWorker extends AbstractWorker {
    */
   @Override
   protected void run() {
-    final var sslContext = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
+    final var sslContext = SslServerSslContextCreator.createSSLContext(mSSLCertificate);
     final var bossGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
     final var workerGroup = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
 
     try { //NOSONAR: bossGroup and workerGroup will be shut down gracefully.
-
-      final var serverBootstrab = new ServerBootstrap()
+      final var serverBootstrab = //
+      new ServerBootstrap()
         .childOption(ChannelOption.TCP_NODELAY, true)
         .group(bossGroup, workerGroup)
         .channel(NioServerSocketChannel.class)

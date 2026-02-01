@@ -37,21 +37,25 @@ final class SslServerSslContextCreator {
 
   private static final SslCertificateKeyReader SSL_CERTIFICATE_KEY_READER = new SslCertificateKeyReader();
 
-  public SslContext createSSLContext(final ISslCertificate paramSSLCertificate) {
+  private SslServerSslContextCreator() {
+  }
+
+  public static SslContext createSSLContext(final ISslCertificate sslCertificate) {
     try {
-      X509Certificate cert = getCert(paramSSLCertificate);
-
-      final var key = getPrivateKey(paramSSLCertificate);
-
+      final var cert = getCert(sslCertificate);
+      final var key = getPrivateKey(sslCertificate);
       final var keystore = KeyStore.getInstance("JKS");
+
       keystore.load(null, PASSWORD_AS_CHAR_ARRAY);
       keystore.setCertificateEntry("cert-alias", cert);
       keystore.setKeyEntry("key-alias", key, PASSWORD_AS_CHAR_ARRAY, new Certificate[] { cert });
 
       final var keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+
       keyManagerFactory.init(keystore, PASSWORD_AS_CHAR_ARRAY);
 
       final var sslContext = SSLContext.getInstance("TLS");
+
       sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
 
       final var sslContextBuilder = SslContextBuilder.forServer(keyManagerFactory);
@@ -68,21 +72,23 @@ final class SslServerSslContextCreator {
     }
   }
 
-  private X509Certificate getCert(final ISslCertificate paramSSLCertificate) throws CertificateException {
-    final var filePath = paramSSLCertificate.getPublicKeyPemFilePath();
+  private static X509Certificate getCert(final ISslCertificate sslCertificate) throws CertificateException {
+    final var filePath = sslCertificate.getPublicKeyPemFilePath();
 
-    return (X509Certificate) CertificateFactory
+    return //
+    (X509Certificate) CertificateFactory
       .getInstance("X509")
       .generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
   }
 
-  private PrivateKey getPrivateKey(final ISslCertificate paramSSLCertificate)
+  private static PrivateKey getPrivateKey(final ISslCertificate sslCertificate)
   throws InvalidKeySpecException, NoSuchAlgorithmException {
-    final var privateKeyPemFilePath = paramSSLCertificate.getPrivateKeyPemFilePath();
+    final var privateKeyPemFilePath = sslCertificate.getPrivateKeyPemFilePath();
     final var privateKey = SSL_CERTIFICATE_KEY_READER.readKeyFromPemFile(privateKeyPemFilePath);
     final var privateKeyAsBytes = Base64.getDecoder().decode(privateKey);
     final var keySpec = new PKCS8EncodedKeySpec(privateKeyAsBytes);
     final var keyFactory = KeyFactory.getInstance("EC");
+
     return keyFactory.generatePrivate(keySpec);
   }
 }
