@@ -17,6 +17,10 @@ import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.webgui.controlstyle.IControlBaseStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ * @param <C> is the type of a {@link AbstractControlBaseStyle}.
+ */
 abstract class AbstractControlBaseStyle<C extends IControlBaseStyle<C>>
 extends AbstractMultiStateConfiguration<C, ControlState>
 implements IControlBaseStyle<C> {
@@ -36,7 +40,7 @@ implements IControlBaseStyle<C> {
   new NonCascadingProperty<>(
     ControlHeadStyleAttributeHeaderCatalog.OPACITY_HEADER,
     ControlState.class,
-    s -> getOpacityFromString(s.getSingleChildNodeHeader()),
+    s -> OpacityHelper.getOpacityFromString(s.getSingleChildNodeHeader()),
     Node::withChildNode,
     this::forStateSetOpacity,
     DEFAULT_OPACITY);
@@ -261,15 +265,5 @@ implements IControlBaseStyle<C> {
     memberTextSize.setValueForState(state, textSize);
 
     return asConcrete();
-  }
-
-  private double getOpacityFromString(final String string) {
-    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
-
-    if (!string.endsWith("%")) {
-      return Double.valueOf(string);
-    }
-
-    return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
   }
 }
