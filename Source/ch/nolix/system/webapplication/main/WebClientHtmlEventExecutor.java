@@ -15,7 +15,10 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class WebClientHtmlEventExecutor {
-  public void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
+  private WebClientHtmlEventExecutor() {
+  }
+
+  public static void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
     final IControl<?, ?> triggeredControl,
     final String htmlEvent,
     final BooleanSupplier openStateRequester,
@@ -40,7 +43,7 @@ public final class WebClientHtmlEventExecutor {
     }
   }
 
-  private Optional<IControl<?, ?>> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
+  private static Optional<IControl<?, ?>> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
     if (control.isLinkedToAnObject()
     && control.getStoredLinkedObjects().getStoredFirst() instanceof final IComponent component) {
       return Optional.of(component);
@@ -53,7 +56,7 @@ public final class WebClientHtmlEventExecutor {
     return Optional.empty();
   }
 
-  private RefreshTrigger getRefreshTrigger(
+  private static RefreshTrigger getRefreshTrigger(
     final IControl<?, ?> triggeredControl,
     final int originalLayerCount,
     final BooleanSupplier openStateRequester) {
@@ -75,7 +78,7 @@ public final class WebClientHtmlEventExecutor {
     return RefreshTrigger.REFRESH_COMPONENT;
   }
 
-  private IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {
+  private static IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {
     final var componentContainer = getOptionalStoredParentComponentOfControl(triggeredControl);
 
     return componentContainer.orElse(triggeredControl);

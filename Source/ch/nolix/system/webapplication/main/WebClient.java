@@ -26,8 +26,6 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @param <C> is the type of a {@link WebClient}.
  */
 public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
-  private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
-
   private final WebClientRefreshQueue refreshQueue = //
   WebClientRefreshQueue.forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
@@ -137,7 +135,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   private void runHtmlEventCommand(final IControl<?, ?> triggeredControl, final IChainedNode htmlEventCommand) {
     final var htmlEvent = htmlEventCommand.getSingleChildNodeHeader();
 
-    WEB_CLIENT_HTML_EVENT_EXECUTOR.runHtmlEventOfTriggeredControlAndUpdateAccordingly(
+    WebClientHtmlEventExecutor.runHtmlEventOfTriggeredControlAndUpdateAccordingly(
       triggeredControl,
       htmlEvent,
       this::isOpen,
