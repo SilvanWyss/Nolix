@@ -23,13 +23,13 @@ public final class SslServer extends AbstractServer {
     createCloseDependencyTo(internalWebSocketServer);
   }
 
-  public SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+  public static SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-      .getDefaultSSLCertificatefromLocalNolixConfiguration();
+    final var sslCertificate = //
+    NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
-    return new SslServer(port, htmlPage, paramSSLCertificate);
+    return new SslServer(port, htmlPage, sslCertificate);
   }
 
   /**
