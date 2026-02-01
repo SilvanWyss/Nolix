@@ -11,7 +11,7 @@ import ch.nolix.coreapi.net.ssl.ISslCertificate;
 /**
  * @author Silvan Wyss
  */
-public final class NolixConfigurationSSLCertificateReader {
+public final class NolixConfigurationSslCertificateReader {
   private static final String DEFAULT_SSL_CERTIFICATE_HEADER = "DefaultSSLCertificate";
 
   private static final String DOMAIN_HEADER = "Domain";

@@ -3,7 +3,7 @@
  */
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
+import ch.nolix.core.net.ssl.NolixConfigurationSslCertificateReader;
 import ch.nolix.coreapi.net.endpoint3.ISlot;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
 import ch.nolix.coreapi.net.ssl.ISslCertificate;
@@ -12,8 +12,8 @@ import ch.nolix.coreapi.net.ssl.ISslCertificate;
  * @author Silvan Wyss
  */
 public final class SslServer extends AbstractServer {
-  private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-  new NolixConfigurationSSLCertificateReader();
+  private static final NolixConfigurationSslCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
+  new NolixConfigurationSslCertificateReader();
 
   private final ch.nolix.core.net.endpoint2.SslServer internalWebSocketServer;
 

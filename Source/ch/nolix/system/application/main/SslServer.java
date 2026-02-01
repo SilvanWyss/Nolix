@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
+import ch.nolix.core.net.ssl.NolixConfigurationSslCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.net.netconstant.PortCatalog;
 import ch.nolix.coreapi.net.securityproperty.SecurityMode;
@@ -19,8 +19,8 @@ public final class SslServer extends AbstractServer<SslServer> {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
-  private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-  new NolixConfigurationSSLCertificateReader();
+  private static final NolixConfigurationSslCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
+  new NolixConfigurationSslCertificateReader();
 
   private final ch.nolix.core.net.endpoint3.SslServer internalWebSocketServer;
 
