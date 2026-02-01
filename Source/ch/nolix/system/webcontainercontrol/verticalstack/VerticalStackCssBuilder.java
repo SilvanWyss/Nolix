@@ -12,7 +12,6 @@ import ch.nolix.coreapi.web.cssmodel.ICssProperty;
 import ch.nolix.coreapi.web.cssmodel.ICssRule;
 import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
-import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
 import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStackStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -22,6 +21,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  */
 public final class VerticalStackCssBuilder
 extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
     final IVerticalStack verticalStack,
@@ -56,7 +58,7 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
     list.addAtEnd(
       CssProperty.withNameAndValue("display", "flex"),
       CssProperty.withNameAndValue("flex-direction", "column"),
-      createCssPropertyForContentAlignmentOfControl(control));
+      HorizontalContentAlignmentHelper.createCssPropertyForContentAlignmentOfVerticalStack(control));
   }
 
   /**
@@ -68,22 +70,5 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
     //Does nothing.
-  }
-
-  private CssProperty createCssPropertyForContentAlignment(final HorizontalContentAlignment contentAlignment) {
-    return switch (contentAlignment) {
-      case LEFT ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "start");
-      case CENTER ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "center");
-      case RIGHT ->
-        CssProperty.withNameAndValue(CssPropertyNameCatalog.ALIGN_ITEMS, "end");
-    };
-  }
-
-  private CssProperty createCssPropertyForContentAlignmentOfControl(final IVerticalStack control) {
-    final var contentAlignment = control.getContentAlignment();
-
-    return createCssPropertyForContentAlignment(contentAlignment);
   }
 }
