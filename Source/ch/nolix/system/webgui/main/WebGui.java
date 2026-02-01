@@ -59,8 +59,6 @@ implements IWebGui<WebGui> {
 
   private static final String LAYER_HEADER = PascalCaseVariableCatalog.LAYER;
 
-  private static final WebGuiHtmlBuilder WEB_GUI_HTML_BUILDER = new WebGuiHtmlBuilder();
-
   private static final WebGuiCssBuilder WEB_GUI_CSS_BUILDER = new WebGuiCssBuilder();
 
   private final MutableValue<String> title = new MutableValue<>(
@@ -186,7 +184,7 @@ implements IWebGui<WebGui> {
    */
   @Override
   public IHtmlElement getHtml() {
-    return WEB_GUI_HTML_BUILDER.createHtmlForWebGui(this);
+    return WebGuiHtmlBuilder.createHtmlForWebGui(this);
   }
 
   /**
