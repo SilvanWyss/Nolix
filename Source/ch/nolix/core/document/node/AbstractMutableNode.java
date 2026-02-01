@@ -4,7 +4,6 @@
 package ch.nolix.core.document.node;
 
 import ch.nolix.core.environment.filesystem.FileAccessor;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.Validator;
 import ch.nolix.coreapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
@@ -12,6 +11,10 @@ import ch.nolix.coreapi.document.node.IMutableNode;
 import ch.nolix.coreapi.document.node.INode;
 import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ * @param <N> is the type of a {@link AbstractMutableNode}.
+ */
 public abstract class AbstractMutableNode<N extends AbstractMutableNode<N>>
 extends AbstractNode<N>
 implements IMutableNode<N> {
@@ -86,13 +89,7 @@ implements IMutableNode<N> {
    */
   @Override
   public final void resetFromString(final String string) {
-    reset();
-
-    if (setFromStringAndStartIndexAndGetEndIndex(string, 0) != string.length() - 1) {
-      reset();
-
-      throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
-    }
+    MutableNodeStringResetter.resetMutableNodeFromString(this, string);
   }
 
   /**
@@ -110,57 +107,4 @@ implements IMutableNode<N> {
    * @return the current {@link AbstractMutableNode}.
    */
   protected abstract N asConcrete();
-
-  final int setFromStringAndStartIndexAndGetEndIndex(final String string, final int startIndex) {
-    final var headerLength = getHeaderLengthFromStringAndStartIndex(string, startIndex);
-
-    if (headerLength > 0) {
-      setHeader(getOriginStringFromEscapeString(string.substring(startIndex, startIndex + headerLength)));
-    }
-
-    var index = startIndex + headerLength;
-
-    if (index == string.length()) {
-      return (index - 1);
-    }
-
-    final var character = string.charAt(index);
-
-    if (character == ',' || character == ')') {
-      return index - 1;
-    }
-
-    if (index < string.length()) {
-      var node = MutableNode.createEmpty();
-      index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
-      addChildNode(node);
-    }
-
-    while (index < string.length()) {
-      switch (string.charAt(index)) {
-        case ',':
-          var node = MutableNode.createEmpty();
-          index = node.setFromStringAndStartIndexAndGetEndIndex(string, index + 1) + 1;
-          addChildNode(node);
-          break;
-        case ')':
-          return index;
-        default:
-      }
-    }
-
-    throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
-  }
-
-  private int getHeaderLengthFromStringAndStartIndex(final String string, final int startIndex) {
-    for (var index = startIndex; index < string.length(); index++) {
-      final var character = string.charAt(index);
-
-      if (character == '(' || character == ',' || character == ')') {
-        return (index - startIndex);
-      }
-    }
-
-    return (string.length() - startIndex);
-  }
 }
