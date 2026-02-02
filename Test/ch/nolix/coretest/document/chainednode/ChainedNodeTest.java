@@ -123,7 +123,7 @@ final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A1() {
     //setup
-    final var testUnit = new ChainedNode();
+    final var testUnit = ChainedNode.EMPTY_CHAINED_NODE;
 
     //execution & verification
     expectRunning(testUnit::toInt)

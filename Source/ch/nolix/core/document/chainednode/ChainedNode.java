@@ -29,6 +29,8 @@ import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
  */
 public final class ChainedNode //NOSONAR: A ChainedNode is a principal object thus it has many methods.
 implements IChainedNode {
+  public static final ChainedNode EMPTY_CHAINED_NODE = new ChainedNode();
+
   public static final String DOT_CODE = "$D";
 
   public static final String COMMA_CODE = "$M";
@@ -48,9 +50,9 @@ implements IChainedNode {
   private final LinkedList<ChainedNode> memberChildNodes = LinkedList.createEmpty();
 
   /**
-   * Creates a new {@link ChainedNode}.
+   * Creates a new empty {@link ChainedNode}.
    */
-  public ChainedNode() {
+  private ChainedNode() {
     memberHeader = null;
     nextNode = null;
   }
