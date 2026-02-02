@@ -82,7 +82,8 @@ public final class ClosedInterval implements IClosedInterval {
     final var decimalPlaces = getDecimalPlaces();
     final var midPoint = getMidPoint();
 
-    return new Pair<>(
+    return //
+    Pair.withElement1AndElement2(
       new ClosedInterval(min, midPoint, decimalPlaces),
       new ClosedInterval(midPoint, max, decimalPlaces));
   }

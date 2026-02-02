@@ -32,7 +32,8 @@ public final class X11ColorCatalogExtractor {
       final var colorField = colorFields.removeAndGetStoredFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 
       x11Colors.addAtEnd(
-        new Pair<>(ReflectionTool.getValueOfStaticField(f),
+        Pair.withElement1AndElement2(
+          ReflectionTool.getValueOfStaticField(f),
           ReflectionTool.getValueOfStaticField(colorField)));
     }
 

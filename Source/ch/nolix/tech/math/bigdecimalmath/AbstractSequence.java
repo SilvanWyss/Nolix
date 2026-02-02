@@ -58,7 +58,7 @@ abstract class AbstractSequence<V> implements ISequence<V> {
       final var value = calculateValue(i);
       final var valueSquaredMagnitude = calculateSquaredMagnitudeForValue(value);
 
-      valuesAndSquaredMagnitudes.add(new Pair<>(value, valueSquaredMagnitude));
+      valuesAndSquaredMagnitudes.add(Pair.withElement1AndElement2(value, valueSquaredMagnitude));
     }
   }
 }

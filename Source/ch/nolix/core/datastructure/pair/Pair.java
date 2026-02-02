@@ -20,19 +20,32 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
   private final E2 element2;
 
   /**
-   * Creates a new {@link Pair} with the given elements.
+   * Creates a new {@link Pair} with the given element1 and element2.
    * 
    * @param element1
    * @param element2
    * @throws ArgumentIsNullException if the given element 1 is null.
    * @throws ArgumentIsNullException if the given element 2 is null.
    */
-  public Pair(final E1 element1, final E2 element2) {
+  private Pair(final E1 element1, final E2 element2) {
     Validator.assertThat(element1).thatIsNamed("element 1").isNotNull();
     Validator.assertThat(element2).thatIsNamed("element 2").isNotNull();
 
     this.element1 = element1;
     this.element2 = element2;
+  }
+
+  /**
+   * @param element1
+   * @param element2
+   * @param <T1>     is the type of the given element1.
+   * @param <T2>     is the type of the given element2.
+   * @return a new {@link Pair} with the given element1 and element2.
+   * @throws ArgumentIsNullException if the given element 1 is null.
+   * @throws ArgumentIsNullException if the given element 2 is null.
+   */
+  public static <T1, T2> Pair<T1, T2> withElement1AndElement2(final T1 element1, final T2 element2) {
+    return new Pair<>(element1, element2);
   }
 
   /**
