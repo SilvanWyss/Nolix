@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.commonarchitecturetest;
+package ch.nolix.unionarchitecturetest;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
