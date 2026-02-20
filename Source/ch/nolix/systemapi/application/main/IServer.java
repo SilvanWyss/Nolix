@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.application.main;
 
-import ch.nolix.coreapi.manager.applicationmanager.IApplicationManager;
-import ch.nolix.coreapi.net.netattribute.ISecuriyModeHolder;
-import ch.nolix.coreapi.net.target.IServerTarget;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.manager.applicationmanager.IApplicationManager;
+import ch.nolix.baseapi.net.netattribute.ISecuriyModeHolder;
+import ch.nolix.baseapi.net.target.IServerTarget;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

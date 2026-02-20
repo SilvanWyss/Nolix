@@ -34,8 +34,8 @@ final class TemplateArchitectureTest {
       .should()
       .onlyDependOnClassesThat()
       .resideInAnyPackage(
-        "ch.nolix.core..",
-        "ch.nolix.coreapi..",
+        "ch.nolix.base..",
+        "ch.nolix.baseapi..",
         "ch.nolix.system..",
         "ch.nolix.systemapi..",
         "ch.nolix.tech..",

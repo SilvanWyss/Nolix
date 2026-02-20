@@ -6,10 +6,10 @@ package ch.nolix.tech.math.bigdecimalmath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import ch.nolix.core.datastructure.pair.Pair;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.Calculator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.datastructure.pair.Pair;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.math.main.Calculator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 /**

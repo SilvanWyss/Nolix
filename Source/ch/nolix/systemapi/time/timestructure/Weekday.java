@@ -5,7 +5,7 @@ package ch.nolix.systemapi.time.timestructure;
 
 import java.time.DayOfWeek;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

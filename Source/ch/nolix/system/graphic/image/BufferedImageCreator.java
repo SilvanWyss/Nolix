@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import ch.nolix.core.errorcontrol.generalexception.WrapperException;
+import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 
 /**
  * @author Silvan Wyss

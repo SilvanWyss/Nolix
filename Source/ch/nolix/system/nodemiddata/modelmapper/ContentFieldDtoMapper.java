@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.nodemiddata.modelmapper;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;

@@ -1,0 +1,24 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.attribute.mandatoryattribute;
+
+/**
+ * A {@link IShortDescriptionHolder} has a short description.
+ * 
+ * @author Silvan Wyss
+ */
+public interface IShortDescriptionHolder {
+  /**
+   * @return the short description of the current {@link IShortDescriptionHolder}.
+   */
+  String getShortDescription();
+
+  /**
+   * @return the short description of the current {@link IShortDescriptionHolder}
+   *         in quotes.
+   */
+  default String getShortDescriptionInQuotes() {
+    return ("'" + getShortDescription() + "'");
+  }
+}

@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;

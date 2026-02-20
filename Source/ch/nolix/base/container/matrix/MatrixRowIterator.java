@@ -1,0 +1,82 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.container.matrix;
+
+import java.util.NoSuchElementException;
+
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+
+final class MatrixRowIterator<E> implements CopyableIterator<E> {
+  private final MatrixRow<E> parentMatrixRow;
+
+  private int nextElementOneBasedColumnIndex;
+
+  private MatrixRowIterator(final MatrixRow<E> parentMatrixRow) {
+    Validator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
+
+    this.parentMatrixRow = parentMatrixRow;
+    nextElementOneBasedColumnIndex = 1;
+  }
+
+  private MatrixRowIterator(final MatrixRow<E> parentMatrixRow, final int nextElementOneBasedColumnIndex) {
+    Validator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
+
+    Validator
+      .assertThat(nextElementOneBasedColumnIndex)
+      .thatIsNamed("next element 1-based column index")
+      .isPositive();
+
+    this.parentMatrixRow = parentMatrixRow;
+    this.nextElementOneBasedColumnIndex = nextElementOneBasedColumnIndex;
+  }
+
+  public static <T> MatrixRowIterator<T> forMatrixRow(final MatrixRow<T> matrixRow) {
+    return new MatrixRowIterator<>(matrixRow);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public CopyableIterator<E> getCopy() {
+    return new MatrixRowIterator<>(parentMatrixRow, nextElementOneBasedColumnIndex);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean hasNext() {
+    return (nextElementOneBasedColumnIndex <= parentMatrixRow.getCount());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public E next() {
+    assertHasNext();
+
+    return nextWhenHasNext();
+  }
+
+  private void assertHasNext() throws NoSuchElementException {
+    if (!hasNext()) {
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NEXT_ELEMENT)
+        .toNoSuchElementException();
+    }
+  }
+
+  private E nextWhenHasNext() {
+    final var element = parentMatrixRow.getStoredAtOneBasedIndex(nextElementOneBasedColumnIndex);
+
+    nextElementOneBasedColumnIndex++;
+
+    return element;
+  }
+}

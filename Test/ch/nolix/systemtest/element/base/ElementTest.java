@@ -5,11 +5,11 @@ package ch.nolix.systemtest.element.base;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 
 /**

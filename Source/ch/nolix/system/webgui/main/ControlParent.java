@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
 

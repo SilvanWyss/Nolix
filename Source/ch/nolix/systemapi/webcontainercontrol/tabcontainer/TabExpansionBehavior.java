@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webcontainercontrol.tabcontainer;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * A {@link TabExpansionBehavior} is not mutable.

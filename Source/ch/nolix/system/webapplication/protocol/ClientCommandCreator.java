@@ -5,11 +5,11 @@ package ch.nolix.system.webapplication.protocol;
 
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.net.target.IServerTarget;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webapplication.protocol.IClientCommandCreator;

@@ -7,9 +7,9 @@ import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.LocalServer;
 

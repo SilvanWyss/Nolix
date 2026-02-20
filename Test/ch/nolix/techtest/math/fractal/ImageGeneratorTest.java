@@ -5,7 +5,7 @@ package ch.nolix.techtest.math.fractal;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.ImageGenerator;
 

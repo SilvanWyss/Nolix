@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.adapter;
 
-import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.adapter.AbstractDataAdapter;
 import ch.nolix.system.sqlmiddata.datareader.DataReader;
 import ch.nolix.system.sqlmiddata.datawriter.DataWriter;

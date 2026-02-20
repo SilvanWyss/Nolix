@@ -5,8 +5,8 @@ package ch.nolix.systemapi.objectdata.model;
 
 import java.util.function.Predicate;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.nodemidschema.nodemapper;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.ITableNodeMapper;

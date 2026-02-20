@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.net.target.IServerTarget;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 
 /**

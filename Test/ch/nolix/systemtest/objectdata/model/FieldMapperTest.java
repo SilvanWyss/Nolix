@@ -6,8 +6,8 @@ package ch.nolix.systemtest.objectdata.model;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.model.AbstractField;
 import ch.nolix.system.objectdata.model.Column;
 import ch.nolix.system.objectdata.model.FieldMapper;

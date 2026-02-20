@@ -5,14 +5,14 @@ package ch.nolix.system.webatomiccontrol.validationlabel;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.generalexception.GeneralException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.generalexception.GeneralException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.Control;

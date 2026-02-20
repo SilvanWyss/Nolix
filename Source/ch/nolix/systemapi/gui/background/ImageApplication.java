@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.background;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

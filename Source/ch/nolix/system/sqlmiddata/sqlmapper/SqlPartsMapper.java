@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.sqlmiddata.sqlmapper;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.sql.sqltool.ISqlLiteralMapper;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.sql.sqltool.SqlLiteralMapper;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlPartsMapper;
 

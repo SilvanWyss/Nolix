@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.gui.cssmapper;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.cssmodel.CssProperty;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
-import ch.nolix.coreapi.web.cssmodel.ICssProperty;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.Direction;

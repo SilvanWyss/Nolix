@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.environment.localcomputer.LocalComputer;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.net.netconstant.PortCatalog;
-import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.net.server.ISinglePortServer;
-import ch.nolix.coreapi.net.target.IServerTarget;
+import ch.nolix.base.environment.localcomputer.LocalComputer;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.base.net.target.ServerTarget;
+import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.server.ISinglePortServer;
+import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 
 /**
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.application.main.IApplication;
 public final class Server extends AbstractServer<Server> implements ISinglePortServer {
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.NONE;
 
-  private ch.nolix.core.net.endpoint3.Server internalServer;
+  private ch.nolix.base.net.endpoint3.Server internalServer;
 
   /**
    * Creates a new {@link Server} that will listen to net {@link AbstractClient}s
@@ -32,7 +32,7 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    */
   private Server(final int port) {
     //Creates the internalServer of the current Server.
-    internalServer = ch.nolix.core.net.endpoint3.Server.forPortAndHttpMessage(
+    internalServer = ch.nolix.base.net.endpoint3.Server.forPortAndHttpMessage(
       port,
       new ServerHttpMessage(getIp(), port).toString());
 

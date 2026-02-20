@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.controlstyle;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.webgui.main.ControlState;
 

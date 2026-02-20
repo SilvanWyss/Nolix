@@ -5,11 +5,11 @@ package ch.nolix.system.midschema.adapter;
 
 import java.util.function.Supplier;
 
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;

@@ -1,0 +1,44 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.datamodel.fieldvalue;
+
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.misc.dataobject.Blob;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class ValueMapper implements IValueMapper {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Object mapStringToValue(final String string, final DataType dataType) {
+    return //
+    switch (dataType) {
+      case INTEGER_1BYTE ->
+        Byte.valueOf(string);
+      case INTEGER_2BYTE ->
+        Short.valueOf(string);
+      case INTEGER_4BYTE ->
+        Integer.valueOf(string);
+      case INTEGER_8BYTE ->
+        Long.valueOf(string);
+      case FLOATING_POINT_NUMBER_4BYTE ->
+        Float.valueOf(string);
+      case FLOATING_POINT_NUMBER_8BYTE ->
+        Double.valueOf(string);
+      case BOOLEAN ->
+        Boolean.valueOf(string);
+      case STRING ->
+        string;
+      case BINARY_OBJECT ->
+        Blob.fromString(string);
+      default ->
+        throw InvalidArgumentException.forArgument(dataType);
+    };
+  }
+}

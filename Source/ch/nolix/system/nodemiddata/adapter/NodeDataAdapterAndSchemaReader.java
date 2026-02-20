@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.nodemiddata.adapter;
 
-import ch.nolix.core.document.node.FileNode;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.base.document.node.FileNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.middata.adapter.AbstractDataAdapterAndSchemaReader;
 import ch.nolix.system.nodemidschema.adapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;

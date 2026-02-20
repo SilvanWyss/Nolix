@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.sqlschema.adapter;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;

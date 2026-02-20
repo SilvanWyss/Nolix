@@ -5,8 +5,8 @@ package ch.nolix.systemtest.webatomiccontrol.validationlabel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.errorcontrol.generalexception.GeneralException;
-import ch.nolix.core.misc.function.FunctionService;
+import ch.nolix.base.errorcontrol.generalexception.GeneralException;
+import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;

@@ -6,7 +6,7 @@ package ch.nolix.systemapi.gui.model;
 import java.awt.Cursor;
 import java.util.Locale;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

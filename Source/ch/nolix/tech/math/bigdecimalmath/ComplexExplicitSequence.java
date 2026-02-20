@@ -6,7 +6,7 @@ package ch.nolix.tech.math.bigdecimalmath;
 import java.math.BigDecimal;
 import java.util.function.IntFunction;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**

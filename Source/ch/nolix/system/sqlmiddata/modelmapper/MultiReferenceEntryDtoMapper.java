@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.modelmapper;
 
-import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;

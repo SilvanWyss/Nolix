@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.time.timevalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.ArgumentMediator;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**

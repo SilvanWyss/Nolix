@@ -5,10 +5,10 @@ package ch.nolix.system.webgui.main;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.ILayerStack;

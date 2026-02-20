@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.objectschema.adapter;
 
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
-import ch.nolix.core.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
-import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
-import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
-import ch.nolix.core.sql.connectionpool.SqlConnectionPoolBuilder;
-import ch.nolix.coreapi.sql.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.base.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
+import ch.nolix.base.sql.connectionpool.SqlConnectionPoolBuilder;
+import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 
 /**
  * @author Silvan Wyss

@@ -5,10 +5,10 @@ package ch.nolix.systemapi.webgui.main;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.state.statemutation.Clearable;
-import ch.nolix.coreapi.web.cssmodel.ICss;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.web.cssmodel.ICss;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.gui.background.IBackgroundHolder;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;

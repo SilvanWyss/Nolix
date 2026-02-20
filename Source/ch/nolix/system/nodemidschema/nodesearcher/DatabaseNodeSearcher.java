@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.nodemidschema.nodesearcher;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;

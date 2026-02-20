@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.sqlmiddata.modelmapper;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;

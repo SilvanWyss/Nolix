@@ -5,14 +5,14 @@ package ch.nolix.system.webatomiccontrol.uploader;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webatomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.webatomiccontrol.uploader.IUploaderStyle;

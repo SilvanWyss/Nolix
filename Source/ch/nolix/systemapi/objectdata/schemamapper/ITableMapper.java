@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.schemamapper;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectschema.model.ITable;

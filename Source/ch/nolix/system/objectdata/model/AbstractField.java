@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelflyweight.FieldFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidFieldFlyWeight;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.databaseinitializer;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**

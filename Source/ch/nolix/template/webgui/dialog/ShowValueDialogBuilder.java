@@ -5,10 +5,10 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.objectcreation.builder.IBuilder;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStack;

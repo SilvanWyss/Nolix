@@ -5,7 +5,7 @@ package ch.nolix.techapi.math.bigdecimalmath;
 
 import java.math.BigDecimal;
 
-import ch.nolix.coreapi.datastructure.pair.IPair;
+import ch.nolix.baseapi.datastructure.pair.IPair;
 
 /**
  * @author Silvan Wyss

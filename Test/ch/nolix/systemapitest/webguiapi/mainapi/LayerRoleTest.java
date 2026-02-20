@@ -7,11 +7,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 
 /**

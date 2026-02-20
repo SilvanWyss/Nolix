@@ -1,0 +1,25 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute;
+
+import ch.nolix.baseapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
+
+/**
+ * A {@link IFluentMutableOneBasedIndexHolder} is a {@link IOneBasedIndexHolder}
+ * whose one-based index can be set programmatically and fluently.
+ * 
+ * @author Silvan Wyss
+ * @param <I> is the type of a {@link IFluentMutableOneBasedIndexHolder}.
+ */
+public interface IFluentMutableOneBasedIndexHolder<I extends IFluentMutableOneBasedIndexHolder<I>>
+extends IOneBasedIndexHolder {
+  /**
+   * Sets the one-based index of the current
+   * {@link IFluentMutableOneBasedIndexHolder}.
+   * 
+   * @param oneBasedIndex
+   * @return the current {@link IFluentMutableOneBasedIndexHolder}.
+   */
+  I setOneBasedIndex(int oneBasedIndex);
+}

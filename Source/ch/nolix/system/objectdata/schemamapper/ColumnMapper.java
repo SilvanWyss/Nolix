@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.objectdata.schemamapper;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectdata.model.AbstractBaseBackReference;
 import ch.nolix.system.objectdata.model.AbstractBaseReference;
 import ch.nolix.system.objectdata.model.AbstractBaseValueField;

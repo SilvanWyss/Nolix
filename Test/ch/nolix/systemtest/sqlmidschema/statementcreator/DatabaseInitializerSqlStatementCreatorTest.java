@@ -5,7 +5,7 @@ package ch.nolix.systemtest.sqlmidschema.statementcreator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabaseInitializationStatementCreator;
 import ch.nolix.system.time.moment.Time;
 

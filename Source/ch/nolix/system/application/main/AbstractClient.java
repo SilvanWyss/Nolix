@@ -3,18 +3,18 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.endpoint3.AbstractEndPoint;
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.net.endpoint3.IEndPoint;
-import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.net.endpoint3.AbstractEndPoint;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.net.endpoint3.IEndPoint;
+import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.application.client.IClient;
 
 /**

@@ -1,0 +1,25 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.state.staterequest;
+
+/**
+ * A {@link UpToDateRequestable} can be asked if it is up-to-date.
+ * 
+ * @author Silvan Wyss
+ */
+public interface UpToDateRequestable {
+  /**
+   * @return true if the current {@link UpToDateRequestable} is not up-to-date,
+   *         false otherwise.
+   */
+  default boolean isOutOfDate() {
+    return !isUpToDate();
+  }
+
+  /**
+   * @return true if the current {@link UpToDateRequestable} is up-to-date, false
+   *         otherwise.
+   */
+  boolean isUpToDate();
+}

@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.nodemidschema.nodemapper;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodemapper.IColumnNodeMapper;

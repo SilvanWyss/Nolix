@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.objectschema.modelmutationvalidator;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;

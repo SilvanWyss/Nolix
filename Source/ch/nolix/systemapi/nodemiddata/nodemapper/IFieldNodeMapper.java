@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodemapper;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 

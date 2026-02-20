@@ -1,0 +1,38 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.programcontrol.flowcontrol;
+
+import java.util.function.IntConsumer;
+
+import ch.nolix.baseapi.programcontrol.future.IFuture;
+
+/**
+ * @author Silvan Wyss
+ */
+public interface IForCountMediator {
+  /**
+   * Lets the current {@link IForCountMediator} run the given job.
+   * 
+   * @param job
+   * @throws RuntimeException if the given job is null.
+   */
+  void run(Runnable job);
+
+  /**
+   * Lets the current {@link IForCountMediator} run the given job.
+   * 
+   * @param job
+   * @throws RuntimeException if the given job is null.
+   */
+  void run(IntConsumer job);
+
+  /**
+   * Lets the current {@link IForCountMediator} run the given job in background.
+   * 
+   * @param job
+   * @return a new {@link IFuture} for the job execution.
+   * @throws RuntimeException if the given job is null.
+   */
+  IFuture runInBackground(Runnable job);
+}

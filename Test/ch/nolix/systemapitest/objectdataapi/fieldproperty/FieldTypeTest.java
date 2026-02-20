@@ -7,9 +7,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.datamodel.cardinality.Cardinality;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.nodeeditor;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemiddata.nodeeditor.ITableNodeEditor;
 import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;

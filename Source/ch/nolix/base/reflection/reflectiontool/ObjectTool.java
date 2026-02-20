@@ -1,0 +1,65 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.reflection.reflectiontool;
+
+import java.lang.reflect.Field;
+
+import ch.nolix.base.errorcontrol.generalexception.WrapperException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.reflection.reflectiontool.IObjectTool;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class ObjectTool implements IObjectTool {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getNameOfFirstFieldThatHasValue(final Object object, final Object value) {
+    final var field = getStoredFirstFieldThatHasValue(object, value);
+
+    return field.getName();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Field getStoredFirstFieldThatHasValue(final Object object, final Object value) {
+    var localClass = object.getClass();
+
+    while (localClass != null) {
+      for (final var f : localClass.getDeclaredFields()) {
+        final var fieldValue = getStoredValueOfField(object, f);
+
+        if (fieldValue == value) {
+          return f;
+        }
+      }
+
+      localClass = localClass.getSuperclass();
+    }
+
+    if (value != null) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, value.getClass());
+    }
+
+    throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(object, "null");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Object getStoredValueOfField(final Object object, final Field field) {
+    field.setAccessible(true);
+
+    try {
+      return field.get(object);
+    } catch (final IllegalAccessException illegalAccessException) {
+      throw WrapperException.forError(illegalAccessException);
+    }
+  }
+}

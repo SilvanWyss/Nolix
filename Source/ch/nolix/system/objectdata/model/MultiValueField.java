@@ -6,9 +6,9 @@ package ch.nolix.system.objectdata.model;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;

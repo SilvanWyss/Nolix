@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectdata.adapter;
 
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
-import ch.nolix.core.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
-import ch.nolix.core.argumentcaptor.withargumentcaptor.WithNameCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.base.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
+import ch.nolix.base.argumentcaptor.withargumentcaptor.WithNameCaptor;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 /**

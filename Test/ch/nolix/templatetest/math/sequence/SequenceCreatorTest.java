@@ -5,7 +5,7 @@ package ch.nolix.templatetest.math.sequence;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.template.math.sequence.SequenceFactory;
 

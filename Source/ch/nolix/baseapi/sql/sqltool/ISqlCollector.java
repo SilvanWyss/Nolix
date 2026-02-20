@@ -1,0 +1,21 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.sql.sqltool;
+
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
+import ch.nolix.baseapi.state.statemutation.Clearable;
+
+/**
+ * @author Silvan Wyss
+ */
+public interface ISqlCollector extends Clearable {
+  ISqlCollector addSqlStatement(String sqlstatement, String... sqlStatements);
+
+  ISqlCollector addSqlStatements(Iterable<String> sqlStatements);
+
+  IContainer<String> getSqlStatements();
+
+  void executeAndClearUsingConnection(ISqlConnection sqlConnection);
+}

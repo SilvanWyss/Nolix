@@ -6,10 +6,10 @@ package ch.nolix.system.element.property;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**

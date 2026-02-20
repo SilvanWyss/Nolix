@@ -5,8 +5,8 @@ package ch.nolix.systemtest.element.multistateconfiguration;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;

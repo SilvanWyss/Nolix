@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webcontainercontrol.horizontalstack;
 
-import ch.nolix.core.document.node.Node;
+import ch.nolix.base.document.node.Node;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.webcontainercontrol.linearcontainer.AbstractLinearContainer;
 import ch.nolix.systemapi.gui.box.VerticalContentAlignment;

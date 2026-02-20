@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.nodemiddata.datawriter;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcherForDatabaseView;
 import ch.nolix.system.nodemiddata.nodemapper.EntityIndexNodeMapper;
 import ch.nolix.system.nodemiddata.nodemapper.EntityNodeMapper;

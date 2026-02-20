@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.schemaviewmodelmapper;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IDatabaseSchemaViewDtoMapper;

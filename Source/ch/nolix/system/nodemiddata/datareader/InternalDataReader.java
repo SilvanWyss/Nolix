@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.nodemiddata.datareader;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.system.nodemiddata.modelmapper.EntityLoadingDtoMapper;
 import ch.nolix.system.nodemiddata.modelmapper.MultiBackReferenceEntryDtoMapper;

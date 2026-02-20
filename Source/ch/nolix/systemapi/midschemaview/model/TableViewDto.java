@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.midschemaview.model;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 
 /**
  * @author Silvan Wyss

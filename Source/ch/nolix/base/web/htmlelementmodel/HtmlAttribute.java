@@ -1,0 +1,71 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.web.htmlelementmodel;
+
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class HtmlAttribute implements IHtmlAttribute {
+  private final String name;
+
+  private final String value;
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  private HtmlAttribute(final String name, final String value) {
+    if (name == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.KEY);
+    }
+
+    if (value == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
+    }
+
+    this.name = name;
+    this.value = value;
+  }
+
+  public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
+    if (htmlAttribute instanceof final HtmlAttribute concreteHtmlAttribute) {
+      return concreteHtmlAttribute;
+    }
+
+    return withNameAndValue(htmlAttribute.getName(), htmlAttribute.getValue());
+  }
+
+  public static HtmlAttribute withNameAndValue(final String name, final int value) {
+    return withNameAndValue(name, String.valueOf(value));
+  }
+
+  public static HtmlAttribute withNameAndValue(final String name, final String value) {
+    return new HtmlAttribute(name, value);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getValue() {
+    return value;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toString() {
+    return (getName() + "=\"" + getValue() + "\"");
+  }
+}

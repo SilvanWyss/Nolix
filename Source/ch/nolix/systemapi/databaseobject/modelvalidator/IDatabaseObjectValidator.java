@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.databaseobject.modelvalidator;
 
-import ch.nolix.coreapi.resourcecontrol.resourcevalidator.IResourceValidator;
+import ch.nolix.baseapi.resourcecontrol.resourcevalidator.IResourceValidator;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**

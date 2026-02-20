@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.objectdata.adapter;
 
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndPortCaptor;
-import ch.nolix.core.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
-import ch.nolix.core.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
-import ch.nolix.core.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
-import ch.nolix.coreapi.net.netconstant.PortCatalog;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
+import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
+import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
+import ch.nolix.base.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
+import ch.nolix.baseapi.net.netconstant.PortCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 /**

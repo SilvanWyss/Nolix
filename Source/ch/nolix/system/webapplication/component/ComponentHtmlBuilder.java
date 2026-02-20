@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.webapplication.component;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.htmlelementmodel.HtmlElement;
-import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

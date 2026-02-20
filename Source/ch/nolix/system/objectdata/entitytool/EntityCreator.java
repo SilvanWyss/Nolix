@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.entitytool;
 
-import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
+import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 

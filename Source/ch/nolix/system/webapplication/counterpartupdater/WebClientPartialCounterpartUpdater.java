@@ -6,11 +6,11 @@ package ch.nolix.system.webapplication.counterpartupdater;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**

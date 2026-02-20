@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.style.stylable;
 
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;

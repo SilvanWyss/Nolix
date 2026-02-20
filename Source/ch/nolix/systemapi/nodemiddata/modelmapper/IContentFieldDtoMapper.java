@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.nodemiddata.modelmapper;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;

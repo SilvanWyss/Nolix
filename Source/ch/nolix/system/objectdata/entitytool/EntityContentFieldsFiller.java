@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.entitytool;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityContentFieldsFiller;

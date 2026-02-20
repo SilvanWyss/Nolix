@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webatomiccontrol.validationlabel;
 
-import ch.nolix.core.web.htmlelementmodel.HtmlElement;
-import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webatomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.objectdata.modelvalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ReferencedArgumentException;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ReferencedArgumentException;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;

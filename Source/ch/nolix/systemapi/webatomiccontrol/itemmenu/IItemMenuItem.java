@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.webatomiccontrol.itemmenu;
 
-import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
-import ch.nolix.coreapi.state.staterequest.BlanknessRequestable;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
+import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.gui.selection.Selectable;
 

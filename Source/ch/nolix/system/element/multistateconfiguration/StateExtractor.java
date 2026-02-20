@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.element.multistateconfiguration;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
 
 final class StateExtractor<S extends Enum<S>> {
   public IContainer<State<S>> createStatesFromStateClass(final Class<S> stateClass) {

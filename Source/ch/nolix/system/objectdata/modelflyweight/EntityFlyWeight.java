@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.modelflyweight;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.systemapi.objectdata.modelflyweight.IEntityFlyWeight;
 
 /**

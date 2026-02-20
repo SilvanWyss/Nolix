@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

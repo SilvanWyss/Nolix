@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.element.property;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.element.property.IProperty;
 

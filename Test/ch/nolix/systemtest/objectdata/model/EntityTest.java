@@ -5,7 +5,7 @@ package ch.nolix.systemtest.objectdata.model;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 

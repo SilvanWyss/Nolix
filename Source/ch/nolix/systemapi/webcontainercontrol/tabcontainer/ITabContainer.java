@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webcontainercontrol.tabcontainer;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabelStyle;
 
 /**

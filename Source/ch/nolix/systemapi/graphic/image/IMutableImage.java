@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.graphic.image;
 
-import ch.nolix.coreapi.objectcreation.copier.Copyable;
+import ch.nolix.baseapi.objectcreation.copier.Copyable;
 import ch.nolix.systemapi.graphic.color.IColor;
 
 /**

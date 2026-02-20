@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.commontypetool.stringtool.StringTool;
-import ch.nolix.core.environment.runningjar.RunningJar;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.environment.runningjar.RunningJar;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
 /**

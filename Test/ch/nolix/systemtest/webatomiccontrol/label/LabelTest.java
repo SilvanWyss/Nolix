@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webatomiccontrol.label;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;

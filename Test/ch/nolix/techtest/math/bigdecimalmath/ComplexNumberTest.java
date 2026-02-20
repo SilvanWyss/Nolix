@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 
 /**

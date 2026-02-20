@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.sqlschema.adapter;
 
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.coreapi.resourcecontrol.resourcepool.IResourcePool;
-import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaAdapter;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;

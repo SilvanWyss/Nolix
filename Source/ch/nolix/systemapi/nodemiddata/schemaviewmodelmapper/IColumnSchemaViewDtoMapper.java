@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 
 /**

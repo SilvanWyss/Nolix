@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.nodemidschema.nodesearcher;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;

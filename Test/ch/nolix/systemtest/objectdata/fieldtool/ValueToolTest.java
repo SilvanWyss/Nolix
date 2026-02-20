@@ -5,7 +5,7 @@ package ch.nolix.systemtest.objectdata.fieldtool;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.fieldexaminer.ValueFieldExaminer;
 import ch.nolix.system.objectdata.model.Entity;

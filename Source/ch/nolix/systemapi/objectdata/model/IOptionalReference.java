@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

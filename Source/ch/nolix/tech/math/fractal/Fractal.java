@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;

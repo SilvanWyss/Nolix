@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webgui.controltool;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.webatomiccontrol.label.Label;

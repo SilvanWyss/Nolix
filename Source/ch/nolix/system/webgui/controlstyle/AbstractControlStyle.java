@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;

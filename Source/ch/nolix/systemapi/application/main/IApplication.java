@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.application.main;
 
-import ch.nolix.coreapi.net.target.IApplicationInstanceTarget;
+import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.application.client.IBackendClient;
 
 /**

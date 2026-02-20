@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.box;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * A {@link Direction} defines the horizontal, vertical or diagonals options in

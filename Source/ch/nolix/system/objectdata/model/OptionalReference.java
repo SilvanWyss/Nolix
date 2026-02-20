@@ -5,10 +5,10 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalReferenceValidator;

@@ -5,11 +5,11 @@ package ch.nolix.system.graphic.image;
 
 import java.awt.image.BufferedImage;
 
-import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.environment.runningjar.RunningJar;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.matrix.Matrix;
+import ch.nolix.base.environment.runningjar.RunningJar;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;

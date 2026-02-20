@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
 import ch.nolix.systemapi.objectdata.model.IBackReference;

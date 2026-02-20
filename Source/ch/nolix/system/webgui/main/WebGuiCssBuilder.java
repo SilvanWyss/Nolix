@@ -3,15 +3,15 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.cssmodel.Css;
-import ch.nolix.core.web.cssmodel.CssProperty;
-import ch.nolix.core.web.cssmodel.CssRule;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
-import ch.nolix.coreapi.web.cssmodel.ICssRule;
-import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.web.cssmodel.Css;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.base.web.cssmodel.CssRule;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 

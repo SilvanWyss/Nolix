@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webcontainercontrol.singlecontainer;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
 
 /**

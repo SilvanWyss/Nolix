@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.modelsearcher;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;

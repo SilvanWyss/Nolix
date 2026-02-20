@@ -5,10 +5,10 @@ package ch.nolix.systemtest.application.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.environment.localcomputer.LocalComputer;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.net.netconstant.PortCatalog;
-import ch.nolix.coreapi.net.securityproperty.SecurityMode;
+import ch.nolix.base.environment.localcomputer.LocalComputer;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 /**

@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webapplication.component;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.system.webapplication.main.WebClientSession;
 
 public abstract class Controller<S> { //NOSONAR: A Controller is a base class without abstract methods.

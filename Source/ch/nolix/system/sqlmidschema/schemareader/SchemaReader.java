@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.sqlmidschema.schemareader;
 
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.modelmapper.TableDtoMapper;
 import ch.nolix.system.sqlmidschema.querycreator.QueryCreator;
 import ch.nolix.system.time.moment.Time;

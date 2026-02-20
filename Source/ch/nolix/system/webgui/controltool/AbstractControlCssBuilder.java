@@ -5,16 +5,16 @@ package ch.nolix.system.webgui.controltool;
 
 import java.util.Locale;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.cssmodel.CssProperty;
-import ch.nolix.core.web.cssmodel.CssRule;
-import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
-import ch.nolix.coreapi.web.cssmodel.ICssProperty;
-import ch.nolix.coreapi.web.cssmodel.ICssRule;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.base.web.cssmodel.CssRule;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;

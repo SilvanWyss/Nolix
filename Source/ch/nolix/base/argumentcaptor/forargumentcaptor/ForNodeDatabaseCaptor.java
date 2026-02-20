@@ -1,0 +1,38 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.argumentcaptor.forargumentcaptor;
+
+import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
+import ch.nolix.base.document.node.MutableNode;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.document.node.IMutableNode;
+
+/**
+ * @author Silvan Wyss
+ * @param <N> is the type of the next thing of a {@link ForNodeDatabaseCaptor}.
+ */
+public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N> {
+  public ForNodeDatabaseCaptor() {
+  }
+
+  public ForNodeDatabaseCaptor(final N nextArgumentCaptor) {
+    super(nextArgumentCaptor);
+  }
+
+  public final N forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
+
+    return setArgumentAndGetNext(nodeDatabase);
+  }
+
+  public final N forTemporaryInMemoryNodeDatabase() {
+    final var nodeDatabase = MutableNode.createEmpty();
+
+    return forNodeDatabase(nodeDatabase);
+  }
+
+  public final IMutableNode<?> getStoredNodeDatabase() {
+    return getStoredArgument();
+  }
+}

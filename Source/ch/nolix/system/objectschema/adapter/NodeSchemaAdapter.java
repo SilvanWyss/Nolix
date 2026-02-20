@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.objectschema.adapter;
 
-import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.environment.filesystem.FileAccessor;
-import ch.nolix.coreapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.base.document.node.MutableNode;
+import ch.nolix.base.environment.filesystem.FileAccessor;
+import ch.nolix.baseapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
+import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss

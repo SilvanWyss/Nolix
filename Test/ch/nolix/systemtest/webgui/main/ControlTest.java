@@ -5,9 +5,9 @@ package ch.nolix.systemtest.webgui.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.misc.dataobject.VoidObject;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.misc.dataobject.VoidObject;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webcontainercontrol.floatcontainer.FloatContainer;
 import ch.nolix.system.webgui.main.WebGui;

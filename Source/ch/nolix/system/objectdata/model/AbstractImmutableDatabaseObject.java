@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 

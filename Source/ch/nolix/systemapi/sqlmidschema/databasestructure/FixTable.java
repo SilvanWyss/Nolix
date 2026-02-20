@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 
 /**
  * @author Silvan Wyss

@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.element.multistateconfiguration;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 final class State<S extends Enum<S>> implements INameHolder {
   private static final String NAME = PascalCaseVariableCatalog.STATE;

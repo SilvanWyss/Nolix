@@ -1,0 +1,30 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.attribute.mutableoptionalattribute;
+
+import ch.nolix.baseapi.attribute.optionalattribute.IOptionalCardinalityHolder;
+
+/**
+ * A {@link IMutableOptionalCardinalityHolder} is a
+ * {@link IOptionalCardinalityHolder} whose cardinality can be set and removed
+ * programmatically.
+ * 
+ * @author Silvan Wyss
+ */
+public interface IMutableOptionalCardinalityHolder extends IOptionalCardinalityHolder {
+  /**
+   * Removes the cardinality of the current
+   * {@link IMutableOptionalCardinalityHolder}.
+   */
+  void removeCardinality();
+
+  /**
+   * Sets the cardinality of the current
+   * {@link IMutableOptionalCardinalityHolder}.
+   * 
+   * @param cardinality
+   * @throws RuntimeException if the given cardinality is null.
+   */
+  void setCardinality(String cardinality);
+}

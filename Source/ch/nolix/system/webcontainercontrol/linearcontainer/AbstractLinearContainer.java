@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webcontainercontrol.linearcontainer;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;

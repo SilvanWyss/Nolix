@@ -1,0 +1,22 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.errorcontrol.validator;
+
+/**
+ * @author Silvan Wyss
+ * @param <T> is the type a {@link ExtendedTypeMediator} is for.
+ */
+public final class ExtendedTypeMediator<T> extends TypeMediator<T> {
+  private ExtendedTypeMediator(final Class<T> argument) {
+    super(argument);
+  }
+
+  public static <T2> ExtendedTypeMediator<T2> forArgument(final Class<T2> argument) {
+    return new ExtendedTypeMediator<>(argument);
+  }
+
+  public TypeMediator<T> thatIsNamed(final String arguemtName) {
+    return new TypeMediator<>(arguemtName, getStoredArgument());
+  }
+}

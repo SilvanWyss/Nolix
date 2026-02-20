@@ -5,8 +5,8 @@ package ch.nolix.systemapi.webgui.main;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

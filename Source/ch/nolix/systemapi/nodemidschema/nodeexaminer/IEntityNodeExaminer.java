@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodeexaminer;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss

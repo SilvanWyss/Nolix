@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.objectdata.fieldvalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.OptionalReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IOptionalReferenceExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalReferenceValidator;

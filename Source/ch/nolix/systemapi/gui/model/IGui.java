@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.gui.model;
 
-import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTitleHolder;
-import ch.nolix.coreapi.objectcomposition.hierarchy.RootRequestable;
+import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTitleHolder;
+import ch.nolix.baseapi.objectcomposition.hierarchy.RootRequestable;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;

@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.element.base;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**

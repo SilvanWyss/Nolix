@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webcontainercontrol.horizontalstack;
 
-import ch.nolix.core.web.cssmodel.CssProperty;
-import ch.nolix.coreapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
 import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
 

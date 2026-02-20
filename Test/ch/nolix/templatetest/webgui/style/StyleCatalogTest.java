@@ -7,9 +7,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.dropdownmenu.DropdownMenu;
 import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;

@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.datamodel.fieldvalue.ValueMapper;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.datamodel.fieldvalue.IValueMapper;
+import ch.nolix.base.datamodel.fieldvalue.ValueMapper;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.system.objectdata.fieldvalidator.ValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IValueFieldValidator;

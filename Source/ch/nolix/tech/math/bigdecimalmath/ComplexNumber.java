@@ -7,9 +7,9 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.math.main.Calculator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.math.main.Calculator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**

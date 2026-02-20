@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.net.endpoint3.LocalEndPoint;
-import ch.nolix.core.net.endpoint3.NetEndPoint;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.net.endpoint3.LocalEndPoint;
+import ch.nolix.base.net.endpoint3.NetEndPoint;
 
 /**
  * @author Silvan Wyss

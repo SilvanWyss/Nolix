@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.webapplication.counterpart;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;

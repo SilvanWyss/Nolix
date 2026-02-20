@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.style.model;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 
 /**
  * A {@link ISelectingStyleWithSelectors} is a {@link ISelectingStyle} that can

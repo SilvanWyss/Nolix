@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.nodemidschema.schemareader;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 

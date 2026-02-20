@@ -5,11 +5,11 @@ package ch.nolix.systemtest.objectdata.adapter;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.MutableNode;
+import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectdata.adapter.NodeDataAdapter;
 import ch.nolix.system.objectdata.model.Entity;
 import ch.nolix.system.objectdata.model.EntityTypeSet;

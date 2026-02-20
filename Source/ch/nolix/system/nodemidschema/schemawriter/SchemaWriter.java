@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.nodemidschema.schemawriter;
 
-import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.base.document.node.MutableNode;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaWriter;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;

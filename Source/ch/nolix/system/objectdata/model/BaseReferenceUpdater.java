@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;

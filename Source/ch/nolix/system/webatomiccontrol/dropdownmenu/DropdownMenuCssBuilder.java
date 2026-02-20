@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webatomiccontrol.dropdownmenu;
 
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.web.cssmodel.ICssProperty;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.system.webatomiccontrol.itemmenu.AbstractItemMenuCssBuilder;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webatomiccontrol.dropdownmenu.IDropdownMenuStyle;

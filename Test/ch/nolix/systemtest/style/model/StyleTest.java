@@ -5,9 +5,9 @@ package ch.nolix.systemtest.style.model;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.style.model.DeepSelectingStyle;
 import ch.nolix.system.style.model.SelectingStyle;

@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.element.property;
 
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

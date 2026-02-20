@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.midschema.databaseinitializer;
 
-import ch.nolix.core.errorcontrol.generalexception.GeneralException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.generalexception.GeneralException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.midschema.databaseinitializer.IDatabaseInitializer;
 import ch.nolix.systemapi.time.moment.ITime;

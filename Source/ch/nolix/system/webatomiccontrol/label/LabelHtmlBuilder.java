@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webatomiccontrol.label;
 
-import ch.nolix.core.web.htmlelementmodel.HtmlElement;
-import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

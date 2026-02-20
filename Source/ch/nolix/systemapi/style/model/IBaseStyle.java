@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.style.model;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 

@@ -3,15 +3,15 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.net.endpoint3.AbstractEndPoint;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.net.endpoint3.IDataProviderController;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.net.endpoint3.AbstractEndPoint;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.net.endpoint3.IDataProviderController;
 
 /**
  * A {@link ClientDataProviderController} is a {@link IDataProviderController}

@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.nodemidschema.schemawriter;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.nodemidschema.nodemapper.ColumnNodeMapper;
 import ch.nolix.system.nodemidschema.nodemapper.TableNodeMapper;
 import ch.nolix.system.nodemidschema.nodesearcher.ColumnNodeSearcher;

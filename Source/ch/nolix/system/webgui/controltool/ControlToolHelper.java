@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.controltool;
 
-import ch.nolix.coreapi.container.list.IArrayList;
+import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**

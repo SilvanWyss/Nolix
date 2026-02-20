@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IColumn;

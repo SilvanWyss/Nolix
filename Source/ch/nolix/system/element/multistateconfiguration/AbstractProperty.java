@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.element.multistateconfiguration;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder {
   private final String name;

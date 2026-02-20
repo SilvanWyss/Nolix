@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;

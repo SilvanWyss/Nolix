@@ -1,0 +1,29 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.attribute.mutableoptionalattribute;
+
+import ch.nolix.baseapi.attribute.optionalattribute.IOptionalOneBasedIndexHolder;
+
+/**
+ * A {@link IMutableOptionalOneBasedIndexHolder} is a
+ * {@link IOptionalOneBasedIndexHolder} whose one-based index can be set and
+ * removed programmatically.
+ * 
+ * @author Silvan Wyss
+ */
+public interface IMutableOptionalOneBasedIndexHolder extends IOptionalOneBasedIndexHolder {
+  /**
+   * Removes the one-based index of the current
+   * {@link IMutableOptionalOneBasedIndexHolder}.
+   */
+  void removeOneBasedIndex();
+
+  /**
+   * Sets the one-based index of the current
+   * {@link IMutableOptionalOneBasedIndexHolder}.
+   * 
+   * @param oneBasedIndex
+   */
+  void setOneBasedIndex(int oneBasedIndex);
+}

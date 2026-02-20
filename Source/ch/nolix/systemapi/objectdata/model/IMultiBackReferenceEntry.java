@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
-import ch.nolix.coreapi.component.datamodelcomponent.ITableComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**

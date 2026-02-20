@@ -5,12 +5,12 @@ package ch.nolix.system.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.model.CursorIcon;

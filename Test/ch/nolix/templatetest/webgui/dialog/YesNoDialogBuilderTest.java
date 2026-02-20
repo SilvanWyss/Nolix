@@ -6,7 +6,7 @@ package ch.nolix.templatetest.webgui.dialog;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webatomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.webatomiccontrol.button.IButton;

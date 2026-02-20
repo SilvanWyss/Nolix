@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webcontainercontrol.grid;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;

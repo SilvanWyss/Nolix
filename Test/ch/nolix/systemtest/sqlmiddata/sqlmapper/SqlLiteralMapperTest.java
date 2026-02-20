@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.core.sql.sqltool.SqlLiteralMapper;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.sql.sqltool.SqlLiteralMapper;
+import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**
  * @author Silvan Wyss

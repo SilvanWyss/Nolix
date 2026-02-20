@@ -6,11 +6,11 @@ package ch.nolix.systemapi.webgui.main;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.objectcomposition.linking.Linkable;
-import ch.nolix.coreapi.web.cssmodel.ICssRule;
-import ch.nolix.coreapi.web.html.IHtmlGetter;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.objectcomposition.linking.Linkable;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
+import ch.nolix.baseapi.web.html.IHtmlGetter;
 import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;

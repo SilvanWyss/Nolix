@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.element.multistateconfiguration;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss

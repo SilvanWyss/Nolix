@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.objectschema.modelvalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;

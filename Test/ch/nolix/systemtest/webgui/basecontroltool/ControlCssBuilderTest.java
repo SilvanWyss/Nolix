@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webgui.basecontroltool;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;

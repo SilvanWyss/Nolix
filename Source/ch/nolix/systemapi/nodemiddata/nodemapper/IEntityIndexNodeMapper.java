@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodemapper;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 
 /**

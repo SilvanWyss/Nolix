@@ -5,15 +5,15 @@ package ch.nolix.system.element.multistateconfiguration;
 
 import java.lang.reflect.Field;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.generalexception.WrapperException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.generalexception.WrapperException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
 

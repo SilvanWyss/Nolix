@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webapplication.main;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webgui.main.IControl;

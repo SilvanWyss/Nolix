@@ -3,14 +3,14 @@
  */
 package ch.nolix.system.webapplication.counterpartupdater;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.web.cssmodel.ICss;
-import ch.nolix.coreapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.document.chainednode.ChainedNode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.web.cssmodel.ICss;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.main.IControl;

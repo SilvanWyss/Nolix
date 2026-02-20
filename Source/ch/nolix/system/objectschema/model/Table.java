@@ -3,14 +3,14 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.datamodel.id.IdCreator;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datamodel.id.IdCreator;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
 import ch.nolix.system.objectschema.modelvalidator.TableValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;

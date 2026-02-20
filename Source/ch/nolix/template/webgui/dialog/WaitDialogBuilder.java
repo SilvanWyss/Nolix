@@ -3,9 +3,9 @@
  */
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.core.misc.function.FunctionService;
-import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.coreapi.objectcreation.builder.IBuilder;
+import ch.nolix.base.misc.function.FunctionService;
+import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.baseapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;

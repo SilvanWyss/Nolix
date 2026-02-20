@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databaseinitializer;
 
-import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
 
 /**

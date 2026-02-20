@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.middata.adapter;
 
-import ch.nolix.coreapi.attribute.mandatoryattribute.IDatabaseNameHolder;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;

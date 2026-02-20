@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;

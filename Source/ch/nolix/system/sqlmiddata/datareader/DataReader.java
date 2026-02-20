@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.sqlmiddata.datareader;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.middata.adapter.IDataReader;

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webatomiccontrol.textbox;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTextHolder;
+import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTextHolder;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**

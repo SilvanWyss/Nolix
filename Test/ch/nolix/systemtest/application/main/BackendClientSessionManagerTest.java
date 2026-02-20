@@ -5,9 +5,9 @@ package ch.nolix.systemtest.application.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
 /**

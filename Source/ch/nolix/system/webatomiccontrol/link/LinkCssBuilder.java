@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.webatomiccontrol.link;
 
-import ch.nolix.core.web.cssmodel.CssProperty;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.web.cssmodel.ICssProperty;
-import ch.nolix.coreapi.web.cssmodel.ICssRule;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webatomiccontrol.link.ILink;
 import ch.nolix.systemapi.webatomiccontrol.link.ILinkStyle;

@@ -5,8 +5,8 @@ package ch.nolix.systemapi.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 //An IItemMenu can contain 0 or 1 selected item.

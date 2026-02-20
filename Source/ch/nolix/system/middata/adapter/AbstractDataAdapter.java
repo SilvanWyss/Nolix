@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.middata.adapter;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.GroupCloseable;
-import ch.nolix.coreapi.resourcecontrol.closecontroller.ICloseController;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
+import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.middata.adapter.IDataAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataReader;
 import ch.nolix.systemapi.middata.adapter.IDataWriter;

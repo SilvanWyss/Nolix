@@ -5,12 +5,12 @@ package ch.nolix.system.nodemiddata.datawriter;
 
 import java.util.function.Consumer;
 
-import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.process.UpdaterCollector;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.programcontrol.process.IUpdaterCollector;
+import ch.nolix.base.document.node.MutableNode;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.programcontrol.process.UpdaterCollector;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.programcontrol.process.IUpdaterCollector;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
 import ch.nolix.systemapi.time.moment.ITime;

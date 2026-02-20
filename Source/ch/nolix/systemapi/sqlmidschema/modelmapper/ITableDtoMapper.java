@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.sqlmidschema.modelmapper;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**

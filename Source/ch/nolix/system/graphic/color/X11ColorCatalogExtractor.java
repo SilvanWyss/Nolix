@@ -5,12 +5,12 @@ package ch.nolix.system.graphic.color;
 
 import java.lang.reflect.Field;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.datastructure.pair.Pair;
-import ch.nolix.core.reflection.reflectiontool.ReflectionTool;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.datastructure.pair.IPair;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.pair.Pair;
+import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.pair.IPair;
 import ch.nolix.systemapi.graphic.color.IColor;
 
 /**

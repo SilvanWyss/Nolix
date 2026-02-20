@@ -6,7 +6,7 @@ package ch.nolix.systemtest.databaseobject.modelexaminer;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;

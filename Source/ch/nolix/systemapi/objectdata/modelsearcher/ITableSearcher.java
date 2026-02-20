@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.modelsearcher;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;

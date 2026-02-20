@@ -5,12 +5,12 @@ package ch.nolix.system.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.core.datamodel.id.IdCreator;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.datamodel.id.IdCreator;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;

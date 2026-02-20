@@ -3,7 +3,7 @@
  */
 package ch.nolix.template.webgui.colormode;
 
-import ch.nolix.core.document.node.Node;
+import ch.nolix.base.document.node.Node;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;

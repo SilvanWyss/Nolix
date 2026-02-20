@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemtest.application.main;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.application.main.AbstractBackendClient;
 
 /**

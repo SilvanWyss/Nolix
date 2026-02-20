@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.webgui.main;
 
-import ch.nolix.coreapi.component.guicomponent.IGuiComponent;
-import ch.nolix.coreapi.web.cssmodel.ICssRule;
-import ch.nolix.coreapi.web.html.IHtmlGetter;
+import ch.nolix.baseapi.component.guicomponent.IGuiComponent;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
+import ch.nolix.baseapi.web.html.IHtmlGetter;
 import ch.nolix.systemapi.gui.background.IBackgroundHolder;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.style.stylable.IStylableElement;

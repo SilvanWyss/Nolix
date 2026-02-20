@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.nodemiddata.nodemapper;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
 

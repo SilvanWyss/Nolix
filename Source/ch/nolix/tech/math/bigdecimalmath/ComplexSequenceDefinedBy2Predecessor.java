@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
+import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy2Predecessor;
 

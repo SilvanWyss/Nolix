@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.objectschema.model;
 
-import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**

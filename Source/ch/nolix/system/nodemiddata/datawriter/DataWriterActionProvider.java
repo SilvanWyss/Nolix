@@ -3,14 +3,14 @@
  */
 package ch.nolix.system.nodemiddata.datawriter;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.generalexception.ChangedResourceException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.coreapi.datamodel.cardinality.BaseCardinality;
-import ch.nolix.coreapi.document.node.IMutableNode;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
+import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
+import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;

@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.sqlmidschema.databaseinitializer;
 
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.sql.connection.ISqlConnection;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.BackReferenceableColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.DatabasePropertyTableSqlSchemaDtoCatalog;

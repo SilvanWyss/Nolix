@@ -3,10 +3,10 @@
  */
 package ch.nolix.systemapi.style.stylable;
 
-import ch.nolix.coreapi.attribute.fluentmutablemultiattribute.IFluentMutableMultiTokenHolder;
-import ch.nolix.coreapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalIdHolder;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.objectcomposition.type.TypeRequestable;
+import ch.nolix.baseapi.attribute.fluentmutablemultiattribute.IFluentMutableMultiTokenHolder;
+import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalIdHolder;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.objectcomposition.type.TypeRequestable;
 import ch.nolix.systemapi.element.base.IStructureElement;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 

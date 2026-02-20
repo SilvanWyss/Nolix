@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.webatomiccontrol.imagecontrol;
 
-import ch.nolix.core.web.htmlelementmodel.HtmlElement;
-import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webatomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

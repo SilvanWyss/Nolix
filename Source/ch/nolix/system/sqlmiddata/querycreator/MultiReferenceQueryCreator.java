@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.querycreator;
 
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;

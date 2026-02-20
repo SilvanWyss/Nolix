@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.nodeexaminer;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.nodeexaminer.IEntityNodeExaminer;
 import ch.nolix.systemapi.nodemidschema.nodeexaminer.ITableNodeExaminer;

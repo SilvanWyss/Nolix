@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlschema.modelmapper;
 
-import ch.nolix.coreapi.sql.model.ISqlRecord;
+import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
 /**

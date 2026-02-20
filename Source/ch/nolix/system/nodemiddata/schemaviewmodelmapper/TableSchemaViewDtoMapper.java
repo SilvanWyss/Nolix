@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.schemaviewmodelmapper;
 
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.TableNodeSearcher;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;

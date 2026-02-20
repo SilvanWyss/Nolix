@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.objectschema.schemaadapter;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.resourcecontrol.savecontrol.IResettableChangeSaver;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
 /**

@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.nodemiddata.nodemapper;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;

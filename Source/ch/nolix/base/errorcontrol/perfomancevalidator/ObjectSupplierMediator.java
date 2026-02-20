@@ -1,0 +1,38 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.errorcontrol.perfomancevalidator;
+
+import java.util.function.Consumer;
+import java.util.function.IntFunction;
+
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.performancevalidation.IActionMediator;
+import ch.nolix.baseapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
+
+/**
+ * @author Silvan Wyss
+ * @param <O> is the type of the {@link Object}s a
+ *            {@link ObjectSupplierMediator} is for.
+ */
+public final class ObjectSupplierMediator<O> implements IObjectSupplierMediator<O> {
+  private final IntFunction<O> objectSupplier;
+
+  private ObjectSupplierMediator(final IntFunction<O> objectSupplier) {
+    Validator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
+
+    this.objectSupplier = objectSupplier;
+  }
+
+  public static <O2> IObjectSupplierMediator<O2> forObjectSupplier(final IntFunction<O2> objectSupplier) {
+    return new ObjectSupplierMediator<>(objectSupplier);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IActionMediator running(final Consumer<O> action) {
+    return ActionMediator.forObjectSupplierAndAction(objectSupplier, action);
+  }
+}

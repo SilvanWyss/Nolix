@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.net.ssl.NolixConfigurationSslCertificateReader;
-import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.net.netconstant.PortCatalog;
-import ch.nolix.coreapi.net.securityproperty.SecurityMode;
-import ch.nolix.coreapi.net.ssl.ISslCertificate;
-import ch.nolix.coreapi.net.target.IServerTarget;
+import ch.nolix.base.net.ssl.NolixConfigurationSslCertificateReader;
+import ch.nolix.base.net.target.ServerTarget;
+import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.securityproperty.SecurityMode;
+import ch.nolix.baseapi.net.ssl.ISslCertificate;
+import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.main.IApplication;
 
 /**
@@ -19,7 +19,7 @@ public final class SslServer extends AbstractServer<SslServer> {
 
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
-  private final ch.nolix.core.net.endpoint3.SslServer internalWebSocketServer;
+  private final ch.nolix.base.net.endpoint3.SslServer internalWebSocketServer;
 
   private final String domain;
 
@@ -29,7 +29,7 @@ public final class SslServer extends AbstractServer<SslServer> {
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
-    internalWebSocketServer = ch.nolix.core.net.endpoint3.SslServer.forPortAndHtmlPageAndSSLCertificate(port,
+    internalWebSocketServer = ch.nolix.base.net.endpoint3.SslServer.forPortAndHtmlPageAndSSLCertificate(port,
       htmlPageAsString, paramSSLCertificate);
 
     this.domain = domain;

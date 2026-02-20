@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webcontainercontrol.singlecontainer;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;

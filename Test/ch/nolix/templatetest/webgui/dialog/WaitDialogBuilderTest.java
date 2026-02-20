@@ -5,7 +5,7 @@ package ch.nolix.templatetest.webgui.dialog;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
 import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webgui.main.IControl;

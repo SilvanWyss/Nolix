@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.element.base;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**

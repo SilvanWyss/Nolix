@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.coreapi.attribute.mandatoryattribute.IIdHolder;
-import ch.nolix.coreapi.attribute.mandatoryattribute.IShortDescriptionHolder;
-import ch.nolix.coreapi.attribute.optionalattribute.IOptionalSaveStampHolder;
-import ch.nolix.coreapi.component.datamodelcomponent.IDatabaseComponent;
-import ch.nolix.coreapi.component.datamodelcomponent.ITableComponent;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IShortDescriptionHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.IOptionalSaveStampHolder;
+import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.modelvalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.modelexaminer.TableExaminer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;

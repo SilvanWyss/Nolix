@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.style.model;
 
-import ch.nolix.core.container.containerview.ContainerView;
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.style.model.IBaseStyle;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;

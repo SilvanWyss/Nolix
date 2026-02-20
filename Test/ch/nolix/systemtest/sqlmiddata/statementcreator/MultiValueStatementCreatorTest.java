@@ -5,7 +5,7 @@ package ch.nolix.systemtest.sqlmiddata.statementcreator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiValueStatementCreator;
 
 /**

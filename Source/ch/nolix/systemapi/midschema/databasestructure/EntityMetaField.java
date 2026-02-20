@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.midschema.databasestructure;
 
-import ch.nolix.coreapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss

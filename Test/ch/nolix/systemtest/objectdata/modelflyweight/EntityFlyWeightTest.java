@@ -6,8 +6,8 @@ package ch.nolix.systemtest.objectdata.modelflyweight;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 
 /**

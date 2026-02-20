@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.webapplication.protocol;
 
-import ch.nolix.coreapi.document.chainednode.IChainedNode;
-import ch.nolix.coreapi.net.target.IServerTarget;
+import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.net.target.IServerTarget;
 
 /**
  * @author Silvan Wyss

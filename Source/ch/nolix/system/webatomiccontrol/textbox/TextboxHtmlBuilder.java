@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.webatomiccontrol.textbox;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.htmlelementmodel.HtmlAttribute;
-import ch.nolix.core.web.htmlelementmodel.HtmlElement;
-import ch.nolix.coreapi.web.html.HtmlAttributeNameCatalog;
-import ch.nolix.coreapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

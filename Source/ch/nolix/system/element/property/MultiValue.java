@@ -6,17 +6,17 @@ package ch.nolix.system.element.property;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss

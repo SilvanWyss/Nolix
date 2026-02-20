@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.container.base.IContainer;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;

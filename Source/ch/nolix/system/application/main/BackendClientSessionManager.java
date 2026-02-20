@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.core.programcontrol.flowcontrol.FlowController;
-import ch.nolix.core.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 
 /**
  * @author Silvan Wyss

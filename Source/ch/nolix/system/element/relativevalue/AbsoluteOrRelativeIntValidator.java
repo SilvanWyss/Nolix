@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.element.relativevalue;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
 /**

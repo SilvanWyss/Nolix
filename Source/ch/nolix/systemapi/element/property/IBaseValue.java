@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.element.property;
 
-import ch.nolix.coreapi.state.staterequest.EmptinessRequestable;
+import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 
 /**
  * @author Silvan Wyss

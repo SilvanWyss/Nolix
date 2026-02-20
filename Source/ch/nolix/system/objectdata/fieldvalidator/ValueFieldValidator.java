@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.fieldvalidator;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.ValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IValueFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IValueFieldValidator;

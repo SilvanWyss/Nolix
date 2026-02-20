@@ -5,8 +5,8 @@ package ch.nolix.systemapi.nodemiddata.nodesearcher;
 
 import java.util.Optional;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.IMutableNode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss

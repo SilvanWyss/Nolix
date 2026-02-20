@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodemapper;
 
-import ch.nolix.coreapi.document.node.INode;
+import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 
 /**

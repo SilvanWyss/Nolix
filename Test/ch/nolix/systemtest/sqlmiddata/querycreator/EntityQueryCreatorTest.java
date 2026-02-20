@@ -5,9 +5,9 @@ package ch.nolix.systemtest.sqlmiddata.querycreator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.standardtest.StandardTest;
-import ch.nolix.coreapi.datamodel.fieldproperty.DataType;
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;

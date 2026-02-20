@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.webcontainercontrol.grid;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.errorcontrol.validator.Validator;
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.container.list.ILinkedList;
-import ch.nolix.coreapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.coreapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.container.matrix.Matrix;
+import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;

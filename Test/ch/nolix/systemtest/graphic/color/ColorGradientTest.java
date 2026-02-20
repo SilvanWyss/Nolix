@@ -5,8 +5,8 @@ package ch.nolix.systemtest.graphic.color;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.standardtest.StandardTest;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.systemapi.gui.box.Direction;

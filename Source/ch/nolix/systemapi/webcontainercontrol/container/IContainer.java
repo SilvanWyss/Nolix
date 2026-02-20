@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webcontainercontrol.container;
 
-import ch.nolix.coreapi.state.statemutation.Clearable;
+import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.IControl;
 

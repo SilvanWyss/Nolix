@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.element.base;
 
-import ch.nolix.coreapi.container.base.IContainer;
-import ch.nolix.coreapi.document.node.INode;
-import ch.nolix.coreapi.document.xml.IXmlNode;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.document.xml.IXmlNode;
 
 /**
  * @author Silvan Wyss
