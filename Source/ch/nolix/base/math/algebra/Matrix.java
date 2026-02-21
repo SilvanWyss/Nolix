@@ -31,7 +31,6 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  */
 public final class Matrix { //NOSONAR: A Matrix is a principal object thus it has many methods.
-
   private static final IArrayTool ARRAY_TOOL = new ArrayTool();
 
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
@@ -72,24 +71,6 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
     Validator.assertThat(columnCount).thatIsNamed(LowerCaseVariableCatalog.COLUMN_COUNT).isPositive();
 
     values = new double[rowCount][columnCount];
-  }
-
-  /**
-   * Creates a new {@link Matrix} with the given number of rows and columns. The
-   * values of the matrix will be all set to the given value.
-   * 
-   * @param rowCount
-   * @param columnCount
-   * @param value
-   * @throws NonPositiveArgumentException if the given rowCount is not positive.
-   * @throws NonPositiveArgumentException if the given columnCount is not
-   *                                      positive.
-   */
-  public Matrix(final int rowCount, final int columnCount, final double value) {
-    //Calls other constructor.
-    this(rowCount, columnCount);
-
-    setAllValuesTo(value);
   }
 
   /**
@@ -182,6 +163,27 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public static Matrix withRowCountAndColumnCount(final int rowCount, final int columnCount) {
     //Calls constructor.
     return new Matrix(rowCount, columnCount);
+  }
+
+  /**
+   * @param rowCount
+   * @param columnCount
+   * @param defaultValue
+   * @return a new {@link Matrix} with the given rowCount and columnCount. The
+   *         values of the matrix will be set to the given defaultValue.
+   * @throws NonPositiveArgumentException if the given rowCount is not positive.
+   * @throws NonPositiveArgumentException if the given columnCount is not
+   *                                      positive.
+   */
+  public static Matrix withRowCountAndColumnCountAndDefaultValue(
+    final int rowCount,
+    final int columnCount,
+    final double defaultValue) {
+    final var matrix = withRowCountAndColumnCount(rowCount, columnCount);
+
+    matrix.setAllValuesTo(defaultValue);
+
+    return matrix;
   }
 
   /**
