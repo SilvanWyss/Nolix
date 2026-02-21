@@ -10,6 +10,9 @@ import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfigurati
 import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractLinearContainerStyle< //
 S extends ILinearContainerStyle<S> & IMultiStateConfiguration<S, ControlState> //
 >

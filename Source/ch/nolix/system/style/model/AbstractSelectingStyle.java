@@ -15,6 +15,9 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractSelectingStyle
 extends AbstractStyle<ISelectingStyleWithSelectors>
 implements ISelectingStyleWithSelectors {

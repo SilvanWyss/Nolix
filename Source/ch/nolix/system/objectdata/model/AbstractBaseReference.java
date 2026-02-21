@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference {
   private final ImmutableList<String> referenceableTableNames;
 

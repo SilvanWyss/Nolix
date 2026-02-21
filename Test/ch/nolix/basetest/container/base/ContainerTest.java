@@ -19,6 +19,9 @@ import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.base.IContainer;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ContainerTest extends StandardTest {
   @Test
   final void testCase_contains_whenContainsTheGivenElement() {

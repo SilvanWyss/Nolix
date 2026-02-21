@@ -10,6 +10,9 @@ import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractBaseEndPoint implements IBaseEndPoint {
   private final ICloseController closeController = CloseController.forElement(this);
 

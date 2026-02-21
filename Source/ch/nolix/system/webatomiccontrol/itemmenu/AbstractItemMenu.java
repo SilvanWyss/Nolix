@@ -21,6 +21,9 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuStyle;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuValidator;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;

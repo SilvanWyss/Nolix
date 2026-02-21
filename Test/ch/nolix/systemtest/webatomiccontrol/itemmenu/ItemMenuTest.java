@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuStyle;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
   @Test
   final void testCase_creation() {

@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ControlCssBuilderTest<B extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
 extends StandardTest {
   protected abstract C createControl();

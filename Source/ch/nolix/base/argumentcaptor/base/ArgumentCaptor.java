@@ -11,6 +11,9 @@ import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not have abstract methods.
 
   private boolean hasArgument;

@@ -9,6 +9,9 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
 extends StandardTest {
   @Test

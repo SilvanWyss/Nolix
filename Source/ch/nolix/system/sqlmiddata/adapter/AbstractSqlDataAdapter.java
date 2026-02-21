@@ -12,6 +12,9 @@ import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.sqlmiddata.schemaviewloader.IDatabaseSchemaViewLoader;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
   private static final IDatabaseSchemaViewLoader DATABASE_SCHEMA_VIEW_LOADER = new DatabaseSchemaViewLoader();
 

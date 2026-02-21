@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends AbstractControlCssBuilder<M, S> {
   /**

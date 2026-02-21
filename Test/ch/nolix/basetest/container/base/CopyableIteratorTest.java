@@ -9,6 +9,9 @@ import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class CopyableIteratorTest extends StandardTest {
   protected abstract <E> CopyableIterator<E> createIteratorForEmptyContainerForType(Class<E> type);
 

@@ -22,6 +22,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<F>, F extends IAdapterFactory<A>, A>
 extends Control<IComponent, IComponentStyle>

@@ -19,6 +19,9 @@ import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractSqlConnection implements ISqlConnection {
   private final SqlDatabaseEngine sqlDatabaseEngine;
 

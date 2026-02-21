@@ -7,6 +7,9 @@ import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.system.webapplication.main.WebClientSession;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class Controller<S> { //NOSONAR: A Controller is a base class without abstract methods.
 
   private WebClientSession<S> memberWebClientSession;

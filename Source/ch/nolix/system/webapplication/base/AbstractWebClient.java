@@ -15,6 +15,9 @@ import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.webapplication.protocol.ClientCommandCreator;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
 extends AbstractBackendClient<C, S>
 implements ICookieManager {

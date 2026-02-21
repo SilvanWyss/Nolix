@@ -21,6 +21,9 @@ import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class Component<C extends Controller<S>, S> //NOSONAR: A component class is expected to be abstract.
 extends Control<IComponent, IComponentStyle>
 implements IComponent {

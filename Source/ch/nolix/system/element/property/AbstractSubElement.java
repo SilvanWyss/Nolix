@@ -11,6 +11,9 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.element.property.IProperty;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractSubElement<E extends IMutableElement> implements IProperty {
   private final String attributePrefix;
 

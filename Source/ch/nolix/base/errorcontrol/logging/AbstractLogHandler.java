@@ -5,6 +5,9 @@ package ch.nolix.base.errorcontrol.logging;
 
 import ch.nolix.baseapi.errorcontrol.logging.HarmLevel;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractLogHandler {
   public static final HarmLevel DEFAULT_MIN_HARM_LEVEL = HarmLevel.INFO;
 

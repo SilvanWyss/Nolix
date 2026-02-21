@@ -6,6 +6,9 @@ package ch.nolix.base.programcontrol.worker;
 import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractWorker {
   private boolean started;
 

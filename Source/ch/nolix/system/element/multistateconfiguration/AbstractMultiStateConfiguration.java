@@ -17,6 +17,9 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractMultiStateConfiguration<C extends IMultiStateConfiguration<C, S>, S extends Enum<S>>
 extends AbstractElement
 implements IMultiStateConfiguration<C, S> {

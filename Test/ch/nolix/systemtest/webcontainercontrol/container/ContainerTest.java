@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.systemapi.webcontainercontrol.container.IContainer;
 import ch.nolix.systemtest.webgui.main.ControlTest;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
   @Test
   final void testCase_constructor() {

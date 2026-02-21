@@ -10,6 +10,9 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractResourcePool<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements IResourcePool<W> {
   private final ICloseController closeController = CloseController.forElement(this);

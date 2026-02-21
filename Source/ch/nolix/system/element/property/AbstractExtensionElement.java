@@ -10,6 +10,9 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 import ch.nolix.systemapi.element.property.IProperty;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
   private E memberInternalExtensionElement;
 

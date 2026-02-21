@@ -17,6 +17,9 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
   private static final String NONE_HEADER = "None";
 

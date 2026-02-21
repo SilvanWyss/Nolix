@@ -9,6 +9,9 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder {
   private final String name;
 

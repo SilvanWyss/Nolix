@@ -8,6 +8,9 @@ import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfigurati
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuStyle;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractItemMenuStyle<S extends IItemMenuStyle<S> & IMultiStateConfiguration<S, ControlState>>
 extends AbstractControlStyle<S>
 implements IItemMenuStyle<S> {

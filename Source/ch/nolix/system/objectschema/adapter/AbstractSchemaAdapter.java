@@ -16,6 +16,9 @@ import ch.nolix.systemapi.objectschema.modelsearcher.IDatabaseSearcher;
 import ch.nolix.systemapi.objectschema.modelvalidator.IDatabaseValidator;
 import ch.nolix.systemapi.objectschema.schemaadapter.ISchemaAdapter;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
 

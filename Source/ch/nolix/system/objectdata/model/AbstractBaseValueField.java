@@ -12,6 +12,9 @@ import ch.nolix.systemapi.objectdata.model.IBaseValueField;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractBaseValueField<V> extends AbstractField implements IBaseValueField<V> {
   private final Class<V> valueType;
 

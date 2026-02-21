@@ -24,6 +24,9 @@ import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.time.moment.ITime;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractDataAdapter implements IDataAdapter {
   private final ICloseController closeController = CloseController.forElement(this);
 

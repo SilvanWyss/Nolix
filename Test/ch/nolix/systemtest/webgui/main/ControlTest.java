@@ -15,6 +15,9 @@ import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
   protected abstract C createTestUnit();
 

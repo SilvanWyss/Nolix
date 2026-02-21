@@ -20,6 +20,9 @@ import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelflyweight.IFieldFlyWeight;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractField implements IField {
   private static final IFieldValidator FIELD_VALIDATOR = new FieldValidator();
 

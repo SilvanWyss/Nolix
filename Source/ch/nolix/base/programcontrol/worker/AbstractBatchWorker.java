@@ -3,6 +3,9 @@
  */
 package ch.nolix.base.programcontrol.worker;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractBatchWorker extends AbstractWorker {
   /**
    * {@inheritDoc}

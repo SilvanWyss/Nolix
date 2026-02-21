@@ -9,6 +9,9 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
+/**
+ * @author Silvan Wyss
+ */
 public abstract class AbstractBaseBackReference extends AbstractField implements IBaseBackReference {
   private final ImmutableList<String> backReferenceableTableNames;
 
