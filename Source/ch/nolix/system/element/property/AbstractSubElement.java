@@ -13,6 +13,8 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the internal sub element of a
+ *            {@link AbstractSubElement}.
  */
 public abstract class AbstractSubElement<E extends IMutableElement> implements IProperty {
   private final String attributePrefix;

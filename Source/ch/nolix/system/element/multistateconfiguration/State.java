@@ -8,7 +8,11 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
-final class State<S extends Enum<S>> implements INameHolder {
+/**
+ * @author Silvan Wyss
+ * @param <S> is the type of the {@link Enum} representation of a {@link State}.
+ */
+public final class State<S extends Enum<S>> implements INameHolder {
   private static final String NAME = PascalCaseVariableCatalog.STATE;
 
   private final String qualifyingPrefix;

@@ -14,6 +14,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
@@ -24,6 +25,10 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  * @param <C> is the type of the {@link Controller} of a {@link Component}.
+ * @param <S> is the type of the application service of the parent
+ *            {@link IApplication} of the parent web client of the parent web
+ *            client session of the parent root GUI of a {@link Component}.
+ * 
  */
 public abstract class Component<C extends Controller<S>, S> //NOSONAR: A component class is expected to be abstract.
 extends Control<IComponent, IComponentStyle>

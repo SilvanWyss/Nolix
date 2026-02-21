@@ -12,6 +12,8 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the internal extension element of a
+ *            {@link AbstractExtensionElement}.
  */
 public abstract class AbstractExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
   private E memberInternalExtensionElement;
