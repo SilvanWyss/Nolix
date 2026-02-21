@@ -12,6 +12,11 @@ import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
 
 /**
  * @author Silvan Wyss
+ * @param <W> is the type of the {@link AbstractWrapperResource}s of a
+ *            {@link AbstractResourcePool}.
+ * @param <R> is the type of the resource of the
+ *            {@link AbstractWrapperResource}s of a
+ *            {@link AbstractResourcePool}.
  */
 public abstract class AbstractResourcePool<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements IResourcePool<W> {

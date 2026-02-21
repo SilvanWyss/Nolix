@@ -5,10 +5,15 @@ package ch.nolix.system.webapplication.component;
 
 import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.webapplication.main.WebClientSession;
+import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of the application service of the {@link IApplication}
+ *            of the {@link AbstractBackendClient} of the
+ *            {@link WebClientSession} of a {@link Controller}.
  */
 public abstract class Controller<S> { //NOSONAR: A Controller is a base class without abstract methods.
 

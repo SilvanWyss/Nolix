@@ -11,6 +11,9 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of the state of the
+ *            {@link AbstractMultiStateConfiguration} of a
+ *            {@link AbstractProperty}.
  */
 public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder {
   private final String name;

@@ -14,9 +14,13 @@ import ch.nolix.baseapi.web.cookie.ICookieManager;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.webapplication.protocol.ClientCommandCreator;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
+import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of a {@link AbstractWebClient}.
+ * @param <S> is the type of the application service of the {@link IApplication}
+ *            of a {@link AbstractWebClient}.
  */
 public abstract class AbstractWebClient<C extends AbstractWebClient<C, S>, S>
 extends AbstractBackendClient<C, S>

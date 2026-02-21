@@ -6,11 +6,14 @@ package ch.nolix.system.webapplication.main;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
+import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
+ * @param <S> is the type of the application service of the {@link IApplication}
+ *            of the {@link WebClient} of a {@link WebClientSession}.
  */
 public abstract class WebClientSession<S> //NOSONAR: A web client session class is expected to be abstract.
 extends AbstractWebClientSession<WebClient<S>, S> {

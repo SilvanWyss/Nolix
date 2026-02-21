@@ -13,6 +13,9 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
 
 /**
  * @author Silvan Wyss
+ * @param <M> is the type of the {@link IItemMenu}s of a {@link ItemMenuTest}.
+ * @param <S> is the type of the {@link IItemMenuStyle}s of the
+ *            {@link IItemMenu}s of a {@link ItemMenuTest}.
  */
 public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
   @Test

@@ -23,6 +23,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
+ * @param <M> is the type of a {@link AbstractItemMenu}.
+ * @param <S> is the type of the {@link IItemMenuStyle}s of a
+ *            {@link AbstractItemMenu}.
  */
 public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {

@@ -10,6 +10,7 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the {@link IContainer}s if a {@link ContainerTest}.
  */
 public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
   @Test

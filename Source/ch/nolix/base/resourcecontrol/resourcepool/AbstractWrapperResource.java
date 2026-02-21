@@ -12,6 +12,8 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 
 /**
  * @author Silvan Wyss
+ * @param <W> is the type of a {@link AbstractWrapperResource}.
+ * @param <R> is the type of the resource of a {@link AbstractWrapperResource}.
  */
 public abstract class AbstractWrapperResource<W extends AbstractWrapperResource<W, R>, R extends GroupCloseable>
 implements GroupCloseable {

@@ -17,6 +17,9 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of a {@link AbstractContainer}.
+ * @param <S> is the type of the {@link IControlStyle}s of a
+ *            {@link AbstractContainer}.
  */
 public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends Control<C, S> implements IContainer<C, S> {

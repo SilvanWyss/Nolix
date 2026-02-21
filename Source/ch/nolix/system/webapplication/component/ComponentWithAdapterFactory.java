@@ -24,6 +24,8 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the {@link Controller} of a
+ *            {@link ComponentWithAdapterFactory}.
  */
 public abstract class ComponentWithAdapterFactory //NOSONAR: A component class is expected to be abstract.
 <C extends Controller<F>, F extends IAdapterFactory<A>, A>

@@ -12,6 +12,8 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
+ * @param <E> is the type of the {@link IEntity}s of a
+ *            {@link AbstractBaseReference}.
  */
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference {
   private final ImmutableList<String> referenceableTableNames;
@@ -72,7 +74,6 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
           }
 
           break;
-
         case OPTIONAL_BACK_REFERENCE:
           final var optionalBackReference = (OptionalBackReference<?>) p;
 

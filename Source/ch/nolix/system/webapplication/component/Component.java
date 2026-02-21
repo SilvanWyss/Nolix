@@ -23,6 +23,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
+ * @param <C> is the type of the {@link Controller} of a {@link Component}.
  */
 public abstract class Component<C extends Controller<S>, S> //NOSONAR: A component class is expected to be abstract.
 extends Control<IComponent, IComponentStyle>

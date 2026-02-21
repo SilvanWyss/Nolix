@@ -13,6 +13,8 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
+ * @param <A> is the type of a {@link ArgumentCaptor}.
+ * @param <N> is the type of the next thing of a {@link ArgumentCaptor}.
  */
 public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not have abstract methods.
 

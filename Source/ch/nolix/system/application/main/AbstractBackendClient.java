@@ -9,12 +9,13 @@ import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.application.client.IBackendClient;
+import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
  * @param <C> is the type of a {@link AbstractBackendClient}.
- * @param <S> is the type of the context of the parent {@link Application} of a
- *            {@link AbstractBackendClient}.
+ * @param <S> is the type of the application service of the {@link IApplication}
+ *            of a {@link AbstractBackendClient}.
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>
 extends AbstractClient<C>

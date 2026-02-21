@@ -13,6 +13,10 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
+ * @param <B> is the type of the {@link IControlCssBuilder}s of a
+ *            {@link ControlCssBuilderTest}.
+ * @param <C> is the type of the {@link IControl} of the
+ *            {@link IControlCssBuilder}s of a {@link ControlCssBuilderTest}.
  */
 public abstract class ControlCssBuilderTest<B extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
 extends StandardTest {
