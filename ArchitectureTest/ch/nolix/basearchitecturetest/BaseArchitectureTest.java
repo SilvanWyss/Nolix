@@ -36,6 +36,7 @@ final class BaseArchitectureTest {
       .resideInAnyPackage(
         "ch.nolix.base..",
         "ch.nolix.baseapi..",
+        "com.tngtech.archunit..",
         "io.netty..",
         "java..",
         "javax..");

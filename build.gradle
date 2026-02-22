@@ -16,10 +16,8 @@ repositories {
 dependencies {
   //dependencies for implementations
   implementation 'com.microsoft.sqlserver:mssql-jdbc:13.2.1.jre11'
+  implementation 'com.tngtech.archunit:archunit:1.4.1'
   implementation 'io.netty:netty-all:4.2.7.Final'
-
-  //dependencies for architecture tests
-  testImplementation 'com.tngtech.archunit:archunit:1.4.1'
 
   //dependencies for function tests
   testImplementation 'net.bytebuddy:byte-buddy:1.18.1'
