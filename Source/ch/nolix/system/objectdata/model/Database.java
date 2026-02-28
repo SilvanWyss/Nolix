@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
@@ -41,7 +40,7 @@ public final class Database implements IDatabase {
     this.schemaTimestamp = midDataAdapterAndSchemaReader.getSchemaTimestamp();
     this.midDataAdapterAndSchemaReader = midDataAdapterAndSchemaReader;
     createCloseDependencyTo(this.midDataAdapterAndSchemaReader);
-    this.tables = loadTables();
+    this.tables = TableLoader.loadTablesForDatabase(this);
   }
 
   public static Database withEntityTypeSetAndMidDataAdapterAndSchemaReader(
@@ -211,9 +210,5 @@ public final class Database implements IDatabase {
 
   IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
     return midDataAdapterAndSchemaReader;
-  }
-
-  private IContainer<Table<IEntity>> loadTables() {
-    return ImmutableList.fromIterable(TableLoader.loadTablesForDatabase(this));
   }
 }

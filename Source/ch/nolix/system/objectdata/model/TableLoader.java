@@ -4,7 +4,6 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
@@ -19,17 +18,15 @@ public final class TableLoader {
   private TableLoader() {
   }
 
-  public static LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
+  public static ImmutableList<Table<IEntity>> loadTablesForDatabase(final Database database) {
     final var midTables = database.getStoredMidDataAdapterAndSchemaReader().loadTables();
-
-    final var tables = midTables
-      .to(rt -> TableMapper.mapMidSchemaTableDtoToTableWithoutColumns(rt, database));
+    final var tables = midTables.to(t -> TableMapper.mapMidSchemaTableDtoToTableWithoutColumns(t, database));
 
     addBaseValueColumnsToTablesFromMidTables(tables, midTables);
     addBaseReferenceColumnsToTablesFromMidTables(tables, midTables, tables);
     addBaseBackReferenceColumnsToTablesFromMidTables(tables, midTables, tables);
 
-    return LinkedList.fromIterable(tables);
+    return ImmutableList.fromIterable(tables);
   }
 
   private static void addBaseValueColumnsToTablesFromMidTables(
