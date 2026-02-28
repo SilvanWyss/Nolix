@@ -29,17 +29,18 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 import ch.nolix.systemapi.objectdata.modelexaminer.IEntityExaminer;
 import ch.nolix.systemapi.objectdata.modelexaminer.ITableExaminer;
 import ch.nolix.systemapi.objectdata.modelsearcher.ITableSearcher;
+import ch.nolix.systemapi.objectdata.modelvalidator.ITableValidator;
 
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the {@link IEntity}s of a {@link Table}.
  */
 public final class Table<E extends IEntity> implements ITable<E> {
-  private static final TableValidator TABLE_VALIDATOR = new TableValidator();
-
   private static final ITableSearcher TABLE_TOOL = new TableSearcher();
 
   private static final ITableExaminer TABLE_EXAMINER = new TableExaminer();
+
+  private static final ITableValidator TABLE_VALIDATOR = new TableValidator();
 
   private static final IEntityCreator ENTITY_CREATOR = new EntityCreator();
 
