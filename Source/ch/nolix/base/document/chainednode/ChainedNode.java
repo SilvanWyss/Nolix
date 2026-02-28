@@ -58,39 +58,6 @@ implements IChainedNode {
   }
 
   /**
-   * Creates a new {@link ChainedNode} with the given header and attributes.
-   * 
-   * @param header
-   * @param attributes
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   */
-  public ChainedNode(final String header, final Iterable<INode<?>> attributes) {
-    setHeader(header);
-    addChildNodesFromNodes(attributes);
-  }
-
-  /**
-   * Creates a new {@link ChainedNode} with the given header, attributes and
-   * nextNode.
-   * 
-   * @param header
-   * @param attributes
-   * @param nextNode
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if the given nextNode is null.
-   */
-  public ChainedNode(
-    final String header,
-    final Iterable<INode<?>> attributes,
-    final ChainedNode nextNode) {
-    setHeader(header);
-    addChildNodesFromNodes(attributes);
-    setNextNode(nextNode);
-  }
-
-  /**
    * @param chainedNode
    * @return a {@link ChainedNode} from the given chainedNode.
    * @throws RuntimeException if the given chainedNode is null.
