@@ -3,12 +3,18 @@
  */
 package ch.nolix.system.webgui.main;
 
+import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
+import ch.nolix.systemapi.webgui.main.IWebGui;
 
-final class ControlParent {
+/**
+ * @author Silvan Wyss
+ */
+public final class ControlParent implements IControlParent {
   private final ILayer<?> layer;
 
   private final IControl<?, ?> control;
@@ -35,10 +41,18 @@ final class ControlParent {
     return new ControlParent(layer);
   }
 
-  public static ControlParent withLayer(final ILayer<?> layer) {
-    return new ControlParent(layer);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean belongsToControl() {
+    return isControl() && control.belongsToControl();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean belongsToGui() {
     if (isControl()) {
       return control.belongsToGui();
@@ -47,6 +61,10 @@ final class ControlParent {
     return layer.belongsToGui();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean belongsToLayer() {
     if (isControl()) {
       return control.belongsToLayer();
@@ -55,21 +73,50 @@ final class ControlParent {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public IControl<?, ?> getStoredControl() {
     assertIsControl();
 
     return control;
   }
 
-  public Object getStoredElement() {
-    if (isControl()) {
-      return control;
-    }
+  @Override
+  public ILayer<?> getStoredLayer() {
+    assertIsLayer();
 
     return layer;
   }
 
-  public ILayer<?> getStoredRootLayer() {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IControl<?, ?> getStoredParentControl() {
+    assertBelongsToControl();
+
+    return control.getStoredParentControl();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IWebGui<?> getStoredParentGui() {
+    if (isControl()) {
+      return control.getStoredParentGui();
+    }
+
+    return layer.getStoredParentGui();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ILayer<?> getStoredParentLayer() {
     if (isLayer()) {
       return layer;
     }
@@ -77,16 +124,36 @@ final class ControlParent {
     return control.getStoredParentLayer();
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isControl() {
-    return (control != null);
+    return control != null;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isLayer() {
-    return (layer != null);
+    return layer != null;
+  }
+
+  private void assertBelongsToControl() {
+    if (!belongsToControl()) {
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IControl.class);
+    }
   }
 
   private void assertIsControl() {
     if (!isControl()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a Control");
+    }
+  }
+
+  private void assertIsLayer() {
+    if (!isLayer()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a Control");
     }
   }

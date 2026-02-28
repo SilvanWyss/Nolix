@@ -256,7 +256,7 @@ implements IControl<C, S> {
    */
   @Override
   public final ILayer<?> getStoredParentLayer() {
-    return getStoredParent().getStoredRootLayer();
+    return getStoredParent().getStoredParentLayer();
   }
 
   /**
@@ -572,7 +572,13 @@ implements IControl<C, S> {
 
   private void assertDoesNotBelongToParent() {
     if (belongsToParent()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredElement());
+      if (parent.isControl()) {
+        throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredControl());
+      }
+      if (parent.isLayer()) {
+        throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredLayer());
+      }
+      throw InvalidArgumentException.forArgumentAndArgumentName(parent, LowerCaseVariableCatalog.PARENT);
     }
   }
 
