@@ -20,10 +20,6 @@ public final class List<E> implements Iterable<E> {
   private List() {
   }
 
-  public List(final E element) {
-    addAtBegin(element);
-  }
-
   public List(final E[] elements) {
     for (final var e : elements) {
       addAtBegin(e);
