@@ -20,11 +20,21 @@ public final class ClosedInterval implements IClosedInterval {
 
   private final BigDecimal max;
 
+  /**
+   * Creates a new {@link ClosedInterval} with the given min, max and their max
+   * decimal places count.
+   * 
+   * @param min
+   * @param max
+   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given max is null.
+   */
   public ClosedInterval(final BigDecimal min, final BigDecimal max) {
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
     Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
 
     final var decimalPlaces = Calculator.getMax(min.scale(), max.scale());
+
     this.min = min.setScale(decimalPlaces, RoundingMode.HALF_UP);
     this.max = max.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
@@ -51,7 +61,8 @@ public final class ClosedInterval implements IClosedInterval {
    */
   @Override
   public boolean containsValue(final BigDecimal value) {
-    return value != null
+    return //
+    value != null
     && value.compareTo(min) >= 0
     && value.compareTo(max) <= 0;
   }
@@ -136,13 +147,15 @@ public final class ClosedInterval implements IClosedInterval {
     return new ClosedInterval(min, max, decimalPlaces);
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public boolean intersectsWith(final IClosedInterval closedInterval) {
-    return getMin().compareTo(closedInterval.getMax()) < 0
-    && getMax().compareTo(closedInterval.getMin()) > 0;
+    return //
+    min.compareTo(closedInterval.getMax()) < 0
+    && max.compareTo(closedInterval.getMin()) > 0;
   }
 
   /**
