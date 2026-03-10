@@ -34,7 +34,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final var valueList = new List<Byte>();
+    final List<Byte> valueList = List.createEmpty();
 
     //Iterates the given elements.
     for (final var v : values) {
@@ -54,7 +54,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final List<Double> valueList = new List<>();
+    final List<Double> valueList = List.createEmpty();
 
     //Iterates the given values.
     for (final var v : values) {
@@ -74,7 +74,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given elements is null.");
     }
 
-    final var elementList = new List<E>();
+    final List<E> elementList = List.createEmpty();
 
     //Iterates the given elements.
     for (final var e : elements) {
@@ -94,7 +94,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final var valueList = new List<Long>();
+    final List<Long> valueList = List.createEmpty();
 
     //Iterates the given elements.
     for (final long v : values) {
@@ -114,7 +114,7 @@ public final class ArrayTool implements IArrayTool {
       throw new IllegalArgumentException("The given values is null.");
     }
 
-    final var valueList = new List<Long>();
+    final List<Long> valueList = List.createEmpty();
 
     //Iterates the given elements.
     for (final var v : values) {

@@ -17,7 +17,7 @@ public final class List<E> implements Iterable<E> {
 
   private ListNode<E> endNode;
 
-  public List() {
+  private List() {
   }
 
   public List(final E element) {
@@ -40,6 +40,10 @@ public final class List<E> implements Iterable<E> {
     }
 
     return array;
+  }
+
+  public static <T> List<T> createEmpty() {
+    return new List<>();
   }
 
   public static <T> List<T> withElements(final Iterable<T> elements) {

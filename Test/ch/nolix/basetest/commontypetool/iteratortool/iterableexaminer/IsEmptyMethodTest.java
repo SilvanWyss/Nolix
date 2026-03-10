@@ -29,7 +29,7 @@ final class IsEmptyMethodTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableIsEmpty() {
     //setup
-    final Iterable<Object> iterable = new List<>();
+    final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableExaminer();
 
     //execution

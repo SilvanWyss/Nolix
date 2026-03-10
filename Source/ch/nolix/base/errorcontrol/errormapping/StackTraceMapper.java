@@ -16,7 +16,7 @@ public final class StackTraceMapper {
   }
 
   public static String[] mapErrorToStackTrace(final Throwable error) {
-    final var list = new List<String>();
+    final List<String> list = List.createEmpty();
 
     mapOwnStackTraceElementsOfErrorIntoList(error, list);
 

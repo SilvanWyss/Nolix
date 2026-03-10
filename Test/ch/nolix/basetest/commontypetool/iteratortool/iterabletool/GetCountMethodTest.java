@@ -25,7 +25,7 @@ final class GetCountMethodTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableIsEmpty() {
     //setup
-    final Iterable<Object> iterable = new List<>();
+    final Iterable<Object> iterable = List.createEmpty();
 
     //execution
     final var result = IterableTool.getCount(iterable);

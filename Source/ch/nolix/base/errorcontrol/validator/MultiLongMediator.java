@@ -33,7 +33,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
   }
 
   public static MultiLongMediator forValue(final int value, final int[] values) {
-    final var allValues = new List<Long>();
+    final List<Long> allValues = List.createEmpty();
     allValues.addAtEnd((long) value);
     for (final var v : values) {
       allValues.addAtEnd((long) v);

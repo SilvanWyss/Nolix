@@ -18,7 +18,7 @@ public final class InputStreamTool implements IInputStreamTool {
    */
   @Override
   public String readLineFromInputStreamOrNull(final InputStream inputStream) {
-    final var bytes = new List<Byte>();
+    final List<Byte> bytes = List.createEmpty();
 
     while (true) {
       try {

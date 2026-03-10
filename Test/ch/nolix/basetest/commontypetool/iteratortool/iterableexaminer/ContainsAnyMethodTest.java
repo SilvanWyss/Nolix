@@ -29,7 +29,7 @@ final class ContainsAnyMethodTest extends StandardTest {
   @Test
   void testCase_containsAny_whenGivenIterableIsEmpty() {
     //setup
-    final Iterable<Object> iterable = new List<>();
+    final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableExaminer();
 
     //execution

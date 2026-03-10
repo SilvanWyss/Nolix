@@ -17,7 +17,7 @@ public final class Logger {
   private static LogWorker logWorker;
 
   //static multi-attribute
-  private static final List<AbstractLogHandler> abstractLogHandlers = new List<>();
+  private static final List<AbstractLogHandler> abstractLogHandlers = List.createEmpty();
 
   private Logger() {
   }

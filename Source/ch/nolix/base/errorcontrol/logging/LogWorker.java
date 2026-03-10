@@ -8,7 +8,7 @@ import ch.nolix.base.independent.list.List;
 final class LogWorker extends Thread {
   private boolean active = true;
 
-  private final List<LogEntry> logEntries = new List<>();
+  private final List<LogEntry> logEntries = List.createEmpty();
 
   public LogWorker() {
     start();
