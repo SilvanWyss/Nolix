@@ -37,7 +37,7 @@ final class GetCountMethodTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableContains1Element() {
     //setup
-    final Iterable<Object> iterable = new List<>(new String[] { "antelope" });
+    final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
 
     //execution
     final var result = IterableTool.getCount(iterable);
@@ -49,7 +49,7 @@ final class GetCountMethodTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableContains2Elements() {
     //setup
-    final Iterable<Object> iterable = new List<>(new String[] { "antelope", "elephant" });
+    final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
 
     //execution
     final var result = IterableTool.getCount(iterable);

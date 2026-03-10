@@ -20,12 +20,6 @@ public final class List<E> implements Iterable<E> {
   private List() {
   }
 
-  public List(final E[] elements) {
-    for (final var e : elements) {
-      addAtBegin(e);
-    }
-  }
-
   public static String[] createArrayFromList(final List<String> list) {
     final var array = new String[list.getElementCount()];
 
@@ -40,6 +34,16 @@ public final class List<E> implements Iterable<E> {
 
   public static <T> List<T> createEmpty() {
     return new List<>();
+  }
+
+  public static <T> List<T> fromArray(final T[] array) {
+    final var list = new List<T>();
+
+    for (final var e : array) {
+      list.addAtBegin(e);
+    }
+
+    return list;
   }
 
   public static <T> List<T> withElements(final Iterable<T> elements) {
