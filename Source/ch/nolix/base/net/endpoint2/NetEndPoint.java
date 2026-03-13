@@ -78,7 +78,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   public NetEndPoint(final String ip, final int port) {
     //Calls other constructor.
-    this(new ch.nolix.base.net.endpoint.SocketEndPoint(ip, port));
+    this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(ip, port));
   }
 
   /**

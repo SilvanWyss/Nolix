@@ -37,13 +37,13 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
 
   /**
    * Creates a new {@link SocketEndPoint} that will connect to the default slot on
-   * the given port on the machine with the given ip.
+   * the given port on the given host.
    * 
-   * @param ip
+   * @param host
    * @param port
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
-  public SocketEndPoint(final String ip, final int port) {
+  private SocketEndPoint(final String host, final int port) {
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
     Validator
@@ -54,7 +54,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     peerType = PeerType.FRONTEND;
 
     try {
-      socket = new Socket(ip, port);
+      socket = new Socket(host, port);
       socketInputStream = socket.getInputStream();
       socketOutputStream = socket.getOutputStream();
     } catch (final IOException pIOException) {
@@ -160,6 +160,17 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     this.socketOutputStream = socketOutputStream;
 
     SocketEndPointMessageListener.forSocketEndPoint(this);
+  }
+
+  /**
+   * @param host
+   * @param port
+   * @return a new {@link SocketEndPoint} that will connect to the default slot on
+   *         the given port on the given host.
+   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   */
+  public static SocketEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
+    return new SocketEndPoint(host, port);
   }
 
   /**
