@@ -36,17 +36,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   private final OutputStream socketOutputStream;
 
   /**
-   * Creates a new {@link SocketEndPoint} that will connect to the main target on
-   * the given port on the local machine.
-   * 
-   * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   */
-  public SocketEndPoint(final int port) {
-    this(IPv6Catalog.LOOP_BACK_ADDRESS, port);
-  }
-
-  /**
    * Creates a new {@link SocketEndPoint} that will connect to the given target on
    * the given port on the local machine.
    * 
@@ -71,7 +60,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   }
 
   /**
-   * Creates a new {@link SocketEndPoint} that will connect to the main target on
+   * Creates a new {@link SocketEndPoint} that will connect to the default slot on
    * the given port on the machine with the given ip.
    * 
    * @param ip
@@ -195,6 +184,16 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     this.socketOutputStream = socketOutputStream;
 
     SocketEndPointMessageListener.forSocketEndPoint(this);
+  }
+
+  /**
+   * @param port
+   * @return a new {@link SocketEndPoint} that will connect to the default slot on
+   *         the given port on the machine with the given ip.
+   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   */
+  public static SocketEndPoint toDefaultSlotOnGivenPortOnLocalMachine(final int port) {
+    return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port);
   }
 
   /**

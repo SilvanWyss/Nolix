@@ -29,7 +29,7 @@ final class SocketEndPointTest extends StandardTest {
       //execution & verification
       expectRunning(
         () -> {
-          try (final var _ = new SocketEndPoint(port)) {
+          try (final var _ = SocketEndPoint.toDefaultSlotOnGivenPortOnLocalMachine(port)) {
             FlowController.waitForMilliseconds(1);
           }
         })
@@ -47,7 +47,7 @@ final class SocketEndPointTest extends StandardTest {
       final var slot = new MockSlot();
       server.addDefaultSlot(slot);
 
-      try (final var testUnit = new SocketEndPoint(port)) {
+      try (final var testUnit = SocketEndPoint.toDefaultSlotOnGivenPortOnLocalMachine(port)) {
         //execution
         testUnit.sendMessage("MESSAGE");
         FlowController.waitForMilliseconds(WAITING_TIME_IN_MILLISECONDS);
