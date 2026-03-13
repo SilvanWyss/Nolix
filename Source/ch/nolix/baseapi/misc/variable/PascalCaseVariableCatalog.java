@@ -435,6 +435,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String VALUE = "Value";
 
+  public static final String VALUE_SUPPLIER = "ValueSupplier";
+
   public static final String VALUE_TYPE = "ValueType";
 
   public static final String VERSION = "Version";

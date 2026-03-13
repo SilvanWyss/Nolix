@@ -437,6 +437,8 @@ public final class PluralLowerCaseVariableCatalog {
 
   public static final String VALUES = "values";
 
+  public static final String VALUE_SUPPLIERS = "value suppliers";
+
   public static final String VALUE_TYPES = "value types";
 
   public static final String VERSIONS = "versions";

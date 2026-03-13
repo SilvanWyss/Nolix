@@ -435,6 +435,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String VALUE = "value";
 
+  public static final String VALUE_SUPPLIER = "value supplier";
+
   public static final String VALUE_TYPE = "value type";
 
   public static final String VERSION = "version";
