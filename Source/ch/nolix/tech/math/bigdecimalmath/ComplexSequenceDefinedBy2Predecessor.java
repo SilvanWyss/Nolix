@@ -21,19 +21,26 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
 
   private final IComplexNumber secondValue;
 
-  private final BiFunction<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction;
+  private final BiFunction<IComplexNumber, IComplexNumber, IComplexNumber> nextValueSupplier;
 
-  public ComplexSequenceDefinedBy2Predecessor(
+  private ComplexSequenceDefinedBy2Predecessor(
     final IComplexNumber firstValue,
     final IComplexNumber secondValue,
-    BinaryOperator<IComplexNumber> nextValueFunction) {
+    BinaryOperator<IComplexNumber> nextValueSupplier) {
     Validator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
     Validator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
-    Validator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
+    Validator.assertThat(nextValueSupplier).thatIsNamed("next value supplier").isNotNull();
 
     this.firstValue = firstValue;
     this.secondValue = secondValue;
-    this.nextValueFunction = nextValueFunction;
+    this.nextValueSupplier = nextValueSupplier;
+  }
+
+  public static ComplexSequenceDefinedBy2Predecessor withFirstValueAndSecondValueAndNextValueSupplier(
+    final IComplexNumber firstValue,
+    final IComplexNumber secondValue,
+    final BinaryOperator<IComplexNumber> nextValueSupplier) {
+    return new ComplexSequenceDefinedBy2Predecessor(firstValue, secondValue, nextValueSupplier);
   }
 
   /**
@@ -73,6 +80,6 @@ implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
       return getSecondValue();
     }
 
-    return nextValueFunction.apply(getValueAtOneBasedIndex(index - 2), getValueAtOneBasedIndex(index - 1));
+    return nextValueSupplier.apply(getValueAtOneBasedIndex(index - 2), getValueAtOneBasedIndex(index - 1));
   }
 }

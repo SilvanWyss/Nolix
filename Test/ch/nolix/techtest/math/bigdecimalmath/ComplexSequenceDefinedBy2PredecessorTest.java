@@ -17,7 +17,8 @@ final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
   @Test
   void test_getValueAtOneBasedIndex() {
     //setup
-    final var testUnit = new ComplexSequenceDefinedBy2Predecessor(
+    final var testUnit = //
+    ComplexSequenceDefinedBy2Predecessor.withFirstValueAndSecondValueAndNextValueSupplier(
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(1.0, 0.0, 20),
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 2.0, 20),
       IComplexNumber::getSum);
