@@ -17,7 +17,8 @@ public final class SequenceFactory {
 
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(
     final IComplexNumber increment) {
-    return createMandelbrotSequenceForStartValueAndIncrement(new ComplexNumber(0.0, 0.0), increment);
+    return createMandelbrotSequenceForStartValueAndIncrement(
+      ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0), increment);
   }
 
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForStartValueAndIncrement(

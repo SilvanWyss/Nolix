@@ -157,9 +157,13 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
   }
 
   private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
-    return new ComplexNumber(
-      FRACTAL_TOOL.getMinX(fractal).add(FRACTAL_TOOL.getUnitsForHorizontalPixelCount(fractal, x)),
-      FRACTAL_TOOL.getMinY(fractal).add(FRACTAL_TOOL.getUnitsForVerticalPixelCount(fractal, y)));
+    final var realComponent = //
+    FRACTAL_TOOL.getMinX(fractal).add(FRACTAL_TOOL.getUnitsForHorizontalPixelCount(fractal, x));
+
+    final var imaginaryComponent = //
+    FRACTAL_TOOL.getMinY(fractal).add(FRACTAL_TOOL.getUnitsForVerticalPixelCount(fractal, y));
+
+    return ComplexNumber.withRealComponentAndImaginaryComponent(realComponent, imaginaryComponent);
   }
 
   private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(

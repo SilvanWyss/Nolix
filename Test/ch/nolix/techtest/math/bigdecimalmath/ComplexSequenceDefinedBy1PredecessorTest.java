@@ -20,8 +20,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
-      new ComplexNumber(0.0, 0.0, 20),
-      p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
+      ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
+      p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
     //execution & verification
     expect(testUnit.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal.valueOf(2.5), 4))
@@ -39,8 +39,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
-      new ComplexNumber(0.0, 0.0, 20),
-      p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
+      ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
+      p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
     //execution & verification
     expect(testUnit.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal.valueOf(2.5), 1))
@@ -58,8 +58,8 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
-      new ComplexNumber(0.0, 0.0, 20),
-      p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
+      ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
+      p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
     //execution & verification
     expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(1)).isEqualTo(BigDecimal.valueOf(0.0).setScale(20));
@@ -73,13 +73,17 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
     //setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
-      new ComplexNumber(0.0, 0.0, 20),
-      p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
+      ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
+      p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
     //execution & verification
-    expect(testUnit.getValueAtOneBasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0, 20));
-    expect(testUnit.getValueAtOneBasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0, 20));
-    expect(testUnit.getValueAtOneBasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0, 20));
-    expect(testUnit.getValueAtOneBasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(1))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(2))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(1.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(3))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(2.0, 0.0, 20));
+    expect(testUnit.getValueAtOneBasedIndex(4))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(5.0, 0.0, 20));
   }
 }

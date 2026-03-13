@@ -20,7 +20,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_constructor_1A() {
     //execution
-    final var result = new ComplexNumber(0.0, 0.0);
+    final var result = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //verification
     expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
@@ -30,7 +30,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_constructor_1B() {
     //execution
-    final var result = new ComplexNumber(1.0, 0.0);
+    final var result = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0);
 
     //verification
     expect(result.getRealComponent().doubleValue()).isEqualTo(1.0);
@@ -40,7 +40,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_constructor_1C() {
     //execution
-    final var result = new ComplexNumber(0.0, 1.0);
+    final var result = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0);
 
     //verification
     expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
@@ -54,10 +54,10 @@ final class ComplexNumberTest extends StandardTest {
     final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(10, RoundingMode.HALF_UP);
 
     //execution
-    final var result = new ComplexNumber(realComponent, imaginaryComponent);
+    final var result = ComplexNumber.withRealComponentAndImaginaryComponent(realComponent, imaginaryComponent);
 
     //verification
-    expect(result.getScale()).isEqualTo(10);
+    expect(result.getDecimalPlaceCount()).isEqualTo(10);
     expect(result.getRealComponent()).hasStringRepresentation("3.1415900000");
     expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182818285");
   }
@@ -69,10 +69,10 @@ final class ComplexNumberTest extends StandardTest {
     final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(5, RoundingMode.HALF_UP);
 
     //execution
-    final var result = new ComplexNumber(realComponent, imaginaryComponent);
+    final var result = ComplexNumber.withRealComponentAndImaginaryComponent(realComponent, imaginaryComponent);
 
     //verification
-    expect(result.getScale()).isEqualTo(10);
+    expect(result.getDecimalPlaceCount()).isEqualTo(10);
     expect(result.getRealComponent()).hasStringRepresentation("3.1415926536");
     expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182800000");
   }
@@ -80,49 +80,49 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_getConjugate_1A() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //execution
     final var result = testUnit.getConjugate();
 
     //verification
-    expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
   }
 
   @Test
   void testCase_getConjugate_1B() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0);
 
     //execution
     final var result = testUnit.getConjugate();
 
     //verification
-    expect(result).isEqualTo(new ComplexNumber(0.0, -1.0));
+    expect(result).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0));
   }
 
   @Test
   void testCase_getConjugate_1C() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0);
 
     //execution
     final var result = testUnit.getConjugate();
 
     //verification
-    expect(result).isEqualTo(new ComplexNumber(1.0, 0.0));
+    expect(result).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0));
   }
 
   @Test
   void testCase_getConjugate_1D() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
     //execution
     final var result = testUnit.getConjugate();
 
     //verification
-    expect(result).isEqualTo(new ComplexNumber(1.0, -1.0));
+    expect(result).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0));
   }
 
   @ParameterizedTest
@@ -137,110 +137,135 @@ final class ComplexNumberTest extends StandardTest {
     final double realComponent,
     final double imaginaryComponent,
     final double expectedMagnitude) {
-    //parameter definition
-    final var scale = 10;
 
     //setup
-    final var testUnit = new ComplexNumber(realComponent, imaginaryComponent);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(realComponent, imaginaryComponent);
 
     //execution
     final var result = testUnit.getMagnitude();
 
     //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(expectedMagnitude).setScale(scale));
+    expect(result).isEqualTo(BigDecimal.valueOf(expectedMagnitude));
   }
 
   @Test
   void testCase_getProduct_1A() {
     //parameter definition
-    final var factor = new ComplexNumber(0.0, 0.0);
+    final var factor = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //setup
-    final var testUnit = new ComplexNumber(0.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //execution
     final var result = testUnit.getProduct(factor);
 
     //verification
-    expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
   }
 
   @Test
   void testCase_getProduct_1B() {
     //parameter definition
-    final var factor = new ComplexNumber(0.0, 0.0);
+    final var factor = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //setup
-    final var testUnit = new ComplexNumber(1.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
     //execution
     final var result = testUnit.getProduct(factor);
 
     //verification
-    expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(result).isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
   }
 
   @Test
   void testCase_getSum_1A() {
     //setup
-    final var testUnit = new ComplexNumber(-1.0, -1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -1.0);
 
     //execution & verification
-    expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(-2.0, -2.0));
-    expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(-2.0, -1.0));
-    expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(-2.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, -1.0))).isEqualTo(new ComplexNumber(-1.0, -2.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, 0.0))).isEqualTo(new ComplexNumber(-1.0, -1.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, 1.0))).isEqualTo(new ComplexNumber(-1.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, -1.0))).isEqualTo(new ComplexNumber(0.0, -2.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, 0.0))).isEqualTo(new ComplexNumber(0.0, -1.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-2.0, -2.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-2.0, -1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-2.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -2.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -2.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
   }
 
   @Test
   void testCase_getSum_1B() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //execution & verification
-    expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(-1.0, -1.0));
-    expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(-1.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(-1.0, 1.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, -1.0))).isEqualTo(new ComplexNumber(0.0, -1.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, 0.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 1.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, -1.0))).isEqualTo(new ComplexNumber(1.0, -1.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, 0.0))).isEqualTo(new ComplexNumber(1.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(1.0, 1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0));
   }
 
   @Test
   void testCase_getSum_1C() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
     //execution & verification
-    expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(0.0, 1.0));
-    expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 2.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, -1.0))).isEqualTo(new ComplexNumber(1.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, 0.0))).isEqualTo(new ComplexNumber(1.0, 1.0));
-    expect(testUnit.getSum(new ComplexNumber(0.0, 1.0))).isEqualTo(new ComplexNumber(1.0, 2.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, -1.0))).isEqualTo(new ComplexNumber(2.0, 0.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, 0.0))).isEqualTo(new ComplexNumber(2.0, 1.0));
-    expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(2.0, 2.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 2.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 2.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(2.0, 0.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(2.0, 1.0));
+    expect(testUnit.getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0)))
+      .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponent(2.0, 2.0));
   }
 
   @Test
   void testCase_inDecimalPlaces() {
     //setup
-    final var testUnit = new ComplexNumber(3.0, 2.0, 10);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(3.0, 2.0, 10);
 
     //execution
-    final var result = testUnit.inDecimalPlaces(50);
+    final var result = testUnit.withDecimalPlaceCount(50);
 
     //verification
-    expect(result.getDecimalPlaces()).isEqualTo(50);
+    expect(result.getDecimalPlaceCount()).isEqualTo(50);
     expect(result.getRealComponent().scale()).isEqualTo(50);
     expect(result.getImaginaryComponent().scale()).isEqualTo(50);
   }
@@ -248,7 +273,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, -1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, -1.0);
 
     //execution
     final var result = testUnit.isPureImaginary();
@@ -260,7 +285,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0);
 
     //execution
     final var result = testUnit.isPureImaginary();
@@ -272,7 +297,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
     //execution
     final var result = testUnit.isPureImaginary();
@@ -284,7 +309,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, -1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, -1.0);
 
     //execution
     final var result = testUnit.isPureImaginary();
@@ -296,7 +321,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //execution
     final var result = testUnit.isPureImaginary();
@@ -308,7 +333,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0);
 
     //execution
     final var result = testUnit.isPureImaginary();
@@ -320,7 +345,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
     //setup
-    final var testUnit = new ComplexNumber(-1.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 1.0);
 
     //execution
     final var result = testUnit.isPureReal();
@@ -332,7 +357,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 1.0);
 
     //execution
     final var result = testUnit.isPureReal();
@@ -344,7 +369,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 1.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 1.0);
 
     //execution
     final var result = testUnit.isPureReal();
@@ -356,7 +381,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
     //setup
-    final var testUnit = new ComplexNumber(-1.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(-1.0, 0.0);
 
     //execution
     final var result = testUnit.isPureReal();
@@ -368,7 +393,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
     //setup
-    final var testUnit = new ComplexNumber(0.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(0.0, 0.0);
 
     //execution
     final var result = testUnit.isPureReal();
@@ -380,7 +405,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
     //setup
-    final var testUnit = new ComplexNumber(1.0, 0.0);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0);
 
     //execution
     final var result = testUnit.isPureReal();
@@ -392,7 +417,7 @@ final class ComplexNumberTest extends StandardTest {
   @Test
   void testCase_toString() {
     //setup
-    final var testUnit = new ComplexNumber(3.0, 2.0, 5);
+    final var testUnit = ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(3.0, 2.0, 5);
 
     //execution
     final var result = testUnit.toString();

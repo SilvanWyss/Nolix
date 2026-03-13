@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public interface IComplexNumber extends Comparable<IComplexNumber> {
   IComplexNumber getConjugate();
 
-  int getDecimalPlaces();
+  int getDecimalPlaceCount();
 
   BigDecimal getImaginaryComponent();
 
@@ -27,8 +27,6 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
 
   BigDecimal getRealComponent();
 
-  int getScale();
-
   IComplexNumber getPower2();
 
   IComplexNumber getPower3();
@@ -43,9 +41,9 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
 
   IComplexNumber getSum(IComplexNumber complexNumber);
 
-  IComplexNumber inDecimalPlaces(int decimalPlaces);
-
   boolean isPureImaginary();
 
   boolean isPureReal();
+
+  IComplexNumber withDecimalPlaceCount(int decimalPlaces);
 }
