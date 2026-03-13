@@ -8,7 +8,6 @@ import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidPortException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -65,18 +64,18 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} that will connect to the given target on
-   * the given port on the machine with the given ip.
+   * Creates a new {@link NetEndPoint} that will connect to the given slot on the
+   * given port on the given host.
    * 
-   * @param ip
+   * @param host
    * @param port
-   * @param target
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given target is null.
-   * @throws InvalidArgumentException      if the given target is blank.
+   * @param slot
+   * @throws InvalidPortException     if the given port is not in [0, 65535].
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is blank.
    */
-  public NetEndPoint(final String ip, final int port, final String target) {
-    this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(ip, port, target));
+  private NetEndPoint(final String host, final int port, final String slot) {
+    this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
   }
 
   /**
@@ -102,6 +101,20 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
     return new NetEndPoint(host, port);
+  }
+
+  /**
+   * @param host
+   * @param port
+   * @param slot
+   * @return a new {@link NetEndPoint} that will connect to the given slot on the
+   *         given port on the given host.
+   * @throws InvalidPortException     if the given port is not in [0, 65535].
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is blank.
+   */
+  public static NetEndPoint toGivenHostAndGivenPortAndGivenSlot(final String host, final int port, final String slot) {
+    return new NetEndPoint(host, port, slot);
   }
 
   /**
