@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.testing.archunit;
 
+import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaConstructor;
 import com.tngtech.archunit.core.domain.JavaModifier;
 import com.tngtech.archunit.lang.ArchCondition;
@@ -17,6 +18,30 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
  * @author Silvan Wyss
  */
 public final class ArchUnitRuleCatalog {
+  public static final ArchRule PUBLIC_CLASSES_DO_NOT_CONTAIN_NESTED_CLASSES = //
+  ArchRuleDefinition
+    .classes()
+    .that()
+    .areNotAnonymousClasses()
+    .and()
+    .areNestedClasses()
+    .should(new ArchCondition<JavaClass>("should not belong to public classes.") {
+      @Override
+      public void check(JavaClass item, ConditionEvents events) {
+        final var optionalEnclosingClass = item.getEnclosingClass();
+
+        if (optionalEnclosingClass.isPresent()) {
+          final var enclosingClass = optionalEnclosingClass.get();
+
+          if (enclosingClass.getModifiers().contains(JavaModifier.PUBLIC)) {
+            final var message = "The public class '" + enclosingClass.getName() + "' contains nested classes.";
+
+            events.add(new SimpleConditionEvent(enclosingClass, false, message));
+          }
+        }
+      }
+    });
+
   public static final ArchRule PUBLIC_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS = //
   ArchRuleDefinition
     .constructors()
@@ -29,11 +54,11 @@ public final class ArchUnitRuleCatalog {
     .areDeclaredInClassesThat()
     .haveModifier(JavaModifier.FINAL)
     .should(
-      new ArchCondition<JavaConstructor>("Public constructors do not contain parameters.") {
+      new ArchCondition<JavaConstructor>("should not contain parameters.") {
         @Override
         public void check(final JavaConstructor item, final ConditionEvents events) {
           if (!item.getParameters().isEmpty()) {
-            final var message = "The constructor '" + item.getFullName() + "' is public and contains parameters.";
+            final var message = "The public constructor '" + item.getFullName() + "' contains parameters.";
 
             events.add(new SimpleConditionEvent(item, false, message));
           }
