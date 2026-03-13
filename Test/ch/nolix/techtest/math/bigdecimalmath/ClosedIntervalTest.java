@@ -20,7 +20,7 @@ final class ClosedIntervalTest extends StandardTest {
   @Test
   void testCase_containsValue_whenNullIsGiven() {
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
+    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
     //execution
     final var result = testUnit.containsValue(null);
@@ -37,7 +37,7 @@ final class ClosedIntervalTest extends StandardTest {
   })
   void testCase_containsValue_whenContainsTheGivenValue(final double min, final double max, final double value) {
     //setup
-    final var testUnit = new ClosedInterval(min, max);
+    final var testUnit = ClosedInterval.withMinAndMax(min, max);
     final var valueAsBigDecimal = BigDecimal.valueOf(value);
 
     //execution
@@ -54,7 +54,7 @@ final class ClosedIntervalTest extends StandardTest {
   })
   void testCase_containsValue_whenDoesNotContainTheGivenValue(final double min, final double max, final double value) {
     //setup
-    final var testUnit = new ClosedInterval(min, max);
+    final var testUnit = ClosedInterval.withMinAndMax(min, max);
     final var valueAsBigDecimal = BigDecimal.valueOf(value);
 
     //execution
@@ -65,18 +65,18 @@ final class ClosedIntervalTest extends StandardTest {
   }
 
   @Test
-  void testCase_constructor_whenTheGivenMinIsNull() {
+  void testCase_withMinAndMax_whenTheGivenMinIsNull() {
     //execution & verification
-    expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
+    expectRunning(() -> ClosedInterval.withMinAndMax(null, BigDecimal.valueOf(1.0)))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given minimum is null.");
   }
 
   @Test
-  void testCase_constructor_whenTheGivenMaxIsNull() {
+  void testCase_withMinAndMax_whenTheGivenMaxIsNull() {
     //execution & verification
-    expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
+    expectRunning(() -> ClosedInterval.withMinAndMax(BigDecimal.valueOf(1.0), null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given maximum is null.");
@@ -86,7 +86,7 @@ final class ClosedIntervalTest extends StandardTest {
   void testCase_equals_whenNullIsGiven() {
     //setup
     final ClosedInterval nullCloedInterval = null;
-    final var testUnit = new ClosedInterval(0.0, 1.0);
+    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
     //execution
     final var result = testUnit.equals(nullCloedInterval);
@@ -98,10 +98,10 @@ final class ClosedIntervalTest extends StandardTest {
   @Test
   void testCase_equals_whenUnequalClosedIntervalIsGiven() {
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
+    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
     //execution
-    final var result = testUnit.equals(new ClosedInterval(-1.0, 0.0));
+    final var result = testUnit.equals(ClosedInterval.withMinAndMax(-1.0, 0.0));
 
     //verification
     expect(result).isFalse();
@@ -110,10 +110,10 @@ final class ClosedIntervalTest extends StandardTest {
   @Test
   void testCase_equals_whenEqualClosedIntervalIsGiven() {
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0);
+    final var testUnit = ClosedInterval.withMinAndMax(0.0, 1.0);
 
     //execution
-    final var result = testUnit.equals(new ClosedInterval(0.0, 1.0));
+    final var result = testUnit.equals(ClosedInterval.withMinAndMax(0.0, 1.0));
 
     //verification
     expect(result).isTrue();
@@ -125,7 +125,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, scale);
 
     //execution
     final var result = testUnit.getHalfs();
@@ -143,7 +143,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 1.0, scale);
 
     //execution
     final var result = testUnit.getHalfs();
@@ -161,7 +161,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 0.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 0.0, scale);
 
     //execution
     final var result = testUnit.getHalfs();
@@ -179,7 +179,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(-1.0, -1.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, -1.0, scale);
 
     //execution
     final var result = testUnit.getLength();
@@ -194,7 +194,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(-1.0, 0.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 0.0, scale);
 
     //execution
     final var result = testUnit.getLength();
@@ -209,7 +209,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, scale);
 
     //execution
     final var result = testUnit.getLength();
@@ -224,7 +224,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 0.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 0.0, scale);
 
     //execution
     final var result = testUnit.getLength();
@@ -239,7 +239,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, scale);
 
     //execution
     final var result = testUnit.getMidPoint();
@@ -254,7 +254,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 1.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 1.0, scale);
 
     //execution
     final var result = testUnit.getMidPoint();
@@ -269,7 +269,7 @@ final class ClosedIntervalTest extends StandardTest {
     final var scale = 20;
 
     //setup
-    final var testUnit = new ClosedInterval(0.0, 0.0, scale);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(0.0, 0.0, scale);
 
     //execution
     final var result = testUnit.getMidPoint();
@@ -290,11 +290,11 @@ final class ClosedIntervalTest extends StandardTest {
   })
   void testCase_intersectsWith(final double min, final double max, final boolean expectedResult) {
     //setup
-    final var closedInterval = new ClosedInterval(0.0, 1.0);
-    final var testUnit = new ClosedInterval(min, max);
+    final var closedInterval = ClosedInterval.withMinAndMax(0.0, 1.0);
+    final var testUnit = ClosedInterval.withMinAndMax(min, max);
 
     //execution
-    final var result = testUnit.intersectsWith(closedInterval);
+    final var result = testUnit.intersectsWithClosedInterval(closedInterval);
 
     //verification
     expect(result).is(expectedResult);
@@ -303,7 +303,7 @@ final class ClosedIntervalTest extends StandardTest {
   @Test
   void testCase_toString() {
     //setup
-    final var testUnit = new ClosedInterval(-1.0, 1.0, 5);
+    final var testUnit = ClosedInterval.withMinAndMaxAndDecimalPlaceCount(-1.0, 1.0, 5);
 
     //execution
     final var result = testUnit.toString();

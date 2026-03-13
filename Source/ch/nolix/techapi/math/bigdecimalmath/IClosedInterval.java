@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.pair.IPair;
 public interface IClosedInterval {
   boolean containsValue(BigDecimal value);
 
-  int getDecimalPlaces();
+  int getDecimalPlaceCount();
 
   IPair<IClosedInterval, IClosedInterval> getHalfs();
 
@@ -25,7 +25,7 @@ public interface IClosedInterval {
 
   BigDecimal getMin();
 
-  IClosedInterval inDecimalPlaces(int decimalPlaces);
+  boolean intersectsWithClosedInterval(IClosedInterval closedInterval);
 
-  boolean intersectsWith(IClosedInterval closedInterval);
+  IClosedInterval withDecimalPlaceCount(int decimalPlaces);
 }

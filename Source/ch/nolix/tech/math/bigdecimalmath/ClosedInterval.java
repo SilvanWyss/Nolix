@@ -13,6 +13,8 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 /**
+ * A {@link ClosedInterval} is not mutable.
+ * 
  * @author Silvan Wyss
  */
 public final class ClosedInterval implements IClosedInterval {
@@ -22,38 +24,119 @@ public final class ClosedInterval implements IClosedInterval {
 
   /**
    * Creates a new {@link ClosedInterval} with the given min, max and their max
-   * decimal places count.
+   * decimal place count.
    * 
    * @param min
    * @param max
    * @throws RuntimeException if the given min is null.
    * @throws RuntimeException if the given max is null.
    */
-  public ClosedInterval(final BigDecimal min, final BigDecimal max) {
+  private ClosedInterval(final BigDecimal min, final BigDecimal max) {
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
     Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
 
-    final var decimalPlaces = Calculator.getMax(min.scale(), max.scale());
+    final var decimalPlaceCount = Calculator.getMax(min.scale(), max.scale());
 
-    this.min = min.setScale(decimalPlaces, RoundingMode.HALF_UP);
-    this.max = max.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.min = min.setScale(decimalPlaceCount, RoundingMode.HALF_UP);
+    this.max = max.setScale(decimalPlaceCount, RoundingMode.HALF_UP);
   }
 
-  public ClosedInterval(final BigDecimal min, final BigDecimal max, final int decimalPlaces) {
+  /**
+   * Creates a new {@link ClosedInterval} with the given min, max and
+   * decimalPlaceCount.
+   * 
+   * @param min
+   * @param max
+   * @param decimalPlaceCount
+   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given max is null.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   */
+  private ClosedInterval(final BigDecimal min, final BigDecimal max, final int decimalPlaceCount) {
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
     Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
-    Validator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
+    Validator.assertThat(decimalPlaceCount).thatIsNamed("decimal place count").isPositive();
 
-    this.min = min.setScale(decimalPlaces, RoundingMode.HALF_UP);
-    this.max = max.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.min = min.setScale(decimalPlaceCount, RoundingMode.HALF_UP);
+    this.max = max.setScale(decimalPlaceCount, RoundingMode.HALF_UP);
   }
 
-  public ClosedInterval(final double min, final double max) {
+  /**
+   * Creates a new {@link ClosedInterval} with the given min, max and their max
+   * decimal place count.
+   * 
+   * @param min
+   * @param max
+   */
+  private ClosedInterval(final double min, final double max) {
     this(BigDecimal.valueOf(min), BigDecimal.valueOf(max));
   }
 
-  public ClosedInterval(final double min, final double max, final int decimalPlaces) {
-    this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), decimalPlaces);
+  /**
+   * Creates a new {@link ClosedInterval} with the given min, max and
+   * decimalPlaceCount.
+   * 
+   * @param min
+   * @param max
+   * @param decimalPlaceCount
+   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   */
+  private ClosedInterval(final double min, final double max, final int decimalPlaceCount) {
+    this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), decimalPlaceCount);
+  }
+
+  /**
+   * @param min
+   * @param max
+   * @return a new {@link ClosedInterval} with the given min, max and their max
+   *         decimal place count.
+   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given max is null.
+   */
+  public static ClosedInterval withMinAndMax(final BigDecimal min, final BigDecimal max) {
+    return new ClosedInterval(min, max);
+  }
+
+  /**
+   * @param min
+   * @param max
+   * @param decimalPlaceCount
+   * @return a new {@link ClosedInterval} with the given min, max and
+   *         decimalPlaceCount.
+   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given max is null.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   */
+  public static ClosedInterval withMinAndMaxAndDecimalPlaceCount(
+    final BigDecimal min,
+    final BigDecimal max,
+    int decimalPlaceCount) {
+    return new ClosedInterval(min, max, decimalPlaceCount);
+  }
+
+  /**
+   * @param min
+   * @param max
+   * @return a new {@link ClosedInterval} with the given min, max and their max*
+   *         decimal place count.
+   */
+  public static ClosedInterval withMinAndMax(final double min, final double max) {
+    return new ClosedInterval(min, max);
+  }
+
+  /**
+   * @param min
+   * @param max
+   * @param decimalPlaceCount
+   * @return a new {@link ClosedInterval} with the given min, max and
+   *         decimalPlaceCount.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   */
+  public static ClosedInterval withMinAndMaxAndDecimalPlaceCount(
+    final double min,
+    final double max,
+    final int decimalPlaceCount) {
+    return new ClosedInterval(min, max, decimalPlaceCount);
   }
 
   /**
@@ -74,14 +157,15 @@ public final class ClosedInterval implements IClosedInterval {
   public boolean equals(final Object object) {
     return //
     object instanceof final IClosedInterval closedInterval
-    && equalsClosedIntervall(closedInterval);
+    && min.equals(closedInterval.getMin())
+    && max.equals(closedInterval.getMax());
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public int getDecimalPlaces() {
+  public int getDecimalPlaceCount() {
     return min.scale();
   }
 
@@ -90,13 +174,12 @@ public final class ClosedInterval implements IClosedInterval {
    */
   @Override
   public Pair<IClosedInterval, IClosedInterval> getHalfs() {
-    final var decimalPlaces = getDecimalPlaces();
+    final var decimalPlaceCount = getDecimalPlaceCount();
     final var midPoint = getMidPoint();
+    final var leftHalf = new ClosedInterval(min, midPoint, decimalPlaceCount);
+    final var rightHalf = new ClosedInterval(midPoint, max, decimalPlaceCount);
 
-    return //
-    Pair.withElement1AndElement2(
-      new ClosedInterval(min, midPoint, decimalPlaces),
-      new ClosedInterval(midPoint, max, decimalPlaces));
+    return Pair.withElement1AndElement2(leftHalf, rightHalf);
   }
 
   /**
@@ -120,7 +203,7 @@ public final class ClosedInterval implements IClosedInterval {
    */
   @Override
   public BigDecimal getMidPoint() {
-    return min.add(max).divide(BigDecimal.valueOf(2.0)).setScale(min.scale());
+    return min.add(max).divide(BigDecimal.valueOf(2.0)).setScale(getDecimalPlaceCount());
   }
 
   /**
@@ -143,16 +226,7 @@ public final class ClosedInterval implements IClosedInterval {
    * {@inheritDoc}
    */
   @Override
-  public ClosedInterval inDecimalPlaces(final int decimalPlaces) {
-    return new ClosedInterval(min, max, decimalPlaces);
-  }
-
-  //For a better performance, this implementation does not use all available comfort methods.
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean intersectsWith(final IClosedInterval closedInterval) {
+  public boolean intersectsWithClosedInterval(final IClosedInterval closedInterval) {
     return //
     min.compareTo(closedInterval.getMax()) < 0
     && max.compareTo(closedInterval.getMin()) > 0;
@@ -166,11 +240,11 @@ public final class ClosedInterval implements IClosedInterval {
     return ("[" + min + ", " + max + "]");
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
-  private boolean equalsClosedIntervall(final IClosedInterval closedInterval) {
-    return //
-    closedInterval != null
-    && min.equals(closedInterval.getMin())
-    && max.equals(closedInterval.getMax());
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ClosedInterval withDecimalPlaceCount(final int decimalPlaceCount) {
+    return withMinAndMaxAndDecimalPlaceCount(min, max, decimalPlaceCount);
   }
 }

@@ -20,9 +20,9 @@ import ch.nolix.techapi.math.fractal.IFractalBuilder;
  * @author Silvan Wyss
  */
 public final class FractalBuilder implements IFractalBuilder {
-  public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
+  public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = ClosedInterval.withMinAndMax(-2.5, 1.0);
 
-  public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
+  public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = ClosedInterval.withMinAndMax(-1.5, 1.5);
 
   public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
 
@@ -116,7 +116,7 @@ public final class FractalBuilder implements IFractalBuilder {
    */
   @Override
   public IFractalBuilder setImaginaryComponentInterval(final double min, final double max) {
-    return setImaginaryComponentInterval(new ClosedInterval(min, max));
+    return setImaginaryComponentInterval(ClosedInterval.withMinAndMax(min, max));
   }
 
   /**
@@ -134,7 +134,7 @@ public final class FractalBuilder implements IFractalBuilder {
    */
   @Override
   public IFractalBuilder setRealComponentInterval(final double min, final double max) {
-    return setRealComponentInterval(new ClosedInterval(min, max));
+    return setRealComponentInterval(ClosedInterval.withMinAndMax(min, max));
   }
 
   /**
