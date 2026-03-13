@@ -15,7 +15,7 @@ final class XmlAttributeTest extends StandardTest {
   @Test
   void testCase_constructor() {
     //execution
-    final var result = new XmlAttribute("color", "green");
+    final var result = XmlAttribute.withNameAndValue("color", "green");
 
     //verification
     expect(result.getName()).isEqualTo("color");
@@ -25,7 +25,7 @@ final class XmlAttributeTest extends StandardTest {
   @Test
   void testCase_toString() {
     //setup
-    final var xmlAttribute = new XmlAttribute("color", "green");
+    final var xmlAttribute = XmlAttribute.withNameAndValue("color", "green");
 
     //execution
     final var result = xmlAttribute.toString();

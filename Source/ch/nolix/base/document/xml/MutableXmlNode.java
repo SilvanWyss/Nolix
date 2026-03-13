@@ -137,7 +137,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    */
   @Override
   public IMutableXmlNode addAttributeWithNameAndValue(final String name, final String value) {
-    return addAttribute(new XmlAttribute(name, value));
+    return addAttribute(XmlAttribute.withNameAndValue(name, value));
   }
 
   /**

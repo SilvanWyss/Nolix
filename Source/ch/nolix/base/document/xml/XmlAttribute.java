@@ -16,16 +16,27 @@ public final class XmlAttribute implements IXmlAttribute {
 
   private final String value;
 
-  public XmlAttribute(final String name) {
-    this(name, StringCatalog.EMPTY_STRING);
+  private XmlAttribute(final String name) {
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+
+    this.name = name;
+    this.value = StringCatalog.EMPTY_STRING;
   }
 
-  public XmlAttribute(final String name, final String value) {
+  private XmlAttribute(final String name, final String value) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
     this.name = name;
     this.value = value;
+  }
+
+  public static XmlAttribute withName(final String name) {
+    return new XmlAttribute(name);
+  }
+
+  public static XmlAttribute withNameAndValue(final String name, final String value) {
+    return new XmlAttribute(name, value);
   }
 
   /**
@@ -49,6 +60,6 @@ public final class XmlAttribute implements IXmlAttribute {
    */
   @Override
   public String toString() {
-    return (getName() + "='" + getValue() + "'");
+    return getName() + "='" + getValue() + "'";
   }
 }
