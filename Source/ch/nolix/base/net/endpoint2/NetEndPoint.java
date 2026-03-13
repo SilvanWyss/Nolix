@@ -53,15 +53,15 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} that will connect to the default target on
-   * the given port on the machine with the given ip.
+   * Creates a new {@link NetEndPoint} that will connect to the default slot on
+   * the given port on the given host.
    * 
-   * @param ip
+   * @param host
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws InvalidPortException if the given port is not in [0, 65535].
    */
-  public NetEndPoint(final String ip, final int port) {
-    this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(ip, port));
+  private NetEndPoint(final String host, final int port) {
+    this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
   }
 
   /**
@@ -91,6 +91,17 @@ public final class NetEndPoint extends AbstractEndPoint {
     this.internalEndPoint = internalEndPoint;
     createCloseDependencyTo(internalEndPoint);
     internalEndPoint.setReceiver(this::receive);
+  }
+
+  /**
+   * @param host
+   * @param port
+   * @return a new {@link NetEndPoint} that will connect to the default slot on
+   *         the given port on the given host.
+   * @throws InvalidPortException if the given port is not in [0, 65535].
+   */
+  public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
+    return new NetEndPoint(host, port);
   }
 
   /**
