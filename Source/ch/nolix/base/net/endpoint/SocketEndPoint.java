@@ -36,20 +36,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   private final OutputStream socketOutputStream;
 
   /**
-   * Creates a new {@link SocketEndPoint} that will connect to the given target on
-   * the given port on the local machine.
-   * 
-   * @param port
-   * @param target
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given target is null.
-   * @throws InvalidArgumentException      if the given target is blank.
-   */
-  public SocketEndPoint(final int port, final String target) {
-    this(IPv6Catalog.LOOP_BACK_ADDRESS, port, target);
-  }
-
-  /**
    * Creates a new {@link SocketEndPoint} that will connect to the main target on
    * the HTTP port (80) on the machine with the given ip.
    * 
@@ -189,11 +175,24 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   /**
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
-   *         the given port on the machine with the given ip.
+   *         the given port on the locale machine.
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
-  public static SocketEndPoint toDefaultSlotOnGivenPortOnLocalMachine(final int port) {
+  public static SocketEndPoint toLocaleMachineAndGivenPortAndDefaultSlot(final int port) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port);
+  }
+
+  /**
+   * @param port
+   * @return a new {@link SocketEndPoint} that will connect to the given slot on
+   *         the given port on the local machine.
+   * @param slot
+   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws ArgumentIsNullException       if the given target slot null.
+   * @throws InvalidArgumentException      if the given target slot blank.
+   */
+  public static SocketEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
+    return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port, slot);
   }
 
   /**
