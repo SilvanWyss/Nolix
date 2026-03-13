@@ -12,10 +12,10 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 /**
  * @author Silvan Wyss
  */
-public final class ComplexExplicitSequence extends AbstractSequence<IComplexNumber> {
+public final class ExplicitComplexSequence extends AbstractSequence<IComplexNumber> {
   private final IntFunction<IComplexNumber> valueFunction;
 
-  public ComplexExplicitSequence(final IntFunction<IComplexNumber> valueFunction) {
+  public ExplicitComplexSequence(final IntFunction<IComplexNumber> valueFunction) {
     Validator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
 
     this.valueFunction = valueFunction;
