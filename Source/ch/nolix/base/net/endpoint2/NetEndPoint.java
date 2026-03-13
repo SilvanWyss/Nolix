@@ -10,6 +10,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidPortException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint.IEndPoint;
 import ch.nolix.baseapi.net.endpoint2protocol.MessageRole;
@@ -31,14 +32,13 @@ public final class NetEndPoint extends AbstractEndPoint {
   private final LinkedList<Package> receivedPackages = LinkedList.createEmpty();
 
   /**
-   * Creates a new {@link NetEndPoint} that will connect to the default target on
+   * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the given port on the local machine.
    * 
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws InvalidPortException if the given port is not in [0, 65535].
    */
-  public NetEndPoint(final int port) {
-    //Calls other constructor.
+  private NetEndPoint(final int port) {
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port));
   }
 
@@ -53,7 +53,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException      if the given target is blank.
    */
   public NetEndPoint(final int port, final String target) {
-    //Calls other constructor.
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, target));
   }
 
@@ -64,7 +63,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param ip
    */
   public NetEndPoint(final String ip) {
-    //Calls other constructor.
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndHttpPortAndDefaultSlot(ip));
   }
 
@@ -77,7 +75,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
    */
   public NetEndPoint(final String ip, final int port) {
-    //Calls other constructor.
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(ip, port));
   }
 
@@ -93,7 +90,6 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws InvalidArgumentException      if the given target is blank.
    */
   public NetEndPoint(final String ip, final int port, final String target) {
-    //Calls other constructor.
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(ip, port, target));
   }
 
@@ -109,6 +105,16 @@ public final class NetEndPoint extends AbstractEndPoint {
     this.internalEndPoint = internalEndPoint;
     createCloseDependencyTo(internalEndPoint);
     internalEndPoint.setReceiver(this::receive);
+  }
+
+  /**
+   * @param port
+   * @return a new {@link NetEndPoint} that will connect to the default slot on
+   *         the given port on the local machine.
+   * @throws InvalidPortException if the given port is not in [0, 65535].
+   */
+  public static NetEndPoint toLocalMachineAndGivenPortAndDefaultSlot(final int port) {
+    return new NetEndPoint(port);
   }
 
   /**
