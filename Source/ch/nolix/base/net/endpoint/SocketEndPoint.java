@@ -14,6 +14,7 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidPortException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netconstant.IPv6Catalog;
@@ -41,15 +42,12 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * 
    * @param host
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws InvalidPortException if the given port is not in [0, 65535].
    */
   private SocketEndPoint(final String host, final int port) {
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
-    Validator
-      .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalog.PORT)
-      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 
     peerType = PeerType.FRONTEND;
 
@@ -57,8 +55,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
       socket = new Socket(host, port);
       socketInputStream = socket.getInputStream();
       socketOutputStream = socket.getOutputStream();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
 
     sendTargetMessage();
