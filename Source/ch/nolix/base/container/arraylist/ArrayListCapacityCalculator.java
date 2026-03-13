@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.container.arraylist;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.math.number.IntCatalog;
 
 /**

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webatomiccontrol.itemmenu;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuExaminer;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;

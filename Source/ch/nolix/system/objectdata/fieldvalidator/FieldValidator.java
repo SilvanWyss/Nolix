@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.objectdata.fieldvalidator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IFieldValidator;

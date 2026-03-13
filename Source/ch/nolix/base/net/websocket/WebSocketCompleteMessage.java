@@ -9,7 +9,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.state.staterequest.CompletenessRequestable;
 
 /**

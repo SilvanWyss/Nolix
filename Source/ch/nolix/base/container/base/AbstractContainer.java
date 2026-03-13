@@ -17,11 +17,6 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.MappingContainerView;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
@@ -29,6 +24,11 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.commoncontainer.StoringRequestable;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 

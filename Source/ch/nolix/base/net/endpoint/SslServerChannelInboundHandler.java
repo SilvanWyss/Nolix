@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.net.endpoint;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;

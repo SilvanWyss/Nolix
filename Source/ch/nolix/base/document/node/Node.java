@@ -6,14 +6,14 @@ package ch.nolix.base.document.node;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

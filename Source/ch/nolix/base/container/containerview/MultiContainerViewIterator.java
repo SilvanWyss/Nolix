@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.container.containerview;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

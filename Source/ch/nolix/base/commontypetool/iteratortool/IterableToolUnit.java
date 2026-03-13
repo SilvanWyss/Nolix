@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.commontypetool.iteratortool;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.commontypetool.iterabletool.IIterableTool;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 
 /**
  * @author Silvan Wyss

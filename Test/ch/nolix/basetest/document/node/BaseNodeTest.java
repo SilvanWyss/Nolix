@@ -9,9 +9,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.document.node.AbstractNode;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 
 abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   @Test

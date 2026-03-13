@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.programcontrol.worker;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss

@@ -3,11 +3,11 @@
  */
 package ch.nolix.base.net.endpoint;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
 

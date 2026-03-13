@@ -7,8 +7,8 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * The {@link Validator} provides methods to validate arguments.

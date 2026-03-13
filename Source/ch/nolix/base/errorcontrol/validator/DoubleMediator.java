@@ -3,17 +3,17 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EqualArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.SmallerArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.base.independent.math.NumberComparator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 /**
  * A double mediator is a mediator for a double. A double mediator is not

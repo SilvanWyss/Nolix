@@ -5,10 +5,10 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
 

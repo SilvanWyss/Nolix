@@ -8,8 +8,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.document.node.AbstractMutableNode;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends BaseNodeTest<N> {
   @Test

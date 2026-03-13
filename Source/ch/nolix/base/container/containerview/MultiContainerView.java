@@ -6,11 +6,11 @@ package ch.nolix.base.container.containerview;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 
 /**
  * @author Silvan Wyss

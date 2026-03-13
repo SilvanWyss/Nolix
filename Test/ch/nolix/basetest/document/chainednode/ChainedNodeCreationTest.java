@@ -9,8 +9,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * @author Silvan Wyss

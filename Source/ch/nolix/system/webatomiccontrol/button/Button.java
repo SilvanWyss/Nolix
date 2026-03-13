@@ -8,12 +8,12 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;

@@ -7,12 +7,12 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

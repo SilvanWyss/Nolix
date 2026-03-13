@@ -9,10 +9,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.TypeMediator;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**

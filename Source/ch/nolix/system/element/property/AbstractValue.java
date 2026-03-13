@@ -5,11 +5,11 @@ package ch.nolix.system.element.property;
 
 import java.util.function.Function;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.state.staterequest.MutabilityRequestable;
 import ch.nolix.systemapi.element.property.IBaseValue;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss

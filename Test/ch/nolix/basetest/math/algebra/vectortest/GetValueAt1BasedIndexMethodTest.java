@@ -6,9 +6,9 @@ package ch.nolix.basetest.math.algebra.vectortest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.base.math.algebra.Vector;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 
 /**
  * @author Silvan Wyss

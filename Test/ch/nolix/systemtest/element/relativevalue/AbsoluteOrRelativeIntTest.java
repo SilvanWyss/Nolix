@@ -6,9 +6,9 @@ package ch.nolix.systemtest.element.relativevalue;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
 /**

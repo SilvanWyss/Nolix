@@ -9,16 +9,16 @@ import java.util.Random;
 import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.commontypetool.doubletool.DoubleTool;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.baseapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.baseapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

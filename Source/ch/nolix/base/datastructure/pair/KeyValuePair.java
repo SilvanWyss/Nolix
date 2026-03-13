@@ -4,8 +4,8 @@
 package ch.nolix.base.datastructure.pair;
 
 import ch.nolix.base.commontypetool.stringtool.StringTool;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.datastructure.pair.IKeyValuePair;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.resourcecontrol.resourcevalidator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
 

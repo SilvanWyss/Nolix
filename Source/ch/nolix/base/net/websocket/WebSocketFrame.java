@@ -10,9 +10,9 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameType;

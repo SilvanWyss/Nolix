@@ -6,16 +6,16 @@ package ch.nolix.base.document.chainednode;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

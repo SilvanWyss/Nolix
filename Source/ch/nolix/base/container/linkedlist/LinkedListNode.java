@@ -5,8 +5,8 @@ package ch.nolix.base.container.linkedlist;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

@@ -4,7 +4,7 @@
 package ch.nolix.base.testing.standardtest;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * A {@link ClosureMediator} is not mutable.

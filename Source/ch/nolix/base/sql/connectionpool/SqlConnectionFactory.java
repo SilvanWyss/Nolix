@@ -3,10 +3,10 @@
  */
 package ch.nolix.base.sql.connectionpool;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
 import ch.nolix.base.sql.connection.MsSqlConnection;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 
 /**
  * @author Silvan Wyss

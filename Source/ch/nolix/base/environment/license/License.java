@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.environment.license;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.baseapi.environment.licenseapi.ILicense;
 import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 
 /**
  * @author Silvan Wyss

@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.middata.valuemapper;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 

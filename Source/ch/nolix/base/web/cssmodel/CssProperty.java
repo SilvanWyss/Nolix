@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.web.cssmodel;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 

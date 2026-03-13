@@ -5,13 +5,13 @@ package ch.nolix.base.container.arraylist;
 
 import java.util.Iterator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

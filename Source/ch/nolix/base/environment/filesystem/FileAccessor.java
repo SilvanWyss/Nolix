@@ -13,9 +13,9 @@ import java.nio.file.Files;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

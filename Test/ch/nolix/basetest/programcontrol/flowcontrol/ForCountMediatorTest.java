@@ -6,9 +6,9 @@ package ch.nolix.basetest.programcontrol.flowcontrol;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.programcontrol.flowcontrol.ForCountMediator;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 
 /**
  * @author Silvan Wyss

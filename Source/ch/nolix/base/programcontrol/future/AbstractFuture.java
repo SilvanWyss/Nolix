@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.programcontrol.future;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
 /**

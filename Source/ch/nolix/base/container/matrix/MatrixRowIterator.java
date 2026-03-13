@@ -5,9 +5,9 @@ package ch.nolix.base.container.matrix;
 
 import java.util.NoSuchElementException;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 final class MatrixRowIterator<E> implements CopyableIterator<E> {

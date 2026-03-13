@@ -6,11 +6,11 @@ package ch.nolix.base.errorcontrol.validator;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EqualArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

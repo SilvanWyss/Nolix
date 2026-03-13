@@ -5,7 +5,7 @@ package ch.nolix.base.errorcontrol.validator;
 
 import java.lang.reflect.Modifier;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

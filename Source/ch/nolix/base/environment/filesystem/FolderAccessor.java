@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.environment.filesystem;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

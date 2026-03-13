@@ -5,9 +5,9 @@ package ch.nolix.base.errorcontrol.validator;
 
 import java.util.Optional;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.validation.IOptionalMediator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 

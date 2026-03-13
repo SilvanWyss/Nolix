@@ -7,11 +7,11 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 

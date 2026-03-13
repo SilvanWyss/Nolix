@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss

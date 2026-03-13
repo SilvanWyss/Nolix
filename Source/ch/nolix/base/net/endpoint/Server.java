@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 /**
  * @author Silvan Wyss

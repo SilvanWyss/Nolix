@@ -6,10 +6,10 @@ package ch.nolix.basetest.document.chainednode;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 /**
  * @author Silvan Wyss

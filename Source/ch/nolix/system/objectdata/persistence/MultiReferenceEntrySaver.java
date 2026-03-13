@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.persistence;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDeletionDtoMapper;
 import ch.nolix.system.objectdata.middatamodelmapper.MultiReferenceEntryDtoMapper;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;

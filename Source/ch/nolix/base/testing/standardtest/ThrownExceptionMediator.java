@@ -4,8 +4,8 @@
 package ch.nolix.base.testing.standardtest;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

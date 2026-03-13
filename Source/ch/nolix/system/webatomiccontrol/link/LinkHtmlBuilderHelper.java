@@ -4,10 +4,10 @@
 package ch.nolix.system.webatomiccontrol.link;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.htmlattribute.LinkTarget;

@@ -5,10 +5,10 @@ package ch.nolix.system.webapplication.main;
 
 import java.util.Base64;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webapplication.base.AbstractWebClient;
 import ch.nolix.system.webapplication.refreshqueue.WebClientRefreshQueue;

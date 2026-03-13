@@ -3,12 +3,12 @@
  */
 package ch.nolix.base.commontypetool.stringtool;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontypetool.stringtool.IStringTool;
 import ch.nolix.baseapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**

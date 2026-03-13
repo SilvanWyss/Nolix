@@ -5,8 +5,8 @@ package ch.nolix.base.container.singlecontainer;
 
 import java.util.NoSuchElementException;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

@@ -6,9 +6,9 @@ package ch.nolix.base.container.arraylist;
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontypetool.iteratorvalidator.IteratorValidator;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

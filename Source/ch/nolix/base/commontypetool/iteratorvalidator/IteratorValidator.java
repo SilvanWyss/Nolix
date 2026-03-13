@@ -5,9 +5,9 @@ package ch.nolix.base.commontypetool.iteratorvalidator;
 
 import java.util.Iterator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.commontypetool.iteratorvalidator.IIteratorValidator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

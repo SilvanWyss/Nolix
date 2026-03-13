@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
 import ch.nolix.base.argumentcaptor.forargumentcaptor.ForNodeDatabaseCaptor;
 import ch.nolix.base.document.node.MutableNode;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
 /**
  * @author Silvan Wyss

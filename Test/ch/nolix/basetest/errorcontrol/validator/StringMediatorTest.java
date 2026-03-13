@@ -5,13 +5,13 @@ package ch.nolix.basetest.errorcontrol.validator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.base.errorcontrol.validator.StringMediator;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 
 /**
  * @author Silvan Wyss

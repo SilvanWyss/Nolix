@@ -4,9 +4,9 @@
 package ch.nolix.base.resourcecontrol.closecontroller;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;

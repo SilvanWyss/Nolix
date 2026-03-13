@@ -5,15 +5,15 @@ package ch.nolix.base.math.algebra;
 
 import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.commontypetool.doubletool.DoubleTool;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EqualArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.baseapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.baseapi.commontypetool.doubletool.IDoubleTool;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

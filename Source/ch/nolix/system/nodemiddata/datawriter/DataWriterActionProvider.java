@@ -5,10 +5,10 @@ package ch.nolix.system.nodemiddata.datawriter;
 
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;

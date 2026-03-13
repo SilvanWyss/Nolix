@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.misc.english;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.english.EnglishArticleCatalog;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 

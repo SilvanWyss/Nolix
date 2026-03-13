@@ -3,10 +3,10 @@
  */
 package ch.nolix.base.commontypetool.stringtool;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterType;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss

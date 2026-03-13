@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.math.basic;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.math.basic.IBasicCalculator;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 

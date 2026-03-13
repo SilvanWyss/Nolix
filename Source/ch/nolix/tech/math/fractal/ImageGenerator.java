@@ -7,8 +7,6 @@ package ch.nolix.tech.math.fractal;
 import java.math.BigDecimal;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
@@ -16,6 +14,8 @@ import ch.nolix.base.programcontrol.future.AbstractFuture;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 import ch.nolix.system.graphic.color.Color;

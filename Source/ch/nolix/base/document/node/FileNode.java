@@ -8,10 +8,10 @@ import java.util.function.Predicate;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.environment.filesystem.FileAccessor;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * A {@link FileNode} is a specification that is stored in a file.

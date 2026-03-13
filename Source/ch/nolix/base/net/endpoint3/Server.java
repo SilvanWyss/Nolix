@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.net.endpoint3;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.net.endpoint3.ISlot;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 

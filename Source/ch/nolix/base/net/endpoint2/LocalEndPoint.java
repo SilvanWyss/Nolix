@@ -3,11 +3,11 @@
  */
 package ch.nolix.base.net.endpoint2;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.net.endpoint2.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;

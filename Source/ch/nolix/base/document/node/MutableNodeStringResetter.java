@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.document.node;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 /**
  * @author Silvan Wyss

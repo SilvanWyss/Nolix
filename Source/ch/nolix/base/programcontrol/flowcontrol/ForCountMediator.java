@@ -5,8 +5,8 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import java.util.function.IntConsumer;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IForCountMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;

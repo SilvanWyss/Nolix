@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.datastructure.pair;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.datastructure.pair.IPair;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * A {@link Pair} contains 2 elements. A {@link Pair} is not mutable.

@@ -4,12 +4,12 @@
 package ch.nolix.base.net.endpoint3;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpoint3.IEndPoint;
 import ch.nolix.baseapi.net.endpoint3.IServer;
 import ch.nolix.baseapi.net.endpoint3.ISlot;

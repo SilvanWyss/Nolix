@@ -5,9 +5,9 @@ package ch.nolix.basetest.web.cssmodel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * @author Silvan Wyss

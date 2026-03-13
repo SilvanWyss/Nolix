@@ -5,9 +5,9 @@ package ch.nolix.systemtest.element.property;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.element.property.Value;
 
 /**

@@ -4,14 +4,14 @@
 package ch.nolix.base.container.arraylist;
 
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.commoncontainer.CountRequestable;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

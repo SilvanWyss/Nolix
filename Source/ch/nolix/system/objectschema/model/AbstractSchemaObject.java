@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.DeletedArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NewArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NewArgumentException;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 

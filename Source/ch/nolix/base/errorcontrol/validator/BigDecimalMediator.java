@@ -5,9 +5,9 @@ package ch.nolix.base.errorcontrol.validator;
 
 import java.math.BigDecimal;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.SmallerArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 
 /**
  * @author Silvan Wyss

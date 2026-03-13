@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.net.endpoint2;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.net.endpoint2protocol.MessageRole;
 
 /**

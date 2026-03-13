@@ -9,14 +9,14 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.document.node.INodeComparator;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**

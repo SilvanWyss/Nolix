@@ -3,11 +3,11 @@
  */
 package ch.nolix.system.objectschema.modelvalidator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ReferencedArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ReferencedArgumentException;
 import ch.nolix.system.objectschema.modelexaminer.TableExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;

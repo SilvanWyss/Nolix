@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.modelmapper;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;

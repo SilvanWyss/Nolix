@@ -5,11 +5,11 @@ package ch.nolix.basetest.math.algebra.matrixtest;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.base.math.algebra.Matrix;
 import ch.nolix.base.math.algebra.Vector;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 /**
  * @author Silvan Wyss

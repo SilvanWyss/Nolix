@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.misc.dataobject;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

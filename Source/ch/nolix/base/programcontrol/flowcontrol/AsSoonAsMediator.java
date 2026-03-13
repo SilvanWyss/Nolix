@@ -5,8 +5,8 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsSoonAsMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;

@@ -6,9 +6,9 @@ package ch.nolix.base.datastructure.property;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.datastructure.property.ILazyCalculatedProperty;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * @author Silvan Wyss

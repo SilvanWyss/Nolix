@@ -9,11 +9,11 @@ import java.util.function.Predicate;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * A {@link SequencePattern} is not mutable.

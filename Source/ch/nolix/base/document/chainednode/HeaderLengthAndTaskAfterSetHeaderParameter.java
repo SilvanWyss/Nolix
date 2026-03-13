@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.document.chainednode;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 record HeaderLengthAndTaskAfterSetHeaderParameter(int headerLength, TaskAfterSetHeader taskAfterSetHeader) {
   public HeaderLengthAndTaskAfterSetHeaderParameter( //NOSONAR: This constructor does more than the default one.

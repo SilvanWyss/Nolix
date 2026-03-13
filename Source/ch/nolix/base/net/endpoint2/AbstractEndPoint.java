@@ -6,10 +6,10 @@ package ch.nolix.base.net.endpoint2;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.net.endpoint2.IEndPoint;
 
 /**

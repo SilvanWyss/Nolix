@@ -3,15 +3,15 @@
  */
 package ch.nolix.base.math.main;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.math.algebra.Matrix;
 import ch.nolix.base.math.algebra.Polynom;
 import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.math.stochastic.ARModel;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

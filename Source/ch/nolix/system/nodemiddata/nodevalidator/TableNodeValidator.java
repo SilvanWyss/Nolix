@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.nodemiddata.nodevalidator;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.document.node.IMutableNode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddata.nodevalidator.ITableNodeValidator;

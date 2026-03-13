@@ -6,8 +6,8 @@ package ch.nolix.basetest.container.containerview;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.containerview.ArrayContainerView;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**

@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webatomiccontrol.imagecontrol;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;

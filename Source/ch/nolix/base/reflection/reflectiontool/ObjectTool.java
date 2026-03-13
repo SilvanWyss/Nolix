@@ -6,7 +6,7 @@ package ch.nolix.base.reflection.reflectiontool;
 import java.lang.reflect.Field;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.reflection.reflectiontool.IObjectTool;
 
 /**

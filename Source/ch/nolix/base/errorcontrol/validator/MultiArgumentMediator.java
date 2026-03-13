@@ -5,9 +5,9 @@ package ch.nolix.base.errorcontrol.validator;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * A multi argument mediator is an mediator for several arguments of the same

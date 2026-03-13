@@ -8,11 +8,11 @@ import java.util.stream.Stream;
 import ch.nolix.base.commontypetool.arraytool.ArrayIterator;
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

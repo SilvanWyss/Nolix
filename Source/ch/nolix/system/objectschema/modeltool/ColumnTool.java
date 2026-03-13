@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectschema.modeltool;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;

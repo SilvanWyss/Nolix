@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.resourcecontrol.resourcepool;
 
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;

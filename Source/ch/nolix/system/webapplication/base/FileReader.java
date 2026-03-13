@@ -7,10 +7,10 @@ import java.util.Base64;
 import java.util.Optional;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 

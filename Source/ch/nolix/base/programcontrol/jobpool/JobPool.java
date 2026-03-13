@@ -6,7 +6,7 @@ package ch.nolix.base.programcontrol.jobpool;
 import java.util.Optional;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
 /**
