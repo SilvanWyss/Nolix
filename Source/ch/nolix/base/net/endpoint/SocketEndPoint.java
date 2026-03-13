@@ -36,16 +36,6 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   private final OutputStream socketOutputStream;
 
   /**
-   * Creates a new {@link SocketEndPoint} that will connect to the main target on
-   * the HTTP port (80) on the machine with the given ip.
-   * 
-   * @param ip
-   */
-  public SocketEndPoint(final String ip) {
-    this(ip, PortCatalog.HTTP);
-  }
-
-  /**
    * Creates a new {@link SocketEndPoint} that will connect to the default slot on
    * the given port on the machine with the given ip.
    * 
@@ -170,6 +160,15 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     this.socketOutputStream = socketOutputStream;
 
     SocketEndPointMessageListener.forSocketEndPoint(this);
+  }
+
+  /**
+   * @param host
+   * @return a new {@link SocketEndPoint} that will connect to the default slot on
+   *         the HTTP port on the given host.
+   */
+  public static SocketEndPoint toGivenHostAndHttpPortAndDefaultSlot(final String host) {
+    return new SocketEndPoint(host, PortCatalog.HTTP);
   }
 
   /**
