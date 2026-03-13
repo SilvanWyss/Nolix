@@ -43,20 +43,6 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} that will connect to the given target on
-   * the given port on the local machine.
-   * 
-   * @param port
-   * @param target
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given target is null.
-   * @throws InvalidArgumentException      if the given target is blank.
-   */
-  public NetEndPoint(final int port, final String target) {
-    this(ch.nolix.base.net.endpoint.SocketEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, target));
-  }
-
-  /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the HTTP port (80) on the machine with the given ip.
    * 
