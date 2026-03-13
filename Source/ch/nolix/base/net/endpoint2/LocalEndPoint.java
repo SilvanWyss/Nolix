@@ -26,20 +26,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private final String target;
 
   /**
-   * Creates a new local end point that will connect to an other new local end
-   * point.
-   */
-  public LocalEndPoint() {
-    peerType = PeerType.FRONTEND;
-
-    //Creates the counterpart of this local end point.
-    counterpart = new LocalEndPoint(this);
-
-    //Clears the target of this local end point.
-    target = null;
-  }
-
-  /**
    * Creates a new local end point that will connect to the given target
    * 
    * @param target
@@ -74,25 +60,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
     //Lets the given server take the counterpart of this lcoal end point.
     abstractServer.internalTakeBackendEndPoint(getStoredCounterpart());
-  }
-
-  /**
-   * Creates a new local end point with the given counterpart.
-   * 
-   * @param counterPart
-   * @throws ArgumentIsNullException if the given counterpart is null.
-   */
-  private LocalEndPoint(final LocalEndPoint counterPart) {
-    peerType = PeerType.BACKEND;
-
-    //Asserts that the given counter part is not null.
-    Validator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
-
-    //Sets the counter part of this local end point.
-    this.counterpart = counterPart;
-
-    //Clears the target of this local end point.
-    target = null;
   }
 
   /**
