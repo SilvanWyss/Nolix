@@ -64,32 +64,29 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   }
 
   /**
-   * Creates a new {@link SocketEndPoint} that will connect to the given target on
-   * the given port on the machine with the given ip.
+   * Creates a new {@link SocketEndPoint} that will connect to the given slot on
+   * the given port on the given host.
    * 
-   * @param ip
+   * @param host
    * @param port
-   * @param target
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given target is null.
-   * @throws InvalidArgumentException      if the given target is blank.
+   * @param slot
+   * @throws InvalidPortException     if the given port is not in [0, 65535].
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is blank.
    */
-  public SocketEndPoint(final String ip, final int port, final String target) {
-    super(target);
+  private SocketEndPoint(final String host, final int port, final String slot) {
+    super(slot);
 
-    Validator
-      .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalog.PORT)
-      .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
 
     peerType = PeerType.FRONTEND;
 
     try {
-      socket = new Socket(ip, port);
+      socket = new Socket(host, port);
       socketInputStream = socket.getInputStream();
       socketOutputStream = socket.getOutputStream();
-    } catch (final IOException pIOException) {
-      throw WrapperException.forError(pIOException);
+    } catch (final IOException ioException) {
+      throw WrapperException.forError(ioException);
     }
 
     sendTargetMessage();
@@ -165,10 +162,27 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
    *         the given port on the given host.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws InvalidPortException if the given port is not in [0, 65535].
    */
   public static SocketEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
     return new SocketEndPoint(host, port);
+  }
+
+  /**
+   * @param host
+   * @param port
+   * @param slot
+   * @return a new {@link SocketEndPoint} that will connect to the given slot on
+   *         the given port on the given host.
+   * @throws InvalidPortException     if the given port is not in [0, 65535].
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is blank.
+   */
+  public static SocketEndPoint toGivenHostAndGivenPortAndGivenSlot(
+    final String host,
+    final int port,
+    final String slot) {
+    return new SocketEndPoint(host, port, slot);
   }
 
   /**
