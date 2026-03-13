@@ -7,18 +7,23 @@ import java.math.BigDecimal;
 import java.util.function.IntFunction;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**
  * @author Silvan Wyss
  */
 public final class ExplicitComplexSequence extends AbstractSequence<IComplexNumber> {
-  private final IntFunction<IComplexNumber> valueFunction;
+  private final IntFunction<IComplexNumber> valueSupplier;
 
-  public ExplicitComplexSequence(final IntFunction<IComplexNumber> valueFunction) {
-    Validator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
+  private ExplicitComplexSequence(final IntFunction<IComplexNumber> valueSupplier) {
+    Validator.assertThat(valueSupplier).thatIsNamed(LowerCaseVariableCatalog.VALUE_SUPPLIER).isNotNull();
 
-    this.valueFunction = valueFunction;
+    this.valueSupplier = valueSupplier;
+  }
+
+  public static ExplicitComplexSequence withValueSupplier(final IntFunction<IComplexNumber> valueSupplier) {
+    return new ExplicitComplexSequence(valueSupplier);
   }
 
   /**
@@ -34,6 +39,6 @@ public final class ExplicitComplexSequence extends AbstractSequence<IComplexNumb
    */
   @Override
   protected IComplexNumber calculateValue(final int index) {
-    return valueFunction.apply(index);
+    return valueSupplier.apply(index);
   }
 }
