@@ -18,7 +18,7 @@ final class ConstructorTest {
   @Test
   void testCase_publicConstructorsDoNotContainParameters() {
     //setup
-    final var testUnit = new ClassFileImporter().importPackages("ch.nolix...");
+    final var testUnit = new ClassFileImporter().importPackages("ch.nolix..");
 
     //execution & verification
     ArchUnitRuleCatalog.PUBLIC_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS.check(testUnit);
