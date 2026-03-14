@@ -43,7 +43,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     this.midSchemaAdapter = midSchemaAdapter;
 
     getStoredCloseController().createCloseDependencyTo(this.midSchemaAdapter);
-
     resetUsingDatabaseName(databaseName);
   }
 
@@ -137,7 +136,6 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     try {
       DATABASE_VALIDATOR.assertAllBackReferencesAreValid(database);
       midSchemaAdapter.saveChanges();
-
       saveCount++;
     } finally {
       reset();
@@ -145,8 +143,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
   }
 
   private void resetUsingDatabaseName(final String databaseName) {
-    database = new Database(databaseName, midSchemaAdapter);
-
+    database = Database.withNameAndMidSchemaAdapter(databaseName, midSchemaAdapter);
     midSchemaAdapter.reset();
   }
 }

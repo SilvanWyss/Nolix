@@ -29,15 +29,18 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
 
   private LinkedList<ITable> tables = LinkedList.createEmpty();
 
-  public Database(final String name, final ISchemaAdapter midSchemaAdapter) {
+  private Database(final String name, final ISchemaAdapter midSchemaAdapter) {
     DATABASE_VALIDATOR.assertCanSetGivenNameToDatabase(name);
-
     Validator.assertThat(midSchemaAdapter).thatIsNamed("mid schema adapter").isNotNull();
 
-    memberName = name;
+    this.memberName = name;
     this.midSchemaAdapter = midSchemaAdapter;
 
     setLoaded();
+  }
+
+  public static Database withNameAndMidSchemaAdapter(final String name, final ISchemaAdapter midSchemaAdapter) {
+    return new Database(name, midSchemaAdapter);
   }
 
   /**
@@ -104,8 +107,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
    */
   @Override
   protected void noteClose() {
-    //Does not call getStoredTables method to avoid that the tables need to be
-    //loaded from the database.
+    //Does not call getStoredTables method to avoid that the tables are loaded from the database.
     for (final var t : tables) {
       ((Table) t).close();
     }
