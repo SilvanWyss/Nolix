@@ -20,9 +20,9 @@ final class ServerSlot implements ISlot {
    * 
    * @param name
    * @param parentServer
-   * @throws RuntimeException  if given name is null.
+   * @throws RuntimeException if given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given parentServer is null.
+   * @throws RuntimeException if the given parentServer is null.
    */
   public ServerSlot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
@@ -45,6 +45,6 @@ final class ServerSlot implements ISlot {
    */
   @Override
   public void takeBackendEndPoint(final ch.nolix.baseapi.net.endpoint2.IEndPoint endPoint) {
-    parentServer.internalTakeBackendEndPoint(new NetEndPoint(endPoint));
+    parentServer.internalTakeBackendEndPoint(NetEndPoint.withInternalEndPoint(endPoint));
   }
 }

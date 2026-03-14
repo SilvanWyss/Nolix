@@ -12,7 +12,6 @@ import ch.nolix.base.document.node.AbstractNode;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.logging.Logger;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
@@ -20,6 +19,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint3protocol.MessageHeaderCatalog;
+import ch.nolix.baseapi.net.netproperty.BaseConnectionType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
@@ -94,20 +94,18 @@ public final class NetEndPoint extends AbstractEndPoint {
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
    * @param internalEndPoint
-   * @throws RuntimeException if the given internalEndPoint is null.
+   * @throws RuntimeException if the given internalEndPoint is null or not a net
+   *                          end point.
    */
-  NetEndPoint(final ch.nolix.baseapi.net.endpoint2.IEndPoint internalEndPoint) {
-    //Asserts that the given internalEndPoint is not null.
-    Validator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();
+  private NetEndPoint(final ch.nolix.baseapi.net.endpoint2.IEndPoint internalEndPoint) {
+    if (internalEndPoint.getConnectionType().getBaseType() != BaseConnectionType.NET) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(internalEndPoint, "is not a net end point");
+    }
 
-    //Sets the internalNetEndPoint of the current NetEndPoint.
     this.internalEndPoint = internalEndPoint;
 
-    //Sets the replier of the internalEndPoint of the current NetEndPoint.
     internalEndPoint.setReplier(this::receiveAndGetReply);
 
-    //Creates a close dependency between the current NetEndPoint and the
-    //internalEndPoint of the current NetEndPoint.
     createCloseDependencyTo(internalEndPoint);
   }
 
@@ -165,6 +163,16 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   public static NetEndPoint toGivenHostAndHttpPortAndDefaultSlot(final String host) {
     return new NetEndPoint(host);
+  }
+
+  /**
+   * @param internalEndPoint
+   * @return a new {@link NetEndPoint} with the given internalEndPoint.
+   * @throws RuntimeException if the given internalEndPoint is null or not a net
+   *                          end point.
+   */
+  static NetEndPoint withInternalEndPoint(final ch.nolix.baseapi.net.endpoint2.IEndPoint internalEndPoint) {
+    return new NetEndPoint(internalEndPoint);
   }
 
   /**
