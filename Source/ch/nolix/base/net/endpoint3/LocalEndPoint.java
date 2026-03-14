@@ -40,21 +40,17 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new local duplex controller that will connect to the given target.
+   * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
-   * @param target
+   * @param slot
+   * @throws RuntimeException if the given slot is null.
    */
-  public LocalEndPoint(final ISlot target) {
-    peerType = PeerType.FRONTEND;
-
-    //Creates the counterpart of this local duplex controller.
-    this.counterpart = new LocalEndPoint(this, target.getName());
-
-    //Clears the target of this local duplex controller.
+  private LocalEndPoint(final ISlot slot) {
+    this.peerType = PeerType.FRONTEND;
+    this.counterpart = new LocalEndPoint(this, slot.getName());
     this.target = null;
 
-    //Lets the given target take the counterpart of this local duplex controller.
-    target.takeBackendEndPoint(getStoredCounterpart());
+    slot.takeBackendEndPoint(getStoredCounterpart());
   }
 
   /**
@@ -84,7 +80,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param counterpart
    * @param target
    * @throws RuntimeException if the given target is null.
-   * @throws RuntimeException  if the given target is empty.
+   * @throws RuntimeException if the given target is empty.
    */
   private LocalEndPoint(
     final LocalEndPoint counterpart,
@@ -102,6 +98,15 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
     //Sets the target of this local duplex controller.
     this.target = target;
+  }
+
+  /**
+   * @param slot
+   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @throws RuntimeException if the given slot is null.
+   */
+  public static LocalEndPoint toSlot(final ISlot slot) {
+    return new LocalEndPoint(slot);
   }
 
   /**
