@@ -123,18 +123,18 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   }
 
   /**
-   * Lets the current {@link AfterEveryMediator} run the given job in background
+   * Lets the current {@link AfterEveryMediator} run the given step in background
    * for the case when the current {@link AfterEveryMediator} does not have a max
    * run count.
    * 
-   * @param job
+   * @param step
    * @return a new {@link Future}.
    * @throws RuntimeException if the given job is null.
    */
-  private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable job) {
+  private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable step) {
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
-      final var jobExecutor = new JobExecutor(job, timeIntervalInMilliseconds, () -> true);
+      final var jobExecutor = new JobExecutor(step, timeIntervalInMilliseconds, () -> true);
 
       jobExecutor.start();
 
@@ -142,7 +142,11 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
     }
 
     //Handles the case that the current AfterAllMediator has a condition.
-    final var jobExecutor = new JobExecutor(job, condition, timeIntervalInMilliseconds);
+    final var jobExecutor = //
+    JobExecutor.forStepAndNextStepRunConditionAndDelayBetweenStepRunsInMilliseconds(
+      step,
+      condition,
+      timeIntervalInMilliseconds);
 
     jobExecutor.start();
 

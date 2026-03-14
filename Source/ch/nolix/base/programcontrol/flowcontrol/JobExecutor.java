@@ -70,34 +70,33 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job, condition and
-   * timeIntervalInMilliseconds.
+   * Creates a new {@link JobExecutor} with the given step, nextStepRunCondition
+   * and delayBetweenStepRunsInMilliseconds.
    * 
-   * @param job
-   * @param condition
-   * @param timeIntervalInMilliseconds
+   * @param step
+   * @param nextStepRunCondition
+   * @param delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given condition is null.
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
+   * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
+   *                          negative.
    */
-  public JobExecutor(
-    final Runnable job,
-    final BooleanSupplier condition,
-    final int timeIntervalInMilliseconds) {
-    //Asserts that the given job is not null.
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  private JobExecutor(
+    final Runnable step,
+    final BooleanSupplier nextStepRunCondition,
+    final int delayBetweenStepRunsInMilliseconds) {
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
-    //Asserts that the given condition is not null.
-    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
-
-    //Asserts that the given timeIntervalInMilliseconds is not negative.
-    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
+    Validator
+      .assertThat(delayBetweenStepRunsInMilliseconds)
+      .thatIsNamed("delay between step runs in milliseconds")
       .isNotNegative();
 
-    this.step = job;
+    this.step = step;
     this.optionalMaxStepRunCount = null;
-    this.optionalNextStepRunCondition = condition;
-    this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
+    this.optionalNextStepRunCondition = nextStepRunCondition;
+    this.optionalDelayBetweenStepRunsInMilliseconds = delayBetweenStepRunsInMilliseconds;
   }
 
   /**
@@ -240,6 +239,24 @@ public final class JobExecutor extends Thread {
     final Runnable step,
     final BooleanSupplier nextStepRunCondition) {
     return new JobExecutor(step, nextStepRunCondition);
+  }
+
+  /**
+   * @param step
+   * @param nextStepRunCondition
+   * @param delayBetweenStepRunsInMilliseconds
+   * @return a new {@link JobExecutor} with the given step, nextStepRunCondition
+   *         and delayBetweenStepRunsInMilliseconds.
+   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
+   *                          negative.
+   */
+  public static JobExecutor forStepAndNextStepRunConditionAndDelayBetweenStepRunsInMilliseconds(
+    final Runnable step,
+    final BooleanSupplier nextStepRunCondition,
+    final int delayBetweenStepRunsInMilliseconds) {
+    return new JobExecutor(step, nextStepRunCondition, delayBetweenStepRunsInMilliseconds);
   }
 
   public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
