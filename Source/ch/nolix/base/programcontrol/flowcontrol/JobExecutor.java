@@ -23,7 +23,7 @@ public final class JobExecutor extends Thread {
 
   private final Integer optionalMaxStepRunCount;
 
-  private final BooleanSupplier optionalStartNextStepRunCondition;
+  private final BooleanSupplier optionalNextStepRunCondition;
 
   private final Integer optionalDelayBetweenStepRunsInMilliseconds;
 
@@ -36,23 +36,22 @@ public final class JobExecutor extends Thread {
   private Throwable optionalCaughtError;
 
   /**
-   * Creates a new {@link JobExecutor} with the given job.
+   * Creates a new {@link JobExecutor} with the given step.
    * 
-   * @param job
-   * @throws RuntimeException if the given job is null.
+   * @param step
+   * @throws RuntimeException if the given step is null.
    */
-  private JobExecutor(final Runnable job) {
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  private JobExecutor(final Runnable step) {
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
 
-    this.step = job;
+    this.step = step;
     optionalMaxStepRunCount = 1;
-    optionalStartNextStepRunCondition = null;
+    optionalNextStepRunCondition = null;
     optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job and condition. The
-   * {@link JobExecutor} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job and condition.
    * 
    * @param job
    * @param condition
@@ -68,13 +67,13 @@ public final class JobExecutor extends Thread {
 
     this.step = job;
     optionalMaxStepRunCount = null;
-    this.optionalStartNextStepRunCondition = condition;
+    this.optionalNextStepRunCondition = condition;
     optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
    * Creates a new {@link JobExecutor} with the given job, condition and
-   * timeIntervalInMilliseconds. The {@link JobExecutor} will start automatically.
+   * timeIntervalInMilliseconds.
    * 
    * @param job
    * @param condition
@@ -99,7 +98,7 @@ public final class JobExecutor extends Thread {
 
     this.step = job;
     this.optionalMaxStepRunCount = null;
-    this.optionalStartNextStepRunCondition = condition;
+    this.optionalNextStepRunCondition = condition;
     this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
   }
 
@@ -122,13 +121,13 @@ public final class JobExecutor extends Thread {
 
     this.step = job;
     this.optionalMaxStepRunCount = maxRunCount;
-    optionalStartNextStepRunCondition = null;
+    optionalNextStepRunCondition = null;
     optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
    * Creates a new {@link JobExecutor} with the given job, maxRunCount and
-   * condition. The {@link JobExecutor} will start automatically.
+   * condition.
    * 
    * @param job
    * @param maxRunCount
@@ -152,14 +151,13 @@ public final class JobExecutor extends Thread {
 
     this.step = job;
     this.optionalMaxStepRunCount = maxRunCount;
-    this.optionalStartNextStepRunCondition = condition;
+    this.optionalNextStepRunCondition = condition;
     optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
    * Creates a new {@link JobExecutor} with the given job, maxRunCount, condition
-   * and timeIntervalInMilliseconds. The {@link JobExecutor} will start
-   * automatically.
+   * and timeIntervalInMilliseconds.
    * 
    * @param job
    * @param maxRunCount
@@ -189,13 +187,13 @@ public final class JobExecutor extends Thread {
 
     this.step = job;
     this.optionalMaxStepRunCount = maxRunCount;
-    this.optionalStartNextStepRunCondition = condition;
+    this.optionalNextStepRunCondition = condition;
     this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
   }
 
   /**
    * Creates a new {@link JobExecutor} with the given job, maxRunCount and
-   * timeIntervalInMilliseconds. The {@link JobExecutor} will start automatically.
+   * timeIntervalInMilliseconds.
    * 
    * @param job
    * @param maxRunCount
@@ -219,17 +217,17 @@ public final class JobExecutor extends Thread {
 
     this.step = job;
     this.optionalMaxStepRunCount = maxRunCount;
-    optionalStartNextStepRunCondition = null;
+    optionalNextStepRunCondition = null;
     this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
   }
 
   /**
-   * @param job
-   * @return a new {@link JobExecutor} with the given job.
-   * @throws RuntimeException if the given job is null.
+   * @param step
+   * @return a new {@link JobExecutor} with the given step.
+   * @throws RuntimeException if the given step is null.
    */
-  public static JobExecutor forJob(final Runnable job) {
-    return new JobExecutor(job);
+  public static JobExecutor forStep(final Runnable step) {
+    return new JobExecutor(step);
   }
 
   public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
@@ -277,7 +275,7 @@ public final class JobExecutor extends Thread {
    *         otherwise.
    */
   public boolean hasCondition() {
-    return (optionalStartNextStepRunCondition != null);
+    return (optionalNextStepRunCondition != null);
   }
 
   /**
@@ -377,7 +375,7 @@ public final class JobExecutor extends Thread {
    *         it, false otherwise.
    */
   private boolean violatesProbableCondition() {
-    return (hasCondition() && !optionalStartNextStepRunCondition.getAsBoolean());
+    return (hasCondition() && !optionalNextStepRunCondition.getAsBoolean());
   }
 
   /**

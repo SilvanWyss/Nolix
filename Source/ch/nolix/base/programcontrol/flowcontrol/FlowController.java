@@ -110,7 +110,7 @@ public final class FlowController {
    * @throws RuntimeException if the given job is null.
    */
   public static IFuture runInBackground(final Runnable job) {
-    final var jobExecutor = JobExecutor.forJob(job);
+    final var jobExecutor = JobExecutor.forStep(job);
 
     jobExecutor.start();
 
