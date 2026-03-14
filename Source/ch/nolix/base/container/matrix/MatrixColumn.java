@@ -7,6 +7,7 @@ import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.container.matrix.IMatrixColumn;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -14,10 +15,10 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of the parent {@link Matrix} of a
  *            {@link MatrixColumn}.
  */
-public final class MatrixColumn<E> extends AbstractExtendedContainer<E> {
+public final class MatrixColumn<E> extends AbstractExtendedContainer<E> implements IMatrixColumn<E> {
   private final Matrix<E> parentMatrix;
 
-  private final int columnIndex;
+  private final int oneBasedColumnIndex;
 
   MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
     Validator
@@ -31,7 +32,7 @@ public final class MatrixColumn<E> extends AbstractExtendedContainer<E> {
       .isPositive();
 
     this.parentMatrix = parentMatrix;
-    this.columnIndex = columnIndex;
+    this.oneBasedColumnIndex = columnIndex;
   }
 
   /**
@@ -42,8 +43,9 @@ public final class MatrixColumn<E> extends AbstractExtendedContainer<E> {
     return parentMatrix.getRowCount();
   }
 
-  public int getColumnIndex() {
-    return columnIndex;
+  @Override
+  public int getOneBasedColumnIndex() {
+    return oneBasedColumnIndex;
   }
 
   /**
@@ -51,7 +53,7 @@ public final class MatrixColumn<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public E getStoredAtOneBasedIndex(final int rowIndex) {
-    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(rowIndex, getColumnIndex());
+    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(rowIndex, getOneBasedColumnIndex());
   }
 
   /**

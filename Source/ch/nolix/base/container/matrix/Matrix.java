@@ -16,6 +16,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
+import ch.nolix.baseapi.container.matrix.IMatrixColumn;
 import ch.nolix.baseapi.container.matrix.IMatrixRow;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
@@ -244,7 +245,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @throws RuntimeException if the given column index is bigger than the number
    *                          of columns of the current {@link Matrix}.
    */
-  public MatrixColumn<E> getColumn(final int columnIndex) {
+  public IMatrixColumn<E> getColumn(final int columnIndex) {
     return new MatrixColumn<>(this, columnIndex);
   }
 
@@ -289,8 +290,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return the columns of the current {@link Matrix}.
    */
   @Override
-  public IContainer<MatrixColumn<E>> getColumns() {
-    final ILinkedList<MatrixColumn<E>> columns = LinkedList.createEmpty();
+  public IContainer<IMatrixColumn<E>> getColumns() {
+    final ILinkedList<IMatrixColumn<E>> columns = LinkedList.createEmpty();
 
     //Iterates the columns of the current matrix.
     for (var i = 1; i <= getColumnCount(); i++) {

@@ -13,7 +13,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 public interface IMatrix<E> extends Clearable, IContainer<E> {
   int getColumnCount();
 
-  IContainer<? extends IContainer<E>> getColumns();
+  IContainer<IMatrixColumn<E>> getColumns();
 
   E getStoredAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
 
