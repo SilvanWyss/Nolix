@@ -14,7 +14,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
  * @author Silvan Wyss
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
-
   /**
    * Creates a new {@link MultiLongMediator} for the given arguments.
    * 
