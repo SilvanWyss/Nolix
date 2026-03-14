@@ -7,22 +7,23 @@ import java.util.NoSuchElementException;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.container.matrix.IMatrixRow;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 final class MatrixRowIterator<E> implements CopyableIterator<E> {
-  private final MatrixRow<E> parentMatrixRow;
+  private final IMatrixRow<E> parentMatrixRow;
 
   private int nextElementOneBasedColumnIndex;
 
-  private MatrixRowIterator(final MatrixRow<E> parentMatrixRow) {
+  private MatrixRowIterator(final IMatrixRow<E> parentMatrixRow) {
     Validator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
 
     this.parentMatrixRow = parentMatrixRow;
     nextElementOneBasedColumnIndex = 1;
   }
 
-  private MatrixRowIterator(final MatrixRow<E> parentMatrixRow, final int nextElementOneBasedColumnIndex) {
+  private MatrixRowIterator(final IMatrixRow<E> parentMatrixRow, final int nextElementOneBasedColumnIndex) {
     Validator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
 
     Validator

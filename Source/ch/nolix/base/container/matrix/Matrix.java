@@ -393,7 +393,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    *                          bigger than the number of rows of the current
    *                          {@link Matrix}.
    */
-  public MatrixRow<E> getRow(final int oneBasedRowIndex) {
+  public IMatrixRow<E> getRow(final int oneBasedRowIndex) {
     return MatrixRow.forMatrixAndOneBasedRowIndex(this, oneBasedRowIndex);
   }
 
