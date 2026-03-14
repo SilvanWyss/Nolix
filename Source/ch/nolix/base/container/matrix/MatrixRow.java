@@ -8,7 +8,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.matrix.IMatrixRow;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -20,19 +19,38 @@ public final class MatrixRow<E> extends AbstractExtendedContainer<E> implements 
 
   private final int oneBasedRowIndex;
 
-  MatrixRow(final Matrix<E> parentMatrix, final int rowIndex) {
-    Validator
-      .assertThat(parentMatrix)
-      .thatIsNamed("parent matrix")
-      .isNotNull();
-
-    Validator
-      .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
-      .isPositive();
+  /**
+   * Create a new {@link MatrixRow} for the given parentMatrix and
+   * oneBasedRowIndex.
+   * 
+   * @param parentMatrix
+   * @param oneBasedRowIndex
+   * @throws RuntimeException if the given oneBasedRowIndex is not positive or
+   *                          bigger than the number of rows of the given
+   *                          parentMatrix.
+   */
+  private MatrixRow(final Matrix<E> parentMatrix, final int oneBasedRowIndex) {
+    Validator.assertThat(parentMatrix).thatIsNamed("parent matrix").isNotNull();
+    Validator.assertThat(oneBasedRowIndex).thatIsNamed("one based row index").isBetween(1, parentMatrix.getRowCount());
 
     this.parentMatrix = parentMatrix;
-    this.oneBasedRowIndex = rowIndex;
+    this.oneBasedRowIndex = oneBasedRowIndex;
+  }
+
+  /**
+   * @param parentMatrix
+   * @param oneBasedRowIndex
+   * @param <T>              is the type of the elements of the parent
+   *                         {@link Matrix} of the created {@link MatrixRow}.
+   * @return a new {@link MatrixRow} for the given parentMatrix and
+   *         oneBasedRowIndex.
+   * @throws RuntimeException if the given oneBasedRowIndex is not positive or
+   *                          bigger than the number of rows of the given
+   *                          parentMatrix.
+   */
+  public static <T> MatrixRow<T> forMatrixAndOneBasedRowIndex(final Matrix<T> parentMatrix,
+    final int oneBasedRowIndex) {
+    return new MatrixRow<>(parentMatrix, oneBasedRowIndex);
   }
 
   /**

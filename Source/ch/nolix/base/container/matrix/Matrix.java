@@ -386,14 +386,14 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   }
 
   /**
-   * @param rowIndex
-   * @return the row of the current {@link Matrix} at the given row index.
-   * @throws RuntimeException if the given row index is not positive.
-   * @throws RuntimeException if the given row index is bigger than the number of
-   *                          rows of the current {@link Matrix}.
+   * @param oneBasedRowIndex
+   * @return the row of the current {@link Matrix} at the given oneBasedRowIndex.
+   * @throws RuntimeException if the given oneBasedRowIndex is not positive or
+   *                          bigger than the number of rows of the current
+   *                          {@link Matrix}.
    */
-  public MatrixRow<E> getRow(final int rowIndex) {
-    return new MatrixRow<>(this, rowIndex);
+  public MatrixRow<E> getRow(final int oneBasedRowIndex) {
+    return MatrixRow.forMatrixAndOneBasedRowIndex(this, oneBasedRowIndex);
   }
 
   /**
@@ -424,9 +424,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   public IContainer<IMatrixRow<E>> getRows() {
     final ILinkedList<IMatrixRow<E>> rows = LinkedList.createEmpty();
 
-    //Iterates the rows of the current matrix.
     for (var i = 1; i <= getRowCount(); i++) {
-      rows.addAtEnd(new MatrixRow<>(this, i));
+      rows.addAtEnd(MatrixRow.forMatrixAndOneBasedRowIndex(this, i));
     }
 
     return rows;
