@@ -86,8 +86,7 @@ public final class FlowController {
    * @param maxDurationInMilliseconds
    * @return a new {@link IForMaxMillisecondsMediator} for the given
    *         maxDurationInMilliseconds.
-   * @throws RuntimeException if the given maxDurationInMilliseconds is
-   *                                   negative.
+   * @throws RuntimeException if the given maxDurationInMilliseconds is negative.
    */
   public static IForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
     return ForMaxMillisecondsMediator.forMaxMilliseconds(maxDurationInMilliseconds);
@@ -97,8 +96,7 @@ public final class FlowController {
    * @param maxDurationInSeconds
    * @return a new {@link IForMaxMillisecondsMediator} for the given
    *         maxDurationInSeconds.
-   * @throws RuntimeException if the given maxDurationInSeconds is
-   *                                   negative.
+   * @throws RuntimeException if the given maxDurationInSeconds is negative.
    */
   public static IForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
     return ForMaxMillisecondsMediator.forMaxSeconds(maxDurationInSeconds);
@@ -112,7 +110,7 @@ public final class FlowController {
    * @throws RuntimeException if the given job is null.
    */
   public static IFuture runInBackground(final Runnable job) {
-    return Future.forJobExecutor(new JobExecutor(job, 1));
+    return Future.forJobExecutor(new JobExecutor(job));
   }
 
   /**
@@ -208,8 +206,7 @@ public final class FlowController {
    * 
    * @param durationInMilliseconds
    * @return a new {@link IWaitMediator}.
-   * @throws RuntimeException if the given durationInMilliseconds is
-   *                                   negative.
+   * @throws RuntimeException if the given durationInMilliseconds is negative.
    */
   public static IWaitMediator waitForMilliseconds(final int durationInMilliseconds) {
     Waiter.waitForMilliseconds(durationInMilliseconds);

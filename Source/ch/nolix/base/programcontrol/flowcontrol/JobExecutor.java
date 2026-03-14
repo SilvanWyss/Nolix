@@ -45,7 +45,7 @@ final class JobExecutor extends Thread {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.job = job;
-    maxRunCount = null;
+    maxRunCount = 1;
     condition = null;
     timeIntervalInMilliseconds = null;
 
@@ -83,10 +83,9 @@ final class JobExecutor extends Thread {
    * @param job
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws RuntimeException   if the given job is null.
-   * @throws RuntimeException   if the given condition is null.
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is
-   *                                   negative.
+   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   public JobExecutor(
     final Runnable job,
@@ -116,7 +115,7 @@ final class JobExecutor extends Thread {
    * 
    * @param job
    * @param maxRunCount
-   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given maxRunCount is negative.
    */
   public JobExecutor(
@@ -143,9 +142,9 @@ final class JobExecutor extends Thread {
    * @param job
    * @param maxRunCount
    * @param condition
-   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given maxRunCount is negative.
-   * @throws RuntimeException   if the given condition is null.
+   * @throws RuntimeException if the given condition is null.
    */
   public JobExecutor(
     final Runnable job,
@@ -177,11 +176,10 @@ final class JobExecutor extends Thread {
    * @param maxRunCount
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given maxRunCount is negative.
-   * @throws RuntimeException   if the given condition is null.
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is
-   *                                   negative.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   public JobExecutor(
     final Runnable job,
@@ -215,10 +213,9 @@ final class JobExecutor extends Thread {
    * @param job
    * @param maxRunCount
    * @param timeIntervalInMilliseconds
-   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given maxRunCount is negative.
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is
-   *                                   negative.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   public JobExecutor(
     final Runnable job,
