@@ -66,15 +66,14 @@ public final class NetEndPoint extends AbstractEndPoint {
 
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
-   * the given port on the machine with the given ip.
+   * the given port on the given host.
    * 
-   * @param ip
+   * @param host
    * @param port
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
-  public NetEndPoint(final String ip, final int port) {
-    //Calls other constructor.
-    this(ch.nolix.base.net.endpoint2.NetEndPoint.toGivenHostAndGivenPortAndDefaultSlot(ip, port));
+  private NetEndPoint(final String host, final int port) {
+    this(ch.nolix.base.net.endpoint2.NetEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
   }
 
   /**
@@ -135,6 +134,17 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
     return new NetEndPoint(port, slot);
+  }
+
+  /**
+   * @param host
+   * @param port
+   * @return a new {@link NetEndPoint} that will connect to the default slot on
+   *         the given port on the given host.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   */
+  public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
+    return new NetEndPoint(host, port);
   }
 
   /**
