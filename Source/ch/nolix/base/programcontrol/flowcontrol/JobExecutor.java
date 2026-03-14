@@ -34,22 +34,18 @@ final class JobExecutor extends Thread {
   private Throwable error;
 
   /**
-   * Creates a new {@link JobExecutor} with the given job. The {@link JobExecutor}
-   * will start automatically.
+   * Creates a new {@link JobExecutor} with the given job.
    * 
    * @param job
    * @throws RuntimeException if the given job is null.
    */
-  public JobExecutor(final Runnable job) {
-    //Asserts that the given job is not null.
+  private JobExecutor(final Runnable job) {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.job = job;
     maxRunCount = 1;
     condition = null;
     timeIntervalInMilliseconds = null;
-
-    start();
   }
 
   /**
@@ -236,6 +232,15 @@ final class JobExecutor extends Thread {
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 
     start();
+  }
+
+  /**
+   * @param job
+   * @return a new {@link JobExecutor} with the given job.
+   * @throws RuntimeException if the given job is null.
+   */
+  public static JobExecutor forJob(final Runnable job) {
+    return new JobExecutor(job);
   }
 
   public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
