@@ -77,19 +77,17 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} that will connect to the given target slot
-   * on the given port on the machine with the given ip.
+   * Creates a new {@link NetEndPoint} that will connect to the given slot on the
+   * given port on the given host.
    * 
-   * @param ip
+   * @param host
    * @param port
-   * @param targetSlot
+   * @param slot
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given targetSlot is null.
-   * @throws RuntimeException if the given targetSlot is blank.
+   * @throws RuntimeException if the given slot is null or blank.
    */
-  public NetEndPoint(final String ip, final int port, final String targetSlot) {
-    //Calls other constructor.
-    this(ch.nolix.base.net.endpoint2.NetEndPoint.toGivenHostAndGivenPortAndGivenSlot(ip, port, targetSlot));
+  private NetEndPoint(final String host, final int port, final String slot) {
+    this(ch.nolix.base.net.endpoint2.NetEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
   }
 
   /**
@@ -145,6 +143,19 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
     return new NetEndPoint(host, port);
+  }
+
+  /**
+   * @param host
+   * @param port
+   * @param slot
+   * @return a new {@link NetEndPoint} that will connect to the given slot on the
+   *         given port on the given host.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null or blank.
+   */
+  public static NetEndPoint toGivenHostAndGivenPortAndGivenSlot(final String host, final int port, final String slot) {
+    return new NetEndPoint(host, port, slot);
   }
 
   /**
