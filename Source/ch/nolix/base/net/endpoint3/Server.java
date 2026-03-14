@@ -41,8 +41,8 @@ public final class Server extends AbstractServer {
    * @param port
    * @param httpMessage
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException       if the given httpMessage is null.
-   * @throws RuntimeException        if the given httpMessage is blank.
+   * @throws RuntimeException if the given httpMessage is null.
+   * @throws RuntimeException if the given httpMessage is blank.
    */
   private Server(final int port, final String httpMessage) {
     //Creates the internal net server of the current net server.
@@ -71,8 +71,8 @@ public final class Server extends AbstractServer {
    *         {@link Server} will send the given httpMessage and close the
    *         connection.
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException       if the given httpMessage is null.
-   * @throws RuntimeException        if the given httpMessage is blank.
+   * @throws RuntimeException if the given httpMessage is null.
+   * @throws RuntimeException if the given httpMessage is blank.
    */
   public static Server forPortAndHttpMessage(final int port, final String httpMessage) {
     return new Server(port, httpMessage);
@@ -98,7 +98,7 @@ public final class Server extends AbstractServer {
    */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
-    internalServer.addDefaultSlot(new Slot(defaultSlot.getName(), this));
+    internalServer.addDefaultSlot(Slot.withNameAndParentServer(defaultSlot.getName(), this));
   }
 
   /**
@@ -106,7 +106,7 @@ public final class Server extends AbstractServer {
    */
   @Override
   protected void noteAddedSlot(final ISlot slot) {
-    internalServer.addSlot(new Slot(slot.getName(), this));
+    internalServer.addSlot(Slot.withNameAndParentServer(slot.getName(), this));
   }
 
   /**
