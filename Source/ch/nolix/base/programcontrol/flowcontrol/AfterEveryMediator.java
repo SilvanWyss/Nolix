@@ -9,6 +9,7 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
+import ch.nolix.baseapi.programcontrol.future.IFuture;
 
 /**
  * A {@link AfterEveryMediator} is not mutable.
@@ -84,7 +85,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * {@inheritDoc}
    */
   @Override
-  public Future runInBackground(final Runnable job) {
+  public IFuture runInBackground(final Runnable job) {
     //Handles the case that the current AfterEveryMediator does not have a max count.
     if (!hasMaxRunCount()) {
       return runInBackgroundWhenDoesNotHaveMaxRunConunt(job);
@@ -131,7 +132,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @return a new {@link Future}.
    * @throws RuntimeException if the given job is null.
    */
-  private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable step) {
+  private IFuture runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable step) {
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       final var jobExecutor = //
@@ -163,7 +164,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @return a new {@link Future}.
    * @throws RuntimeException if the given job is null.
    */
-  private Future runInBackgroundWhenHasMaxRunConunt(final Runnable step) {
+  private IFuture runInBackgroundWhenHasMaxRunConunt(final Runnable step) {
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       final var jobExecutor = new JobExecutor(step, maxRunCount, timeIntervalInMilliseconds);
