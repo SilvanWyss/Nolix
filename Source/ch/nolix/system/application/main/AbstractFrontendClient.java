@@ -67,7 +67,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    *                                       already connected.
    */
   protected final void connectTo(final int port) {
-    setEndPoint(new NetEndPoint(port));
+    setEndPoint(NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port));
   }
 
   /**

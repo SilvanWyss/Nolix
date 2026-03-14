@@ -38,11 +38,10 @@ public final class NetEndPoint extends AbstractEndPoint {
    * the given port on the local machine.
    * 
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
-  public NetEndPoint(final int port) {
-    //Calls other constructor.
-    this(IPv6Catalog.LOOP_BACK_ADDRESS, port);
+  private NetEndPoint(final int port) {
+    this(ch.nolix.base.net.endpoint2.NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port));
   }
 
   /**
@@ -119,6 +118,17 @@ public final class NetEndPoint extends AbstractEndPoint {
     //Creates a close dependency between the current NetEndPoint and the
     //internalEndPoint of the current NetEndPoint.
     createCloseDependencyTo(internalEndPoint);
+  }
+
+  /**
+   * @param port
+   * 
+   * @return a new {@link NetEndPoint} that will connect to the default slot on
+   *         the given port on the local machine.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   */
+  public static NetEndPoint toLocalMachineAndGivenPortAndDefaultSlot(final int port) {
+    return new NetEndPoint(port);
   }
 
   /**

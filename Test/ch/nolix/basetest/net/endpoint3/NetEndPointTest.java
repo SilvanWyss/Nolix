@@ -28,7 +28,7 @@ final class NetEndPointTest extends StandardTest {
       //execution & verification
       expectRunning(
         () -> {
-          try (final var _ = new NetEndPoint(port)) {
+          try (final var _ = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
             FlowController.waitForMilliseconds(1);
           }
         })
@@ -46,7 +46,7 @@ final class NetEndPointTest extends StandardTest {
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
 
-      try (final var testUnit = new NetEndPoint(port)) {
+      try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
         //execution
         testUnit.runCommand(ChainedNode.fromString("test_command"));
 
@@ -67,7 +67,7 @@ final class NetEndPointTest extends StandardTest {
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
 
-      try (final var testUnit = new NetEndPoint(port)) {
+      try (final var testUnit = NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port)) {
         //execution
         final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
 
