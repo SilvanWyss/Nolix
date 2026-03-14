@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.net.server;
+package ch.nolix.baseapi.net.baseserver;
 
 /**
  * @author Silvan Wyss
