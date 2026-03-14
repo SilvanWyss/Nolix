@@ -15,8 +15,6 @@ import ch.nolix.systemapi.application.main.IApplication;
  * @author Silvan Wyss
  */
 public final class SslServer extends AbstractServer<SslServer> {
-  public static final int DEFAULT_PORT = PortCatalog.HTTPS;
-
   private static final SecurityMode SECURITY_MODE_FOR_CONNECTIONS = SecurityMode.SSL;
 
   private final ch.nolix.base.net.level3server.SslServer internalWebSocketServer;
@@ -47,12 +45,12 @@ public final class SslServer extends AbstractServer<SslServer> {
     return new SslServer(PortCatalog.HTTPS, domain, paramSSLCertificate);
   }
 
-  public static SslServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
+  public static SslServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration(
     final String domain) {
     final var paramSSLCertificate = //
     NolixConfigurationSslCertificateReader.getDefaultSSLCertificatefromLocalNolixConfiguration();
 
-    return new SslServer(DEFAULT_PORT, domain, paramSSLCertificate);
+    return new SslServer(PortCatalog.HTTPS, domain, paramSSLCertificate);
   }
 
   public static SslServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
