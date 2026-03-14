@@ -23,7 +23,7 @@ public final class SslServer extends AbstractServer<SslServer> {
 
   private final int port;
 
-  public SslServer(final int port, final String domain, final ISslCertificate paramSSLCertificate) {
+  private SslServer(final int port, final String domain, final ISslCertificate paramSSLCertificate) {
     final var htmlPage = SslServerPage.forDomainAndPort(domain, port);
     final var htmlPageAsString = htmlPage.toString();
 
