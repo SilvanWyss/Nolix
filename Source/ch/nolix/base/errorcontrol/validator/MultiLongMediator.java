@@ -3,63 +3,88 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.independent.list.List;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 
 /**
- * A long container mediator is not mutable.
+ * A {@link MultiLongMediator} is not mutable.
  * 
  * @author Silvan Wyss
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   /**
-   * Creates a new long container mediator with the given arguments.
+   * Creates a new {@link MultiLongMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given argument container is null.
+   * @throws RuntimeException if the given arguments is null.
    */
-  public MultiLongMediator(final Iterable<Long> arguments) {
-    //Calls constructor of the base class.
+  private MultiLongMediator(final Iterable<Long> arguments) {
     super(arguments);
   }
 
-  public MultiLongMediator(final long[] arguments) {
-    //Calls constructor if the base class.
-    super(ARRAY_TOOL.createIterable(arguments));
-  }
+  /**
+   * @param arguments
+   * @return a new {@link MultiLongMediator} for the given arguments.
+   * @throws RuntimeException if the given arguments is null.
+   */
+  public static MultiLongMediator forArguments(final int[] arguments) {
+    final List<Long> longArguments = List.createEmpty();
 
-  public static MultiLongMediator forValue(final int value, final int[] values) {
-    final List<Long> allValues = List.createEmpty();
-    allValues.addAtEnd((long) value);
-    for (final var v : values) {
-      allValues.addAtEnd((long) v);
+    for (final var a : arguments) {
+      longArguments.addAtEnd((long) a);
     }
 
-    return new MultiLongMediator(allValues);
+    return new MultiLongMediator(longArguments);
   }
 
   /**
-   * @throws RuntimeException if one of the arguments of this long container
-   *                          mediator is null.
-   * @throws RuntimeException if one of the arguments of this long container
-   *                          mediator is not positive.
+   * @param arguments
+   * @return a new {@link MultiLongMediator} for the given arguments.
+   * @throws RuntimeException if the given arguments is null.
+   */
+  public static MultiLongMediator forArguments(final Iterable<Long> arguments) {
+    return new MultiLongMediator(arguments);
+  }
+
+  /**
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiLongMediator} is null or not positive.
    */
   public void arePositive() {
-    //Asserts that the arguments of this long container mediator are not null.
-    areNotNull();
-
-    //Iterates through the arguments of this long container mediator.
     var index = 1;
-    for (long a : getStoredArguments()) {
-      //Asserts that the current argument is positive.
-      if (a <= 0) {
-        throw NonPositiveArgumentException.forArgumentAndArgumentName(a, index + "th");
+
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      //Increments the index.
+      if (a <= 0) {
+        throw NonPositiveArgumentException.forArgumentAndArgumentName(a, index + "th argument");
+      }
+
+      index++;
+    }
+  }
+
+  /**
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiLongMediator} is null or negative.
+   */
+  public void areNotNegative() {
+    var index = 1;
+
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
+      }
+
+      if (a < 0) {
+        throw NegativeArgumentException.forArgumentAndArgumentName(a, index + "th argument");
+      }
+
       index++;
     }
   }

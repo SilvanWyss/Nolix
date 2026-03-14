@@ -160,22 +160,21 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
   }
 
   /**
-   * @param argument
-   * @param arguments
-   * @return a new multi long mediator that belongs to this test and is for the
-   *         given arguments.
+   * @param ints
+   * @return a new {@link MultiLongMediator} for the given ints.
+   * @throws RuntimeException if the given ints is null.
    */
-  protected static final MultiLongMediator expectTheInts(final int argument, final int... arguments) {
-    return MultiLongMediator.forValue(argument, arguments);
+  protected static final MultiLongMediator expectTheInts(final int... ints) {
+    return MultiLongMediator.forArguments(ints);
   }
 
   /**
-   * @param arguments
-   * @return a new long container mediator that belongs to this test and has the
-   *         given arguments.
+   * @param longs
+   * @return a new {@link MultiLongMediator} for the given longs.
+   * @throws RuntimeException if the given longs is null.
    */
-  protected static final MultiLongMediator expectTheLongs(final Iterable<Long> arguments) {
-    return new MultiLongMediator(arguments);
+  protected static final MultiLongMediator expectTheLongs(final Iterable<Long> longs) {
+    return MultiLongMediator.forArguments(longs);
   }
 
   /**

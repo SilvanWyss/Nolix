@@ -209,12 +209,12 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   }
 
   /**
-   * @param arguments
-   * @return a new {@link MultiLongMediator} for the given arguments.
-   * @throws RuntimeException if the given arguments is null.
+   * @param longs
+   * @return a new {@link MultiLongMediator} for the given longs.
+   * @throws RuntimeException if the given longs is null.
    */
-  public static MultiLongMediator assertThatTheLongs(final Iterable<Long> arguments) {
-    return new MultiLongMediator(arguments);
+  public static MultiLongMediator assertThatTheLongs(final Iterable<Long> longs) {
+    return MultiLongMediator.forArguments(longs);
   }
 
   /**
