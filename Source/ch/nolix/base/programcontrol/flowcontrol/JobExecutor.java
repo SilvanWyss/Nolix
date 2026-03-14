@@ -31,7 +31,7 @@ public final class JobExecutor extends Thread {
 
   private boolean running;
 
-  private int finishedStepCount;
+  private int finishedStepRunCount;
 
   private Throwable optionalCaughtError;
 
@@ -276,10 +276,10 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * @return the number of finished jobs of the current {@link JobExecutor}.
+   * @return the number of finished steps of the current {@link JobExecutor}.
    */
-  public int getFinishedJobCount() {
-    return finishedStepCount;
+  public int getFinishedStepRunCount() {
+    return finishedStepRunCount;
   }
 
   /**
@@ -354,7 +354,7 @@ public final class JobExecutor extends Thread {
    *         reached it, false otherwise.
    */
   private boolean reachedProbableMaxRunCount() {
-    return (hasMaxRunCount() && finishedStepCount >= optionalMaxStepRunCount);
+    return (hasMaxRunCount() && finishedStepRunCount >= optionalMaxStepRunCount);
   }
 
   private boolean runProbableNextStepAndSayIfRunningMustContinue() {
@@ -370,7 +370,7 @@ public final class JobExecutor extends Thread {
       }
 
       step.run();
-      finishedStepCount++;
+      finishedStepRunCount++;
 
       return true;
     } catch (final Throwable paramError) { //NOSONAR: All Throwables must be caught.

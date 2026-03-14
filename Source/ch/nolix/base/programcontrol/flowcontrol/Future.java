@@ -55,7 +55,7 @@ public final class Future extends AbstractFuture {
    * @return the number of finished jobs of the current {@link IFuture}.
    */
   public int getFinishedJobCount() {
-    return jobExecutor.getFinishedJobCount();
+    return jobExecutor.getFinishedStepRunCount();
   }
 
   /**
