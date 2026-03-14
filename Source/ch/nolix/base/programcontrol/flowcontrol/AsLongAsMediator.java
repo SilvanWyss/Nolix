@@ -72,6 +72,6 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    */
   @Override
   public IFuture runInBackground(final Runnable job) {
-    return Future.forJobExecturor(new JobExecutor(job, condition));
+    return Future.forJobExecutor(new JobExecutor(job, condition));
   }
 }

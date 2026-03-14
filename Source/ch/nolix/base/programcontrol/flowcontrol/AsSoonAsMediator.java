@@ -44,7 +44,7 @@ public final class AsSoonAsMediator implements IAsSoonAsMediator {
   public IFuture runInBackground(final Runnable job) {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
-    return Future.forJobExecturor(new JobExecutor(() -> runAsSoonAsConditionIsFulfilled(job), 1));
+    return Future.forJobExecutor(new JobExecutor(() -> runAsSoonAsConditionIsFulfilled(job), 1));
   }
 
   private void runAsSoonAsConditionIsFulfilled(final Runnable job) {

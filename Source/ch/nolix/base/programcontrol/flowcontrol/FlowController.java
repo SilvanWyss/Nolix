@@ -112,7 +112,7 @@ public final class FlowController {
    * @throws RuntimeException if the given job is null.
    */
   public static IFuture runInBackground(final Runnable job) {
-    return Future.forJobExecturor(new JobExecutor(job, 1));
+    return Future.forJobExecutor(new JobExecutor(job, 1));
   }
 
   /**
@@ -125,7 +125,7 @@ public final class FlowController {
   public static IFuture runInBackgroundAndOrder(final Runnable job, final Runnable... jobs) {
     final var allJobes = ContainerView.forElementAndArray(job, jobs);
 
-    return Future.forJobExecturor(JobExecutor.forJobs(allJobes));
+    return Future.forJobExecutor(JobExecutor.forJobs(allJobes));
   }
 
   /**
