@@ -16,11 +16,11 @@ import ch.nolix.base.testing.archunit.ArchUnitRuleCatalog;
 final class ConstructorTest {
   @Disabled
   @Test
-  void testCase_publicConstructorsDoNotContainParameters() {
+  void testCase_publicAndPackageVisibleConstructorsDoNotContainParameters() {
     //setup
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix..");
 
     //execution & verification
-    ArchUnitRuleCatalog.PUBLIC_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS.check(testUnit);
+    ArchUnitRuleCatalog.PUBLIC_AND_PACKAGE_VISIBLE_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS.check(testUnit);
   }
 }

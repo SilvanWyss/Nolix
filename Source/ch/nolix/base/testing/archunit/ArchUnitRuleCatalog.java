@@ -42,11 +42,13 @@ public final class ArchUnitRuleCatalog {
       }
     });
 
-  public static final ArchRule PUBLIC_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS = //
+  public static final ArchRule PUBLIC_AND_PACKAGE_VISIBLE_CONSTRUCTORS_DO_NOT_CONTAIN_PARAMETERS = //
   ArchRuleDefinition
     .constructors()
     .that()
     .arePublic()
+    .or()
+    .arePackagePrivate()
     .and()
     .areDeclaredInClassesThat()
     .areNotRecords()
@@ -58,7 +60,8 @@ public final class ArchUnitRuleCatalog {
         @Override
         public void check(final JavaConstructor item, final ConditionEvents events) {
           if (!item.getParameters().isEmpty()) {
-            final var message = "The public constructor '" + item.getFullName() + "' contains parameters.";
+            final var message = //
+            "The public or package-visible constructor '" + item.getFullName() + "' contains parameters.";
 
             events.add(new SimpleConditionEvent(item, false, message));
           }
