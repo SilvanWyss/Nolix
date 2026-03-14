@@ -14,7 +14,7 @@ import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 
 /**
- * A local duplex controller can interact with another local duplex controller.
+ * A {@link LocalEndPoint} can communicate with another {@link LocalEndPoint}.
  * 
  * @author Silvan Wyss
  */
@@ -23,20 +23,20 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
   private final LocalEndPoint counterpart;
 
-  private final String target;
+  private final String customTargetSlot;
 
   /**
-   * Creates a new local duplex controller that will connect to another new local
+   * Creates a new {@link LocalEndPoint} that will connect to another new local
    * duplex controller.
    */
   public LocalEndPoint() {
     peerType = PeerType.FRONTEND;
 
-    //Creates the counterpart of this local duplex controller.
+    //Creates the counterpart of this {@link LocalEndPoint}.
     this.counterpart = new LocalEndPoint(this);
 
-    //Clears the target of this local duplex controller.
-    target = null;
+    //Clears the target of this {@link LocalEndPoint}.
+    customTargetSlot = null;
   }
 
   /**
@@ -48,13 +48,13 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private LocalEndPoint(final ISlot slot) {
     this.peerType = PeerType.FRONTEND;
     this.counterpart = new LocalEndPoint(this, slot.getName());
-    this.target = null;
+    this.customTargetSlot = null;
 
     slot.takeBackendEndPoint(getStoredCounterpart());
   }
 
   /**
-   * Creates a new local duplex controller with the given counterpart.
+   * Creates a new {@link LocalEndPoint} with the given counterpart.
    * 
    * @param counterpart
    * @throws RuntimeException if the given counterpart is null.
@@ -65,17 +65,17 @@ public final class LocalEndPoint extends AbstractEndPoint {
     //Asserts that the given counterpart is not null.
     Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    //Sets the counterpart of this local duplex controller.
+    //Sets the counterpart of this {@link LocalEndPoint}.
     this.counterpart = counterpart;
 
     createCloseDependencyTo(counterpart);
 
-    //Clears the target of this local duplex controller.
-    target = null;
+    //Clears the target of this {@link LocalEndPoint}.
+    customTargetSlot = null;
   }
 
   /**
-   * Creates a new local duplex controller with the given counterpart and target.
+   * Creates a new {@link LocalEndPoint} with the given counterpart and target.
    * 
    * @param counterpart
    * @param target
@@ -90,14 +90,14 @@ public final class LocalEndPoint extends AbstractEndPoint {
     //Asserts that the given counterpart is not null.
     Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    //Sets the counterpart of this local duplex controller.
+    //Sets the counterpart of this {@link LocalEndPoint}.
     this.counterpart = counterpart;
 
     //Asserts that the given target is not null or empty.
     Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 
-    //Sets the target of this local duplex controller.
-    this.target = target;
+    //Sets the target of this {@link LocalEndPoint}.
+    this.customTargetSlot = target;
   }
 
   /**
@@ -120,7 +120,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   /**
    * @return the data the given request requests from this local duplex
    *         controller.
-   * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller
+   * @throws ArgumentDoesNotHaveAttributeException if this {@link LocalEndPoint}
    *                                               does not have a receiver
    *                                               controller.
    */
@@ -146,18 +146,18 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return the counterpart of this local duplex controller.
+   * @return the counterpart of this {@link LocalEndPoint}.
    */
   public LocalEndPoint getStoredCounterpart() {
     return counterpart;
   }
 
   /**
-   * @return the target of this local duplex controller.
+   * @return the target of this {@link LocalEndPoint}.
    */
   @Override
   public String getCustomTargetSlot() {
-    return target;
+    return customTargetSlot;
   }
 
   /**
@@ -181,7 +181,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public boolean hasCustomTargetSlot() {
-    return (target != null);
+    return (customTargetSlot != null);
   }
 
   /**
@@ -201,8 +201,6 @@ public final class LocalEndPoint extends AbstractEndPoint {
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
     assertIsOpen();
 
-    final var counterpartReceiverController = counterpart.getStoredReceiverController();
-
-    commands.forEach(counterpartReceiverController::runCommand);
+    commands.forEach(counterpart.getStoredReceiverController()::runCommand);
   }
 }
