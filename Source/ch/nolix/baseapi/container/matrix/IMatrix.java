@@ -19,7 +19,7 @@ public interface IMatrix<E> extends Clearable, IContainer<E> {
 
   int getRowCount();
 
-  IContainer<? extends IContainer<E>> getRows();
+  IContainer<IMatrixRow<E>> getRows();
 
   void setAtOneBasedRowIndexAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex, E element);
 }

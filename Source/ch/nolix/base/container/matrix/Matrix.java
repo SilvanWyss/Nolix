@@ -16,6 +16,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
+import ch.nolix.baseapi.container.matrix.IMatrixRow;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -420,8 +421,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return the rows of the current {@link Matrix}.
    */
   @Override
-  public IContainer<MatrixRow<E>> getRows() {
-    final ILinkedList<MatrixRow<E>> rows = LinkedList.createEmpty();
+  public IContainer<IMatrixRow<E>> getRows() {
+    final ILinkedList<IMatrixRow<E>> rows = LinkedList.createEmpty();
 
     //Iterates the rows of the current matrix.
     for (var i = 1; i <= getRowCount(); i++) {
