@@ -8,6 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpoint2.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
@@ -29,7 +30,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
    * @param slot
-   * @throws ArgumentIsNullException if the given slot is null.
+   * @throws NullPointerException if the given slot is null.
    */
   private LocalEndPoint(final ISlot slot) {
     this.peerType = PeerType.FRONTEND;
@@ -40,22 +41,21 @@ public final class LocalEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new local end point that will connect to the given target on the
-   * given server.
+   * Creates a new {@link LocalEndPoint} that will connect to the given slot on
+   * the given server.
    * 
-   * @param abstractServer
-   * @param target
+   * @param slot
+   * @param server
+   * @throws NullPointerException     if the given server is null.
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is null.
    */
-  public LocalEndPoint(final AbstractServer abstractServer, final String target) {
-    peerType = PeerType.FRONTEND;
+  private LocalEndPoint(final AbstractServer server, final String slot) {
+    this.peerType = PeerType.FRONTEND;
+    this.counterpart = new LocalEndPoint(this, slot);
+    this.target = slot;
 
-    //Creates the counterpart of this local end point.
-    counterpart = new LocalEndPoint(this, target);
-
-    this.target = target;
-
-    //Lets the given server take the counterpart of this lcoal end point.
-    abstractServer.internalTakeBackendEndPoint(getStoredCounterpart());
+    server.internalTakeBackendEndPoint(getStoredCounterpart());
   }
 
   /**
@@ -86,10 +86,23 @@ public final class LocalEndPoint extends AbstractEndPoint {
   /**
    * @param slot
    * @return a new {@link LocalEndPoint} that will connect to the given slot.
-   * @throws ArgumentIsNullException if the given slot is null.
+   * @throws NullPointerException if the given slot is null.
    */
   public static LocalEndPoint toSlot(final ISlot slot) {
     return new LocalEndPoint(slot);
+  }
+
+  /**
+   * @param server
+   * @param slot
+   * @return a new {@link LocalEndPoint} that will connect to the given slot on
+   *         the given server.
+   * @throws NullPointerException     if the given server is null.
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is null.
+   */
+  public static LocalEndPoint toServerAndSlot(final AbstractServer server, final String slot) {
+    return new LocalEndPoint(server, slot);
   }
 
   /**
