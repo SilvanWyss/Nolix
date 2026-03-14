@@ -140,39 +140,37 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job, maxRunCount, condition
-   * and timeIntervalInMilliseconds.
+   * Creates a new {@link JobExecutor} with the given step, maxStepRunCount,
+   * nextStepRunCondition and delayBetweenStepRunsInMilliseconds.
    * 
-   * @param job
-   * @param maxRunCount
-   * @param condition
-   * @param timeIntervalInMilliseconds
+   * @param step
+   * @param maxStepRunCount
+   * @param nextStepRunCondition
+   * @param delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given maxRunCount is negative.
    * @throws RuntimeException if the given condition is null.
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
+   * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
+   *                          negative.
    */
-  public JobExecutor(
-    final Runnable job,
-    final int maxRunCount,
-    final BooleanSupplier condition,
-    final int timeIntervalInMilliseconds) {
-    //Asserts that the given job is not null.
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  private JobExecutor(
+    final Runnable step,
+    final int maxStepRunCount,
+    final BooleanSupplier nextStepRunCondition,
+    final int delayBetweenStepRunsInMilliseconds) {
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
+    Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
-    //Asserts that the given max run count is not negative.
-    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator
+      .assertThat(delayBetweenStepRunsInMilliseconds)
+      .thatIsNamed("delay between step runs in milliseconds")
+      .isNotNegative();
 
-    //Asserts that the given condition is not null.
-    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
-
-    //Asserts that the given timeIntervalInMilliseconds is not negative.
-    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
-
-    this.step = job;
-    this.optionalMaxStepRunCount = maxRunCount;
-    this.optionalNextStepRunCondition = condition;
-    this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
+    this.step = step;
+    this.optionalMaxStepRunCount = maxStepRunCount;
+    this.optionalNextStepRunCondition = nextStepRunCondition;
+    this.optionalDelayBetweenStepRunsInMilliseconds = delayBetweenStepRunsInMilliseconds;
   }
 
   /**
@@ -244,7 +242,6 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * 
    * @param step
    * @param maxStepRunCount
    * @param nextStepRunCondition
@@ -259,6 +256,27 @@ public final class JobExecutor extends Thread {
     final int maxStepRunCount,
     final BooleanSupplier nextStepRunCondition) {
     return new JobExecutor(step, maxStepRunCount, nextStepRunCondition);
+  }
+
+  /**
+   * @param step
+   * @param maxStepRunCount
+   * @param nextStepRunCondition
+   * @param delayBetweenStepRunsInMilliseconds
+   * @return a new {@link JobExecutor} with the given step, maxStepRunCount,
+   *         nextStepRunCondition and delayBetweenStepRunsInMilliseconds.
+   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
+   *                          negative.
+   */
+  public static JobExecutor forStepAndMaxStepRunCountAndNextStepRunConditionAndDelayBetweenStepRunsInMilliseconds(
+    final Runnable step,
+    final int maxStepRunCount,
+    final BooleanSupplier nextStepRunCondition,
+    final int delayBetweenStepRunsInMilliseconds) {
+    return new JobExecutor(step, maxStepRunCount, nextStepRunCondition, delayBetweenStepRunsInMilliseconds);
   }
 
   /**
