@@ -71,8 +71,8 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    * {@inheritDoc}
    */
   @Override
-  public IFuture runInBackground(final Runnable job) {
-    final var jobExecutor = new JobExecutor(job, condition);
+  public IFuture runInBackground(final Runnable step) {
+    final var jobExecutor = JobExecutor.forStepAndNextStepRunCondition(step, condition);
 
     jobExecutor.start();
 

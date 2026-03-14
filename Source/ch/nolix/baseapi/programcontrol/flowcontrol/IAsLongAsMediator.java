@@ -31,12 +31,12 @@ public interface IAsLongAsMediator {
   void run(Runnable job);
 
   /**
-   * Lets the current {@link IAsLongAsMediator} run the given job asynchronously
+   * Lets the current {@link IAsLongAsMediator} run the given step asynchronously
    * in background.
    * 
-   * @param job
+   * @param step
    * @return a new {@link IFuture}.
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given step is null.
    */
-  IFuture runInBackground(Runnable job);
+  IFuture runInBackground(Runnable step);
 }

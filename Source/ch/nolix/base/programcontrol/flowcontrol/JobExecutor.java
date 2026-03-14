@@ -45,30 +45,28 @@ public final class JobExecutor extends Thread {
     Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
 
     this.step = step;
-    optionalMaxStepRunCount = 1;
-    optionalNextStepRunCondition = null;
-    optionalDelayBetweenStepRunsInMilliseconds = null;
+    this.optionalMaxStepRunCount = 1;
+    this.optionalNextStepRunCondition = null;
+    this.optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job and condition.
+   * Creates a new {@link JobExecutor} with the given step and
+   * nextStepRunCondition.
    * 
-   * @param job
-   * @param condition
-   * @throws RuntimeException if the given job is null.
-   * @throws RuntimeException if the given condition is null.
+   * @param step
+   * @param nextStepRunCondition
+   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null.
    */
-  public JobExecutor(final Runnable job, final BooleanSupplier condition) {
-    //Asserts that the given job is not null.
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  private JobExecutor(final Runnable step, final BooleanSupplier nextStepRunCondition) {
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
-    //Asserts that the given condition is not null.
-    Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
-
-    this.step = job;
-    optionalMaxStepRunCount = null;
-    this.optionalNextStepRunCondition = condition;
-    optionalDelayBetweenStepRunsInMilliseconds = null;
+    this.step = step;
+    this.optionalMaxStepRunCount = null;
+    this.optionalNextStepRunCondition = nextStepRunCondition;
+    this.optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
@@ -228,6 +226,20 @@ public final class JobExecutor extends Thread {
    */
   public static JobExecutor forStep(final Runnable step) {
     return new JobExecutor(step);
+  }
+
+  /**
+   * @param step
+   * @param nextStepRunCondition
+   * @return a new {@link JobExecutor} with the given step and
+   *         nextStepRunCondition.
+   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null.
+   */
+  public static JobExecutor forStepAndNextStepRunCondition(
+    final Runnable step,
+    final BooleanSupplier nextStepRunCondition) {
+    return new JobExecutor(step, nextStepRunCondition);
   }
 
   public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
