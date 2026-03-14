@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.endpoint.ISlot;
 /**
  * @author Silvan Wyss
  */
-final class ServerSlot implements ISlot {
+final class Slot implements ISlot {
   private final String name;
 
   private final AbstractServer parentServer;
@@ -25,7 +25,7 @@ final class ServerSlot implements ISlot {
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException  if the given parentServer is null.
    */
-  public ServerSlot(final String name, final AbstractServer parentServer) {
+  public Slot(final String name, final AbstractServer parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
