@@ -134,11 +134,19 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable job) {
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
-      return Future.forJobExecutor(new JobExecutor(job, timeIntervalInMilliseconds, () -> true));
+      final var jobExecutor = new JobExecutor(job, timeIntervalInMilliseconds, () -> true);
+
+      jobExecutor.start();
+
+      return Future.forJobExecutor(jobExecutor);
     }
 
     //Handles the case that the current AfterAllMediator has a condition.
-    return Future.forJobExecutor(new JobExecutor(job, condition, timeIntervalInMilliseconds));
+    final var jobExecutor = new JobExecutor(job, condition, timeIntervalInMilliseconds);
+
+    jobExecutor.start();
+
+    return Future.forJobExecutor(jobExecutor);
   }
 
   /**
@@ -152,11 +160,17 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   private Future runInBackgroundWhenHasMaxRunConunt(final Runnable job) {
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
-      return Future.forJobExecutor(new JobExecutor(job, maxRunCount, timeIntervalInMilliseconds));
+      final var jobExecutor = new JobExecutor(job, maxRunCount, timeIntervalInMilliseconds);
+
+      jobExecutor.start();
+
+      return Future.forJobExecutor(jobExecutor);
     }
 
     //Handles the case that the current AfterAllMediator has a condition.
-    return Future.forJobExecutor(new JobExecutor(job, maxRunCount, condition, timeIntervalInMilliseconds));
+    final var jobExecutor = new JobExecutor(job, maxRunCount, condition, timeIntervalInMilliseconds);
+    jobExecutor.start();
+    return Future.forJobExecutor(jobExecutor);
   }
 
   /**

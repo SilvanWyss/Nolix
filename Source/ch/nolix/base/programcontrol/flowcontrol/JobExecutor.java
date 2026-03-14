@@ -16,22 +16,24 @@ import ch.nolix.baseapi.programcontrol.job.IJobTool;
 /**
  * @author Silvan Wyss
  */
-final class JobExecutor extends Thread {
+public final class JobExecutor extends Thread {
   private static final IJobTool JOB_TOOL = new JobTool();
 
-  private final Runnable job;
+  private final Runnable step;
 
-  private int finishedJobCount;
+  private final Integer optionalMaxStepRunCount;
 
-  private boolean running = true;
+  private final BooleanSupplier optionalStartNextStepRunCondition;
 
-  private final Integer maxRunCount;
+  private final Integer optionalDelayBetweenStepRunsInMilliseconds;
 
-  private final BooleanSupplier condition;
+  private boolean started;
 
-  private final Integer timeIntervalInMilliseconds;
+  private boolean running;
 
-  private Throwable error;
+  private int finishedStepCount;
+
+  private Throwable optionalCaughtError;
 
   /**
    * Creates a new {@link JobExecutor} with the given job.
@@ -42,10 +44,10 @@ final class JobExecutor extends Thread {
   private JobExecutor(final Runnable job) {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
-    this.job = job;
-    maxRunCount = 1;
-    condition = null;
-    timeIntervalInMilliseconds = null;
+    this.step = job;
+    optionalMaxStepRunCount = 1;
+    optionalStartNextStepRunCondition = null;
+    optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
@@ -64,12 +66,10 @@ final class JobExecutor extends Thread {
     //Asserts that the given condition is not null.
     Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
 
-    this.job = job;
-    maxRunCount = null;
-    this.condition = condition;
-    timeIntervalInMilliseconds = null;
-
-    start();
+    this.step = job;
+    optionalMaxStepRunCount = null;
+    this.optionalStartNextStepRunCondition = condition;
+    optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
@@ -97,17 +97,14 @@ final class JobExecutor extends Thread {
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
       .isNotNegative();
 
-    this.job = job;
-    this.maxRunCount = null;
-    this.condition = condition;
-    this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
-
-    start();
+    this.step = job;
+    this.optionalMaxStepRunCount = null;
+    this.optionalStartNextStepRunCondition = condition;
+    this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job and maxRunCount. The
-   * {@link JobExecutor} will start automatically.
+   * Creates a new {@link JobExecutor} with the given job and maxRunCount.
    * 
    * @param job
    * @param maxRunCount
@@ -123,12 +120,10 @@ final class JobExecutor extends Thread {
     //Asserts that the given maxRunCount is not negative.
     Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
-    this.job = job;
-    this.maxRunCount = maxRunCount;
-    condition = null;
-    timeIntervalInMilliseconds = null;
-
-    start();
+    this.step = job;
+    this.optionalMaxStepRunCount = maxRunCount;
+    optionalStartNextStepRunCondition = null;
+    optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
@@ -155,12 +150,10 @@ final class JobExecutor extends Thread {
     //Asserts that the given condition is not null.
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
 
-    this.job = job;
-    this.maxRunCount = maxRunCount;
-    this.condition = condition;
-    timeIntervalInMilliseconds = null;
-
-    start();
+    this.step = job;
+    this.optionalMaxStepRunCount = maxRunCount;
+    this.optionalStartNextStepRunCondition = condition;
+    optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
@@ -194,12 +187,10 @@ final class JobExecutor extends Thread {
     //Asserts that the given timeIntervalInMilliseconds is not negative.
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
-    this.job = job;
-    this.maxRunCount = maxRunCount;
-    this.condition = condition;
-    this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
-
-    start();
+    this.step = job;
+    this.optionalMaxStepRunCount = maxRunCount;
+    this.optionalStartNextStepRunCondition = condition;
+    this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
   }
 
   /**
@@ -226,12 +217,10 @@ final class JobExecutor extends Thread {
     //Asserts that the given timeIntervalInMilliseconds is not negative.
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
-    this.job = job;
-    this.maxRunCount = maxRunCount;
-    condition = null;
-    this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
-
-    start();
+    this.step = job;
+    this.optionalMaxStepRunCount = maxRunCount;
+    optionalStartNextStepRunCondition = null;
+    this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
   }
 
   /**
@@ -244,7 +233,12 @@ final class JobExecutor extends Thread {
   }
 
   public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
-    return new JobExecutor(JOB_TOOL.createConcatenatedJobFromJobs(jobs), 1);
+    final var concatenatedJob = JOB_TOOL.createConcatenatedJobFromJobs(jobs);
+    final var jobExecutor = new JobExecutor(concatenatedJob, 1);
+
+    jobExecutor.start();
+
+    return jobExecutor;
   }
 
   /**
@@ -252,7 +246,7 @@ final class JobExecutor extends Thread {
    *         otherwise.
    */
   public boolean caughtError() {
-    return (error != null);
+    return (optionalCaughtError != null);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -264,18 +258,18 @@ final class JobExecutor extends Thread {
    */
   public Throwable getError() {
     //Asserts that the current JobRunner has an error.
-    if (error == null) {
+    if (optionalCaughtError == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
     }
 
-    return error;
+    return optionalCaughtError;
   }
 
   /**
    * @return the number of finished jobs of the current {@link JobExecutor}.
    */
   public int getFinishedJobCount() {
-    return finishedJobCount;
+    return finishedStepCount;
   }
 
   /**
@@ -283,7 +277,7 @@ final class JobExecutor extends Thread {
    *         otherwise.
    */
   public boolean hasCondition() {
-    return (condition != null);
+    return (optionalStartNextStepRunCondition != null);
   }
 
   /**
@@ -291,7 +285,7 @@ final class JobExecutor extends Thread {
    *         otherwise.
    */
   public boolean hasMaxRunCount() {
-    return (maxRunCount != null);
+    return (optionalMaxStepRunCount != null);
   }
 
   /**
@@ -299,14 +293,14 @@ final class JobExecutor extends Thread {
    *         otherwise.
    */
   public boolean hasTimeInterval() {
-    return (timeIntervalInMilliseconds != null);
+    return (optionalDelayBetweenStepRunsInMilliseconds != null);
   }
 
   /**
    * @return true if the current {@link JobExecutor} is finished, false otherwise.
    */
   public boolean isFinished() {
-    return !isRunning();
+    return hasStarted() && !isRunning();
   }
 
   /**
@@ -329,7 +323,9 @@ final class JobExecutor extends Thread {
    */
   @Override
   public void run() {
-    //main loop
+    started = true;
+    running = true;
+
     while (true) {
       if (!runProbableNextStepAndSayIfRunningMustContinue()) {
         break;
@@ -339,12 +335,16 @@ final class JobExecutor extends Thread {
     running = false;
   }
 
+  private boolean hasStarted() {
+    return started;
+  }
+
   /**
    * @return true if the current {@link JobExecutor} has a max run count and has
    *         reached it, false otherwise.
    */
   private boolean reachedProbableMaxRunCount() {
-    return (hasMaxRunCount() && finishedJobCount >= maxRunCount);
+    return (hasMaxRunCount() && finishedStepCount >= optionalMaxStepRunCount);
   }
 
   private boolean runProbableNextStepAndSayIfRunningMustContinue() {
@@ -359,13 +359,13 @@ final class JobExecutor extends Thread {
         return false;
       }
 
-      job.run();
-      finishedJobCount++;
+      step.run();
+      finishedStepCount++;
 
       return true;
     } catch (final Throwable paramError) { //NOSONAR: All Throwables must be caught.
 
-      error = paramError;
+      optionalCaughtError = paramError;
       Logger.logError(paramError);
 
       return false;
@@ -377,7 +377,7 @@ final class JobExecutor extends Thread {
    *         it, false otherwise.
    */
   private boolean violatesProbableCondition() {
-    return (hasCondition() && !condition.getAsBoolean());
+    return (hasCondition() && !optionalStartNextStepRunCondition.getAsBoolean());
   }
 
   /**
@@ -386,7 +386,7 @@ final class JobExecutor extends Thread {
    */
   private void waitForTimeIntervalIfHasTimeInterval() {
     if (hasTimeInterval()) {
-      Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+      Waiter.waitForMilliseconds(optionalDelayBetweenStepRunsInMilliseconds);
     }
   }
 }

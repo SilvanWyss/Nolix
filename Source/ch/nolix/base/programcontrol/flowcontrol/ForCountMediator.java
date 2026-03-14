@@ -68,6 +68,10 @@ public final class ForCountMediator implements IForCountMediator {
    */
   @Override
   public IFuture runInBackground(final Runnable job) {
-    return Future.forJobExecutor(new JobExecutor(job, maxRunCount));
+    final var jobExecutor = new JobExecutor(job, maxRunCount);
+
+    jobExecutor.start();
+
+    return Future.forJobExecutor(jobExecutor);
   }
 }
