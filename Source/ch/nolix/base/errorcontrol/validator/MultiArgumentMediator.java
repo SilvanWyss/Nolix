@@ -49,8 +49,8 @@ public class MultiArgumentMediator<A> {
   }
 
   /**
-   * @throws RuntimeException if one of the arguments of this multi
-   *                                 argument mediator is null.
+   * @throws RuntimeException if one of the arguments of this multi argument
+   *                          mediator is null.
    */
   public final void areNotNull() {
     //Iterates the arguments of this multi argument mediator.
@@ -68,9 +68,9 @@ public class MultiArgumentMediator<A> {
 
   /**
    * @param condition
-   * @throws RuntimeException  if the given condition is null.
-   * @throws RuntimeException if an argument of this argument container
-   *                                  does not fulfill the given condition.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if an argument of this argument container does not
+   *                          fulfill the given condition.
    */
   public final void fulfill(final Predicate<A> condition) {
     //Iterates the arguments of this multi argument mediator.

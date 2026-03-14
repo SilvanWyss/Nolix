@@ -32,11 +32,11 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @param valueCreator
    * @param adderMethod
    * @param specificationCreator
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given adderMethod is null.
-   * @throws RuntimeException  if the given valueCreator is null.
-   * @throws RuntimeException  if the given specificationCreator is null.
+   * @throws RuntimeException if the given adderMethod is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given specificationCreator is null.
    */
   public MultiValue(
     final String name,
@@ -58,9 +58,9 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @param adderMethod
    * @return a new {@link MultiValue} that will store {@link Integer}s and have
    *         the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given adderMethod is null.
+   * @throws RuntimeException if the given adderMethod is null.
    */
   public static MultiValue<Integer> forInts(final String name, final Consumer<Integer> adderMethod) {
     return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
@@ -71,9 +71,9 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @param adderMethod
    * @return a new {@link MultiValue} that will store {@link String}s and have the
    *         given name and adderMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given adderMethod is null.
+   * @throws RuntimeException if the given adderMethod is null.
    */
   public static MultiValue<String> forStrings(final String name, final Consumer<String> adderMethod) {
     return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);

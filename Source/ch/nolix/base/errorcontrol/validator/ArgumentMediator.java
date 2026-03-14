@@ -38,7 +38,7 @@ public class ArgumentMediator<A> extends Mediator {
    * 
    * @param argumentName
    * @param argument
-   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is null.
    * @throws RuntimeException if the given argument name is blank.
    */
   protected ArgumentMediator(final String argumentName, final A argument) {
@@ -60,10 +60,10 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param condition
-   * @throws RuntimeException  if the given condition is null.
+   * @throws RuntimeException if the given condition is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} does not fulfill
-   *                                  the given condition.
+   *                          {@link ArgumentMediator} does not fulfill the given
+   *                          condition.
    */
   public final void fulfills(Predicate<A> condition) {
     //Asserts that the given condition is not null.
@@ -84,11 +84,10 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param object
-   * @throws RuntimeException  if the given object is null.
+   * @throws RuntimeException if the given object is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} does not have the
-   *                                  same {@link String} representation as the
-   *                                  given object.
+   *                          {@link ArgumentMediator} does not have the same
+   *                          {@link String} representation as the given object.
    */
   public final void hasSameStringRepresentationAs(final Object object) {
     //Asserts that the given object is not null.
@@ -106,8 +105,8 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param stringRepresentation
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} does not have the
-   *                                  given stringRepresentation.
+   *                          {@link ArgumentMediator} does not have the given
+   *                          stringRepresentation.
    */
   public final void hasStringRepresentation(final String stringRepresentation) {
     isNotNull();
@@ -126,8 +125,8 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} does not equal the
-   *                                  given object.
+   *                          {@link ArgumentMediator} does not equal the given
+   *                          object.
    */
   public final void isEqualTo(final Object object) {
     //Asserts that the argument of the current ArgumentMediator equals the given
@@ -140,8 +139,8 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} is not (!) the
-   *                                  given object.
+   *                          {@link ArgumentMediator} is not (!) the given
+   *                          object.
    */
   public final void is(final Object object) {
     //Asserts that the argument of the current ArgumentMediator is the given
@@ -158,8 +157,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} is the given
-   *                                  object.
+   *                          {@link ArgumentMediator} is the given object.
    */
   public final void isNot(final Object object) {
     //Asserts that the argument of the current ArgumentMediator is not the given
@@ -176,8 +174,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} equals the given
-   *                                  object.
+   *                          {@link ArgumentMediator} equals the given object.
    */
   public final void isNotEqualTo(final A object) {
     //Asserts that the argument of the current ArgumentMediator does not equal the
@@ -189,7 +186,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                                 {@link ArgumentMediator} is null.
+   *                          {@link ArgumentMediator} is null.
    */
   public final void isNotNull() {
     //Asserts that the argument of the current ArgumentMediator is not null.
@@ -211,11 +208,10 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param type
-   * @throws RuntimeException  if the argument of the current
-   *                                  {@link ArgumentMediator} is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link ArgumentMediator} is not of the given
-   *                                  type.
+   *                          {@link ArgumentMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link ArgumentMediator} is not of the given type.
    */
   public final void isOfType(final Class<?> type) {
     //Asserts that the argument of the current ArgumentMediator is not null.

@@ -58,8 +58,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param rowCount
    * @param columnCount
    * @throws RuntimeException if the given rowCount is not positive.
-   * @throws RuntimeException if the given columnCount is not
-   *                                      positive.
+   * @throws RuntimeException if the given columnCount is not positive.
    */
   private Matrix(final int rowCount, final int columnCount) {
     //Asserts that the given rowCount is positive.
@@ -114,8 +113,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @return a new {@link Matrix} with the given number of rows and the given
    *         number of columns.
    * @throws RuntimeException if the given rowCount is not positive.
-   * @throws RuntimeException if the given columnCount is not
-   *                                      positive.
+   * @throws RuntimeException if the given columnCount is not positive.
    */
   public static Matrix createRandomQuadraticMatrixWithRowCountAndColumnCount(
     final int rowCount,
@@ -142,8 +140,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @return a new {@link Matrix} with the given number of rows and the given
    *         number of columns.
    * @throws RuntimeException if the given rowCount is not positive.
-   * @throws RuntimeException if the given columnCount is not
-   *                                      positive.
+   * @throws RuntimeException if the given columnCount is not positive.
    */
   public static Matrix withOnesAndRowCountAndColumnCount(final int rowCount, final int columnCount) {
     return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
@@ -155,8 +152,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param rowCount
    * @param columnCount
    * @throws RuntimeException if the given rowCount is not positive.
-   * @throws RuntimeException if the given columnCount is not
-   *                                      positive.
+   * @throws RuntimeException if the given columnCount is not positive.
    */
   public static Matrix withRowCountAndColumnCount(final int rowCount, final int columnCount) {
     //Calls constructor.
@@ -170,8 +166,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @return a new {@link Matrix} with the given rowCount and columnCount. The
    *         values of the matrix will be set to the given defaultValue.
    * @throws RuntimeException if the given rowCount is not positive.
-   * @throws RuntimeException if the given columnCount is not
-   *                                      positive.
+   * @throws RuntimeException if the given columnCount is not positive.
    */
   public static Matrix withRowCountAndColumnCountAndDefaultValue(
     final int rowCount,
@@ -256,9 +251,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param rowValue
    * @param rowValues
    * @return the current {@link Matrix}.
-   * @throws RuntimeException if not as many row values are given than the
-   *                                  number of columns of the current
-   *                                  {@link Matrix}.
+   * @throws RuntimeException if not as many row values are given than the number
+   *                          of columns of the current {@link Matrix}.
    */
   public Matrix appendAtBottom(final double rowValue, final double... rowValues) {
     //Asserts that as many row values are given than the number of columns of the
@@ -323,8 +317,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return the inverse matrix of the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} is not
-   *                                  regular.
+   * @throws RuntimeException if the current {@link Matrix} is not regular.
    */
   public Matrix getInverse() {
     assertIsQuadratic();
@@ -455,8 +448,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return a pseudo inverse matrix of the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} is not
-   *                                  quadratic.
+   * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   public Matrix getPseudoInverse() {
     //Asserts that the current Matrix is quadratic.
@@ -469,8 +461,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return the rank of the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} is not
-   *                                  quadratic.
+   * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   public int getRank() {
     //Asserts that the current Matrix is quadratic.
@@ -552,8 +543,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return the trace of the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} is not
-   *                                  quadratic.
+   * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   public double getTrace() {
     //Asserts that the current Matrix is quadratic.
@@ -572,11 +562,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param columnIndex
    * @return the value in the row with the given row index and the column with the
    *         given column index.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       contain a row with the given row index.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       contain a column with the given column
-   *                                       index.
+   * @throws RuntimeException if the current {@link Matrix} does not contain a row
+   *                          with the given row index.
+   * @throws RuntimeException if the current {@link Matrix} does not contain a
+   *                          column with the given column index.
    */
   public double getValue(final int rowIndex, final int columnIndex) {
     //Asserts that the current Matrix contains a row with the given row index.
@@ -669,8 +658,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param rowIndex
    * @param factor
    * @return the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       contain a row with the given row index.
+   * @throws RuntimeException if the current {@link Matrix} does not contain a row
+   *                          with the given row index.
    */
   public Matrix multiplyRow(final int rowIndex, final double factor) {
     //Asserts that the current Matrix contains a row with the given row index.
@@ -739,11 +728,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param columnIndex
    * @param value
    * @return the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       contain a row with the given row index.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       contain a column with the given column
-   *                                       index.
+   * @throws RuntimeException if the current {@link Matrix} does not contain a row
+   *                          with the given row index.
+   * @throws RuntimeException if the current {@link Matrix} does not contain a
+   *                          column with the given column index.
    */
   public Matrix setValue(final int rowIndex, final int columnIndex, final double value) {
     //Asserts that the current Matrix contains a row with the given row index.
@@ -770,8 +758,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param value
    * @param values
    * @return the current {@link Matrix}.
-   * @throws RuntimeException if not as many values are given as the
-   *                                  current {@link Matrix} contains.
+   * @throws RuntimeException if not as many values are given as the current
+   *                          {@link Matrix} contains.
    */
   public Matrix setValues(final double value, final double... values) {
     //Asserts that as many values are given as the current Matrix contains.
@@ -800,8 +788,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * 
    * @param values
    * @return the current {@link Matrix}.
-   * @throws RuntimeException if not as many values are given as the
-   *                                  current {@link Matrix} contains.
+   * @throws RuntimeException if not as many values are given as the current
+   *                          {@link Matrix} contains.
    */
   public Matrix setValues(final double[] values) {
     //Asserts that as many values are given as the current Matrix contains.
@@ -824,8 +812,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * 
    * @param value
    * @return the current {@link Matrix}
-   * @throws RuntimeException if the current {@link Matrix} is not
-   *                                  quadratic
+   * @throws RuntimeException if the current {@link Matrix} is not quadratic
    */
   public Matrix setDiagonalValuesTo(double value) {
     assertIsQuadratic();
@@ -843,10 +830,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param row1Index
    * @param row2Index
    * @return the current {@link Matrix}.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       have a row with the given row1 index.
-   * @throws RuntimeException if the current {@link Matrix} does not
-   *                                       have a row with the given row1 index.
+   * @throws RuntimeException if the current {@link Matrix} does not have a row
+   *                          with the given row1 index.
+   * @throws RuntimeException if the current {@link Matrix} does not have a row
+   *                          with the given row1 index.
    */
   public Matrix swapRows(int row1Index, int row2Index) {
     //Asserts that the current Matrix has a row with the given row 1 index.
@@ -864,8 +851,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return a polynom representation of the current {@link Matrix}
-   * @throws RuntimeException if the current {@link Matrix} does
-   *                                         not represent a {@link Polynom}.
+   * @throws RuntimeException if the current {@link Matrix} does not represent a
+   *                          {@link Polynom}.
    */
   public Polynom toPolynom() {
     //Asserts that the upper left element of the current {@link Matrix} is 0.
@@ -896,8 +883,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
 
   /**
    * @return a vector representation of the current {@link Matrix}
-   * @throws RuntimeException if the current {@link Matrix} does
-   *                                         not represent a {@link Vector}.
+   * @throws RuntimeException if the current {@link Matrix} does not represent a
+   *                          {@link Vector}.
    */
   public Vector toVector() {
     //Handles the case that the current Matrix contains 1 row.
@@ -926,10 +913,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * matrix.
    * 
    * @return the current {@link Matrix}
-   * @throws RuntimeException if the current {@link Matrix} has more rows
-   *                                  than columns.
-   * @throws RuntimeException if the current {@link Matrix} has linear
-   *                                  depending rows.
+   * @throws RuntimeException if the current {@link Matrix} has more rows than
+   *                          columns.
+   * @throws RuntimeException if the current {@link Matrix} has linear depending
+   *                          rows.
    */
   public Matrix tranformFirstPartToIdentityMatrix() {
     final var rowCount = getRowCount();
@@ -1067,8 +1054,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
-   * @throws RuntimeException if the current {@link Matrix} is not
-   *                                  quadratic.
+   * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   private void assertIsQuadratic() {
     if (!isQuadratic()) {

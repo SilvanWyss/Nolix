@@ -52,15 +52,14 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param application
    * @param nameAddendum
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException          if the given application is null.
-   * @throws RuntimeException if the given application belongs
-   *                                          already to a {@link AbstractServer}.
-   * @throws RuntimeException          if the given instanceName is null
-   * @throws RuntimeException         if the given instanceName is blank.
-   * @throws RuntimeException         if the current
-   *                                          {@link AbstractServer} contains
-   *                                          already a {@link Application} with
-   *                                          the given instanceName.
+   * @throws RuntimeException if the given application is null.
+   * @throws RuntimeException if the given application belongs already to a
+   *                          {@link AbstractServer}.
+   * @throws RuntimeException if the given instanceName is null
+   * @throws RuntimeException if the given instanceName is blank.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with the given
+   *                          instanceName.
    */
   public final S addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
     application.setParentServer(this);
@@ -85,12 +84,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                            of the given initialSessionClass.
    * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException  if the given instanceName is null.
+   * @throws RuntimeException if the given instanceName is null.
    * @throws RuntimeException if the given instanceName is blank.
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  the given instanceName.
-   * @throws RuntimeException  if the given initialSessionClass is null.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with the given
+   *                          instanceName.
+   * @throws RuntimeException if the given initialSessionClass is null.
    */
   public final <T extends AbstractSession<C, U>, C extends AbstractBackendClient<C, U>, U> S//
   addApplicationWithNameAndInitialSessionClassAndContext(
@@ -117,12 +116,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param <C>                 is the type of the {@link AbstractBackendClient}
    *                            of the given initialSessionClass.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  an instanceName that equals the given name.
-   * @throws RuntimeException  if the given initialSessionClass is null.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with an instanceName
+   *                          that equals the given name.
+   * @throws RuntimeException if the given initialSessionClass is null.
    */
   public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S //
   addApplicationWithNameAndInitialSessionClassAndVoidContext(
@@ -176,15 +175,14 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                            of the given initialSessionClass.
    * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException  if the given instanceName is null.
+   * @throws RuntimeException if the given instanceName is null.
    * @throws RuntimeException if the given instanceName is blank.
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a default
-   *                                  {@link Application}.
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  the given instanceName.
-   * @throws RuntimeException  if the given initialSessionClass is null.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a default {@link Application}.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with the given
+   *                          instanceName.
+   * @throws RuntimeException if the given initialSessionClass is null.
    */
   public final <T extends AbstractSession<C, U>, C extends AbstractBackendClient<C, U>, U> S //
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
@@ -212,12 +210,12 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param <C>                 is the type of the {@link AbstractBackendClient}
    *                            of the given initialSessionClass.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  an instanceName that equals the given name.
-   * @throws RuntimeException  if the given initialSessionClass is null.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with an instanceName
+   *                          that equals the given name.
+   * @throws RuntimeException if the given initialSessionClass is null.
    */
   public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S//
   addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
@@ -428,10 +426,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * {@link AbstractServer}.
    * 
    * @param application
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  the same name as one of the given
-   *                                  applications.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with the same name as
+   *                          one of the given applications.
    */
   private void addApplicationToList(final Application<?, ?> application) {
     //Asserts that the current Server does not contain already
@@ -457,10 +454,9 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
 
   /**
    * @param name
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link Application} with
-   *                                  the same name as one of the given
-   *                                  applications.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link Application} with the same name as
+   *                          one of the given applications.
    */
   private void assertDoesNotContainApplicationWithName(final String name) {
     if (containsApplicationWithName(name)) {

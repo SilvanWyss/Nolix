@@ -45,8 +45,7 @@ public final class Polynom {
    * 
    * @param coefficientArray
    * @throws RuntimeException if the given coefficients is null.
-   * @throws RuntimeException  if the highest of the given coefficients is
-   *                                 0.0.
+   * @throws RuntimeException if the highest of the given coefficients is 0.0.
    */
   private Polynom(final double[] coefficientArray) {
     //Asserts that the given coefficientArray is not null.
@@ -82,9 +81,8 @@ public final class Polynom {
    * @param degree
    * @return the coefficient for the given degree from the current
    *         {@link Polynom}.
-   * @throws RuntimeException if the given degree is not between 0
-   *                                       and the degree of the current
-   *                                       {@link Polynom}.
+   * @throws RuntimeException if the given degree is not between 0 and the degree
+   *                          of the current {@link Polynom}.
    */
   public double getCoefficientForDegree(final int degree) {
     //Asserts that the given degree is between 0 and the degree of the current

@@ -81,8 +81,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    * @param port
    * @param slot
-   * @throws RuntimeException     if the given port is not in [0, 65535].
-   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null.
    * @throws RuntimeException if the given slot is blank.
    */
   private NetEndPoint(final String host, final int port, final String slot) {
@@ -120,8 +120,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param slot
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
    *         given port on the given host.
-   * @throws RuntimeException     if the given port is not in [0, 65535].
-   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null.
    * @throws RuntimeException if the given slot is blank.
    */
   public static NetEndPoint toGivenHostAndGivenPortAndGivenSlot(final String host, final int port, final String slot) {
@@ -278,8 +278,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param index
    * @return the reply with the given index
-   * @throws RuntimeException if the current {@link NetEndPoint} has not
-   *                                  received a package with the given index.
+   * @throws RuntimeException if the current {@link NetEndPoint} has not received
+   *                          a package with the given index.
    */
   private Package getAndRemoveReceivedPackage(final int index) {
     return getStoredReceivedPackages().removeAndGetStoredFirst(rp -> rp.hasIndex(index));

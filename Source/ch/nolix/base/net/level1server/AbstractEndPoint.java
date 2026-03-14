@@ -65,8 +65,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractEndPoint} is
-   *                                 closed.
+   * @throws RuntimeException if the current {@link AbstractEndPoint} is closed.
    */
   protected final void assertIsOpen() {
     if (isClosed()) {
@@ -96,10 +95,9 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * Sets the custom target slot of the current {@link AbstractEndPoint}.
    * 
    * @param customTargetSlot
-   * @throws RuntimeException  if the given customTargetSlot is null.
+   * @throws RuntimeException if the given customTargetSlot is null.
    * @throws RuntimeException if the given customTargetSlot is blank.
-   * @throws RuntimeException  if the current {@link AbstractEndPoint} is
-   *                                  closed.
+   * @throws RuntimeException if the current {@link AbstractEndPoint} is closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {
     //Asserts that the given customTargetSlot is not blank.

@@ -164,10 +164,9 @@ implements IBackendClient<S> {
    * belong to.
    * 
    * @param parentApplication
-   * @throws RuntimeException  if the given parentApplication is null.
+   * @throws RuntimeException if the given parentApplication is null.
    * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                                  references already its parent
-   *                                  {@link Application}.
+   *                          references already its parent {@link Application}.
    */
   final void internalSetParentApplication(final Application<C, S> parentApplication) {
     //Asserts that the given parent application is not null.
@@ -182,8 +181,7 @@ implements IBackendClient<S> {
 
   /**
    * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                                  references already its parent
-   *                                  {@link Application}.
+   *                          references already its parent {@link Application}.
    */
   private void assertDoesNotReferenceParentApplication() {
     if (referencesParentApplication()) {
@@ -192,9 +190,8 @@ implements IBackendClient<S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                                  does not reference its parent
-   *                                  {@link Application}.
+   * @throws RuntimeException if the current {@link AbstractBackendClient} does
+   *                          not reference its parent {@link Application}.
    */
   private void assertReferencesParentApplication() {
     if (!referencesParentApplication()) {
@@ -205,8 +202,8 @@ implements IBackendClient<S> {
   /**
    * @return the parent {@link Application} of the current
    *         {@link AbstractBackendClient}.
-   * @throws RuntimeException if the current {@link AbstractBackendClient}
-   *                                  does not have a parent {@link Application}.
+   * @throws RuntimeException if the current {@link AbstractBackendClient} does
+   *                          not have a parent {@link Application}.
    */
   private Application<C, S> getStoredParentApplication() {
     assertReferencesParentApplication();

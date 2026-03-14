@@ -173,10 +173,10 @@ implements IApplication<C, S> {
    * Sets the given nameAddendix to the current {@link Application}.
    * 
    * @param nameAddendix
-   * @throws RuntimeException       if the given nameAddendix is null
-   * @throws RuntimeException      if the given nameAddendix is blank.
-   * @throws RuntimeException if the current {@link Application} has
-   *                                       already an instance name.
+   * @throws RuntimeException if the given nameAddendix is null
+   * @throws RuntimeException if the given nameAddendix is blank.
+   * @throws RuntimeException if the current {@link Application} has already an
+   *                          instance name.
    */
   final void setNameAppendix(final String nameAddendix) {
     Validator.assertThat(nameAddendix).thatIsNamed("instance name").isNotBlank();
@@ -190,9 +190,8 @@ implements IApplication<C, S> {
    * Sets the parent {@link AbstractServer} of the current {@link Application}.
    * 
    * @param parentServer
-   * @throws RuntimeException if the current {@link Application}
-   *                                          belongs already to a
-   *                                          {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link Application} belongs already
+   *                          to a {@link AbstractServer}.
    */
   final void setParentServer(final AbstractServer<?> parentServer) {
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
@@ -202,10 +201,8 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current
-   *                                                {@link Application} does not
-   *                                                belong to a
-   *                                                {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link Application} does not belong
+   *                          to a {@link AbstractServer}.
    */
   private void assertBelongsToServer() {
     if (!belongsToServer()) {
@@ -214,9 +211,8 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link Application}
-   *                                          belongs already to a
-   *                                          {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link Application} belongs already
+   *                          to a {@link AbstractServer}.
    */
   private void assertDoesNotBelongToServer() {
     if (belongsToServer()) {
@@ -225,8 +221,8 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link Application} has
-   *                                       already an instance name.
+   * @throws RuntimeException if the current {@link Application} has already an
+   *                          instance name.
    */
   private void assertDoesNotHaveNameAddendum() {
     if (hasInstanceAppendix()) {
@@ -282,10 +278,8 @@ implements IApplication<C, S> {
 
   /**
    * @return the parent {@link AbstractServer} of the current {@link Application}.
-   * @throws RuntimeException if the current
-   *                                                {@link Application} does not
-   *                                                belong to a
-   *                                                {@link AbstractServer}.
+   * @throws RuntimeException if the current {@link Application} does not belong
+   *                          to a {@link AbstractServer}.
    */
   private AbstractServer<?> getStoredParentServer() {
     assertBelongsToServer();

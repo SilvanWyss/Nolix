@@ -30,7 +30,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * 
    * @param sequencePattern
    * @param count
-   * @throws RuntimeException   if the sequencePattern is null.
+   * @throws RuntimeException if the sequencePattern is null.
    * @throws RuntimeException if the given count is negative.
    */
   private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
@@ -50,7 +50,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @param <T>             is the type of the elements of the sequences of the
    *                        {@link ISequencePattern} of the
    *                        {@link ISequencePatternNextMediator}.
-   * @throws RuntimeException   if the sequencePattern is null.
+   * @throws RuntimeException if the sequencePattern is null.
    * @throws RuntimeException if the given count is negative.
    */
   public static <T> SequencePatternNextMediator<T> forSequencePatternAndCount(

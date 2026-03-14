@@ -52,7 +52,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    * @param argumentName
    * @param argument
    * @throws RuntimeException if the given argument name is null.
-   * @throws RuntimeException  if the given argument is empty.
+   * @throws RuntimeException if the given argument is empty.
    */
   IterableMediator(
     final String argumentName,
@@ -78,12 +78,11 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param condition
-   * @throws RuntimeException  if the given condition is null.
-   * @throws RuntimeException  if the argument of this container mediator
-   *                                  is null.
-   * @throws RuntimeException if the argument of this container mediator
-   *                                  does not contain an element that fulfills
-   *                                  the given condition.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the argument of this container mediator is null.
+   * @throws RuntimeException if the argument of this container mediator does not
+   *                          contain an element that fulfills the given
+   *                          condition.
    */
   public void contains(final Predicate<E> condition) {
     //Asserts that the given condition is not null.
@@ -253,8 +252,8 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param stringRepresentation
    * @throws RuntimeException if the argument of the current
-   *                                  {@link IterableMediator} does not contain an
-   *                                  element with the given stringRepresentation.
+   *                          {@link IterableMediator} does not contain an element
+   *                          with the given stringRepresentation.
    */
   public void containsExactlyOneWithStringRepresentation(final String stringRepresentation) {
     if (!ITERABLE_EXAMINER.containsExactlyOneWithStringRepresentation(getStoredArgument(), stringRepresentation)) {
@@ -269,9 +268,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param element
    * @throws RuntimeException if the argument of the current
-   *                                  {@link IterableMediator} does not contain
-   *                                  the given element or contains the given
-   *                                  element for several times.
+   *                          {@link IterableMediator} does not contain the given
+   *                          element or contains the given element for several
+   *                          times.
    */
   public void containsOnce(final Object element) {
     if (!ITERABLE_EXAMINER.containsElementOnce(getStoredArgument(),
@@ -287,9 +286,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   /**
    * @param elementCount
    * @throws RuntimeException if the given element count is negative.
-   * @throws RuntimeException  if the argument of this container mediator
-   *                                   contains less or more elements than the
-   *                                   given element count says.
+   * @throws RuntimeException if the argument of this container mediator contains
+   *                          less or more elements than the given element count
+   *                          says.
    */
   public void hasElementCount(final int elementCount) {
     //Asserts that the given element count is not negative.
@@ -333,10 +332,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param array
-   * @throws RuntimeException  if the given array is null.
-   * @throws RuntimeException if the argument of this container mediator
-   *                                  contains less or more elements than the
-   *                                  given array.
+   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the argument of this container mediator contains
+   *                          less or more elements than the given array.
    */
   public void hasSameSizeAs(final double[] array) {
     //Asserts that the given array is not null.
@@ -349,7 +347,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   /**
-   * @throws RuntimeException   if the argument of this container mediator
+   * @throws RuntimeException          if the argument of this container mediator
    *                                   is null.
    * @throws NonEmptyArgumentException if the argument of this container mediator
    *                                   is empty.
@@ -365,10 +363,8 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   /**
-   * @throws RuntimeException if the argument of this container mediator is
-   *                                 null.
-   * @throws RuntimeException  if the argument of this container mediator is
-   *                                 empty.
+   * @throws RuntimeException if the argument of this container mediator is null.
+   * @throws RuntimeException if the argument of this container mediator is empty.
    */
   public void isNotEmpty() {
     //Asserts that the argument of this container mediator is not null.

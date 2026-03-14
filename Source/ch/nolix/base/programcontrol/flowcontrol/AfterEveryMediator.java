@@ -28,9 +28,8 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws RuntimeException   if the given condition is null.
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is
-   *                                   negative.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
@@ -49,9 +48,9 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param condition
    * @param timeIntervalInMilliseconds
    * @throws RuntimeException if the given max run count is negative.
-   * @throws RuntimeException   if the given condition is null.
+   * @throws RuntimeException if the given condition is null.
    * @throws RuntimeException if the given timeIntervalInMillisecondss is
-   *                                   negative.
+   *                          negative.
    */
   AfterEveryMediator(
     final int maxRunCount,

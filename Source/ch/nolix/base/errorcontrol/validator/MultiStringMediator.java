@@ -37,10 +37,10 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
   /**
    * for the arguments of the current {@link MultiStringMediator}.
    * 
-   * @throws RuntimeException  if one of the arguments of the current
-   *                                  {@link MultiStringMediator} is null.
    * @throws RuntimeException if one of the arguments of the current
-   *                                  {@link MultiStringMediator} is blank.
+   *                          {@link MultiStringMediator} is null.
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiStringMediator} is blank.
    */
   public void areNotBlank() {
     //Asserts that the arguments of the current multi string mediator are not null.
@@ -61,10 +61,10 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
   }
 
   /**
-   * @throws RuntimeException if one of the arguments of this strinc
-   *                                 container mediator is null.
-   * @throws RuntimeException  if one of the arguments of this string
-   *                                 container mediator is empty.
+   * @throws RuntimeException if one of the arguments of this strinc container
+   *                          mediator is null.
+   * @throws RuntimeException if one of the arguments of this string container
+   *                          mediator is empty.
    */
   public void areNotEmpty() {
     //Asserts that the arguments of this string container mediator are not null.

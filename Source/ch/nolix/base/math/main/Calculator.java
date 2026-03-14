@@ -135,10 +135,10 @@ public final class Calculator {
    * @return a new {@link Polynom} that has the given degree and fits the given
    *         values
    * @throws RuntimeException if the given degree is negative.
-   * @throws RuntimeException   if the given degree is bigger than the
-   *                                   count of the given xValues.
-   * @throws RuntimeException  if the count of the given yValues does not
-   *                                   equal the count of the given xValues.
+   * @throws RuntimeException if the given degree is bigger than the count of the
+   *                          given xValues.
+   * @throws RuntimeException if the count of the given yValues does not equal the
+   *                          count of the given xValues.
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
     //Asserts that the given degree is not negative.

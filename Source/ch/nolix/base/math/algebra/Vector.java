@@ -148,10 +148,9 @@ public final class Vector {
   /**
    * @param oneBasedIndex
    * @return the value of the current {@link Vector} at the given oneBasedIndex.
-   * @throws RuntimeException if the given oneBasedIndex is not
-   *                                       positive or the given oneBasedIndex is
-   *                                       bigger than the size of the current
-   *                                       {@link Vector}.
+   * @throws RuntimeException if the given oneBasedIndex is not positive or the
+   *                          given oneBasedIndex is bigger than the size of the
+   *                          current {@link Vector}.
    */
   public double getValueAtOneBasedIndex(final int oneBasedIndex) {
     Validator.assertThat(oneBasedIndex).thatIsNamed("1-based index").isBetween(1, getSize());

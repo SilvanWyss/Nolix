@@ -113,8 +113,8 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @param iterable
    * @return a new {@link ImmutableList} with the elements of the given iterable.
    * @throws RuntimeException if the given iterable is null.
-   * @throws RuntimeException if one of the elements of the given iterable
-   *                                 is null.
+   * @throws RuntimeException if one of the elements of the given iterable is
+   *                          null.
    */
   public static <T> ImmutableList<T> fromIterable(final Iterable<T> iterable) {
     //This part is not mandatory, but provides a better performance.
@@ -130,8 +130,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @param <T>    is the type of the elements of the given stream.
    * @return a new {@link ImmutableList} with the elements from the given stream.
    * @throws RuntimeException if the given stream is null.
-   * @throws RuntimeException if one of the elements of the given stream is
-   *                                 null.
+   * @throws RuntimeException if one of the elements of the given stream is null.
    */
   public static <T> ImmutableList<T> fromStream(final Stream<T> stream) {
     Validator.assertThat(stream).thatIsNamed(Stream.class).isNotNull();

@@ -1990,8 +1990,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @throws RuntimeException if the current {@link AbstractContainer} is
-   *                                empty.
+   * @throws RuntimeException if the current {@link AbstractContainer} is empty.
    */
   private void assertIsNotEmpty() {
     if (isEmpty()) {

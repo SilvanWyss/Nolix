@@ -39,7 +39,7 @@ public class DoubleMediator extends Mediator {
    * 
    * @param argumentName
    * @param argument
-   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is null.
    * @throws RuntimeException if the given argumentName is blank.
    */
   protected DoubleMediator(final String argumentName, final double argument) {
@@ -61,8 +61,8 @@ public class DoubleMediator extends Mediator {
   /**
    * @param min
    * @param max
-   * @throws RuntimeException if the argument of this double mediator
-   *                                       is not between the given min and max.
+   * @throws RuntimeException if the argument of this double mediator is not
+   *                          between the given min and max.
    */
   public void isBetween(final double min, final double max) {
     //Asserts that the argument of this double mediator
@@ -79,8 +79,8 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws RuntimeException if the argument of this double mediator is
-   *                                  not bigger than the given value.
+   * @throws RuntimeException if the argument of this double mediator is not
+   *                          bigger than the given value.
    */
   public void isBiggerThan(final double value) {
     //Asserts that the argument of this double mediator is bigger than the given
@@ -119,8 +119,8 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws RuntimeException if the argument of this double mediator is
-   *                                 bigger than the given value.
+   * @throws RuntimeException if the argument of this double mediator is bigger
+   *                          than the given value.
    */
   public void isNotBiggerThan(final double value) {
     //Asserts that the argument of this named long mediator is not bigger than the
@@ -132,8 +132,8 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws RuntimeException if the argument of this double mediator equals
-   *                                the given value.
+   * @throws RuntimeException if the argument of this double mediator equals the
+   *                          given value.
    */
   public void isNotEqualTo(final double value) {
     //Asserts that the argument of this double mediator does not equal the given value.
@@ -143,8 +143,7 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @throws RuntimeException if the argument of this double mediator is
-   *                                   negative.
+   * @throws RuntimeException if the argument of this double mediator is negative.
    */
   public void isNotNegative() {
     //Asserts that the argument of this double mediator is not negative.
@@ -154,8 +153,7 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @throws RuntimeException if the argument of this double mediator
-   *                                      is positive.
+   * @throws RuntimeException if the argument of this double mediator is positive.
    */
   public void isNotPositive() {
     //Asserts that the argument of this double mediator is not positive.
@@ -166,8 +164,8 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws RuntimeException if the argument of this double mediator is
-   *                                  smaller than the given value.
+   * @throws RuntimeException if the argument of this double mediator is smaller
+   *                          than the given value.
    */
   public void isNotSmallerThan(final double value) {
     //Asserts that the argument of this double mediator is not smaller than the
@@ -178,8 +176,8 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @throws RuntimeException if the argument of this double mediator
-   *                                      is not positive.
+   * @throws RuntimeException if the argument of this double mediator is not
+   *                          positive.
    */
   public void isPositive() {
     //Asserts that the argument of this double mediator is positive.
@@ -190,8 +188,8 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws RuntimeException if the argument of this double mediator is
-   *                                  not smaller than the given value.
+   * @throws RuntimeException if the argument of this double mediator is not
+   *                          smaller than the given value.
    */
   public void isSmallerThan(final double value) {
     //Asserts that the argument of this double mediator is smaller than the given

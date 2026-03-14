@@ -35,7 +35,7 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
    * @return a new generic argument mediator with the given argument name and for
    *         the argument of this extended generic argument mediator.
    * @throws RuntimeException if the given argument name is null.
-   * @throws RuntimeException  if the given argument name is empty.
+   * @throws RuntimeException if the given argument name is empty.
    */
   public ArgumentMediator<A> thatIsNamed(final String argumentName) {
     return new ArgumentMediator<>(argumentName, getStoredArgument());

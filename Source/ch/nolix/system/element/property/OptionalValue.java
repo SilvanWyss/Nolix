@@ -22,10 +22,10 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given valueCreator is null.
-   * @throws RuntimeException  if the given specificationCreator is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given specificationCreator is null.
    */
   public OptionalValue(
     final String name,
@@ -41,9 +41,9 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link OptionalValue} that will store a {@link Boolean} and
    *         have the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static OptionalValue<Boolean> forBoolean(final String name, final Consumer<Boolean> setterMethod) {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
@@ -54,9 +54,9 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link OptionalValue} that will store a {@link Double} and have
    *         the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static OptionalValue<Double> forDouble(final String name, final Consumer<Double> setterMethod) {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
@@ -67,9 +67,9 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link OptionalValue} that will store a {@link Integer} and
    *         have the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static OptionalValue<Integer> forInt(final String name, final Consumer<Integer> setterMethod) {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
@@ -80,9 +80,9 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link OptionalValue} that will store a {@link String} and have
    *         the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static OptionalValue<String> forString(final String name, final Consumer<String> setterMethod) {
     return new OptionalValue<>(

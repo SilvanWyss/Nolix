@@ -35,14 +35,13 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @param container
    * @param startIndex
    * @param endIndex
-   * @throws RuntimeException      if the given container is null.
+   * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
-   * @throws RuntimeException     if the given endIndex is smaller than
-   *                                      the given startIndex.
-   * @throws RuntimeException      if the given endIndex is bigger than the
-   *                                      number of elements of the given
-   *                                      container.
+   * @throws RuntimeException if the given endIndex is smaller than the given
+   *                          startIndex.
+   * @throws RuntimeException if the given endIndex is bigger than the number of
+   *                          elements of the given container.
    */
   private IntervallContainerView(final AbstractContainer<E> container, final int startIndex, final int endIndex) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
@@ -72,14 +71,13 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    *                   {@link IntervallContainerView}.
    * @return a new {@link IntervallContainerView} with the given container,
    *         startIndex and endIndex.
-   * @throws RuntimeException      if the given container is null.
+   * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
-   * @throws RuntimeException     if the given endIndex is smaller than
-   *                                      the given startIndex.
-   * @throws RuntimeException      if the given endIndex is bigger than the
-   *                                      number of elements of the given
-   *                                      container.
+   * @throws RuntimeException if the given endIndex is smaller than the given
+   *                          startIndex.
+   * @throws RuntimeException if the given endIndex is bigger than the number of
+   *                          elements of the given container.
    */
   public static <T> IntervallContainerView<T> forContainerAndStartIndexAndEndIndex(
     final AbstractContainer<T> container,

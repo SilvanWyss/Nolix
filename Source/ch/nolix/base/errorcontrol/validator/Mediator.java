@@ -29,7 +29,7 @@ abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
    * Creates a new argument {@link Mediator} with the given argumentName.
    * 
    * @param argumentName
-   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is null.
    * @throws RuntimeException if the given argumentName is blank.
    */
   protected Mediator(final String argumentName) {

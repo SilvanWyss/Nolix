@@ -42,10 +42,10 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
   }
 
   /**
-   * @throws RuntimeException      if one of the arguments of this long
-   *                                      container mediator is null.
-   * @throws RuntimeException if one of the arguments of this long
-   *                                      container mediator is not positive.
+   * @throws RuntimeException if one of the arguments of this long container
+   *                          mediator is null.
+   * @throws RuntimeException if one of the arguments of this long container
+   *                          mediator is not positive.
    */
   public void arePositive() {
     //Asserts that the arguments of this long container mediator are not null.

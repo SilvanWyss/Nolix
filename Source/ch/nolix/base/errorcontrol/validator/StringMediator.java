@@ -32,7 +32,7 @@ public class StringMediator extends ArgumentMediator<String> {
    * 
    * @param argumentName
    * @param argument
-   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is null.
    * @throws RuntimeException if the given argumentName is blank.
    */
   protected StringMediator(final String argumentName, final String argument) {
@@ -51,11 +51,11 @@ public class StringMediator extends ArgumentMediator<String> {
   /**
    * @param length
    * @throws RuntimeException if the given length is negative.
-   * @throws RuntimeException   if the argument of the current
-   *                                   {@link StringMediator} is null.
-   * @throws RuntimeException  if the argument of the current
-   *                                   {@link StringMediator} does not have the
-   *                                   given length.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} does not have the given
+   *                          length.
    */
   public void hasLength(final int length) {
     //Asserts that the given length is not negative.
@@ -78,7 +78,7 @@ public class StringMediator extends ArgumentMediator<String> {
   }
 
   /**
-   * @throws RuntimeException   if the argument of the current
+   * @throws RuntimeException          if the argument of the current
    *                                   {@link StringMediator} is null.
    * @throws NonEmptyArgumentException if the argument of the current
    *                                   {@link StringMediator} is not empty.
@@ -95,9 +95,9 @@ public class StringMediator extends ArgumentMediator<String> {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                                 {@link StringMediator} is null.
-   * @throws RuntimeException  if the argument of the current
-   *                                 {@link StringMediator} is empty.
+   *                          {@link StringMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} is empty.
    */
   public void isNotEmpty() {
     //Asserts that the argument of the current StringMediator is not null.
@@ -110,10 +110,10 @@ public class StringMediator extends ArgumentMediator<String> {
   }
 
   /**
-   * @throws RuntimeException  if the argument of the current
-   *                                  {@link StringMediator} is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link StringMediator} is blank.
+   *                          {@link StringMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} is blank.
    */
   public void isNotBlank() {
     //Asserts that the argument of the current StringMediator is not null.
@@ -131,11 +131,11 @@ public class StringMediator extends ArgumentMediator<String> {
 
   /**
    * @param maxLength
-   * @throws RuntimeException  if the argument of the current
-   *                                  {@link StringMediator} is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link StringMediator} is longer than the
-   *                                  given max length says.
+   *                          {@link StringMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} is longer than the given max
+   *                          length says.
    */
   public void isNotLongerThan(final int maxLength) {
     //Asserts that the argument of the current StringMediator is not null.
@@ -154,11 +154,11 @@ public class StringMediator extends ArgumentMediator<String> {
 
   /**
    * @param minLength
-   * @throws RuntimeException  if the argument of the current
-   *                                  {@link StringMediator} is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link StringMediator} is shorter than the
-   *                                  given min length says.
+   *                          {@link StringMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} is shorter than the given min
+   *                          length says.
    */
   public void isNotShorterThan(final int minLength) {
     //Asserts that the argument of the current StringMediator is not null.
@@ -178,8 +178,8 @@ public class StringMediator extends ArgumentMediator<String> {
   /**
    * @param regularExpression
    * @throws RuntimeException if the argument of the current
-   *                                  {@link StringMediator} does not match the
-   *                                  given regularExpression.
+   *                          {@link StringMediator} does not match the given
+   *                          regularExpression.
    */
   public void matches(final String regularExpression) {
     //Asserts that the argument of the current StringMediator is not null.
@@ -198,12 +198,12 @@ public class StringMediator extends ArgumentMediator<String> {
 
   /**
    * @param prefix
-   * @throws RuntimeException  if the given prefix is null.
-   * @throws RuntimeException  if the argument of the current
-   *                                  {@link StringMediator} is null.
+   * @throws RuntimeException if the given prefix is null.
    * @throws RuntimeException if the argument of the current
-   *                                  {@link StringMediator} does not start with
-   *                                  the given prefix.
+   *                          {@link StringMediator} is null.
+   * @throws RuntimeException if the argument of the current
+   *                          {@link StringMediator} does not start with the given
+   *                          prefix.
    */
   public void startsWith(final String prefix) {
     isNotNull();

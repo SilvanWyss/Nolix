@@ -30,10 +30,10 @@ public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequesta
    * @param name
    * @param valueCreator
    * @param specificationCreator
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given valueCreator is null.
-   * @throws RuntimeException  if the given specificationCreator is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given specificationCreator is null.
    */
   AbstractValue(
     final String name,

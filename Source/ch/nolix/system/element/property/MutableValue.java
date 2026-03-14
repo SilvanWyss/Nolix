@@ -23,12 +23,12 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given defaultValue is null.
-   * @throws RuntimeException  if the given setterMethod is null.
-   * @throws RuntimeException  if the given valueCreator is null.
-   * @throws RuntimeException  if the given specificationCreator is null.
+   * @throws RuntimeException if the given defaultValue is null.
+   * @throws RuntimeException if the given setterMethod is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given specificationCreator is null.
    */
   public MutableValue(
     final String name,
@@ -48,9 +48,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link Boolean} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableValue<Boolean> forBoolean(
     final String name,
@@ -66,9 +66,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link Double} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableValue<Double> forDouble(
     final String name,
@@ -83,9 +83,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link Integer} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableValue<Integer> forInt(
     final String name,
@@ -100,9 +100,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link String} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableValue<String> forString(
     final String name,

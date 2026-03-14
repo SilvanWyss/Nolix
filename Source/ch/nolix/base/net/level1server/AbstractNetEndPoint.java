@@ -42,8 +42,8 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Creates a new {@link AbstractNetEndPoint} with the given target.
    * 
    * @param target
-   * @throws RuntimeException  if the given connectionOrigin is null.
-   * @throws RuntimeException  if the given target is null.
+   * @throws RuntimeException if the given connectionOrigin is null.
+   * @throws RuntimeException if the given target is null.
    * @throws RuntimeException if the given target is blank.
    */
   AbstractNetEndPoint(final String target) {
@@ -109,8 +109,8 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
   /**
    * Confirms that the current {@link AbstractNetEndPoint} has a target info.
    * 
-   * @throws RuntimeException if the current {@link AbstractNetEndPoint}
-   *                                  has already a target info.
+   * @throws RuntimeException if the current {@link AbstractNetEndPoint} has
+   *                          already a target info.
    */
   private void confirmReceivedTargetInfo() {
     //Asserts that the current BaseNetEndPoint has already a target info.
@@ -139,7 +139,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * 
    * @param message
    * @throws RuntimeException if the current {@link AbstractNetEndPoint} is
-   *                                 closed.
+   *                          closed.
    */
   private void receiveMessage(final String message) {
     //Asserts that the current NetEndPoint is open.

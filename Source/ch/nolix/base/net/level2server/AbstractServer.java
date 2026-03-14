@@ -104,7 +104,7 @@ public abstract class AbstractServer implements IServer {
    * Lets the current {@link AbstractServer} take the given endPoint.
    * 
    * @param abstractEndPoint
-   * @throws RuntimeException               if the given endPoint is
+   * @throws RuntimeException                      if the given endPoint is
    *                                               closed.
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
    *                                               have a target and the current
@@ -157,9 +157,9 @@ public abstract class AbstractServer implements IServer {
    * {@link AbstractServer}.
    * 
    * @param slot
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link ISlot} with the
-   *                                  same name like the given slot.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link ISlot} with the same name like the
+   *                          given slot.
    */
   private void addSlotToList(ISlot slot) {
     assertDoesNotContainSlotWithName(slot.getName());
@@ -181,9 +181,9 @@ public abstract class AbstractServer implements IServer {
 
   /**
    * @param name
-   * @throws RuntimeException if the current {@link AbstractServer}
-   *                                  contains already a {@link ISlot} with the
-   *                                  same name as the given slot.
+   * @throws RuntimeException if the current {@link AbstractServer} contains
+   *                          already a {@link ISlot} with the same name as the
+   *                          given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {

@@ -53,8 +53,8 @@ implements IClientComponent<C>, IRefreshableSubscriber {
 
   /**
    * @return the parent client of the current {@link AbstractSession}.
-   * @throws RuntimeException if the current {@link AbstractSession} does
-   *                                  not belong to a client.
+   * @throws RuntimeException if the current {@link AbstractSession} does not
+   *                          belong to a client.
    */
   @Override
   public final C getStoredParentClient() {
@@ -165,9 +165,9 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * Sets the parent client of the current {@link AbstractSession}.
    * 
    * @param parentClient
-   * @throws RuntimeException  if the given parent client is null.
-   * @throws RuntimeException if the current {@link AbstractSession}
-   *                                  belongs to a client.
+   * @throws RuntimeException if the given parent client is null.
+   * @throws RuntimeException if the current {@link AbstractSession} belongs to a
+   *                          client.
    */
   final void internalSetParentClient(C parentClient) {
     //Asserts that the given client is not null.
@@ -187,8 +187,8 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractSession} does
-   *                                  not belong to a client.
+   * @throws RuntimeException if the current {@link AbstractSession} does not
+   *                          belong to a client.
    */
   private void assertBelongsToClient() {
     //Asserts that the current {@link Session} belongs to a client.
@@ -198,8 +198,8 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractSession}
-   *                                  belongs to a client.
+   * @throws RuntimeException if the current {@link AbstractSession} belongs to a
+   *                          client.
    */
   private void assertDoesNotBelongToClient() {
     //Asserts that the current {@link Session} does not belong to a client.

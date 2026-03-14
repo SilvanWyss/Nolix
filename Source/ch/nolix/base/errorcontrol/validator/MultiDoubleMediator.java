@@ -40,10 +40,10 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
   /**
    * @param value
-   * @throws RuntimeException  if one of the arguments of this multi double
-   *                                  mediator is null.
    * @throws RuntimeException if one of the arguments of this multi double
-   *                                  mediator is not bigger than the given value.
+   *                          mediator is null.
+   * @throws RuntimeException if one of the arguments of this multi double
+   *                          mediator is not bigger than the given value.
    */
   public void areBiggerThan(final double value) {
     //Asserts that the arguments of this multi double mediator are not null.
@@ -67,7 +67,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   }
 
   /**
-   * @throws RuntimeException      if one of the arguments of this multi
+   * @throws RuntimeException             if one of the arguments of this multi
    *                                      double mediator is null.
    * @throws NonNegativeArgumentException if one of the arguments of this multi
    *                                      double mediator is not positive.
@@ -90,10 +90,10 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   }
 
   /**
-   * @throws RuntimeException      if one of the arguments of this multi
-   *                                      double mediator is null.
-   * @throws RuntimeException if one of the arguments of this multi
-   *                                      double mediator is not positive.
+   * @throws RuntimeException if one of the arguments of this multi double
+   *                          mediator is null.
+   * @throws RuntimeException if one of the arguments of this multi double
+   *                          mediator is not positive.
    */
   public void arePositive() {
     //Asserts that the arguments of this multi double mediator are not null.
@@ -114,11 +114,10 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
   /**
    * @param value
-   * @throws RuntimeException  if one of the arguments of this multi double
-   *                                  mediator is null.
-   * @throws RuntimeException if one of the argument of this multi double
-   *                                  mediator is not smaller than the given
-   *                                  value.
+   * @throws RuntimeException if one of the arguments of this multi double
+   *                          mediator is null.
+   * @throws RuntimeException if one of the argument of this multi double mediator
+   *                          is not smaller than the given value.
    */
   public void areSmallerThan(final double value) {
     //Asserts that the arguments of this multi double mediator are not null.

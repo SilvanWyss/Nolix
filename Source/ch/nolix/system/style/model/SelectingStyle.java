@@ -76,8 +76,8 @@ public final class SelectingStyle extends AbstractSelectingStyle {
   /**
    * @param specification
    * @return a new {@link SelectingStyle} from the given specification.
-   * @throws NullPointerException     if the given specification is null.
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws NullPointerException if the given specification is null.
+   * @throws RuntimeException     if the given specification is not valid.
    */
   public static SelectingStyle fromSpecification(final INode<?> specification) {
     String optionalSelectorId = null;

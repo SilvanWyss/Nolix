@@ -57,8 +57,7 @@ implements ILinkedList<E> {
    * @param <T>   is the type of the elements of the given array.
    * @return a new {@link LinkedList} with the elements in the given array.
    * @throws RuntimeException if the given array is null.
-   * @throws RuntimeException if one of the elements in the given array is
-   *                                 null.
+   * @throws RuntimeException if one of the elements in the given array is null.
    */
   public static <T> LinkedList<T> fromArray(final T[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
@@ -74,8 +73,8 @@ implements ILinkedList<E> {
    * @param <T>       is the type of the elements of the given container.
    * @return a new {@link LinkedList} with the elements in the given container.
    * @throws RuntimeException if the given container is null.
-   * @throws RuntimeException if one of the elements in the given container
-   *                                 is null.
+   * @throws RuntimeException if one of the elements in the given container is
+   *                          null.
    */
   public static <T> LinkedList<T> fromIterable(final Iterable<T> container) {
     final var list = new LinkedList<T>();
@@ -89,8 +88,8 @@ implements ILinkedList<E> {
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link LinkedList} with the given elements.
-   * @throws RuntimeException if the given element or one of the given
-   *                                 elements is null.
+   * @throws RuntimeException if the given element or one of the given elements is
+   *                          null.
    */
   @SuppressWarnings("unchecked")
   public static <T> LinkedList<T> withElement(final T element, final T... elements) {
@@ -318,7 +317,7 @@ implements ILinkedList<E> {
    * 
    * @param oneBasedIndex
    * @return the element at the given index.
-   * @throws RuntimeException          if the given index is not
+   * @throws RuntimeException                      if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractContainer} does
@@ -741,7 +740,7 @@ implements ILinkedList<E> {
    * Removes the next node of the given node.
    * 
    * @param node
-   * @throws RuntimeException               if the given node is null.
+   * @throws RuntimeException                      if the given node is null.
    * @throws ArgumentDoesNotHaveAttributeException if the given node does not have
    *                                               a next node.
    */

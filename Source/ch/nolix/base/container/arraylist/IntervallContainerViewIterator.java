@@ -32,12 +32,11 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    * @param parentContainer
    * @param startIndex
    * @param endIndex
-   * @throws RuntimeException      if the given parentContainer is null.
+   * @throws RuntimeException if the given parentContainer is null.
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
-   * @throws RuntimeException     if the given endIndex is not bigger than
-   *                                      the given startIndex or does not equal
-   *                                      the given startIndex.
+   * @throws RuntimeException if the given endIndex is not bigger than the given
+   *                          startIndex or does not equal the given startIndex.
    */
   private IntervallContainerViewIterator(
     final IContainer<E> parentContainer,
@@ -66,12 +65,11 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    *                        {@link IntervallContainerViewIterator}.
    * @return a new {@link IntervallContainerViewIterator} for the given
    *         parentContainer, startIndex and endIndex.
-   * @throws RuntimeException      if the given parentContainer is null.
+   * @throws RuntimeException if the given parentContainer is null.
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
-   * @throws RuntimeException     if the given endIndex is not bigger than
-   *                                      the given startIndex or does not equal
-   *                                      the given startIndex.
+   * @throws RuntimeException if the given endIndex is not bigger than the given
+   *                          startIndex or does not equal the given startIndex.
    */
   public static <T> IntervallContainerViewIterator<T> forParentContainerAndStartIndexAndEndIndex(
     final IContainer<T> parentContainer,

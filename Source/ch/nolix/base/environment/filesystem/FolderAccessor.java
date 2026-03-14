@@ -26,9 +26,8 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * Creates a new {@link FolderAccessor} for the folder with the given path.
    * 
    * @param path
-   * @throws RuntimeException if there does not exist a folder with the
-   *                                  given path in the file system on the local
-   *                                  machine.
+   * @throws RuntimeException if there does not exist a folder with the given path
+   *                          in the file system on the local machine.
    */
   public FolderAccessor(final String path) {
     //Calls constructor of the base class.
@@ -58,9 +57,9 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * 
    * @param relativePath
    * @return a new {@link FileAccessor} for the created file.
-   * @throws RuntimeException if there exists already a file system item
-   *                                  with the given relative path in the folder
-   *                                  of the current {@link FolderAccessor}.
+   * @throws RuntimeException if there exists already a file system item with the
+   *                          given relative path in the folder of the current
+   *                          {@link FolderAccessor}.
    */
   public FileAccessor createFile(final String relativePath) {
     return (FileSystemAccessor.createFile(getPath() + "/" + relativePath));
@@ -72,9 +71,9 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * 
    * @param relativePath
    * @return a new {@link FolderAccessor} for the created folder.
-   * @throws RuntimeException if there exists alreay a file system item
-   *                                  with the given relative path in the folder
-   *                                  of the current {@link FolderAccessor}.
+   * @throws RuntimeException if there exists alreay a file system item with the
+   *                          given relative path in the folder of the current
+   *                          {@link FolderAccessor}.
    */
   public FolderAccessor createFolder(final String relativePath) {
     return FileSystemAccessor.createFolder(getPath() + "/" + relativePath);
@@ -154,10 +153,10 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * 
    * @param relativePath
    * @return the content of the file with the given relative path.
-   * @throws RuntimeException if there does not exist a file with the
-   *                                  given relative path in the folder of the
-   *                                  current {@link FolderAccessor}.
-   * @throws RuntimeException         if an error occurs.
+   * @throws RuntimeException if there does not exist a file with the given
+   *                          relative path in the folder of the current
+   *                          {@link FolderAccessor}.
+   * @throws RuntimeException if an error occurs.
    */
   public String readFile(final String relativePath) {
     return new FileAccessor(getPath() + "/" + relativePath).readFile();

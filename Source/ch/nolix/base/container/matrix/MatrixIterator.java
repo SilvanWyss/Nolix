@@ -39,9 +39,8 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * @param parentMatrix
    * @param oneBasedStartIndex
    * @throws RuntimeException if the given parentMatrix is null.
-   * @throws RuntimeException if the given oneBasedStartIndex is bigger
-   *                                 than the element count of the given
-   *                                 parentMatrix.
+   * @throws RuntimeException if the given oneBasedStartIndex is bigger than the
+   *                          element count of the given parentMatrix.
    */
   private MatrixIterator(final Matrix<E> parentMatrix, final int oneBasedStartIndex) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();

@@ -24,7 +24,7 @@ public class ExtendedDoubleMediator extends DoubleMediator {
    * @return a new double mediator with the given argument name for the argument
    *         of this extended double mediator.
    * @throws RuntimeException if the given argument name is null.
-   * @throws RuntimeException  if the given argument name is empty.
+   * @throws RuntimeException if the given argument name is empty.
    */
   public DoubleMediator thatIsNamed(final String argumentName) {
     return new DoubleMediator(argumentName, getArgument());

@@ -23,10 +23,9 @@ public final class LicenseManager {
    * Adds the given license to the {@link LicenseManager}.
    * 
    * @param license
-   * @throws RuntimeException  if the given license is null.
-   * @throws RuntimeException if the {@link LicenseManager} contains
-   *                                  already a {@link License} of the type the
-   *                                  given license is.
+   * @throws RuntimeException if the given license is null.
+   * @throws RuntimeException if the {@link LicenseManager} contains already a
+   *                          {@link License} of the type the given license is.
    */
   public static void addLicense(final License license) {
     LICENSE_MANAGER.addLicense(license);
@@ -38,15 +37,14 @@ public final class LicenseManager {
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
-   * @throws RuntimeException  if the given licenseType is null.
-   * @throws RuntimeException         if if there was not found a file with the
-   *                                  key for a License of the given licenseType.
+   * @throws RuntimeException if the given licenseType is null.
+   * @throws RuntimeException if if there was not found a file with the key for a
+   *                          License of the given licenseType.
    * @throws RuntimeException if the given licenseType does not contain a
-   *                                  constructor with 1 {@link String} parameter.
+   *                          constructor with 1 {@link String} parameter.
    * @throws RuntimeException if the found key is not valid.
-   * @throws RuntimeException if the {@link LicenseManager} contains
-   *                                  already a {@link License} of the given
-   *                                  licenseType.
+   * @throws RuntimeException if the {@link LicenseManager} contains already a
+   *                          {@link License} of the given licenseType.
    */
   public static <L extends License> void addLicense(final Class<L> licenseType) {
     LICENSE_MANAGER.addLicense(licenseType);
@@ -71,8 +69,8 @@ public final class LicenseManager {
    * Removes the given license from the {@link LicenseManager}.
    * 
    * @param license
-   * @throws RuntimeException if the {@link LicenseManager} does not
-   *                                  contain the given license.
+   * @throws RuntimeException if the {@link LicenseManager} does not contain the
+   *                          given license.
    */
   public static void removeLicense(final License license) {
     LICENSE_MANAGER.removeLicense(license);

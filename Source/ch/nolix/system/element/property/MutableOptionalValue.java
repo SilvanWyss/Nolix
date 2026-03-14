@@ -23,10 +23,10 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given valueCreator is null.
-   * @throws RuntimeException  if the given specificationCreator is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given specificationCreator is null.
    */
   public MutableOptionalValue(
     final String name,
@@ -42,9 +42,9 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableOptionalValue} that will store a {@link Boolean}
    *         and have the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableOptionalValue<Boolean> forBoolean(final String name, final Consumer<Boolean> setterMethod) {
     return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
@@ -58,10 +58,10 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
    *                     {@link MutableOptionalValue}.
    * @return a new {@link MutableOptionalValue} that will store a {@link IElement}
    *         and have the given name, setterMethod and valueCreator.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
-   * @throws RuntimeException  if the given valueCreator is null.
+   * @throws RuntimeException if the given setterMethod is null.
+   * @throws RuntimeException if the given valueCreator is null.
    */
   public static <E extends IElement> MutableOptionalValue<E> forElement(
     final String name,
@@ -75,9 +75,9 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableOptionalValue} that will store a {@link Integer}
    *         and have the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableOptionalValue<Integer> forInt(final String name, final Consumer<Integer> setterMethod) {
     return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
@@ -88,9 +88,9 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableOptionalValue} that will store a {@link String}
    *         and have the given name and setterMethod.
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException if the given setterMethod is null.
    */
   public static MutableOptionalValue<String> forString(final String name, final Consumer<String> setterMethod) {
     return new MutableOptionalValue<>(

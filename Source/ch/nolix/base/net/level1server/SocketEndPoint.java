@@ -66,8 +66,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param host
    * @param port
    * @param slot
-   * @throws RuntimeException     if the given port is not in [0, 65535].
-   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null.
    * @throws RuntimeException if the given slot is blank.
    */
   private SocketEndPoint(final String host, final int port, final String slot) {
@@ -128,10 +128,10 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socketInputStream
    * @param socketOutputStream
    * @param target
-   * @throws RuntimeException  if the given socket is null.
-   * @throws RuntimeException  if the given socketInputStream is null.
-   * @throws RuntimeException  if the given socketOutputStream is null.
-   * @throws RuntimeException  if the given target is null.
+   * @throws RuntimeException if the given socket is null.
+   * @throws RuntimeException if the given socketInputStream is null.
+   * @throws RuntimeException if the given socketOutputStream is null.
+   * @throws RuntimeException if the given target is null.
    * @throws RuntimeException if the given target is blank.
    */
   SocketEndPoint(
@@ -170,8 +170,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param slot
    * @return a new {@link SocketEndPoint} that will connect to the given slot on
    *         the given port on the given host.
-   * @throws RuntimeException     if the given port is not in [0, 65535].
-   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null.
    * @throws RuntimeException if the given slot is blank.
    */
   public static SocketEndPoint toGivenHostAndGivenPortAndGivenSlot(
@@ -206,8 +206,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    *         the given port on the local machine.
    * @param slot
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException       if the given target slot null.
-   * @throws RuntimeException      if the given target slot blank.
+   * @throws RuntimeException if the given target slot null.
+   * @throws RuntimeException if the given target slot blank.
    */
   public static SocketEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port, slot);

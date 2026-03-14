@@ -99,8 +99,8 @@ implements IChainedNode {
   /**
    * @param string
    * @return a new {@link ChainedNode} the given string represents.
-   * @throws RuntimeException if the given string does not
-   *                                         represent a {@link ChainedNode}.
+   * @throws RuntimeException if the given string does not represent a
+   *                          {@link ChainedNode}.
    */
   public static ChainedNode fromString(final String string) {
     final var chainedNode = new ChainedNode();
@@ -170,7 +170,7 @@ implements IChainedNode {
   /**
    * @param header
    * @return a new {@link ChainedNode} with the given header.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
    */
   public static ChainedNode withHeader(final String header) {
@@ -184,9 +184,9 @@ implements IChainedNode {
    * @param header
    * @param attribute
    * @return a new {@link ChainedNode} with the given header and attribute.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException  if the given attribute is null.
+   * @throws RuntimeException if the given attribute is null.
    */
   public static ChainedNode withHeaderAndChildNode(final String header, final ChainedNode attribute) {
     final var chainedNode = new ChainedNode();
@@ -211,7 +211,7 @@ implements IChainedNode {
    * @param header
    * @param childNode
    * @return a new {@link ChainedNode} with the given header and childNode.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
    */
   public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
@@ -226,9 +226,9 @@ implements IChainedNode {
    * @param header
    * @param attributes
    * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException  if one of the given attribute is null.
+   * @throws RuntimeException if one of the given attribute is null.
    */
   public static ChainedNode withHeaderAndChildNodes(
     final String header,
@@ -247,9 +247,9 @@ implements IChainedNode {
    * @param childNode
    * @param childNodes
    * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException  if one of the given attributes is null.
+   * @throws RuntimeException if one of the given attributes is null.
    */
   public static ChainedNode withHeaderAndChildNodesFromNodes(
     final String header,
@@ -270,9 +270,9 @@ implements IChainedNode {
    * @param header
    * @param attributes
    * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException  if one of the given attributes is null.
+   * @throws RuntimeException if one of the given attributes is null.
    */
   public static ChainedNode withHeaderAndChildNodesFromNodes(
     final String header,
@@ -288,9 +288,9 @@ implements IChainedNode {
    * @param header
    * @param nextNode
    * @return a new {@link ChainedNode} with the given header and nextNode.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException  if the given nextNode is null.
+   * @throws RuntimeException if the given nextNode is null.
    */
   public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
     final var chainedNode = new ChainedNode();
@@ -306,10 +306,10 @@ implements IChainedNode {
    * @param childNode
    * @param childNodes
    * @return a new {@link ChainedNode} with the given header and nextNode.
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException  if the given nextNode is null.
-   * @throws RuntimeException  if one of the given childNodes is null.
+   * @throws RuntimeException if the given nextNode is null.
+   * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ChainedNode withHeaderAndNextNodeAndChildNodes(
     final String header,
@@ -353,7 +353,7 @@ implements IChainedNode {
   /**
    * @param index
    * @return the attribute at the given index of the current {@link ChainedNode}.
-   * @throws RuntimeException          if the given index is not
+   * @throws RuntimeException                      if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link ChainedNode} does not
@@ -421,10 +421,10 @@ implements IChainedNode {
 
   /**
    * @return the one attribute of the current {@link ChainedNode}.
-   * @throws RuntimeException   if the current {@link ChainedNode} does not
-   *                                  contain an attribute.
-   * @throws RuntimeException if the current {@link ChainedNode} contains
-   *                                  several attributes.
+   * @throws RuntimeException if the current {@link ChainedNode} does not contain
+   *                          an attribute.
+   * @throws RuntimeException if the current {@link ChainedNode} contains several
+   *                          attributes.
    */
   @Override
   public ChainedNode getSingleChildNode() {
@@ -706,8 +706,8 @@ implements IChainedNode {
    * Resets the current {@link ChainedNode} from the given string.
    * 
    * @param string
-   * @throws RuntimeException if the given string does nor
-   *                                         represent a {@link ChainedNode}.
+   * @throws RuntimeException if the given string does nor represent a
+   *                          {@link ChainedNode}.
    */
   private void resetFromString(final String string) {
     reset();
@@ -756,7 +756,7 @@ implements IChainedNode {
    * Sets the header of the current {@link ChainedNode}.
    * 
    * @param header
-   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is null.
    * @throws RuntimeException if the given header is blank.
    */
   private void setHeader(final String header) {

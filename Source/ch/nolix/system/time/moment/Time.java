@@ -80,9 +80,9 @@ extends AbstractElement implements ITime {
   /**
    * @param specification
    * @return a new {@link Time} from the given specification.
-   * @throws NullPointerException     if the given specification is null.
-   * @throws RuntimeException if the given specification does not
-   *                                  represent a {@link Time}.
+   * @throws NullPointerException if the given specification is null.
+   * @throws RuntimeException     if the given specification does not represent a
+   *                              {@link Time}.
    */
   public static Time fromSpecification(final INode<?> specification) {
     return fromString(specification.getSingleChildNodeHeader());
@@ -92,7 +92,7 @@ extends AbstractElement implements ITime {
    * @param string
    * @return a new {@link Time} from the given string.
    * @throws RuntimeException if the given string does not represent a
-   *                                  {@link Time}.
+   *                          {@link Time}.
    */
   public static Time fromString(final String string) {
     Validator.assertThat(string).thatIsNamed("string").isNotNull();

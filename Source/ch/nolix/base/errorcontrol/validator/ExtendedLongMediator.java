@@ -31,7 +31,7 @@ public final class ExtendedLongMediator extends LongMediator {
    * @param argumentName
    * @return a new {@link LongMediator} for the given argumentName and the
    *         argument of the current {@link ExtendedLongMediator}.
-   * @throws RuntimeException  if the given argument name is null.
+   * @throws RuntimeException if the given argument name is null.
    * @throws RuntimeException if the given argument name is blank.
    */
   public LongMediator thatIsNamed(final String argumentName) {

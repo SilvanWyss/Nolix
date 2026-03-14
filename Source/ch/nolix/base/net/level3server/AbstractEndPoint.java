@@ -63,8 +63,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws RuntimeException if the current {@link AbstractEndPoint} is
-   *                                 closed.
+   * @throws RuntimeException if the current {@link AbstractEndPoint} is closed.
    */
   protected void assertIsOpen() {
     if (isClosed()) {

@@ -31,11 +31,11 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given setterMethod is null.
-   * @throws RuntimeException  if the given valueCreator is null.
-   * @throws RuntimeException  if the given specificationCreator is null.
+   * @throws RuntimeException if the given setterMethod is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given specificationCreator is null.
    */
   protected AbstractSingleValue(
     final String name,
@@ -93,9 +93,9 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * Sets the value of the current {@link AbstractSingleValue}.
    * 
    * @param value
-   * @throws RuntimeException  if the given value is null.
-   * @throws RuntimeException if the current {@link AbstractSingleValue}
-   *                                  is not mutable and has already a value.
+   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the current {@link AbstractSingleValue} is not
+   *                          mutable and has already a value.
    */
   public final void setValue(final V value) {
     //Asserts that the given value is not null.

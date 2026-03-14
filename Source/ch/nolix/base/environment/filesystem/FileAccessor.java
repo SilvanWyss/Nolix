@@ -28,9 +28,8 @@ public final class FileAccessor extends FileSystemItemAccessorUnit {
    * Creates a new file accessor for a file with the given file path.
    * 
    * @param filePath
-   * @throws RuntimeException if there does not exist a file with the
-   *                                  given file path in the file system on the
-   *                                  local machine.
+   * @throws RuntimeException if there does not exist a file with the given file
+   *                          path in the file system on the local machine.
    */
   public FileAccessor(final String filePath) {
     //Calls method of the base class.

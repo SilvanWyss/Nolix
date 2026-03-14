@@ -45,8 +45,8 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @param filePath
    * @return a new standard specification from the file with the given file path.
    * @throws RuntimeException if the given file path is not valid.
-   * @throws RuntimeException if the file with the given file path does
-   *                                  not represent a standard configuration.
+   * @throws RuntimeException if the file with the given file path does not
+   *                          represent a standard configuration.
    */
   public static Style fromFile(final String filePath) {
     final var specification = Node.fromFile(filePath);

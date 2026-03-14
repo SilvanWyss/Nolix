@@ -35,7 +35,7 @@ public class ExtendedIterableMediator<E> extends IterableMediator<E> {
    * @return a new container mediator with the given argument name for the
    *         argument of this extended container mediator.
    * @throws RuntimeException if the given argument name is null.
-   * @throws RuntimeException  if the given argument name is empty.
+   * @throws RuntimeException if the given argument name is empty.
    */
   public IterableMediator<E> thatIsNamed(final String argumentName) {
     return new IterableMediator<>(argumentName, getStoredArgument());

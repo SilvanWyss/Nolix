@@ -76,8 +76,8 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @return the result of the current {@link ResultJobExecutor}
-   * @throws RuntimeException if the current {@link ResultJobExecutor} is
-   *                                  not finished or has caught an error.
+   * @throws RuntimeException if the current {@link ResultJobExecutor} is not
+   *                          finished or has caught an error.
    */
   public R getResult() {
     if (!isFinished()) {

@@ -23,9 +23,8 @@ public class FileSystemItemAccessorUnit {
    * path.
    * 
    * @param path
-   * @throws RuntimeException if there does not exist a file system item
-   *                                  with the given path in the file system on
-   *                                  the local machine.
+   * @throws RuntimeException if there does not exist a file system item with the
+   *                          given path in the file system on the local machine.
    */
   public FileSystemItemAccessorUnit(final String path) {
     //Creates the internal file accessor of this file accessor.

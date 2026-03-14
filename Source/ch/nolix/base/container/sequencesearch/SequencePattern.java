@@ -42,11 +42,9 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @param elementConditions
    * @param sequenceConditions
    * @throws RuntimeException if the given elementConditions is null.
-   * @throws RuntimeException if one of the given sequenceConditions is
-   *                                 null.
+   * @throws RuntimeException if one of the given sequenceConditions is null.
    * @throws RuntimeException if the given elementConditions is null.
-   * @throws RuntimeException if one of the given sequenceConditions is
-   *                                 null.
+   * @throws RuntimeException if one of the given sequenceConditions is null.
    */
   private SequencePattern(
     final IContainer<Predicate<E>> elementConditions,
@@ -74,11 +72,9 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @return a new {@link SequencePattern} with the given elementConditions and
    *         sequenceConditions.
    * @throws RuntimeException if the given elementConditions is null.
-   * @throws RuntimeException if one of the given sequenceConditions is
-   *                                 null.
+   * @throws RuntimeException if one of the given sequenceConditions is null.
    * @throws RuntimeException if the given elementConditions is null.
-   * @throws RuntimeException if one of the given sequenceConditions is
-   *                                 null.
+   * @throws RuntimeException if one of the given sequenceConditions is null.
    */
   private static <T> SequencePattern<T> withElementConditionsAndSequenceConditions(
     final IContainer<Predicate<T>> elementConditions,
