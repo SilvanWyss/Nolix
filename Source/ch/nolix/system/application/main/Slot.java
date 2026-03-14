@@ -17,21 +17,32 @@ final class Slot implements ISlot {
   private final AbstractServer<?> parentServer;
 
   /**
-   * Creates a new {@ServerClientTaker} with the given name that will belong to
-   * the given parentServer.
+   * Creates a new {Slot} with the given name that will belong to the given
+   * parentServer.
    * 
    * @param name
    * @param parentServer
-   * @throws RuntimeException  if given name is null.
-   * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException  if the given parentServer is null.
+   * @throws RuntimeException if given name is null or blank.
+   * @throws RuntimeException if the given parentServer is null.
    */
-  public Slot(final String name, final AbstractServer<?> parentServer) {
+  private Slot(final String name, final AbstractServer<?> parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
     this.parentServer = parentServer;
     this.name = name;
+  }
+
+  /**
+   * @param name
+   * @param parentServer
+   * @return a new {@ServerSlot} with the given name and that will belong to the
+   *         given parentServer.
+   * @throws RuntimeException if given name is null or blank.
+   * @throws RuntimeException if the given parentServer is null.
+   */
+  public static Slot withNameAndParentServer(final String name, final AbstractServer<?> parentServer) {
+    return new Slot(name, parentServer);
   }
 
   /**
