@@ -26,21 +26,17 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private final String target;
 
   /**
-   * Creates a new local end point that will connect to the given target
+   * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
-   * @param target
-   * @throws ArgumentIsNullException if the given target is null.
+   * @param slot
+   * @throws ArgumentIsNullException if the given slot is null.
    */
-  public LocalEndPoint(final ISlot target) {
-    peerType = PeerType.FRONTEND;
-
-    //Creates the counterpart of this local end point.
-    counterpart = new LocalEndPoint(this, target.getName());
-
-    //Clears the target of this local end point.
+  private LocalEndPoint(final ISlot slot) {
+    this.peerType = PeerType.FRONTEND;
+    this.counterpart = new LocalEndPoint(this, slot.getName());
     this.target = null;
 
-    target.takeBackendEndPoint(getStoredCounterpart());
+    slot.takeBackendEndPoint(getStoredCounterpart());
   }
 
   /**
@@ -85,6 +81,15 @@ public final class LocalEndPoint extends AbstractEndPoint {
 
     //Sets the target of this local end point.
     this.target = target;
+  }
+
+  /**
+   * @param slot
+   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @throws ArgumentIsNullException if the given slot is null.
+   */
+  public static LocalEndPoint toSlot(final ISlot slot) {
+    return new LocalEndPoint(slot);
   }
 
   /**
