@@ -105,7 +105,7 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    */
   @Override
   protected void noteAddedApplication(final Application<?, ?> application) {
-    internalServer.addSlot(new ServerSlot(application.getUrlInstanceName(), this));
+    internalServer.addSlot(new Slot(application.getUrlInstanceName(), this));
   }
 
   /**
@@ -113,7 +113,7 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    */
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
-    internalServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));
+    internalServer.addDefaultSlot(new Slot(defaultApplication.getUrlInstanceName(), this));
   }
 
   /**
