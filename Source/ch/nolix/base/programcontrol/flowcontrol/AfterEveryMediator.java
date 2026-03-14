@@ -167,7 +167,11 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   private IFuture runInBackgroundWhenHasMaxRunConunt(final Runnable step) {
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
-      final var jobExecutor = new JobExecutor(step, maxRunCount, timeIntervalInMilliseconds);
+      final var jobExecutor = //
+      JobExecutor.forStepAndMaxStepRunCountAndDelayBetweenStepRunsInMilliseconds(
+        step,
+        maxRunCount,
+        timeIntervalInMilliseconds);
 
       jobExecutor.start();
 

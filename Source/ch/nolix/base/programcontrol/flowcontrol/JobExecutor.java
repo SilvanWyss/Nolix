@@ -174,33 +174,32 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job, maxRunCount and
-   * timeIntervalInMilliseconds.
+   * Creates a new {@link JobExecutor} with the given step, maxStepRunCount and
+   * delayBetweenStepRunsInMilliseconds.
    * 
-   * @param job
-   * @param maxRunCount
-   * @param timeIntervalInMilliseconds
+   * @param step
+   * @param maxStepRunCount
+   * @param delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null.
    * @throws RuntimeException if the given maxRunCount is negative.
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
-  public JobExecutor(
-    final Runnable job,
-    final int maxRunCount,
-    final int timeIntervalInMilliseconds) {
-    //Asserts that the given job is not null.
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  private JobExecutor(
+    final Runnable step,
+    final int maxStepRunCount,
+    final int delayBetweenStepRunsInMilliseconds) {
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
 
-    //Asserts that the given maxRunCount is not negative.
-    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
+    Validator
+      .assertThat(delayBetweenStepRunsInMilliseconds)
+      .thatIsNamed("delay between step runs in milliseconds")
+      .isNotNegative();
 
-    //Asserts that the given timeIntervalInMilliseconds is not negative.
-    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
-
-    this.step = job;
-    this.optionalMaxStepRunCount = maxRunCount;
-    optionalNextStepRunCondition = null;
-    this.optionalDelayBetweenStepRunsInMilliseconds = timeIntervalInMilliseconds;
+    this.step = step;
+    this.optionalMaxStepRunCount = maxStepRunCount;
+    this.optionalNextStepRunCondition = null;
+    this.optionalDelayBetweenStepRunsInMilliseconds = delayBetweenStepRunsInMilliseconds;
   }
 
   /**
