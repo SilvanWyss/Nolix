@@ -73,8 +73,8 @@ public final class MatrixRow<E> extends AbstractExtendedContainer<E> implements 
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAtOneBasedIndex(final int columnIndex) {
-    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(getOneBasedRowIndex(), columnIndex);
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(getOneBasedRowIndex(), oneBasedIndex);
   }
 
   /**

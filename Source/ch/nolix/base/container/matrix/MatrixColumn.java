@@ -8,7 +8,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.matrix.IMatrixColumn;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -20,19 +19,43 @@ public final class MatrixColumn<E> extends AbstractExtendedContainer<E> implemen
 
   private final int oneBasedColumnIndex;
 
-  MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
-    Validator
-      .assertThat(parentMatrix)
-      .thatIsNamed("parent matrix")
-      .isNotNull();
+  /**
+   * Create a new {@link MatrixColumn} for the given parentMatrix and
+   * oneBasedColumnIndex.
+   * 
+   * @param parentMatrix
+   * @param oneBasedColumnIndex
+   * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
+   *                          bigger than the number of columns of the given
+   *                          parentMatrix.
+   */
+  private MatrixColumn(final Matrix<E> parentMatrix, final int oneBasedColumnIndex) {
+    Validator.assertThat(parentMatrix).thatIsNamed("parent matrix").isNotNull();
 
     Validator
-      .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
-      .isPositive();
+      .assertThat(oneBasedColumnIndex)
+      .thatIsNamed("one based column index")
+      .isBetween(1, parentMatrix.getColumnCount());
 
     this.parentMatrix = parentMatrix;
-    this.oneBasedColumnIndex = columnIndex;
+    this.oneBasedColumnIndex = oneBasedColumnIndex;
+  }
+
+  /**
+   * @param parentMatrix
+   * @param oneBasedColumnIndex
+   * @param <T>                 is the type of the elements of the parent
+   *                            {@link Matrix} of the created
+   *                            {@link MatrixColumn}.
+   * @return a new {@link MatrixColumn} for the given parentMatrix and
+   *         oneBasedColumnIndex.
+   * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
+   *                          bigger than the number of columns of the given
+   *                          parentMatrix.
+   */
+  public static <T> MatrixColumn<T> forMatrixAndOneBasedColumnIndex(final Matrix<T> parentMatrix,
+    final int oneBasedColumnIndex) {
+    return new MatrixColumn<>(parentMatrix, oneBasedColumnIndex);
   }
 
   /**
@@ -52,8 +75,8 @@ public final class MatrixColumn<E> extends AbstractExtendedContainer<E> implemen
    * {@inheritDoc}
    */
   @Override
-  public E getStoredAtOneBasedIndex(final int rowIndex) {
-    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(rowIndex, getOneBasedColumnIndex());
+  public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
+    return parentMatrix.getStoredAtOneBasedRowIndexAndColumnIndex(oneBasedIndex, getOneBasedColumnIndex());
   }
 
   /**

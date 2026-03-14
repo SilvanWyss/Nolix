@@ -239,14 +239,15 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   }
 
   /**
-   * @param columnIndex
-   * @return the column of the current {@link Matrix} with the given column index.
-   * @throws RuntimeException if the given column index is not positive.
-   * @throws RuntimeException if the given column index is bigger than the number
-   *                          of columns of the current {@link Matrix}.
+   * @param oneBasedColumnIndex
+   * @return the column of the current {@link Matrix} at the given
+   *         oneBasedColumnIndex.
+   * @throws RuntimeException if the given oneBasedColumnIndex is not positive or
+   *                          bigger than the number of the columns of the current
+   *                          {@link Matrix}.
    */
-  public IMatrixColumn<E> getColumn(final int columnIndex) {
-    return new MatrixColumn<>(this, columnIndex);
+  public IMatrixColumn<E> getColumn(final int oneBasedColumnIndex) {
+    return MatrixColumn.forMatrixAndOneBasedColumnIndex(this, oneBasedColumnIndex);
   }
 
   /**
@@ -295,7 +296,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
     //Iterates the columns of the current matrix.
     for (var i = 1; i <= getColumnCount(); i++) {
-      columns.addAtEnd(new MatrixColumn<>(this, i));
+      columns.addAtEnd(MatrixColumn.forMatrixAndOneBasedColumnIndex(this, i));
     }
 
     return columns;
