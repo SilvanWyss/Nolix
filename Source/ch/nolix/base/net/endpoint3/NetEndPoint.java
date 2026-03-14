@@ -22,7 +22,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRan
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint3protocol.MessageHeaderCatalog;
-import ch.nolix.baseapi.net.netconstant.IPv6Catalog;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
@@ -45,18 +44,16 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * Creates a new {@link NetEndPoint} that will connect to the given targetSlot
-   * on the given port on the local machine.
+   * Creates a new {@link NetEndPoint} that will connect to the given slot on the
+   * given port on the local machine.
    * 
    * @param port
-   * @param targetSlot
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given targetSlot is null.
-   * @throws InvalidArgumentException      if the given targetSlot is blank.
+   * @param slot
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null or blank.
    */
-  public NetEndPoint(final int port, final String targetSlot) {
-    //Calls other constructor.
-    this(IPv6Catalog.LOOP_BACK_ADDRESS, port, targetSlot);
+  public NetEndPoint(final int port, final String slot) {
+    this(ch.nolix.base.net.endpoint2.NetEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
   }
 
   /**
