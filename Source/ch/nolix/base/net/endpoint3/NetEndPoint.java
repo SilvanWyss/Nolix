@@ -50,7 +50,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given port is not in [0, 65535].
    * @throws RuntimeException if the given slot is null or blank.
    */
-  public NetEndPoint(final int port, final String slot) {
+  private NetEndPoint(final int port, final String slot) {
     this(ch.nolix.base.net.endpoint2.NetEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
   }
 
@@ -86,8 +86,8 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @param targetSlot
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException       if the given targetSlot is null.
-   * @throws RuntimeException      if the given targetSlot is blank.
+   * @throws RuntimeException if the given targetSlot is null.
+   * @throws RuntimeException if the given targetSlot is blank.
    */
   public NetEndPoint(final String ip, final int port, final String targetSlot) {
     //Calls other constructor.
@@ -124,6 +124,18 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndDefaultSlot(final int port) {
     return new NetEndPoint(port);
+  }
+
+  /**
+   * @param port
+   * @param slot
+   * @return a new {@link NetEndPoint} that will connect to the given slot on the
+   *         given port on the local machine.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given slot is null or blank.
+   */
+  public static NetEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
+    return new NetEndPoint(port, slot);
   }
 
   /**

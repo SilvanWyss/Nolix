@@ -23,9 +23,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * Connects the current {@link AbstractFrontendClient} to the given application.
    * 
    * @param application
-   * @throws RuntimeException if the current
-   *                                  {@link AbstractFrontendClient} is already
-   *                                  connected.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final Application<?, ?> application) {
     final var endPoint = new LocalEndPoint();
@@ -40,9 +39,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * {@link Application} on the given server.
    * 
    * @param server
-   * @throws RuntimeException if the current
-   *                                  {@link AbstractFrontendClient} is already
-   *                                  connected.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final AbstractServer<?> server) {
     final var endPoint = new LocalEndPoint();
@@ -58,9 +56,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * 
    * @param port
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException      if the current
-   *                                       {@link AbstractFrontendClient} is
-   *                                       already connected.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final int port) {
     setEndPoint(NetEndPoint.toLocalMachineAndGivenPortAndDefaultSlot(port));
@@ -74,14 +71,13 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @param port
    * @param name
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException       if the given name is null.
-   * @throws RuntimeException        if the given name is blank.
-   * @throws RuntimeException      if the current
-   *                                       {@link AbstractFrontendClient} is
-   *                                       already connected.
+   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final int port, final String name) {
-    setEndPoint(new NetEndPoint(port, name));
+    setEndPoint(NetEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, name));
   }
 
   /**
@@ -90,11 +86,10 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * 
    * @param server
    * @param instanceName
-   * @throws RuntimeException  if the given instanceName is null.
-   * @throws RuntimeException   if the given instanceName is blank.
-   * @throws RuntimeException if the current
-   *                                  {@link AbstractFrontendClient} is already
-   *                                  connected.
+   * @throws RuntimeException if the given instanceName is null.
+   * @throws RuntimeException if the given instanceName is blank.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final AbstractServer<?> server, final String instanceName) {
     final var endPoint = new LocalEndPoint();
@@ -109,9 +104,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * {@link Application} on the HTTP port (80) on the computer with the given ip.
    * 
    * @param ip
-   * @throws RuntimeException if the current
-   *                                  {@link AbstractFrontendClient} is already
-   *                                  connected.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final String ip) {
     setEndPoint(new NetEndPoint(ip));
@@ -124,9 +118,8 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @param ip
    * @param port
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException      if the current
-   *                                       {@link AbstractFrontendClient} is
-   *                                       already connected.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final String ip, final int port) {
     setEndPoint(new NetEndPoint(ip, port));
@@ -141,11 +134,10 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @param port
    * @param name
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException       if the given name is null.
-   * @throws RuntimeException        if the given name is blank.
-   * @throws RuntimeException      if the current
-   *                                       {@link AbstractFrontendClient} is
-   *                                       already connected.
+   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the current {@link AbstractFrontendClient} is
+   *                          already connected.
    */
   protected final void connectTo(final String ip, final int port, final String name) {
     setEndPoint(new NetEndPoint(ip, port, name));
