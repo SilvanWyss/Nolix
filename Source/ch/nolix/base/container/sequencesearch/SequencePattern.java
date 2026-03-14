@@ -13,7 +13,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * A {@link SequencePattern} is not mutable.
@@ -42,11 +41,11 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * 
    * @param elementConditions
    * @param sequenceConditions
-   * @throws ArgumentIsNullException if the given elementConditions is null.
-   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   * @throws RuntimeException if the given elementConditions is null.
+   * @throws RuntimeException if one of the given sequenceConditions is
    *                                 null.
-   * @throws ArgumentIsNullException if the given elementConditions is null.
-   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   * @throws RuntimeException if the given elementConditions is null.
+   * @throws RuntimeException if one of the given sequenceConditions is
    *                                 null.
    */
   private SequencePattern(
@@ -74,11 +73,11 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    *                           {@link SequencePattern}.
    * @return a new {@link SequencePattern} with the given elementConditions and
    *         sequenceConditions.
-   * @throws ArgumentIsNullException if the given elementConditions is null.
-   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   * @throws RuntimeException if the given elementConditions is null.
+   * @throws RuntimeException if one of the given sequenceConditions is
    *                                 null.
-   * @throws ArgumentIsNullException if the given elementConditions is null.
-   * @throws ArgumentIsNullException if one of the given sequenceConditions is
+   * @throws RuntimeException if the given elementConditions is null.
+   * @throws RuntimeException if one of the given sequenceConditions is
    *                                 null.
    */
   private static <T> SequencePattern<T> withElementConditionsAndSequenceConditions(

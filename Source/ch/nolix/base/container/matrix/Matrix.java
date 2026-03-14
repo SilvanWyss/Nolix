@@ -16,10 +16,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -70,8 +67,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @param element
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws ArgumentIsNullException  if the given elements is null.
-   * @throws ArgumentIsNullException  if one of the given elements is null.
+   * @throws RuntimeException  if the given elements is null.
+   * @throws RuntimeException  if one of the given elements is null.
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
    *                                  and if not as many elements are given as the
    *                                  number of rows of the current
@@ -93,8 +90,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws ArgumentIsNullException  if the given elements is null.
-   * @throws ArgumentIsNullException  if one of the given elements is null.
+   * @throws RuntimeException  if the given elements is null.
+   * @throws RuntimeException  if one of the given elements is null.
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
    *                                  and if not as many elements are given as the
    *                                  number of rows of the current
@@ -153,8 +150,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws ArgumentIsNullException  if the given elements is null.
-   * @throws ArgumentIsNullException  if one of the given elements is null.
+   * @throws RuntimeException  if the given elements is null.
+   * @throws RuntimeException  if one of the given elements is null.
    * @throws UnequalArgumentException the current {@link Matrix} is not empty and
    *                                  if not as many elements are given as the
    *                                  number of columns of the current
@@ -176,8 +173,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws ArgumentIsNullException  if the given elements is null.
-   * @throws ArgumentIsNullException  if one of the given elements is null.
+   * @throws RuntimeException  if the given elements is null.
+   * @throws RuntimeException  if one of the given elements is null.
    * @throws UnequalArgumentException the current {@link Matrix} is not empty and
    *                                  if not as many elements are given as the
    *                                  number of columns of the current
@@ -242,9 +239,9 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   /**
    * @param columnIndex
    * @return the column of the current {@link Matrix} with the given column index.
-   * @throws NonPositiveArgumentException if the given column index is not
+   * @throws RuntimeException if the given column index is not
    *                                      positive.
-   * @throws BiggerArgumentException      if the given column index is bigger than
+   * @throws RuntimeException      if the given column index is bigger than
    *                                      the number of columns of the current
    *                                      {@link Matrix}.
    */
@@ -272,8 +269,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @param index
    * @return the index of the column of the element of the current {@link Matrix}
    *         at the given index.
-   * @throws NonPositiveArgumentException if the given index is not positive.
-   * @throws BiggerArgumentException      if the given index is bigger than the
+   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException      if the given index is bigger than the
    *                                      number of elements of the current
    *                                      {@link Matrix}.
    */
@@ -340,13 +337,13 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @param columnIndex
    * @return the index of the element of the current {@link Matrix} at the given
    *         row index and column index.
-   * @throws NonPositiveArgumentException if the given row index is not positive.
-   * @throws BiggerArgumentException      if the given row index is bigger than
+   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException      if the given row index is bigger than
    *                                      the number of rows of the current
    *                                      {@link Matrix}.
-   * @throws NonPositiveArgumentException if the given column index is not
+   * @throws RuntimeException if the given column index is not
    *                                      positive.
-   * @throws BiggerArgumentException      if the given column index is bigger than
+   * @throws RuntimeException      if the given column index is bigger than
    *                                      the number of columns of the current
    *                                      {@link Matrix}.
    */
@@ -360,8 +357,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
   /**
    * @return the element of the current {@link Matrix} at the given index .
-   * @throws NonPositiveArgumentException if the given index is not positive.
-   * @throws BiggerArgumentException      if the given index is bigger than the
+   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException      if the given index is bigger than the
    *                                      number of elements of the current
    *                                      {@link Matrix}.
    */
@@ -377,13 +374,13 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @param oneBasedColumnIndex
    * @return the element of the current {@link Matrix} at the given row index and
    *         column index.
-   * @throws NonPositiveArgumentException if the given row index is not positive.
-   * @throws BiggerArgumentException      if the given row index is bigger than
+   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException      if the given row index is bigger than
    *                                      the number of rows of the current
    *                                      {@link Matrix}.
-   * @throws NonPositiveArgumentException if the given column index is not
+   * @throws RuntimeException if the given column index is not
    *                                      positive.
-   * @throws BiggerArgumentException      if the given column index is bigger than
+   * @throws RuntimeException      if the given column index is bigger than
    *                                      the number of columns of the current
    *                                      {@link Matrix}.
    */
@@ -400,8 +397,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   /**
    * @param rowIndex
    * @return the row of the current {@link Matrix} at the given row index.
-   * @throws NonPositiveArgumentException if the given row index is not positive.
-   * @throws BiggerArgumentException      if the given row index is bigger than
+   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException      if the given row index is bigger than
    *                                      the number of rows of the current
    *                                      {@link Matrix}.
    */
@@ -413,8 +410,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @param index
    * @return the index of the row of the element of the current {@link Matrix} at
    *         the given index.
-   * @throws NonPositiveArgumentException if the given index is not positive.
-   * @throws BiggerArgumentException      if the given index is bigger than the
+   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException      if the given index is bigger than the
    *                                      number of elements of the current
    *                                      {@link Matrix}.
    */
@@ -486,11 +483,11 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * 
    * @param index
    * @param element
-   * @throws NonPositiveArgumentException if the given index is not positive.
-   * @throws BiggerArgumentException      if the given index is bigger than the
+   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException      if the given index is bigger than the
    *                                      number of elements of the current
    *                                      {@link Matrix}.
-   * @throws ArgumentIsNullException      if the given element is null.
+   * @throws RuntimeException      if the given element is null.
    */
   public void setAt(final int index, final E element) {
     //Asserts that the given element is not null.
@@ -512,16 +509,16 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @param oneBasedRowIndex
    * @param oneBasedColumnIndex
    * @param element
-   * @throws NonPositiveArgumentException if the given row index is not positive.
-   * @throws BiggerArgumentException      if the given row index is bigger than
+   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException      if the given row index is bigger than
    *                                      the number of rows of the current
    *                                      {@link Matrix}.
-   * @throws NonPositiveArgumentException if the given column index is not
+   * @throws RuntimeException if the given column index is not
    *                                      positive.
-   * @throws BiggerArgumentException      if the given column index is bigger than
+   * @throws RuntimeException      if the given column index is bigger than
    *                                      the number of columns of the current
    *                                      {@link Matrix}.
-   * @throws ArgumentIsNullException      if the given element is null.
+   * @throws RuntimeException      if the given element is null.
    */
   @Override
   public void setAtOneBasedRowIndexAndColumnIndex(
@@ -653,8 +650,8 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
   /**
    * @param index
-   * @throws NonPositiveArgumentException if the given index is not positive.
-   * @throws BiggerArgumentException      if the given index is bigger than the
+   * @throws RuntimeException if the given index is not positive.
+   * @throws RuntimeException      if the given index is bigger than the
    *                                      number of elements of the current
    *                                      {@link Matrix}.
    */
@@ -673,13 +670,13 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   /**
    * @param rowIndex
    * @param columnIndex
-   * @throws NonPositiveArgumentException if the given row index is not positive.
-   * @throws BiggerArgumentException      if the given row index is bigger than
+   * @throws RuntimeException if the given row index is not positive.
+   * @throws RuntimeException      if the given row index is bigger than
    *                                      the number of rows of the current
    *                                      {@link Matrix}.
-   * @throws NonPositiveArgumentException if the given column index is not
+   * @throws RuntimeException if the given column index is not
    *                                      positive.
-   * @throws BiggerArgumentException      if the given column index is bigger than
+   * @throws RuntimeException      if the given column index is bigger than
    *                                      the number of columns of the current
    *                                      {@link Matrix}.
    */

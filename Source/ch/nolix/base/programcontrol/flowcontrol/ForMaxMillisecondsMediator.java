@@ -6,7 +6,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IForMaxMillisecondsMediator;
 
@@ -23,7 +22,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    * maxDurationInMilliseconds.
    * 
    * @param maxDurationInMilliseconds
-   * @throws NegativeArgumentException if the given maxDurationInMilliseconds is
+   * @throws RuntimeException if the given maxDurationInMilliseconds is
    *                                   negative.
    */
   private ForMaxMillisecondsMediator(final int maxDurationInMilliseconds) {
@@ -38,7 +37,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
    *         maxDurationInMilliseconds.
-   * @throws NegativeArgumentException if the given maxDurationInMilliseconds is
+   * @throws RuntimeException if the given maxDurationInMilliseconds is
    *                                   negative.
    */
   static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
@@ -50,7 +49,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
    *         maxDurationInSeconds.
-   * @throws NegativeArgumentException if the given maxDurationInSeconds is
+   * @throws RuntimeException if the given maxDurationInSeconds is
    *                                   negative.
    */
   static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {

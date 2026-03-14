@@ -7,9 +7,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidPortException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint.IEndPoint;
 import ch.nolix.baseapi.net.endpoint2protocol.MessageRole;
@@ -35,7 +33,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * the given port on the local machine.
    * 
    * @param port
-   * @throws InvalidPortException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private NetEndPoint(final int port) {
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port));
@@ -70,7 +68,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param host
    * @param port
-   * @throws InvalidPortException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private NetEndPoint(final String host, final int port) {
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
@@ -83,9 +81,9 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param host
    * @param port
    * @param slot
-   * @throws InvalidPortException     if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException  if the given slot is null.
-   * @throws InvalidArgumentException if the given slot is blank.
+   * @throws RuntimeException     if the given port is not in [0, 65535].
+   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given slot is blank.
    */
   private NetEndPoint(final String host, final int port, final String slot) {
     this(ch.nolix.base.net.endpoint.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
@@ -95,7 +93,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
    * @param internalEndPoint
-   * @throws ArgumentIsNullException if the given internalEndPoint is null.
+   * @throws RuntimeException if the given internalEndPoint is null.
    */
   NetEndPoint(final IEndPoint internalEndPoint) {
     Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
@@ -110,7 +108,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @return a new {@link NetEndPoint} that will connect to the default slot on
    *         the given port on the given host.
-   * @throws InvalidPortException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
     return new NetEndPoint(host, port);
@@ -122,9 +120,9 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param slot
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
    *         given port on the given host.
-   * @throws InvalidPortException     if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException  if the given slot is null.
-   * @throws InvalidArgumentException if the given slot is blank.
+   * @throws RuntimeException     if the given port is not in [0, 65535].
+   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given slot is blank.
    */
   public static NetEndPoint toGivenHostAndGivenPortAndGivenSlot(final String host, final int port, final String slot) {
     return new NetEndPoint(host, port, slot);
@@ -143,7 +141,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @return a new {@link NetEndPoint} that will connect to the default slot on
    *         the given port on the local machine.
-   * @throws InvalidPortException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndDefaultSlot(final int port) {
     return new NetEndPoint(port);
@@ -280,7 +278,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param index
    * @return the reply with the given index
-   * @throws InvalidArgumentException if the current {@link NetEndPoint} has not
+   * @throws RuntimeException if the current {@link NetEndPoint} has not
    *                                  received a package with the given index.
    */
   private Package getAndRemoveReceivedPackage(final int index) {

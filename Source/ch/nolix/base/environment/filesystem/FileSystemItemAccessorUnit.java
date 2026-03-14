@@ -23,7 +23,7 @@ public class FileSystemItemAccessorUnit {
    * path.
    * 
    * @param path
-   * @throws InvalidArgumentException if there does not exist a file system item
+   * @throws RuntimeException if there does not exist a file system item
    *                                  with the given path in the file system on
    *                                  the local machine.
    */

@@ -9,7 +9,6 @@ import ch.nolix.base.net.endpoint3.AbstractEndPoint;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnconnectedArgumentException;
 import ch.nolix.baseapi.net.endpoint3.IEndPoint;
@@ -81,7 +80,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * @param request
    * @return the data the given request requests from the counterpart of the
    *         current {@link AbstractClient}.
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                      not connected.
    */
   protected final INode<?> getDataFromCounterpart(final IChainedNode request) {
@@ -107,7 +106,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * {@link AbstractClient}.
    * 
    * @param command
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                      not connected.
    */
   protected final void runOnCounterpart(final IChainedNode command) {
@@ -119,7 +118,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * {@link AbstractClient}.
    * 
    * @param commands
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                      not connected.
    */
   protected final void runOnCounterpart(final ChainedNode... commands) {
@@ -131,7 +130,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * {@link AbstractClient}.
    * 
    * @param commands
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                      not connected.
    */
   protected final void runOnCounterpart(final Iterable<? extends IChainedNode> commands) {
@@ -142,8 +141,8 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * Sets the {@link AbstractEndPoint} of the current {@link AbstractClient}.
    * 
    * @param endPoint
-   * @throws ArgumentIsNullException  if the given endPoint is null.
-   * @throws InvalidArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException  if the given endPoint is null.
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                  already connected.
    */
   final void setEndPoint(final IEndPoint endPoint) {
@@ -164,7 +163,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
   }
 
   /**
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                      not connected.
    */
   private void assertIsConnected() {
@@ -174,7 +173,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                  already connected.
    */
   private void assertIsNotConnected() {
@@ -185,7 +184,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
 
   /**
    * @return the {@link AbstractEndPoint} of the current {@link AbstractClient}.
-   * @throws UnconnectedArgumentException if the current {@link AbstractClient} is
+   * @throws RuntimeException if the current {@link AbstractClient} is
    *                                      not connected.
    */
   private IEndPoint getStoredEndPoint() {

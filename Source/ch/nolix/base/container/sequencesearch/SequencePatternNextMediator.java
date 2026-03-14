@@ -11,8 +11,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePatternNextMediator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 
 /**
  * @author Silvan Wyss
@@ -32,8 +30,8 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * 
    * @param sequencePattern
    * @param count
-   * @throws ArgumentIsNullException   if the sequencePattern is null.
-   * @throws NegativeArgumentException if the given count is negative.
+   * @throws RuntimeException   if the sequencePattern is null.
+   * @throws RuntimeException if the given count is negative.
    */
   private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
     Validator.assertThat(sequencePattern).thatIsNamed(ISequencePattern.class).isNotNull();
@@ -52,8 +50,8 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @param <T>             is the type of the elements of the sequences of the
    *                        {@link ISequencePattern} of the
    *                        {@link ISequencePatternNextMediator}.
-   * @throws ArgumentIsNullException   if the sequencePattern is null.
-   * @throws NegativeArgumentException if the given count is negative.
+   * @throws RuntimeException   if the sequencePattern is null.
+   * @throws RuntimeException if the given count is negative.
    */
   public static <T> SequencePatternNextMediator<T> forSequencePatternAndCount(
     final ISequencePattern<T> sequencePattern,
@@ -89,7 +87,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @param paramCount
    * @return a new {@link IContainer} with as many blank conditions as the given
    *         paramCount says.
-   * @throws NegativeArgumentException if the given paramCount is negative.
+   * @throws RuntimeException if the given paramCount is negative.
    */
   private IContainer<Predicate<E>> createBlanks(final int paramCount) {
     final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);

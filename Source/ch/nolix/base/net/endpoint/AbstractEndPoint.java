@@ -9,9 +9,7 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint.IEndPoint;
 
@@ -67,7 +65,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   }
 
   /**
-   * @throws ClosedArgumentException if the current {@link AbstractEndPoint} is
+   * @throws RuntimeException if the current {@link AbstractEndPoint} is
    *                                 closed.
    */
   protected final void assertIsOpen() {
@@ -98,9 +96,9 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * Sets the custom target slot of the current {@link AbstractEndPoint}.
    * 
    * @param customTargetSlot
-   * @throws ArgumentIsNullException  if the given customTargetSlot is null.
-   * @throws InvalidArgumentException if the given customTargetSlot is blank.
-   * @throws ClosedArgumentException  if the current {@link AbstractEndPoint} is
+   * @throws RuntimeException  if the given customTargetSlot is null.
+   * @throws RuntimeException if the given customTargetSlot is blank.
+   * @throws RuntimeException  if the current {@link AbstractEndPoint} is
    *                                  closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {

@@ -8,7 +8,6 @@ import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -24,7 +23,7 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
    * Creates a new {@link ArrayContainerView} for the given array.
    * 
    * @param array
-   * @throws ArgumentIsNullException if the given array is null.
+   * @throws RuntimeException if the given array is null.
    */
   private ArrayContainerView(final E[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
@@ -46,7 +45,7 @@ public final class ArrayContainerView<E> extends AbstractExtendedContainer<E> {
    * @param array
    * @param <T>   is the type of the elements of the given array.
    * @return a new {@link ArrayContainerView} for the given array.
-   * @throws ArgumentIsNullException if the given array is null.
+   * @throws RuntimeException if the given array is null.
    */
   public static <T> ArrayContainerView<T> forArray(final T[] array) {
     return new ArrayContainerView<>(array);

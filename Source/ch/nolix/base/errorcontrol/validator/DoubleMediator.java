@@ -4,7 +4,6 @@
 package ch.nolix.base.errorcontrol.validator;
 
 import ch.nolix.base.independent.math.NumberComparator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -40,8 +39,8 @@ public class DoubleMediator extends Mediator {
    * 
    * @param argumentName
    * @param argument
-   * @throws ArgumentIsNullException  if the given argumentName is null.
-   * @throws InvalidArgumentException if the given argumentName is blank.
+   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is blank.
    */
   protected DoubleMediator(final String argumentName, final double argument) {
     //Calls constructor of the base class.
@@ -62,7 +61,7 @@ public class DoubleMediator extends Mediator {
   /**
    * @param min
    * @param max
-   * @throws ArgumentIsOutOfRangeException if the argument of this double mediator
+   * @throws RuntimeException if the argument of this double mediator
    *                                       is not between the given min and max.
    */
   public void isBetween(final double min, final double max) {
@@ -80,7 +79,7 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws InvalidArgumentException if the argument of this double mediator is
+   * @throws RuntimeException if the argument of this double mediator is
    *                                  not bigger than the given value.
    */
   public void isBiggerThan(final double value) {
@@ -120,7 +119,7 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws BiggerArgumentException if the argument of this double mediator is
+   * @throws RuntimeException if the argument of this double mediator is
    *                                 bigger than the given value.
    */
   public void isNotBiggerThan(final double value) {
@@ -133,7 +132,7 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws EqualArgumentException if the argument of this double mediator equals
+   * @throws RuntimeException if the argument of this double mediator equals
    *                                the given value.
    */
   public void isNotEqualTo(final double value) {
@@ -144,7 +143,7 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @throws NegativeArgumentException if the argument of this double mediator is
+   * @throws RuntimeException if the argument of this double mediator is
    *                                   negative.
    */
   public void isNotNegative() {
@@ -155,7 +154,7 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @throws NonPositiveArgumentException if the argument of this double mediator
+   * @throws RuntimeException if the argument of this double mediator
    *                                      is positive.
    */
   public void isNotPositive() {
@@ -167,7 +166,7 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws SmallerArgumentException if the argument of this double mediator is
+   * @throws RuntimeException if the argument of this double mediator is
    *                                  smaller than the given value.
    */
   public void isNotSmallerThan(final double value) {
@@ -179,7 +178,7 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @throws NonPositiveArgumentException if the argument of this double mediator
+   * @throws RuntimeException if the argument of this double mediator
    *                                      is not positive.
    */
   public void isPositive() {
@@ -191,7 +190,7 @@ public class DoubleMediator extends Mediator {
 
   /**
    * @param value
-   * @throws InvalidArgumentException if the argument of this double mediator is
+   * @throws RuntimeException if the argument of this double mediator is
    *                                  not smaller than the given value.
    */
   public void isSmallerThan(final double value) {

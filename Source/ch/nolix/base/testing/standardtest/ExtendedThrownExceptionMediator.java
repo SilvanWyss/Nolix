@@ -24,7 +24,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * exception.
    * 
    * @param exception
-   * @throws ArgumentIsNullException if the given exception is null.
+   * @throws RuntimeException if the given exception is null.
    */
   ExtendedThrownExceptionMediator(final Throwable exception) {
     //Calls constructor of the base class.
@@ -40,7 +40,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * @return a new {@link ThrownExceptionMediator} that belongs to the test of the
    *         current {@link ThrownExceptionMediator} and is for the exception of
    *         the current {@link ThrownExceptionMediator}.
-   * @throws ArgumentIsNullException if the given type is null.
+   * @throws RuntimeException if the given type is null.
    */
   public <E extends Exception> ThrownExceptionMediator ofType(final Class<E> type) {
     //Asserts that the given type is not null.

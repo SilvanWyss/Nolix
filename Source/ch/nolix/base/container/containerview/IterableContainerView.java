@@ -8,7 +8,6 @@ import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -32,7 +31,7 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
    * 
    * @param container
    * @param <T>       is the type of the elements of the given container.
-   * @throws ArgumentIsNullException if the given container is null.
+   * @throws RuntimeException if the given container is null.
    */
   @SuppressWarnings("unchecked")
   private <T extends E> IterableContainerView(final Iterable<T> container) {
@@ -50,7 +49,7 @@ public final class IterableContainerView<E> extends AbstractExtendedContainer<E>
    * @param iterable
    * @param <T>      is the type of the elements of the given iterable.
    * @return a new {@link IterableContainerView} for the given iterable.
-   * @throws ArgumentIsNullException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null.
    */
   public static <T> IterableContainerView<T> forIterable(final Iterable<? extends T> iterable) {
     return new IterableContainerView<>(iterable);

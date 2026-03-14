@@ -5,7 +5,6 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.base.environment.localcomputer.LocalComputer;
 import ch.nolix.base.net.target.ServerTarget;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.baseapi.net.server.ISinglePortServer;
@@ -28,7 +27,7 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    * on the given port.
    * 
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private Server(final int port) {
     //Creates the internalServer of the current Server.
@@ -52,7 +51,7 @@ public final class Server extends AbstractServer<Server> implements ISinglePortS
    * @param port
    * @return a new {@link Server} that will listen to net {@link AbstractClient}s
    *         on the given port.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static Server forPort(final int port) {
     return new Server(port);

@@ -8,8 +8,6 @@ import java.util.function.Function;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.state.staterequest.MutabilityRequestable;
 import ch.nolix.systemapi.element.property.IBaseValue;
@@ -32,10 +30,10 @@ public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequesta
    * @param name
    * @param valueCreator
    * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given valueCreator is null.
+   * @throws RuntimeException  if the given specificationCreator is null.
    */
   AbstractValue(
     final String name,

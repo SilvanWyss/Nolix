@@ -11,10 +11,6 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidPortException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netconstant.IPv6Catalog;
@@ -42,7 +38,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * 
    * @param host
    * @param port
-   * @throws InvalidPortException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private SocketEndPoint(final String host, final int port) {
     super(TargetInfoState.RECEIVED_TARGET_INFO);
@@ -70,9 +66,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param host
    * @param port
    * @param slot
-   * @throws InvalidPortException     if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException  if the given slot is null.
-   * @throws InvalidArgumentException if the given slot is blank.
+   * @throws RuntimeException     if the given port is not in [0, 65535].
+   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given slot is blank.
    */
   private SocketEndPoint(final String host, final int port, final String slot) {
     super(slot);
@@ -101,9 +97,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socket
    * @param socketInputStream
    * @param socketOutputStream
-   * @throws ArgumentIsNullException if the given socket is null.
-   * @throws ArgumentIsNullException if the given socketInputStream is null.
-   * @throws ArgumentIsNullException if the given socketOutputStream is null.
+   * @throws RuntimeException if the given socket is null.
+   * @throws RuntimeException if the given socketInputStream is null.
+   * @throws RuntimeException if the given socketOutputStream is null.
    */
   SocketEndPoint(
     final Socket socket,
@@ -132,11 +128,11 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socketInputStream
    * @param socketOutputStream
    * @param target
-   * @throws ArgumentIsNullException  if the given socket is null.
-   * @throws ArgumentIsNullException  if the given socketInputStream is null.
-   * @throws ArgumentIsNullException  if the given socketOutputStream is null.
-   * @throws ArgumentIsNullException  if the given target is null.
-   * @throws InvalidArgumentException if the given target is blank.
+   * @throws RuntimeException  if the given socket is null.
+   * @throws RuntimeException  if the given socketInputStream is null.
+   * @throws RuntimeException  if the given socketOutputStream is null.
+   * @throws RuntimeException  if the given target is null.
+   * @throws RuntimeException if the given target is blank.
    */
   SocketEndPoint(
     final Socket socket,
@@ -162,7 +158,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
    *         the given port on the given host.
-   * @throws InvalidPortException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static SocketEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
     return new SocketEndPoint(host, port);
@@ -174,9 +170,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param slot
    * @return a new {@link SocketEndPoint} that will connect to the given slot on
    *         the given port on the given host.
-   * @throws InvalidPortException     if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException  if the given slot is null.
-   * @throws InvalidArgumentException if the given slot is blank.
+   * @throws RuntimeException     if the given port is not in [0, 65535].
+   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given slot is blank.
    */
   public static SocketEndPoint toGivenHostAndGivenPortAndGivenSlot(
     final String host,
@@ -198,7 +194,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param port
    * @return a new {@link SocketEndPoint} that will connect to the default slot on
    *         the given port on the locale machine.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static SocketEndPoint toLocaleMachineAndGivenPortAndDefaultSlot(final int port) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port);
@@ -209,9 +205,9 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @return a new {@link SocketEndPoint} that will connect to the given slot on
    *         the given port on the local machine.
    * @param slot
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given target slot null.
-   * @throws InvalidArgumentException      if the given target slot blank.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException       if the given target slot null.
+   * @throws RuntimeException      if the given target slot blank.
    */
   public static SocketEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port, slot);

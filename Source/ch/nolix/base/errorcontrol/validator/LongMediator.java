@@ -5,7 +5,6 @@ package ch.nolix.base.errorcontrol.validator;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsInRangeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -44,8 +43,8 @@ public class LongMediator extends Mediator {
    * 
    * @param argumentName
    * @param argument
-   * @throws ArgumentIsNullException  if the given argumentName is null.
-   * @throws InvalidArgumentException if the given argumentName is blank.
+   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is blank.
    */
   private LongMediator(final String argumentName, final long argument) {
     super(argumentName);
@@ -65,8 +64,8 @@ public class LongMediator extends Mediator {
    * @param argumentName
    * @param argument
    * @return a new {@link LongMediator} for the given argumentName and argument.
-   * @throws ArgumentIsNullException  if the given argumentName is null.
-   * @throws InvalidArgumentException if the given argumentName is blank.
+   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argumentName is blank.
    */
   public static LongMediator forArgumentNameAndArgument(final String argumentName, final long argument) {
     return new LongMediator(argumentName, argument);
@@ -75,7 +74,7 @@ public class LongMediator extends Mediator {
   /**
    * @param min
    * @param max
-   * @throws ArgumentIsOutOfRangeException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                       {@link LongMediator} is not between the
    *                                       given min and max.
    */
@@ -86,7 +85,7 @@ public class LongMediator extends Mediator {
   /**
    * @param min
    * @param max
-   * @throws ArgumentIsOutOfRangeException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                       {@link LongMediator} is not between the
    *                                       given min and max.
    */
@@ -102,7 +101,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} is not bigger than the
    *                                  given value.
    */
@@ -118,7 +117,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws SmallerArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} is not bigger than or
    *                                  does not equal the given value.
    */
@@ -157,7 +156,7 @@ public class LongMediator extends Mediator {
   /**
    * @param value
    * @param values
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} does not equal one of
    *                                  the given values.
    */
@@ -180,7 +179,7 @@ public class LongMediator extends Mediator {
   }
 
   /**
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} is not negative.
    */
   public final void isNegative() {
@@ -192,7 +191,7 @@ public class LongMediator extends Mediator {
   /**
    * @param min
    * @param max
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} is between the given
    *                                  min and max.
    */
@@ -208,7 +207,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws EqualArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                {@link LongMediator} equals the given value.
    */
   public final void isNotEqualTo(final long value) {
@@ -219,7 +218,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws BiggerArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                 {@link LongMediator} is bigger than the given
    *                                 value.
    */
@@ -229,7 +228,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws BiggerArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                 {@link LongMediator} is bigger than the given
    *                                 value.
    */
@@ -240,7 +239,7 @@ public class LongMediator extends Mediator {
   }
 
   /**
-   * @throws NegativeArgumentException if the argument of htis
+   * @throws RuntimeException if the argument of htis
    *                                   {@link LongMediator} is negative.
    */
   public final void isNotNegative() {
@@ -261,7 +260,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param min
-   * @throws SmallerArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} is smaller than the *
    *                                  given min.
    */
@@ -272,7 +271,7 @@ public class LongMediator extends Mediator {
   }
 
   /**
-   * @throws InvalidPortException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                              {@link LongMediator} is not a port.
    */
   public final void isPort() {
@@ -282,7 +281,7 @@ public class LongMediator extends Mediator {
   }
 
   /**
-   * @throws NonPositiveArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                      {@link LongMediator} is not positive.
    */
   public final void isPositive() {
@@ -293,7 +292,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link LongMediator} is not smaller than the
    *                                  given value.
    */
@@ -309,7 +308,7 @@ public class LongMediator extends Mediator {
 
   /**
    * @param value
-   * @throws BiggerArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                 {@link LongMediator} is not smaller than or
    *                                 does not equal the given value.
    */

@@ -13,9 +13,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
@@ -35,11 +32,11 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @param valueCreator
    * @param adderMethod
    * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given adderMethod is null.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given adderMethod is null.
+   * @throws RuntimeException  if the given valueCreator is null.
+   * @throws RuntimeException  if the given specificationCreator is null.
    */
   public MultiValue(
     final String name,
@@ -61,9 +58,9 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @param adderMethod
    * @return a new {@link MultiValue} that will store {@link Integer}s and have
    *         the given name and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given adderMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given adderMethod is null.
    */
   public static MultiValue<Integer> forInts(final String name, final Consumer<Integer> adderMethod) {
     return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
@@ -74,9 +71,9 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * @param adderMethod
    * @return a new {@link MultiValue} that will store {@link String}s and have the
    *         given name and adderMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given adderMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given adderMethod is null.
    */
   public static MultiValue<String> forStrings(final String name, final Consumer<String> adderMethod) {
     return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
@@ -86,7 +83,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * Adds the given value to the current {@link MultiValue}.
    * 
    * @param value
-   * @throws ArgumentIsNullException if the given value is null.
+   * @throws RuntimeException if the given value is null.
    */
   public void add(final V value) {
     values.addAtEnd(value);
@@ -139,7 +136,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * Removes and returns the last value of the current {@link MultiValue}.
    * 
    * @return the last element of the current {@link MultiValue}.
-   * @throws EmptyArgumentException if the current {@link MultiValue} is empty.
+   * @throws RuntimeException if the current {@link MultiValue} is empty.
    */
   public V removeAndGetRefLast() {
     return values.removeAndGetStoredLast();
@@ -149,7 +146,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
    * Removes the last value of the current {@link MultiValue}.
    * 
    * @return the current {@link MultiValue}.
-   * @throws EmptyArgumentException if the current {@link MultiValue} is empty.
+   * @throws RuntimeException if the current {@link MultiValue} is empty.
    */
   public MultiValue<V> removeLast() {
     values.removeLast();

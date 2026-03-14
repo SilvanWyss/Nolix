@@ -5,7 +5,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.future.AbstractFuture;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
@@ -19,7 +18,7 @@ public final class Future extends AbstractFuture {
    * Creates a new {@link Future} with the given jobExecutor.
    * 
    * @param jobExecutor
-   * @throws ArgumentIsNullException if the given jobExecutor is null.
+   * @throws RuntimeException if the given jobExecutor is null.
    */
   private Future(final JobExecutor jobExecutor) {
     Validator.assertThat(jobExecutor).isNotNull();
@@ -30,7 +29,7 @@ public final class Future extends AbstractFuture {
   /**
    * @param jobExecutor
    * @return a new {@link Future} with the given jobExecutor.
-   * @throws ArgumentIsNullException if the given jobExecutor is null.
+   * @throws RuntimeException if the given jobExecutor is null.
    */
   public static Future forJobExecturor(final JobExecutor jobExecutor) {
     return new Future(jobExecutor);

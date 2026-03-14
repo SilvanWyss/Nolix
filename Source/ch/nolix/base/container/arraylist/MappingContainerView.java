@@ -10,7 +10,6 @@ import ch.nolix.base.container.base.AbstractContainer;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -30,8 +29,8 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * 
    * @param container
    * @param mapper
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given mapper is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given mapper is null.
    */
   private MappingContainerView(final IContainer<E> container, final Function<E, T> mapper) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
@@ -49,8 +48,8 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    *                  {@link MappingContainerView} maps from its elements.
    * @return a new {@link MappingContainerView} with the given container and
    *         mapper.
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given mapper is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given mapper is null.
    */
   public static <T, T2> MappingContainerView<T, T2> forContainerAndMapper(
     final AbstractContainer<T> container,

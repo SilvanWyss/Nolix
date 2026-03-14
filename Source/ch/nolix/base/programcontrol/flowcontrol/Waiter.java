@@ -5,7 +5,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
 
 /**
@@ -25,7 +24,7 @@ final class Waiter {
    * Waits for the given duractionInSeconds.
    * 
    * @param duractionInSeconds
-   * @throws NegativeArgumentException if the given duractionInSeconds is
+   * @throws RuntimeException if the given duractionInSeconds is
    *                                   negative.
    */
   public static void waitForSeconds(final int duractionInSeconds) {
@@ -39,7 +38,7 @@ final class Waiter {
    * Waits for the given durationInMilliseconds.
    * 
    * @param durationInMilliseconds
-   * @throws NegativeArgumentException if the given durationInMilliseconds is
+   * @throws RuntimeException if the given durationInMilliseconds is
    *                                   negative.
    */
   public static void waitForMilliseconds(final int durationInMilliseconds) {

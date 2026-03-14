@@ -30,7 +30,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * Creates a new {@link ImmutableList} with the given element.
    * 
    * @param element
-   * @throws ArgumentIsNullException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   @SuppressWarnings("unchecked")
   private ImmutableList(final E element) {
@@ -43,8 +43,8 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * Creates a new {@link ImmutableList} with the given elements.
    * 
    * @param elements
-   * @throws ArgumentIsNullException if the given element is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
+   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if one of the given elements is null.
    */
   private ImmutableList(final E[] elements) {
     Validator.assertThatTheElements(elements).areNotNull();
@@ -57,8 +57,8 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * Creates a new {@link ImmutableList} with the given elements.
    * 
    * @param elements
-   * @throws ArgumentIsNullException if the given element is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
+   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if one of the given elements is null.
    */
   @SuppressWarnings("unchecked")
   private ImmutableList(final Iterable<E> elements) {
@@ -112,8 +112,8 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @param <T>
    * @param iterable
    * @return a new {@link ImmutableList} with the elements of the given iterable.
-   * @throws ArgumentIsNullException if the given iterable is null.
-   * @throws ArgumentIsNullException if one of the elements of the given iterable
+   * @throws RuntimeException if the given iterable is null.
+   * @throws RuntimeException if one of the elements of the given iterable
    *                                 is null.
    */
   public static <T> ImmutableList<T> fromIterable(final Iterable<T> iterable) {
@@ -129,8 +129,8 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @param stream
    * @param <T>    is the type of the elements of the given stream.
    * @return a new {@link ImmutableList} with the elements from the given stream.
-   * @throws ArgumentIsNullException if the given stream is null.
-   * @throws ArgumentIsNullException if one of the elements of the given stream is
+   * @throws RuntimeException if the given stream is null.
+   * @throws RuntimeException if one of the elements of the given stream is
    *                                 null.
    */
   public static <T> ImmutableList<T> fromStream(final Stream<T> stream) {
@@ -143,7 +143,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @param element
    * @param <T>     is the type of the given element.
    * @return a new {@link ImmutableList} with the given element.
-   * @throws ArgumentIsNullException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   public static <T> ImmutableList<T> withElement(final T element) {
     return new ImmutableList<>(element);
@@ -153,8 +153,8 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link ImmutableList} with the given elements.
-   * @throws ArgumentIsNullException if the given elements is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
+   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if one of the given elements is null.
    */
   @SafeVarargs
   public static <T> ImmutableList<T> withElements(final T... elements) {

@@ -13,7 +13,6 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
@@ -46,7 +45,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
    * 
    * @param percentage
-   * @throws NegativeArgumentException if the given percentage is negative.
+   * @throws RuntimeException if the given percentage is negative.
    */
   private AbsoluteOrRelativeInt(final double percentage) {
     Validator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalog.PERCENTAGE).isNotNegative();
@@ -59,7 +58,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   /**
    * @param specification
    * @return a new {@link AbsoluteOrRelativeInt} from the given specification.
-   * @throws InvalidArgumentException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid.
    */
   public static AbsoluteOrRelativeInt fromSpecification(final INode<?> specification) {
     final var attribute = specification.getSingleChildNodeHeader();
@@ -82,7 +81,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   /**
    * @param percentage
    * @return a new {@link AbsoluteOrRelativeInt} with the given percentage.
-   * @throws NegativeArgumentException if the given percentage is negative.
+   * @throws RuntimeException if the given percentage is negative.
    */
   public static AbsoluteOrRelativeInt withPercentage(final double percentage) {
     return new AbsoluteOrRelativeInt(percentage);

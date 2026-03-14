@@ -8,7 +8,6 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -42,9 +41,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param direction
    * @param color1
    * @param color2
-   * @throws ArgumentIsNullException if the given direction is null.
-   * @throws ArgumentIsNullException if the given color 1 is null.
-   * @throws ArgumentIsNullException if the given color 2 is null.
+   * @throws RuntimeException if the given direction is null.
+   * @throws RuntimeException if the given color 1 is null.
+   * @throws RuntimeException if the given color 2 is null.
    */
   private ColorGradient(final Direction direction, final Color color1, final Color color2) {
     Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
@@ -59,7 +58,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param specification
    * @return a new {@link ColorGradient} from the given specification.
-   * @throws InvalidArgumentException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid.
    */
   public static ColorGradient fromSpecification(final INode<?> specification) {
     final var attributes = specification.getStoredChildNodes();
@@ -80,8 +79,8 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color1
    * @param color2
    * @return a new {@link ColorGradient} with the given color1 and color2.
-   * @throws ArgumentIsNullException if the given color1 is null.
-   * @throws ArgumentIsNullException if the given color2 is null.
+   * @throws RuntimeException if the given color1 is null.
+   * @throws RuntimeException if the given color2 is null.
    */
   public static ColorGradient withColors(final Color color1, final Color color2) {
     return new ColorGradient(DEFAULT_DIRECTION, color1, color2);
@@ -93,9 +92,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color2
    * @return a new {@link ColorGradient} with the given direction, color1 and
    *         color2.
-   * @throws ArgumentIsNullException if the given direction is null.
-   * @throws ArgumentIsNullException if the given color 1 is null.
-   * @throws ArgumentIsNullException if the given color 2 is null.
+   * @throws RuntimeException if the given direction is null.
+   * @throws RuntimeException if the given color 1 is null.
+   * @throws RuntimeException if the given color 2 is null.
    */
   public static ColorGradient withDirectionAndColors(
     final Direction direction,
@@ -107,7 +106,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
-   * @throws InvalidArgumentException if the given attributes are not valid.
+   * @throws RuntimeException if the given attributes are not valid.
    */
   private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
     final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
@@ -122,7 +121,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
-   * @throws InvalidArgumentException if the given attributes are not valid.
+   * @throws RuntimeException if the given attributes are not valid.
    */
   private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
     final var directionSpecification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));

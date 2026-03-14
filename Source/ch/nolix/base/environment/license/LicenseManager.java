@@ -4,8 +4,6 @@
 package ch.nolix.base.environment.license;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * Of the {@link LicenseManager} an instance cannot be created.
@@ -25,8 +23,8 @@ public final class LicenseManager {
    * Adds the given license to the {@link LicenseManager}.
    * 
    * @param license
-   * @throws ArgumentIsNullException  if the given license is null.
-   * @throws InvalidArgumentException if the {@link LicenseManager} contains
+   * @throws RuntimeException  if the given license is null.
+   * @throws RuntimeException if the {@link LicenseManager} contains
    *                                  already a {@link License} of the type the
    *                                  given license is.
    */
@@ -40,13 +38,13 @@ public final class LicenseManager {
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
-   * @throws ArgumentIsNullException  if the given licenseType is null.
+   * @throws RuntimeException  if the given licenseType is null.
    * @throws RuntimeException         if if there was not found a file with the
    *                                  key for a License of the given licenseType.
-   * @throws InvalidArgumentException if the given licenseType does not contain a
+   * @throws RuntimeException if the given licenseType does not contain a
    *                                  constructor with 1 {@link String} parameter.
-   * @throws InvalidArgumentException if the found key is not valid.
-   * @throws InvalidArgumentException if the {@link LicenseManager} contains
+   * @throws RuntimeException if the found key is not valid.
+   * @throws RuntimeException if the {@link LicenseManager} contains
    *                                  already a {@link License} of the given
    *                                  licenseType.
    */
@@ -73,7 +71,7 @@ public final class LicenseManager {
    * Removes the given license from the {@link LicenseManager}.
    * 
    * @param license
-   * @throws InvalidArgumentException if the {@link LicenseManager} does not
+   * @throws RuntimeException if the {@link LicenseManager} does not
    *                                  contain the given license.
    */
   public static void removeLicense(final License license) {

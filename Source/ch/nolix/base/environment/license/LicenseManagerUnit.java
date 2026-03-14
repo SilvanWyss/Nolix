@@ -16,8 +16,6 @@ import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
 import ch.nolix.baseapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -37,13 +35,13 @@ public final class LicenseManagerUnit {
    * @param licenseType
    * @param <L>         is the given licenseType.
    * @return the current {@link LicenseManagerUnit}.
-   * @throws ArgumentIsNullException  if the given licenseType is null.
+   * @throws RuntimeException  if the given licenseType is null.
    * @throws RuntimeException         if if there was not found a file with the
    *                                  key for a License of the given licenseType.
-   * @throws InvalidArgumentException if the given licenseType does not contain a
+   * @throws RuntimeException if the given licenseType does not contain a
    *                                  constructor with 1 {@link String} parameter.
-   * @throws InvalidArgumentException if the found key is not valid.
-   * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
+   * @throws RuntimeException if the found key is not valid.
+   * @throws RuntimeException if the current {@link LicenseManagerUnit}
    *                                  does contain already a {@link License} of
    *                                  the given licenseType.
    */
@@ -63,9 +61,9 @@ public final class LicenseManagerUnit {
    * 
    * @param license
    * @return the current {@link LicenseManagerUnit}.
-   * @throws ArgumentIsNullException  if the given license is null.
-   * @throws InvalidArgumentException if the given license is not activated.
-   * @throws InvalidArgumentException if the current {@link LicenseManagerUnit}
+   * @throws RuntimeException  if the given license is null.
+   * @throws RuntimeException if the given license is not activated.
+   * @throws RuntimeException if the current {@link LicenseManagerUnit}
    *                                  contains already a {@link License} of the
    *                                  type the given license is.
    */
@@ -172,7 +170,7 @@ public final class LicenseManagerUnit {
    * @param <L>         is the given licenseType.
    * @return the key of the license of the given licenseType from the license
    *         file. The license file is on the local computer.
-   * @throws ArgumentIsNullException if the given licenseType is null.
+   * @throws RuntimeException if the given licenseType is null.
    */
   private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
     //Asserts that the given licenseType is not null.

@@ -7,7 +7,6 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpoint2.IServer;
 import ch.nolix.baseapi.net.endpoint2.ISlot;
@@ -105,7 +104,7 @@ public abstract class AbstractServer implements IServer {
    * Lets the current {@link AbstractServer} take the given endPoint.
    * 
    * @param abstractEndPoint
-   * @throws ClosedArgumentException               if the given endPoint is
+   * @throws RuntimeException               if the given endPoint is
    *                                               closed.
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint does not
    *                                               have a target and the current
@@ -158,7 +157,7 @@ public abstract class AbstractServer implements IServer {
    * {@link AbstractServer}.
    * 
    * @param slot
-   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   * @throws RuntimeException if the current {@link AbstractServer}
    *                                  contains already a {@link ISlot} with the
    *                                  same name like the given slot.
    */
@@ -182,7 +181,7 @@ public abstract class AbstractServer implements IServer {
 
   /**
    * @param name
-   * @throws InvalidArgumentException if the current {@link AbstractServer}
+   * @throws RuntimeException if the current {@link AbstractServer}
    *                                  contains already a {@link ISlot} with the
    *                                  same name as the given slot.
    */

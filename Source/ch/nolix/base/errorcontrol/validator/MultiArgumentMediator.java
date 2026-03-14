@@ -25,7 +25,7 @@ public class MultiArgumentMediator<A> {
    * Creates a new multi argument mediator with the given arguments.
    * 
    * @param arguments
-   * @throws ArgumentIsNullException if the given arguments is null..
+   * @throws RuntimeException if the given arguments is null..
    */
   MultiArgumentMediator(final Iterable<A> arguments) {
     //Asserts that the given arguments is not null.
@@ -41,7 +41,7 @@ public class MultiArgumentMediator<A> {
    * Creates a new multi argument mediator with the given arguments.
    * 
    * @param arguments
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   MultiArgumentMediator(final A[] arguments) {
     //Calls other constructor.
@@ -49,7 +49,7 @@ public class MultiArgumentMediator<A> {
   }
 
   /**
-   * @throws ArgumentIsNullException if one of the arguments of this multi
+   * @throws RuntimeException if one of the arguments of this multi
    *                                 argument mediator is null.
    */
   public final void areNotNull() {
@@ -68,8 +68,8 @@ public class MultiArgumentMediator<A> {
 
   /**
    * @param condition
-   * @throws ArgumentIsNullException  if the given condition is null.
-   * @throws InvalidArgumentException if an argument of this argument container
+   * @throws RuntimeException  if the given condition is null.
+   * @throws RuntimeException if an argument of this argument container
    *                                  does not fulfill the given condition.
    */
   public final void fulfill(final Predicate<A> condition) {

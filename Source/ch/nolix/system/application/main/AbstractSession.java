@@ -6,7 +6,6 @@ package ch.nolix.system.application.main;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.component.applicationcomponent.IClientComponent;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.trigger.IRefreshableSubscriber;
@@ -54,7 +53,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
 
   /**
    * @return the parent client of the current {@link AbstractSession}.
-   * @throws InvalidArgumentException if the current {@link AbstractSession} does
+   * @throws RuntimeException if the current {@link AbstractSession} does
    *                                  not belong to a client.
    */
   @Override
@@ -92,7 +91,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractClient} with the given result.
    * 
    * @param result
-   * @throws ArgumentIsNullException if the given result is null.
+   * @throws RuntimeException if the given result is null.
    */
   public final void pop(final Object result) {
     getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
@@ -103,7 +102,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractSession}.
    * 
    * @param session
-   * @throws ArgumentIsNullException if the given session is null.
+   * @throws RuntimeException if the given session is null.
    */
   public final void push(final AbstractSession<C, S> session) {
     getStoredParentClient().internalPush(session);
@@ -116,7 +115,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * @param session
    * @param <R>     is the type of the returned result.
    * @return the result from the given session.
-   * @throws ArgumentIsNullException if the given session is null.
+   * @throws RuntimeException if the given session is null.
    */
   public final <R> R pushAndGetResult(final AbstractSession<C, S> session) {
     return getStoredParentClient().internalPushAndGetResult(session);
@@ -130,7 +129,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractSession}.
    * 
    * @param session
-   * @throws ArgumentIsNullException if the given session is null.
+   * @throws RuntimeException if the given session is null.
    */
   public final void setNext(final AbstractSession<C, S> session) {
     getStoredParentClient().internalSetCurrentSession(session);
@@ -166,8 +165,8 @@ implements IClientComponent<C>, IRefreshableSubscriber {
    * Sets the parent client of the current {@link AbstractSession}.
    * 
    * @param parentClient
-   * @throws ArgumentIsNullException  if the given parent client is null.
-   * @throws InvalidArgumentException if the current {@link AbstractSession}
+   * @throws RuntimeException  if the given parent client is null.
+   * @throws RuntimeException if the current {@link AbstractSession}
    *                                  belongs to a client.
    */
   final void internalSetParentClient(C parentClient) {
@@ -188,7 +187,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractSession} does
+   * @throws RuntimeException if the current {@link AbstractSession} does
    *                                  not belong to a client.
    */
   private void assertBelongsToClient() {
@@ -199,7 +198,7 @@ implements IClientComponent<C>, IRefreshableSubscriber {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractSession}
+   * @throws RuntimeException if the current {@link AbstractSession}
    *                                  belongs to a client.
    */
   private void assertDoesNotBelongToClient() {

@@ -8,7 +8,6 @@ import java.util.Arrays;
 import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.independent.math.NumberComparator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
@@ -149,7 +148,7 @@ public final class Vector {
   /**
    * @param oneBasedIndex
    * @return the value of the current {@link Vector} at the given oneBasedIndex.
-   * @throws ArgumentIsOutOfRangeException if the given oneBasedIndex is not
+   * @throws RuntimeException if the given oneBasedIndex is not
    *                                       positive or the given oneBasedIndex is
    *                                       bigger than the size of the current
    *                                       {@link Vector}.

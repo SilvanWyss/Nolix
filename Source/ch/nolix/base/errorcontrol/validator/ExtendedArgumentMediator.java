@@ -3,9 +3,6 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-
 /**
  * An extended generic argument mediator is not mutable.
  * 
@@ -37,8 +34,8 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
    * @param argumentName
    * @return a new generic argument mediator with the given argument name and for
    *         the argument of this extended generic argument mediator.
-   * @throws ArgumentIsNullException if the given argument name is null.
-   * @throws EmptyArgumentException  if the given argument name is empty.
+   * @throws RuntimeException if the given argument name is null.
+   * @throws RuntimeException  if the given argument name is empty.
    */
   public ArgumentMediator<A> thatIsNamed(final String argumentName) {
     return new ArgumentMediator<>(argumentName, getStoredArgument());

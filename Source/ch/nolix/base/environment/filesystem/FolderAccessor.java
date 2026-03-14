@@ -26,7 +26,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * Creates a new {@link FolderAccessor} for the folder with the given path.
    * 
    * @param path
-   * @throws InvalidArgumentException if there does not exist a folder with the
+   * @throws RuntimeException if there does not exist a folder with the
    *                                  given path in the file system on the local
    *                                  machine.
    */
@@ -58,7 +58,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * 
    * @param relativePath
    * @return a new {@link FileAccessor} for the created file.
-   * @throws InvalidArgumentException if there exists already a file system item
+   * @throws RuntimeException if there exists already a file system item
    *                                  with the given relative path in the folder
    *                                  of the current {@link FolderAccessor}.
    */
@@ -72,7 +72,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * 
    * @param relativePath
    * @return a new {@link FolderAccessor} for the created folder.
-   * @throws InvalidArgumentException if there exists alreay a file system item
+   * @throws RuntimeException if there exists alreay a file system item
    *                                  with the given relative path in the folder
    *                                  of the current {@link FolderAccessor}.
    */
@@ -154,7 +154,7 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * 
    * @param relativePath
    * @return the content of the file with the given relative path.
-   * @throws InvalidArgumentException if there does not exist a file with the
+   * @throws RuntimeException if there does not exist a file with the
    *                                  given relative path in the folder of the
    *                                  current {@link FolderAccessor}.
    * @throws RuntimeException         if an error occurs.

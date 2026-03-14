@@ -17,8 +17,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint3protocol.MessageHeaderCatalog;
@@ -73,7 +71,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param ip
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public NetEndPoint(final String ip, final int port) {
     //Calls other constructor.
@@ -87,9 +85,9 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param ip
    * @param port
    * @param targetSlot
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given targetSlot is null.
-   * @throws InvalidArgumentException      if the given targetSlot is blank.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException       if the given targetSlot is null.
+   * @throws RuntimeException      if the given targetSlot is blank.
    */
   public NetEndPoint(final String ip, final int port, final String targetSlot) {
     //Calls other constructor.
@@ -100,7 +98,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
    * @param internalEndPoint
-   * @throws ArgumentIsNullException if the given internalEndPoint is null.
+   * @throws RuntimeException if the given internalEndPoint is null.
    */
   NetEndPoint(final ch.nolix.baseapi.net.endpoint2.IEndPoint internalEndPoint) {
     //Asserts that the given internalEndPoint is not null.

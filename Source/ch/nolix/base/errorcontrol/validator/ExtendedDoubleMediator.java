@@ -3,9 +3,6 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-
 /**
  * An extended double mediator is not mutable.
  * 
@@ -26,8 +23,8 @@ public class ExtendedDoubleMediator extends DoubleMediator {
    * @param argumentName
    * @return a new double mediator with the given argument name for the argument
    *         of this extended double mediator.
-   * @throws ArgumentIsNullException if the given argument name is null.
-   * @throws EmptyArgumentException  if the given argument name is empty.
+   * @throws RuntimeException if the given argument name is null.
+   * @throws RuntimeException  if the given argument name is empty.
    */
   public DoubleMediator thatIsNamed(final String argumentName) {
     return new DoubleMediator(argumentName, getArgument());

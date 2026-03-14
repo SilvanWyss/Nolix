@@ -15,10 +15,8 @@ import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 
@@ -58,8 +56,8 @@ implements ILinkedList<E> {
    * @param array
    * @param <T>   is the type of the elements of the given array.
    * @return a new {@link LinkedList} with the elements in the given array.
-   * @throws ArgumentIsNullException if the given array is null.
-   * @throws ArgumentIsNullException if one of the elements in the given array is
+   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if one of the elements in the given array is
    *                                 null.
    */
   public static <T> LinkedList<T> fromArray(final T[] array) {
@@ -75,8 +73,8 @@ implements ILinkedList<E> {
    * @param container
    * @param <T>       is the type of the elements of the given container.
    * @return a new {@link LinkedList} with the elements in the given container.
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if one of the elements in the given container
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if one of the elements in the given container
    *                                 is null.
    */
   public static <T> LinkedList<T> fromIterable(final Iterable<T> container) {
@@ -91,7 +89,7 @@ implements ILinkedList<E> {
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link LinkedList} with the given elements.
-   * @throws ArgumentIsNullException if the given element or one of the given
+   * @throws RuntimeException if the given element or one of the given
    *                                 elements is null.
    */
   @SuppressWarnings("unchecked")
@@ -240,7 +238,7 @@ implements ILinkedList<E> {
    * complexity of this implementation is O(n) if n elements are given.
    * 
    * @param elements
-   * @throws ArgumentIsNullException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null.
    */
   @Override
   public void addAtEnd(final Iterable<? extends E> elements) {
@@ -320,7 +318,7 @@ implements ILinkedList<E> {
    * 
    * @param oneBasedIndex
    * @return the element at the given index.
-   * @throws NonPositiveArgumentException          if the given index is not
+   * @throws RuntimeException          if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbstractContainer} does
@@ -653,7 +651,7 @@ implements ILinkedList<E> {
   }
 
   /**
-   * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
+   * @throws RuntimeException if the current {@link LinkedList} is empty.
    */
   private void assertContainsAny() {
     if (isEmpty()) {
@@ -743,7 +741,7 @@ implements ILinkedList<E> {
    * Removes the next node of the given node.
    * 
    * @param node
-   * @throws ArgumentIsNullException               if the given node is null.
+   * @throws RuntimeException               if the given node is null.
    * @throws ArgumentDoesNotHaveAttributeException if the given node does not have
    *                                               a next node.
    */

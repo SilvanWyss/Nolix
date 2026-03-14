@@ -8,10 +8,6 @@ import ch.nolix.base.math.algebra.Matrix;
 import ch.nolix.base.math.algebra.Polynom;
 import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.math.stochastic.ARModel;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -97,7 +93,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the average of the given values.
-   * @throws EmptyArgumentException if the given values is empty.
+   * @throws RuntimeException if the given values is empty.
    */
   public static double getAverage(final Iterable<Double> values) {
     return BASIC_CALCULATOR.getAverage(values);
@@ -116,7 +112,7 @@ public final class Calculator {
    * @param value
    * @param values
    * @return the average of the given values.
-   * @throws EmptyArgumentException if the given values is empty.
+   * @throws RuntimeException if the given values is empty.
    */
   public static long getAverage(final long value, final long... values) {
     return BASIC_CALCULATOR.getAverage(value, values);
@@ -126,7 +122,7 @@ public final class Calculator {
    * @param pOrder
    * @param inputValues
    * @return a new {@link ARModel} with the given pOrder and inputValues.
-   * @throws NegativeArgumentException if the given pOrder is negative.
+   * @throws RuntimeException if the given pOrder is negative.
    */
   public static ARModel getARModell(final int pOrder, final double[] inputValues) {
     return new ARModel(pOrder, inputValues);
@@ -138,10 +134,10 @@ public final class Calculator {
    * @param yValues
    * @return a new {@link Polynom} that has the given degree and fits the given
    *         values
-   * @throws NegativeArgumentException if the given degree is negative.
-   * @throws BiggerArgumentException   if the given degree is bigger than the
+   * @throws RuntimeException if the given degree is negative.
+   * @throws RuntimeException   if the given degree is bigger than the
    *                                   count of the given xValues.
-   * @throws InvalidArgumentException  if the count of the given yValues does not
+   * @throws RuntimeException  if the count of the given yValues does not
    *                                   equal the count of the given xValues.
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {

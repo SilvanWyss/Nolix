@@ -6,7 +6,6 @@ package ch.nolix.base.resourcecontrol.closecontroller;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
@@ -23,7 +22,7 @@ final class ClosePool implements IClosePool {
    * Creates a new {@link ClosePool} with the given element.
    * 
    * @param element
-   * @throws ArgumentIsNullException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   public ClosePool(final GroupCloseable element) {
     addElement(element);
@@ -32,7 +31,7 @@ final class ClosePool implements IClosePool {
   /**
    * @param element
    * @return a new {@link ClosePool} with the given element.
-   * @throws ArgumentIsNullException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   public static ClosePool forElement(final GroupCloseable element) {
     return new ClosePool(element);
@@ -76,8 +75,8 @@ final class ClosePool implements IClosePool {
    * Adds the given element to the current {@link ClosePool}.
    * 
    * @param element
-   * @throws ArgumentIsNullException          if the given element is null.
-   * @throws ArgumentContainsElementException if the current {@link ClosePool}
+   * @throws RuntimeException          if the given element is null.
+   * @throws RuntimeException if the current {@link ClosePool}
    *                                          contains already the given element.
    */
   private void addElement(GroupCloseable element) {
@@ -88,7 +87,7 @@ final class ClosePool implements IClosePool {
 
   /**
    * @param element
-   * @throws ArgumentContainsElementException if the current {@link ClosePool}
+   * @throws RuntimeException if the current {@link ClosePool}
    *                                          contains the given element.
    */
   private void assertDoesNotContainElement(final GroupCloseable element) {

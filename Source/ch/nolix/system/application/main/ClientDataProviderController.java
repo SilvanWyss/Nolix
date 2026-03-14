@@ -10,7 +10,6 @@ import ch.nolix.base.net.endpoint3.AbstractEndPoint;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.net.endpoint3.IDataProviderController;
 
 /**
@@ -27,7 +26,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * parentClient.
    * 
    * @param parentClient
-   * @throws ArgumentIsNullException if the given parentClient is null.
+   * @throws RuntimeException if the given parentClient is null.
    */
   public ClientDataProviderController(final AbstractClient<?> parentClient) {
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();

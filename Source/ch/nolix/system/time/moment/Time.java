@@ -12,8 +12,6 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -61,7 +59,7 @@ extends AbstractElement implements ITime {
    * Creates a new {@link Time} with the given zonedDateTime.
    * 
    * @param zonedDateTime
-   * @throws ArgumentIsNullException if the given zonedDateTime is null.
+   * @throws RuntimeException if the given zonedDateTime is null.
    */
   private Time(final ZonedDateTime zonedDateTime) {
     Validator.assertThat(zonedDateTime).thatIsNamed(ZonedDateTime.class).isNotNull();
@@ -73,7 +71,7 @@ extends AbstractElement implements ITime {
    * @return a new {@link Time} for the given zonedDateTime.
    * 
    * @param zonedDateTime
-   * @throws ArgumentIsNullException if the given zonedDateTime is null.
+   * @throws RuntimeException if the given zonedDateTime is null.
    */
   public static Time forZonedDateTime(final ZonedDateTime zonedDateTime) {
     return new Time(zonedDateTime);
@@ -83,7 +81,7 @@ extends AbstractElement implements ITime {
    * @param specification
    * @return a new {@link Time} from the given specification.
    * @throws NullPointerException     if the given specification is null.
-   * @throws InvalidArgumentException if the given specification does not
+   * @throws RuntimeException if the given specification does not
    *                                  represent a {@link Time}.
    */
   public static Time fromSpecification(final INode<?> specification) {
@@ -93,7 +91,7 @@ extends AbstractElement implements ITime {
   /**
    * @param string
    * @return a new {@link Time} from the given string.
-   * @throws InvalidArgumentException if the given string does not represent a
+   * @throws RuntimeException if the given string does not represent a
    *                                  {@link Time}.
    */
   public static Time fromString(final String string) {

@@ -4,8 +4,6 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpoint3.IEndPoint;
 import ch.nolix.baseapi.net.endpoint3.ISlot;
@@ -24,9 +22,9 @@ final class ServerSlot implements ISlot {
    * 
    * @param name
    * @param parentServer
-   * @throws ArgumentIsNullException  if given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given parentServer is null.
+   * @throws RuntimeException  if given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given parentServer is null.
    */
   public ServerSlot(final String name, final AbstractServer<?> parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();

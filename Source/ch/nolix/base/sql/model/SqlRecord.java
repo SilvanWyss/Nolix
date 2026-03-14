@@ -28,9 +28,9 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * 
    * @param oneBasedIndex
    * @param values
-   * @throws NonPositiveArgumentException if the given oneBasedIndex is not
+   * @throws RuntimeException if the given oneBasedIndex is not
    *                                      positive.
-   * @throws ArgumentIsNullException      if the given values is null.
+   * @throws RuntimeException      if the given values is null.
    */
   private SqlRecord(final int oneBasedIndex, final ImmutableList<String> values) {
     if (oneBasedIndex < 1) {
@@ -50,9 +50,9 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * @param oneBasedIndex
    * @param value
    * @return a new {@link SqlRecord} with the given oneBasedIndex and value.
-   * @throws NonPositiveArgumentException if the given oneBasedIndex is not
+   * @throws RuntimeException if the given oneBasedIndex is not
    *                                      positive.
-   * @throws ArgumentIsNullException      if the given value is null.
+   * @throws RuntimeException      if the given value is null.
    */
   public static SqlRecord withOneBasedIndexAndValue(final int oneBasedIndex, final String value) {
     final var values = ImmutableList.withElements(value);
@@ -64,10 +64,10 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
    * @param oneBasedIndex
    * @param values
    * @return a new {@link SqlRecord} with the oneBasedIndex and given values.
-   * @throws NonPositiveArgumentException if the given oneBasedIndex is not
+   * @throws RuntimeException if the given oneBasedIndex is not
    *                                      positive.
-   * @throws ArgumentIsNullException      if the given values is null.
-   * @throws ArgumentIsNullException      if one of the given values is null.
+   * @throws RuntimeException      if the given values is null.
+   * @throws RuntimeException      if one of the given values is null.
    */
   public static SqlRecord withOneBasedIndexAndValues(final int oneBasedIndex, final Iterable<String> values) {
     return new SqlRecord(oneBasedIndex, ImmutableList.fromIterable(values));

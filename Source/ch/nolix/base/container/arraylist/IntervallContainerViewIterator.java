@@ -9,9 +9,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -35,10 +32,10 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    * @param parentContainer
    * @param startIndex
    * @param endIndex
-   * @throws ArgumentIsNullException      if the given parentContainer is null.
-   * @throws NonPositiveArgumentException if the given startIndex is not positive.
-   * @throws NonPositiveArgumentException if the given endIndex is not positive.
-   * @throws SmallerArgumentException     if the given endIndex is not bigger than
+   * @throws RuntimeException      if the given parentContainer is null.
+   * @throws RuntimeException if the given startIndex is not positive.
+   * @throws RuntimeException if the given endIndex is not positive.
+   * @throws RuntimeException     if the given endIndex is not bigger than
    *                                      the given startIndex or does not equal
    *                                      the given startIndex.
    */
@@ -69,10 +66,10 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    *                        {@link IntervallContainerViewIterator}.
    * @return a new {@link IntervallContainerViewIterator} for the given
    *         parentContainer, startIndex and endIndex.
-   * @throws ArgumentIsNullException      if the given parentContainer is null.
-   * @throws NonPositiveArgumentException if the given startIndex is not positive.
-   * @throws NonPositiveArgumentException if the given endIndex is not positive.
-   * @throws SmallerArgumentException     if the given endIndex is not bigger than
+   * @throws RuntimeException      if the given parentContainer is null.
+   * @throws RuntimeException if the given startIndex is not positive.
+   * @throws RuntimeException if the given endIndex is not positive.
+   * @throws RuntimeException     if the given endIndex is not bigger than
    *                                      the given startIndex or does not equal
    *                                      the given startIndex.
    */

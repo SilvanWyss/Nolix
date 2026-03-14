@@ -5,8 +5,6 @@ package ch.nolix.base.net.endpoint;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
@@ -28,8 +26,8 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Creates a new {@link AbstractNetEndPoint} with the given targetInfoState.
    * 
    * @param targetInfoState
-   * @throws ArgumentIsNullException if the given connectionOrigin is null.
-   * @throws ArgumentIsNullException if the given targetInfoState is null.
+   * @throws RuntimeException if the given connectionOrigin is null.
+   * @throws RuntimeException if the given targetInfoState is null.
    */
   AbstractNetEndPoint(final TargetInfoState targetInfoState) {
     //Asserts that the given targetInfoState is not null.
@@ -44,9 +42,9 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Creates a new {@link AbstractNetEndPoint} with the given target.
    * 
    * @param target
-   * @throws ArgumentIsNullException  if the given connectionOrigin is null.
-   * @throws ArgumentIsNullException  if the given target is null.
-   * @throws InvalidArgumentException if the given target is blank.
+   * @throws RuntimeException  if the given connectionOrigin is null.
+   * @throws RuntimeException  if the given target is null.
+   * @throws RuntimeException if the given target is blank.
    */
   AbstractNetEndPoint(final String target) {
     //Calls constructor of the base class.
@@ -111,7 +109,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
   /**
    * Confirms that the current {@link AbstractNetEndPoint} has a target info.
    * 
-   * @throws InvalidArgumentException if the current {@link AbstractNetEndPoint}
+   * @throws RuntimeException if the current {@link AbstractNetEndPoint}
    *                                  has already a target info.
    */
   private void confirmReceivedTargetInfo() {
@@ -140,7 +138,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Lets the current {@link AbstractNetEndPoint} receive the given message.
    * 
    * @param message
-   * @throws ClosedArgumentException if the current {@link AbstractNetEndPoint} is
+   * @throws RuntimeException if the current {@link AbstractNetEndPoint} is
    *                                 closed.
    */
   private void receiveMessage(final String message) {
@@ -154,7 +152,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Lets the current {@link AbstractNetEndPoint} receive the given rawMessage.
    * 
    * @param rawMessage
-   * @throws InvalidArgumentException if the given rawMessage is not valid.
+   * @throws RuntimeException if the given rawMessage is not valid.
    */
   void receiveRawMessage(final String rawMessage) {
     //Determinate the message type of the given rawMessage.

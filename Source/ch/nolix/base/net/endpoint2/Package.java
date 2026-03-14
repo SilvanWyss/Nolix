@@ -4,7 +4,6 @@
 package ch.nolix.base.net.endpoint2;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.net.endpoint2protocol.MessageRole;
 
 /**
@@ -22,8 +21,8 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
    * @param index
    * @param messageRole
    * @param message
-   * @throws ArgumentIsNullException if the given message role is null.
-   * @throws ArgumentIsNullException if the given message is null.
+   * @throws RuntimeException if the given message role is null.
+   * @throws RuntimeException if the given message is null.
    */
   public Package(final int index, final MessageRole messageRole, final String message) {
     //Calls constructor of the base class.

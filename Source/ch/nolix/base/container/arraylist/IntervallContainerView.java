@@ -7,10 +7,6 @@ import ch.nolix.base.container.base.AbstractContainer;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -39,12 +35,12 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @param container
    * @param startIndex
    * @param endIndex
-   * @throws ArgumentIsNullException      if the given container is null.
-   * @throws NonPositiveArgumentException if the given startIndex is not positive.
-   * @throws NonPositiveArgumentException if the given endIndex is not positive.
-   * @throws SmallerArgumentException     if the given endIndex is smaller than
+   * @throws RuntimeException      if the given container is null.
+   * @throws RuntimeException if the given startIndex is not positive.
+   * @throws RuntimeException if the given endIndex is not positive.
+   * @throws RuntimeException     if the given endIndex is smaller than
    *                                      the given startIndex.
-   * @throws BiggerArgumentException      if the given endIndex is bigger than the
+   * @throws RuntimeException      if the given endIndex is bigger than the
    *                                      number of elements of the given
    *                                      container.
    */
@@ -76,12 +72,12 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    *                   {@link IntervallContainerView}.
    * @return a new {@link IntervallContainerView} with the given container,
    *         startIndex and endIndex.
-   * @throws ArgumentIsNullException      if the given container is null.
-   * @throws NonPositiveArgumentException if the given startIndex is not positive.
-   * @throws NonPositiveArgumentException if the given endIndex is not positive.
-   * @throws SmallerArgumentException     if the given endIndex is smaller than
+   * @throws RuntimeException      if the given container is null.
+   * @throws RuntimeException if the given startIndex is not positive.
+   * @throws RuntimeException if the given endIndex is not positive.
+   * @throws RuntimeException     if the given endIndex is smaller than
    *                                      the given startIndex.
-   * @throws BiggerArgumentException      if the given endIndex is bigger than the
+   * @throws RuntimeException      if the given endIndex is bigger than the
    *                                      number of elements of the given
    *                                      container.
    */

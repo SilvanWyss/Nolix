@@ -7,8 +7,6 @@ import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
 
@@ -30,8 +28,8 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws ArgumentIsNullException   if the given condition is null.
-   * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
+   * @throws RuntimeException   if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
   AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
@@ -50,9 +48,9 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param maxRunCount
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws NegativeArgumentException if the given max run count is negative.
-   * @throws ArgumentIsNullException   if the given condition is null.
-   * @throws NegativeArgumentException if the given timeIntervalInMillisecondss is
+   * @throws RuntimeException if the given max run count is negative.
+   * @throws RuntimeException   if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMillisecondss is
    *                                   negative.
    */
   AfterEveryMediator(
@@ -132,7 +130,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param job
    * @return a new {@link Future}.
-   * @throws ArgumentIsNullException if the given job is null.
+   * @throws RuntimeException if the given job is null.
    */
   private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable job) {
     //Handles the case that the current AfterAllMediator does not have a condition.
@@ -150,7 +148,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param job
    * @return a new {@link Future}.
-   * @throws ArgumentIsNullException if the given job is null.
+   * @throws RuntimeException if the given job is null.
    */
   private Future runInBackgroundWhenHasMaxRunConunt(final Runnable job) {
     //Handles the case that the current AfterAllMediator does not have a condition.

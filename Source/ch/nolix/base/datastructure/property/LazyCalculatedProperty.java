@@ -8,7 +8,6 @@ import java.util.function.Supplier;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.datastructure.property.ILazyCalculatedProperty;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * @author Silvan Wyss
@@ -27,8 +26,8 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * 
    * @param valueCreator
    * @param needToUpdateSupplier
-   * @throws ArgumentIsNullException if the given valueCreator is null.
-   * @throws ArgumentIsNullException if the given needToUpdateSupplier is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given needToUpdateSupplier is null.
    */
   private LazyCalculatedProperty(final Supplier<V> valueCreator, final BooleanSupplier needToUpdateSupplier) {
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -45,8 +44,8 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    *                             {@link LazyCalculatedProperty}.
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator and
    *         needToUpdateSupplier.
-   * @throws ArgumentIsNullException if the given valueCreator is null.
-   * @throws ArgumentIsNullException if the given needToUpdateSupplier is null.
+   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given needToUpdateSupplier is null.
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreaterAndNeedToUpdateSupplier(
     final Supplier<V2> valueCreator,
@@ -59,7 +58,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * @param <V2>         is the type of the value of the created
    *                     {@link LazyCalculatedProperty}.
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator.
-   * @throws ArgumentIsNullException if the given valueCreator is null.
+   * @throws RuntimeException if the given valueCreator is null.
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreater(final Supplier<V2> valueCreator) {
     final BooleanSupplier needToUpdateSupplier = () -> true;

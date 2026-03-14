@@ -24,8 +24,8 @@ public final class ResourceValidator {
 
   /**
    * @param resource
-   * @throws ArgumentIsNullException if the given resource is null.
-   * @throws ClosedArgumentException if the given resource is closed.
+   * @throws RuntimeException if the given resource is null.
+   * @throws RuntimeException if the given resource is closed.
    */
   public static void assertIsOpen(final CloseStateRequestable resource) {
     if (resource == null) {

@@ -10,8 +10,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -38,8 +36,8 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   /**
    * @param filePath
    * @return a new {@link MutableNode} from the file with the given filePath.
-   * @throws InvalidArgumentException        if the given filePath is not valid.
-   * @throws UnrepresentingArgumentException if the file with the given filePath
+   * @throws RuntimeException        if the given filePath is not valid.
+   * @throws RuntimeException if the file with the given filePath
    *                                         does not represent a
    *                                         {@link MutableNode}.
    */
@@ -69,7 +67,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
   /**
    * @param string
    * @return a new {@link MutableNode} from the given string.
-   * @throws UnrepresentingArgumentException if the given string does not
+   * @throws RuntimeException if the given string does not
    *                                         represent a {@link MutableNode}.
    */
   public static MutableNode fromString(final String string) {

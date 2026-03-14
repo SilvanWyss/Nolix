@@ -8,8 +8,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.net.endpoint3.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
@@ -63,7 +61,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Creates a new local duplex controller with the given counterpart.
    * 
    * @param counterpart
-   * @throws ArgumentIsNullException if the given counterpart is null.
+   * @throws RuntimeException if the given counterpart is null.
    */
   private LocalEndPoint(LocalEndPoint counterpart) {
     peerType = PeerType.BACKEND;
@@ -85,8 +83,8 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * 
    * @param counterpart
    * @param target
-   * @throws ArgumentIsNullException if the given target is null.
-   * @throws EmptyArgumentException  if the given target is empty.
+   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException  if the given target is empty.
    */
   private LocalEndPoint(
     final LocalEndPoint counterpart,

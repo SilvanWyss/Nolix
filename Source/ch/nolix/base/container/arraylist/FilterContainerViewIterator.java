@@ -8,7 +8,6 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontypetool.iteratorvalidator.IteratorValidator;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -31,8 +30,8 @@ public final class FilterContainerViewIterator<E> implements CopyableIterator<E>
    * 
    * @param iterator
    * @param selector
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given selector is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given selector is null.
    */
   private FilterContainerViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();

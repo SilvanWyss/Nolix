@@ -5,7 +5,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.future.AbstractFuture;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.programcontrol.future.IResultFuture;
 
@@ -20,7 +19,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    * Creates a new {@link ResultFuture} with the given resultJobRunner.
    * 
    * @param resultJobRunner
-   * @throws ArgumentIsNullException if the given resultJobRunner is null.
+   * @throws RuntimeException if the given resultJobRunner is null.
    */
   ResultFuture(final ResultJobExecutor<R> resultJobRunner) {
     //Asserts that the given resultJobRunner is not null.

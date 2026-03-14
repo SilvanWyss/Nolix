@@ -6,7 +6,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.IntConsumer;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IForCountMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
@@ -23,7 +22,7 @@ public final class ForCountMediator implements IForCountMediator {
    * Creates a new {@link ForCountMediator} with the given maxRunCount.
    * 
    * @param maxRunCount
-   * @throws NegativeArgumentException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative.
    */
   private ForCountMediator(final int maxRunCount) {
     Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -34,7 +33,7 @@ public final class ForCountMediator implements IForCountMediator {
   /**
    * @param maxRunCount
    * @return a new {@link ForCountMediator} with the given maxRunCount.
-   * @throws NegativeArgumentException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative.
    */
   public static ForCountMediator forMaxRunCount(final int maxRunCount) {
     return new ForCountMediator(maxRunCount);

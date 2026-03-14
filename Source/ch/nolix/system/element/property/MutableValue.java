@@ -8,8 +8,6 @@ import java.util.function.Function;
 
 import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss
@@ -25,12 +23,12 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given defaultValue is null.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given defaultValue is null.
+   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given valueCreator is null.
+   * @throws RuntimeException  if the given specificationCreator is null.
    */
   public MutableValue(
     final String name,
@@ -50,9 +48,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link Boolean} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static MutableValue<Boolean> forBoolean(
     final String name,
@@ -68,9 +66,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link Double} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static MutableValue<Double> forDouble(
     final String name,
@@ -85,9 +83,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link Integer} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static MutableValue<Integer> forInt(
     final String name,
@@ -102,9 +100,9 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link MutableValue} that will store a {@link String} and have
    *         the given name, defaultValue and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static MutableValue<String> forString(
     final String name,

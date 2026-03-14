@@ -3,8 +3,6 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
@@ -23,9 +21,9 @@ public final class DoubleDeviationMediator extends Mediator {
    * @param argumentName
    * @param argument
    * @param maxDeviation
-   * @throws ArgumentIsNullException   if the given argument name is null.
-   * @throws EmptyArgumentException    if the given argument name is empty.
-   * @throws NegativeArgumentException if the given max deviation is negative.
+   * @throws RuntimeException   if the given argument name is null.
+   * @throws RuntimeException    if the given argument name is empty.
+   * @throws RuntimeException if the given max deviation is negative.
    */
   DoubleDeviationMediator(
     final String argumentName,

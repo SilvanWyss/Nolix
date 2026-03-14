@@ -5,7 +5,6 @@ package ch.nolix.base.errorcontrol.validator;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.independent.list.List;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 
 /**
@@ -20,7 +19,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
    * Creates a new long container mediator with the given arguments.
    * 
    * @param arguments
-   * @throws ArgumentIsNullException if the given argument container is null.
+   * @throws RuntimeException if the given argument container is null.
    */
   public MultiLongMediator(final Iterable<Long> arguments) {
     //Calls constructor of the base class.
@@ -43,9 +42,9 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
   }
 
   /**
-   * @throws ArgumentIsNullException      if one of the arguments of this long
+   * @throws RuntimeException      if one of the arguments of this long
    *                                      container mediator is null.
-   * @throws NonPositiveArgumentException if one of the arguments of this long
+   * @throws RuntimeException if one of the arguments of this long
    *                                      container mediator is not positive.
    */
   public void arePositive() {

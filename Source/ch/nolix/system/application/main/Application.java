@@ -17,8 +17,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToP
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpoint3.IEndPoint;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.baseapi.net.target.IServerTarget;
@@ -45,7 +43,7 @@ implements IApplication<C, S> {
    * Creates a new {@link Application} with the given applicationService.
    * 
    * @param applicationService
-   * @throws ArgumentIsNullException if the given applicationService is null.
+   * @throws RuntimeException if the given applicationService is null.
    */
   protected Application(final S applicationService) {
     Validator.assertThat(applicationService).thatIsNamed("application service").isNotNull();
@@ -175,9 +173,9 @@ implements IApplication<C, S> {
    * Sets the given nameAddendix to the current {@link Application}.
    * 
    * @param nameAddendix
-   * @throws ArgumentIsNullException       if the given nameAddendix is null
-   * @throws InvalidArgumentException      if the given nameAddendix is blank.
-   * @throws ArgumentHasAttributeException if the current {@link Application} has
+   * @throws RuntimeException       if the given nameAddendix is null
+   * @throws RuntimeException      if the given nameAddendix is blank.
+   * @throws RuntimeException if the current {@link Application} has
    *                                       already an instance name.
    */
   final void setNameAppendix(final String nameAddendix) {
@@ -192,7 +190,7 @@ implements IApplication<C, S> {
    * Sets the parent {@link AbstractServer} of the current {@link Application}.
    * 
    * @param parentServer
-   * @throws ArgumentBelongsToParentException if the current {@link Application}
+   * @throws RuntimeException if the current {@link Application}
    *                                          belongs already to a
    *                                          {@link AbstractServer}.
    */
@@ -204,7 +202,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws ArgumentDoesNotBelongToParentException if the current
+   * @throws RuntimeException if the current
    *                                                {@link Application} does not
    *                                                belong to a
    *                                                {@link AbstractServer}.
@@ -216,7 +214,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws ArgumentBelongsToParentException if the current {@link Application}
+   * @throws RuntimeException if the current {@link Application}
    *                                          belongs already to a
    *                                          {@link AbstractServer}.
    */
@@ -227,7 +225,7 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @throws ArgumentHasAttributeException if the current {@link Application} has
+   * @throws RuntimeException if the current {@link Application} has
    *                                       already an instance name.
    */
   private void assertDoesNotHaveNameAddendum() {
@@ -284,7 +282,7 @@ implements IApplication<C, S> {
 
   /**
    * @return the parent {@link AbstractServer} of the current {@link Application}.
-   * @throws ArgumentDoesNotBelongToParentException if the current
+   * @throws RuntimeException if the current
    *                                                {@link Application} does not
    *                                                belong to a
    *                                                {@link AbstractServer}.

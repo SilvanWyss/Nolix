@@ -5,7 +5,6 @@ package ch.nolix.system.application.main;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.application.client.IBackendClient;
@@ -128,7 +127,7 @@ implements IBackendClient<S> {
    * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @throws ArgumentIsNullException if the given session is null.
+   * @throws RuntimeException if the given session is null.
    */
   final void internalPush(final AbstractSession<C, S> session) {
     sessionManager.pushSession(session);
@@ -140,7 +139,7 @@ implements IBackendClient<S> {
    * @param session
    * @param <R>     is the type of the returned result.
    * @return the result from the given session.
-   * @throws ArgumentIsNullException if the given session is null.
+   * @throws RuntimeException if the given session is null.
    */
   final <R> R internalPushAndGetResult(final AbstractSession<C, S> session) {
     return sessionManager.pushSessionAndGetResult(session);
@@ -154,7 +153,7 @@ implements IBackendClient<S> {
    * current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @throws ArgumentIsNullException if the given session is null.
+   * @throws RuntimeException if the given session is null.
    */
   final void internalSetCurrentSession(final AbstractSession<C, S> session) {
     sessionManager.setCurrentSession(session);
@@ -165,8 +164,8 @@ implements IBackendClient<S> {
    * belong to.
    * 
    * @param parentApplication
-   * @throws ArgumentIsNullException  if the given parentApplication is null.
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   * @throws RuntimeException  if the given parentApplication is null.
+   * @throws RuntimeException if the current {@link AbstractBackendClient}
    *                                  references already its parent
    *                                  {@link Application}.
    */
@@ -182,7 +181,7 @@ implements IBackendClient<S> {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   * @throws RuntimeException if the current {@link AbstractBackendClient}
    *                                  references already its parent
    *                                  {@link Application}.
    */
@@ -193,7 +192,7 @@ implements IBackendClient<S> {
   }
 
   /**
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   * @throws RuntimeException if the current {@link AbstractBackendClient}
    *                                  does not reference its parent
    *                                  {@link Application}.
    */
@@ -206,7 +205,7 @@ implements IBackendClient<S> {
   /**
    * @return the parent {@link Application} of the current
    *         {@link AbstractBackendClient}.
-   * @throws InvalidArgumentException if the current {@link AbstractBackendClient}
+   * @throws RuntimeException if the current {@link AbstractBackendClient}
    *                                  does not have a parent {@link Application}.
    */
   private Application<C, S> getStoredParentApplication() {

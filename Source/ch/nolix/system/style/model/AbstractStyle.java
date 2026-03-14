@@ -88,7 +88,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * given element.
    * 
    * @param element
-   * @throws InvalidArgumentException if an attaching attribute of the current
+   * @throws RuntimeException if an attaching attribute of the current
    *                                  {@link AbstractStyle} is not valid for the
    *                                  given element.
    */

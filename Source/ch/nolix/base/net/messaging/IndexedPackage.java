@@ -4,7 +4,6 @@
 package ch.nolix.base.net.messaging;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -23,7 +22,7 @@ public class IndexedPackage<C> {
    * 
    * @param index
    * @param content
-   * @throws ArgumentIsNullException if the given content is null.
+   * @throws RuntimeException if the given content is null.
    */
   protected IndexedPackage(final int index, final C content) {
     //Asserts that the given content is not null.
@@ -41,7 +40,7 @@ public class IndexedPackage<C> {
    * @param content
    * @param <C2>    is the type of the given content.
    * @return a new {@link IndexedPackage} with the given index and content.
-   * @throws ArgumentIsNullException if the given content is null.
+   * @throws RuntimeException if the given content is null.
    */
   public static <C2> IndexedPackage<C2> withIndexAndContent(final int index, final C2 content) {
     return new IndexedPackage<>(index, content);

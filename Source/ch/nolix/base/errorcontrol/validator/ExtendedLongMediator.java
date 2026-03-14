@@ -3,9 +3,6 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-
 /**
  * An {@link ExtendedLongMediator} is not mutable.
  * 
@@ -34,8 +31,8 @@ public final class ExtendedLongMediator extends LongMediator {
    * @param argumentName
    * @return a new {@link LongMediator} for the given argumentName and the
    *         argument of the current {@link ExtendedLongMediator}.
-   * @throws ArgumentIsNullException  if the given argument name is null.
-   * @throws InvalidArgumentException if the given argument name is blank.
+   * @throws RuntimeException  if the given argument name is null.
+   * @throws RuntimeException if the given argument name is blank.
    */
   public LongMediator thatIsNamed(final String argumentName) {
     return LongMediator.forArgumentNameAndArgument(argumentName, getArgument());

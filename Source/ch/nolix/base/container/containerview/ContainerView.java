@@ -8,7 +8,6 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -32,7 +31,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * Creates a new {@link ContainerView} for the given container.
    * 
    * @param container
-   * @throws ArgumentIsNullException if the given container is null.
+   * @throws RuntimeException if the given container is null.
    */
   private ContainerView(final IContainer<E> container) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
@@ -53,7 +52,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param array
    * @param <T>   is the type of the elements of the given array.
    * @return a new {@link ContainerView} for the given array.
-   * @throws ArgumentIsNullException if the given array is null.
+   * @throws RuntimeException if the given array is null.
    */
   public static <T> ContainerView<T> forArray(final T[] array) {
     final var container = ArrayContainerView.forArray(array);
@@ -65,8 +64,8 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param arrays
    * @param <T>    is the type of the elements of the given arrays.
    * @return a new {@link ContainerView} for the given arrays.
-   * @throws ArgumentIsNullException if the given arrays is null.
-   * @throws ArgumentIsNullException if one of the given arrays is null.
+   * @throws RuntimeException if the given arrays is null.
+   * @throws RuntimeException if one of the given arrays is null.
    */
   @SafeVarargs
   public static <T> ContainerView<T> forArrays(final T[]... arrays) {
@@ -81,7 +80,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param <T>     is the type of the given element and the elements of the given
    *                array.
    * @return a new {@link ContainerView} for the given element and array.
-   * @throws ArgumentIsNullException if the given array is null.
+   * @throws RuntimeException if the given array is null.
    */
   public static <T> ContainerView<T> forElementAndArray(final T element, final T[] array) {
     @SuppressWarnings("unchecked")
@@ -97,7 +96,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param iterable
    * @param <T>      is the type of the elements of the given iterable.
    * @return a new {@link ContainerView} for the given iterable.
-   * @throws ArgumentIsNullException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null.
    */
   public static <T> ContainerView<T> forIterable(final Iterable<T> iterable) {
     final var container = IterableContainerView.forIterable(iterable);
@@ -111,7 +110,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param <T>      is the type of the elements of the given iterable and
    *                 element.
    * @return a new {@link ContainerView} for the given iterable and element.
-   * @throws ArgumentIsNullException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null.
    */
   public static <T> ContainerView<T> forIterableAndElement(final Iterable<T> iterable, final T element) {
     final var iterableWithElement = ImmutableList.withElement(element);
@@ -124,8 +123,8 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param iterables
    * @param <T>       is the type of the elements of the given iterables.
    * @return a new {@link ContainerView} for the given iterables.
-   * @throws ArgumentIsNullException if the given iterables is null.
-   * @throws ArgumentIsNullException if one of the given iterables is null.
+   * @throws RuntimeException if the given iterables is null.
+   * @throws RuntimeException if one of the given iterables is null.
    */
   @SafeVarargs
   public static <T> ContainerView<T> forIterables(final Iterable<? extends T>... iterables) {

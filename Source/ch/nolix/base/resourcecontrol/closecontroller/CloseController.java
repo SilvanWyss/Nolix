@@ -4,7 +4,6 @@
 package ch.nolix.base.resourcecontrol.closecontroller;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
@@ -20,7 +19,7 @@ public final class CloseController implements ICloseController {
    * Creates a new {@link CloseController} for the given element.
    * 
    * @param element
-   * @throws ArgumentIsNullException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   private CloseController(final GroupCloseable element) {
     parentClosePool = new ClosePool(element);
@@ -29,7 +28,7 @@ public final class CloseController implements ICloseController {
   /**
    * @param element
    * @return a new {@link CloseController} for the given element.
-   * @throws ArgumentIsNullException if the given element is null.
+   * @throws RuntimeException if the given element is null.
    */
   public static CloseController forElement(final GroupCloseable element) {
     return new CloseController(element);

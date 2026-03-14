@@ -38,8 +38,8 @@ public class ArgumentMediator<A> extends Mediator {
    * 
    * @param argumentName
    * @param argument
-   * @throws ArgumentIsNullException  if the given argumentName is null.
-   * @throws InvalidArgumentException if the given argument name is blank.
+   * @throws RuntimeException  if the given argumentName is null.
+   * @throws RuntimeException if the given argument name is blank.
    */
   protected ArgumentMediator(final String argumentName, final A argument) {
     //Calls constructor of the base class.
@@ -60,8 +60,8 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param condition
-   * @throws ArgumentIsNullException  if the given condition is null.
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException  if the given condition is null.
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} does not fulfill
    *                                  the given condition.
    */
@@ -84,8 +84,8 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param object
-   * @throws ArgumentIsNullException  if the given object is null.
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException  if the given object is null.
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} does not have the
    *                                  same {@link String} representation as the
    *                                  given object.
@@ -105,7 +105,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param stringRepresentation
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} does not have the
    *                                  given stringRepresentation.
    */
@@ -125,7 +125,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param object
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} does not equal the
    *                                  given object.
    */
@@ -139,7 +139,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param object
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} is not (!) the
    *                                  given object.
    */
@@ -157,7 +157,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param object
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} is the given
    *                                  object.
    */
@@ -175,7 +175,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param object
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} equals the given
    *                                  object.
    */
@@ -188,7 +188,7 @@ public class ArgumentMediator<A> extends Mediator {
   }
 
   /**
-   * @throws ArgumentIsNullException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                 {@link ArgumentMediator} is null.
    */
   public final void isNotNull() {
@@ -211,9 +211,9 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @param type
-   * @throws ArgumentIsNullException  if the argument of the current
+   * @throws RuntimeException  if the argument of the current
    *                                  {@link ArgumentMediator} is null.
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link ArgumentMediator} is not of the given
    *                                  type.
    */

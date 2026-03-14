@@ -51,8 +51,8 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
    * 
    * @param argumentName
    * @param argument
-   * @throws ArgumentIsNullException if the given argument name is null.
-   * @throws EmptyArgumentException  if the given argument is empty.
+   * @throws RuntimeException if the given argument name is null.
+   * @throws RuntimeException  if the given argument is empty.
    */
   IterableMediator(
     final String argumentName,
@@ -78,10 +78,10 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param condition
-   * @throws ArgumentIsNullException  if the given condition is null.
-   * @throws ArgumentIsNullException  if the argument of this container mediator
+   * @throws RuntimeException  if the given condition is null.
+   * @throws RuntimeException  if the argument of this container mediator
    *                                  is null.
-   * @throws InvalidArgumentException if the argument of this container mediator
+   * @throws RuntimeException if the argument of this container mediator
    *                                  does not contain an element that fulfills
    *                                  the given condition.
    */
@@ -252,7 +252,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param stringRepresentation
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link IterableMediator} does not contain an
    *                                  element with the given stringRepresentation.
    */
@@ -268,7 +268,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param element
-   * @throws InvalidArgumentException if the argument of the current
+   * @throws RuntimeException if the argument of the current
    *                                  {@link IterableMediator} does not contain
    *                                  the given element or contains the given
    *                                  element for several times.
@@ -286,8 +286,8 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param elementCount
-   * @throws NegativeArgumentException if the given element count is negative.
-   * @throws InvalidArgumentException  if the argument of this container mediator
+   * @throws RuntimeException if the given element count is negative.
+   * @throws RuntimeException  if the argument of this container mediator
    *                                   contains less or more elements than the
    *                                   given element count says.
    */
@@ -333,8 +333,8 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
 
   /**
    * @param array
-   * @throws ArgumentIsNullException  if the given array is null.
-   * @throws InvalidArgumentException if the argument of this container mediator
+   * @throws RuntimeException  if the given array is null.
+   * @throws RuntimeException if the argument of this container mediator
    *                                  contains less or more elements than the
    *                                  given array.
    */
@@ -349,7 +349,7 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   /**
-   * @throws ArgumentIsNullException   if the argument of this container mediator
+   * @throws RuntimeException   if the argument of this container mediator
    *                                   is null.
    * @throws NonEmptyArgumentException if the argument of this container mediator
    *                                   is empty.
@@ -365,9 +365,9 @@ public class IterableMediator<E> extends ArgumentMediator<Iterable<E>> {
   }
 
   /**
-   * @throws ArgumentIsNullException if the argument of this container mediator is
+   * @throws RuntimeException if the argument of this container mediator is
    *                                 null.
-   * @throws EmptyArgumentException  if the argument of this container mediator is
+   * @throws RuntimeException  if the argument of this container mediator is
    *                                 empty.
    */
   public void isNotEmpty() {

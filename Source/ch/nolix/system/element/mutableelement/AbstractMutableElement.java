@@ -29,7 +29,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
    * @param attribute
-   * @throws InvalidArgumentException if the given attribute is not valid.
+   * @throws RuntimeException if the given attribute is not valid.
    */
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
@@ -107,7 +107,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
    * given filePath.
    * 
    * @param filePath
-   * @throws InvalidArgumentException if the given filePath is not valid.
+   * @throws RuntimeException if the given filePath is not valid.
    */
   public final void resetFromFileWithFilePath(final String filePath) {
     resetFromSpecification(Node.fromFile(filePath));

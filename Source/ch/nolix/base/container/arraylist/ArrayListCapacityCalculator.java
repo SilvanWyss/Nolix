@@ -4,7 +4,6 @@
 package ch.nolix.base.container.arraylist;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.math.number.IntCatalog;
 
 /**
@@ -35,7 +34,7 @@ public final class ArrayListCapacityCalculator {
    * @param requiredCapacity
    * @return the target capacity for an array list with the given actualCapacity
    *         and the given requiredCapacity.
-   * @throws SmallerArgumentException if the given requiredCapacity is not bigger
+   * @throws RuntimeException if the given requiredCapacity is not bigger
    *                                  or does not equal the given actualCapacity.
    */
   public static int calculateTargetCapacityForActualCapacityAndRequiredCapacity(

@@ -11,7 +11,6 @@ import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.datastructure.pair.IPair;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.system.element.base.AbstractElement;
@@ -50,13 +49,13 @@ public final class Color extends AbstractElement implements IColor {
    * @param redValue
    * @param greenValue
    * @param blueValue
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
+   * @throws RuntimeException if the given greenValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given alphaValue is not a true
+   * @throws RuntimeException if the given alphaValue is not a true
    *                                       color component (in [0, 255]).
    */
   private Color(final int redValue, final int greenValue, final int blueValue) {
@@ -71,13 +70,13 @@ public final class Color extends AbstractElement implements IColor {
    * @param greenValue
    * @param blueValue
    * @param alphaValue
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
+   * @throws RuntimeException if the given greenValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given alphaValue is not a true
+   * @throws RuntimeException if the given alphaValue is not a true
    *                                       color component (in [0, 255]).
    */
   private Color(final int redValue, final int greenValue, final int blueValue, final int alphaValue) {
@@ -156,7 +155,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @param pLong
    * @return a new {@link Color} from the given pLong.
-   * @throws UnrepresentingArgumentException if the given pLong does not represent
+   * @throws RuntimeException if the given pLong does not represent
    *                                         a {@link Color}.
    */
   public static Color fromLong(final long pLong) {
@@ -187,7 +186,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @param specification
    * @return a new {@link Color} from the given specification
-   * @throws InvalidArgumentException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid.
    */
   public static Color fromSpecification(final INode<?> specification) {
     return Color.fromString(specification.getSingleChildNodeHeader());
@@ -196,7 +195,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @param string
    * @return a new {@link Color} from the given string.
-   * @throws UnrepresentingArgumentException if the given string does not
+   * @throws RuntimeException if the given string does not
    *                                         represent a {@link Color}.
    */
   public static Color fromString(final String string) {
@@ -234,11 +233,11 @@ public final class Color extends AbstractElement implements IColor {
    * @param blueValue
    * @return a new {@link Color} with the given redValue, greenValue and
    *         blueValue.
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
+   * @throws RuntimeException if the given greenValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
    */
   public static Color withRedValueAndGreenValueAndBlueValue(
@@ -255,13 +254,13 @@ public final class Color extends AbstractElement implements IColor {
    * @param alphaValue
    * @return a new {@link Color} with the given redValue, greenValue, blueValue
    *         and alphaValue.
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
+   * @throws RuntimeException if the given greenValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   * @throws RuntimeException if the given blueValue is not a true
    *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given alphaValue is not a true
+   * @throws RuntimeException if the given alphaValue is not a true
    *                                       color component (in [0, 255]).
    */
   public static Color withRedValueAndGreenValueAndBlueValueAndAlphaValue(
@@ -275,7 +274,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @param string
    * @return the color component the given string represents.
-   * @throws UnrepresentingArgumentException if the given string does not
+   * @throws RuntimeException if the given string does not
    *                                         represent a color component.
    */
   private static int getColorComponentFrom(final String string) {

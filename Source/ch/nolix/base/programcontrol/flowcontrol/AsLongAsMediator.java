@@ -6,7 +6,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
@@ -25,7 +24,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    * Creates a new {@link AsLongAsMediator} with the given condition.
    * 
    * @param condition
-   * @throws ArgumentIsNullException if the given condition is null.
+   * @throws RuntimeException if the given condition is null.
    */
   private AsLongAsMediator(final BooleanSupplier condition) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
@@ -36,7 +35,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} with the given condition.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * @throws RuntimeException if the given condition is null.
    */
   public static AsLongAsMediator withCondition(final BooleanSupplier condition) {
     return new AsLongAsMediator(condition);

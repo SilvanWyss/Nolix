@@ -3,9 +3,6 @@
  */
 package ch.nolix.base.net.endpoint3;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.net.endpoint3.ISlot;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 
@@ -23,7 +20,7 @@ public final class Server extends AbstractServer {
    * given port.
    * 
    * @param port
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private Server(final int port) {
     //Creates the internal net server of the current net server.
@@ -43,9 +40,9 @@ public final class Server extends AbstractServer {
    * 
    * @param port
    * @param httpMessage
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given httpMessage is null.
-   * @throws EmptyArgumentException        if the given httpMessage is blank.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException       if the given httpMessage is null.
+   * @throws RuntimeException        if the given httpMessage is blank.
    */
   private Server(final int port, final String httpMessage) {
     //Creates the internal net server of the current net server.
@@ -60,7 +57,7 @@ public final class Server extends AbstractServer {
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
    *         given port.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535].
    */
   public static Server forPort(final int port) {
     return new Server(port);
@@ -73,9 +70,9 @@ public final class Server extends AbstractServer {
    *         given port. When a web browser connects to the {@link Server}, the
    *         {@link Server} will send the given httpMessage and close the
    *         connection.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given httpMessage is null.
-   * @throws EmptyArgumentException        if the given httpMessage is blank.
+   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException       if the given httpMessage is null.
+   * @throws RuntimeException        if the given httpMessage is blank.
    */
   public static Server forPortAndHttpMessage(final int port, final String httpMessage) {
     return new Server(port, httpMessage);

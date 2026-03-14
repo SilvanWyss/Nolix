@@ -6,7 +6,6 @@ package ch.nolix.base.programcontrol.jobpool;
 import java.util.Optional;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
 /**
@@ -27,7 +26,7 @@ public final class JobPool {
    * 
    * @param job
    * @return a {@link IFuture} for the given job.
-   * @throws ArgumentIsNullException if the given job is null.
+   * @throws RuntimeException if the given job is null.
    */
   public IFuture enqueue(final Runnable job) {
     final var jobWrapper = new JobWrapper(job);

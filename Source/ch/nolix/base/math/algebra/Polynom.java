@@ -10,10 +10,6 @@ import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.baseapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.baseapi.commontypetool.doubletool.IDoubleTool;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -48,8 +44,8 @@ public final class Polynom {
    * Creates a new {@link Polynom} with the given coefficientArray.
    * 
    * @param coefficientArray
-   * @throws ArgumentIsNullException if the given coefficients is null.
-   * @throws EqualArgumentException  if the highest of the given coefficients is
+   * @throws RuntimeException if the given coefficients is null.
+   * @throws RuntimeException  if the highest of the given coefficients is
    *                                 0.0.
    */
   private Polynom(final double[] coefficientArray) {
@@ -86,7 +82,7 @@ public final class Polynom {
    * @param degree
    * @return the coefficient for the given degree from the current
    *         {@link Polynom}.
-   * @throws ArgumentIsOutOfRangeException if the given degree is not between 0
+   * @throws RuntimeException if the given degree is not between 0
    *                                       and the degree of the current
    *                                       {@link Polynom}.
    */
@@ -110,7 +106,7 @@ public final class Polynom {
    * @param deriveCount
    * @return a new {@link Polynom} that is derived from the current
    *         {@link Polynom} as many times as the given deriveCount says.
-   * @throws NegativeArgumentException if the given deriveCount is negative.
+   * @throws RuntimeException if the given deriveCount is negative.
    */
   public Polynom getDerived(final int deriveCount) {
     if (deriveCount == 1) {
@@ -143,7 +139,7 @@ public final class Polynom {
    * @param integrationCount
    * @return a new {@link Polynom} that is the integration from the current
    *         {@link Polynom} as many times as the given integrationCount says.
-   * @throws NegativeArgumentException if the given integrationCount is negative.
+   * @throws RuntimeException if the given integrationCount is negative.
    */
   public Polynom getIntegrated(final int integrationCount) {
     Validator.assertThat(integrationCount).thatIsNamed("integration count").isNotNegative();
@@ -237,7 +233,7 @@ public final class Polynom {
    * @param parameterSymbol
    * @return a {@link String} representation of the current {@link Polynom} with
    *         the given parameterSymbol
-   * @throws ArgumentIsNullException if the given parameterSymbol is null.
+   * @throws RuntimeException if the given parameterSymbol is null.
    */
   public String toString(final String parameterSymbol) {
     Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();

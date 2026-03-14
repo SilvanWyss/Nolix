@@ -11,7 +11,6 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
 
 /**
@@ -31,7 +30,7 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
    * parentServer. The {@link ServerListener} will start automatically.
    * 
    * @param parentServer
-   * @throws ArgumentIsNullException if the given parentServer is null.
+   * @throws RuntimeException if the given parentServer is null.
    */
   private ServerListener(final Server parentServer) {
     //Asserts that the given parentServer is not null.
@@ -48,7 +47,7 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
    * @param server
    * @return a new {@link ServerListener} for the given server. The
    *         {@link ServerListener} will start automatically.
-   * @throws ArgumentIsNullException if the given server is null.
+   * @throws RuntimeException if the given server is null.
    */
   public static ServerListener forServer(final Server server) {
     return new ServerListener(server);

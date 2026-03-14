@@ -5,10 +5,6 @@ package ch.nolix.base.net.endpoint2;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpoint2.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
@@ -47,8 +43,8 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param slot
    * @param server
    * @throws NullPointerException     if the given server is null.
-   * @throws ArgumentIsNullException  if the given slot is null.
-   * @throws InvalidArgumentException if the given slot is null.
+   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given slot is null.
    */
   private LocalEndPoint(final AbstractServer server, final String slot) {
     this.peerType = PeerType.FRONTEND;
@@ -63,9 +59,9 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * 
    * @param counterpart
    * @param target
-   * @throws ArgumentIsNullException if the given counterpart is null.
-   * @throws ArgumentIsNullException if the given target is null.
-   * @throws EmptyArgumentException  if the given target is empty.
+   * @throws RuntimeException if the given counterpart is null.
+   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException  if the given target is empty.
    */
   private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
     peerType = PeerType.BACKEND;
@@ -98,8 +94,8 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @return a new {@link LocalEndPoint} that will connect to the given slot on
    *         the given server.
    * @throws NullPointerException     if the given server is null.
-   * @throws ArgumentIsNullException  if the given slot is null.
-   * @throws InvalidArgumentException if the given slot is null.
+   * @throws RuntimeException  if the given slot is null.
+   * @throws RuntimeException if the given slot is null.
    */
   public static LocalEndPoint toServerAndSlot(final AbstractServer server, final String slot) {
     return new LocalEndPoint(server, slot);
@@ -126,7 +122,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * 
    * @param message
    * @return the reply to the given message.
-   * @throws ClosedArgumentException if this local end point is closed.
+   * @throws RuntimeException if this local end point is closed.
    */
   public String sendAndWaitToReply(final String message) {
     //Asserts that this local end point is open.

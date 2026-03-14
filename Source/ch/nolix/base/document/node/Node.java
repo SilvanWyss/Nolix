@@ -11,9 +11,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -50,8 +47,8 @@ public final class Node extends AbstractNode<Node> {
    * Creates a new {@link Node} with the given header.
    * 
    * @param header
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   private Node(final String header) {
     this.nullableHeader = getValidHeaderFromHeader(header);
@@ -64,8 +61,8 @@ public final class Node extends AbstractNode<Node> {
    * @param header
    * @param childNode
    * @param childNodes
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   private Node(final String header, final INode<?> childNode, final INode<?>[] childNodes) {
     this.nullableHeader = getValidHeaderFromHeader(header);
@@ -79,8 +76,8 @@ public final class Node extends AbstractNode<Node> {
    * 
    * @param header
    * @param childNodes
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   private Node(final String header, final Iterable<? extends INode<?>> childNodes) {
     this.nullableHeader = getValidHeaderFromHeader(header);
@@ -98,8 +95,8 @@ public final class Node extends AbstractNode<Node> {
   /**
    * @param filePath
    * @return a new {@link Node} from the file with the given filePath.
-   * @throws InvalidArgumentException        if the given filePath is not valid.
-   * @throws UnrepresentingArgumentException if the file with the given filePath
+   * @throws RuntimeException        if the given filePath is not valid.
+   * @throws RuntimeException if the file with the given filePath
    *                                         does not represent a {@link Node}.
    */
   public static Node fromFile(final String filePath) {
@@ -125,7 +122,7 @@ public final class Node extends AbstractNode<Node> {
   /**
    * @param string
    * @return a new {@link Node} from the given string.
-   * @throws UnrepresentingArgumentException if the given string does not
+   * @throws RuntimeException if the given string does not
    *                                         represent a {@link Node}.
    */
   public static Node fromString(final String string) {
@@ -171,8 +168,8 @@ public final class Node extends AbstractNode<Node> {
    * @param childNode
    * @param childNodes
    * @return a new {@link Node} with the given childNodes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withChildNode(final String childNode, final String... childNodes) {
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).getViewOf(Node::withHeader);
@@ -215,8 +212,8 @@ public final class Node extends AbstractNode<Node> {
   /**
    * @param header
    * @return a new {@link Node} with the given header.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withHeader(final String header) {
     return new Node(header);
@@ -226,8 +223,8 @@ public final class Node extends AbstractNode<Node> {
    * @param header
    * @param childNode
    * @return a new {@link Node} with the given childNode.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final boolean childNode) {
     return withHeaderAndChildNode(header, withHeader(childNode));
@@ -237,8 +234,8 @@ public final class Node extends AbstractNode<Node> {
    * @param header
    * @param childNode
    * @return a new {@link Node} with the given childNode.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final double childNode) {
     return withHeaderAndChildNode(header, withHeader(childNode));
@@ -249,8 +246,8 @@ public final class Node extends AbstractNode<Node> {
    * @param childNode
    * @param childNodes
    * @return a new {@link Node} with the given header and childNodes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withHeaderAndChildNode(
     final String header,
@@ -263,8 +260,8 @@ public final class Node extends AbstractNode<Node> {
    * @param header
    * @param childNode
    * @return a new {@link Node} with the given childNode.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final long childNode) {
     return withHeaderAndChildNode(header, withHeader(childNode));
@@ -275,10 +272,10 @@ public final class Node extends AbstractNode<Node> {
    * @param childNode
    * @param childNodes
    * @return a new {@link Node} with the given header and childNodes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if one of the given childNodes is null.
-   * @throws InvalidArgumentException if one of the given childNodes is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
+   * @throws RuntimeException  if one of the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is blank.
    */
   public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
     final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).getViewOf(Node::withHeader);
@@ -290,8 +287,8 @@ public final class Node extends AbstractNode<Node> {
    * @param header
    * @param childNodes
    * @return a new {@link Node} with the given childNodes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   public static Node withHeaderAndChildNodes(final String header, final Iterable<? extends INode<?>> childNodes) {
     return new Node(header, childNodes);
@@ -323,8 +320,8 @@ public final class Node extends AbstractNode<Node> {
   /**
    * @param header
    * @return a valid header from the given header.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
+   * @throws RuntimeException  if the given header is null.
+   * @throws RuntimeException if the given header is blank.
    */
   private static String getValidHeaderFromHeader(final String header) {
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();

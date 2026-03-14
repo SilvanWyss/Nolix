@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * The {@link Validator} provides methods to validate arguments.
@@ -183,7 +182,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param arguments
    * @return a new {@link MultiDoubleMediator} for the given arguments.
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
     return new MultiDoubleMediator(arguments);
@@ -193,7 +192,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @param arguments
    * @param <E>       is the type of the given arguments.
    * @return a new {@link MultiArgumentMediator} for the given arguments.
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final E[] arguments) {
     return new MultiArgumentMediator<>(arguments);
@@ -203,7 +202,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @param arguments
    * @param <E>       is the type of the given arguments.
    * @return a new {@link MultiArgumentMediator} for the given arguments.
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final Iterable<E> arguments) {
     return new MultiArgumentMediator<>(arguments);
@@ -212,7 +211,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param arguments
    * @return a new {@link MultiLongMediator} for the given arguments.
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public static MultiLongMediator assertThatTheLongs(final Iterable<Long> arguments) {
     return new MultiLongMediator(arguments);
@@ -221,7 +220,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param arguments
    * @return a new {@link MultiStringMediator} for the given arguments.
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {
     return new MultiStringMediator(arguments);

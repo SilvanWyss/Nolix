@@ -15,8 +15,6 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
@@ -77,9 +75,9 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @return a new {@link FileAccessor} to the created file.
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws EmptyArgumentException   if the given path is empty.
-   * @throws InvalidArgumentException if there exists already a file system item
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException   if the given path is empty.
+   * @throws RuntimeException if there exists already a file system item
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path) {
@@ -93,9 +91,9 @@ public final class FileSystemAccessor {
    * @param path
    * @param writeMode
    * @return a new {@link FileAccessor} to the created file.
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws InvalidArgumentException if the given path is blank.
-   * @throws InvalidArgumentException if the given writeMode flag =
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given writeMode flag =
    *                                  {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                                  and there exists already a file system item
    *                                  with the given path.
@@ -136,13 +134,13 @@ public final class FileSystemAccessor {
    * @param writeMode
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws InvalidArgumentException if the given path is blank.
-   * @throws InvalidArgumentException if the given writeMode =
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given writeMode =
    *                                  {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                                  and there exists already a file system item
    *                                  with the given path.
-   * @throws ArgumentIsNullException  if the given content is null.
+   * @throws RuntimeException  if the given content is null.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final byte[] content) {
     final var fileAccessor = createFile(path, writeMode);
@@ -159,13 +157,13 @@ public final class FileSystemAccessor {
    * @param writeMode
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws InvalidArgumentException if the given path is blank.
-   * @throws InvalidArgumentException if the given writeMode =
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given writeMode =
    *                                  {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                                  and there exists already a file system item
    *                                  with the given path.
-   * @throws ArgumentIsNullException  if the given content is null.
+   * @throws RuntimeException  if the given content is null.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final String content) {
     final var fileAccessor = createFile(path, writeMode);
@@ -181,9 +179,9 @@ public final class FileSystemAccessor {
    * @param path
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws EmptyArgumentException   if the given path is empty.
-   * @throws InvalidArgumentException if there exists already a file system item
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException   if the given path is empty.
+   * @throws RuntimeException if there exists already a file system item
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path, final byte[] content) {
@@ -200,9 +198,9 @@ public final class FileSystemAccessor {
    * @param path
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws InvalidArgumentException if the given path is blank.
-   * @throws InvalidArgumentException if there exists already a file system item
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if there exists already a file system item
    *                                  with the given path.
    */
   public static FileAccessor createFile(final String path, final String content) {
@@ -215,7 +213,7 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @return a new {@link FileAccessor} to the created folder.
-   * @throws InvalidArgumentException if there exists already a file system item
+   * @throws RuntimeException if there exists already a file system item
    *                                  with the given path.
    */
   public static FolderAccessor createFolder(final String path) {
@@ -346,7 +344,7 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @param content
-   * @throws InvalidArgumentException if there exists already a folder with the
+   * @throws RuntimeException if there exists already a folder with the
    *                                  given path.
    */
   public static void overwriteFile(final String path, final String content) {
@@ -368,7 +366,7 @@ public final class FileSystemAccessor {
    * 
    * @param filePath
    * @return the bytes of the file with the given filePath.
-   * @throws InvalidArgumentException if there does not exist a file with the
+   * @throws RuntimeException if there does not exist a file with the
    *                                  given filePath in the file system on the
    *                                  local machine.
    */
@@ -381,7 +379,7 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @return the lines of the file with the given path.
-   * @throws InvalidArgumentException if there does not exist a file with the
+   * @throws RuntimeException if there does not exist a file with the
    *                                  given path.
    */
   public static ILinkedList<String> readFileToLines(final String path) {

@@ -8,8 +8,6 @@ import java.util.function.Function;
 
 import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss
@@ -24,10 +22,10 @@ public final class Value<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given setterMethod is blank.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given setterMethod is blank.
+   * @throws RuntimeException  if the given valueCreator is null.
+   * @throws RuntimeException  if the given specificationCreator is null.
    */
   public Value(
     final String name,
@@ -43,9 +41,9 @@ public final class Value<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link Value} that will store a {@link Boolean} and have the
    *         given name and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static Value<Boolean> forBoolean(final String name, final Consumer<Boolean> setterMethod) {
     return new Value<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
@@ -56,9 +54,9 @@ public final class Value<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link Value} that will store a {@link Integer} and have the
    *         given name and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static Value<Integer> forInt(final String name, final Consumer<Integer> setterMethod) {
     return new Value<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
@@ -69,9 +67,9 @@ public final class Value<V> extends AbstractSingleValue<V> {
    * @param setterMethod
    * @return a new {@link Value} that will store a {@link String} and have the
    *         given name and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
    */
   public static Value<String> forString(final String name, final Consumer<String> setterMethod) {
     return new Value<>(
@@ -85,7 +83,7 @@ public final class Value<V> extends AbstractSingleValue<V> {
    * @param string
    * @return the specification of a {@link String} value of a {@link Value} from
    *         the given string.
-   * @throws InvalidArgumentException if the given string does not represent a
+   * @throws RuntimeException if the given string does not represent a
    *                                  {@link String} value for a {@link Value}.
    */
   private static Node getStringValueSpecificationForAValueFromString(final String string) {

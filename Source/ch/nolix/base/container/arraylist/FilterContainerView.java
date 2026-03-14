@@ -11,7 +11,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -29,8 +28,8 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * 
    * @param container
    * @param selector
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given selector is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given selector is null.
    */
   private FilterContainerView(final IContainer<E> container, final Predicate<E> selector) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
@@ -55,8 +54,8 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @param <T>       is the type of the elements of the given container.
    * @return a new {@link FilterContainerView} for the given container and
    *         selector.
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given selector is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given selector is null.
    */
   public static <T> FilterContainerView<T> forContainerAndSelector(
     final IContainer<T> container,
@@ -70,8 +69,8 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @param <T>      is the type of the given element and elements of the given
    *                 array.
    * @return a new {@link FilterContainerView} for the given element and array.
-   * @throws ArgumentIsNullException if the given array is null.
-   * @throws ArgumentIsNullException if the given selector is null.
+   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given selector is null.
    */
   public static <T> FilterContainerView<T> forArrayAndSelector(
     final T[] array,

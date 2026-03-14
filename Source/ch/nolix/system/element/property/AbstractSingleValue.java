@@ -11,7 +11,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -32,11 +31,11 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * @param setterMethod
    * @param valueCreator
    * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   * @throws RuntimeException  if the given name is null.
+   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException  if the given setterMethod is null.
+   * @throws RuntimeException  if the given valueCreator is null.
+   * @throws RuntimeException  if the given specificationCreator is null.
    */
   protected AbstractSingleValue(
     final String name,
@@ -94,8 +93,8 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * Sets the value of the current {@link AbstractSingleValue}.
    * 
    * @param value
-   * @throws ArgumentIsNullException  if the given value is null.
-   * @throws InvalidArgumentException if the current {@link AbstractSingleValue}
+   * @throws RuntimeException  if the given value is null.
+   * @throws RuntimeException if the current {@link AbstractSingleValue}
    *                                  is not mutable and has already a value.
    */
   public final void setValue(final V value) {

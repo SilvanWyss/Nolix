@@ -4,7 +4,6 @@
 package ch.nolix.base.errorcontrol.validator;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -21,7 +20,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    * Creates a new multi double mediator for the given arguments.
    * 
    * @param arguments
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public MultiDoubleMediator(final Iterable<Double> arguments) {
     //Calls constructor of the base class.
@@ -32,7 +31,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    * Creates a new multi double mediator for the given arguments.
    * 
    * @param arguments
-   * @throws ArgumentIsNullException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null.
    */
   public MultiDoubleMediator(final double[] arguments) {
     //Calls constructor of the base class.
@@ -41,9 +40,9 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
   /**
    * @param value
-   * @throws ArgumentIsNullException  if one of the arguments of this multi double
+   * @throws RuntimeException  if one of the arguments of this multi double
    *                                  mediator is null.
-   * @throws InvalidArgumentException if one of the arguments of this multi double
+   * @throws RuntimeException if one of the arguments of this multi double
    *                                  mediator is not bigger than the given value.
    */
   public void areBiggerThan(final double value) {
@@ -68,7 +67,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   }
 
   /**
-   * @throws ArgumentIsNullException      if one of the arguments of this multi
+   * @throws RuntimeException      if one of the arguments of this multi
    *                                      double mediator is null.
    * @throws NonNegativeArgumentException if one of the arguments of this multi
    *                                      double mediator is not positive.
@@ -91,9 +90,9 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   }
 
   /**
-   * @throws ArgumentIsNullException      if one of the arguments of this multi
+   * @throws RuntimeException      if one of the arguments of this multi
    *                                      double mediator is null.
-   * @throws NonPositiveArgumentException if one of the arguments of this multi
+   * @throws RuntimeException if one of the arguments of this multi
    *                                      double mediator is not positive.
    */
   public void arePositive() {
@@ -115,9 +114,9 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
   /**
    * @param value
-   * @throws ArgumentIsNullException  if one of the arguments of this multi double
+   * @throws RuntimeException  if one of the arguments of this multi double
    *                                  mediator is null.
-   * @throws InvalidArgumentException if one of the argument of this multi double
+   * @throws RuntimeException if one of the argument of this multi double
    *                                  mediator is not smaller than the given
    *                                  value.
    */

@@ -7,7 +7,6 @@ import java.util.function.Function;
 
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -28,8 +27,8 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
    * 
    * @param iterator
    * @param mapper
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given mapper is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given mapper is null.
    */
   private MappingContainerViewIterator(final CopyableIterator<E> iterator, final Function<E, T> mapper) {
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();
@@ -48,8 +47,8 @@ public final class MappingContainerViewIterator<E, T> implements CopyableIterato
    *                 {@link MappingContainerViewIterator} maps from its elements.
    * @return a new {@link MappingContainerViewIterator} with the given iterator
    *         and mapper.
-   * @throws ArgumentIsNullException if the given container is null.
-   * @throws ArgumentIsNullException if the given mapper is null.
+   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given mapper is null.
    */
   public static <T, T2> MappingContainerViewIterator<T, T2> forIteratorAndMapper(
     final CopyableIterator<T> iterator,

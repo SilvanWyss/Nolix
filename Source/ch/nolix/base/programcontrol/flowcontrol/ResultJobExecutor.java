@@ -8,7 +8,6 @@ import java.util.function.Supplier;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -30,7 +29,7 @@ final class ResultJobExecutor<R> extends Thread {
    * resultJob.
    * 
    * @param resultJob
-   * @throws ArgumentIsNullException if the given resultJob is null.
+   * @throws RuntimeException if the given resultJob is null.
    */
   private ResultJobExecutor(final Supplier<R> resultJob) {
     Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
@@ -46,7 +45,7 @@ final class ResultJobExecutor<R> extends Thread {
    * @return a new {@link ResultJobExecutor} for the given resultJob. The
    *         {@link ResultJobExecutor} will start automatically to execute the
    *         given resultJob.
-   * @throws ArgumentIsNullException if the given resultJob is null.
+   * @throws RuntimeException if the given resultJob is null.
    */
   public static <R> ResultJobExecutor<R> forResultJob(final Supplier<R> resultJob) {
     return new ResultJobExecutor<>(resultJob);
@@ -77,7 +76,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @return the result of the current {@link ResultJobExecutor}
-   * @throws InvalidArgumentException if the current {@link ResultJobExecutor} is
+   * @throws RuntimeException if the current {@link ResultJobExecutor} is
    *                                  not finished or has caught an error.
    */
   public R getResult() {

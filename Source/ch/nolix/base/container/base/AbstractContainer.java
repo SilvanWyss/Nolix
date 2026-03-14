@@ -1990,7 +1990,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @throws EmptyArgumentException if the current {@link AbstractContainer} is
+   * @throws RuntimeException if the current {@link AbstractContainer} is
    *                                empty.
    */
   private void assertIsNotEmpty() {
@@ -2061,7 +2061,7 @@ implements IContainer<E> {
    * @return a {@link String} representation of the current
    *         {@link AbstractContainer} using the given separator for the case that
    *         the current {@link AbstractContainer} contains several elements.
-   * @throws ArgumentIsNullException if the given separator is null.
+   * @throws RuntimeException if the given separator is null.
    */
   private String toStringWhenContainsSeveralElements(final String separator) {
     //Asserts that the given separator is not null.

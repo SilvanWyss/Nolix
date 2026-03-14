@@ -3,9 +3,6 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-
 /**
  * An extended container mediator is not mutable.
  * 
@@ -37,8 +34,8 @@ public class ExtendedIterableMediator<E> extends IterableMediator<E> {
    * @param argumentName
    * @return a new container mediator with the given argument name for the
    *         argument of this extended container mediator.
-   * @throws ArgumentIsNullException if the given argument name is null.
-   * @throws EmptyArgumentException  if the given argument name is empty.
+   * @throws RuntimeException if the given argument name is null.
+   * @throws RuntimeException  if the given argument name is empty.
    */
   public IterableMediator<E> thatIsNamed(final String argumentName) {
     return new IterableMediator<>(argumentName, getStoredArgument());

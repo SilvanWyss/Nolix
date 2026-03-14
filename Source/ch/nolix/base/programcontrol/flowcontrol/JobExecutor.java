@@ -10,8 +10,6 @@ import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.job.JobTool;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.job.IJobTool;
 
@@ -40,7 +38,7 @@ final class JobExecutor extends Thread {
    * will start automatically.
    * 
    * @param job
-   * @throws ArgumentIsNullException if the given job is null.
+   * @throws RuntimeException if the given job is null.
    */
   public JobExecutor(final Runnable job) {
     //Asserts that the given job is not null.
@@ -60,8 +58,8 @@ final class JobExecutor extends Thread {
    * 
    * @param job
    * @param condition
-   * @throws ArgumentIsNullException if the given job is null.
-   * @throws ArgumentIsNullException if the given condition is null.
+   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given condition is null.
    */
   public JobExecutor(final Runnable job, final BooleanSupplier condition) {
     //Asserts that the given job is not null.
@@ -85,9 +83,9 @@ final class JobExecutor extends Thread {
    * @param job
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws ArgumentIsNullException   if the given job is null.
-   * @throws ArgumentIsNullException   if the given condition is null.
-   * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
+   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException   if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
   public JobExecutor(
@@ -118,8 +116,8 @@ final class JobExecutor extends Thread {
    * 
    * @param job
    * @param maxRunCount
-   * @throws ArgumentIsNullException   if the given job is null.
-   * @throws NegativeArgumentException if the given maxRunCount is negative.
+   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given maxRunCount is negative.
    */
   public JobExecutor(
     final Runnable job,
@@ -145,9 +143,9 @@ final class JobExecutor extends Thread {
    * @param job
    * @param maxRunCount
    * @param condition
-   * @throws ArgumentIsNullException   if the given job is null.
-   * @throws NegativeArgumentException if the given maxRunCount is negative.
-   * @throws ArgumentIsNullException   if the given condition is null.
+   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException   if the given condition is null.
    */
   public JobExecutor(
     final Runnable job,
@@ -179,10 +177,10 @@ final class JobExecutor extends Thread {
    * @param maxRunCount
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws ArgumentIsNullException   if the given job is null.
-   * @throws NegativeArgumentException if the given maxRunCount is negative.
-   * @throws ArgumentIsNullException   if the given condition is null.
-   * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
+   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException   if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
   public JobExecutor(
@@ -217,9 +215,9 @@ final class JobExecutor extends Thread {
    * @param job
    * @param maxRunCount
    * @param timeIntervalInMilliseconds
-   * @throws ArgumentIsNullException   if the given job is null.
-   * @throws NegativeArgumentException if the given maxRunCount is negative.
-   * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
+   * @throws RuntimeException   if the given job is null.
+   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
   public JobExecutor(

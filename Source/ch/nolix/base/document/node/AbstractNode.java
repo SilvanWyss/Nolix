@@ -14,8 +14,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.document.node.INodeComparator;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
@@ -261,9 +259,9 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * Saves the current {@link AbstractNode} to the file with the given file path.
    * 
    * @param path
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws InvalidArgumentException if the given path is blank.
-   * @throws InvalidArgumentException if there exists already a file system item
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if there exists already a file system item
    *                                  with the given path.
    */
   public final void saveToFile(final String path) {
@@ -276,9 +274,9 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * 
    * @param path
    * @param writeMode
-   * @throws ArgumentIsNullException  if the given path is null.
-   * @throws InvalidArgumentException if the given path is blank.
-   * @throws InvalidArgumentException if the given writeMode
+   * @throws RuntimeException  if the given path is null.
+   * @throws RuntimeException if the given path is blank.
+   * @throws RuntimeException if the given writeMode
    *                                  flag={@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                                  and there exists already a file system item
    *                                  with the given path.

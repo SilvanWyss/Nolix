@@ -10,8 +10,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.commoncontainer.CountRequestable;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -44,8 +42,8 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link ArrayList} with the given elements.
-   * @throws ArgumentIsNullException if the given elements is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
+   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if one of the given elements is null.
    */
   @SafeVarargs
   public static <T> ArrayList<T> withElements(T... elements) {
@@ -63,7 +61,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * @param <T>             is the type of the elements of the created
    *                        {@link ArrayList}.
    * @return a new {@link ArrayList} with the given initialCapacity
-   * @throws NegativeArgumentException if the given initialCapacity is negative.
+   * @throws RuntimeException if the given initialCapacity is negative.
    */
   public static <T> ArrayList<T> withInitialCapacity(final int initialCapacity) {
     Validator

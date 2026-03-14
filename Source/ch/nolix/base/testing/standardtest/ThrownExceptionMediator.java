@@ -33,7 +33,7 @@ public class ThrownExceptionMediator {
    * Creates a new {@link ThrownExceptionMediator} for the given exception.
    * 
    * @param exception
-   * @throws ArgumentIsNullException if the given exception is null.
+   * @throws RuntimeException if the given exception is null.
    */
   ThrownExceptionMediator(final Throwable exception) {
     //Asserts that the given exception is not null.
@@ -66,7 +66,7 @@ public class ThrownExceptionMediator {
    * {@link ThrownExceptionMediator} does not have the given message.
    * 
    * @param message
-   * @throws ArgumentIsNullException if the given message is null.
+   * @throws RuntimeException if the given message is null.
    */
   public final void withMessage(final String message) {
     //Asserts that the given message is not null.
@@ -106,7 +106,7 @@ public class ThrownExceptionMediator {
    * given regex
    * 
    * @param regex
-   * @throws ArgumentIsNullException if the given regex is null.
+   * @throws RuntimeException if the given regex is null.
    */
   public final void withMessageThatMatches(final String regex) {
     if (regex == null) {
