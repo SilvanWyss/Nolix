@@ -67,8 +67,8 @@ public final class ForCountMediator implements IForCountMediator {
    * {@inheritDoc}
    */
   @Override
-  public IFuture runInBackground(final Runnable job) {
-    final var jobExecutor = new JobExecutor(job, maxRunCount);
+  public IFuture runInBackground(final Runnable step) {
+    final var jobExecutor = JobExecutor.forStepAndMaxStepRunCount(step, maxRunCount);
 
     jobExecutor.start();
 

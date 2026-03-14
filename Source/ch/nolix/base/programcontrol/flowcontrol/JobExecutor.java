@@ -76,8 +76,8 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param nextStepRunCondition
    * @param delayBetweenStepRunsInMilliseconds
-   * @throws RuntimeException if the given job is null.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null.
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
    */
@@ -100,26 +100,21 @@ public final class JobExecutor extends Thread {
   }
 
   /**
-   * Creates a new {@link JobExecutor} with the given job and maxRunCount.
+   * Creates a new {@link JobExecutor} with the given step and maxStepRunCount.
    * 
-   * @param job
-   * @param maxRunCount
-   * @throws RuntimeException if the given job is null.
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @param step
+   * @param maxStepRunCount
+   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given maxStepRunCount is negative.
    */
-  public JobExecutor(
-    final Runnable job,
-    final int maxRunCount) {
-    //Asserts that the given job is not null.
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  private JobExecutor(final Runnable step, final int maxStepRunCount) {
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
 
-    //Asserts that the given maxRunCount is not negative.
-    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
-
-    this.step = job;
-    this.optionalMaxStepRunCount = maxRunCount;
-    optionalNextStepRunCondition = null;
-    optionalDelayBetweenStepRunsInMilliseconds = null;
+    this.step = step;
+    this.optionalMaxStepRunCount = maxStepRunCount;
+    this.optionalNextStepRunCondition = null;
+    this.optionalDelayBetweenStepRunsInMilliseconds = null;
   }
 
   /**
@@ -225,6 +220,17 @@ public final class JobExecutor extends Thread {
    */
   public static JobExecutor forStep(final Runnable step) {
     return new JobExecutor(step);
+  }
+
+  /**
+   * @param step
+   * @param maxStepRunCount
+   * @return a new {@link JobExecutor} with the given step and maxStepRunCount.
+   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given maxStepRunCount is negative.
+   */
+  public static JobExecutor forStepAndMaxStepRunCount(final Runnable step, final int maxStepRunCount) {
+    return new JobExecutor(step, maxStepRunCount);
   }
 
   /**
