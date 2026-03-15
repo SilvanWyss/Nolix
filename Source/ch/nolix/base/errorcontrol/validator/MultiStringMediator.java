@@ -12,7 +12,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  * 
  * @author Silvan Wyss
  */
-public final class MultiStringMediator extends MultiArgumentMediator<String> {
+public final class MultiStringMediator extends AbstractMultiArgumentMediator<String> {
   /**
    * Creates a new {@link MultiStringMediator} for the given arguments.
    * 

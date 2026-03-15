@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
  * 
  * @author Silvan Wyss
  */
-public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
+public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Double> {
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   /**

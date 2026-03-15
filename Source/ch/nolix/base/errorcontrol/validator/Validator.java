@@ -195,7 +195,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @throws RuntimeException if the given arguments is null.
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final E[] arguments) {
-    return new MultiArgumentMediator<>(arguments);
+    return MultiArgumentMediator.forArguments(arguments);
   }
 
   /**
@@ -205,7 +205,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @throws RuntimeException if the given arguments is null.
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final Iterable<E> arguments) {
-    return new MultiArgumentMediator<>(arguments);
+    return MultiArgumentMediator.forArguments(arguments);
   }
 
   /**
