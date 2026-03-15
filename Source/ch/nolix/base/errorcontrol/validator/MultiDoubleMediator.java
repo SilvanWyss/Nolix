@@ -4,12 +4,12 @@
 package ch.nolix.base.errorcontrol.validator;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 
 /**
- * A multi double mediator is not mutable.
+ * A {@link MultiDoubleMediator} is not mutable.
  * 
  * @author Silvan Wyss
  */
@@ -17,126 +17,104 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   /**
-   * Creates a new multi double mediator for the given arguments.
+   * Creates a new {@link MultiDoubleMediator} for the given arguments.
    * 
    * @param arguments
    * @throws RuntimeException if the given arguments is null.
    */
-  public MultiDoubleMediator(final Iterable<Double> arguments) {
-    //Calls constructor of the base class.
+  private MultiDoubleMediator(final Iterable<Double> arguments) {
     super(arguments);
   }
 
   /**
-   * Creates a new multi double mediator for the given arguments.
-   * 
    * @param arguments
+   * @return a new {@link MultiDoubleMediator} for the given arguments.
    * @throws RuntimeException if the given arguments is null.
    */
-  public MultiDoubleMediator(final double[] arguments) {
-    //Calls constructor of the base class.
-    super(ARRAY_TOOL.createIterable(arguments));
+  public static MultiDoubleMediator forArugments(final double[] arguments) {
+    final var argumentsIterable = ARRAY_TOOL.createIterable(arguments);
+
+    return new MultiDoubleMediator(argumentsIterable);
   }
 
   /**
-   * @param value
-   * @throws RuntimeException if one of the arguments of this multi double
-   *                          mediator is null.
-   * @throws RuntimeException if one of the arguments of this multi double
-   *                          mediator is not bigger than the given value.
+   * @param arguments
+   * @return a new {@link MultiDoubleMediator} for the given arguments.
+   * @throws RuntimeException if the given arguments is null.
    */
-  public void areBiggerThan(final double value) {
-    //Asserts that the arguments of this multi double mediator are not null.
-    areNotNull();
+  public static MultiDoubleMediator forArugments(final Iterable<Double> arguments) {
+    return new MultiDoubleMediator(arguments);
+  }
 
-    //Iterates the arguments of this multi double mediator.
-    var i = 1;
-    for (final double a : getStoredArguments()) {
-      //Asserts that the current argument is bigger than the given value.
-      if (a <= value) {
+  /**
+   * @param limit
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiDoubleMediator} is null or not bigger
+   *                          than the given limit.
+   */
+  public void areBiggerThan(final double limit) {
+    var index = 1;
+
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
+      }
+
+      if (a <= limit) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
-          i + "th argument",
-          "is not bigger than " + value);
+          index + "th argument",
+          "is not bigger than " + limit);
       }
 
-      //Increments index.
-      i++;
+      index++;
     }
   }
 
   /**
-   * @throws RuntimeException             if one of the arguments of this multi
-   *                                      double mediator is null.
-   * @throws NonNegativeArgumentException if one of the arguments of this multi
-   *                                      double mediator is not positive.
-   */
-  public void areNegative() {
-    //Asserts that the arguments of this multi double mediator are not null.
-    areNotNull();
-
-    //Iterates the arguments of this multi double mediator.
-    var i = 1;
-    for (final double a : getStoredArguments()) {
-      //Asserts that the current arguemnt is negative.
-      if (a > 0) {
-        throw NonNegativeArgumentException.forArgumentAndArgumentName(a, i + "th argument");
-      }
-
-      //Increments index.
-      i++;
-    }
-  }
-
-  /**
-   * @throws RuntimeException if one of the arguments of this multi double
-   *                          mediator is null.
-   * @throws RuntimeException if one of the arguments of this multi double
-   *                          mediator is not positive.
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiDoubleMediator} is null or not positive.
    */
   public void arePositive() {
-    //Asserts that the arguments of this multi double mediator are not null.
-    areNotNull();
+    var index = 1;
 
-    //Iterates the arguments of this multi double mediator.
-    var i = 1;
-    for (final double a : getStoredArguments()) {
-      //Asserts that the current argument is positive.
-      if (a <= 0) {
-        throw NonPositiveArgumentException.forArgumentAndArgumentName(a, i + "th argument");
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      //Increments index.
-      i++;
+      if (a <= 0) {
+        throw NonPositiveArgumentException.forArgumentAndArgumentName(a, index + "th argument");
+      }
+
+      index++;
     }
   }
 
   /**
-   * @param value
-   * @throws RuntimeException if one of the arguments of this multi double
-   *                          mediator is null.
-   * @throws RuntimeException if one of the argument of this multi double mediator
-   *                          is not smaller than the given value.
+   * @param limit
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiDoubleMediator} is null or not bigger
+   *                          than the given limit.
    */
-  public void areSmallerThan(final double value) {
-    //Asserts that the arguments of this multi double mediator are not null.
-    areNotNull();
+  public void areSmallerThan(final double limit) {
+    var index = 1;
 
-    //Iterates the arguments of this multi double mediator.
-    var i = 1;
-    for (final double a : getStoredArguments()) {
-      //Asserts that the current argument is smaller than the given value.
-      if (a >= value) {
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
+      }
+
+      if (a >= limit) {
         throw //
         InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
           a,
-          i + "the argument",
-          "is not smaller than " + value);
+          index + "th argument",
+          "is not smaller than " + limit);
       }
 
-      //Increments index.
-      i++;
+      index++;
     }
   }
 }

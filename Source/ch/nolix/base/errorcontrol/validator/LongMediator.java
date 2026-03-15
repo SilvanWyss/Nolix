@@ -254,11 +254,11 @@ public class LongMediator extends Mediator {
   /**
    * @param min
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is smaller than the * given min.
+   *                          is smaller than the given min.
    */
   public final void isNotSmallerThan(final int min) {
-    if (getArgument() < min) {
-      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgument(), getArgumentName(), min);
+    if (argument < min) {
+      throw SmallerArgumentException.forArgumentAndArgumentNameAndMin(argument, getArgumentName(), min);
     }
   }
 

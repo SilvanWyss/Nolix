@@ -163,15 +163,14 @@ public class DoubleMediator extends Mediator {
   }
 
   /**
-   * @param value
-   * @throws RuntimeException if the argument of this double mediator is smaller
-   *                          than the given value.
+   * @param min
+   * @throws RuntimeException if the argument of the current
+   *                          {@link DoubleMediator} is smaller than the given
+   *                          min.
    */
-  public void isNotSmallerThan(final double value) {
-    //Asserts that the argument of this double mediator is not smaller than the
-    //given value.
-    if (argument > value) {
-      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(argument, getArgumentName(), value);
+  public void isNotSmallerThan(final double min) {
+    if (argument < min) {
+      throw SmallerArgumentException.forArgumentAndArgumentNameAndMin(argument, getArgumentName(), min);
     }
   }
 

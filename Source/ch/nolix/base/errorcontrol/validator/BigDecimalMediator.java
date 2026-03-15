@@ -34,13 +34,10 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
   }
 
   public final void isNotSmallerThan(final BigDecimal value) {
-    //Asserts that the argument of the current BigDecimalValidator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current BigDecimalValidator is not smaller
-    //than the given value.
     if (getStoredArgument().compareTo(value) < 0) {
-      throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getStoredArgument(), getArgumentName(), value);
+      throw SmallerArgumentException.forArgumentAndArgumentNameAndLimit(getStoredArgument(), getArgumentName(), value);
     }
   }
 

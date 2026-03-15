@@ -147,7 +147,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    *         given arguments.
    */
   protected static final MultiDoubleMediator expectTheDoubles(final double... arguments) {
-    return new MultiDoubleMediator(arguments);
+    return MultiDoubleMediator.forArugments(arguments);
   }
 
   /**
@@ -156,7 +156,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    *         given arguments.
    */
   protected static final MultiDoubleMediator expectTheDoubles(Iterable<Double> arguments) {
-    return new MultiDoubleMediator(arguments);
+    return MultiDoubleMediator.forArugments(arguments);
   }
 
   /**

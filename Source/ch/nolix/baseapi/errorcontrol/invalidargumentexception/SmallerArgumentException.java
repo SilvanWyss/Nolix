@@ -48,19 +48,19 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
   }
 
   /**
-   * @param argument     - Can be null.
+   * @param argument
    * @param argumentName
-   * @param min
+   * @param limit
    * @return a new {@link SmallerArgumentException} for the given argument,
-   *         argumentName and mint.
+   *         argumentName and limit.
    * @throws RuntimeException if the given argumentName is null or blank.
-   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given limit is null.
    */
-  public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
+  public static SmallerArgumentException forArgumentAndArgumentNameAndLimit(
     final BigDecimal argument,
     final String argumentName,
-    final BigDecimal min) {
-    return new SmallerArgumentException(argument, argumentName, min);
+    final BigDecimal limit) {
+    return new SmallerArgumentException(argument, argumentName, limit);
   }
 
   /**
@@ -68,10 +68,10 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @param min
    * @return a new {@link SmallerArgumentException} for the given argument,
-   *         argumentName and mint.
+   *         argumentName and min.
    * @throws RuntimeException if the given argumentName is null or blank.
    */
-  public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
+  public static SmallerArgumentException forArgumentAndArgumentNameAndMin(
     final double argument,
     final String argumentName,
     final double min) {

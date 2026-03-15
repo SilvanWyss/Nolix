@@ -185,7 +185,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
-    return new MultiDoubleMediator(arguments);
+    return MultiDoubleMediator.forArugments(arguments);
   }
 
   /**
