@@ -223,6 +223,6 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @throws RuntimeException if the given arguments is null.
    */
   public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {
-    return new MultiStringMediator(arguments);
+    return MultiStringMediator.forArguments(arguments);
   }
 }

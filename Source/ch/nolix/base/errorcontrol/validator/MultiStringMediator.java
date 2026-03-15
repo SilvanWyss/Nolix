@@ -3,82 +3,71 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
- * A string container mediator is not mutable.
+ * A {@link MultiStringMediator} is not mutable.
  * 
  * @author Silvan Wyss
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
   /**
-   * Creates a new string container mediator with the given arguments.
+   * Creates a new {@link MultiStringMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given argument container is null.
+   * @throws RuntimeException if the given arguments is null.
    */
-  MultiStringMediator(final Iterable<String> arguments) {
-    //Calls constructor of the base class.
+  private MultiStringMediator(final Iterable<String> arguments) {
     super(arguments);
   }
 
   /**
-   * Creates a new string container mediator with the given arguments.
-   * 
    * @param arguments
-   * @throws RuntimeException if the given argument container is null.
+   * @return a new {@link MultiStringMediator} for the given arguments.
    */
-  MultiStringMediator(final String[] arguments) {
-    //Calls method of the base class.
-    super(arguments);
+  public static MultiStringMediator forArguments(final Iterable<String> arguments) {
+    return new MultiStringMediator(arguments);
   }
 
   /**
-   * for the arguments of the current {@link MultiStringMediator}.
-   * 
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiStringMediator} is null.
-   * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiStringMediator} is blank.
+   *                          {@link MultiStringMediator} is null or blank.
    */
   public void areNotBlank() {
-    //Asserts that the arguments of the current multi string mediator are not null.
-    areNotNull();
-
-    //Iterates the arguments of the current multi string mediator.
     var index = 1;
+
     for (final var a : getStoredArguments()) {
-      //Asserts that the current argument is not blank.
-      if (a.isBlank()) {
-        throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(index + "th argument", a,
-          "is blank");
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      //Increments index.
+      if (a.isBlank()) {
+        throw //
+        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(a, index + "th argument", "is blank");
+      }
+
       index++;
     }
   }
 
   /**
-   * @throws RuntimeException if one of the arguments of this strinc container
-   *                          mediator is null.
-   * @throws RuntimeException if one of the arguments of this string container
-   *                          mediator is empty.
+   * @throws RuntimeException if one of the arguments of the current
+   *                          {@link MultiStringMediator} is null or empty.
    */
   public void areNotEmpty() {
-    //Asserts that the arguments of this string container mediator are not null.
-    areNotNull();
-
-    //Iterates the arguments of this string container mediator.
     var index = 1;
-    for (final String a : getStoredArguments()) {
-      //Asserts that the current argument is not empty.
-      if (a.isEmpty()) {
-        throw EmptyArgumentException.forArgumentAndArgumentName(a, index + "th argument");
+
+    for (final var a : getStoredArguments()) {
+      if (a == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      //Increments index.
+      if (a.isEmpty()) {
+        throw EmptyArgumentException.forArgumentAndArgumentName(a, "th argument");
+      }
+
       index++;
     }
   }
