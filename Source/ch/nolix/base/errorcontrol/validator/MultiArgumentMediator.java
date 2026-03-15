@@ -3,11 +3,8 @@
  */
 package ch.nolix.base.errorcontrol.validator;
 
-import java.util.function.Predicate;
-
 import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * A multi argument mediator is an mediator for several arguments of the same
@@ -59,30 +56,6 @@ public class MultiArgumentMediator<A> {
       //Asserts that the current argument is not null.
       if (a == null) {
         throw ArgumentIsNullException.forArgumentName(index + "th argument");
-      }
-
-      //Increments the index.
-      index++;
-    }
-  }
-
-  /**
-   * @param condition
-   * @throws RuntimeException if the given condition is null.
-   * @throws RuntimeException if an argument of this argument container does not
-   *                          fulfill the given condition.
-   */
-  public final void fulfill(final Predicate<A> condition) {
-    //Iterates the arguments of this multi argument mediator.
-    var index = 1;
-    for (final A a : getStoredArguments()) {
-      //Asserts that the current argument fulfills the given condition.
-      if (!condition.test(a)) {
-        throw //
-        InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-          a,
-          index + "th argument",
-          "does not fulfil the given condition");
       }
 
       //Increments the index.
