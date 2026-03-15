@@ -26,6 +26,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
   /**
    * @param arguments
    * @return a new {@link MultiStringMediator} for the given arguments.
+   * @throws RuntimeException if the given arguments is null.
    */
   public static MultiStringMediator forArguments(final Iterable<String> arguments) {
     return new MultiStringMediator(arguments);
