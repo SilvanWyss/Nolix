@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.object;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @author Silvan Wyss
  */
 public final class ExtendedBigDecimalMediator extends BigDecimalMediator {
-  ExtendedBigDecimalMediator(final BigDecimal argument) {
+  public ExtendedBigDecimalMediator(final BigDecimal argument) {
     //Calls constructor of the base class.
     super(argument);
   }

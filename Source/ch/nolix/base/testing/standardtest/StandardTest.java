@@ -5,12 +5,12 @@ package ch.nolix.base.testing.standardtest;
 
 import java.util.Optional;
 
-import ch.nolix.base.errorcontrol.validator.ObjectMediator;
 import ch.nolix.base.errorcontrol.validator.IterableMediator;
 import ch.nolix.base.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.base.errorcontrol.validator.MultiLongMediator;
-import ch.nolix.base.errorcontrol.validator.OptionalMediator;
-import ch.nolix.base.errorcontrol.validator.StringMediator;
+import ch.nolix.base.validation.object.ObjectMediator;
+import ch.nolix.base.validation.object.OptionalMediator;
+import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitivetype.BooleanMediator;
 import ch.nolix.base.validation.primitivetype.ByteMediator;
 import ch.nolix.base.validation.primitivetype.DoubleMediator;

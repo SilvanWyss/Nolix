@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.independent.iterabletool.IterableExaminer;
 import ch.nolix.base.independent.iterabletool.IterableTool;
+import ch.nolix.base.validation.object.ObjectMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.object;
 
 /**
  * An extended generic argument mediator is not mutable.
@@ -16,7 +16,7 @@ public class ExtendedArgumentMediator<A> extends ObjectMediator<A> {
    * 
    * @param argument
    */
-  ExtendedArgumentMediator(final A argument) {
+  public ExtendedArgumentMediator(final A argument) {
     //Calls constructor of the base class.
     super(argument);
   }

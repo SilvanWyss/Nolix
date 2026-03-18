@@ -8,6 +8,12 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.base.validation.object.ExtendedArgumentMediator;
+import ch.nolix.base.validation.object.ExtendedBigDecimalMediator;
+import ch.nolix.base.validation.object.ExtendedMethodMediator;
+import ch.nolix.base.validation.object.ExtendedOptionalMediator;
+import ch.nolix.base.validation.object.ExtendedStringMediator;
+import ch.nolix.base.validation.object.ExtendedTypeMediator;
 import ch.nolix.base.validation.primitivetype.ExtendedBitMediator;
 import ch.nolix.base.validation.primitivetype.ExtendedByteMediator;
 import ch.nolix.base.validation.primitivetype.ExtendedDoubleMediator;

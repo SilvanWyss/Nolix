@@ -1,11 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.object;
 
 import java.util.Objects;
 import java.util.function.Predicate;
 
+import ch.nolix.base.errorcontrol.validator.Mediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;

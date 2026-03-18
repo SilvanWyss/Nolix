@@ -1,11 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.object;
 
 import java.util.Optional;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.validation.IOptionalMediator;
@@ -79,7 +80,9 @@ public class OptionalMediator<T> extends ObjectMediator<Optional<T>> implements 
    */
   @Override
   public final void containsObjectOfType(Class<Object> type) {
-    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    if (type == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TYPE);
+    }
 
     final var argument = getStoredArgument();
 
