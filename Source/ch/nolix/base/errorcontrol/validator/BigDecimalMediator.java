@@ -12,7 +12,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentExc
 /**
  * @author Silvan Wyss
  */
-public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
+public class BigDecimalMediator extends ObjectMediator<BigDecimal> {
   BigDecimalMediator(final BigDecimal argument) {
     //Calls constructor of the base class.
     super(argument);

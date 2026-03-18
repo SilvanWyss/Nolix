@@ -5,7 +5,7 @@ package ch.nolix.base.testing.standardtest;
 
 import java.util.Optional;
 
-import ch.nolix.base.errorcontrol.validator.ArgumentMediator;
+import ch.nolix.base.errorcontrol.validator.ObjectMediator;
 import ch.nolix.base.errorcontrol.validator.BooleanMediator;
 import ch.nolix.base.errorcontrol.validator.ByteMediator;
 import ch.nolix.base.errorcontrol.validator.DoubleMediator;
@@ -120,8 +120,8 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new object mediator that belongs to this test and has the given
    *         argument.
    */
-  protected static final <V> ArgumentMediator<V> expect(final V argument) {
-    return ArgumentMediator.forArgument(argument);
+  protected static final <V> ObjectMediator<V> expect(final V argument) {
+    return ObjectMediator.forArgument(argument);
   }
 
   /**

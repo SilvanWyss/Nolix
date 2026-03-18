@@ -14,26 +14,26 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentExc
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link ArgumentMediator} is not mutable.
+ * A {@link ObjectMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <A> is the type of the argument of an {@link ArgumentMediator}.
+ * @param <A> is the type of the argument of an {@link ObjectMediator}.
  */
-public class ArgumentMediator<A> extends Mediator {
+public class ObjectMediator<A> extends Mediator {
   private final A argument;
 
   /**
-   * Creates a new {@link ArgumentMediator} for the given argument.
+   * Creates a new {@link ObjectMediator} for the given argument.
    * 
    * @param argument
    */
-  protected ArgumentMediator(final A argument) {
+  protected ObjectMediator(final A argument) {
     //Calls other constructor.
     this(DEFAULT_ARGUMENT_NAME, argument);
   }
 
   /**
-   * Creates a new {@link ArgumentMediator} for the given argument, which has the
+   * Creates a new {@link ObjectMediator} for the given argument, which has the
    * given argumentName.
    * 
    * @param argumentName
@@ -41,7 +41,7 @@ public class ArgumentMediator<A> extends Mediator {
    * @throws RuntimeException if the given argumentName is null.
    * @throws RuntimeException if the given argument name is blank.
    */
-  protected ArgumentMediator(final String argumentName, final A argument) {
+  protected ObjectMediator(final String argumentName, final A argument) {
     //Calls constructor of the base class.
     super(argumentName);
 
@@ -52,17 +52,17 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param argument
    * @param <A2>     is the type of the given argument.
-   * @return a new {@link ArgumentMediator} for the given argument.
+   * @return a new {@link ObjectMediator} for the given argument.
    */
-  public static <A2> ArgumentMediator<A2> forArgument(final A2 argument) {
-    return new ArgumentMediator<>(argument);
+  public static <A2> ObjectMediator<A2> forArgument(final A2 argument) {
+    return new ObjectMediator<>(argument);
   }
 
   /**
    * @param condition
    * @throws RuntimeException if the given condition is null.
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} does not fulfill the given
+   *                          {@link ObjectMediator} does not fulfill the given
    *                          condition.
    */
   public final void fulfills(Predicate<A> condition) {
@@ -86,7 +86,7 @@ public class ArgumentMediator<A> extends Mediator {
    * @param object
    * @throws RuntimeException if the given object is null.
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} does not have the same
+   *                          {@link ObjectMediator} does not have the same
    *                          {@link String} representation as the given object.
    */
   public final void hasSameStringRepresentationAs(final Object object) {
@@ -105,7 +105,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param stringRepresentation
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} does not have the given
+   *                          {@link ObjectMediator} does not have the given
    *                          stringRepresentation.
    */
   public final void hasStringRepresentation(final String stringRepresentation) {
@@ -125,7 +125,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} does not equal the given
+   *                          {@link ObjectMediator} does not equal the given
    *                          object.
    */
   public final void isEqualTo(final Object object) {
@@ -139,7 +139,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} is not (!) the given
+   *                          {@link ObjectMediator} is not (!) the given
    *                          object.
    */
   public final void is(final Object object) {
@@ -157,7 +157,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} is the given object.
+   *                          {@link ObjectMediator} is the given object.
    */
   public final void isNot(final Object object) {
     //Asserts that the argument of the current ArgumentMediator is not the given
@@ -174,7 +174,7 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param object
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} equals the given object.
+   *                          {@link ObjectMediator} equals the given object.
    */
   public final void isNotEqualTo(final A object) {
     //Asserts that the argument of the current ArgumentMediator does not equal the
@@ -186,7 +186,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} is null.
+   *                          {@link ObjectMediator} is null.
    */
   public final void isNotNull() {
     //Asserts that the argument of the current ArgumentMediator is not null.
@@ -197,7 +197,7 @@ public class ArgumentMediator<A> extends Mediator {
 
   /**
    * @throws ArgumentIsNotNullException if the argument of the current
-   *                                    {@link ArgumentMediator} is not (!) null.
+   *                                    {@link ObjectMediator} is not (!) null.
    */
   public final void isNull() {
     //Asserts that the argument of the current ArgumentMediator is (!) null.
@@ -209,9 +209,9 @@ public class ArgumentMediator<A> extends Mediator {
   /**
    * @param type
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} is null.
+   *                          {@link ObjectMediator} is null.
    * @throws RuntimeException if the argument of the current
-   *                          {@link ArgumentMediator} is not of the given type.
+   *                          {@link ObjectMediator} is not of the given type.
    */
   public final void isOfType(final Class<?> type) {
     //Asserts that the argument of the current ArgumentMediator is not null.
@@ -229,7 +229,7 @@ public class ArgumentMediator<A> extends Mediator {
   }
 
   /**
-   * @return the argument of the current {@link ArgumentMediator}.
+   * @return the argument of the current {@link ObjectMediator}.
    */
   protected A getStoredArgument() {
     return argument;

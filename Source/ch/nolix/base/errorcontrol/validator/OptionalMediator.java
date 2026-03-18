@@ -16,7 +16,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <T> is the type of the element of the {@link Optional} of a
  *            {@link OptionalMediator}.
  */
-public class OptionalMediator<T> extends ArgumentMediator<Optional<T>> implements IOptionalMediator {
+public class OptionalMediator<T> extends ObjectMediator<Optional<T>> implements IOptionalMediator {
   protected OptionalMediator(final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     super(argument);

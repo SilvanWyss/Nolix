@@ -15,7 +15,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * 
  * @author Silvan Wyss
  */
-public class StringMediator extends ArgumentMediator<String> {
+public class StringMediator extends ObjectMediator<String> {
   /**
    * Creates a new {@link StringMediator} for the given argument.
    * 
