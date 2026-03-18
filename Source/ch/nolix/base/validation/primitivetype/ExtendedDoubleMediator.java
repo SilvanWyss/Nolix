@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.primitivetype;
 
 /**
  * An extended double mediator is not mutable.
@@ -14,7 +14,7 @@ public class ExtendedDoubleMediator extends DoubleMediator {
    * 
    * @param argument
    */
-  ExtendedDoubleMediator(final double argument) {
+  public ExtendedDoubleMediator(final double argument) {
     //Calls constructor of the base class.
     super(argument);
   }

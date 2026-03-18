@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.primitivetype;
 
 /**
  * @author Silvan Wyss
@@ -9,7 +9,7 @@ package ch.nolix.base.errorcontrol.validator;
 public final class ExtendedBitMediator extends BitMediator {
   private final boolean argument;
 
-  ExtendedBitMediator(boolean argument) {
+  public ExtendedBitMediator(boolean argument) {
     super(argument);
 
     this.argument = argument;

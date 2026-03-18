@@ -1,8 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.primitivetype;
 
+import ch.nolix.base.errorcontrol.validator.Mediator;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;

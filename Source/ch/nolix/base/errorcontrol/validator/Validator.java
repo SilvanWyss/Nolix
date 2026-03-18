@@ -8,6 +8,10 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
+import ch.nolix.base.validation.primitivetype.ExtendedBitMediator;
+import ch.nolix.base.validation.primitivetype.ExtendedByteMediator;
+import ch.nolix.base.validation.primitivetype.ExtendedDoubleMediator;
+import ch.nolix.base.validation.primitivetype.ExtendedLongMediator;
 
 /**
  * The {@link Validator} provides methods to validate arguments.
