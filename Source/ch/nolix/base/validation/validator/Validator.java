@@ -22,7 +22,7 @@ import ch.nolix.base.validation.object.ExtendedTypeMediator;
 import ch.nolix.base.validation.primitive.ExtendedBitMediator;
 import ch.nolix.base.validation.primitive.ExtendedByteMediator;
 import ch.nolix.base.validation.primitive.ExtendedDoubleMediator;
-import ch.nolix.base.validation.primitive.ExtendedLongMediator;
+import ch.nolix.base.validation.primitive.NamableLongMediator;
 
 /**
  * The {@link Validator} provides methods to validate arguments.
@@ -107,10 +107,10 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @return a new {@link ExtendedLongMediator} for the given argument.
+   * @return a new {@link NamableLongMediator} for the given argument.
    */
-  public static ExtendedLongMediator assertThat(final int argument) {
-    return ExtendedLongMediator.forArgument(argument);
+  public static NamableLongMediator assertThat(final int argument) {
+    return NamableLongMediator.forArgument(argument);
   }
 
   /**
@@ -138,10 +138,10 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @return a new {@link ExtendedLongMediator} for the given argument.
+   * @return a new {@link NamableLongMediator} for the given argument.
    */
-  public static ExtendedLongMediator assertThat(final long argument) {
-    return ExtendedLongMediator.forArgument(argument);
+  public static NamableLongMediator assertThat(final long argument) {
+    return NamableLongMediator.forArgument(argument);
   }
 
   /**

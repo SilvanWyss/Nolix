@@ -10,9 +10,9 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.base.validation.object.ExtendedIterableMediator;
 import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.StringMediator;
+import ch.nolix.base.validation.primitive.AbstractLongMediator;
 import ch.nolix.base.validation.primitive.ByteMediator;
 import ch.nolix.base.validation.primitive.DoubleMediator;
-import ch.nolix.base.validation.primitive.LongMediator;
 import ch.nolix.base.validation.validator.Validator;
 
 /**
@@ -76,7 +76,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(LongMediator.class);
+    expect(result).isOfType(AbstractLongMediator.class);
   }
 
   @Test
@@ -100,7 +100,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(LongMediator.class);
+    expect(result).isOfType(AbstractLongMediator.class);
   }
 
   @Test
