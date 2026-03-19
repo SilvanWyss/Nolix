@@ -11,9 +11,9 @@ import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.StringMediator;
-import ch.nolix.base.validation.primitivetype.ByteMediator;
-import ch.nolix.base.validation.primitivetype.DoubleMediator;
-import ch.nolix.base.validation.primitivetype.LongMediator;
+import ch.nolix.base.validation.primitive.ByteMediator;
+import ch.nolix.base.validation.primitive.DoubleMediator;
+import ch.nolix.base.validation.primitive.LongMediator;
 
 /**
  * @author Silvan Wyss

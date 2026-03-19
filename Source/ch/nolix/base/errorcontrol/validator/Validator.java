@@ -14,10 +14,10 @@ import ch.nolix.base.validation.object.ExtendedMethodMediator;
 import ch.nolix.base.validation.object.ExtendedOptionalMediator;
 import ch.nolix.base.validation.object.ExtendedStringMediator;
 import ch.nolix.base.validation.object.ExtendedTypeMediator;
-import ch.nolix.base.validation.primitivetype.ExtendedBitMediator;
-import ch.nolix.base.validation.primitivetype.ExtendedByteMediator;
-import ch.nolix.base.validation.primitivetype.ExtendedDoubleMediator;
-import ch.nolix.base.validation.primitivetype.ExtendedLongMediator;
+import ch.nolix.base.validation.primitive.ExtendedBitMediator;
+import ch.nolix.base.validation.primitive.ExtendedByteMediator;
+import ch.nolix.base.validation.primitive.ExtendedDoubleMediator;
+import ch.nolix.base.validation.primitive.ExtendedLongMediator;
 
 /**
  * The {@link Validator} provides methods to validate arguments.

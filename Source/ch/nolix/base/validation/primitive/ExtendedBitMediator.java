@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.validation.primitivetype;
+package ch.nolix.base.validation.primitive;
 
 /**
  * @author Silvan Wyss

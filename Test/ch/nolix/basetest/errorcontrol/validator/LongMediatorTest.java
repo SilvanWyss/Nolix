@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.primitivetype.LongMediator;
+import ch.nolix.base.validation.primitive.LongMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

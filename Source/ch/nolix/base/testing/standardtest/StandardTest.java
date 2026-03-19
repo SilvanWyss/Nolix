@@ -11,10 +11,10 @@ import ch.nolix.base.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.base.validation.object.ObjectMediator;
 import ch.nolix.base.validation.object.OptionalMediator;
 import ch.nolix.base.validation.object.StringMediator;
-import ch.nolix.base.validation.primitivetype.BooleanMediator;
-import ch.nolix.base.validation.primitivetype.ByteMediator;
-import ch.nolix.base.validation.primitivetype.DoubleMediator;
-import ch.nolix.base.validation.primitivetype.LongMediator;
+import ch.nolix.base.validation.primitive.BooleanMediator;
+import ch.nolix.base.validation.primitive.ByteMediator;
+import ch.nolix.base.validation.primitive.DoubleMediator;
+import ch.nolix.base.validation.primitive.LongMediator;
 import ch.nolix.baseapi.errorcontrol.validation.IOptionalMediator;
 
 /**

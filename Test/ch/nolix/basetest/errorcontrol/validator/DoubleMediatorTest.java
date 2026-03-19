@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.primitivetype.DoubleMediator;
+import ch.nolix.base.validation.primitive.DoubleMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 

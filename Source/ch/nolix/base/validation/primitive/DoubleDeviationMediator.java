@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.validation.primitivetype;
+package ch.nolix.base.validation.primitive;
 
 import ch.nolix.base.errorcontrol.validator.Mediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
