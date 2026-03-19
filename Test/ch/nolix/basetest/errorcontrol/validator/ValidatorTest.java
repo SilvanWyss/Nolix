@@ -5,10 +5,10 @@ package ch.nolix.basetest.errorcontrol.validator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.validator.ExtendedIterableMediator;
 import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.validation.object.ExtendedIterableMediator;
 import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.ByteMediator;

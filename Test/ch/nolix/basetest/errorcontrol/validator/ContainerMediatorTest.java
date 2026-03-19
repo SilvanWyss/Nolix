@@ -8,8 +8,8 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.errorcontrol.validator.IterableMediator;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.validation.object.IterableMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 

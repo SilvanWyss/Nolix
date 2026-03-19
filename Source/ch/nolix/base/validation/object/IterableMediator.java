@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validator;
+package ch.nolix.base.validation.object;
 
 import java.util.Iterator;
 import java.util.Objects;
@@ -10,7 +10,6 @@ import java.util.function.Predicate;
 import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.independent.iterabletool.IterableExaminer;
 import ch.nolix.base.independent.iterabletool.IterableTool;
-import ch.nolix.base.validation.object.ObjectMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;

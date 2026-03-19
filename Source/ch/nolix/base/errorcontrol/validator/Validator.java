@@ -14,6 +14,7 @@ import ch.nolix.base.validation.multi.MultiLongMediator;
 import ch.nolix.base.validation.multi.MultiStringMediator;
 import ch.nolix.base.validation.object.ExtendedArgumentMediator;
 import ch.nolix.base.validation.object.ExtendedBigDecimalMediator;
+import ch.nolix.base.validation.object.ExtendedIterableMediator;
 import ch.nolix.base.validation.object.ExtendedMethodMediator;
 import ch.nolix.base.validation.object.ExtendedOptionalMediator;
 import ch.nolix.base.validation.object.ExtendedStringMediator;
