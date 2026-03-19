@@ -5,8 +5,8 @@ package ch.nolix.basetest.errorcontrol.validator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 
 /**

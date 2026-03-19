@@ -6,8 +6,8 @@ package ch.nolix.base.testing.standardtest;
 import java.util.Optional;
 
 import ch.nolix.base.errorcontrol.validator.IterableMediator;
-import ch.nolix.base.errorcontrol.validator.MultiDoubleMediator;
-import ch.nolix.base.errorcontrol.validator.MultiLongMediator;
+import ch.nolix.base.validation.multi.MultiDoubleMediator;
+import ch.nolix.base.validation.multi.MultiLongMediator;
 import ch.nolix.base.validation.object.ObjectMediator;
 import ch.nolix.base.validation.object.OptionalMediator;
 import ch.nolix.base.validation.object.StringMediator;
