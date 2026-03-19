@@ -6,7 +6,7 @@ package ch.nolix.base.validation.object;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import ch.nolix.base.errorcontrol.validator.Mediator;
+import ch.nolix.base.validation.base.Mediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;

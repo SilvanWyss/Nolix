@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.primitive;
 
-import ch.nolix.base.errorcontrol.validator.Mediator;
+import ch.nolix.base.validation.base.Mediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
