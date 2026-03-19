@@ -4,7 +4,7 @@
 package ch.nolix.base.validation.primitive;
 
 import ch.nolix.base.independent.arraytool.ArrayTool;
-import ch.nolix.base.validation.base.Mediator;
+import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsInRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -20,12 +20,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentExc
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 
 /**
- * A {@link LongMediator} is a {@link Mediator} for a long argument. A
+ * A {@link LongMediator} is a {@link AbstractMediator} for a long argument. A
  * {@link LongMediator} is not mutable.
  * 
  * @author Silvan Wyss
  */
-public class LongMediator extends Mediator {
+public class LongMediator extends AbstractMediator {
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   private final long argument;

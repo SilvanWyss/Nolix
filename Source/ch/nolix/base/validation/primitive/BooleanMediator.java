@@ -3,13 +3,13 @@
  */
 package ch.nolix.base.validation.primitive;
 
-import ch.nolix.base.validation.base.Mediator;
+import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
  * @author Silvan Wyss
  */
-public final class BooleanMediator extends Mediator {
+public final class BooleanMediator extends AbstractMediator {
   private final boolean argument;
 
   private BooleanMediator(final boolean argument) {

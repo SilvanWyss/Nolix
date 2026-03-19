@@ -6,7 +6,7 @@ package ch.nolix.base.validation.object;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import ch.nolix.base.validation.base.Mediator;
+import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -20,7 +20,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @param <A> is the type of the argument of an {@link ObjectMediator}.
  */
-public class ObjectMediator<A> extends Mediator {
+public class ObjectMediator<A> extends AbstractMediator {
   private final A argument;
 
   /**

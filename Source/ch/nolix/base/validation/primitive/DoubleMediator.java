@@ -4,7 +4,7 @@
 package ch.nolix.base.validation.primitive;
 
 import ch.nolix.base.independent.math.NumberComparator;
-import ch.nolix.base.validation.base.Mediator;
+import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -21,7 +21,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentExc
  * 
  * @author Silvan Wyss
  */
-public class DoubleMediator extends Mediator {
+public class DoubleMediator extends AbstractMediator {
   private final double argument;
 
   /**

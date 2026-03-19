@@ -3,14 +3,14 @@
  */
 package ch.nolix.base.validation.primitive;
 
-import ch.nolix.base.validation.base.Mediator;
+import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 /**
  * @author Silvan Wyss
  */
-public final class DoubleDeviationMediator extends Mediator {
+public final class DoubleDeviationMediator extends AbstractMediator {
   private final double argument;
 
   private final double maxDeviation;

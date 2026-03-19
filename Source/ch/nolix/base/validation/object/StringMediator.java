@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.validation.object;
 
-import ch.nolix.base.validation.base.Mediator;
+import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -11,7 +11,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentEx
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link StringMediator} is a {@link Mediator} for an argument that is a
+ * A {@link StringMediator} is a {@link AbstractMediator} for an argument that is a
  * {@link String}. A {@link StringMediator} is not mutable.
  * 
  * @author Silvan Wyss
