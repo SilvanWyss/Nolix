@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.property;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.property.ILazyCalculatedProperty;
 
 /**

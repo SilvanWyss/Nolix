@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.sqlmiddata.datawriter;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
 import ch.nolix.base.sql.sqltool.SqlCollector;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmiddata.statementcreator.EntityStatementCreator;
 import ch.nolix.system.sqlmiddata.statementcreator.MultiBackReferenceStatementCreator;

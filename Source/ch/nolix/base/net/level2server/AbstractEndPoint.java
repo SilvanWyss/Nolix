@@ -6,8 +6,8 @@ package ch.nolix.base.net.level2server;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.net.level2server.IEndPoint;

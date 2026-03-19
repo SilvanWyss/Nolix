@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.datamodel.id.IdCreator;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;

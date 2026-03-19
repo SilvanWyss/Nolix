@@ -4,8 +4,8 @@
 package ch.nolix.system.nodemidschema.schemawriter;
 
 import ch.nolix.base.document.node.MutableNode;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.document.node.IMutableNode;

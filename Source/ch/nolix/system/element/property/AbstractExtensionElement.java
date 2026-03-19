@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.element.property;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

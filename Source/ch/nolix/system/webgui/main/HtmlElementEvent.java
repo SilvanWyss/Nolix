@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 //record

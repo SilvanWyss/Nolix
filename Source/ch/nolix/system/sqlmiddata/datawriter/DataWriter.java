@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.sqlmiddata.datawriter;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;

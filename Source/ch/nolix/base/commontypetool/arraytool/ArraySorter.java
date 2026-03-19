@@ -5,7 +5,7 @@ package ch.nolix.base.commontypetool.arraytool;
 
 import java.util.function.Function;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 
 /**
  * @author Silvan Wyss

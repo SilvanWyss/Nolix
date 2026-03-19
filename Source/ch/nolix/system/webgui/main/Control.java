@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;

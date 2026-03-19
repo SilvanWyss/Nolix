@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.application.maintestutil;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.application.main.AbstractSession;
 import ch.nolix.system.application.main.Application;

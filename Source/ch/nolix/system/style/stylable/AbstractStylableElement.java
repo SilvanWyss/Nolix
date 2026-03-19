@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.style.stylable;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;

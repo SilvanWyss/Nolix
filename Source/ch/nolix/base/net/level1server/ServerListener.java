@@ -8,9 +8,9 @@ import java.net.Socket;
 import java.net.SocketException;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
 
 /**

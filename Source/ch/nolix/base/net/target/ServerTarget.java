@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.target;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.commontypetool.arraytool;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayMediator;
 import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
 

@@ -5,7 +5,7 @@ package ch.nolix.base.net.websocket;
 
 import java.math.BigInteger;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;

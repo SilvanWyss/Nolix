@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontypetool.iteratortool.IterableExaminer;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.base.AbstractContainer;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontypetool.iterabletool.IIterableExaminer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;

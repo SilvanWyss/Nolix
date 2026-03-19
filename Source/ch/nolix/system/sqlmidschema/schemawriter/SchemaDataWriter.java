@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.sqlmidschema.schemawriter;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.sql.sqltool.SqlCollector;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.sql.sqltool.ISqlCollector;

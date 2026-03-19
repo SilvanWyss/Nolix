@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.environment.license;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.environment.licenseapi.ILicense;
 import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

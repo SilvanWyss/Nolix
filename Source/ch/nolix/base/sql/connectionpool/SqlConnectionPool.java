@@ -3,10 +3,10 @@
  */
 package ch.nolix.base.sql.connectionpool;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.usercontrol.Credential;
 import ch.nolix.base.resourcecontrol.resourcepool.AbstractResourcePool;
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.web.url;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.web.url.IUrlTool;
 

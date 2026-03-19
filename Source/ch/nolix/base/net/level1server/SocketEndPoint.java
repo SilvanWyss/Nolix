@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netconstant.IPv6Catalog;

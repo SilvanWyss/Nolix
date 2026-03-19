@@ -6,7 +6,7 @@ package ch.nolix.base.container.sequencesearch;
 import java.util.function.Predicate;
 
 import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;

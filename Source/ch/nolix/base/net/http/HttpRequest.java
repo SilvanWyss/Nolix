@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.http;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.commoncontainer.StoringRequestable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 

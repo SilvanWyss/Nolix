@@ -4,7 +4,7 @@
 package ch.nolix.base.container.arraylist;
 
 import ch.nolix.base.container.base.AbstractContainer;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

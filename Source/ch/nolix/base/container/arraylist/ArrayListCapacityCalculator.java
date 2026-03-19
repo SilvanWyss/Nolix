@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.container.arraylist;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.math.number.IntCatalog;
 
 /**

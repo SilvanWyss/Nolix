@@ -4,7 +4,7 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.base.environment.runningjar.RunningJar;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalog;
 
 record ServerHttpMessage(String serverIP, int serverPort) {

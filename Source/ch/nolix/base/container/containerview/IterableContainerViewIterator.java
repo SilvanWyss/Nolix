@@ -5,7 +5,7 @@ package ch.nolix.base.container.containerview;
 
 import java.util.Iterator;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 
 /**

@@ -5,7 +5,7 @@ package ch.nolix.base.net.level2server;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

@@ -6,7 +6,7 @@ package ch.nolix.base.document.xml;
 import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;

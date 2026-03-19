@@ -5,7 +5,7 @@ package ch.nolix.base.web.htmlelementmodel;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

@@ -5,7 +5,7 @@ package ch.nolix.base.container.matrix;
 
 import java.util.NoSuchElementException;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.matrix.IMatrixRow;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
 import ch.nolix.systemapi.databaseobject.modelvalidator.IDatabaseObjectValidator;

@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.math.stochastic;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.math.algebra.Matrix;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

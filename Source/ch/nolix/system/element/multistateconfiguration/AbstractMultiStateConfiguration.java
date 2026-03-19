@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;

@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 import ch.nolix.base.commontypetool.stringtool.StringExaminer;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.IStringExaminer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;

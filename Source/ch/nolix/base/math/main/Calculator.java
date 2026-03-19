@@ -3,11 +3,11 @@
  */
 package ch.nolix.base.math.main;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.math.algebra.Matrix;
 import ch.nolix.base.math.algebra.Polynom;
 import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.math.stochastic.ARModel;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

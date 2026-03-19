@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.net.level3server;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;

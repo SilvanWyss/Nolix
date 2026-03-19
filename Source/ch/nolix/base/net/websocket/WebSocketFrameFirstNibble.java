@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.net.websocket;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.misc.dataobject.UnsignedByte;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;

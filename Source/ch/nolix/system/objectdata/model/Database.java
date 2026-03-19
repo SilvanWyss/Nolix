@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;

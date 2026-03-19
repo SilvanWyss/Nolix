@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.programcontrol.job;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.job.IJobTool;

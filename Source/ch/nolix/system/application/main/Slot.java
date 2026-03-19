@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.level3server.IEndPoint;
 import ch.nolix.baseapi.net.level3server.ISlot;

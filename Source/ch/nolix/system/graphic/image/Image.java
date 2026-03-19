@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 import ch.nolix.base.container.matrix.Matrix;
 import ch.nolix.base.environment.runningjar.RunningJar;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;

@@ -5,7 +5,6 @@ package ch.nolix.basetest.errorcontrol.validator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.base.validation.object.ExtendedIterableMediator;
@@ -14,6 +13,7 @@ import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.ByteMediator;
 import ch.nolix.base.validation.primitive.DoubleMediator;
 import ch.nolix.base.validation.primitive.LongMediator;
+import ch.nolix.base.validation.validator.Validator;
 
 /**
  * @author Silvan Wyss

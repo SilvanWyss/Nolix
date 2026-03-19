@@ -5,7 +5,7 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.webatomiccontrol.button.Button;

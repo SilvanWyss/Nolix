@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.sqlmidschema.databaseinitializer;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webapplication.component;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.system.application.main.AbstractBackendClient;
 import ch.nolix.system.webapplication.main.WebClientSession;

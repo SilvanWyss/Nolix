@@ -9,7 +9,7 @@ import java.util.function.LongToDoubleFunction;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.performanceanalysis.PerformanceAnalyzer;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 import ch.nolix.baseapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
 import ch.nolix.baseapi.errorcontrol.performancevalidation.IActionMediator;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.programcontrol.jobpool;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 
 final class Worker extends Thread {
   private final JobPool parentJobPool;

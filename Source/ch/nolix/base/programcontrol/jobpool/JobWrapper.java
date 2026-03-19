@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.programcontrol.jobpool;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

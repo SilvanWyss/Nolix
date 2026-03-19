@@ -5,7 +5,7 @@ package ch.nolix.system.element.property;
 
 import java.util.function.Function;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

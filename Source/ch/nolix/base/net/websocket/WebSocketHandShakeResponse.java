@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 
 /**
  * @author Silvan Wyss

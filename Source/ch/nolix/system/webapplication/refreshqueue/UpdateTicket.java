@@ -4,7 +4,7 @@
 package ch.nolix.system.webapplication.refreshqueue;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.webgui.main.IControl;

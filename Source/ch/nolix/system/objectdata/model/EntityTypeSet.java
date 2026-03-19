@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;

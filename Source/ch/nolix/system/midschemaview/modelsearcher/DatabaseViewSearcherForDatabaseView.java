@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.midschemaview.modelsearcher;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;

@@ -17,7 +17,7 @@ import ch.nolix.base.container.matrix.Matrix;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.matrix.IMatrix;
 import ch.nolix.baseapi.document.node.INode;

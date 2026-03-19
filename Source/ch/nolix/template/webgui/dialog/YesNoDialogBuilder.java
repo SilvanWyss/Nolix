@@ -3,8 +3,8 @@
  */
 package ch.nolix.template.webgui.dialog;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.misc.function.FunctionService;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.webatomiccontrol.button.Button;
 import ch.nolix.system.webatomiccontrol.label.Label;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.commontypetool.stringtool;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontypetool.stringtool.IStringTool;
 import ch.nolix.baseapi.commontypetool.stringtool.RegularExpressionPatternCatalog;

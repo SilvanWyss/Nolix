@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.datamodel.fieldvalue.ValueMapper;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.level2server;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.level2serverprotocol.MessageRole;
 
 /**

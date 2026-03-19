@@ -6,7 +6,7 @@ package ch.nolix.base.commontypetool.arraytool;
 import java.util.NoSuchElementException;
 
 import ch.nolix.base.commontypetool.iteratorvalidator.IteratorValidator;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 
 /**

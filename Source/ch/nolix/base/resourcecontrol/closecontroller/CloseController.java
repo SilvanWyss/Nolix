@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.resourcecontrol.closecontroller;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;

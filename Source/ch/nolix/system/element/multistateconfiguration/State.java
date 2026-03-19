@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.element.multistateconfiguration;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;

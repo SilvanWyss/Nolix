@@ -6,7 +6,7 @@ package ch.nolix.base.errorcontrol.perfomancevalidator;
 import java.util.function.Consumer;
 import java.util.function.IntFunction;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.performancevalidation.IActionMediator;
 import ch.nolix.baseapi.errorcontrol.performancevalidation.IObjectSupplierMediator;
 

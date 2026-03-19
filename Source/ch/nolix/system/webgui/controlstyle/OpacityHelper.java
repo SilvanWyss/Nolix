@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 
 /**
  * @author Silvan Wyss

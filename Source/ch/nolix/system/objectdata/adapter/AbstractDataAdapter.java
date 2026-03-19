@@ -5,8 +5,8 @@ package ch.nolix.system.objectdata.adapter;
 
 import java.util.function.Supplier;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectdata.model.Database;

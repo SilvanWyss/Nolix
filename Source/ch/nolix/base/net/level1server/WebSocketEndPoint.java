@@ -9,9 +9,9 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.websocket.WebSocketFrame;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 import ch.nolix.techapi.math.bigdecimalmath.ISequenceDefinedBy1Predecessor;
 

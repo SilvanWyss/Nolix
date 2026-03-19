@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.net.level1server;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.websocket.WebSocketCompleteMessage;
 import ch.nolix.base.programcontrol.worker.AbstractBatchWorker;
+import ch.nolix.base.validation.validator.Validator;
 
 final class WebEndPointMessageListener extends AbstractBatchWorker {
   private final WebSocketEndPoint parentWebEndPoint;

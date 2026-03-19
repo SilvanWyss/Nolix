@@ -5,9 +5,9 @@ package ch.nolix.base.net.level1server;
 
 import java.util.function.Consumer;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.net.baseendpoint.AbstractBaseEndPoint;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

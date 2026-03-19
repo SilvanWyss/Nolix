@@ -5,7 +5,7 @@ package ch.nolix.base.misc.dataobject;
 
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.dataobject.IBlob;
 
 /**

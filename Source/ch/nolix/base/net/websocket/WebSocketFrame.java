@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;

@@ -5,7 +5,7 @@ package ch.nolix.system.gui.box;
 
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

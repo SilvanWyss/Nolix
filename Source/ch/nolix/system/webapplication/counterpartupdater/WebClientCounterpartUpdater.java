@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.counterpartupdater;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.webgui.main.IWebGui;

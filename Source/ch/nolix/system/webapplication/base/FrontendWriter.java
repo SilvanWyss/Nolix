@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webapplication.base;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 

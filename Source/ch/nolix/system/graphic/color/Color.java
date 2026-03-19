@@ -6,7 +6,7 @@ package ch.nolix.system.graphic.color;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.datastructure.pair.IPair;

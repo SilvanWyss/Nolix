@@ -6,8 +6,8 @@ package ch.nolix.system.nodemiddata.datawriter;
 import java.util.function.Consumer;
 
 import ch.nolix.base.document.node.MutableNode;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.process.UpdaterCollector;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.programcontrol.process.IUpdaterCollector;

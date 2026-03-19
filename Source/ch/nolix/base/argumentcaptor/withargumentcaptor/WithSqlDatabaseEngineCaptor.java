@@ -4,7 +4,7 @@
 package ch.nolix.base.argumentcaptor.withargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 
 /**

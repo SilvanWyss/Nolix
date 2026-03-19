@@ -7,8 +7,8 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsSoonAsMediator;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.databaseinitializer;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;

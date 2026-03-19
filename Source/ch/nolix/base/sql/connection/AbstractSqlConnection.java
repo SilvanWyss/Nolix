@@ -10,8 +10,8 @@ import java.util.Properties;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.base.errorcontrol.validator.Validator;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.net.netconstant.IPv4Catalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;

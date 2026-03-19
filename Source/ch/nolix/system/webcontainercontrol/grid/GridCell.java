@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webcontainercontrol.grid;
 
-import ch.nolix.base.errorcontrol.validator.Validator;
+import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
