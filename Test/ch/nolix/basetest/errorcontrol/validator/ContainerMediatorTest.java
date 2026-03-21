@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.object.IterableMediator;
+import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
@@ -22,7 +22,7 @@ final class ContainerMediatorTest extends StandardTest {
     //setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final Predicate<String> condition = null;
-    final var testUnit = new IterableMediator<>(list);
+    final var testUnit = NamableIterableMediator.forArgument(list);
 
     //execution & verification
     expectRunning(() -> testUnit.contains(condition))
@@ -35,7 +35,7 @@ final class ContainerMediatorTest extends StandardTest {
   void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
     //setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
-    final var testUnit = new IterableMediator<>(list);
+    final var testUnit = NamableIterableMediator.forArgument(list);
 
     //execution & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("e")))
@@ -50,7 +50,7 @@ final class ContainerMediatorTest extends StandardTest {
   void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
     //setup
     final var list = ImmutableList.withElements("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
-    final var testUnit = new IterableMediator<>(list);
+    final var testUnit = NamableIterableMediator.forArgument(list);
 
     //execution & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("c"))).doesNotThrowException();

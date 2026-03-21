@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
-import ch.nolix.base.validation.object.IterableMediator;
+import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.ObjectMediator;
 import ch.nolix.base.validation.object.OptionalMediator;
 import ch.nolix.base.validation.object.StringMediator;
@@ -75,13 +75,12 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
   }
 
   /**
-   * @param container
-   * @param <E>       is the type of the elements of the given container.
-   * @return a new container mediator that belongs to this test and is for the
-   *         given container.
+   * @param argument
+   * @param <E>      is the type of the elements of the given argument.
+   * @return a new {@link NamableIterableMediator} for the given argument.
    */
-  protected static final <E> IterableMediator<E> expect(final Iterable<E> container) {
-    return new IterableMediator<>(container);
+  protected static final <E> NamableIterableMediator<E> expect(final Iterable<E> argument) {
+    return NamableIterableMediator.forArgument(argument);
   }
 
   /**

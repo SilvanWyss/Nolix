@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.object.ExtendedIterableMediator;
+import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.AbstractLongMediator;
@@ -40,7 +40,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedIterableMediator.class);
+    expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
@@ -64,7 +64,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedIterableMediator.class);
+    expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
@@ -88,7 +88,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedIterableMediator.class);
+    expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
@@ -112,7 +112,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ExtendedIterableMediator.class);
+    expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
