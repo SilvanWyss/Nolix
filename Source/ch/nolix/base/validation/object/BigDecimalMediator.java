@@ -5,49 +5,15 @@ package ch.nolix.base.validation.object;
 
 import java.math.BigDecimal;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
-
 /**
  * @author Silvan Wyss
  */
-public class BigDecimalMediator extends ObjectMediator<BigDecimal> {
-  BigDecimalMediator(final BigDecimal argument) {
-    //Calls constructor of the base class.
-    super(argument);
+public final class BigDecimalMediator extends AbstractBigDecimalMediator {
+  private BigDecimalMediator(final BigDecimal argument, final String argumentName) {
+    super(argument, argumentName);
   }
 
-  BigDecimalMediator(final String argumentName, final BigDecimal argument) {
-    //Calls constructor of the base class.
-    super(argumentName, argument);
-  }
-
-  public final void isNotNegative() {
-    //Asserts that the argument of the current BigDecimalValidator is not null.
-    isNotNull();
-
-    //Asserts that the argument of the current BigDecimalValidator is not negative.
-    if (getStoredArgument().compareTo(BigDecimal.ZERO) < 0) {
-      throw NegativeArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
-    }
-  }
-
-  public final void isNotSmallerThan(final BigDecimal value) {
-    isNotNull();
-
-    if (getStoredArgument().compareTo(value) < 0) {
-      throw SmallerArgumentException.forArgumentAndArgumentNameAndLimit(getStoredArgument(), getArgumentName(), value);
-    }
-  }
-
-  public final void isPositive() {
-    //Asserts that the argument of the current BigDecimalValidator is not null.
-    isNotNull();
-
-    //Asserts that the argument of the current BigDecimalValidator is positive.
-    if (getStoredArgument().compareTo(BigDecimal.ZERO) <= 0) {
-      throw NonPositiveArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
-    }
+  public static BigDecimalMediator forArgumentAndArumgentName(final BigDecimal argument, final String argumentName) {
+    return new BigDecimalMediator(argument, argumentName);
   }
 }

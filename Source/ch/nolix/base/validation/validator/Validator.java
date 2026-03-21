@@ -13,12 +13,12 @@ import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
 import ch.nolix.base.validation.multi.MultiStringMediator;
 import ch.nolix.base.validation.object.ExtendedArgumentMediator;
-import ch.nolix.base.validation.object.ExtendedBigDecimalMediator;
 import ch.nolix.base.validation.object.ExtendedIterableMediator;
 import ch.nolix.base.validation.object.ExtendedMethodMediator;
 import ch.nolix.base.validation.object.ExtendedOptionalMediator;
 import ch.nolix.base.validation.object.ExtendedStringMediator;
 import ch.nolix.base.validation.object.ExtendedTypeMediator;
+import ch.nolix.base.validation.object.NamableBigDecimalMediator;
 import ch.nolix.base.validation.primitive.ExtendedBitMediator;
 import ch.nolix.base.validation.primitive.ExtendedByteMediator;
 import ch.nolix.base.validation.primitive.ExtendedDoubleMediator;
@@ -52,10 +52,10 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @return a new {@link ExtendedBigDecimalMediator} for the given argument.
+   * @return a new {@link NamableBigDecimalMediator} for the given argument.
    */
-  public static ExtendedBigDecimalMediator assertThat(final BigDecimal argument) {
-    return new ExtendedBigDecimalMediator(argument);
+  public static NamableBigDecimalMediator assertThat(final BigDecimal argument) {
+    return NamableBigDecimalMediator.forArgument(argument);
   }
 
   /**
