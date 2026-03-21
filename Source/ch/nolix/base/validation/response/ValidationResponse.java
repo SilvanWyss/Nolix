@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.errorcontrol.validation;
+package ch.nolix.base.validation.response;
 
-import ch.nolix.baseapi.errorcontrol.validation.IValidationResponse;
+import ch.nolix.baseapi.validation.response.IValidationResponse;
 
 /**
  * @author Silvan Wyss
