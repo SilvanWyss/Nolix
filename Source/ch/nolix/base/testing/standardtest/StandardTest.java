@@ -15,7 +15,7 @@ import ch.nolix.base.validation.primitive.BooleanMediator;
 import ch.nolix.base.validation.primitive.ByteMediator;
 import ch.nolix.base.validation.primitive.DoubleMediator;
 import ch.nolix.base.validation.primitive.LongMediator;
-import ch.nolix.baseapi.errorcontrol.validation.IOptionalMediator;
+import ch.nolix.baseapi.validation.object.IOptionalMediator;
 
 /**
  * @author Silvan Wyss

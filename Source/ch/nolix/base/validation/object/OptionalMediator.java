@@ -9,8 +9,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.errorcontrol.validation.IOptionalMediator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.validation.object.IOptionalMediator;
 
 /**
  * @author Silvan Wyss
