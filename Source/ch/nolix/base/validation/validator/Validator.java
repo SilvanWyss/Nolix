@@ -12,13 +12,13 @@ import ch.nolix.base.validation.multi.MultiArgumentMediator;
 import ch.nolix.base.validation.multi.MultiDoubleMediator;
 import ch.nolix.base.validation.multi.MultiLongMediator;
 import ch.nolix.base.validation.multi.MultiStringMediator;
-import ch.nolix.base.validation.object.ExtendedArgumentMediator;
 import ch.nolix.base.validation.object.ExtendedMethodMediator;
 import ch.nolix.base.validation.object.ExtendedOptionalMediator;
 import ch.nolix.base.validation.object.ExtendedStringMediator;
 import ch.nolix.base.validation.object.ExtendedTypeMediator;
 import ch.nolix.base.validation.object.NamableBigDecimalMediator;
 import ch.nolix.base.validation.object.NamableIterableMediator;
+import ch.nolix.base.validation.object.NamableObjectMediator;
 import ch.nolix.base.validation.primitive.ExtendedBitMediator;
 import ch.nolix.base.validation.primitive.ExtendedByteMediator;
 import ch.nolix.base.validation.primitive.ExtendedDoubleMediator;
@@ -44,10 +44,10 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param argument
    * @param <A>      is the type of the given argument.
-   * @return a new {@link ExtendedArgumentMediator} for given argument.
+   * @return a new {@link NamableObjectMediator} for given argument.
    */
-  public static <A> ExtendedArgumentMediator<A> assertThat(final A argument) {
-    return new ExtendedArgumentMediator<>(argument);
+  public static <A> NamableObjectMediator<A> assertThat(final A argument) {
+    return NamableObjectMediator.forArgument(argument);
   }
 
   /**

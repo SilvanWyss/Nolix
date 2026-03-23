@@ -17,7 +17,7 @@ import ch.nolix.baseapi.validation.object.IOptionalMediator;
  * @param <T> is the type of the element of the {@link Optional} of a
  *            {@link OptionalMediator}.
  */
-public class OptionalMediator<T> extends ObjectMediator<Optional<T>> implements IOptionalMediator {
+public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> implements IOptionalMediator {
   protected OptionalMediator(final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
     super(argument);
@@ -27,7 +27,7 @@ public class OptionalMediator<T> extends ObjectMediator<Optional<T>> implements 
     final String argumentName,
     final Optional<T> argument //NOSONAR: An Optional is the argument of an OptionalMediator.
   ) {
-    super(argumentName, argument);
+    super(argument, argumentName);
   }
 
   public static <T2> OptionalMediator<T2> forArgument(final Optional<T2> argument //NOSONAR: An Optional is the argument of an OptionalMediator.

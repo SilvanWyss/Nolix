@@ -11,12 +11,12 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentEx
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link StringMediator} is a {@link AbstractMediator} for an argument that is a
- * {@link String}. A {@link StringMediator} is not mutable.
+ * A {@link StringMediator} is a {@link AbstractMediator} for an argument that
+ * is a {@link String}. A {@link StringMediator} is not mutable.
  * 
  * @author Silvan Wyss
  */
-public class StringMediator extends ObjectMediator<String> {
+public class StringMediator extends AbstractObjectMediator<String> {
   /**
    * Creates a new {@link StringMediator} for the given argument.
    * 
@@ -38,7 +38,7 @@ public class StringMediator extends ObjectMediator<String> {
    */
   protected StringMediator(final String argumentName, final String argument) {
     //Calls constructor of the base class.
-    super(argumentName, argument);
+    super(argument, argumentName);
   }
 
   /**

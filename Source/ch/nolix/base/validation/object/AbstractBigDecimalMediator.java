@@ -12,13 +12,13 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentExc
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractBigDecimalMediator extends ObjectMediator<BigDecimal> {
+public abstract class AbstractBigDecimalMediator extends AbstractObjectMediator<BigDecimal> {
   protected AbstractBigDecimalMediator(final BigDecimal argument) {
     super(argument);
   }
 
   protected AbstractBigDecimalMediator(final BigDecimal argument, final String argumentName) {
-    super(argumentName, argument);
+    super(argument, argumentName);
   }
 
   public final void isNotNegative() {

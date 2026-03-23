@@ -13,13 +13,13 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  */
-public class MethodMediator extends ObjectMediator<Method> {
+public class MethodMediator extends AbstractObjectMediator<Method> {
   protected MethodMediator(final Method argument) {
-    super(LowerCaseVariableCatalog.METHOD, argument);
+    super(argument, LowerCaseVariableCatalog.METHOD);
   }
 
   private MethodMediator(final String argumentName, final Method argument) {
-    super(argumentName, argument);
+    super(argument, argumentName);
   }
 
   public static MethodMediator forArgument(final Method argument) {

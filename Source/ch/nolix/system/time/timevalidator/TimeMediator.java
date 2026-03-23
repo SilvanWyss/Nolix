@@ -3,16 +3,16 @@
  */
 package ch.nolix.system.time.timevalidator;
 
-import ch.nolix.base.validation.object.ObjectMediator;
+import ch.nolix.base.validation.object.AbstractObjectMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
-public class TimeMediator extends ObjectMediator<ITime> {
+public class TimeMediator extends AbstractObjectMediator<ITime> {
   TimeMediator(final String argumentName, final ITime argument) {
-    super(argumentName, argument);
+    super(argument, argumentName);
   }
 
   TimeMediator(final ITime argument) {

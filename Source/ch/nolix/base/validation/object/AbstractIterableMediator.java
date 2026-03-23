@@ -26,7 +26,7 @@ import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
  * @param <E> is the type of the elements of the argument of a
  *            {@link AbstractIterableMediator}.
  */
-public abstract class AbstractIterableMediator<E> extends ObjectMediator<Iterable<E>> {
+public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator<Iterable<E>> {
   private static final IArrayTool ARRAY_TOOL = new ArrayTool();
 
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
@@ -38,7 +38,7 @@ public abstract class AbstractIterableMediator<E> extends ObjectMediator<Iterabl
   }
 
   protected AbstractIterableMediator(final Iterable<E> argument, final String argumentName) {
-    super(argumentName, argument);
+    super(argument, argumentName);
   }
 
   public void contains(final Object element) {
