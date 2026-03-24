@@ -13,8 +13,8 @@ import ch.nolix.base.validation.object.OptionalMediator;
 import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.BooleanMediator;
 import ch.nolix.base.validation.primitive.ByteMediator;
-import ch.nolix.base.validation.primitive.DoubleMediator;
 import ch.nolix.base.validation.primitive.LongMediator;
+import ch.nolix.base.validation.primitive.NamableDoubleMediator;
 import ch.nolix.baseapi.validation.object.IOptionalMediator;
 
 /**
@@ -43,8 +43,8 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new double mediator that belongs to this test and is for the given
    *         argument.
    */
-  protected static final DoubleMediator expect(final double argument) {
-    return DoubleMediator.forArgument(argument);
+  protected static final NamableDoubleMediator expect(final double argument) {
+    return NamableDoubleMediator.forArgument(argument);
   }
 
   /**
@@ -52,8 +52,8 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new double mediator that belongs to this test and is for the given
    *         argument.
    */
-  protected static final DoubleMediator expect(final Double argument) {
-    return DoubleMediator.forArgument(argument);
+  protected static final NamableDoubleMediator expect(final Double argument) {
+    return NamableDoubleMediator.forArgument(argument);
   }
 
   /**

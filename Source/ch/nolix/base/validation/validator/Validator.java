@@ -21,7 +21,7 @@ import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.NamableObjectMediator;
 import ch.nolix.base.validation.primitive.ExtendedBitMediator;
 import ch.nolix.base.validation.primitive.ExtendedByteMediator;
-import ch.nolix.base.validation.primitive.ExtendedDoubleMediator;
+import ch.nolix.base.validation.primitive.NamableDoubleMediator;
 import ch.nolix.base.validation.primitive.NamableLongMediator;
 
 /**
@@ -91,10 +91,10 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
 
   /**
    * @param argument
-   * @return a new {@link ExtendedDoubleMediator} for the given argument.
+   * @return a new {@link NamableDoubleMediator} for the given argument.
    */
-  public static ExtendedDoubleMediator assertThat(final double argument) {
-    return new ExtendedDoubleMediator(argument);
+  public static NamableDoubleMediator assertThat(final double argument) {
+    return NamableDoubleMediator.forArgument(argument);
   }
 
   /**

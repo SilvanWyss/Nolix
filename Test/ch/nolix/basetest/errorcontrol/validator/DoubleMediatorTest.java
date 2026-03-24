@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.validation.primitive.DoubleMediator;
+import ch.nolix.base.validation.primitive.NamableDoubleMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 
@@ -19,7 +19,7 @@ final class DoubleMediatorTest extends StandardTest {
   @ValueSource(doubles = { 0.0, 0.0001, 0.5, 1.0, 1.5, 1000.0 })
   void testCase_isNotNegative_whenGivenArgumentIsNotNegative(final double argument) {
     //setup
-    final var testUnit = DoubleMediator.forArgument(argument);
+    final var testUnit = NamableDoubleMediator.forArgument(argument);
 
     //execution & verification
     expectRunning(testUnit::isNotNegative).doesNotThrowException();
@@ -29,7 +29,7 @@ final class DoubleMediatorTest extends StandardTest {
   @ValueSource(doubles = { -0.0001, -0.5, -1.0, -1.5, -1000.0 })
   void testCase_isNotNegative_whenGivenArgumentIsNegative(final double argument) {
     //setup
-    final var testUnit = DoubleMediator.forArgument(argument);
+    final var testUnit = NamableDoubleMediator.forArgument(argument);
 
     //execution & verification
     expectRunning(testUnit::isNotNegative)
@@ -42,7 +42,7 @@ final class DoubleMediatorTest extends StandardTest {
   @ValueSource(doubles = { 0.0001, 0.5, 1.0, 1.5, 1000.0 })
   void testCase_isPositive_whenGivenArgumentIsPositive(final double argument) {
     //setup
-    final var testUnit = DoubleMediator.forArgument(argument);
+    final var testUnit = NamableDoubleMediator.forArgument(argument);
 
     //execution & verification
     expectRunning(testUnit::isPositive).doesNotThrowException();
@@ -52,7 +52,7 @@ final class DoubleMediatorTest extends StandardTest {
   @ValueSource(doubles = { 0.0, -0.0001, -0.5, -1.0, -1.5, -1000.0 })
   void testCase_isPositive_whenGivenArgumentIsNotPositive(final double argument) {
     //setup
-    final var testUnit = DoubleMediator.forArgument(argument);
+    final var testUnit = NamableDoubleMediator.forArgument(argument);
 
     //execution & verification
     expectRunning(testUnit::isPositive)
