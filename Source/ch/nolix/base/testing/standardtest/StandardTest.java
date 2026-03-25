@@ -35,7 +35,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
    * @return a new {@link ByteMediator} for the given argument.
    */
   protected static final ByteMediator expect(final byte argument) {
-    return new ByteMediator(argument);
+    return ByteMediator.forArgument(argument);
   }
 
   /**

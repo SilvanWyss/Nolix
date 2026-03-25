@@ -3,34 +3,23 @@
  */
 package ch.nolix.base.validation.primitive;
 
-import ch.nolix.base.validation.base.AbstractMediator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
-
 /**
  * @author Silvan Wyss
  */
-public class ByteMediator extends AbstractMediator {
-  private final byte argument;
-
-  public ByteMediator(final byte value) {
-    this.argument = value;
+public final class ByteMediator extends AbstractByteMediator {
+  private ByteMediator(final byte argument) {
+    super(argument);
   }
 
-  public ByteMediator(final String argumentName, final byte value) {
-    super(argumentName);
-
-    this.argument = value;
+  private ByteMediator(final byte argument, final String argumentName) {
+    super(argument, argumentName);
   }
 
-  public void isEqualTo(final byte value) {
-    if (argument != value) {
-      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(argument, getArgumentName(), value);
-    }
+  public static ByteMediator forArgument(final byte argument) {
+    return new ByteMediator(argument);
   }
 
-  public void isEqualTo(final int value) {
-    if (argument != value) {
-      throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(argument, getArgumentName(), value);
-    }
+  public static ByteMediator forArgumentAndArgumentName(final byte argument, final String argumentName) {
+    return new ByteMediator(argument, argumentName);
   }
 }

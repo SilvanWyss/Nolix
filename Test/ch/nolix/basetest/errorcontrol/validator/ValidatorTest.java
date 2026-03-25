@@ -11,7 +11,7 @@ import ch.nolix.base.validation.object.MethodMediator;
 import ch.nolix.base.validation.object.NamableIterableMediator;
 import ch.nolix.base.validation.object.StringMediator;
 import ch.nolix.base.validation.primitive.AbstractLongMediator;
-import ch.nolix.base.validation.primitive.ByteMediator;
+import ch.nolix.base.validation.primitive.NamableByteMediator;
 import ch.nolix.base.validation.primitive.NamableDoubleMediator;
 import ch.nolix.base.validation.validator.Validator;
 
@@ -28,7 +28,7 @@ final class ValidatorTest extends StandardTest {
     final var result = Validator.assertThat(argument);
 
     //verification
-    expect(result).isOfType(ByteMediator.class);
+    expect(result).isOfType(NamableByteMediator.class);
   }
 
   @Test
