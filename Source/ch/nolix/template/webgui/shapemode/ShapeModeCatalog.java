@@ -11,7 +11,7 @@ import ch.nolix.systemapi.style.model.IStyle;
  */
 public final class ShapeModeCatalog {
   public static final IStyle EDGE_STYLE = //
-  new Style()
+  Style.EMPTY
     .withSubStyle(
       EdgeModeSubStyleCatalog.DIALOG_LAYER_STYLE,
       EdgeModeSubStyleCatalog.DIALOG_CONTAINER_STYLE,

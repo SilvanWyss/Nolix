@@ -11,7 +11,7 @@ import ch.nolix.systemapi.style.model.IStyle;
  */
 public final class ColorModeCatalog {
   public static final IStyle DARK_MODE = //
-  new Style()
+  Style.EMPTY
     .withSubStyle(
       DarkModeSubStyleCatalog.LAYER_STYLE,
       DarkModeSubStyleCatalog.DIALOG_LAYER_STYLE,
@@ -26,7 +26,7 @@ public final class ColorModeCatalog {
       DarkModeSubStyleCatalog.VALIDATION_LABEL_STYLE);
 
   public static final IStyle PARCHMENT_MODE = //
-  new Style()
+  Style.EMPTY
     .withSubStyle(
       ParchmentModeSubStyleCatalog.LAYER_STYLE,
       ParchmentModeSubStyleCatalog.DIALOG_LAYER_STYLE,

@@ -77,7 +77,7 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_withAttachingAttribute_whenIsEmpty() {
     //setup
-    final var testUnit = new Style();
+    final var testUnit = Style.EMPTY;
 
     //execution
     final var result = testUnit.withAttachingAttributes("p1(v1)", "p2(v2)");
@@ -94,7 +94,7 @@ final class StyleTest extends StandardTest {
     //setup
     final var subStyle1 = new SelectingStyle();
     final var subStyle2 = new SelectingStyle();
-    final var testUnit = new Style();
+    final var testUnit = Style.EMPTY;
 
     //execution
     final var result = testUnit.withSubStyle(subStyle1, subStyle2);
@@ -110,7 +110,7 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_withAttachingAttribute_whenContainsAny() {
     //setup
-    final var testUnit = new Style().withAttachingAttributes("p1(v1)", "p2(v2)");
+    final var testUnit = Style.EMPTY.withAttachingAttributes("p1(v1)", "p2(v2)");
 
     //execution
     final var result = testUnit.withAttachingAttributes("p3(v3)", "p4(v4)");
@@ -132,7 +132,7 @@ final class StyleTest extends StandardTest {
     final var subStyle2 = new SelectingStyle();
     final var subStyle3 = new SelectingStyle();
     final var subStyle4 = new SelectingStyle();
-    final var testUnit = new Style().withSubStyle(subStyle1, subStyle2);
+    final var testUnit = Style.EMPTY.withSubStyle(subStyle1, subStyle2);
 
     //execution
     final var result = testUnit.withSubStyle(subStyle3, subStyle4);

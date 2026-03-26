@@ -21,11 +21,12 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @author Silvan Wyss
  */
 public final class Style extends AbstractStyle<IStyle> implements IStyle {
+  public static final Style EMPTY = new Style();
 
   /**
    * Creates a new empty {@link Style}.
    */
-  public Style() {
+  private Style() {
     super(ImmutableList.createEmpty(), ImmutableList.createEmpty());
   }
 
