@@ -24,7 +24,7 @@ import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 public final class NetEndPoint extends AbstractEndPoint {
   private int nextSentPackageIndex = 1;
 
-  private final IEndPoint internalEndPoint;
+  private final IEndPoint memberInternalEndPoint;
 
   private final LinkedList<Package> receivedPackages = LinkedList.createEmpty();
 
@@ -95,10 +95,10 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param internalEndPoint
    * @throws RuntimeException if the given internalEndPoint is null.
    */
-  NetEndPoint(final IEndPoint internalEndPoint) {
+  private NetEndPoint(final IEndPoint internalEndPoint) {
     Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 
-    this.internalEndPoint = internalEndPoint;
+    this.memberInternalEndPoint = internalEndPoint;
     createCloseDependencyTo(internalEndPoint);
     internalEndPoint.setReceiver(this::receive);
   }
@@ -160,11 +160,20 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
+   * @param internalEndPoint
+   * @return a new {@link NetEndPoint} with the given internalEndPoint.
+   * @throws RuntimeException if the given internalEndPoint is null.
+   */
+  static NetEndPoint withInternalEndPoint(final IEndPoint internalEndPoint) {
+    return new NetEndPoint(internalEndPoint);
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
   public ConnectionType getConnectionType() {
-    return internalEndPoint.getConnectionType();
+    return memberInternalEndPoint.getConnectionType();
   }
 
   /**
@@ -174,7 +183,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public String getCustomTargetSlot() {
-    return internalEndPoint.getCustomTargetSlot();
+    return memberInternalEndPoint.getCustomTargetSlot();
   }
 
   /**
@@ -182,7 +191,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public PeerType getPeerType() {
-    return internalEndPoint.getPeerType();
+    return memberInternalEndPoint.getPeerType();
   }
 
   /**
@@ -190,7 +199,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public SecurityMode getSecurityMode() {
-    return internalEndPoint.getSecurityMode();
+    return memberInternalEndPoint.getSecurityMode();
   }
 
   /**
@@ -210,14 +219,14 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public boolean hasCustomTargetSlot() {
-    return internalEndPoint.hasCustomTargetSlot();
+    return memberInternalEndPoint.hasCustomTargetSlot();
   }
 
   /**
    * @return the internal end point of the current {@link NetEndPoint}.
    */
   IEndPoint getStoredInternalEndPoint() {
-    return internalEndPoint;
+    return memberInternalEndPoint;
   }
 
   /**
@@ -310,7 +319,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param paramPackage
    */
   private void send(final Package paramPackage) {
-    internalEndPoint.sendMessage(paramPackage.toString());
+    memberInternalEndPoint.sendMessage(paramPackage.toString());
   }
 
   /**

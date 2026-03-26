@@ -58,6 +58,6 @@ public final class Slot implements ISlot {
    */
   @Override
   public void takeBackendEndPoint(final IEndPoint backendEndPoint) {
-    parentServer.internalTakeBackendEndPoint(new NetEndPoint(backendEndPoint));
+    parentServer.internalTakeBackendEndPoint(NetEndPoint.withInternalEndPoint(backendEndPoint));
   }
 }
