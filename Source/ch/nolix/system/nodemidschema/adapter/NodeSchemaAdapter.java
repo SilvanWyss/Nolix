@@ -22,7 +22,7 @@ public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
   }
 
   public static NodeSchemaAdapter forFileNodeDatabase(final String filePath) {
-    final var nodeDatabase = new FileNode(filePath);
+    final var nodeDatabase = FileNode.withFilePath(filePath);
 
     return new NodeSchemaAdapter(nodeDatabase);
   }

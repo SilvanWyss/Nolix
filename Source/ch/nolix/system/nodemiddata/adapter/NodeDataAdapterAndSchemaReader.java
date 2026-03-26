@@ -26,7 +26,7 @@ public final class NodeDataAdapterAndSchemaReader extends AbstractDataAdapterAnd
   }
 
   public static NodeDataAdapterAndSchemaReader forNodeDatabaseInFile(final String filePath) {
-    final var nodeDatabase = new FileNode(filePath);
+    final var nodeDatabase = FileNode.withFilePath(filePath);
 
     return forNodeDatabase(nodeDatabase);
   }

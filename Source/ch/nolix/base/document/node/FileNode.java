@@ -32,7 +32,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * 
    * @param filePath
    */
-  public FileNode(final String filePath) {
+  private FileNode(final String filePath) {
     //Handles the case that there does not exist a file system item with the given
     //filePath.
     if (!FileSystemAccessor.exists(filePath)) {
@@ -78,6 +78,10 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
     this.internalSpecification = internalSpecification;
 
     fileAccessor = null;
+  }
+
+  public static FileNode withFilePath(final String filePath) {
+    return new FileNode(filePath);
   }
 
   /**

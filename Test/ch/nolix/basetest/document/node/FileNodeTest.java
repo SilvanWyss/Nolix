@@ -27,7 +27,9 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
    */
   @Override
   protected FileNode createBlankNode() {
-    return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+    final var filePath = FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode";
+
+    return FileNode.withFilePath(filePath);
   }
 
   /**
@@ -35,7 +37,8 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
    */
   @Override
   protected FileNode createNodeWithHeader(String header) {
-    final var fileNode = new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+    final var filePath = FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode";
+    final var fileNode = FileNode.withFilePath(filePath);
 
     fileNode.setHeader(header);
 
@@ -47,7 +50,8 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
    */
   @Override
   protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
-    final var fileNode = new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
+    final var filePath = FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode";
+    final var fileNode = FileNode.withFilePath(filePath);
 
     fileNode.setHeader(header);
 
