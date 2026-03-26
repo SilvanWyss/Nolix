@@ -21,10 +21,12 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public final class SelectingStyle extends AbstractSelectingStyle {
   public static final String TYPE_NAME = "SelectingStyle";
 
+  public static final SelectingStyle EMPTY = new SelectingStyle();
+
   /**
    * Creates a new empty {@link SelectingStyle}.
    */
-  public SelectingStyle() {
+  private SelectingStyle() {
     super(null, null, ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
   }

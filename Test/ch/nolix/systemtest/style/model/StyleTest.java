@@ -51,7 +51,7 @@ final class StyleTest extends StandardTest {
       "test_attaching_attribute_1",
       "test_attaching_attribute_2");
     expect(result.getSubStyles()).containsExactlyEqualing(
-      new SelectingStyle(),
+      SelectingStyle.EMPTY,
       new DeepSelectingStyle());
   }
 
@@ -92,8 +92,8 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_withSubStyle_whenIsEmpty() {
     //setup
-    final var subStyle1 = new SelectingStyle();
-    final var subStyle2 = new SelectingStyle();
+    final var subStyle1 = SelectingStyle.EMPTY;
+    final var subStyle2 = SelectingStyle.EMPTY;
     final var testUnit = Style.EMPTY;
 
     //execution
@@ -128,10 +128,10 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_withSubStyle_whenContainsAny() {
     //setup
-    final var subStyle1 = new SelectingStyle();
-    final var subStyle2 = new SelectingStyle();
-    final var subStyle3 = new SelectingStyle();
-    final var subStyle4 = new SelectingStyle();
+    final var subStyle1 = SelectingStyle.EMPTY;
+    final var subStyle2 = SelectingStyle.EMPTY;
+    final var subStyle3 = SelectingStyle.EMPTY;
+    final var subStyle4 = SelectingStyle.EMPTY;
     final var testUnit = Style.EMPTY.withSubStyle(subStyle1, subStyle2);
 
     //execution

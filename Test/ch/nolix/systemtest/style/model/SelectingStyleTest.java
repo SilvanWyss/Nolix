@@ -20,7 +20,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyle().withSelectorId("x");
+    final var testUnit = SelectingStyle.EMPTY.withSelectorId("x");
 
     //setup verification
     expect(mockStylableElement.hasId()).isFalse();
@@ -39,7 +39,7 @@ final class SelectingStyleTest extends StandardTest {
     mockStylableElement.setId("x");
 
     //setup
-    final var testUnit = new SelectingStyle().withSelectorId("x");
+    final var testUnit = SelectingStyle.EMPTY.withSelectorId("x");
 
     //setup verification
     expect(mockStylableElement.hasId()).isTrue();
@@ -58,7 +58,7 @@ final class SelectingStyleTest extends StandardTest {
     mockStylableElement.setId("x");
 
     //setup
-    final var testUnit = new SelectingStyle().withSelectorId("y");
+    final var testUnit = SelectingStyle.EMPTY.withSelectorId("y");
 
     //setup verification
     expect(mockStylableElement.hasId());
@@ -76,7 +76,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyle().withSelectorType(Image.class);
+    final var testUnit = SelectingStyle.EMPTY.withSelectorType(Image.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -91,7 +91,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyle().withSelectorType(MockStylableElement.class);
+    final var testUnit = SelectingStyle.EMPTY.withSelectorType(MockStylableElement.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -106,7 +106,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyle().withSelectorType(AbstractMutableElement.class);
+    final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractMutableElement.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);
@@ -118,7 +118,7 @@ final class SelectingStyleTest extends StandardTest {
   @Test
   void testCase_selectsChildElements() {
     //setup
-    final var testUnit = new SelectingStyle();
+    final var testUnit = SelectingStyle.EMPTY;
 
     //execution
     final var result = testUnit.selectsChildElements();
@@ -130,7 +130,7 @@ final class SelectingStyleTest extends StandardTest {
   @Test
   void testCase_skipsChildElements() {
     //setup
-    final var testUnit = new SelectingStyle();
+    final var testUnit = SelectingStyle.EMPTY;
 
     //execution
     final var result = testUnit.skipsChildElements();
