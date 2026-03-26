@@ -194,14 +194,6 @@ public final class NetEndPoint extends AbstractEndPoint {
   }
 
   /**
-   * @return true if the current {@link NetEndPoint} is a net end point, false
-   *         otherwise.
-   */
-  public boolean isNetEndPoint() {
-    return internalEndPoint.isSocketEndPoint();
-  }
-
-  /**
    * Sends the given message and returns the reply.
    * 
    * @param message
