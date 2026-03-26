@@ -62,7 +62,7 @@ final class StyleTest extends StandardTest {
 
     //setup part 2: create testUnit
     final var testUnit = //
-    new Style(
+    Style.withAttachingAttributesAndSubStyles(
       ImmutableList.withElements("Title(my_title)", "Background(Color(Blue))"),
       ImmutableList.createEmpty());
 

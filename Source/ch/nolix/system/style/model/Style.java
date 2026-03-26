@@ -36,7 +36,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @param attachingAttributes
    * @param subStyles
    */
-  public Style(
+  private Style(
     final IContainer<String> attachingAttributes,
     final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
@@ -81,6 +81,17 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
       }
     }
 
+    return new Style(attachingAttributes, subStyles);
+  }
+
+  /**
+   * @param attachingAttributes
+   * @param subStyles
+   * @return a new {@link Style} with the given attachingAttributes and subStyles.
+   */
+  public static Style withAttachingAttributesAndSubStyles(
+    final IContainer<String> attachingAttributes,
+    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     return new Style(attachingAttributes, subStyles);
   }
 
