@@ -15,7 +15,7 @@ public final class ARModel extends AbstractStatisticalModel {
 
   private final double[] pCoefficients;
 
-  public ARModel(final int pOrder, final double[] inputValues) {
+  private ARModel(final int pOrder, final double[] inputValues) {
     //Calls constructor of the base class.
     super(pOrder, inputValues);
 
@@ -46,6 +46,10 @@ public final class ARModel extends AbstractStatisticalModel {
 
     //Sets constant.
     constant = factor2Matrix.getValue(factor2Matrix.getSize(), 1);
+  }
+
+  public static ARModel withOrderAndInputValues(final int pOrder, final double[] inputValues) {
+    return new ARModel(pOrder, inputValues);
   }
 
   /**

@@ -125,7 +125,7 @@ public final class Calculator {
    * @throws RuntimeException if the given pOrder is negative.
    */
   public static ARModel getARModell(final int pOrder, final double[] inputValues) {
-    return new ARModel(pOrder, inputValues);
+    return ARModel.withOrderAndInputValues(pOrder, inputValues);
   }
 
   /**
