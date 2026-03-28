@@ -21,10 +21,12 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public final class DeepSelectingStyle extends AbstractSelectingStyle {
   public static final String TYPE_NAME = "DeepSelectingStyle";
 
+  public static final DeepSelectingStyle EMPTY = new DeepSelectingStyle();
+
   /**
    * Creates a new empty {@link DeepSelectingStyle}.
    */
-  public DeepSelectingStyle() {
+  private DeepSelectingStyle() {
     super(null, null, ImmutableList.createEmpty(), ImmutableList.createEmpty(), ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
   }

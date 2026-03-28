@@ -52,7 +52,7 @@ final class StyleTest extends StandardTest {
       "test_attaching_attribute_2");
     expect(result.getSubStyles()).containsExactlyEqualing(
       SelectingStyle.EMPTY,
-      new DeepSelectingStyle());
+      DeepSelectingStyle.EMPTY);
   }
 
   @Test

@@ -41,29 +41,29 @@ public final class ParchmentModeSubStyleCatalog {
   private static final String PARCHMENT_BACKGROUND_SPECIFICATION_STRING = PARCHMENT_BACKGROUND_SPECIFICATION.toString();
 
   public static final ISelectingStyleWithSelectors LAYER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
     .withAttachingAttributes(PARCHMENT_BACKGROUND_SPECIFICATION_STRING);
 
   public static final ISelectingStyleWithSelectors DIALOG_LAYER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
     .withSelectorRole(LayerRole.DIALOG_LAYER)
     .withAttachingAttributes("Background(Color(0x80808080))");
 
   public static final ISelectingStyleWithSelectors CONTROL_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Control.class)
     .withAttachingAttributes("BaseTextColor(Brown)");
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(AbstractContainer.class)
     .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
     .withAttachingAttributes("BaseBackground(Color(0x202020E0))");
 
   public static final ISelectingStyleWithSelectors BUTTON_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Button.class)
     .withAttachingAttributes(
       Node.withHeaderAndChildNode("BaseCornerShadows",
@@ -81,7 +81,7 @@ public final class ParchmentModeSubStyleCatalog {
       "HoverTextColor(Black)");
 
   public static final ISelectingStyleWithSelectors DROPDOWN_MENU_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(DropdownMenu.class)
     .withAttachingAttributes(
       "BaseBackground(Color(0xFFFFFF80))",
@@ -93,27 +93,27 @@ public final class ParchmentModeSubStyleCatalog {
       "FocusTextColor(Black)");
 
   public static final ISelectingStyleWithSelectors IMAGE_CONTROL_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(ImageControl.class)
     .withAttachingAttributes(
       "BaseBorderThickness(1)",
       "BaseBorderColor(Brown)");
 
   public static final ISelectingStyleWithSelectors LEVEL1_HEADER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.LEVEL1_HEADER)
     .withAttachingAttributes("BaseTextColor(Black)");
 
   public static final ISelectingStyleWithSelectors LINK_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Link.class)
     .withAttachingAttributes(
       "BaseTextColor(Brown)",
       "HoverTextColor(Black)");
 
   public static final ISelectingStyleWithSelectors TEXT_BOX_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Textbox.class)
     .withAttachingAttributes(
       "BaseBorderThickness(1)",
@@ -126,13 +126,13 @@ public final class ParchmentModeSubStyleCatalog {
       "FocusTextColor(Black)");
 
   public static final ISelectingStyleWithSelectors TITLE_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.TITLE)
     .withAttachingAttributes("BaseTextColor(Black)");
 
   public static final ISelectingStyleWithSelectors VALIDATION_LABEL_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(ValidationLabel.class)
     .withAttachingAttributes("BaseTextColor(Red)");
 

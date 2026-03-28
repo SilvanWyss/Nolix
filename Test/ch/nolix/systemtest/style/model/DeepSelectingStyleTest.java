@@ -19,7 +19,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   void testCase_getSpecification_whenHasSelectorIdAndContainsAttachingeAttributes() {
     //setup
     final var testUnit = //
-    new DeepSelectingStyle()
+    DeepSelectingStyle.EMPTY
       .withSelectorId("selector_id")
       .withAttachingAttributes("BaseBorderThickness(1)", "BaseBackgroundColor(Anthrazit)");
 
@@ -36,7 +36,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   void testCase_getSpecification_whenHasSelectorRoleAndContainsAttachingeAttributes() {
     //setup
     final var testUnit = //
-    new DeepSelectingStyle()
+    DeepSelectingStyle.EMPTY
       .withSelectorRole(LabelRole.TITLE)
       .withAttachingAttributes("BaseTextSize(50)", "BaseTextColor(Black)");
 
@@ -52,7 +52,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   @Test
   void testCase_selectsChildElements() {
     //setup
-    final var testUnit = new DeepSelectingStyle();
+    final var testUnit = DeepSelectingStyle.EMPTY;
 
     //execution
     final var result = testUnit.selectsChildElements();
@@ -64,7 +64,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   @Test
   void testCase_skipsChildElements() {
     //setup
-    final var testUnit = new DeepSelectingStyle();
+    final var testUnit = DeepSelectingStyle.EMPTY;
 
     //execution
     final var result = testUnit.skipsChildElements();
@@ -77,7 +77,7 @@ final class DeepSelectingStyleTest extends StandardTest {
   void testCase_withSelectorTokens() {
     //setup
     final var testUnit = //
-    new DeepSelectingStyle()
+    DeepSelectingStyle.EMPTY
       .withSelectorId("id")
       .withSelectorType(Button.class)
       .withSelectorRole(ButtonRole.CREATE_BUTTON, ButtonRole.DELETE_BUTTON)

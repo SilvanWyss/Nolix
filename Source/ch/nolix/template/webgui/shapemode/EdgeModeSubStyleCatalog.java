@@ -24,13 +24,13 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
  */
 public final class EdgeModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors DIALOG_LAYER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
     .withSelectorRole(LayerRole.DIALOG_LAYER)
     .withAttachingAttributes("ContentAlignment(CENTER)");
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(AbstractContainer.class)
     .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
     .withAttachingAttributes(
@@ -39,7 +39,7 @@ public final class EdgeModeSubStyleCatalog {
       "BasePadding(20)");
 
   public static final ISelectingStyleWithSelectors FOOTER_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(HorizontalStack.class)
     .withSelectorRole(ContainerRole.FOOTER_CONTAINER)
     .withAttachingAttributes(
@@ -48,14 +48,14 @@ public final class EdgeModeSubStyleCatalog {
       "BaseTextSize(15)");
 
   public static final ISelectingStyleWithSelectors GRID_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Grid.class)
     .withAttachingAttributes(
       "BaseChildControlMargin(10)",
       "BaseGridThickness(0)");
 
   public static final ISelectingStyleWithSelectors HEADER_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(HorizontalStack.class)
     .withSelectorRole(ContainerRole.HEADER_CONTAINER)
     .withAttachingAttributes(
@@ -63,17 +63,17 @@ public final class EdgeModeSubStyleCatalog {
       "BaseChildControlMargin(50)");
 
   public static final ISelectingStyleWithSelectors LINEAR_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(AbstractLinearContainer.class)
     .withAttachingAttributes("BaseChildControlMargin(10)");
 
   public static final ISelectingStyleWithSelectors MAIN_CONTENT_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
     .withAttachingAttributes("MinHeight(500)");
 
   public static final ISelectingStyleWithSelectors OVERALL_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(VerticalStack.class)
     .withSelectorRole(ContainerRole.OVERALL_CONTAINER)
     .withAttachingAttributes(
@@ -83,7 +83,7 @@ public final class EdgeModeSubStyleCatalog {
       "BaseChildControlMargin(20)");
 
   public static final ISelectingStyleWithSelectors BUTTON_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Button.class)
     .withAttachingAttributes(
       "MinWidth(200)",
@@ -92,7 +92,7 @@ public final class EdgeModeSubStyleCatalog {
       "BaseRightPadding(10)");
 
   public static final ISelectingStyleWithSelectors DROPDOWN_MENU_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(DropdownMenu.class)
     .withAttachingAttributes(
       "MinWidth(200)",
@@ -100,20 +100,20 @@ public final class EdgeModeSubStyleCatalog {
       "BasePadding(2)");
 
   public static final ISelectingStyleWithSelectors LEVEL1_HEADER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.LEVEL1_HEADER)
     .withAttachingAttributes("BaseTextSize(30)");
 
   public static final ISelectingStyleWithSelectors TEXT_BOX_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Textbox.class)
     .withAttachingAttributes(
       "BaseWidth(200)",
       "BasePadding(2)");
 
   public static final ISelectingStyleWithSelectors TITLE_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.TITLE)
     .withAttachingAttributes(

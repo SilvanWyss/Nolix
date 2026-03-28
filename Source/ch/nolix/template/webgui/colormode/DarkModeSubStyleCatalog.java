@@ -23,29 +23,29 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
  */
 public final class DarkModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors LAYER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
     .withAttachingAttributes("Background(Color(0x202020))");
 
   public static final ISelectingStyleWithSelectors DIALOG_LAYER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
     .withSelectorRole(LayerRole.DIALOG_LAYER)
     .withAttachingAttributes("Background(Color(0x808080E0))");
 
   public static final ISelectingStyleWithSelectors CONTROL_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Control.class)
     .withAttachingAttributes("BaseTextColor(0xC0C0C0)");
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(AbstractContainer.class)
     .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
     .withAttachingAttributes("BaseBackground(Color(0x202020E0))");
 
   public static final ISelectingStyleWithSelectors BUTTON_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Button.class)
     .withAttachingAttributes(
       "BaseBorderColor(Grey)",
@@ -54,7 +54,7 @@ public final class DarkModeSubStyleCatalog {
       "HoverTextColor(White)");
 
   public static final ISelectingStyleWithSelectors DROPDOWN_MENU_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(DropdownMenu.class)
     .withAttachingAttributes(
       "BaseBackground(Color(0x202020))",
@@ -64,31 +64,31 @@ public final class DarkModeSubStyleCatalog {
       "HoverTextColor(White)");
 
   public static final ISelectingStyleWithSelectors LEVEL1_HEADER_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.LEVEL1_HEADER)
     .withAttachingAttributes("BaseTextColor(White)");
 
   public static final ISelectingStyleWithSelectors LINK_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Link.class)
     .withAttachingAttributes(
       "BaseTextColor(Blue)",
       "HoverTextColor(DarkBlue)");
 
   public static final ISelectingStyleWithSelectors TEXT_BOX_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Textbox.class)
     .withAttachingAttributes("BaseBackground(Color(Black))");
 
   public static final ISelectingStyleWithSelectors TITLE_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
     .withSelectorRole(LabelRole.TITLE)
     .withAttachingAttributes("BaseTextColor(White)");
 
   public static final ISelectingStyleWithSelectors VALIDATION_LABEL_STYLE = //
-  new DeepSelectingStyle()
+  DeepSelectingStyle.EMPTY
     .withSelectorType(ValidationLabel.class)
     .withAttachingAttributes("BaseTextColor(Red)");
 
