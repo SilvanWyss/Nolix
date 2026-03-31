@@ -36,7 +36,7 @@ public final class Slot implements ISlot {
   /**
    * @param name
    * @param parentServer
-   * @return a new {@ServerSlot} with the given name and that will belong to the
+   * @return a new {@link Slot} with the given name and that will belong to the
    *         given parentServer.
    * @throws RuntimeException if given name is null or blank.
    * @throws RuntimeException if the given parentServer is null.
