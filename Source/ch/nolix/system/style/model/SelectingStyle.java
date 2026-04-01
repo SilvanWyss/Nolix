@@ -41,7 +41,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * @param attachingAttributes
    * @param subStyles
    */
-  public SelectingStyle(
+  private SelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
     final IContainer<String> selectorRoles,
