@@ -41,7 +41,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * @param attachingAttributes
    * @param subStyles
    */
-  public DeepSelectingStyle(
+  private DeepSelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
     final IContainer<String> selectorRoles,
