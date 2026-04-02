@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.independent.list;
+package ch.nolix.base.independent.immutablelist;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

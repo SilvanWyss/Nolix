@@ -4,7 +4,7 @@
 package ch.nolix.base.errorcontrol.logging;
 
 import ch.nolix.base.errorcontrol.errormapping.StackTraceMapper;
-import ch.nolix.base.independent.list.ImmutableList;
+import ch.nolix.base.independent.immutablelist.ImmutableList;
 import ch.nolix.baseapi.errorcontrol.logging.HarmLevel;
 
 /**
