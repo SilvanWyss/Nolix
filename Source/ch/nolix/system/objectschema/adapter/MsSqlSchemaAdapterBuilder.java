@@ -50,7 +50,7 @@ MsSqlSchemaAdapter>>>>> {
             .forIpOrDomain(getIpOrDomain())
             .andPort(nxtArgCpt().getPort())
             .andDatabase(databaseName)
-            .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
+            .withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL)
             .andLoginName(nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName())
             .andLoginPassword(nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword())
             .borrowResource()));

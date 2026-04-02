@@ -33,7 +33,7 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
         .forIpOrDomain(ipOrDomain)
         .andPort(port)
         .andDatabase(databaseName)
-        .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
+        .withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL)
         .andLoginName(loginName)
         .andLoginPassword(loginPassword));
   }

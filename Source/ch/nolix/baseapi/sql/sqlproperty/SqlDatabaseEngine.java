@@ -7,7 +7,7 @@ package ch.nolix.baseapi.sql.sqlproperty;
  * @author Silvan Wyss
  */
 public enum SqlDatabaseEngine {
-  MSSQL,
-  MYSQL,
+  MS_SQL,
+  MY_SQL,
   ORACLE
 }

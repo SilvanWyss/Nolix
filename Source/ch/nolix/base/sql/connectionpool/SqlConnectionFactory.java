@@ -18,9 +18,9 @@ public final class SqlConnectionFactory {
   public static AbstractSqlConnection createSqlConnectionForSqlConnectionPool(
     final SqlConnectionPool sqlConnectionPool) {
     return switch (sqlConnectionPool.getSqlDatabaseEngine()) {
-      case MSSQL ->
+      case MS_SQL ->
         createMsSqlConnectionForSqlConnectionPool(sqlConnectionPool);
-      case MYSQL, ORACLE ->
+      case MY_SQL, ORACLE ->
         throw UnsupportedCaseException.forCase(sqlConnectionPool.getSqlDatabaseEngine());
       default ->
         throw InvalidArgumentException.forArgument(sqlConnectionPool.getSqlDatabaseEngine());
@@ -29,7 +29,7 @@ public final class SqlConnectionFactory {
 
   private static MsSqlConnection createMsSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
     return //
-    new MsSqlConnection(
+    MsSqlConnection.toHostAndPortAndWithUserNameAndUserPassword(
       sqlConnectionPool.getIpOrDomain(),
       sqlConnectionPool.getPort(),
       sqlConnectionPool.getLoginName(),

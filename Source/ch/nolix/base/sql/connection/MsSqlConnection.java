@@ -3,45 +3,37 @@
  */
 package ch.nolix.base.sql.connection;
 
-import java.sql.Connection;
-
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 
 /**
  * @author Silvan Wyss
  */
 public final class MsSqlConnection extends AbstractSqlConnection {
-  public static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MSSQL;
+  private static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MS_SQL;
 
   private static final String MSSQL_DATABASE_ENINGE_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-  public MsSqlConnection(
-    final Connection connection) {
-    super(SQL_DATABASE_ENGINE, connection);
+  private MsSqlConnection(final int port, final String userName, final String userPassword) {
+    super(SQL_DATABASE_ENGINE, port, userName, userPassword);
   }
 
-  public MsSqlConnection(
+  private MsSqlConnection(final String host, final int port, final String userName, final String userPassword) {
+    super(SQL_DATABASE_ENGINE, host, port, userName, userPassword);
+  }
+
+  public static MsSqlConnection toHostAndPortAndWithUserNameAndUserPassword(
+    final String host,
     final int port,
     final String userName,
     final String userPassword) {
-    super(
-      SQL_DATABASE_ENGINE,
-      port,
-      userName,
-      userPassword);
+    return new MsSqlConnection(host, port, userName, userPassword);
   }
 
-  public MsSqlConnection(
-    final String ip,
+  public static MsSqlConnection toLocalHostAndPortAndWithUserNameAndUserPassword(
     final int port,
     final String userName,
     final String userPassword) {
-    super(
-      SQL_DATABASE_ENGINE,
-      ip,
-      port,
-      userName,
-      userPassword);
+    return new MsSqlConnection(port, userName, userPassword);
   }
 
   /**

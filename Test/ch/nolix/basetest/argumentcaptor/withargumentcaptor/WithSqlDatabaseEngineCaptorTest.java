@@ -27,7 +27,7 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
   @Test
   void testCase_withSqlDatabaseEngine_whenHasNext() {
     //parameter definition
-    final var sqlDatabaseEngine = SqlDatabaseEngine.MSSQL;
+    final var sqlDatabaseEngine = SqlDatabaseEngine.MS_SQL;
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
@@ -47,7 +47,7 @@ final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL))
+    expectRunning(() -> testUnit.withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
