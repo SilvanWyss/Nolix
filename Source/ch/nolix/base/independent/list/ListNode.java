@@ -10,12 +10,16 @@ final class ListNode<E> {
 
   private ListNode<E> nextNode;
 
-  public ListNode(final E element) {
+  private ListNode(final E element) {
     if (element == null) {
       throw new IllegalArgumentException("The given element is null.");
     }
 
     memberElement = element;
+  }
+
+  public static <T> ListNode<T> withElement(final T element) {
+    return new ListNode<>(element);
   }
 
   public boolean contains(final E element) {

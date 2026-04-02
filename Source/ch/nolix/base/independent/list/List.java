@@ -57,7 +57,7 @@ public final class List<E> implements Iterable<E> {
   }
 
   public void addAtBegin(final E element) {
-    final ListNode<E> node = new ListNode<>(element);
+    final ListNode<E> node = ListNode.withElement(element);
 
     if (isEmpty()) {
       beginNode = node;
@@ -71,7 +71,7 @@ public final class List<E> implements Iterable<E> {
   }
 
   public void addAtEnd(final E element) {
-    final var node = new ListNode<>(element);
+    final var node = ListNode.withElement(element);
 
     if (isEmpty()) {
       beginNode = node;
