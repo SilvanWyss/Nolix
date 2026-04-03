@@ -13,11 +13,16 @@ public final class ConditionMediator {
 
   private final boolean condition;
 
-  ConditionMediator(final LicenseManagerUnit parentLicenseManager, final boolean condition) {
+  private ConditionMediator(final LicenseManagerUnit parentLicenseManager, final boolean condition) {
     Validator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
 
     this.parentLicenseManager = parentLicenseManager;
     this.condition = condition;
+  }
+
+  public static ConditionMediator forLicenseManagerAndCondition(final LicenseManagerUnit licenseManager,
+    final boolean condition) {
+    return new ConditionMediator(licenseManager, condition);
   }
 
   public <F extends AbstractFeature> AdditionalConditionMediator thenRequireFeature(final Class<F> type) {

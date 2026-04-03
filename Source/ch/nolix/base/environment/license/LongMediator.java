@@ -27,6 +27,6 @@ public final class LongMediator {
   }
 
   public ConditionMediator isBiggerThan(final long value) {
-    return new ConditionMediator(parentLicenseManager, memberValue > value);
+    return ConditionMediator.forLicenseManagerAndCondition(parentLicenseManager, memberValue > value);
   }
 }
