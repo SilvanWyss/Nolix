@@ -40,7 +40,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
 
       //Handles the case that there exists a file with the given filePath.
     } else if (FileSystemAccessor.isFile(filePath)) {
-      fileAccessor = new FileAccessor(filePath);
+      fileAccessor = FileAccessor.withFilePath(filePath);
 
       //Handles the case that there exists file system item with the given filePath
       //that is not a file.

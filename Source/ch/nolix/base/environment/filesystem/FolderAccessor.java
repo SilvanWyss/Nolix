@@ -159,6 +159,6 @@ public final class FolderAccessor extends FileSystemItemAccessorUnit {
    * @throws RuntimeException if an error occurs.
    */
   public String readFile(final String relativePath) {
-    return new FileAccessor(getPath() + "/" + relativePath).readFile();
+    return FileAccessor.withFilePath(getPath() + "/" + relativePath).readFile();
   }
 }

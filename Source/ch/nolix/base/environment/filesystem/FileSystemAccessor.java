@@ -110,7 +110,7 @@ public final class FileSystemAccessor {
             deleteFileSystemItem(path);
             return createFile(path);
           case SKIP_WHEN_TARGET_EXISTS_ALREADY:
-            return new FileAccessor(path);
+            return FileAccessor.withFilePath(path);
           case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
             throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
               "file system item",
@@ -121,7 +121,7 @@ public final class FileSystemAccessor {
         }
       }
 
-      return new FileAccessor(path);
+      return FileAccessor.withFilePath(path);
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
@@ -264,7 +264,7 @@ public final class FileSystemAccessor {
     return //
     ContainerView.forArray(new File(path).listFiles())
       .getViewOfStoredSelected(File::isFile)
-      .to(f -> new FileAccessor(f.getAbsolutePath()));
+      .to(f -> FileAccessor.withFilePath(f.getAbsolutePath()));
   }
 
   /**
@@ -287,7 +287,7 @@ public final class FileSystemAccessor {
 
     for (final var f : new File(path).listFiles()) {
       if (f.isFile()) {
-        fileAccessors.addAtEnd(new FileAccessor(f.getPath()));
+        fileAccessors.addAtEnd(FileAccessor.withFilePath(f.getPath()));
       } else if (f.isDirectory()) {
         fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
       } else {
@@ -335,7 +335,7 @@ public final class FileSystemAccessor {
       createFile(path);
     }
 
-    new FileAccessor(path).overwriteFile(content);
+    FileAccessor.withFilePath(path).overwriteFile(content);
   }
 
   /**
@@ -358,7 +358,7 @@ public final class FileSystemAccessor {
       createFile(path);
     }
 
-    new FileAccessor(path).overwriteFile(content);
+    FileAccessor.withFilePath(path).overwriteFile(content);
   }
 
   /**
@@ -370,7 +370,7 @@ public final class FileSystemAccessor {
    *                          filePath in the file system on the local machine.
    */
   public static byte[] readFileToBytes(final String filePath) {
-    return new FileAccessor(filePath).readFileToBytes();
+    return FileAccessor.withFilePath(filePath).readFileToBytes();
   }
 
   /**
@@ -381,6 +381,6 @@ public final class FileSystemAccessor {
    * @throws RuntimeException if there does not exist a file with the given path.
    */
   public static ILinkedList<String> readFileToLines(final String path) {
-    return new FileAccessor(path).readFileToLines();
+    return FileAccessor.withFilePath(path).readFileToLines();
   }
 }

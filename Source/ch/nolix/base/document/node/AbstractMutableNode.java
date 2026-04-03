@@ -64,7 +64,7 @@ implements IMutableNode<N> {
   @Override
   public final void resetFromFile(final String filePath) {
     resetFromString(
-      new FileAccessor(filePath)
+      FileAccessor.withFilePath(filePath)
         .readFile()
         .replace(String.valueOf(CharacterCatalog.TABULATOR), StringCatalog.EMPTY_STRING)
         .replace(String.valueOf(CharacterCatalog.NEW_LINE), StringCatalog.EMPTY_STRING));

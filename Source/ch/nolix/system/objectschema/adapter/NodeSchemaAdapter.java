@@ -21,7 +21,7 @@ public final class NodeSchemaAdapter extends AbstractSchemaAdapter {
   }
 
   public static NodeSchemaAdapter forFileNodeDatabase(final String filePath) {
-    final var fileName = new FileAccessor(filePath).getName();
+    final var fileName = FileAccessor.withFilePath(filePath).getName();
     final var databaseName = RegularExpressionPatternCatalog.DOT_PATTERN.split(fileName)[0];
     final var nodeDatabase = MutableNode.fromFile(filePath);
 

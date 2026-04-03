@@ -25,13 +25,13 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  */
 public final class FileAccessor extends FileSystemItemAccessorUnit {
   /**
-   * Creates a new file accessor for a file with the given file path.
+   * Creates a new {@link FileAccessor} for the file with the given filePath.
    * 
    * @param filePath
-   * @throws RuntimeException if there does not exist a file with the given file
-   *                          path in the file system on the local machine.
+   * @throws RuntimeException if there does not exist a file with the given
+   *                          filePath in the file system on the local machine.
    */
-  public FileAccessor(final String filePath) {
+  private FileAccessor(final String filePath) {
     //Calls method of the base class.
     super(filePath);
 
@@ -43,6 +43,16 @@ public final class FileAccessor extends FileSystemItemAccessorUnit {
         filePath,
         "is not a file");
     }
+  }
+
+  /**
+   * @param filePath
+   * @return a new {@link FileAccessor} for the file with the given filePath.
+   * @throws RuntimeException if there does not exist a file with the given
+   *                          filePath in the file system on the local machine.
+   */
+  public static FileAccessor withFilePath(final String filePath) {
+    return new FileAccessor(filePath);
   }
 
   /**
