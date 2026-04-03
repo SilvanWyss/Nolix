@@ -25,6 +25,6 @@ public final class ConditionMediator {
       parentLicenseManager.requireFeature(type);
     }
 
-    return new AdditionalConditionMediator(parentLicenseManager);
+    return AdditionalConditionMediator.forLicenseManager(parentLicenseManager);
   }
 }
