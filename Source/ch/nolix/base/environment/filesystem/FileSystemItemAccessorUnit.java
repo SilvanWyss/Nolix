@@ -19,14 +19,14 @@ public class FileSystemItemAccessorUnit {
   private final File internalAccessor;
 
   /**
-   * Creates a new file system accessor for the file system item with the given
-   * path.
+   * Creates a new {@link FileSystemItemAccessorUnit }for the file system item
+   * with the given path.
    * 
    * @param path
    * @throws RuntimeException if there does not exist a file system item with the
    *                          given path in the file system on the local machine.
    */
-  public FileSystemItemAccessorUnit(final String path) {
+  protected FileSystemItemAccessorUnit(final String path) {
     //Creates the internal file accessor of this file accessor.
     internalAccessor = new File(path);
 
@@ -37,6 +37,17 @@ public class FileSystemItemAccessorUnit {
         path,
         "is not a file system item");
     }
+  }
+
+  /**
+   * @param path
+   * @return a new {@link FileSystemItemAccessorUnit }for the file system item
+   *         with the given path.
+   * @throws RuntimeException if there does not exist a file system item with the
+   *                          given path in the file system on the local machine.
+   */
+  public static FileSystemItemAccessorUnit withPath(final String path) {
+    return new FileSystemItemAccessorUnit(path);
   }
 
   /**
