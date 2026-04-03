@@ -38,7 +38,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    *         maxDurationInMilliseconds.
    * @throws RuntimeException if the given maxDurationInMilliseconds is negative.
    */
-  static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
+  public static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
     //Creates and returns a new ForMaxMillisecondsMediator.
     return new ForMaxMillisecondsMediator(maxDurationInMilliseconds);
   }
@@ -49,7 +49,7 @@ public final class ForMaxMillisecondsMediator implements IForMaxMillisecondsMedi
    *         maxDurationInSeconds.
    * @throws RuntimeException if the given maxDurationInSeconds is negative.
    */
-  static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
+  public static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
     //Asserts that the given maxDurationInSeconds is not negative.
     Validator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 
