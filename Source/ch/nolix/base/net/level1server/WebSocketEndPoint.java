@@ -94,7 +94,14 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
    */
   @Override
   protected void sendRawMessage(final String rawMessage) {
-    sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));
+    final var webSocketFrame = //
+    WebSocketFrame.withFinBitAndOpCodeFrameAndMaskBitAndPayload(
+      true,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
+      rawMessage);
+
+    sendFrame(webSocketFrame);
   }
 
   InputStream getStoredInputStream() {

@@ -51,7 +51,7 @@ public final class WebSocketFrame {
     maskingKey = null;
   }
 
-  public WebSocketFrame(
+  private WebSocketFrame(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
@@ -96,6 +96,14 @@ public final class WebSocketFrame {
     }
 
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
+  }
+
+  public static WebSocketFrame withFinBitAndOpCodeFrameAndMaskBitAndPayload(
+    final boolean mFINBit,
+    final WebSocketFrameOpcodeMeaning opcode,
+    final boolean maskBit,
+    final String payload) {
+    return new WebSocketFrame(mFINBit, opcode, maskBit, payload);
   }
 
   public WebSocketFrame createPongFrame() {
