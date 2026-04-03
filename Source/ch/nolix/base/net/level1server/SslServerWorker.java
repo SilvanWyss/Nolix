@@ -28,7 +28,7 @@ final class SslServerWorker extends AbstractWorker {
 
   private Channel channel;
 
-  public SslServerWorker(
+  private SslServerWorker(
     final SslServer parentWebSocketServer,
     final int port,
     final String htmlPage,
@@ -43,6 +43,14 @@ final class SslServerWorker extends AbstractWorker {
     mSSLCertificate = paramSSLCertificate;
 
     start();
+  }
+
+  public static SslServerWorker forWebSocketServerAndPortAndHtmlPageAndSslCertificate(
+    final SslServer parentWebSocketServer,
+    final int port,
+    final String htmlPage,
+    final ISslCertificate paramSSLCertificate) {
+    return new SslServerWorker(parentWebSocketServer, port, htmlPage, paramSSLCertificate);
   }
 
   /**

@@ -28,7 +28,8 @@ public final class SslServer extends AbstractServer {
   private final SslServerWorker sslServerWorker;
 
   private SslServer(final int port, final String htmlPage, final ISslCertificate paramSSLCertificate) {
-    sslServerWorker = new SslServerWorker(this, port, htmlPage, paramSSLCertificate);
+    sslServerWorker = //
+    SslServerWorker.forWebSocketServerAndPortAndHtmlPageAndSslCertificate(this, port, htmlPage, paramSSLCertificate);
   }
 
   public static SslServer forPortAndHtmlPageAndSSLCertificate(
