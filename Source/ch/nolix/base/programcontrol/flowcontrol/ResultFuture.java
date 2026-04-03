@@ -16,17 +16,26 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
   private final ResultJobExecutor<R> resultJobExecutor;
 
   /**
-   * Creates a new {@link ResultFuture} with the given resultJobRunner.
+   * Creates a new {@link ResultFuture} with the given resultJobExecutor.
    * 
-   * @param resultJobRunner
-   * @throws RuntimeException if the given resultJobRunner is null.
+   * @param resultJobExecutor
+   * @throws RuntimeException if the given resultJobExecutor is null.
    */
-  ResultFuture(final ResultJobExecutor<R> resultJobRunner) {
-    //Asserts that the given resultJobRunner is not null.
-    Validator.assertThat(resultJobRunner).isOfType(ResultJobExecutor.class);
+  private ResultFuture(final ResultJobExecutor<R> resultJobExecutor) {
+    Validator.assertThat(resultJobExecutor).isOfType(ResultJobExecutor.class);
 
-    //Sets the resultJobRunner of the current ResultFuture.
-    this.resultJobExecutor = resultJobRunner;
+    this.resultJobExecutor = resultJobExecutor;
+  }
+
+  /**
+   * @param resultJobExecutor
+   * @param <T>               is the type of the result of created
+   *                          {@link ResultFuture}.
+   * @return a new {@link ResultFuture} with the given resultJobExecutor.
+   * @throws RuntimeException if the given resultJobExecutor is null.
+   */
+  public static <T> ResultFuture<T> forResultJobExecutor(final ResultJobExecutor<T> resultJobExecutor) {
+    return new ResultFuture<>(resultJobExecutor);
   }
 
   /**

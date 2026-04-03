@@ -140,7 +140,9 @@ public final class FlowController {
    * @throws RuntimeException if the given resultJob is null.
    */
   public static <R> IResultFuture<R> runInBackground(final Supplier<R> resultJob) {
-    return new ResultFuture<>(ResultJobExecutor.forResultJob(resultJob));
+    final var resultJobExecutor = ResultJobExecutor.forResultJob(resultJob);
+
+    return ResultFuture.forResultJobExecutor(resultJobExecutor);
   }
 
   /**
