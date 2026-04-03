@@ -42,31 +42,6 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   }
 
   /**
-   * Creates a new {@link AfterEveryMediator} with the given maxRunCount,
-   * condition and time interval in milliseconds.
-   * 
-   * @param maxRunCount
-   * @param condition
-   * @param timeIntervalInMilliseconds
-   * @throws RuntimeException if the given max run count is negative.
-   * @throws RuntimeException if the given condition is null.
-   * @throws RuntimeException if the given timeIntervalInMillisecondss is
-   *                          negative.
-   */
-  AfterEveryMediator(
-    final int maxRunCount,
-    final BooleanSupplier condition,
-    final int timeIntervalInMilliseconds) {
-    Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
-    Validator.assertThat(condition).thatIsNamed("condition").isNotNull();
-    Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
-
-    this.maxRunCount = maxRunCount;
-    this.condition = condition;
-    this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
-  }
-
-  /**
    * @param condition
    * @param timeIntervalInMilliseconds
    * @return a new {@link AfterEveryMediator} with the given condition and
