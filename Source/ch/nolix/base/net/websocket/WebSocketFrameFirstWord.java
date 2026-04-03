@@ -39,7 +39,7 @@ final class WebSocketFrameFirstWord {
     }
   }
 
-  public WebSocketFrameFirstWord(final byte byte1, final byte byte2) {
+  private WebSocketFrameFirstWord(final byte byte1, final byte byte2) {
     final var wrapperByte1 = new UnsignedByte(byte1);
     final var wrapperByte2 = new UnsignedByte(byte2);
 
