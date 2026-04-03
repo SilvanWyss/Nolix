@@ -46,7 +46,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    */
   @Override
   public IAfterEveryMediator afterEveryMilliseconds(final int timeIntervalInMilliseconds) {
-    return new AfterEveryMediator(condition, timeIntervalInMilliseconds);
+    return AfterEveryMediator.withConditionAndTimeIntervalInMilliSeconds(condition, timeIntervalInMilliseconds);
   }
 
   /**

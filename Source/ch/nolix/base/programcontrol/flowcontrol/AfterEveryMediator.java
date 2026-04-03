@@ -24,15 +24,15 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   private final BooleanSupplier condition;
 
   /**
-   * Creates a new {@link AfterEveryMediator} with the given condition and time
-   * interval in milliseconds.
+   * Creates a new {@link AfterEveryMediator} with the given condition and
+   * timeIntervalInMilliseconds.
    * 
    * @param condition
    * @param timeIntervalInMilliseconds
    * @throws RuntimeException if the given condition is null.
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
-  AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
+  private AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
@@ -64,6 +64,20 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
     this.maxRunCount = maxRunCount;
     this.condition = condition;
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
+  }
+
+  /**
+   * @param condition
+   * @param timeIntervalInMilliseconds
+   * @return a new {@link AfterEveryMediator} with the given condition and
+   *         timeIntervalInMilliseconds.
+   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
+   */
+  public static AfterEveryMediator withConditionAndTimeIntervalInMilliSeconds(
+    final BooleanSupplier condition,
+    final int timeIntervalInMilliseconds) {
+    return new AfterEveryMediator(condition, timeIntervalInMilliseconds);
   }
 
   /**
