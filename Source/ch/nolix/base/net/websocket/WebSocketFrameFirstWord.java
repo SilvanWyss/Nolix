@@ -58,7 +58,7 @@ final class WebSocketFrameFirstWord {
     m7BitPayloadLength = byte2 & 0x7F;
   }
 
-  public static WebSocketFrameFirstWord fromNibble(final byte[] nibble) {
+  public static WebSocketFrameFirstWord fromBytes(final byte[] nibble) {
     Validator.assertThat(nibble).hasElementCount(2);
 
     return new WebSocketFrameFirstWord(nibble[0], nibble[1]);

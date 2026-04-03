@@ -61,7 +61,7 @@ public final class WebSocketFrame {
 
   public WebSocketFrame(final InputStream inputStream) {
     try {
-      firstNibble = WebSocketFrameFirstWord.fromNibble(inputStream.readNBytes(2));
+      firstNibble = WebSocketFrameFirstWord.fromBytes(inputStream.readNBytes(2));
       payloadLength = calculatePayloadLength(inputStream);
 
       if (getMaskBit()) {
