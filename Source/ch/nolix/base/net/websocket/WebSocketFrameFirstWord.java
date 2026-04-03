@@ -9,7 +9,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;
 
-final class WebSocketFrameFirstNibble {
+final class WebSocketFrameFirstWord {
   private final boolean mFINBit;
 
   private final int opcode;
@@ -20,7 +20,7 @@ final class WebSocketFrameFirstNibble {
 
   private final int m7BitPayloadLength;
 
-  public WebSocketFrameFirstNibble(
+  public WebSocketFrameFirstWord(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
     final boolean maskBit,
@@ -39,7 +39,7 @@ final class WebSocketFrameFirstNibble {
     }
   }
 
-  public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
+  public WebSocketFrameFirstWord(final byte byte1, final byte byte2) {
     final var wrapperByte1 = new UnsignedByte(byte1);
     final var wrapperByte2 = new UnsignedByte(byte2);
 
@@ -58,10 +58,10 @@ final class WebSocketFrameFirstNibble {
     m7BitPayloadLength = byte2 & 0x7F;
   }
 
-  public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
+  public static WebSocketFrameFirstWord fromNibble(final byte[] nibble) {
     Validator.assertThat(nibble).hasElementCount(2);
 
-    return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
+    return new WebSocketFrameFirstWord(nibble[0], nibble[1]);
   }
 
   public int get7BitsPayloadLength() {

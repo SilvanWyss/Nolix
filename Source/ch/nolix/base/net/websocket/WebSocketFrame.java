@@ -25,7 +25,7 @@ public final class WebSocketFrame {
 
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
-  private final WebSocketFrameFirstNibble firstNibble;
+  private final WebSocketFrameFirstWord firstNibble;
 
   private final WebSocketFramePayloadLength payloadLength;
 
@@ -40,7 +40,7 @@ public final class WebSocketFrame {
     final byte[] payload) {
     Validator.assertThat(payload).thatIsNamed("payload").isNotNull();
 
-    firstNibble = new WebSocketFrameFirstNibble(
+    firstNibble = new WebSocketFrameFirstWord(
       mFINBit,
       opcode,
       maskBit,
@@ -61,7 +61,7 @@ public final class WebSocketFrame {
 
   public WebSocketFrame(final InputStream inputStream) {
     try {
-      firstNibble = WebSocketFrameFirstNibble.fromNibble(inputStream.readNBytes(2));
+      firstNibble = WebSocketFrameFirstWord.fromNibble(inputStream.readNBytes(2));
       payloadLength = calculatePayloadLength(inputStream);
 
       if (getMaskBit()) {
