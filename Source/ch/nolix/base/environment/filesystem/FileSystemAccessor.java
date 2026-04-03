@@ -36,7 +36,7 @@ public final class FileSystemAccessor {
    * @return a new {@link FolderAccessor} to the folder of the running jar file.
    */
   public static FolderAccessor getFolderOfRunningJarFile() {
-    return new FolderAccessor(getFolderPathOfRunningJarFile());
+    return FolderAccessor.forFolderPath(getFolderPathOfRunningJarFile());
   }
 
   /**
@@ -230,7 +230,7 @@ public final class FileSystemAccessor {
     new File(path).mkdirs();
 
     //Creates and returns a FolderAccessor to the folder.
-    return new FolderAccessor(path);
+    return FolderAccessor.forFolderPath(path);
   }
 
   /**
@@ -289,7 +289,7 @@ public final class FileSystemAccessor {
       if (f.isFile()) {
         fileAccessors.addAtEnd(FileAccessor.withFilePath(f.getPath()));
       } else if (f.isDirectory()) {
-        fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
+        fileAccessors.addAtEnd(FolderAccessor.forFolderPath(f.getPath()).getFileAccessorsRecursively());
       } else {
         throw InvalidArgumentException.forArgument(f);
       }

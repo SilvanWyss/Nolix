@@ -75,7 +75,7 @@ public class FileSystemItemAccessorUnit {
    *         this file system item accessor.
    */
   public final FolderAccessor getParentFolderAccessor() {
-    return new FolderAccessor(internalAccessor.getParent());
+    return FolderAccessor.forFolderPath(internalAccessor.getParent());
   }
 
   /**

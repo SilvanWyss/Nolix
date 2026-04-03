@@ -6,7 +6,6 @@ package ch.nolix.base.environment.filesystem;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link FolderAccessor} can access a folder.
@@ -15,31 +14,33 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  */
 public final class FolderAccessor extends FileSystemItemAccessorUnit {
   /**
-   * Creates a new {@link FolderAccessor} for the folder of the running jar file.
+   * Creates a new {@link FolderAccessor} for the folder with the given
+   * folderPath.
+   * 
+   * @param folderPath
+   * @throws RuntimeException if there does not exist a folder with the given
+   *                          folderPath in the file system on the local machine.
    */
-  public FolderAccessor() {
-    //Calls constructor of the base class.
-    super(FileSystemAccessor.getFolderPathOfRunningJarFile());
+  private FolderAccessor(final String folderPath) {
+    super(folderPath);
+
+    if (!FileSystemAccessor.isFolder(folderPath)) {
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
+        folderPath,
+        "folder path",
+        "is not a folder");
+    }
   }
 
   /**
-   * Creates a new {@link FolderAccessor} for the folder with the given path.
-   * 
-   * @param path
-   * @throws RuntimeException if there does not exist a folder with the given path
-   *                          in the file system on the local machine.
+   * @param folderPath
+   * @return a new {@link FolderAccessor} for the folder for the given folderPath.
+   * @throws RuntimeException if there does not exist a folder with the given
+   *                          folderPath in the file system on the local machine.
    */
-  public FolderAccessor(final String path) {
-    //Calls constructor of the base class.
-    super(path);
-
-    //Asserts that the file system item with the given path is actually a folder.
-    if (!FileSystemAccessor.isFolder(path)) {
-      throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        LowerCaseVariableCatalog.PATH,
-        path,
-        "is not a folder");
-    }
+  public static FolderAccessor forFolderPath(final String folderPath) {
+    return new FolderAccessor(folderPath);
   }
 
   /**

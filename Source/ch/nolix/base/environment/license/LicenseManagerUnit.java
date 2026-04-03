@@ -188,7 +188,7 @@ public final class LicenseManagerUnit {
    */
   private String readKeyFromLicenseFile(final String licenseName) {
     try {
-      return new FolderAccessor(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH)
+      return FolderAccessor.forFolderPath(NolixDirectoryAndFileCatalog.NOLIX_CONFIGURATION_FILE_PATH)
         .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
     } catch (final Throwable _) { //NOSONAR: All Throwable must be caught.
       throw //
