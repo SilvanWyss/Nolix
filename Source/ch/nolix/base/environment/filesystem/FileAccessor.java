@@ -23,7 +23,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * 
  * @author Silvan Wyss
  */
-public final class FileAccessor extends FileSystemItemAccessorUnit {
+public final class FileAccessor extends FileSystemItemAccessor {
   /**
    * Creates a new {@link FileAccessor} for the file with the given filePath.
    * 

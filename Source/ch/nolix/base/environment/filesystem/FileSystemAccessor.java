@@ -300,12 +300,12 @@ public final class FileSystemAccessor {
 
   /**
    * @param path
-   * @return new {@link FileSystemItemAccessorUnit}s for the file system items in
+   * @return new {@link FileSystemItemAccessor}s for the file system items in
    *         the folder with the given path.
    */
-  public static IContainer<FileSystemItemAccessorUnit> getFileSystemItemAccessors(final String path) {
+  public static IContainer<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
     return ContainerView.forArray(new File(path).listFiles())
-      .to(f -> new FileSystemItemAccessorUnit(f.getAbsolutePath()));
+      .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }
 
   /**

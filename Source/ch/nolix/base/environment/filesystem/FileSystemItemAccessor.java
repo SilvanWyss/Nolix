@@ -15,18 +15,18 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * 
  * @author Silvan Wyss
  */
-public class FileSystemItemAccessorUnit {
+public class FileSystemItemAccessor {
   private final File internalAccessor;
 
   /**
-   * Creates a new {@link FileSystemItemAccessorUnit }for the file system item
+   * Creates a new {@link FileSystemItemAccessor }for the file system item
    * with the given path.
    * 
    * @param path
    * @throws RuntimeException if there does not exist a file system item with the
    *                          given path in the file system on the local machine.
    */
-  protected FileSystemItemAccessorUnit(final String path) {
+  protected FileSystemItemAccessor(final String path) {
     //Creates the internal file accessor of this file accessor.
     internalAccessor = new File(path);
 
@@ -41,18 +41,18 @@ public class FileSystemItemAccessorUnit {
 
   /**
    * @param path
-   * @return a new {@link FileSystemItemAccessorUnit }for the file system item
+   * @return a new {@link FileSystemItemAccessor }for the file system item
    *         with the given path.
    * @throws RuntimeException if there does not exist a file system item with the
    *                          given path in the file system on the local machine.
    */
-  public static FileSystemItemAccessorUnit withPath(final String path) {
-    return new FileSystemItemAccessorUnit(path);
+  public static FileSystemItemAccessor withPath(final String path) {
+    return new FileSystemItemAccessor(path);
   }
 
   /**
    * @return the extension of the name of the file system item of the current
-   *         {@link FileSystemItemAccessorUnit}.
+   *         {@link FileSystemItemAccessor}.
    */
   public final String getExtension() {
     final var array = RegularExpressionPatternCatalog.DOT_PATTERN.split(getName());
@@ -62,7 +62,7 @@ public class FileSystemItemAccessorUnit {
 
   /**
    * @return the name of the file system item of the current
-   *         {@link FileSystemItemAccessorUnit}.
+   *         {@link FileSystemItemAccessor}.
    */
   public final String getName() {
     final var array = getPath().split("/");
@@ -88,7 +88,7 @@ public class FileSystemItemAccessorUnit {
   /**
    * @param extension
    * @return true if the file system item of the current
-   *         {@link FileSystemItemAccessorUnit} has the given extension, false
+   *         {@link FileSystemItemAccessor} has the given extension, false
    *         otherwise.
    */
   public final boolean hasExtension(final String extension) {
