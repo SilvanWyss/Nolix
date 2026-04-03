@@ -40,7 +40,8 @@ public final class WebSocketFrame {
     final byte[] payload) {
     Validator.assertThat(payload).thatIsNamed("payload").isNotNull();
 
-    firstNibble = new WebSocketFrameFirstWord(
+    firstNibble = //
+    WebSocketFrameFirstWord.withFinBitAndOpCodeMeaningAndMaskBitAndPaylaodLength(
       mFINBit,
       opcode,
       maskBit,

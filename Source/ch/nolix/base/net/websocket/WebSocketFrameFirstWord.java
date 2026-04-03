@@ -20,7 +20,7 @@ final class WebSocketFrameFirstWord {
 
   private final int m7BitPayloadLength;
 
-  public WebSocketFrameFirstWord(
+  private WebSocketFrameFirstWord(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcodeMeaning,
     final boolean maskBit,
@@ -62,6 +62,14 @@ final class WebSocketFrameFirstWord {
     Validator.assertThat(nibble).hasElementCount(2);
 
     return new WebSocketFrameFirstWord(nibble[0], nibble[1]);
+  }
+
+  public static WebSocketFrameFirstWord withFinBitAndOpCodeMeaningAndMaskBitAndPaylaodLength(
+    final boolean mFINBit,
+    final WebSocketFrameOpcodeMeaning opcodeMeaning,
+    final boolean maskBit,
+    final int payloadLength) {
+    return new WebSocketFrameFirstWord(mFINBit, opcodeMeaning, maskBit, payloadLength);
   }
 
   public int get7BitsPayloadLength() {
