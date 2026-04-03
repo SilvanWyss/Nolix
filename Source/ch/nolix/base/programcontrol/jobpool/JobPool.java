@@ -33,7 +33,7 @@ public final class JobPool {
     jobWrappers.addAtEnd(jobWrapper);
     createNewWorkerIfNeeded();
 
-    return new Future(jobWrapper);
+    return Future.forJobWrapper(jobWrapper);
   }
 
   /**

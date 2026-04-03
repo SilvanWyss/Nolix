@@ -5,15 +5,29 @@ package ch.nolix.base.programcontrol.jobpool;
 
 import ch.nolix.base.programcontrol.future.AbstractFuture;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
-final class Future extends AbstractFuture {
+public final class Future extends AbstractFuture {
   private final JobWrapper jobWrapper;
 
-  public Future(final JobWrapper jobWrapper) {
-    Validator.assertThat(jobWrapper).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+  /**
+   * Creates a new {@link Future} for the given jobWrapper.
+   * 
+   * @param jobWrapper
+   * @throws RuntimeException if the given jobWrapper is null.
+   */
+  private Future(final JobWrapper jobWrapper) {
+    Validator.assertThat(jobWrapper).thatIsNamed(JobWrapper.class).isNotNull();
 
     this.jobWrapper = jobWrapper;
+  }
+
+  /**
+   * @param jobWrapper
+   * @return a new {@link Future} for the given jobWrapper.
+   * @throws RuntimeException if the given jobWrapper is null.
+   */
+  public static Future forJobWrapper(final JobWrapper jobWrapper) {
+    return new Future(jobWrapper);
   }
 
   /**
