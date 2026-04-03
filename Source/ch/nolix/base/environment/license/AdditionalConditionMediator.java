@@ -18,6 +18,6 @@ public final class AdditionalConditionMediator {
   }
 
   public LongMediator andWhen(final long value) {
-    return new LongMediator(parentLicenseManager, value);
+    return LongMediator.forLicenseManagerAndValue(parentLicenseManager, value);
   }
 }

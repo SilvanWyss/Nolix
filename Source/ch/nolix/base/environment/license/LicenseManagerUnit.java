@@ -162,7 +162,7 @@ public final class LicenseManagerUnit {
    * @return a new {@link LongMediator} for the given value.
    */
   public LongMediator when(final long value) {
-    return new LongMediator(this, value);
+    return LongMediator.forLicenseManagerAndValue(this, value);
   }
 
   /**
