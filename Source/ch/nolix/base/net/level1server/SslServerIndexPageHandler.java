@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.net.level1server;
 
+import ch.nolix.base.validation.validator.Validator;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.Unpooled;
@@ -19,11 +20,31 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.CharsetUtil;
 
-final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
+/**
+ * @author Silvan Wyss
+ */
+public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
   private final String htmlPage;
 
-  public SslServerIndexPageHandler(String htmlPage) {
+  /**
+   * Creates a new {@link SslServerIndexPageHandler} with the givne htmlPage.
+   * 
+   * @param htmlPage
+   * @throws RuntimeException if the given htmlPage is null.
+   */
+  private SslServerIndexPageHandler(String htmlPage) {
+    Validator.assertThat(htmlPage).thatIsNamed("html page").isNotNull();
+
     this.htmlPage = htmlPage;
+  }
+
+  /**
+   * @param htmlPage
+   * @return a new {@link SslServerIndexPageHandler} with the givne htmlPage.
+   * @throws RuntimeException if the given htmlPage is null.
+   */
+  public static SslServerIndexPageHandler withHtmlPage(String htmlPage) {
+    return new SslServerIndexPageHandler(htmlPage);
   }
 
   /**

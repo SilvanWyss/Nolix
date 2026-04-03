@@ -40,7 +40,7 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
     pipeline.addLast(new HttpObjectAggregator(65536));
     pipeline.addLast(new WebSocketServerCompressionHandler(0));
     pipeline.addLast(new WebSocketServerProtocolHandler(WEBSOCKET_PATH, null, true));
-    pipeline.addLast(new SslServerIndexPageHandler(htmlPage));
+    pipeline.addLast(SslServerIndexPageHandler.withHtmlPage(htmlPage));
     pipeline.addLast(new SslServerChannelInboundHandler(parentWebSocketServer));
   }
 }
