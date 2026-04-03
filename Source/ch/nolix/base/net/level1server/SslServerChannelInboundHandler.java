@@ -40,7 +40,7 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     final WebSocketFrame webSocketFrame)
   throws Exception {
     if (parentWebSocketServerEndPoint == null) {
-      parentWebSocketServerEndPoint = new SslServerEndPoint(channelHandlerContext);
+      parentWebSocketServerEndPoint = SslServerEndPoint.withChannelHandlerContext(channelHandlerContext);
 
       //The end point must receive the current message to know its content before it
       //is added to the server.

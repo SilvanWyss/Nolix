@@ -11,15 +11,33 @@ import ch.nolix.baseapi.programcontrol.processproperty.TargetInfoState;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
-final class SslServerEndPoint extends AbstractNetEndPoint {
+/**
+ * @author Silvan Wyss
+ */
+public final class SslServerEndPoint extends AbstractNetEndPoint {
   private final ChannelHandlerContext channelHandlerContext;
 
-  public SslServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
+  /**
+   * Creates a new {@link SslServerEndPoint} with the given channelHandlerContext.
+   *
+   * @param channelHandlerContext
+   * @throws RuntimeException if the given channelHandlerContext is null.
+   */
+  private SslServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 
     Validator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();
 
     this.channelHandlerContext = channelHandlerContext;
+  }
+
+  /**
+   * @param channelHandlerContext
+   * @return a new {@link SslServerEndPoint} with the given channelHandlerContext.
+   * @throws RuntimeException if the given channelHandlerContext is null.
+   */
+  public static SslServerEndPoint withChannelHandlerContext(final ChannelHandlerContext channelHandlerContext) {
+    return new SslServerEndPoint(channelHandlerContext);
   }
 
   /**
