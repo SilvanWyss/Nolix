@@ -27,12 +27,11 @@ public final class OptionalValue<V> extends AbstractSingleValue<V> {
    * @throws RuntimeException if the given valueCreator is null.
    * @throws RuntimeException if the given specificationCreator is null.
    */
-  public OptionalValue(
+  private OptionalValue(
     final String name,
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
 
