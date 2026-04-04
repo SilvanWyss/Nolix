@@ -5,7 +5,6 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
@@ -50,21 +49,6 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   private final IArrayList<ITable> referenceableTables = ArrayList.createEmpty();
 
   private final IArrayList<IColumn> backReferenceableColumns = ArrayList.createEmpty();
-
-  public Column(
-    final String name,
-    final FieldType fieldType,
-    final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
-    this(
-      IdCreator.createIdOf10HexadecimalCharacters(),
-      name,
-      fieldType,
-      dataType,
-      referenceableTables,
-      backReferenceableColumns);
-  }
 
   private Column(
     final String id,

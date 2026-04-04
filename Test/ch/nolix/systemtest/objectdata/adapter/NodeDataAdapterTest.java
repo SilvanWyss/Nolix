@@ -168,8 +168,9 @@ final class NodeDataAdapterTest extends StandardTest {
     schemaAdapter
       .getStoredTableByName("Pet")
       .addColumn(
-        new Column(
-          "Name",
+        Column.withIdAndNameAndContentModel(
+          "id",
+          "name",
           FieldType.VALUE_FIELD, DataType.STRING,
           ImmutableList.createEmpty(),
           ImmutableList.createEmpty()));

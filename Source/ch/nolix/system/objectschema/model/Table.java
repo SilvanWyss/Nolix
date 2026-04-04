@@ -95,9 +95,16 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final DataType dataType,
     final IContainer<? extends ITable> referenceableTables,
     final IContainer<? extends IColumn> backReferenceableColumns) {
+    final var columnId = IdCreator.createIdOf10HexadecimalCharacters();
 
     final var column = //
-    new Column(name, fieldType, dataType, referenceableTables, backReferenceableColumns);
+    Column.withIdAndNameAndContentModel(
+      columnId,
+      name,
+      fieldType,
+      dataType,
+      referenceableTables,
+      backReferenceableColumns);
 
     return addColumn(column);
   }

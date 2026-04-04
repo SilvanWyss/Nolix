@@ -12,5 +12,5 @@ import ch.nolix.systemapi.objectschema.model.ITable;
  * @author Silvan Wyss
  */
 public interface IColumnMapper {
-  IColumn mapFieldToColumn(IField field, IContainer<ITable> referencedTables);
+  IColumn mapFieldToColumn(IField field, String columnId, IContainer<ITable> referencedTables);
 }
