@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.element.property;
+package ch.nolix.system.element.proxyproperty;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

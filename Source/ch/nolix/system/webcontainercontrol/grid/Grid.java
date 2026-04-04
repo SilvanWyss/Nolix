@@ -10,7 +10,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MultiValueProxy;
+import ch.nolix.system.element.proxyproperty.MultiValueProxy;
 import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
