@@ -43,7 +43,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   private static final ImageControlCssBuilder CSS_BUILDER = new ImageControlCssBuilder();
 
   private final MutableOptionalValue<MutableImage> image = //
-  new MutableOptionalValue<>(
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     IMAGE_HEADER,
     this::setImage,
     MutableImage::fromSpecification,

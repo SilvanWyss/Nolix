@@ -25,7 +25,8 @@ public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IC
 extends Control<C, S> implements IContainer<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
-  private final MutableOptionalValue<ContainerRole> memberRole = new MutableOptionalValue<>(
+  private final MutableOptionalValue<ContainerRole> memberRole = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     ContainerRole::fromSpecification,

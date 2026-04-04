@@ -28,12 +28,11 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
    * @throws RuntimeException if the given valueCreator is null.
    * @throws RuntimeException if the given specificationCreator is null.
    */
-  public MutableOptionalValue(
+  private MutableOptionalValue(
     final String name,
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
 
@@ -104,6 +103,28 @@ public final class MutableOptionalValue<V> extends AbstractSingleValue<V> {
 
         return Node.withChildNode(s);
       });
+  }
+
+  /**
+   * @param name
+   * @param setter
+   * @param valueMapper
+   * @param specificationMapper
+   * @param <T>                 is the type of the value of the created
+   *                            {@link MutableOptionalValue}.
+   * @return a new {@link MutableOptionalValue} with the given name, setter,
+   *         valueMapper and specificationMapper.
+   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null.
+   */
+  public static <T> MutableOptionalValue<T> withNameAndSetterAndValueMapperAndSpecificationMapper(
+    final String name,
+    final Consumer<T> setter,
+    final Function<INode<?>, T> valueMapper,
+    final Function<T, INode<?>> specificationMapper) {
+    return new MutableOptionalValue<>(name, setter, valueMapper, specificationMapper);
   }
 
   /**

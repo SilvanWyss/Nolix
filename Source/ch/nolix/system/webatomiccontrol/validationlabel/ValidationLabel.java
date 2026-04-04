@@ -32,7 +32,8 @@ extends Control<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
   private static final String ERROR_HEADER = PascalCaseVariableCatalog.ERROR;
 
-  private final MutableOptionalValue<Throwable> memberError = new MutableOptionalValue<>(
+  private final MutableOptionalValue<Throwable> memberError = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ERROR_HEADER,
     this::showError,
     s -> GeneralException.withErrorMessage(s.getHeader()),

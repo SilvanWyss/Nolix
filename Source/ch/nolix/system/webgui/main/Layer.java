@@ -70,7 +70,8 @@ implements ILayer<Layer> {
   //For CSS an id works only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final MutableOptionalValue<LayerRole> memberRole = new MutableOptionalValue<>(
+  private final MutableOptionalValue<LayerRole> memberRole = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     LayerRole::fromSpecification,
@@ -84,7 +85,8 @@ implements ILayer<Layer> {
     s -> StringTool.toProportion(s.getSingleChildNodeHeader()),
     Node::withChildNode);
 
-  private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
+  private final MutableOptionalValue<IBackground> background = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     BACKGROUND_HEADER,
     this::setBackground,
     Background::fromSpecification,
@@ -98,7 +100,8 @@ implements ILayer<Layer> {
     ContentAlignment::fromSpecification,
     Node::fromEnum);
 
-  private final MutableOptionalValue<IControl<?, ?>> rootControl = new MutableOptionalValue<>(
+  private final MutableOptionalValue<IControl<?, ?>> rootControl = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
     ControlFactory::createControlFromSpecification,

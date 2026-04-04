@@ -28,7 +28,8 @@ implements ISingleContainer {
 
   private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 
-  private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
+  private final MutableOptionalValue<IControl<?, ?>> control = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,

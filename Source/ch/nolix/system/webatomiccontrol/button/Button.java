@@ -44,7 +44,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
 
   private final MutableOptionalValue<ButtonRole> memberRole = //
-  new MutableOptionalValue<>(
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ButtonAttributeHeaderCatalog.ROLE_HEADER,
     this::setRole,
     ButtonRole::fromSpecification,

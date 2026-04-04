@@ -20,7 +20,8 @@ public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> ex
 implements IStyleElement<E> {
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalog.CONFIGURATION;
 
-  private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(
+  private final MutableOptionalValue<IStyle> style = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONFIGURATION_HEADER,
     this::setStyle,
     Style::fromSpecification,

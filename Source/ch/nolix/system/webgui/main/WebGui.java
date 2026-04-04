@@ -75,7 +75,8 @@ implements IWebGui<WebGui> {
     Image::fromSpecification,
     Image::getSpecification);
 
-  private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
+  private final MutableOptionalValue<IBackground> background = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     BACKGROUND_HEADER,
     this::setBackground,
     Background::fromSpecification,

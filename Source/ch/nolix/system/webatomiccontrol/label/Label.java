@@ -40,7 +40,8 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   private static final LabelCssBuilder CSS_BUILDER = new LabelCssBuilder();
 
-  private final MutableOptionalValue<LabelRole> memberRole = new MutableOptionalValue<>(
+  private final MutableOptionalValue<LabelRole> memberRole = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     LabelRole::fromSpecification,

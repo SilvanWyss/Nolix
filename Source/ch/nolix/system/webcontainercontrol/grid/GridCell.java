@@ -28,7 +28,8 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
 
   private final Value<Integer> columnIndex = Value.forInt(COLUMN_INDEX_HEADER, this::setColumnIndex);
 
-  private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
+  private final MutableOptionalValue<IControl<?, ?>> control = //
+  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,

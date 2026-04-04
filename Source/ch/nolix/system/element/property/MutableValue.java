@@ -122,9 +122,6 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
   }
 
   /**
-   * @return a new {@link MutableValue} with the given name, defaultValue, setter,
-   *         valueMapper and specificationMapper.
-   * 
    * @param name
    * @param defaultValue
    * @param setterMethod
@@ -132,6 +129,8 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @param specificationMapper
    * @param <T>                 is the type of the value of the created
    *                            {@link MutableValue}.
+   * @return a new {@link MutableValue} with the given name, defaultValue, setter,
+   *         valueMapper and specificationMapper.
    * @throws RuntimeException if the given name is null or blank.
    * @throws RuntimeException if the given defaultValue is null.
    * @throws RuntimeException if the given setter is null.
