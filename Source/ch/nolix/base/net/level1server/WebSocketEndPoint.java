@@ -31,7 +31,7 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
 
   private final OutputStream socketOutputStream;
 
-  public WebSocketEndPoint(
+  private WebSocketEndPoint(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
@@ -47,6 +47,13 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
     this.socketOutputStream = socketOutputStream;
 
     createMessageListenerAndWaitToTargetInfo();
+  }
+
+  public static WebSocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStream(
+    final Socket socket,
+    final InputStream socketInputStream,
+    final OutputStream socketOutputStream) {
+    return new WebSocketEndPoint(socket, socketInputStream, socketOutputStream);
   }
 
   /**

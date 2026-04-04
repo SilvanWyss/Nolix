@@ -126,7 +126,13 @@ public final class SocketHandler {
 
       sendRawMessageToOutputStream(socketOutputStream, openingHandshakeResponse);
 
-      return Optional.of(new WebSocketEndPoint(socket, socketInputStream, socketOutputStream));
+      final var webSocketEndPoint = //
+      WebSocketEndPoint.withSocketAndSocketInputStreamAndSocketOutputStream(
+        socket,
+        socketInputStream,
+        socketOutputStream);
+
+      return Optional.of(webSocketEndPoint);
     }
 
     if (HttpRequest.canBe(lines)) {
