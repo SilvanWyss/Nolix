@@ -59,14 +59,16 @@ implements IWebGui<WebGui> {
 
   private static final String LAYER_HEADER = PascalCaseVariableCatalog.LAYER;
 
-  private final MutableValue<String> title = new MutableValue<>(
+  private final MutableValue<String> title = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TITLE_HEADER,
     DEFAULT_TITLE,
     this::setTitle,
     INode::getSingleChildNodeHeader,
     Node::withChildNode);
 
-  private final MutableValue<Image> icon = new MutableValue<>(
+  private final MutableValue<Image> icon = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     ICON_HEADER,
     DEFAULT_ICON,
     this::setIcon,

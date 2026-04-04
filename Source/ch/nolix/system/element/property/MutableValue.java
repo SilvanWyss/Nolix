@@ -30,13 +30,12 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
    * @throws RuntimeException if the given valueCreator is null.
    * @throws RuntimeException if the given specificationCreator is null.
    */
-  public MutableValue(
+  private MutableValue(
     final String name,
     final V defaultValue,
     final Consumer<V> setterMethod,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
-    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
 
     setValue(defaultValue);
@@ -120,6 +119,32 @@ public final class MutableValue<V> extends AbstractSingleValue<V> {
 
         return Node.withChildNode(s);
       });
+  }
+
+  /**
+   * @return a new {@link MutableValue} with the given name, defaultValue, setter,
+   *         valueMapper and specificationMapper.
+   * 
+   * @param name
+   * @param defaultValue
+   * @param setterMethod
+   * @param valueMapper
+   * @param specificationMapper
+   * @param <T>                 is the type of the value of the created
+   *                            {@link MutableValue}.
+   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given defaultValue is null.
+   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null.
+   */
+  public static <T> MutableValue<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+    final String name,
+    final T defaultValue,
+    final Consumer<T> setterMethod,
+    final Function<INode<?>, T> valueMapper,
+    final Function<T, INode<?>> specificationMapper) {
+    return new MutableValue<>(name, defaultValue, setterMethod, valueMapper, specificationMapper);
   }
 
   /**

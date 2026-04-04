@@ -63,7 +63,8 @@ implements IControl<C, S> {
   //An id works correctly for CSS only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final MutableValue<Presence> presence = new MutableValue<>(
+  private final MutableValue<Presence> presence = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     PRESENCE_HEADER,
     DEFAULT_PRESENCE,
     this::setPresence,
@@ -90,7 +91,8 @@ implements IControl<C, S> {
     this::setMaxHeight,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final MutableValue<CursorIcon> cursorIcon = new MutableValue<>(
+  private final MutableValue<CursorIcon> cursorIcon = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CURSOR_ICON_HEADER,
     DEFAULT_CURSOR_ICON,
     this::setCursorIcon,

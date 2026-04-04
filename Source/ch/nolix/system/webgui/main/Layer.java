@@ -76,7 +76,8 @@ implements ILayer<Layer> {
     LayerRole::fromSpecification,
     Node::fromEnum);
 
-  private final MutableValue<Double> opacity = new MutableValue<>(
+  private final MutableValue<Double> opacity = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     OPACITY_HEADER,
     DEFAULT_OPACITY,
     this::setOpacity,
@@ -89,7 +90,8 @@ implements ILayer<Layer> {
     Background::fromSpecification,
     IBackground::getSpecification);
 
-  private final MutableValue<ContentAlignment> contentAlignment = new MutableValue<>(
+  private final MutableValue<ContentAlignment> contentAlignment = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CONTENT_ALIGNMENT_HEADER,
     DEFAULT_CONTENT_POSITION,
     this::setContentAlignment,

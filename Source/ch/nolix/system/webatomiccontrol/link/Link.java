@@ -54,7 +54,8 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   private final MutableValue<String> displayText = MutableValue.forString(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
     this::setDisplayText);
 
-  private final MutableValue<LinkTarget> target = new MutableValue<>(
+  private final MutableValue<LinkTarget> target = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TARGET_HEADER,
     DEFAULT_TARGET,
     this::setTarget,

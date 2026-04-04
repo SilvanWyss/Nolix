@@ -44,7 +44,8 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   private final MutableValue<String> memberText = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
-  private MutableValue<TextMode> textMode = new MutableValue<>(
+  private MutableValue<TextMode> textMode = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TEXT_MODE_HEADER,
     DEFAULT_TEXT_MODE,
     this::setTextMode,

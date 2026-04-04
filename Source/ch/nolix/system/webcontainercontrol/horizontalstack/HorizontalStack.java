@@ -26,7 +26,8 @@ implements IHorizontalStack {
 
   private static final HorizontalStackCssBuilder CSS_BUILDER = new HorizontalStackCssBuilder();
 
-  private final MutableValue<VerticalContentAlignment> contentAlignment = new MutableValue<>(
+  private final MutableValue<VerticalContentAlignment> contentAlignment = //
+  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CONTENT_ALIGNMENT_HEADER,
     DEFAULT_CONTENT_ALIGNMENT,
     this::setContentAlignment,
