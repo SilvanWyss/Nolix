@@ -83,7 +83,8 @@ implements IWebGui<WebGui> {
     IBackground::getSpecification);
 
   @SuppressWarnings("unused")
-  private final MultiValueProxy<ILayer<?>> layerExtractor = new MultiValueProxy<>(
+  private final MultiValueProxy<ILayer<?>> layerExtractor = //
+  MultiValueProxy.withNameAndAderAndGetterAndValueMapperAndSpeicificationMapper(
     LAYER_HEADER,
     this::pushLayer,
     this::getStoredLayers,

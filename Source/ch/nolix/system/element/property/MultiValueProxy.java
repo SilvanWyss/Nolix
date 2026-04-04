@@ -45,7 +45,7 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  public MultiValueProxy(
+  private MultiValueProxy(
     final String name,
     final Consumer<V> adder,
     final Supplier<IContainer<V>> getter,
@@ -62,6 +62,31 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
     this.getter = getter;
     this.valueMapper = valueMapper;
     this.specificationMapper = specificationMapper;
+  }
+
+  /**
+   * @param name
+   * @param adder
+   * @param getter
+   * @param valueMapper
+   * @param specificationMapper
+   * @param <T>                 is the type of the values the created
+   *                            {@link MultiValueProxy} forwards.
+   * @return a new {@link MultiValueProxy} with the given name, adder, getter,
+   *         valueMapper and specificationMapper.
+   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given adder is null.
+   * @throws RuntimeException if the given getter is null.
+   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null.
+   */
+  public static <T> MultiValueProxy<T> withNameAndAderAndGetterAndValueMapperAndSpeicificationMapper(
+    final String name,
+    final Consumer<T> adder,
+    final Supplier<IContainer<T>> getter,
+    final Function<INode<?>, T> valueMapper,
+    final Function<T, INode<?>> specificationMapper) {
+    return new MultiValueProxy<>(name, adder, getter, valueMapper, specificationMapper);
   }
 
   /**

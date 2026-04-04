@@ -34,7 +34,8 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   private Matrix<GridCell> cells = Matrix.createEmpty();
 
   @SuppressWarnings("unused")
-  private final MultiValueProxy<GridCell> cellExtractor = new MultiValueProxy<>(
+  private final MultiValueProxy<GridCell> cellExtractor = //
+  MultiValueProxy.withNameAndAderAndGetterAndValueMapperAndSpeicificationMapper(
     CELL_HEADER,
     this::addCell,
     () -> cells.getViewOfStoredSelected(GridCell::containsAny),
