@@ -41,7 +41,8 @@ AndSchemaCaptor<IEntityTypeSet, MsSqlDataAdapter>>>>>> {
   }
 
   private MsSqlDataAdapter buildMsSqlDataAdapter() {
-    return new MsSqlDataAdapter(
+    return //
+    MsSqlDataAdapter.toHostAndPortAndWithDatabaseNameAndUserNameAndUserPasswordAndEntityTypeSet(
       getIpOrDomain(),
       nxtArgCpt().getPort(),
       nxtArgCpt().nxtArgCpt().getDatabaseName(),

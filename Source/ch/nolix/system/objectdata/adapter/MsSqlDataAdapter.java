@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 public final class MsSqlDataAdapter extends AbstractDataAdapter {
   private final IResourcePool<? extends ISqlConnection> sqlConnectionPool;
 
-  MsSqlDataAdapter(
+  private MsSqlDataAdapter(
     final String ipOrDomain,
     final int port,
     final String databaseName,
@@ -59,6 +59,16 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
       () -> MsSqlDataAdapterAndSchemaReader.forDatabaseNameAndSqlConnection(databaseName, sqlConnection));
 
     this.sqlConnectionPool = sqlConnectionPool;
+  }
+
+  public static MsSqlDataAdapter toHostAndPortAndWithDatabaseNameAndUserNameAndUserPasswordAndEntityTypeSet(
+    final String host,
+    final int port,
+    final String databaseName,
+    final String userName,
+    final String userPassword,
+    final IEntityTypeSet entityTypeSet) {
+    return new MsSqlDataAdapter(host, port, databaseName, userName, userPassword, entityTypeSet);
   }
 
   /**
