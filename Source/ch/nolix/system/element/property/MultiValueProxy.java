@@ -17,9 +17,9 @@ import ch.nolix.systemapi.element.property.IProperty;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values a {@link MultiValueExtractor} extracts.
+ * @param <V> is the type of the values a {@link MultiValueProxy} extracts.
  */
-public final class MultiValueExtractor<V> implements IProperty, INameHolder {
+public final class MultiValueProxy<V> implements IProperty, INameHolder {
   private final String name;
 
   private final Consumer<V> adder;
@@ -30,7 +30,7 @@ public final class MultiValueExtractor<V> implements IProperty, INameHolder {
 
   private final Function<V, INode<?>> specificationCreator;
 
-  public MultiValueExtractor(
+  public MultiValueProxy(
     final String name,
     final Consumer<V> adder,
     final Supplier<IContainer<V>> getter,

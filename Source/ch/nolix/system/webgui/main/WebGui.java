@@ -15,7 +15,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.system.element.property.MultiValueExtractor;
+import ch.nolix.system.element.property.MultiValueProxy;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
@@ -83,7 +83,7 @@ implements IWebGui<WebGui> {
     IBackground::getSpecification);
 
   @SuppressWarnings("unused")
-  private final MultiValueExtractor<ILayer<?>> layerExtractor = new MultiValueExtractor<>(
+  private final MultiValueProxy<ILayer<?>> layerExtractor = new MultiValueProxy<>(
     LAYER_HEADER,
     this::pushLayer,
     this::getStoredLayers,
