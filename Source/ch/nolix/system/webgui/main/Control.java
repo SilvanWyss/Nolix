@@ -99,7 +99,7 @@ implements IControl<C, S> {
     CursorIcon::fromSpecification,
     Node::fromEnum);
 
-  private final ExtensionElement<S> style = new ExtensionElement<>(createStyle());
+  private final ExtensionElement<S> style = ExtensionElement.withElement(createStyle());
 
   private ControlParent parent;
 

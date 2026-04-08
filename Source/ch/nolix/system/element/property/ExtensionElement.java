@@ -11,8 +11,12 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
  *            {@link ExtensionElement}.
  */
 public final class ExtensionElement<E extends IRespondingMutableElement<E>> extends AbstractExtensionElement<E> {
-  public ExtensionElement(final E internalExtensionElement) {
+  private ExtensionElement(final E internalExtensionElement) {
     super(internalExtensionElement);
+  }
+
+  public static <T extends IRespondingMutableElement<T>> ExtensionElement<T> withElement(final T element) {
+    return new ExtensionElement<>(element);
   }
 
   /**
