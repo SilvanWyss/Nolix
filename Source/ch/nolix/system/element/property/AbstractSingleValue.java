@@ -124,7 +124,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    * {@inheritDoc}
    */
   @Override
-  public final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+  public final void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     //Handles the case that the current SingleValue has a value.
     if (containsAny()) {
       //Adds the specification of the current SingleValue to the given list.

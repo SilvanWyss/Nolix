@@ -80,7 +80,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
     //Iterates the properties of the current MutableElement.
     for (final var p : getStoredProperties()) {
       //Fills up the attributes of the current Property.
-      p.fillUpAttributesInto(attributes);
+      p.fillUpAttributesIntoList(attributes);
     }
 
     return attributes;

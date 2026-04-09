@@ -51,7 +51,7 @@ public final class Extension<E extends IRespondingMutableElement<E>> implements 
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     list.addAtEnd(memberExtension.getAttributes());
   }
 

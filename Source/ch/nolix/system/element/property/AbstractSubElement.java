@@ -58,7 +58,7 @@ public abstract class AbstractSubElement<E extends IMutableElement> implements I
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     for (final var a : memberInternalSubElement.getAttributes()) {
       list.addAtEnd(
         Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getStoredChildNodes()));

@@ -115,7 +115,7 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     for (final var v : getter.get()) {
       list.addAtEnd(specificationMapper.apply(v));
     }

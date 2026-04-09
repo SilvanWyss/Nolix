@@ -80,7 +80,7 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, INameH
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     if (valuePresenceChecker.getAsBoolean()) {
       list.addAtEnd(specificationCreator.apply(getter.get()));
     }

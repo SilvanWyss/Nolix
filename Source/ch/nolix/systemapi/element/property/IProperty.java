@@ -12,5 +12,5 @@ import ch.nolix.baseapi.document.node.INode;
 public interface IProperty {
   boolean addedOrChangedAttribute(INode<?> attribute);
 
-  void fillUpAttributesInto(ILinkedList<INode<?>> list);
+  void fillUpAttributesIntoList(ILinkedList<INode<?>> list);
 }

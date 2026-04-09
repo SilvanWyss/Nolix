@@ -37,7 +37,7 @@ public abstract class AbstractExtensionElement<E extends IRespondingMutableEleme
    * {@inheritDoc}
    */
   @Override
-  public final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
+  public final void fillUpAttributesIntoList(ILinkedList<INode<?>> list) {
     list.addAtEnd(memberInternalExtensionElement.getAttributes());
   }
 

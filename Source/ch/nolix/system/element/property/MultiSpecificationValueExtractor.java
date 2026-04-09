@@ -62,7 +62,7 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
    * {@inheritDoc}
    */
   @Override
-  public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     list.addAtEnd(getter.get());
   }
 }
