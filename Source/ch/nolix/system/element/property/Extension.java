@@ -8,15 +8,15 @@ import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the actual extension element of a
- *            {@link ExtensionElement}.
+ *            {@link Extension}.
  */
-public final class ExtensionElement<E extends IRespondingMutableElement<E>> extends AbstractExtensionElement<E> {
-  private ExtensionElement(final E internalExtensionElement) {
+public final class Extension<E extends IRespondingMutableElement<E>> extends AbstractExtensionElement<E> {
+  private Extension(final E internalExtensionElement) {
     super(internalExtensionElement);
   }
 
-  public static <T extends IRespondingMutableElement<T>> ExtensionElement<T> withElement(final T element) {
-    return new ExtensionElement<>(element);
+  public static <T extends IRespondingMutableElement<T>> Extension<T> withElement(final T element) {
+    return new Extension<>(element);
   }
 
   /**

@@ -18,7 +18,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.system.element.property.ExtensionElement;
+import ch.nolix.system.element.property.Extension;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
@@ -99,7 +99,7 @@ implements IControl<C, S> {
     CursorIcon::fromSpecification,
     Node::fromEnum);
 
-  private final ExtensionElement<S> style = ExtensionElement.withElement(createStyle());
+  private final Extension<S> style = Extension.withElement(createStyle());
 
   private ControlParent parent;
 
