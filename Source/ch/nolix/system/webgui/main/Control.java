@@ -99,7 +99,7 @@ implements IControl<C, S> {
     CursorIcon::fromSpecification,
     Node::fromEnum);
 
-  private final Extension<S> style = Extension.withElement(createStyle());
+  private final Extension<S> style = Extension.withExtension(createStyle());
 
   private ControlParent parent;
 
@@ -266,7 +266,7 @@ implements IControl<C, S> {
    */
   @Override
   public final S getStoredStyle() {
-    return style.getExtensionElement();
+    return style.getStoredExtension();
   }
 
   /**
