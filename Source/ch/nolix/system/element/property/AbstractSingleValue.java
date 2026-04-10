@@ -19,7 +19,7 @@ import ch.nolix.system.property.value.AbstractValue;
  * @author Silvan Wyss
  * @param <V> is the type of the value of a {@link AbstractSingleValue}.
  */
-abstract class AbstractSingleValue<V> extends AbstractValue<V> {
+public abstract class AbstractSingleValue<V> extends AbstractValue<V> {
   private final Consumer<V> setterMethod;
 
   private V memberValue;
