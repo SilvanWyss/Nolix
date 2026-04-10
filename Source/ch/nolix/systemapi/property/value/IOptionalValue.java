@@ -4,13 +4,12 @@
 package ch.nolix.systemapi.property.value;
 
 import ch.nolix.baseapi.state.statemutation.Clearable;
-import ch.nolix.systemapi.element.base.IElement;
 
 /**
  * @author Silvan Wyss
  * @param <V> is the type of the value of a {@link IOptionalValue}.
  */
-public interface IOptionalValue<V> extends Clearable, IBaseValue, IElement {
+public interface IOptionalValue<V> extends Clearable, IBaseValue {
   /**
    * @return the value of the current {@link IOptionalValue}.
    * @throws RuntimeException if the current {@link IOptionalValue} does not
