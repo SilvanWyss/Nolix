@@ -17,7 +17,7 @@ import ch.nolix.system.element.base.SpecificationCreator;
 import ch.nolix.system.element.multistateconfiguration.AbstractProperty;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
-import ch.nolix.systemapi.element.property.IProperty;
+import ch.nolix.systemapi.property.base.IProperty;
 
 /**
  * @author Silvan Wyss

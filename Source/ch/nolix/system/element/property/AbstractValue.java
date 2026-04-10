@@ -10,13 +10,13 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.state.staterequest.MutabilityRequestable;
-import ch.nolix.systemapi.element.property.IBaseValue;
+import ch.nolix.systemapi.property.value.IBaseValueProperty;
 
 /**
  * @author Silvan Wyss
  * @param <V> is the type of the values of a {@link AbstractValue}.
  */
-public abstract class AbstractValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {
+public abstract class AbstractValue<V> implements IBaseValueProperty, MutabilityRequestable, INameHolder {
   private final String name;
 
   private final Function<INode<?>, V> valueCreator;

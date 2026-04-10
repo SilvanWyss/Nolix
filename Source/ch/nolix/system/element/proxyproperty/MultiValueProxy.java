@@ -13,7 +13,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.systemapi.element.property.IProperty;
+import ch.nolix.systemapi.property.base.IProperty;
 
 /**
  * @author Silvan Wyss

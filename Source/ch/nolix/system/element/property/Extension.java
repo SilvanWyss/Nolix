@@ -7,13 +7,13 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
-import ch.nolix.systemapi.element.property.IExtension;
+import ch.nolix.systemapi.property.exension.IExtensionProperty;
 
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the actual extension of a {@link Extension}.
  */
-public final class Extension<E extends IRespondingMutableElement<E>> implements IExtension<E> {
+public final class Extension<E extends IRespondingMutableElement<E>> implements IExtensionProperty<E> {
   private E memberExtension;
 
   /**
