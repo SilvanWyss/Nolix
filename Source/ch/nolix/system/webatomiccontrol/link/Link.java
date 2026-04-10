@@ -17,8 +17,8 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.htmlattribute.LinkTarget;
 import ch.nolix.baseapi.web.url.IUrlTool;
-import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.font.LineDecoration;
@@ -65,7 +65,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
     Node::fromEnum);
 
-  private final MutableOptionalValue<String> url = MutableOptionalValue.forString(URL_HEADER, this::setUrl);
+  private final OptionalValue<String> url = OptionalValue.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
 
   public Link() {
     //Info: Reset is technically optional, but required to achieve a well-defined initial state.
@@ -113,7 +113,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
    */
   @Override
   public String getUrl() {
-    return url.getValue();
+    return url.getStoredValue();
   }
 
   /**

@@ -18,10 +18,10 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.property.extension.Extension;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
@@ -71,22 +71,26 @@ implements IControl<C, S> {
     Presence::fromSpecification,
     Node::fromEnum);
 
-  private final MutableOptionalValue<AbsoluteOrRelativeInt> minWidth = MutableOptionalValue.forElement(
+  private final OptionalValue<AbsoluteOrRelativeInt> minWidth = //
+  OptionalValue.forElementWithNameAndSetterAndValueMapper(
     MIN_WIDTH_HEADER,
     this::setMinWidth,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final MutableOptionalValue<AbsoluteOrRelativeInt> minHeight = MutableOptionalValue.forElement(
+  private final OptionalValue<AbsoluteOrRelativeInt> minHeight = //
+  OptionalValue.forElementWithNameAndSetterAndValueMapper(
     MIN_HEIGHT_HEADER,
     this::setMinHeight,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final MutableOptionalValue<AbsoluteOrRelativeInt> maxWidth = MutableOptionalValue.forElement(
+  private final OptionalValue<AbsoluteOrRelativeInt> maxWidth = //
+  OptionalValue.forElementWithNameAndSetterAndValueMapper(
     MAX_WIDTH_HEADER,
     this::setMaxWidth,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final MutableOptionalValue<AbsoluteOrRelativeInt> maxHeight = MutableOptionalValue.forElement(
+  private final OptionalValue<AbsoluteOrRelativeInt> maxHeight = //
+  OptionalValue.forElementWithNameAndSetterAndValueMapper(
     MAX_HEIGHT_HEADER,
     this::setMaxHeight,
     AbsoluteOrRelativeInt::fromSpecification);
@@ -174,7 +178,7 @@ implements IControl<C, S> {
    */
   @Override
   public final IAbsoluteOrRelativeInt getMaxHeight() {
-    return maxHeight.getValue();
+    return maxHeight.getStoredValue();
   }
 
   /**
@@ -182,7 +186,7 @@ implements IControl<C, S> {
    */
   @Override
   public final IAbsoluteOrRelativeInt getMaxWidth() {
-    return maxWidth.getValue();
+    return maxWidth.getStoredValue();
   }
 
   /**
@@ -190,7 +194,7 @@ implements IControl<C, S> {
    */
   @Override
   public final IAbsoluteOrRelativeInt getMinHeight() {
-    return minHeight.getValue();
+    return minHeight.getStoredValue();
   }
 
   /**
@@ -198,7 +202,7 @@ implements IControl<C, S> {
    */
   @Override
   public final IAbsoluteOrRelativeInt getMinWidth() {
-    return minWidth.getValue();
+    return minWidth.getStoredValue();
   }
 
   /**

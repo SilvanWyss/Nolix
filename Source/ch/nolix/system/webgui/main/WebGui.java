@@ -15,13 +15,13 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.proxyproperty.MultiValueProxy;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.iconresource.IconCatalog;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStyleElement;
 import ch.nolix.systemapi.graphic.color.IColor;
@@ -75,8 +75,8 @@ implements IWebGui<WebGui> {
     Image::fromSpecification,
     Image::getSpecification);
 
-  private final MutableOptionalValue<IBackground> background = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<IBackground> background = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     BACKGROUND_HEADER,
     this::setBackground,
     Background::fromSpecification,
@@ -130,7 +130,7 @@ implements IWebGui<WebGui> {
    */
   @Override
   public IBackground getBackground() {
-    return background.getValue();
+    return background.getStoredValue();
   }
 
   /**

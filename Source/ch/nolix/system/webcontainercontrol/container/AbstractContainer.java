@@ -9,7 +9,7 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webcontainercontrol.container.IContainer;
@@ -25,8 +25,8 @@ public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IC
 extends Control<C, S> implements IContainer<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
-  private final MutableOptionalValue<ContainerRole> memberRole = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<ContainerRole> memberRole = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     ContainerRole::fromSpecification,
@@ -42,7 +42,7 @@ extends Control<C, S> implements IContainer<C, S> {
    */
   @Override
   public final ContainerRole getRole() {
-    return memberRole.getValue();
+    return memberRole.getStoredValue();
   }
 
   /**

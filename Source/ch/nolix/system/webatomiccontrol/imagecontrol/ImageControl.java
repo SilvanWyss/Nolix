@@ -13,9 +13,9 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -42,8 +42,8 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   private static final ImageControlCssBuilder CSS_BUILDER = new ImageControlCssBuilder();
 
-  private final MutableOptionalValue<MutableImage> image = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<MutableImage> image = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     IMAGE_HEADER,
     this::setImage,
     MutableImage::fromSpecification,
@@ -111,7 +111,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
    */
   @Override
   public MutableImage getStoredImage() {
-    return image.getValue();
+    return image.getStoredValue();
   }
 
   /**

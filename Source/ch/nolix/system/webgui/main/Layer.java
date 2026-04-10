@@ -17,9 +17,9 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
-import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
@@ -70,8 +70,8 @@ implements ILayer<Layer> {
   //For CSS an id works only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final MutableOptionalValue<LayerRole> memberRole = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<LayerRole> memberRole = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     LayerRole::fromSpecification,
@@ -85,8 +85,8 @@ implements ILayer<Layer> {
     s -> StringTool.toProportion(s.getSingleChildNodeHeader()),
     Node::withChildNode);
 
-  private final MutableOptionalValue<IBackground> background = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<IBackground> background = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     BACKGROUND_HEADER,
     this::setBackground,
     Background::fromSpecification,
@@ -100,8 +100,8 @@ implements ILayer<Layer> {
     ContentAlignment::fromSpecification,
     Node::fromEnum);
 
-  private final MutableOptionalValue<IControl<?, ?>> rootControl = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<IControl<?, ?>> rootControl = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
     ControlFactory::createControlFromSpecification,
@@ -147,7 +147,7 @@ implements ILayer<Layer> {
    */
   @Override
   public IBackground getBackground() {
-    return background.getValue();
+    return background.getStoredValue();
   }
 
   /**
@@ -274,7 +274,7 @@ implements ILayer<Layer> {
    */
   @Override
   public IControl<?, ?> getStoredRootControl() {
-    return rootControl.getValue();
+    return rootControl.getStoredValue();
   }
 
   /**
@@ -282,7 +282,7 @@ implements ILayer<Layer> {
    */
   @Override
   public LayerRole getRole() {
-    return memberRole.getValue();
+    return memberRole.getStoredValue();
   }
 
   /**

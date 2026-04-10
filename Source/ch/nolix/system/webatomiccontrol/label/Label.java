@@ -14,7 +14,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -40,8 +40,8 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   private static final LabelCssBuilder CSS_BUILDER = new LabelCssBuilder();
 
-  private final MutableOptionalValue<LabelRole> memberRole = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<LabelRole> memberRole = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROLE_HEADER,
     this::setRole,
     LabelRole::fromSpecification,
@@ -76,7 +76,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
    */
   @Override
   public LabelRole getRole() {
-    return memberRole.getValue();
+    return memberRole.getStoredValue();
   }
 
   /**

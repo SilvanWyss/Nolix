@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webatomiccontrol.imagecontrol;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
@@ -33,9 +33,7 @@ final class ImageControlTest extends ControlTest<IImageControl> {
     expect(testUnit.isEmpty()).isTrue();
 
     //execution & verification
-    expectRunning(testUnit::getStoredImage)
-      .throwsException()
-      .ofType(ArgumentDoesNotHaveAttributeException.class);
+    expectRunning(testUnit::getStoredImage).throwsException().ofType(ArgumentDoesNotContainElementException.class);
   }
 
   @Test

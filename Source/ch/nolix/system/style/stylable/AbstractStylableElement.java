@@ -9,7 +9,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MultiValue;
-import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.systemapi.element.base.IStructureElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
@@ -24,7 +24,7 @@ implements IStylableElement<E> {
 
   private static final String TOKEN_HEADER = PascalCaseVariableCatalog.TOKEN;
 
-  private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
+  private final OptionalValue<String> id = OptionalValue.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
   private final MultiValue<String> tokens = MultiValue.forStrings(TOKEN_HEADER, this::addToken);
 
@@ -50,7 +50,7 @@ implements IStylableElement<E> {
    */
   @Override
   public final String getId() {
-    return id.getValue();
+    return id.getStoredValue();
   }
 
   /**

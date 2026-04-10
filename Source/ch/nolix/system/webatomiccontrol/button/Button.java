@@ -14,8 +14,8 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.webgui.main.Control;
@@ -43,8 +43,8 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
 
-  private final MutableOptionalValue<ButtonRole> memberRole = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<ButtonRole> memberRole = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ButtonAttributeHeaderCatalog.ROLE_HEADER,
     this::setRole,
     ButtonRole::fromSpecification,
@@ -94,7 +94,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
    */
   @Override
   public ButtonRole getRole() {
-    return memberRole.getValue();
+    return memberRole.getStoredValue();
   }
 
   /**

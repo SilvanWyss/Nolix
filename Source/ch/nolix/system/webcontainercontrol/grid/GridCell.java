@@ -9,7 +9,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
-import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -30,8 +30,8 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   private final Value<Integer> columnIndex = //
   Value.forIntWithNameAndDefaultValueAndSetter(COLUMN_INDEX_HEADER, 1, this::setColumnIndex);
 
-  private final MutableOptionalValue<IControl<?, ?>> control = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<IControl<?, ?>> control = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,
@@ -68,7 +68,7 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   }
 
   public IControl<?, ?> getStoredControl() {
-    return control.getValue();
+    return control.getStoredValue();
   }
 
   public int getRowIndex() {

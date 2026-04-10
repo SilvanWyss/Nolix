@@ -6,7 +6,7 @@ package ch.nolix.system.webcontainercontrol.singlecontainer;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webcontainercontrol.singlecontainer.ISingleContainer;
@@ -28,8 +28,8 @@ implements ISingleContainer {
 
   private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 
-  private final MutableOptionalValue<IControl<?, ?>> control = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<IControl<?, ?>> control = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,
@@ -57,7 +57,7 @@ implements ISingleContainer {
    */
   @Override
   public IControl<?, ?> getStoredControl() {
-    return control.getValue();
+    return control.getStoredValue();
   }
 
   /**

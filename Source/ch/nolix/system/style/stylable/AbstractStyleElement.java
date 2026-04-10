@@ -4,7 +4,7 @@
 package ch.nolix.system.style.stylable;
 
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.style.model.Style;
 import ch.nolix.systemapi.style.model.IStyle;
 import ch.nolix.systemapi.style.stylable.IStyleElement;
@@ -20,8 +20,8 @@ public abstract class AbstractStyleElement<E extends AbstractStyleElement<E>> ex
 implements IStyleElement<E> {
   private static final String CONFIGURATION_HEADER = PascalCaseVariableCatalog.CONFIGURATION;
 
-  private final MutableOptionalValue<IStyle> style = //
-  MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+  private final OptionalValue<IStyle> style = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONFIGURATION_HEADER,
     this::setStyle,
     Style::fromSpecification,
@@ -86,6 +86,6 @@ implements IStyleElement<E> {
    * @return the {@link Style} of the current {@link AbstractStyleElement}.
    */
   private IStyle getStoredConfiguration() {
-    return style.getValue();
+    return style.getStoredValue();
   }
 }
