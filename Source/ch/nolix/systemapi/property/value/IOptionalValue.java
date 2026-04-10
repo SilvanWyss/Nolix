@@ -23,6 +23,8 @@ public interface IOptionalValue<V> extends Clearable, IBaseValue, IElement {
    * 
    * @param value
    * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the current {@link IOptionalValue} contains
+   *                          already a value.
    */
   void setValue(V value);
 }
