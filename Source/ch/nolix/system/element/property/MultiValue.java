@@ -14,6 +14,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.system.property.value.AbstractValue;
 
 /**
  * @author Silvan Wyss

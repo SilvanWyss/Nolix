@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.element.property;
+package ch.nolix.system.property.value;
 
 import java.util.function.Function;
 

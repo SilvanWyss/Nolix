@@ -14,7 +14,6 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.element.property.AbstractValue;
 import ch.nolix.systemapi.property.value.IOptionalValue;
 
 /**
