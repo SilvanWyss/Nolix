@@ -59,7 +59,7 @@ abstract class AbstractSingleValue<V> extends AbstractValue<V> {
    *                                               does not have a value
    */
   public final Node getSpecification() {
-    return Node.withHeaderAndChildNodes(getName(), specificationCreator.apply(getValue()).getStoredChildNodes());
+    return Node.withHeaderAndChildNodes(getName(), mapValueToSpecification(memberValue).getStoredChildNodes());
   }
 
   /**

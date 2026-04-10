@@ -17,33 +17,32 @@ import ch.nolix.systemapi.property.value.IBaseValue;
 public abstract class AbstractValue<V> implements IBaseValue {
   private final String name;
 
-  private final Function<INode<?>, V> valueCreator;
+  private final Function<INode<?>, V> valueMapper;
 
-  protected final Function<V, INode<?>> specificationCreator;
+  private final Function<V, INode<?>> specificationMapper;
 
   /**
-   * Creates a new {@link AbstractValue} with the given name, valueCreator and
-   * specificationCreator.
+   * Creates a new {@link AbstractValue} with the given name, valueMapper and
+   * specificationMapper.
    * 
    * @param name
-   * @param valueCreator
-   * @param specificationCreator
-   * @throws RuntimeException if the given name is null.
-   * @throws RuntimeException if the given name is blank.
-   * @throws RuntimeException if the given valueCreator is null.
-   * @throws RuntimeException if the given specificationCreator is null.
+   * @param valueMapper
+   * @param specificationMapper
+   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null.
    */
   protected AbstractValue(
     final String name,
-    final Function<INode<?>, V> valueCreator,
-    final Function<V, INode<?>> specificationCreator) {
+    final Function<INode<?>, V> valueMapper,
+    final Function<V, INode<?>> specificationMapper) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-    Validator.assertThat(specificationCreator).thatIsNamed("specificaiton creator").isNotNull();
+    Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
+    Validator.assertThat(specificationMapper).thatIsNamed("specification mapper").isNotNull();
 
     this.name = name;
-    this.valueCreator = valueCreator;
-    this.specificationCreator = specificationCreator;
+    this.valueMapper = valueMapper;
+    this.specificationMapper = specificationMapper;
   }
 
   /**
@@ -55,15 +54,15 @@ public abstract class AbstractValue<V> implements IBaseValue {
   }
 
   /**
-   * Adds or changes the value from the given attribute to the current
-   * {@link AbstractValue}.
-   * 
-   * @param attribute
+   * {@inheritDoc}
    */
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
-    if (attribute.hasHeader(getName())) {
-      addOrChangeValue(valueCreator.apply(attribute));
+    if (attribute != null && attribute.hasHeader(getName())) {
+      final var value = valueMapper.apply(attribute);
+
+      addOrChangeValue(value);
+
       return true;
     }
 
@@ -76,4 +75,12 @@ public abstract class AbstractValue<V> implements IBaseValue {
    * @param value
    */
   protected abstract void addOrChangeValue(V value);
+
+  /**
+   * @param value
+   * @return the specification from the given value.
+   */
+  protected final INode<?> mapValueToSpecification(final V value) {
+    return specificationMapper.apply(value);
+  }
 }

@@ -170,8 +170,8 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
     //Iterates the values of the current MultiProperty.
     for (final var v : getStoredValues()) {
       //Creates a specification from the current value.
-      final var specification = Node.withHeaderAndChildNodes(getName(),
-        specificationCreator.apply(v).getStoredChildNodes());
+      final var specification = //
+      Node.withHeaderAndChildNodes(getName(), mapValueToSpecification(v).getStoredChildNodes());
 
       //Adds the specification to the given list.
       list.addAtEnd(specification);
