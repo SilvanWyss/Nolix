@@ -117,7 +117,9 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   @Override
   public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     if (memberOptionalValue != null) {
-      list.addAtEnd(mapValueToSpecification(memberOptionalValue).asWithHeader(getName()));
+      final var attribute = mapValueToSpecification(memberOptionalValue).asWithHeader(getName());
+
+      list.addAtEnd(attribute);
     }
   }
 
@@ -127,7 +129,9 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   @Override
   public IContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
+
     fillUpAttributesIntoList(attributes);
+
     return attributes;
   }
 
