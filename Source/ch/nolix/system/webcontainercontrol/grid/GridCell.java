@@ -10,7 +10,7 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.element.property.Value;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webgui.main.IControl;
 
@@ -24,9 +24,11 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
 
   private static final String CONTROL_HEADER = "Control";
 
-  private final Value<Integer> rowIndex = Value.forInt(ROW_INDEX_HEADER, this::setRowIndex);
+  private final Value<Integer> rowIndex = //
+  Value.forIntWithNameAndDefaultValueAndSetter(ROW_INDEX_HEADER, 1, this::setRowIndex);
 
-  private final Value<Integer> columnIndex = Value.forInt(COLUMN_INDEX_HEADER, this::setColumnIndex);
+  private final Value<Integer> columnIndex = //
+  Value.forIntWithNameAndDefaultValueAndSetter(COLUMN_INDEX_HEADER, 1, this::setColumnIndex);
 
   private final MutableOptionalValue<IControl<?, ?>> control = //
   MutableOptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
@@ -62,7 +64,7 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   }
 
   public int getColumnIndex() {
-    return columnIndex.getValue();
+    return columnIndex.getStoredValue();
   }
 
   public IControl<?, ?> getStoredControl() {
@@ -70,7 +72,7 @@ public final class GridCell extends AbstractMutableElement implements Clearable 
   }
 
   public int getRowIndex() {
-    return rowIndex.getValue();
+    return rowIndex.getStoredValue();
   }
 
   /**
