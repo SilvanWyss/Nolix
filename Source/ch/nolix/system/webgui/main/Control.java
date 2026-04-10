@@ -22,7 +22,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
-import ch.nolix.system.property.extension.ExtensionProperty;
+import ch.nolix.system.property.extension.Extension;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -99,7 +99,7 @@ implements IControl<C, S> {
     CursorIcon::fromSpecification,
     Node::fromEnum);
 
-  private final ExtensionProperty<S> style = ExtensionProperty.withExtension(createStyle());
+  private final Extension<S> style = Extension.withExtension(createStyle());
 
   private ControlParent parent;
 

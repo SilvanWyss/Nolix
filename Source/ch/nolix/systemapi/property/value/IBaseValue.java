@@ -11,6 +11,6 @@ import ch.nolix.systemapi.property.base.IProperty;
 /**
  * @author Silvan Wyss
  */
-public interface IBaseValueProperty extends EmptinessRequestable, INameHolder, IProperty, MutabilityRequestable {
+public interface IBaseValue extends EmptinessRequestable, INameHolder, IProperty, MutabilityRequestable {
   //This interface is just an union of other interfaces.
 }

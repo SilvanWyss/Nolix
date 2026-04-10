@@ -8,13 +8,13 @@ import java.util.function.Function;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.property.value.IBaseValueProperty;
+import ch.nolix.systemapi.property.value.IBaseValue;
 
 /**
  * @author Silvan Wyss
  * @param <V> is the type of the values of a {@link AbstractValue}.
  */
-public abstract class AbstractValue<V> implements IBaseValueProperty {
+public abstract class AbstractValue<V> implements IBaseValue {
   private final String name;
 
   private final Function<INode<?>, V> valueCreator;

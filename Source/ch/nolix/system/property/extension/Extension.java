@@ -7,36 +7,36 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
-import ch.nolix.systemapi.property.exension.IExtensionProperty;
+import ch.nolix.systemapi.property.exension.IExtension;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the extension of a {@link ExtensionProperty}.
+ * @param <E> is the type of the extension of a {@link Extension}.
  */
-public final class ExtensionProperty<E extends IRespondingMutableElement<E>> implements IExtensionProperty<E> {
-  private E extension;
+public final class Extension<E extends IRespondingMutableElement<E>> implements IExtension<E> {
+  private final E memberExtension;
 
   /**
-   * Creates a new {@link ExtensionProperty} with the given extension.
+   * Creates a new {@link Extension} with the given extension.
    * 
    * @param extension
    * @throws RuntimeException if the given extension is null.
    */
-  private ExtensionProperty(final E extension) {
+  private Extension(final E extension) {
     Validator.assertThat(extension).thatIsNamed("extension").isNotNull();
 
-    this.extension = extension;
+    this.memberExtension = extension;
   }
 
   /**
    * @param extension
    * @param <T>       is the type of the extension of the created
-   *                  {@link ExtensionProperty}.
-   * @return a new {@link ExtensionProperty} with the given extension.
+   *                  {@link Extension}.
+   * @return a new {@link Extension} with the given extension.
    * @throws RuntimeException if the given extension is null.
    */
-  public static <T extends IRespondingMutableElement<T>> ExtensionProperty<T> withExtension(final T extension) {
-    return new ExtensionProperty<>(extension);
+  public static <T extends IRespondingMutableElement<T>> Extension<T> withExtension(final T extension) {
+    return new Extension<>(extension);
   }
 
   /**
@@ -44,7 +44,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    */
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
-    return extension.addedOrChangedAttribute(attribute);
+    return memberExtension.addedOrChangedAttribute(attribute);
   }
 
   /**
@@ -52,7 +52,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    */
   @Override
   public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
-    list.addAtEnd(extension.getAttributes());
+    list.addAtEnd(memberExtension.getAttributes());
   }
 
   /**
@@ -60,6 +60,6 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    */
   @Override
   public E getStoredExtension() {
-    return extension;
+    return memberExtension;
   }
 }
