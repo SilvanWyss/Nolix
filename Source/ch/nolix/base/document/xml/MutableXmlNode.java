@@ -48,7 +48,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     if (pXmlNode.hasValue()) {
-      mutableXmlNode.setValue(pXmlNode.getValue());
+      mutableXmlNode.setValue(pXmlNode.getStoredValue());
     }
 
     return mutableXmlNode;
@@ -72,12 +72,12 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
     if (mutableXmlNode.hasValue()) {
       if (!mutableXmlNode.hasMixedContent()) {
-        stringBuilder.append(mutableXmlNode.getValue());
+        stringBuilder.append(mutableXmlNode.getStoredValue());
       } else {
         stringBuilder
           .append(CharacterCatalog.NEW_LINE)
           .append(StringTool.createTabs(leadingTabulatorCount + 1))
-          .append(mutableXmlNode.getValue())
+          .append(mutableXmlNode.getStoredValue())
           .append(CharacterCatalog.NEW_LINE);
 
       }
@@ -223,7 +223,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    * {@inheritDoc}
    */
   @Override
-  public String getValue() {
+  public String getStoredValue() {
     supposeHasValue();
 
     return memberValue;
@@ -330,7 +330,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
     if (hasValue()) {
       stringBuilder
-        .append(getValue());
+        .append(getStoredValue());
     }
 
     if (containsChildNodes()) {
