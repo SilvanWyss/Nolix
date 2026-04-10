@@ -13,18 +13,14 @@ import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.system.objectdata.modelsearcher.EntitySearcher;
-import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
-import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReference;
 import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
-import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 
 /**
  * @author Silvan Wyss
@@ -34,17 +30,17 @@ import ch.nolix.systemapi.objectdata.modelsearcher.IEntitySearcher;
 public final class MultiBackReference<E extends IEntity>
 extends AbstractBaseBackReference
 implements IMultiBackReference<E> {
-  private static final ITableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
+  private static final TableNameExtractor TABLE_NAME_EXTRACTOR = new TableNameExtractor();
 
-  private static final IDatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
+  private static final DatabaseObjectExaminer DATABASE_OBJECT_EXAMINER = new DatabaseObjectExaminer();
 
-  private static final IEntitySearcher ENTITY_SEARCHER = new EntitySearcher();
+  private static final EntitySearcher ENTITY_SEARCHER = new EntitySearcher();
 
-  private static final IFieldExaminer FIELD_EXAMINER = new FieldExaminer();
+  private static final FieldExaminer FIELD_EXAMINER = new FieldExaminer();
 
   private boolean loadedAllPersistedBackReferencedEntityIds;
 
-  private final ILinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
+  private final LinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
   private MultiBackReference(
     final IContainer<String> backReferenceableTableNames,
