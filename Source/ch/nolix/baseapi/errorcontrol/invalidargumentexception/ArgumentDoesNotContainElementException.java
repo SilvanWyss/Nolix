@@ -38,6 +38,13 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
     super(argument, new ErrorPredicateDto("does not contain the given " + getNameOfElement(element)));
   }
 
+  private ArgumentDoesNotContainElementException(
+    final Object argument,
+    final String argumentName,
+    final ErrorPredicateDto errorPredicateDto) {
+    super(argument, new ArgumentNameDto(argumentName), errorPredicateDto);
+  }
+
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument, argumentName and element.
@@ -81,6 +88,14 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
     return new ArgumentDoesNotContainElementException(argument, argumentName, element);
   }
 
+  public static ArgumentDoesNotContainElementException forArgumentAndArgumentNameAndElementName(
+    final Object argument,
+    final String argumentName,
+    final String elementName) {
+    return new ArgumentDoesNotContainElementException(argument, argumentName,
+      new ErrorPredicateDto("does not contain a " + getElementNameFromElementName(elementName)));
+  }
+
   /**
    * @param argument - Can be null.
    * @param element  - Can be null.
@@ -91,6 +106,14 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
     final Object argument,
     final Object element) {
     return new ArgumentDoesNotContainElementException(argument, element);
+  }
+
+  private static String getElementNameFromElementName(String elementName) {
+    if (elementName != null && !elementName.isBlank()) {
+      return elementName;
+    }
+
+    return DEFAULT_ELEMENT_NAME;
   }
 
   /**
