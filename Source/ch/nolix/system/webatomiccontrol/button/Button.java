@@ -15,8 +15,8 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -51,7 +51,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     Node::fromEnum);
 
   private final MutableValue<String> text = //
-  MutableValue.forString(ButtonAttributeHeaderCatalog.TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  MutableValue.forStringWithNameAndDefaultValueAndSetter(ButtonAttributeHeaderCatalog.TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   private Consumer<IButton> leftMouseButtonPressAction;
 
@@ -99,7 +99,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
    */
   @Override
   public String getText() {
-    return text.getValue();
+    return text.getStoredValue();
   }
 
   /**

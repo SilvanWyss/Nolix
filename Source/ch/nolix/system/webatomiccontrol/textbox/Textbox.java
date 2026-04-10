@@ -14,7 +14,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MutableValue;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
@@ -42,7 +42,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   private static final TextboxCssBuilder CSS_BUILDER = new TextboxCssBuilder();
 
-  private final MutableValue<String> memberText = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final MutableValue<String> memberText = MutableValue.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   private MutableValue<TextMode> textMode = //
   MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
@@ -90,7 +90,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
    */
   @Override
   public String getText() {
-    return memberText.getValue();
+    return memberText.getStoredValue();
   }
 
   /**
@@ -98,7 +98,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
    */
   @Override
   public TextMode getTextMode() {
-    return textMode.getValue();
+    return textMode.getStoredValue();
   }
 
   /**

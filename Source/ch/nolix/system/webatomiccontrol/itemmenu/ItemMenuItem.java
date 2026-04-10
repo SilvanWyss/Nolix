@@ -12,8 +12,8 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
-import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.Value;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
@@ -37,7 +37,7 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   private final Value<String> text = Value.forString(TEXT_HEADER, this::setText);
 
   private final MutableValue<Boolean> selectionFlag = //
-  MutableValue.forBoolean(SELECTION_FLAG_HEADER, DEFAULT_SELECTION_FLAG, this::setSelectionFlag);
+  MutableValue.forBooleanWithNameAndDefaultValueAndSetter(SELECTION_FLAG_HEADER, DEFAULT_SELECTION_FLAG, this::setSelectionFlag);
 
   private final Consumer<IItemMenuItem<?>> nullableSelectAction;
 
@@ -164,7 +164,7 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
    */
   @Override
   public boolean isSelected() {
-    return selectionFlag.getValue();
+    return selectionFlag.getStoredValue();
   }
 
   /**

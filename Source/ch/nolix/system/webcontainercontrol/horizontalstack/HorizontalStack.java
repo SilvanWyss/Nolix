@@ -4,7 +4,7 @@
 package ch.nolix.system.webcontainercontrol.horizontalstack;
 
 import ch.nolix.base.document.node.Node;
-import ch.nolix.system.element.property.MutableValue;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.webcontainercontrol.linearcontainer.AbstractLinearContainer;
 import ch.nolix.systemapi.gui.box.VerticalContentAlignment;
 import ch.nolix.systemapi.webcontainercontrol.horizontalstack.IHorizontalStack;
@@ -36,7 +36,7 @@ implements IHorizontalStack {
 
   @Override
   public VerticalContentAlignment getContentAlignment() {
-    return contentAlignment.getValue();
+    return contentAlignment.getStoredValue();
   }
 
   /**

@@ -18,8 +18,8 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.htmlattribute.LinkTarget;
 import ch.nolix.baseapi.web.url.IUrlTool;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -51,7 +51,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   private static final IUrlTool URL_TOOL = new UrlTool();
 
-  private final MutableValue<String> displayText = MutableValue.forString(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
+  private final MutableValue<String> displayText = MutableValue.forStringWithNameAndDefaultValueAndSetter(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
     this::setDisplayText);
 
   private final MutableValue<LinkTarget> target = //
@@ -78,7 +78,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
    */
   @Override
   public String getDisplayText() {
-    return displayText.getValue();
+    return displayText.getStoredValue();
   }
 
   /**
@@ -102,7 +102,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
    */
   @Override
   public LinkTarget getTarget() {
-    return target.getValue();
+    return target.getStoredValue();
   }
 
   /**

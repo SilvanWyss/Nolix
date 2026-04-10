@@ -19,10 +19,10 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.property.extension.Extension;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -148,7 +148,7 @@ implements IControl<C, S> {
    */
   @Override
   public final CursorIcon getCursorIcon() {
-    return cursorIcon.getValue();
+    return cursorIcon.getStoredValue();
   }
 
   /**
@@ -206,7 +206,7 @@ implements IControl<C, S> {
    */
   @Override
   public final Presence getPresence() {
-    return presence.getValue();
+    return presence.getStoredValue();
   }
 
   /**

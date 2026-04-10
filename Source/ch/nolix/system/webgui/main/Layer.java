@@ -18,9 +18,9 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
+import ch.nolix.system.property.value.MutableValue;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.controltool.ControlTool;
@@ -195,7 +195,7 @@ implements ILayer<Layer> {
    */
   @Override
   public ContentAlignment getContentAlignment() {
-    return contentAlignment.getValue();
+    return contentAlignment.getStoredValue();
   }
 
   /**
@@ -227,7 +227,7 @@ implements ILayer<Layer> {
    */
   @Override
   public double getOpacity() {
-    return opacity.getValue();
+    return opacity.getStoredValue();
   }
 
   /**
