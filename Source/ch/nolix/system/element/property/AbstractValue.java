@@ -6,7 +6,6 @@ package ch.nolix.system.element.property;
 import java.util.function.Function;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.property.value.IBaseValueProperty;
@@ -15,7 +14,7 @@ import ch.nolix.systemapi.property.value.IBaseValueProperty;
  * @author Silvan Wyss
  * @param <V> is the type of the values of a {@link AbstractValue}.
  */
-public abstract class AbstractValue<V> implements IBaseValueProperty, INameHolder {
+public abstract class AbstractValue<V> implements IBaseValueProperty {
   private final String name;
 
   private final Function<INode<?>, V> valueCreator;
