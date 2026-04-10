@@ -33,7 +33,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
    * @throws RuntimeException if the given valueCreator is null.
    * @throws RuntimeException if the given specificationCreator is null.
    */
-  AbstractValue(
+  protected AbstractValue(
     final String name,
     final Function<INode<?>, V> valueCreator,
     final Function<V, INode<?>> specificationCreator) {
