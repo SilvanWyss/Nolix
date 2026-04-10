@@ -50,7 +50,10 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     MutableImage::getSpecification);
 
   private final MutableValue<String> alternateText = //
-  MutableValue.forStringWithNameAndDefaultValueAndSetter(ALTERNATE_TEXT_HEADER, DEFAULT_ALTERNATE_TEXT, this::setAlternateText);
+  MutableValue.forStringWithNameAndDefaultValueAndSetter(
+    ALTERNATE_TEXT_HEADER,
+    DEFAULT_ALTERNATE_TEXT,
+    this::setAlternateText);
 
   private Consumer<IImageControl> leftMouseButtonPressAction;
 

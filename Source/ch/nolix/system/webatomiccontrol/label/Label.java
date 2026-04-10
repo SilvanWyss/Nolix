@@ -47,7 +47,8 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     LabelRole::fromSpecification,
     Node::fromEnum);
 
-  private final MutableValue<String> text = MutableValue.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final MutableValue<String> text = //
+  MutableValue.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   public Label() {
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.

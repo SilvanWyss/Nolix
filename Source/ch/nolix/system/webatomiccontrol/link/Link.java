@@ -51,7 +51,10 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   private static final IUrlTool URL_TOOL = new UrlTool();
 
-  private final MutableValue<String> displayText = MutableValue.forStringWithNameAndDefaultValueAndSetter(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
+  private final MutableValue<String> displayText = //
+  MutableValue.forStringWithNameAndDefaultValueAndSetter(
+    DISPLAY_TEXT_HEADER,
+    DEFAULT_DISPLAY_TEXT,
     this::setDisplayText);
 
   private final MutableValue<LinkTarget> target = //

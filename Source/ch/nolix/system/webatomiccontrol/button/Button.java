@@ -51,7 +51,10 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     Node::fromEnum);
 
   private final MutableValue<String> text = //
-  MutableValue.forStringWithNameAndDefaultValueAndSetter(ButtonAttributeHeaderCatalog.TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  MutableValue.forStringWithNameAndDefaultValueAndSetter(
+    ButtonAttributeHeaderCatalog.TEXT_HEADER,
+    DEFAULT_TEXT,
+    this::setText);
 
   private Consumer<IButton> leftMouseButtonPressAction;
 

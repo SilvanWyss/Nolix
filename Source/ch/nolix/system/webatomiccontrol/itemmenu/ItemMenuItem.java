@@ -37,7 +37,10 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   private final Value<String> text = Value.forString(TEXT_HEADER, this::setText);
 
   private final MutableValue<Boolean> selectionFlag = //
-  MutableValue.forBooleanWithNameAndDefaultValueAndSetter(SELECTION_FLAG_HEADER, DEFAULT_SELECTION_FLAG, this::setSelectionFlag);
+  MutableValue.forBooleanWithNameAndDefaultValueAndSetter(
+    SELECTION_FLAG_HEADER,
+    DEFAULT_SELECTION_FLAG,
+    this::setSelectionFlag);
 
   private final Consumer<IItemMenuItem<?>> nullableSelectAction;
 

@@ -42,7 +42,8 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   private static final TextboxCssBuilder CSS_BUILDER = new TextboxCssBuilder();
 
-  private final MutableValue<String> memberText = MutableValue.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final MutableValue<String> memberText = //
+  MutableValue.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   private MutableValue<TextMode> textMode = //
   MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
