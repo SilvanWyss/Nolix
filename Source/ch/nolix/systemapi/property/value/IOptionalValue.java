@@ -1,0 +1,28 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.systemapi.property.value;
+
+import ch.nolix.baseapi.state.statemutation.Clearable;
+import ch.nolix.systemapi.element.base.IElement;
+
+/**
+ * @author Silvan Wyss
+ * @param <V> is the type of the value of a {@link IOptionalValue}.
+ */
+public interface IOptionalValue<V> extends Clearable, IBaseValue, IElement {
+  /**
+   * @return the value of the current {@link IOptionalValue}.
+   * @throws RuntimeException if the current {@link IOptionalValue} does not
+   *                          contain a value.
+   */
+  V getStoredValue();
+
+  /**
+   * Sets the given value to the current {@link IOptionalValue}.
+   * 
+   * @param value
+   * @throws RuntimeException if the given value is null.
+   */
+  void setValue(V value);
+}
