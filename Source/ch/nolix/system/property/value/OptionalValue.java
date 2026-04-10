@@ -13,6 +13,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.property.value.IOptionalValue;
 
@@ -178,6 +179,8 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   public void setValue(final V value) {
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
+    assertIsEmpty();
+
     memberOptionalValue = value;
   }
 
@@ -187,5 +190,14 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   @Override
   protected void addOrChangeValue(final V value) {
     setter.accept(value);
+  }
+
+  /**
+   * @throws RuntimeException if the current {@link OptionalValue} is not empty.
+   */
+  private void assertIsEmpty() {
+    if (containsAny()) {
+      throw NonEmptyArgumentException.forArgumentAndArgumentName(this, getName());
+    }
   }
 }
