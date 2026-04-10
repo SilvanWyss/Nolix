@@ -11,6 +11,7 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.property.base.IProperty;
 
@@ -29,8 +30,8 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
     final Consumer<INode<?>> adder,
     final Supplier<IContainer<INode<?>>> getter) {
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
-    Validator.assertThat(adder).thatIsNamed("adder").isNotNull();
-    Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+    Validator.assertThat(adder).thatIsNamed(LowerCaseVariableCatalog.ADDER).isNotNull();
+    Validator.assertThat(getter).thatIsNamed(LowerCaseVariableCatalog.GETTER).isNotNull();
 
     this.name = name;
     this.adder = adder;

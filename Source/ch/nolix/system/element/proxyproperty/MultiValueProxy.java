@@ -12,6 +12,7 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.property.base.IProperty;
 
@@ -52,8 +53,8 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
     final Function<INode<?>, V> valueMapper,
     final Function<V, INode<?>> specificationMapper) {
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
-    Validator.assertThat(adder).thatIsNamed("adder").isNotNull();
-    Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+    Validator.assertThat(adder).thatIsNamed(LowerCaseVariableCatalog.ADDER).isNotNull();
+    Validator.assertThat(getter).thatIsNamed(LowerCaseVariableCatalog.GETTER).isNotNull();
     Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
     Validator.assertThat(specificationMapper).thatIsNamed("specification mapper").isNotNull();
 

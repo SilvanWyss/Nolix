@@ -11,6 +11,8 @@ package ch.nolix.baseapi.misc.variable;
 public final class LowerCaseVariableCatalog {
   public static final String ACTION = "action";
 
+  public static final String ADDER = "adder";
+
   public static final String AGE = "age";
 
   public static final String AMOUNT = "amount";
@@ -161,6 +163,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String EXPONENT = "exponent";
 
+  public static final String EXTENSION = "extension";
+
   public static final String FACTOR = "factor";
 
   public static final String FEATURE = "feature";
@@ -182,6 +186,8 @@ public final class LowerCaseVariableCatalog {
   public static final String FUNCTION = "function";
 
   public static final String GENERATOR = "generator";
+
+  public static final String GETTER = "getter";
 
   public static final String GUI = "GUI";
 
@@ -350,6 +356,8 @@ public final class LowerCaseVariableCatalog {
   public static final String SERVER = "server";
 
   public static final String SERVICE = "service";
+
+  public static final String SETTER = "setter";
 
   public static final String SETUP = "setup";
 

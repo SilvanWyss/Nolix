@@ -11,6 +11,8 @@ package ch.nolix.baseapi.misc.variable;
 public final class PluralPascalCaseVariableCatalog {
   public static final String ACTIONS = "Actions";
 
+  public static final String ADDERS = "Adders";
+
   public static final String AGES = "Ages";
 
   public static final String AMOUNTS = "Amounts";
@@ -163,6 +165,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String EXPONENTS = "Exponents";
 
+  public static final String EXTENSIONS = "Extensions";
+
   public static final String FACTORS = "Factors";
 
   public static final String FEATURES = "Features";
@@ -184,6 +188,8 @@ public final class PluralPascalCaseVariableCatalog {
   public static final String FUNCTIONS = "Functions";
 
   public static final String GENERATORS = "Generators";
+
+  public static final String GETTERS = "Getters";
 
   public static final String GUIS = "GUIs";
 
@@ -340,6 +346,8 @@ public final class PluralPascalCaseVariableCatalog {
   public static final String SAVE_STAMPS = "SaveStamps";
 
   public static final String SELECTORS = "Selectors";
+
+  public static final String SETTERS = "Setters";
 
   public static final String SCHEMAS = "Schemas";
 

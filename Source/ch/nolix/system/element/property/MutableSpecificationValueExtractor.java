@@ -10,6 +10,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.property.base.IProperty;
 
@@ -28,8 +29,8 @@ public final class MutableSpecificationValueExtractor implements IProperty, INam
     final Consumer<INode<?>> setter,
     final Supplier<INode<?>> getter) {
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
-    Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
-    Validator.assertThat(getter).thatIsNamed("getter").isNotNull();
+    Validator.assertThat(setter).thatIsNamed(LowerCaseVariableCatalog.SETTER).isNotNull();
+    Validator.assertThat(getter).thatIsNamed(LowerCaseVariableCatalog.GETTER).isNotNull();
 
     this.name = name;
     this.setter = setter;

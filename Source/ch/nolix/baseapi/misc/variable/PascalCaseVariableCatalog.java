@@ -11,6 +11,8 @@ package ch.nolix.baseapi.misc.variable;
 public final class PascalCaseVariableCatalog {
   public static final String ACTION = "Action";
 
+  public static final String ADDER = "Adder";
+
   public static final String AGE = "Age";
 
   public static final String AMOUNT = "Amount";
@@ -161,6 +163,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String EXPONENT = "Exponent";
 
+  public static final String EXTENSION = "Extension";
+
   public static final String FACTOR = "Factor";
 
   public static final String FEATURE = "Feature";
@@ -182,6 +186,8 @@ public final class PascalCaseVariableCatalog {
   public static final String FUNCTION = "Function";
 
   public static final String GENERATOR = "Generator";
+
+  public static final String GETTER = "Getter";
 
   public static final String GUI = "GUI";
 
@@ -350,6 +356,8 @@ public final class PascalCaseVariableCatalog {
   public static final String SERVER = "Server";
 
   public static final String SERVICE = "Service";
+
+  public static final String SETTER = "Setter";
 
   public static final String SETUP = "Setup";
 

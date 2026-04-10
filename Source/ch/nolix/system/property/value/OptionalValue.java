@@ -45,7 +45,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
     final Function<V, INode<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
-    Validator.assertThat(setter).thatIsNamed("setter").isNotNull();
+    Validator.assertThat(setter).thatIsNamed(LowerCaseVariableCatalog.SETTER).isNotNull();
 
     this.setter = setter;
   }
