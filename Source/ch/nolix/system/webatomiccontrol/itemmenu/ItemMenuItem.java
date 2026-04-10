@@ -13,8 +13,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.element.property.Value;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenuItem;
 
@@ -35,10 +34,11 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
   private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER,
     this::setId);
 
-  private final Value<String> text = Value.forString(TEXT_HEADER, this::setText);
+  private final Value<String> text = //
+  Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, StringCatalog.EMPTY_STRING, this::setText);
 
-  private final MutableValue<Boolean> selectionFlag = //
-  MutableValue.forBooleanWithNameAndDefaultValueAndSetter(
+  private final Value<Boolean> selectionFlag = //
+  Value.forBooleanWithNameAndDefaultValueAndSetter(
     SELECTION_FLAG_HEADER,
     DEFAULT_SELECTION_FLAG,
     this::setSelectionFlag);
@@ -152,7 +152,7 @@ public final class ItemMenuItem extends AbstractMutableElement implements IItemM
    */
   @Override
   public String getText() {
-    return text.getValue();
+    return text.getStoredValue();
   }
 
   /**

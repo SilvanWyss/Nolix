@@ -16,7 +16,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -50,8 +50,8 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     ButtonRole::fromSpecification,
     Node::fromEnum);
 
-  private final MutableValue<String> text = //
-  MutableValue.forStringWithNameAndDefaultValueAndSetter(
+  private final Value<String> text = //
+  Value.forStringWithNameAndDefaultValueAndSetter(
     ButtonAttributeHeaderCatalog.TEXT_HEADER,
     DEFAULT_TEXT,
     this::setText);

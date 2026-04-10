@@ -20,7 +20,7 @@ import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 import ch.nolix.system.webgui.controltool.ControlTool;
@@ -77,8 +77,8 @@ implements ILayer<Layer> {
     LayerRole::fromSpecification,
     Node::fromEnum);
 
-  private final MutableValue<Double> opacity = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<Double> opacity = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     OPACITY_HEADER,
     DEFAULT_OPACITY,
     this::setOpacity,
@@ -92,8 +92,8 @@ implements ILayer<Layer> {
     Background::fromSpecification,
     IBackground::getSpecification);
 
-  private final MutableValue<ContentAlignment> contentAlignment = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<ContentAlignment> contentAlignment = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CONTENT_ALIGNMENT_HEADER,
     DEFAULT_CONTENT_POSITION,
     this::setContentAlignment,

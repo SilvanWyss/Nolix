@@ -11,19 +11,19 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.property.value.IMutableValue;
+import ch.nolix.systemapi.property.value.IValue;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link MutableValue}.
+ * @param <V> is the type of the value of a {@link Value}.
  */
-public final class MutableValue<V> extends AbstractValue<V> implements IMutableValue<V> {
+public final class Value<V> extends AbstractValue<V> implements IValue<V> {
   private final Consumer<V> setter;
 
   private V memberValue;
 
   /**
-   * Creates a new {@link MutableValue} with the given name, defaultValue, setter,
+   * Creates a new {@link Value} with the given name, defaultValue, setter,
    * valueMapper and specificationMapper.
    * 
    * @param name
@@ -37,7 +37,7 @@ public final class MutableValue<V> extends AbstractValue<V> implements IMutableV
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  private MutableValue(
+  private Value(
     final String name,
     final V defaultValue,
     final Consumer<V> setter,
@@ -56,17 +56,17 @@ public final class MutableValue<V> extends AbstractValue<V> implements IMutableV
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link MutableValue} with the given name, defaultValue and
+   * @return a new {@link Value} with the given name, defaultValue and
    *         setter and that will store a {@link Boolean}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
-  public static MutableValue<Boolean> forBooleanWithNameAndDefaultValueAndSetter(
+  public static Value<Boolean> forBooleanWithNameAndDefaultValueAndSetter(
     final String name,
     final boolean defaultValue,
     final Consumer<Boolean> setter) {
-    return new MutableValue<>(name, defaultValue, setter, INode::getSingleChildNodeAsBoolean,
+    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsBoolean,
       Node::withChildNode);
   }
 
@@ -74,51 +74,51 @@ public final class MutableValue<V> extends AbstractValue<V> implements IMutableV
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link MutableValue} with the given name, defaultValue and
+   * @return a new {@link Value} with the given name, defaultValue and
    *         setter and that will store a {@link Double}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
-  public static MutableValue<Double> forDoubleWithNameAndDefaultValueAndSetter(
+  public static Value<Double> forDoubleWithNameAndDefaultValueAndSetter(
     final String name,
     final double defaultValue,
     final Consumer<Double> setter) {
-    return new MutableValue<>(name, defaultValue, setter, INode::getSingleChildNodeAsDouble, Node::withChildNode);
+    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
   /**
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link MutableValue} with the given name, defaultValue and
+   * @return a new {@link Value} with the given name, defaultValue and
    *         setter and that will store a {@link Integer}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
-  public static MutableValue<Integer> forIntWithNameAndDefaultValueAndSetter(
+  public static Value<Integer> forIntWithNameAndDefaultValueAndSetter(
     final String name,
     final int defaultValue,
     final Consumer<Integer> setter) {
-    return new MutableValue<>(name, defaultValue, setter, INode::getSingleChildNodeAsInt, Node::withChildNode);
+    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
   /**
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link MutableValue} with the given name, defaultValue and
+   * @return a new {@link Value} with the given name, defaultValue and
    *         setter and that will store a {@link String}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
-  public static MutableValue<String> forStringWithNameAndDefaultValueAndSetter(
+  public static Value<String> forStringWithNameAndDefaultValueAndSetter(
     final String name,
     final String defaultValue,
     final Consumer<String> setter) {
-    return new MutableValue<>(
+    return new Value<>(
       name,
       defaultValue,
       setter,
@@ -133,8 +133,8 @@ public final class MutableValue<V> extends AbstractValue<V> implements IMutableV
    * @param valueMapper
    * @param specificationMapper
    * @param <T>                 is the type of the value of the created
-   *                            {@link MutableValue}.
-   * @return a new {@link MutableValue} with the given name, defaultValue, setter,
+   *                            {@link Value}.
+   * @return a new {@link Value} with the given name, defaultValue, setter,
    *         valueMapper and specificationMapper.
    * @throws RuntimeException if the given name is null or blank.
    * @throws RuntimeException if the given defaultValue is null.
@@ -142,13 +142,13 @@ public final class MutableValue<V> extends AbstractValue<V> implements IMutableV
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  public static <T> MutableValue<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  public static <T> Value<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     final String name,
     final T defaultValue,
     final Consumer<T> setter,
     final Function<INode<?>, T> valueMapper,
     final Function<T, INode<?>> specificationMapper) {
-    return new MutableValue<>(name, defaultValue, setter, valueMapper, specificationMapper);
+    return new Value<>(name, defaultValue, setter, valueMapper, specificationMapper);
   }
 
   /**

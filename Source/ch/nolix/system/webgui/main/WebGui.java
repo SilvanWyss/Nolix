@@ -22,7 +22,7 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.iconresource.IconCatalog;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStyleElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -59,16 +59,16 @@ implements IWebGui<WebGui> {
 
   private static final String LAYER_HEADER = PascalCaseVariableCatalog.LAYER;
 
-  private final MutableValue<String> title = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<String> title = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TITLE_HEADER,
     DEFAULT_TITLE,
     this::setTitle,
     INode::getSingleChildNodeHeader,
     Node::withChildNode);
 
-  private final MutableValue<Image> icon = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<Image> icon = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     ICON_HEADER,
     DEFAULT_ICON,
     this::setIcon,

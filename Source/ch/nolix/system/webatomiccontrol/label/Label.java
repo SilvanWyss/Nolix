@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webatomiccontrol.label.ILabel;
@@ -47,8 +47,8 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
     LabelRole::fromSpecification,
     Node::fromEnum);
 
-  private final MutableValue<String> text = //
-  MutableValue.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+  private final Value<String> text = //
+  Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   public Label() {
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.

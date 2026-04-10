@@ -16,7 +16,7 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -49,8 +49,8 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     MutableImage::fromSpecification,
     MutableImage::getSpecification);
 
-  private final MutableValue<String> alternateText = //
-  MutableValue.forStringWithNameAndDefaultValueAndSetter(
+  private final Value<String> alternateText = //
+  Value.forStringWithNameAndDefaultValueAndSetter(
     ALTERNATE_TEXT_HEADER,
     DEFAULT_ALTERNATE_TEXT,
     this::setAlternateText);

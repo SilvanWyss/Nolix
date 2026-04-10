@@ -5,16 +5,16 @@ package ch.nolix.systemapi.property.value;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link IMutableValue}.
+ * @param <V> is the type of the value of a {@link IValue}.
  */
-public interface IMutableValue<V> extends IBaseValue {
+public interface IValue<V> extends IBaseValue {
   /**
-   * @return the value of the current {@link IMutableValue}.
+   * @return the value of the current {@link IValue}.
    */
   V getStoredValue();
 
   /**
-   * Sets the given value to the current {@link IMutableValue}.
+   * Sets the given value to the current {@link IValue}.
    * 
    * @param value
    * @throws RuntimeException if the given value is null.

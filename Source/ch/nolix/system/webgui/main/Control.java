@@ -22,7 +22,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
 import ch.nolix.system.property.extension.Extension;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -63,8 +63,8 @@ implements IControl<C, S> {
   //An id works correctly for CSS only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
-  private final MutableValue<Presence> presence = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<Presence> presence = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     PRESENCE_HEADER,
     DEFAULT_PRESENCE,
     this::setPresence,
@@ -91,8 +91,8 @@ implements IControl<C, S> {
     this::setMaxHeight,
     AbsoluteOrRelativeInt::fromSpecification);
 
-  private final MutableValue<CursorIcon> cursorIcon = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<CursorIcon> cursorIcon = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     CURSOR_ICON_HEADER,
     DEFAULT_CURSOR_ICON,
     this::setCursorIcon,

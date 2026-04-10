@@ -19,7 +19,7 @@ import ch.nolix.baseapi.web.htmlattribute.LinkTarget;
 import ch.nolix.baseapi.web.url.IUrlTool;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.value.MutableValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.gui.model.CursorIcon;
@@ -51,14 +51,14 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   private static final IUrlTool URL_TOOL = new UrlTool();
 
-  private final MutableValue<String> displayText = //
-  MutableValue.forStringWithNameAndDefaultValueAndSetter(
+  private final Value<String> displayText = //
+  Value.forStringWithNameAndDefaultValueAndSetter(
     DISPLAY_TEXT_HEADER,
     DEFAULT_DISPLAY_TEXT,
     this::setDisplayText);
 
-  private final MutableValue<LinkTarget> target = //
-  MutableValue.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
+  private final Value<LinkTarget> target = //
+  Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     TARGET_HEADER,
     DEFAULT_TARGET,
     this::setTarget,
