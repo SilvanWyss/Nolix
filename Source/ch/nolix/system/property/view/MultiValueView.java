@@ -1,26 +1,25 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.element.proxyproperty;
+package ch.nolix.system.property.view;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.systemapi.property.base.IProperty;
+import ch.nolix.systemapi.property.view.IMultiValueView;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values a {@link MultiValueProxy} forwards.
+ * @param <V> is the type of the values a {@link MultiValueView} forwards.
  */
-public final class MultiValueProxy<V> implements IProperty, INameHolder {
+public final class MultiValueView<V> implements IMultiValueView {
   private final String name;
 
   private final Consumer<V> adder;
@@ -32,7 +31,7 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
   private final Function<V, INode<?>> specificationMapper;
 
   /**
-   * Creates a new {@link MultiValueProxy} with the given name, adder, getter,
+   * Creates a new {@link MultiValueView} with the given name, adder, getter,
    * valueMapper and specificationMapper.
    * 
    * @param name
@@ -46,7 +45,7 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  private MultiValueProxy(
+  private MultiValueView(
     final String name,
     final Consumer<V> adder,
     final Supplier<IContainer<V>> getter,
@@ -72,8 +71,8 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
    * @param valueMapper
    * @param specificationMapper
    * @param <T>                 is the type of the values the created
-   *                            {@link MultiValueProxy} forwards.
-   * @return a new {@link MultiValueProxy} with the given name, adder, getter,
+   *                            {@link MultiValueView} forwards.
+   * @return a new {@link MultiValueView} with the given name, adder, getter,
    *         valueMapper and specificationMapper.
    * @throws RuntimeException if the given name is null or blank.
    * @throws RuntimeException if the given adder is null.
@@ -81,13 +80,41 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  public static <T> MultiValueProxy<T> withNameAndAderAndGetterAndValueMapperAndSpeicificationMapper(
+  public static <T> MultiValueView<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     final String name,
     final Consumer<T> adder,
     final Supplier<IContainer<T>> getter,
     final Function<INode<?>, T> valueMapper,
     final Function<T, INode<?>> specificationMapper) {
-    return new MultiValueProxy<>(name, adder, getter, valueMapper, specificationMapper);
+    return new MultiValueView<>(name, adder, getter, valueMapper, specificationMapper);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean addedOrChangedAttribute(final INode<?> attribute) {
+    if (attribute.hasHeader(getName())) {
+      final var value = valueMapper.apply(attribute);
+
+      adder.accept(value);
+
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
+    for (final var v : getter.get()) {
+      final var attribute = specificationMapper.apply(v);
+
+      list.addAtEnd(attribute);
+    }
   }
 
   /**
@@ -102,24 +129,8 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
    * {@inheritDoc}
    */
   @Override
-  public boolean addedOrChangedAttribute(final INode<?> attribute) {
-    if (attribute.hasHeader(getName())) {
-      adder.accept(valueMapper.apply(attribute));
-
-      return true;
-    }
-
-    return false;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
-    for (final var v : getter.get()) {
-      list.addAtEnd(specificationMapper.apply(v));
-    }
+  public boolean isEmpty() {
+    return getter.get().isEmpty();
   }
 
   /**
