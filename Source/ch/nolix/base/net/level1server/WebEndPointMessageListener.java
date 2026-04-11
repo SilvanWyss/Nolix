@@ -27,7 +27,8 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
    */
   @Override
   protected void runStep() {
-    final var message = new WebSocketCompleteMessage(
+    final var message = //
+    WebSocketCompleteMessage.fromIsOpenFunctionAndInputStreamAndControlFrameTaker(
       parentWebEndPoint::isOpen,
       parentWebEndPoint.getStoredInputStream(),
       parentWebEndPoint::receiveControlFrame);
