@@ -56,8 +56,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and
-   *         setter and that will store a {@link Boolean}.
+   * @return a new {@link Value} with the given name, defaultValue and setter and
+   *         that will store a {@link Boolean}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
@@ -74,8 +74,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and
-   *         setter and that will store a {@link Double}.
+   * @return a new {@link Value} with the given name, defaultValue and setter and
+   *         that will store a {@link Double}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
@@ -91,8 +91,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and
-   *         setter and that will store a {@link Integer}.
+   * @return a new {@link Value} with the given name, defaultValue and setter and
+   *         that will store a {@link Integer}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
@@ -108,8 +108,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param name
    * @param defaultValue
    * @param setter
-   * @return a new {@link Value} with the given name, defaultValue and
-   *         setter and that will store a {@link String}.
+   * @return a new {@link Value} with the given name, defaultValue and setter and
+   *         that will store a {@link String}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
@@ -175,14 +175,6 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
   @Override
   public boolean isEmpty() {
     return false;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isMutable() {
-    return true;
   }
 
   /**

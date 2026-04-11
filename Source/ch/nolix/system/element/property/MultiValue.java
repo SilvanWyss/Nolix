@@ -114,14 +114,6 @@ public final class MultiValue<V> extends AbstractValue<V> implements Clearable {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isMutable() {
-    return true;
-  }
-
-  /**
    * Removes the given value of the current {@link MultiValue}.
    * 
    * @param value

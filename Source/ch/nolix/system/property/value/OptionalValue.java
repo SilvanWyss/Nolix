@@ -188,14 +188,6 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * {@inheritDoc}
    */
   @Override
-  public boolean isMutable() {
-    return false;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public void setValue(final V value) {
     Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
 
