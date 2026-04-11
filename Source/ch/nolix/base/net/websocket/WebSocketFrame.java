@@ -60,7 +60,7 @@ public final class WebSocketFrame {
     this(mFINBit, opcode, maskBit, payload.getBytes(StandardCharsets.UTF_8));
   }
 
-  public WebSocketFrame(final InputStream inputStream) {
+  private WebSocketFrame(final InputStream inputStream) {
     try {
       firstNibble = WebSocketFrameFirstWord.fromBytes(inputStream.readNBytes(2));
       payloadLength = calculatePayloadLength(inputStream);
@@ -97,6 +97,10 @@ public final class WebSocketFrame {
     }
 
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
+  }
+
+  public static WebSocketFrame fromInputStream(final InputStream inputStream) {
+    return new WebSocketFrame(inputStream);
   }
 
   public static WebSocketFrame withFinBitAndOpCodeFrameAndMaskBitAndPayload(

@@ -20,7 +20,8 @@ final class WebSocketFrameTest extends StandardTest {
   @Test
   void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
     //setup
-    final var bytes = new byte[] {
+    final var bytes = //
+    new byte[] {
     new UnsignedByte(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
     new UnsignedByte(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
     new UnsignedByte(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
@@ -28,20 +29,20 @@ final class WebSocketFrameTest extends StandardTest {
     };
 
     //setup
-    final var webSocketFrame = new WebSocketFrame(
-      new InputStream() {
-        private int counter;
+    final var inputStream = new InputStream() {
+      private int counter;
 
-        @Override
-        public int read() throws IOException {
-          //The mask 0xFF makes a byte unsigned.
-          final var lByte = 0xFF & bytes[counter];
+      @Override
+      public int read() throws IOException {
+        //The mask 0xFF makes a byte unsigned.
+        final var lByte = 0xFF & bytes[counter];
 
-          counter++;
+        counter++;
 
-          return lByte;
-        }
-      });
+        return lByte;
+      }
+    };
+    final var webSocketFrame = WebSocketFrame.fromInputStream(inputStream);
 
     //execution
     final var resultFINBit = webSocketFrame.getFINBit();
