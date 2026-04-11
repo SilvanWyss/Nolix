@@ -27,7 +27,7 @@ import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.property.view.ValueProxy;
+import ch.nolix.system.property.proxy.ValueProxy;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;

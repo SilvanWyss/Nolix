@@ -20,9 +20,9 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.iconresource.IconCatalog;
+import ch.nolix.system.property.proxy.MultiValueProxy;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
-import ch.nolix.system.property.view.MultiValueView;
 import ch.nolix.system.style.stylable.AbstractStyleElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -83,8 +83,8 @@ implements IWebGui<WebGui> {
     IBackground::getSpecification);
 
   @SuppressWarnings("unused")
-  private final MultiValueView<ILayer<?>> layerExtractor = //
-  MultiValueView.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
+  private final MultiValueProxy<ILayer<?>> layerExtractor = //
+  MultiValueProxy.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     LAYER_HEADER,
     this::pushLayer,
     this::getStoredLayers,

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.property.view;
+package ch.nolix.system.property.proxy;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -13,13 +13,13 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.systemapi.property.view.IMultiValueView;
+import ch.nolix.systemapi.property.proxy.IMultiValueProxy;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values a {@link MultiValueView} forwards.
+ * @param <V> is the type of the values a {@link MultiValueProxy} forwards.
  */
-public final class MultiValueView<V> implements IMultiValueView {
+public final class MultiValueProxy<V> implements IMultiValueProxy {
   private final String name;
 
   private final Consumer<V> adder;
@@ -31,7 +31,7 @@ public final class MultiValueView<V> implements IMultiValueView {
   private final Function<V, INode<?>> specificationMapper;
 
   /**
-   * Creates a new {@link MultiValueView} with the given name, adder, getter,
+   * Creates a new {@link MultiValueProxy} with the given name, adder, getter,
    * valueMapper and specificationMapper.
    * 
    * @param name
@@ -45,7 +45,7 @@ public final class MultiValueView<V> implements IMultiValueView {
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  private MultiValueView(
+  private MultiValueProxy(
     final String name,
     final Consumer<V> adder,
     final Supplier<IContainer<V>> getter,
@@ -71,8 +71,8 @@ public final class MultiValueView<V> implements IMultiValueView {
    * @param valueMapper
    * @param specificationMapper
    * @param <T>                 is the type of the values the created
-   *                            {@link MultiValueView} forwards.
-   * @return a new {@link MultiValueView} with the given name, adder, getter,
+   *                            {@link MultiValueProxy} forwards.
+   * @return a new {@link MultiValueProxy} with the given name, adder, getter,
    *         valueMapper and specificationMapper.
    * @throws RuntimeException if the given name is null or blank.
    * @throws RuntimeException if the given adder is null.
@@ -80,13 +80,13 @@ public final class MultiValueView<V> implements IMultiValueView {
    * @throws RuntimeException if the given valueMapper is null.
    * @throws RuntimeException if the given specificationMapper is null.
    */
-  public static <T> MultiValueView<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
+  public static <T> MultiValueProxy<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     final String name,
     final Consumer<T> adder,
     final Supplier<IContainer<T>> getter,
     final Function<INode<?>, T> valueMapper,
     final Function<T, INode<?>> specificationMapper) {
-    return new MultiValueView<>(name, adder, getter, valueMapper, specificationMapper);
+    return new MultiValueProxy<>(name, adder, getter, valueMapper, specificationMapper);
   }
 
   /**
