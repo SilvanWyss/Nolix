@@ -7,16 +7,15 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.systemapi.property.base.IProperty;
+import ch.nolix.systemapi.property.proxy.IValueProxy;
 
 /**
  * @author Silvan Wyss
  */
-public final class ValueProxy implements IProperty, INameHolder {
+public final class ValueProxy implements IValueProxy {
   private final String name;
 
   private final Consumer<INode<?>> valueSpecificationConsumer;
@@ -68,14 +67,6 @@ public final class ValueProxy implements IProperty, INameHolder {
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
     if (attribute != null && attribute.hasHeader(getName())) {
       valueSpecificationConsumer.accept(attribute);
@@ -84,6 +75,14 @@ public final class ValueProxy implements IProperty, INameHolder {
     }
 
     return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getName() {
+    return name;
   }
 
   /**
