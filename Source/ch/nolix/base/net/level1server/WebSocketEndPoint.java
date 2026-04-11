@@ -102,7 +102,7 @@ final class WebSocketEndPoint extends AbstractNetEndPoint {
   @Override
   protected void sendRawMessage(final String rawMessage) {
     final var webSocketFrame = //
-    WebSocketFrame.withFinBitAndOpCodeFrameAndMaskBitAndPayload(
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
       true,
       WebSocketFrameOpcodeMeaning.TEXT_FRAME,
       false,

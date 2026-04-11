@@ -62,7 +62,12 @@ final class WebSocketFrameTest extends StandardTest {
   @Test
   void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
     //setup
-    final var testUnit = new WebSocketFrame(false, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
+    final var testUnit = //
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
+      false,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
+      new byte[] {});
 
     //execution
     final var result = testUnit.toBytes();
@@ -76,7 +81,12 @@ final class WebSocketFrameTest extends StandardTest {
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
     //setup
-    final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
+    final var testUnit = //
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
+      true,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
+      new byte[] {});
 
     //execution
     final var result = testUnit.toBytes();
@@ -90,9 +100,11 @@ final class WebSocketFrameTest extends StandardTest {
   @Test
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
     //setup
-    final var testUnit = new WebSocketFrame(
+    final var testUnit = //
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
       true,
-      WebSocketFrameOpcodeMeaning.TEXT_FRAME, false,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
       new byte[] { 0b00000001, 0b00000010, 0b00000011, 0b00000100 });
 
     //execution
@@ -118,7 +130,12 @@ final class WebSocketFrameTest extends StandardTest {
     }
 
     //setup
-    final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, payload);
+    final var testUnit = //
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
+      true,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
+      payload);
 
     //execution
     final var result = testUnit.toBytes();
@@ -144,7 +161,12 @@ final class WebSocketFrameTest extends StandardTest {
     }
 
     //setup
-    final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, payload);
+    final var testUnit = //
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
+      true,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
+      payload);
 
     //execution
     final var result = testUnit.toBytes();
@@ -176,7 +198,12 @@ final class WebSocketFrameTest extends StandardTest {
     }
 
     //setup
-    final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, payload);
+    final var testUnit = //
+    WebSocketFrame.withFinBitAndOpCodeAndMaskBitAndPayload(
+      true,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME,
+      false,
+      payload);
 
     //execution
     final var result = testUnit.toBytes();

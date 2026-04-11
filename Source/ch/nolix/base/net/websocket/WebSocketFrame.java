@@ -33,7 +33,7 @@ public final class WebSocketFrame {
 
   private final byte[] maskingKey;
 
-  public WebSocketFrame(
+  private WebSocketFrame(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
@@ -103,7 +103,15 @@ public final class WebSocketFrame {
     return new WebSocketFrame(inputStream);
   }
 
-  public static WebSocketFrame withFinBitAndOpCodeFrameAndMaskBitAndPayload(
+  public static WebSocketFrame withFinBitAndOpCodeAndMaskBitAndPayload(
+    final boolean finBit,
+    final WebSocketFrameOpcodeMeaning opCode,
+    final boolean maskBit,
+    final byte[] payload) {
+    return new WebSocketFrame(finBit, opCode, maskBit, payload);
+  }
+
+  public static WebSocketFrame withFinBitAndOpCodeAndMaskBitAndPayload(
     final boolean mFINBit,
     final WebSocketFrameOpcodeMeaning opcode,
     final boolean maskBit,
