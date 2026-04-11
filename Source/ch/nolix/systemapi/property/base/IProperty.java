@@ -5,11 +5,12 @@ package ch.nolix.systemapi.property.base;
 
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
  * @author Silvan Wyss
  */
-public interface IProperty {
+public interface IProperty extends MaterializationRequestable {
   /**
    * Adds or changes the given attribute to the current {@link IProperty} if the
    * given attribute is for the current {@link IProperty}.

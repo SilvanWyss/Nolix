@@ -70,6 +70,14 @@ public abstract class AbstractValue<V> implements IBaseValue {
   }
 
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean isMaterialized() {
+    return true;
+  }
+
+  /**
    * Adds or change the given value to the current {@link AbstractValue}.
    * 
    * @param value

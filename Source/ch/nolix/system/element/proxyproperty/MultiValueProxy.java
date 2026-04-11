@@ -121,4 +121,12 @@ public final class MultiValueProxy<V> implements IProperty, INameHolder {
       list.addAtEnd(specificationMapper.apply(v));
     }
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isMaterialized() {
+    return false;
+  }
 }

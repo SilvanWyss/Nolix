@@ -65,4 +65,12 @@ public final class MutableSpecificationValueExtractor implements IProperty, INam
   public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     list.addAtEnd(getter.get());
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isMaterialized() {
+    return false;
+  }
 }

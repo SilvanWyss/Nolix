@@ -63,4 +63,12 @@ public final class Extension<E extends IRespondingMutableElement<E>> implements 
   public E getStoredExtension() {
     return memberExtension;
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isMaterialized() {
+    return true;
+  }
 }
