@@ -25,9 +25,9 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
-import ch.nolix.system.element.property.MutableSpecificationValueExtractor;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.property.view.ValueProxy;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
@@ -44,8 +44,11 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
   private final Matrix<IColor> pixels;
 
   @SuppressWarnings("unused")
-  private final MutableSpecificationValueExtractor pixelsExtractor = new MutableSpecificationValueExtractor(
-    PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
+  private final ValueProxy pixelsExtractor = //
+  ValueProxy.withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
+    PIXEL_ARRAY_HEADER,
+    this::setPixelArray,
+    this::getPixelArraySpecification);
 
   private String nullableBase64PngString;
 

@@ -94,7 +94,7 @@ public final class MultiValueView<V> implements IMultiValueView {
    */
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
-    if (attribute.hasHeader(getName())) {
+    if (attribute != null && attribute.hasHeader(getName())) {
       final var value = valueMapper.apply(attribute);
 
       adder.accept(value);
