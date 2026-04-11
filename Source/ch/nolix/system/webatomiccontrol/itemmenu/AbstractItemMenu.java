@@ -11,7 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.property.MultiValue;
+import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webatomiccontrol.itemmenu.IItemMenu;
@@ -35,11 +35,8 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   private static final IItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
-  private final MultiValue<IItemMenuItem<?>> memberItems = new MultiValue<>(
-    ITEM_HEADER,
-    this::addItem,
-    ItemMenuItem::fromSpecification,
-    IItemMenuItem::getSpecification);
+  private final MultiValue<IItemMenuItem<?>> memberItems = //
+  MultiValue.forElementsWithNameAndSetterAndValueMapper(ITEM_HEADER, this::addItem, ItemMenuItem::fromSpecification);
 
   private Consumer<IItemMenuItem<?>> memberSelectAction;
 
@@ -59,7 +56,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
       ITEM_MENU_VALIDATOR.assertCanAddItem(this, i);
 
       i.internalSetParentMenu(this);
-      memberItems.add(i);
+      memberItems.addValue(i);
     }
 
     return asConcrete();

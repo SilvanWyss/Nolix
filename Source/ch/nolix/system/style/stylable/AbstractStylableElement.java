@@ -8,7 +8,7 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
-import ch.nolix.system.element.property.MultiValue;
+import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.systemapi.element.base.IStructureElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
@@ -26,13 +26,13 @@ implements IStylableElement<E> {
 
   private final OptionalValue<String> id = OptionalValue.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
-  private final MultiValue<String> tokens = MultiValue.forStrings(TOKEN_HEADER, this::addToken);
+  private final MultiValue<String> tokens = MultiValue.forStringsWithNameAndAdder(TOKEN_HEADER, this::addToken);
 
   @Override
   public final E addToken(final String token) {
     Validator.assertThat(token).thatIsNamed(LowerCaseVariableCatalog.TOKEN).isNotBlank();
 
-    tokens.add(token);
+    tokens.addValue(token);
 
     return asConcrete();
   }
@@ -82,7 +82,7 @@ implements IStylableElement<E> {
    */
   @Override
   public final void removeToken(final String token) {
-    tokens.remove(token);
+    tokens.removeAllOccurrencesOfValue(token);
   }
 
   /**

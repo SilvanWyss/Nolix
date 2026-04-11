@@ -5,7 +5,7 @@ package ch.nolix.system.webcontainercontrol.linearcontainer;
 
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.system.element.property.MultiValue;
+import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainer;
@@ -24,17 +24,16 @@ extends AbstractContainer<C, S>
 implements ILinearContainer<C, S> {
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
-  private final MultiValue<IControl<?, ?>> childControls = new MultiValue<>(
+  private final MultiValue<IControl<?, ?>> childControls = //
+  MultiValue.forElementsWithNameAndSetterAndValueMapper(
     CHILD_CONTROL_HEADER,
     this::addControl,
-    ControlFactory::createControlFromSpecification,
-    IControl::getSpecification);
+    ControlFactory::createControlFromSpecification);
 
   @Override
   public final C addControl(final IControl<?, ?> control) {
     control.internalSetParentControl(this);
-
-    this.childControls.add(control);
+    childControls.addValue(control);
 
     return asConcrete();
   }
@@ -98,6 +97,6 @@ implements ILinearContainer<C, S> {
    */
   @Override
   public final void removeControl(final IControl<?, ?> control) {
-    childControls.remove(control);
+    childControls.removeAllOccurrencesOfValue(control);
   }
 }

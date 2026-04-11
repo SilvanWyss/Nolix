@@ -80,6 +80,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @return a new {@link OptionalValue} with the given name, setter and
    *         valueMapperand and that can store a {@link IElement}.
    * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given setter is null.
    * @throws RuntimeException if the given valueMapper is null.
    */
   public static <E extends IElement> OptionalValue<E> forElementWithNameAndSetterAndValueMapper(
