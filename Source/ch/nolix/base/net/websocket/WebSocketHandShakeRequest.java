@@ -14,10 +14,14 @@ public final class WebSocketHandShakeRequest {
 
   private final String secWebSocketKey;
 
-  public WebSocketHandShakeRequest(final IContainer<String> lines) {
+  private WebSocketHandShakeRequest(final IContainer<String> lines) {
     secWebSocketKey = lines
       .getStoredFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
       .substring(SEC_WEBSOCKET_KEY_HEADER.length() + 2);
+  }
+
+  public static WebSocketHandShakeRequest fromLines(final IContainer<String> lines) {
+    return new WebSocketHandShakeRequest(lines);
   }
 
   public static boolean canBe(final StoringRequestable<String> lines) {

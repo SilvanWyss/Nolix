@@ -116,7 +116,9 @@ public final class SocketHandler {
         "The current SocketHandler has received the web socket opening handshake request: "
         + StringTool.getInSingleQuotes(lines.toString()));
 
-      final var openingHandshakeResponse = new WebSocketHandShakeRequest(lines)
+      final var openingHandshakeResponse = //
+      WebSocketHandShakeRequest
+        .fromLines(lines)
         .getWebSocketHandShakeResponse()
         .toString();
 

@@ -16,11 +16,11 @@ final class WebSocketHandShakeRequestTest extends StandardTest {
   @Test
   void testCase() {
     //setup
-    final var webSocketHandShakeRequest = new WebSocketHandShakeRequest(
-      LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));
+    final var lines = LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==");
+    final var testUnit = WebSocketHandShakeRequest.fromLines(lines);
 
     //execution
-    final var result = webSocketHandShakeRequest.getSecWebSocketKey();
+    final var result = testUnit.getSecWebSocketKey();
 
     //verification
     expect(result).isEqualTo("dGhlIHNhbXBsZSBub25jZQ==");
