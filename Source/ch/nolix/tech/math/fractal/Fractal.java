@@ -41,7 +41,7 @@ public final class Fractal implements IFractal {
 
   private final int decimalPlaces;
 
-  public Fractal( //NOSONAR: A Fractal has many parameters.
+  private Fractal( //NOSONAR: A Fractal has many parameters.
     final IClosedInterval realComponentInterval,
     final IClosedInterval imaginaryComponentInterval,
     final int widthInPixel,
@@ -105,6 +105,28 @@ public final class Fractal implements IFractal {
     this.sequencesMaxIterationCount = sequencesMaxIterationCount;
     this.colorFunction = colorFunction;
     this.decimalPlaces = decimalPlaces;
+  }
+
+  public static Fractal withParams( //NOSONAR: A Fractal has many parameters.
+    final IClosedInterval realComponentInterval,
+    final IClosedInterval imaginaryComponentInterval,
+    final int widthInPixel,
+    final int heightInPixel,
+    final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
+    final BigDecimal sequencesMinDivergenceMagnitude,
+    final int sequencesMaxIterationCount,
+    final IntFunction<IColor> colorFunction,
+    final int decimalPlaces) {
+    return //
+    new Fractal(
+      realComponentInterval,
+      imaginaryComponentInterval,
+      widthInPixel,
+      heightInPixel, sequenceCreator,
+      sequencesMinDivergenceMagnitude,
+      sequencesMaxIterationCount,
+      colorFunction,
+      decimalPlaces);
   }
 
   /**

@@ -61,7 +61,8 @@ public final class FractalBuilder implements IFractalBuilder {
 
   @Override
   public Fractal build() {
-    return new Fractal(
+    return //
+    Fractal.withParams(
       realComponentInterval,
       imaginaryComponentInterval,
       widthInPixel,
