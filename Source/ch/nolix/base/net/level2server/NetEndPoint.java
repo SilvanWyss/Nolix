@@ -305,11 +305,17 @@ public final class NetEndPoint extends AbstractEndPoint {
     try {
       final String reply = getStoredReplier().apply(paramPackage.getStoredContent());
       if (isOpen()) {
-        send(new Package(paramPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
+        final var successResponsePackage = //
+        Package.withIndexAndMessageRoleAndMessage(paramPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply);
+
+        send(successResponsePackage);
       }
     } catch (final Throwable error) { //NOSONAR: All Throwables must be caught.
       String responseMessage = error.getMessage();
-      send(new Package(paramPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
+      final var errorResponsePackage = //
+      Package.withIndexAndMessageRoleAndMessage(paramPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage);
+
+      send(errorResponsePackage);
     }
   }
 
@@ -330,16 +336,17 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         stays connected, null otherwise.
    */
   private String sendAndWaitToReply(final String message) {
-    //Sends message and receives reply.
     final var index = getNextSentPackageIndex();
-    send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
+    final var messagePackage = //
+    Package.withIndexAndMessageRoleAndMessage(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message);
+
+    send(messagePackage);
     final var response = waitToAndGetAndRemoveReceivedPackage(index);
 
     if (response == null) {
       return null;
     }
 
-    //Enumerates the response.
     return switch (response.getMessageRole()) {
       case SUCCESS_RESPONSE ->
         response.getStoredContent();

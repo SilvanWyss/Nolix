@@ -15,8 +15,8 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
   private final MessageRole messageRole;
 
   /**
-   * Creates a new zeta package with the given index and message and the role the
-   * given message has.
+   * Creates a new {@link Package} with the given index and messageRole and
+   * message.
    * 
    * @param index
    * @param messageRole
@@ -24,14 +24,11 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
    * @throws RuntimeException if the given message role is null.
    * @throws RuntimeException if the given message is null.
    */
-  public Package(final int index, final MessageRole messageRole, final String message) {
-    //Calls constructor of the base class.
+  private Package(final int index, final MessageRole messageRole, final String message) {
     super(index, message);
 
-    //Asserts that the given message role is not null.
     Validator.assertThat(messageRole).isOfType(MessageRole.class);
 
-    //Sets the message role of thsis zeta package.
     this.messageRole = messageRole;
   }
 
@@ -44,6 +41,23 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
       Integer.parseInt(string.substring(0, 8)),
       MessageRole.fromPrefix(string.charAt(8)),
       string.substring(9));
+  }
+
+  /**
+   * 
+   * @param index
+   * @param messageRole
+   * @param message
+   * @return a new {@link Package} with the given index and messageRole and
+   *         message.
+   * @throws RuntimeException if the given message role is null.
+   * @throws RuntimeException if the given message is null.
+   */
+  public static Package withIndexAndMessageRoleAndMessage(
+    final int index,
+    final MessageRole messageRole,
+    final String message) {
+    return new Package(index, messageRole, message);
   }
 
   /**
