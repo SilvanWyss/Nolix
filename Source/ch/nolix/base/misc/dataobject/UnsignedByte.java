@@ -39,7 +39,7 @@ public final class UnsignedByte {
    * @param bit7
    * @param bit8
    */
-  public UnsignedByte( //NOSONAR: A byte consists of 8 bits.
+  private UnsignedByte( //NOSONAR: A byte consists of 8 bits.
     final int bit1,
     final int bit2,
     final int bit3,
@@ -69,6 +69,29 @@ public final class UnsignedByte {
     Validator.assertThat(number).thatIsNamed(LowerCaseVariableCatalog.NUMBER).isBetween(0, 255);
 
     return new UnsignedByte((byte) (number - 128));
+  }
+
+  /**
+   * @param bit1
+   * @param bit2
+   * @param bit3
+   * @param bit4
+   * @param bit5
+   * @param bit6
+   * @param bit7
+   * @param bit8
+   * @return a new {@link UnsignedByte} with the given bits.
+   */
+  public static UnsignedByte withBits( //NOSONAR: A byte consists of 8 bits.
+    final int bit1,
+    final int bit2,
+    final int bit3,
+    final int bit4,
+    final int bit5,
+    final int bit6,
+    final int bit7,
+    final int bit8) {
+    return new UnsignedByte(bit1, bit2, bit3, bit4, bit5, bit6, bit7, bit8);
   }
 
   /**

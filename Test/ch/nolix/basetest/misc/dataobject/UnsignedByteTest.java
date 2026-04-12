@@ -15,7 +15,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_getBitAtAsInt_1A() {
     //setup
-    final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 0, 0, 0);
+    final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
     //execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -41,7 +41,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_getBitAtAsInt_1B() {
     //setup
-    final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 1, 1, 1);
+    final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
     //execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -67,7 +67,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_getBitAtAsInt_1C() {
     //setup
-    final var testUnit = new UnsignedByte(1, 1, 1, 0, 0, 0, 0, 0);
+    final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
     //execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -93,7 +93,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_getBitAtAsInt_1D() {
     //setup
-    final var testUnit = new UnsignedByte(1, 1, 1, 1, 1, 1, 1, 1);
+    final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
     //execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
@@ -119,7 +119,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toBitString_1A() {
     //setup
-    final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 0, 0, 0);
+    final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
     //execution
     final var result = testUnit.toBitString();
@@ -131,7 +131,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toBitString_1B() {
     //setup
-    final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 1, 1, 1);
+    final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
     //execution
     final var result = testUnit.toBitString();
@@ -143,7 +143,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toBitString_1C() {
     //setup
-    final var testUnit = new UnsignedByte(1, 1, 1, 0, 0, 0, 0, 0);
+    final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
     //execution
     final var result = testUnit.toBitString();
@@ -155,7 +155,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toBitString_1D() {
     //setup
-    final var testUnit = new UnsignedByte(1, 1, 1, 1, 1, 1, 1, 1);
+    final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
     //execution
     final var result = testUnit.toBitString();
@@ -181,7 +181,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toInt_1A() {
     //setup
-    final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 0, 0, 0);
+    final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
     //execution
     final var result = testUnit.toInt();
@@ -193,7 +193,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toInt_1B() {
     //setup
-    final var testUnit = new UnsignedByte(0, 0, 0, 0, 0, 1, 1, 1);
+    final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
     //execution
     final var result = testUnit.toInt();
@@ -205,7 +205,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toInt_1C() {
     //setup
-    final var testUnit = new UnsignedByte(1, 1, 1, 0, 0, 0, 0, 0);
+    final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
     //execution
     final var result = testUnit.toInt();
@@ -217,7 +217,7 @@ final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_toInt_1D() {
     //setup
-    final var testUnit = new UnsignedByte(1, 1, 1, 1, 1, 1, 1, 1);
+    final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
     //execution
     final var result = testUnit.toInt();

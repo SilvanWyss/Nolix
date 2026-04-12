@@ -22,10 +22,10 @@ final class WebSocketFrameTest extends StandardTest {
     //setup
     final var bytes = //
     new byte[] {
-    new UnsignedByte(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
-    new UnsignedByte(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
-    new UnsignedByte(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
-    new UnsignedByte(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
+    UnsignedByte.withBits(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
+    UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
+    UnsignedByte.withBits(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
+    UnsignedByte.withBits(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
     };
 
     //setup
@@ -124,7 +124,7 @@ final class WebSocketFrameTest extends StandardTest {
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
     //setup
     final var payload = new byte[65535];
-    final var lByte = new UnsignedByte(1, 0, 1, 0, 1, 1, 0, 0).toByte();
+    final var lByte = UnsignedByte.withBits(1, 0, 1, 0, 1, 1, 0, 0).toByte();
     for (var i = 0; i < payload.length; i++) {
       payload[i] = lByte;
     }
@@ -155,7 +155,7 @@ final class WebSocketFrameTest extends StandardTest {
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
     //setup
     final var payload = new byte[65536];
-    final var lByte = new UnsignedByte(1, 0, 1, 0, 1, 1, 0, 0).toByte();
+    final var lByte = UnsignedByte.withBits(1, 0, 1, 0, 1, 1, 0, 0).toByte();
     for (var i = 0; i < payload.length; i++) {
       payload[i] = lByte;
     }
@@ -192,7 +192,7 @@ final class WebSocketFrameTest extends StandardTest {
   void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
     //setup
     final var payload = new byte[1_000_000];
-    final var lByte = new UnsignedByte(1, 0, 1, 0, 1, 1, 0, 0).toByte();
+    final var lByte = UnsignedByte.withBits(1, 0, 1, 0, 1, 1, 0, 0).toByte();
     for (var i = 0; i < payload.length; i++) {
       payload[i] = lByte;
     }
