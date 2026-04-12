@@ -96,7 +96,7 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     //verification
     expect(result.length).isEqualTo(1);
-    expect(new UnsignedByte(result[0]).toBitString()).isEqualTo("01111101");
+    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("01111101");
   }
 
   @Test
@@ -109,8 +109,8 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     //verification
     expect(result.length).isEqualTo(2);
-    expect(new UnsignedByte(result[0]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("01111110");
+    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111110");
   }
 
   @Test
@@ -123,8 +123,8 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     //verification
     expect(result.length).isEqualTo(2);
-    expect(new UnsignedByte(result[0]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("11111111");
   }
 
   @Test
@@ -137,14 +137,14 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     //verification
     expect(result.length).isEqualTo(8);
-    expect(new UnsignedByte(result[0]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[2]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[3]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[4]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[5]).toBitString()).isEqualTo("00000001");
-    expect(new UnsignedByte(result[6]).toBitString()).isEqualTo("00000000");
-    expect(new UnsignedByte(result[7]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("00000001");
+    expect(UnsignedByte.fromByte(result[6]).toBitString()).isEqualTo("00000000");
+    expect(UnsignedByte.fromByte(result[7]).toBitString()).isEqualTo("00000000");
   }
 
   @Test
@@ -157,13 +157,13 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
     //verification
     expect(result.length).isEqualTo(8);
-    expect(new UnsignedByte(result[0]).toBitString()).isEqualTo("01111111");
-    expect(new UnsignedByte(result[1]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[2]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[3]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[4]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[5]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[6]).toBitString()).isEqualTo("11111111");
-    expect(new UnsignedByte(result[7]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("01111111");
+    expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[2]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[3]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[4]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[5]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[6]).toBitString()).isEqualTo("11111111");
+    expect(UnsignedByte.fromByte(result[7]).toBitString()).isEqualTo("11111111");
   }
 }

@@ -40,8 +40,8 @@ final class WebSocketFrameFirstWord {
   }
 
   private WebSocketFrameFirstWord(final byte byte1, final byte byte2) {
-    final var wrapperByte1 = new UnsignedByte(byte1);
-    final var wrapperByte2 = new UnsignedByte(byte2);
+    final var wrapperByte1 = UnsignedByte.fromByte(byte1);
+    final var wrapperByte2 = UnsignedByte.fromByte(byte2);
 
     final var rsv1Bit = wrapperByte1.getBitAt(2);
     final var rsv2Bit = wrapperByte1.getBitAt(3);

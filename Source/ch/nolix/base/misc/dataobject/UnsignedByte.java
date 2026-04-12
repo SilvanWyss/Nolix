@@ -16,15 +16,15 @@ public final class UnsignedByte {
    * A {@link UnsignedByte} stores its value in an unsigned int because for any
    * transformation it would be needed to transform the value to an int anyway.
    */
-  private final int mByte;
+  private final int memberByte;
 
   /**
-   * Creates a new {@link UnsignedByte} with the given pByte.
+   * Creates a new {@link UnsignedByte} from the given paramByte.
    * 
-   * @param pByte
+   * @param paramByte
    */
-  public UnsignedByte(final byte pByte) {
-    mByte = pByte & 0b11111111;
+  private UnsignedByte(final byte paramByte) {
+    memberByte = paramByte & 0b11111111;
   }
 
   /**
@@ -48,7 +48,15 @@ public final class UnsignedByte {
     final int bit6,
     final int bit7,
     final int bit8) {
-    mByte = 128 * bit1 + 64 * bit2 + 32 * bit3 + 16 * bit4 + 8 * bit5 + 4 * bit6 + 2 * bit7 + bit8;
+    memberByte = 128 * bit1 + 64 * bit2 + 32 * bit3 + 16 * bit4 + 8 * bit5 + 4 * bit6 + 2 * bit7 + bit8;
+  }
+
+  /**
+   * @param paramByte
+   * @return a new {@link UnsignedByte} from the given paramByte.
+   */
+  public static UnsignedByte fromByte(final byte paramByte) {
+    return new UnsignedByte(paramByte);
   }
 
   /**
@@ -79,7 +87,7 @@ public final class UnsignedByte {
   public int getBitAtAsInt(final int index) {
     Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isBetween(1, 8);
 
-    return (mByte >> (8 - index)) & 1;
+    return (memberByte >> (8 - index)) & 1;
   }
 
   /**
@@ -102,13 +110,13 @@ public final class UnsignedByte {
    * @return the current {@link UnsignedByte} as byte.
    */
   public byte toByte() {
-    return (byte) mByte;
+    return (byte) memberByte;
   }
 
   /**
    * @return the current {@link UnsignedByte} as int.
    */
   public int toInt() {
-    return mByte;
+    return memberByte;
   }
 }
