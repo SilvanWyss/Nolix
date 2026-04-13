@@ -136,35 +136,40 @@ implements IControlStyle<S> {
       this::forStateSetBottomBorderThickness,
       DEFAULT_BORDER_THICKNESS);
 
-  private final NonCascadingProperty<ControlState, IColor> memberLeftBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberLeftBorderColor = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     LEFT_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IColor> memberRightBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberRightBorderColor = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     RIGHT_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IColor> memberTopBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberTopBorderColor = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     TOP_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IColor> memberBottomBorderColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> memberBottomBorderColor = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     BOTTOM_BORDER_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
     IColor::getSpecification,
     DEFAULT_BORDER_COLOR);
 
-  private final NonCascadingProperty<ControlState, IBackground> memberBackground = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IBackground> memberBackground = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     BACKGROUND_HEADER,
     ControlState.class,
     Background::fromSpecification,
