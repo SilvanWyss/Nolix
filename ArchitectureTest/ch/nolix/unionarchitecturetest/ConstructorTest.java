@@ -3,7 +3,6 @@
  */
 package ch.nolix.unionarchitecturetest;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -14,7 +13,6 @@ import ch.nolix.base.testing.archunit.ArchUnitRuleCatalog;
  * @author Silvan Wyss
  */
 final class ConstructorTest {
-  @Disabled
   @Test
   void testCase_publicAndPackageVisibleConstructorsDoNotContainParameters() {
     //setup
