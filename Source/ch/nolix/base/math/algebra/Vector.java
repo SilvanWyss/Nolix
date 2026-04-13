@@ -5,7 +5,6 @@ package ch.nolix.base.math.algebra;
 
 import java.util.Arrays;
 
-import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -17,8 +16,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
  */
 public final class Vector {
   public static final Vector EMPTY_VECTOR = new Vector();
-
-  private static final ArrayTool ARRAY_TOOL = new ArrayTool();
 
   private final double[] values;
 
@@ -33,6 +30,7 @@ public final class Vector {
    * Creates a new {@link Vector} with the given values.
    * 
    * @param values
+   * @throws RuntimeException if the given values is null.
    */
   private Vector(final double[] values) {
     this.values = Arrays.copyOf(values, values.length);
@@ -47,19 +45,11 @@ public final class Vector {
   }
 
   /**
-   * @param value
    * @param values
    * @return a new {@link Vector} with the given values.
+   * @throws RuntimeException if the given values is null.
    */
-  public static Vector withValue(final double value, final double... values) {
-    return new Vector(ARRAY_TOOL.createArrayWithValue(value, values));
-  }
-
-  /**
-   * @param values
-   * @return a new {@link Vector} with the given values.
-   */
-  public static Vector withValues(final double[] values) {
+  public static Vector withValues(final double... values) {
     return new Vector(values);
   }
 

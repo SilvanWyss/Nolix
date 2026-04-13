@@ -307,7 +307,7 @@ final class MatrixTest extends StandardTest {
     final var result = testUnit.toVector();
 
     //verification
-    expect(result).isEqualTo(Vector.withValue(1.0, 2.0, 3.0, 4.0));
+    expect(result).isEqualTo(Vector.withValues(1.0, 2.0, 3.0, 4.0));
   }
 
   @Test
@@ -319,7 +319,7 @@ final class MatrixTest extends StandardTest {
     final var result = testUnit.toVector();
 
     //verification
-    expect(result).isEqualTo(Vector.withValue(1.0, 2.0, 3.0, 4.0));
+    expect(result).isEqualTo(Vector.withValues(1.0, 2.0, 3.0, 4.0));
   }
 
   @Test

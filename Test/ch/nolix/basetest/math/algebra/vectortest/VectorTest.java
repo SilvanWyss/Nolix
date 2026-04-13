@@ -19,8 +19,8 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_equals_whenEquals() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
-    final var vector = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution
     final var result = testUnit.equals(vector);
@@ -32,8 +32,8 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_equals_whenDoesNotEqual() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
-    final var vector = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
 
     //execution
     final var result = testUnit.equals(vector);
@@ -59,7 +59,7 @@ final class VectorTest extends StandardTest {
   void testCase_equals_whenIsEmptyAndDoesNotEqual() {
     //setup
     final var testUnit = Vector.EMPTY_VECTOR;
-    final var vector = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
+    final var vector = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 1.0);
 
     //execution
     final var result = testUnit.equals(vector);
@@ -71,7 +71,7 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_getEuclidNorm() {
     //setup
-    final var testUnit = Vector.withValue(6.0, 8.0);
+    final var testUnit = Vector.withValues(6.0, 8.0);
 
     //execution
     final var result = testUnit.getEuclidNorm();
@@ -105,7 +105,7 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_getProduct() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution
     final var result = testUnit.getProduct(2.5);
@@ -129,7 +129,7 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_getSize() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution
     final var result = testUnit.getSize();
@@ -153,8 +153,8 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_getSum_1A() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
-    final var addend = Vector.withValue(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var addend = Vector.withValues(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
     //execution
     final var result = testUnit.getSum(addend);
@@ -166,8 +166,8 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_getSum_1B() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
-    final var addend = Vector.withValue(1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var addend = Vector.withValues(1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
 
     //execution
     final var result = testUnit.getSum(addend);
@@ -179,8 +179,8 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_getSum_whenGivenAddendHasNotSameSize() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
-    final var addend = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var addend = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0);
 
     //execution & verification
     expectRunning(() -> testUnit.getSum(addend))
@@ -207,7 +207,7 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_toArray() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution
     final var result = testUnit.toArray();
@@ -237,7 +237,7 @@ final class VectorTest extends StandardTest {
   @Test
   void testCase_toString() {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution
     final var result = testUnit.toString();

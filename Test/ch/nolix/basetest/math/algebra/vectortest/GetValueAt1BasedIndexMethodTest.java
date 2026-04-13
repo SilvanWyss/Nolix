@@ -27,7 +27,7 @@ final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
     final int oneBasedIndex,
     final double expectedValue) {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution
     final var result = testUnit.getValueAtOneBasedIndex(oneBasedIndex);
@@ -41,7 +41,7 @@ final class GetValueAtOneBasedIndexMethodTest extends StandardTest {
   })
   void testCase_getValueAtOneBasedIndex_whenGivenOneBasedIndexIsOutOfRange(final int oneBasedIndex) {
     //setup
-    final var testUnit = Vector.withValue(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
+    final var testUnit = Vector.withValues(2.0, 5.0, 10.0, -3.0, -8.0, 0.0);
 
     //execution & verification
     expectRunning(() -> testUnit.getValueAtOneBasedIndex(oneBasedIndex))
