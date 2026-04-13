@@ -26,7 +26,8 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
   extends AbstractMultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
     static final CustomState BASE_STATE = CustomState.A;
 
-    final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
+    final CascadingProperty<CustomState, Color> testUnit = //
+    CascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
       "Color",
       CustomState.class,
       Color::fromSpecification,

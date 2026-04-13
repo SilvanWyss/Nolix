@@ -46,7 +46,7 @@ implements IControlBaseStyle<C> {
     DEFAULT_OPACITY);
 
   private final CascadingProperty<ControlState, Font> memberFont = //
-  new CascadingProperty<>(
+  CascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     ControlHeadStyleAttributeHeaderCatalog.FONT_HEADER,
     ControlState.class,
     Font::fromSpecification,
@@ -69,7 +69,7 @@ implements IControlBaseStyle<C> {
       DEAULT_TEXT_SIZE);
 
   private final CascadingProperty<ControlState, LineDecoration> memberTextLineDecoration = //
-  new CascadingProperty<>(
+  CascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     ControlHeadStyleAttributeHeaderCatalog.TEXT_LINE_DECORATION_HEADER,
     ControlState.class,
     LineDecoration::fromSpecification,
@@ -77,7 +77,7 @@ implements IControlBaseStyle<C> {
     DEFAULT_TEXT_LINE_DECORATION);
 
   private final CascadingProperty<ControlState, IColor> memberTextColor = //
-  new CascadingProperty<>(
+  CascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     ControlHeadStyleAttributeHeaderCatalog.TEXT_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
