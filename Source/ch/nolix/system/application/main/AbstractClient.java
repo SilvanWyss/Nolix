@@ -146,20 +146,17 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    *                          connected.
    */
   final void setEndPoint(final IEndPoint endPoint) {
-    //Asserts that the given endPoint is not null.
     Validator.assertThat(endPoint).thatIsNamed(AbstractEndPoint.class).isNotNull();
 
-    //Asserts that the current Client is not already connected.
     assertIsNotConnected();
 
-    //Sets the EndPoint of the current Client.
     this.nullableEndPoint = endPoint;
 
-    //Creates a close dependency between the current Client and its EndPoint.
     createCloseDependencyTo(endPoint);
 
-    //Sets the receiver controller of the EndPoint of the current Client.
-    endPoint.setReceivingDataProviderController(new ClientDataProviderController(this));
+    final var clientDataProviderController = ClientDataProviderController.forClient(this);
+
+    endPoint.setReceivingDataProviderController(clientDataProviderController);
   }
 
   /**
