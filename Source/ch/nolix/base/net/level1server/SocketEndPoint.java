@@ -101,7 +101,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws RuntimeException if the given socketInputStream is null.
    * @throws RuntimeException if the given socketOutputStream is null.
    */
-  SocketEndPoint(
+  private SocketEndPoint(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
@@ -211,6 +211,24 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    */
   public static SocketEndPoint toLocalMachineAndGivenPortAndGivenSlot(final int port, final String slot) {
     return new SocketEndPoint(IPv6Catalog.LOOP_BACK_ADDRESS, port, slot);
+  }
+
+  /**
+   * @param socket
+   * @param socketInputStream
+   * @param socketOutputStream
+   * @return a new {@link AbstractNetEndPoint} with the given socket. The given
+   *         socketInputStream and the given socketOutputStream belong to the
+   *         given socket.
+   * @throws RuntimeException if the given socket is null.
+   * @throws RuntimeException if the given socketInputStream is null.
+   * @throws RuntimeException if the given socketOutputStream is null.
+   */
+  public static SocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStream(
+    final Socket socket,
+    final InputStream socketInputStream,
+    final OutputStream socketOutputStream) {
+    return new SocketEndPoint(socket, socketInputStream, socketOutputStream);
   }
 
   /**

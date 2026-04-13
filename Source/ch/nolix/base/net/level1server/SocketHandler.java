@@ -160,7 +160,8 @@ public final class SocketHandler {
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
-    return new SocketEndPoint(socket, socketInputStream, socketOutputStream);
+    return //
+    SocketEndPoint.withSocketAndSocketInputStreamAndSocketOutputStream(socket, socketInputStream, socketOutputStream);
   }
 
   private static void fillUpLinesIntoListUntilReceivesEmptyLine(
