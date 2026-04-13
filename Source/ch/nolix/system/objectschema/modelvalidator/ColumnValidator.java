@@ -7,17 +7,19 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
+import ch.nolix.system.objectschema.modelmutationexaminer.ColumnMutationExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
-import ch.nolix.systemapi.objectschema.modelexaminer.IColumnExaminer;
 import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
 
 /**
  * @author Silvan Wyss
  */
 public final class ColumnValidator implements IColumnValidator {
-  private static final IColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+  private static final ColumnExaminer COLUMN_EXAMINER = new ColumnExaminer();
+
+  private static final ColumnMutationExaminer COLUMN_MUTATION_EXAMINER = new ColumnMutationExaminer();
 
   /**
    * {@inheritDoc}
@@ -30,7 +32,7 @@ public final class ColumnValidator implements IColumnValidator {
     final IContainer<? extends ITable> referenceableTables,
     final IContainer<? extends IColumn> backReferenceableColumns) {
     final var canSetContentModel = //
-    COLUMN_EXAMINER.canSetContentModel(
+    COLUMN_MUTATION_EXAMINER.canSetContentModel(
       column,
       fieldType,
       dataType,
