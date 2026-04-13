@@ -46,7 +46,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   private int saveCount;
 
-  public SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
+  private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
     this.sqlConnection = sqlConnection;
     this.schemaDataWriter = SchemaDataWriter.forSqlCollector(sqlCollector);
 
