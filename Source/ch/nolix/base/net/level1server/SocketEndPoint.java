@@ -134,7 +134,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @throws RuntimeException if the given target is null.
    * @throws RuntimeException if the given target is blank.
    */
-  SocketEndPoint(
+  private SocketEndPoint(
     final Socket socket,
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
@@ -229,6 +229,28 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
     final InputStream socketInputStream,
     final OutputStream socketOutputStream) {
     return new SocketEndPoint(socket, socketInputStream, socketOutputStream);
+  }
+
+  /**
+   * @param socket
+   * @param socketInputStream
+   * @param socketOutputStream
+   * @param target
+   * @return a new {@link AbstractNetEndPoint} with the given socket and target.
+   *         The given socketInputStream and the given socketOutputStream belong
+   *         to the given socket.
+   * @throws RuntimeException if the given socket is null.
+   * @throws RuntimeException if the given socketInputStream is null.
+   * @throws RuntimeException if the given socketOutputStream is null.
+   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException if the given target is blank.
+   */
+  public static SocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStreamAndTarget(
+    final Socket socket,
+    final InputStream socketInputStream,
+    final OutputStream socketOutputStream,
+    final String target) {
+    return new SocketEndPoint(socket, socketInputStream, socketOutputStream, target);
   }
 
   /**

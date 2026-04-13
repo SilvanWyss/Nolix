@@ -149,7 +149,8 @@ public final class SocketHandler {
     final InputStream socketInputStream,
     final OutputStream socketOutputStream,
     final String firstReveivedLine) {
-    return new SocketEndPoint(
+    return //
+    SocketEndPoint.withSocketAndSocketInputStreamAndSocketOutputStreamAndTarget(
       socket,
       socketInputStream,
       socketOutputStream,
