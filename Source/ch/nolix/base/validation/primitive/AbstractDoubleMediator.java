@@ -198,7 +198,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
   /**
    * @return the argument of htis double mediator.
    */
-  protected double getArgument() {
+  protected final double getArgument() {
     return argument;
   }
 }
