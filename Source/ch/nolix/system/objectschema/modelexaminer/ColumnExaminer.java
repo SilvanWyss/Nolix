@@ -20,4 +20,16 @@ public final class ColumnExaminer implements IColumnExaminer {
     column != null
     && column.getFieldType().getBaseType() == BaseFieldType.BASE_REFERENCE;
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isOpenAndEmptyAndNotBackReferenced(final IColumn column) {
+    return //
+    column != null
+    && column.isOpen()
+    && column.isEmpty()
+    && !column.isBackReferenced();
+  }
 }

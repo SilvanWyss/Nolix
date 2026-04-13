@@ -14,4 +14,10 @@ public interface IColumnExaminer {
    * @return true if the given column is a base reference column, false otherwise.
    */
   boolean isBaseReferenceColumn(IColumn column);
+
+  /**
+   * @param column
+   * @return true if the given column is open and empty and not back referenced.
+   */
+  boolean isOpenAndEmptyAndNotBackReferenced(IColumn column);
 }
