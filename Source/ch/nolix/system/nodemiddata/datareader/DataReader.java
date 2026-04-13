@@ -37,7 +37,7 @@ public final class DataReader implements IDataReader {
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
     this.databaseView = databaseView;
-    this.internalDataReader = new InternalDataReader(nodeDatabase);
+    this.internalDataReader = InternalDataReader.forNodeDatabase(nodeDatabase);
   }
 
   public static DataReader forNodeDatabaseAndDatabaseView(

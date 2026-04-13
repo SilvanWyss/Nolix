@@ -48,10 +48,14 @@ public final class InternalDataReader {
 
   private final IMutableNode<?> nodeDatabase;
 
-  public InternalDataReader(final IMutableNode<?> nodeDatabase) {
+  private InternalDataReader(final IMutableNode<?> nodeDatabase) {
     Validator.assertThat(nodeDatabase).thatIsNamed("database node").isNotNull();
 
     this.nodeDatabase = nodeDatabase;
+  }
+
+  public static InternalDataReader forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new InternalDataReader(nodeDatabase);
   }
 
   public String getDatabaseName() {
