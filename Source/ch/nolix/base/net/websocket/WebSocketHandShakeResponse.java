@@ -25,7 +25,7 @@ public final class WebSocketHandShakeResponse {
 
   private final String secWebSocketAccept;
 
-  public WebSocketHandShakeResponse(final String secWebSocketKey) {
+  private WebSocketHandShakeResponse(final String secWebSocketKey) {
     Validator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
 
     this.secWebSocketKey = secWebSocketKey;
@@ -38,6 +38,10 @@ public final class WebSocketHandShakeResponse {
     } catch (final NoSuchAlgorithmException noSuchAlgorithmException) {
       throw WrapperException.forError(noSuchAlgorithmException);
     }
+  }
+
+  public static WebSocketHandShakeResponse withSecWebSocketKey(final String secWebSocketKey) {
+    return new WebSocketHandShakeResponse(secWebSocketKey);
   }
 
   public String getSecWebSocketAccept() {

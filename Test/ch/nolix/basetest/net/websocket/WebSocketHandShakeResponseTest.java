@@ -19,7 +19,7 @@ final class WebSocketHandShakeResponseTest extends StandardTest {
     final var expcetedSecWebSocketAccept = "s3pPLMBiTxaQ9kYGzzhZRbK+xOo=";
 
     //setup
-    final var webSocketHandShakeResponse = new WebSocketHandShakeResponse(secWebSocketKey);
+    final var webSocketHandShakeResponse = WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
 
     //execution
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
@@ -35,7 +35,7 @@ final class WebSocketHandShakeResponseTest extends StandardTest {
     final var expcetedSecWebSocketAccept = "K7DJLdLooIwIG/MOpvWFB3y3FE8=";
 
     //setup
-    final var webSocketHandShakeResponse = new WebSocketHandShakeResponse(secWebSocketKey);
+    final var webSocketHandShakeResponse = WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
 
     //execution
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();

@@ -29,7 +29,7 @@ public final class WebSocketHandShakeRequest {
   }
 
   public WebSocketHandShakeResponse getWebSocketHandShakeResponse() {
-    return new WebSocketHandShakeResponse(secWebSocketKey);
+    return WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
   }
 
   public String getSecWebSocketKey() {
