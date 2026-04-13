@@ -20,37 +20,30 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
-import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 import ch.nolix.systemapi.midschemaview.model.TableViewDto;
-import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiBackReferenceEntryDtoMapper;
-import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
-import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
-import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiBackReferenceQueryCreator;
-import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiReferenceQueryCreator;
-import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiValueQueryCreator;
 
 final class InternalDataReader {
-  private static final IEntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
+  private static final EntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
 
-  private static final IMultiValueQueryCreator MULTI_VALUE_QUERY_CREATOR = new MultiValueQueryCreator();
+  private static final MultiValueQueryCreator MULTI_VALUE_QUERY_CREATOR = new MultiValueQueryCreator();
 
-  private static final IMultiReferenceQueryCreator MULTI_REFERENCE_QUERY_CREATOR = new MultiReferenceQueryCreator();
+  private static final MultiReferenceQueryCreator MULTI_REFERENCE_QUERY_CREATOR = new MultiReferenceQueryCreator();
 
-  private static final IMultiBackReferenceQueryCreator MULTI_BACK_REFERENCE_QUERY_CREATOR = //
+  private static final MultiBackReferenceQueryCreator MULTI_BACK_REFERENCE_QUERY_CREATOR = //
   new MultiBackReferenceQueryCreator();
 
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
-  private static final IMultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //
+  private static final MultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiReferenceEntryDtoMapper();
 
-  private static final IMultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
+  private static final MultiBackReferenceEntryDtoMapper MULTI_BACK_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiBackReferenceEntryDtoMapper();
 
-  private static final IValueMapper VALUE_MAPPER = new ValueMapper();
+  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
   private final String databaseName;
 
