@@ -3,12 +3,10 @@
  */
 package ch.nolix.base.math.algebra;
 
-import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.commontypetool.doubletool.DoubleTool;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.baseapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -24,8 +22,6 @@ public final class Polynom {
   public static final Polynom EMPTY_POLYNOM = new Polynom();
 
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
-
-  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
 
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
@@ -61,11 +57,7 @@ public final class Polynom {
     coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
   }
 
-  public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
-    return new Polynom(ARRAY_TOOL.createArrayWithValue(coefficient, coefficients));
-  }
-
-  public static Polynom withCoefficients(final double[] coefficients) {
+  public static Polynom withCoefficients(final double... coefficients) {
     return new Polynom(coefficients);
   }
 

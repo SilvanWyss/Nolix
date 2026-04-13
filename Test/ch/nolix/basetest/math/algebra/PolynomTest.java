@@ -15,7 +15,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectIsNull() {
     //setup
-    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 
     //execution
     final var result = testUnit.equals(null);
@@ -27,8 +27,8 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectDoesNotEqual_1A() {
     //setup
-    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
-    final var object = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0);
+    final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0);
 
     //execution
     final var result = testUnit.equals(object);
@@ -40,8 +40,8 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectDoesNotEqual_1B() {
     //setup
-    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
-    final var object = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 7.0);
+    final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 7.0);
 
     //execution
     final var result = testUnit.equals(object);
@@ -53,8 +53,8 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectEquals() {
     //setup
-    final var testUnit = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
-    final var object = Polynom.withCoefficient(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var testUnit = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+    final var object = Polynom.withCoefficients(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
 
     //execution
     final var result = testUnit.equals(object);
@@ -66,7 +66,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_getDerived_1A() {
     //setup
-    final var testUnit = Polynom.withCoefficient(3.0, 0.0, 0.0);
+    final var testUnit = Polynom.withCoefficients(3.0, 0.0, 0.0);
 
     //setup verification
     expect(testUnit).hasStringRepresentation("x->3x^2");
@@ -81,7 +81,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_getDerived_1B() {
     //setup
-    final var testUnit = Polynom.withCoefficient(3.0, 3.0, 3.0);
+    final var testUnit = Polynom.withCoefficients(3.0, 3.0, 3.0);
 
     //setup verification
     expect(testUnit).hasStringRepresentation("x->3x^2+3x+3");
@@ -96,7 +96,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_getDerived_1C() {
     //setup
-    final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
+    final var testUnit = Polynom.withCoefficients(3.0, 2.0, 1.0);
 
     //setup verification
     expect(testUnit).hasStringRepresentation("x->3x^2+2x+1");
@@ -111,7 +111,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_getIntegrated_1A() {
     //setup
-    final var testUnit = Polynom.withCoefficient(3.0, 0.0, 0.0);
+    final var testUnit = Polynom.withCoefficients(3.0, 0.0, 0.0);
 
     //setup verification
     expect(testUnit).hasStringRepresentation("x->3x^2");
@@ -126,7 +126,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_getIntegrated_1B() {
     //setup
-    final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
+    final var testUnit = Polynom.withCoefficients(3.0, 2.0, 1.0);
 
     //setup verification
     expect(testUnit).hasStringRepresentation("x->3x^2+2x+1");
@@ -153,7 +153,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_toString_whenThereIsGiven1Coefficient() {
     //setup
-    final var testUnit = Polynom.withCoefficient(1.0);
+    final var testUnit = Polynom.withCoefficients(1.0);
 
     //execution
     final var result = testUnit.toString();
@@ -165,7 +165,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_toString_whenThereAreGiven2Coefficients() {
     //setup
-    final var testUnit = Polynom.withCoefficient(2.0, 1.0);
+    final var testUnit = Polynom.withCoefficients(2.0, 1.0);
 
     //execution
     final var result = testUnit.toString();
@@ -177,7 +177,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_toString_whenThereAreGiven3Coefficients() {
     //setup
-    final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
+    final var testUnit = Polynom.withCoefficients(3.0, 2.0, 1.0);
 
     //execution
     final var result = testUnit.toString();
@@ -189,7 +189,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
     //execution
-    final var result = Polynom.withCoefficient(1.0);
+    final var result = Polynom.withCoefficients(1.0);
 
     //verification
     expect(result.getDegree()).isEqualTo(0);
@@ -199,7 +199,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
     //execution
-    final var result = Polynom.withCoefficient(2.0, 1.0);
+    final var result = Polynom.withCoefficients(2.0, 1.0);
 
     //verification
     expect(result.getDegree()).isEqualTo(1);
@@ -210,7 +210,7 @@ final class PolynomTest extends StandardTest {
   @Test
   void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
     //execution
-    final var result = Polynom.withCoefficient(3.0, 2.0, 1.0);
+    final var result = Polynom.withCoefficients(3.0, 2.0, 1.0);
 
     //verification
     expect(result.getDegree()).isEqualTo(2);
