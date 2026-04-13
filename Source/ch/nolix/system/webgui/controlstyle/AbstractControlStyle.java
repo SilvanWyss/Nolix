@@ -84,7 +84,7 @@ implements IControlStyle<S> {
   private static final String PADDING_HEADER = "Padding";
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberWidth = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     WIDTH_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -93,7 +93,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(100));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberHeight = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     HEIGHT_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -177,7 +177,7 @@ implements IControlStyle<S> {
     DEFAULT_BACKGROUND);
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberLeftPadding = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     LEFT_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -186,7 +186,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberRightPadding = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     RIGHT_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -195,7 +195,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberTopPadding = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     TOP_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -204,7 +204,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> memberBottomPadding = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     BOTTOM_PADDING_HEADER,
     ControlState.class,
     AbsoluteOrRelativeInt::fromSpecification,
@@ -213,7 +213,7 @@ implements IControlStyle<S> {
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
   private final NonCascadingProperty<ControlState, IContainer<CornerShadow>> memberCornerShadows = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     CORNER_SHADOWS_HEADER,
     ControlState.class,
     s -> s.getStoredChildNodes().to(CornerShadow::fromSpecification),

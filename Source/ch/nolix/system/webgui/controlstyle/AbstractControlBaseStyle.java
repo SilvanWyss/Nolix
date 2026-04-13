@@ -37,7 +37,7 @@ implements IControlBaseStyle<C> {
   public static final Color DEFAULT_TEXT_COLOR = X11ColorCatalog.BLACK;
 
   private final NonCascadingProperty<ControlState, Double> memberOpacity = //
-  new NonCascadingProperty<>(
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     ControlHeadStyleAttributeHeaderCatalog.OPACITY_HEADER,
     ControlState.class,
     s -> OpacityHelper.getOpacityFromString(s.getSingleChildNodeHeader()),

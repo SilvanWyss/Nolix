@@ -34,7 +34,8 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
 
   private static final String CHILD_CONTROL_MARGIN_HEADER = "ChildControlMargin";
 
-  private final NonCascadingProperty<ControlState, GridType> gridType = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, GridType> gridType = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     GRID_TYPE_HEADER,
     ControlState.class,
     GridType::fromSpecification,
@@ -42,14 +43,16 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     this::setGridTypeForState,
     DEFAULT_GRID_TYPE);
 
-  private final NonCascadingProperty<ControlState, Integer> gridThickness = NonCascadingProperty
+  private final NonCascadingProperty<ControlState, Integer> gridThickness = //
+  NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       GRID_THICKNESS_HEADER,
       ControlState.class,
       this::setGridThicknessForState,
       DEFAULT_GRID_THICKNESS);
 
-  private final NonCascadingProperty<ControlState, IColor> gridColor = new NonCascadingProperty<>(
+  private final NonCascadingProperty<ControlState, IColor> gridColor = //
+  NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     GRID_COLOR_HEADER,
     ControlState.class,
     Color::fromSpecification,
@@ -57,7 +60,8 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     this::setGridColorForState,
     DEFAULT_GRID_COLOR);
 
-  private final NonCascadingProperty<ControlState, Integer> childControlMargin = NonCascadingProperty
+  private final NonCascadingProperty<ControlState, Integer> childControlMargin = //
+  NonCascadingProperty
     .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
       CHILD_CONTROL_MARGIN_HEADER,
       ControlState.class,
