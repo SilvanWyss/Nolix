@@ -37,7 +37,8 @@ AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
   }
 
   private SqlConnectionPool buildSqlConnectionPool() {
-    return new SqlConnectionPool(
+    return //
+    SqlConnectionPool.withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
       getIpOrDomain(),
       nxtArgCpt().getPort(),
       nxtArgCpt().nxtArgCpt().getDatabaseName(),

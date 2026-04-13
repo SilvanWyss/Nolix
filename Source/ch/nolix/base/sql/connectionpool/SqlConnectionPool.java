@@ -31,7 +31,7 @@ implements ISqlDatabaseTarget {
 
   private final Credential credential;
 
-  SqlConnectionPool(
+  private SqlConnectionPool(
     final String ipOrDomain,
     final int port,
     final String databaseName,
@@ -48,6 +48,16 @@ implements ISqlDatabaseTarget {
     this.databaseName = databaseName;
     this.sqlDatabaseEngine = sqlDatabaseEngine;
     credential = Credential.withLoginNameAndPassword(loginName, loginPassword);
+  }
+
+  public static SqlConnectionPool withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
+    final String ipOrDomain,
+    final int port,
+    final String databaseName,
+    final SqlDatabaseEngine sqlDatabaseEngine,
+    final String loginName,
+    final String loginPassword) {
+    return new SqlConnectionPool(ipOrDomain, port, databaseName, sqlDatabaseEngine, loginName, loginPassword);
   }
 
   /**
