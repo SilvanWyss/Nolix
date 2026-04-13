@@ -3,11 +3,6 @@
  */
 package ch.nolix.base.testing.standardtest;
 
-import ch.nolix.base.errorcontrol.generalexception.GeneralException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-
 /**
  * A {@link ThrownExceptionMediator} is not mutable.
  * 
@@ -18,15 +13,12 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * 
  * @author Silvan Wyss
  */
-public class ThrownExceptionMediator {
-  private final Throwable exception;
-
+public final class ThrownExceptionMediator extends AbstractThrownExceptionMediator {
   /**
-   * Creates a new {@link ThrownExceptionMediator}.
+   * Creates a new {@link ThrownExceptionMediator} without exception.
    */
-  ThrownExceptionMediator() {
-    //Clears the exception of the current thrown exception mediator.
-    exception = null;
+  private ThrownExceptionMediator() {
+    super();
   }
 
   /**
@@ -35,141 +27,24 @@ public class ThrownExceptionMediator {
    * @param exception
    * @throws RuntimeException if the given exception is null.
    */
-  ThrownExceptionMediator(final Throwable exception) {
-    //Asserts that the given exception is not null.
-    if (exception == null) {
-      throw ArgumentIsNullException.forArgumentType(Exception.class);
-    }
-
-    //Sets the exception of the current thrown exception mediator.
-    this.exception = exception;
-  }
-
-  //For a better performance, this implementation does not use all available comfort methods.
-  /**
-   * Generates an error if the exception of the current
-   * {@link ThrownExceptionMediator} does not have a message.
-   */
-  public final void withMessage() {
-    //Handles the case that the current thrown exception mediator has an exception.
-    if (exception != null && exception.getMessage() == null) {
-      throw //
-      GeneralException.withErrorMessage(
-        "An exception with a message was expected,"
-        + "but an exception without messag was received.");
-    }
-  }
-
-  //For a better performance, this implementation does not use all available comfort methods.
-  /**
-   * Generates an error if the exception of the current
-   * {@link ThrownExceptionMediator} does not have the given message.
-   * 
-   * @param message
-   * @throws RuntimeException if the given message is null.
-   */
-  public final void withMessage(final String message) {
-    //Asserts that the given message is not null.
-    if (message == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MESSAGE);
-    }
-
-    //Handles the case that the current ThrownExceptionMediator has an exception.
-    if (exception != null) {
-      //Asserts that the exception of the current ThrownExceptionMediator has a
-      //message.
-      if (exception.getMessage() == null) {
-        throw //
-        GeneralException.withErrorMessage(
-          "An exception with the message '"
-          + message
-          + "' was expected, but an exception without messag was received.");
-      }
-
-      //Asserts that the exception of the current ThrownExceptionMediator has the
-      //given message.
-      if (!exception.getMessage().equals(message)) {
-        throw //
-        GeneralException.withErrorMessage(
-          "An exception with the message '"
-          + message
-          + "' was expected, but an exception with the message '"
-          + exception.getMessage()
-          + "' was thrown.");
-      }
-    }
+  private ThrownExceptionMediator(final Throwable exception) {
+    //Calls constructor of the base class.
+    super(exception);
   }
 
   /**
-   * Generates an error if the exception of the current
-   * {@link ThrownExceptionMediator} does not have a message that matches the
-   * given regex
-   * 
-   * @param regex
-   * @throws RuntimeException if the given regex is null.
+   * @param exception
+   * @return a new {@link ThrownExceptionMediator} for the given exception.
+   * @throws RuntimeException if the given exception is null.
    */
-  public final void withMessageThatMatches(final String regex) {
-    if (regex == null) {
-      throw ArgumentIsNullException.forArgumentName("regex");
-    }
-
-    final var message = exception.getMessage();
-
-    if (message == null) {
-      throw //
-      GeneralException.withErrorMessage(
-        "An exception with a message that matches the regex '"
-        + regex
-        + "' was expected, but an exception without message was thrown.");
-    } else if (!message.matches(regex)) {
-      throw //
-      GeneralException.withErrorMessage(
-        "An exception with a message that matches the regex '"
-        + regex
-        + "' was expected, but an exception with the message '"
-        + message
-        + "' was thrown.");
-    } else {
-      //Does nothing because there was not found any error.
-    }
-  }
-
-  //For a better performance, this implementation does not use all available comfort methods.
-  /**
-   * Generates an error if the exception of the current
-   * {@link ThrownExceptionMediator} has a message.
-   */
-  public final void withoutMessage() {
-    //Handles the case that the current ThrownExceptionMediator has an exception.
-    if (exception != null && exception.getMessage() != null) {
-      throw //
-      GeneralException.withErrorMessage(
-        "An exception without message was expected, but an exception with the message '"
-        + exception.getMessage()
-        + "' was received.");
-    }
-  }
-
-  //For a better performance, this implementation does not use all available comfort methods.
-  /**
-   * @return the exception of the current {@link ThrownExceptionMediator}.
-   * 
-   */
-  final Throwable getException() {
-    //Asserts that the current ThrownExceptionMediator has an exception.
-    if (exception == null) {
-      throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.EXCEPTION);
-    }
-
-    return exception;
+  public static ThrownExceptionMediator forExcetpion(final Throwable exception) {
+    return new ThrownExceptionMediator(exception);
   }
 
   /**
-   * @return true if the current {@link ThrownExceptionMediator} has an exception,
-   *         false otherwise.
+   * @return a new {@link ThrownExceptionMediator} without exception.
    */
-  final boolean hasException() {
-    return (exception != null);
+  public static ThrownExceptionMediator withoutException() {
+    return new ThrownExceptionMediator();
   }
 }

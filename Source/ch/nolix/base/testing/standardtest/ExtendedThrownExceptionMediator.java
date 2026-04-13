@@ -12,13 +12,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * 
  * @author Silvan Wyss
  */
-public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
-  /**
-   * Creates a new {@link ExtendedThrownExceptionMediator}.
-   */
-  ExtendedThrownExceptionMediator() {
-  }
-
+public final class ExtendedThrownExceptionMediator extends AbstractThrownExceptionMediator {
   /**
    * Creates a new {@link ExtendedThrownExceptionMediator} for the given
    * exception.
@@ -26,9 +20,19 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * @param exception
    * @throws RuntimeException if the given exception is null.
    */
-  ExtendedThrownExceptionMediator(final Throwable exception) {
+  private ExtendedThrownExceptionMediator(final Throwable exception) {
     //Calls constructor of the base class.
     super(exception);
+  }
+
+  /**
+   * @param exception
+   * @return a new {@link ExtendedThrownExceptionMediator} for the given
+   *         exception.
+   * @throws RuntimeException if the given exception is null.
+   */
+  public static ExtendedThrownExceptionMediator forExcetpion(final Throwable exception) {
+    return new ExtendedThrownExceptionMediator(exception);
   }
 
   /**
@@ -51,7 +55,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
     //Handles the case that the current extended thrown exception mediator
     //does not have an exception.
     if (!hasException()) {
-      return new ExtendedThrownExceptionMediator();
+      return ThrownExceptionMediator.withoutException();
     }
 
     //Handles the case that the current extended thrown exception mediator has an
@@ -65,6 +69,6 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
         + " was thrown.");
     }
 
-    return new ExtendedThrownExceptionMediator(getException());
+    return ThrownExceptionMediator.forExcetpion(getException());
   }
 }
