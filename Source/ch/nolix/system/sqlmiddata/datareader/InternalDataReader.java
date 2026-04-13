@@ -56,9 +56,7 @@ final class InternalDataReader {
 
   private final ISqlConnection sqlConnection;
 
-  public InternalDataReader(
-    final String databaseName,
-    final ISqlConnection sqlConnection) {
+  private InternalDataReader(final String databaseName, final ISqlConnection sqlConnection) {
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     Validator.assertThat(sqlConnection).thatIsNamed(AbstractSqlConnection.class).isNotNull();
 
@@ -66,6 +64,12 @@ final class InternalDataReader {
     this.sqlConnection = sqlConnection;
 
     sqlConnection.executeStatement("USE " + databaseName);
+  }
+
+  public static InternalDataReader withDatabaseNameAndSqlConnection(
+    final String databaseName,
+    final ISqlConnection sqlConnection) {
+    return new InternalDataReader(databaseName, sqlConnection);
   }
 
   public String getDatabaseName() {
