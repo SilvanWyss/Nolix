@@ -6,12 +6,10 @@ package ch.nolix.base.math.algebra;
 import java.util.Arrays;
 import java.util.Random;
 
-import ch.nolix.base.commontypetool.arraytool.ArrayTool;
 import ch.nolix.base.commontypetool.doubletool.DoubleTool;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.arraytool.IArrayTool;
 import ch.nolix.baseapi.commontypetool.doubletool.IDoubleTool;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -29,8 +27,6 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  */
 public final class Matrix { //NOSONAR: A Matrix is a principal object thus it has many methods.
-  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
-
   private static final IDoubleTool DOUBLE_TOOL = new DoubleTool();
 
   private static final Random RANDOM = new Random();
@@ -245,24 +241,21 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
-   * Appends a new row with the given row values on the bottom of the current
+   * Appends a new row with the given row values at the bottom of the current
    * {@link Matrix}.
    * 
-   * @param rowValue
    * @param rowValues
    * @return the current {@link Matrix}.
    * @throws RuntimeException if not as many row values are given than the number
    *                          of columns of the current {@link Matrix}.
    */
-  public Matrix appendAtBottom(final double rowValue, final double... rowValues) {
-    //Asserts that as many row values are given than the number of columns of the
-    //current Matrix.
-    final var rowValueCount = rowValues.length + 1;
+  public Matrix appendAtBottom(final double... rowValues) {
+    final var rowValueCount = rowValues.length;
     Validator.assertThat(rowValueCount).thatIsNamed("number of row values").isEqualTo(getColumnCount());
 
     var oldValues = values;
     values = Arrays.copyOf(values, oldValues.length + 1);
-    values[getRowCount() - 1] = ARRAY_TOOL.createArrayWithValue(rowValue, rowValues);
+    values[getRowCount() - 1] = rowValues;
 
     return this;
   }
