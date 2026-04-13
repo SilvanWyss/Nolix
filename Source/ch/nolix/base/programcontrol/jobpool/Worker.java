@@ -8,12 +8,16 @@ import ch.nolix.base.validation.validator.Validator;
 final class Worker extends Thread {
   private final JobPool parentJobPool;
 
-  public Worker(final JobPool parentJobPool) {
+  private Worker(final JobPool parentJobPool) {
     Validator.assertThat(parentJobPool).thatIsNamed("parent job bool");
 
     this.parentJobPool = parentJobPool;
 
     start();
+  }
+
+  public static Worker forJobPool(final JobPool jobPool) {
+    return new Worker(jobPool);
   }
 
   /**

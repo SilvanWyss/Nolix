@@ -68,9 +68,10 @@ public final class JobPool {
   }
 
   private synchronized void createNewWorkerIfNeeded() {
-    //Handles the case that a new worker is needed.
     if (newWorkerIsNeeded()) {
-      workers.addAtEnd(new Worker(this));
+      final var worker = Worker.forJobPool(this);
+
+      workers.addAtEnd(worker);
     }
   }
 
