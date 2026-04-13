@@ -12,7 +12,7 @@ import ch.nolix.baseapi.sql.connection.ISqlConnection;
 public final class MsSqlSchemaAdapter extends AbstractSchemaAdapter {
   public static final int DEFAULT_PORT = PortCatalog.MS_SQL;
 
-  MsSqlSchemaAdapter(
+  private MsSqlSchemaAdapter(
     String databaseName,
     final ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter msSqlSchemaAdapter) {
     super(databaseName, msSqlSchemaAdapter);

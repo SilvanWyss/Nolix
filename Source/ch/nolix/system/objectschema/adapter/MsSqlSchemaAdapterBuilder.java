@@ -8,8 +8,7 @@ import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToDatabaseNameCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
 import ch.nolix.base.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
-import ch.nolix.base.sql.connectionpool.SqlConnectionPoolBuilder;
-import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
+import ch.nolix.base.sql.connection.MsSqlConnection;
 
 /**
  * @author Silvan Wyss
@@ -39,20 +38,13 @@ MsSqlSchemaAdapter>>>>> {
   private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
     final var databaseName = nxtArgCpt().nxtArgCpt().getDatabaseName();
 
-    return //
-    new MsSqlSchemaAdapter(
-      databaseName,
-      ch.nolix.system.sqlmidschema.adapter.SqlSchemaAdapter
-        .forDatabaseNameAndSqlConnection(
-          databaseName,
-          SqlConnectionPoolBuilder
-            .createConnectionPool()
-            .forIpOrDomain(getIpOrDomain())
-            .andPort(nxtArgCpt().getPort())
-            .andDatabase(databaseName)
-            .withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL)
-            .andLoginName(nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName())
-            .andLoginPassword(nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword())
-            .borrowResource()));
+    final var msSqlConnection = //
+    MsSqlConnection.toHostAndPortAndWithUserNameAndUserPassword(
+      getIpOrDomain(),
+      nxtArgCpt().getPort(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName(),
+      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword());
+
+    return MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, msSqlConnection);
   }
 }
