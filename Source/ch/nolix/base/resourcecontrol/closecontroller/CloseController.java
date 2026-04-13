@@ -22,7 +22,7 @@ public final class CloseController implements ICloseController {
    * @throws RuntimeException if the given element is null.
    */
   private CloseController(final GroupCloseable element) {
-    parentClosePool = new ClosePool(element);
+    parentClosePool = ClosePool.forElement(element);
   }
 
   /**

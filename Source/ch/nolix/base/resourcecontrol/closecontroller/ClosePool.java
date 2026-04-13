@@ -24,7 +24,7 @@ final class ClosePool implements IClosePool {
    * @param element
    * @throws RuntimeException if the given element is null.
    */
-  public ClosePool(final GroupCloseable element) {
+  private ClosePool(final GroupCloseable element) {
     addElement(element);
   }
 
