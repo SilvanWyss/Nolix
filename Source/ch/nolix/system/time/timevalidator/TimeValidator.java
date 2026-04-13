@@ -12,7 +12,7 @@ public final class TimeValidator {
   private TimeValidator() {
   }
 
-  public static ExtendedTimeMediator assertThat(final ITime time) {
-    return new ExtendedTimeMediator(time);
+  public static NamableTimeMediator assertThat(final ITime time) {
+    return NamableTimeMediator.forArgument(time);
   }
 }

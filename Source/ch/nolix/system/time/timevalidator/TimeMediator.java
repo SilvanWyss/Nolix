@@ -4,42 +4,17 @@
 package ch.nolix.system.time.timevalidator;
 
 import ch.nolix.base.validation.object.AbstractObjectMediator;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
-public class TimeMediator extends AbstractObjectMediator<ITime> {
-  TimeMediator(final String argumentName, final ITime argument) {
+public final class TimeMediator extends AbstractObjectMediator<ITime> {
+  private TimeMediator(final String argumentName, final ITime argument) {
     super(argument, argumentName);
   }
 
-  TimeMediator(final ITime argument) {
-    super(argument);
-  }
-
-  public final void isAfter(final ITime time) {
-    isNotNull();
-
-    if (!getStoredArgument().isAfter(time)) {
-      throw //
-      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        getStoredArgument(),
-        getArgumentName(),
-        "is not after " + time);
-    }
-  }
-
-  public final void isBefore(final ITime time) {
-    isNotNull();
-
-    if (!getStoredArgument().isBefore(time)) {
-      throw //
-      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        getStoredArgument(),
-        getArgumentName(),
-        "is not before " + time);
-    }
+  public static TimeMediator forArugmentNameAndArgument(final String argumentName, final ITime argument) {
+    return new TimeMediator(argumentName, argument);
   }
 }
