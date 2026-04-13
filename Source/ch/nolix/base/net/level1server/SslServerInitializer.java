@@ -4,7 +4,6 @@
 package ch.nolix.base.net.level1server;
 
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
@@ -32,15 +31,17 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
    */
   @Override
   public void initChannel(SocketChannel ch) throws Exception {
-    ChannelPipeline pipeline = ch.pipeline();
+    final var pipeline = ch.pipeline();
+
     if (sslCtx != null) {
       pipeline.addLast(sslCtx.newHandler(ch.alloc()));
     }
+
     pipeline.addLast(new HttpServerCodec());
     pipeline.addLast(new HttpObjectAggregator(65536));
     pipeline.addLast(new WebSocketServerCompressionHandler(0));
     pipeline.addLast(new WebSocketServerProtocolHandler(WEBSOCKET_PATH, null, true));
     pipeline.addLast(SslServerIndexPageHandler.withHtmlPage(htmlPage));
-    pipeline.addLast(new SslServerChannelInboundHandler(parentWebSocketServer));
+    pipeline.addLast(SslServerChannelInboundHandler.forSslServer(parentWebSocketServer));
   }
 }

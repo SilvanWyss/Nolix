@@ -15,10 +15,14 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
 
   private SslServerEndPoint parentWebSocketServerEndPoint;
 
-  public SslServerChannelInboundHandler(final SslServer parentWebSocketServer) {
+  private SslServerChannelInboundHandler(final SslServer parentWebSocketServer) {
     Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;
+  }
+
+  public static SslServerChannelInboundHandler forSslServer(final SslServer sslServer) {
+    return new SslServerChannelInboundHandler(sslServer);
   }
 
   /**
