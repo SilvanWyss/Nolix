@@ -16,30 +16,43 @@ public final class DoubleDeviationMediator extends AbstractMediator {
   private final double maxDeviation;
 
   /**
-   * Creates a new named double deviation mediator with the given argument name,
-   * argument and max deviation.
+   * Creates a {@link DoubleDeviationMediator} with the given argument,
+   * argumentName and maxDeviation.
    * 
-   * @param argumentName
    * @param argument
+   * @param argumentName
    * @param maxDeviation
-   * @throws RuntimeException if the given argument name is null.
-   * @throws RuntimeException if the given argument name is empty.
-   * @throws RuntimeException if the given max deviation is negative.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given maxDeviation is negative.
    */
-  DoubleDeviationMediator(
+  private DoubleDeviationMediator(
+    final double argument,
     final String argumentName,
-    final Double argument,
     final double maxDeviation) {
-    //Calls constructor of the base class.
     super(argumentName);
 
-    //Asserts that the given max deviation is not negative.
     if (maxDeviation < 0.0) {
       throw NegativeArgumentException.forArgumentAndArgumentName(maxDeviation, "max deviation");
     }
 
     this.argument = argument;
     this.maxDeviation = maxDeviation;
+  }
+
+  /**
+   * @param argument
+   * @param argumentName
+   * @param maxDeviation
+   * @return a {@link DoubleDeviationMediator} with the given argument,
+   *         argumentName and maxDeviation.
+   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given maxDeviation is negative.
+   */
+  public static DoubleDeviationMediator forArgumentAndArgumentNameAndMaxDeviation(
+    final double argument,
+    final String argumentName,
+    final double maxDeviation) {
+    return new DoubleDeviationMediator(argument, argumentName, maxDeviation);
   }
 
   /**
@@ -51,11 +64,6 @@ public final class DoubleDeviationMediator extends AbstractMediator {
    *                                  deviation mediator.
    */
   public void isEqualTo(final double value) {
-    /*
-     * Asserts that the argument of this named double deviation mediator equals the
-     * given value with a deviation that is not bigger than the max deviation of
-     * this named double deviation mediator.
-     */
     if (Math.abs(value - argument) > maxDeviation) {
       throw UnequalArgumentException.forArgumentAndArgumentNameAndValue(value, getArgumentName(), argument);
     }

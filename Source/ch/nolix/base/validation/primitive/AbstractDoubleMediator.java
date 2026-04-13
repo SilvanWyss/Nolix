@@ -191,7 +191,8 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @throws RuntimeException if the given maxDeviation is negative.
    */
   public final DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
-    return new DoubleDeviationMediator(getArgumentName(), getArgument(), maxDeviation);
+    return //
+    DoubleDeviationMediator.forArgumentAndArgumentNameAndMaxDeviation(getArgument(), getArgumentName(), maxDeviation);
   }
 
   /**
