@@ -75,7 +75,8 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
       defaultValue);
   }
 
-  public static <S2 extends Enum<S2>, V2> CascadingProperty<S2, V2> withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
+  public static <S2 extends Enum<S2>, V2> CascadingProperty<S2, V2> //
+  withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
     final Function<INode<?>, V2> valueCreator,
@@ -84,7 +85,8 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     return new CascadingProperty<>(name, stateClass, valueCreator, specificationCreator, defaultValue);
   }
 
-  public static <S2 extends Enum<S2>, V2> CascadingProperty<S2, V2> withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
+  public static <S2 extends Enum<S2>, V2> CascadingProperty<S2, V2> //
+  withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
     final Function<INode<?>, V2> valueCreator,

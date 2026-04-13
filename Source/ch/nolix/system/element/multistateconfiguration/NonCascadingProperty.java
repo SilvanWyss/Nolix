@@ -76,7 +76,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
       defaultValue);
   }
 
-  public static <S2 extends Enum<S2>, V2> NonCascadingProperty<S2, V2> withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
+  public static <S2 extends Enum<S2>, V2> NonCascadingProperty<S2, V2> //
+  withNameAndStateClassAndValueMapperAndSpecificationMapperAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
     final Function<INode<?>, V2> valueCreator,
@@ -85,7 +86,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     return new NonCascadingProperty<>(name, stateClass, valueCreator, specificationCreator, defaultValue);
   }
 
-  public static <S2 extends Enum<S2>, V2> NonCascadingProperty<S2, V2> withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
+  public static <S2 extends Enum<S2>, V2> NonCascadingProperty<S2, V2> //
+  withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     final String name,
     final Class<S2> stateClass,
     final Function<INode<?>, V2> valueCreator,
