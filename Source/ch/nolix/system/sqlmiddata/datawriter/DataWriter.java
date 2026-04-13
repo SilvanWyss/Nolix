@@ -41,7 +41,7 @@ public final class DataWriter implements IDataWriter {
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
     this.databaseView = databaseView;
-    executiveDataWriter = new ExecutiveDataWriter(databaseName, sqlConnection);
+    this.executiveDataWriter = ExecutiveDataWriter.withDatabaseNameAndSqlConnection(databaseName, sqlConnection);
 
     createCloseDependencyTo(sqlConnection);
   }

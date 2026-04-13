@@ -40,14 +40,18 @@ public final class ExecutiveDataWriter {
 
   private final ISqlConnection sqlConnection;
 
-  public ExecutiveDataWriter(
-    final String databaseName,
-    final ISqlConnection sqlConnection) {
+  private ExecutiveDataWriter(final String databaseName, final ISqlConnection sqlConnection) {
     Validator.assertThat(sqlConnection).thatIsNamed(AbstractSqlConnection.class).isNotNull();
 
     this.sqlConnection = sqlConnection;
 
     sqlConnection.executeStatement("USE " + databaseName);
+  }
+
+  public static ExecutiveDataWriter withDatabaseNameAndSqlConnection(
+    final String databaseName,
+    final ISqlConnection sqlConnection) {
+    return new ExecutiveDataWriter(databaseName, sqlConnection);
   }
 
   public void deleteEntity(final String tableName, final EntityDeletionDto entity) {
