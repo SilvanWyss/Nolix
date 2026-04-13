@@ -29,7 +29,8 @@ public final class JobPool {
    * @throws RuntimeException if the given job is null.
    */
   public IFuture enqueue(final Runnable job) {
-    final var jobWrapper = new JobWrapper(job);
+    final var jobWrapper = JobWrapper.withJob(job);
+
     jobWrappers.addAtEnd(jobWrapper);
     createNewWorkerIfNeeded();
 

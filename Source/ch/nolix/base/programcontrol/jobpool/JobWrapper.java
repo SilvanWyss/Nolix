@@ -18,10 +18,14 @@ final class JobWrapper implements Runnable {
 
   private Throwable error;
 
-  public JobWrapper(final Runnable job) {
+  private JobWrapper(final Runnable job) {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
 
     this.job = job;
+  }
+
+  public static JobWrapper withJob(final Runnable job) {
+    return new JobWrapper(job);
   }
 
   public boolean caughtError() {
