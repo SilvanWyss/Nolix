@@ -14,16 +14,26 @@ import io.netty.handler.ssl.SslContext;
 final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
   private static final String WEBSOCKET_PATH = "/websocket"; //NOSONAR: This constant is not a URI.
 
-  private final SslServer parentWebSocketServer;
+  private final SslServer parentSslServer;
 
   private final String htmlPage;
 
-  private final SslContext sslCtx;
+  private final SslContext sslContext;
 
-  public SslServerInitializer(SslServer parentWebSocketServer, String htmlPage, SslContext sslCtx) {
-    this.parentWebSocketServer = parentWebSocketServer;
+  private SslServerInitializer(
+    final SslServer parentSslServer,
+    final String htmlPage,
+    final SslContext sslContext) {
+    this.parentSslServer = parentSslServer;
     this.htmlPage = htmlPage;
-    this.sslCtx = sslCtx;
+    this.sslContext = sslContext;
+  }
+
+  public static SslServerInitializer forSslServerWithHtmlPageAndSslContext(
+    final SslServer sslServer,
+    final String htmlPage,
+    final SslContext sslContext) {
+    return new SslServerInitializer(sslServer, htmlPage, sslContext);
   }
 
   /**
@@ -33,8 +43,8 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
   public void initChannel(SocketChannel ch) throws Exception {
     final var pipeline = ch.pipeline();
 
-    if (sslCtx != null) {
-      pipeline.addLast(sslCtx.newHandler(ch.alloc()));
+    if (sslContext != null) {
+      pipeline.addLast(sslContext.newHandler(ch.alloc()));
     }
 
     pipeline.addLast(new HttpServerCodec());
@@ -42,6 +52,6 @@ final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
     pipeline.addLast(new WebSocketServerCompressionHandler(0));
     pipeline.addLast(new WebSocketServerProtocolHandler(WEBSOCKET_PATH, null, true));
     pipeline.addLast(SslServerIndexPageHandler.withHtmlPage(htmlPage));
-    pipeline.addLast(SslServerChannelInboundHandler.forSslServer(parentWebSocketServer));
+    pipeline.addLast(SslServerChannelInboundHandler.forSslServer(parentSslServer));
   }
 }

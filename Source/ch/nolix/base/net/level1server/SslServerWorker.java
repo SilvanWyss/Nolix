@@ -69,7 +69,8 @@ final class SslServerWorker extends AbstractWorker {
         .group(bossGroup, workerGroup)
         .channel(NioServerSocketChannel.class)
         .handler(new LoggingHandler(LogLevel.INFO))
-        .childHandler(new SslServerInitializer(parentWebSocketServer, htmlPage, sslContext));
+        .childHandler(
+          SslServerInitializer.forSslServerWithHtmlPageAndSslContext(parentWebSocketServer, htmlPage, sslContext));
 
       channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();
