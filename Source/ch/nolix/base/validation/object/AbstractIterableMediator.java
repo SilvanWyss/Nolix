@@ -146,13 +146,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     containsAll(elements);
   }
 
-  public void containsExactlyEqualing(final Object firstElement, final Object... elements) {
-    final var localElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
-
-    containsExactlyEqualing(localElements);
-  }
-
-  public void containsExactlyEqualing(final Object[] elements) {
+  public void containsExactlyEqualing(final Object... elements) {
     containsAsManyElementsAs(elements);
 
     var index = 0;
