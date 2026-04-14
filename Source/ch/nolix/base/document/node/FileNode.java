@@ -98,17 +98,6 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode addChildNodeFromString(final String string, final String... strings) {
-    internalSpecification.addChildNodeFromString(string, strings);
-    save();
-
-    return this;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public FileNode addChildNodes(final INode<?>... childNodes) {
     internalSpecification.addChildNodes(childNodes);
     save();
@@ -135,6 +124,17 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
     internalSpecification.addChildNodesFromStrings(strings);
     save();
 
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public FileNode addChildNodesFromStrings(final String... strings) {
+    internalSpecification.addChildNodesFromStrings(strings);
+    save();
+  
     return this;
   }
 

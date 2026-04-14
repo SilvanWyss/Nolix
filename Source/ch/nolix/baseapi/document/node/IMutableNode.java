@@ -29,18 +29,6 @@ Resettable {
   N addChildNode(INode<?> childNode);
 
   /**
-   * Adds the child {@link INode}s from the given strings the current
-   * {@link IMutableNode}.
-   * 
-   * @param string
-   * @param strings
-   * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if one of the given strings does not represent a
-   *                          {@link INode}.
-   */
-  N addChildNodeFromString(String string, String... strings);
-
-  /**
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 
    * @param childNodes
@@ -69,6 +57,18 @@ Resettable {
    *                          {@link INode}.
    */
   N addChildNodesFromStrings(Iterable<String> strings);
+
+  /**
+   * Adds the child {@link INode}s from the given strings to the current
+   * {@link IMutableNode}.
+   * 
+   * @param strings
+   * @return the current {@link IMutableNode}.
+   * @throws RuntimeException if the given strings is null.
+   * @throws RuntimeException if one of the given strings does not represent a
+   *                          {@link INode}.
+   */
+  N addChildNodesFromStrings(String... strings);
 
   /**
    * Adds the given postfix at the end of the header of the current
