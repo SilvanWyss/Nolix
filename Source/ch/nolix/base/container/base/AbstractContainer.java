@@ -147,23 +147,6 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAny(final Object object, final Object... objects) {
-    //Calls other methods.
-    return //
-    contains(object)
-    || containsAnyOf(objects);
-  }
-
-  /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractContainer} contains m elements.
-   * 
-   * -n objects are given.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean containsAnyOf(final Iterable<?> objects) {
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
@@ -191,7 +174,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAnyOf(final Object[] objects) {
+  public final boolean containsAnyOf(final Object... objects) {
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
@@ -339,9 +322,9 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNone(final Object object, final Object... objects) {
+  public final boolean containsNoneOf(final Iterable<?> elements) {
     //Calls other method.
-    return !containsAny(object, objects);
+    return !containsAnyOf(elements);
   }
 
   /**
@@ -354,9 +337,9 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNoneOf(final Iterable<?> elements) {
+  public final boolean containsNoneOf(final Object... objects) {
     //Calls other method.
-    return !containsAnyOf(elements);
+    return !containsAnyOf(objects);
   }
 
   /**

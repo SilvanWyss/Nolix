@@ -155,21 +155,21 @@ public abstract class ContainerTest extends StandardTest {
   }
 
   @Test
-  final void testCase_containsAny_whenIsEmpty() {
+  final void testCase_containsAnyOf_whenIsEmpty() {
     //setup
     final var element1 = "x";
     final var element2 = "xx";
     final var testUnit = createEmptyContainerForType(String.class);
 
     //execution
-    final var result = testUnit.containsAny(element1, element2);
+    final var result = testUnit.containsAnyOf(element1, element2);
 
     //verification
     expect(result).isFalse();
   }
 
   @Test
-  final void testCase_containsAny_whenContainsGivenElementsAndMore() {
+  final void testCase_containsAnyOf_whenContainsGivenElementsAndMore() {
     //setup
     final var element1 = "x";
     final var element2 = "xx";
@@ -178,14 +178,14 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(element1, element2, element3, element4);
 
     //execution
-    final var result = testUnit.containsAny(element1, element2, element3, element4);
+    final var result = testUnit.containsAnyOf(element1, element2, element3, element4);
 
     //verification
     expect(result).isTrue();
   }
 
   @Test
-  final void testCase_containsAny_whenContainsOtherElementsOnly() {
+  final void testCase_containsAnyOf_whenContainsOtherElementsOnly() {
     //setup
     final var element1 = "x";
     final var element2 = "xx";
@@ -194,7 +194,7 @@ public abstract class ContainerTest extends StandardTest {
     final var testUnit = createContainerWithElements(element1, element2);
 
     //execution
-    final var result = testUnit.containsAny(element3, element4);
+    final var result = testUnit.containsAnyOf(element3, element4);
 
     //verification
     expect(result).isFalse();

@@ -42,15 +42,6 @@ public interface StoringRequestable<E> {
   boolean containsAny(Predicate<E> selector);
 
   /**
-   * @param object
-   * @param objects
-   * @return true if the current {@link StoringRequestable} contains the given
-   *         object or one of the given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
-   */
-  boolean containsAny(Object object, Object... objects);
-
-  /**
    * @param objects
    * @return true if the current {@link StoringRequestable} contains any of the
    *         given objects, false otherwise.
@@ -60,11 +51,11 @@ public interface StoringRequestable<E> {
 
   /**
    * @param objects
-   * @return true if the current {@link StoringRequestable} contains any of the
-   *         given objects, false otherwise.
+   * @return true if the current {@link StoringRequestable} contains at least one
+   *         of the given objects, false otherwise.
    * @throws RuntimeException if the given objects is null.
    */
-  boolean containsAnyOf(Object[] objects);
+  boolean containsAnyOf(Object... objects);
 
   /**
    * @param container
@@ -110,6 +101,14 @@ public interface StoringRequestable<E> {
   boolean containsMoreThan(Iterable<?> iterable);
 
   /**
+   * @param objects
+   * @return true if the current {@link StoringRequestable} does not contain any
+   *         of the given objects, false otherwise.
+   * @throws RuntimeException if the given objects is null.
+   */
+  boolean containsNoneOf(Iterable<?> objects);
+
+  /**
    * @param selector
    * @return true if the current {@link StoringRequestable} does not contain an
    *         element the given selector selects, false otherwise. Ignores null
@@ -119,21 +118,12 @@ public interface StoringRequestable<E> {
   boolean containsNone(Predicate<E> selector);
 
   /**
-   * @param object
-   * @param objects
-   * @return true if the current {@link StoringRequestable} does not contain the
-   *         given object and none of the given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
-   */
-  boolean containsNone(Object object, Object... objects);
-
-  /**
    * @param objects
    * @return true if the current {@link StoringRequestable} does not contain any
    *         of the given objects, false otherwise.
    * @throws RuntimeException if the given objects is null.
    */
-  boolean containsNoneOf(Iterable<?> objects);
+  boolean containsNoneOf(Object... objects);
 
   /**
    * @param object
