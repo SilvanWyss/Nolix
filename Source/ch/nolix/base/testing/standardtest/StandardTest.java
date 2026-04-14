@@ -176,12 +176,10 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
   }
 
   /**
-   * @param argument
    * @param arguments
-   * @return a new long container mediator that belongs to this test and has the
-   *         given arguments.
+   * @return a new {@link MultiLongMediator} for the given arguments.
    */
-  protected static final MultiLongMediator expectTheLongs(final long argument, final long... arguments) {
-    return expectTheLongs(argument, arguments);
+  protected static final MultiLongMediator expectTheLongs(final long... arguments) {
+    return MultiLongMediator.forArguments(arguments);
   }
 }

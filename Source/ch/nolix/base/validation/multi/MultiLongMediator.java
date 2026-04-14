@@ -49,6 +49,21 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
   }
 
   /**
+   * @param arguments
+   * @return a new {@link MultiLongMediator} for the given arguments.
+   * @throws RuntimeException if the given arguments is null.
+   */
+  public static MultiLongMediator forArguments(final long[] arguments) {
+    final List<Long> longArguments = List.createEmpty();
+
+    for (final var a : arguments) {
+      longArguments.addAtEnd(a);
+    }
+
+    return new MultiLongMediator(longArguments);
+  }
+
+  /**
    * @throws RuntimeException if one of the arguments of the current
    *                          {@link MultiLongMediator} is null or not positive.
    */
