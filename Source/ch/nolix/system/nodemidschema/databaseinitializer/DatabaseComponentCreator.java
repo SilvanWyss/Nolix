@@ -28,7 +28,8 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
     MutableNode
       .createEmpty()
       .setHeader(NodeHeaderCatalog.DATABASE_PROPERTIES)
-      .addChildNode(nameNode, schemaTimestampNode);
+      .addChildNode(nameNode)
+      .addChildNodes(schemaTimestampNode);
   }
 
   /**

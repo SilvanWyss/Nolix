@@ -20,14 +20,13 @@ INode<N>,
 IFluentMutableOptionalHeaderHolder<N>,
 Resettable {
   /**
-   * Adds the given childNodes to the current {@link IMutableNode}.
+   * Adds the given childNode to the current {@link IMutableNode}.
    * 
    * @param childNode
-   * @param childNodes
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if one of the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null.
    */
-  N addChildNode(INode<?> childNode, INode<?>... childNodes);
+  N addChildNode(INode<?> childNode);
 
   /**
    * Adds the child {@link INode}s from the given strings the current
@@ -40,6 +39,15 @@ Resettable {
    *                          {@link INode}.
    */
   N addChildNodeFromString(String string, String... strings);
+
+  /**
+   * Adds the given childNodes to the current {@link IMutableNode}.
+   * 
+   * @param childNodes
+   * @return the current {@link IMutableNode}.
+   * @throws RuntimeException if one of the given childNodes is null.
+   */
+  N addChildNodes(INode<?>... childNodes);
 
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.

@@ -80,6 +80,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
 
     nodeDatabase
       .setHeader(NodeHeaderCatalog.DATABASE)
-      .addChildNode(databasePropertiesNode, entityIndexesNodes);
+      .addChildNode(databasePropertiesNode)
+      .addChildNodes(entityIndexesNodes);
   }
 }

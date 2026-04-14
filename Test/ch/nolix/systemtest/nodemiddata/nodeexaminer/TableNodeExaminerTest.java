@@ -39,7 +39,7 @@ final class TableNodeExaminerTest extends StandardTest {
     final var tableNode = //
     MutableNode
       .createEmpty()
-      .addChildNode(
+      .addChildNodes(
         Node.withHeaderAndChildNode("Entity",
           Node.withHeader("id1"),
           Node.withHeader("save_stamp"),

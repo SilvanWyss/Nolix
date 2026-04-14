@@ -80,12 +80,8 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
+  public MutableNode addChildNode(final INode<?> childNode) {
     memberChildNodes.addAtEnd(fromNode(childNode));
-
-    for (final var c : childNodes) {
-      memberChildNodes.addAtEnd(fromNode(c));
-    }
 
     return this;
   }
@@ -99,6 +95,18 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
 
     for (final var s : strings) {
       addChildNode(fromString(s));
+    }
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MutableNode addChildNodes(final INode<?>... childNodes) {
+    for (final var c : childNodes) {
+      addChildNode(c);
     }
 
     return this;
