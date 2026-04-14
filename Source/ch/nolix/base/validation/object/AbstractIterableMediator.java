@@ -140,12 +140,10 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
-  public void containsExactly(final Object firstElement, final Object... elements) {
-    final var allElements = ARRAY_TOOL.createArrayWithElement(firstElement, elements);
+  public void containsExactly(final Object... elements) {
+    hasElementCount(elements.length);
 
-    hasElementCount(allElements.length);
-
-    containsAll(allElements);
+    containsAll(elements);
   }
 
   public void containsExactlyEqualing(final Object firstElement, final Object... elements) {
