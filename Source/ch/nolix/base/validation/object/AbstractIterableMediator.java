@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.independent.iterabletool.IterableExaminer;
 import ch.nolix.base.independent.iterabletool.IterableTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -16,7 +15,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentExcep
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.baseapi.independent.arraytool.IArrayTool;
 import ch.nolix.baseapi.independent.iterabletool.IIterableExaminer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
@@ -27,8 +25,6 @@ import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
  *            {@link AbstractIterableMediator}.
  */
 public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator<Iterable<E>> {
-  private static final IArrayTool ARRAY_TOOL = new ArrayTool();
-
   private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private static final IterableTool ITERABLE_TOOL = new IterableTool();
