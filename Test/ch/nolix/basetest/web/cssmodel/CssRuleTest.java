@@ -18,7 +18,7 @@ final class CssRuleTest extends StandardTest {
     //setup
     final var property1 = CssProperty.withNameAndValue("n1", "v1");
     final var property2 = CssProperty.withNameAndValue("n2", "v2");
-    final var testUnit = CssRule.withSelectorAndProperty("div", property1, property2);
+    final var testUnit = CssRule.withSelectorAndProperties("div", property1, property2);
 
     //execution
     final var result = testUnit.withPrefixedSelector("#my_id ");

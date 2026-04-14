@@ -39,7 +39,7 @@ public final class WebGuiCssBuilder {
         ImmutableList.withElements(CssProperty.withNameAndValue(CssPropertyNameCatalog.MARGIN, "0px"))));
 
     cssRules.addAtEnd(
-      CssRule.withSelectorAndProperty(
+      CssRule.withSelectorAndProperties(
         "#root",
         CssProperty.withNameAndValue(CssPropertyNameCatalog.MIN_HEIGHT, "100vh")));
 

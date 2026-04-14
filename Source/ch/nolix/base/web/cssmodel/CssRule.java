@@ -36,13 +36,12 @@ public final class CssRule implements ICssRule {
     return new CssRule(selector, properties);
   }
 
-  public static CssRule withSelectorAndProperty(
+  public static CssRule withSelectorAndProperties(
     final String selector,
-    final ICssProperty property,
     final ICssProperty... properties) {
-    final var allProperties = ContainerView.forElementAndArray(property, properties);
+    final var propertiesContainer = ContainerView.forArray(properties);
 
-    return new CssRule(selector, allProperties);
+    return new CssRule(selector, propertiesContainer);
   }
 
   /**
