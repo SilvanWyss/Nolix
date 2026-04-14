@@ -63,26 +63,28 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
 
   /**
    * Adds a new column to the current {@link Matrix} with the given elements. The
-   * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
-   * contains m elements. -n elements are given.
+   * complexity of this implementation is O(m + n) if:
    * 
-   * @param element
+   * -The current {@link Matrix} contains m elements.
+   * 
+   * -n elements are given.
+   * 
    * @param elements
    * @return the current {@link Matrix}.
    * @throws RuntimeException         if the given elements is null.
    * @throws RuntimeException         if one of the given elements is null.
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
-   *                                  and if not as many elements are given as the
+   *                                  or not as many elements are given as the
    *                                  number of rows of the current
    *                                  {@link Matrix}.
    */
   @SuppressWarnings("unchecked")
-  public Matrix<E> addColumn(final E element, final E... elements) {
+  public Matrix<E> addColumn(final E... elements) {
     //Collects allElements.
-    final var allElements = ContainerView.forElementAndArray(element, elements);
+    final var elementContainer = ContainerView.forArray(elements);
 
     //Calls other method.
-    return addColumn(allElements);
+    return addColumn(elementContainer);
   }
 
   /**
