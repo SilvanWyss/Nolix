@@ -96,24 +96,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAll(final Object object, final Object... objects) {
-    //Calls other methods.
-    return //
-    contains(object)
-    && containsAll(objects);
-  }
-
-  /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractContainer} contains m elements.
-   * 
-   * -n objects are given.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean containsAll(final Object[] objects) {
+  public final boolean containsAll(final Object... objects) {
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 

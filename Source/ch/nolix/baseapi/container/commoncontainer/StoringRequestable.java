@@ -18,21 +18,12 @@ public interface StoringRequestable<E> {
   boolean contains(Object object);
 
   /**
-   * @param object
-   * @param objects
-   * @return true if the current {@link StoringRequestable} contains the given
-   *         object and all of the given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
-   */
-  boolean containsAll(Object object, Object... objects);
-
-  /**
    * @param objects
    * @return true if the current {@link StoringRequestable} contains all of the
    *         given objects, false otherwise.
    * @throws RuntimeException if the given objects is null.
    */
-  boolean containsAll(Object[] objects);
+  boolean containsAll(Object... objects);
 
   /**
    * @param objects
