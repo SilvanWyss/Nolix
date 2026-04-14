@@ -220,14 +220,23 @@ public final class HtmlElement implements IHtmlElement {
    * {@inheritDoc}
    */
   @Override
-  public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
-    final var allAttributes = //
-    ContainerView.forIterables(getAttributes(), ContainerView.forElementAndArray(attribute, attributes));
+  public IHtmlElement withAdditionalAttributes(final IContainer<IHtmlAttribute> additionalAttributes) {
+    final var attributes = ContainerView.forIterables(getAttributes(), additionalAttributes);
 
     if (containsChildElements()) {
-      return withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());
+      return withTypeAndAttributesAndChildElements(getType(), attributes, getChildElements());
     }
 
-    return withTypeAndAttributesAndInnerText(getType(), allAttributes, getInnerText());
+    return withTypeAndAttributesAndInnerText(getType(), attributes, getInnerText());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IHtmlElement withAdditionalAttributes(final IHtmlAttribute... additionalAttributes) {
+    final var additionalAttributesContainer = ContainerView.forArray(additionalAttributes);
+
+    return withAdditionalAttributes(additionalAttributesContainer);
   }
 }

@@ -162,7 +162,7 @@ implements IControl<C, S> {
   public final IHtmlElement getHtml() {
     final var html = getHtmlBuilder().createHtmlElementForControl(asConcrete());
 
-    return html.withAttribute(ControlHelper.createIdHtmlAttributeForControl(this));
+    return html.withAdditionalAttributes(ControlHelper.createIdHtmlAttributeForControl(this));
   }
 
   /**
