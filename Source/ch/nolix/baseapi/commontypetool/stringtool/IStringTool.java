@@ -33,15 +33,13 @@ public interface IStringTool {
   String getInBraces(Object object);
 
   /**
-   * @param object
    * @param objects
-   * @return the {@link String} representation of the given object and objects in
+   * @return the {@link String} representation of the given objects in
    *         parentheses.
-   * @throws RuntimeException if the given object is null.
    * @throws RuntimeException if the given objects is null.
    * @throws RuntimeException if one of the given objects is null.
    */
-  String getInParentheses(Object object, Object... objects);
+  String getInParentheses(Object... objects);
 
   /**
    * @param object

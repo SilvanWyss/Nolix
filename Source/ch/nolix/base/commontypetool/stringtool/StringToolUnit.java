@@ -62,26 +62,23 @@ public final class StringToolUnit implements IStringTool {
    * {@inheritDoc}
    */
   @Override
-  public String getInParentheses(final Object object, final Object... objects) {
-    if (object == null) {
-      throw ArgumentIsNullException.forArgumentName("1th object");
-    }
-
+  public String getInParentheses(final Object... objects) {
     if (objects == null) {
       throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.OBJECTS);
     }
 
     final var stringBuilder = new StringBuilder();
-    var index = 2;
-
-    stringBuilder.append(object);
+    var index = 1;
 
     for (final var o : objects) {
       if (o == null) {
         throw ArgumentIsNullException.forArgumentName(index + "th object");
       }
 
-      stringBuilder.append(",");
+      if (index > 1) {
+        stringBuilder.append(",");
+      }
+
       stringBuilder.append(o);
       index++;
     }

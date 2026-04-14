@@ -51,16 +51,14 @@ public final class StringTool {
   }
 
   /**
-   * @param object
    * @param objects
-   * @return the {@link String} representation of the given object and objects in
+   * @return the {@link String} representation of the given objects in
    *         parentheses.
-   * @throws RuntimeException if the given object is null.
    * @throws RuntimeException if the given objects is null.
    * @throws RuntimeException if one of the given objects is null.
    */
-  public static String getInParentheses(final Object object, final Object... objects) {
-    return STRING_TOOL_UNIT.getInParentheses(object, objects);
+  public static String getInParentheses(final Object... objects) {
+    return STRING_TOOL_UNIT.getInParentheses(objects);
   }
 
   /**

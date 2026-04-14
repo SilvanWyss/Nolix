@@ -21,7 +21,7 @@ final class GetInParenthesesMethodTest extends StandardTest {
     final var testUnit = new StringToolUnit();
 
     //execution & verification
-    expectRunning(() -> testUnit.getInParentheses(null))
+    expectRunning(() -> testUnit.getInParentheses(null, null, null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given 1th object is null.");
@@ -66,18 +66,5 @@ final class GetInParenthesesMethodTest extends StandardTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given 2th object is null.");
-  }
-
-  @Test
-  void testCase_getInParantheses_whenGivenVarargsIsNull() {
-    //setup
-    final Object[] varargs = null;
-    final var testUnit = new StringToolUnit();
-
-    //execution & verification
-    expectRunning(() -> testUnit.getInParentheses("antelope", varargs))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given objects is null.");
   }
 }
