@@ -50,7 +50,7 @@ public final class UpdateCommandCreatorHelper {
     final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
     final var eventFunctionsView = //
     htmlElementEventRegistrations.getViewOf(
-      e -> Node.withChildNode(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
+      e -> Node.withChildNodes(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
 
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,

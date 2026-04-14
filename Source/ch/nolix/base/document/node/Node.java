@@ -37,6 +37,18 @@ public final class Node extends AbstractNode<Node> {
    * Creates a new {@link Node} with the given childNodes.
    * 
    * @param childNodes
+   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null.
+   */
+  private Node(final INode<?>[] childNodes) {
+    this.nullableHeader = null;
+    this.childNodes = ImmutableList.fromIterable(createNodesFromNodes(ContainerView.forArray(childNodes)));
+  }
+
+  /**
+   * Creates a new {@link Node} with the given childNodes.
+   * 
+   * @param childNodes
    */
   private Node(final Iterable<? extends INode<?>> childNodes) {
     this.nullableHeader = null;
@@ -147,17 +159,6 @@ public final class Node extends AbstractNode<Node> {
 
   /**
    * @param childNode
-   * @param childNodes
-   * @return a new {@link Node} with the given childNodes.
-   */
-  public static Node withChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes);
-
-    return new Node(allChildNodes);
-  }
-
-  /**
-   * @param childNode
    * @return a new {@link Node} with the given childNode.
    */
   public static Node withChildNode(final long childNode) {
@@ -182,6 +183,24 @@ public final class Node extends AbstractNode<Node> {
    * @return a new {@link Node} with the given childNodes.
    */
   public static Node withChildNodes(final Iterable<? extends INode<?>> childNodes) {
+    return new Node(childNodes);
+  }
+
+  /**
+   * @param childNode
+   * @return a new {@link Node} with the given childNode.
+   */
+  public static Node withChildNode(final INode<?> childNode) {
+    final var childNodes = ImmutableList.withElement(childNode);
+
+    return new Node(childNodes);
+  }
+
+  /**
+   * @param childNodes
+   * @return a new {@link Node} with the given childNodes.
+   */
+  public static Node withChildNodes(final INode<?>... childNodes) {
     return new Node(childNodes);
   }
 
