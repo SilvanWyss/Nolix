@@ -88,6 +88,6 @@ public final class UpdateCommandCreatorHelper {
   public static ChainedNode createUserInputFunctionFromControlAndString(
     final IControl<?, ?> control,
     final String string) {
-    return ChainedNode.withChildNodesFromNodes(Node.withHeader(control.getInternalId()), Node.withHeader(string));
+    return ChainedNode.withChildNodes(Node.withHeader(control.getInternalId()), Node.withHeader(string));
   }
 }

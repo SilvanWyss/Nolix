@@ -113,7 +113,7 @@ implements IChainedNode {
    * @param string
    * @return an escape {@link String} for the given string.
    */
-  public static String getEscapeStringFor(final String string) {
+  public static String getEscapeStringForString(final String string) {
     return string
 
       //It is essential to replace the dollar symbol at first.
@@ -141,14 +141,15 @@ implements IChainedNode {
   }
 
   /**
-   * @param childNode
-   * @param childNodes
-   * @return a new {@link ChainedNode} with the given childNodes.
-   * @throws RuntimeException if one of the given childNodes is null.
+   * @param nodes
+   * @return a new {@link ChainedNode} with the childNodes
+   * @throws RuntimeException if the given nodes is null.
+   * @throws RuntimeException if one of the given nodes is null.
    */
-  public static ChainedNode withChildNodesFromNodes(final INode<?> childNode, final INode<?>... childNodes) {
+  public static ChainedNode withChildNodes(final INode<?>... nodes) {
     final var chainedNode = new ChainedNode();
-    chainedNode.addChildNode(childNode, childNodes);
+
+    chainedNode.addChildNodes(nodes);
 
     return chainedNode;
   }
@@ -182,27 +183,34 @@ implements IChainedNode {
 
   /**
    * @param header
-   * @param attribute
-   * @return a new {@link ChainedNode} with the given header and attribute.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException if the given attribute is null.
+   * @param childNode
+   * @return a new {@link ChainedNode} with the given header and childNode.
+   * @throws RuntimeException if the given header is null or blank
+   * @throws RuntimeException if the given childNode is null.
    */
-  public static ChainedNode withHeaderAndChildNode(final String header, final ChainedNode attribute) {
+  public static ChainedNode withHeaderAndChildNode(final String header, final IChainedNode childNode) {
     final var chainedNode = new ChainedNode();
+
     chainedNode.setHeader(header);
-    chainedNode.addChildNode(attribute);
+    chainedNode.addChildNodes(childNode);
 
     return chainedNode;
   }
 
-  public static ChainedNode withHeaderAndChildNodes(
-    final String header,
-    final ChainedNode childNode,
-    final ChainedNode... childNodes) {
+  /**
+   * @param header
+   * @param childNodes
+   * @return a new {@link ChainedNode} with the given header and childNodes.
+   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given header is blank.
+   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null.
+   */
+  public static ChainedNode withHeaderAndChildNodes(final String header, final IChainedNode... childNodes) {
     final var chainedNode = new ChainedNode();
+
     chainedNode.setHeader(header);
-    chainedNode.addChildNode(childNode, childNodes);
+    chainedNode.addChildNodes(childNodes);
 
     return chainedNode;
   }
@@ -211,11 +219,12 @@ implements IChainedNode {
    * @param header
    * @param childNode
    * @return a new {@link ChainedNode} with the given header and childNode.
-   * @throws RuntimeException if the given header is null.
+   * @throws RuntimeException if the given header is null or blank.
    * @throws RuntimeException if the given header is blank.
    */
   public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
     final var chainedNode = new ChainedNode();
+
     chainedNode.setHeader(header);
     chainedNode.addChildNode(childNode);
 
@@ -295,30 +304,6 @@ implements IChainedNode {
   public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
-    chainedNode.setNextNode(nextNode);
-
-    return chainedNode;
-  }
-
-  /**
-   * @param header
-   * @param nextNode
-   * @param childNode
-   * @param childNodes
-   * @return a new {@link ChainedNode} with the given header and nextNode.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException if the given nextNode is null.
-   * @throws RuntimeException if one of the given childNodes is null.
-   */
-  public static ChainedNode withHeaderAndNextNodeAndChildNodes(
-    final String header,
-    ChainedNode nextNode,
-    final IChainedNode childNode,
-    final IChainedNode... childNodes) {
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNode(childNode, childNodes);
     chainedNode.setNextNode(nextNode);
 
     return chainedNode;
@@ -555,37 +540,38 @@ implements IChainedNode {
   }
 
   /**
-   * Adds the given childNode and childNodes to the current {@link ChainedNode}.
+   * Adds the given childNode to the current {@link ChainedNode}.
    * 
    * @param childNode
+   * @throws RuntimeException if the given childNode is null.
+   */
+  private void addChildNode(final INode<?> childNode) {
+    memberChildNodes.addAtEnd(fromNode(childNode));
+  }
+
+  /**
+   * Adds the given childNodes to the current {@link ChainedNode}.
+   * 
    * @param childNodes
+   * @throws RuntimeException the given childNodes is null.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  private void addChildNode(final IChainedNode childNode, final IChainedNode... childNodes) {
-    if (childNode instanceof final ChainedNode chainedNode) {
-      memberChildNodes.addAtEnd(chainedNode);
-    } else {
-      memberChildNodes.addAtEnd(fromChainedNode(childNode));
-    }
-
+  private void addChildNodes(final IChainedNode... childNodes) {
     for (final var c : childNodes) {
-      if (c instanceof final ChainedNode chainedNode) {
-        memberChildNodes.addAtEnd(chainedNode);
-      } else {
-        memberChildNodes.addAtEnd(fromChainedNode(c));
-      }
+      final var childNode = fromChainedNode(c);
+
+      memberChildNodes.addAtEnd(childNode);
     }
   }
 
   /**
-   * Adds the given attributes to the current {@link ChainedNode}.
+   * Adds the given childNodes to the current {@link ChainedNode}.
    * 
-   * @param childNode
    * @param childNodes
+   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null.
    */
-  private void addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
-    memberChildNodes.addAtEnd(fromNode(childNode));
-
+  private void addChildNodes(final INode<?>... childNodes) {
     for (final var c : childNodes) {
       memberChildNodes.addAtEnd(fromNode(c));
     }
@@ -627,7 +613,7 @@ implements IChainedNode {
   private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
     //Handles the case that the current ChainedNode has a header.
     if (memberHeader != null) {
-      stringBuilder.append(getEscapeStringFor(memberHeader));
+      stringBuilder.append(getEscapeStringForString(memberHeader));
     }
 
     //Handles the case that the current ChainedNode contains attributes.
