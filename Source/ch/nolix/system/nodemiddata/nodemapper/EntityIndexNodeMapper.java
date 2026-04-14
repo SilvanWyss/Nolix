@@ -20,6 +20,6 @@ public final class EntityIndexNodeMapper implements IEntityIndexNodeMapper {
   public INode<?> mapEntityCreationDtoToEntityIndexNode(
     final EntityCreationDto entityCreationDto,
     final String tableId) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ENTITY_INDEX, entityCreationDto.id(), tableId);
+    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.ENTITY_INDEX, entityCreationDto.id(), tableId);
   }
 }

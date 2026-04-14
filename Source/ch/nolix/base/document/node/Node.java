@@ -68,6 +68,19 @@ public final class Node extends AbstractNode<Node> {
   }
 
   /**
+   * Creates a new {@link Node} with the given header and childNode.
+   * 
+   * @param header
+   * @param childNode
+   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given childNode is null.
+   */
+  private Node(final String header, final INode<?> childNode) {
+    this.nullableHeader = getValidHeaderFromHeader(header);
+    this.childNodes = ImmutableList.withElement(fromNode(childNode));
+  }
+
+  /**
    * Creates a new {@link Node} with the given header and childNodes.
    * 
    * @param header
@@ -199,7 +212,7 @@ public final class Node extends AbstractNode<Node> {
    */
   public static Node withChildNodes(final String... childNodes) {
     final var allChildNodesContainer = ContainerView.forArray(childNodes).getViewOf(Node::fromString);
-  
+
     return withChildNodes(allChildNodesContainer);
   }
 
@@ -288,17 +301,12 @@ public final class Node extends AbstractNode<Node> {
   /**
    * @param header
    * @param childNode
-   * @param childNodes
-   * @return a new {@link Node} with the given header and childNodes.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException if one of the given childNodes is null.
-   * @throws RuntimeException if one of the given childNodes is blank.
+   * @return a new {@link Node} with the given header and childNode.
+   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given childNode is null.
    */
-  public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
-    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).getViewOf(Node::withHeader);
-
-    return withHeaderAndChildNodes(header, allChildNodes);
+  public static Node withHeaderAndChildNode(final String header, final String childNode) {
+    return new Node(header, fromString(childNode));
   }
 
   /**
@@ -310,6 +318,20 @@ public final class Node extends AbstractNode<Node> {
    */
   public static Node withHeaderAndChildNodes(final String header, final Iterable<? extends INode<?>> childNodes) {
     return new Node(header, childNodes);
+  }
+
+  /**
+   * @param header
+   * @param childNodes
+   * @return a new {@link Node} with the given header and childNodes.
+   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null.
+   */
+  public static Node withHeaderAndChildNodes(final String header, final String... childNodes) {
+    final var childNodeContainer = ContainerView.forArray(childNodes).getViewOf(Node::fromString);
+
+    return new Node(header, childNodeContainer);
   }
 
   /**
