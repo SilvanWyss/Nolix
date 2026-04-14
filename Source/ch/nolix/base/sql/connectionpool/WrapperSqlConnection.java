@@ -28,8 +28,8 @@ implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public void executeStatement(final String statement, final String... statements) {
-    getStoredResource().executeStatement(statement, statements);
+  public void executeStatement(final String statement) {
+    getStoredResource().executeStatement(statement);
   }
 
   /**
@@ -37,6 +37,14 @@ implements ISqlConnection {
    */
   @Override
   public void executeStatements(final IContainer<String> statements) {
+    getStoredResource().executeStatements(statements);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void executeStatements(final String... statements) {
     getStoredResource().executeStatements(statements);
   }
 

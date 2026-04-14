@@ -79,6 +79,14 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
+  public final void executeStatement(final String statement) {
+    executeStatements(statement);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void executeStatements(final IContainer<String> statements) {
     try (final var statement = connection.createStatement()) {
       connection.setAutoCommit(false);
@@ -104,10 +112,10 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public final void executeStatement(final String statement, final String... statements) {
-    final var allStatements = ContainerView.forElementAndArray(statement, statements);
+  public final void executeStatements(final String... statements) {
+    final var statementsContainer = ContainerView.forArray(statements);
 
-    executeStatements(allStatements);
+    executeStatements(statementsContainer);
   }
 
   /**

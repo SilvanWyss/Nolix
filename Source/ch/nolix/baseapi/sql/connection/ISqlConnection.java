@@ -12,9 +12,11 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
  * @author Silvan Wyss
  */
 public interface ISqlConnection extends GroupCloseable {
-  void executeStatement(String statement, String... statements);
+  void executeStatement(String statement);
 
   void executeStatements(IContainer<String> statements);
+
+  void executeStatements(String... statements);
 
   SqlDatabaseEngine getDatabaseEngine();
 

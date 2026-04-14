@@ -54,8 +54,8 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public void executeStatement(final String statement, final String... statements) {
-    sqlConnection.executeStatement(statement, statements);
+  public void executeStatement(final String statement) {
+    sqlConnection.executeStatement(statement);
   }
 
   /**
@@ -63,6 +63,14 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    */
   @Override
   public void executeStatements(final IContainer<String> statements) {
+    sqlConnection.executeStatements(statements);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void executeStatements(final String... statements) {
     sqlConnection.executeStatements(statements);
   }
 
