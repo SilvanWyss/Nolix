@@ -162,13 +162,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
     }
   }
 
-  public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked") E... elements) {
-    final var localElements = ARRAY_TOOL.createArrayWithElement(element, elements);
-
-    containsExactlyInSameOrder(localElements);
-  }
-
-  public void containsExactlyInSameOrder(final E[] elements) {
+  public void containsExactlyInSameOrder(@SuppressWarnings("unchecked") final E... elements) {
     containsAsManyElementsAs(elements);
 
     var index = 0;
