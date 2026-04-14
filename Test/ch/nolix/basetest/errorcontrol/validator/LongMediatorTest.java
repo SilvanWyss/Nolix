@@ -124,21 +124,21 @@ final class LongMediatorTest extends StandardTest {
   }
 
   @Test
-  void testCase_isEqualToAny_whenTheGivenArgumentEqualsAny() {
+  void testCase_isEqualToAnyOf_whenTheGivenArgumentEqualsAny() {
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
 
     //execution
-    expectRunning(() -> testUnit.isEqualToAny(5, 10, 15, 20)).doesNotThrowException();
+    expectRunning(() -> testUnit.isEqualToAnyOf(5, 10, 15, 20)).doesNotThrowException();
   }
 
   @Test
-  void testCase_isEqualToAny_whenTheGivenArgumentDoesNotEqualAny() {
+  void testCase_isEqualToAnyOf_whenTheGivenArgumentDoesNotEqualAny() {
     //setup
     final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
 
     //execution
-    expectRunning(() -> testUnit.isEqualToAny(15, 20, 25, 30))
+    expectRunning(() -> testUnit.isEqualToAnyOf(15, 20, 25, 30))
       .throwsException()
       .ofType(InvalidArgumentException.class);
   }

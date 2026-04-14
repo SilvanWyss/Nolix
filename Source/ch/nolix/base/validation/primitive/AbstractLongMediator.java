@@ -6,6 +6,7 @@ package ch.nolix.base.validation.primitive;
 import ch.nolix.base.independent.arraytool.ArrayTool;
 import ch.nolix.base.validation.base.AbstractMediator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsInRangeException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -18,6 +19,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.PositiveArgumentEx
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.independent.arraytool.IArrayTool;
+import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 
 /**
@@ -132,14 +134,14 @@ public abstract class AbstractLongMediator extends AbstractMediator {
   }
 
   /**
-   * @param value
    * @param values
+   * @throws RuntimeException if the given values is null.
    * @throws RuntimeException if the argument of the current {@link LongMediator}
    *                          does not equal one of the given values.
    */
-  public final void isEqualToAny(final long value, final long... values) {
-    if (argument == value) {
-      return;
+  public final void isEqualToAnyOf(final long... values) {
+    if (values == null) {
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.VALUES);
     }
 
     for (final long v : values) {
