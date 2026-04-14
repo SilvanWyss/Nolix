@@ -53,74 +53,74 @@ public interface IBasicCalculator {
   long getAbsoluteValue(long value);
 
   /**
-   * @param value
    * @param values
    * @return the average of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  double getAverage(double value, double... values);
+  double getAverage(double... values);
 
   /**
    * @param values
    * @return the average of the given values.
-   * @throws RuntimeException if the given values is empty.
+   * @throws RuntimeException if the given values is null or empty.
    */
   double getAverage(Iterable<Double> values);
 
   /**
-   * @param value
    * @param values
    * @return the average of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  int getAverage(int value, int... values);
+  int getAverage(int... values);
 
   /**
-   * @param value
    * @param values
    * @return the average of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  long getAverage(long value, long... values);
+  long getAverage(long... values);
 
   /**
-   * @param value
    * @param values
    * @return the biggest value of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  double getMax(double value, double... values);
+  double getMax(double... values);
 
   /**
-   * @param value
    * @param values
    * @return the biggest value of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  int getMax(int value, int... values);
+  int getMax(int... values);
 
   /**
-   * @param value
    * @param values
    * @return the biggest value of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  long getMax(long value, long... values);
+  long getMax(long... values);
 
   /**
-   * @param value
    * @param values
    * @return the smallest value of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  double getMin(double value, double... values);
+  double getMin(double... values);
 
   /**
-   * @param value
    * @param values
    * @return the smallest value of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  int getMin(int value, int... values);
+  int getMin(int... values);
 
   /**
-   * @param value
    * @param values
    * @return the smallest value of the given values.
+   * @throws RuntimeException if the given values is null or empty.
    */
-  long getMin(long value, long... values);
+  long getMin(long... values);
 
   /**
    * @param value
@@ -141,18 +141,18 @@ public interface IBasicCalculator {
   double getSquare(long value);
 
   /**
-   * @param value
    * @param values
    * @return the sum of the given values.
+   * @throws RuntimeException if the given values is null.
    */
-  double getSum(double value, double... values);
+  double getSum(double... values);
 
   /**
-   * @param value
    * @param values
    * @return the sum of the given values.
+   * @throws RuntimeException if the given values is null.
    */
-  int getSum(int value, int... values);
+  int getSum(int... values);
 
   /**
    * @param values
@@ -161,9 +161,9 @@ public interface IBasicCalculator {
   double getSum(Iterable<Double> values);
 
   /**
-   * @param value
    * @param values
    * @return the sum of the given values.
+   * @throws RuntimeException if the given values is null.
    */
-  long getSum(long value, long... values);
+  long getSum(long... values);
 }
