@@ -69,13 +69,13 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAll(final Iterable<?> objects) {
+  public final boolean containsAllOf(final Object... objects) {
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
 
     //Iterates the given objects.
     for (final var o : objects) {
-      //Handles the case that the current Container does not contain the current object.
+      //Handles the case that the current Container does not contain the given object.
       if (!contains(o)) {
         //Returns false.
         return false;
@@ -96,19 +96,19 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAll(final Object... objects) {
+  public final boolean containsAllOf(final Iterable<?> objects) {
     //Asserts that the given objects is not null.
     Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
-
+  
     //Iterates the given objects.
     for (final var o : objects) {
-      //Handles the case that the current Container does not contain the given object.
+      //Handles the case that the current Container does not contain the current object.
       if (!contains(o)) {
         //Returns false.
         return false;
       }
     }
-
+  
     //Returns true.
     return true;
   }

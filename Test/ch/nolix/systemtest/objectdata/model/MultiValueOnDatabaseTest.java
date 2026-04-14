@@ -61,7 +61,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     //verification
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(4);
-    expect(loadedValues.containsAll(10, 20, 30, 40)).isTrue();
+    expect(loadedValues.containsAllOf(10, 20, 30, 40)).isTrue();
   }
 
   @Test
@@ -87,6 +87,6 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     //verification
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(3);
-    expect(loadedValues.containsAll(10, 20, 30)).isTrue();
+    expect(loadedValues.containsAllOf(10, 20, 30)).isTrue();
   }
 }
