@@ -166,19 +166,6 @@ public final class Node extends AbstractNode<Node> {
   }
 
   /**
-   * @param childNode
-   * @param childNodes
-   * @return a new {@link Node} with the given childNodes.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   */
-  public static Node withChildNode(final String childNode, final String... childNodes) {
-    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes).getViewOf(Node::withHeader);
-
-    return withChildNodes(allChildNodes);
-  }
-
-  /**
    * @param childNodes
    * @return a new {@link Node} with the given childNodes.
    */
@@ -202,6 +189,18 @@ public final class Node extends AbstractNode<Node> {
    */
   public static Node withChildNodes(final INode<?>... childNodes) {
     return new Node(childNodes);
+  }
+
+  /**
+   * @param childNodes
+   * @return a new {@link Node} with the given childNodes.
+   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null.
+   */
+  public static Node withChildNodes(final String... childNodes) {
+    final var allChildNodesContainer = ContainerView.forArray(childNodes).getViewOf(Node::fromString);
+  
+    return withChildNodes(allChildNodesContainer);
   }
 
   /**

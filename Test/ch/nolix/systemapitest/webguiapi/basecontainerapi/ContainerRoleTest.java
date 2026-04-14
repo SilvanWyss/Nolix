@@ -22,13 +22,13 @@ final class ContainerRoleTest extends StandardTest {
   private static IContainer<Arguments> getSpecificationsAndTheirContainerRole() {
     return //
     ImmutableList.withElements(
-      Arguments.of(Node.withChildNode("DIALOG_CONTAINER"), ContainerRole.DIALOG_CONTAINER),
-      Arguments.of(Node.withChildNode("OVERALL_CONTAINER"), ContainerRole.OVERALL_CONTAINER),
-      Arguments.of(Node.withChildNode("MAIN_CONTENT_CONTAINER"), ContainerRole.MAIN_CONTENT_CONTAINER),
-      Arguments.of(Node.withChildNode("HEADER_CONTAINER"), ContainerRole.HEADER_CONTAINER),
-      Arguments.of(Node.withChildNode("FOOTER_CONTAINER"), ContainerRole.FOOTER_CONTAINER),
-      Arguments.of(Node.withChildNode("COMPONENT_CONTAINER"), ContainerRole.COMPONENT_CONTAINER),
-      Arguments.of(Node.withChildNode("TITLE_CONTAINER"), ContainerRole.TITLE_CONTAINER));
+      Arguments.of(Node.withChildNodes("DIALOG_CONTAINER"), ContainerRole.DIALOG_CONTAINER),
+      Arguments.of(Node.withChildNodes("OVERALL_CONTAINER"), ContainerRole.OVERALL_CONTAINER),
+      Arguments.of(Node.withChildNodes("MAIN_CONTENT_CONTAINER"), ContainerRole.MAIN_CONTENT_CONTAINER),
+      Arguments.of(Node.withChildNodes("HEADER_CONTAINER"), ContainerRole.HEADER_CONTAINER),
+      Arguments.of(Node.withChildNodes("FOOTER_CONTAINER"), ContainerRole.FOOTER_CONTAINER),
+      Arguments.of(Node.withChildNodes("COMPONENT_CONTAINER"), ContainerRole.COMPONENT_CONTAINER),
+      Arguments.of(Node.withChildNodes("TITLE_CONTAINER"), ContainerRole.TITLE_CONTAINER));
   }
 
   @ParameterizedTest

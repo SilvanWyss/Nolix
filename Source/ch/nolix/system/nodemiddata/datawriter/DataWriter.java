@@ -219,7 +219,7 @@ public final class DataWriter implements IDataWriter {
     final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
     final var backReferencedEntityTableId = multiBackReferenceEntry.backReferencedEntityTableId();
-    final var multiBackReferenceEntryNode = Node.withChildNode(backReferencedEntityId, backReferencedEntityTableId);
+    final var multiBackReferenceEntryNode = Node.withChildNodes(backReferencedEntityId, backReferencedEntityTableId);
 
     executiveDataWriter.insertMultiBackReferenceEntry(
       tableName,
@@ -243,7 +243,7 @@ public final class DataWriter implements IDataWriter {
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
 
     final var multiReferenceEntryNode = //
-    Node.withChildNode(multiReferenceEntry.referencedEntityId(), multiReferenceEntry.referencedEntityTableId());
+    Node.withChildNodes(multiReferenceEntry.referencedEntityId(), multiReferenceEntry.referencedEntityTableId());
 
     executiveDataWriter.insertMultiReferenceEntry(
       tableName,

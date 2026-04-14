@@ -22,10 +22,10 @@ final class BackgroundTypeTest extends StandardTest {
   private static IContainer<Arguments> getSpecificationsAndTheirBackgroundTypes() {
     return //
     ImmutableList.withElements(
-      Arguments.of(Node.withChildNode("COLOR"), BackgroundType.COLOR),
-      Arguments.of(Node.withChildNode("COLOR_GRADIENT"), BackgroundType.COLOR_GRADIENT),
-      Arguments.of(Node.withChildNode("IMAGE"), BackgroundType.IMAGE),
-      Arguments.of(Node.withChildNode("TRANSPARENCY"), BackgroundType.TRANSPARENCY));
+      Arguments.of(Node.withChildNodes("COLOR"), BackgroundType.COLOR),
+      Arguments.of(Node.withChildNodes("COLOR_GRADIENT"), BackgroundType.COLOR_GRADIENT),
+      Arguments.of(Node.withChildNodes("IMAGE"), BackgroundType.IMAGE),
+      Arguments.of(Node.withChildNodes("TRANSPARENCY"), BackgroundType.TRANSPARENCY));
   }
 
   @ParameterizedTest

@@ -23,7 +23,7 @@ public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
       final var nullableAdditionalValue = valueStringFieldDto.nullableAdditionalValue();
 
       if (nullableAdditionalValue != null) {
-        return Node.withChildNode(nullableValue, nullableAdditionalValue);
+        return Node.withChildNodes(nullableValue, nullableAdditionalValue);
       }
 
       return Node.fromString(nullableValue);

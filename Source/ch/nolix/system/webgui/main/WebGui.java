@@ -65,7 +65,7 @@ implements IWebGui<WebGui> {
     DEFAULT_TITLE,
     this::setTitle,
     INode::getSingleChildNodeHeader,
-    Node::withChildNode);
+    Node::withChildNodes);
 
   private final Value<Image> icon = //
   Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
