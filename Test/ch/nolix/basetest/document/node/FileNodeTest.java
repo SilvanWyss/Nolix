@@ -49,15 +49,14 @@ final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
+  protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodes) {
     final var filePath = FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode";
     final var fileNode = FileNode.withFilePath(filePath);
 
     fileNode.setHeader(header);
 
-    for (final var h : childNodeHeaders) {
-      final var childNode = MutableNode.createEmpty();
-      childNode.setHeader(h);
+    for (final var c : childNodes) {
+      final var childNode = MutableNode.fromString(c);
 
       fileNode.addChildNode(childNode);
     }

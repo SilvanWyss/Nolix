@@ -138,5 +138,5 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
 
   protected abstract N createNodeWithHeader(String header);
 
-  protected abstract N createNodeWithHeaderAndChildNodes(String header, String... childNodeHeaders);
+  protected abstract N createNodeWithHeaderAndChildNodes(String header, String... childNodes);
 }

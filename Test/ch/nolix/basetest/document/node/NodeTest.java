@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.document.node.Node;
 
 /**
@@ -87,7 +86,7 @@ final class NodeTest extends BaseNodeTest<Node> {
    * {@inheritDoc}
    */
   @Override
-  protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
-    return Node.withHeaderAndChildNodes(header, ContainerView.forArray(childNodeHeaders).getViewOf(Node::withHeader));
+  protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodes) {
+    return Node.withHeaderAndChildNodes(header, childNodes);
   }
 }
