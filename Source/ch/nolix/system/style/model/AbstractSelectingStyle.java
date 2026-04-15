@@ -190,6 +190,16 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
+  public ISelectingStyleWithSelectors withAdditionalSelectorRole(final Enum<?> additionalSelectorRole) {
+    final var additionalSelectorRoles = ImmutableList.withElement(additionalSelectorRole.toString());
+
+    return withAdditionalSelectorRoles(additionalSelectorRoles);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorRole(final String additionalSelectorRole) {
     final var additionalSelectorRoles = ImmutableList.withElement(additionalSelectorRole);
 
