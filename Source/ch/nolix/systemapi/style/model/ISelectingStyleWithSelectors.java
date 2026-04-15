@@ -52,6 +52,17 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   boolean hasSelectorType();
 
   /**
+   * @param additionalSelectorRoles
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given
+   *         additionalSelectorRoles .
+   * @throws RuntimeException if the given additionalSelectorRoles is null.
+   * @throws RuntimeException if one of the given additionalSelectorRoles is null
+   *                          or blank.
+   */
+  ISelectingStyleWithSelectors withAdditionalSelectorRoles(String... additionalSelectorRoles);
+
+  /**
    * @param selectorId
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorId set.
@@ -80,16 +91,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if one of the given selectorRoles is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorRoles(IContainer<String> selectorRoles);
-
-  /**
-   * @param selectorRoles
-   * @return a new {@link ISelectingStyleWithSelectors} from the current
-   *         {@link ISelectingStyleWithSelectors} with the given selectorRoles
-   *         added.
-   * @throws RuntimeException if the given selectorRoles is null.
-   * @throws RuntimeException if one of the given selectorRoles is null or blank.
-   */
-  ISelectingStyleWithSelectors withSelectorRoles(String... selectorRoles);
 
   /**
    * @param selectorToken

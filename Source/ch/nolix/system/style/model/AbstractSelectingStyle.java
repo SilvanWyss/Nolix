@@ -190,22 +190,22 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
-    final Enum<?>... selectorRoles) {
-    final var allSelectorRolesView = ContainerView.forElementAndArray(selectorRole, selectorRoles)
-      .getViewOf(Object::toString);
-
-    return withSelectorRoles(allSelectorRolesView);
+  public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final String... additionalSelectorRoles) {
+    final var selectorRolesContainer = ContainerView.forArray(additionalSelectorRoles);
+  
+    return withSelectorRoles(selectorRolesContainer);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final ISelectingStyleWithSelectors withSelectorRoles(final String... selectorRoles) {
-    final var selectorRolesContainer = ContainerView.forArray(selectorRoles);
+  public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
+    final Enum<?>... selectorRoles) {
+    final var allSelectorRolesView = ContainerView.forElementAndArray(selectorRole, selectorRoles)
+      .getViewOf(Object::toString);
 
-    return withSelectorRoles(selectorRolesContainer);
+    return withSelectorRoles(allSelectorRolesView);
   }
 
   /**
