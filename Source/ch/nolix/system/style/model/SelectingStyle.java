@@ -150,6 +150,36 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
+  public ISelectingStyleWithSelectors withAdditionalSelectorRoles(final IContainer<String> additionalSelectorRoles) {
+    String optionalSelectorId = null;
+    String optionalSelectorType = null;
+    final ILinkedList<String> allSelectorRoles = LinkedList.createEmpty();
+  
+    if (hasSelectorId()) {
+      optionalSelectorId = getSelectorId();
+    }
+  
+    if (hasSelectorType()) {
+      optionalSelectorType = getSelectorType();
+    }
+  
+    allSelectorRoles.addAtEnd(getSelectorRoles());
+    allSelectorRoles.addAtEnd(additionalSelectorRoles);
+  
+    return //
+    new SelectingStyle(
+      optionalSelectorId,
+      optionalSelectorType,
+      allSelectorRoles,
+      getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ISelectingStyleWithSelectors withAttachingAttributes(final IContainer<String> attachingAttributes) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
@@ -192,36 +222,6 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       selectorId,
       optionalSelectorType,
       getSelectorRoles(),
-      getSelectorTokens(),
-      getAttachingAttributes(),
-      getSubStyles());
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public ISelectingStyleWithSelectors withSelectorRoles(final IContainer<String> selectorRoles) {
-    String optionalSelectorId = null;
-    String optionalSelectorType = null;
-    final ILinkedList<String> allSelectorRoles = LinkedList.createEmpty();
-
-    if (hasSelectorId()) {
-      optionalSelectorId = getSelectorId();
-    }
-
-    if (hasSelectorType()) {
-      optionalSelectorType = getSelectorType();
-    }
-
-    allSelectorRoles.addAtEnd(getSelectorRoles());
-    allSelectorRoles.addAtEnd(selectorRoles);
-
-    return //
-    new SelectingStyle(
-      optionalSelectorId,
-      optionalSelectorType,
-      allSelectorRoles,
       getSelectorTokens(),
       getAttachingAttributes(),
       getSubStyles());

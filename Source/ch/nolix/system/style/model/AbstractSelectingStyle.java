@@ -194,7 +194,7 @@ implements ISelectingStyleWithSelectors {
     final var additionalSelectorRolesStrings = //
     ContainerView.forArray(additionalSelectorRoles).getViewOf(Object::toString);
 
-    return withSelectorRoles(additionalSelectorRolesStrings);
+    return withAdditionalSelectorRoles(additionalSelectorRolesStrings);
   }
 
   /**
@@ -204,7 +204,7 @@ implements ISelectingStyleWithSelectors {
   public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final String... additionalSelectorRoles) {
     final var selectorRolesContainer = ContainerView.forArray(additionalSelectorRoles);
 
-    return withSelectorRoles(selectorRolesContainer);
+    return withAdditionalSelectorRoles(selectorRolesContainer);
   }
 
   /**
