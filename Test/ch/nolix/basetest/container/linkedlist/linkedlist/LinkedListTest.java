@@ -81,7 +81,7 @@ final class LinkedListTest extends ContainerTest {
   void testCase_addAtBegin_forArray_whenTheGivenArrayIsNull() {
     //setup
     final String[] array = null;
-    final var testUnit = LinkedList.createEmpty();
+    final LinkedList<String> testUnit = LinkedList.createEmpty();
 
     //execution & verification
     expectRunning(() -> testUnit.addAtBegin(array)).throwsException();

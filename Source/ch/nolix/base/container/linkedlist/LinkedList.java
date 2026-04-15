@@ -132,24 +132,12 @@ implements ILinkedList<E> {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
-    final E element,
-    @SuppressWarnings("unchecked") final E... elements) {
-    addAtBegin(elements);
-
-    addAtBegin(element);
-  }
-
-  /**
    * The time complexity of this implementation is O(n) if n elements are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public void addAtBegin(E[] elements) {
+  public void addAtBegin(@SuppressWarnings("unchecked") E... elements) {
     if (isEmpty()) {
       addAtBeginWhenIsEmpty(elements);
     } else {
