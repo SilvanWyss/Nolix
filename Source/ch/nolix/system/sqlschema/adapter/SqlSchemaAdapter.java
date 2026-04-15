@@ -96,9 +96,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public void addTables(final TableDto table, final TableDto... tables) {
-    addTable(table);
-
+  public void addTables(final TableDto... tables) {
     for (final var t : tables) {
       addTable(t);
     }
