@@ -214,7 +214,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withSelectorTokens(final IContainer<String> selectorTokens) {
+  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(final IContainer<String> additionalSelectorTokens) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
@@ -228,7 +228,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
     }
 
     allSelectorTokens.addAtEnd(getSelectorTokens());
-    allSelectorTokens.addAtEnd(selectorTokens);
+    allSelectorTokens.addAtEnd(additionalSelectorTokens);
 
     return //
     new DeepSelectingStyle(

@@ -104,6 +104,16 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   ISelectingStyleWithSelectors withAdditionalSelectorRoles(String... additionalSelectorRoles);
 
   /**
+   * @param additionalSelectorToken
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given
+   *         additionalSelectorToken.
+   * @throws RuntimeException if the given additionalSelectorToken is null or
+   *                          blank.
+   */
+  ISelectingStyleWithSelectors withAdditionalSelectorToken(String additionalSelectorToken);
+
+  /**
    * @param additionalSelectorTokens
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
@@ -115,22 +125,23 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   ISelectingStyleWithSelectors withAdditionalSelectorTokens(String... additionalSelectorTokens);
 
   /**
+   * @param additionalSelectorTokens
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given
+   *         additionalSelectorTokens.
+   * @throws RuntimeException if the given additionalSelectorTokens is null.
+   * @throws RuntimeException if one of the given additionalSelectorTokens is null
+   *                          or blank.
+   */
+  ISelectingStyleWithSelectors withAdditionalSelectorTokens(IContainer<String> additionalSelectorTokens);
+
+  /**
    * @param selectorId
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorId set.
    * @throws RuntimeException if the given selectorId is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorId(String selectorId);
-
-  /**
-   * @param selectorTokens
-   * @return a new {@link ISelectingStyleWithSelectors} from the current
-   *         {@link ISelectingStyleWithSelectors} with the given selectorTokens
-   *         added.
-   * @throws RuntimeException if the given selectorTokens is null.
-   * @throws RuntimeException if one of the given selectorTokens is null or blank.
-   */
-  ISelectingStyleWithSelectors withSelectorTokens(IContainer<String> selectorTokens);
 
   /**
    * @param selectorType

@@ -227,6 +227,13 @@ implements ISelectingStyleWithSelectors {
     return withAdditionalSelectorRoles(selectorRolesContainer);
   }
 
+  @Override
+  public final ISelectingStyleWithSelectors withAdditionalSelectorToken(final String additionalSelectorToken) {
+    final var additionalSelectorTokens = ImmutableList.withElement(additionalSelectorToken);
+
+    return withAdditionalSelectorTokens(additionalSelectorTokens);
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -234,7 +241,7 @@ implements ISelectingStyleWithSelectors {
   public final ISelectingStyleWithSelectors withAdditionalSelectorTokens(final String... additionalSelectorTokens) {
     final var additionalSelectorTokensContainer = ContainerView.forArray(additionalSelectorTokens);
 
-    return withSelectorTokens(additionalSelectorTokensContainer);
+    return withAdditionalSelectorTokens(additionalSelectorTokensContainer);
   }
 
   /**
