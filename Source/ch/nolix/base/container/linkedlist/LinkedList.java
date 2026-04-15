@@ -209,27 +209,9 @@ implements ILinkedList<E> {
    * {@inheritDoc}
    */
   @Override
-  @SafeVarargs
-  public final void addAtEnd( //NOSONAR: final keyword is required for SaveVarargs annotation.
-    final E element,
-    final E... elements) {
-    addAtEnd(element);
-
+  public void addAtEnd(@SuppressWarnings("unchecked") E... elements) {
     //Iterates the given elements.
-    for (final E e : elements) {
-      addAtEnd(e);
-    }
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if n elements are given.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public void addAtEnd(E[] elements) {
-    //Iterates the given elements.
-    for (final E e : elements) {
+    for (final var e : elements) {
       addAtEnd(e);
     }
   }

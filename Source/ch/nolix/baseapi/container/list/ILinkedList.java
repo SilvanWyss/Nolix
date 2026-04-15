@@ -53,24 +53,14 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
   void addAtEnd(E element);
 
   /**
-   * Adds the given element and the given elements at the end of the current
-   * {@link ILinkedList}. The elements will be added in the given order.
-   * 
-   * @param element
-   * @param elements
-   * @throws RuntimeException if the given element is null.
-   * @throws RuntimeException if one of the given elements is null.
-   */
-  void addAtEnd(E element, @SuppressWarnings("unchecked") E... elements);
-
-  /**
    * Adds the given elements at the end of the current {@link ILinkedList}. The
    * elements will be added in the given order.
    * 
    * @param elements
+   * @throws RuntimeException if the given elements is null.
    * @throws RuntimeException if one of the given elements is null.
    */
-  void addAtEnd(E[] elements);
+  void addAtEnd(@SuppressWarnings("unchecked") E... elements);
 
   /**
    * Adds the given elements at the end of the current {@link ILinkedList}. The
