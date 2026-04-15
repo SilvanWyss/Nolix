@@ -52,6 +52,16 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
   boolean hasSelectorType();
 
   /**
+   * @param additionalSelectorRole
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given
+   *         additionalSelectorRole .
+   * @throws RuntimeException if the given additionalSelectorRole is null or
+   *                          blank.
+   */
+  ISelectingStyleWithSelectors withAdditionalSelectorRole(String additionalSelectorRole);
+
+  /**
    * @param additionalSelectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given

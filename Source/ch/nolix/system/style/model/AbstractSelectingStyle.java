@@ -190,6 +190,16 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
+  public final ISelectingStyleWithSelectors withAdditionalSelectorRole(final String additionalSelectorRole) {
+    final var additionalSelectorRoles = ImmutableList.withElement(additionalSelectorRole);
+
+    return withAdditionalSelectorRoles(additionalSelectorRoles);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final Enum<?>... additionalSelectorRoles) {
     final var additionalSelectorRolesStrings = //
     ContainerView.forArray(additionalSelectorRoles).getViewOf(Object::toString);
