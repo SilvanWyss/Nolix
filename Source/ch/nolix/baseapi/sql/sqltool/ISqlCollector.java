@@ -11,9 +11,11 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
  * @author Silvan Wyss
  */
 public interface ISqlCollector extends Clearable {
-  ISqlCollector addSqlStatement(String sqlstatement, String... sqlStatements);
+  ISqlCollector addSqlStatement(String sqlstatement);
 
   ISqlCollector addSqlStatements(Iterable<String> sqlStatements);
+
+  ISqlCollector addSqlStatements(String... sqlStatements);
 
   IContainer<String> getSqlStatements();
 

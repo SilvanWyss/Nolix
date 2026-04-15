@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.sql.sqltool;
 
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
@@ -16,11 +15,12 @@ import ch.nolix.baseapi.sql.sqltool.ISqlCollector;
 public final class SqlCollector implements ISqlCollector {
   private final LinkedList<String> memberSqlStatements = LinkedList.createEmpty();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
-  public SqlCollector addSqlStatement(final String sqlstatement, final String... sqlStatements) {
+  public SqlCollector addSqlStatement(final String sqlstatement) {
     addSingleSqlStatement(sqlstatement);
-
-    addSqlStatements(ContainerView.forArray(sqlStatements));
 
     return this;
   }
@@ -30,7 +30,19 @@ public final class SqlCollector implements ISqlCollector {
    */
   @Override
   public SqlCollector addSqlStatements(final Iterable<String> sqlStatements) {
-    sqlStatements.forEach(this::addSqlStatement);
+    sqlStatements.forEach(this::addSingleSqlStatement);
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ISqlCollector addSqlStatements(final String... sqlStatements) {
+    for (final var s : sqlStatements) {
+      addSingleSqlStatement(s);
+    }
 
     return this;
   }

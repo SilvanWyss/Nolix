@@ -58,7 +58,7 @@ public final class ExecutiveDataWriter {
     final var deleteEntityIndexStatement = ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntityIndex(entity.id());
     final var deleteEntityStatement = ENTITY_STATEMENT_CREATOR.createStatementToDeleteEntity(tableName, entity);
 
-    sqlCollector.addSqlStatement(deleteEntityIndexStatement, deleteEntityStatement);
+    sqlCollector.addSqlStatements(deleteEntityIndexStatement, deleteEntityStatement);
   }
 
   public void deleteEntriesFromMultiReference(
@@ -136,7 +136,7 @@ public final class ExecutiveDataWriter {
 
     final var insertEntityStatement = ENTITY_STATEMENT_CREATOR.createStatementToInsertEntity(tableName, newEntity);
 
-    sqlCollector.addSqlStatement(insertEntityIndexStatement, insertEntityStatement);
+    sqlCollector.addSqlStatements(insertEntityIndexStatement, insertEntityStatement);
   }
 
   public void insertEntryIntoMultiBackReference(
