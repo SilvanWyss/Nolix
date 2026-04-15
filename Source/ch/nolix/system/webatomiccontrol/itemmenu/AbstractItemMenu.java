@@ -5,7 +5,6 @@ package ch.nolix.system.webatomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
@@ -65,7 +64,26 @@ extends Control<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
+  public M addItem(final String item) {
+    final var itemMenuItem = ItemMenuItem.withText(item);
+
+    return addItem(itemMenuItem);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final M addItems(final IItemMenuItem<?>... items) {
+    for (final var i : items) {
+      addItem(i);
+    }
+
+    return asConcrete();
+  }
+
+  @Override
+  public M addItems(final String... items) {
     for (final var i : items) {
       addItem(i);
     }
@@ -98,20 +116,6 @@ extends Control<M, S> implements IItemMenu<M, S> {
     final String text,
     final Consumer<IItemMenuItem<?>> selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final M addItemWithText(final String text, final String... texts) {
-    final var allTexts = ContainerView.forElementAndArray(text, texts);
-
-    for (final var t : allTexts) {
-      addItem(ItemMenuItem.withText(t));
-    }
-
-    return asConcrete();
   }
 
   /**

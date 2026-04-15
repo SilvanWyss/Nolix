@@ -15,15 +15,17 @@ public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S
 
   M addItem(IItemMenuItem<?> item);
 
+  M addItem(String item);
+
   M addItems(IItemMenuItem<?>... items);
+
+  M addItems(String... items);
 
   M addItemWithIdAndText(String id, String text);
 
   M addItemWithIdAndTextAndSelectAction(String id, String text, Runnable selectAction);
 
   M addItemWithIdAndTextAndSelectAction(String id, String text, Consumer<IItemMenuItem<?>> selectAction);
-
-  M addItemWithText(String text, String... texts);
 
   M addItemWithTextAndSelectAction(String text, Runnable selectAction);
 
