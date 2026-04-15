@@ -77,7 +77,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
   @Override
   public IChainedNode createSaveFileCommand(final byte[] bytes) {
     return //
-    ChainedNode.withHeaderAndChildNodesFromNodes(
+    ChainedNode.withHeaderAndChildNodes(
       CommandProtocol.SAVE_FILE,
       Node.withHeader(new String(bytes, StandardCharsets.UTF_8)));
   }

@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.document.chainednode;
 
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
@@ -250,25 +249,18 @@ implements IChainedNode {
   }
 
   /**
-   * Creates a new {@link ChainedNode} with the given header and attributes.
-   * 
    * @param header
-   * @param childNode
    * @param childNodes
-   * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException if one of the given attributes is null.
+   * @return a new {@link ChainedNode} with the given header and childNodes.
+   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null.
    */
-  public static ChainedNode withHeaderAndChildNodesFromNodes(
-    final String header,
-    final INode<?> childNode,
-    final INode<?>... childNodes) {
+  public static ChainedNode withHeaderAndChildNodes(final String header, final INode<?>... childNodes) {
     final var chainedNode = new ChainedNode();
-    final var allChildNodes = ContainerView.forElementAndArray(childNode, childNodes);
 
     chainedNode.setHeader(header);
-    chainedNode.addChildNodesFromNodes(allChildNodes);
+    chainedNode.addChildNodes(childNodes);
 
     return chainedNode;
   }

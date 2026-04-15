@@ -101,7 +101,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
     return //
     ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
-      ChainedNode.withHeaderAndChildNodesFromNodes(
+      ChainedNode.withHeaderAndChildNodes(
         CommandProtocol.SET_TITLE,
         Node.withHeader(title)));
   }
