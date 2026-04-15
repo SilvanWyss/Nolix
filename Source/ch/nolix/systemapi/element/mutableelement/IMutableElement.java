@@ -19,20 +19,26 @@ public interface IMutableElement extends Resettable, IElement {
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
    * @param attribute
+   * @throws RuntimeException if the given attribute is not valid.
    */
   void addOrChangeAttribute(INode<?> attribute);
 
   /**
-   * Adds or changes the given attributes to the current {@link IMutableElement}.
+   * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
    * @param attribute
+   * @throws RuntimeException if the given attribute is not valid.
+   */
+  void addOrChangeAttribute(String attribute);
+
+  /**
+   * Adds or changes the given attributes to the current {@link IMutableElement}.
+   * 
    * @param attributes
+   * @throws RuntimeException if the given attributes is null.
    * @throws RuntimeException if one of the given attributes is not valid.
    */
-  default void addOrChangeAttribute(final INode<?> attribute, final INode<?>... attributes) {
-    //Calls other method.
-    addOrChangeAttribute(attribute);
-
+  default void addOrChangeAttributes(final INode<?>... attributes) {
     //Iterates the given attributes.
     for (final var a : attributes) {
       //Calls other method.
@@ -43,16 +49,8 @@ public interface IMutableElement extends Resettable, IElement {
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
-   * @param attribute
    * @param attributes
-   * @throws RuntimeException if one of the given attributes is not valid.
-   */
-  void addOrChangeAttribute(String attribute, String... attributes);
-
-  /**
-   * Adds or changes the given attributes to the current {@link IMutableElement}.
-   * 
-   * @param attributes
+   * @throws RuntimeException if the given attributes is null.
    * @throws RuntimeException if one of the given attributes is not valid.
    */
   default void addOrChangeAttributes(final Iterable<? extends INode<?>> attributes) {
@@ -63,9 +61,24 @@ public interface IMutableElement extends Resettable, IElement {
   }
 
   /**
+   * Adds or changes the given attributes to the current {@link IMutableElement}.
+   * 
+   * @param attributes
+   * @throws RuntimeException if the given attributes is null.
+   * @throws RuntimeException if one of the given attributes is not valid.
+   */
+  default void addOrChangeAttributes(String... attributes) {
+    //Iterates the given attributes.
+    for (final var a : attributes) {
+      addOrChangeAttribute(a);
+    }
+  }
+
+  /**
    * Resets the current {@link IMutableElement} from the given attributes.
    * 
    * @param attributes
+   * @throws RuntimeException if the given attributes is null.
    * @throws RuntimeException if one of the given attributes is not valid.
    */
   default void resetFromAttributes(final Iterable<? extends INode<?>> attributes) {
@@ -81,6 +94,8 @@ public interface IMutableElement extends Resettable, IElement {
    * @throws RuntimeException if the given specification is not valid.
    */
   default void resetFromSpecification(final INode<?> specification) {
-    resetFromAttributes(specification.getStoredChildNodes());
+    final var attributes = specification.getStoredChildNodes();
+
+    resetFromAttributes(attributes);
   }
 }

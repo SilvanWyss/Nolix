@@ -62,15 +62,12 @@ implements IMultiStateConfiguration<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void addOrChangeAttribute(final String attribtue, final String... attributes) {
-    //Calls other method.
-    addOrChangeAttribute(Node.fromString(attribtue));
+  public void addOrChangeAttribute(final String attribute) {
+    //Maps the given attribute to a Node.
+    final var attributeNode = Node.fromString(attribute);
 
-    //Iterates the given attributes.
-    for (final var a : attributes) {
-      //Calls other method.
-      addOrChangeAttribute(Node.fromString(a));
-    }
+    //Calls other method.
+    addOrChangeAttribute(attributeNode);
   }
 
   /**
