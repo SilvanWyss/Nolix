@@ -16,7 +16,9 @@ public interface IShadowStyle<S extends IShadowStyle<S>> {
 
   void removeCustomCornerShadows();
 
-  S forStateSetCornerShadow(ControlState state, ICornerShadow cornerShadow, ICornerShadow... cornerShadows);
+  S forStateSetCornerShadow(ControlState state, ICornerShadow cornerShadow);
 
   S forStateSetCornerShadows(ControlState state, IContainer<? extends ICornerShadow> cornerShadows);
+
+  S forStateSetCornerShadows(ControlState state, ICornerShadow... cornerShadows);
 }

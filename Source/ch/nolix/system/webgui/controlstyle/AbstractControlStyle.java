@@ -666,13 +666,10 @@ implements IControlStyle<S> {
    * {@inheritDoc}
    */
   @Override
-  public final S forStateSetCornerShadow(
-    final ControlState state,
-    final ICornerShadow cornerShadow,
-    final ICornerShadow... cornerShadows) {
-    final var allCornerShadows = ContainerView.forElementAndArray(cornerShadow, cornerShadows);
+  public final S forStateSetCornerShadow(final ControlState state, final ICornerShadow cornerShadow) {
+    final var cornerShadows = ImmutableList.withElement(cornerShadow);
 
-    return forStateSetCornerShadows(state, allCornerShadows);
+    return forStateSetCornerShadows(state, cornerShadows);
   }
 
   /**
@@ -684,6 +681,16 @@ implements IControlStyle<S> {
     memberCornerShadows.setValueForState(state, cornerShadows.to(CornerShadow::fromCornerShadow));
 
     return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S forStateSetCornerShadows(final ControlState state, final ICornerShadow... cornerShadows) {
+    final var cornerShadowsContainer = ContainerView.forArray(cornerShadows);
+
+    return forStateSetCornerShadows(state, cornerShadowsContainer);
   }
 
   /**
