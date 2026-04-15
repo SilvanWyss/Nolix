@@ -81,11 +81,11 @@ final class DeepSelectingStyleTest extends StandardTest {
       .withSelectorId("id")
       .withSelectorType(Button.class)
       .withSelectorRole(ButtonRole.CREATE_BUTTON, ButtonRole.DELETE_BUTTON)
-      .withSelectorToken("token1", "token2")
+      .withAdditionalSelectorTokens("token1", "token2")
       .withAttachingAttributes("BaseTextSize(20)", "BaseTextColor(Black)");
 
     //execution
-    final var result = testUnit.withSelectorToken("token3", "token4");
+    final var result = testUnit.withAdditionalSelectorTokens("token3", "token4");
 
     //verification
     expect(result.getSelectorId()).isEqualTo("id");

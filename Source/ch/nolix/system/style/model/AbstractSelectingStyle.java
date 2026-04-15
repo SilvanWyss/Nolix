@@ -192,8 +192,18 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final String... additionalSelectorRoles) {
     final var selectorRolesContainer = ContainerView.forArray(additionalSelectorRoles);
-  
+
     return withSelectorRoles(selectorRolesContainer);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final ISelectingStyleWithSelectors withAdditionalSelectorTokens(final String... additionalSelectorTokens) {
+    final var additionalSelectorTokensContainer = ContainerView.forArray(additionalSelectorTokens);
+  
+    return withSelectorTokens(additionalSelectorTokensContainer);
   }
 
   /**
@@ -206,18 +216,6 @@ implements ISelectingStyleWithSelectors {
       .getViewOf(Object::toString);
 
     return withSelectorRoles(allSelectorRolesView);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final ISelectingStyleWithSelectors withSelectorToken(
-    final String selectorToken,
-    final String... selectorTokens) {
-    final var allSelectorTokens = ContainerView.forElementAndArray(selectorToken, selectorTokens);
-
-    return withSelectorTokens(allSelectorTokens);
   }
 
   /**
