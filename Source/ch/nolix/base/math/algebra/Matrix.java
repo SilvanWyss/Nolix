@@ -487,7 +487,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @return the size of the current {@link Matrix}
    */
   public int getSize() {
-    return (getRowCount() * getColumnCount());
+    return getRowCount() * getColumnCount();
   }
 
   /**
@@ -714,6 +714,29 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   }
 
   /**
+   * Sets the values of the current {@link Matrix}.
+   * 
+   * @param values
+   * @return the current {@link Matrix}.
+   * @throws RuntimeException if not as many values are given as the current
+   *                          {@link Matrix} contains.
+   */
+  public Matrix setValues(final double... values) {
+    //Asserts that as many values are given as the current Matrix contains.
+    Validator.assertThat(values).hasElementCount(getSize());
+  
+    //Iterates the rows of the current Matrix.
+    for (var i = 0; i < getRowCount(); i++) {
+      //Iterates the cells of the current row.
+      for (var j = 0; j < getColumnCount(); j++) {
+        this.values[i][j] = values[i * getColumnCount() + j];
+      }
+    }
+  
+    return this;
+  }
+
+  /**
    * Sets the value in the row with the given row index and the column with the
    * given column index.
    * 
@@ -741,61 +764,6 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
       .isBetween(1, getColumnCount());
 
     values[rowIndex - 1][columnIndex - 1] = value;
-
-    return this;
-  }
-
-  /**
-   * Sets the values of the current {@link Matrix}.
-   * 
-   * @param value
-   * @param values
-   * @return the current {@link Matrix}.
-   * @throws RuntimeException if not as many values are given as the current
-   *                          {@link Matrix} contains.
-   */
-  public Matrix setValues(final double value, final double... values) {
-    //Asserts that as many values are given as the current Matrix contains.
-    final var valueCount = 1 + values.length;
-    Validator.assertThat(valueCount).isEqualTo(getColumnCount() * getRowCount());
-
-    this.values[0][0] = value;
-
-    for (var j = 1; j < getColumnCount(); j++) {
-      this.values[0][j] = values[j - 1];
-    }
-
-    //Iterates the rows of the current Matrix.
-    for (var i = 1; i < getRowCount(); i++) {
-      //Iterates the cells of the current row.
-      for (var j = 0; j < getColumnCount(); j++) {
-        this.values[i][j] = values[i * getColumnCount() + j - 1];
-      }
-    }
-
-    return this;
-  }
-
-  /**
-   * Sets the values of the current {@link Matrix}.
-   * 
-   * @param values
-   * @return the current {@link Matrix}.
-   * @throws RuntimeException if not as many values are given as the current
-   *                          {@link Matrix} contains.
-   */
-  public Matrix setValues(final double[] values) {
-    //Asserts that as many values are given as the current Matrix contains.
-    Validator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
-
-    //Iterates the rows of the current Matrix.
-    for (var i = 0; i < getRowCount(); i++) {
-      //Iterates the cells of the current row.
-      for (var j = 0; j < getColumnCount(); j++) {
-        this.values[i][j] = values[i * getColumnCount() + j];
-        this.values[i][j] = values[i * getColumnCount() + j - 1];
-      }
-    }
 
     return this;
   }
