@@ -65,22 +65,20 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
-  public final S withAttachingAttributes(final String... attachingAttributes) {
-    final var attachingAttributesView = ContainerView.forArray(attachingAttributes);
+  public final S withAdditionalSubStyles(final ISelectingStyleWithSelectors... additionalSubStyles) {
+    final var additionalSubStylesContainer = ContainerView.forArray(additionalSubStyles);
 
-    return withAttachingAttributes(attachingAttributesView);
+    return withSubStyles(additionalSubStylesContainer);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final S withSubStyle(
-    final ISelectingStyleWithSelectors subStyle,
-    final ISelectingStyleWithSelectors... subStyles) {
-    final var allSubStyles = ContainerView.forElementAndArray(subStyle, subStyles);
+  public final S withAttachingAttributes(final String... attachingAttributes) {
+    final var attachingAttributesView = ContainerView.forArray(attachingAttributes);
 
-    return withSubStyles(allSubStyles);
+    return withAttachingAttributes(attachingAttributesView);
   }
 
   /**

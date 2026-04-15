@@ -97,7 +97,7 @@ final class StyleTest extends StandardTest {
     final var testUnit = Style.EMPTY;
 
     //execution
-    final var result = testUnit.withSubStyle(subStyle1, subStyle2);
+    final var result = testUnit.withAdditionalSubStyles(subStyle1, subStyle2);
 
     //verification
     expect(result.getAttachingAttributes()).isEmpty();
@@ -132,10 +132,10 @@ final class StyleTest extends StandardTest {
     final var subStyle2 = SelectingStyle.EMPTY;
     final var subStyle3 = SelectingStyle.EMPTY;
     final var subStyle4 = SelectingStyle.EMPTY;
-    final var testUnit = Style.EMPTY.withSubStyle(subStyle1, subStyle2);
+    final var testUnit = Style.EMPTY.withAdditionalSubStyles(subStyle1, subStyle2);
 
     //execution
-    final var result = testUnit.withSubStyle(subStyle3, subStyle4);
+    final var result = testUnit.withAdditionalSubStyles(subStyle3, subStyle4);
 
     //verification
     expect(result.getAttachingAttributes()).isEmpty();
