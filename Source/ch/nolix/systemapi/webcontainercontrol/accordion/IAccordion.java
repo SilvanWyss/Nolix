@@ -14,7 +14,9 @@ import ch.nolix.systemapi.webcontainercontrol.tabcontainer.TabExpansionBehavior;
  */
 public interface IAccordion
 extends ch.nolix.systemapi.webcontainercontrol.container.IContainer<IAccordion, IAccordionStyle> {
-  IAccordion addTab(IAccordionTab tab, IAccordionTab... tabs);
+  IAccordion addTab(IAccordionTab tab);
+
+  IAccordion addTabs(IAccordionTab... tabs);
 
   IAccordion addTabs(IContainer<IAccordionTab> tabs);
 
