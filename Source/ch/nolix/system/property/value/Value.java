@@ -156,7 +156,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    */
   @Override
   public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
-    final var attribute = mapValueToSpecification(memberValue).asWithHeader(getName());
+    final var attribute = mapValueToSpecification(memberValue).withNewHeader(getName());
 
     list.addAtEnd(attribute);
   }

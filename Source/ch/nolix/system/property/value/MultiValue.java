@@ -114,7 +114,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
   @Override
   public void fillUpAttributesIntoList(final ILinkedList<INode<?>> list) {
     for (final var v : getStoredValues()) {
-      final var attribute = mapValueToSpecification(v).asWithHeader(getName());
+      final var attribute = mapValueToSpecification(v).withNewHeader(getName());
 
       list.addAtEnd(attribute);
     }

@@ -40,17 +40,20 @@ final class TableNodeExaminerTest extends StandardTest {
     MutableNode
       .createEmpty()
       .addChildNodes(
-        Node.withHeaderAndChildNode("Entity",
+        Node.withHeaderAndChildNodes(
+          "Entity",
           Node.withHeader("id1"),
           Node.withHeader("save_stamp"),
           Node.withHeader("Donald"),
           Node.withHeader("Duck")),
-        Node.withHeaderAndChildNode("Entity",
+        Node.withHeaderAndChildNodes(
+          "Entity",
           Node.withHeader("id2"),
           Node.withHeader("save_stamp"),
           Node.withHeader("Daisy"),
           Node.withHeader("Duck")),
-        Node.withHeaderAndChildNode("Entity",
+        Node.withHeaderAndChildNodes(
+          "Entity",
           Node.withHeader("id3"),
           Node.withHeader("save_stamp"),
           Node.withHeader("Dagobert"),

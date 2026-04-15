@@ -32,7 +32,7 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
     COLUMN_NODE_CHILD_NODE_MAPPER.mapColumnDtoToBackReferenceableColumnIdsNode(columnDto);
 
     return //
-    Node.withHeaderAndChildNode(
+    Node.withHeaderAndChildNodes(
       NodeHeaderCatalog.COLUMN,
       idNode,
       nameNode,

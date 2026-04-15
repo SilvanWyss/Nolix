@@ -19,7 +19,7 @@ final class NodeTest extends BaseNodeTest<Node> {
     final var testUnit = Node.fromString("a(x,y)");
 
     //execution
-    final var result = testUnit.asWithHeader("b");
+    final var result = testUnit.withNewHeader("b");
 
     //verification
     expect(result).hasStringRepresentation("b(x,y)");
@@ -31,7 +31,7 @@ final class NodeTest extends BaseNodeTest<Node> {
     final var testUnit = Node.fromString("(x,y)");
 
     //execution
-    final var result = testUnit.asWithHeader("a");
+    final var result = testUnit.withNewHeader("a");
 
     //verification
     expect(result).hasStringRepresentation("a(x,y)");
@@ -43,7 +43,7 @@ final class NodeTest extends BaseNodeTest<Node> {
     final var testUnit = Node.fromString("a");
 
     //execution
-    final var result = testUnit.asWithHeader("b");
+    final var result = testUnit.withNewHeader("b");
 
     //verification
     expect(result).hasStringRepresentation("b");

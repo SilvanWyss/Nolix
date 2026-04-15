@@ -142,7 +142,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public INode<?> asWithHeader(String header) {
+  public INode<?> withNewHeader(String header) {
     return Node.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 

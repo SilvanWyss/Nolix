@@ -25,15 +25,6 @@ import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
  */
 public interface INode<N extends INode<N>> extends BlanknessRequestable, IOptionalHeaderHolder {
   /**
-   * @param header
-   * @return a new {@link INode} that is a copy of the current {@link INode} with
-   *         the given header.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   */
-  INode<?> asWithHeader(String header);
-
-  /**
    * @return true if the current {@link INode} contains child {@link INode}s,
    *         false otherwise.
    */
@@ -224,4 +215,12 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
    * @return a {@link IXmlNode} representation of the current {@link INode}.
    */
   IXmlNode<?> toXml();
+
+  /**
+   * @param header
+   * @return a new {@link INode} from the current {@link INode} with the given new
+   *         header.
+   * @throws RuntimeException if the given header is null or blank.
+   */
+  INode<?> withNewHeader(String header);
 }

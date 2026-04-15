@@ -545,7 +545,7 @@ extends AbstractMutableElement implements IMutableImage<MutableImage> {
 
   private Node generatePixelArraySpecification() {
     return //
-    Node.withHeaderAndChildNode(
+    Node.withHeaderAndChildNodes(
       PIXEL_ARRAY_HEADER,
       Node.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
       Node.withHeaderAndChildNode(PascalCaseVariableCatalog.HEIGHT, getHeight()),
