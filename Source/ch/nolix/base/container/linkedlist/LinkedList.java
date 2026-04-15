@@ -85,16 +85,30 @@ implements ILinkedList<E> {
 
   /**
    * @param element
+   * @param <T>     is the type of the given element.
+   * @return a new {@link LinkedList} with the given element.
+   * @throws RuntimeException if one of the given element is null.
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> LinkedList<T> withElement(final T... element) {
+    final var list = new LinkedList<T>();
+
+    list.addAtEnd(element);
+
+    return list;
+  }
+
+  /**
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link LinkedList} with the given elements.
-   * @throws RuntimeException if the given element or one of the given elements is
-   *                          null.
+   * @throws RuntimeException if one of the given elements is null.
    */
   @SuppressWarnings("unchecked")
-  public static <T> LinkedList<T> withElement(final T element, final T... elements) {
+  public static <T> LinkedList<T> withElements(final T... elements) {
     final var list = new LinkedList<T>();
-    list.addAtEnd(element, elements);
+
+    list.addAtEnd(elements);
 
     return list;
   }
