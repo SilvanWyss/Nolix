@@ -12,11 +12,15 @@ public interface IMutableXmlNode
 extends IFluentMutableOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
   IMutableXmlNode addAttribute(IXmlAttribute attribute);
 
-  IMutableXmlNode addAttributes(IXmlAttribute attribute, IXmlAttribute... attributes);
+  IMutableXmlNode addAttributes(Iterable<IXmlAttribute> attributes);
+
+  IMutableXmlNode addAttributes(IXmlAttribute... attributes);
 
   IMutableXmlNode addAttributeWithNameAndValue(String name, String value);
 
   IMutableXmlNode addChildNode(IMutableXmlNode childNode);
 
-  IMutableXmlNode addChildNodes(IMutableXmlNode childNode, IMutableXmlNode... childNodes);
+  IMutableXmlNode addChildNodes(IMutableXmlNode... childNodes);
+
+  IMutableXmlNode addChildNodes(Iterable<IMutableXmlNode> childNodes);
 }

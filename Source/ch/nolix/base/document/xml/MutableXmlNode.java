@@ -4,7 +4,6 @@
 package ch.nolix.base.document.xml;
 
 import ch.nolix.base.commontypetool.stringtool.StringTool;
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
@@ -115,18 +114,22 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
+  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
-  public MutableXmlNode addAttributes(final IXmlAttribute attribute, final IXmlAttribute... attributes) {
-    addAttribute(attribute);
+  public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
+    memberAttributes.addAtEnd(attributes);
 
-    return addAttributes(ContainerView.forArray(attributes));
+    return this;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
-  public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MutableXmlNode addAttributes(final IXmlAttribute... attributes) {
     memberAttributes.addAtEnd(attributes);
 
     return this;
@@ -154,13 +157,14 @@ public final class MutableXmlNode implements IMutableXmlNode {
    * {@inheritDoc}
    */
   @Override
-  public MutableXmlNode addChildNodes(final IMutableXmlNode childNode, final IMutableXmlNode... childNodes) {
-    addChildNode(childNode);
+  public MutableXmlNode addChildNodes(final IMutableXmlNode... childNodes) {
+    memberChildNodes.addAtEnd(childNodes);
 
-    return addChildNodes(ContainerView.forArray(childNodes));
+    return this;
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
+  @Override
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
     memberChildNodes.addAtEnd(childNodes);
 
