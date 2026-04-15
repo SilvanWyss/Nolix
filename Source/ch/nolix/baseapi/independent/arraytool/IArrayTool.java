@@ -10,15 +10,6 @@ package ch.nolix.baseapi.independent.arraytool;
  */
 public interface IArrayTool {
   /**
-   * @param element
-   * @param elements
-   * @param <E>      is the type of the given element and the given elements.
-   * @return a new array with the given element and elements.
-   * @throws RuntimeException if the given elements is null.
-   */
-  <E> E[] createArrayWithElement(E element, @SuppressWarnings("unchecked") E... elements);
-
-  /**
    * @param bytes
    * @return a new {@link Iterable} with the given bytes.
    * @throws RuntimeException if the given bytes is null.
