@@ -30,7 +30,7 @@ public final class DarkModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors DIALOG_LAYER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
-    .withSelectorRole(LayerRole.DIALOG_LAYER)
+    .withAdditionalSelectorRoles(LayerRole.DIALOG_LAYER)
     .withAttachingAttributes("Background(Color(0x808080E0))");
 
   public static final ISelectingStyleWithSelectors CONTROL_STYLE = //
@@ -41,7 +41,7 @@ public final class DarkModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(AbstractContainer.class)
-    .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
+    .withAdditionalSelectorRoles(ContainerRole.DIALOG_CONTAINER)
     .withAttachingAttributes("BaseBackground(Color(0x202020E0))");
 
   public static final ISelectingStyleWithSelectors BUTTON_STYLE = //
@@ -66,7 +66,7 @@ public final class DarkModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors LEVEL1_HEADER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
-    .withSelectorRole(LabelRole.LEVEL1_HEADER)
+    .withAdditionalSelectorRoles(LabelRole.LEVEL1_HEADER)
     .withAttachingAttributes("BaseTextColor(White)");
 
   public static final ISelectingStyleWithSelectors LINK_STYLE = //
@@ -84,7 +84,7 @@ public final class DarkModeSubStyleCatalog {
   public static final ISelectingStyleWithSelectors TITLE_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
-    .withSelectorRole(LabelRole.TITLE)
+    .withAdditionalSelectorRoles(LabelRole.TITLE)
     .withAttachingAttributes("BaseTextColor(White)");
 
   public static final ISelectingStyleWithSelectors VALIDATION_LABEL_STYLE = //

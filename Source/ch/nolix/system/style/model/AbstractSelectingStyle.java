@@ -190,6 +190,17 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
+  public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final Enum<?>... additionalSelectorRoles) {
+    final var additionalSelectorRolesStrings = //
+    ContainerView.forArray(additionalSelectorRoles).getViewOf(Object::toString);
+
+    return withSelectorRoles(additionalSelectorRolesStrings);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final String... additionalSelectorRoles) {
     final var selectorRolesContainer = ContainerView.forArray(additionalSelectorRoles);
 
@@ -202,20 +213,8 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorTokens(final String... additionalSelectorTokens) {
     final var additionalSelectorTokensContainer = ContainerView.forArray(additionalSelectorTokens);
-  
+
     return withSelectorTokens(additionalSelectorTokensContainer);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final ISelectingStyleWithSelectors withSelectorRole(final Enum<?> selectorRole,
-    final Enum<?>... selectorRoles) {
-    final var allSelectorRolesView = ContainerView.forElementAndArray(selectorRole, selectorRoles)
-      .getViewOf(Object::toString);
-
-    return withSelectorRoles(allSelectorRolesView);
   }
 
   /**

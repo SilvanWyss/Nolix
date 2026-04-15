@@ -37,7 +37,7 @@ final class DeepSelectingStyleTest extends StandardTest {
     //setup
     final var testUnit = //
     DeepSelectingStyle.EMPTY
-      .withSelectorRole(LabelRole.TITLE)
+      .withAdditionalSelectorRoles(LabelRole.TITLE)
       .withAttachingAttributes("BaseTextSize(50)", "BaseTextColor(Black)");
 
     //execution
@@ -80,7 +80,7 @@ final class DeepSelectingStyleTest extends StandardTest {
     DeepSelectingStyle.EMPTY
       .withSelectorId("id")
       .withSelectorType(Button.class)
-      .withSelectorRole(ButtonRole.CREATE_BUTTON, ButtonRole.DELETE_BUTTON)
+      .withAdditionalSelectorRoles(ButtonRole.CREATE_BUTTON, ButtonRole.DELETE_BUTTON)
       .withAdditionalSelectorTokens("token1", "token2")
       .withAttachingAttributes("BaseTextSize(20)", "BaseTextColor(Black)");
 

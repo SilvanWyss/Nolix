@@ -34,7 +34,7 @@ public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors DIALOG_LAYER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(Layer.class)
-    .withSelectorRole(LayerRole.DIALOG_LAYER)
+    .withAdditionalSelectorRoles(LayerRole.DIALOG_LAYER)
     .withAttachingAttributes(
       "Background(Color(0x808080E0))",
       "ContentAlignment(CENTER)");
@@ -47,7 +47,7 @@ public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(AbstractContainer.class)
-    .withSelectorRole(ContainerRole.DIALOG_CONTAINER)
+    .withAdditionalSelectorRoles(ContainerRole.DIALOG_CONTAINER)
     .withAttachingAttributes(
       "MinWidth(500)",
       "MinHeight(200)",
@@ -57,7 +57,7 @@ public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors FOOTER_CONTAINER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(HorizontalStack.class)
-    .withSelectorRole(ContainerRole.FOOTER_CONTAINER)
+    .withAdditionalSelectorRoles(ContainerRole.FOOTER_CONTAINER)
     .withAttachingAttributes(
       "ContentAlignment(BOTTOM)",
       "BaseChildControlMargin(100)",
@@ -73,7 +73,7 @@ public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors HEADER_CONTAINER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(HorizontalStack.class)
-    .withSelectorRole(ContainerRole.HEADER_CONTAINER)
+    .withAdditionalSelectorRoles(ContainerRole.HEADER_CONTAINER)
     .withAttachingAttributes(
       "ContentAlignment(BOTTOM)",
       "BaseChildControlMargin(50)");
@@ -85,13 +85,13 @@ public final class DarkStyleSubStyleCatalog {
 
   public static final ISelectingStyleWithSelectors MAIN_CONTENT_CONTAINER_STYLE = //
   DeepSelectingStyle.EMPTY
-    .withSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
+    .withAdditionalSelectorRoles(ContainerRole.MAIN_CONTENT_CONTAINER)
     .withAttachingAttributes("MinHeight(500)");
 
   public static final ISelectingStyleWithSelectors OVERALL_CONTAINER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(VerticalStack.class)
-    .withSelectorRole(ContainerRole.OVERALL_CONTAINER)
+    .withAdditionalSelectorRoles(ContainerRole.OVERALL_CONTAINER)
     .withAttachingAttributes(
       "BaseWidth(80%)",
       "MinHeight(80%)",
@@ -126,7 +126,7 @@ public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors LEVEL1_HEADER_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
-    .withSelectorRole(LabelRole.LEVEL1_HEADER)
+    .withAdditionalSelectorRoles(LabelRole.LEVEL1_HEADER)
     .withAttachingAttributes("BaseTextSize(30)", "BaseTextColor(White)");
 
   public static final ISelectingStyleWithSelectors LINK_STYLE = //
@@ -146,7 +146,7 @@ public final class DarkStyleSubStyleCatalog {
   public static final ISelectingStyleWithSelectors TITLE_STYLE = //
   DeepSelectingStyle.EMPTY
     .withSelectorType(Label.class)
-    .withSelectorRole(LabelRole.TITLE)
+    .withAdditionalSelectorRoles(LabelRole.TITLE)
     .withAttachingAttributes("BaseTextSize(50)", "BaseTextColor(White)");
 
   public static final ISelectingStyleWithSelectors VALIDATION_LABEL_STYLE = //

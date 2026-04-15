@@ -55,6 +55,16 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param additionalSelectorRoles
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
+   *         additionalSelectorRoles.
+   * @throws RuntimeException if the given additionalSelectorRoles is null.
+   * @throws RuntimeException if one of the given additionalSelectorRoles is null.
+   */
+  ISelectingStyleWithSelectors withAdditionalSelectorRoles(Enum<?>... additionalSelectorRoles);
+
+  /**
+   * @param additionalSelectorRoles
+   * @return a new {@link ISelectingStyleWithSelectors} from the current
+   *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRoles .
    * @throws RuntimeException if the given additionalSelectorRoles is null.
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
@@ -80,18 +90,6 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if the given selectorId is null or blank.
    */
   ISelectingStyleWithSelectors withSelectorId(String selectorId);
-
-  /**
-   * @param selectorRole
-   * @param selectorRoles
-   * @return a new {@link ISelectingStyleWithSelectors} from the current
-   *         {@link ISelectingStyleWithSelectors} with the given selectorRole and
-   *         selectorRoles added.
-   * @throws RuntimeException if the given selectorRole is null.
-   * @throws RuntimeException if the given selectorRoles is null.
-   * @throws RuntimeException if one of the given selectorRoles is null.
-   */
-  ISelectingStyleWithSelectors withSelectorRole(Enum<?> selectorRole, Enum<?>... selectorRoles);
 
   /**
    * @param selectorRoles
