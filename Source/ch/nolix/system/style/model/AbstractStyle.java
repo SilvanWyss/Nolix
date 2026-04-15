@@ -65,6 +65,16 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
+  public final S withAdditionalSubStyle(final ISelectingStyleWithSelectors additionalSubStyle) {
+    final var additionalSubStyles = ImmutableList.withElement(additionalSubStyle);
+
+    return withSubStyles(additionalSubStyles);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final S withAdditionalSubStyles(final ISelectingStyleWithSelectors... additionalSubStyles) {
     final var additionalSubStylesContainer = ContainerView.forArray(additionalSubStyles);
 

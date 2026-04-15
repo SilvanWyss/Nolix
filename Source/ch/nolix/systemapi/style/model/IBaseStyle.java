@@ -40,12 +40,20 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   boolean containsAttachingAttributes();
 
   /**
+   * @param additionalSubStyle
+   * @return a new {@link IStyle} from the current {@link IStyle} with the given
+   *         additionalSubStyle.
+   * @throws RuntimeException if the given additionalSubStyle is not valid.
+   * @throws RuntimeException if one of the given additionalSubStyles is null.
+   */
+  S withAdditionalSubStyle(ISelectingStyleWithSelectors additionalSubStyle);
+
+  /**
    * @param additionalSubStyles
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
    *         additionalSubStyles.
    * @throws RuntimeException if the given additionalSubStyles is null.
-   * @throws RuntimeException if one of the given additionalSubStyles is not
-   *                          valid.
+   * @throws RuntimeException if one of the given additionalSubStyles is null.
    */
   S withAdditionalSubStyles(ISelectingStyleWithSelectors... additionalSubStyles);
 
