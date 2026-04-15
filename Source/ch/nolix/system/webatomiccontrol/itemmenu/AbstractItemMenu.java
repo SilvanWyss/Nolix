@@ -26,7 +26,8 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @param <S> is the type of the {@link IItemMenuStyle}s of a
  *            {@link AbstractItemMenu}.
  */
-public abstract class AbstractItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
+public abstract class AbstractItemMenu //NOSONAR: A AbstractItemMenu is a principal object thus it has many methods.
+<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends Control<M, S> implements IItemMenu<M, S> {
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
 
@@ -51,7 +52,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public M addItem(final IItemMenuItem<?> item) {
+  public final M addItem(final IItemMenuItem<?> item) {
     ITEM_MENU_VALIDATOR.assertCanAddItem(this, item);
 
     item.internalSetParentMenu(this);
@@ -64,7 +65,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public M addItem(final String item) {
+  public final M addItem(final String item) {
     final var itemMenuItem = ItemMenuItem.withText(item);
 
     return addItem(itemMenuItem);
