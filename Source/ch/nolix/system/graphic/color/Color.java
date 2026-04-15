@@ -106,13 +106,13 @@ public final class Color extends AbstractElement implements IColor {
     memberAlphaValue = (short) alphaValue;
   }
 
-  public static Color createAverageFrom(final IColor color, final IColor... colors) {
-    final var allColors = ContainerView.forElementAndArray(color, colors);
+  public static Color createAverageFromColors(final IColor... colors) {
+    final var colorsContainer = ContainerView.forArray(colors);
 
-    return createAverageFrom(allColors);
+    return createAverageFromColors(colorsContainer);
   }
 
-  public static Color createAverageFrom(final IContainer<IColor> colors) {
+  public static Color createAverageFromColors(final IContainer<IColor> colors) {
     final var colorCount = colors.getCount();
 
     var averageRedValue = 0;

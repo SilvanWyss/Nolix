@@ -139,7 +139,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
   }
 
   private void fillImagePixel(final int x, final int y) {
-    final var color = Color.createAverageFrom(
+    final var color = Color.createAverageFromColors(
       getColorOfPixel(x - 0.75, y - 0.75),
       getColorOfPixel(x - 0.75, y - 0.25),
       getColorOfPixel(x - 0.25, y - 0.75),
