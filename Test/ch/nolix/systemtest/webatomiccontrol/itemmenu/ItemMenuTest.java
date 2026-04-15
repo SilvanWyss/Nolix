@@ -70,7 +70,7 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
     //setup
     final var item = ItemMenuItem.withIdAndText("my_id2", "my_text2");
     final M testUnit = createTestUnit()
-      .addItem(
+      .addItems(
         ItemMenuItem.withIdAndText("my_id1", "my_text1"),
         item,
         ItemMenuItem.withIdAndText("my_id3", "my_text3"));

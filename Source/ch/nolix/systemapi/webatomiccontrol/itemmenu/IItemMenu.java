@@ -11,9 +11,11 @@ import ch.nolix.systemapi.webgui.main.IControl;
 
 //An IItemMenu can contain 0 or 1 selected item.
 public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends Clearable, IControl<M, S> {
-  M addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items);
-
   M addBlankItem();
+
+  M addItem(IItemMenuItem<?> item);
+
+  M addItems(IItemMenuItem<?>... items);
 
   M addItemWithIdAndText(String id, String text);
 

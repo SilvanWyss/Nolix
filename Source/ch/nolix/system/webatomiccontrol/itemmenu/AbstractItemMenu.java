@@ -40,6 +40,9 @@ extends Control<M, S> implements IItemMenu<M, S> {
 
   private Consumer<IItemMenuItem<?>> memberSelectAction;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final M addBlankItem() {
     return addItem(ItemMenuItem.createBlankItem());
@@ -49,14 +52,22 @@ extends Control<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public final M addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
-    final var allItems = ContainerView.forElementAndArray(item, items);
+  public M addItem(final IItemMenuItem<?> item) {
+    ITEM_MENU_VALIDATOR.assertCanAddItem(this, item);
 
-    for (final var i : allItems) {
-      ITEM_MENU_VALIDATOR.assertCanAddItem(this, i);
+    item.internalSetParentMenu(this);
+    memberItems.addValue(item);
 
-      i.internalSetParentMenu(this);
-      memberItems.addValue(i);
+    return asConcrete();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final M addItems(final IItemMenuItem<?>... items) {
+    for (final var i : items) {
+      addItem(i);
     }
 
     return asConcrete();
