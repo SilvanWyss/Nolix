@@ -5,6 +5,7 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
+import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.programcontrol.job.JobTool;
 import ch.nolix.base.validation.validator.Validator;
@@ -317,6 +318,12 @@ public final class JobExecutor extends Thread {
     jobExecutor.start();
 
     return jobExecutor;
+  }
+
+  public static JobExecutor forJobs(final Runnable... jobs) {
+    final var jobContainer = ContainerView.forArray(jobs);
+
+    return forJobs(jobContainer);
   }
 
   /**

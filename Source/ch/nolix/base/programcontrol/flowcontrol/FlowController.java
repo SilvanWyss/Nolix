@@ -6,7 +6,6 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -120,14 +119,13 @@ public final class FlowController {
   /**
    * Runs the given jobs in background in the given order.
    * 
-   * @param job
    * @param jobs
-   * @return a new {@link IFuture} for the running of the given jobs.
+   * @return a new {@link IFuture} for the execution of the given jobs.
    */
-  public static IFuture runInBackgroundAndOrder(final Runnable job, final Runnable... jobs) {
-    final var allJobes = ContainerView.forElementAndArray(job, jobs);
+  public static IFuture runInBackgroundAndOrder(final Runnable... jobs) {
+    final var jobExecutor = JobExecutor.forJobs(jobs);
 
-    return Future.forJobExecutor(JobExecutor.forJobs(allJobes));
+    return Future.forJobExecutor(jobExecutor);
   }
 
   /**
