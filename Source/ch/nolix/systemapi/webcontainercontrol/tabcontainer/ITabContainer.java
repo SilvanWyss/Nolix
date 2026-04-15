@@ -13,9 +13,11 @@ import ch.nolix.systemapi.webatomiccontrol.label.ILabelStyle;
  */
 public interface ITabContainer
 extends ch.nolix.systemapi.webcontainercontrol.container.IContainer<ITabContainer, ITabContainerStyle> {
-  ITabContainer addTab(ITabContainerTab tab, ITabContainerTab... tabs);
+  ITabContainer addTab(ITabContainerTab tab);
 
   ITabContainer addTabs(IContainer<ITabContainerTab> tabs);
+
+  ITabContainer addTabs(ITabContainerTab... tabs);
 
   boolean containsSelectedTab();
 
