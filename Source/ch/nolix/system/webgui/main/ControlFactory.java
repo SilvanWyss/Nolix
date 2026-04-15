@@ -26,9 +26,12 @@ public final class ControlFactory {
     return CONTROL_FACTORY.createControlOfType(type);
   }
 
-  public static void registerControlClass(
-    final Class<Control<?, ?>> controlClass,
+  public static void registerControlClass(final Class<Control<?, ?>> controlClass) {
+    CONTROL_FACTORY.registerControlClass(controlClass);
+  }
+
+  public static void registerControlClasses(
     final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
-    CONTROL_FACTORY.registerControlClass(controlClass, controlClasses);
+    CONTROL_FACTORY.registerControlClasses(controlClasses);
   }
 }

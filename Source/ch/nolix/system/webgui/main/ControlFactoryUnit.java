@@ -3,7 +3,6 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.baseapi.document.node.INode;
@@ -34,14 +33,15 @@ public final class ControlFactoryUnit {
   }
 
   public void registerControlClass(
-    final Class<Control<?, ?>> controlClass,
-    final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
-    final var allControlClasses = ContainerView.forElementAndArray(controlClass, controlClasses);
+    final Class<Control<?, ?>> controlClass) {
+    assertDoesNotContainControlClassWithName(controlClass.getSimpleName());
 
-    for (final var c : allControlClasses) {
-      assertDoesNotContainControlClassWithName(c.getSimpleName());
+    memberControlClasses.addAtEnd(controlClass);
+  }
 
-      memberControlClasses.addAtEnd(c);
+  public void registerControlClasses(final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
+    for (final var c : controlClasses) {
+      registerControlClass(c);
     }
   }
 
