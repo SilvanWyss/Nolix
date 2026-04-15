@@ -75,24 +75,6 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   /**
-   * @param element
-   * @param array
-   * @param <T>     is the type of the given element and the elements of the given
-   *                array.
-   * @return a new {@link ContainerView} for the given element and array.
-   * @throws RuntimeException if the given array is null.
-   */
-  public static <T> ContainerView<T> forElementAndArray(final T element, final T[] array) {
-    @SuppressWarnings("unchecked")
-    final var arrayWithElement = (T[]) new Object[] { element };
-
-    @SuppressWarnings("unchecked")
-    final var container = MultiContainerView.forArrays(arrayWithElement, array);
-
-    return new ContainerView<>(container);
-  }
-
-  /**
    * @param iterable
    * @param <T>      is the type of the elements of the given iterable.
    * @return a new {@link ContainerView} for the given iterable.
