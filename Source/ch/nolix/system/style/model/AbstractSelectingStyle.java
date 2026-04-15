@@ -202,10 +202,10 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final ISelectingStyleWithSelectors withSelectorRole(final String selectorRole, final String... selectorRoles) {
-    final var allSelectorRoles = ContainerView.forElementAndArray(selectorRole, selectorRoles);
+  public final ISelectingStyleWithSelectors withSelectorRoles(final String... selectorRoles) {
+    final var selectorRolesContainer = ContainerView.forArray(selectorRoles);
 
-    return withSelectorRoles(allSelectorRoles);
+    return withSelectorRoles(selectorRolesContainer);
   }
 
   /**
