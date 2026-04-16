@@ -5,8 +5,8 @@ package ch.nolix.system.sqlmiddata.adapter;
 
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.adapter.AbstractDataAdapter;
-import ch.nolix.system.sqlmiddata.datareader.DataReader;
 import ch.nolix.system.sqlmiddata.datawriter.DataWriter;
+import ch.nolix.system.sqlmiddata.loader.DataReader;
 import ch.nolix.system.sqlmiddata.schemaviewloader.DatabaseSchemaViewLoader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
 import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.middata.adapter;
+package ch.nolix.systemapi.middata.loader;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
 import ch.nolix.baseapi.container.base.IContainer;

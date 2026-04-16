@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.entitytool.EntityFiller;
-import ch.nolix.systemapi.middata.adapter.IDataReader;
+import ch.nolix.systemapi.middata.loader.IDataReader;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityCreator;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFiller;
 import ch.nolix.systemapi.objectdata.model.IEntity;

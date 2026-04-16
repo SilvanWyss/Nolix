@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.sqlmiddata.datareader;
+package ch.nolix.system.sqlmiddata.loader;
 
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
 import ch.nolix.base.validation.validator.Validator;

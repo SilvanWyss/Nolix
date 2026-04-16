@@ -3,6 +3,8 @@
  */
 package ch.nolix.systemapi.middata.adapter;
 
+import ch.nolix.systemapi.middata.loader.IDataReader;
+
 /**
  * @author Silvan Wyss
  */
