@@ -100,7 +100,7 @@ implements ILayer<Layer> {
     ContentAlignment::fromSpecification,
     Node::fromEnum);
 
-  private final OptionalValue<IControl<?, ?>> rootControl = //
+  private final OptionalValue<IControl<?, ?>> memberRootControl = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
@@ -239,12 +239,13 @@ implements ILayer<Layer> {
       return Optional.empty();
     }
 
-    final var localRootControl = getStoredRootControl();
-    if (localRootControl.hasInternalId(internalId)) {
-      return Optional.of(localRootControl);
+    final var rootControl = getStoredRootControl();
+
+    if (rootControl.hasInternalId(internalId)) {
+      return Optional.of(rootControl);
     }
 
-    return localRootControl.getOptionalStoredChildControlByInternalId(internalId);
+    return rootControl.getOptionalStoredChildControlByInternalId(internalId);
   }
 
   /**
@@ -274,7 +275,7 @@ implements ILayer<Layer> {
    */
   @Override
   public IControl<?, ?> getStoredRootControl() {
-    return rootControl.getStoredValue();
+    return memberRootControl.getStoredValue();
   }
 
   /**
@@ -347,7 +348,7 @@ implements ILayer<Layer> {
    */
   @Override
   public boolean isEmpty() {
-    return rootControl.isEmpty();
+    return memberRootControl.isEmpty();
   }
 
   /**
@@ -416,7 +417,7 @@ implements ILayer<Layer> {
   @Override
   public Layer setRootControl(final IControl<?, ?> rootControl) {
     rootControl.internalSetParentLayer(this);
-    this.rootControl.setValue(rootControl);
+    this.memberRootControl.setValue(rootControl);
 
     return this;
   }
@@ -473,7 +474,7 @@ implements ILayer<Layer> {
   }
 
   private void clearWhenIsNotEmpty() {
-    rootControl.clear();
+    memberRootControl.clear();
   }
 
   private boolean containsControlWhenContainsAny(final IControl<?, ?> control) {
