@@ -9,7 +9,6 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
-import ch.nolix.system.sqlmiddata.modelmapper.LoadedEntityDtoMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.MultiBackReferenceEntryDtoMapper;
 import ch.nolix.system.sqlmiddata.modelmapper.MultiReferenceEntryDtoMapper;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
@@ -17,15 +16,16 @@ import ch.nolix.system.sqlmiddata.querycreator.MultiBackReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiReferenceQueryCreator;
 import ch.nolix.system.sqlmiddata.querycreator.MultiValueQueryCreator;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
-import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
-final class InternalDataReader {
+/**
+ * @author Silvan Wyss
+ */
+public final class InternalDataReader {
   private static final EntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
 
   private static final MultiValueQueryCreator MULTI_VALUE_QUERY_CREATOR = new MultiValueQueryCreator();
@@ -34,8 +34,6 @@ final class InternalDataReader {
 
   private static final MultiBackReferenceQueryCreator MULTI_BACK_REFERENCE_QUERY_CREATOR = //
   new MultiBackReferenceQueryCreator();
-
-  private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
   private static final MultiReferenceEntryDtoMapper MULTI_REFERENCE_ENTRY_DTO_MAPPER = //
   new MultiReferenceEntryDtoMapper();
@@ -134,20 +132,6 @@ final class InternalDataReader {
           entityId,
           multiValueColumnView.id()))
       .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnView.dataType()));
-  }
-
-  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableInfoDto tableView) {
-    final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView);
-    final var records = sqlConnection.getRecordsFromQuery(query);
-
-    return records.to(r -> LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(r, tableView));
-  }
-
-  public EntityLoadingDto loadEntity(final TableInfoDto tableView, final String id) {
-    final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView);
-    final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
-
-    return LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(sqlRecord, tableView);
   }
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(

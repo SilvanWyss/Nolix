@@ -22,9 +22,9 @@ public interface IEntityQueryCreator {
     String value,
     IContainer<String> entitiesToIgnoreIds);
 
-  String createQueryToLoadEntitiesOfTable(TableInfoDto tableView);
+  String createQueryToLoadEntitiesByTable(TableInfoDto tableView);
 
-  String createQueryToLoadEntity(String id, TableInfoDto tableView);
+  String createQueryToLoadEntityByTableAndId(String id, TableInfoDto tableView);
 
   String createQueryToLoadSchemaTimestamp();
 }

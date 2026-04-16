@@ -43,7 +43,7 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
-    final var result = testUnit.createQueryToLoadEntitiesOfTable(tableView);
+    final var result = testUnit.createQueryToLoadEntitiesByTable(tableView);
 
     //verification
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat;";
@@ -62,7 +62,7 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
-    final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableView);
+    final var result = testUnit.createQueryToLoadEntityByTableAndId("eeeeeee1", tableView);
 
     //verification
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat WHERE Id = 'eeeeeee1';";

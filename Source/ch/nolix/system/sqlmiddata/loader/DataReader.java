@@ -33,6 +33,8 @@ public final class DataReader implements IDataReader {
 
   private final InternalDataReader internalDataReader;
 
+  private final SchematicEntityLoader schematicEntityLoader;
+
   private DataReader(
     final String databaseName,
     final DatabaseInfoDto databaseView,
@@ -41,6 +43,7 @@ public final class DataReader implements IDataReader {
 
     this.databaseView = databaseView;
     this.internalDataReader = InternalDataReader.withDatabaseNameAndSqlConnection(databaseName, sqlConnection);
+    this.schematicEntityLoader = SchematicEntityLoader.withSqlConnection(sqlConnection);
 
     createCloseDependencyTo(sqlConnection);
   }
@@ -147,7 +150,7 @@ public final class DataReader implements IDataReader {
   public IContainer<EntityLoadingDto> loadEntities(final String tableName) {
     final var tableView = getTableViewByTableName(tableName);
 
-    return internalDataReader.loadEntitiesOfTable(tableView);
+    return schematicEntityLoader.loadEntitiesByTable(tableView);
   }
 
   /**
@@ -157,7 +160,7 @@ public final class DataReader implements IDataReader {
   public EntityLoadingDto loadEntity(final String tableName, final String entityId) {
     final var tableView = getTableViewByTableName(tableName);
 
-    return internalDataReader.loadEntity(tableView, entityId);
+    return schematicEntityLoader.loadEntityByTableAndId(tableView, entityId);
   }
 
   /**
