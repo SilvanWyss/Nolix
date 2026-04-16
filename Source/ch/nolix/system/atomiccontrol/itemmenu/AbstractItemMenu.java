@@ -36,7 +36,7 @@ extends Control<M, S> implements IItemMenu<M, S> {
   private static final IItemMenuValidator ITEM_MENU_VALIDATOR = new ItemMenuValidator();
 
   private final MultiValue<IItemMenuItem<?>> memberItems = //
-  MultiValue.forElementsWithNameAndSetterAndValueMapper(ITEM_HEADER, this::addItem, ItemMenuItem::fromSpecification);
+  MultiValue.forElementsWithNameAndAdderAndValueMapper(ITEM_HEADER, this::addItem, ItemMenuItem::fromSpecification);
 
   private Consumer<IItemMenuItem<?>> memberSelectAction;
 

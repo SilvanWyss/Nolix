@@ -25,7 +25,7 @@ implements ILinearContainer<C, S> {
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
   private final MultiValue<IControl<?, ?>> childControls = //
-  MultiValue.forElementsWithNameAndSetterAndValueMapper(
+  MultiValue.forElementsWithNameAndAdderAndValueMapper(
     CHILD_CONTROL_HEADER,
     this::addControl,
     ControlFactory::createControlFromSpecification);

@@ -55,13 +55,13 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param adder
    * @param valueMapper
    * @param <E>         is the type of the values of a {@link MultiValue}.
-   * @return a new {@link MultiValue} with the given name, setter and
-   *         valueMapperand and that can store {@link IElement}s.
+   * @return a new {@link MultiValue} with the given name, adder and valueMapper
+   *         that can store {@link IElement}s.
    * @throws RuntimeException if the given name is null or blank.
    * @throws RuntimeException if the given adder is null.
    * @throws RuntimeException if the given valueMapper is null.
    */
-  public static <E extends IElement> MultiValue<E> forElementsWithNameAndSetterAndValueMapper(
+  public static <E extends IElement> MultiValue<E> forElementsWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
     final Function<INode<?>, E> valueMapper) {
