@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.webcontainercontrol.linearcontainer.ILinearContainerStyle;
-import ch.nolix.systemapi.webcontainercontrol.tabcontainer.TabExpansionBehavior;
 
 /**
  * @author Silvan Wyss
