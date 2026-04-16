@@ -1,0 +1,28 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.containercontrol.horizontalstack;
+
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.systemapi.containercontrol.horizontalstack.IHorizontalStack;
+import ch.nolix.systemapi.webgui.main.IControl;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class HorizontalStackHtmlBuilderHelper {
+  private HorizontalStackHtmlBuilderHelper() {
+  }
+
+  public static IContainer<HtmlElement> createHtmlElementsForChildControlsOfHorizontalStack(
+    final IHorizontalStack horizontalStack) {
+    return //
+    horizontalStack.getStoredChildControls().to(HorizontalStackHtmlBuilderHelper::createHtmlElementsForChildControl);
+  }
+
+  private static HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
+    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalog.DIV, childControl.getHtml());
+  }
+}

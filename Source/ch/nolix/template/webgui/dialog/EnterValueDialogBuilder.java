@@ -12,11 +12,11 @@ import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.atomiccontrol.validationlabel.ValidationLabel;
-import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStack;
-import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.containercontrol.horizontalstack.HorizontalStack;
+import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
-import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
+import ch.nolix.systemapi.containercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

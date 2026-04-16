@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.atomiccontrol.label.Label;
-import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.LayerStack;
 import ch.nolix.system.webgui.main.WebGui;
 

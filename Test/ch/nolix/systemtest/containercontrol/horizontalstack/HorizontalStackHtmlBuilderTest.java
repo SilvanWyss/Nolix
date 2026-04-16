@@ -1,0 +1,63 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.systemtest.containercontrol.horizontalstack;
+
+import org.junit.jupiter.api.Test;
+
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.system.atomiccontrol.label.Label;
+import ch.nolix.system.containercontrol.horizontalstack.HorizontalStack;
+import ch.nolix.system.containercontrol.horizontalstack.HorizontalStackHtmlBuilder;
+import ch.nolix.systemapi.containercontrol.horizontalstack.IHorizontalStack;
+import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
+
+/**
+ * @author Silvan Wyss
+ */
+final class HorizontalStackHtmlBuilderTest
+extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
+  @Test
+  void testCase_createHtmlElement_whenContainsChildControls() {
+    //setup control
+    final var control = createControl().addControls(new Label(), new Label(), new Label());
+
+    //setup testUnit
+    final var testUnit = createTestUnit();
+
+    //execution
+    final var result = testUnit.createHtmlElementForControl(control);
+
+    //verification
+    expect(result.getInnerText().isEmpty()).isTrue();
+    final var childElements = result.getChildElements();
+    expect(childElements).hasElementCount(3);
+    expect(childElements.getStoredAtOneBasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(2).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+    expect(childElements.getStoredAtOneBasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalog.DIV);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IHorizontalStack createControl() {
+    return new HorizontalStack();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected HorizontalStackHtmlBuilder createTestUnit() {
+    return new HorizontalStackHtmlBuilder();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
+    return "<div />";
+  }
+}

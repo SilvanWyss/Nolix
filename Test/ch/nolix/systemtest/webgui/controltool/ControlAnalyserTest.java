@@ -11,8 +11,8 @@ import ch.nolix.system.atomiccontrol.imagecontrol.ImageControl;
 import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.atomiccontrol.link.Link;
 import ch.nolix.system.atomiccontrol.textbox.Textbox;
-import ch.nolix.system.webcontainercontrol.floatcontainer.FloatContainer;
-import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.containercontrol.floatcontainer.FloatContainer;
+import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 
 /**

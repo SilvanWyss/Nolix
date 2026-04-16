@@ -12,7 +12,7 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
+import ch.nolix.systemapi.containercontrol.container.ContainerRole;
 
 /**
  * @author Silvan Wyss
