@@ -7,7 +7,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
 
 /**
@@ -23,7 +23,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   public FieldDto mapNullableStringRepresentedValueToContentFieldDto(
     final String nullableStringRepresentedValue,
     final String nullableAdditionalValue,
-    final ColumnViewDto columnView) {
+    final ColumnInfoDto columnView) {
     final var columnName = columnView.name();
     final var fieldType = columnView.fieldType();
 

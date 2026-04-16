@@ -1,32 +1,32 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.midschemaview.modelsearcher;
+package ch.nolix.systemapi.midschemainfo.modelsearcher;
 
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
 /**
  * @author Silvan Wyss
  */
-public interface ITableViewSearcher {
+public interface ITableInfoSearcher {
   /**
-   * @param tableViewDto
+   * @param tableInfoDto
    * @param columnId
    * @return the column view of the column with the given columnId from the given
    *         tableViewDto.
    * @throws RuntimeException if the given tableViewDto does not contain a column
    *                          view of a column with the given columnId.
    */
-  ColumnViewDto getColumnViewByColumnId(TableViewDto tableViewDto, String columnId);
+  ColumnInfoDto getColumnViewByColumnId(TableInfoDto tableInfoDto, String columnId);
 
   /**
-   * @param tableViewDto
+   * @param tableInfoDto
    * @param columnName
    * @return the column view of the column with the given columnName from the
    *         given tableViewDto.
    * @throws RuntimeException if the given tableViewDto does not contain a column
    *                          view of a column with the given columnName.
    */
-  ColumnViewDto getColumnViewByColumnName(TableViewDto tableViewDto, String columnName);
+  ColumnInfoDto getColumnViewByColumnName(TableInfoDto tableInfoDto, String columnName);
 }

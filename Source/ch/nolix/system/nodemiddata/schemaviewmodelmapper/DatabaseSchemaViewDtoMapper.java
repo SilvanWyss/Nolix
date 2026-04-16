@@ -5,7 +5,7 @@ package ch.nolix.system.nodemiddata.schemaviewmodelmapper;
 
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IDatabaseSchemaViewDtoMapper;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.ITableSchemaViewDtoMapper;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IDatabaseNodeSearcher;
@@ -22,11 +22,11 @@ public final class DatabaseSchemaViewDtoMapper implements IDatabaseSchemaViewDto
    * {@inheritDoc}
    */
   @Override
-  public DatabaseViewDto mapTableNodeToTableViewDto(final IMutableNode<?> nodeDatabase) {
+  public DatabaseInfoDto mapTableNodeToTableViewDto(final IMutableNode<?> nodeDatabase) {
     final var databaseName = DATABASE_NODE_SEARCHER.getDatabaseNameFromNodeDatabase(nodeDatabase);
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
     final var tableSchemaViews = tableNodes.to(TABLE_SCHEMA_VIEW_DTO_MAPPER::mapTableNodeToTableViewDto);
 
-    return new DatabaseViewDto(databaseName, tableSchemaViews);
+    return new DatabaseInfoDto(databaseName, tableSchemaViews);
   }
 }

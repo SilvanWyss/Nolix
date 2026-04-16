@@ -12,8 +12,8 @@ import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IContentFieldDtoMapper;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.ILoadedEntityDtoMapper;
 
@@ -26,7 +26,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   @Override
   public EntityLoadingDto mapSqlRecordToEntityLoadingDto(
     final ISqlRecord sqlRecord,
-    final TableViewDto tableView) {
+    final TableInfoDto tableView) {
     return //
     new EntityLoadingDto(
       sqlRecord.getStoredAtOneBasedIndex(1),
@@ -40,7 +40,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
   @Override
   public IContainer<FieldDto> mapSqlRecordToContentFieldDtos(
     final ISqlRecord sqlRecord,
-    final IContainer<ColumnViewDto> columnViews) {
+    final IContainer<ColumnInfoDto> columnViews) {
     final ILinkedList<FieldDto> contentFieldDtos = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecord.iterator();
 

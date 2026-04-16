@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.midschemaview.model;
+package ch.nolix.systemapi.midschemainfo.model;
 
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
  * @param fieldType
  * @param dataType
  */
-public record ColumnViewDto(
+public record ColumnInfoDto(
 String id,
 String name,
 int oneBasedOrdinalIndex,

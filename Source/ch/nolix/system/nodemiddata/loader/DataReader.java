@@ -8,32 +8,32 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
+import ch.nolix.system.midschemainfo.modelsearcher.DatabaseInfoSearcher;
 import ch.nolix.systemapi.middata.loader.IDataReader;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
-import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class DataReader implements IDataReader {
-  private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
+  private static final IDatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseViewDto databaseView;
+  private final DatabaseInfoDto databaseView;
 
   private final InternalDataReader internalDataReader;
 
-  private DataReader(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseView) {
+  private DataReader(final IMutableNode<?> nodeDatabase, final DatabaseInfoDto databaseView) {
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
     this.databaseView = databaseView;
@@ -42,7 +42,7 @@ public final class DataReader implements IDataReader {
 
   public static DataReader forNodeDatabaseAndDatabaseView(
     final IMutableNode<?> nodeDatabase,
-    final DatabaseViewDto databaseView) {
+    final DatabaseInfoDto databaseView) {
     return new DataReader(nodeDatabase, databaseView);
   }
 
@@ -204,11 +204,11 @@ public final class DataReader implements IDataReader {
     return internalDataReader.tableContainsEntityWithGivenId(tableName, entityId);
   }
 
-  private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
+  private ColumnInfoDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
     return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseView, tableName, columnName);
   }
 
-  private TableViewDto getTableViewByTableName(final String tableName) {
+  private TableInfoDto getTableViewByTableName(final String tableName) {
     return DATABASE_VIEW_SEARCHER.getTableViewByTableName(databaseView, tableName);
   }
 }

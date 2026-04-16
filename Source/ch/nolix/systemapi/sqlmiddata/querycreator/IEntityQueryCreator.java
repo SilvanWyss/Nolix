@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.sqlmiddata.querycreator;
 
 import ch.nolix.baseapi.container.base.IContainer;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
 /**
  * @author Silvan Wyss
@@ -22,9 +22,9 @@ public interface IEntityQueryCreator {
     String value,
     IContainer<String> entitiesToIgnoreIds);
 
-  String createQueryToLoadEntitiesOfTable(TableViewDto tableView);
+  String createQueryToLoadEntitiesOfTable(TableInfoDto tableView);
 
-  String createQueryToLoadEntity(String id, TableViewDto tableView);
+  String createQueryToLoadEntity(String id, TableInfoDto tableView);
 
   String createQueryToLoadSchemaTimestamp();
 }

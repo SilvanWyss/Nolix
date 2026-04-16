@@ -12,7 +12,7 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.programcontrol.process.IUpdaterCollector;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
@@ -214,7 +214,7 @@ public final class ExecutiveDataWriter {
     }
   }
 
-  public void updateEntity(final EntityUpdateDto entityUpdate, final TableViewDto tableView) {
+  public void updateEntity(final EntityUpdateDto entityUpdate, final TableInfoDto tableView) {
     final Consumer<IMutableNode<?>> updateAction = //
     d -> DataWriterActionProvider.updateEntity(d, entityUpdate, tableView);
 

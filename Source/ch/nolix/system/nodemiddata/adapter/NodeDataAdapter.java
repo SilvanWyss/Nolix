@@ -8,7 +8,7 @@ import ch.nolix.system.middata.adapter.AbstractDataAdapter;
 import ch.nolix.system.nodemiddata.datawriter.DataWriter;
 import ch.nolix.system.nodemiddata.loader.DataReader;
 import ch.nolix.system.nodemiddata.schemaviewmodelmapper.DatabaseSchemaViewDtoMapper;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper.IDatabaseSchemaViewDtoMapper;
 
 /**
@@ -21,7 +21,7 @@ public final class NodeDataAdapter extends AbstractDataAdapter {
     this(nodeDatabase, DATABASE_SCHEMA_VIEW_DTO_MAPPER.mapTableNodeToTableViewDto(nodeDatabase));
   }
 
-  private NodeDataAdapter(final IMutableNode<?> nodeDatabase, final DatabaseViewDto databaseSchemaView) {
+  private NodeDataAdapter(final IMutableNode<?> nodeDatabase, final DatabaseInfoDto databaseSchemaView) {
     super(
       DataReader.forNodeDatabaseAndDatabaseView(nodeDatabase, databaseSchemaView),
       DataWriter.forNodeDatabaseAndDatabaseView(nodeDatabase, databaseSchemaView));

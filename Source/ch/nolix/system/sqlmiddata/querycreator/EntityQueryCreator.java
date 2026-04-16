@@ -5,8 +5,8 @@ package ch.nolix.system.sqlmiddata.querycreator;
 
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
@@ -86,9 +86,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadEntitiesOfTable(final TableViewDto tableView) {
+  public String createQueryToLoadEntitiesOfTable(final TableInfoDto tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableView.columnViews().getViewOf(ColumnViewDto::name).toStringWithSeparator(", ")
+    + tableView.columnViews().getViewOf(ColumnInfoDto::name).toStringWithSeparator(", ")
     + " FROM "
     + tableView.name()
     + ";";
@@ -98,9 +98,9 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
    * {@inheritDoc}
    */
   @Override
-  public String createQueryToLoadEntity(String id, TableViewDto tableView) {
+  public String createQueryToLoadEntity(String id, TableInfoDto tableView) {
     return "SELECT Id, SaveStamp, "
-    + tableView.columnViews().getViewOf(ColumnViewDto::name).toStringWithSeparator(", ")
+    + tableView.columnViews().getViewOf(ColumnInfoDto::name).toStringWithSeparator(", ")
     + " FROM "
     + tableView.name()
     + " WHERE Id = '"

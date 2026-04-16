@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.midschemaview.model;
+package ch.nolix.systemapi.midschemainfo.model;
 
 import ch.nolix.baseapi.container.base.IContainer;
 
@@ -10,5 +10,5 @@ import ch.nolix.baseapi.container.base.IContainer;
  * @param name
  * @param tableViews
  */
-public record DatabaseViewDto(String name, IContainer<TableViewDto> tableViews) {
+public record DatabaseInfoDto(String name, IContainer<TableInfoDto> tableViews) {
 }

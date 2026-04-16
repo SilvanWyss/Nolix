@@ -6,7 +6,7 @@ package ch.nolix.system.nodemiddata.modelmapper;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemiddata.nodesearcher.EntityNodeSearcher;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.nodemiddata.modelmapper.IContentFieldDtoMapper;
 import ch.nolix.systemapi.nodemiddata.modelmapper.IEntityLoadingDtoMapper;
 import ch.nolix.systemapi.nodemiddata.nodesearcher.IEntityNodeSearcher;
@@ -25,7 +25,7 @@ public final class EntityLoadingDtoMapper implements IEntityLoadingDtoMapper {
   @Override
   public EntityLoadingDto mapEntityNodeToEntityLoadingDto(
     final IMutableNode<?> entityNode,
-    final TableViewDto tableView) {
+    final TableInfoDto tableView) {
     final var id = ENTITY_NODE_SEARCHER.getIdFromEntityNode(entityNode);
     final var saveStamp = ENTITY_NODE_SEARCHER.getSaveStampFromEntityNode(entityNode);
     final var contentFields = CONTENT_FIELD_DTO_MAPPER.mapEntityNodeToContentFieldDtos(entityNode, tableView);

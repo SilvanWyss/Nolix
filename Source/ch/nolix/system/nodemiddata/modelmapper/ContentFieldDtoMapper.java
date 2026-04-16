@@ -12,8 +12,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.nodemiddata.modelmapper.IContentFieldDtoMapper;
 
 /**
@@ -28,7 +28,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public FieldDto mapContentFieldNodeToContentFieldDto(
     final INode<?> contentFieldNode,
-    final ColumnViewDto columnView) {
+    final ColumnInfoDto columnView) {
     final var columnName = columnView.name();
     final var fieldType = columnView.fieldType();
     final var dataType = columnView.dataType();
@@ -81,7 +81,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
   @Override
   public IContainer<FieldDto> mapEntityNodeToContentFieldDtos(
     final IMutableNode<?> entityNode,
-    final TableViewDto tableView) {
+    final TableInfoDto tableView) {
     final ILinkedList<FieldDto> contentFields = LinkedList.createEmpty();
 
     for (final var c : tableView.columnViews()) {

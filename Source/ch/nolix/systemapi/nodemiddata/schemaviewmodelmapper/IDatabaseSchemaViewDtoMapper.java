@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.nodemiddata.schemaviewmodelmapper;
 
 import ch.nolix.baseapi.document.node.IMutableNode;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 
 /**
  * @author Silvan Wyss
@@ -12,9 +12,9 @@ import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
 public interface IDatabaseSchemaViewDtoMapper {
   /**
    * @param nodeDatabase
-   * @return a new {@link DatabaseViewDto} with the given databaseName from the
+   * @return a new {@link DatabaseInfoDto} with the given databaseName from the
    *         given nodeDatabase.
    * @throws RuntimeException if the given nodeDatabase is null.
    */
-  DatabaseViewDto mapTableNodeToTableViewDto(IMutableNode<?> nodeDatabase);
+  DatabaseInfoDto mapTableNodeToTableViewDto(IMutableNode<?> nodeDatabase);
 }

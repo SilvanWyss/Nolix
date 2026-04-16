@@ -1,25 +1,25 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.midschemaview.modelmapper;
+package ch.nolix.system.midschemainfo.modelmapper;
 
 import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalogue;
 import ch.nolix.systemapi.midschema.model.TableDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
-import ch.nolix.systemapi.midschemaview.modelmapper.IColumnViewDtoMapper;
-import ch.nolix.systemapi.midschemaview.modelmapper.ITableViewDtoMapper;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelmapper.IColumnInfoDtoMapper;
+import ch.nolix.systemapi.midschemainfo.modelmapper.ITableInfoDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
-public final class TableViewDtoMapper implements ITableViewDtoMapper {
-  private static final IColumnViewDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnViewDtoMapper();
+public final class TableInfoDtoMapper implements ITableInfoDtoMapper {
+  private static final IColumnInfoDtoMapper COLUMN_VIEW_DTO_MAPPER = new ColumnInfoDtoMapper();
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public TableViewDto mapMidSchemaTableDtoToTableViewDto(final TableDto table) {
+  public TableInfoDto mapMidSchemaTableDtoToTableViewDto(final TableDto table) {
     final var id = table.id();
     final var name = table.name();
     final var columns = table.columns();
@@ -31,6 +31,6 @@ public final class TableViewDtoMapper implements ITableViewDtoMapper {
         c,
         FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS + i));
 
-    return new TableViewDto(id, name, columnViews);
+    return new TableInfoDto(id, name, columnViews);
   }
 }

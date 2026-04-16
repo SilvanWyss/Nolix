@@ -11,7 +11,7 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
-import ch.nolix.system.midschemaview.modelsearcher.TableViewSearcher;
+import ch.nolix.system.midschemainfo.modelsearcher.TableInfoSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 import ch.nolix.system.nodemiddata.nodemapper.ContentFieldNodeMapper;
@@ -21,8 +21,8 @@ import ch.nolix.system.nodemiddata.nodevalidator.TableNodeValidator;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabaseNodeSearcher;
 import ch.nolix.system.nodemidschema.nodesearcher.DatabasePropertiesNodeSearcher;
 import ch.nolix.systemapi.middata.model.EntityUpdateDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
-import ch.nolix.systemapi.midschemaview.modelsearcher.ITableViewSearcher;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelsearcher.ITableInfoSearcher;
 import ch.nolix.systemapi.nodemiddata.nodeeditor.ITableNodeEditor;
 import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
@@ -42,7 +42,7 @@ public final class DataWriterActionProvider {
   private static final IDatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
   new DatabasePropertiesNodeSearcher();
 
-  private static final ITableViewSearcher TABLE_VIEW_SEARCHER = new TableViewSearcher();
+  private static final ITableInfoSearcher TABLE_VIEW_SEARCHER = new TableInfoSearcher();
 
   private static final ITableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
@@ -232,7 +232,7 @@ public final class DataWriterActionProvider {
   public static void updateEntity(
     final IMutableNode<?> database,
     final EntityUpdateDto entityUpdate,
-    final TableViewDto tableView) {
+    final TableInfoDto tableView) {
     final var tableName = tableView.name();
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(database, tableName);
     final var entityId = entityUpdate.id();
@@ -266,7 +266,7 @@ public final class DataWriterActionProvider {
   private static void updateContentFieldsOfEntityNode(
     final IMutableNode<?> entityNode,
     final EntityUpdateDto entityUpdate,
-    final TableViewDto tableView) {
+    final TableInfoDto tableView) {
     for (final var f : entityUpdate.updatedContentFields()) {
       final var columnName = f.columnName();
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, columnName);

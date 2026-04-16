@@ -7,8 +7,8 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.FieldDto;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +23,7 @@ public interface IContentFieldDtoMapper {
    */
   FieldDto mapContentFieldNodeToContentFieldDto(
     INode<?> contentFieldNode,
-    ColumnViewDto columnView);
+    ColumnInfoDto columnView);
 
   /**
    * @param entityNode
@@ -33,5 +33,5 @@ public interface IContentFieldDtoMapper {
    */
   IContainer<FieldDto> mapEntityNodeToContentFieldDtos(
     IMutableNode<?> entityNode,
-    TableViewDto tableView);
+    TableInfoDto tableView);
 }

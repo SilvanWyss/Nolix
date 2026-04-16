@@ -1,21 +1,21 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.midschemaview.modelmapper;
+package ch.nolix.system.midschemainfo.modelmapper;
 
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.modelmapper.IColumnViewDtoMapper;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelmapper.IColumnInfoDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
-public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
+public final class ColumnInfoDtoMapper implements IColumnInfoDtoMapper {
   /**
    * {@inheritDoc}
    */
   @Override
-  public ColumnViewDto mapMidSchemaColumnDtoToColumnViewDto(
+  public ColumnInfoDto mapMidSchemaColumnDtoToColumnViewDto(
     final ColumnDto columnDto,
     final int oneBasedColumnOrdinalIndex) {
     final var id = columnDto.id();
@@ -23,6 +23,6 @@ public final class ColumnViewDtoMapper implements IColumnViewDtoMapper {
     final var fieldType = columnDto.fieldType();
     final var dataType = columnDto.dataType();
 
-    return new ColumnViewDto(id, name, oneBasedColumnOrdinalIndex, fieldType, dataType);
+    return new ColumnInfoDto(id, name, oneBasedColumnOrdinalIndex, fieldType, dataType);
   }
 }

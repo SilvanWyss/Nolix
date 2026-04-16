@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.sqlmiddata.schemaviewloader;
 
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 
 /**
  * @author Silvan Wyss
@@ -13,9 +13,9 @@ public interface IDatabaseSchemaViewLoader {
   /**
    * @param databaseName
    * @param schemaAdapter
-   * @return a new {@link DatabaseViewDto} with the given databaseName from the
+   * @return a new {@link DatabaseInfoDto} with the given databaseName from the
    *         given schemaAdapter.
    * @throws RuntimeException if the given schemaAdapter is null.
    */
-  DatabaseViewDto loadDatabaseSchemaView(String databaseName, ISchemaReader schemaAdapter);
+  DatabaseInfoDto loadDatabaseSchemaView(String databaseName, ISchemaReader schemaAdapter);
 }

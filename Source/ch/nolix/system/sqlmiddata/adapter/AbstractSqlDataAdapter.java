@@ -9,7 +9,7 @@ import ch.nolix.system.sqlmiddata.datawriter.DataWriter;
 import ch.nolix.system.sqlmiddata.loader.DataReader;
 import ch.nolix.system.sqlmiddata.schemaviewloader.DatabaseSchemaViewLoader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
 import ch.nolix.systemapi.sqlmiddata.schemaviewloader.IDatabaseSchemaViewLoader;
 
 /**
@@ -32,7 +32,7 @@ public abstract class AbstractSqlDataAdapter extends AbstractDataAdapter {
 
   private AbstractSqlDataAdapter(
     final String databaseName,
-    final DatabaseViewDto databaseSchemaView,
+    final DatabaseInfoDto databaseSchemaView,
     final ISqlConnection sqlConnection) {
     super(
       DataReader.forDatabaseNameAndDatabaseSchemaViewAndSqlConnection(

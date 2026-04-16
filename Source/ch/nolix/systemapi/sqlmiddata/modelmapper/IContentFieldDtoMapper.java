@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.sqlmiddata.modelmapper;
 
 import ch.nolix.systemapi.middata.model.FieldDto;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 
 /**
  * @author Silvan Wyss
@@ -19,5 +19,5 @@ public interface IContentFieldDtoMapper {
   FieldDto mapNullableStringRepresentedValueToContentFieldDto(
     String nullableStringRepresentedValue,
     String nullableAdditionalValue,
-    ColumnViewDto columnView);
+    ColumnInfoDto columnView);
 }

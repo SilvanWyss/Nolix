@@ -10,8 +10,8 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
 /**
  * @author Silvan Wyss
@@ -35,12 +35,12 @@ final class EntityQueryCreatorTest extends StandardTest {
   void testCase_createQueryToLoadEntitiesOfTable() {
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableView = new TableViewDto(
+    final var tableView = new TableInfoDto(
       "ttttttt1",
       "Cat",
       ImmutableList.withElements(
-        new ColumnViewDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
-        new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
+        new ColumnInfoDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
+        new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableView);
@@ -54,12 +54,12 @@ final class EntityQueryCreatorTest extends StandardTest {
   void testCase_createQueryToLoadEntity() {
     //setup
     final var testUnit = new EntityQueryCreator();
-    final var tableView = new TableViewDto(
+    final var tableView = new TableInfoDto(
       "ttttttt1",
       "Cat",
       ImmutableList.withElements(
-        new ColumnViewDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
-        new ColumnViewDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
+        new ColumnInfoDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
+        new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableView);

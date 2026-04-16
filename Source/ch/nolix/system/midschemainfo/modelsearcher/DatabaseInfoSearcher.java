@@ -1,23 +1,23 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.midschemaview.modelsearcher;
+package ch.nolix.system.midschemainfo.modelsearcher;
 
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
-import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 
 /**
  * @author Silvan Wyss
  */
-public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
+public final class DatabaseInfoSearcher implements IDatabaseInfoSearcher {
   /**
    * {@inheritDoc}
    */
   @Override
-  public ColumnViewDto getColumnViewByTableNameAndColumnId(
-    final DatabaseViewDto databaseView,
+  public ColumnInfoDto getColumnViewByTableNameAndColumnId(
+    final DatabaseInfoDto databaseView,
     final String tableName,
     final String columnId) {
     final var tableView = getTableViewByTableName(databaseView, tableName);
@@ -30,8 +30,8 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ColumnViewDto getColumnViewByTableNameAndColumnName(
-    final DatabaseViewDto databaseView,
+  public ColumnInfoDto getColumnViewByTableNameAndColumnName(
+    final DatabaseInfoDto databaseView,
     final String tableName,
     final String columnName) {
     final var tableView = getTableViewByTableName(databaseView, tableName);
@@ -44,7 +44,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
    * {@inheritDoc}
    */
   @Override
-  public TableViewDto getTableViewByTableId(final DatabaseViewDto databaseView, final String tableId) {
+  public TableInfoDto getTableViewByTableId(final DatabaseInfoDto databaseView, final String tableId) {
     final var tableViews = databaseView.tableViews();
 
     return tableViews.getStoredFirst(t -> t.id().equals(tableId));
@@ -54,7 +54,7 @@ public final class DatabaseViewSearcher implements IDatabaseViewSearcher {
    * {@inheritDoc}
    */
   @Override
-  public TableViewDto getTableViewByTableName(final DatabaseViewDto databaseView, final String tableName) {
+  public TableInfoDto getTableViewByTableName(final DatabaseInfoDto databaseView, final String tableName) {
     final var tableViews = databaseView.tableViews();
 
     return tableViews.getStoredFirst(t -> t.name().equals(tableName));

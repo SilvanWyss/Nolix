@@ -7,7 +7,7 @@ import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
-import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
+import ch.nolix.system.midschemainfo.modelsearcher.DatabaseInfoSearcher;
 import ch.nolix.systemapi.middata.adapter.IDataWriter;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;
@@ -17,26 +17,26 @@ import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDeletionDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiValueEntryDto;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
 public final class DataWriter implements IDataWriter {
-  private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
+  private static final IDatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
 
   private final ICloseController closeController = CloseController.forElement(this);
 
-  private final DatabaseViewDto databaseView;
+  private final DatabaseInfoDto databaseView;
 
   private final ExecutiveDataWriter executiveDataWriter;
 
   private DataWriter(
     final String databaseName,
-    final DatabaseViewDto databaseView,
+    final DatabaseInfoDto databaseView,
     final ISqlConnection sqlConnection) {
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
 
@@ -48,7 +48,7 @@ public final class DataWriter implements IDataWriter {
 
   public static DataWriter forDatabaseNameAndDatabaseViewAndSqlConnection(
     final String databaseName,
-    final DatabaseViewDto databaseView,
+    final DatabaseInfoDto databaseView,
     final ISqlConnection sqlConnection) {
     return new DataWriter(databaseName, databaseView, sqlConnection);
   }
@@ -251,7 +251,7 @@ public final class DataWriter implements IDataWriter {
     executiveDataWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  private ColumnViewDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
+  private ColumnInfoDto getColumnViewByTableNameAndColumnName(final String tableName, final String columnName) {
     return DATABASE_VIEW_SEARCHER.getColumnViewByTableNameAndColumnName(databaseView, tableName, columnName);
   }
 }

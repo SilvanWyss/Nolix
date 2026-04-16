@@ -4,17 +4,17 @@
 package ch.nolix.system.sqlmiddata.modelmapper;
 
 import ch.nolix.baseapi.sql.model.ISqlRecord;
-import ch.nolix.system.midschemaview.modelsearcher.DatabaseViewSearcher;
+import ch.nolix.system.midschemainfo.modelsearcher.DatabaseInfoSearcher;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaview.modelsearcher.IDatabaseViewSearcher;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
+import ch.nolix.systemapi.midschemainfo.modelsearcher.IDatabaseInfoSearcher;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiReferenceEntryDtoMapper;
 
 /**
  * @author Silvan Wyss
  */
 public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryDtoMapper {
-  private static final IDatabaseViewSearcher DATABASE_VIEW_SEARCHER = new DatabaseViewSearcher();
+  private static final IDatabaseInfoSearcher DATABASE_VIEW_SEARCHER = new DatabaseInfoSearcher();
 
   /**
    * {@inheritDoc}
@@ -22,7 +22,7 @@ public final class MultiReferenceEntryDtoMapper implements IMultiReferenceEntryD
   @Override
   public MultiReferenceEntryDto mapMultiReferenceEntrySqlRecordToMultiReferenceEntryDto(
     final ISqlRecord multiReferenceSqlRecord,
-    final DatabaseViewDto databaseView) {
+    final DatabaseInfoDto databaseView) {
     final var tableId = multiReferenceSqlRecord.getStoredAtOneBasedIndex(2);
     final var table = DATABASE_VIEW_SEARCHER.getTableViewByTableId(databaseView, tableId);
     final var tableName = table.name();

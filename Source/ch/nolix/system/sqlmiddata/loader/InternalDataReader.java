@@ -21,9 +21,9 @@ import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.middata.model.MultiReferenceEntryDto;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
-import ch.nolix.systemapi.midschemaview.model.ColumnViewDto;
-import ch.nolix.systemapi.midschemaview.model.DatabaseViewDto;
-import ch.nolix.systemapi.midschemaview.model.TableViewDto;
+import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.DatabaseInfoDto;
+import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
 final class InternalDataReader {
   private static final EntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
@@ -114,7 +114,7 @@ final class InternalDataReader {
   public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String entityId,
     final String multiReferenceColumnId,
-    final DatabaseViewDto databaseView) {
+    final DatabaseInfoDto databaseView) {
     final var query = //
     MULTI_REFERENCE_QUERY_CREATOR.createQueryToLoadMultiReferenceEntries(entityId, multiReferenceColumnId);
 
@@ -127,7 +127,7 @@ final class InternalDataReader {
 
   public IContainer<Object> loadMultiValueEntries(
     final String entityId,
-    final ColumnViewDto multiValueColumnView) {
+    final ColumnInfoDto multiValueColumnView) {
     return sqlConnection
       .getRecordsFromQuery(
         MULTI_VALUE_QUERY_CREATOR.createQueryToLoadMultiValueEntries(
@@ -136,14 +136,14 @@ final class InternalDataReader {
       .to(r -> VALUE_MAPPER.mapStringToValue(r.getStoredAtOneBasedIndex(1), multiValueColumnView.dataType()));
   }
 
-  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableViewDto tableView) {
+  public IContainer<EntityLoadingDto> loadEntitiesOfTable(final TableInfoDto tableView) {
     final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesOfTable(tableView);
     final var records = sqlConnection.getRecordsFromQuery(query);
 
     return records.to(r -> LOADED_ENTITY_DTO_MAPPER.mapSqlRecordToEntityLoadingDto(r, tableView));
   }
 
-  public EntityLoadingDto loadEntity(final TableViewDto tableView, final String id) {
+  public EntityLoadingDto loadEntity(final TableInfoDto tableView, final String id) {
     final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntity(id, tableView);
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
@@ -152,7 +152,7 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
     final String tableName,
-    final ColumnViewDto columnView,
+    final ColumnInfoDto columnView,
     final String value) {
     final var fieldType = columnView.fieldType();
 
@@ -174,7 +174,7 @@ final class InternalDataReader {
 
   public boolean tableContainsEntityWithGivenValueAtGivenColumnIgnoringGivenEntities(
     final String tableName,
-    final ColumnViewDto columnView,
+    final ColumnInfoDto columnView,
     final String value,
     final IContainer<String> entitiesToIgnoreIds) {
     final var fieldType = columnView.fieldType();
