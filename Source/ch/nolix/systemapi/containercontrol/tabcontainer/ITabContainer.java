@@ -21,11 +21,11 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<ITabContainer, 
 
   boolean containsSelectedTab();
 
+  ITabContainerTab getStoredFirstTabByHeader(String header);
+
   ILabelStyle getStoredHeaderStyle();
 
   ITabContainerTab getStoredSelectedTab();
-
-  ITabContainerTab getStoredTabByHeader(String header);
 
   IContainer<ITabContainerTab> getStoredTabs();
 
@@ -35,5 +35,5 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<ITabContainer, 
 
   void selectFirstTab();
 
-  void selectTabByHeader(String header);
+  void selectFirstTabByHeader(String header);
 }
