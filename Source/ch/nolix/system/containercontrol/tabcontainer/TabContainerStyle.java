@@ -9,7 +9,7 @@ import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerStyle;
 /**
  * @author Silvan Wyss
  */
-public class TabContainerStyle extends AbstractControlStyle<ITabContainerStyle> implements ITabContainerStyle {
+public final class TabContainerStyle extends AbstractControlStyle<ITabContainerStyle> implements ITabContainerStyle {
   /**
    * Creates a new {@link TabContainerStyle}.
    */
