@@ -7,18 +7,19 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
  */
 public final class ControlFactoryUnit {
-  private final LinkedList<Class<Control<?, ?>>> memberControlClasses = LinkedList.createEmpty();
+  private final LinkedList<Class<? extends IControl<?, ?>>> memberControlClasses = LinkedList.createEmpty();
 
   public boolean canCreateControlOfType(final String type) {
     return containsControlClassWithName(type);
   }
 
-  public Control<?, ?> createControlFromSpecification(final INode<?> specification) {
+  public IControl<?, ?> createControlFromSpecification(final INode<?> specification) {
     final var control = createControlOfType(specification.getHeader());
 
     control.resetFromSpecification(specification);
@@ -26,14 +27,14 @@ public final class ControlFactoryUnit {
     return control;
   }
 
-  public Control<?, ?> createControlOfType(final String type) {
+  public IControl<?, ?> createControlOfType(final String type) {
     final var controlClass = getControlClassByName(type);
 
     return ReflectionTool.createInstanceFromDefaultConstructorOfClass(controlClass);
   }
 
   public void registerControlClass(
-    final Class<Control<?, ?>> controlClass) {
+    final Class<? extends IControl<?, ?>> controlClass) {
     assertDoesNotContainControlClassWithName(controlClass.getSimpleName());
 
     memberControlClasses.addAtEnd(controlClass);
@@ -57,7 +58,7 @@ public final class ControlFactoryUnit {
     return memberControlClasses.containsAny(cc -> cc.getSimpleName().equals(name));
   }
 
-  private Class<Control<?, ?>> getControlClassByName(final String name) {
+  private Class<? extends IControl<?, ?>> getControlClassByName(final String name) {
     return memberControlClasses.getStoredFirst(cc -> cc.getSimpleName().equals(name));
   }
 }
