@@ -16,4 +16,6 @@ extends IFluentMutableHeaderHolder<IHeaderHolder>, IRootControlOwner<ITabContain
   boolean belongsToTabContainer();
 
   ITabContainer getStoredParentTabContainer();
+
+  void setParentTabContainer(final ITabContainer tabContainer);
 }
