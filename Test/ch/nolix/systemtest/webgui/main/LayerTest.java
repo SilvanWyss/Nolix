@@ -6,8 +6,8 @@ package ch.nolix.systemtest.webgui.main;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.gui.box.ContentAlignment;

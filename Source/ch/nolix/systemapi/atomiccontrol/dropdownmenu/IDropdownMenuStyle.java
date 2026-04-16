@@ -1,0 +1,13 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.systemapi.atomiccontrol.dropdownmenu;
+
+import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuStyle;
+
+/**
+ * @author Silvan Wyss
+ */
+public interface IDropdownMenuStyle extends IItemMenuStyle<IDropdownMenuStyle> {
+  //This interface is just an union of other interfaces.
+}

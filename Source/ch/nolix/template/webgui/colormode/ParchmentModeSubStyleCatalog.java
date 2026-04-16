@@ -4,26 +4,26 @@
 package ch.nolix.template.webgui.colormode;
 
 import ch.nolix.base.document.node.Node;
+import ch.nolix.system.atomiccontrol.button.Button;
+import ch.nolix.system.atomiccontrol.dropdownmenu.DropdownMenu;
+import ch.nolix.system.atomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.atomiccontrol.label.Label;
+import ch.nolix.system.atomiccontrol.link.Link;
+import ch.nolix.system.atomiccontrol.textbox.Textbox;
+import ch.nolix.system.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.box.CornerShadow;
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webatomiccontrol.button.Button;
-import ch.nolix.system.webatomiccontrol.dropdownmenu.DropdownMenu;
-import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
-import ch.nolix.system.webatomiccontrol.label.Label;
-import ch.nolix.system.webatomiccontrol.link.Link;
-import ch.nolix.system.webatomiccontrol.textbox.Textbox;
-import ch.nolix.system.webatomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.Corner;
 import ch.nolix.systemapi.gui.location.Location;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

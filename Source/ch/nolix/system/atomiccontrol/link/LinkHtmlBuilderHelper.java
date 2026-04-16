@@ -1,0 +1,53 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.atomiccontrol.link;
+
+import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
+import ch.nolix.baseapi.web.htmlattribute.LinkTarget;
+import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
+import ch.nolix.systemapi.atomiccontrol.link.ILink;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class LinkHtmlBuilderHelper {
+  private LinkHtmlBuilderHelper() {
+  }
+
+  public static IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
+    final ILinkedList<IHtmlAttribute> htmlAttribtues = LinkedList.createEmpty();
+
+    htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
+
+    if (control.hasUrl()) {
+      htmlAttribtues.addAtEnd(HtmlAttribute.withNameAndValue("href", control.getUrl()));
+    }
+
+    return htmlAttribtues;
+  }
+
+  private static HtmlAttribute createTargetHtmlAttributeForControl(final ILink control) {
+    final var target = control.getTarget();
+
+    return createTargetHtmlAttributeForTarget(target);
+  }
+
+  private static HtmlAttribute createTargetHtmlAttributeForTarget(final LinkTarget target) {
+    return //
+    switch (target) {
+      case CURRENT_TAB ->
+        HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.TARGET, "_self");
+      case NEW_TAB ->
+        HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.TARGET, "_blank");
+      default ->
+        throw InvalidArgumentException.forArgumentAndArgumentName(target, LowerCaseVariableCatalog.TARGET);
+    };
+  }
+}

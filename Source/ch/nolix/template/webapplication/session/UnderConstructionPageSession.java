@@ -3,15 +3,15 @@
  */
 package ch.nolix.template.webapplication.session;
 
+import ch.nolix.system.atomiccontrol.button.Button;
+import ch.nolix.system.atomiccontrol.imagecontrol.ImageControl;
+import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.webapplication.main.WebClientSession;
-import ch.nolix.system.webatomiccontrol.button.Button;
-import ch.nolix.system.webatomiccontrol.imagecontrol.ImageControl;
-import ch.nolix.system.webatomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
+import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.graphic.image.IImage;
-import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.ControlState;
 

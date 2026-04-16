@@ -3,19 +3,19 @@
  */
 package ch.nolix.template.webgui.shapemode;
 
+import ch.nolix.system.atomiccontrol.button.Button;
+import ch.nolix.system.atomiccontrol.dropdownmenu.DropdownMenu;
+import ch.nolix.system.atomiccontrol.label.Label;
+import ch.nolix.system.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webatomiccontrol.button.Button;
-import ch.nolix.system.webatomiccontrol.dropdownmenu.DropdownMenu;
-import ch.nolix.system.webatomiccontrol.label.Label;
-import ch.nolix.system.webatomiccontrol.textbox.Textbox;
 import ch.nolix.system.webcontainercontrol.container.AbstractContainer;
 import ch.nolix.system.webcontainercontrol.grid.Grid;
 import ch.nolix.system.webcontainercontrol.horizontalstack.HorizontalStack;
 import ch.nolix.system.webcontainercontrol.linearcontainer.AbstractLinearContainer;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
-import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.webcontainercontrol.container.ContainerRole;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

@@ -6,7 +6,7 @@ package ch.nolix.systemtest.webcontainercontrol.verticalstack;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.system.webatomiccontrol.label.Label;
+import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.webcontainercontrol.verticalstack.VerticalStackHtmlBuilder;
 import ch.nolix.systemapi.webcontainercontrol.verticalstack.IVerticalStack;

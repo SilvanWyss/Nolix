@@ -12,11 +12,11 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webapplication.base.AbstractWebClient;
 import ch.nolix.system.webapplication.refreshqueue.WebClientRefreshQueue;
+import ch.nolix.systemapi.atomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ControlCommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
-import ch.nolix.systemapi.webatomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 

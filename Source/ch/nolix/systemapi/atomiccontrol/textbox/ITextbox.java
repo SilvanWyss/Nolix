@@ -1,0 +1,26 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.systemapi.atomiccontrol.textbox;
+
+import java.util.function.Consumer;
+
+import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.IFluentMutableTextHolder;
+import ch.nolix.systemapi.webgui.main.IControl;
+
+/**
+ * @author Silvan Wyss
+ */
+public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, IFluentMutableTextHolder<ITextbox> {
+  void emptyText();
+
+  TextMode getTextMode();
+
+  void removeUpdateTextAction();
+
+  ITextbox setTextMode(TextMode textMode);
+
+  ITextbox setUpdateTextAction(Runnable updateTextAction);
+
+  ITextbox setUpdateTextAction(Consumer<String> updateTextAction);
+}

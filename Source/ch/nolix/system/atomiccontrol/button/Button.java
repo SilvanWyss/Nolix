@@ -1,0 +1,339 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.atomiccontrol.button;
+
+import java.util.Optional;
+import java.util.function.Consumer;
+
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.document.node.Node;
+import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.system.atomiccontrol.validationlabel.ValidationLabelTool;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
+import ch.nolix.system.property.value.OptionalValue;
+import ch.nolix.system.property.value.Value;
+import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.HtmlElementEvent;
+import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
+import ch.nolix.systemapi.atomiccontrol.button.IButton;
+import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
+import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabelTool;
+import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class Button extends Control<IButton, IButtonStyle> implements IButton {
+  public static final String DEFAULT_TEXT = StringCatalog.MINUS;
+
+  private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();
+
+  private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
+
+  private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
+
+  private final OptionalValue<ButtonRole> memberRole = //
+  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
+    ButtonAttributeHeaderCatalog.ROLE_HEADER,
+    this::setRole,
+    ButtonRole::fromSpecification,
+    Node::fromEnum);
+
+  private final Value<String> text = //
+  Value.forStringWithNameAndDefaultValueAndSetter(
+    ButtonAttributeHeaderCatalog.TEXT_HEADER,
+    DEFAULT_TEXT,
+    this::setText);
+
+  private Consumer<IButton> leftMouseButtonPressAction;
+
+  private Consumer<IButton> leftMouseButtonReleaseAction;
+
+  public Button() {
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    reset();
+
+    setMinWidth(200);
+    getStoredStyle()
+      .forStateSetLeftPadding(ControlState.BASE, 20)
+      .forStateSetRightPadding(ControlState.BASE, 20)
+      .forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.LIGHT_GREY)
+      .forStateSetBackgroundColor(ControlState.HOVER, X11ColorCatalog.DARK_GREY)
+      .forStateSetBackgroundColor(ControlState.FOCUS, X11ColorCatalog.DARK_GREY);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Optional<String> getOptionalJavaScriptUserInputFunction() {
+    return Optional.empty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<IControl<?, ?>> getStoredChildControls() {
+    return ImmutableList.createEmpty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ButtonRole getRole() {
+    return memberRole.getStoredValue();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getText() {
+    return text.getStoredValue();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getUserInput() {
+    return StringCatalog.EMPTY_STRING;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean hasRole(final String role) {
+    return (hasRole() && getRole().toString().equals(role));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean hasRole() {
+    return memberRole.containsAny();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void pressLeftMouseButton() {
+    if (hasLeftMouseButtonPressAction()) {
+      VALIDATION_LABEL_TOOL.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+        this,
+        leftMouseButtonPressAction);
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+    if (hasLeftMouseButtonPressAction()) {
+      list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"));
+    }
+
+    if (hasLeftMouseButtonReleaseAction()) {
+      list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup"));
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void releaseLeftMouseButton() {
+    if (hasLeftMouseButtonReleaseAction()) {
+      VALIDATION_LABEL_TOOL.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+        this,
+        leftMouseButtonReleaseAction);
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeLeftMouseButtonPressAction() {
+    leftMouseButtonPressAction = null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeLeftMouseButtonReleaseAction() {
+    leftMouseButtonReleaseAction = null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeRole() {
+    memberRole.clear();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void runHtmlEvent(final String htmlEvent) {
+    switch (htmlEvent) {
+      case "onmousedown" ->
+        pressLeftMouseButton();
+      case "onmouseup" ->
+        releaseLeftMouseButton();
+      default ->
+        throw InvalidArgumentException.forArgumentAndArgumentName(htmlEvent, "HTML event");
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unused")
+  public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
+    Validator
+      .assertThat(leftMouseButtonPressAction)
+      .thatIsNamed("left mouse button press action")
+      .isNotNull();
+
+    return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IButton setLeftMouseButtonPressAction(final Consumer<IButton> leftMouseButtonPressAction) {
+    Validator
+      .assertThat(leftMouseButtonPressAction)
+      .thatIsNamed("left mouse button press action")
+      .isNotNull();
+
+    this.leftMouseButtonPressAction = leftMouseButtonPressAction;
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unused")
+  public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
+    Validator
+      .assertThat(leftMouseButtonReleaseAction)
+      .thatIsNamed("left mouse button release action")
+      .isNotNull();
+
+    return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
+    Validator
+      .assertThat(leftMouseButtonReleaseAction)
+      .thatIsNamed("left mouse button release action")
+      .isNotNull();
+
+    this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IButton setRole(final ButtonRole role) {
+    memberRole.setValue(role);
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IButton setText(final String text) {
+    this.text.setValue(text);
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IButton setUserInput(final String userInput) {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IButtonStyle createStyle() {
+    return new ButtonStyle();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IControlCssBuilder<IButton, IButtonStyle> getCssBuilder() {
+    return CSS_BUILDER;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IControlHtmlBuilder<IButton> getHtmlBuilder() {
+    return HTML_BUILDER;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void resetControl() {
+    removeRole();
+    setText(DEFAULT_TEXT);
+    removeLeftMouseButtonPressAction();
+    removeLeftMouseButtonReleaseAction();
+
+    setCursorIcon(CursorIcon.HAND);
+  }
+
+  private boolean hasLeftMouseButtonPressAction() {
+    return (leftMouseButtonPressAction != null);
+  }
+
+  private boolean hasLeftMouseButtonReleaseAction() {
+    return (leftMouseButtonReleaseAction != null);
+  }
+}

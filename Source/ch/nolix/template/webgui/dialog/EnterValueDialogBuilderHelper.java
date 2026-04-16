@@ -5,7 +5,7 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-import ch.nolix.systemapi.webatomiccontrol.textbox.ITextbox;
+import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;
 
 /**
  * @author Silvan Wyss

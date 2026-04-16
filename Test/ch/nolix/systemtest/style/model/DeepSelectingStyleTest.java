@@ -6,10 +6,10 @@ package ch.nolix.systemtest.style.model;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webatomiccontrol.button.Button;
-import ch.nolix.systemapi.webatomiccontrol.button.ButtonRole;
-import ch.nolix.systemapi.webatomiccontrol.label.LabelRole;
+import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
+import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 
 /**
  * @author Silvan Wyss

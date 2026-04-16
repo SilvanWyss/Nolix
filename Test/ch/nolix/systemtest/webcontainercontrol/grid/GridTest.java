@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webcontainercontrol.grid;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.system.webatomiccontrol.label.Label;
+import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.webcontainercontrol.grid.Grid;
 import ch.nolix.systemapi.webcontainercontrol.grid.IGrid;
 import ch.nolix.systemtest.webcontainercontrol.container.ContainerTest;
