@@ -11,7 +11,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractThrownExceptionMediator {
+public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThrownExceptionMediator does not have abstract methods.
   private final Throwable nullableException;
 
   /**
