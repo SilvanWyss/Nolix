@@ -1,0 +1,248 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.containercontrol.tabcontainer;
+
+import java.util.function.Consumer;
+
+import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.system.atomiccontrol.label.Label;
+import ch.nolix.system.containercontrol.container.AbstractContainer;
+import ch.nolix.system.containercontrol.horizontalstack.HorizontalStack;
+import ch.nolix.system.containercontrol.singlecontainer.SingleContainer;
+import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.property.value.MultiValue;
+import ch.nolix.system.webgui.main.ControlFactory;
+import ch.nolix.systemapi.atomiccontrol.label.ILabelStyle;
+import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
+import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerStyle;
+import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerTab;
+import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
+import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class TabContainer extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabContainer {
+  private static final String TAB_HEADER = PascalCaseVariableCatalog.TAB;
+
+  /**
+   * Registers the {@link TabContainer} class at the {@link ControlFactory}.
+   */
+  static {
+    ControlFactory.registerControlClass(TabContainer.class);
+  }
+
+  private final VerticalStack rootVerticalStack = new VerticalStack();
+
+  private final HorizontalStack menuHorizontalStack = new HorizontalStack();
+
+  private final SingleContainer canvasSingleContainer = new SingleContainer();
+
+  private final MultiValue<ITabContainerTab> memberTabs = //
+  MultiValue.forElementsWithNameAndAdderAndValueMapper(TAB_HEADER, this::addTab, TabContainerTab::fromSpecification);
+
+  /**
+   * Creates a new {@link TabContainer}.
+   */
+  public TabContainer() {
+    rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
+
+    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    reset();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITabContainer addTab(final ITabContainerTab tab) {
+    tab.internalsetParentTabContainer(this);
+
+    if (isEmpty()) {
+      tab.select();
+    }
+
+    memberTabs.addValue(tab);
+    menuHorizontalStack.addControl(new Label());
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITabContainer addTabs(final IContainer<ITabContainerTab> tabs) {
+    tabs.forEach(this::addTab);
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITabContainer addTabs(final ITabContainerTab... tabs) {
+    ContainerView.forArray(tabs).forEach(this::addTab);
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void clear() {
+    memberTabs.clear();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsSelectedTab() {
+    return getStoredTabs().containsAny(ITabContainerTab::isSelected);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<IControl<?, ?>> getStoredChildControls() {
+    return //
+    getStoredTabs().getViewOfStoredSelected(ITabContainerTab::containsAny).to(ITabContainerTab::getStoredRootControl);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITabContainerTab getStoredFirstTabByHeader(final String header) {
+    return getStoredTabs().getStoredFirst(t -> t.hasHeader(header));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ILabelStyle getStoredHeaderStyle() {
+    //TODO: Implement
+    return null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITabContainerTab getStoredSelectedTab() {
+    return getStoredTabs().getStoredFirst(ITabContainerTab::isSelected);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<ITabContainerTab> getStoredTabs() {
+    return memberTabs.getStoredValues();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getTabCount() {
+    return getStoredTabs().getCount();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isEmpty() {
+    return getStoredTabs().isEmpty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITabContainer onHeaderStyle(final Consumer<ILabelStyle> headerStyleEditor) {
+    headerStyleEditor.accept(getStoredHeaderStyle());
+
+    return this;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+    //Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void selectFirstTab() {
+    getStoredFirstTab().select();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void selectFirstTabByHeader(final String header) {
+    final var tab = getStoredFirstTabByHeader(header);
+
+    tab.select();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected ITabContainerStyle createStyle() {
+    return new TabContainerStyle();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IControlCssBuilder<ITabContainer, ITabContainerStyle> getCssBuilder() {
+    //TODO: Implement
+    return null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected IControlHtmlBuilder<ITabContainer> getHtmlBuilder() {
+    //TODO: Implement
+    return null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void resetContainer() {
+    clear();
+  }
+
+  /**
+   * @return the first tab of the current {@link TabContainer}.
+   * @throws RuntimeException if the current {@link TabContainer} is empty.
+   */
+  private ITabContainerTab getStoredFirstTab() {
+    return getStoredTabs().getStoredFirst();
+  }
+}
