@@ -10,11 +10,13 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.atomiccontrol.button.Button;
+import ch.nolix.system.atomiccontrol.button.ButtonStyle;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.containercontrol.horizontalstack.HorizontalStack;
 import ch.nolix.system.containercontrol.singlecontainer.SingleContainer;
 import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.property.value.MultiValue;
+import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.atomiccontrol.button.IButton;
 import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
@@ -32,6 +34,8 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
  */
 public final class TabContainer extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabContainer {
   private static final String TAB_HEADER = PascalCaseVariableCatalog.TAB;
+
+  private static final String MENU_BUTTON_STYLE_HEADER = "MenuButtonStyle";
 
   private static final TabContainerHtmlBuilder TAB_CONTAINER_HTML_BUILDER = new TabContainerHtmlBuilder();
 
@@ -53,6 +57,13 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
   private final MultiValue<ITabContainerTab> memberTabs = //
   MultiValue.forElementsWithNameAndAdderAndValueMapper(TAB_HEADER, this::addTab, TabContainerTab::fromSpecification);
 
+  private final Value<IButtonStyle> menuButtonStyle = //
+  Value.forElementWithNameAndDefaultValueAndSetterAndValueMapper(
+    MENU_BUTTON_STYLE_HEADER,
+    new ButtonStyle(),
+    this::setMenuButtonStyle,
+    ButtonStyle::fromSpecification);
+
   /**
    * Creates a new {@link TabContainer}.
    */
@@ -72,7 +83,8 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
 
     if (isEmpty()) {
       tab.select();
-    } else if (tab.isSelected()) {
+    } else if //NOSONAR: This else-if-case is an optimal implementation.
+    (tab.isSelected()) {
       for (final var t : getStoredTabs()) {
         if (t.isSelected()) {
           t.unselect();
@@ -82,7 +94,10 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
     }
 
     memberTabs.addValue(tab);
-    menuHorizontalStack.addControl(new Button().setLeftMouseButtonPressAction(tab::select));
+
+    final var menuButton = new Button().setLeftMouseButtonPressAction(tab::select);
+
+    menuHorizontalStack.addControl(menuButton);
 
     return this;
   }
@@ -145,8 +160,7 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
    */
   @Override
   public IButtonStyle getStoredMenuButtonStyle() {
-    //TODO: Implement
-    return null;
+    return menuButtonStyle.getStoredValue();
   }
 
   /**
@@ -252,9 +266,10 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
     var tabIndex = 1;
 
     for (final var t : getStoredTabs()) {
-      final var headerLabel = (IButton) menuButtons.getStoredAtOneBasedIndex(tabIndex);
+      final var headerButton = (IButton) menuButtons.getStoredAtOneBasedIndex(tabIndex);
 
-      headerLabel.setText(t.getHeader());
+      headerButton.setText(t.getHeader());
+      headerButton.getStoredStyle().resetFromSpecification(getStoredMenuButtonStyle().getSpecification());
 
       if (t.isSelected() && t.containsAny()) {
         canvasSingleContainer.setControl(t.getStoredRootControl());
@@ -280,5 +295,15 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
    */
   private ITabContainerTab getStoredFirstTab() {
     return getStoredTabs().getStoredFirst();
+  }
+
+  /**
+   * Sets the given menuButtonStyle to the current {@link TabContainer}.
+   * 
+   * @param menuButtonStyle
+   * @throws RuntimeException if the given menuButtonStyle is null.
+   */
+  private void setMenuButtonStyle(final IButtonStyle menuButtonStyle) {
+    this.menuButtonStyle.setValue(menuButtonStyle);
   }
 }
