@@ -6,6 +6,7 @@ package ch.nolix.system.containercontrol.tabcontainer;
 import java.util.function.Consumer;
 
 import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
@@ -68,6 +69,7 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
    * Creates a new {@link TabContainer}.
    */
   public TabContainer() {
+    rootVerticalStack.internalSetParentControl(this);
     rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
 
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
@@ -143,8 +145,7 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
    */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
-    return //
-    getStoredTabs().getViewOfStoredSelected(ITabContainerTab::containsAny).to(ITabContainerTab::getStoredRootControl);
+    return ImmutableList.withElement(internalGetStoredRootVerticalStack());
   }
 
   /**

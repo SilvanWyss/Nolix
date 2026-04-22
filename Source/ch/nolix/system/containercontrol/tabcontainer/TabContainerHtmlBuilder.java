@@ -3,6 +3,8 @@
  */
 package ch.nolix.system.containercontrol.tabcontainer;
 
+import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
@@ -17,7 +19,8 @@ public final class TabContainerHtmlBuilder implements IControlHtmlBuilder<ITabCo
   @Override
   public IHtmlElement createHtmlElementForControl(final ITabContainer control) {
     final var rootVerticalStack = control.internalGetStoredRootVerticalStack();
+    final var rootVerticalStackHtml = rootVerticalStack.getHtml();
 
-    return rootVerticalStack.getHtml();
+    return HtmlElement.withTypeAndChildElements(HtmlElementTypeCatalog.DIV, rootVerticalStackHtml);
   }
 }

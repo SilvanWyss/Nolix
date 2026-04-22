@@ -7,7 +7,6 @@ import java.util.Optional;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.attribute.mandatoryattribute.IHeaderHolder;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -188,7 +187,7 @@ public final class TabContainerTab extends AbstractMutableElement implements ITa
    * {@inheritDoc}
    */
   @Override
-  public IHeaderHolder setHeader(final String header) {
+  public ITabContainerTab setHeader(final String header) {
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
     this.header.setValue(header);
@@ -201,7 +200,10 @@ public final class TabContainerTab extends AbstractMutableElement implements ITa
    */
   @Override
   public ITabContainerTab setRootControl(final IControl<?, ?> rootControl) {
-    rootControl.internalSetParentControl(getStoredRootControl());
+    if (belongsToTabContainer()) {
+      rootControl.internalSetParentControl(getStoredRootControl());
+    }
+
     memberRootControl.setValue(rootControl);
 
     return this;
