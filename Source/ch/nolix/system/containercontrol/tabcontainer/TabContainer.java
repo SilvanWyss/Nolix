@@ -35,6 +35,8 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
 
   private static final TabContainerHtmlBuilder TAB_CONTAINER_HTML_BUILDER = new TabContainerHtmlBuilder();
 
+  private static final TabContainerCssBuilder TAB_CONTAINER_CSS_BUILDER = new TabContainerCssBuilder();
+
   /**
    * Registers the {@link TabContainer} class at the {@link ControlFactory}.
    */
@@ -236,8 +238,7 @@ public final class TabContainer extends AbstractContainer<ITabContainer, ITabCon
    */
   @Override
   protected IControlCssBuilder<ITabContainer, ITabContainerStyle> getCssBuilder() {
-    //TODO: Implement
-    return null;
+    return TAB_CONTAINER_CSS_BUILDER;
   }
 
   /**
