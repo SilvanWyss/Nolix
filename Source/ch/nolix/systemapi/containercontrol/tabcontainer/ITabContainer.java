@@ -6,7 +6,8 @@ package ch.nolix.systemapi.containercontrol.tabcontainer;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.container.base.IContainer;
-import ch.nolix.systemapi.atomiccontrol.label.ILabelStyle;
+import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
+import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
 
 /**
  * @author Silvan Wyss
@@ -23,7 +24,7 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<ITabContainer, 
 
   ITabContainerTab getStoredFirstTabByHeader(String header);
 
-  ILabelStyle getStoredHeaderStyle();
+  IButtonStyle getStoredMenuButtonStyle();
 
   ITabContainerTab getStoredSelectedTab();
 
@@ -31,7 +32,9 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<ITabContainer, 
 
   int getTabCount();
 
-  ITabContainer onHeaderStyle(Consumer<ILabelStyle> headerStyleEditor);
+  IVerticalStack internalGetStoredRootVerticalStack();
+
+  ITabContainer onMenuButtonStyle(Consumer<IButtonStyle> menuButtonStyleEditor);
 
   void selectFirstTab();
 
