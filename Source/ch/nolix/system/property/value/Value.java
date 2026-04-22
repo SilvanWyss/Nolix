@@ -11,6 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.property.value.IValue;
 
 /**
@@ -85,6 +86,27 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final double defaultValue,
     final Consumer<Double> setter) {
     return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsDouble, Node::withChildNode);
+  }
+
+  /**
+   * @param name
+   * @param defaultValue
+   * @param setter
+   * @param valueMapper
+   * @param <E>          is the type of the value of a {@link Value}.
+   * @return a new {@link Value} with the given name, defaultValue, setter and
+   *         valueMapper and and that can store a {@link IElement}.
+   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given defaultValue is null.
+   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given valueMapper is null.
+   */
+  public static <E extends IElement> Value<E> forElementWithNameAndDefaultValueAndSetterAndValueMapper(
+    final String name,
+    final E defaultValue,
+    final Consumer<E> setter,
+    final Function<INode<?>, E> valueMapper) {
+    return new Value<>(name, defaultValue, setter, valueMapper, IElement::getSpecification);
   }
 
   /**
