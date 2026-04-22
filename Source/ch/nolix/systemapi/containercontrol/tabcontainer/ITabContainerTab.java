@@ -18,5 +18,5 @@ extends IFluentMutableHeaderHolder<IHeaderHolder>, IMutableElement, IRootControl
 
   ITabContainer getStoredParentTabContainer();
 
-  void setParentTabContainer(final ITabContainer tabContainer);
+  void internalsetParentTabContainer(final ITabContainer tabContainer);
 }
