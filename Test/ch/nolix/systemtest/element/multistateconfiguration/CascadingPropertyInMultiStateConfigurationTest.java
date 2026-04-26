@@ -39,10 +39,6 @@ final class CascadingPropertyInMultiStateConfigurationTest extends StandardTest 
 
       reset();
     }
-
-    void addChild(final CustomMultiStateConfiguration child) {
-      internalAddChild(child);
-    }
   }
 
   @Test

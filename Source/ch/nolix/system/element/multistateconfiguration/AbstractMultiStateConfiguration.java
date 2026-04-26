@@ -126,8 +126,8 @@ implements IMultiStateConfiguration<C, S> {
     return (C) this;
   }
 
-  @SuppressWarnings("unchecked")
-  protected final void internalAddChild(final C child) {
+  @Override
+  public final void addChild(final IMultiStateConfiguration<?, S> child) {
     Validator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
 
     ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);

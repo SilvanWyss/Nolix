@@ -94,15 +94,6 @@ implements IControlBaseStyle<C> {
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
-  public final <C2 extends IControlBaseStyle<C2>> void addChild(final C2 controlStyle) {
-    internalAddChild((C) controlStyle);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public boolean definesTextLineDecorationForState(final ControlState state) {
     return memberTextLineDecoration.hasValueForState(state);
   }
