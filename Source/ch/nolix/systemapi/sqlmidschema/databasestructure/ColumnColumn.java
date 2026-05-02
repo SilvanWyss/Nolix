@@ -3,29 +3,32 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-
 /**
  * @author Silvan Wyss
  */
-public enum ColumnColumn implements INameHolder {
+public enum ColumnColumn {
   ID(ColumnColumnNameCatalog.ID),
   PARENT_TABLE_ID(ColumnColumnNameCatalog.PARENT_TABLE_ID),
   NAME(ColumnColumnNameCatalog.NAME),
   FIELD_TYPE(ColumnColumnNameCatalog.FIELD_TYPE),
   DATA_TYPE(ColumnColumnNameCatalog.DATA_TYPE);
 
-  private final String name;
+  private final String stringRepresentation;
 
-  ColumnColumn(final String name) {
-    this.name = name;
+  /**
+   * Creates a new {@link ColumnColumn} with the given stringRepresentation.
+   * 
+   * @param stringRepresentation
+   */
+  ColumnColumn(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }

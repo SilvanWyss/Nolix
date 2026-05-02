@@ -35,23 +35,23 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadJoinedColumns() {
     return //
     "SELECT "
-    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID
     + ", "
-    + MetaTable.COLUMN + "." + ColumnColumn.NAME.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.NAME
     + ", "
     + MetaTable.TABLE + "." + TableColumn.ID
     + ", "
     + MetaTable.TABLE + "." + TableColumn.NAME
     + ", "
-    + ColumnColumn.FIELD_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE
     + ", "
-    + ColumnColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE
     + " FROM "
     + MetaTable.COLUMN
     + " LEFT JOIN "
     + MetaTable.TABLE
     + " ON "
-    + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID
     + " = "
     + MetaTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
@@ -64,7 +64,7 @@ public final class QueryCreator implements IQueryCreator {
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ")"
     + " ON "
-    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID
     + " = "
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ";";
@@ -77,23 +77,23 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadJoinedColumns(String tableName) {
     return //
     "SELECT "
-    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID
     + ", "
-    + MetaTable.COLUMN + "." + ColumnColumn.NAME.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.NAME
     + ", "
     + MetaTable.TABLE + "." + TableColumn.ID
     + ", "
     + MetaTable.TABLE + "." + TableColumn.NAME
     + ", "
-    + ColumnColumn.FIELD_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE
     + ", "
-    + ColumnColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE
     + " FROM "
     + MetaTable.COLUMN
     + " LEFT JOIN "
     + MetaTable.TABLE
     + " ON "
-    + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID
     + " = "
     + MetaTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
@@ -106,7 +106,7 @@ public final class QueryCreator implements IQueryCreator {
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ")"
     + " ON "
-    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID
     + " = "
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + " WHERE "

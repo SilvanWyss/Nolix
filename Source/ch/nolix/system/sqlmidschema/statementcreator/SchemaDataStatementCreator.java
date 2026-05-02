@@ -135,11 +135,11 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     "DELETE FROM "
     + MetaTable.COLUMN
     + " WHERE "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID
     + " = '"
     + table.tableId()
     + "' AND "
-    + ColumnColumn.NAME.getName()
+    + ColumnColumn.NAME
     + " = '"
     + columnName
     + "';";
@@ -174,11 +174,11 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     + " = '"
     + newColumnName
     + "' WHERE "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID
     + " = '"
     + tableName
     + "' AND "
-    + ColumnColumn.NAME.getName()
+    + ColumnColumn.NAME
     + " = '"
     + columnName
     + "'";

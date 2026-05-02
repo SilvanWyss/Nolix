@@ -19,19 +19,16 @@ public final class ColumnTableSqlSchemaDtoCatalog {
   new ColumnDto(TableColumn.ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto PARENT_TABLE_ID_SQL_DTO = //
-  new ColumnDto(
-    ColumnColumn.PARENT_TABLE_ID.getName(),
-    DataTypeTypeCatalog.TEXT,
-    ImmutableList.createEmpty());
+  new ColumnDto(ColumnColumn.PARENT_TABLE_ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto NAME_SQL_DTO = //
-  new ColumnDto(ColumnColumn.NAME.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(ColumnColumn.NAME.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto FIELD_TYPE_SQL_DTO = //
-  new ColumnDto(ColumnColumn.FIELD_TYPE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(ColumnColumn.FIELD_TYPE.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto DATA_TYPE_SQL_DTO = //
-  new ColumnDto(ColumnColumn.DATA_TYPE.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(ColumnColumn.DATA_TYPE.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final TableDto COLUMN_TABLE_SQL_DTO = //
   new TableDto(

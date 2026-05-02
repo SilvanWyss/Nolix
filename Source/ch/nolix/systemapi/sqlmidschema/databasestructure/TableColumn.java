@@ -13,8 +13,7 @@ public enum TableColumn {
   private final String stringRepresentation;
 
   /**
-   * Creates a new {@link DatabasePropertyColumn} with the given
-   * stringRepresentation.
+   * Creates a new {@link TableColumn} with the given stringRepresentation.
    * 
    * @param stringRepresentation
    */

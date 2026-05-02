@@ -25,15 +25,15 @@ public final class ColumnTableStatementCreator implements IColumnTableStatementC
     "INSERT INTO "
     + MetaTable.COLUMN
     + " ("
-    + ColumnColumn.ID.getName()
+    + ColumnColumn.ID
     + ", "
-    + ColumnColumn.PARENT_TABLE_ID.getName()
+    + ColumnColumn.PARENT_TABLE_ID
     + ", "
-    + ColumnColumn.NAME.getName()
+    + ColumnColumn.NAME
     + ", "
-    + ColumnColumn.FIELD_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE
     + ", "
-    + ColumnColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE
     + ") VALUES ('"
     + column.id()
     + "', '"
@@ -59,11 +59,11 @@ public final class ColumnTableStatementCreator implements IColumnTableStatementC
     "UPDATE "
     + MetaTable.COLUMN
     + " SET "
-    + ColumnColumn.FIELD_TYPE.getName()
+    + ColumnColumn.FIELD_TYPE
     + " = '"
     + fieldType.name()
     + "', "
-    + ColumnColumn.DATA_TYPE.getName()
+    + ColumnColumn.DATA_TYPE
     + " = '"
     + dataType.name()
     + "' WHERE "
