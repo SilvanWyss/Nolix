@@ -3,31 +3,30 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-
 /**
  * @author Silvan Wyss
  */
-public enum BackReferenceableColumnColumn implements INameHolder {
+public enum BackReferenceableColumnColumn {
   PARENT_BASE_BACK_REFERENCE_COLUMN_ID(BackReferenceableColumnColumnNameCatalog.PARENT_BASE_BACK_REFERENCE_COLUMN_ID),
   BACK_REFERENCEABLE_COLUMN_ID(BackReferenceableColumnColumnNameCatalog.BACK_REFERENCEABLE_COLUMN_ID);
 
-  private final String name;
+  private final String stringRepresentation;
 
   /**
-   * Creates a new {@link BackReferenceableColumnColumn} with the given name.
+   * Creates a new {@link BackReferenceableColumnColumn} with the given
+   * stringRepresentation.
    * 
-   * @param name
+   * @param stringRepresentation
    */
-  BackReferenceableColumnColumn(final String name) {
-    this.name = name;
+  BackReferenceableColumnColumn(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }

@@ -34,9 +34,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     "INSERT INTO "
     + FixTable.BACK_REFERENCEABLE_COLUMN
     + " ("
-    + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID.getName()
+    + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID
     + ", "
-    + BackReferenceableColumnColumn.BACK_REFERENCEABLE_COLUMN_ID.getName()
+    + BackReferenceableColumnColumn.BACK_REFERENCEABLE_COLUMN_ID
     + ") VALUES ('"
     + parentBaseBackReferenceColumn.columnId()
     + "', '"
