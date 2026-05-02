@@ -7,8 +7,8 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  * @author Silvan Wyss
  */
 public enum EntityIndexColumn {
-  ENTITY_ID("EntityId"),
-  TABLE_ID("TableId");
+  ENTITY_ID(EntityIndexColumnNameCatalog.ENTITY_ID),
+  TABLE_ID(EntityIndexColumnNameCatalog.TABLE_ID);
 
   private final String stringRepresentation;
 
