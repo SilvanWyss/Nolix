@@ -6,11 +6,11 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
- * Of the {@link MetaTableNameCatalog} an instance cannot be created.
+ * Of the {@link FixTableNameCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
  */
-public final class MetaTableNameCatalog {
+public final class FixTableNameCatalog {
   public static final String DATABASE_PROPERTY = "DatabaseProperty";
 
   public static final String TABLE = PascalCaseVariableCatalog.TABLE;
@@ -32,8 +32,8 @@ public final class MetaTableNameCatalog {
   public static final String MULTI_BACK_REFERENCE_ENTRY = "MultiBackReferenceEntry";
 
   /**
-   * Prevents that an instance of the {@link MetaTableNameCatalog} can be created.
+   * Prevents that an instance of the {@link FixTableNameCatalog} can be created.
    */
-  private MetaTableNameCatalog() {
+  private FixTableNameCatalog() {
   }
 }

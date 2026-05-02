@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
@@ -22,7 +22,7 @@ public final class EntityIndexTableSqlSchemaDtoCatalog {
 
   public static final TableDto ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO = //
   new TableDto(
-    MetaTable.ENTITY_INDEX.toString(),
+    FixTable.ENTITY_INDEX.toString(),
     ImmutableList.withElements(ENTITY_ID_SQL_SCHEMA_COLUMN_DTO, TABLE_ID_SQL_SCHEMA_COLUMN_DTO));
 
   private EntityIndexTableSqlSchemaDtoCatalog() {

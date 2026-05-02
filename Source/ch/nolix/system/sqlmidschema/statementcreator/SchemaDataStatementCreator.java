@@ -14,7 +14,7 @@ import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IColumnTableStatementCreator;
@@ -32,7 +32,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String referenceableColumnId) {
     return //
     "INSERT INTO "
-    + MetaTable.BACK_REFERENCEABLE_COLUMN
+    + FixTable.BACK_REFERENCEABLE_COLUMN
     + " ("
     + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID.getName()
     + ", "
@@ -76,7 +76,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String referenceableTableId) {
     return //
     "INSERT INTO "
-    + MetaTable.REFERENCEABLE_TABLE
+    + FixTable.REFERENCEABLE_TABLE
     + " ("
     + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", "
@@ -95,7 +95,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToAddTable(final String tableId, final String tableName) {
     return //
     "INSERT INTO "
-    + MetaTable.TABLE
+    + FixTable.TABLE
     + " ("
     + TableColumn.ID
     + ", "
@@ -133,7 +133,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToDeleteColumn(final TableIdentification table, final String columnName) {
     return //
     "DELETE FROM "
-    + MetaTable.COLUMN
+    + FixTable.COLUMN
     + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID
     + " = '"
@@ -152,7 +152,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToDeleteTable(final String tableName) {
     return //
     "DELETE FROM "
-    + MetaTable.TABLE
+    + FixTable.TABLE
     + " WHERE "
     + TableColumn.NAME
     + " = '"
@@ -168,7 +168,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String newColumnName) {
     return //
     "UPDATE "
-    + MetaTable.COLUMN
+    + FixTable.COLUMN
     + " SET "
     + ColumnColumn.NAME
     + " = '"
@@ -191,7 +191,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToRenameTable(final String tableName, final String newTableName) {
     return //
     "UPDATE "
-    + MetaTable.TABLE
+    + FixTable.TABLE
     + " SET "
     + TableColumn.NAME
     + " = '"

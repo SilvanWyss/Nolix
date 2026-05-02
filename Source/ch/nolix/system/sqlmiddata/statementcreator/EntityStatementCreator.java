@@ -14,7 +14,7 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
@@ -45,7 +45,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToDeleteEntityIndex(final String entityId) {
     return //
     "DELETE FROM "
-    + MetaTable.ENTITY_INDEX
+    + FixTable.ENTITY_INDEX
     + " WHERE "
     + EntityIndexColumn.ENTITY_ID.getName()
     + " = '"
@@ -60,7 +60,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return //
     "IF NOT EXISTS (SELECT * FROM "
-    + MetaTable.DATABASE_PROPERTY
+    + FixTable.DATABASE_PROPERTY
     + " WHERE "
     + DatabasePropertyColumn.KEY
     + " = '"
@@ -116,7 +116,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToInsertEntityIndex(final String tableId, final String entityId) {
     return //
     "INSERT INTO "
-    + MetaTable.ENTITY_INDEX
+    + FixTable.ENTITY_INDEX
     + "("
     + EntityIndexColumn.ENTITY_ID.getName()
     + ", "
