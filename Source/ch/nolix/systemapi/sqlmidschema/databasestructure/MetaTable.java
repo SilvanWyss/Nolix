@@ -8,7 +8,7 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 /**
  * @author Silvan Wyss
  */
-public enum FixTable implements INameHolder {
+public enum MetaTable implements INameHolder {
   DATABASE_PROPERTY(FixTableNameCatalog.DATABASE_PROPERTY),
   TABLE(FixTableNameCatalog.TABLE),
   COLUMN(FixTableNameCatalog.COLUMN),
@@ -21,7 +21,7 @@ public enum FixTable implements INameHolder {
 
   private final String name;
 
-  FixTable(final String name) {
+  MetaTable(final String name) {
     this.name = name;
   }
 

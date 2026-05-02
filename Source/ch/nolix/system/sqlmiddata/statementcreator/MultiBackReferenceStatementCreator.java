@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiBackReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiBackReferenceEntryColumn;
 
 /**
@@ -19,7 +19,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String entityId,
     final String multiBackReferenceColumnId) {
     return "DELETE FROM "
-    + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + " WHERE "
     + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -40,7 +40,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String multiBackReferenceColumnId,
     final String backReferencedEntityId) {
     return "DELETE FROM "
-    + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + " WHERE "
     + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -66,7 +66,7 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     final String backReferencedEntityId,
     final String backReferencedEntityTableId) {
     return "INSERT INTO "
-    + FixTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName()
     + " ("
     + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + ", "

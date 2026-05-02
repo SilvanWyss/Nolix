@@ -9,7 +9,7 @@ import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
 
 /**
  * @author Silvan Wyss
@@ -116,7 +116,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT "
     + DatabasePropertyColumn.VALUE.getName()
     + " FROM "
-    + FixTable.DATABASE_PROPERTY.getName()
+    + MetaTable.DATABASE_PROPERTY.getName()
     + " WHERE "
     + DatabasePropertyColumn.KEY.getName()
     + " = '"

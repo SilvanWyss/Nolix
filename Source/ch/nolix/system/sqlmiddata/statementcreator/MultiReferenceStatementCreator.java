@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;
 
 /**
@@ -20,7 +20,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String multiReferenceColumnId) {
     return //
     "DELETE FROM "
-    + FixTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
     + " WHERE "
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -42,7 +42,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String referencedEntityId) {
     return //
     "DELETE FROM "
-    + FixTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
     + " WHERE "
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -69,7 +69,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String referencedEntityTableId) {
     return //
     "INSERT INTO "
-    + FixTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
     + " ("
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + ", "

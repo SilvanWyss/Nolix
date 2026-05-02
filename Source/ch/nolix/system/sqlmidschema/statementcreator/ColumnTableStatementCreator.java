@@ -9,7 +9,7 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IColumnTableStatementCreator;
 
 /**
@@ -23,7 +23,7 @@ public final class ColumnTableStatementCreator implements IColumnTableStatementC
   public String createStatementToAddColumnIntoColumnTable(final TableIdentification table, final ColumnDto column) {
     return //
     "INSERT INTO "
-    + FixTable.COLUMN.getName()
+    + MetaTable.COLUMN.getName()
     + " ("
     + ColumnColumn.ID.getName()
     + ", "
@@ -57,7 +57,7 @@ public final class ColumnTableStatementCreator implements IColumnTableStatementC
     final DataType dataType) {
     return //
     "UPDATE "
-    + FixTable.COLUMN.getName()
+    + MetaTable.COLUMN.getName()
     + " SET "
     + ColumnColumn.FIELD_TYPE.getName()
     + " = '"

@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.MetaTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
@@ -35,7 +35,7 @@ public final class MultiValueEntryTableSqlSchemaDtoCatalog {
 
   public static final TableDto MULTI_VALUE_ENTRY_TABLE_SQL_DTO = //
   new TableDto(
-    FixTable.MULTI_VALUE_ENTRY.getName(),
+    MetaTable.MULTI_VALUE_ENTRY.getName(),
     ImmutableList.withElements(
       MULTI_VALUE_COLUMN_COLUMN_SQL_DTO,
       ENTITY_COLUMN_SQL_DTO,
