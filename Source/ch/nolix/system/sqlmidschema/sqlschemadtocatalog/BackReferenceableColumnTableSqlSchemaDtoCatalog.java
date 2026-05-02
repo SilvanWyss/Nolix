@@ -28,7 +28,7 @@ public final class BackReferenceableColumnTableSqlSchemaDtoCatalog {
 
   public static final TableDto BACK_REFERENCEABLE_COLUMN_TABLE_SQL_DTO = //
   new TableDto(
-    MetaTable.COLUMN.getName(),
+    MetaTable.COLUMN.toString(),
     ImmutableList.withElements(PARENT_BASE_BACK_REFERENCE_COLUMN_ID_SQL_DTO, BACK_REFERENCEABLE_COLUMN_ID_SQL_DTO));
 
   private BackReferenceableColumnTableSqlSchemaDtoCatalog() {

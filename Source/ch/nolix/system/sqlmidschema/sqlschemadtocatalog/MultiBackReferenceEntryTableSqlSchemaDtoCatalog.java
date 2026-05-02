@@ -34,7 +34,7 @@ public final class MultiBackReferenceEntryTableSqlSchemaDtoCatalog {
 
   public static final TableDto MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO = //
   new TableDto(
-    MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName(),
+    MetaTable.MULTI_BACK_REFERENCE_ENTRY.toString(),
     ImmutableList.withElements(
       ENTITY_COLUMN_SQL_DTO,
       MULTI_BACK_REFERENCE_COLUMN_COLUMN_SQL_DTO,

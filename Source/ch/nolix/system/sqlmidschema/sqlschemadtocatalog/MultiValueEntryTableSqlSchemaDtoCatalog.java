@@ -35,7 +35,7 @@ public final class MultiValueEntryTableSqlSchemaDtoCatalog {
 
   public static final TableDto MULTI_VALUE_ENTRY_TABLE_SQL_DTO = //
   new TableDto(
-    MetaTable.MULTI_VALUE_ENTRY.getName(),
+    MetaTable.MULTI_VALUE_ENTRY.toString(),
     ImmutableList.withElements(
       MULTI_VALUE_COLUMN_COLUMN_SQL_DTO,
       ENTITY_COLUMN_SQL_DTO,

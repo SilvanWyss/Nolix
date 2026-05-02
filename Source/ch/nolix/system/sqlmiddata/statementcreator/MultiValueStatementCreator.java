@@ -18,7 +18,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
     "DELETE FROM "
-    + MetaTable.MULTI_VALUE_ENTRY.getName()
+    + MetaTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -40,7 +40,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entry) {
     return //
     "DELETE FROM "
-    + MetaTable.MULTI_VALUE_ENTRY.getName()
+    + MetaTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -66,7 +66,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entry) {
     return //
     "INSERT INTO "
-    + MetaTable.MULTI_VALUE_ENTRY.getName()
+    + MetaTable.MULTI_VALUE_ENTRY
     + " ("
     + MultiValueEntryColumn.ENTITY_ID.getName()
     + ", "

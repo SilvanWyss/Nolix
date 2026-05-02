@@ -3,12 +3,10 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-
 /**
  * @author Silvan Wyss
  */
-public enum MetaTable implements INameHolder {
+public enum MetaTable {
   DATABASE_PROPERTY(FixTableNameCatalog.DATABASE_PROPERTY),
   TABLE(FixTableNameCatalog.TABLE),
   COLUMN(FixTableNameCatalog.COLUMN),
@@ -19,17 +17,22 @@ public enum MetaTable implements INameHolder {
   MULTI_REFERENCE_ENTRY(FixTableNameCatalog.MULTI_REFERENCE_ENTRY),
   MULTI_BACK_REFERENCE_ENTRY(FixTableNameCatalog.MULTI_BACK_REFERENCE_ENTRY);
 
-  private final String name;
+  private final String stringRepresentation;
 
-  MetaTable(final String name) {
-    this.name = name;
+  /**
+   * Creates a new {@link MetaTable} with the given stringRepresentation.
+   * 
+   * @param stringRepresentation
+   */
+  MetaTable(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }

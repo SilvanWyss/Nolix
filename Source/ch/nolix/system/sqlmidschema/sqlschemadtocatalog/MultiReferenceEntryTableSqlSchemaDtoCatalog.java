@@ -46,7 +46,7 @@ public final class MultiReferenceEntryTableSqlSchemaDtoCatalog {
 
   public static final TableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = //
   new TableDto(
-    MetaTable.MULTI_REFERENCE_ENTRY.getName(),
+    MetaTable.MULTI_REFERENCE_ENTRY.toString(),
     ImmutableList.withElements(
       ENTITY_COLUMN_SQL_DTO,
       ENTITY_TABLE_COLUMN_SQL_DTO,

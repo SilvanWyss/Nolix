@@ -116,7 +116,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT "
     + DatabasePropertyColumn.VALUE.getName()
     + " FROM "
-    + MetaTable.DATABASE_PROPERTY.getName()
+    + MetaTable.DATABASE_PROPERTY
     + " WHERE "
     + DatabasePropertyColumn.KEY.getName()
     + " = '"

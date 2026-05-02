@@ -22,7 +22,7 @@ public final class DatabasePropertyTableSqlSchemaDtoCatalog {
 
   public static final TableDto DATABASE_PROPERTY_TABLE_SQL_DTO = //
   new TableDto(
-    MetaTable.DATABASE_PROPERTY.getName(),
+    MetaTable.DATABASE_PROPERTY.toString(),
     ImmutableList.withElements(KEY_COLUMN_SQL_DTO, VALUE_COLUMN_SQL_DTO));
 
   private DatabasePropertyTableSqlSchemaDtoCatalog() {

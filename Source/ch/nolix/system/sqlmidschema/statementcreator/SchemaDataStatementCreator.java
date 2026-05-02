@@ -32,7 +32,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String referenceableColumnId) {
     return //
     "INSERT INTO "
-    + MetaTable.BACK_REFERENCEABLE_COLUMN.getName()
+    + MetaTable.BACK_REFERENCEABLE_COLUMN
     + " ("
     + BackReferenceableColumnColumn.PARENT_BASE_BACK_REFERENCE_COLUMN_ID.getName()
     + ", "
@@ -76,7 +76,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String referenceableTableId) {
     return //
     "INSERT INTO "
-    + MetaTable.REFERENCEABLE_TABLE.getName()
+    + MetaTable.REFERENCEABLE_TABLE
     + " ("
     + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", "
@@ -95,7 +95,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToAddTable(final String tableId, final String tableName) {
     return //
     "INSERT INTO "
-    + MetaTable.TABLE.getName()
+    + MetaTable.TABLE
     + " ("
     + TableColumn.ID.getName()
     + ", "
@@ -133,7 +133,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToDeleteColumn(final TableIdentification table, final String columnName) {
     return //
     "DELETE FROM "
-    + MetaTable.COLUMN.getName()
+    + MetaTable.COLUMN
     + " WHERE "
     + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -152,7 +152,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToDeleteTable(final String tableName) {
     return //
     "DELETE FROM "
-    + MetaTable.TABLE.getName()
+    + MetaTable.TABLE
     + " WHERE "
     + TableColumn.NAME
     + " = '"
@@ -168,7 +168,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     final String newColumnName) {
     return //
     "UPDATE "
-    + MetaTable.COLUMN.getName()
+    + MetaTable.COLUMN
     + " SET "
     + ColumnColumn.NAME
     + " = '"
@@ -191,7 +191,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
   public String createStatementToRenameTable(final String tableName, final String newTableName) {
     return //
     "UPDATE "
-    + MetaTable.TABLE.getName()
+    + MetaTable.TABLE
     + " SET "
     + TableColumn.NAME.getName()
     + " = '"

@@ -22,7 +22,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     "SELECT COUNT(*) FROM "
-    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY
     + " WHERE "
     + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"
@@ -56,7 +56,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     + ", "
     + MultiReferenceEntryColumn.REFERENCED_ENTITY_TABLE_ID.getName()
     + " FROM "
-    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY
     + " WHERE "
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -76,7 +76,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String multiReferenceColumnId,
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
-    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY
     + " WHERE "
     + MultiReferenceEntryColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"

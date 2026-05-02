@@ -23,7 +23,7 @@ public final class ColumnTableStatementCreator implements IColumnTableStatementC
   public String createStatementToAddColumnIntoColumnTable(final TableIdentification table, final ColumnDto column) {
     return //
     "INSERT INTO "
-    + MetaTable.COLUMN.getName()
+    + MetaTable.COLUMN
     + " ("
     + ColumnColumn.ID.getName()
     + ", "
@@ -57,7 +57,7 @@ public final class ColumnTableStatementCreator implements IColumnTableStatementC
     final DataType dataType) {
     return //
     "UPDATE "
-    + MetaTable.COLUMN.getName()
+    + MetaTable.COLUMN
     + " SET "
     + ColumnColumn.FIELD_TYPE.getName()
     + " = '"

@@ -20,7 +20,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String multiReferenceColumnId) {
     return //
     "DELETE FROM "
-    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY
     + " WHERE "
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -42,7 +42,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String referencedEntityId) {
     return //
     "DELETE FROM "
-    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY
     + " WHERE "
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -69,7 +69,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String referencedEntityTableId) {
     return //
     "INSERT INTO "
-    + MetaTable.MULTI_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_REFERENCE_ENTRY
     + " ("
     + MultiReferenceEntryColumn.ENTITY_ID.getName()
     + ", "

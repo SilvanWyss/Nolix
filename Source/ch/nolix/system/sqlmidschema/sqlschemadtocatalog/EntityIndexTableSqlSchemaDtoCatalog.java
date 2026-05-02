@@ -22,7 +22,7 @@ public final class EntityIndexTableSqlSchemaDtoCatalog {
 
   public static final TableDto ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO = //
   new TableDto(
-    MetaTable.ENTITY_INDEX.getName(),
+    MetaTable.ENTITY_INDEX.toString(),
     ImmutableList.withElements(ENTITY_ID_SQL_SCHEMA_COLUMN_DTO, TABLE_ID_SQL_SCHEMA_COLUMN_DTO));
 
   private EntityIndexTableSqlSchemaDtoCatalog() {

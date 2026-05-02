@@ -22,7 +22,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     final IContainer<String> entitiesToIgnoreIds) {
     return //
     "SELECT COUNT(*) FROM "
-    + MetaTable.MULTI_VALUE_ENTRY.getName()
+    + MetaTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"
@@ -43,7 +43,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     "SELECT "
     + MultiValueEntryColumn.VALUE.getName()
     + " FROM "
-    + MetaTable.MULTI_VALUE_ENTRY.getName()
+    + MetaTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -64,7 +64,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     final String value) {
     return //
     "SELECT TOP 1 * FROM "
-    + MetaTable.MULTI_VALUE_ENTRY.getName()
+    + MetaTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
     + " = '"

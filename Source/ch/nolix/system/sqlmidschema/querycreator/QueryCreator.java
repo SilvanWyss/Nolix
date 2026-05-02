@@ -24,7 +24,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT COUNT("
     + TableColumn.ID.getName()
     + ") FROM "
-    + MetaTable.TABLE.getName()
+    + MetaTable.TABLE
     + ";";
   }
 
@@ -35,38 +35,38 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadJoinedColumns() {
     return //
     "SELECT "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
     + ", "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.NAME.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.NAME.getName()
     + ", "
-    + MetaTable.TABLE.getName() + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID.getName()
     + ", "
-    + MetaTable.TABLE.getName() + "." + TableColumn.NAME.getName()
+    + MetaTable.TABLE + "." + TableColumn.NAME.getName()
     + ", "
     + ColumnColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnColumn.DATA_TYPE.getName()
     + " FROM "
-    + MetaTable.COLUMN.getName()
+    + MetaTable.COLUMN
     + " LEFT JOIN "
-    + MetaTable.TABLE.getName()
+    + MetaTable.TABLE
     + " ON "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
-    + MetaTable.TABLE.getName() + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID.getName()
     + " LEFT JOIN (SELECT "
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", STRING_AGG("
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
     + ", ',') AS ReferenceableTableIds FROM"
-    + MetaTable.REFERENCEABLE_TABLE.getName()
+    + MetaTable.REFERENCEABLE_TABLE
     + " GROUP BY "
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ")"
     + " ON "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
     + " = "
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ";";
   }
 
@@ -77,40 +77,40 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadJoinedColumns(String tableName) {
     return //
     "SELECT "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
     + ", "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.NAME.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.NAME.getName()
     + ", "
-    + MetaTable.TABLE.getName() + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID.getName()
     + ", "
-    + MetaTable.TABLE.getName() + "." + TableColumn.NAME.getName()
+    + MetaTable.TABLE + "." + TableColumn.NAME.getName()
     + ", "
     + ColumnColumn.FIELD_TYPE.getName()
     + ", "
     + ColumnColumn.DATA_TYPE.getName()
     + " FROM "
-    + MetaTable.COLUMN.getName()
+    + MetaTable.COLUMN
     + " LEFT JOIN "
-    + MetaTable.TABLE.getName()
+    + MetaTable.TABLE
     + " ON "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.PARENT_TABLE_ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
-    + MetaTable.TABLE.getName() + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID.getName()
     + " LEFT JOIN (SELECT "
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", STRING_AGG("
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
     + ", ',') AS ReferenceableTableIds FROM"
-    + MetaTable.REFERENCEABLE_TABLE.getName()
+    + MetaTable.REFERENCEABLE_TABLE
     + " GROUP BY "
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ")"
     + " ON "
-    + MetaTable.COLUMN.getName() + "." + ColumnColumn.ID.getName()
+    + MetaTable.COLUMN + "." + ColumnColumn.ID.getName()
     + " = "
-    + MetaTable.REFERENCEABLE_TABLE.getName() + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + " WHERE "
-    + MetaTable.TABLE.getName() + "." + TableColumn.NAME.getName()
+    + MetaTable.TABLE + "." + TableColumn.NAME.getName()
     + " = '"
     + tableName
     + "';";
@@ -125,7 +125,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT "
     + DatabasePropertyColumn.VALUE.getName()
     + " FROM "
-    + MetaTable.DATABASE_PROPERTY.getName()
+    + MetaTable.DATABASE_PROPERTY
     + " WHERE "
     + DatabasePropertyColumn.KEY.getName()
     + " = "

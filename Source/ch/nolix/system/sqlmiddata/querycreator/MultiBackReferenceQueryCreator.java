@@ -28,7 +28,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     + ", "
     + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID.getName()
     + " FROM "
-    + MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
     + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -69,7 +69,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     "SELECT "
     + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
     + " FROM "
-    + MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
     + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
     + " = '"
@@ -90,7 +90,7 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     final String backReferencedEntityId) {
     return //
     "SELECT TOP 1 * FROM "
-    + MetaTable.MULTI_BACK_REFERENCE_ENTRY.getName()
+    + MetaTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
     + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
     + " = '"
