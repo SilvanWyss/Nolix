@@ -3,18 +3,12 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-
 /**
  * @author Silvan Wyss
  */
 public enum DatabasePropertyColumn {
-  //'Key' is a reserved word in MSSQL.
-  KEY(PascalCaseVariableCatalog.KEY + CharacterCatalog.UNDERSCORE),
-
-  //'Value' is a reserved word in MSSQL.
-  VALUE(PascalCaseVariableCatalog.VALUE + CharacterCatalog.UNDERSCORE);
+  KEY(DatabasePropertyColumnNameCatalog.KEY),
+  VALUE(DatabasePropertyColumnNameCatalog.VALUE);
 
   private final String stringRepresentation;
 
