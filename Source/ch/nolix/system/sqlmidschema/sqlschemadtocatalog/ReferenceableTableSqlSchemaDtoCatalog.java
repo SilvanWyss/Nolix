@@ -16,13 +16,13 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
 public final class ReferenceableTableSqlSchemaDtoCatalog {
   private static final ColumnDto PARENT_BASE_REFERENCE_COLUMN_ID_SQL_DTO = //
   new ColumnDto(
-    ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName(),
+    ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.toString(),
     DataTypeTypeCatalog.TEXT,
     ImmutableList.createEmpty());
 
   private static final ColumnDto REFERENCEABLE_TABLE_ID_SQL_DTO = //
   new ColumnDto(
-    ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName(),
+    ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.toString(),
     DataTypeTypeCatalog.TEXT,
     ImmutableList.createEmpty());
 

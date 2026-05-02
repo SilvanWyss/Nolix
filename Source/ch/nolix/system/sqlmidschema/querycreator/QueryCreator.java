@@ -55,9 +55,9 @@ public final class QueryCreator implements IQueryCreator {
     + " = "
     + FixTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ", STRING_AGG("
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
     + ", ',') AS ReferenceableTableIds FROM"
     + FixTable.REFERENCEABLE_TABLE
     + " GROUP BY "
@@ -66,7 +66,7 @@ public final class QueryCreator implements IQueryCreator {
     + " ON "
     + FixTable.COLUMN + "." + ColumnColumn.ID
     + " = "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ";";
   }
 
@@ -97,9 +97,9 @@ public final class QueryCreator implements IQueryCreator {
     + " = "
     + FixTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ", STRING_AGG("
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
     + ", ',') AS ReferenceableTableIds FROM"
     + FixTable.REFERENCEABLE_TABLE
     + " GROUP BY "
@@ -108,7 +108,7 @@ public final class QueryCreator implements IQueryCreator {
     + " ON "
     + FixTable.COLUMN + "." + ColumnColumn.ID
     + " = "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + " WHERE "
     + FixTable.TABLE + "." + TableColumn.NAME
     + " = '"

@@ -78,9 +78,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     "INSERT INTO "
     + FixTable.REFERENCEABLE_TABLE
     + " ("
-    + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
+    + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ", "
-    + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID.getName()
+    + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
     + ") VALUES ('"
     + parentBaseReferenceColumn.columnId()
     + "', '"
