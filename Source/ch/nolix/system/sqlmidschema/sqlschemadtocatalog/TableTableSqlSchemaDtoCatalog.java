@@ -15,15 +15,10 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
  */
 public final class TableTableSqlSchemaDtoCatalog {
   private static final ColumnDto ID_COLUMN_SQL_DTO = //
-  new ColumnDto(
-    TableColumn.ID.getName(),
-    DataTypeTypeCatalog.TEXT,
-    ImmutableList.createEmpty());
+  new ColumnDto(TableColumn.ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto NAME_COLUMN_SQL_DTO = //
-  new ColumnDto(TableColumn.NAME.getName(),
-    DataTypeTypeCatalog.TEXT,
-    ImmutableList.createEmpty());
+  new ColumnDto(TableColumn.NAME.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final TableDto TABLE_TABLE_SQL_DTO = //
   new TableDto(MetaTable.TABLE.toString(), ImmutableList.withElements(ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO));

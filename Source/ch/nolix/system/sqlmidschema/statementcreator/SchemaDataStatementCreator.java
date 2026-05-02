@@ -97,9 +97,9 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     "INSERT INTO "
     + MetaTable.TABLE
     + " ("
-    + TableColumn.ID.getName()
+    + TableColumn.ID
     + ", "
-    + TableColumn.NAME.getName()
+    + TableColumn.NAME
     + ") VALUES ('"
     + tableId
     + "', '"
@@ -193,11 +193,11 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
     "UPDATE "
     + MetaTable.TABLE
     + " SET "
-    + TableColumn.NAME.getName()
+    + TableColumn.NAME
     + " = '"
     + newTableName
     + "' WHERE "
-    + TableColumn.NAME.getName()
+    + TableColumn.NAME
     + " = '"
     + tableName
     + "'";

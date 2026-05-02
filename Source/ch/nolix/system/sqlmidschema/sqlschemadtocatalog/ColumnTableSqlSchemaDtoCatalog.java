@@ -16,7 +16,7 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
  */
 public final class ColumnTableSqlSchemaDtoCatalog {
   private static final ColumnDto ID_SQL_DTO = //
-  new ColumnDto(TableColumn.ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(TableColumn.ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto PARENT_TABLE_ID_SQL_DTO = //
   new ColumnDto(

@@ -22,7 +22,7 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToGetTableCount() {
     return //
     "SELECT COUNT("
-    + TableColumn.ID.getName()
+    + TableColumn.ID
     + ") FROM "
     + MetaTable.TABLE
     + ";";
@@ -39,9 +39,9 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + MetaTable.COLUMN + "." + ColumnColumn.NAME.getName()
     + ", "
-    + MetaTable.TABLE + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID
     + ", "
-    + MetaTable.TABLE + "." + TableColumn.NAME.getName()
+    + MetaTable.TABLE + "." + TableColumn.NAME
     + ", "
     + ColumnColumn.FIELD_TYPE.getName()
     + ", "
@@ -53,7 +53,7 @@ public final class QueryCreator implements IQueryCreator {
     + " ON "
     + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
-    + MetaTable.TABLE + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", STRING_AGG("
@@ -81,9 +81,9 @@ public final class QueryCreator implements IQueryCreator {
     + ", "
     + MetaTable.COLUMN + "." + ColumnColumn.NAME.getName()
     + ", "
-    + MetaTable.TABLE + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID
     + ", "
-    + MetaTable.TABLE + "." + TableColumn.NAME.getName()
+    + MetaTable.TABLE + "." + TableColumn.NAME
     + ", "
     + ColumnColumn.FIELD_TYPE.getName()
     + ", "
@@ -95,7 +95,7 @@ public final class QueryCreator implements IQueryCreator {
     + " ON "
     + MetaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID.getName()
     + " = "
-    + MetaTable.TABLE + "." + TableColumn.ID.getName()
+    + MetaTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + ", STRING_AGG("
@@ -110,7 +110,7 @@ public final class QueryCreator implements IQueryCreator {
     + " = "
     + MetaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID.getName()
     + " WHERE "
-    + MetaTable.TABLE + "." + TableColumn.NAME.getName()
+    + MetaTable.TABLE + "." + TableColumn.NAME
     + " = '"
     + tableName
     + "';";
