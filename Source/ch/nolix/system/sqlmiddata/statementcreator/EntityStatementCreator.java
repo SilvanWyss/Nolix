@@ -47,7 +47,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     "DELETE FROM "
     + FixTable.ENTITY_INDEX
     + " WHERE "
-    + EntityIndexColumn.ENTITY_ID.getName()
+    + EntityIndexColumn.ENTITY_ID
     + " = '"
     + entityId
     + "';";
@@ -118,9 +118,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     "INSERT INTO "
     + FixTable.ENTITY_INDEX
     + "("
-    + EntityIndexColumn.ENTITY_ID.getName()
+    + EntityIndexColumn.ENTITY_ID
     + ", "
-    + EntityIndexColumn.TABLE_ID.getName()
+    + EntityIndexColumn.TABLE_ID
     + ") VALUES ("
     + StringTool.getInSingleQuotes(tableId)
     + ", "

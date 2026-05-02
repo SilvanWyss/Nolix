@@ -3,26 +3,29 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-
 /**
  * @author Silvan Wyss
  */
-public enum EntityIndexColumn implements INameHolder {
+public enum EntityIndexColumn {
   ENTITY_ID("EntityId"),
   TABLE_ID("TableId");
 
-  private final String name;
+  private final String stringRepresentation;
 
-  EntityIndexColumn(final String name) {
-    this.name = name;
+  /**
+   * Creates a new {@link EntityIndexColumn} with the given stringRepresentation.
+   * 
+   * @param stringRepresentation
+   */
+  EntityIndexColumn(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }

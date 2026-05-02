@@ -15,10 +15,10 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
  */
 public final class EntityIndexTableSqlSchemaDtoCatalog {
   private static final ColumnDto ENTITY_ID_SQL_SCHEMA_COLUMN_DTO = //
-  new ColumnDto(EntityIndexColumn.ENTITY_ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(EntityIndexColumn.ENTITY_ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto TABLE_ID_SQL_SCHEMA_COLUMN_DTO = //
-  new ColumnDto(EntityIndexColumn.TABLE_ID.getName(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(EntityIndexColumn.TABLE_ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final TableDto ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO = //
   new TableDto(
