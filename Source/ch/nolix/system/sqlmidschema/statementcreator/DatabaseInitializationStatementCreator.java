@@ -22,9 +22,9 @@ public final class DatabaseInitializationStatementCreator implements IDatabaseIn
     "INSERT INTO "
     + MetaTable.DATABASE_PROPERTY
     + " ("
-    + DatabasePropertyColumn.KEY.getName()
+    + DatabasePropertyColumn.KEY
     + ", "
-    + DatabasePropertyColumn.VALUE.getName()
+    + DatabasePropertyColumn.VALUE
     + ") VALUES ("
     + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes()
     + ", '"

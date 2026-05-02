@@ -22,11 +22,11 @@ public final class DatabasePropertiesStatementCreator implements IDatabaseProper
     "UPDATE "
     + MetaTable.DATABASE_PROPERTY
     + " SET "
-    + DatabasePropertyColumn.VALUE.getName()
+    + DatabasePropertyColumn.VALUE
     + " = '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "' WHERE "
-    + DatabasePropertyColumn.KEY.getName()
+    + DatabasePropertyColumn.KEY
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes();
   }

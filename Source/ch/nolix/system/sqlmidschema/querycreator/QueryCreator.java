@@ -123,11 +123,11 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadSchemaTimestamp() {
     return //
     "SELECT "
-    + DatabasePropertyColumn.VALUE.getName()
+    + DatabasePropertyColumn.VALUE
     + " FROM "
     + MetaTable.DATABASE_PROPERTY
     + " WHERE "
-    + DatabasePropertyColumn.KEY.getName()
+    + DatabasePropertyColumn.KEY
     + " = "
     + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes();
   }
