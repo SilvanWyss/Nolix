@@ -5,8 +5,8 @@ package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabaseInitializationStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
@@ -20,7 +20,7 @@ public final class DatabaseInitializationStatementCreator implements IDatabaseIn
   public String createStatementToCreateSchemaTimestampEntry(final ITime schemaTimestamp) {
     return //
     "INSERT INTO "
-    + FixTable.DATABASE_PROPERTY
+    + MetaDataTable.DATABASE_PROPERTY
     + " ("
     + DatabasePropertyColumn.KEY
     + ", "

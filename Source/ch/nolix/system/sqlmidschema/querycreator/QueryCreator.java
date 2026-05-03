@@ -6,10 +6,10 @@ package ch.nolix.system.sqlmidschema.querycreator;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
 import ch.nolix.systemapi.sqlmidschema.tablestructure.SchemaTable;
 
 /**
@@ -126,7 +126,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT "
     + DatabasePropertyColumn.VALUE
     + " FROM "
-    + FixTable.DATABASE_PROPERTY
+    + MetaDataTable.DATABASE_PROPERTY
     + " WHERE "
     + DatabasePropertyColumn.KEY
     + " = "

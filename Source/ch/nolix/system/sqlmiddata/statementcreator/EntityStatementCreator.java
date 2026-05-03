@@ -14,8 +14,8 @@ import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.tablestructure.DataTable;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
@@ -61,7 +61,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return //
     "IF NOT EXISTS (SELECT * FROM "
-    + FixTable.DATABASE_PROPERTY
+    + MetaDataTable.DATABASE_PROPERTY
     + " WHERE "
     + DatabasePropertyColumn.KEY
     + " = '"

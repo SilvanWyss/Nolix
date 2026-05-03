@@ -1,22 +1,22 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.databasestructure;
+package ch.nolix.systemapi.sqlmidschema.tablestructure;
 
 /**
  * @author Silvan Wyss
  */
-public enum FixTable {
-  ;
+public enum MetaDataTable {
+  DATABASE_PROPERTY(MetaDataTableNameCatalog.DATABASE_PROPERTY);
 
   private final String stringRepresentation;
 
   /**
-   * Creates a new {@link FixTable} with the given stringRepresentation.
+   * Creates a new {@link MetaDataTable} with the given stringRepresentation.
    * 
    * @param stringRepresentation
    */
-  FixTable(final String stringRepresentation) {
+  MetaDataTable(final String stringRepresentation) {
     this.stringRepresentation = stringRepresentation;
   }
 

@@ -5,8 +5,8 @@ package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
@@ -22,7 +22,7 @@ public final class DatabasePropertyTableSqlSchemaDtoCatalog {
 
   public static final TableDto DATABASE_PROPERTY_TABLE_SQL_DTO = //
   new TableDto(
-    FixTable.DATABASE_PROPERTY.toString(),
+    MetaDataTable.DATABASE_PROPERTY.toString(),
     ImmutableList.withElements(KEY_COLUMN_SQL_DTO, VALUE_COLUMN_SQL_DTO));
 
   private DatabasePropertyTableSqlSchemaDtoCatalog() {
