@@ -120,7 +120,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     + " WHERE "
     + DatabasePropertyColumn.KEY
     + " = '"
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getName()
+    + DatabaseProperty.SCHEMA_TIMESTAMP
     + "';";
   }
 }

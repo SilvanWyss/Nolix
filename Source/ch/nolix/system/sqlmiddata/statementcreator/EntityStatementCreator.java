@@ -65,7 +65,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + " WHERE "
     + DatabasePropertyColumn.KEY
     + " = '"
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getName()
+    + DatabaseProperty.SCHEMA_TIMESTAMP
     + "' AND "
     + DatabasePropertyColumn.VALUE
     + " = '"

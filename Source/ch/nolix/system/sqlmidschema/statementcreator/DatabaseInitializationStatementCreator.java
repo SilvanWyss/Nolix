@@ -3,6 +3,7 @@
  */
 package ch.nolix.system.sqlmidschema.statementcreator;
 
+import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
@@ -26,7 +27,7 @@ public final class DatabaseInitializationStatementCreator implements IDatabaseIn
     + ", "
     + DatabasePropertyColumn.VALUE
     + ") VALUES ("
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getNameInQuotes()
+    + StringTool.getInSingleQuotes(DatabaseProperty.SCHEMA_TIMESTAMP)
     + ", '"
     + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
     + "');";
