@@ -3,16 +3,14 @@
  */
 package ch.nolix.systemapi.sqlmidschema.tablestructure;
 
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTableNameCatalog;
-
 /**
  * @author Silvan Wyss
  */
 public enum SchemaTable {
-  TABLE(FixTableNameCatalog.TABLE),
-  COLUMN(FixTableNameCatalog.COLUMN),
-  REFERENCEABLE_TABLE(FixTableNameCatalog.REFERENCEABLE_TABLE),
-  BACK_REFERENCEABLE_COLUMN(FixTableNameCatalog.BACK_REFERENCEABLE_COLUMN);
+  TABLE(SchemaTableNameCatalog.TABLE),
+  COLUMN(SchemaTableNameCatalog.COLUMN),
+  REFERENCEABLE_TABLE(SchemaTableNameCatalog.REFERENCEABLE_TABLE),
+  BACK_REFERENCEABLE_COLUMN(SchemaTableNameCatalog.BACK_REFERENCEABLE_COLUMN);
 
   private final String stringRepresentation;
 

@@ -3,8 +3,6 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-
 /**
  * Of the {@link FixTableNameCatalog} an instance cannot be created.
  * 
@@ -13,15 +11,7 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 public final class FixTableNameCatalog {
   public static final String DATABASE_PROPERTY = "DatabaseProperty";
 
-  public static final String TABLE = PascalCaseVariableCatalog.TABLE;
-
-  public static final String COLUMN = PascalCaseVariableCatalog.COLUMN;
-
   public static final String CONTENT_MODEL = "ContentModel";
-
-  public static final String REFERENCEABLE_TABLE = "ReferenceableTable";
-
-  public static final String BACK_REFERENCEABLE_COLUMN = "BackReferenceableColumn";
 
   public static final String ENTITY_INDEX = "EntityIndex";
 
