@@ -16,19 +16,19 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
 public final class MultiBackReferenceEntryTableSqlSchemaDtoCatalog {
   private static final ColumnDto ENTITY_COLUMN_SQL_DTO = //
   new ColumnDto(
-    MultiBackReferenceEntryColumn.ENTITY_ID.getName(),
+    MultiBackReferenceEntryColumn.ENTITY_ID.toString(),
     DataTypeTypeCatalog.TEXT,
     ImmutableList.createEmpty());
 
   private static final ColumnDto MULTI_BACK_REFERENCE_COLUMN_COLUMN_SQL_DTO = //
   new ColumnDto(
-    MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName(),
+    MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.toString(),
     DataTypeTypeCatalog.TEXT,
     ImmutableList.createEmpty());
 
   private static final ColumnDto BACK_REFERENCED_ENTITY_COLUMN_SQL_DTO = //
   new ColumnDto(
-    MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName(),
+    MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.toString(),
     DataTypeTypeCatalog.TEXT,
     ImmutableList.createEmpty());
 

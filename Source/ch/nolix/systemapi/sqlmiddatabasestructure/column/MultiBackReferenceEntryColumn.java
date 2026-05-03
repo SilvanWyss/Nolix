@@ -3,28 +3,32 @@
  */
 package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-
 /**
  * @author Silvan Wyss
  */
-public enum MultiBackReferenceEntryColumn implements INameHolder {
+public enum MultiBackReferenceEntryColumn {
   ENTITY_ID(MultiBackReferenceEntryColumnNameCatalog.ENTITY_ID),
   MULTI_BACK_REFERENCE_COLUMN_ID(MultiBackReferenceEntryColumnNameCatalog.MULTI_BACK_REFERENCE_COLUMN_ID),
   BACK_REFERENCED_ENTITY_ID(MultiBackReferenceEntryColumnNameCatalog.BACK_REFERENCED_ENTITY_ID),
   BACK_REFERENCED_ENTITY_TABLE_ID(MultiBackReferenceEntryColumnNameCatalog.BACK_REFERENCED_ENTITY_TABLE_ID);
 
-  private final String name;
+  private final String stringRepresentation;
 
-  MultiBackReferenceEntryColumn(final String name) {
-    this.name = name;
+  /**
+   * Creates a new {@link MultiBackReferenceEntryColumn} with the given
+   * stringRepresentation.
+   * 
+   * @param stringRepresentation
+   */
+  MultiBackReferenceEntryColumn(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }

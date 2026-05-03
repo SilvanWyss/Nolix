@@ -21,11 +21,11 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     return "DELETE FROM "
     + DataTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
-    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + " = '"
     + multiBackReferenceColumnId
     + "';";
@@ -42,15 +42,15 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     return "DELETE FROM "
     + DataTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
-    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + " = '"
     + multiBackReferenceColumnId
     + "' AND "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID
     + " = '"
     + backReferencedEntityId
     + "'";
@@ -68,13 +68,13 @@ public final class MultiBackReferenceStatementCreator implements IMultiBackRefer
     return "INSERT INTO "
     + DataTable.MULTI_BACK_REFERENCE_ENTRY
     + " ("
-    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID
     + ", "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + ", "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID
     + ", "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID
     + ") VALUES ('"
     + entityId
     + "', '"

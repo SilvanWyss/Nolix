@@ -20,21 +20,21 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     final String multiBackReferenceColumnId) {
     return //
     "SELECT "
-    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID
     + ", "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + ", "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID
     + ", "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_TABLE_ID
     + " FROM "
     + DataTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
-    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + " = '"
     + multiBackReferenceColumnId
     + "';";
@@ -67,15 +67,15 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     final String multiBackReferenceColumnId) {
     return //
     "SELECT "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID
     + " FROM "
     + DataTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
-    + MultiBackReferenceEntryColumn.ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + " = '"
     + multiBackReferenceColumnId
     + "';";
@@ -92,11 +92,11 @@ public final class MultiBackReferenceQueryCreator implements IMultiBackReference
     "SELECT TOP 1 * FROM "
     + DataTable.MULTI_BACK_REFERENCE_ENTRY
     + " WHERE "
-    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID.getName()
+    + MultiBackReferenceEntryColumn.MULTI_BACK_REFERENCE_COLUMN_ID
     + " = '"
     + multiBackReferenceColumnId
     + "' AND "
-    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID.getName()
+    + MultiBackReferenceEntryColumn.BACK_REFERENCED_ENTITY_ID
     + " = '"
     + backReferencedEntityId
     + "';";
