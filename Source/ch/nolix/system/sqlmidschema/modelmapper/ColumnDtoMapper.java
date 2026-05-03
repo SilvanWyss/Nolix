@@ -8,7 +8,7 @@ import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnTableFieldIndexCatalog;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.modelmapper.IColumnDtoMapper;
 
 /**
@@ -21,16 +21,16 @@ public final class ColumnDtoMapper implements IColumnDtoMapper {
    */
   @Override
   public ColumnDto mapJoinedColumnSqlRecordToColumnDto(final ISqlRecord joinedColumnSqlRecord) {
-    final var id = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.ID_INDEX);
-    final var name = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.NAME_INDEX);
+    final var id = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnColumn.ID.getOneBasedIndex());
+    final var name = joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnColumn.NAME.getOneBasedIndex());
 
     final var fieldTypeString = //
-    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.FIELD_TYPE_INDEX);
+    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnColumn.FIELD_TYPE.getOneBasedIndex());
 
     final var fieldType = FieldType.valueOf(fieldTypeString);
 
     final var dataTypeString = //
-    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnTableFieldIndexCatalog.DATA_TYPE_INDEX);
+    joinedColumnSqlRecord.getStoredAtOneBasedIndex(ColumnColumn.DATA_TYPE.getOneBasedIndex());
 
     final var dataType = DataType.valueOf(dataTypeString);
     final var referenceableTableIdsString = joinedColumnSqlRecord.getStoredAtOneBasedIndex(6);
