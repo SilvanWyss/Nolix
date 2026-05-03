@@ -33,7 +33,8 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class TabContainer extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabContainer {
+public final class TabContainer //NOSONAR: A TabContainer has many dependencies.
+extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabContainer {
   private static final String TAB_HEADER = PascalCaseVariableCatalog.TAB;
 
   private static final String MENU_BUTTON_STYLE_HEADER = "MenuButtonStyle";
