@@ -4,8 +4,8 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.DataTable;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
     "DELETE FROM "
-    + FixTable.MULTI_VALUE_ENTRY
+    + DataTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.ENTITY_ID
     + " = '"
@@ -40,7 +40,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entry) {
     return //
     "DELETE FROM "
-    + FixTable.MULTI_VALUE_ENTRY
+    + DataTable.MULTI_VALUE_ENTRY
     + " WHERE "
     + MultiValueEntryColumn.ENTITY_ID
     + " = '"
@@ -66,7 +66,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     final String entry) {
     return //
     "INSERT INTO "
-    + FixTable.MULTI_VALUE_ENTRY
+    + DataTable.MULTI_VALUE_ENTRY
     + " ("
     + MultiValueEntryColumn.ENTITY_ID
     + ", "

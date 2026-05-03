@@ -4,9 +4,9 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.DataTable;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
@@ -46,7 +46,7 @@ public final class MultiReferenceEntryTableSqlSchemaDtoCatalog {
 
   public static final TableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = //
   new TableDto(
-    FixTable.MULTI_REFERENCE_ENTRY.toString(),
+    DataTable.MULTI_REFERENCE_ENTRY.toString(),
     ImmutableList.withElements(
       ENTITY_COLUMN_SQL_DTO,
       ENTITY_TABLE_COLUMN_SQL_DTO,
