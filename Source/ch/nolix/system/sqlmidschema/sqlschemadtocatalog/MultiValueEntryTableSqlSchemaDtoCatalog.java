@@ -22,16 +22,10 @@ public final class MultiValueEntryTableSqlSchemaDtoCatalog {
     ImmutableList.createEmpty());
 
   private static final ColumnDto ENTITY_COLUMN_SQL_DTO = //
-  new ColumnDto(
-    MultiReferenceEntryColumn.ENTITY_ID.getName(),
-    DataTypeTypeCatalog.TEXT,
-    ImmutableList.createEmpty());
+  new ColumnDto(MultiReferenceEntryColumn.ENTITY_ID.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   private static final ColumnDto VALUE_COLUMN_SQL_DTO = //
-  new ColumnDto(
-    MultiValueEntryColumn.VALUE.toString(),
-    DataTypeTypeCatalog.TEXT,
-    ImmutableList.createEmpty());
+  new ColumnDto(MultiValueEntryColumn.VALUE.toString(), DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final TableDto MULTI_VALUE_ENTRY_TABLE_SQL_DTO = //
   new TableDto(
