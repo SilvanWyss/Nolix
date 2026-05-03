@@ -1,23 +1,22 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.databasestructure;
+package ch.nolix.systemapi.sqlmiddatabasestructure.table;
 
 /**
  * @author Silvan Wyss
  */
-public enum EntityIndexColumn {
-  ENTITY_ID(EntityIndexColumnNameCatalog.ENTITY_ID),
-  TABLE_ID(EntityIndexColumnNameCatalog.TABLE_ID);
+public enum MetaDataTable {
+  DATABASE_PROPERTY(MetaDataTableNameCatalog.DATABASE_PROPERTY);
 
   private final String stringRepresentation;
 
   /**
-   * Creates a new {@link EntityIndexColumn} with the given stringRepresentation.
+   * Creates a new {@link MetaDataTable} with the given stringRepresentation.
    * 
    * @param stringRepresentation
    */
-  EntityIndexColumn(final String stringRepresentation) {
+  MetaDataTable(final String stringRepresentation) {
     this.stringRepresentation = stringRepresentation;
   }
 

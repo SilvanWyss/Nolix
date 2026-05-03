@@ -4,8 +4,8 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiValueStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiValueEntryColumn;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.DataTable;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.MultiValueEntryColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.DataTable;
 
 /**
  * @author Silvan Wyss

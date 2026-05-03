@@ -4,9 +4,9 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.BackReferenceableColumnColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.SchemaTable;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 

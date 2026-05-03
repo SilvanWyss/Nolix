@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.databasestructure;
+package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
 /**
  * Of the {@link ColumnColumnNameCatalog} an instance cannot be created.

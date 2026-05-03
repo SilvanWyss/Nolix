@@ -1,22 +1,24 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.tablestructure;
+package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
 /**
  * @author Silvan Wyss
  */
-public enum MetaDataTable {
-  DATABASE_PROPERTY(MetaDataTableNameCatalog.DATABASE_PROPERTY);
+public enum DatabasePropertyColumn {
+  KEY(DatabasePropertyColumnNameCatalog.KEY),
+  VALUE(DatabasePropertyColumnNameCatalog.VALUE);
 
   private final String stringRepresentation;
 
   /**
-   * Creates a new {@link MetaDataTable} with the given stringRepresentation.
+   * Creates a new {@link DatabasePropertyColumn} with the given
+   * stringRepresentation.
    * 
    * @param stringRepresentation
    */
-  MetaDataTable(final String stringRepresentation) {
+  DatabasePropertyColumn(final String stringRepresentation) {
     this.stringRepresentation = stringRepresentation;
   }
 

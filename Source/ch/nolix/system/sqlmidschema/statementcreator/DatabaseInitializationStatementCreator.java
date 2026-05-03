@@ -4,9 +4,9 @@
 package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IDatabaseInitializationStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**

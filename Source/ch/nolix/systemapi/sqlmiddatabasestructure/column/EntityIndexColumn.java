@@ -1,24 +1,23 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.databasestructure;
+package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
 /**
  * @author Silvan Wyss
  */
-public enum DatabasePropertyColumn {
-  KEY(DatabasePropertyColumnNameCatalog.KEY),
-  VALUE(DatabasePropertyColumnNameCatalog.VALUE);
+public enum EntityIndexColumn {
+  ENTITY_ID(EntityIndexColumnNameCatalog.ENTITY_ID),
+  TABLE_ID(EntityIndexColumnNameCatalog.TABLE_ID);
 
   private final String stringRepresentation;
 
   /**
-   * Creates a new {@link DatabasePropertyColumn} with the given
-   * stringRepresentation.
+   * Creates a new {@link EntityIndexColumn} with the given stringRepresentation.
    * 
    * @param stringRepresentation
    */
-  DatabasePropertyColumn(final String stringRepresentation) {
+  EntityIndexColumn(final String stringRepresentation) {
     this.stringRepresentation = stringRepresentation;
   }
 

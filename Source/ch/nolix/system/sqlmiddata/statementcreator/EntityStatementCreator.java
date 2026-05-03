@@ -12,10 +12,10 @@ import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlPartsMapper;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IEntityStatementCreator;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.EntityIndexColumn;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.DataTable;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.EntityIndexColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.DataTable;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**

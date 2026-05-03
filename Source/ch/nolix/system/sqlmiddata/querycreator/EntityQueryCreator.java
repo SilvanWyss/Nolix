@@ -8,8 +8,8 @@ import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IEntityQueryCreator;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
 
 /**
  * @author Silvan Wyss

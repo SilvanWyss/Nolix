@@ -4,13 +4,13 @@
 package ch.nolix.system.sqlmidschema.querycreator;
 
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.ColumnColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.ReferenceableTableColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.TableColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.SchemaTable;
 
 /**
  * @author Silvan Wyss

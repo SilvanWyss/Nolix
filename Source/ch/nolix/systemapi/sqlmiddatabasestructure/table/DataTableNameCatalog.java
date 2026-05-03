@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.tablestructure;
+package ch.nolix.systemapi.sqlmiddatabasestructure.table;
 
 /**
  * Of the {@link DataTableNameCatalog} an instance cannot be created.

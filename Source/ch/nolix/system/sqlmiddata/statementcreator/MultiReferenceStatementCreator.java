@@ -4,8 +4,8 @@
 package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.systemapi.sqlmiddata.statementcreator.IMultiReferenceStatementCreator;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.MultiReferenceEntryColumn;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.DataTable;
+import ch.nolix.systemapi.sqlmiddatabasestructure.column.MultiReferenceEntryColumn;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.DataTable;
 
 /**
  * @author Silvan Wyss

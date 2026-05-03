@@ -6,8 +6,8 @@ package ch.nolix.system.sqlmidschema.databaseinitializer;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.adapter.SchemaReader;
 import ch.nolix.systemapi.midschema.databaseinitializer.DatabaseState;
+import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
 import ch.nolix.systemapi.sqlmidschema.databaseinitializer.IDatabaseStateAnalyser;
-import ch.nolix.systemapi.sqlmidschema.tablestructure.MetaDataTable;
 import ch.nolix.systemapi.sqlschema.adapter.ISchemaReader;
 
 /**

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.databasestructure;
+package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
