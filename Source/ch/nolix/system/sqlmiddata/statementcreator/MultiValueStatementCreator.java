@@ -20,11 +20,11 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     "DELETE FROM "
     + FixTable.MULTI_VALUE_ENTRY
     + " WHERE "
-    + MultiValueEntryColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID
     + " = '"
     + multiValueColumnId
     + "';";
@@ -42,15 +42,15 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     "DELETE FROM "
     + FixTable.MULTI_VALUE_ENTRY
     + " WHERE "
-    + MultiValueEntryColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID
     + " = '"
     + multiValueColumnId
     + "' AND "
-    + MultiValueEntryColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE
     + " = '"
     + entry
     + "';";
@@ -68,11 +68,11 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
     "INSERT INTO "
     + FixTable.MULTI_VALUE_ENTRY
     + " ("
-    + MultiValueEntryColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID
     + ", "
-    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID
     + ", "
-    + MultiValueEntryColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE
     + ") VALUES ('"
     + entityId
     + "', '"

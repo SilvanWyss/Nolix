@@ -24,11 +24,11 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     "SELECT COUNT(*) FROM "
     + FixTable.MULTI_VALUE_ENTRY
     + " WHERE "
-    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID
     + " = '"
     + value
     + "' AND "
-    + MultiValueEntryColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID
     + " NOT IN ("
     + entitiesToIgnoreIds.toString()
     + ");";
@@ -41,15 +41,15 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
   public String createQueryToLoadMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return //
     "SELECT "
-    + MultiValueEntryColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE
     + " FROM "
     + FixTable.MULTI_VALUE_ENTRY
     + " WHERE "
-    + MultiValueEntryColumn.ENTITY_ID.getName()
+    + MultiValueEntryColumn.ENTITY_ID
     + " = '"
     + entityId
     + "' AND "
-    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID
     + " = '"
     + multiValueColumnId
     + "';";
@@ -66,11 +66,11 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
     "SELECT TOP 1 * FROM "
     + FixTable.MULTI_VALUE_ENTRY
     + " WHERE "
-    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID.getName()
+    + MultiValueEntryColumn.MULTI_VALUE_COLUMN_ID
     + " = '"
     + columnId
     + "' AND "
-    + MultiValueEntryColumn.VALUE.getName()
+    + MultiValueEntryColumn.VALUE
     + " = '"
     + value
     + "';";

@@ -3,27 +3,31 @@
  */
 package ch.nolix.systemapi.sqlmidschema.databasestructure;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-
 /**
  * @author Silvan Wyss
  */
-public enum MultiValueEntryColumn implements INameHolder {
+public enum MultiValueEntryColumn {
   ENTITY_ID(MultiValueEntryColumnNameCatalog.ENTITY_ID),
   MULTI_VALUE_COLUMN_ID(MultiValueEntryColumnNameCatalog.MULTI_VALUE_COLUMN_ID),
   VALUE(MultiValueEntryColumnNameCatalog.VALUE);
 
-  private final String name;
+  private final String stringRepresentation;
 
-  MultiValueEntryColumn(final String name) {
-    this.name = name;
+  /**
+   * Creates a new {@link MultiValueEntryColumn} with the given
+   * stringRepresentation.
+   * 
+   * @param stringRepresentation
+   */
+  MultiValueEntryColumn(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }
