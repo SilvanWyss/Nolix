@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
@@ -28,7 +28,7 @@ public final class BackReferenceableColumnTableSqlSchemaDtoCatalog {
 
   public static final TableDto BACK_REFERENCEABLE_COLUMN_TABLE_SQL_DTO = //
   new TableDto(
-    FixTable.COLUMN.toString(),
+    SchemaTable.COLUMN.toString(),
     ImmutableList.withElements(PARENT_BASE_BACK_REFERENCE_COLUMN_ID_SQL_DTO, BACK_REFERENCEABLE_COLUMN_ID_SQL_DTO));
 
   private BackReferenceableColumnTableSqlSchemaDtoCatalog() {

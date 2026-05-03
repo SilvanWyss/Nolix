@@ -8,10 +8,6 @@ package ch.nolix.systemapi.sqlmidschema.databasestructure;
  */
 public enum FixTable {
   DATABASE_PROPERTY(FixTableNameCatalog.DATABASE_PROPERTY),
-  TABLE(FixTableNameCatalog.TABLE),
-  COLUMN(FixTableNameCatalog.COLUMN),
-  REFERENCEABLE_TABLE(FixTableNameCatalog.REFERENCEABLE_TABLE),
-  BACK_REFERENCEABLE_COLUMN(FixTableNameCatalog.BACK_REFERENCEABLE_COLUMN),
   ENTITY_INDEX(FixTableNameCatalog.ENTITY_INDEX),
   MULTI_VALUE_ENTRY(FixTableNameCatalog.MULTI_VALUE_ENTRY),
   MULTI_REFERENCE_ENTRY(FixTableNameCatalog.MULTI_REFERENCE_ENTRY),

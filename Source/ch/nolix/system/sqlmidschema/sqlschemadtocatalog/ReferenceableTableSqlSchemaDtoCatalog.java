@@ -4,8 +4,8 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
@@ -28,7 +28,7 @@ public final class ReferenceableTableSqlSchemaDtoCatalog {
 
   public static final TableDto REFERENCEABLE_TABLE_TABLE_SQL_DTO = //
   new TableDto(
-    FixTable.COLUMN.toString(),
+    SchemaTable.REFERENCEABLE_TABLE.toString(),
     ImmutableList.withElements(PARENT_BASE_REFERENCE_COLUMN_ID_SQL_DTO, REFERENCEABLE_TABLE_ID_SQL_DTO));
 
   private ReferenceableTableSqlSchemaDtoCatalog() {

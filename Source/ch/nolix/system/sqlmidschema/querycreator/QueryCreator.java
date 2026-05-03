@@ -8,6 +8,7 @@ import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
+import ch.nolix.systemapi.sqlmidschema.databasestructure.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.querycreator.IQueryCreator;
 
@@ -24,7 +25,7 @@ public final class QueryCreator implements IQueryCreator {
     "SELECT COUNT("
     + TableColumn.ID
     + ") FROM "
-    + FixTable.TABLE
+    + SchemaTable.TABLE
     + ";";
   }
 
@@ -35,38 +36,38 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadJoinedColumns() {
     return //
     "SELECT "
-    + FixTable.COLUMN + "." + ColumnColumn.ID
+    + SchemaTable.COLUMN + "." + ColumnColumn.ID
     + ", "
-    + FixTable.COLUMN + "." + ColumnColumn.NAME
+    + SchemaTable.COLUMN + "." + ColumnColumn.NAME
     + ", "
-    + FixTable.TABLE + "." + TableColumn.ID
+    + SchemaTable.TABLE + "." + TableColumn.ID
     + ", "
-    + FixTable.TABLE + "." + TableColumn.NAME
+    + SchemaTable.TABLE + "." + TableColumn.NAME
     + ", "
     + ColumnColumn.FIELD_TYPE
     + ", "
     + ColumnColumn.DATA_TYPE
     + " FROM "
-    + FixTable.COLUMN
+    + SchemaTable.COLUMN
     + " LEFT JOIN "
-    + FixTable.TABLE
+    + SchemaTable.TABLE
     + " ON "
-    + FixTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID
+    + SchemaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID
     + " = "
-    + FixTable.TABLE + "." + TableColumn.ID
+    + SchemaTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ", STRING_AGG("
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
     + ", ',') AS ReferenceableTableIds FROM"
-    + FixTable.REFERENCEABLE_TABLE
+    + SchemaTable.REFERENCEABLE_TABLE
     + " GROUP BY "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ")"
     + " ON "
-    + FixTable.COLUMN + "." + ColumnColumn.ID
+    + SchemaTable.COLUMN + "." + ColumnColumn.ID
     + " = "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ";";
   }
 
@@ -77,40 +78,40 @@ public final class QueryCreator implements IQueryCreator {
   public String createQueryToLoadJoinedColumns(String tableName) {
     return //
     "SELECT "
-    + FixTable.COLUMN + "." + ColumnColumn.ID
+    + SchemaTable.COLUMN + "." + ColumnColumn.ID
     + ", "
-    + FixTable.COLUMN + "." + ColumnColumn.NAME
+    + SchemaTable.COLUMN + "." + ColumnColumn.NAME
     + ", "
-    + FixTable.TABLE + "." + TableColumn.ID
+    + SchemaTable.TABLE + "." + TableColumn.ID
     + ", "
-    + FixTable.TABLE + "." + TableColumn.NAME
+    + SchemaTable.TABLE + "." + TableColumn.NAME
     + ", "
     + ColumnColumn.FIELD_TYPE
     + ", "
     + ColumnColumn.DATA_TYPE
     + " FROM "
-    + FixTable.COLUMN
+    + SchemaTable.COLUMN
     + " LEFT JOIN "
-    + FixTable.TABLE
+    + SchemaTable.TABLE
     + " ON "
-    + FixTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID
+    + SchemaTable.COLUMN + "." + ColumnColumn.PARENT_TABLE_ID
     + " = "
-    + FixTable.TABLE + "." + TableColumn.ID
+    + SchemaTable.TABLE + "." + TableColumn.ID
     + " LEFT JOIN (SELECT "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ", STRING_AGG("
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.REFERENCEABLE_TABLE_ID
     + ", ',') AS ReferenceableTableIds FROM"
-    + FixTable.REFERENCEABLE_TABLE
+    + SchemaTable.REFERENCEABLE_TABLE
     + " GROUP BY "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + ")"
     + " ON "
-    + FixTable.COLUMN + "." + ColumnColumn.ID
+    + SchemaTable.COLUMN + "." + ColumnColumn.ID
     + " = "
-    + FixTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
+    + SchemaTable.REFERENCEABLE_TABLE + "." + ReferenceableTableColumn.PARENT_BASE_REFERENCE_COLUMN_ID
     + " WHERE "
-    + FixTable.TABLE + "." + TableColumn.NAME
+    + SchemaTable.TABLE + "." + TableColumn.NAME
     + " = '"
     + tableName
     + "';";
