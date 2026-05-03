@@ -15,10 +15,10 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.BackReferenceableColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ReferenceableTableColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.TableColumn;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IColumnTableStatementCreator;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.ISchemaDataStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.SchemaTable;
 
 /**
  * @author Silvan Wyss

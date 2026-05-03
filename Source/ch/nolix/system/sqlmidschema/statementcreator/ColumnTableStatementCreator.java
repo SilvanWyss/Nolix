@@ -9,8 +9,8 @@ import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.structure.ColumnIdentification;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlmidschema.databasestructure.ColumnColumn;
-import ch.nolix.systemapi.sqlmidschema.databasestructure.SchemaTable;
 import ch.nolix.systemapi.sqlmidschema.statementcreator.IColumnTableStatementCreator;
+import ch.nolix.systemapi.sqlmidschema.tablestructure.SchemaTable;
 
 /**
  * @author Silvan Wyss

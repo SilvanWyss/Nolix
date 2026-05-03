@@ -1,7 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.systemapi.sqlmidschema.databasestructure;
+package ch.nolix.systemapi.sqlmidschema.tablestructure;
+
+import ch.nolix.systemapi.sqlmidschema.databasestructure.FixTableNameCatalog;
 
 /**
  * @author Silvan Wyss
