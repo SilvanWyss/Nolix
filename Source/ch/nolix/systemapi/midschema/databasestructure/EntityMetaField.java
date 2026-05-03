@@ -3,34 +3,33 @@
  */
 package ch.nolix.systemapi.midschema.databasestructure;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  */
-public enum EntityMetaField implements INameHolder {
+public enum EntityMetaField {
   ID(PascalCaseVariableCatalog.ID),
   SAVE_STAMP(PascalCaseVariableCatalog.SAVE_STAMP),
   VALID_FROM_DATE_TIME(PascalCaseVariableCatalog.VALID_FROM_DATE_TIME),
   VALID_TO_DATE_TIME(PascalCaseVariableCatalog.VALID_TO_DATE_TIME);
 
-  private final String name;
+  private final String stringRepresentation;
 
   /**
-   * Creates a new {@link EntityMetaField} with the given name.
+   * Creates a new {@link EntityMetaField} with the given stringRepresentation.
    * 
-   * @param name
+   * @param stringRepresentation
    */
-  EntityMetaField(final String name) {
-    this.name = name;
+  EntityMetaField(final String stringRepresentation) {
+    this.stringRepresentation = stringRepresentation;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final String getName() {
-    return name;
+  public String toString() {
+    return stringRepresentation;
   }
 }
