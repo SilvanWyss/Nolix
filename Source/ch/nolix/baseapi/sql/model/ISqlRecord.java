@@ -14,5 +14,5 @@ import ch.nolix.baseapi.container.base.IContainer;
  * @author Silvan Wyss
  */
 public interface ISqlRecord extends IContainer<String>, IOneBasedIndexHolder {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }

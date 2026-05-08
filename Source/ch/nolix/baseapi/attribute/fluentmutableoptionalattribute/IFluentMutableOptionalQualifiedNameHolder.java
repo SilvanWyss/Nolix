@@ -16,5 +16,5 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalQualifiedNameHolder
  */
 public interface IFluentMutableOptionalQualifiedNameHolder<H extends IFluentMutableOptionalQualifiedNameHolder<H>>
 extends IFluentMutableOptionalNameHolder<H>, IOptionalQualifiedNameHolder {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }

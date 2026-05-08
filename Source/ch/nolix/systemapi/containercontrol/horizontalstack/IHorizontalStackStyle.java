@@ -9,5 +9,5 @@ import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle
  * @author Silvan Wyss
  */
 public interface IHorizontalStackStyle extends ILinearContainerStyle<IHorizontalStackStyle> {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }

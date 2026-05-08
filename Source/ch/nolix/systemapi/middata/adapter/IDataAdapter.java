@@ -9,5 +9,5 @@ import ch.nolix.systemapi.middata.loader.IDataReader;
  * @author Silvan Wyss
  */
 public interface IDataAdapter extends IDataReader, IDataWriter {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }

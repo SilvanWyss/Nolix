@@ -9,5 +9,5 @@ import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenu;
  * @author Silvan Wyss
  */
 public interface IDropdownMenu extends IItemMenu<IDropdownMenu, IDropdownMenuStyle> {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }

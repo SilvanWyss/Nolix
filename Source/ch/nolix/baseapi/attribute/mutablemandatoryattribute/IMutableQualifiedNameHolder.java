@@ -12,5 +12,5 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IQualifiedNameHolder;
  * @author Silvan Wyss
  */
 public interface IMutableQualifiedNameHolder extends IQualifiedNameHolder, IMutableNameHolder {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }

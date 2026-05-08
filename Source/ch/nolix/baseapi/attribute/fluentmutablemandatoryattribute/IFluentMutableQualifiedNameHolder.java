@@ -14,5 +14,5 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IQualifiedNameHolder;
  */
 public interface IFluentMutableQualifiedNameHolder<H extends IFluentMutableQualifiedNameHolder<H>>
 extends IFluentMutableNameHolder<H>, IQualifiedNameHolder {
-  //This interface is just an union of other interfaces.
+  //This interface is a dedicated union of other interfaces.
 }
