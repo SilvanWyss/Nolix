@@ -25,7 +25,7 @@ public interface IIterableContainExaminer {
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
-   * @return true if the given iterable is empty, false otherwise.
+   * @return true if the given iterable is empty, false otherwise
    */
   boolean isEmpty(Iterable<Object> iterable);
 }
