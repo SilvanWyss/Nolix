@@ -15,6 +15,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
+import ch.nolix.base.commontypetool.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.MappingContainerView;
 import ch.nolix.base.validation.validator.Validator;
@@ -30,7 +31,6 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
@@ -38,6 +38,8 @@ import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
  */
 public abstract class AbstractContainer<E> //NOSONAR: An AbstractContainer is a principal object thus it has many methods.
 implements IContainer<E> {
+  private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
+
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractContainer} contains n elements.
@@ -46,17 +48,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean contains(final Object object) {
-    //Iterates the current Container.
-    for (final var e : this) {
-      //Handles the case that the current element is the given object.
-      if (e == object) {
-        //Returns true.
-        return true;
-      }
-    }
-
-    //Returns false.
-    return false;
+    return ITERABLE_EXAMINER.contains(this, object);
   }
 
   /**
@@ -70,20 +62,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAllOf(final Object... objects) {
-    //Asserts that the given objects is not null.
-    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
-
-    //Iterates the given objects.
-    for (final var o : objects) {
-      //Handles the case that the current Container does not contain the given object.
-      if (!contains(o)) {
-        //Returns false.
-        return false;
-      }
-    }
-
-    //Returns true.
-    return true;
+    return ITERABLE_EXAMINER.containsAll(this, objects);
   }
 
   /**
@@ -97,20 +76,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAllOf(final Iterable<?> objects) {
-    //Asserts that the given objects is not null.
-    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
-  
-    //Iterates the given objects.
-    for (final var o : objects) {
-      //Handles the case that the current Container does not contain the current object.
-      if (!contains(o)) {
-        //Returns false.
-        return false;
-      }
-    }
-  
-    //Returns true.
-    return true;
+    return ITERABLE_EXAMINER.containsAll(this, objects);
   }
 
   /**
@@ -121,20 +87,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAny(final Predicate<E> selector) {
-    //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        //Returns true.
-        return true;
-      }
-    }
-
-    //Returns false.
-    return false;
+    return ITERABLE_EXAMINER.containsMatching(this, selector);
   }
 
   /**
@@ -148,20 +101,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAnyOf(final Iterable<?> objects) {
-    //Asserts that the given objects is not null.
-    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
-
-    //Iterates the given objects.
-    for (final var o : objects) {
-      //Handles the case that the current Container contains the current object.
-      if (contains(o)) {
-        //Returns true.
-        return true;
-      }
-    }
-
-    //Returns false.
-    return false;
+    return ITERABLE_EXAMINER.containsAny(this, objects);
   }
 
   /**
@@ -175,20 +115,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsAnyOf(final Object... objects) {
-    //Asserts that the given objects is not null.
-    Validator.assertThat(objects).thatIsNamed(PluralLowerCaseVariableCatalog.OBJECTS).isNotNull();
-
-    //Iterates the given objects.
-    for (final var o : objects) {
-      //Handles the case that the current Container contains the current object.
-      if (contains(o)) {
-        //Returns true.
-        return true;
-      }
-    }
-
-    //Returns false.
-    return false;
+    return ITERABLE_EXAMINER.containsAny(this, objects);
   }
 
   /**
@@ -257,13 +184,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsExactlyInSameOrder(final Iterable<?> iterable) {
-    //Handles the case that the given iterable is null.
-    if (iterable == null) {
-      return isEmpty();
-    }
-
-    //Handles the case that the given iterable is not null.
-    return containsExactlyInSameOrderWhenGivenIterableIsNotNull(iterable);
+    return ITERABLE_EXAMINER.containsExactlyAllInSameOrder(this, iterable);
   }
 
   /**
@@ -308,8 +229,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNone(final Predicate<E> selector) {
-    //Calls other method.
-    return !containsAny(selector);
+    return !ITERABLE_EXAMINER.containsMatching(this, selector);
   }
 
   /**
@@ -323,8 +243,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNoneOf(final Iterable<?> elements) {
-    //Calls other method.
-    return !containsAnyOf(elements);
+    return ITERABLE_EXAMINER.containsNone(this, elements);
   }
 
   /**
@@ -338,8 +257,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsNoneOf(final Object... objects) {
-    //Calls other method.
-    return !containsAnyOf(objects);
+    return ITERABLE_EXAMINER.containsNone(this, objects);
   }
 
   /**
@@ -350,25 +268,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOnce(final Object object) {
-    //Initializes found.
-    var found = false;
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      //Handles the case that the current element is the given object.
-      if (e == object) {
-        //Handles the case that the given object is already found.
-        if (found) {
-          return false;
-        }
-
-        //Handles the case that the given object is not already found.
-        found = true;
-      }
-    }
-
-    //Returns found.
-    return found;
+    return ITERABLE_EXAMINER.containsOnce(this, object);
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -400,29 +300,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOne(final Predicate<E> selector) {
-    //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
-
-    //Initializes found.
-    var found = false;
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        //Handles the case the given selector selected already another element.
-        if (found) {
-          //Returns false.
-          return false;
-        }
-
-        //Handles the case that the given selector did not select already another element.
-        found = true;
-      }
-    }
-
-    //Returns found.
-    return found;
+    return ITERABLE_EXAMINER.containsOneMatching(this, selector);
   }
 
   /**
@@ -463,20 +341,7 @@ implements IContainer<E> {
    */
   @Override
   public final boolean containsOnly(final Predicate<E> selector) {
-    //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      //Handles the case that the current element is null or the given selector does not select the current element.
-      if (e == null || !selector.test(e)) {
-        //Returns false.
-        return false;
-      }
-    }
-
-    //Returns true.
-    return true;
+    return ITERABLE_EXAMINER.containsMatchingOnly(this, selector);
   }
 
   /**
@@ -1989,32 +1854,6 @@ implements IContainer<E> {
       }
     }
 
-    return !iterator.hasNext();
-  }
-
-  /**
-   * @param iterable
-   * @return true if the current {@link StoringRequestable} contains exactly the
-   *         elements of the given iterable in the same order, false otherwise,
-   *         for the case that the given iterable is not null.
-   */
-  private boolean containsExactlyInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
-    //Creates iterator.
-    final var iterator = iterable.iterator();
-
-    //Iterates the current Container.
-    for (final var e : this) {
-      /*
-       * Handles the case that the iterator does not have a next element of the
-       * current element is not the next element in the given iterable.
-       */
-      if (!iterator.hasNext() || e != iterator.next()) {
-        //Returns false.
-        return false;
-      }
-    }
-
-    //Returns if the given iterable has more elements than the current Container.
     return !iterator.hasNext();
   }
 
