@@ -15,7 +15,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean contains(final Iterable<Object> iterable, final Object object) {
+  public boolean contains(final Iterable<?> iterable, final Object object) {
     if (iterable != null) {
       for (final var e : iterable) {
         if (e == object) {
@@ -31,7 +31,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsAll(final Iterable<Object> iterable, final Iterable<Object> objects) {
+  public boolean containsAll(final Iterable<?> iterable, final Iterable<?> objects) {
     if (objects != null) {
       for (final var o : objects) {
         if (!contains(iterable, o)) {
@@ -47,7 +47,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsAll(final Iterable<Object> iterable, final Object... objects) {
+  public boolean containsAll(final Iterable<? extends Object> iterable, final Object... objects) {
     if (objects != null) {
       for (final var o : objects) {
         if (!contains(iterable, o)) {
@@ -63,7 +63,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsAny(final Iterable<Object> iterable) {
+  public boolean containsAny(final Iterable<?> iterable) {
     if (iterable != null) {
       final var iterator = iterable.iterator();
 
@@ -77,7 +77,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsAny(final Iterable<Object> iterable, final Iterable<Object> objects) {
+  public boolean containsAny(final Iterable<?> iterable, final Iterable<?> objects) {
     if (objects != null) {
       for (final var o : objects) {
         if (contains(iterable, o)) {
@@ -95,7 +95,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsAny(final Iterable<Object> iterable, final Object... objects) {
+  public boolean containsAny(final Iterable<?> iterable, final Object... objects) {
     if (objects != null) {
       for (final var o : objects) {
         if (contains(iterable, o)) {
@@ -113,7 +113,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsExactlyAll(final Iterable<Object> iterable, final Iterable<Object> objects) {
+  public boolean containsExactlyAll(final Iterable<?> iterable, final Iterable<?> objects) {
     return //
     containsAll(iterable, objects)
     && IterableExaminerHelper.getCount(iterable) == IterableExaminerHelper.getCount(objects);
@@ -123,7 +123,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsExactlyAll(final Iterable<Object> iterable, final Object... objects) {
+  public boolean containsExactlyAll(final Iterable<?> iterable, final Object... objects) {
     return //
     containsAll(iterable, objects)
     && IterableExaminerHelper.getCount(iterable) == IterableExaminerHelper.getCount(objects);
@@ -133,7 +133,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsExactlyAllInSameOrder(final Iterable<Object> iterable, final Iterable<Object> objects) {
+  public boolean containsExactlyAllInSameOrder(final Iterable<?> iterable, final Iterable<?> objects) {
     if (iterable != null && objects != null) {
       final var objectsIterator = objects.iterator();
 
@@ -159,7 +159,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsExactlyAllInSameOrder(final Iterable<Object> iterable, final Object... objects) {
+  public boolean containsExactlyAllInSameOrder(final Iterable<?> iterable, final Object... objects) {
     if (iterable != null && objects != null) {
       final var objectsLength = objects.length;
       var zeroBasedobjectsIndex = 0;
@@ -222,7 +222,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsNone(final Iterable<Object> iterable, final Iterable<Object> objects) {
+  public boolean containsNone(final Iterable<?> iterable, final Iterable<?> objects) {
     if (objects != null) {
       for (final var o : objects) {
         if (contains(iterable, o)) {
@@ -238,7 +238,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsNone(final Iterable<Object> iterable, final Object... objects) {
+  public boolean containsNone(final Iterable<?> iterable, final Object... objects) {
     if (objects != null) {
       for (final var o : objects) {
         if (contains(iterable, o)) {
@@ -254,7 +254,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsNonNull(final Iterable<Object> iterable) {
+  public boolean containsNonNull(final Iterable<?> iterable) {
     if (iterable != null) {
       for (final var e : iterable) {
         if (e != null) {
@@ -270,7 +270,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsOnce(final Iterable<Object> iterable, final Object object) {
+  public boolean containsOnce(final Iterable<?> iterable, final Object object) {
     if (iterable != null) {
       return IterableExaminerHelper.containsOnceWhenNotNull(iterable, object);
     }
@@ -294,7 +294,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsOnly(final Iterable<Object> iterable, final Object object) {
+  public boolean containsOnly(final Iterable<?> iterable, final Object object) {
     if (iterable != null) {
       for (final var e : iterable) {
         if (e != object) {
@@ -312,7 +312,7 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isEmpty(final Iterable<Object> iterable) {
+  public boolean isEmpty(final Iterable<?> iterable) {
     if (iterable != null) {
       final var iterator = iterable.iterator();
 

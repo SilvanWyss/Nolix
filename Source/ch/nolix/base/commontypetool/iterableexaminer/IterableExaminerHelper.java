@@ -14,7 +14,7 @@ public final class IterableExaminerHelper {
   private IterableExaminerHelper() {
   }
 
-  public static boolean containsOnceWhenNotNull(final Iterable<Object> iterable, final Object object) {
+  public static boolean containsOnceWhenNotNull(final Iterable<?> iterable, final Object object) {
     var found = false;
 
     for (final var e : iterable) {
@@ -48,7 +48,7 @@ public final class IterableExaminerHelper {
     return found;
   }
 
-  public static int getCount(final Iterable<Object> iterable) {
+  public static int getCount(final Iterable<?> iterable) {
     if (iterable != null) {
       var count = 0;
 

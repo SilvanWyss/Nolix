@@ -13,7 +13,7 @@ public interface IIterableContainObjectExaminer {
    * @param object
    * @return true if the given iterable contains the given object, false otherwise
    */
-  boolean contains(Iterable<Object> iterable, Object object);
+  boolean contains(Iterable<?> iterable, Object object);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -22,7 +22,7 @@ public interface IIterableContainObjectExaminer {
    * @return true if the given iterable contains the given object exactly 1 time,
    *         false otherwise
    */
-  boolean containsOnce(Iterable<Object> iterable, Object object);
+  boolean containsOnce(Iterable<?> iterable, Object object);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -31,5 +31,5 @@ public interface IIterableContainObjectExaminer {
    * @return true if the given iterable contains only the given object, whether 1
    *         or several times, false otherwise
    */
-  boolean containsOnly(Iterable<Object> iterable, Object object);
+  boolean containsOnly(Iterable<?> iterable, Object object);
 }

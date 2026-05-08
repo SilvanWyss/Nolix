@@ -15,7 +15,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains all of the given objects, false
    *         otherwise
    */
-  boolean containsAll(Iterable<Object> iterable, Iterable<Object> objects);
+  boolean containsAll(Iterable<?> iterable, Iterable<?> objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -25,7 +25,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains all of the given objects, false
    *         otherwise
    */
-  boolean containsAll(Iterable<Object> iterable, Object... objects);
+  boolean containsAll(Iterable<?> iterable, Object... objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -35,7 +35,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains any of the given objects, false
    *         otherwise
    */
-  boolean containsAny(Iterable<Object> iterable, Iterable<Object> objects);
+  boolean containsAny(Iterable<?> iterable, Iterable<?> objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -45,7 +45,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains any of the given objects, false
    *         otherwise
    */
-  boolean containsAny(Iterable<Object> iterable, Object... objects);
+  boolean containsAny(Iterable<?> iterable, Object... objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -55,7 +55,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains exactly all the given objects,
    *         false otherwise
    */
-  boolean containsExactlyAll(Iterable<Object> iterable, Iterable<Object> objects);
+  boolean containsExactlyAll(Iterable<?> iterable, Iterable<?> objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -65,7 +65,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains exactly all the given objects,
    *         false otherwise
    */
-  boolean containsExactlyAll(Iterable<Object> iterable, Object... objects);
+  boolean containsExactlyAll(Iterable<?> iterable, Object... objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -75,7 +75,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains exactly all the given objects in
    *         the same order, false otherwise
    */
-  boolean containsExactlyAllInSameOrder(Iterable<Object> iterable, Iterable<Object> objects);
+  boolean containsExactlyAllInSameOrder(Iterable<?> iterable, Iterable<?> objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -85,7 +85,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable contains exactly all the given objects in
    *         the same order, false otherwise
    */
-  boolean containsExactlyAllInSameOrder(Iterable<Object> iterable, Object... objects);
+  boolean containsExactlyAllInSameOrder(Iterable<?> iterable, Object... objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -95,7 +95,7 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable does not contain any of the given objects,
    *         false otherwise
    */
-  boolean containsNone(Iterable<Object> iterable, Iterable<Object> objects);
+  boolean containsNone(Iterable<?> iterable, Iterable<?> objects);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -105,5 +105,5 @@ public interface IIterableContainMultipleObjectExaminer {
    * @return true if the given iterable does not contain any of the given objects,
    *         false otherwise
    */
-  boolean containsNone(Iterable<Object> iterable, Object... objects);
+  boolean containsNone(Iterable<?> iterable, Object... objects);
 }

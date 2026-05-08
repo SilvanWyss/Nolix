@@ -12,7 +12,7 @@ public interface IIterableContainExaminer {
    *                 is null
    * @return true if the given iterable contains an element, false otherwise
    */
-  boolean containsAny(Iterable<Object> iterable);
+  boolean containsAny(Iterable<?> iterable);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
@@ -20,12 +20,12 @@ public interface IIterableContainExaminer {
    * @return true if the given iterable contains a non-null element, false
    *         otherwise.
    */
-  boolean containsNonNull(Iterable<Object> iterable);
+  boolean containsNonNull(Iterable<?> iterable);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @return true if the given iterable is empty, false otherwise
    */
-  boolean isEmpty(Iterable<Object> iterable);
+  boolean isEmpty(Iterable<?> iterable);
 }
