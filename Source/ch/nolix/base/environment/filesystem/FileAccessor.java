@@ -32,17 +32,14 @@ public final class FileAccessor extends FileSystemItemAccessor {
    *                          filePath in the file system on the local machine.
    */
   private FileAccessor(final String filePath) {
-    //Calls method of the base class.
-    super(filePath);
-
-    //Asserts that the file system item with the given file path is acutally a
-    //file.
     if (!FileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableCatalog.FILE_PATH,
         filePath,
         "is not a file");
     }
+
+    super(filePath);
   }
 
   /**

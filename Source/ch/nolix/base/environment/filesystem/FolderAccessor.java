@@ -22,8 +22,6 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    *                          folderPath in the file system on the local machine.
    */
   private FolderAccessor(final String folderPath) {
-    super(folderPath);
-
     if (!FileSystemAccessor.isFolder(folderPath)) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -31,6 +29,8 @@ public final class FolderAccessor extends FileSystemItemAccessor {
         "folder path",
         "is not a folder");
     }
+
+    super(folderPath);
   }
 
   /**
@@ -125,8 +125,8 @@ public final class FolderAccessor extends FileSystemItemAccessor {
   }
 
   /**
-   * @return new {@link FileSystemItemAccessor}s to the file system items in
-   *         the folder of the current {@link FolderAccessor}.
+   * @return new {@link FileSystemItemAccessor}s to the file system items in the
+   *         folder of the current {@link FolderAccessor}.
    */
   public IContainer<FileSystemItemAccessor> getFileSystemItemAccessors() {
     return FileSystemAccessor.getFileSystemItemAccessors(getPath());

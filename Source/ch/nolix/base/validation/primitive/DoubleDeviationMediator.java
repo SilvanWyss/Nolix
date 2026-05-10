@@ -25,15 +25,12 @@ public final class DoubleDeviationMediator extends AbstractMediator {
    * @throws RuntimeException if the given argumentName is null or blank.
    * @throws RuntimeException if the given maxDeviation is negative.
    */
-  private DoubleDeviationMediator(
-    final double argument,
-    final String argumentName,
-    final double maxDeviation) {
-    super(argumentName);
-
+  private DoubleDeviationMediator(final double argument, final String argumentName, final double maxDeviation) {
     if (maxDeviation < 0.0) {
       throw NegativeArgumentException.forArgumentAndArgumentName(maxDeviation, "max deviation");
     }
+
+    super(argumentName);
 
     this.argument = argument;
     this.maxDeviation = maxDeviation;
