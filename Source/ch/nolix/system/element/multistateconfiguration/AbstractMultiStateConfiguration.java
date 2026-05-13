@@ -133,6 +133,14 @@ implements IMultiStateConfiguration<C, S> {
     ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
   }
 
+  @Override
+  public <T extends IMultiStateConfiguration<T, S>> void removeChild(final T multiStateConfiguration) {
+    @SuppressWarnings("unchecked")
+    final var abstractMultiStateConfiguration = (AbstractMultiStateConfiguration<C, S>) multiStateConfiguration;
+
+    abstractMultiStateConfiguration.removeParent();
+  }
+
   protected final void initialize() {
     extractPropertiesIfNotExtracted();
   }
@@ -222,6 +230,10 @@ implements IMultiStateConfiguration<C, S> {
     return (abstractProperties != null);
   }
 
+  private void removeParent() {
+    getStoredCascadingProperties().forEach(CascadingProperty::removeParentProperty);
+  }
+
   private void setItselsAsParentToProperties() {
     for (final var p : getStoredProperties()) {
       p.setParent(this);
@@ -235,7 +247,6 @@ implements IMultiStateConfiguration<C, S> {
       p.setParentProperty(parentCascadingProperties.removeAndGetStoredFirst(pp -> pp.hasSameNameAs(p)));
     }
 
-    Validator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties")
-      .isEmpty();
+    Validator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties").isEmpty();
   }
 }

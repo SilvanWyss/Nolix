@@ -16,4 +16,6 @@ extends IRespondingMutableElement<C> {
   void addChild(IMultiStateConfiguration<?, S> multiStateConfiguration);
 
   S getBaseState();
+
+  <T extends IMultiStateConfiguration<T, S>> void removeChild(T multiStateConfiguration);
 }

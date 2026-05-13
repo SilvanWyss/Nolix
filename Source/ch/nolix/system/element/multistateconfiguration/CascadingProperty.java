@@ -136,6 +136,10 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
     return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
   }
 
+  void removeParentProperty() {
+    parentProperty = null;
+  }
+
   @SuppressWarnings("unchecked")
   void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
     Validator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
