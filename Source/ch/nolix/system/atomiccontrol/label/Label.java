@@ -21,6 +21,7 @@ import ch.nolix.systemapi.atomiccontrol.label.ILabel;
 import ch.nolix.systemapi.atomiccontrol.label.ILabelStyle;
 import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -68,6 +69,14 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
    */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
+    return ImmutableList.createEmpty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

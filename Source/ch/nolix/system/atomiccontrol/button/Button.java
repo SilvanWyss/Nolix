@@ -25,6 +25,7 @@ import ch.nolix.systemapi.atomiccontrol.button.IButton;
 import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabelTool;
 import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -95,6 +96,14 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   @Override
   public ButtonRole getRole() {
     return memberRole.getStoredValue();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+    return ImmutableList.createEmpty();
   }
 
   /**

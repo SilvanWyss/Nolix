@@ -10,6 +10,7 @@ import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainer;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
@@ -74,6 +75,15 @@ implements ILinearContainer<C, S> {
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     return childControls.getStoredValues();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  public final <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+    return (IContainer<T>) getStoredChildControls();
   }
 
   /**

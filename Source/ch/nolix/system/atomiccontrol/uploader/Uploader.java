@@ -16,6 +16,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploaderStyle;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -59,6 +60,14 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
    */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
+    return ImmutableList.createEmpty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

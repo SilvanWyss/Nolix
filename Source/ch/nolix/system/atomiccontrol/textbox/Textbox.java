@@ -20,6 +20,7 @@ import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextboxStyle;
 import ch.nolix.systemapi.atomiccontrol.textbox.TextMode;
 import ch.nolix.systemapi.gui.model.CursorIcon;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -83,6 +84,14 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
    */
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
+    return ImmutableList.createEmpty();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

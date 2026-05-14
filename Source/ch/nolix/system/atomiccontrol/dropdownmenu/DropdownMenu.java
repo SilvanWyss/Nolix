@@ -5,15 +5,19 @@ package ch.nolix.system.atomiccontrol.dropdownmenu;
 
 import java.util.Optional;
 
+import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.atomiccontrol.itemmenu.AbstractItemMenu;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenuStyle;
+import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
+import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
@@ -40,6 +44,14 @@ public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdow
   @Override
   public Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.of("if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+    return ImmutableList.createEmpty();
   }
 
   /**
