@@ -22,15 +22,15 @@ public final class LayerCssBuilder {
   private LayerCssBuilder() {
   }
 
-  public static CssRule getCssRuleForLayer(final ILayer<?> layer) {
+  public static CssRule getCssRuleForLayer(final ILayer layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }
 
-  private static String getCssSelectorForLayer(final ILayer<?> layer) {
+  private static String getCssSelectorForLayer(final ILayer layer) {
     return ("#" + layer.getInternalId());
   }
 
-  private static IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
+  private static IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer layer) {
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     if (layer.getStoredParentGui().getStoredTopLayer() == layer) {
@@ -58,11 +58,11 @@ public final class LayerCssBuilder {
     return cssProperties;
   }
 
-  private static CssProperty getZIndexCssPropertyForLayer(final ILayer<?> layer) {
+  private static CssProperty getZIndexCssPropertyForLayer(final ILayer layer) {
     return CssProperty.withNameAndValue(CssPropertyNameCatalog.Z_INDEX, getCssZIndexForLayer(layer));
   }
 
-  private static int getCssZIndexForLayer(final ILayer<?> layer) {
+  private static int getCssZIndexForLayer(final ILayer layer) {
     if (!layer.belongsToGui()) {
       return 0;
     }
@@ -70,7 +70,7 @@ public final class LayerCssBuilder {
     return layer.getStoredParentGui().getStoredLayers().getOneBasedIndexOfFirstOccurrenceOf(layer);
   }
 
-  private static CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
+  private static CssProperty getJustifyContentCssPropertyForLayer(final ILayer layer) {
     return getJustifyContentCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
@@ -87,7 +87,7 @@ public final class LayerCssBuilder {
     };
   }
 
-  private static CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
+  private static CssProperty getAlignItemsCssPropertyForLayer(final ILayer layer) {
     return getAlignItemsCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 

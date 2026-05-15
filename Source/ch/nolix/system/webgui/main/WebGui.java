@@ -83,7 +83,7 @@ implements IWebGui<WebGui> {
     IBackground::getSpecification);
 
   @SuppressWarnings("unused")
-  private final MultiValueProxy<ILayer<?>> layerExtractor = //
+  private final MultiValueProxy<ILayer> layerExtractor = //
   MultiValueProxy.withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     LAYER_HEADER,
     this::pushLayer,
@@ -245,7 +245,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ILayer<?>> getStoredLayers() {
+  public IContainer<ILayer> getStoredLayers() {
     return layerStack.getStoredLayers();
   }
 
@@ -253,7 +253,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public ILayer<?> getStoredTopLayer() {
+  public ILayer getStoredTopLayer() {
     return layerStack.getStoredTopLayer();
   }
 
@@ -317,7 +317,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public WebGui pushLayer(final ILayer<?> layer) {
+  public WebGui pushLayer(final ILayer layer) {
     layerStack.pushLayer(layer);
 
     return this;
@@ -345,7 +345,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public void removeLayer(final ILayer<?> layer) {
+  public void removeLayer(final ILayer layer) {
     layerStack.removeLayer(layer);
   }
 

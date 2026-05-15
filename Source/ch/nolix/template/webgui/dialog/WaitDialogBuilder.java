@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
+public final class WaitDialogBuilder implements IBuilder<ILayer> {
   private static final Runnable DEFAULT_JOB = FunctionService::doNothing;
 
   private static final Runnable DEFAULT_TERMINAL_ACTION = FunctionService::doNothing;
@@ -27,7 +27,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
   private Runnable terminalAction = DEFAULT_TERMINAL_ACTION;
 
   @Override
-  public ILayer<?> build() {
+  public ILayer build() {
     final var waitDialog = new Layer()
       .setRole(LayerRole.DIALOG_LAYER)
       .setRootControl(

@@ -23,7 +23,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
+public final class EnterValueDialogBuilder implements IBuilder<ILayer> {
   private static final String DEFAULT_INFO_TEXT = "Enter value";
 
   private static final String DEFAULT_ORIGINAL_VALUE = StringCatalog.EMPTY_STRING;
@@ -48,7 +48,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   private Consumer<String> valueTaker = DEFAULT_VALUE_TAKER;
 
   @Override
-  public ILayer<?> build() {
+  public ILayer build() {
     Validator.assertThat(valueTaker).thatIsNamed("value taker").isNotNull();
 
     final var valueTextbox = new Textbox().setText(originalValue);

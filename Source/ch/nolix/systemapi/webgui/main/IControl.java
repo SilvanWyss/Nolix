@@ -54,7 +54,7 @@ PresenceSettable<C> {
 
   IWebGui<?> getStoredParentGui();
 
-  ILayer<?> getStoredParentLayer();
+  ILayer getStoredParentLayer();
 
   <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls();
 
@@ -64,7 +64,7 @@ PresenceSettable<C> {
 
   void internalSetParentControl(IControl<?, ?> parentControl);
 
-  void internalSetParentLayer(ILayer<?> parentLayer);
+  void internalSetParentLayer(ILayer parentLayer);
 
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 

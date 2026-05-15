@@ -23,7 +23,7 @@ public final class LayerStack implements ILayerStack {
   private Runnable removeLayerAction;
 
   //multi-atribute
-  private final ILinkedList<ILayer<?>> layers = LinkedList.createEmpty();
+  private final ILinkedList<ILayer> layers = LinkedList.createEmpty();
 
   private LayerStack(final IWebGui<?> parentGui) {
     Validator.assertThat(parentGui).thatIsNamed("parent gui").isNotNull();
@@ -89,7 +89,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ILayer<?>> getStoredLayers() {
+  public IContainer<ILayer> getStoredLayers() {
     return layers;
   }
 
@@ -97,7 +97,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ILayer<?> getStoredTopLayer() {
+  public ILayer getStoredTopLayer() {
     return getStoredLayers().getStoredLast();
   }
 
@@ -121,7 +121,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ILayerStack pushLayer(ILayer<?> layer) {
+  public ILayerStack pushLayer(ILayer layer) {
     layer.internalSetParentGui(parentGui);
 
     layers.addAtEnd(layer);
@@ -141,7 +141,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public void removeLayer(final ILayer<?> layer) {
+  public void removeLayer(final ILayer layer) {
     layers.removeStrictlyFirstOccurrenceOf(layer);
 
     runProbableRemoveLayerAction();

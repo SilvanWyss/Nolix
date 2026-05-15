@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public final class ControlParent implements IControlParent {
-  private final ILayer<?> layer;
+  private final ILayer layer;
 
   private final IControl<?, ?> control;
 
@@ -26,7 +26,7 @@ public final class ControlParent implements IControlParent {
     this.control = control;
   }
 
-  private ControlParent(final ILayer<?> layer) {
+  private ControlParent(final ILayer layer) {
     Validator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
 
     this.layer = layer;
@@ -37,7 +37,7 @@ public final class ControlParent implements IControlParent {
     return new ControlParent(control);
   }
 
-  public static ControlParent forLayer(final ILayer<?> layer) {
+  public static ControlParent forLayer(final ILayer layer) {
     return new ControlParent(layer);
   }
 
@@ -84,7 +84,7 @@ public final class ControlParent implements IControlParent {
   }
 
   @Override
-  public ILayer<?> getStoredLayer() {
+  public ILayer getStoredLayer() {
     assertIsLayer();
 
     return layer;
@@ -116,7 +116,7 @@ public final class ControlParent implements IControlParent {
    * {@inheritDoc}
    */
   @Override
-  public ILayer<?> getStoredParentLayer() {
+  public ILayer getStoredParentLayer() {
     if (isLayer()) {
       return layer;
     }

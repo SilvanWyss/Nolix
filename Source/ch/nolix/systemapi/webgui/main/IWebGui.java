@@ -34,17 +34,17 @@ public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHol
 
   IContainer<IControl<?, ?>> getStoredControls();
 
-  IContainer<ILayer<?>> getStoredLayers();
+  IContainer<ILayer> getStoredLayers();
 
-  ILayer<?> getStoredTopLayer();
+  ILayer getStoredTopLayer();
 
   boolean hasRemoveLayerAction();
 
-  G pushLayer(ILayer<?> layer);
+  G pushLayer(ILayer layer);
 
   G pushLayerWithRootControl(IControl<?, ?> rootControl);
 
-  void removeLayer(ILayer<?> layer);
+  void removeLayer(ILayer layer);
 
   G setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
 

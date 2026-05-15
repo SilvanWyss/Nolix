@@ -23,7 +23,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
+public final class ShowValueDialogBuilder implements IBuilder<ILayer> {
   private static final String DEFAULT_VALUE_NAME = LowerCaseVariableCatalog.VALUE;
 
   private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalog.LONG_LEFT_ARROW;
@@ -37,7 +37,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   private Consumer<String> valueCopier;
 
   @Override
-  public ILayer<?> build() {
+  public ILayer build() {
     return new Layer()
       .setRole(LayerRole.DIALOG_LAYER)
       .setRootControl(

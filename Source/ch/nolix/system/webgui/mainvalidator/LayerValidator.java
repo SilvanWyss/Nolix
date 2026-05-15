@@ -17,7 +17,7 @@ public final class LayerValidator implements ILayerValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertBelongsToGui(final ILayer<?> layer) {
+  public void assertBelongsToGui(final ILayer layer) {
     if (!layer.belongsToGui()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(layer, IWebGui.class);
     }
@@ -27,7 +27,7 @@ public final class LayerValidator implements ILayerValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertDoesNotBelongToGui(final ILayer<?> layer) {
+  public void assertDoesNotBelongToGui(final ILayer layer) {
     if (layer.belongsToGui()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(layer, layer.getStoredParentGui());
     }

@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public interface IControlParent
-extends IControlComponent<IControl<?, ?>>, IGuiComponent<IWebGui<?>>, ILayerComponent<ILayer<?>> {
+extends IControlComponent<IControl<?, ?>>, IGuiComponent<IWebGui<?>>, ILayerComponent<ILayer> {
   /**
    * @return the {@link IControl} the current {@link IControlParent} is.
    */
@@ -23,7 +23,7 @@ extends IControlComponent<IControl<?, ?>>, IGuiComponent<IWebGui<?>>, ILayerComp
   /**
    * @return the {@link ILayer} the current {@link IControlParent} is.
    */
-  ILayer<?> getStoredLayer();
+  ILayer getStoredLayer();
 
   /**
    * @return true if the current {@link IControlParent} is a {@link IControl},

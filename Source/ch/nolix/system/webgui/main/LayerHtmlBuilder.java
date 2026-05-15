@@ -20,24 +20,24 @@ public final class LayerHtmlBuilder {
   private LayerHtmlBuilder() {
   }
 
-  public static IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
+  public static IHtmlElement getHtmlElementForLayer(final ILayer layer) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
       HtmlElementTypeCatalog.DIV,
       getHtmlAttributesForLayer(layer),
       getHtmlChildElementsForLayer(layer));
   }
 
-  private static IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer<?> layer) {
+  private static IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer layer) {
     final var idHtmlAttribute = createIdHtmlAttributeForLayer(layer);
 
     return ImmutableList.withElements(idHtmlAttribute);
   }
 
-  public static IHtmlAttribute createIdHtmlAttributeForLayer(final ILayer<?> layer) {
+  public static IHtmlAttribute createIdHtmlAttributeForLayer(final ILayer layer) {
     return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, layer.getInternalId());
   }
 
-  private static IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
+  private static IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer layer) {
     if (layer.isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -45,7 +45,7 @@ public final class LayerHtmlBuilder {
     return ImmutableList.withElements(getContentHtmlElementForLayer(layer));
   }
 
-  private static IHtmlElement getContentHtmlElementForLayer(final ILayer<?> layer) {
+  private static IHtmlElement getContentHtmlElementForLayer(final ILayer layer) {
     return layer.getStoredRootControl().getHtml();
   }
 }

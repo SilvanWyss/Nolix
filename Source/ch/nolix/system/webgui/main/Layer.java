@@ -43,8 +43,8 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
  * @author Silvan Wyss
  */
 public final class Layer //NOSONAR: A Layer is a principal object thus it has many methods.
-extends AbstractStylableElement<Layer>
-implements ILayer<Layer> {
+extends AbstractStylableElement<ILayer>
+implements ILayer {
   public static final double DEFAULT_OPACITY = 1.0;
 
   public static final IColor DEFAULT_BACKGROUND_COLOR = X11ColorCatalog.WHITE;

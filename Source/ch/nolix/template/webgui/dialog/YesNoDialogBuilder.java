@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 /**
  * @author Silvan Wyss
  */
-public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
+public final class YesNoDialogBuilder implements IBuilder<ILayer> {
   private static final String DEFAULT_YES_NO_QUESTION = "Do you want to run the action?";
 
   private static final Runnable DEFAULT_CONFIRM_ACTION = FunctionService::doNothing;
@@ -30,7 +30,7 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
   private Runnable confirmAction = DEFAULT_CONFIRM_ACTION;
 
   @Override
-  public ILayer<?> build() {
+  public ILayer build() {
     return new Layer()
       .setRole(LayerRole.DIALOG_LAYER)
       .setRootControl(

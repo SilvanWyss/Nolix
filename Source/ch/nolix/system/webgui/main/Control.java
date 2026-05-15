@@ -261,7 +261,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final ILayer<?> getStoredParentLayer() {
+  public final ILayer getStoredParentLayer() {
     return getStoredParent().getStoredParentLayer();
   }
 
@@ -325,7 +325,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void internalSetParentLayer(final ILayer<?> parentLayer) {
+  public final void internalSetParentLayer(final ILayer parentLayer) {
     setParent(ControlParent.forLayer(parentLayer));
   }
 

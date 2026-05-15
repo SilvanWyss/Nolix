@@ -20,17 +20,17 @@ public interface ILayerStack extends Clearable {
 
   IContainer<IControl<?, ?>> getStoredControls();
 
-  IContainer<ILayer<?>> getStoredLayers();
+  IContainer<ILayer> getStoredLayers();
 
-  ILayer<?> getStoredTopLayer();
+  ILayer getStoredTopLayer();
 
   boolean hasRemoveLayerAction();
 
-  ILayerStack pushLayer(ILayer<?> layer);
+  ILayerStack pushLayer(ILayer layer);
 
   ILayerStack pushLayerWithRootControl(IControl<?, ?> rootControl);
 
-  void removeLayer(ILayer<?> layer);
+  void removeLayer(ILayer layer);
 
   ILayerStack setRemoveLayerAction(Runnable removeLayerAction);
 }

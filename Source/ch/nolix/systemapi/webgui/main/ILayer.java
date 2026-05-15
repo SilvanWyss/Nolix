@@ -12,15 +12,14 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
  * @author Silvan Wyss
- * @param <L> is the type of a {@link ILayer}.
  */
-public interface ILayer<L extends ILayer<L>>
+public interface ILayer
 extends
-IBackgroundHolder<L>,
+IBackgroundHolder<ILayer>,
 IGuiComponent<IWebGui<?>>,
 IHtmlGetter,
-IRootControlOwner<L>,
-IStylableElement<L> {
+IRootControlOwner<ILayer>,
+IStylableElement<ILayer> {
   boolean containsControl(IControl<?, ?> control);
 
   ContentAlignment getContentAlignment();
@@ -41,9 +40,9 @@ IStylableElement<L> {
 
   void removeSelfFromGui();
 
-  L setContentAlignment(ContentAlignment contentAlignment);
+  ILayer setContentAlignment(ContentAlignment contentAlignment);
 
-  L setRole(LayerRole role);
+  ILayer setRole(LayerRole role);
 
-  L setOpacity(double opacity);
+  ILayer setOpacity(double opacity);
 }
