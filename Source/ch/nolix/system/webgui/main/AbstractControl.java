@@ -334,22 +334,6 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void internalSetParentControl(final IControl<?, ?> parentControl) {
-    internalSetControlParent(ControlParent.forControl(parentControl));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final void internalSetParentLayer(final ILayer parentLayer) {
-    internalSetControlParent(ControlParent.forLayer(parentLayer));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean isCollapsed() {
     return (getPresence() == Presence.COLLAPSED);
   }

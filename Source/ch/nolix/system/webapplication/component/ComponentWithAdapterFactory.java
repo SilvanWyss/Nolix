@@ -15,6 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.programcontrol.adapter.IAdapterFactory;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.AbstractControl;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
@@ -204,8 +205,10 @@ implements IComponent {
   }
 
   private void rebuild(final A adapter) {
+    final var controlParent = ControlParent.forControl(this);
+
     childControl = createControl(getStoredController(), adapter);
-    childControl.internalSetParentControl(this);
+    childControl.internalSetControlParent(controlParent);
     childControl.linkTo(this);
   }
 }

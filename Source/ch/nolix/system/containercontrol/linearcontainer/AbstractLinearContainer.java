@@ -8,6 +8,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.ControlFactory;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainer;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
@@ -33,7 +34,9 @@ implements ILinearContainer<C, S> {
 
   @Override
   public final C addControl(final IControl<?, ?> control) {
-    control.internalSetParentControl(this);
+    final var controlParent = ControlParent.forControl(this);
+
+    control.internalSetControlParent(controlParent);
     childControls.addValue(control);
 
     return asConcrete();

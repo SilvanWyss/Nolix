@@ -18,6 +18,7 @@ import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.controltool.ControlTool;
 import ch.nolix.system.webgui.main.ControlFactory;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerTab;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -201,7 +202,9 @@ public final class TabContainerTab extends AbstractMutableElement implements ITa
   @Override
   public ITabContainerTab setRootControl(final IControl<?, ?> rootControl) {
     if (belongsToTabContainer()) {
-      rootControl.internalSetParentControl(getStoredRootControl());
+      final var controlParent = ControlParent.forControl(getStoredParentTabContainer());
+
+      rootControl.internalSetControlParent(controlParent);
     }
 
     memberRootControl.setValue(rootControl);

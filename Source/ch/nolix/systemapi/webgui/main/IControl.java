@@ -65,10 +65,6 @@ PresenceSettable<C> {
 
   void internalSetControlParent(IControlParent controlParent);
 
-  void internalSetParentControl(IControl<?, ?> parentControl);
-
-  void internalSetParentLayer(ILayer parentLayer);
-
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 
   void runHtmlEvent(String htmlEvent);

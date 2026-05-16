@@ -13,6 +13,7 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.proxy.MultiValueProxy;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.grid.IGrid;
 import ch.nolix.systemapi.containercontrol.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
@@ -125,11 +126,12 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
     final int oneBasedRowIndex,
     final int oneBasedColumnIndex,
     final IControl<?, ?> control) {
+    final var controlParent = ControlParent.forControl(this);
     final var cell = GridCell.withOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex);
+
     cell.setControl(control);
     addCell(cell);
-
-    cell.getStoredControl().internalSetParentControl(this);
+    cell.getStoredControl().internalSetControlParent(controlParent);
 
     return this;
   }

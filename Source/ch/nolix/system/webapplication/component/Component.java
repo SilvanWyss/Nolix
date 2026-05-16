@@ -14,6 +14,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.system.webgui.main.AbstractControl;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;
@@ -99,8 +100,10 @@ implements IComponent {
    */
   @Override
   public final void rebuild() {
+    final var controlParent = ControlParent.forControl(this);
+
     childControl = createControl(getStoredController());
-    childControl.internalSetParentControl(this);
+    childControl.internalSetControlParent(controlParent);
     childControl.linkTo(this);
   }
 

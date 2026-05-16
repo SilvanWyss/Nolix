@@ -19,6 +19,7 @@ import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.atomiccontrol.button.IButton;
 import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
@@ -71,7 +72,9 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * Creates a new {@link TabContainer}.
    */
   public TabContainer() {
-    rootVerticalStack.internalSetParentControl(this);
+    final var controlParent = ControlParent.forControl(this);
+
+    rootVerticalStack.internalSetControlParent(controlParent);
     rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
 
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.

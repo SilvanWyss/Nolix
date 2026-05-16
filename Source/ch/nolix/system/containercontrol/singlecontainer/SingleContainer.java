@@ -9,6 +9,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.ControlFactory;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainerStyle;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
@@ -91,7 +92,9 @@ implements ISingleContainer {
    */
   @Override
   public SingleContainer setControl(final IControl<?, ?> control) {
-    control.internalSetParentControl(this);
+    final var controlParent = ControlParent.forControl(this);
+
+    control.internalSetControlParent(controlParent);
     this.control.setValue(control);
 
     return this;

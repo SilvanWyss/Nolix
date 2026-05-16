@@ -416,7 +416,9 @@ implements ILayer {
    */
   @Override
   public Layer setRootControl(final IControl<?, ?> rootControl) {
-    rootControl.internalSetParentLayer(this);
+    final var controlParent = ControlParent.forLayer(this);
+
+    rootControl.internalSetControlParent(controlParent);
     this.memberRootControl.setValue(rootControl);
 
     return this;
