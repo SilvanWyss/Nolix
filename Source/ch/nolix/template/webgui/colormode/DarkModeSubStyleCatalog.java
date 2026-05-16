@@ -11,7 +11,7 @@ import ch.nolix.system.atomiccontrol.textbox.Textbox;
 import ch.nolix.system.atomiccontrol.validationlabel.ValidationLabel;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
@@ -35,7 +35,7 @@ public final class DarkModeSubStyleCatalog {
 
   public static final ISelectingStyleWithSelectors CONTROL_STYLE = //
   DeepSelectingStyle.EMPTY
-    .withSelectorType(Control.class)
+    .withSelectorType(AbstractControl.class)
     .withAttachingAttributes("BaseTextColor(0xC0C0C0)");
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //

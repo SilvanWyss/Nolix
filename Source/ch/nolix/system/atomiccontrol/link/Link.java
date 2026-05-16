@@ -20,7 +20,7 @@ import ch.nolix.baseapi.web.url.IUrlTool;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.link.ILink;
 import ch.nolix.systemapi.atomiccontrol.link.ILinkStyle;
 import ch.nolix.systemapi.gui.font.LineDecoration;
@@ -35,7 +35,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class Link extends Control<ILink, ILinkStyle> implements ILink {
+public final class Link extends AbstractControl<ILink, ILinkStyle> implements ILink {
   public static final String DEFAULT_DISPLAY_TEXT = StringCatalog.QUESTION_MARK;
 
   private static final LinkTarget DEFAULT_TARGET = LinkTarget.NEW_TAB;

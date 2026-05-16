@@ -13,7 +13,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploaderStyle;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
@@ -25,7 +25,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class Uploader extends Control<IUploader, IUploaderStyle> implements IUploader {
+public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> implements IUploader {
   private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
 
   private static final UploaderCssBuilder CSS_BUILDER = new UploaderCssBuilder();

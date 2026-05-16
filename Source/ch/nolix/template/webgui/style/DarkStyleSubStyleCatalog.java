@@ -15,7 +15,7 @@ import ch.nolix.system.containercontrol.horizontalstack.HorizontalStack;
 import ch.nolix.system.containercontrol.linearcontainer.AbstractLinearContainer;
 import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
@@ -41,7 +41,7 @@ public final class DarkStyleSubStyleCatalog {
 
   public static final ISelectingStyleWithSelectors CONTROL_STYLE = //
   DeepSelectingStyle.EMPTY
-    .withSelectorType(Control.class)
+    .withSelectorType(AbstractControl.class)
     .withAttachingAttributes("BaseTextColor(0xC0C0C0)");
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //

@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabelStyle;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
@@ -29,7 +29,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
  * @author Silvan Wyss
  */
 public final class ValidationLabel
-extends Control<IValidationLabel, IValidationLabelStyle>
+extends AbstractControl<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
   private static final String ERROR_HEADER = PascalCaseVariableCatalog.ERROR;
 

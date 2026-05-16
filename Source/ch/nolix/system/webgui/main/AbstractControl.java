@@ -37,10 +37,11 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link Control}.
- * @param <S> is the type of the {@link IControlStyle} of a {@link Control}.
+ * @param <C> is the type of a {@link AbstractControl}.
+ * @param <S> is the type of the {@link IControlStyle} of a
+ *            {@link AbstractControl}.
  */
-public abstract class Control //NOSONAR: A Control is a principal object thus it has many methods.
+public abstract class AbstractControl //NOSONAR: A AbstractControl is a principal object thus it has many methods.
 <C extends IControl<C, S>, S extends IControlStyle<S>>
 extends AbstractStylableElement<C>
 implements IControl<C, S> {

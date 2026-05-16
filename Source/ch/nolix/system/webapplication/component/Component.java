@@ -13,7 +13,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.webapplication.main.WebClientSession;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.application.main.IApplication;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;
@@ -31,7 +31,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
  * 
  */
 public abstract class Component<C extends Controller<S>, S> //NOSONAR: A component class is expected to be abstract.
-extends Control<IComponent, IComponentStyle>
+extends AbstractControl<IComponent, IComponentStyle>
 implements IComponent {
   private static final ComponentHtmlBuilder HTML_BUILDER = new ComponentHtmlBuilder();
 

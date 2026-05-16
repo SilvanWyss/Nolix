@@ -18,7 +18,7 @@ import ch.nolix.system.atomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.atomiccontrol.button.IButton;
@@ -35,7 +35,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class Button extends Control<IButton, IButtonStyle> implements IButton {
+public final class Button extends AbstractControl<IButton, IButtonStyle> implements IButton {
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
   private static final IValidationLabelTool VALIDATION_LABEL_TOOL = new ValidationLabelTool();

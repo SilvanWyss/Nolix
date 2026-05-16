@@ -17,7 +17,7 @@ import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.box.CornerShadow;
 import ch.nolix.system.style.model.DeepSelectingStyle;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
@@ -53,7 +53,7 @@ public final class ParchmentModeSubStyleCatalog {
 
   public static final ISelectingStyleWithSelectors CONTROL_STYLE = //
   DeepSelectingStyle.EMPTY
-    .withSelectorType(Control.class)
+    .withSelectorType(AbstractControl.class)
     .withAttachingAttributes("BaseTextColor(Brown)");
 
   public static final ISelectingStyleWithSelectors DIALOG_CONTAINER_STYLE = //

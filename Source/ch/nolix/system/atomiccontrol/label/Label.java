@@ -16,7 +16,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.label.ILabel;
 import ch.nolix.systemapi.atomiccontrol.label.ILabelStyle;
 import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
@@ -30,7 +30,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
+public final class Label extends AbstractControl<ILabel, ILabelStyle> implements ILabel {
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;

@@ -32,7 +32,7 @@ public final class ControlFactory {
   }
 
   public static void registerControlClasses(
-    final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
+    final @SuppressWarnings("unchecked") Class<AbstractControl<?, ?>>... controlClasses) {
     CONTROL_FACTORY.registerControlClasses(controlClasses);
   }
 }

@@ -10,7 +10,7 @@ import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
 import ch.nolix.systemapi.containercontrol.container.IContainer;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
  *            {@link AbstractContainer}.
  */
 public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
-extends Control<C, S> implements IContainer<C, S> {
+extends AbstractControl<C, S> implements IContainer<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
   private final OptionalValue<ContainerRole> memberRole = //

@@ -11,7 +11,7 @@ import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.MultiValue;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenu;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuItem;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuSearcher;
@@ -28,7 +28,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
  */
 public abstract class AbstractItemMenu //NOSONAR: A AbstractItemMenu is a principal object thus it has many methods.
 <M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
-extends Control<M, S> implements IItemMenu<M, S> {
+extends AbstractControl<M, S> implements IItemMenu<M, S> {
   private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
 
   private static final IItemMenuSearcher ITEM_MENU_SEARCHER = new ItemMenuSearcher();

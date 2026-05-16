@@ -17,7 +17,7 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemapi.atomiccontrol.imagecontrol.IImageControlStyle;
@@ -32,7 +32,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
+public final class ImageControl extends AbstractControl<IImageControl, IImageControlStyle> implements IImageControl {
   public static final String DEFAULT_ALTERNATE_TEXT = StringCatalog.EMPTY_STRING;
 
   private static final String IMAGE_HEADER = PascalCaseVariableCatalog.IMAGE;

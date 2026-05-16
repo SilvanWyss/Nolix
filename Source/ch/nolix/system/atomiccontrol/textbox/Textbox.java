@@ -15,7 +15,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.Value;
-import ch.nolix.system.webgui.main.Control;
+import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextboxStyle;
 import ch.nolix.systemapi.atomiccontrol.textbox.TextMode;
@@ -30,7 +30,7 @@ import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 /**
  * @author Silvan Wyss
  */
-public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
+public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> implements ITextbox {
   public static final String DEFAULT_TEXT = StringCatalog.EMPTY_STRING;
 
   public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
