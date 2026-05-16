@@ -10,9 +10,11 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSup
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
+import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
 import ch.nolix.systemapi.containercontrol.container.IContainer;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
+import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
@@ -99,6 +101,21 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
   @Override
   public final C setUserInput(final String userInput) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
+  }
+
+  /**
+   * Registers the given childControl at the current {@link AbstractContainer}.
+   * 
+   * @param <C2>         the type of the given childControl
+   * @param <S2>         the type of the {@link IControlStyle} of the given
+   *                     childControl
+   * @param childControl
+   */
+  protected final <C2 extends IControl<C2, S2>, S2 extends IControlStyle<S2>> void registerChildControl(
+    final C2 childControl) {
+    final var controlParent = ControlParent.forControl(this);
+
+    childControl.internalSetControlParent(controlParent);
   }
 
   /**
