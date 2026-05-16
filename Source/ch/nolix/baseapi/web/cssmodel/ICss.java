@@ -9,7 +9,7 @@ import ch.nolix.baseapi.container.base.IContainer;
  * @author Silvan Wyss
  */
 public interface ICss {
-  IContainer<? extends ICssRule> getRules();
+  IContainer<ICssRule> getRules();
 
   String toStringWithoutEnclosingBrackets();
 }

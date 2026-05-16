@@ -12,7 +12,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
  * @author Silvan Wyss
  */
 public final class Css implements ICss {
-  private final IContainer<CssRule> rules;
+  private final IContainer<ICssRule> rules;
 
   private Css(final IContainer<ICssRule> rules) {
     this.rules = rules.to(CssRule::fromCssRule);
@@ -26,7 +26,7 @@ public final class Css implements ICss {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<CssRule> getRules() {
+  public IContainer<ICssRule> getRules() {
     return rules;
   }
 
