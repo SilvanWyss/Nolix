@@ -5,7 +5,6 @@ package ch.nolix.system.containercontrol.container;
 
 import java.util.Optional;
 
-import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
@@ -17,21 +16,20 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link AbstractContainer}.
- * @param <S> is the type of the {@link IControlStyle}s of a
- *            {@link AbstractContainer}.
+ * @param <C> the type of a {@link AbstractContainer}
+ * @param <S> the type of the {@link IControlStyle}s of a
+ *            {@link AbstractContainer}
  */
 public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends AbstractControl<C, S> implements IContainer<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
 
   private final OptionalValue<ContainerRole> memberRole = //
-  OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
-    ROLE_HEADER,
-    this::setRole,
-    ContainerRole::fromSpecification,
-    Node::fromEnum);
+  OptionalValue.forEnumWithNameAndSetter(ContainerRole.class, ROLE_HEADER, this::setRole);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final Optional<String> getOptionalJavaScriptUserInputFunction() {
     return Optional.empty();
@@ -66,7 +64,7 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
    */
   @Override
   public final boolean hasRole(final String role) {
-    return (hasRole() && getRole().toString().equals(role));
+    return hasRole() && getRole().toString().equals(role);
   }
 
   /**
@@ -103,13 +101,18 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
+  /**
+   * Resets all parts of the sub classes of the current {@link AbstractContainer}.
+   */
   protected abstract void resetContainer();
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected final void resetControl() {
     removeRole();
     clear();
-
     resetContainer();
   }
 }
