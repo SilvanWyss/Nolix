@@ -91,6 +91,28 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
   }
 
   /**
+   * @param enumClass
+   * @param name
+   * @param setter
+   * @param <E>       the type of the {@link Enum} the created
+   *                  {@link OptionalValue} can store
+   * @return a new {@link OptionalValue} with the given name and setter and that
+   *         can store an {@link Enum} of the given enumClass
+   * @throws RuntimeException if the given enumClass is null
+   * @throws RuntimeException if the given name is null or blank
+   * @throws RuntimeException if the given setter is null
+   */
+  public static <E extends Enum<E>> OptionalValue<E> forEnumWithNameAndSetter(
+    final Class<E> enumClass,
+    final String name,
+    final Consumer<E> setter) {
+    Validator.assertThat(enumClass).thatIsNamed("enum class").isNotNull();
+
+    return //
+    new OptionalValue<>(name, setter, n -> Enum.valueOf(enumClass, n.getSingleChildNodeHeader()), Node::fromEnum);
+  }
+
+  /**
    * @param name
    * @param setter
    * @return a new {@link OptionalValue} with the given name and setter and that
