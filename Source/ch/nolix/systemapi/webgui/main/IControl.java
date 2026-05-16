@@ -15,6 +15,7 @@ import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 
 /**
@@ -61,6 +62,8 @@ PresenceSettable<C> {
   S getStoredStyle();
 
   boolean hasInternalId(String internalId);
+
+  void internalSetControlParent(IControlParent controlParent);
 
   void internalSetParentControl(IControl<?, ?> parentControl);
 

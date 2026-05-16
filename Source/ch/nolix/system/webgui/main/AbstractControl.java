@@ -28,6 +28,7 @@ import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.Presence;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
+import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
@@ -106,7 +107,7 @@ implements IControl<C, S> {
 
   private final Extension<S> style = Extension.withExtension(createStyle());
 
-  private ControlParent parent;
+  private IControlParent parent;
 
   private Object linkedObject;
 
@@ -318,8 +319,23 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalSetControlParent(final IControlParent controlParent) {
+    Validator.assertThat(controlParent).thatIsNamed(IControlParent.class).isNotNull();
+    assertDoesNotBelongToParent();
+
+    parent = controlParent;
+
+    if (parent.isControl()) {
+      parent.getStoredControl().getStoredStyle().addChild(getStoredStyle());
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void internalSetParentControl(final IControl<?, ?> parentControl) {
-    setParent(ControlParent.forControl(parentControl));
+    internalSetControlParent(ControlParent.forControl(parentControl));
   }
 
   /**
@@ -327,7 +343,7 @@ implements IControl<C, S> {
    */
   @Override
   public final void internalSetParentLayer(final ILayer parentLayer) {
-    setParent(ControlParent.forLayer(parentLayer));
+    internalSetControlParent(ControlParent.forLayer(parentLayer));
   }
 
   /**
@@ -599,7 +615,7 @@ implements IControl<C, S> {
     return (parent != null);
   }
 
-  private ControlParent getStoredParent() {
+  private IControlParent getStoredParent() {
     assertBelongsToParent();
 
     return parent;
@@ -627,17 +643,6 @@ implements IControl<C, S> {
     AbsoluteOrRelativeIntValidator.assertIsPositive(minWidth);
 
     this.minWidth.setValue(minWidth);
-  }
-
-  private void setParent(final ControlParent parent) {
-    Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
-    assertDoesNotBelongToParent();
-
-    this.parent = parent;
-
-    if (parent.isControl()) {
-      parent.getStoredControl().getStoredStyle().addChild(getStoredStyle());
-    }
   }
 
   private void setPresence(final Presence presence) {
