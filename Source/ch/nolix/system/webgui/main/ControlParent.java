@@ -22,7 +22,7 @@ public final class ControlParent implements IControlParent {
   private ControlParent(final IControl<?, ?> control) {
     Validator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
 
-    layer = null;
+    this.layer = null;
     this.control = control;
   }
 
@@ -30,7 +30,7 @@ public final class ControlParent implements IControlParent {
     Validator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
 
     this.layer = layer;
-    control = null;
+    this.control = null;
   }
 
   public static ControlParent forControl(final IControl<?, ?> control) {
