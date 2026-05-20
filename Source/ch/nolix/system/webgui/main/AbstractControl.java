@@ -319,6 +319,18 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void internalRemoveControlParent() {
+    if (belongsToControl()) {
+      getStoredParentControl().getStoredStyle().removeChild(getStoredStyle());
+    }
+
+    parent = null;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final void internalSetControlParent(final IControlParent controlParent) {
     Validator.assertThat(controlParent).thatIsNamed(IControlParent.class).isNotNull();
     assertDoesNotBelongToParent();

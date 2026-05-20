@@ -63,6 +63,8 @@ PresenceSettable<C> {
 
   boolean hasInternalId(String internalId);
 
+  void internalRemoveControlParent();
+
   void internalSetControlParent(IControlParent controlParent);
 
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
