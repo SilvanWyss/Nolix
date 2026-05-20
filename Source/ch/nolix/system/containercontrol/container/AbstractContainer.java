@@ -107,13 +107,9 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
   /**
    * Registers the given childControl at the current {@link AbstractContainer}.
    * 
-   * @param <C2>         the type of the given childControl
-   * @param <S2>         the type of the {@link IControlStyle} of the given
-   *                     childControl
    * @param childControl
    */
-  protected final <C2 extends IControl<C2, S2>, S2 extends IControlStyle<S2>> void registerChildControl(
-    final C2 childControl) {
+  protected final void registerChildControl(final IControl<?, ?> childControl) {
     final var controlParent = ControlParent.forControl(this);
 
     childControl.internalSetControlParent(controlParent);
@@ -138,16 +134,13 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
    * Unregisters the given childControl from the current
    * {@link AbstractContainer}.
    * 
-   * @param <C2>         the type of the given childControl
-   * @param <S2>         the type of the {@link IControlStyle} of the given
-   *                     childControl
    * @param childControl
    * @throws RuntimeException if the given childControl does not belong to the
    *                          current {@link AbstractContainer}.
    * 
    */
-  protected final <C2 extends IControl<C2, S2>, S2 extends IControlStyle<S2>> void unregisterChildControl(
-    final C2 childControl) {
+  protected final void unregisterChildControl(
+    final IControl<?, ?> childControl) {
     if (childControl == null || !childControl.belongsToControl() || childControl.getStoredParentControl() != this) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
