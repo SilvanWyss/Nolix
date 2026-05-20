@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
@@ -131,5 +132,30 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
     removeRole();
     clear();
     resetContainer();
+  }
+
+  /**
+   * Unregisters the given childControl from the current
+   * {@link AbstractContainer}.
+   * 
+   * @param <C2>         the type of the given childControl
+   * @param <S2>         the type of the {@link IControlStyle} of the given
+   *                     childControl
+   * @param childControl
+   * @throws RuntimeException if the given childControl does not belong to the
+   *                          current {@link AbstractContainer}.
+   * 
+   */
+  protected final <C2 extends IControl<C2, S2>, S2 extends IControlStyle<S2>> void unregisterChildControl(
+    final C2 childControl) {
+    if (childControl == null || !childControl.belongsToControl() || childControl.getStoredParentControl() != this) {
+      throw //
+      InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
+        childControl,
+        "child control",
+        "does not belong to the current Control");
+    }
+
+    childControl.internalRemoveControlParent();
   }
 }
