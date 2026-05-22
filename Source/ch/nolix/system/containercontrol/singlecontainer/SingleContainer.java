@@ -29,18 +29,21 @@ implements ISingleContainer {
 
   private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 
-  private final OptionalValue<IControl<?, ?>> control = //
+  private final OptionalValue<IControl<?, ?>> memberControl = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,
     IControl::getSpecification);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void clear() {
     if (containsAny()) {
       unregisterChildControl(getStoredControl());
-      control.clear();
+      memberControl.clear();
     }
   }
 
@@ -70,7 +73,7 @@ implements ISingleContainer {
    */
   @Override
   public IControl<?, ?> getStoredControl() {
-    return control.getStoredValue();
+    return memberControl.getStoredValue();
   }
 
   /**
@@ -78,7 +81,7 @@ implements ISingleContainer {
    */
   @Override
   public boolean isEmpty() {
-    return !control.containsAny();
+    return !memberControl.containsAny();
   }
 
   /**
@@ -94,13 +97,10 @@ implements ISingleContainer {
    */
   @Override
   public SingleContainer setControl(final IControl<?, ?> control) {
-    if (containsAny() && getStoredControl() != control) {
+    if (!containsControl(control)) {
       clear();
-    }
-
-    if (getStoredControl() != control) {
       registerChildControl(control);
-      this.control.setValue(control);
+      memberControl.setValue(control);
     }
 
     return this;
@@ -136,5 +136,14 @@ implements ISingleContainer {
   @Override
   protected void resetContainer() {
     clear();
+  }
+
+  /**
+   * @param control
+   * @return true if the current {@link SingleContainer} contains the given
+   *         control, false otherwise
+   */
+  private boolean containsControl(final IControl<?, ?> control) {
+    return containsAny() && getStoredControl() == control;
   }
 }
