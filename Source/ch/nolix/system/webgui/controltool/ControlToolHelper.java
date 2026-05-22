@@ -23,4 +23,15 @@ public final class ControlToolHelper {
       fillUpChildControlsOfControlIntoListRecursively(c, list);
     }
   }
+
+  public static void fillUpStructureControlsOfControlIntoListRecursively(
+    final IControl<?, ?> control,
+    final IArrayList<IControl<?, ?>> list) {
+    final var structureControls = control.getStoredStructureControls();
+
+    for (final var s : structureControls) {
+      list.addAtEnd(s);
+      fillUpStructureControlsOfControlIntoListRecursively(s, list);
+    }
+  }
 }

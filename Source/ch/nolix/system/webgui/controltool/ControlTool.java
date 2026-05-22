@@ -24,4 +24,16 @@ public final class ControlTool implements IControlTool {
 
     return list;
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(final IControl<?, ?> control) {
+    final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
+
+    ControlToolHelper.fillUpStructureControlsOfControlIntoListRecursively(control, list);
+
+    return list;
+  }
 }

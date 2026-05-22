@@ -4,6 +4,7 @@
 package ch.nolix.systemapi.webgui.main;
 
 import ch.nolix.baseapi.component.guicomponent.IGuiComponent;
+import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.html.IHtmlGetter;
 import ch.nolix.systemapi.gui.background.IBackgroundHolder;
@@ -31,6 +32,8 @@ IStylableElement<ILayer> {
   double getOpacity();
 
   LayerRole getRole();
+
+  IContainer<IControl<?, ?>> getStoredStructureControls();
 
   boolean hasInternalId(String internalId);
 

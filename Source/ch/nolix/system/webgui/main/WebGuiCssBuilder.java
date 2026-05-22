@@ -64,7 +64,7 @@ public final class WebGuiCssBuilder {
   private static void fillUpCssRulesOfLayerIntoList(final ILayer layer, final ILinkedList<ICssRule> cssRules) {
     cssRules.addAtEnd(layer.getCssRule());
 
-    for (final var c : layer.getStoredControls()) {
+    for (final var c : layer.getStoredStructureControls()) {
       cssRules.addAtEnd(c.getCssRules());
     }
   }

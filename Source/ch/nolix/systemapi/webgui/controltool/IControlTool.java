@@ -11,4 +11,6 @@ import ch.nolix.systemapi.webgui.main.IControl;
  */
 public interface IControlTool {
   IContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(IControl<?, ?> control);
+
+  IContainer<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(IControl<?, ?> control);
 }

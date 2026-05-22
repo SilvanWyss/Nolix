@@ -282,6 +282,18 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+    if (isEmpty()) {
+      return ImmutableList.createEmpty();
+    }
+
+    return CONTROL_TOOL.getListWithControlAndStructureControlsRecursively(getStoredRootControl());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public LayerRole getRole() {
     return memberRole.getStoredValue();
   }
