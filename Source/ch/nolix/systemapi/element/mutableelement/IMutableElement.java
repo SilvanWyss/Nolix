@@ -8,9 +8,7 @@ import ch.nolix.baseapi.state.statemutation.Resettable;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**
- * A {@link IMutableElement} is a {@link IElement}. The attributes of a
- * {@link IMutableElement} can be mutated separately. The attributes of a
- * {@link IMutableElement} can be reset together.
+ * A {@link IMutableElement} has attributes that can be mutated.
  * 
  * @author Silvan Wyss
  */
@@ -19,7 +17,7 @@ public interface IMutableElement extends Resettable, IElement {
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
    * @param attribute
-   * @throws RuntimeException if the given attribute is not valid.
+   * @throws RuntimeException if the given attribute is not valid
    */
   void addOrChangeAttribute(INode<?> attribute);
 
@@ -27,7 +25,7 @@ public interface IMutableElement extends Resettable, IElement {
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
    * @param attribute
-   * @throws RuntimeException if the given attribute is not valid.
+   * @throws RuntimeException if the given attribute is not valid
    */
   void addOrChangeAttribute(String attribute);
 
@@ -35,42 +33,11 @@ public interface IMutableElement extends Resettable, IElement {
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
    * @param attributes
-   * @throws RuntimeException if the given attributes is null.
-   * @throws RuntimeException if one of the given attributes is not valid.
-   */
-  default void addOrChangeAttributes(final INode<?>... attributes) {
-    //Iterates the given attributes.
-    for (final var a : attributes) {
-      //Calls other method.
-      addOrChangeAttribute(a);
-    }
-  }
-
-  /**
-   * Adds or changes the given attributes to the current {@link IMutableElement}.
-   * 
-   * @param attributes
-   * @throws RuntimeException if the given attributes is null.
-   * @throws RuntimeException if one of the given attributes is not valid.
+   * @throws RuntimeException if one of the given attributes is not valid
    */
   default void addOrChangeAttributes(final Iterable<? extends INode<?>> attributes) {
-    //Iterates the given attributes.
-    for (final var a : attributes) {
-      addOrChangeAttribute(a);
-    }
-  }
-
-  /**
-   * Adds or changes the given attributes to the current {@link IMutableElement}.
-   * 
-   * @param attributes
-   * @throws RuntimeException if the given attributes is null.
-   * @throws RuntimeException if one of the given attributes is not valid.
-   */
-  default void addOrChangeAttributes(String... attributes) {
-    //Iterates the given attributes.
-    for (final var a : attributes) {
-      addOrChangeAttribute(a);
+    if (attributes != null) {
+      attributes.forEach(this::addOrChangeAttribute);
     }
   }
 
@@ -78,12 +45,10 @@ public interface IMutableElement extends Resettable, IElement {
    * Resets the current {@link IMutableElement} from the given attributes.
    * 
    * @param attributes
-   * @throws RuntimeException if the given attributes is null.
-   * @throws RuntimeException if one of the given attributes is not valid.
+   * @throws RuntimeException if one of the given attributes is not valid
    */
   default void resetFromAttributes(final Iterable<? extends INode<?>> attributes) {
     reset();
-
     addOrChangeAttributes(attributes);
   }
 
@@ -91,7 +56,7 @@ public interface IMutableElement extends Resettable, IElement {
    * Resets the current {@link IMutableElement} from the given specification.
    * 
    * @param specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   default void resetFromSpecification(final INode<?> specification) {
     final var attributes = specification.getStoredChildNodes();
