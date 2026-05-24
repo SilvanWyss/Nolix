@@ -6,7 +6,7 @@ package ch.nolix.systemtest.style.model;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.system.element.mutableelement.AbstractMutableElement;
+import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.style.model.SelectingStyle;
 
@@ -106,7 +106,7 @@ final class SelectingStyleTest extends StandardTest {
     final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractMutableElement.class);
+    final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractPropertiesElement.class);
 
     //execution
     final var result = testUnit.selectsElement(mockStylableElement);

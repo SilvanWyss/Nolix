@@ -24,7 +24,7 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;
-import ch.nolix.system.element.mutableelement.AbstractMutableElement;
+import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.proxy.ValueProxy;
@@ -36,7 +36,7 @@ import ch.nolix.systemapi.graphic.image.IMutableImage;
  * @author Silvan Wyss
  */
 public final class MutableImage //NOSONAR: A MutableImage is a principal object thus it has many methods.
-extends AbstractMutableElement implements IMutableImage<MutableImage> {
+extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
   private static final String PIXEL_ARRAY_HEADER = "PixelArray";
 
   private static final String JPG_STRING = "JPGString";

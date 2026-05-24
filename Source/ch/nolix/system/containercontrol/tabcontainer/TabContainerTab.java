@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToP
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.mutableelement.AbstractMutableElement;
+import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.controltool.ControlTool;
@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
 /**
  * @author Silvan Wyss
  */
-public final class TabContainerTab extends AbstractMutableElement implements ITabContainerTab {
+public final class TabContainerTab extends AbstractPropertiesElement implements ITabContainerTab {
   public static final String DEFAULT_HEADER = PascalCaseVariableCatalog.HEADER;
 
   public static final boolean DEFAULT_SELECTION_FLAG = false;

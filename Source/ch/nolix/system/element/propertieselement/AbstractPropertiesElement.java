@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.propertieselement;
 
 import java.lang.reflect.Field;
 
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.property.base.IProperty;
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractMutableElement implements IMutableElement {
+public abstract class AbstractPropertiesElement implements IMutableElement {
   private LinkedList<IProperty> properties;
 
   /**
@@ -100,7 +100,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Resets the current {@link AbstractMutableElement} from the file with the
+   * Resets the current {@link AbstractPropertiesElement} from the file with the
    * given filePath.
    * 
    * @param filePath
@@ -119,7 +119,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Lets the current {@link AbstractMutableElement} extract the
+   * Lets the current {@link AbstractPropertiesElement} extract the
    * {@link AbstractProperty} from the given field if the given field stores a
    * {@link AbstractProperty}.
    * 
@@ -133,7 +133,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the properties of the current {@link AbstractMutableElement}.
+   * Extracts the properties of the current {@link AbstractPropertiesElement}.
    */
   private void extractProperties() {
     properties = LinkedList.createEmpty();
@@ -147,7 +147,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the {@link AbstractMutableElement}
+   * Extracts the {@link AbstractProperty}s of the {@link AbstractPropertiesElement}
    * that are from the given pClass.
    * 
    * @param pClass
@@ -161,7 +161,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
   /**
    * Extracts the {@link AbstractProperty}s of the current
-   * {@link AbstractMutableElement} if they are not extracted yet.
+   * {@link AbstractPropertiesElement} if they are not extracted yet.
    */
   private void extractPropertiesIfNotExtracted() {
     if (!hasExtractedProperties()) {
@@ -170,7 +170,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty} of the {@link AbstractMutableElement}
+   * Extracts the {@link AbstractProperty} of the {@link AbstractPropertiesElement}
    * that is from the given field.
    * 
    * @param field
@@ -193,7 +193,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
   /**
    * @return the {@link AbstractProperty}s of the current
-   *         {@link AbstractMutableElement}.
+   *         {@link AbstractPropertiesElement}.
    */
   private IContainer<IProperty> getStoredProperties() {
     extractPropertiesIfNotExtracted();
@@ -203,7 +203,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
   /**
    * @return true if the {@link AbstractProperty}s of the current
-   *         {@link AbstractMutableElement} are extracted, false otherwise.
+   *         {@link AbstractPropertiesElement} are extracted, false otherwise.
    */
   private boolean hasExtractedProperties() {
     return (properties != null);
@@ -211,7 +211,7 @@ public abstract class AbstractMutableElement implements IMutableElement {
 
   /**
    * @param element
-   * @return true if the current {@link AbstractMutableElement} has the same
+   * @return true if the current {@link AbstractPropertiesElement} has the same
    *         specification as the given element, false otherwise.
    */
   private boolean hasSameSpecificationAs(final IElement element) {

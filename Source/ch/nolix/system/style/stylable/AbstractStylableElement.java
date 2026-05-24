@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.mutableelement.AbstractMutableElement;
+import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
  * @param <E> is the type of a {@link AbstractStylableElement}.
  */
 public abstract class AbstractStylableElement<E extends IStylableElement<E>>
-extends AbstractMutableElement
+extends AbstractPropertiesElement
 implements IStylableElement<E> {
   private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
 

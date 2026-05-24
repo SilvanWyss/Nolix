@@ -11,7 +11,7 @@ import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.system.element.mutableelement.AbstractMutableElement;
+import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenu;
@@ -20,7 +20,7 @@ import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuItem;
 /**
  * @author Silvan Wyss
  */
-public final class ItemMenuItem extends AbstractMutableElement implements IItemMenuItem<ItemMenuItem> {
+public final class ItemMenuItem extends AbstractPropertiesElement implements IItemMenuItem<ItemMenuItem> {
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
   private static final String ID_HEADER = PascalCaseVariableCatalog.ID;

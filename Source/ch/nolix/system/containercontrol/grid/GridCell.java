@@ -8,7 +8,7 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.state.statemutation.Clearable;
-import ch.nolix.system.element.mutableelement.AbstractMutableElement;
+import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
 /**
  * @author Silvan Wyss
  */
-public final class GridCell extends AbstractMutableElement implements Clearable {
+public final class GridCell extends AbstractPropertiesElement implements Clearable {
   private static final String ROW_INDEX_HEADER = PascalCaseVariableCatalog.ROW_INDEX;
 
   private static final String COLUMN_INDEX_HEADER = PascalCaseVariableCatalog.COLUMN_INDEX;
