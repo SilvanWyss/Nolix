@@ -13,16 +13,15 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.element.base.SpecificationCreator;
+import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.element.multistateconfiguration.AbstractProperty;
-import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.property.base.IProperty;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractPropertiesElement implements IMutableElement {
+public abstract class AbstractPropertiesElement extends AbstractElement implements IMutableElement {
   private LinkedList<IProperty> properties;
 
   /**
@@ -61,16 +60,6 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@inheritDoc}
    */
   @Override
-  public final boolean equals(final Object object) {
-    return object != null
-    && getClass() == object.getClass()
-    && hasSameSpecificationAs((IElement) object);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final IContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
@@ -84,22 +73,6 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final INode<?> getSpecification() {
-    return SpecificationCreator.getSpecificationOfElement(this);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final int hashCode() {
-    return getSpecification().hashCode();
-  }
-
-  /**
    * Resets the current {@link AbstractPropertiesElement} from the file with the
    * given filePath.
    * 
@@ -108,14 +81,6 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    */
   public final void resetFromFileWithFilePath(final String filePath) {
     resetFromSpecification(Node.fromFile(filePath));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final String toString() {
-    return getSpecification().toString();
   }
 
   /**
@@ -147,8 +112,8 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the {@link AbstractPropertiesElement}
-   * that are from the given pClass.
+   * Extracts the {@link AbstractProperty}s of the
+   * {@link AbstractPropertiesElement} that are from the given pClass.
    * 
    * @param pClass
    */
@@ -170,8 +135,8 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Extracts the {@link AbstractProperty} of the {@link AbstractPropertiesElement}
-   * that is from the given field.
+   * Extracts the {@link AbstractProperty} of the
+   * {@link AbstractPropertiesElement} that is from the given field.
    * 
    * @param field
    * @throws IllegalAccessError if the given field is not accessible.
@@ -207,14 +172,5 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    */
   private boolean hasExtractedProperties() {
     return (properties != null);
-  }
-
-  /**
-   * @param element
-   * @return true if the current {@link AbstractPropertiesElement} has the same
-   *         specification as the given element, false otherwise.
-   */
-  private boolean hasSameSpecificationAs(final IElement element) {
-    return getSpecification().equals(element.getSpecification());
   }
 }
