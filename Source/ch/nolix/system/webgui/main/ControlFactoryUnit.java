@@ -40,7 +40,8 @@ public final class ControlFactoryUnit {
     memberControlClasses.addAtEnd(controlClass);
   }
 
-  public void registerControlClasses(final @SuppressWarnings("unchecked") Class<AbstractControl<?, ?>>... controlClasses) {
+  public void registerControlClasses(
+    final @SuppressWarnings("unchecked") Class<AbstractControl<?, ?>>... controlClasses) {
     for (final var c : controlClasses) {
       registerControlClass(c);
     }
