@@ -10,11 +10,10 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.errormapping.IllegalAccessErrorMapper;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.base.AbstractElement;
-import ch.nolix.system.element.multistateconfiguration.AbstractProperty;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.property.base.IProperty;
 
@@ -25,23 +24,20 @@ public abstract class AbstractPropertiesElement extends AbstractElement implemen
   private LinkedList<IProperty> properties;
 
   /**
-   * Adds or changes the given attribute to the current {@link IMutableElement}.
-   * 
-   * @param attribute
-   * @throws RuntimeException if the given attribute is not valid.
+   * {@inheritDoc}
    */
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
-    //Iterates the properties of the current MutableElement.
+    //Iterates the properties of the current AbstractPropertiesElement.
     for (final var p : getStoredProperties()) {
-      //Handles the case that the current Property has added or changed the given attribute.
+      //Handles the case that the current property has added or changed the given attribute.
       if (p.addedOrChangedAttribute(attribute)) {
         return;
       }
     }
 
-    //Handles the case that the current Mutable cannot have the given attribute.
-    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot not have a " + attribute.getHeader());
+    //Handles the case that the current AbstractPropertiesElement cannot have the given attribute.
+    throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot have a " + attribute.getHeader());
   }
 
   /**
@@ -61,95 +57,96 @@ public abstract class AbstractPropertiesElement extends AbstractElement implemen
    */
   @Override
   public final IContainer<INode<?>> getAttributes() {
-    final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
+    //Creates attributes list.
+    final LinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
-    //Iterates the properties of the current MutableElement.
+    //Iterates the properties of the current AbstractPropertiesElement.
     for (final var p : getStoredProperties()) {
-      //Fills up the attributes of the current Property.
+      //Fills up the attributes of the current property into the attributes list.
       p.fillUpAttributesIntoList(attributes);
     }
 
+    //Returns the attributes list.
     return attributes;
   }
 
   /**
-   * Resets the current {@link AbstractPropertiesElement} from the file with the
-   * given filePath.
-   * 
-   * @param filePath
-   * @throws RuntimeException if the given filePath is not valid.
+   * Adds the {@link IProperty}s from the current
+   * {@link AbstractPropertiesElement} to the current
+   * {@link AbstractPropertiesElement} if the current
+   * {@link AbstractPropertiesElement} has not added its {@link IProperty}s.
    */
-  public final void resetFromFileWithFilePath(final String filePath) {
-    resetFromSpecification(Node.fromFile(filePath));
-  }
-
-  /**
-   * Lets the current {@link AbstractPropertiesElement} extract the
-   * {@link AbstractProperty} from the given field if the given field stores a
-   * {@link AbstractProperty}.
-   * 
-   * @param field
-   */
-  private void extractPotentialPropertyFrom(final Field field) {
-    //Handles the case that the given field is a Property.
-    if (IProperty.class.isAssignableFrom(field.getType())) {
-      extractPropertyFrom(field);
+  private void addPropertiesIfNotAdded() {
+    if (!hasAddedProperties()) {
+      addProperties();
     }
   }
 
   /**
-   * Extracts the properties of the current {@link AbstractPropertiesElement}.
+   * @return true if the current {@link AbstractPropertiesElement}s has added its
+   *         {@link IProperty}s, false otherwise
    */
-  private void extractProperties() {
-    properties = LinkedList.createEmpty();
+  private boolean hasAddedProperties() {
+    return properties != null;
+  }
 
-    //Iterates the classes of the current MutableElement.
+  /**
+   * Adds the {@link IProperty}s from the current
+   * {@link AbstractPropertiesElement} to the current
+   * {@link AbstractPropertiesElement}.
+   */
+  private void addProperties() {
+    properties = LinkedList.createEmpty();
     Class<?> lClass = getClass();
+
     while (lClass != null) {
-      extractPropertiesFrom(lClass);
+      addPropertiesFromClass(lClass);
       lClass = lClass.getSuperclass();
     }
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the
-   * {@link AbstractPropertiesElement} that are from the given pClass.
+   * Adds the {@link IProperty}s from the given paramClass to the current
+   * {@link AbstractPropertiesElement}.
    * 
-   * @param pClass
+   * @param paramClass
+   * @throws RuntimeException if the given paramClass is null.
    */
-  private void extractPropertiesFrom(final Class<?> pClass) {
-    //Iterates the fields of the given pClass.
-    for (final var f : pClass.getDeclaredFields()) {
-      extractPotentialPropertyFrom(f);
+  private void addPropertiesFromClass(final Class<?> paramClass) {
+    for (final var f : paramClass.getDeclaredFields()) {
+      addPotentialPropertyFromField(f);
     }
   }
 
   /**
-   * Extracts the {@link AbstractProperty}s of the current
-   * {@link AbstractPropertiesElement} if they are not extracted yet.
-   */
-  private void extractPropertiesIfNotExtracted() {
-    if (!hasExtractedProperties()) {
-      extractProperties();
-    }
-  }
-
-  /**
-   * Extracts the {@link AbstractProperty} of the
-   * {@link AbstractPropertiesElement} that is from the given field.
+   * Adds the {@link IProperty} from the given field to the current
+   * {@link AbstractPropertiesElement} if the given field contains a
+   * {@link IProperty}.
    * 
    * @param field
-   * @throws IllegalAccessError if the given field is not accessible.
+   * @throws RuntimeException if the given field is null.
    */
-  private void extractPropertyFrom(final Field field) {
+  private void addPotentialPropertyFromField(final Field field) {
+    if (IProperty.class.isAssignableFrom(field.getType())) {
+      addPropertyFromField(field);
+    }
+  }
+
+  /**
+   * Adds the {@link IProperty} from the given field to the current
+   * {@link AbstractPropertiesElement}.
+   * 
+   * @param field
+   * @throws RuntimeException if the given field is null, not accessible or does
+   *                          not have a value.
+   */
+  private void addPropertyFromField(final Field field) {
     try {
       field.setAccessible(true);
 
       final var property = (IProperty) (field.get(this));
 
-      //Asserts that the corresponding Property is not null.
-      Validator.assertThat(property).isOfType(IProperty.class);
-
+      Validator.assertThat(property).thatIsNamed(LowerCaseVariableCatalog.PROPERTY).isNotNull();
       properties.addAtEnd(property);
     } catch (final IllegalAccessException illegalAccessException) {
       throw IllegalAccessErrorMapper.mapIllegalAccessExceptionToIllegalAccessError(illegalAccessException);
@@ -157,20 +154,12 @@ public abstract class AbstractPropertiesElement extends AbstractElement implemen
   }
 
   /**
-   * @return the {@link AbstractProperty}s of the current
+   * @return the {@link IProperty}s of the current
    *         {@link AbstractPropertiesElement}.
    */
   private IContainer<IProperty> getStoredProperties() {
-    extractPropertiesIfNotExtracted();
+    addPropertiesIfNotAdded();
 
     return properties;
-  }
-
-  /**
-   * @return true if the {@link AbstractProperty}s of the current
-   *         {@link AbstractPropertiesElement} are extracted, false otherwise.
-   */
-  private boolean hasExtractedProperties() {
-    return (properties != null);
   }
 }
