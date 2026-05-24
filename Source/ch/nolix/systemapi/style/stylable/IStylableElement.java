@@ -7,7 +7,6 @@ import ch.nolix.baseapi.attribute.fluentmutablemultiattribute.IFluentMutableMult
 import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalIdHolder;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.objectcomposition.type.TypeRequestable;
-import ch.nolix.systemapi.element.base.IStructureElement;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 
 /**
@@ -22,7 +21,6 @@ extends
 IFluentMutableMultiTokenHolder<E>,
 IFluentMutableOptionalIdHolder<E>,
 IMutableElement,
-IStructureElement,
 TypeRequestable {
   /**
    * @return the child {@link IStylableElement}s of the current

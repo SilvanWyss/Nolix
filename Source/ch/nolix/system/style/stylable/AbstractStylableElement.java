@@ -10,7 +10,6 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.mutableelement.AbstractMutableElement;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.OptionalValue;
-import ch.nolix.systemapi.element.base.IStructureElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
 /**
@@ -35,14 +34,6 @@ implements IStylableElement<E> {
     tokens.addValue(token);
 
     return asConcrete();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IContainer<? extends IStructureElement> getChildStructureElements() {
-    return getStoredChildStylableElements();
   }
 
   /**
