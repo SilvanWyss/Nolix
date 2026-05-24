@@ -3,7 +3,9 @@
  */
 package ch.nolix.system.element.base;
 
+import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 
 /**
@@ -26,7 +28,7 @@ public abstract class AbstractElement implements IElement {
    */
   @Override
   public final INode<?> getSpecification() {
-    return SpecificationCreator.getSpecificationOfElement(this);
+    return Node.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
   }
 
   /**
@@ -43,6 +45,20 @@ public abstract class AbstractElement implements IElement {
   @Override
   public final String toString() {
     return getSpecification().toString();
+  }
+
+  /**
+   * @return the header of the specification of the current
+   *         {@link AbstractElement}
+   */
+  private String getSpecificationHeader() {
+    final var localClass = getClass();
+
+    if (!localClass.isAnonymousClass()) {
+      return localClass.getSimpleName();
+    }
+
+    return PascalCaseVariableCatalog.ELEMENT;
   }
 
   /**
