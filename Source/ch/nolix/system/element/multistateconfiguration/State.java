@@ -54,10 +54,6 @@ public final class State<S extends Enum<S>> implements INameHolder {
     return NAME;
   }
 
-  public String getQualifiedName() {
-    return (getQualifyingPrefix() + getName());
-  }
-
   public String getQualifyingPrefix() {
     return qualifyingPrefix;
   }
