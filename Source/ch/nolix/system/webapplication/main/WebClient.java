@@ -96,7 +96,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     final var internalControlId = guiCommand.getSingleChildNodeHeader();
     final var webClientSession = (WebClientSession<C>) getStoredCurrentSession();
     final var gui = webClientSession.getStoredGui();
-    final var controls = gui.getStoredControls();
+    final var controls = gui.getStoredStructureControls();
     final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
 
     //The Control could be removed on the server in the meanwhile.

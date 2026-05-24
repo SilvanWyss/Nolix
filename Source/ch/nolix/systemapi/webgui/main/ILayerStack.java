@@ -22,6 +22,8 @@ public interface ILayerStack extends Clearable {
 
   IContainer<ILayer> getStoredLayers();
 
+  IContainer<IControl<?, ?>> getStoredStructureControls();
+
   ILayer getStoredTopLayer();
 
   boolean hasRemoveLayerAction();

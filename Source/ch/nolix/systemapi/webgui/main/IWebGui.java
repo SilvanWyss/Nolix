@@ -36,6 +36,8 @@ public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHol
 
   IContainer<ILayer> getStoredLayers();
 
+  IContainer<IControl<?, ?>> getStoredStructureControls();
+
   ILayer getStoredTopLayer();
 
   boolean hasRemoveLayerAction();

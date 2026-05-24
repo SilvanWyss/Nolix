@@ -103,7 +103,6 @@ implements IWebGui<WebGui> {
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
   }
 
-  //mehtod
   @Override
   public boolean containsControl(final IControl<?, ?> control) {
     return layerStack.containsControl(control);
@@ -247,6 +246,11 @@ implements IWebGui<WebGui> {
   @Override
   public IContainer<ILayer> getStoredLayers() {
     return layerStack.getStoredLayers();
+  }
+
+  @Override
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+    return layerStack.getStoredStructureControls();
   }
 
   /**
@@ -459,7 +463,7 @@ implements IWebGui<WebGui> {
   }
 
   private void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
-    for (final var c : getStoredControls()) {
+    for (final var c : getStoredStructureControls()) {
       c.registerHtmlElementEventsAt(htmlElementEventRegistrations);
     }
   }

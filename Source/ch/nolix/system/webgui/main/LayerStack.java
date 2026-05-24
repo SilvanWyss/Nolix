@@ -97,6 +97,14 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+    return getStoredLayers().toMultiples(ILayer::getStoredStructureControls);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public ILayer getStoredTopLayer() {
     return getStoredLayers().getStoredLast();
   }
