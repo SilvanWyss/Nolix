@@ -13,14 +13,15 @@ import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.system.element.base.AbstractElement;
+import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.property.base.IProperty;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class AbstractPropertiesElement extends AbstractElement implements IMutableElement {
+public abstract class AbstractPropertiesElement implements IMutableElement {
   private LinkedList<IProperty> properties;
 
   /**
@@ -56,6 +57,14 @@ public abstract class AbstractPropertiesElement extends AbstractElement implemen
    * {@inheritDoc}
    */
   @Override
+  public final boolean equals(final Object object) {
+    return object instanceof SpecificationRepresentable element && hasEqualSpecificationAsElement(element);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final IContainer<INode<?>> getAttributes() {
     //Creates attributes list.
     final LinkedList<INode<?>> attributes = LinkedList.createEmpty();
@@ -68,6 +77,44 @@ public abstract class AbstractPropertiesElement extends AbstractElement implemen
 
     //Returns the attributes list.
     return attributes;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final INode<?> getSpecification() {
+    return Node.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int hashCode() {
+    return getSpecification().hashCode();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final String toString() {
+    return getSpecification().toString();
+  }
+
+  /**
+   * @return the header of the specification of the current
+   *         {@link AbstractPropertiesElement}
+   */
+  private String getSpecificationHeader() {
+    final var localClass = getClass();
+
+    if (!localClass.isAnonymousClass()) {
+      return localClass.getSimpleName();
+    }
+
+    return PascalCaseVariableCatalog.ELEMENT;
   }
 
   /**
