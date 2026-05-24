@@ -4,17 +4,13 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  * @param <S> is the type of the {@link Enum} representation of a {@link State}.
  */
-public final class State<S extends Enum<S>> implements INameHolder {
-  private static final String NAME = PascalCaseVariableCatalog.STATE;
-
+public final class State<S extends Enum<S>> {
   private final String qualifyingPrefix;
 
   private final int index;
@@ -44,14 +40,6 @@ public final class State<S extends Enum<S>> implements INameHolder {
 
   public int getIndex() {
     return index;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String getName() {
-    return NAME;
   }
 
   public String getQualifyingPrefix() {
