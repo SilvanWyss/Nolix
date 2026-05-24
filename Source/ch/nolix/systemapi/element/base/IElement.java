@@ -5,7 +5,6 @@ package ch.nolix.systemapi.element.base;
 
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.document.xml.IXmlNode;
 
 /**
  * @author Silvan Wyss
@@ -27,12 +26,5 @@ public interface IElement {
    */
   default String toFormatedString() {
     return getSpecification().toFormattedString();
-  }
-
-  /**
-   * @return a XML representation of the current {@link IElement}.
-   */
-  default IXmlNode<?> toXml() {
-    return getSpecification().toXml();
   }
 }
