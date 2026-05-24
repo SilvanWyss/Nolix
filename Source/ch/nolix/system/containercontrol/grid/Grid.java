@@ -16,7 +16,6 @@ import ch.nolix.system.property.proxy.MultiValueProxy;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.grid.IGrid;
 import ch.nolix.systemapi.containercontrol.grid.IGridStyle;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -113,9 +112,8 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
-    return (IContainer<T>) getStoredChildControls();
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+    return getStoredChildControls();
   }
 
   /**

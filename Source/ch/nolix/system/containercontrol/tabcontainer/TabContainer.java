@@ -26,7 +26,6 @@ import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerStyle;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerTab;
 import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -157,9 +156,8 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
-    return (IContainer<T>) ImmutableList.withElement(internalGetStoredRootVerticalStack());
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+    return ImmutableList.withElement(internalGetStoredRootVerticalStack());
   }
 
   /**

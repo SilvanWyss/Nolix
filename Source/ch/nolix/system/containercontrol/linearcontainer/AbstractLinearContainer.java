@@ -11,7 +11,6 @@ import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainer;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
@@ -84,9 +83,8 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
-  public final <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
-    return (IContainer<T>) getStoredChildControls();
+  public final IContainer<IControl<?, ?>> getStoredStructureControls() {
+    return getStoredChildControls();
   }
 
   /**

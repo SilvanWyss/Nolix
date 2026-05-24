@@ -11,7 +11,6 @@ import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainerStyle;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -63,9 +62,8 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
-    return (IContainer<T>) getStoredChildControls();
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+    return getStoredChildControls();
   }
 
   /**

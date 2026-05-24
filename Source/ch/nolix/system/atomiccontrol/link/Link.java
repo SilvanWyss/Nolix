@@ -25,7 +25,6 @@ import ch.nolix.systemapi.atomiccontrol.link.ILink;
 import ch.nolix.systemapi.atomiccontrol.link.ILinkStyle;
 import ch.nolix.systemapi.gui.font.LineDecoration;
 import ch.nolix.systemapi.gui.model.CursorIcon;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -105,7 +104,7 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
    * {@inheritDoc}
    */
   @Override
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

@@ -22,7 +22,6 @@ import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.imagecontrol.IImageControl;
 import ch.nolix.systemapi.atomiccontrol.imagecontrol.IImageControlStyle;
 import ch.nolix.systemapi.graphic.image.IImage;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -119,7 +118,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

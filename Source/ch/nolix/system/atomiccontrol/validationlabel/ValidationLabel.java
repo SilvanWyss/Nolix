@@ -18,7 +18,6 @@ import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabelStyle;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -83,7 +82,7 @@ implements IValidationLabel {
    * {@inheritDoc}
    */
   @Override
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

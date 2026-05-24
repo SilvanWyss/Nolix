@@ -57,7 +57,7 @@ PresenceSettable<C> {
 
   ILayer getStoredParentLayer();
 
-  <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls();
+  IContainer<IControl<?, ?>> getStoredStructureControls();
 
   S getStoredStyle();
 

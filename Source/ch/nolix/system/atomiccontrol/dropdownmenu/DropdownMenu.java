@@ -13,7 +13,6 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenuStyle;
-import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
@@ -50,7 +49,7 @@ public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdow
    * {@inheritDoc}
    */
   @Override
-  public <T extends IControl<T, X>, X extends IControlStyle<X>> IContainer<T> getStoredStructureControls() {
+  public IContainer<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 
