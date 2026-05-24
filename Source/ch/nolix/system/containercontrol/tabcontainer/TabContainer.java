@@ -26,6 +26,7 @@ import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerStyle;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerTab;
 import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
+import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -75,6 +76,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
 
     rootVerticalStack.internalSetControlParent(controlParent);
     rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
+    rootVerticalStack.setContentAlignment(HorizontalContentAlignment.LEFT);
 
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
@@ -103,6 +105,8 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
 
     final var menuButton = new Button().setLeftMouseButtonPressAction(tab::select);
 
+    menuButton.removeMinWidth();
+    menuButton.getStoredStyle().removeCustomPaddings();
     menuHorizontalStack.addControl(menuButton);
 
     return this;
@@ -299,7 +303,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    */
   @Override
   protected void resetContainer() {
-    clear();
+    //Does nothing.
   }
 
   /**
