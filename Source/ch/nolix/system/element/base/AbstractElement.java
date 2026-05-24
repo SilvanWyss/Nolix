@@ -7,6 +7,7 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;
+import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 
 /**
  * @author Silvan Wyss
@@ -17,10 +18,7 @@ public abstract class AbstractElement implements IElement {
    */
   @Override
   public final boolean equals(final Object object) {
-    return //
-    object != null
-    && getClass() == object.getClass()
-    && hasSameSpecificationAs((AbstractElement) object);
+    return object instanceof SpecificationRepresentable element && hasEqualSpecificationAsElement(element);
   }
 
   /**
@@ -59,14 +57,5 @@ public abstract class AbstractElement implements IElement {
     }
 
     return PascalCaseVariableCatalog.ELEMENT;
-  }
-
-  /**
-   * @param abstractElement
-   * @return true if the current {@link AbstractElement} has the same
-   *         specification as the given element, false otherwise.
-   */
-  private boolean hasSameSpecificationAs(final AbstractElement abstractElement) {
-    return getSpecification().equals(abstractElement.getSpecification());
   }
 }
