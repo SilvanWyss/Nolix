@@ -21,7 +21,7 @@ public interface SpecificationRepresentable {
    * @return true if the current {@link SpecificationRepresentable} has an equal
    *         specification as the given element, false otherwise
    */
-  default boolean hasEqualSpecificationAsElement(final IElement element) {
+  default boolean hasEqualSpecificationAsElement(final SpecificationRepresentable element) {
     return element != null && getSpecification().equals(element.getSpecification());
   }
 
