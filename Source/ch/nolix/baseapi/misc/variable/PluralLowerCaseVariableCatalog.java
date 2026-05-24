@@ -309,6 +309,8 @@ public final class PluralLowerCaseVariableCatalog {
 
   public static final String PRICES = "prices";
 
+  public static final String PROPERTIES = "properties";
+
   public static final String RADII = "radii";
 
   public static final String REASONS = "reasons";

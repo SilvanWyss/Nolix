@@ -307,6 +307,8 @@ public final class LowerCaseVariableCatalog {
 
   public static final String PRICE = "price";
 
+  public static final String PROPERTY = "property";
+
   public static final String RADIUS = "radius";
 
   public static final String REASON = "reason";

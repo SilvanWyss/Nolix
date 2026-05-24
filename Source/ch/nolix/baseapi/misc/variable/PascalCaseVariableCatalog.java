@@ -307,6 +307,8 @@ public final class PascalCaseVariableCatalog {
 
   public static final String PRICE = "Price";
 
+  public static final String PROPERTY = "Property";
+
   public static final String RADIUS = "Radius";
 
   public static final String REASON = "Reason";

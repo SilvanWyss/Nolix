@@ -309,6 +309,8 @@ public final class PluralPascalCaseVariableCatalog {
 
   public static final String PRICES = "Prices";
 
+  public static final String PROPERTIES = "Properties";
+
   public static final String RADII = "Radii";
 
   public static final String REASONS = "Reasons";
