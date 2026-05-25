@@ -56,8 +56,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param valueMapper
    * @param <E>         the type of the values of a {@link MultiValue}
    * @return a new {@link MultiValue} with the given name, adder and valueMapper
-   *         that can store {@link IElement}s that can be of different sub types
-   *         of <E>
+   *         that can store {@link IElement}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
@@ -75,7 +74,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param valueMapper
    * @param <E>         the type of the values of a {@link MultiValue}
    * @return a new {@link MultiValue} with the given name, adder and valueMapper
-   *         that can store {@link IElement}s that are of the type of <E>
+   *         that can store {@link IElement}s
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
