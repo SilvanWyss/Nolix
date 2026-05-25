@@ -59,7 +59,10 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
   private final SingleContainer canvasSingleContainer = new SingleContainer();
 
   private final MultiValue<ITabContainerTab> memberTabs = //
-  MultiValue.forElementsWithNameAndAdderAndValueMapper(TAB_HEADER, this::addTab, TabContainerTab::fromSpecification);
+  MultiValue.forElementsOfSameTypeWithNameAndAdderAndValueMapper(
+    TAB_HEADER,
+    this::addTab,
+    TabContainerTab::fromSpecification);
 
   private final Value<IButtonStyle> menuButtonStyle = //
   Value.forElementWithNameAndDefaultValueAndSetterAndValueMapper(

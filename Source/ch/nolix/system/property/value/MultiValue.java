@@ -54,18 +54,37 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param name
    * @param adder
    * @param valueMapper
-   * @param <E>         is the type of the values of a {@link MultiValue}.
+   * @param <E>         the type of the values of a {@link MultiValue}
    * @return a new {@link MultiValue} with the given name, adder and valueMapper
-   *         that can store {@link IElement}s.
-   * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given adder is null.
-   * @throws RuntimeException if the given valueMapper is null.
+   *         that can store {@link IElement}s that can be of different sub types
+   *         of <E>
+   * @throws RuntimeException if the given name is null or blank
+   * @throws RuntimeException if the given adder is null
+   * @throws RuntimeException if the given valueMapper is null
+   */
+  public static <E extends IElement> MultiValue<E> forElementsOfSameTypeWithNameAndAdderAndValueMapper(
+    final String name,
+    final Consumer<E> adder,
+    final Function<INode<?>, E> valueMapper) {
+    return new MultiValue<>(name, adder, valueMapper, IElement::getSpecification);
+  }
+
+  /**
+   * @param name
+   * @param adder
+   * @param valueMapper
+   * @param <E>         the type of the values of a {@link MultiValue}
+   * @return a new {@link MultiValue} with the given name, adder and valueMapper
+   *         that can store {@link IElement}s that are of the type of <E>
+   * @throws RuntimeException if the given name is null or blank
+   * @throws RuntimeException if the given adder is null
+   * @throws RuntimeException if the given valueMapper is null
    */
   public static <E extends IElement> MultiValue<E> forElementsWithNameAndAdderAndValueMapper(
     final String name,
     final Consumer<E> adder,
     final Function<INode<?>, E> valueMapper) {
-    return new MultiValue<>(name, adder, valueMapper, IElement::getSpecification);
+    return new MultiValue<>(name, adder, valueMapper, e -> Node.withChildNode(e.getSpecification()));
   }
 
   /**
