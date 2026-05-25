@@ -16,6 +16,7 @@ import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.containercontrol.horizontalstack.HorizontalStack;
 import ch.nolix.system.containercontrol.singlecontainer.SingleContainer;
 import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
@@ -29,6 +30,7 @@ import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
@@ -80,9 +82,15 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
     rootVerticalStack.internalSetControlParent(controlParent);
     rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
     rootVerticalStack.setContentAlignment(HorizontalContentAlignment.LEFT);
+    menuHorizontalStack.getStoredStyle().setChildControlMarginForState(ControlState.BASE, 10);
 
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
+
+    getStoredMenuButtonStyle()
+      .forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.LIGHT_GREY)
+      .forStateSetBackgroundColor(ControlState.HOVER, X11ColorCatalog.DARK_GREY)
+      .forStateSetBackgroundColor(ControlState.FOCUS, X11ColorCatalog.DARK_GREY);
   }
 
   /**
