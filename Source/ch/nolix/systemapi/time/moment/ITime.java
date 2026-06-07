@@ -139,4 +139,12 @@ public interface ITime extends IElement {
    *         from the current {@link ITime}.
    */
   ITime withAddedOrSubtractedSeconds(int seconds);
+
+  /**
+   * @param timeZone
+   * @return a new {@link ITime} from the current {@link ITime} that has the given
+   *         timeZone
+   * @throws RuntimeException if the given timeZone is null
+   */
+  ITime withTimeZone(TimeZone timeZone);
 }

@@ -5,6 +5,7 @@ package ch.nolix.system.time.moment;
 
 import java.time.Year;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
@@ -636,5 +637,69 @@ extends AbstractElement implements ITime {
   @Override
   public Time withAddedOrSubtractedSeconds(final int seconds) {
     return forZonedDateTime(internalZonedDateTime.plusSeconds(seconds));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public ITime withTimeZone(final TimeZone timeZone) {
+    final var zoneId = //
+    switch (timeZone) {
+      case UTC_MINUS_11 ->
+        ZoneOffset.ofHours(-11);
+      case UTC_MINUS_10 ->
+        ZoneOffset.ofHours(-10);
+      case UTC_MINUS_9 ->
+        ZoneOffset.ofHours(-9);
+      case UTC_MINUS_8 ->
+        ZoneOffset.ofHours(-8);
+      case UTC_MINUS_7 ->
+        ZoneOffset.ofHours(-7);
+      case UTC_MINUS_6 ->
+        ZoneOffset.ofHours(-6);
+      case UTC_MINUS_5 ->
+        ZoneOffset.ofHours(-5);
+      case UTC_MINUS_4 ->
+        ZoneOffset.ofHours(-4);
+      case UTC_MINUS_3 ->
+        ZoneOffset.ofHours(-3);
+      case UTC_MINUS_2 ->
+        ZoneOffset.ofHours(-2);
+      case UTC_MINUS_1 ->
+        ZoneOffset.ofHours(-1);
+      case UTC ->
+        ZoneOffset.ofHours(0);
+      case UTC_PLUS_1 ->
+        ZoneOffset.ofHours(1);
+      case UTC_PLUS_2 ->
+        ZoneOffset.ofHours(2);
+      case UTC_PLUS_3 ->
+        ZoneOffset.ofHours(3);
+      case UTC_PLUS_4 ->
+        ZoneOffset.ofHours(4);
+      case UTC_PLUS_5 ->
+        ZoneOffset.ofHours(5);
+      case UTC_PLUS_6 ->
+        ZoneOffset.ofHours(6);
+      case UTC_PLUS_7 ->
+        ZoneOffset.ofHours(7);
+      case UTC_PLUS_8 ->
+        ZoneOffset.ofHours(8);
+      case UTC_PLUS_9 ->
+        ZoneOffset.ofHours(9);
+      case UTC_PLUS_10 ->
+        ZoneOffset.ofHours(10);
+      case UTC_PLUS_11 ->
+        ZoneOffset.ofHours(11);
+      case UTC_PLUS_12 ->
+        ZoneOffset.ofHours(12);
+      default ->
+        throw InvalidArgumentException.forArgumentAndArgumentName(timeZone, "time zone");
+    };
+
+    final var zonedDateTime = internalZonedDateTime.withZoneSameLocal(zoneId);
+
+    return forZonedDateTime(zonedDateTime);
   }
 }
