@@ -5,6 +5,7 @@ package ch.nolix.systemapi.time.moment;
 
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.time.timestructure.Month;
+import ch.nolix.systemapi.time.timestructure.TimeZone;
 import ch.nolix.systemapi.time.timestructure.Weekday;
 
 /**
@@ -52,6 +53,11 @@ public interface ITime extends IElement {
    * @return the second of the minute of the current {@link ITime}.
    */
   int getSecondOfMinute();
+
+  /**
+   * @return the time zone of the current {@link ITime}.
+   */
+  TimeZone getTimeZone();
 
   /**
    * @return the weekday of the current {@link ITime}.

@@ -12,11 +12,13 @@ import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.document.node.INode;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.time.moment.ITime;
 import ch.nolix.systemapi.time.timestructure.Month;
+import ch.nolix.systemapi.time.timestructure.TimeZone;
 import ch.nolix.systemapi.time.timestructure.Weekday;
 
 /**
@@ -27,6 +29,8 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
  */
 public final class Time //NOSONAR: A Time is a principal object thus it has many methods.
 extends AbstractElement implements ITime {
+  public static final TimeZone DEFAULT_TIME_ZONE = TimeZone.UTC;
+
   public static final int DEFAULT_YEAR = 2000;
 
   public static final int DEFAULT_MONTH_OF_YEAR = 1;
@@ -461,6 +465,69 @@ extends AbstractElement implements ITime {
   @Override
   public int getSecondOfMinute() {
     return internalZonedDateTime.getSecond();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public TimeZone getTimeZone() {
+    final var offset = internalZonedDateTime.getOffset().toString();
+
+    return //
+    switch (offset) {
+      case "-11:00" ->
+        TimeZone.UTC_MINUS_11;
+      case "-10:00" ->
+        TimeZone.UTC_MINUS_10;
+      case "-09:00" ->
+        TimeZone.UTC_MINUS_9;
+      case "-08:00" ->
+        TimeZone.UTC_MINUS_8;
+      case "-07:00" ->
+        TimeZone.UTC_MINUS_7;
+      case "-06:00" ->
+        TimeZone.UTC_MINUS_6;
+      case "05:00" ->
+        TimeZone.UTC_MINUS_5;
+      case "-04:00" ->
+        TimeZone.UTC_MINUS_4;
+      case "-03:00" ->
+        TimeZone.UTC_MINUS_3;
+      case "-02:00" ->
+        TimeZone.UTC_MINUS_2;
+      case "-01:00" ->
+        TimeZone.UTC_MINUS_1;
+      case "Z" ->
+        TimeZone.UTC;
+      case "+01:00" ->
+        TimeZone.UTC_PLUS_1;
+      case "+02:00" ->
+        TimeZone.UTC_PLUS_2;
+      case "+03:00" ->
+        TimeZone.UTC_PLUS_3;
+      case "+04:00" ->
+        TimeZone.UTC_PLUS_4;
+      case "+05:00" ->
+        TimeZone.UTC_PLUS_5;
+      case "+06:00" ->
+        TimeZone.UTC_PLUS_6;
+      case "+07:00" ->
+        TimeZone.UTC_PLUS_7;
+      case "+08:00" ->
+        TimeZone.UTC_PLUS_8;
+      case "+09:00" ->
+        TimeZone.UTC_PLUS_9;
+      case "+10:00" ->
+        TimeZone.UTC_PLUS_10;
+      case "+11:00" ->
+        TimeZone.UTC_PLUS_11;
+      case "+12:00" ->
+        TimeZone.UTC_PLUS_12;
+
+      default ->
+        throw InvalidArgumentException.forArgumentAndArgumentName(offset, "offset");
+    };
   }
 
   /**
