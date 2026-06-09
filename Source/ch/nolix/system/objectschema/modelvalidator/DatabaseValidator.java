@@ -87,7 +87,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
     if (!DATABASE_EXAMINER.containsTableReferencedByColumn(database, column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         database,
-        "does not contain a table that is referenced by the column " + column.getNameInQuotes());
+        "does not contain a table that is referenced by the column " + column.getNameInSingleQuotes());
     }
   }
 

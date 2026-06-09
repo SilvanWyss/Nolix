@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.mandatoryattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link INameHolder} has a name.
  * 
@@ -10,21 +12,21 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface INameHolder {
   /**
-   * @return the name of the current {@link INameHolder}.
+   * @return the name of the current {@link INameHolder}
    */
   String getName();
 
   /**
-   * @return the name of the current {@link INameHolder} in quotes.
+   * @return the name of the current {@link INameHolder} in single quotes
    */
-  default String getNameInQuotes() {
-    return ("'" + getName() + "'");
+  default String getNameInSingleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getName() + StringCatalog.SINGLE_QUOTE;
   }
 
   /**
    * @param name
    * @return true if the current {@link INameHolder} has the given name, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean hasName(final String name) {
     return getName().equals(name);
@@ -33,15 +35,9 @@ public interface INameHolder {
   /**
    * @param nameHolder
    * @return true if the current {@link INameHolder} has the same name as the
-   *         given nameHolder, false otherwise.
+   *         given nameHolder, false otherwise
    */
   default boolean hasSameNameAs(final INameHolder nameHolder) {
-    //Handles the case that the given nameHolder is null.
-    if (nameHolder == null) {
-      return false;
-    }
-
-    //Handles the case that the given nameHolder is not null.
-    return hasName(nameHolder.getName());
+    return nameHolder != null && getName().equals(nameHolder.getName());
   }
 }

@@ -17,7 +17,7 @@ final class NameHolderTest extends StandardTest {
     final var testUnit = MockNameHolder.withName("my_name");
 
     //execution
-    final var result = testUnit.getNameInQuotes();
+    final var result = testUnit.getNameInSingleQuotes();
 
     //verification
     expect(result).isEqualTo("'my_name'");
