@@ -53,6 +53,8 @@ public final class CharacterCatalog {
 
   public static final char NEW_LINE = '\n';
 
+  public static final char ONE = '1';
+
   public static final char OPEN_BRACKET = '(';
 
   public static final char OPEN_CROCODILE_BRACKET = '<';
