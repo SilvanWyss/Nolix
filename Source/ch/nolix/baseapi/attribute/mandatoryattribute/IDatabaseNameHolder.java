@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.mandatoryattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link IDatabaseNameHolder} has a database name.
  * 
@@ -10,15 +12,15 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface IDatabaseNameHolder {
   /**
-   * @return the database name of the current {@link IDatabaseNameHolder}.
+   * @return the database name of the current {@link IDatabaseNameHolder}
    */
   String getDatabaseName();
 
   /**
    * @return the database name of the current {@link IDatabaseNameHolder} in
-   *         quotes.
+   *         single quotes
    */
-  default String getDatabaseNameInQuotes() {
-    return ("'" + getDatabaseName() + "'");
+  default String getDatabaseNameInSingleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getDatabaseName() + StringCatalog.SINGLE_QUOTE;
   }
 }
