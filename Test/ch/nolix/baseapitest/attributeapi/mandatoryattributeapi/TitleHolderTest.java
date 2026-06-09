@@ -17,7 +17,7 @@ final class TitleHolderTest extends StandardTest {
     final var testUnit = MockTitleHolder.withTitle("my_title");
 
     //execution
-    final var result = testUnit.getTitleInQuotes();
+    final var result = testUnit.getTitleInSingleQuotes();
 
     //verification
     expect(result).isEqualTo("'my_title'");

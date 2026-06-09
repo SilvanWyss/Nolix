@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.mandatoryattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link ITitleHolder} has a title.
  * 
@@ -10,14 +12,14 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface ITitleHolder {
   /**
-   * @return the title of the current {@link ITitleHolder}.
+   * @return the title of the current {@link ITitleHolder}
    */
   String getTitle();
 
   /**
-   * @return the title of the current {@link ITitleHolder} in quotes.
+   * @return the title of the current {@link ITitleHolder} in single quotes
    */
-  default String getTitleInQuotes() {
-    return ("'" + getTitle() + "'");
+  default String getTitleInSingleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getTitle() + StringCatalog.SINGLE_QUOTE;
   }
 }
