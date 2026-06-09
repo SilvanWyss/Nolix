@@ -7,10 +7,10 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalIdHolder;
 
 /**
  * A {@link IFluentMutableOptionalIdHolder} is a {@link IOptionalIdHolder} whose
- * id can be set and removed programmatically and fluently.
+ * id can be set programmatically and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableOptionalIdHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalIdHolder}
  */
 public interface IFluentMutableOptionalIdHolder<H extends IFluentMutableOptionalIdHolder<H>> extends IOptionalIdHolder {
   /**
@@ -22,9 +22,8 @@ public interface IFluentMutableOptionalIdHolder<H extends IFluentMutableOptional
    * Sets the id of the current {@link IFluentMutableOptionalIdHolder}.
    * 
    * @param id
-   * @return the current {@link IFluentMutableOptionalIdHolder}.
-   * @throws RuntimeException if the given id is null.
-   * @throws RuntimeException if the given id is blank.
+   * @return the current {@link IFluentMutableOptionalIdHolder}
+   * @throws RuntimeException if the given id is null or blank
    */
   H setId(String id);
 }

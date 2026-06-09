@@ -7,12 +7,11 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalQualifiedNameHolder
 
 /**
  * A {@link IFluentMutableOptionalQualifiedNameHolder} is a
- * {@link IOptionalQualifiedNameHolder} whose name can be set and removed
- * programmatically and fluently.
+ * {@link IOptionalQualifiedNameHolder} whose name can be set programmatically
+ * and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a
- *            {@link IFluentMutableOptionalQualifiedNameHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalQualifiedNameHolder}
  */
 public interface IFluentMutableOptionalQualifiedNameHolder<H extends IFluentMutableOptionalQualifiedNameHolder<H>>
 extends IFluentMutableOptionalNameHolder<H>, IOptionalQualifiedNameHolder {

@@ -7,10 +7,11 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalTitleHolder;
 
 /**
  * A {@link IFluentMutableOptionalTitleHolder} is a {@link IOptionalTitleHolder}
- * whose title can be set and removed programmatically and fluently.
+ * whose title can be set programmatically and fluently and removed
+ * programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableOptionalTitleHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalTitleHolder}
  */
 public interface IFluentMutableOptionalTitleHolder<H extends IFluentMutableOptionalTitleHolder<H>>
 extends IOptionalTitleHolder {
@@ -23,9 +24,8 @@ extends IOptionalTitleHolder {
    * Sets the title of the current {@link IFluentMutableOptionalTitleHolder}.
    * 
    * @param title
-   * @return the current {@link IFluentMutableOptionalTitleHolder}.
-   * @throws RuntimeException if the given title is null.
-   * @throws RuntimeException if the given title is blank.
+   * @return the current {@link IFluentMutableOptionalTitleHolder}
+   * @throws RuntimeException if the given title is null or blank
    */
   H setTitle(String title);
 }

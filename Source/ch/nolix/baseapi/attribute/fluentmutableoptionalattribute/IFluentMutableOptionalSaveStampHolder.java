@@ -7,11 +7,11 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalSaveStampHolder;
 
 /**
  * A {@link IFluentMutableOptionalSaveStampHolder} is a
- * {@link IOptionalSaveStampHolder} whose save stamp can be set and removed
- * programmatically and fluently.
+ * {@link IOptionalSaveStampHolder} whose save stamp can be set programmatically
+ * and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableOptionalSaveStampHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalSaveStampHolder}
  */
 public interface IFluentMutableOptionalSaveStampHolder<H extends IFluentMutableOptionalSaveStampHolder<H>>
 extends IOptionalSaveStampHolder {
@@ -26,9 +26,8 @@ extends IOptionalSaveStampHolder {
    * {@link IFluentMutableOptionalSaveStampHolder}.
    * 
    * @param saveStamp
-   * @return the current {@link IFluentMutableOptionalSaveStampHolder}.
-   * @throws RuntimeException if the given saveStamp is null.
-   * @throws RuntimeException if the given saveStamp is blank.
+   * @return the current {@link IFluentMutableOptionalSaveStampHolder}
+   * @throws RuntimeException if the given saveStamp is null or blank
    */
   H setSaveStamp(String saveStamp);
 }

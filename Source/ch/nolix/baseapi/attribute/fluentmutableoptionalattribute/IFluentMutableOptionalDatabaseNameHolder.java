@@ -7,11 +7,11 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
 
 /**
  * A {@link IFluentMutableOptionalDatabaseNameHolder} is a
- * {@link IDatabaseNameHolder} whose database name can be set and removed
- * programmatically and fluently.
+ * {@link IDatabaseNameHolder} whose database name can be set programmatically
+ * and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableOptionalDatabaseNameHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalDatabaseNameHolder}
  */
 public interface IFluentMutableOptionalDatabaseNameHolder<H extends IFluentMutableOptionalDatabaseNameHolder<H>>
 extends IDatabaseNameHolder {
@@ -26,8 +26,8 @@ extends IDatabaseNameHolder {
    * {@link IFluentMutableOptionalDatabaseNameHolder}.
    * 
    * @param databaseName
-   * @return the current {@link IFluentMutableOptionalDatabaseNameHolder}.
-   * @throws RuntimeException if the given databaseName is null or blank.
+   * @return the current {@link IFluentMutableOptionalDatabaseNameHolder}
+   * @throws RuntimeException if the given databaseName is null or blank
    */
   H setDatabaseName(String databaseName);
 }

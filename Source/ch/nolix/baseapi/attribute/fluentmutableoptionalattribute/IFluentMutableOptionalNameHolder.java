@@ -7,10 +7,11 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalNameHolder;
 
 /**
  * A {@link IFluentMutableOptionalNameHolder} is a {@link IOptionalNameHolder}
- * whose name can be set and removed programmatically and fluently.
+ * whose name can be set programmatically and fluently and removed
+ * programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableOptionalNameHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalNameHolder}
  */
 public interface IFluentMutableOptionalNameHolder<H extends IFluentMutableOptionalNameHolder<H>>
 extends IOptionalNameHolder {
@@ -23,9 +24,8 @@ extends IOptionalNameHolder {
    * Sets the name of the current {@link IFluentMutableOptionalNameHolder}.
    * 
    * @param name
-   * @return the current {@link IFluentMutableOptionalNameHolder}.
-   * @throws RuntimeException if the given name is null.
-   * @throws RuntimeException if the given name is blank.
+   * @return the current {@link IFluentMutableOptionalNameHolder}
+   * @throws RuntimeException if the given name is null or blank
    */
   H setName(String name);
 }

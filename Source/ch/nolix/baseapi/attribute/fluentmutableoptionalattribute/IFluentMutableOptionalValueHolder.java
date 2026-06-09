@@ -7,12 +7,13 @@ import ch.nolix.baseapi.attribute.optionalattribute.IOptionalValueHolder;
 
 /**
  * A {@link IFluentMutableOptionalValueHolder} is a {@link IOptionalValueHolder}
- * whose value can be set and removed programmatically and fluently.
+ * whose value can be set programmatically and fluently and removed
+ * programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableOptionalValueHolder}.
- * @param <V> is the type of the value of a
- *            {@link IFluentMutableOptionalValueHolder}.
+ * @param <H> the type of a {@link IFluentMutableOptionalValueHolder}
+ * @param <V> the type of the value of a
+ *            {@link IFluentMutableOptionalValueHolder}
  */
 public interface IFluentMutableOptionalValueHolder<H extends IFluentMutableOptionalValueHolder<H, V>, V>
 extends IOptionalValueHolder<V> {
@@ -25,8 +26,8 @@ extends IOptionalValueHolder<V> {
    * Sets the value of the current {@link IFluentMutableOptionalValueHolder}.
    * 
    * @param value
-   * @return the current {@link IFluentMutableOptionalValueHolder}.
-   * @throws RuntimeException if the given value is null.
+   * @return the current {@link IFluentMutableOptionalValueHolder}
+   * @throws RuntimeException if the given value is null
    */
   H setValue(String value);
 }
