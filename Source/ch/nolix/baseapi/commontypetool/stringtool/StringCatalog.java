@@ -71,11 +71,11 @@ public final class StringCatalog {
 
   public static final String QUESTION_MARK = "?";
 
-  public static final String QUOTE = "'";
-
   public static final String RIGHT_ARROW = "\u2192";
 
   public static final String SEMICOLON = ";";
+
+  public static final String SINGLE_QUOTE = "'";
 
   public static final String SLASH = "/";
 
