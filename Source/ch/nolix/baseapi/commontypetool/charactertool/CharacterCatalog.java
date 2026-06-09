@@ -61,11 +61,11 @@ public final class CharacterCatalog {
 
   public static final char QUESTION_MARK = '?';
 
-  public static final char QUOTE = '\'';
-
   public static final char RIGHT_ARROW = '\u2192';
 
   public static final char SEMICOLON = ';';
+
+  public static final char SINGLE_QUOTE = '\'';
 
   public static final char SLASH = '/';
 
