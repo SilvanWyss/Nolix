@@ -7,27 +7,26 @@ import ch.nolix.baseapi.attribute.multiattribute.IMultiTagHolder;
 
 /**
  * A {@link IFluentMutableMultiTagHolder} is a {@link IMultiTagHolder} whose
- * tags can be added and removed programmatically and fluently.
+ * tags can be added programmatically and fluently and removed programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableMultiTagHolder}.
+ * @param <H> the type of a {@link IFluentMutableMultiTagHolder}
  */
 public interface IFluentMutableMultiTagHolder<H extends IFluentMutableMultiTagHolder<H>> extends IMultiTagHolder {
   /**
    * Adds the given tag to the current {@link IFluentMutableMultiTagHolder} if the
-   * current {@link IFluentMutableMultiTagHolder} does not contain already such a
-   * tag.
+   * current {@link IFluentMutableMultiTagHolder} does not contain already the
+   * given tag.
    * 
    * @param tag
-   * @return the current {@link IFluentMutableMultiTagHolder}.
-   * @throws RuntimeException if the given tag is null or blank.
+   * @return the current {@link IFluentMutableMultiTagHolder}
+   * @throws RuntimeException if the given tag is null or blank
    */
   H addTag(String tag);
 
   /**
-   * Removes the tag that equals the given tag from the current
-   * {@link IFluentMutableMultiTagHolder} if the current
-   * {@link IFluentMutableMultiTagHolder} contains such a tag.
+   * Removes the given tag from the current {@link IFluentMutableMultiTagHolder}
+   * if the current {@link IFluentMutableMultiTagHolder} contains the given tag.
    * 
    * @param tag
    */

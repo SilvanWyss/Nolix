@@ -7,25 +7,28 @@ import ch.nolix.baseapi.attribute.multiattribute.IMultiTokenHolder;
 
 /**
  * A {@link IFluentMutableMultiTokenHolder} is a {@link IMultiTokenHolder} whose
- * tokens can be added and removed programmatically and fluently.
+ * tokens can be added programmatically and fluently and removed
+ * programmatically.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableMultiTokenHolder}.
+ * @param <H> the type of a {@link IFluentMutableMultiTokenHolder}
  */
 public interface IFluentMutableMultiTokenHolder<H extends IFluentMutableMultiTokenHolder<H>> extends IMultiTokenHolder {
   /**
-   * Adds the given token to the current {@link IFluentMutableMultiTokenHolder}.
+   * Adds the given token to the current {@link IFluentMutableMultiTokenHolder} if
+   * the current {@link IFluentMutableMultiTokenHolder} does not contain already
+   * the given token.
    * 
    * @param token
-   * @return the current {@link IFluentMutableMultiTokenHolder}.
-   * @throws RuntimeException if the given token is null or blank.
+   * @return the current {@link IFluentMutableMultiTokenHolder}
+   * @throws RuntimeException if the given token is null or blank
    */
   H addToken(String token);
 
   /**
-   * Removes the token that equals the given token from the current
+   * Removes the given token from the current
    * {@link IFluentMutableMultiTokenHolder} if the current
-   * {@link IFluentMutableMultiTokenHolder} contains such a token.
+   * {@link IFluentMutableMultiTokenHolder} contains the given token.
    * 
    * @param token
    */
