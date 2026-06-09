@@ -6,6 +6,6 @@ package ch.nolix.baseapi.commontypetool.arraytool;
 /**
  * @author Silvan Wyss
  */
-public interface IByteArrayMediatorWithStartIndex {
+public interface IByteArrayWithStartIndexMediator {
   INextIndexMediator write(byte[] bytes);
 }

@@ -7,5 +7,5 @@ package ch.nolix.baseapi.commontypetool.arraytool;
  * @author Silvan Wyss
  */
 public interface IByteArrayMediator {
-  IByteArrayMediatorWithStartIndex fromIndex(int index);
+  IByteArrayWithStartIndexMediator fromIndex(int index);
 }

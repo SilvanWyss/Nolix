@@ -5,7 +5,7 @@ package ch.nolix.base.commontypetool.arraytool;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayMediator;
-import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
+import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayWithStartIndexMediator;
 
 /**
  * @author Silvan Wyss
@@ -27,7 +27,7 @@ public final class ByteArrayMediator implements IByteArrayMediator {
    * {@inheritDoc}
    */
   @Override
-  public IByteArrayMediatorWithStartIndex fromIndex(final int index) {
-    return ByteArrayMediatorWithStartIndex.forByteArrayAndStartIndex(byteArray, index);
+  public IByteArrayWithStartIndexMediator fromIndex(final int index) {
+    return ByteArrayWithStartIndexMediator.forByteArrayAndStartIndex(byteArray, index);
   }
 }

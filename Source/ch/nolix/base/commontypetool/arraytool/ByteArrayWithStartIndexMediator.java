@@ -4,19 +4,19 @@
 package ch.nolix.base.commontypetool.arraytool;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayMediatorWithStartIndex;
+import ch.nolix.baseapi.commontypetool.arraytool.IByteArrayWithStartIndexMediator;
 import ch.nolix.baseapi.commontypetool.arraytool.INextIndexMediator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  */
-public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediatorWithStartIndex {
+public final class ByteArrayWithStartIndexMediator implements IByteArrayWithStartIndexMediator {
   private final byte[] byteArray;
 
   private int index;
 
-  private ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
+  private ByteArrayWithStartIndexMediator(final byte[] byteArray, final int startIndex) {
     Validator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
     Validator
@@ -28,9 +28,9 @@ public final class ByteArrayMediatorWithStartIndex implements IByteArrayMediator
     index = startIndex;
   }
 
-  public static ByteArrayMediatorWithStartIndex forByteArrayAndStartIndex(final byte[] byteArray,
+  public static ByteArrayWithStartIndexMediator forByteArrayAndStartIndex(final byte[] byteArray,
     final int startIndex) {
-    return new ByteArrayMediatorWithStartIndex(byteArray, startIndex);
+    return new ByteArrayWithStartIndexMediator(byteArray, startIndex);
   }
 
   /**
