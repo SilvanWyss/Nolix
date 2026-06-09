@@ -10,14 +10,14 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface ITokenHolder {
   /**
-   * @return the token of the current {@link ITokenHolder}.
+   * @return the token of the current {@link ITokenHolder}
    */
   String getToken();
 
   /**
    * @param token
    * @return true if the current {@link ITokenHolder} has the given token, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean hasToken(final String token) {
     return getToken().equals(token);
