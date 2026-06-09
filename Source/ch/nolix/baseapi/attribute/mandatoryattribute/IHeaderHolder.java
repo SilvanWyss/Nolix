@@ -17,7 +17,7 @@ public interface IHeaderHolder {
   String getHeader();
 
   /**
-   * @return the header of the current {@link IHeaderHolder} in single quotes.
+   * @return the header of the current {@link IHeaderHolder} in single quotes
    */
   default String getHeaderInSingleQuotes() {
     return StringCatalog.SINGLE_QUOTE + getHeader() + StringCatalog.SINGLE_QUOTE;
