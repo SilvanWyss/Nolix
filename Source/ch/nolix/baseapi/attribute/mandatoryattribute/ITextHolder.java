@@ -10,7 +10,7 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface ITextHolder {
   /**
-   * @return the text of the current {@link ITextHolder}.
+   * @return the text of the current {@link ITextHolder}
    */
   String getText();
 }
