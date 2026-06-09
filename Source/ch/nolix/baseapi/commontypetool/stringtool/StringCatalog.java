@@ -31,6 +31,8 @@ public final class StringCatalog {
 
   public static final String DOT = ".";
 
+  public static final String DOUBLE_QUOTE = "\"";
+
   public static final String ELLIPSIS = "\u2026";
 
   public static final String EMPTY_STRING = "";
