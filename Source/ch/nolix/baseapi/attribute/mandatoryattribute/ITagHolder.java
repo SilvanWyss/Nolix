@@ -10,7 +10,7 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface ITagHolder {
   /**
-   * @return the tag of the current {@link ITagHolder}.
+   * @return the tag of the current {@link ITagHolder}
    */
   String getTag();
 }
