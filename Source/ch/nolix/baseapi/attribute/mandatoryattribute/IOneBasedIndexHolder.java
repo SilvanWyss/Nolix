@@ -10,7 +10,7 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface IOneBasedIndexHolder {
   /**
-   * @return the one-based index of the current {@link IOneBasedIndexHolder}.
+   * @return the one-based index of the current {@link IOneBasedIndexHolder}
    */
   int getOneBasedIndex();
 }
