@@ -45,6 +45,8 @@ public final class CharacterCatalog {
 
   public static final char LOWER_CASE_AE = '\u00E4';
 
+  public static final char LOWER_CASE_DELTA = '\u03B4';
+
   public static final char LOWER_CASE_OE = '\u00F6';
 
   public static final char LOWER_CASE_UE = '\u00FC';
