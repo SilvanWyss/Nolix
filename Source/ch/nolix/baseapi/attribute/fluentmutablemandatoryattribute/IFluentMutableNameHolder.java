@@ -10,16 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableNameHolder}.
+ * @param <H> the type of a {@link IFluentMutableNameHolder}
  */
 public interface IFluentMutableNameHolder<H extends IFluentMutableNameHolder<H>> extends INameHolder {
   /**
    * Sets the name of the current {@link IFluentMutableNameHolder}.
    * 
    * @param name
-   * @return the current {@link IFluentMutableNameHolder}.
-   * @throws RuntimeException if the given name is null.
-   * @throws RuntimeException if the given name is blank.
+   * @return the current {@link IFluentMutableNameHolder}
+   * @throws RuntimeException if the given name is null or blank
    */
   H setName(String name);
 }

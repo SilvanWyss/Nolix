@@ -10,16 +10,16 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
  * whose one-based index can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <I> is the type of a {@link IFluentMutableOneBasedIndexHolder}.
+ * @param <H> the type of a {@link IFluentMutableOneBasedIndexHolder}
  */
-public interface IFluentMutableOneBasedIndexHolder<I extends IFluentMutableOneBasedIndexHolder<I>>
+public interface IFluentMutableOneBasedIndexHolder<H extends IFluentMutableOneBasedIndexHolder<H>>
 extends IOneBasedIndexHolder {
   /**
    * Sets the one-based index of the current
    * {@link IFluentMutableOneBasedIndexHolder}.
    * 
    * @param oneBasedIndex
-   * @return the current {@link IFluentMutableOneBasedIndexHolder}.
+   * @return the current {@link IFluentMutableOneBasedIndexHolder}
    */
-  I setOneBasedIndex(int oneBasedIndex);
+  H setOneBasedIndex(int oneBasedIndex);
 }

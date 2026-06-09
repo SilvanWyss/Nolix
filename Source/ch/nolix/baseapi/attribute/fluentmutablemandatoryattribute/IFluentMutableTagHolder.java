@@ -10,15 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ITagHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableTagHolder}.
+ * @param <H> the type of a {@link IFluentMutableTagHolder}
  */
 public interface IFluentMutableTagHolder<H extends IFluentMutableTagHolder<H>> extends ITagHolder {
   /**
    * Sets the tag of the current {@link IFluentMutableTagHolder}.
    * 
    * @param tag
-   * @return the current {@link IFluentMutableTagHolder}.
-   * @throws RuntimeException if the given tag is null or blank.
+   * @return the current {@link IFluentMutableTagHolder}
+   * @throws RuntimeException if the given tag is null or blank
    */
   H setTag(String tag);
 }

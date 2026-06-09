@@ -10,16 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IHeaderHolder;
  * can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableHeaderHolder}.
+ * @param <H> the type of a {@link IFluentMutableHeaderHolder}
  */
 public interface IFluentMutableHeaderHolder<H extends IHeaderHolder> extends IHeaderHolder {
   /**
    * Sets the header of the current {@link IFluentMutableHeaderHolder}.
    * 
    * @param header
-   * @return the current {@link IFluentMutableHeaderHolder}.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
+   * @return the current {@link IFluentMutableHeaderHolder}
+   * @throws RuntimeException if the given header is null or blank
    */
   H setHeader(String header);
 }

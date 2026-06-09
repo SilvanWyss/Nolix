@@ -10,16 +10,16 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IValueHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableValueHolder}.
- * @param <V> is the type of the value of a {@link IFluentMutableValueHolder}.
+ * @param <H> the type of a {@link IFluentMutableValueHolder}
+ * @param <V> the type of the value of a {@link IFluentMutableValueHolder}
  */
 public interface IFluentMutableValueHolder<H extends IFluentMutableValueHolder<H, V>, V> extends IValueHolder<V> {
   /**
    * Sets the value of the current {@link IFluentMutableValueHolder}.
    * 
    * @param value
-   * @return the current {@link IFluentMutableValueHolder}.
-   * @throws RuntimeException if the given value is null.
+   * @return the current {@link IFluentMutableValueHolder}
+   * @throws RuntimeException if the given value is null
    */
   H setValue(V value);
 }

@@ -10,16 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
  * programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableIdHolder}.
+ * @param <H> the type of a {@link IFluentMutableIdHolder}
  */
 public interface IFluentMutableIdHolder<H> extends IIdHolder {
   /**
    * Sets the id of the current {@link IFluentMutableIdHolder}.
    * 
    * @param id
-   * @return the current {@link IFluentMutableIdHolder}.
-   * @throws RuntimeException if the given id is null.
-   * @throws RuntimeException if the given id is blank.
+   * @return the current {@link IFluentMutableIdHolder}
+   * @throws RuntimeException if the given id is null or blank
    */
   H setId(String id);
 }

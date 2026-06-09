@@ -10,16 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ITitleHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableTitleHolder}.
+ * @param <H> the type of a {@link IFluentMutableTitleHolder}
  */
 public interface IFluentMutableTitleHolder<H extends IFluentMutableTitleHolder<H>> extends ITitleHolder {
   /**
    * Sets the title of the current {@link IFluentMutableTitleHolder}.
    * 
    * @param title
-   * @return the current {@link IFluentMutableTitleHolder}.
-   * @throws RuntimeException if the given title is null.
-   * @throws RuntimeException if the given title is blank.
+   * @return the current {@link IFluentMutableTitleHolder}
+   * @throws RuntimeException if the given title is null or blank
    */
   H setTitle(String title);
 }

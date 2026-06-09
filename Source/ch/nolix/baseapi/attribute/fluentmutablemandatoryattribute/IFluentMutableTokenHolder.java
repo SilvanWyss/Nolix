@@ -10,16 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ITokenHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableTokenHolder}.
+ * @param <H> the type of a {@link IFluentMutableTokenHolder}
  */
 public interface IFluentMutableTokenHolder<H extends IFluentMutableTokenHolder<H>> extends ITokenHolder {
   /**
    * Sets the token of the current {@link IFluentMutableTokenHolder}.
    * 
    * @param token
-   * @return the current {@link IFluentMutableTokenHolder}.
-   * @throws RuntimeException if the given token is null.
-   * @throws RuntimeException if the given token is blank.
+   * @return the current {@link IFluentMutableTokenHolder}
+   * @throws RuntimeException if the given token is null or blank
    */
   H setToken(String token);
 }

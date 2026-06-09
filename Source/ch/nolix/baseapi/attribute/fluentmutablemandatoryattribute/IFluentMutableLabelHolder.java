@@ -10,16 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ILabelHolder;
  * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableLabelHolder}.
+ * @param <H> the type of a {@link IFluentMutableLabelHolder}
  */
 public interface IFluentMutableLabelHolder<H extends IFluentMutableLabelHolder<H>> extends ILabelHolder {
   /**
    * Sets the label of the current {@link IFluentMutableLabelHolder}.
    * 
    * @param label
-   * @return the current {@link IFluentMutableLabelHolder}.
-   * @throws RuntimeException if the given label is null.
-   * @throws RuntimeException if the given label is blank.
+   * @return the current {@link IFluentMutableLabelHolder}
+   * @throws RuntimeException if the given label is null or blank
    */
   H setLabel(String label);
 }

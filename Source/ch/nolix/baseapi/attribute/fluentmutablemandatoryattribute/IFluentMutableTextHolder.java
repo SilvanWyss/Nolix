@@ -10,15 +10,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ITextHolder;
  * set programmatically and fluently.
  * 
  * @author Silvan Wyss
- * @param <H> is the type of a {@link IFluentMutableTextHolder}.
+ * @param <H> the type of a {@link IFluentMutableTextHolder}
  */
 public interface IFluentMutableTextHolder<H extends IFluentMutableTextHolder<H>> extends ITextHolder {
   /**
    * Sets the text of the current {@link IFluentMutableTextHolder}.
    * 
    * @param text
-   * @return the current {@link IFluentMutableTextHolder}.
-   * @throws RuntimeException if the given text is null.
+   * @return the current {@link IFluentMutableTextHolder}
+   * @throws RuntimeException if the given text is null
    */
   H setText(String text);
 }
