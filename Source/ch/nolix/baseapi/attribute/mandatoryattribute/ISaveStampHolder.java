@@ -10,7 +10,7 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface ISaveStampHolder {
   /**
-   * @return the save stamp of the current {@link ISaveStampHolder}.
+   * @return the save stamp of the current {@link ISaveStampHolder}
    */
   String getSaveStamp();
 }
