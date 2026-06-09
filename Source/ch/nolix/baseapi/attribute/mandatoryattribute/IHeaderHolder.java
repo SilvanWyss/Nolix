@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.mandatoryattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link IHeaderHolder} has a header.
  * 
@@ -10,38 +12,32 @@ package ch.nolix.baseapi.attribute.mandatoryattribute;
  */
 public interface IHeaderHolder {
   /**
-   * @return the header of the current {@link IHeaderHolder}.
+   * @return the header of the current {@link IHeaderHolder}
    */
   String getHeader();
 
   /**
-   * @return the header of the current {@link IHeaderHolder} in quotes.
+   * @return the header of the current {@link IHeaderHolder} in single quotes.
    */
-  default String getHeaderInQuotes() {
-    return ("'" + getHeader() + "'");
+  default String getHeaderInSingleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getHeader() + StringCatalog.SINGLE_QUOTE;
   }
 
   /**
    * @param header
    * @return true if the current {@link IHeaderHolder} has the given header, false
-   *         otherwise.
+   *         otherwise
    */
   default boolean hasHeader(final String header) {
     return getHeader().equals(header);
   }
 
   /**
-   * @param object
+   * @param headerHolder
    * @return true if the current {@link IHeaderHolder} has the same header as the
-   *         given object, false otherwise.
+   *         given headerHolder, false otherwise
    */
-  default boolean hasSameHeaderAs(final IHeaderHolder object) {
-    //Handles the case that the given object is null.
-    if (object == null) {
-      return false;
-    }
-
-    //Handles the case that the given object is not null.
-    return getHeader().equals(object.getHeader());
+  default boolean hasSameHeaderAs(final IHeaderHolder headerHolder) {
+    return headerHolder != null && getHeader().equals(headerHolder.getHeader());
   }
 }
