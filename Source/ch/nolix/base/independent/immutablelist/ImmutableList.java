@@ -41,12 +41,6 @@ public final class ImmutableList<E> implements Iterable<E> {
     return new ImmutableList<>();
   }
 
-  public static <T> ImmutableList<T> withElement(
-    final T element,
-    final @SuppressWarnings("unchecked") T... elements) {
-    return new ImmutableList<>(element, elements);
-  }
-
   public static <T> ImmutableList<T> withElements(final T[] array) {
     return new ImmutableList<>(array);
   }
