@@ -1,0 +1,29 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapitest.attributeapi.mandatoryattributeapi;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
+
+/**
+ * @author Silvan Wyss
+ */
+final class DatabaseNameHolderTest extends StandardTest {
+  @Test
+  void testCase_getNameInSingleQuotes() {
+    //setup
+    final var testUnit = Mockito.mock(IDatabaseNameHolder.class);
+    Mockito.when(testUnit.getDatabaseNameInSingleQuotes()).thenCallRealMethod();
+    Mockito.when(testUnit.getDatabaseName()).thenReturn("database");
+
+    //execution
+    final var result = testUnit.getDatabaseNameInSingleQuotes();
+
+    //verification
+    expect(result).isEqualTo("'database'");
+  }
+}
