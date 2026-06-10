@@ -1,0 +1,58 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapitest.attributeapi.mandatoryattributeapi;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
+
+/**
+ * @author Silvan Wyss
+ */
+final class IdHolderTest extends StandardTest {
+  @Test
+  void testCase_getIdInSingleQuotes() {
+    //setup
+    final var testUnit = Mockito.mock(IIdHolder.class);
+    Mockito.when(testUnit.getIdInSingleQuotes()).thenCallRealMethod();
+    Mockito.when(testUnit.getId()).thenReturn("id");
+
+    //execution
+    final var result = testUnit.getIdInSingleQuotes();
+
+    //verification
+    expect(result).isEqualTo("'id'");
+  }
+
+  @Test
+  void testCase_hasId_whenHasTheGivenId() {
+    //setup
+    final var testUnit = Mockito.mock(IIdHolder.class);
+    Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
+    Mockito.when(testUnit.getId()).thenReturn("id");
+
+    //execution
+    final var result = testUnit.hasId("id");
+
+    //verification
+    expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_hasId_whenDoesNotHaveTheGivenId() {
+    //setup
+    final var testUnit = Mockito.mock(IIdHolder.class);
+    Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
+    Mockito.when(testUnit.getId()).thenReturn("id");
+
+    //execution
+    final var result = testUnit.hasId("Id");
+
+    //verification
+    expect(result).isFalse();
+  }
+}
