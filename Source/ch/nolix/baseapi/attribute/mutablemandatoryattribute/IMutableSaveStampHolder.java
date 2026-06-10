@@ -16,8 +16,7 @@ public interface IMutableSaveStampHolder extends ISaveStampHolder {
    * Sets the save stamp of the current {@link IMutableSaveStampHolder}.
    * 
    * @param saveStamp
-   * @throws RuntimeException if the given saveStamp is null.
-   * @throws RuntimeException if the given saveStamp is blank.
+   * @throws RuntimeException if the given saveStamp is null or blank
    */
   void setSaveStamp(String saveStamp);
 }

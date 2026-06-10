@@ -16,8 +16,7 @@ public interface IMutableTitleHolder extends ITitleHolder {
    * Sets the title of the current {@link IMutableTitleHolder}.
    * 
    * @param title
-   * @throws RuntimeException if the given title is null.
-   * @throws RuntimeException if the given title is blank.
+   * @throws RuntimeException if the given title is null or blank
    */
   void setTitle(String title);
 }

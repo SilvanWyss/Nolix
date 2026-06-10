@@ -16,8 +16,7 @@ public interface IMutableLabelHolder extends ILabelHolder {
    * Sets the label of the current {@link IMutableLabelHolder}.
    * 
    * @param label
-   * @throws RuntimeException if the given label is null.
-   * @throws RuntimeException if the given label is blank.
+   * @throws RuntimeException if the given label is null or blank
    */
   void setLabel(String label);
 }

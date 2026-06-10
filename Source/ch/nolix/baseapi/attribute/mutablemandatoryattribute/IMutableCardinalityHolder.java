@@ -16,7 +16,7 @@ public interface IMutableCardinalityHolder extends ICardinalityHolder {
    * Sets the cardinality of the current {@link IMutableCardinalityHolder}.
    * 
    * @param cardinality
-   * @throws RuntimeException if the given cardinality is null.
+   * @throws RuntimeException if the given cardinality is null
    */
   void setCardinality(String cardinality);
 }

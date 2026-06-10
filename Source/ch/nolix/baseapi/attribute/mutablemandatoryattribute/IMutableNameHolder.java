@@ -16,8 +16,7 @@ public interface IMutableNameHolder extends INameHolder {
    * Sets the name of the current {@link IMutableNameHolder}.
    * 
    * @param name
-   * @throws RuntimeException if the given name is null.
-   * @throws RuntimeException if the given name is blank.
+   * @throws RuntimeException if the given name is null or blank
    */
   void setName(String name);
 }

@@ -16,8 +16,7 @@ public interface IMutableIdHolder extends IIdHolder {
    * Sets the id of the current {@link IMutableIdHolder}.
    * 
    * @param id
-   * @throws RuntimeException if the given id is null.
-   * @throws RuntimeException if the given id is blank.
+   * @throws RuntimeException if the given id is null or blank
    */
   void setId(String id);
 }

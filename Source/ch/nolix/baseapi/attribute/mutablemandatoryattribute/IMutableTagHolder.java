@@ -16,7 +16,7 @@ public interface IMutableTagHolder extends ITagHolder {
    * Sets the tag of the current {@link IMutableTagHolder}.
    * 
    * @param tag
-   * @throws RuntimeException if the given tag is null or blank.
+   * @throws RuntimeException if the given tag is null or blank
    */
   void setTag(String tag);
 }

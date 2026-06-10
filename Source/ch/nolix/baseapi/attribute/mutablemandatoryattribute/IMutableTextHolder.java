@@ -16,7 +16,7 @@ public interface IMutableTextHolder extends ITextHolder {
    * Sets the text of the current {@link IMutableTextHolder}.
    * 
    * @param text
-   * @throws RuntimeException if the given text is null.
+   * @throws RuntimeException if the given text is null
    */
   void setText(String text);
 }
