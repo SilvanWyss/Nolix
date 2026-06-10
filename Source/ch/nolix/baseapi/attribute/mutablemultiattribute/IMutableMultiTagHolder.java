@@ -14,16 +14,17 @@ import ch.nolix.baseapi.attribute.multiattribute.IMultiTagHolder;
 public interface IMutableMultiTagHolder extends IMultiTagHolder {
   /**
    * Adds the given tag to the current {@link IMutableMultiTagHolder} if the
-   * current {@link IMutableMultiTagHolder} does not contain already such a tag.
+   * current {@link IMutableMultiTagHolder} does not contain already the given
+   * tag.
    * 
    * @param tag
-   * @throws RuntimeException if the given tag is null or blank.
+   * @throws RuntimeException if the given tag is null or blank
    */
   void addTag(String tag);
 
   /**
    * Removes the given tag from the current {@link IMutableMultiTagHolder} if the
-   * current {@link IMutableMultiTagHolder} contains such a tag.
+   * current {@link IMutableMultiTagHolder} contains the given a tag.
    * 
    * @param tag
    */

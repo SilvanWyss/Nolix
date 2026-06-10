@@ -13,17 +13,18 @@ import ch.nolix.baseapi.attribute.multiattribute.IMultiTokenHolder;
  */
 public interface IMutableMultiTokenHolder extends IMultiTokenHolder {
   /**
-   * Adds the given token to the current {@link IMutableMultiTokenHolder}.
+   * Adds the given token to the current {@link IMutableMultiTokenHolder} if the
+   * current {@link IMutableMultiTokenHolder} does not contain already the given
+   * token.
    * 
    * @param token
-   * @throws RuntimeException if the given token is null or blank.
+   * @throws RuntimeException if the given token is null or blank
    */
   void addToken(String token);
 
   /**
-   * Removes the token that equals the given token from the current
-   * {@link IMutableMultiTokenHolder} if the current
-   * {@link IMutableMultiTokenHolder} contains such a token.
+   * Removes the given token from the current {@link IMutableMultiTokenHolder} if
+   * the current {@link IMutableMultiTokenHolder} contains the given token.
    * 
    * @param token
    */

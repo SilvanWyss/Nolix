@@ -13,19 +13,20 @@ import ch.nolix.baseapi.attribute.multiattribute.IMultiTextHolder;
  */
 public interface IMutableMultiTextHolder extends IMultiTextHolder {
   /**
-   * Adds the given text to the current {@link IMutableMultiTextHolder}.
+   * Adds the given text to the current {@link IMutableMultiTextHolder} if the
+   * current {@link IMutableMultiTextHolder} does not contain already the given
+   * text.
    * 
    * @param text
-   * @throws RuntimeException if the given text is null.
+   * @throws RuntimeException if the given text is null or blank
    */
   void addText(String text);
 
   /**
-   * Removes the given text from the current {@link IMutableMultiTextHolder}.
+   * Removes the given text from the current {@link IMutableMultiTextHolder} if
+   * the current {@link IMutableMultiTextHolder} contains the given text.
    * 
    * @param text
-   * @throws RuntimeException if the current {@link IMutableMultiTextHolder} does
-   *                          not contain the given text.
    */
   void removeText(String text);
 

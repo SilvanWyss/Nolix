@@ -10,23 +10,24 @@ import ch.nolix.baseapi.attribute.multiattribute.IMultiValueHolder;
  * values can be added and removed programmatically.
  * 
  * @author Silvan Wyss
- * @param <V> is the type of the values of a {@link IMutableMultiValueHolder}.
+ * @param <V> the type of the values of a {@link IMutableMultiValueHolder}
  */
 public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
   /**
-   * Adds the given value to the current {@link IMutableMultiValueHolder}.
+   * Adds the given value to the current {@link IMutableMultiValueHolder} if the
+   * current {@link IMutableMultiValueHolder} does not contain already the given
+   * value.
    * 
    * @param value
-   * @throws RuntimeException if the given value is null.
+   * @throws RuntimeException if the given value is null
    */
   void addValue(V value);
 
   /**
-   * Removes the given value from the current {@link IMutableMultiValueHolder}.
+   * Removes the given value from the current {@link IMutableMultiValueHolder} if
+   * the current {@link IMutableMultiValueHolder} contains the given value.
    * 
    * @param value
-   * @throws RuntimeException if the current {@link IMutableMultiValueHolder} does
-   *                          not contain the given value.
    */
   void removeValue(V value);
 
