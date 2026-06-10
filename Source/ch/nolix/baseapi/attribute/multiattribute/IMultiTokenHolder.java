@@ -12,7 +12,7 @@ import ch.nolix.baseapi.container.base.IContainer;
  */
 public interface IMultiTokenHolder {
   /**
-   * @return the tokens of the current {@link IMultiTokenHolder}.
+   * @return the tokens of the current {@link IMultiTokenHolder}
    */
   IContainer<String> getTokens();
 }

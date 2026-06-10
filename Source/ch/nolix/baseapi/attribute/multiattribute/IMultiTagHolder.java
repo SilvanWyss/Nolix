@@ -12,7 +12,7 @@ import ch.nolix.baseapi.container.base.IContainer;
  */
 public interface IMultiTagHolder {
   /**
-   * @return the tags of the current {@link IMultiTagHolder}.
+   * @return the tags of the current {@link IMultiTagHolder}
    */
   IContainer<String> getTags();
 }

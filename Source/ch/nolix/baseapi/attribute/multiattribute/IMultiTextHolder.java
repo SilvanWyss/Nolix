@@ -12,7 +12,7 @@ import ch.nolix.baseapi.container.base.IContainer;
  */
 public interface IMultiTextHolder {
   /**
-   * @return the texts of the current {@link IMultiTextHolder}.
+   * @return the texts of the current {@link IMultiTextHolder}
    */
   IContainer<String> getTexts();
 }
