@@ -10,15 +10,15 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalTagHolder {
   /**
-   * @return the tag of the current {@link IOptionalTagHolder}.
+   * @return the tag of the current {@link IOptionalTagHolder}
    * @throws RuntimeException if the current {@link IOptionalTagHolder} does not
-   *                          have a tag.
+   *                          have a tag
    */
   String getTag();
 
   /**
    * @return true if the current {@link IOptionalTagHolder} has a tag, false
-   *         otherwise, false otherwise.
+   *         otherwise, false otherwise
    */
   boolean hasTag();
 }
