@@ -21,8 +21,7 @@ public interface IMutableOptionalTokenHolder extends IOptionalTokenHolder {
    * Sets the token of the current {@link IMutableOptionalTokenHolder}.
    * 
    * @param token
-   * @throws RuntimeException if the given token is null.
-   * @throws RuntimeException if the given token is blank.
+   * @throws RuntimeException if the given token is null or blank
    */
   void setToken(String token);
 }

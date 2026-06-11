@@ -24,7 +24,7 @@ public interface IMutableOptionalDatabaseNameHolder extends IOptionalDatabaseNam
    * {@link IMutableOptionalDatabaseNameHolder}.
    * 
    * @param databaseName
-   * @throws RuntimeException if the given databaseName is null or blank.
+   * @throws RuntimeException if the given databaseName is null or blank
    */
   void setDatabaseName(String databaseName);
 }

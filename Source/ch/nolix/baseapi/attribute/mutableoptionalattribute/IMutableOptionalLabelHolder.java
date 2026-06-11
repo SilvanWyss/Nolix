@@ -21,8 +21,7 @@ public interface IMutableOptionalLabelHolder extends IOptionalLabelHolder {
    * Sets the label of the current {@link IMutableOptionalLabelHolder}.
    * 
    * @param label
-   * @throws RuntimeException if the given label is null.
-   * @throws RuntimeException if the given label is blank.
+   * @throws RuntimeException if the given label is null or blank.
    */
   void setLabel(String label);
 }

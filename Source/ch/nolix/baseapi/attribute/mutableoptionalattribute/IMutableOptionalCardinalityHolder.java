@@ -24,7 +24,7 @@ public interface IMutableOptionalCardinalityHolder extends IOptionalCardinalityH
    * {@link IMutableOptionalCardinalityHolder}.
    * 
    * @param cardinality
-   * @throws RuntimeException if the given cardinality is null.
+   * @throws RuntimeException if the given cardinality is null
    */
   void setCardinality(String cardinality);
 }

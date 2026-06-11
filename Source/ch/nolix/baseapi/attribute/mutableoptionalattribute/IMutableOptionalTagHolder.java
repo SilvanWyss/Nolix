@@ -21,7 +21,7 @@ public interface IMutableOptionalTagHolder extends IOptionalTagHolder {
    * Sets the tag of the current {@link IMutableOptionalTagHolder}.
    * 
    * @param tag
-   * @throws RuntimeException if the given tag is null or blank.
+   * @throws RuntimeException if the given tag is null or blank
    */
   void setTag(String tag);
 }

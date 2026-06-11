@@ -21,7 +21,7 @@ public interface IMutableOptionalTextHolder extends IOptionalTextHolder {
    * Sets the text of the current {@link IMutableOptionalTextHolder}.
    * 
    * @param text
-   * @throws RuntimeException if the given text is null.
+   * @throws RuntimeException if the given text is null
    */
   void setText(String text);
 }
