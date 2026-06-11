@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.optionalattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link IOptionalNameHolder} can have a name.
  * 
@@ -10,35 +12,33 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalNameHolder {
   /**
-   * @return the name of the current {@link IOptionalNameHolder}.
+   * @return the name of the current {@link IOptionalNameHolder}
    * @throws RuntimeException if the current {@link IOptionalNameHolder} does not
-   *                          have a name.
+   *                          have a name
    */
   String getName();
 
   /**
-   * @return the name of the current {@link IOptionalNameHolder} in quotes.
+   * @return the name of the current {@link IOptionalNameHolder} in single quotes
    * @throws RuntimeException if the current {@link IOptionalNameHolder} does not
-   *                          have a name.
+   *                          have a name
    */
-  default String getNameInQuotes() {
-    return ("'" + getName() + "'");
+  default String getNameInSinqleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getName() + StringCatalog.SINGLE_QUOTE;
   }
 
   /**
    * @return true if the current {@link IOptionalNameHolder} has a name, false
-   *         otherwise.
+   *         otherwise
    */
   boolean hasName();
 
   /**
    * @param name
    * @return true if the current {@link IOptionalNameHolder} has the given name,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean hasName(final String name) {
-    return //
-    hasName()
-    && getName().equals(name);
+    return hasName() && getName().equals(name);
   }
 }
