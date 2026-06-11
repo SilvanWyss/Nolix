@@ -10,23 +10,24 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalTokenHolder {
   /**
-   * @return the token of the current {@link IOptionalTokenHolder}.
+   * @return the token of the current {@link IOptionalTokenHolder}
+   * @throws RuntimeException if the current {@link IOptionalTokenHolder} does not
+   *                          have a token
    */
   String getToken();
 
   /**
-   * @return true if the current {@link IOptionalTokenHolder} has a token.
+   * @return true if the current {@link IOptionalTokenHolder} has a token, false
+   *         otherwise
    */
   boolean hasToken();
 
   /**
    * @param token
    * @return true if the current {@link IOptionalTokenHolder} has the given token,
-   *         false otherwise.
+   *         false otherwise
    */
-  default boolean hasToken(String token) {
-    return //
-    hasToken()
-    && getToken().equals(token);
+  default boolean hasToken(final String token) {
+    return hasToken() && getToken().equals(token);
   }
 }
