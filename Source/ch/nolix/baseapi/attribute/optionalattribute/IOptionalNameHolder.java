@@ -23,7 +23,7 @@ public interface IOptionalNameHolder {
    * @throws RuntimeException if the current {@link IOptionalNameHolder} does not
    *                          have a name
    */
-  default String getNameInSinqleQuotes() {
+  default String getNameInSingleQuotes() {
     return StringCatalog.SINGLE_QUOTE + getName() + StringCatalog.SINGLE_QUOTE;
   }
 
