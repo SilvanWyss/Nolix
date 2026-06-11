@@ -10,15 +10,15 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalDatabaseNameHolder {
   /**
-   * @return the database name of the current {@link IOptionalDatabaseNameHolder}.
+   * @return the database name of the current {@link IOptionalDatabaseNameHolder}
    * @throws RuntimeException if the current {@link IOptionalDatabaseNameHolder}
-   *                          does not have a database name.
+   *                          does not have a database name
    */
   String getDatabaseName();
 
   /**
    * @return true if the current {@link IOptionalDatabaseNameHolder} has a
-   *         database name, false otherwise.
+   *         database name, false otherwise
    */
   boolean hasDatabaseName();
 }
