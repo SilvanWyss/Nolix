@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.optionalattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link IOptionalTitleHolder} can have a title.
  * 
@@ -10,24 +12,25 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalTitleHolder {
   /**
-   * @return the title of the current {@link IOptionalTitleHolder}.
+   * @return the title of the current {@link IOptionalTitleHolder}
    * @throws RuntimeException if the current {@link IOptionalTitleHolder} does not
-   *                          have a title.
+   *                          have a title
    */
   String getTitle();
 
   /**
-   * @return the title of the current {@link IOptionalTitleHolder} in quotes.
+   * @return the title of the current {@link IOptionalTitleHolder} in single
+   *         quotes
    * @throws RuntimeException if the current {@link IOptionalTitleHolder} does not
-   *                          have a title.
+   *                          have a title
    */
-  default String getTitleInQuotes() {
-    return ("'" + getTitle() + "'");
+  default String getTitleInSingleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getTitle() + StringCatalog.SINGLE_QUOTE;
   }
 
   /**
    * @return true if the current {@link IOptionalTitleHolder} has a title, false
-   *         otherwise.
+   *         otherwise
    */
   boolean hasTitle();
 }
