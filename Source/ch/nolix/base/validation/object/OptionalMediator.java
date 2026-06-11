@@ -7,8 +7,8 @@ import java.util.Optional;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.validation.object.IOptionalMediator;
 
@@ -106,8 +106,8 @@ public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> imp
 
     final var argument = getStoredArgument();
 
-    if (argument.isEmpty()) {
-      throw EmptyArgumentException.forArgumentAndArgumentName(argument, getArgumentName());
+    if (argument.isPresent()) {
+      throw NonEmptyArgumentException.forArgumentAndArgumentName(argument, getArgumentName());
     }
   }
 
@@ -120,8 +120,7 @@ public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> imp
 
     final var argument = getStoredArgument();
 
-    if (argument == null //NOSONAR: The argument can be null.
-    || argument.isEmpty()) {
+    if (argument.isEmpty()) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         argument,
