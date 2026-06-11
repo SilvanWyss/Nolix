@@ -10,15 +10,15 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalSaveStampHolder {
   /**
-   * @return the save stamp of the current {@link IOptionalSaveStampHolder}.
+   * @return the save stamp of the current {@link IOptionalSaveStampHolder}
    * @throws RuntimeException if the current {@link IOptionalSaveStampHolder} does
-   *                          not have a save stamp.
+   *                          not have a save stamp
    */
   String getSaveStamp();
 
   /**
    * @return true if the current {@link IOptionalSaveStampHolder} has a save
-   *         stamp, false otherwise.
+   *         stamp, false otherwise
    */
   boolean hasSaveStamp();
 }
