@@ -10,15 +10,15 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalTextHolder {
   /**
-   * @return the text of the current {@link IOptionalTextHolder}.
+   * @return the text of the current {@link IOptionalTextHolder}
    * @throws RuntimeException if the current {@link IOptionalTextHolder} does not
-   *                          have a text.
+   *                          have a text
    */
   String getText();
 
   /**
    * @return true if the current {@link IOptionalTextHolder} has a text, false
-   *         otherwise.
+   *         otherwise
    */
   boolean hasText();
 }
