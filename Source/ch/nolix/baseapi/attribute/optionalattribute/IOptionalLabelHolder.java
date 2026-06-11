@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.attribute.optionalattribute;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link IOptionalLabelHolder} can have a label.
  * 
@@ -10,24 +12,25 @@ package ch.nolix.baseapi.attribute.optionalattribute;
  */
 public interface IOptionalLabelHolder {
   /**
-   * @return the label of the current {@link IOptionalLabelHolder}.
+   * @return the label of the current {@link IOptionalLabelHolder}
    * @throws RuntimeException if the current {@link IOptionalLabelHolder} does not
-   *                          have a label.
+   *                          have a label
    */
   String getLabel();
 
   /**
-   * @return the label of the current {@link IOptionalLabelHolder} in quotes.
+   * @return the label of the current {@link IOptionalLabelHolder} in single
+   *         quotes
    * @throws RuntimeException if the current {@link IOptionalLabelHolder} does not
-   *                          have a label.
+   *                          have a label
    */
-  default String getLabelInQuotes() {
-    return ("'" + getLabel() + "'");
+  default String getLabelInSingleQuotes() {
+    return StringCatalog.SINGLE_QUOTE + getLabel() + StringCatalog.SINGLE_QUOTE;
   }
 
   /**
    * @return true if the current {@link IOptionalLabelHolder} has a label, false
-   *         otherwise.
+   *         otherwise
    */
   boolean hasLabel();
 }
