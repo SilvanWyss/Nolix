@@ -5,6 +5,8 @@ package ch.nolix.baseapi.attribute.optionalattribute;
 
 import java.util.Optional;
 
+import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+
 /**
  * A {@link IOptionalHeaderHolder} can have a header.
  * 
@@ -12,28 +14,30 @@ import java.util.Optional;
  */
 public interface IOptionalHeaderHolder {
   /**
-   * @return the header of the current {@link IOptionalHeaderHolder}.
+   * @return the header of the current {@link IOptionalHeaderHolder}
    * @throws RuntimeException if the current {@link IOptionalHeaderHolder} does
-   *                          not have a header.
+   *                          not have a header
    */
   String getHeader();
 
   /**
-   * @return the header of the current {@link IOptionalHeaderHolder} if it has a
-   *         header, otherwise an empty {@link String}.
+   * @return the header of the current {@link IOptionalHeaderHolder} if the
+   *         current {@link IOptionalHeaderHolder} has a header, an empty
+   *         {@link String} otherwise
    */
   default String getHeaderOrEmptyString() {
-    if (!hasHeader()) {
-      return "";
+    if (hasHeader()) {
+      return getHeader();
     }
 
-    return getHeader();
+    return StringCatalog.EMPTY_STRING;
   }
 
   /**
    * @return a new {@link Optional} with the header of the current
-   *         {@link IOptionalHeaderHolder} if it has a header, otherwise an empty
-   *         {@link Optional}.
+   *         {@link IOptionalHeaderHolder} if the current
+   *         {@link IOptionalHeaderHolder} has a header has a header, an empty
+   *         {@link Optional} otherwise
    */
   default Optional<String> getOptionalHeader() {
     if (hasHeader()) {
@@ -45,18 +49,16 @@ public interface IOptionalHeaderHolder {
 
   /**
    * @return true if the current {@link IOptionalHeaderHolder} has a header, false
-   *         otherwise.
+   *         otherwise
    */
   boolean hasHeader();
 
   /**
    * @param header
    * @return true if the current {@link IOptionalHeaderHolder} has the given
-   *         header, false otherwise.
+   *         header, false otherwise
    */
   default boolean hasHeader(String header) {
-    return //
-    hasHeader()
-    && getHeader().equals(header);
+    return hasHeader() && getHeader().equals(header);
   }
 }
