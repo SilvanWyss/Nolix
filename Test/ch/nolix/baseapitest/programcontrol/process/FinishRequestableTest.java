@@ -1,0 +1,48 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapitest.programcontrol.process;
+
+import org.junit.jupiter.api.Test;
+
+import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.programcontrol.process.FinishRequestable;
+
+/**
+ * @author Silvan Wyss
+ */
+final class FinishRequestableTest extends StandardTest {
+  @Test
+  void testCase_isRunning_whenIsNotFinished() {
+    //setup
+    final var testUnit = new FinishRequestable() {
+      @Override
+      public boolean isFinished() {
+        return false;
+      }
+    };
+
+    //execution
+    final var result = testUnit.isRunning();
+
+    //verification
+    expect(result).isTrue();
+  }
+
+  @Test
+  void testCase_isRunning_whenIsFinished() {
+    //setup
+    final var testUnit = new FinishRequestable() {
+      @Override
+      public boolean isFinished() {
+        return true;
+      }
+    };
+
+    //execution
+    final var result = testUnit.isRunning();
+
+    //verification
+    expect(result).isFalse();
+  }
+}
