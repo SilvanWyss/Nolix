@@ -5,6 +5,7 @@ package ch.nolix.system.element.propertieselement;
 
 import java.lang.reflect.Field;
 
+import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.errormapping.IllegalAccessErrorMapper;
@@ -22,7 +23,7 @@ import ch.nolix.systemapi.property.base.IProperty;
  * @author Silvan Wyss
  */
 public abstract class AbstractPropertiesElement implements IMutableElement {
-  private LinkedList<IProperty> properties;
+  private ArrayList<IProperty> properties;
 
   /**
    * {@inheritDoc}
@@ -143,7 +144,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@link AbstractPropertiesElement}.
    */
   private void addProperties() {
-    properties = LinkedList.createEmpty();
+    properties = ArrayList.createEmpty();
     Class<?> lClass = getClass();
 
     while (lClass != null) {
