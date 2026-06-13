@@ -5,12 +5,11 @@ package ch.nolix.base.container.linkedlist;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontypetool.iteratortool.IterableExaminer;
+import ch.nolix.base.commontypetool.iterableexaminer.IterableExaminer;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.base.AbstractContainer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.commontypetool.iterabletool.IIterableExaminer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -30,7 +29,7 @@ import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
 extends AbstractExtendedContainer<E>
 implements ILinkedList<E> {
-  private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
+  private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private int elementCount;
 

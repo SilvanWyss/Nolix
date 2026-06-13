@@ -3,14 +3,14 @@
  */
 package ch.nolix.base.commontypetool.iteratortool;
 
-import ch.nolix.baseapi.commontypetool.iterabletool.IIterableExaminer;
+import ch.nolix.base.commontypetool.iterableexaminer.IterableExaminer;
 import ch.nolix.baseapi.commontypetool.iterabletool.IIterableTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class IterableTool {
-  private static final IIterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
+  private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private static final IIterableTool ITERABLE_TOOL = new IterableToolUnit();
 
