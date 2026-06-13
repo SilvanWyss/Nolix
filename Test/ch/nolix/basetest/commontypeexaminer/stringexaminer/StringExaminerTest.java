@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.commontypetool.stringtool;
+package ch.nolix.basetest.commontypeexaminer.stringexaminer;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.commontypetool.stringtool.StringExaminer;
+import ch.nolix.base.commontypeexaminer.stringexaminer.StringExaminer;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**

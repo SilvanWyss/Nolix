@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.commontypetool.iterableexaminer;
+package ch.nolix.base.commontypeexaminer.iterableexaminer;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.commontypetool.iterableexaminer.IIterableExaminer;
+import ch.nolix.baseapi.commontypeexaminer.iterableexaminer.IIterableExaminer;
 
 /**
  * @author Silvan Wyss

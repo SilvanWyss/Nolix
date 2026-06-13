@@ -15,7 +15,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
-import ch.nolix.base.commontypetool.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.MappingContainerView;
 import ch.nolix.base.validation.validator.Validator;

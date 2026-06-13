@@ -1,11 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.commontypetool.stringtool;
+package ch.nolix.base.commontypeexaminer.stringexaminer;
 
 import java.util.Locale;
 
-import ch.nolix.baseapi.commontypetool.stringtool.IStringExaminer;
+import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.baseapi.commontypeexaminer.stringexaminer.IStringExaminer;
 
 /**
  * @author Silvan Wyss

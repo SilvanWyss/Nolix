@@ -5,11 +5,11 @@ package ch.nolix.baseapitest.misc.variable;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.commontypetool.stringtool.StringExaminer;
+import ch.nolix.base.commontypeexaminer.stringexaminer.StringExaminer;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontypetool.stringtool.IStringExaminer;
+import ch.nolix.baseapi.commontypeexaminer.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;
 
 /**

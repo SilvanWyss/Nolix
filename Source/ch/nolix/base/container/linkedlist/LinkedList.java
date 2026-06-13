@@ -5,7 +5,7 @@ package ch.nolix.base.container.linkedlist;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontypetool.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.base.AbstractContainer;
 import ch.nolix.base.validation.validator.Validator;

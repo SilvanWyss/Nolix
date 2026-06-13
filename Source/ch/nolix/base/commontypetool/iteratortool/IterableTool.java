@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.commontypetool.iteratortool;
 
-import ch.nolix.base.commontypetool.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
 import ch.nolix.baseapi.commontypetool.iterabletool.IIterableTool;
 
 /**

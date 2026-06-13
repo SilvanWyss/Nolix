@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.commontypetool.charactertool;
+package ch.nolix.base.commontypeexaminer.characterexaminer;
 
-import ch.nolix.baseapi.commontypetool.charactertool.ICharacterTool;
+import ch.nolix.baseapi.commontypeexaminer.characterexaminer.ICharacterExaminer;
 
 /**
  * @author Silvan Wyss
  */
-public final class CharacterTool implements ICharacterTool {
+public final class CharacterExaminer implements ICharacterExaminer {
   /**
    * {@inheritDoc}
    */
