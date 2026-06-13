@@ -14,7 +14,7 @@ public final class CharacterTool implements ICharacterTool {
    */
   @Override
   public boolean isDigit(final char character) {
-    return (character >= 48 && character <= 57);
+    return character >= 48 && character <= 57;
   }
 
   /**
@@ -22,6 +22,6 @@ public final class CharacterTool implements ICharacterTool {
    */
   @Override
   public boolean isHexadecimalDigit(final char character) {
-    return (isDigit(character) || (character >= 65 && character <= 70));
+    return isDigit(character) || (character >= 65 && character <= 70);
   }
 }
