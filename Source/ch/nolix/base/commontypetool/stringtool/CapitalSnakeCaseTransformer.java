@@ -49,7 +49,7 @@ public final class CapitalSnakeCaseTransformer {
           stringBuilder.append(character);
 
           break;
-        case NUMBER:
+        case DIGIT:
           stringBuilder.append(character);
           break;
         case OTHER:
@@ -77,7 +77,7 @@ public final class CapitalSnakeCaseTransformer {
       case UPPER_CASE_LETTER:
         stringBuilder.append(firstCharacter);
         break;
-      case NUMBER:
+      case DIGIT:
         stringBuilder.append(firstCharacter);
         break;
       case OTHER:

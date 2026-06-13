@@ -9,11 +9,12 @@ package ch.nolix.baseapi.commontypetool.charactertool;
 public enum CharacterType {
   UPPER_CASE_LETTER,
   LOWER_CASE_LETTER,
-  NUMBER,
+  DIGIT,
   OTHER;
 
   public static CharacterType ofCharacter(final char character) {
-    return switch (character) {
+    return //
+    switch (character) {
       case
       'A',
       'B',
@@ -82,7 +83,8 @@ public enum CharacterType {
   }
 
   private static CharacterType ofNonLetterCharacter(final char nonLetterCharacter) {
-    return switch (nonLetterCharacter) {
+    return //
+    switch (nonLetterCharacter) {
       case
       '0',
       '1',
@@ -94,7 +96,7 @@ public enum CharacterType {
       '7',
       '8',
       '9' ->
-        NUMBER;
+        DIGIT;
       default ->
         OTHER;
     };

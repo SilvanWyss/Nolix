@@ -14,16 +14,16 @@ import ch.nolix.baseapi.commontypetool.charactertool.CharacterType;
 final class CharacterTypeTest extends StandardTest {
   @Test
   void testCase_ofCharacter_whenTheGivenCharacterIsANumber() {
-    expect(CharacterType.ofCharacter('0')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('1')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('2')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('3')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('4')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('5')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('6')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('7')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('8')).is(CharacterType.NUMBER);
-    expect(CharacterType.ofCharacter('9')).is(CharacterType.NUMBER);
+    expect(CharacterType.ofCharacter('0')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('1')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('2')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('3')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('4')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('5')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('6')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('7')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('8')).is(CharacterType.DIGIT);
+    expect(CharacterType.ofCharacter('9')).is(CharacterType.DIGIT);
   }
 
   @Test

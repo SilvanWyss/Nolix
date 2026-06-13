@@ -53,7 +53,7 @@ public final class PascalCaseTransformer {
             getTargetCharacterWhenSourceCharacterIsNotAtBeginAndUpperCaseLetter(
               character, previousCharacter, previousCharacterType));
           break;
-        case NUMBER:
+        case DIGIT:
           stringBuilder.append(character);
           break;
         case OTHER:
@@ -76,7 +76,7 @@ public final class PascalCaseTransformer {
     final char sourceCharacter,
     final char previousCharacter,
     final CharacterType previousCharacterType) {
-    if (previousCharacterType == CharacterType.NUMBER
+    if (previousCharacterType == CharacterType.DIGIT
     || previousCharacter == CharacterCatalog.UNDERSCORE
     || previousCharacterType == CharacterType.OTHER) {
       return Character.toUpperCase(sourceCharacter);
@@ -90,7 +90,7 @@ public final class PascalCaseTransformer {
     final char previousCharacter,
     final CharacterType previousCharacterType) {
     if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
-    || previousCharacterType == CharacterType.NUMBER
+    || previousCharacterType == CharacterType.DIGIT
     || previousCharacter == CharacterCatalog.UNDERSCORE
     || previousCharacterType == CharacterType.OTHER) {
       return sourceCharacter;
