@@ -14,22 +14,6 @@ public final class IterableToolUnit implements IIterableTool {
    * {@inheritDoc}
    */
   @Override
-  public int getCount(final Iterable<?> iterable) {
-    final var iterator = iterable.iterator();
-    var elementCount = 0;
-
-    while (iterator.hasNext()) {
-      elementCount++;
-      iterator.next();
-    }
-
-    return elementCount;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
     var iteratingOneBasedIndex = 1;
 

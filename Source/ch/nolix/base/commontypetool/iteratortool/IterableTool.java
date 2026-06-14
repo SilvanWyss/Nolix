@@ -22,7 +22,7 @@ public final class IterableTool {
   }
 
   public static int getCount(final Iterable<?> iterable) {
-    return ITERABLE_TOOL.getCount(iterable);
+    return ITERABLE_EXAMINER.getCount(iterable);
   }
 
   public static <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
