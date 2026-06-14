@@ -6,6 +6,6 @@ package ch.nolix.baseapi.commontypetool.iterabletool;
 /**
  * @author Silvan Wyss
  */
-public interface IIterableTool {
+public interface IIterableSearcher extends IIterableCountSearcher {
   <E> E getStoredAtOneBasedIndex(Iterable<E> iterable, int oneBasedIndex);
 }

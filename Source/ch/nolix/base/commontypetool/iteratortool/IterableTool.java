@@ -4,15 +4,14 @@
 package ch.nolix.base.commontypetool.iteratortool;
 
 import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
-import ch.nolix.baseapi.commontypetool.iterabletool.IIterableTool;
 
 /**
  * @author Silvan Wyss
  */
 public final class IterableTool {
-  private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
 
-  private static final IIterableTool ITERABLE_TOOL = new IterableToolUnit();
+  private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private IterableTool() {
   }
@@ -22,11 +21,11 @@ public final class IterableTool {
   }
 
   public static int getCount(final Iterable<?> iterable) {
-    return ITERABLE_EXAMINER.getCount(iterable);
+    return ITERABLE_SEARCHER.getCount(iterable);
   }
 
   public static <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
-    return ITERABLE_TOOL.getStoredAtOneBasedIndex(iterable, oneBasedIndex);
+    return ITERABLE_SEARCHER.getStoredAtOneBasedIndex(iterable, oneBasedIndex);
   }
 
   public static boolean isEmpty(final Iterable<?> iterable) {

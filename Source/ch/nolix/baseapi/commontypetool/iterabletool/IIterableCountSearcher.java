@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.commontypeexaminer.iterableexaminer;
+package ch.nolix.baseapi.commontypetool.iterabletool;
 
 /**
  * @author Silvan Wyss
  */
-public interface IIterableCountExaminer {
+public interface IIterableCountSearcher {
   /**
    * @param iterable the examined {@link Iterable}, is considered to be empty when
    *                 is null
