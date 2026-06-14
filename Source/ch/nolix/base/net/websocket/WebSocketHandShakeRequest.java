@@ -4,7 +4,7 @@
 package ch.nolix.base.net.websocket;
 
 import ch.nolix.baseapi.container.base.IContainer;
-import ch.nolix.baseapi.container.commoncontainer.StoringRequestable;
+import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
 
 /**
  * @author Silvan Wyss
