@@ -11,6 +11,7 @@ extends
 IIterableContainExaminer,
 IIterableContainMatchingExaminer,
 IIterableContainMultipleObjectExaminer,
-IIterableContainObjectExaminer {
+IIterableContainObjectExaminer,
+IIterableCountExaminer {
   //This interface is a dedicated union of other interfaces.
 }

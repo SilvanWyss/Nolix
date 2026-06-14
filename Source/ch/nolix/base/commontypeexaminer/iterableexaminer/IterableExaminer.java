@@ -312,6 +312,26 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
+  public int getCount(final Iterable<?> iterable) {
+    if (iterable != null) {
+      var elementCount = 0;
+      final var iterator = iterable.iterator();
+
+      while (iterator.hasNext()) {
+        elementCount++;
+        iterator.next();
+      }
+
+      return elementCount;
+    }
+
+    return 0;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean isEmpty(final Iterable<?> iterable) {
     if (iterable != null) {
       final var iterator = iterable.iterator();
