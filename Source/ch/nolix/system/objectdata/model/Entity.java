@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.objectdata.entitytool.EntityFieldExtractor;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.systemapi.objectdata.entitytool.ITableNameExtractor;
@@ -26,7 +26,7 @@ extends AbstractEntity {
    * {@inheritDoc}
    */
   @Override
-  final IContainer<AbstractField> findFields() {
+  final IWellOrderContainer<AbstractField> findFields() {
     return ENTITY_FIELD_EXTRACTOR.extractStoredFieldsFromEntity(this);
   }
 }

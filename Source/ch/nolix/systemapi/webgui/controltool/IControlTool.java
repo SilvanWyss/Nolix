@@ -3,14 +3,14 @@
  */
 package ch.nolix.systemapi.webgui.controltool;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
  * @author Silvan Wyss
  */
 public interface IControlTool {
-  IContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(IControl<?, ?> control);
+  IWellOrderContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(IControl<?, ?> control);
 
-  IContainer<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(IControl<?, ?> control);
+  IWellOrderContainer<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(IControl<?, ?> control);
 }

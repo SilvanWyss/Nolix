@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 
 /**
@@ -16,5 +16,5 @@ public interface ISqlSchemaColumnDtoMapper {
    *         given columnDto.
    * @throws RuntimeException if the given columnDto is null.
    */
-  IContainer<ch.nolix.systemapi.sqlschema.model.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(ColumnDto columnDto);
+  IWellOrderContainer<ch.nolix.systemapi.sqlschema.model.ColumnDto> mapColumnDtoToSqlSchemaColumnDtos(ColumnDto columnDto);
 }

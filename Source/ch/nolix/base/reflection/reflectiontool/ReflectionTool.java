@@ -12,7 +12,7 @@ import ch.nolix.base.reflection.reflectionexaminer.ExecutableExaminer;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.base.reflection.reflectionexaminer.MemberExaminer;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.reflection.reflectionexaminer.IFieldExaminer;
@@ -70,7 +70,7 @@ public final class ReflectionTool {
     return OBJECT_TOOL.getNameOfFirstFieldThatHasValue(object, value);
   }
 
-  public static IContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
+  public static IWellOrderContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
     return CLASS_TOOL.getStoredPublicStaticFieldValuesOfClass(paramClass);
   }
 

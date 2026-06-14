@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectschema.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**
@@ -15,7 +15,7 @@ public interface IDatabase extends IDatabaseObject, INameHolder {
 
   IDatabase createTableWithName(String name);
 
-  IContainer<ITable> getStoredTables();
+  IWellOrderContainer<ITable> getStoredTables();
 
   int getTableCount();
 }

@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.containerview;
 
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.container.containerview.IterableContainerView;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**
@@ -16,7 +16,7 @@ final class IterableViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+  protected <E> IWellOrderContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return IterableContainerView.forIterable(ArrayList.withElements(elements));
   }
 
@@ -24,7 +24,7 @@ final class IterableViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
+  protected <E> IWellOrderContainer<E> createEmptyContainerForType(Class<E> type) {
     return new IterableContainerView<>();
   }
 }

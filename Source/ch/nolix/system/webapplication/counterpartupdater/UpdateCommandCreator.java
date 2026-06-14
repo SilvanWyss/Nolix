@@ -8,8 +8,8 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -118,8 +118,8 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IChainedNode> createUpdateCommandsForControls(
-    final IContainer<IControl<?, ?>> controls,
+  public IWellOrderContainer<IChainedNode> createUpdateCommandsForControls(
+    final IWellOrderContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableCatalog.CONTROLS).isNotEmpty();
 
@@ -143,7 +143,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
+  public IWellOrderContainer<IChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
     return //
     ImmutableList.withElements(
       createSetTitleCommandForWebGui(webGui),

@@ -6,10 +6,10 @@ package ch.nolix.base.container.arraylist;
 import java.util.function.Function;
 
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
-import ch.nolix.base.container.base.AbstractContainer;
+import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -19,7 +19,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  *            from its elements.
  */
 public final class MappingContainerView<E, T> extends AbstractExtendedContainer<T> {
-  private final IContainer<E> container;
+  private final IWellOrderContainer<E> wellOrderContainer;
 
   private final Function<E, T> mapper;
 
@@ -32,10 +32,10 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given mapper is null.
    */
-  private MappingContainerView(final IContainer<E> container, final Function<E, T> mapper) {
+  private MappingContainerView(final IWellOrderContainer<E> container, final Function<E, T> mapper) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
-    this.container = container;
+    this.wellOrderContainer = container;
     this.mapper = mapper;
   }
 
@@ -52,7 +52,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws RuntimeException if the given mapper is null.
    */
   public static <T, T2> MappingContainerView<T, T2> forContainerAndMapper(
-    final AbstractContainer<T> container,
+    final AbstractWellOrderContainer<T> container,
     final Function<T, T2> mapper) {
     return new MappingContainerView<>(container, mapper);
   }
@@ -70,7 +70,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    */
   @Override
   public T getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    final var element = container.getStoredAtOneBasedIndex(oneBasedIndex);
+    final var element = wellOrderContainer.getStoredAtOneBasedIndex(oneBasedIndex);
 
     return mapper.apply(element);
   }
@@ -88,6 +88,6 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    */
   @Override
   public CopyableIterator<T> iterator() {
-    return MappingContainerViewIterator.forIteratorAndMapper(container.iterator(), mapper);
+    return MappingContainerViewIterator.forIteratorAndMapper(wellOrderContainer.iterator(), mapper);
   }
 }

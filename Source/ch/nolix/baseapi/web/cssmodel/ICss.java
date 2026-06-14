@@ -3,13 +3,13 @@
  */
 package ch.nolix.baseapi.web.cssmodel;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  */
 public interface ICss {
-  IContainer<ICssRule> getRules();
+  IWellOrderContainer<ICssRule> getRules();
 
   String toStringWithoutEnclosingBrackets();
 }

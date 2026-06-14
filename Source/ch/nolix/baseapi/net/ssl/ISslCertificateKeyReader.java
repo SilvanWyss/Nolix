@@ -3,13 +3,13 @@
  */
 package ch.nolix.baseapi.net.ssl;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  */
 public interface ISslCertificateKeyReader {
-  String getKeyFromPemFileLines(IContainer<String> pemFileLines);
+  String getKeyFromPemFileLines(IWellOrderContainer<String> pemFileLines);
 
   String readKeyFromPemFile(String pemFilePath);
 }

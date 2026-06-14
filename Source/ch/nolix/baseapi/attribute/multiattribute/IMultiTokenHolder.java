@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * A {@link IMultiTokenHolder} can have several tokens.
@@ -14,5 +14,5 @@ public interface IMultiTokenHolder {
   /**
    * @return the tokens of the current {@link IMultiTokenHolder}
    */
-  IContainer<String> getTokens();
+  IWellOrderContainer<String> getTokens();
 }

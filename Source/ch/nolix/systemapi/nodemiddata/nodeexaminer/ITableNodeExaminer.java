@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodeexaminer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
@@ -14,7 +14,7 @@ public interface ITableNodeExaminer {
     IMutableNode<?> tableNode,
     int oneBasedIndex,
     String value,
-    IContainer<String> entitiesToIgnoreIds);
+    IWellOrderContainer<String> entitiesToIgnoreIds);
 
   boolean tableNodeContainsEntityNodeWithGivenId(IMutableNode<?> tableNode, String id);
 

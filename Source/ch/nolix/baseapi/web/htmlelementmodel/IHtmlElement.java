@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.web.htmlelementmodel;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,15 +13,15 @@ public interface IHtmlElement {
 
   boolean containsChildElements();
 
-  IContainer<? extends IHtmlAttribute> getAttributes();
+  IWellOrderContainer<? extends IHtmlAttribute> getAttributes();
 
-  IContainer<? extends IHtmlElement> getChildElements();
+  IWellOrderContainer<? extends IHtmlElement> getChildElements();
 
   String getInnerText();
 
   String getType();
 
-  IHtmlElement withAdditionalAttributes(IContainer<IHtmlAttribute> additionalAttributes);
+  IHtmlElement withAdditionalAttributes(IWellOrderContainer<IHtmlAttribute> additionalAttributes);
 
   IHtmlElement withAdditionalAttributes(IHtmlAttribute... additionalAttributes);
 }

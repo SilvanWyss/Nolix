@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.container.base;
+package ch.nolix.baseapi.container.wellordercontainer;
 
 import java.util.function.Predicate;
 
@@ -13,10 +13,10 @@ import java.util.function.Predicate;
 public interface IFilteringContainerViewProvider<E> {
   /**
    * @param selector
-   * @return a new {@link IContainer} view with the elements the given selector
+   * @return a new {@link IWellOrderContainer} view with the elements the given selector
    *         selects from the current {@link IFilteringContainerViewProvider}.
    *         Ignores null elements.
    * @throws RuntimeException if the given selector is null.
    */
-  IContainer<E> getViewOfStoredSelected(Predicate<E> selector);
+  IWellOrderContainer<E> getViewOfStoredSelected(Predicate<E> selector);
 }

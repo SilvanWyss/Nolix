@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.midschema.fieldproperty.BaseFieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -30,8 +30,8 @@ public final class TableLoader {
   }
 
   private static void addBaseValueColumnsToTablesFromMidTables(
-    final IContainer<Table<IEntity>> tables,
-    final IContainer<TableDto> midTables) {
+    final IWellOrderContainer<Table<IEntity>> tables,
+    final IWellOrderContainer<TableDto> midTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
       final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
@@ -55,9 +55,9 @@ public final class TableLoader {
   }
 
   private static void addBaseReferenceColumnsToTablesFromMidTables(
-    final IContainer<Table<IEntity>> tables,
-    final IContainer<TableDto> midTables,
-    final IContainer<? extends ITable<IEntity>> referencableTables) {
+    final IWellOrderContainer<Table<IEntity>> tables,
+    final IWellOrderContainer<TableDto> midTables,
+    final IWellOrderContainer<? extends ITable<IEntity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
       final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
@@ -68,7 +68,7 @@ public final class TableLoader {
   private static void addBaseReferenceColumnsToTableFromMidTable(
     final Table<IEntity> table,
     final TableDto midTable,
-    final IContainer<? extends ITable<IEntity>> referencableTables) {
+    final IWellOrderContainer<? extends ITable<IEntity>> referencableTables) {
     final var midBaseReferenceColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseReference);
 
     for (final var c : midBaseReferenceColumnsView) {
@@ -82,9 +82,9 @@ public final class TableLoader {
   }
 
   private static void addBaseBackReferenceColumnsToTablesFromMidTables(
-    final IContainer<Table<IEntity>> tables,
-    final IContainer<TableDto> midTables,
-    final IContainer<? extends ITable<IEntity>> referencableTables) {
+    final IWellOrderContainer<Table<IEntity>> tables,
+    final IWellOrderContainer<TableDto> midTables,
+    final IWellOrderContainer<? extends ITable<IEntity>> referencableTables) {
     for (final var t : tables) {
       final var tableName = t.getName();
       final var midTable = midTables.getStoredFirst(rt -> rt.name().equals(tableName));
@@ -95,7 +95,7 @@ public final class TableLoader {
   private static void addBaseBackReferenceColumnsToTableFromMidTable(
     final Table<IEntity> table,
     final TableDto midTable,
-    final IContainer<? extends ITable<IEntity>> referencableTables) {
+    final IWellOrderContainer<? extends ITable<IEntity>> referencableTables) {
     final var midBaseValueColumnsView = midTable.columns().getViewOfStoredSelected(TableLoader::isBaseBackReference);
 
     for (final var c : midBaseValueColumnsView) {

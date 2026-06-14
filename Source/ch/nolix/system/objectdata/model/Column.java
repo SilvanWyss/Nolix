@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -38,8 +38,8 @@ public final class Column implements IColumn {
     final String id, final String name,
     final FieldType fieldType,
     final Class<?> dataTypeClass,
-    final IContainer<? extends ITable<IEntity>> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable<IEntity>> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
     Validator.assertThat(fieldType).thatIsNamed(FieldType.class).isNotNull();
@@ -61,8 +61,8 @@ public final class Column implements IColumn {
     final String name,
     final FieldType fieldType,
     final Class<?> dataTypeClass,
-    final IContainer<? extends ITable<IEntity>> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable<IEntity>> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     return new Column(parentTable, id, name, fieldType, dataTypeClass, referenceableTables, backReferenceableColumns);
   }
 
@@ -84,7 +84,7 @@ public final class Column implements IColumn {
   @Override
   public boolean containsValueInPersistedDataIgnoringEntities(
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     final var midDataAdapterAndSchemaReader = parentTable.getStoredMidDataDataAdapterAndSchemaReader();
     final var tableName = parentTable.getName();
     final var columnName = getName();
@@ -144,7 +144,7 @@ public final class Column implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IColumn> getStoredBackReferenceableColumns() {
+  public IWellOrderContainer<? extends IColumn> getStoredBackReferenceableColumns() {
     return backReferenceableColumns;
   }
 
@@ -160,7 +160,7 @@ public final class Column implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends ITable<IEntity>> getStoredReferenceableTables() {
+  public IWellOrderContainer<? extends ITable<IEntity>> getStoredReferenceableTables() {
     return referenceableTables;
   }
 

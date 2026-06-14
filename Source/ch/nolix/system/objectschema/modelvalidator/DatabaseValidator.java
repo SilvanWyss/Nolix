@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.modelvalidator;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -32,7 +32,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
    * {@inheritDoc}
    */
   @Override
-  public void assertContainsTables(final IDatabase database, final IContainer<ITable> tables) {
+  public void assertContainsTables(final IDatabase database, final IWellOrderContainer<ITable> tables) {
     for (final var t : tables) {
       assertContainsTable(database, t);
     }

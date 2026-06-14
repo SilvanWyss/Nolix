@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.modelvalidator;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
@@ -29,8 +29,8 @@ public final class ColumnValidator implements IColumnValidator {
     final IColumn column,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     final var canSetContentModel = //
     COLUMN_MUTATION_EXAMINER.canSetContentModel(
       column,

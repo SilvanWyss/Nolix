@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
 
 /**
@@ -17,7 +17,7 @@ import ch.nolix.baseapi.net.websocket.WebSocketFrameOpcodeMeaning;
  */
 final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   @MethodSource
-  private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsAndTheirNumbers() {
+  private static IWellOrderContainer<Arguments> getWebSocketFrameOpcodeMeaningsAndTheirNumbers() {
     return //
     ImmutableList.withElements(
       Arguments.of(WebSocketFrameOpcodeMeaning.CONTINUATION_FRAME, 0x0),
@@ -29,7 +29,7 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   }
 
   @MethodSource
-  private static IContainer<Arguments> getNumbersAndTheirWebSocketFrameOpcodeMeanings() {
+  private static IWellOrderContainer<Arguments> getNumbersAndTheirWebSocketFrameOpcodeMeanings() {
     return //
     ImmutableList.withElements(
       Arguments.of(0x0, WebSocketFrameOpcodeMeaning.CONTINUATION_FRAME, 0x0),
@@ -46,7 +46,7 @@ final class WebSocketFrameOpcodeMeaningTest extends StandardTest {
   }
 
   @MethodSource
-  private static IContainer<Arguments> getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber() {
+  private static IWellOrderContainer<Arguments> getWebSocketFrameOpcodeMeaningsThatDoNotHaveANumber() {
     return ImmutableList.withElements(Arguments.of(WebSocketFrameOpcodeMeaning.RESERVED));
   }
 

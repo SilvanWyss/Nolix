@@ -7,7 +7,7 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.net.level3server.AbstractEndPoint;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.net.level3server.IDataProviderController;
@@ -55,7 +55,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public IWellOrderContainer<INode<?>> getDataForRequests(final IChainedNode... requests) {
     //Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
@@ -67,7 +67,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public IWellOrderContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return ContainerView.forIterable(requests).to(parentClient::getDataFromHere);
   }
 

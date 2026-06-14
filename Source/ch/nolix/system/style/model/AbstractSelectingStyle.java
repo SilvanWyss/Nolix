@@ -8,8 +8,8 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
@@ -40,10 +40,10 @@ implements ISelectingStyleWithSelectors {
   protected AbstractSelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
-    IContainer<String> selectorRoles,
-    IContainer<String> selectorTokens,
-    final IContainer<String> attachingAttributes,
-    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    IWellOrderContainer<String> selectorRoles,
+    IWellOrderContainer<String> selectorTokens,
+    final IWellOrderContainer<String> attachingAttributes,
+    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
 
     Validator.assertThatTheStrings(selectorRoles).areNotBlank();
@@ -75,7 +75,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<INode<?>> getAttributes() {
+  public final IWellOrderContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
@@ -115,7 +115,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<String> getSelectorRoles() {
+  public final IWellOrderContainer<String> getSelectorRoles() {
     return memberSelectorRoles;
   }
 
@@ -123,7 +123,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<String> getSelectorTokens() {
+  public final IWellOrderContainer<String> getSelectorTokens() {
     return memberSelectorTokens;
   }
 

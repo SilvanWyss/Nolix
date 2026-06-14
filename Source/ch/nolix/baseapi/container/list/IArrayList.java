@@ -3,18 +3,18 @@
  */
 package ch.nolix.baseapi.container.list;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.objectcreation.copier.Copyable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
- * A {@link IArrayList} is a {@link IContainer} that can add and remove
+ * A {@link IArrayList} is a {@link IWellOrderContainer} that can add and remove
  * elements.
  * 
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link IArrayList}.
  */
-public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IContainer<E> {
+public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IWellOrderContainer<E> {
   /**
    * Adds the given element at the end of the current {@link IArrayList}.
    * 

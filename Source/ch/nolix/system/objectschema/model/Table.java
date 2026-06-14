@@ -6,8 +6,8 @@ package ch.nolix.system.objectschema.model;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -69,7 +69,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
    * {@inheritDoc}
    */
   @Override
-  public ITable addColumns(final IContainer<IColumn> columns) {
+  public ITable addColumns(final IWellOrderContainer<IColumn> columns) {
     for (final var c : columns) {
       addColumn(c);
     }
@@ -93,8 +93,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     final var columnId = IdCreator.createIdOf10HexadecimalCharacters();
 
     final var column = //
@@ -149,7 +149,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IColumn> getStoredColumns() {
+  public IWellOrderContainer<? extends IColumn> getStoredColumns() {
     return memberColumns;
   }
 

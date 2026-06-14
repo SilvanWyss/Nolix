@@ -8,8 +8,8 @@ import java.text.DecimalFormat;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -91,7 +91,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (isAbsolute()) {

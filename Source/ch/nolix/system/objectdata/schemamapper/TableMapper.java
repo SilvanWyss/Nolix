@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.schemamapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.objectschema.model.Table;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
@@ -28,7 +28,7 @@ public final class TableMapper implements ITableMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ITable> mapSchemaToEmptyTables(final IEntityTypeSet entityTypeSet) {
+  public IWellOrderContainer<ITable> mapSchemaToEmptyTables(final IEntityTypeSet entityTypeSet) {
     final var entityTypes = entityTypeSet.getEntityTypes();
 
     return entityTypes.to(this::mapEntityTypeToEmptyTable);

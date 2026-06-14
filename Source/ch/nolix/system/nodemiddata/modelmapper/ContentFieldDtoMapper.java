@@ -4,8 +4,8 @@
 package ch.nolix.system.nodemiddata.modelmapper;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -79,7 +79,7 @@ public final class ContentFieldDtoMapper implements IContentFieldDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<FieldDto> mapEntityNodeToContentFieldDtos(
+  public IWellOrderContainer<FieldDto> mapEntityNodeToContentFieldDtos(
     final IMutableNode<?> entityNode,
     final TableInfoDto tableView) {
     final ILinkedList<FieldDto> contentFields = LinkedList.createEmpty();

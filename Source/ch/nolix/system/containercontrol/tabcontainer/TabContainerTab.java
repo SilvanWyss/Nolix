@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -110,7 +110,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

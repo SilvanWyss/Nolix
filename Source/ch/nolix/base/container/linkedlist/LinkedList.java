@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
-import ch.nolix.base.container.base.AbstractContainer;
+import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
@@ -20,7 +20,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
- * A {@link LinkedList} is a {@link AbstractContainer} that can add elements at
+ * A {@link LinkedList} is a {@link AbstractWellOrderContainer} that can add elements at
  * the begin or end. A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
@@ -296,14 +296,14 @@ implements ILinkedList<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * @param oneBasedIndex
    * @return the element at the given index.
    * @throws RuntimeException                      if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractContainer} does
+   *                                               {@link AbstractWellOrderContainer} does
    *                                               not contain an element at the
    *                                               given index.
    */

@@ -5,7 +5,7 @@ package ch.nolix.baseapi.programcontrol.process;
 
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
@@ -29,7 +29,7 @@ public interface IUpdaterCollector<O> extends Clearable {
    * @throws RuntimeException if the given updaters is null.
    * @throws RuntimeException if one of the given updaters is null.
    */
-  void addUpdaters(IContainer<Consumer<O>> updaters);
+  void addUpdaters(IWellOrderContainer<Consumer<O>> updaters);
 
   /**
    * Updates the given object and clears the current {@link IUpdaterCollector}.

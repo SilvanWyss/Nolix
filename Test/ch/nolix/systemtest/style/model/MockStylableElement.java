@@ -4,7 +4,7 @@
 package ch.nolix.systemtest.style.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
@@ -26,7 +26,7 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public IWellOrderContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return ImmutableList.createEmpty();
   }
 

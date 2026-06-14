@@ -6,8 +6,8 @@ package ch.nolix.system.containercontrol.grid;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.container.matrix.Matrix;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.atomiccontrol.label.Label;
@@ -97,7 +97,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredChildControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
     final ILinkedList<IControl<?, ?>> childControls = LinkedList.createEmpty();
     for (final var c : cells) {
       if (c.containsAny()) {
@@ -112,7 +112,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
     return getStoredChildControls();
   }
 

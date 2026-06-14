@@ -6,8 +6,8 @@ package ch.nolix.system.webapplication.counterpartupdater;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
@@ -47,7 +47,7 @@ public final class UpdateCommandCreatorHelper {
   }
 
   public static ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
-    final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
+    final IWellOrderContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
     final var eventFunctionsView = //
     htmlElementEventRegistrations.getViewOf(
       e -> Node.withChildNodes(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
@@ -67,7 +67,7 @@ public final class UpdateCommandCreatorHelper {
         ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  public static ChainedNode createSetUserInputFunctionsCommandForControls(final IContainer<IControl<?, ?>> controls) {
+  public static ChainedNode createSetUserInputFunctionsCommandForControls(final IWellOrderContainer<IControl<?, ?>> controls) {
     final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {

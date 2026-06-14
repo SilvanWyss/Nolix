@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.model;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
@@ -15,9 +15,9 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 public interface IMultiValueField<V> extends Clearable, IBaseValueField<V>, Iterable<V> {
   void addValue(V value);
 
-  IContainer<V> getAllStoredValues();
+  IWellOrderContainer<V> getAllStoredValues();
 
-  IContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries();
+  IWellOrderContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries();
 
   boolean loadedAllPersistedValues();
 

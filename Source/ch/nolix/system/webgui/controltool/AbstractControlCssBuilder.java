@@ -9,8 +9,8 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.base.web.cssmodel.CssRule;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
@@ -34,7 +34,7 @@ implements IControlCssBuilder<C, S> {
   private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 
   @Override
-  public final IContainer<ICssRule> createCssRulesForControl(final C control) {
+  public final IWellOrderContainer<ICssRule> createCssRulesForControl(final C control) {
     final ILinkedList<ICssRule> cssRules = LinkedList.createEmpty();
     fillUpAllStateCssRulesIntoList(cssRules, control);
     fillUpBaseCssRulesIntoList(cssRules, control);
@@ -218,7 +218,7 @@ implements IControlCssBuilder<C, S> {
     }
   }
 
-  private IContainer<ICssProperty> getCssPropertiesForControlAndAllStates(final C control) {
+  private IWellOrderContainer<ICssProperty> getCssPropertiesForControlAndAllStates(final C control) {
     final ILinkedList<ICssProperty> cssPropertiesForBaseState = LinkedList.createEmpty();
 
     onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(control, cssPropertiesForBaseState);
@@ -226,7 +226,7 @@ implements IControlCssBuilder<C, S> {
     return cssPropertiesForBaseState;
   }
 
-  private IContainer<ICssProperty> getCssPropertiesForControlAndState(final C control, final ControlState state) {
+  private IWellOrderContainer<ICssProperty> getCssPropertiesForControlAndState(final C control, final ControlState state) {
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     onOwnFillUpCssPropertiesForControlAndStateIntoList(control, state, cssProperties);

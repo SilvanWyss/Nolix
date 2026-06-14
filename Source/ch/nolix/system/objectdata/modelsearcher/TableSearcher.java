@@ -5,8 +5,8 @@ package ch.nolix.system.objectdata.modelsearcher;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.objectdata.model.IColumn;
@@ -25,7 +25,7 @@ public final class TableSearcher extends DatabaseObjectExaminer implements ITabl
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getLocallyDeletedEntityIds(final ITable<?> table) {
+  public IWellOrderContainer<String> getLocallyDeletedEntityIds(final ITable<?> table) {
     if (table == null) {
       return ImmutableList.createEmpty();
     }
@@ -37,7 +37,7 @@ public final class TableSearcher extends DatabaseObjectExaminer implements ITabl
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> IContainer<IColumn> getStoredColumsThatReferencesTable(
+  public <E extends IEntity> IWellOrderContainer<IColumn> getStoredColumsThatReferencesTable(
     final ITable<E> table) {
     if (table == null) {
       return ImmutableList.createEmpty();

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.ssl;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -12,7 +12,7 @@ public final class SslCertificateKeyReaderHelper {
   private SslCertificateKeyReaderHelper() {
   }
 
-  public static IContainer<String> getKeyLinesFromPemFileLines(final IContainer<String> pemFileLines) {
+  public static IWellOrderContainer<String> getKeyLinesFromPemFileLines(final IWellOrderContainer<String> pemFileLines) {
     return pemFileLines.getStoredSelected(SslCertificateKeyReaderHelper::isKeyLine);
   }
 

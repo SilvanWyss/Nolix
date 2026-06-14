@@ -6,15 +6,15 @@ package ch.nolix.basetest.reflection.reflectionexaminer;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.base.container.base.AbstractContainer;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.container.matrix.Matrix;
+import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -45,7 +45,7 @@ final class FieldExaminerTest extends StandardTest {
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractContainer.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractWellOrderContainer.class);
 
     //verification
     expect(result).isTrue();
@@ -71,7 +71,7 @@ final class FieldExaminerTest extends StandardTest {
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IContainer.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IWellOrderContainer.class);
 
     //verification
     expect(result).isTrue();

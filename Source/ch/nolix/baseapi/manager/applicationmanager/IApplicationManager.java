@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.manager.applicationmanager;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,5 +13,5 @@ public interface IApplicationManager<A> {
   /**
    * @return the applications of the current {@link IApplicationManager}.
    */
-  IContainer<? extends A> getStoredApplications();
+  IWellOrderContainer<? extends A> getStoredApplications();
 }

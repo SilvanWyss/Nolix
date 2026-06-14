@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.document.chainednode;
 
 import ch.nolix.baseapi.attribute.optionalattribute.IOptionalHeaderHolder;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
 
@@ -44,7 +44,7 @@ public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolde
   /**
    * @return the child nodes of the current {@link IChainedNode}.
    */
-  IContainer<? extends IChainedNode> getChildNodes();
+  IWellOrderContainer<? extends IChainedNode> getChildNodes();
 
   /**
    * @param header

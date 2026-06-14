@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * A {@link IMultiTagHolder} can contain several tags.
@@ -14,5 +14,5 @@ public interface IMultiTagHolder {
   /**
    * @return the tags of the current {@link IMultiTagHolder}
    */
-  IContainer<String> getTags();
+  IWellOrderContainer<String> getTags();
 }

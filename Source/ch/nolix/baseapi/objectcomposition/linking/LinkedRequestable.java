@@ -3,13 +3,13 @@
  */
 package ch.nolix.baseapi.objectcomposition.linking;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  */
 public interface LinkedRequestable {
-  IContainer<Object> getStoredLinkedObjects();
+  IWellOrderContainer<Object> getStoredLinkedObjects();
 
   boolean isLinkedTo(Object object);
 

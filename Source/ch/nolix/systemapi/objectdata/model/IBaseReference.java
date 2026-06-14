@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,5 +13,5 @@ public interface IBaseReference extends IField {
    * @return the names of the {@link ITable}s the current {@link IBaseReference}
    *         can reference.
    */
-  IContainer<String> getReferenceableTableNames();
+  IWellOrderContainer<String> getReferenceableTableNames();
 }

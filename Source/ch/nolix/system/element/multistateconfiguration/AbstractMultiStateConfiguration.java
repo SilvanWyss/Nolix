@@ -9,8 +9,8 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -28,9 +28,9 @@ extends AbstractElement
 implements IMultiStateConfiguration<C, S> {
   private final State<S> baseState;
 
-  private final IContainer<State<S>> availableStates;
+  private final IWellOrderContainer<State<S>> availableStates;
 
-  private IContainer<AbstractProperty<S>> abstractProperties;
+  private IWellOrderContainer<AbstractProperty<S>> abstractProperties;
 
   protected AbstractMultiStateConfiguration(final S baseState) {
     Validator.assertThat(baseState).thatIsNamed("base state").isNotNull();
@@ -82,7 +82,7 @@ implements IMultiStateConfiguration<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<INode<?>> getAttributes() {
+  public final IWellOrderContainer<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     for (final var p : getStoredProperties()) {
@@ -145,7 +145,7 @@ implements IMultiStateConfiguration<C, S> {
     extractPropertiesIfNotExtracted();
   }
 
-  final IContainer<State<S>> getAvailableStates() {
+  final IWellOrderContainer<State<S>> getAvailableStates() {
     return availableStates;
   }
 
@@ -153,7 +153,7 @@ implements IMultiStateConfiguration<C, S> {
     return baseState;
   }
 
-  final IContainer<AbstractProperty<S>> getStoredProperties() {
+  final IWellOrderContainer<AbstractProperty<S>> getStoredProperties() {
     extractPropertiesIfNotExtracted();
 
     return abstractProperties;
@@ -222,7 +222,7 @@ implements IMultiStateConfiguration<C, S> {
   }
 
   @SuppressWarnings("unchecked")
-  private IContainer<CascadingProperty<S, ?>> getStoredCascadingProperties() {
+  private IWellOrderContainer<CascadingProperty<S, ?>> getStoredCascadingProperties() {
     return getStoredProperties().getStoredOfType(CascadingProperty.class);
   }
 

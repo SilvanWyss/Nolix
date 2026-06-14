@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  */
 public interface IEntityTypeSet {
-  IContainer<Class<? extends IEntity>> getEntityTypes();
+  IWellOrderContainer<Class<? extends IEntity>> getEntityTypes();
 }

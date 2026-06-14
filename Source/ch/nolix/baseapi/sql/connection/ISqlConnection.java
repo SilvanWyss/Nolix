@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.sql.connection;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
@@ -14,13 +14,13 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 public interface ISqlConnection extends GroupCloseable {
   void executeStatement(String statement);
 
-  void executeStatements(IContainer<String> statements);
+  void executeStatements(IWellOrderContainer<String> statements);
 
   void executeStatements(String... statements);
 
   SqlDatabaseEngine getDatabaseEngine();
 
-  IContainer<ISqlRecord> getRecordsFromQuery(String query);
+  IWellOrderContainer<ISqlRecord> getRecordsFromQuery(String query);
 
   ISqlRecord getSingleRecordFromQuery(String query);
 }

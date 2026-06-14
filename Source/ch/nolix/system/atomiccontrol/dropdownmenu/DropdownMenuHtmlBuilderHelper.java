@@ -6,8 +6,8 @@ package ch.nolix.system.atomiccontrol.dropdownmenu;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
@@ -21,13 +21,13 @@ public final class DropdownMenuHtmlBuilderHelper {
   private DropdownMenuHtmlBuilderHelper() {
   }
 
-  public static IContainer<IHtmlElement> createHtmlChildElementsForDropdownMenu(
+  public static IWellOrderContainer<IHtmlElement> createHtmlChildElementsForDropdownMenu(
     final IDropdownMenu dropdownMenu) {
     return createHtmlElementsFromItems(dropdownMenu.getStoredItems());
   }
 
-  private static IContainer<IHtmlElement> createHtmlElementsFromItems(
-    final IContainer<? extends IItemMenuItem<?>> items) {
+  private static IWellOrderContainer<IHtmlElement> createHtmlElementsFromItems(
+    final IWellOrderContainer<? extends IItemMenuItem<?>> items) {
     return items.to(DropdownMenuHtmlBuilderHelper::createHtmlElementForItem);
   }
 
@@ -38,7 +38,7 @@ public final class DropdownMenuHtmlBuilderHelper {
       item.getText());
   }
 
-  private static IContainer<IHtmlAttribute> createHtmlAttributesForDropdownMenuItem(
+  private static IWellOrderContainer<IHtmlAttribute> createHtmlAttributesForDropdownMenuItem(
     final IItemMenuItem<?> dropdownMenuItem) {
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 

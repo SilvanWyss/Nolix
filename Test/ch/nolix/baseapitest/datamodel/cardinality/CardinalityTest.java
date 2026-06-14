@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
 
@@ -18,7 +18,7 @@ import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
  */
 final class CardinalityTest extends StandardTest {
   @MethodSource
-  private static IContainer<Arguments> getCardinalitysAndTheirBaseCardinality() {
+  private static IWellOrderContainer<Arguments> getCardinalitysAndTheirBaseCardinality() {
     return //
     ImmutableList.withElements(
       Arguments.of(Cardinality.TO_ONE, BaseCardinality.SINGLE),

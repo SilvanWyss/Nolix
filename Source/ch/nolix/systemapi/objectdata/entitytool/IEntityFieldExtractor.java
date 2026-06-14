@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.entitytool;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
 
@@ -19,5 +19,5 @@ public interface IEntityFieldExtractor<E extends IEntity, F extends IField> {
    * @param entity
    * @return the {@link IField}s from the given entity.
    */
-  IContainer<F> extractStoredFieldsFromEntity(final E entity);
+  IWellOrderContainer<F> extractStoredFieldsFromEntity(final E entity);
 }

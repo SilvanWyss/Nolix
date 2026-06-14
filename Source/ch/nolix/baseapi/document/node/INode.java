@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import ch.nolix.baseapi.attribute.optionalattribute.IOptionalHeaderHolder;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.xml.IXmlNode;
 import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
 
@@ -68,7 +68,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
    * @throws RuntimeException if one of the child {@link INode}s of the current
    *                          {@link INode} does not have a header.
    */
-  IContainer<String> getChildNodesHeaders();
+  IWellOrderContainer<String> getChildNodesHeaders();
 
   /**
    * @param selector
@@ -91,21 +91,21 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
   /**
    * @return the child {@link INode}s of the current {@link INode}.
    */
-  IContainer<N> getStoredChildNodes();
+  IWellOrderContainer<N> getStoredChildNodes();
 
   /**
    * @param selector
    * @return the child {@link INode}s the given selector selects from the current
    *         {@link INode}.
    */
-  IContainer<N> getStoredChildNodesThat(Predicate<INode<?>> selector);
+  IWellOrderContainer<N> getStoredChildNodesThat(Predicate<INode<?>> selector);
 
   /**
    * @param header
    * @return the child {@link INode}s with the given header from the current
    *         {@link INode}.
    */
-  IContainer<N> getStoredChildNodesWithHeader(String header);
+  IWellOrderContainer<N> getStoredChildNodesWithHeader(String header);
 
   /**
    * @return the first child {@link INode} from the current {@link INode}.

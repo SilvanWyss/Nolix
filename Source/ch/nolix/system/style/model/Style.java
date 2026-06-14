@@ -7,8 +7,8 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -37,8 +37,8 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @param subStyles
    */
   private Style(
-    final IContainer<String> attachingAttributes,
-    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    final IWellOrderContainer<String> attachingAttributes,
+    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
   }
 
@@ -90,8 +90,8 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * @return a new {@link Style} with the given attachingAttributes and subStyles.
    */
   public static Style withAttachingAttributesAndSubStyles(
-    final IContainer<String> attachingAttributes,
-    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    final IWellOrderContainer<String> attachingAttributes,
+    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     return new Style(attachingAttributes, subStyles);
   }
 
@@ -99,7 +99,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     return //
     ContainerView.forIterables(
       getAttachingAttributes().getViewOf(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
@@ -119,7 +119,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public IStyle withAttachingAttributes(final IContainer<String> attachingAttributes) {
+  public IStyle withAttachingAttributes(final IWellOrderContainer<String> attachingAttributes) {
     final var allAttachingAttributes = ContainerView.forIterables(getAttachingAttributes(), attachingAttributes);
 
     return new Style(allAttachingAttributes, getSubStyles());
@@ -137,7 +137,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    * {@inheritDoc}
    */
   @Override
-  public IStyle withSubStyles(final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+  public IStyle withSubStyles(final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();
     allSubStyles.addAtEnd(getSubStyles());
     allSubStyles.addAtEnd(subStyles);

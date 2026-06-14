@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.entitytool;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityContentFieldsFiller;
@@ -19,7 +19,7 @@ public final class EntityContentFieldsFiller implements IEntityContentFieldsFill
   @Override
   public void fillUpEntityContentFieldsFromContentFieldDtos(
     final IEntity entity,
-    final IContainer<FieldDto> contentFieldDtos) {
+    final IWellOrderContainer<FieldDto> contentFieldDtos) {
     final var entityFields = entity.internalGetStoredFields();
 
     for (final var f : contentFieldDtos) {

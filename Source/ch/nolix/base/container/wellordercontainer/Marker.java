@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.container.base;
+package ch.nolix.base.container.wellordercontainer;
 
 /**
  * @author Silvan Wyss

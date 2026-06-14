@@ -7,9 +7,9 @@ import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 
 /**
@@ -17,30 +17,30 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRan
  * @param <E> is the type of the elements of a {@link MultiContainerView}.
  */
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
-  private final IContainer<IContainer<E>> containers;
+  private final IWellOrderContainer<IWellOrderContainer<E>> wellOrderContainers;
 
   private MultiContainerView() {
-    containers = ImmutableList.createEmpty();
+    wellOrderContainers = ImmutableList.createEmpty();
   }
 
   private MultiContainerView(@SuppressWarnings("unchecked") final E[]... arrays) {
-    final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
+    final IArrayList<IWellOrderContainer<E>> localContainers = ArrayList.createEmpty();
 
     for (final var a : arrays) {
       localContainers.addAtEnd(ArrayContainerView.forArray(a));
     }
 
-    containers = localContainers;
+    wellOrderContainers = localContainers;
   }
 
   private MultiContainerView(@SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
-    final IArrayList<IContainer<E>> localContainers = ArrayList.createEmpty();
+    final IArrayList<IWellOrderContainer<E>> localContainers = ArrayList.createEmpty();
 
     for (final var i : iterables) {
       localContainers.addAtEnd(IterableContainerView.forIterable(i));
     }
 
-    containers = localContainers;
+    wellOrderContainers = localContainers;
   }
 
   public static <T> MultiContainerView<T> forArrays(
@@ -62,7 +62,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return MultiContainerViewIterator.forContainers(containers);
+    return MultiContainerViewIterator.forContainers(wellOrderContainers);
   }
 
   /**
@@ -70,7 +70,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public int getCount() {
-    return containers.getSumOfInts(IContainer::getCount).intValue();
+    return wellOrderContainers.getSumOfInts(IWellOrderContainer::getCount).intValue();
   }
 
   /**

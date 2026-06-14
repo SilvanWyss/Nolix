@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemidschema.nodemapper;
 
 import ch.nolix.base.document.node.Node;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
@@ -19,7 +19,7 @@ public final class TableNodeComponentMapper {
   private TableNodeComponentMapper() {
   }
 
-  public static IContainer<INode<?>> mapTableDtoToColumnNodes(final TableDto tableDto) {
+  public static IWellOrderContainer<INode<?>> mapTableDtoToColumnNodes(final TableDto tableDto) {
     return tableDto.columns().to(COLUMN_NODE_MAPPER::mapColumnDtoToColumnNode);
   }
 

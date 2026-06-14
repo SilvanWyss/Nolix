@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.containercontrol.linearcontainer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
@@ -18,7 +18,7 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<C, S> {
 
   C addControls(IControl<?, ?>... controls);
 
-  C addControls(IContainer<? extends IControl<?, ?>> controls);
+  C addControls(IWellOrderContainer<? extends IControl<?, ?>> controls);
 
   void removeControl(IControl<?, ?> control);
 }

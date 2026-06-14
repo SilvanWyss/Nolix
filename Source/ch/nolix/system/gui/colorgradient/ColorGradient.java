@@ -6,7 +6,7 @@ package ch.nolix.system.gui.colorgradient;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -108,7 +108,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given attributes.
    * @throws RuntimeException if the given attributes are not valid.
    */
-  private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
+  private static ColorGradient from2Attributes(IWellOrderContainer<? extends INode<?>> attributes) {
     final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
 
@@ -123,7 +123,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @return a new {@link ColorGradient} from the given attributes.
    * @throws RuntimeException if the given attributes are not valid.
    */
-  private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
+  private static ColorGradient from3Attributes(IWellOrderContainer<? extends INode<?>> attributes) {
     final var directionSpecification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
     final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
     final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(3));
@@ -139,7 +139,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(
       Node.withHeader(getDirection().toString()),
       Node.withHeader(getColor1().toHexadecimalString()),

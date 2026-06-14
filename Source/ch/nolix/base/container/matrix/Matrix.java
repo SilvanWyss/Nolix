@@ -7,23 +7,23 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
-import ch.nolix.base.container.base.AbstractContainer;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
 import ch.nolix.baseapi.container.matrix.IMatrixColumn;
 import ch.nolix.baseapi.container.matrix.IMatrixRow;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link Matrix} is a {@link AbstractContainer} that stores its elements in
+ * A {@link Matrix} is a {@link AbstractWellOrderContainer} that stores its elements in
  * rows and columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
@@ -293,7 +293,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return the columns of the current {@link Matrix}.
    */
   @Override
-  public IContainer<IMatrixColumn<E>> getColumns() {
+  public IWellOrderContainer<IMatrixColumn<E>> getColumns() {
     final ILinkedList<IMatrixColumn<E>> columns = LinkedList.createEmpty();
 
     //Iterates the columns of the current matrix.
@@ -425,7 +425,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return the rows of the current {@link Matrix}.
    */
   @Override
-  public IContainer<IMatrixRow<E>> getRows() {
+  public IWellOrderContainer<IMatrixRow<E>> getRows() {
     final ILinkedList<IMatrixRow<E>> rows = LinkedList.createEmpty();
 
     for (var i = 1; i <= getRowCount(); i++) {

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlschema.adapter;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
@@ -17,7 +17,7 @@ public interface ISchemaReader extends GroupCloseable {
 
   TableDto loadTable(String tableName);
 
-  IContainer<TableDto> loadTables();
+  IWellOrderContainer<TableDto> loadTables();
 
   boolean tableExist();
 

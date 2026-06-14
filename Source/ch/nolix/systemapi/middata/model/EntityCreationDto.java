@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.middata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
-public record EntityCreationDto(String id, IContainer<ValueStringFieldDto> contentFields) {
+public record EntityCreationDto(String id, IWellOrderContainer<ValueStringFieldDto> contentFields) {
 }

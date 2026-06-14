@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmiddata.loader;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmiddata.modelmapper.LoadedEntityDtoMapper;
 import ch.nolix.system.sqlmiddata.querycreator.EntityQueryCreator;
@@ -36,7 +36,7 @@ public final class SchematicEntityLoader implements ISchematicEntityLoader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<EntityLoadingDto> loadEntitiesByTable(final TableInfoDto tableView) {
+  public IWellOrderContainer<EntityLoadingDto> loadEntitiesByTable(final TableInfoDto tableView) {
     final var query = ENTITY_QUERY_CREATOR.createQueryToLoadEntitiesByTable(tableView);
     final var records = sqlConnection.getRecordsFromQuery(query);
 

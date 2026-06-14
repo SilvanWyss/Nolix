@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public interface IBaseBackReference extends IField {
    * @return the names of the {@link ITable}s the current
    *         {@link IBaseBackReference} can reference back.
    */
-  IContainer<String> getBackReferenceableTableNames();
+  IWellOrderContainer<String> getBackReferenceableTableNames();
 
   /**
    * @return the name of the field the current {@link IBaseBackReference} can

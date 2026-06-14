@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.container.base;
+package ch.nolix.base.container.wellordercontainer;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -21,10 +21,10 @@ import ch.nolix.base.container.arraylist.MappingContainerView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -34,15 +34,16 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link AbstractContainer}.
+ * @param <E> is the type of the elements of a
+ *            {@link AbstractWellOrderContainer}.
  */
-public abstract class AbstractContainer<E> //NOSONAR: An AbstractContainer is a principal object thus it has many methods.
-implements IContainer<E> {
+public abstract class AbstractWellOrderContainer<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
+implements IWellOrderContainer<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -54,7 +55,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -68,7 +69,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -81,7 +82,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -93,7 +94,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -107,7 +108,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -127,7 +128,7 @@ implements IContainer<E> {
   @Override
   public final boolean containsAsManyAs(Iterable<?> iterable) {
     //Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof final IContainer<?> container) {
+    if (iterable instanceof final IWellOrderContainer<?> container) {
       return (getCount() == container.getCount());
     }
 
@@ -137,7 +138,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -159,7 +160,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * The current {@link AbstractContainer} contains m elements.
+   * The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * The given iterable contains n elements.
    * 
@@ -178,7 +179,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -196,7 +197,7 @@ implements IContainer<E> {
   @Override
   public final boolean containsLessThan(final Iterable<?> iterable) {
     //Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof final IContainer<?> container) {
+    if (iterable instanceof final IWellOrderContainer<?> container) {
       return (getCount() < container.getCount());
     }
 
@@ -213,7 +214,7 @@ implements IContainer<E> {
   @Override
   public final boolean containsMoreThan(final Iterable<?> iterable) {
     //Handles the case that the given container is a IContainer.
-    if (iterable instanceof final IContainer<?> container) {
+    if (iterable instanceof final IWellOrderContainer<?> container) {
       return (getCount() > container.getCount());
     }
 
@@ -223,7 +224,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -235,7 +236,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -249,7 +250,7 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -262,7 +263,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -294,7 +295,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -305,7 +306,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -335,7 +336,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -346,7 +347,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -367,7 +368,7 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -391,7 +392,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -418,7 +419,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -442,7 +443,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -472,7 +473,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -502,7 +503,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -528,7 +529,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -567,7 +568,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -606,7 +607,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -651,7 +652,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -668,7 +669,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -764,7 +765,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -788,7 +789,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -803,7 +804,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -847,7 +848,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -912,7 +913,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -931,7 +932,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -948,15 +949,15 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractContainer} contains m elements.
+   * -The current {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -The given norm assignes the elements of the current
-   * {@link AbstractContainer} in n groups.
+   * {@link AbstractWellOrderContainer} in n groups.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends IContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
+  public final IWellOrderContainer<? extends IWellOrderContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
     //Asserts that the given norm is not null.
     Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
@@ -999,7 +1000,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(1) or O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1011,18 +1012,18 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
   @SuppressWarnings("unchecked")
-  public final <T extends E> IContainer<T> getStoredOfType(final Class<T> type) {
+  public final <T extends E> IWellOrderContainer<T> getStoredOfType(final Class<T> type) {
     //Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
-    return (IContainer<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
+    return (IWellOrderContainer<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -1046,7 +1047,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1089,12 +1090,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getStoredOthers(final Predicate<E> selector) {
+  public final IWellOrderContainer<E> getStoredOthers(final Predicate<E> selector) {
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1119,12 +1120,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
+  public final IWellOrderContainer<E> getStoredSelected(final Predicate<? super E> selector) {
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1147,7 +1148,7 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1174,7 +1175,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1201,7 +1202,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1243,12 +1244,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public <T> IContainer<T> getViewOf(final Function<E, T> mapper) {
+  public <T> IWellOrderContainer<T> getViewOf(final Function<E, T> mapper) {
     return MappingContainerView.forContainerAndMapper(this, mapper);
   }
 
@@ -1258,7 +1259,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
+  public final IWellOrderContainer<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(oneBasedStartIndex, getCount());
   }
@@ -1269,7 +1270,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
+  public final IWellOrderContainer<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, oneBasedEndIndex);
   }
@@ -1280,7 +1281,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewWithoutFirst() {
+  public final IWellOrderContainer<E> getViewWithoutFirst() {
     //Calls other method.
     return getViewWithoutFirst(1);
   }
@@ -1291,7 +1292,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewWithoutFirst(final int n) {
+  public final IWellOrderContainer<E> getViewWithoutFirst(final int n) {
     //Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
@@ -1314,7 +1315,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewWithoutLast() {
+  public final IWellOrderContainer<E> getViewWithoutLast() {
     //Calls other method.
     return getViewWithoutLast(1);
   }
@@ -1325,7 +1326,7 @@ implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewWithoutLast(final int n) {
+  public final IWellOrderContainer<E> getViewWithoutLast(final int n) {
     //Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
@@ -1364,12 +1365,12 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final <T> IContainer<T> to(final Function<E, T> mapper) {
+  public final <T> IWellOrderContainer<T> to(final Function<E, T> mapper) {
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
@@ -1397,7 +1398,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1424,7 +1425,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1457,7 +1458,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1490,7 +1491,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1507,7 +1508,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1540,7 +1541,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1574,7 +1575,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1608,15 +1609,15 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current * {@link AbstractContainer} contains m elements.
+   * -The current * {@link AbstractWellOrderContainer} contains m elements.
    * 
    * -On average, the given multipleMapper maps n elements from an element of the
-   * current {@link AbstractContainer}.
+   * current {@link AbstractWellOrderContainer}.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final <T> IContainer<T> toMultiples(final Function<E, IContainer<T>> multipleMapper) {
+  public final <T> IWellOrderContainer<T> toMultiples(final Function<E, IWellOrderContainer<T>> multipleMapper) {
     //Asserts that the given multipleMapper is not null.
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
@@ -1641,12 +1642,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public <N extends Number> IContainer<N> toNumbers(final Function<E, N> numberMapper) {
+  public <N extends Number> IWellOrderContainer<N> toNumbers(final Function<E, N> numberMapper) {
     //Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 
@@ -1677,12 +1678,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> toReversedList() {
+  public final IWellOrderContainer<E> toReversedList() {
     final var reversedList = createEmptyMutableList(new Marker<E>());
 
     @SuppressWarnings("unchecked")
@@ -1702,7 +1703,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1722,12 +1723,12 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<String> toStrings() {
+  public final IWellOrderContainer<String> toStrings() {
     //Creates list.
     final var list = createEmptyMutableList(new Marker<String>());
 
@@ -1741,7 +1742,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1753,7 +1754,7 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1773,12 +1774,12 @@ implements IContainer<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final <T> IContainer<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
+  public final <T> IWellOrderContainer<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
@@ -1821,7 +1822,8 @@ implements IContainer<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @throws RuntimeException if the current {@link AbstractContainer} is empty.
+   * @throws RuntimeException if the current {@link AbstractWellOrderContainer} is
+   *                          empty.
    */
   private void assertIsNotEmpty() {
     if (isEmpty()) {
@@ -1859,12 +1861,13 @@ implements IContainer<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * @param separator
    * @return a {@link String} representation of the current
-   *         {@link AbstractContainer} using the given separator for the case that
-   *         the current {@link AbstractContainer} contains several elements.
+   *         {@link AbstractWellOrderContainer} using the given separator for the
+   *         case that the current {@link AbstractWellOrderContainer} contains
+   *         several elements.
    * @throws RuntimeException if the given separator is null.
    */
   private String toStringWhenContainsSeveralElements(final String separator) {

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.modelmutationexaminer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelexaminer.ColumnExaminer;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -37,8 +37,8 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     final IColumn column,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     return //
     COLUMN_EXAMINER.isOpenAndEmptyAndNotBackReferenced(column)
     && fieldType != null

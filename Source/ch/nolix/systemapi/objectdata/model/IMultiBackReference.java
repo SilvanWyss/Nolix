@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -11,11 +11,11 @@ import ch.nolix.baseapi.container.base.IContainer;
  *            can reference back.
  */
 public interface IMultiBackReference<E extends IEntity> extends IBaseBackReference, Iterable<E> {
-  IContainer<String> getAllBackReferencedEntityIds();
+  IWellOrderContainer<String> getAllBackReferencedEntityIds();
 
-  IContainer<E> getAllStoredBackReferencedEntities();
+  IWellOrderContainer<E> getAllStoredBackReferencedEntities();
 
-  IContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries();
+  IWellOrderContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries();
 
   boolean loadedAllPersistedReferencedEntityIds();
 }

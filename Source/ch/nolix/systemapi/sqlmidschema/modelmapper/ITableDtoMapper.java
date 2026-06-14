@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.modelmapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
@@ -17,7 +17,7 @@ public interface ITableDtoMapper {
    * @throws RuntimeException if the given joinedColumnSqlRecords is null or one
    *                          of the given joinedColumnSqlRecords is null.
    */
-  TableDto mapJoinedColumnSqlRecordsToTableDto(IContainer<ISqlRecord> joinedColumnSqlRecords);
+  TableDto mapJoinedColumnSqlRecordsToTableDto(IWellOrderContainer<ISqlRecord> joinedColumnSqlRecords);
 
   /**
    * @param joinedColumnSqlRecords
@@ -25,5 +25,5 @@ public interface ITableDtoMapper {
    * @throws RuntimeException if the given joinedColumnSqlRecords is null or one
    *                          of the given joinedColumnSqlRecords is null.
    */
-  IContainer<TableDto> mapJoinedColumnSqlRecordsToTableDtos(IContainer<ISqlRecord> joinedColumnSqlRecords);
+  IWellOrderContainer<TableDto> mapJoinedColumnSqlRecordsToTableDtos(IWellOrderContainer<ISqlRecord> joinedColumnSqlRecords);
 }

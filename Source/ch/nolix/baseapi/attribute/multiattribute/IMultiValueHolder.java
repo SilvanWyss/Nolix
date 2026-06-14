@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * A {@link IMultiValueHolder} can contain several values.
@@ -15,5 +15,5 @@ public interface IMultiValueHolder<V> {
   /**
    * @return the values of the current {@link IMultiValueHolder}
    */
-  IContainer<V> getStoredValues();
+  IWellOrderContainer<V> getStoredValues();
 }

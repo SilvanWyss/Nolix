@@ -4,7 +4,7 @@
 package ch.nolix.base.programcontrol.job;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public final class JobToolHelper {
   private JobToolHelper() {
   }
 
-  public static void runJobs(final IContainer<Runnable> jobs) {
+  public static void runJobs(final IWellOrderContainer<Runnable> jobs) {
     for (var i = 1; i <= jobs.getCount(); i++) {
       try {
         jobs.getStoredAtOneBasedIndex(i).run();

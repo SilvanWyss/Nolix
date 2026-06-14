@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectschema.modeltool;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -14,10 +14,10 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface ITableTool extends IDatabaseObjectExaminer {
   int getColumnCount(ITable table);
 
-  IContainer<? extends IColumn> getStoredBaseBackReferenceColumns(ITable table);
+  IWellOrderContainer<? extends IColumn> getStoredBaseBackReferenceColumns(ITable table);
 
-  IContainer<? extends IColumn> getStoredBackReferencingColumns(ITable table);
+  IWellOrderContainer<? extends IColumn> getStoredBackReferencingColumns(ITable table);
 
-  IContainer<? extends IColumn> getStoredReferencingColumns(ITable table);
+  IWellOrderContainer<? extends IColumn> getStoredReferencingColumns(ITable table);
 
 }

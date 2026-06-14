@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldtool.OptionalReferenceTool;
@@ -43,7 +43,7 @@ implements IOptionalReference<E> {
 
   private EntityCache<E> nullableReferencedEntityCache;
 
-  private OptionalReference(final IContainer<String> referenceableTableNames) {
+  private OptionalReference(final IWellOrderContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
   }
 
@@ -57,14 +57,14 @@ implements IOptionalReference<E> {
   }
 
   public static <T extends IEntity> OptionalReference<T> forEntityTypes(
-    final IContainer<Class<? extends T>> entityTypes) {
+    final IWellOrderContainer<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new OptionalReference<>(referenceableTableNamesView);
   }
 
   public static <T extends IEntity> OptionalReference<T> forReferenceableTableNames(
-    final IContainer<String> referenceableTableNames) {
+    final IWellOrderContainer<String> referenceableTableNames) {
     return new OptionalReference<>(referenceableTableNames);
   }
 
@@ -125,7 +125,7 @@ implements IOptionalReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

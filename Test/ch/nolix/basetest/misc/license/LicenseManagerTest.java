@@ -12,7 +12,7 @@ import ch.nolix.base.environment.license.AbstractFeature;
 import ch.nolix.base.environment.license.License;
 import ch.nolix.base.environment.license.LicenseManager;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -28,7 +28,7 @@ final class LicenseManagerTest extends StandardTest {
   //This class must be public that it can be processed by reflection.
   public static final class TestFeature extends AbstractFeature {
     @Override
-    public IContainer<Class<?>> getAuthorizedLicenseTypes() {
+    public IWellOrderContainer<Class<?>> getAuthorizedLicenseTypes() {
       return LinkedList.withElement(TestLicense.class);
     }
   }

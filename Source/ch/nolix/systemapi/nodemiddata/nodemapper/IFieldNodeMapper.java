@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.nodemapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
@@ -18,7 +18,7 @@ public interface IFieldNodeMapper {
    * @param tableView
    * @return new field nodes from the given entityCreationDto
    */
-  IContainer<INode<?>> mapEntityCreationDtoToFieldNodes(
+  IWellOrderContainer<INode<?>> mapEntityCreationDtoToFieldNodes(
     EntityCreationDto entityCreationDto,
     long saveStamp,
     TableInfoDto tableView);

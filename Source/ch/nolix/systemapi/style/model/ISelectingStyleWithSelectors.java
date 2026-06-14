@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.style.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * A {@link ISelectingStyleWithSelectors} is a {@link ISelectingStyle} that can
@@ -23,13 +23,13 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return the selector roles of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
-  IContainer<String> getSelectorRoles();
+  IWellOrderContainer<String> getSelectorRoles();
 
   /**
    * @return the selector tokens of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
-  IContainer<String> getSelectorTokens();
+  IWellOrderContainer<String> getSelectorTokens();
 
   /**
    * @return the selector type of the current
@@ -90,7 +90,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.
    */
-  ISelectingStyleWithSelectors withAdditionalSelectorRoles(IContainer<String> additionalSelectorRoles);
+  ISelectingStyleWithSelectors withAdditionalSelectorRoles(IWellOrderContainer<String> additionalSelectorRoles);
 
   /**
    * @param additionalSelectorRoles
@@ -133,7 +133,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
    *                          or blank.
    */
-  ISelectingStyleWithSelectors withAdditionalSelectorTokens(IContainer<String> additionalSelectorTokens);
+  ISelectingStyleWithSelectors withAdditionalSelectorTokens(IWellOrderContainer<String> additionalSelectorTokens);
 
   /**
    * @param selectorId

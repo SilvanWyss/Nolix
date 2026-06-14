@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.function.Predicate;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.fieldvalidator.MultiValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -62,7 +62,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<V> getAllStoredValues() {
+  public IWellOrderContainer<V> getAllStoredValues() {
     if (isConnectedWithRealDatabase()) {
       updateStateForLoadAllPersistedValuesIfNotLoaded();
     }
@@ -74,7 +74,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries() {
+  public IWellOrderContainer<? extends IMultiValueFieldEntry<V>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_TOOL::isNewOrDeleted);
   }
 
@@ -154,7 +154,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
     MULTI_VALUE_VALIDATOR.assertCanAddValue(this, value);
   }
 
-  private IContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {
+  private IWellOrderContainer<V> getStoredValuesFromAllNewOrLoadedOrEditedLocalEntries() {
     final ILinkedList<V> values = LinkedList.createEmpty();
 
     for (final var e : localEntries) {
@@ -171,7 +171,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
   }
 
   @SuppressWarnings("unchecked")
-  private IContainer<MultiValueFieldEntry<V>> loadAllPersistedValues() {
+  private IWellOrderContainer<MultiValueFieldEntry<V>> loadAllPersistedValues() {
     return //
     getStoredDataAndSchemaAdapter().loadMultiValueValues(
       getStoredParentEntity().getStoredParentTable().getName(),

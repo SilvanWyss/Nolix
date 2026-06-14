@@ -5,8 +5,8 @@ package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 
 /**
@@ -15,7 +15,7 @@ import ch.nolix.baseapi.document.node.INode;
  * @param <V> is the type of the values of a {@link ForwardingProperty}.
  */
 public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
-  private final IContainer<AbstractMaterializedProperty<S, V>> abstractMaterializedProperties;
+  private final IWellOrderContainer<AbstractMaterializedProperty<S, V>> abstractMaterializedProperties;
 
   @SafeVarargs
   private ForwardingProperty(
@@ -26,7 +26,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProp
 
   private ForwardingProperty(
     final String name,
-    final IContainer<AbstractMaterializedProperty<S, V>> materializedProperties) {
+    final IWellOrderContainer<AbstractMaterializedProperty<S, V>> materializedProperties) {
     super(name);
 
     this.abstractMaterializedProperties = LinkedList.fromIterable(materializedProperties);

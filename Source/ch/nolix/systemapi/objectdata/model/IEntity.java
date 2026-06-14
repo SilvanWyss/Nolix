@@ -8,7 +8,7 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IShortDescriptionHolder;
 import ch.nolix.baseapi.attribute.optionalattribute.IOptionalSaveStampHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
@@ -26,7 +26,7 @@ IShortDescriptionHolder,
 ITableComponent<ITable<? extends IEntity>> {
   String getParentTableName();
 
-  IContainer<? extends IField> internalGetStoredFields();
+  IWellOrderContainer<? extends IField> internalGetStoredFields();
 
   void internalSetLoadedAndIdAndSaveStamp(String loadedId, String saveStamp);
 
@@ -34,5 +34,5 @@ ITableComponent<ITable<? extends IEntity>> {
 
   boolean isReferencedInPersistedData();
 
-  boolean isReferencedInPersistedDataIgnoringGivenEntities(IContainer<String> entitiesToIgnoreIds);
+  boolean isReferencedInPersistedDataIgnoringGivenEntities(IWellOrderContainer<String> entitiesToIgnoreIds);
 }

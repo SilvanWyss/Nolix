@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IField;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectdata.model.IField;
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference {
   private final ImmutableList<String> referenceableTableNames;
 
-  protected AbstractBaseReference(final IContainer<String> referenceableTableNames) {
+  protected AbstractBaseReference(final IWellOrderContainer<String> referenceableTableNames) {
     Validator.assertThatTheStrings(referenceableTableNames).areNotBlank();
     this.referenceableTableNames = ImmutableList.fromIterable(referenceableTableNames);
   }
@@ -27,7 +27,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<String> getReferenceableTableNames() {
+  public final IWellOrderContainer<String> getReferenceableTableNames() {
     return referenceableTableNames;
   }
 
@@ -35,7 +35,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
+  public final IWellOrderContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
     return ImmutableList.createEmpty();
   }
 

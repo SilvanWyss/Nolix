@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.middata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
-public record EntityLoadingDto(String id, String saveStamp, IContainer<FieldDto> contentFields) {
+public record EntityLoadingDto(String id, String saveStamp, IWellOrderContainer<FieldDto> contentFields) {
 }

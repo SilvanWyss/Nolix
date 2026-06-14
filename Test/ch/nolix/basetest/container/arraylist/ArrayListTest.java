@@ -6,7 +6,7 @@ package ch.nolix.basetest.container.arraylist;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.basetest.container.base.ContainerTest;
 
@@ -18,7 +18,7 @@ final class ArrayListTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
+  protected <E> IWellOrderContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
     return ArrayList.withElements(elements);
   }
 
@@ -26,7 +26,7 @@ final class ArrayListTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
+  protected <E> IWellOrderContainer<E> createEmptyContainerForType(final Class<E> type) {
     return ArrayList.createEmpty();
   }
 

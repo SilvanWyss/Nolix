@@ -7,7 +7,7 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
@@ -20,15 +20,15 @@ public final class HtmlElement implements IHtmlElement {
 
   private final String innerText;
 
-  private final IContainer<HtmlAttribute> memmberAttributes;
+  private final IWellOrderContainer<HtmlAttribute> memmberAttributes;
 
-  private final IContainer<HtmlElement> childElements;
+  private final IWellOrderContainer<HtmlElement> childElements;
 
   private HtmlElement(
     final String type,
-    final IContainer<? extends IHtmlAttribute> attributes,
+    final IWellOrderContainer<? extends IHtmlAttribute> attributes,
     final String innerText,
-    final IContainer<? extends IHtmlElement> childElements) {
+    final IWellOrderContainer<? extends IHtmlElement> childElements) {
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotBlank();
     Validator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
@@ -78,13 +78,13 @@ public final class HtmlElement implements IHtmlElement {
 
   public static HtmlElement withTypeAndAttributes(
     final String type,
-    final IContainer<? extends IHtmlAttribute> attributes) {
+    final IWellOrderContainer<? extends IHtmlAttribute> attributes) {
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, ImmutableList.createEmpty());
   }
 
   public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
-    final IContainer<? extends IHtmlAttribute> attributes,
+    final IWellOrderContainer<? extends IHtmlAttribute> attributes,
     final IHtmlElement... childElements) {
     final var childElementsContainerView = ContainerView.forArray(childElements);
 
@@ -93,14 +93,14 @@ public final class HtmlElement implements IHtmlElement {
 
   public static HtmlElement withTypeAndAttributesAndChildElements(
     final String type,
-    final IContainer<? extends IHtmlAttribute> attributes,
-    final IContainer<? extends IHtmlElement> childElements) {
+    final IWellOrderContainer<? extends IHtmlAttribute> attributes,
+    final IWellOrderContainer<? extends IHtmlElement> childElements) {
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, childElements);
   }
 
   public static HtmlElement withTypeAndAttributesAndInnerText(
     final String type,
-    final IContainer<? extends IHtmlAttribute> attributes,
+    final IWellOrderContainer<? extends IHtmlAttribute> attributes,
     final String innerText) {
     return new HtmlElement(type, attributes, innerText, ImmutableList.createEmpty());
   }
@@ -129,7 +129,7 @@ public final class HtmlElement implements IHtmlElement {
 
   public static HtmlElement withTypeAndChildElements(
     final String type,
-    final IContainer<? extends IHtmlElement> childElements) {
+    final IWellOrderContainer<? extends IHtmlElement> childElements) {
     return new HtmlElement(type, ImmutableList.createEmpty(), StringCatalog.EMPTY_STRING, childElements);
   }
 
@@ -157,7 +157,7 @@ public final class HtmlElement implements IHtmlElement {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IHtmlAttribute> getAttributes() {
+  public IWellOrderContainer<? extends IHtmlAttribute> getAttributes() {
     return memmberAttributes;
   }
 
@@ -165,7 +165,7 @@ public final class HtmlElement implements IHtmlElement {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IHtmlElement> getChildElements() {
+  public IWellOrderContainer<? extends IHtmlElement> getChildElements() {
     return childElements;
   }
 
@@ -220,7 +220,7 @@ public final class HtmlElement implements IHtmlElement {
    * {@inheritDoc}
    */
   @Override
-  public IHtmlElement withAdditionalAttributes(final IContainer<IHtmlAttribute> additionalAttributes) {
+  public IHtmlElement withAdditionalAttributes(final IWellOrderContainer<IHtmlAttribute> additionalAttributes) {
     final var attributes = ContainerView.forIterables(getAttributes(), additionalAttributes);
 
     if (containsChildElements()) {

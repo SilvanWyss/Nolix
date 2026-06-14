@@ -7,7 +7,7 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.IEntityComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldrequest.MandatorynessRequestable;
 import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
@@ -25,9 +25,9 @@ IEntityComponent<IEntity>,
 INameHolder,
 ITableComponent<ITable<? extends IEntity>>,
 MandatorynessRequestable {
-  IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();
+  IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();
 
-  IContainer<IBaseReference> getStoredBackReferencedBaseReferences();
+  IWellOrderContainer<IBaseReference> getStoredBackReferencedBaseReferences();
 
   IColumn getStoredParentColumn();
 

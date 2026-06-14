@@ -7,10 +7,10 @@ import java.util.function.Predicate;
 
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePatternNextMediator;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -85,11 +85,11 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
 
   /**
    * @param paramCount
-   * @return a new {@link IContainer} with as many blank conditions as the given
+   * @return a new {@link IWellOrderContainer} with as many blank conditions as the given
    *         paramCount says.
    * @throws RuntimeException if the given paramCount is negative.
    */
-  private IContainer<Predicate<E>> createBlanks(final int paramCount) {
+  private IWellOrderContainer<Predicate<E>> createBlanks(final int paramCount) {
     final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);
 
     for (var i = 1; i < paramCount; i++) {

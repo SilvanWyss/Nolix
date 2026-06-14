@@ -6,8 +6,8 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
@@ -20,7 +20,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
 
   private final ImmutableList<Class<? extends IEntity>> entityTypes;
 
-  private EntityTypeSet(final IContainer<Class<? extends IEntity>> entityTypes) {
+  private EntityTypeSet(final IWellOrderContainer<Class<? extends IEntity>> entityTypes) {
     Validator.assertThat(entityTypes)
       .thatIsNamed(PluralLowerCaseVariableCatalog.ENTITY_TYPES)
       .containsDistinctNonNullElemensOnly();
@@ -43,7 +43,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
     return new EntityTypeSet(allEntityTypes);
   }
 
-  public static EntityTypeSet withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
+  public static EntityTypeSet withEntityTypes(IWellOrderContainer<Class<? extends IEntity>> entityTypes) {
     return new EntityTypeSet(entityTypes);
   }
 
@@ -51,7 +51,7 @@ public final class EntityTypeSet implements IEntityTypeSet {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<Class<? extends IEntity>> getEntityTypes() {
+  public IWellOrderContainer<Class<? extends IEntity>> getEntityTypes() {
     return entityTypes;
   }
 }

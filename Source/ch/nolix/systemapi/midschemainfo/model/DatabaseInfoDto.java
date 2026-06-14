@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.midschemainfo.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  * @param name
  * @param tableViews
  */
-public record DatabaseInfoDto(String name, IContainer<TableInfoDto> tableViews) {
+public record DatabaseInfoDto(String name, IWellOrderContainer<TableInfoDto> tableViews) {
 }

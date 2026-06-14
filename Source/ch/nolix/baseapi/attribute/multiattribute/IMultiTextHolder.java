@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * A {@link IMultiTextHolder} can contain several texts.
@@ -14,5 +14,5 @@ public interface IMultiTextHolder {
   /**
    * @return the texts of the current {@link IMultiTextHolder}
    */
-  IContainer<String> getTexts();
+  IWellOrderContainer<String> getTexts();
 }

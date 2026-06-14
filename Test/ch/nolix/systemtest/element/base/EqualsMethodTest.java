@@ -9,7 +9,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.misc.dataobject.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 
@@ -22,7 +22,7 @@ final class EqualsMethodTest extends StandardTest {
     //setup
     final var testUnit = new AbstractElement() {
       @Override
-      public IContainer<INode<?>> getAttributes() {
+      public IWellOrderContainer<INode<?>> getAttributes() {
         return ImmutableList.withElements(Node.withHeader("my_flag"));
       }
     };
@@ -40,7 +40,7 @@ final class EqualsMethodTest extends StandardTest {
     final Object object = new VoidObject();
     final var testUnit = new AbstractElement() {
       @Override
-      public IContainer<INode<?>> getAttributes() {
+      public IWellOrderContainer<INode<?>> getAttributes() {
         return ImmutableList.withElements(Node.withHeader("my_flag"));
       }
     };
@@ -57,7 +57,7 @@ final class EqualsMethodTest extends StandardTest {
     //setup
     final var testUnit = new AbstractElement() {
       @Override
-      public IContainer<INode<?>> getAttributes() {
+      public IWellOrderContainer<INode<?>> getAttributes() {
         return ImmutableList.withElements(Node.withHeader("my_flag"));
       }
     };

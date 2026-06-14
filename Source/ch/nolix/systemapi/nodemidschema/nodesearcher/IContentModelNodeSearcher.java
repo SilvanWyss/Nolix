@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -12,13 +12,13 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
  * @author Silvan Wyss
  */
 public interface IContentModelNodeSearcher {
-  IContainer<String> getBackReferenceableColumnIdsFromContentModelNode(IMutableNode<?> contentModelNode);
+  IWellOrderContainer<String> getBackReferenceableColumnIdsFromContentModelNode(IMutableNode<?> contentModelNode);
 
   DataType getDataTypeFromContentModelNode(IMutableNode<?> contentModelNode);
 
   FieldType getFieldTypeFromContentModelNode(IMutableNode<?> contentModelNode);
 
-  IContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode);
+  IWellOrderContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode);
 
   IMutableNode<?> getStoredBackReferenceableColumnIdsNodeFromContentModelNode(IMutableNode<?> contentModelNode);
 

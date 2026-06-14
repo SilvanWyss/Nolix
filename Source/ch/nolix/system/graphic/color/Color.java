@@ -8,7 +8,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datastructure.pair.IPair;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -32,7 +32,7 @@ public final class Color extends AbstractElement implements IColor {
 
   public static final short MAX_COLOR_COMPONENT = 255;
 
-  private static IContainer<IPair<String, IColor>> x11Colors;
+  private static IWellOrderContainer<IPair<String, IColor>> x11Colors;
 
   private final short memberRedValue;
 
@@ -112,7 +112,7 @@ public final class Color extends AbstractElement implements IColor {
     return createAverageFromColors(colorsContainer);
   }
 
-  public static Color createAverageFromColors(final IContainer<IColor> colors) {
+  public static Color createAverageFromColors(final IWellOrderContainer<IColor> colors) {
     final var colorCount = colors.getCount();
 
     var averageRedValue = 0;
@@ -296,7 +296,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @return the names and values of the X11 colors.
    */
-  private static IContainer<IPair<String, IColor>> getX11Colors() {
+  private static IWellOrderContainer<IPair<String, IColor>> getX11Colors() {
     if (x11Colors == null) {
       x11Colors = X11ColorCatalogExtractor.getColorConstantsFromClass(X11ColorCatalog.class);
     }
@@ -373,7 +373,7 @@ public final class Color extends AbstractElement implements IColor {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(Node.withHeader(toHexadecimalString()));
   }
 

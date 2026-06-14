@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.middata.loader;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
@@ -37,7 +37,7 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    *         the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  IContainer<EntityLoadingDto> loadEntities(String tableName);
+  IWellOrderContainer<EntityLoadingDto> loadEntities(String tableName);
 
   /**
    * @param tableName
@@ -58,7 +58,7 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    *         table with the given tableName, from the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
+  IWellOrderContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
     String tableName,
     String entityId,
     String multiBackReferenceColumnName);
@@ -71,7 +71,7 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    *         in the given table and in the entity with the given entityId and in
    *         the given multiBackReferenceColumn.
    */
-  IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(TableIdentification table, String entityId,
+  IWellOrderContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(TableIdentification table, String entityId,
     ColumnIdentification multiBackReferenceColumn);
 
   /**
@@ -84,7 +84,7 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    *         table with the given tableName, from the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
+  IWellOrderContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     String tableName,
     String entityId,
     String multiReferenceColumnName);
@@ -99,7 +99,7 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
    *         the database.
    * @throws RuntimeException if the current {@link IDataReader} is closed.
    */
-  IContainer<Object> loadMultiValueValues(String tableName, String entityId, String multiValueColumnName);
+  IWellOrderContainer<Object> loadMultiValueValues(String tableName, String entityId, String multiValueColumnName);
 
   /**
    * @param tableName
@@ -135,5 +135,5 @@ public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
     String tableName,
     String columnName,
     String value,
-    IContainer<String> entitiesToIgnoreIds);
+    IWellOrderContainer<String> entitiesToIgnoreIds);
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectschema.schemaadapter;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectschema.model.ITable;
 
@@ -17,7 +17,7 @@ public interface ISchemaAdapter extends IResettableChangeSaver {
 
   ITable getStoredTableByName(String name);
 
-  IContainer<ITable> getStoredTables();
+  IWellOrderContainer<ITable> getStoredTables();
 
   int getTableCount();
 }

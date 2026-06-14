@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlschema.modelmapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.sqlschema.model.TableDto;
 
@@ -21,7 +21,7 @@ public interface ITableDtoMapper {
    */
   TableDto mapSqlRecordsWithNameAndDataTypeToTableDto(
     String tableName,
-    IContainer<ISqlRecord> sqlRecordsWithNameAndDataType);
+    IWellOrderContainer<ISqlRecord> sqlRecordsWithNameAndDataType);
 
   /**
    * @param sqlRecordsWithTableNameAndNameAndDataType
@@ -32,6 +32,6 @@ public interface ITableDtoMapper {
    * @throws RuntimeException if the given one of the given
    *                          sqlRecordsWithTableNameAndNameAndDataType is null.
    */
-  IContainer<TableDto> mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(
-    IContainer<ISqlRecord> sqlRecordsWithTableNameAndNameAndDataType);
+  IWellOrderContainer<TableDto> mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(
+    IWellOrderContainer<ISqlRecord> sqlRecordsWithTableNameAndNameAndDataType);
 }

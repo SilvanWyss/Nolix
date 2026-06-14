@@ -7,8 +7,8 @@ import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
@@ -55,8 +55,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
 
     this.id = id;
@@ -71,8 +71,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     return new Column(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns);
   }
 
@@ -136,7 +136,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IColumn> getStoredBackReferenceableColumns() {
+  public IWellOrderContainer<? extends IColumn> getStoredBackReferenceableColumns() {
     return backReferenceableColumns;
   }
 
@@ -162,7 +162,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends ITable> getStoredReferenceableTables() {
+  public IWellOrderContainer<? extends ITable> getStoredReferenceableTables() {
     return referenceableTables;
   }
 
@@ -219,8 +219,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   public Column setContentModel(
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     COLUMN_EDITOR.setContentModelToColumn(this, fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     return this;
@@ -236,7 +236,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return this;
   }
 
-  IContainer<? extends IColumn> getStoredBackReferencingColumns() {
+  IWellOrderContainer<? extends IColumn> getStoredBackReferencingColumns() {
     if (!COLUMN_TOOL.isAReferenceColumn(this)) {
       return LinkedList.createEmpty();
     }
@@ -277,8 +277,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
   void setContentModelAttribute(
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    final IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     COLUMN_VALIDATOR.assertCanSetContentModel(this, fieldType, dataType, referenceableTables, backReferenceableColumns);
 
     this.referenceableTables.clear();
@@ -302,7 +302,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     //Does nothing.
   }
 
-  private IContainer<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
+  private IWellOrderContainer<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
     if (COLUMN_TOOL.belongsToDatabase(this)) {
       return COLUMN_TOOL
         .getParentDatabase(this)

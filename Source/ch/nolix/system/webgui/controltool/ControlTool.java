@@ -4,8 +4,8 @@
 package ch.nolix.system.webgui.controltool;
 
 import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.webgui.controltool.IControlTool;
 import ch.nolix.systemapi.webgui.main.IControl;
 
@@ -17,7 +17,7 @@ public final class ControlTool implements IControlTool {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(final IControl<?, ?> control) {
+  public IWellOrderContainer<IControl<?, ?>> getListWithControlAndChildControlsRecursively(final IControl<?, ?> control) {
     final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
 
     ControlToolHelper.fillUpChildControlsOfControlIntoListRecursively(control, list);
@@ -29,7 +29,7 @@ public final class ControlTool implements IControlTool {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(final IControl<?, ?> control) {
+  public IWellOrderContainer<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(final IControl<?, ?> control) {
     final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
 
     ControlToolHelper.fillUpStructureControlsOfControlIntoListRecursively(control, list);

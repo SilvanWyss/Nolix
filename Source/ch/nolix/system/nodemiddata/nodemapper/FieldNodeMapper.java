@@ -5,7 +5,7 @@ package ch.nolix.system.nodemiddata.nodemapper;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.midschemainfo.modelsearcher.TableInfoSearcher;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
@@ -27,7 +27,7 @@ public final class FieldNodeMapper implements IFieldNodeMapper {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> mapEntityCreationDtoToFieldNodes(
+  public IWellOrderContainer<INode<?>> mapEntityCreationDtoToFieldNodes(
     final EntityCreationDto entityCreationDto,
     final long saveStamp,
     final TableInfoDto tableView) {

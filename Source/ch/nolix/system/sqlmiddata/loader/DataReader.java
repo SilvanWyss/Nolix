@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmiddata.loader;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschemainfo.modelsearcher.DatabaseInfoSearcher;
@@ -91,7 +91,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
+  public IWellOrderContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnName) {
@@ -107,7 +107,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+  public IWellOrderContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final TableIdentification table,
     final String entityId,
     final ColumnIdentification multiBackReferenceColumn) {
@@ -120,7 +120,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
+  public IWellOrderContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
@@ -134,7 +134,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<Object> loadMultiValueValues(
+  public IWellOrderContainer<Object> loadMultiValueValues(
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
@@ -147,7 +147,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<EntityLoadingDto> loadEntities(final String tableName) {
+  public IWellOrderContainer<EntityLoadingDto> loadEntities(final String tableName) {
     final var tableView = getTableViewByTableName(tableName);
 
     return schematicEntityLoader.loadEntitiesByTable(tableView);
@@ -192,7 +192,7 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String columnName,
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     final var columnview = getColumnViewByTableNameAndColumnName(tableName, columnName);
 
     return //

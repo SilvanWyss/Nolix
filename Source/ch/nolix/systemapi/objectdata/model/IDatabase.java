@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.time.moment.ITime;
@@ -17,13 +17,13 @@ public interface IDatabase extends GroupCloseable, IDatabaseObject, INameHolder 
 
   ITime getSchemaTimestamp();
 
-  <E extends IEntity> IContainer<E> getStoredEntitiesByType(Class<E> type);
+  <E extends IEntity> IWellOrderContainer<E> getStoredEntitiesByType(Class<E> type);
 
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
   ITable<IEntity> getStoredTableByName(String name);
 
-  IContainer<? extends ITable<IEntity>> getStoredTables();
+  IWellOrderContainer<? extends ITable<IEntity>> getStoredTables();
 
   <E extends IEntity> IDatabase insertEntity(E entity);
 }

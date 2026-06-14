@@ -6,7 +6,7 @@ package ch.nolix.base.web.cssmodel;
 import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
@@ -17,9 +17,9 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 public final class CssRule implements ICssRule {
   private final String selector;
 
-  private final IContainer<CssProperty> properties;
+  private final IWellOrderContainer<CssProperty> properties;
 
-  private CssRule(final String selector, final IContainer<? extends ICssProperty> properties) {
+  private CssRule(final String selector, final IWellOrderContainer<? extends ICssProperty> properties) {
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     this.properties = properties.to(CssProperty::fromCssProperty);
@@ -32,7 +32,7 @@ public final class CssRule implements ICssRule {
 
   public static CssRule withSelectorAndProperties(
     final String selector,
-    final IContainer<? extends ICssProperty> properties) {
+    final IWellOrderContainer<? extends ICssProperty> properties) {
     return new CssRule(selector, properties);
   }
 
@@ -48,7 +48,7 @@ public final class CssRule implements ICssRule {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<CssProperty> getProperties() {
+  public IWellOrderContainer<CssProperty> getProperties() {
     return properties;
   }
 

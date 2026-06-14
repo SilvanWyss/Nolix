@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.gui.background.ImageApplication;
  */
 final class ImageApplicationTest extends StandardTest {
   @MethodSource
-  private static IContainer<Arguments> getSpecificationsAndTheirImageApplications() {
+  private static IWellOrderContainer<Arguments> getSpecificationsAndTheirImageApplications() {
     return //
     ImmutableList.withElements(
       Arguments.of(Node.withChildNodes("SCALE_TO_FRAME"), ImageApplication.SCALE_TO_FRAME),

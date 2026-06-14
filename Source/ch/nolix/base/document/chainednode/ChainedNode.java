@@ -6,7 +6,7 @@ package ch.nolix.base.document.chainednode;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -346,7 +346,7 @@ implements IChainedNode {
    * @return the attributes of the current {@link ChainedNode}.
    */
   @Override
-  public IContainer<ChainedNode> getChildNodes() {
+  public IWellOrderContainer<ChainedNode> getChildNodes() {
     return memberChildNodes;
   }
 

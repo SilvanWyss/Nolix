@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webgui.main;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
@@ -26,17 +26,17 @@ public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHol
 
   IHtmlElement getHtml();
 
-  IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
+  IWellOrderContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
 
   int getLayerCount();
 
   Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
-  IContainer<IControl<?, ?>> getStoredControls();
+  IWellOrderContainer<IControl<?, ?>> getStoredControls();
 
-  IContainer<ILayer> getStoredLayers();
+  IWellOrderContainer<ILayer> getStoredLayers();
 
-  IContainer<IControl<?, ?>> getStoredStructureControls();
+  IWellOrderContainer<IControl<?, ?>> getStoredStructureControls();
 
   ILayer getStoredTopLayer();
 

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
@@ -16,9 +16,9 @@ public interface ITableNodeSearcher {
 
   IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnName(IMutableNode<?> tableNode, String columnName);
 
-  IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
+  IWellOrderContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
 
-  IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
+  IWellOrderContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
 
   IMutableNode<?> getStoredIdNodeFromTableNode(IMutableNode<?> tableNode);
 

@@ -8,8 +8,8 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
@@ -24,7 +24,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
 
   private final Consumer<V> adder;
 
-  private final Supplier<IContainer<V>> getter;
+  private final Supplier<IWellOrderContainer<V>> getter;
 
   private final Function<INode<?>, V> valueMapper;
 
@@ -48,7 +48,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
   private MultiValueProxy(
     final String name,
     final Consumer<V> adder,
-    final Supplier<IContainer<V>> getter,
+    final Supplier<IWellOrderContainer<V>> getter,
     final Function<INode<?>, V> valueMapper,
     final Function<V, INode<?>> specificationMapper) {
     Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
@@ -83,7 +83,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
   public static <T> MultiValueProxy<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     final String name,
     final Consumer<T> adder,
-    final Supplier<IContainer<T>> getter,
+    final Supplier<IWellOrderContainer<T>> getter,
     final Function<INode<?>, T> valueMapper,
     final Function<T, INode<?>> specificationMapper) {
     return new MultiValueProxy<>(name, adder, getter, valueMapper, specificationMapper);

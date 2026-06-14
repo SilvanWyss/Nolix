@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.modelsearcher;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.objectschema.modeltool.TableTool;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
@@ -19,7 +19,7 @@ public final class DatabaseSearcher implements IDatabaseSearcher {
   private static final ITableTool TABLE_TOOL = new TableTool();
 
   @Override
-  public IContainer<? extends IColumn> getStoredBaseBackReferenceColumns(final IDatabase database) {
+  public IWellOrderContainer<? extends IColumn> getStoredBaseBackReferenceColumns(final IDatabase database) {
 
     final var tables = database.getStoredTables();
 

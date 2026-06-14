@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webapplication.counterpart;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -31,9 +31,9 @@ public interface IUpdateCommandCreator {
 
   IChainedNode createSetUserInputFunctionsCommandForWebGui(IWebGui<?> webGui);
 
-  IContainer<IChainedNode> createUpdateCommandsForControls(
-    IContainer<IControl<?, ?>> controls,
+  IWellOrderContainer<IChainedNode> createUpdateCommandsForControls(
+    IWellOrderContainer<IControl<?, ?>> controls,
     boolean updateConstellationOrStyle);
 
-  IContainer<IChainedNode> createUpdateCommandsForWebGui(IWebGui<?> webGui);
+  IWellOrderContainer<IChainedNode> createUpdateCommandsForWebGui(IWebGui<?> webGui);
 }

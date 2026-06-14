@@ -9,7 +9,7 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.programcontrol.job.JobTool;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.job.IJobTool;
@@ -311,7 +311,7 @@ public final class JobExecutor extends Thread {
     return new JobExecutor(step, nextStepRunCondition, delayBetweenStepRunsInMilliseconds);
   }
 
-  public static JobExecutor forJobs(final IContainer<Runnable> jobs) {
+  public static JobExecutor forJobs(final IWellOrderContainer<Runnable> jobs) {
     final var concatenatedJob = JOB_TOOL.createConcatenatedJobFromJobs(jobs);
     final var jobExecutor = new JobExecutor(concatenatedJob, 1);
 

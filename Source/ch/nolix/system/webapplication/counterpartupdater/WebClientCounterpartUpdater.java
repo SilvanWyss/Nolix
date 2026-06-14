@@ -7,7 +7,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
@@ -19,10 +19,10 @@ public final class WebClientCounterpartUpdater {
 
   private final BooleanSupplier openStateRequestable;
 
-  private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner;
 
   private WebClientCounterpartUpdater(
-    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+    final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -32,7 +32,7 @@ public final class WebClientCounterpartUpdater {
   }
 
   public static WebClientCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
-    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+    final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }

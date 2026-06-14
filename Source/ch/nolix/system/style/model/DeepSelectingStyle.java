@@ -7,8 +7,8 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -44,10 +44,10 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   private DeepSelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
-    final IContainer<String> selectorRoles,
-    final IContainer<String> selectorTokens,
-    final IContainer<String> attachingAttributes,
-    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    final IWellOrderContainer<String> selectorRoles,
+    final IWellOrderContainer<String> selectorTokens,
+    final IWellOrderContainer<String> attachingAttributes,
+    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     super(
       optionalSelectorId,
       optionalSelectorType,
@@ -133,7 +133,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAdditionalSelectorRoles(final IContainer<String> additionalSelectorRoles) {
+  public ISelectingStyleWithSelectors withAdditionalSelectorRoles(final IWellOrderContainer<String> additionalSelectorRoles) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorRoles = LinkedList.createEmpty();
@@ -163,7 +163,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAttachingAttributes(final IContainer<String> attachingAttributes) {
+  public ISelectingStyleWithSelectors withAttachingAttributes(final IWellOrderContainer<String> attachingAttributes) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
 
@@ -214,7 +214,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(final IContainer<String> additionalSelectorTokens) {
+  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(final IWellOrderContainer<String> additionalSelectorTokens) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();
@@ -268,7 +268,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
    */
   @Override
   public ISelectingStyleWithSelectors withSubStyles(
-    final IContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<ISelectingStyleWithSelectors> allSubStyles = LinkedList.createEmpty();

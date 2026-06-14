@@ -4,7 +4,7 @@
 package ch.nolix.base.resourcecontrol.closecontroller;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.IClosePool;
@@ -17,7 +17,7 @@ public final class UncloseableClosePool implements IClosePool {
    * {@inheritDoc}
    */
   @Override
-  public void addElements(final IContainer<GroupCloseable> elements) {
+  public void addElements(final IWellOrderContainer<GroupCloseable> elements) {
     //Does nothing.
   }
 
@@ -41,7 +41,7 @@ public final class UncloseableClosePool implements IClosePool {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<GroupCloseable> getStoredElements() {
+  public IWellOrderContainer<GroupCloseable> getStoredElements() {
     return ImmutableList.createEmpty();
   }
 }

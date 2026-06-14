@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemidschema.schemawriter;
 
 import ch.nolix.base.document.node.Node;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
@@ -114,8 +114,8 @@ public final class SchemaWriterActionProvider {
     final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<String> referenceableTableIds,
-    final IContainer<String> backReferenceableColumnIds) {
+    final IWellOrderContainer<String> referenceableTableIds,
+    final IWellOrderContainer<String> backReferenceableColumnIds) {
     final var tableId = table.tableId();
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromNodeDatabase(nodeDatabase, tableId);
     final var columnId = column.columnId();

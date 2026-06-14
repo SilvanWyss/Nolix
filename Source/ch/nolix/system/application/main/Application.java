@@ -11,8 +11,8 @@ import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -111,7 +111,7 @@ implements IApplication<C, S> {
   /**
    * @return the {@link AbstractClient}s of the current {@link Application}.
    */
-  public final IContainer<C> getStoredClients() {
+  public final IWellOrderContainer<C> getStoredClients() {
     removeClosedClients();
 
     return clients;

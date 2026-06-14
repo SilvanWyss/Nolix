@@ -6,7 +6,7 @@ package ch.nolix.system.midschema.adapter;
 import java.util.function.Supplier;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
@@ -144,7 +144,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<TableDto> loadTables() {
+  public final IWellOrderContainer<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 
@@ -197,8 +197,8 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
     final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<String> referenceableTableIds,
-    final IContainer<String> backReferenceableColumnIds) {
+    final IWellOrderContainer<String> referenceableTableIds,
+    final IWellOrderContainer<String> backReferenceableColumnIds) {
     schemaWriter.setColumnModel(
       table,
       column,

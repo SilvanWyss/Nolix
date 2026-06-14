@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
@@ -384,7 +384,7 @@ extends AbstractElement implements ITime {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     final var timeCode = //
     String.format(
       "%04d-%02d-%02d-%02d-%02d-%02d-%03d-%03d",

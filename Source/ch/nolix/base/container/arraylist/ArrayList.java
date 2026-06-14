@@ -6,10 +6,10 @@ package ch.nolix.base.container.arraylist;
 import ch.nolix.base.commontypetool.iteratortool.IterableTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.generalcontainer.CountRequestable;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -92,7 +92,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   }
 
   private static int getCountOfIterable(final Iterable<?> iterable) {
-    if (iterable instanceof final IContainer<?> container) {
+    if (iterable instanceof final IWellOrderContainer<?> container) {
       return container.getCount();
     }
 

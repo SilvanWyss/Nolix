@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.querycreator;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.sqlmiddata.querycreator.IMultiValueQueryCreator;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.MultiValueEntryColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.DataTable;
@@ -19,7 +19,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
   public String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
     final String columnId,
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     return //
     "SELECT COUNT(*) FROM "
     + DataTable.MULTI_VALUE_ENTRY

@@ -5,18 +5,18 @@ package ch.nolix.baseapi.container.list;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.objectcreation.copier.Copyable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
- * A {@link ILinkedList} is a {@link IContainer} that can add and remove
+ * A {@link ILinkedList} is a {@link IWellOrderContainer} that can add and remove
  * elements.
  * 
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link ILinkedList}.
  */
-public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IContainer<E> {
+public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IWellOrderContainer<E> {
   /**
    * Adds the given element at the begin of the current {@link ILinkedList}.
    * 

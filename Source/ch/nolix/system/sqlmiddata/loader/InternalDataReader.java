@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmiddata.loader;
 
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
@@ -81,7 +81,7 @@ public final class InternalDataReader {
         .getStoredAtOneBasedIndex(1));
   }
 
-  public IContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+  public IWellOrderContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final TableIdentification table,
     final String entityId,
     final String multiBackReferenceColumnId) {
@@ -98,7 +98,7 @@ public final class InternalDataReader {
       tableName);
   }
 
-  public IContainer<String> loadMultiBackReferenceEntriesIds(
+  public IWellOrderContainer<String> loadMultiBackReferenceEntriesIds(
     final String entityId,
     final String multiBackReferenceColumnId) {
     final var query = //
@@ -109,7 +109,7 @@ public final class InternalDataReader {
     return sqlConnection.getRecordsFromQuery(query).to(r -> r.getStoredAtOneBasedIndex(1));
   }
 
-  public IContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
+  public IWellOrderContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String entityId,
     final String multiReferenceColumnId,
     final DatabaseInfoDto databaseView) {
@@ -123,7 +123,7 @@ public final class InternalDataReader {
       r -> MULTI_REFERENCE_ENTRY_DTO_MAPPER.mapMultiReferenceEntrySqlRecordToMultiReferenceEntryDto(r, databaseView));
   }
 
-  public IContainer<Object> loadMultiValueEntries(
+  public IWellOrderContainer<Object> loadMultiValueEntries(
     final String entityId,
     final ColumnInfoDto multiValueColumnView) {
     return sqlConnection
@@ -160,7 +160,7 @@ public final class InternalDataReader {
     final String tableName,
     final ColumnInfoDto columnView,
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     final var fieldType = columnView.fieldType();
 
     return //
@@ -209,7 +209,7 @@ public final class InternalDataReader {
   private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntityIgnoringGivenEntities(
     final String columnId,
     final String referencedEntityId,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     final var query = //
     MULTI_REFERENCE_QUERY_CREATOR
       .createQueryToCountMultiReferenceEntriesForGivenColumnAndReferencedEntityIgnoringGivenEntities(
@@ -236,7 +236,7 @@ public final class InternalDataReader {
   private boolean multiValueEntryExistsForGivenColumnAndValueIgnoringGivenEntities(
     final String columnId,
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     final var query = //
     MULTI_VALUE_QUERY_CREATOR.createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
       columnId,
@@ -266,7 +266,7 @@ public final class InternalDataReader {
     final String tableName,
     final String columnName,
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     final var query = //
     ENTITY_QUERY_CREATOR.createQueryToCountEntitiesWithGivenValueAtGivenColumnIgnoringGivenEntities(
       tableName,

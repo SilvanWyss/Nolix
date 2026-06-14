@@ -6,7 +6,7 @@ package ch.nolix.system.gui.box;
 import ch.nolix.base.container.arraylist.ArrayList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -205,7 +205,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     return //
     ArrayList.withElements(
       Node.fromEnum(getCorner()),

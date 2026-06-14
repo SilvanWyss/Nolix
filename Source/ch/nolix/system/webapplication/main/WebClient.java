@@ -5,7 +5,7 @@ package ch.nolix.system.webapplication.main;
 
 import java.util.Base64;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -52,7 +52,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
   }
 
   void internalUpdateControlsOnCounterpart(
-    final IContainer<IControl<?, ?>> controls,
+    final IWellOrderContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     refreshQueue.updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
@@ -61,7 +61,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     refreshQueue.updateWebGuiOfCounterpart(webGui, updateConstellationOrStyle);
   }
 
-  void internalRunOnCounterpart(final IContainer<? extends IChainedNode> updateCommands) {
+  void internalRunOnCounterpart(final IWellOrderContainer<? extends IChainedNode> updateCommands) {
     runOnCounterpart(updateCommands);
   }
 

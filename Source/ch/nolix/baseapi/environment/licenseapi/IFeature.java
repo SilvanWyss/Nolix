@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.environment.licenseapi;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ public interface IFeature {
    * @return the authorized {@link ILicense} types of the current
    *         {@link IFeature}.
    */
-  IContainer<Class<ILicense>> getAuthorizedLicenseTypes();
+  IWellOrderContainer<Class<ILicense>> getAuthorizedLicenseTypes();
 
   /**
    * @return the name of the current {@link IFeature}.

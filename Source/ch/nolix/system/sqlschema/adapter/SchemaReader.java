@@ -6,7 +6,7 @@ package ch.nolix.system.sqlschema.adapter;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
@@ -90,7 +90,7 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<TableDto> loadTables() {
+  public IWellOrderContainer<TableDto> loadTables() {
     final var query = QUERY_CREATOR.createQueryToLoadTableNameAndNameAndDataTypeOfColumns();
     final var sqlRecords = sqlConnection.getRecordsFromQuery(query);
 

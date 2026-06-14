@@ -7,8 +7,8 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.base.web.cssmodel.CssRule;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
@@ -30,7 +30,7 @@ public final class LayerCssBuilder {
     return ("#" + layer.getInternalId());
   }
 
-  private static IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer layer) {
+  private static IWellOrderContainer<ICssProperty> getCssPropertiesForLayer(final ILayer layer) {
     final ILinkedList<ICssProperty> cssProperties = LinkedList.createEmpty();
 
     if (layer.getStoredParentGui().getStoredTopLayer() == layer) {

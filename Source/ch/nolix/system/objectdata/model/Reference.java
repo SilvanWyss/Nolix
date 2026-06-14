@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
@@ -41,7 +41,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
 
   private EntityCache<E> nullableReferencedEntityCache;
 
-  private Reference(final IContainer<String> referenceableTableNames) {
+  private Reference(final IWellOrderContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
   }
 
@@ -55,14 +55,14 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   public static <T extends IEntity> Reference<T> forEntityTypes(
-    final IContainer<Class<? extends T>> entityTypes) {
+    final IWellOrderContainer<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new Reference<>(referenceableTableNamesView);
   }
 
   public static <T extends IEntity> Reference<T> forReferenceableTableNames(
-    final IContainer<String> referenceableTableNames) {
+    final IWellOrderContainer<String> referenceableTableNames) {
     return new Reference<>(referenceableTableNames);
   }
 
@@ -112,7 +112,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

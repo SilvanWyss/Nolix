@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.midschema.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
@@ -12,6 +12,6 @@ String id,
 String name,
 FieldType fieldType,
 DataType dataType,
-IContainer<String> referenceableTableIds,
-IContainer<String> backReferenceableColumnIds) {
+IWellOrderContainer<String> referenceableTableIds,
+IWellOrderContainer<String> backReferenceableColumnIds) {
 }

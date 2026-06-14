@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.sql.sqltool.ISqlCollector;
 import ch.nolix.system.sqlmidschema.statementcreator.DatabasePropertiesStatementCreator;
@@ -83,8 +83,8 @@ public final class SchemaDataWriter {
     final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<String> referenceableTableIds,
-    final IContainer<String> backReferenceableColumnIds) {
+    final IWellOrderContainer<String> referenceableTableIds,
+    final IWellOrderContainer<String> backReferenceableColumnIds) {
     final var statements = //
     META_DATA_STATEMENT_CREATOR.createStatementsToSetContentModel(
       table,

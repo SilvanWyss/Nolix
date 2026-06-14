@@ -6,7 +6,7 @@ package ch.nolix.basetest.net.level3server;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.Node;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.net.level3server.IDataProviderController;
@@ -30,7 +30,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public IWellOrderContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
     return getDataForRequests(ImmutableList.fromArray(requests));
   }
 
@@ -38,7 +38,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public IWellOrderContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return ContainerView.forIterable(requests).to(this::getDataForRequest);
   }
 

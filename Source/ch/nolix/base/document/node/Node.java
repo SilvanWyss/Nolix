@@ -6,7 +6,7 @@ package ch.nolix.base.document.node;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -38,7 +38,7 @@ public final class Node extends AbstractNode<Node> {
    * @throws RuntimeException if the given childNodes is null.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  private Node(final IContainer<Node> childNodes) {
+  private Node(final IWellOrderContainer<Node> childNodes) {
     this.nullableHeader = null;
     this.childNodes = ImmutableList.fromIterable(childNodes);
   }
@@ -65,7 +65,7 @@ public final class Node extends AbstractNode<Node> {
    * @throws RuntimeException if the given childNodes is null.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  private Node(final String header, final IContainer<Node> childNodes) {
+  private Node(final String header, final IWellOrderContainer<Node> childNodes) {
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
     this.nullableHeader = header;
@@ -388,7 +388,7 @@ public final class Node extends AbstractNode<Node> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<Node> getStoredChildNodes() {
+  public IWellOrderContainer<Node> getStoredChildNodes() {
     return childNodes;
   }
 

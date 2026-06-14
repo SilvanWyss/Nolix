@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlschema.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
-public record ColumnDto(String name, DataTypeDto dataType, IContainer<ColumnConstraintDto> constraints) {
+public record ColumnDto(String name, DataTypeDto dataType, IWellOrderContainer<ColumnConstraintDto> constraints) {
 }

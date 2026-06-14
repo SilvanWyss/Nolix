@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -18,7 +18,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getBackReferenceableColumnIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  public IWellOrderContainer<String> getBackReferenceableColumnIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
     final var backReferenceableColumnIdsNode = //
     getStoredBackReferenceableColumnIdsNodeFromContentModelNode(contentModelNode);
 
@@ -49,7 +49,7 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode) {
+  public IWellOrderContainer<String> getReferenceableTableIdsFromContentModelNode(IMutableNode<?> contentModelNode) {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromContentModelNode(contentModelNode);
 
     return referenceableTableIdsNode.getChildNodesHeaders();

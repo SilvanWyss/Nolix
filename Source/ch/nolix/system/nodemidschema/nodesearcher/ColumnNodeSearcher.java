@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
 public final class ColumnNodeSearcher implements IColumnNodeSearcher {
 
   @Override
-  public IContainer<String> getBackReferenceableColumnIdsFromColumnNode(final IMutableNode<?> columnNode) {
+  public IWellOrderContainer<String> getBackReferenceableColumnIdsFromColumnNode(final IMutableNode<?> columnNode) {
     final var backReferenceableColumnIdsNode = getStoredBackReferenceableColumnIdsNodeFromColumnNode(columnNode);
 
     return backReferenceableColumnIdsNode.getChildNodesHeaders();
@@ -66,7 +66,7 @@ public final class ColumnNodeSearcher implements IColumnNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getReferenceableTableIdsFromColumnNode(IMutableNode<?> columnNode) {
+  public IWellOrderContainer<String> getReferenceableTableIdsFromColumnNode(IMutableNode<?> columnNode) {
     final var referenceableTableIdsNode = getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
 
     return referenceableTableIdsNode.getChildNodesHeaders();

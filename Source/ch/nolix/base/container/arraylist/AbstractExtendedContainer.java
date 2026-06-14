@@ -7,22 +7,22 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontypetool.arraytool.ArraySorter;
-import ch.nolix.base.container.base.AbstractContainer;
-import ch.nolix.base.container.base.Marker;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
+import ch.nolix.base.container.wellordercontainer.Marker;
 import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a
  *            {@link AbstractExtendedContainer}.
  */
-public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> {
+public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderContainer<E> {
   /**
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+  public final IWellOrderContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
     final int oneBasedStartIndex,
     final int oneBasedEndIndex) {
     return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
@@ -30,12 +30,12 @@ public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> 
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final <T> IContainer<T> getViewOf(final Function<E, T> mapper) {
+  public final <T> IWellOrderContainer<T> getViewOf(final Function<E, T> mapper) {
     return MappingContainerView.forContainerAndMapper(this, mapper);
   }
 
@@ -45,18 +45,18 @@ public abstract class AbstractExtendedContainer<E> extends AbstractContainer<E> 
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getViewOfStoredSelected(final Predicate<E> selector) {
+  public final IWellOrderContainer<E> getViewOfStoredSelected(final Predicate<E> selector) {
     return FilterContainerView.forContainerAndSelector(this, selector);
   }
 
   /**
    * The time complexity of this implementation is O(n * log(n)) if the current
-   * {@link AbstractContainer} contains n elements.
+   * {@link AbstractWellOrderContainer} contains n elements.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> IWellOrderContainer<E> toOrderedList(final Function<E, C> norm) {
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 

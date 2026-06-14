@@ -10,8 +10,8 @@ import ch.nolix.base.commontypetool.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -86,7 +86,7 @@ public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
    */
   private static <T> int getCountOfIterable(final Iterable<T> iterable) {
     int elementCount;
-    if (iterable instanceof final IContainer<T> container) {
+    if (iterable instanceof final IWellOrderContainer<T> container) {
       elementCount = container.getCount();
     } else {
       elementCount = IterableTool.getCount(iterable);

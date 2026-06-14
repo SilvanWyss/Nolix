@@ -4,8 +4,8 @@
 package ch.nolix.system.containercontrol.singlecontainer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.ControlFactory;
@@ -50,7 +50,7 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredChildControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -62,7 +62,7 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
     return getStoredChildControls();
   }
 

@@ -7,7 +7,7 @@ import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.IFluentMutable
 import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
@@ -30,9 +30,9 @@ ITableComponent<ITable> {
 
   FieldType getFieldType();
 
-  IContainer<? extends IColumn> getStoredBackReferenceableColumns();
+  IWellOrderContainer<? extends IColumn> getStoredBackReferenceableColumns();
 
-  IContainer<? extends ITable> getStoredReferenceableTables();
+  IWellOrderContainer<? extends ITable> getStoredReferenceableTables();
 
   boolean isBackReferenced();
 
@@ -43,6 +43,6 @@ ITableComponent<ITable> {
   IColumn setContentModel(
     FieldType fieldType,
     DataType dataType,
-    IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns);
+    IWellOrderContainer<? extends ITable> referenceableTables,
+    IWellOrderContainer<? extends IColumn> backReferenceableColumns);
 }

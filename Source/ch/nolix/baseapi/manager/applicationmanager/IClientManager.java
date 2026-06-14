@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.manager.applicationmanager;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,5 +13,5 @@ public interface IClientManager<C> {
   /**
    * @return the clients of the current {@link IClientManager}.
    */
-  IContainer<? extends C> getStoredClients();
+  IWellOrderContainer<? extends C> getStoredClients();
 }

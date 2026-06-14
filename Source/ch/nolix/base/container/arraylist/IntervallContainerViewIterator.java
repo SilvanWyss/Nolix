@@ -6,8 +6,8 @@ package ch.nolix.base.container.arraylist;
 import java.util.Iterator;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -17,7 +17,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link IntervallContainerViewIterator}.
  */
 final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
-  private final IContainer<E> parentContainer;
+  private final IWellOrderContainer<E> parentContainer;
 
   private final int endIndex;
 
@@ -39,7 +39,7 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    *                          startIndex or does not equal the given startIndex.
    */
   private IntervallContainerViewIterator(
-    final IContainer<E> parentContainer,
+    final IWellOrderContainer<E> parentContainer,
     final int startIndex,
     final int endIndex) {
     Validator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
@@ -72,7 +72,7 @@ final class IntervallContainerViewIterator<E> implements CopyableIterator<E> {
    *                          startIndex or does not equal the given startIndex.
    */
   public static <T> IntervallContainerViewIterator<T> forParentContainerAndStartIndexAndEndIndex(
-    final IContainer<T> parentContainer,
+    final IWellOrderContainer<T> parentContainer,
     final int startIndex,
     final int endIndex) {
     return new IntervallContainerViewIterator<>(parentContainer, startIndex, endIndex);

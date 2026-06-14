@@ -4,20 +4,20 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 final class StateExtractor<S extends Enum<S>> {
-  public IContainer<State<S>> createStatesFromStateClass(final Class<S> stateClass) {
+  public IWellOrderContainer<State<S>> createStatesFromStateClass(final Class<S> stateClass) {
     return createStatesFromStateEnumValues(stateClass.getEnumConstants());
   }
 
   @SuppressWarnings("unchecked")
-  public IContainer<State<S>> createtStatesFromState(final S state) {
+  public IWellOrderContainer<State<S>> createtStatesFromState(final S state) {
     return createStatesFromStateClass((Class<S>) state.getClass());
   }
 
-  private IContainer<State<S>> createStatesFromStateEnumValues(final S[] stateEnumValues) {
+  private IWellOrderContainer<State<S>> createStatesFromStateEnumValues(final S[] stateEnumValues) {
     final ILinkedList<State<S>> states = LinkedList.createEmpty();
 
     var i = 0;

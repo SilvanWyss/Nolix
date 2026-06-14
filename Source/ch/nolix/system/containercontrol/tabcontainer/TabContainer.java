@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.atomiccontrol.button.ButtonStyle;
@@ -127,7 +127,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * {@inheritDoc}
    */
   @Override
-  public ITabContainer addTabs(final IContainer<ITabContainerTab> tabs) {
+  public ITabContainer addTabs(final IWellOrderContainer<ITabContainerTab> tabs) {
     tabs.forEach(this::addTab);
 
     return this;
@@ -163,7 +163,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredChildControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
     return getStoredTabs().to(ITabContainerTab::getStoredRootControl);
   }
 
@@ -171,7 +171,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.withElement(internalGetStoredRootVerticalStack());
   }
 
@@ -203,7 +203,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ITabContainerTab> getStoredTabs() {
+  public IWellOrderContainer<ITabContainerTab> getStoredTabs() {
     return memberTabs.getStoredValues();
   }
 

@@ -5,7 +5,7 @@ package ch.nolix.base.sql.sqltool;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.sqltool.ISqlCollector;
 
@@ -71,7 +71,7 @@ public final class SqlCollector implements ISqlCollector {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getSqlStatements() {
+  public IWellOrderContainer<String> getSqlStatements() {
     return memberSqlStatements;
   }
 

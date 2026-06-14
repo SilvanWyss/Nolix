@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -46,7 +46,7 @@ public final class RunningJar {
     }
   }
 
-  public static IContainer<String> readLinesOfResource(final String path) {
+  public static IWellOrderContainer<String> readLinesOfResource(final String path) {
     final ILinkedList<String> lines = LinkedList.createEmpty();
     final var inputStream = RunningJar.class.getResourceAsStream(StringCatalog.SLASH + path);
     final var inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);

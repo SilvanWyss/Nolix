@@ -4,7 +4,7 @@
 package ch.nolix.base.web.cssmodel;
 
 import ch.nolix.base.commontypetool.stringtool.StringTool;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 
@@ -12,13 +12,13 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
  * @author Silvan Wyss
  */
 public final class Css implements ICss {
-  private final IContainer<ICssRule> rules;
+  private final IWellOrderContainer<ICssRule> rules;
 
-  private Css(final IContainer<ICssRule> rules) {
+  private Css(final IWellOrderContainer<ICssRule> rules) {
     this.rules = rules.to(CssRule::fromCssRule);
   }
 
-  public static Css withRules(final IContainer<ICssRule> rules) {
+  public static Css withRules(final IWellOrderContainer<ICssRule> rules) {
     return new Css(rules);
   }
 
@@ -26,7 +26,7 @@ public final class Css implements ICss {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ICssRule> getRules() {
+  public IWellOrderContainer<ICssRule> getRules() {
     return rules;
   }
 

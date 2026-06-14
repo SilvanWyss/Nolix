@@ -5,7 +5,7 @@ package ch.nolix.base.sql.connection;
 
 import ch.nolix.base.resourcecontrol.closecontroller.UncloseableCloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
@@ -62,7 +62,7 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public void executeStatements(final IContainer<String> statements) {
+  public void executeStatements(final IWellOrderContainer<String> statements) {
     sqlConnection.executeStatements(statements);
   }
 
@@ -86,7 +86,7 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ISqlRecord> getRecordsFromQuery(final String query) {
+  public IWellOrderContainer<ISqlRecord> getRecordsFromQuery(final String query) {
     return sqlConnection.getRecordsFromQuery(query);
   }
 

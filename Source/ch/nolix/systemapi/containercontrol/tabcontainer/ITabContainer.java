@@ -5,7 +5,7 @@ package ch.nolix.systemapi.containercontrol.tabcontainer;
 
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
 import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
 
@@ -16,7 +16,7 @@ public interface ITabContainer
 extends ch.nolix.systemapi.containercontrol.container.IContainer<ITabContainer, ITabContainerStyle> {
   ITabContainer addTab(ITabContainerTab tab);
 
-  ITabContainer addTabs(IContainer<ITabContainerTab> tabs);
+  ITabContainer addTabs(IWellOrderContainer<ITabContainerTab> tabs);
 
   ITabContainer addTabs(ITabContainerTab... tabs);
 
@@ -28,7 +28,7 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<ITabContainer, 
 
   ITabContainerTab getStoredSelectedTab();
 
-  IContainer<ITabContainerTab> getStoredTabs();
+  IWellOrderContainer<ITabContainerTab> getStoredTabs();
 
   int getTabCount();
 

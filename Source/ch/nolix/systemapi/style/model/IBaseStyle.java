@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.style.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
@@ -26,12 +26,12 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
   /**
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
-  IContainer<String> getAttachingAttributes();
+  IWellOrderContainer<String> getAttachingAttributes();
 
   /**
    * @return the sub styles of the current {@link IBaseStyle}.
    */
-  IContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
+  IWellOrderContainer<? extends ISelectingStyleWithSelectors> getSubStyles();
 
   /**
    * @return true if the current {@link IBaseStyle} contains attaching attributes,
@@ -65,7 +65,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @throws RuntimeException if one of the given attachingAttributes is not
    *                          valid.
    */
-  S withAttachingAttributes(IContainer<String> attachingAttributes);
+  S withAttachingAttributes(IWellOrderContainer<String> attachingAttributes);
 
   /**
    * @param attachingAttributes
@@ -84,5 +84,5 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @throws RuntimeException if the given subStyles is null.
    * @throws RuntimeException if one of the given subStyles is not valid.
    */
-  S withSubStyles(IContainer<? extends ISelectingStyleWithSelectors> subStyles);
+  S withSubStyles(IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles);
 }

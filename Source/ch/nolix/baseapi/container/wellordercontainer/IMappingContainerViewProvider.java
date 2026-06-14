@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.container.base;
+package ch.nolix.baseapi.container.wellordercontainer;
 
 import java.util.function.Function;
 
@@ -15,11 +15,11 @@ public interface IMappingContainerViewProvider<E> {
    * @param mapper
    * @param <T>    is the type of the elements the given mapper maps from the
    *               elements of the current {@link IMappingContainerViewProvider}.
-   * @return a new {@link IContainer} with the elements the given mapper maps from
+   * @return a new {@link IWellOrderContainer} with the elements the given mapper maps from
    *         the elements of the current {@link IMappingContainerViewProvider}.
    * @throws RuntimeException if the given mapper is null.
    * @throws RuntimeException if one of the mapped elements of the current
    *                          {@link IMappingContainerViewProvider} is null.
    */
-  <T> IContainer<T> getViewOf(final Function<E, T> mapper);
+  <T> IWellOrderContainer<T> getViewOf(final Function<E, T> mapper);
 }

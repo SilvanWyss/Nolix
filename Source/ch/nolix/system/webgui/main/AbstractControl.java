@@ -10,7 +10,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -145,7 +145,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<ICssRule> getCssRules() {
+  public final IWellOrderContainer<ICssRule> getCssRules() {
     return getCssBuilder().createCssRulesForControl(asConcrete());
   }
 
@@ -227,7 +227,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public final IWellOrderContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return getStoredChildControls();
   }
 
@@ -235,7 +235,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<Object> getStoredLinkedObjects() {
+  public IWellOrderContainer<Object> getStoredLinkedObjects() {
     if (!isLinkedToAnObject()) {
       return ImmutableList.createEmpty();
     }

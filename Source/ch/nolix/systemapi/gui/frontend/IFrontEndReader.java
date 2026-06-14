@@ -5,13 +5,13 @@ package ch.nolix.systemapi.gui.frontend;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  */
 public interface IFrontEndReader {
-  IContainer<byte[]> getFilesFromClipboard();
+  IWellOrderContainer<byte[]> getFilesFromClipboard();
 
   String getTextFromClipboard();
 

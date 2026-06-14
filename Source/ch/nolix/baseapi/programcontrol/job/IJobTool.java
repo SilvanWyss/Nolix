@@ -3,11 +3,11 @@
  */
 package ch.nolix.baseapi.programcontrol.job;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
  */
 public interface IJobTool {
-  Runnable createConcatenatedJobFromJobs(IContainer<Runnable> jobs);
+  Runnable createConcatenatedJobFromJobs(IWellOrderContainer<Runnable> jobs);
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
 
@@ -14,7 +14,7 @@ public final class FieldFromTableCreator {
   private FieldFromTableCreator() {
   }
 
-  public static IContainer<AbstractField> createFieldsFromTable(final ITable<? extends IEntity> table) {
+  public static IWellOrderContainer<AbstractField> createFieldsFromTable(final ITable<? extends IEntity> table) {
     return table.getStoredColumns().to(FieldMapper::mapColumnToField);
   }
 }

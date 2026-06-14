@@ -9,8 +9,8 @@ import java.util.function.Consumer;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -102,7 +102,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredChildControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
@@ -118,7 +118,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IControl<?, ?>> getStoredStructureControls() {
+  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

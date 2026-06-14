@@ -3,14 +3,14 @@
  */
 package ch.nolix.systemapi.sqlmiddata.sqlmapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 
 /**
  * @author Silvan Wyss
  */
 public interface ISqlPartsMapper {
-  IContainer<String> mapValueStringFieldDtoToColumnNames(ValueStringFieldDto valueStringFieldDto);
+  IWellOrderContainer<String> mapValueStringFieldDtoToColumnNames(ValueStringFieldDto valueStringFieldDto);
 
-  IContainer<String> mapValueStringFieldDtoToSqlValueLiterals(ValueStringFieldDto valueStringFieldDto);
+  IWellOrderContainer<String> mapValueStringFieldDtoToSqlValueLiterals(ValueStringFieldDto valueStringFieldDto);
 }

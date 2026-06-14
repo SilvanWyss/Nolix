@@ -4,7 +4,7 @@
 package ch.nolix.system.containercontrol.singlecontainer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainer;
 
@@ -15,7 +15,7 @@ public final class SingleContainerHtmlBuilderHelper {
   private SingleContainerHtmlBuilderHelper() {
   }
 
-  public static IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
+  public static IWellOrderContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
     final ISingleContainer singleContainer) {
     if (singleContainer.containsAny()) {
       return ImmutableList.withElements(singleContainer.getStoredControl().getHtml());

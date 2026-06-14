@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.gui.font.Font;
 
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.gui.font.Font;
  */
 final class FontTest extends StandardTest {
   @MethodSource
-  private static IContainer<Arguments> getSpecificationsAndTheirFonts() {
+  private static IWellOrderContainer<Arguments> getSpecificationsAndTheirFonts() {
     return //
     ImmutableList.withElements(
       Arguments.of(Node.withChildNodes("ARIAL"), Font.ARIAL),

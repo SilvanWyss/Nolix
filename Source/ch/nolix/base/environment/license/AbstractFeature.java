@@ -4,7 +4,7 @@
 package ch.nolix.base.environment.license;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * A {@link AbstractFeature} can be required for certain functionalities.
@@ -16,7 +16,7 @@ public abstract class AbstractFeature implements INameHolder {
    * @return the authorized {@link License} types of the current
    *         {@link AbstractFeature}.
    */
-  public abstract IContainer<Class<?>> getAuthorizedLicenseTypes();
+  public abstract IWellOrderContainer<Class<?>> getAuthorizedLicenseTypes();
 
   /**
    * {@inheritDoc}

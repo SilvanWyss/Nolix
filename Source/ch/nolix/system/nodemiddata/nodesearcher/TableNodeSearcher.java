@@ -5,7 +5,7 @@ package ch.nolix.system.nodemiddata.nodesearcher;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemiddata.nodesearcher.ITableNodeSearcher;
 import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
@@ -39,7 +39,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
+  public IWellOrderContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.COLUMN);
   }
 
@@ -57,7 +57,7 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
+  public IWellOrderContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.ENTITY);
   }
 

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.gui.cssmapper;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
@@ -20,7 +20,7 @@ public interface ICssPropertyMapper {
    * @return the {@link ICssProperty}s from the given background.
    * @throws RuntimeException if the given background is null.
    */
-  IContainer<ICssProperty> mapBackgroundToCssProperties(IBackground background);
+  IWellOrderContainer<ICssProperty> mapBackgroundToCssProperties(IBackground background);
 
   /**
    * @param cornerShadow
@@ -37,7 +37,7 @@ public interface ICssPropertyMapper {
    * @throws RuntimeException if the given cornerShadows is null or one of the
    *                          given cornerShadows is null.
    */
-  Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(IContainer<? extends ICornerShadow> cornerShadows);
+  Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(IWellOrderContainer<? extends ICornerShadow> cornerShadows);
 
   /**
    * @param lineDecoration

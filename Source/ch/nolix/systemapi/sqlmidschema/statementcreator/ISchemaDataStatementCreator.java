@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmidschema.statementcreator;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
@@ -19,7 +19,7 @@ public interface ISchemaDataStatementCreator {
     ColumnIdentification parentBaseBackReferenceColumn,
     String referenceableColumnId);
 
-  IContainer<String> createStatementsToAddColumn(TableIdentification table, ColumnDto column);
+  IWellOrderContainer<String> createStatementsToAddColumn(TableIdentification table, ColumnDto column);
 
   String createStatementToAddReferenceableTable(
     ColumnIdentification parentBaseReferenceColumn,
@@ -27,7 +27,7 @@ public interface ISchemaDataStatementCreator {
 
   String createStatementToAddTable(String tableId, String tableName);
 
-  IContainer<String> createStatementsToAddTable(TableDto table);
+  IWellOrderContainer<String> createStatementsToAddTable(TableDto table);
 
   String createStatementToDeleteColumn(TableIdentification table, String columnName);
 
@@ -37,11 +37,11 @@ public interface ISchemaDataStatementCreator {
 
   String createStatementToRenameTable(String tableName, String newTableName);
 
-  IContainer<String> createStatementsToSetContentModel(
+  IWellOrderContainer<String> createStatementsToSetContentModel(
     TableIdentification table,
     ColumnIdentification column,
     FieldType fieldType,
     DataType dataType,
-    IContainer<String> referenceableTableIds,
-    IContainer<String> backReferenceableColumnIds);
+    IWellOrderContainer<String> referenceableTableIds,
+    IWellOrderContainer<String> backReferenceableColumnIds);
 }

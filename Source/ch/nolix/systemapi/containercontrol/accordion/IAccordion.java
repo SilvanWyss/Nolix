@@ -5,7 +5,7 @@ package ch.nolix.systemapi.containercontrol.accordion;
 
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle;
 
 /**
@@ -17,7 +17,7 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<IAccordion, IAc
 
   IAccordion addTabs(IAccordionTab... tabs);
 
-  IAccordion addTabs(IContainer<IAccordionTab> tabs);
+  IAccordion addTabs(IWellOrderContainer<IAccordionTab> tabs);
 
   void expandFirstTab();
 
@@ -27,7 +27,7 @@ extends ch.nolix.systemapi.containercontrol.container.IContainer<IAccordion, IAc
 
   IAccordionTab getStoredTabByHeader(String header);
 
-  IContainer<IAccordionTab> getStoredTabs();
+  IWellOrderContainer<IAccordionTab> getStoredTabs();
 
   int getTabCount();
 

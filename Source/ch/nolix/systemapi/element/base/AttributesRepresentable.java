@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.element.base;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 
 /**
@@ -16,5 +16,5 @@ public interface AttributesRepresentable {
   /**
    * @return the attributes of the current {@link AttributesRepresentable}
    */
-  IContainer<INode<?>> getAttributes();
+  IWellOrderContainer<INode<?>> getAttributes();
 }

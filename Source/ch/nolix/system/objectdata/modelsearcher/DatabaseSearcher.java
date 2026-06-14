@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.modelsearcher;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -19,7 +19,7 @@ public final class DatabaseSearcher extends DatabaseObjectExaminer implements ID
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
+  public IWellOrderContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
     if (database == null) {
       return ImmutableList.createEmpty();
     }

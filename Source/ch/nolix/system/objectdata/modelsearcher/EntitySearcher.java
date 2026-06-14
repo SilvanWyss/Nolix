@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.modelsearcher;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
 import ch.nolix.systemapi.objectdata.fieldexaminer.IFieldExaminer;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
@@ -43,7 +43,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(
+  public IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(
     final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
@@ -54,7 +54,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IField> getStoredEditedFields(final IEntity entity) {
+  public IWellOrderContainer<? extends IField> getStoredEditedFields(final IEntity entity) {
     return entity.internalGetStoredFields().getStoredSelected(IField::isEdited);
   }
 
@@ -72,7 +72,7 @@ public final class EntitySearcher implements IEntitySearcher {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
+  public IWellOrderContainer<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(final IEntity entity) {
     final var fields = entity.internalGetStoredFields();
 
     return fields.toMultiples(IField::getStoredBackReferencedBaseReferences);

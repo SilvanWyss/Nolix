@@ -8,8 +8,8 @@ import java.util.function.Predicate;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
@@ -42,7 +42,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   private final LinkedList<MultiReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
-  private MultiReference(final IContainer<String> referenceableTableNames) {
+  private MultiReference(final IWellOrderContainer<String> referenceableTableNames) {
     super(referenceableTableNames);
   }
 
@@ -56,14 +56,14 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   }
 
   public static <T extends IEntity> MultiReference<T> forEntityTypes(
-    final IContainer<Class<? extends T>> entityTypes) {
+    final IWellOrderContainer<Class<? extends T>> entityTypes) {
     final var referenceableTableNamesView = entityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new MultiReference<>(referenceableTableNamesView);
   }
 
   public static <T extends IEntity> MultiReference<T> forReferenceableTableNames(
-    final IContainer<String> referenceableTableNames) {
+    final IWellOrderContainer<String> referenceableTableNames) {
     return new MultiReference<>(referenceableTableNames);
   }
 
@@ -97,7 +97,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getAllReferencedEntityIds() {
+  public IWellOrderContainer<String> getAllReferencedEntityIds() {
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
     return //
@@ -110,7 +110,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<E> getAllStoredReferencedEntities() {
+  public IWellOrderContainer<E> getAllStoredReferencedEntities() {
     updateStateLoadingAllPersistedReferencedEntityIdsIfNotLoaded();
 
     return //
@@ -123,7 +123,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     final ILinkedList<IBaseBackReference> abstractBackReferences = LinkedList.createEmpty();
 
     for (final var e : getAllStoredReferencedEntities()) {
@@ -145,7 +145,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<? extends IMultiReferenceEntry<E>> getStoredNewAndDeletedEntries() {
+  public IWellOrderContainer<? extends IMultiReferenceEntry<E>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
@@ -273,7 +273,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
     }
   }
 
-  private IContainer<MultiReferenceEntry<E>> loadAllPersistedReferencedEntityIds() {
+  private IWellOrderContainer<MultiReferenceEntry<E>> loadAllPersistedReferencedEntityIds() {
     return //
     getStoredDataAndSchemaAdapter().loadMultiReferenceEntries(
       getStoredParentEntity().getStoredParentTable().getName(),

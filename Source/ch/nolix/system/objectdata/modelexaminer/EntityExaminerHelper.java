@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.modelexaminer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -17,7 +17,7 @@ public final class EntityExaminerHelper implements IEntityExaminerHelper {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<String> getLocallyDeletedEntitiesIds(final IDatabase database) {
+  public IWellOrderContainer<String> getLocallyDeletedEntitiesIds(final IDatabase database) {
     return //
     database
       .getStoredTables()

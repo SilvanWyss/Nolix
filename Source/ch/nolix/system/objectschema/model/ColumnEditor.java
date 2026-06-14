@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.system.objectschema.modelmutationvalidator.ColumnMutationValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -44,8 +44,8 @@ public final class ColumnEditor implements IColumnEditor<Column> {
     final Column column,
     final FieldType fieldType,
     final DataType dataType,
-    final IContainer<? extends ITable> referenceableTables,
-    IContainer<? extends IColumn> backReferenceableColumns) {
+    final IWellOrderContainer<? extends ITable> referenceableTables,
+    IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
     COLUMN_MUTATION_VALIDATOR.assertCanSetContentModel(
       column,
       fieldType,

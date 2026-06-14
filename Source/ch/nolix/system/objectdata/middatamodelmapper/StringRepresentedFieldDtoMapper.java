@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.middatamodelmapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.objectdata.middatamodelmapper.IStringRepresentedFieldDtoMapper;
@@ -26,8 +26,8 @@ public final class StringRepresentedFieldDtoMapper implements IStringRepresented
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(
-    final IContainer<? extends IField> fields) {
+  public IWellOrderContainer<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(
+    final IWellOrderContainer<? extends IField> fields) {
     return fields.to(this::mapFieldToStringRepresentedFieldDto);
   }
 

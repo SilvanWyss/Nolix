@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.environment.filesystem;
 
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**
@@ -94,7 +94,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @return new {@link FileAccessor}s for the files in the folder of the current
    *         {@link FolderAccessor}.
    */
-  public IContainer<FileAccessor> getFileAccessors() {
+  public IWellOrderContainer<FileAccessor> getFileAccessors() {
     return FileSystemAccessor.getFileAccessors(getPath());
   }
 
@@ -103,7 +103,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @return a new {@link FileAccessor}s for the files in the folder of the
    *         current {@link FolderAccessor}, that have the given extension.
    */
-  public IContainer<FileAccessor> getFileAccessors(final String extension) {
+  public IWellOrderContainer<FileAccessor> getFileAccessors(final String extension) {
     return FileSystemAccessor.getFileAccessors(getPath(), extension);
   }
 
@@ -112,7 +112,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @return new {@link FileAccessor} for the files in the folder of the current
    *         {@link FolderAccessor}, that have the given extension, recursively.
    */
-  public IContainer<FileAccessor> getFileAccessorsRecursively(final String extension) {
+  public IWellOrderContainer<FileAccessor> getFileAccessorsRecursively(final String extension) {
     return getFileAccessorsRecursively().getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
@@ -128,7 +128,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @return new {@link FileSystemItemAccessor}s to the file system items in the
    *         folder of the current {@link FolderAccessor}.
    */
-  public IContainer<FileSystemItemAccessor> getFileSystemItemAccessors() {
+  public IWellOrderContainer<FileSystemItemAccessor> getFileSystemItemAccessors() {
     return FileSystemAccessor.getFileSystemItemAccessors(getPath());
   }
 

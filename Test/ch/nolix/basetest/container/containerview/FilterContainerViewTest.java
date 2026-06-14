@@ -4,7 +4,7 @@
 package ch.nolix.basetest.container.containerview;
 
 import ch.nolix.base.container.arraylist.FilterContainerView;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**
@@ -15,7 +15,7 @@ public final class FilterContainerViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
+  protected <E> IWellOrderContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") final E... elements) {
     return FilterContainerView.forArrayAndSelector(elements, _ -> true);
   }
 
@@ -23,7 +23,7 @@ public final class FilterContainerViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
+  protected <E> IWellOrderContainer<E> createEmptyContainerForType(final Class<E> type) {
     return FilterContainerView.createEmpty();
   }
 }

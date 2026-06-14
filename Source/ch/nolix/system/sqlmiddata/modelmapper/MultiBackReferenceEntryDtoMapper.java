@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.modelmapper;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 import ch.nolix.systemapi.sqlmiddata.modelmapper.IMultiBackReferenceEntryDtoMapper;
@@ -16,8 +16,8 @@ public final class MultiBackReferenceEntryDtoMapper implements IMultiBackReferen
    * {@inheritDoc}
    */
   @Override
-  public IContainer<MultiBackReferenceEntryDto> mapMultiBackReferenceEntrySqlRecordsToMultiBackReferenceEntryDtos(
-    final IContainer<ISqlRecord> multiBackReferenceEntrySqlRecords,
+  public IWellOrderContainer<MultiBackReferenceEntryDto> mapMultiBackReferenceEntrySqlRecordsToMultiBackReferenceEntryDtos(
+    final IWellOrderContainer<ISqlRecord> multiBackReferenceEntrySqlRecords,
     final String tableName) {
     return //
     multiBackReferenceEntrySqlRecords.to(

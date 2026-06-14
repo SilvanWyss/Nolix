@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.midschema.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
-public record TableDto(String id, String name, IContainer<ColumnDto> columns) {
+public record TableDto(String id, String name, IWellOrderContainer<ColumnDto> columns) {
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webapplication.main;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.application.main.IApplication;
@@ -36,7 +36,7 @@ extends AbstractWebClientSession<WebClient<S>, S> {
   }
 
   public final void updateControlsOnCounterpart(
-    final IContainer<IControl<?, ?>> controls,
+    final IWellOrderContainer<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     getStoredParentClient().internalUpdateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }

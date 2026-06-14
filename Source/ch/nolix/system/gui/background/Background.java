@@ -6,7 +6,7 @@ package ch.nolix.system.gui.background;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -137,7 +137,7 @@ public final class Background extends AbstractElement implements IBackground {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<INode<?>> getAttributes() {
+  public IWellOrderContainer<INode<?>> getAttributes() {
     return switch (getType()) {
       case COLOR ->
         LinkedList.withElement(getColor().getSpecification());
@@ -233,7 +233,7 @@ public final class Background extends AbstractElement implements IBackground {
    * {@inheritDoc}
    */
   @Override
-  public IContainer<ICssProperty> toCssProperties() {
+  public IWellOrderContainer<ICssProperty> toCssProperties() {
     return CSS_PROPERTY_MAPPER.mapBackgroundToCssProperties(this);
   }
 

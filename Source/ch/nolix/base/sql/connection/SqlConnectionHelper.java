@@ -10,8 +10,8 @@ import java.util.List;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.sql.model.SqlRecord;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 
 /**
@@ -21,7 +21,7 @@ public final class SqlConnectionHelper {
   private SqlConnectionHelper() {
   }
 
-  public static IContainer<ISqlRecord> getRecordsFromStatement(
+  public static IWellOrderContainer<ISqlRecord> getRecordsFromStatement(
     final String query,
     final Statement statement)
   throws SQLException {
@@ -30,7 +30,7 @@ public final class SqlConnectionHelper {
     }
   }
 
-  private static IContainer<ISqlRecord> getRecordsFromResultSet(final ResultSet resultSet)
+  private static IWellOrderContainer<ISqlRecord> getRecordsFromResultSet(final ResultSet resultSet)
   throws SQLException {
     final ILinkedList<ISqlRecord> sqlRecords = LinkedList.createEmpty();
     final var columnCount = resultSet.getMetaData().getColumnCount();

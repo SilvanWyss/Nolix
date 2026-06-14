@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.manager.guimanager;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
  * @author Silvan Wyss
@@ -13,5 +13,5 @@ public interface IControlManager<C> {
   /**
    * @return the controls of the current {@link IControlManager}.
    */
-  IContainer<? extends C> getStoredControls();
+  IWellOrderContainer<? extends C> getStoredControls();
 }

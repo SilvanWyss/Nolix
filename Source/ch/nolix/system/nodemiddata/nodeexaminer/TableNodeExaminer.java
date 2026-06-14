@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.nodeexaminer;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemiddata.nodeexaminer.ITableNodeExaminer;
 import ch.nolix.systemapi.nodemidschema.databasestructure.FieldIndexCatalog;
@@ -21,7 +21,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
     final IMutableNode<?> tableNode,
     final int oneBasedIndex,
     final String value,
-    final IContainer<String> entitiesToIgnoreIds) {
+    final IWellOrderContainer<String> entitiesToIgnoreIds) {
     return //
     tableNode.containsChildNodeThat(
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)

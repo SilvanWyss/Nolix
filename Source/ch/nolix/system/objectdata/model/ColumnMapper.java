@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.baseapi.container.base.IContainer;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.objectdata.model.IColumn;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -20,7 +20,7 @@ public final class ColumnMapper {
   public static IColumn mapMidSchemaColumnDtoToColumn(
     final ColumnDto midSchemaColumnDto,
     final Table<IEntity> parentTable,
-    final IContainer<? extends ITable<IEntity>> tables) {
+    final IWellOrderContainer<? extends ITable<IEntity>> tables) {
     final var id = midSchemaColumnDto.id();
     final var name = midSchemaColumnDto.name();
     final var fieldType = midSchemaColumnDto.fieldType();

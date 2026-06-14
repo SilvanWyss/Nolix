@@ -12,8 +12,8 @@ import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.programcontrol.future.AbstractFuture;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -42,7 +42,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
 
   private final MutableImage image;
 
-  private final IContainer<IFuture> futures;
+  private final IWellOrderContainer<IFuture> futures;
 
   private ImageGenerator(final IFractal fractal) {
     Validator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();

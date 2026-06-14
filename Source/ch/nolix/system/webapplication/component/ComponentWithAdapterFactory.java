@@ -8,8 +8,8 @@ import java.util.Optional;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.base.IContainer;
 import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.programcontrol.adapter.IAdapterFactory;
@@ -68,7 +68,7 @@ implements IComponent {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<IControl<?, ?>> getStoredChildControls() {
+  public final IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
     if (childControl == null) {
       return ImmutableList.createEmpty();
     }
