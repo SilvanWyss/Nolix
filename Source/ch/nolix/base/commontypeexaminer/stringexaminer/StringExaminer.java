@@ -5,7 +5,6 @@ package ch.nolix.base.commontypeexaminer.stringexaminer;
 
 import java.util.Locale;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.baseapi.commontypeexaminer.stringexaminer.IStringExaminer;
 
 /**
@@ -20,16 +19,6 @@ public final class StringExaminer implements IStringExaminer {
     return //
     string != null
     && string.equals(string.toLowerCase(Locale.ENGLISH));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isPascalCase(final String string) {
-    return //
-    string != null
-    && string.equals(StringTool.toPascalCase(string));
   }
 
   /**

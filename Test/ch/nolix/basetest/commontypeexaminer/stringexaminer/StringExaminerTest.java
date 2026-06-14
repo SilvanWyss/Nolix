@@ -53,40 +53,6 @@ final class StringExaminerTest extends StandardTest {
 
   @ParameterizedTest
   @CsvSource({
-  "''", //
-  "Cursor", //
-  "CursorIcon" //
-  })
-  void testCase_iisPascalCase_whenTheGivenStringIsPascalCase(final String string) {
-    //setup
-    final var testUnit = new StringExaminer();
-
-    //execution
-    final var result = testUnit.isPascalCase(string);
-
-    //verification
-    expect(result).isTrue();
-  }
-
-  @ParameterizedTest
-  @CsvSource({
-  ",", //
-  "cursor", //
-  "cursorIcon" //
-  })
-  void testCase_iisPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
-    //setup
-    final var testUnit = new StringExaminer();
-
-    //execution
-    final var result = testUnit.isPascalCase(string);
-
-    //verification
-    expect(result).isFalse();
-  }
-
-  @ParameterizedTest
-  @CsvSource({
   "cheeseburger, ''", //
   "cheeseburger, c", //
   "cheeseburger, ch", //

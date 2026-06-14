@@ -15,12 +15,6 @@ public interface IStringExaminer {
 
   /**
    * @param string
-   * @return true if the given string is in pascal case, false otherwise.
-   */
-  boolean isPascalCase(String string);
-
-  /**
-   * @param string
    * @param prefix
    * @return true if the given string starts with the given prefix ignoring case,
    *         false otherwise.

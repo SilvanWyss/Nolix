@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.base.commontypetool.stringtool.StringToolUnit;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -123,6 +124,34 @@ final class StringToolTest extends StandardTest {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given Object is null.");
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+  "''", //
+  "Cursor", //
+  "CursorIcon" //
+  })
+  void testCase_isPascalCase_whenTheGivenStringIsPascalCase(final String string) {
+    //execution
+    final var result = StringTool.isPascalCase(string);
+
+    //verification
+    expect(result).isTrue();
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+  ",", //
+  "cursor", //
+  "cursorIcon" //
+  })
+  void testCase_isPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
+    //execution
+    final var result = StringTool.isPascalCase(string);
+
+    //verification
+    expect(result).isFalse();
   }
 
   @ParameterizedTest

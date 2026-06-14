@@ -73,6 +73,14 @@ public final class StringTool {
 
   /**
    * @param string
+   * @return true if the given string is in pascal case, false otherwise
+   */
+  public static boolean isPascalCase(final String string) {
+    return string != null && string.equals(toPascalCase(string));
+  }
+
+  /**
+   * @param string
    * @return the boolean the given string represents.
    * @throws RuntimeException if the given string does not represent a boolean.
    */

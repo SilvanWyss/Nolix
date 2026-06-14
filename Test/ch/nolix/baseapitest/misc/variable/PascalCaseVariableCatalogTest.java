@@ -5,19 +5,16 @@ package ch.nolix.baseapitest.misc.variable;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.commontypeexaminer.stringexaminer.StringExaminer;
+import ch.nolix.base.commontypetool.stringtool.StringTool;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontypeexaminer.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
  */
 final class PascalCaseVariableCatalogTest extends StandardTest {
-  private static final IStringExaminer STRING_EXAMINER = new StringExaminer();
-
   @Test
   void testCase_constants() {
     //setup
@@ -29,7 +26,7 @@ final class PascalCaseVariableCatalogTest extends StandardTest {
 
       final var stringValue = c.toString();
       if (!exceptions.containsEqualing(stringValue)) {
-        expect(stringValue).fulfills(STRING_EXAMINER::isPascalCase);
+        expect(stringValue).fulfills(StringTool::isPascalCase);
       }
     }
   }
