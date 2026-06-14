@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.container.commoncontainer;
+package ch.nolix.baseapi.container.generalcontainer;
 
 import java.util.function.Predicate;
 
