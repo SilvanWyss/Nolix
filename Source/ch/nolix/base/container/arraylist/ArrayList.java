@@ -124,14 +124,21 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * {@inheritDoc}
    */
   @Override
-  public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") final T... elements) {
+  public void addAtEnd(final Iterable<? extends E> elements) {
     Validator.assertThatTheElements(elements).areNotNull();
-
-    final var elementCount = getCount();
-    final var newElementCount = elementCount + elements.length;
-
+  
+    final var newElementCount = getCount() + getCountOfIterable(elements);
+  
     growAtLeastToRequiredCapacity(newElementCount);
-    System.arraycopy(elements, 0, memberElements, elementCount, elements.length);
+  
+    var index = getCount();
+  
+    for (final var e : elements) {
+      memberElements[index] = e;
+  
+      index++;
+    }
+  
     memberElementCount = newElementCount;
   }
 
@@ -142,21 +149,14 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
    * {@inheritDoc}
    */
   @Override
-  public void addAtEnd(final Iterable<? extends E> elements) {
+  public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") final T... elements) {
     Validator.assertThatTheElements(elements).areNotNull();
 
-    final var newElementCount = getCount() + getCountOfIterable(elements);
+    final var elementCount = getCount();
+    final var newElementCount = elementCount + elements.length;
 
     growAtLeastToRequiredCapacity(newElementCount);
-
-    var index = getCount();
-
-    for (final var e : elements) {
-      memberElements[index] = e;
-
-      index++;
-    }
-
+    System.arraycopy(elements, 0, memberElements, elementCount, elements.length);
     memberElementCount = newElementCount;
   }
 

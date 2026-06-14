@@ -20,8 +20,8 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
- * A {@link LinkedList} is a {@link AbstractWellOrderContainer} that can add elements at
- * the begin or end. A {@link LinkedList} is clearable.
+ * A {@link LinkedList} is a {@link AbstractWellOrderContainer} that can add
+ * elements at the begin or end. A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link LinkedList}.
@@ -203,24 +203,10 @@ implements ILinkedList<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if n elements are given.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public void addAtEnd(@SuppressWarnings("unchecked") E... elements) {
-    //Iterates the given elements.
-    for (final var e : elements) {
-      addAtEnd(e);
-    }
-  }
-
-  /**
    * Adds the given elements at the end of the current {@link LinkedList}. The
    * complexity of this implementation is O(n) if n elements are given.
    * 
-   * @param elements
-   * @throws RuntimeException if one of the given elements is null.
+   * {@inheritDoc}
    */
   @Override
   public void addAtEnd(final Iterable<? extends E> elements) {
@@ -228,9 +214,23 @@ implements ILinkedList<E> {
   }
 
   /**
-   * Removes all elements of the current {@link LinkedList}. The complexity of
-   * this implementation is O(n) when the current {@link LinkedList} contains n
-   * elements.
+   * The time complexity of this implementation is O(n) if n elements are given.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") T... elements) {
+    //Iterates the given elements.
+    for (final var e : elements) {
+      addAtEnd(e);
+    }
+  }
+
+  /**
+   * The complexity of this implementation is O(n) when the current
+   * {@link LinkedList} contains n elements.
+   * 
+   * {@inheritDoc}
    */
   @Override
   public void clear() {
@@ -303,9 +303,9 @@ implements ILinkedList<E> {
    * @throws RuntimeException                      if the given index is not
    *                                               positive.
    * @throws ArgumentDoesNotHaveAttributeException if the current
-   *                                               {@link AbstractWellOrderContainer} does
-   *                                               not contain an element at the
-   *                                               given index.
+   *                                               {@link AbstractWellOrderContainer}
+   *                                               does not contain an element at
+   *                                               the given index.
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {

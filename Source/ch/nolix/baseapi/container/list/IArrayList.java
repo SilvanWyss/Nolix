@@ -14,36 +14,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link IArrayList}.
  */
-public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IWellOrderContainer<E> {
-  /**
-   * Adds the given element at the end of the current {@link IArrayList}.
-   * 
-   * @param element
-   * @throws RuntimeException if the given elements is null.
-   */
-  void addAtEnd(E element);
-
-  /**
-   * Adds the given elements at the end of the current {@link IArrayList}. The
-   * elements will be added in the given order.
-   * 
-   * @param elements
-   * @param <T>      is the type of the given elements.
-   * @throws RuntimeException if the given elements is null.
-   * @throws RuntimeException if one of the given elements is null.
-   */
-  <T extends E> void addAtEnd(@SuppressWarnings("unchecked") T... elements);
-
-  /**
-   * Adds the given elements at the end of the current {@link IArrayList}. The
-   * elements will be added in the given order.
-   * 
-   * @param elements
-   * @throws RuntimeException if the given elements is null.
-   * @throws RuntimeException if one of the given elements is null.
-   */
-  void addAtEnd(Iterable<? extends E> elements);
-
+public interface IArrayList<E> extends Clearable, Copyable<IArrayList<E>>, IAppendableList<E>, IWellOrderContainer<E> {
   /**
    * Adds the given element at the given oneBasedIndex
    * 

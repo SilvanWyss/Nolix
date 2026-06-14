@@ -10,13 +10,14 @@ import ch.nolix.baseapi.objectcreation.copier.Copyable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
- * A {@link ILinkedList} is a {@link IWellOrderContainer} that can add and remove
- * elements.
+ * A {@link ILinkedList} is a {@link IWellOrderContainer} that can add and
+ * remove elements.
  * 
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link ILinkedList}.
  */
-public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IWellOrderContainer<E> {
+public interface ILinkedList<E>
+extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, IWellOrderContainer<E> {
   /**
    * Adds the given element at the begin of the current {@link ILinkedList}.
    * 
@@ -43,33 +44,6 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IWe
    * @throws RuntimeException if one of the given elements is null.
    */
   void addAtBegin(Iterable<? extends E> elements);
-
-  /**
-   * Adds the given element at the end of the current {@link ILinkedList}.
-   * 
-   * @param element
-   * @throws RuntimeException if the given elements is null.
-   */
-  void addAtEnd(E element);
-
-  /**
-   * Adds the given elements at the end of the current {@link ILinkedList}. The
-   * elements will be added in the given order.
-   * 
-   * @param elements
-   * @throws RuntimeException if the given elements is null.
-   * @throws RuntimeException if one of the given elements is null.
-   */
-  void addAtEnd(@SuppressWarnings("unchecked") E... elements);
-
-  /**
-   * Adds the given elements at the end of the current {@link ILinkedList}. The
-   * elements will be added in the given order.
-   * 
-   * @param elements
-   * @throws RuntimeException if one of the given elements is null.
-   */
-  void addAtEnd(Iterable<? extends E> elements);
 
   /**
    * Removes all elements from the current {@link ILinkedList} the given selector
