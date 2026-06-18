@@ -11,13 +11,8 @@ package ch.nolix.baseapi.commontype.doubletool;
 public interface IDoubleTool {
   /**
    * @param value
-   * @return a {@link String} representation of the given value. The
-   *         {@link String} representation will have the following properties:
-   * 
-   *         -The separator symbol of the decimal places is a dot.
-   * 
-   *         -The decimal places and the separator symbol are shown only when
-   *         there exist decimal places.
+   * @return a {@link String} representation of the given value with a dot as
+   *         separator symbol for the decimal places
    */
   String toString(double value);
 }

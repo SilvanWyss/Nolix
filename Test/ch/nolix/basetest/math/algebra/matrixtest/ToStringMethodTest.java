@@ -16,10 +16,10 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class ToStringMethodTest extends StandardTest {
   @ParameterizedTest
   @CsvSource({
-  "1, '[1]'",
-  "2, '[1,0;0,1]'",
-  "3, '[1,0,0;0,1,0;0,0,1]'",
-  "4, '[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]'"
+  "1, '[1.0]'",
+  "2, '[1.0,0.0;0.0,1.0]'",
+  "3, '[1.0,0.0,0.0;0.0,1.0,0.0;0.0,0.0,1.0]'",
+  "4, '[1.0,0.0,0.0,0.0;0.0,1.0,0.0,0.0;0.0,0.0,1.0,0.0;0.0,0.0,0.0,1.0]'"
   })
   void testCase_toString_whenIsIdentityMatrix(final int size, final String expectedResult) {
     //setup
@@ -41,7 +41,7 @@ final class ToStringMethodTest extends StandardTest {
     final var result = testUnit.toString();
 
     //execution
-    expect(result).isEqualTo("[0]");
+    expect(result).isEqualTo("[0.0]");
   }
 
   @Test
@@ -53,7 +53,7 @@ final class ToStringMethodTest extends StandardTest {
     final var result = testUnit.toString();
 
     //execution
-    expect(result).isEqualTo("[0,0;0,0]");
+    expect(result).isEqualTo("[0.0,0.0;0.0,0.0]");
   }
 
   @Test
@@ -65,7 +65,7 @@ final class ToStringMethodTest extends StandardTest {
     final var result = testUnit.toString();
 
     //execution
-    expect(result).isEqualTo("[0,0,0;0,0,0;0,0,0]");
+    expect(result).isEqualTo("[0.0,0.0,0.0;0.0,0.0,0.0;0.0,0.0,0.0]");
   }
 
   @Test
@@ -77,6 +77,6 @@ final class ToStringMethodTest extends StandardTest {
     final var result = testUnit.toString();
 
     //execution
-    expect(result).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
+    expect(result).isEqualTo("[0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0]");
   }
 }

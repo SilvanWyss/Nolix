@@ -256,7 +256,7 @@ final class MatrixTest extends StandardTest {
     final var result = testUnit.toPolynom();
 
     //verification
-    expect(result).hasStringRepresentation("x->x^3+2x^2+3x+4");
+    expect(result).hasStringRepresentation("x->x^3+2.0x^2+3.0x+4.0");
   }
 
   @Test
@@ -269,7 +269,7 @@ final class MatrixTest extends StandardTest {
     final var result = testUnit.toPolynom();
 
     //verification
-    expect(result).hasStringRepresentation("x->x^3+2x^2+3x+4");
+    expect(result).hasStringRepresentation("x->x^3+2.0x^2+3.0x+4.0");
   }
 
   @Test
@@ -282,7 +282,7 @@ final class MatrixTest extends StandardTest {
     expectRunning(testUnit::toPolynom)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given Matrix '[1,2,3,4;11,12,13,14]' does not represent a Polynom.");
+      .withMessage("The given Matrix '[1.0,2.0,3.0,4.0;11.0,12.0,13.0,14.0]' does not represent a Polynom.");
   }
 
   @Test
@@ -295,7 +295,7 @@ final class MatrixTest extends StandardTest {
     expectRunning(testUnit::toPolynom)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given Matrix '[1,2;3,4;11,12;13,14]' does not represent a Polynom.");
+      .withMessage("The given Matrix '[1.0,2.0;3.0,4.0;11.0,12.0;13.0,14.0]' does not represent a Polynom.");
   }
 
   @Test
@@ -331,6 +331,6 @@ final class MatrixTest extends StandardTest {
     expectRunning(testUnit::toVector)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
-      .withMessage("The given Matrix '[1,2;3,4]' does not represent a Vector.");
+      .withMessage("The given Matrix '[1.0,2.0;3.0,4.0]' does not represent a Vector.");
   }
 }
