@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 
 /**
  * @author Silvan Wyss

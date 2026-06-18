@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmidschema.querycreator;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.ColumnColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;

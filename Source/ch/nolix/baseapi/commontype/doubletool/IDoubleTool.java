@@ -1,0 +1,23 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.commontype.doubletool;
+
+/**
+ * A {@link IDoubleTool} provides methods to handle doubles.
+ * 
+ * @author Silvan Wyss
+ */
+public interface IDoubleTool {
+  /**
+   * @param value
+   * @return a {@link String} representation of the given value. The
+   *         {@link String} representation will have the following properties:
+   * 
+   *         -The separator symbol of the decimal places is a dot.
+   * 
+   *         -The decimal places and the separator symbol are shown only when
+   *         there exist decimal places.
+   */
+  String toString(double value);
+}

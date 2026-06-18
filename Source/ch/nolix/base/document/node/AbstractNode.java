@@ -6,10 +6,10 @@ package ch.nolix.base.document.node;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.document.node.INodeComparator;

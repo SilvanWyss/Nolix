@@ -5,7 +5,7 @@ package ch.nolix.base.environment.filesystem;
 
 import java.io.File;
 
-import ch.nolix.baseapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
+import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 

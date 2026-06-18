@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl;
 
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionErrorPredicatePreparator;
 
 /**

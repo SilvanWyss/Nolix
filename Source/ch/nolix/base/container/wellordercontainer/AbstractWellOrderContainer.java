@@ -15,12 +15,12 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
-import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
-import ch.nolix.base.commontypetool.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.MappingContainerView;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.list.ILinkedList;

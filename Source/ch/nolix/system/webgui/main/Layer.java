@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.main;
 
 import java.util.Optional;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.datamodel.id.IdCreator;

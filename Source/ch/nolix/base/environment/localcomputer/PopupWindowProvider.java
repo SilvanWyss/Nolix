@@ -5,7 +5,7 @@ package ch.nolix.base.environment.localcomputer;
 
 import javax.swing.JOptionPane;
 
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 
 /**
  * The {@link PopupWindowProvider} provides methods to show small pop-up

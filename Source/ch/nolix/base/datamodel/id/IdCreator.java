@@ -5,7 +5,7 @@ package ch.nolix.base.datamodel.id;
 
 import java.util.UUID;
 
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 
 /**
  * @author Silvan Wyss

@@ -5,10 +5,10 @@ package ch.nolix.base.container.arraylist;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontypetool.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

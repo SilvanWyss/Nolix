@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.sql.sqltool;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.baseapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.baseapi.sql.syntax.SqlKeywordCatalog;
 

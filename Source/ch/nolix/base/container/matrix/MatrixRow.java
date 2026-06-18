@@ -5,7 +5,7 @@ package ch.nolix.base.container.matrix;
 
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.matrix.IMatrixRow;
 

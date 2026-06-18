@@ -6,7 +6,7 @@ package ch.nolix.baseapitest.commontypetool.charactertool;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterType;
+import ch.nolix.baseapi.commontype.charactertool.CharacterType;
 
 /**
  * @author Silvan Wyss

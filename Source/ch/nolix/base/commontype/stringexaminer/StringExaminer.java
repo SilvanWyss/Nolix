@@ -1,0 +1,34 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.commontype.stringexaminer;
+
+import java.util.Locale;
+
+import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class StringExaminer implements IStringExaminer {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isLowerCase(final String string) {
+    return //
+    string != null
+    && string.equals(string.toLowerCase(Locale.ENGLISH));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean startsWithIgnoringCase(final String string, final String prefix) {
+    return //
+    string != null
+    && prefix != null
+    && string.regionMatches(true, 0, prefix, 0, prefix.length());
+  }
+}

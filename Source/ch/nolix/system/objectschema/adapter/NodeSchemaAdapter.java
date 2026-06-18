@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.environment.filesystem.FileAccessor;
-import ch.nolix.baseapi.commontypetool.stringtool.RegularExpressionPatternCatalog;
+import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
 import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**

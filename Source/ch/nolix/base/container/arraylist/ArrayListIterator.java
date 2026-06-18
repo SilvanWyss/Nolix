@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.container.arraylist;
 
-import ch.nolix.base.commontypetool.iteratorvalidator.IteratorValidator;
+import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 

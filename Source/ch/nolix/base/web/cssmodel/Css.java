@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.web.cssmodel;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;

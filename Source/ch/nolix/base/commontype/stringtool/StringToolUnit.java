@@ -1,0 +1,164 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.base.commontype.stringtool;
+
+import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.stringtool.IStringTool;
+import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+
+/**
+ * The {@link StringToolUnit} provides methods to handle {@link String}s.
+ * 
+ * @author Silvan Wyss
+ */
+public final class StringToolUnit implements IStringTool {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String createStringWithoutLastCharacters(final String string, final int n) {
+    Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
+
+    return string.substring(0, string.length() - n);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String createTabs(final int tabCount) {
+    //Asserts that the given tabulatorCount is not negative.
+    Validator.assertThat(tabCount).thatIsNamed("tab count").isNotNegative();
+
+    final var stringBuilder = new StringBuilder();
+
+    for (var i = 1; i <= tabCount; i++) {
+      stringBuilder.append(CharacterCatalog.TABULATOR);
+    }
+
+    return stringBuilder.toString();
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getInBraces(final Object object) {
+    if (object == null) {
+      throw ArgumentIsNullException.forArgumentType(Object.class);
+    }
+
+    return ("{" + object + "}");
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getInParentheses(final Object... objects) {
+    if (objects == null) {
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.OBJECTS);
+    }
+
+    final var stringBuilder = new StringBuilder();
+    var index = 1;
+
+    for (final var o : objects) {
+      if (o == null) {
+        throw ArgumentIsNullException.forArgumentName(index + "th object");
+      }
+
+      if (index > 1) {
+        stringBuilder.append(",");
+      }
+
+      stringBuilder.append(o);
+      index++;
+    }
+
+    return ("(" + stringBuilder.toString() + ")");
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String getInSingleQuotes(final Object object) {
+    if (object == null) {
+      throw ArgumentIsNullException.forArgumentType(Object.class);
+    }
+
+    return ("'" + object + "'");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean toBoolean(final String string) {
+    //Enumerates the given string.
+    return //
+    switch (string) {
+      case "0", "F", "FALSE", "False", "false" ->
+        false;
+      case "1", "T", "TRUE", "True", "true" ->
+        true;
+      default ->
+        throw UnrepresentingArgumentException.forArgumentAndType(string, Boolean.TYPE);
+    };
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toCapitalSnakeCase(final String string) {
+    return CapitalSnakeCaseTransformer.toCapitalSnakeCase(string);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public double toDouble(final String string) {
+    if (!RegularExpressionPatternCatalog.DOUBLE_PATTERN.matcher(string).matches()) {
+      throw UnrepresentingArgumentException.forArgumentAndType(string, Double.TYPE);
+    }
+
+    return Double.valueOf(string);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toPascalCase(final String string) {
+    return PascalCaseTransformer.toPascalCase(string);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public double toProportion(final String string) {
+    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
+
+    if (string.endsWith("%")) {
+      final var percentageStringLength = string.length() - 1;
+      final var percentageString = string.substring(0, percentageStringLength);
+      final var percentage = Double.valueOf(percentageString);
+
+      return 0.01 * percentage;
+    }
+
+    return Double.valueOf(string);
+  }
+}

@@ -4,7 +4,7 @@
 package ch.nolix.base.document.xml;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.document.xml.IXmlAttribute;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 

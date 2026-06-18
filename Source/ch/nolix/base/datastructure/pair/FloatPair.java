@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.datastructure.pair;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.independent.math.NumberComparator;
 
 /**

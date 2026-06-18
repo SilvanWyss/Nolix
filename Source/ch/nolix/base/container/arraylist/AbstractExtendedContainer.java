@@ -6,7 +6,7 @@ package ch.nolix.base.container.arraylist;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontypetool.arraytool.ArraySorter;
+import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.container.wellordercontainer.Marker;
 import ch.nolix.baseapi.container.list.IArrayList;

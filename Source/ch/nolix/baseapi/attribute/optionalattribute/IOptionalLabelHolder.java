@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.optionalattribute;
 
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 
 /**
  * A {@link IOptionalLabelHolder} can have a label.

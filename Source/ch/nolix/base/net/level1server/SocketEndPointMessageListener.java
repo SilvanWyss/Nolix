@@ -3,10 +3,10 @@
  */
 package ch.nolix.base.net.level1server;
 
-import ch.nolix.base.commontypetool.inputstreamtool.InputStreamTool;
+import ch.nolix.base.commontype.inputstreamtool.InputStreamTool;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.inputstreamtool.IInputStreamTool;
+import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 
 /**
  * @author Silvan Wyss

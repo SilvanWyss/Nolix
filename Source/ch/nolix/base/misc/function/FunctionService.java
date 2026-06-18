@@ -6,7 +6,7 @@ package ch.nolix.base.misc.function;
 import java.util.Objects;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 
 /**
  * Of the {@link FunctionService} an instance cannot be created.

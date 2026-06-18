@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.base.commontypetool.arraytool.ArrayTool;
+import ch.nolix.base.commontype.arraytool.ArrayTool;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

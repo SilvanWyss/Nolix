@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.container.arraylist;
 
-import ch.nolix.base.commontypetool.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.generalcontainer.CountRequestable;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;

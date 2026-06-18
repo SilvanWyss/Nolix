@@ -5,11 +5,11 @@ package ch.nolix.base.container.linkedlist;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontypeexaminer.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;

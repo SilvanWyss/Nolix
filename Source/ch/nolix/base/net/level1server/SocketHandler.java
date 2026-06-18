@@ -10,15 +10,15 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
-import ch.nolix.base.commontypetool.inputstreamtool.InputStreamTool;
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.inputstreamtool.InputStreamTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.net.http.HttpRequest;
 import ch.nolix.base.net.websocket.WebSocketHandShakeRequest;
-import ch.nolix.baseapi.commontypetool.inputstreamtool.IInputStreamTool;
+import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;

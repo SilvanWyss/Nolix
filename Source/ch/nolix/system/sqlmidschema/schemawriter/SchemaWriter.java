@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmidschema.schemawriter;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.sql.sqltool.SqlCollector;
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;

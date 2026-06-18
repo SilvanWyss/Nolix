@@ -5,11 +5,11 @@ package ch.nolix.base.container.immutablelist;
 
 import java.util.stream.Stream;
 
-import ch.nolix.base.commontypetool.arraytool.ArrayIterator;
-import ch.nolix.base.commontypetool.iteratortool.IterableTool;
+import ch.nolix.base.commontype.arraytool.ArrayIterator;
+import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;

@@ -1,0 +1,27 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.baseapi.commontype.stringtool;
+
+import java.util.regex.Pattern;
+
+/**
+ * Of the {@link RegularExpressionStringPatternCatalog} an instance cannot be
+ * created.
+ * 
+ * @author Silvan Wyss
+ */
+public final class RegularExpressionStringPatternCatalog {
+  public static final String DOLLAR_PATTERN = Pattern.quote(StringCatalog.DOLLAR);
+
+  public static final String DOT_PATTERN = ".";
+
+  public static final String DOUBLE_PATTERN = "[-]?\\d+.\\d+";
+
+  /**
+   * Prevents that an instance of the
+   * {@link RegularExpressionStringPatternCatalog} can be created.
+   */
+  private RegularExpressionStringPatternCatalog() {
+  }
+}

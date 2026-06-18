@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.baseapi.commontypetool.stringtool.StringCatalog;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 

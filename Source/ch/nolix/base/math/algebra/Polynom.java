@@ -3,11 +3,11 @@
  */
 package ch.nolix.base.math.algebra;
 
-import ch.nolix.base.commontypetool.doubletool.DoubleTool;
+import ch.nolix.base.commontype.doubletool.DoubleTool;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypetool.doubletool.IDoubleTool;
+import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**

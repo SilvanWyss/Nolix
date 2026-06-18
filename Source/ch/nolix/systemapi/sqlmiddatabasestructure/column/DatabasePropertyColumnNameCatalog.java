@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
-import ch.nolix.baseapi.commontypetool.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 
 /**

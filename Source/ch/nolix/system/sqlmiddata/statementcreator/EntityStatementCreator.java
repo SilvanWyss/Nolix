@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.statementcreator;
 
-import ch.nolix.base.commontypetool.stringtool.StringTool;
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.system.sqlmiddata.sqlmapper.SqlPartsMapper;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.middata.model.EntityDeletionDto;

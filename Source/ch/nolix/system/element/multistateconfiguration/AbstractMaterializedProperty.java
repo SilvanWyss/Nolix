@@ -7,10 +7,10 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import ch.nolix.base.commontypeexaminer.stringexaminer.StringExaminer;
+import ch.nolix.base.commontype.stringexaminer.StringExaminer;
 import ch.nolix.base.document.node.Node;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontypeexaminer.stringexaminer.IStringExaminer;
+import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
