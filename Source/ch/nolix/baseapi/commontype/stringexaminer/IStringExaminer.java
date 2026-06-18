@@ -9,7 +9,7 @@ package ch.nolix.baseapi.commontype.stringexaminer;
 public interface IStringExaminer {
   /**
    * @param string
-   * @return true if the given string is in lower case, false otherwise.
+   * @return true if the given string is in lower case, false otherwise
    */
   boolean isLowerCase(String string);
 
@@ -17,7 +17,7 @@ public interface IStringExaminer {
    * @param string
    * @param prefix
    * @return true if the given string starts with the given prefix ignoring case,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean startsWithIgnoringCase(String string, String prefix);
 }

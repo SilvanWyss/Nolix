@@ -10,8 +10,9 @@ import java.util.Iterator;
  */
 public interface IIteratorValidator {
   /**
-   * @param iterator
-   * @throws RuntimeException if the given iterator does not have a next element.
+   * @param iterator the examined iterator, is considered to not have a next
+   *                 element when is null
+   * @throws RuntimeException if the given iterator does not have a next element
    */
   void assertHasNext(Iterator<?> iterator);
 }
