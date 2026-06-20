@@ -8,7 +8,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalIdHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalIdHolder;
 
 /**
  * @author Silvan Wyss
@@ -17,7 +17,7 @@ final class OptionalIdHolderTest extends StandardTest {
   @Test
   void testCase_getIdInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalIdHolder.class);
+    final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.getIdInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(true);
     Mockito.when(testUnit.getId()).thenReturn("id");
@@ -32,7 +32,7 @@ final class OptionalIdHolderTest extends StandardTest {
   @Test
   void testCase_hasId_whenHasTheGivenId() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalIdHolder.class);
+    final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(true);
     Mockito.when(testUnit.getId()).thenReturn("id");
@@ -47,7 +47,7 @@ final class OptionalIdHolderTest extends StandardTest {
   @Test
   void testCase_hasId_whenHasAnotherId() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalIdHolder.class);
+    final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(true);
     Mockito.when(testUnit.getId()).thenReturn("id");
@@ -62,7 +62,7 @@ final class OptionalIdHolderTest extends StandardTest {
   @Test
   void testCase_hasId_whenDoesNotHaveAId() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalIdHolder.class);
+    final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(false);
 

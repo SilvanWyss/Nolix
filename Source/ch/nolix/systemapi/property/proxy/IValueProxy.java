@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.property.proxy;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.systemapi.property.base.IProperty;
 
 /**
  * @author Silvan Wyss
  */
-public interface IValueProxy extends INameHolder, IProperty {
+public interface IValueProxy extends NameHolder, IProperty {
   //This interface is a dedicated union of other interfaces.
 }

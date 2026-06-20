@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.adapter;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.DatabaseNameHolder;
 import ch.nolix.baseapi.objectcreation.copier.EmptyCopyable;
 import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.model.ITable;
 /**
  * @author Silvan Wyss
  */
-public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IDatabaseNameHolder, IResettableChangeSaver {
+public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, DatabaseNameHolder, IResettableChangeSaver {
   <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
   IDataAdapter insertEntity(IEntity entity);

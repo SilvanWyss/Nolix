@@ -3,11 +3,11 @@
  */
 package ch.nolix.baseapi.net.level3server;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 
 /**
  * @author Silvan Wyss
  */
-public interface ISlot extends INameHolder {
+public interface ISlot extends NameHolder {
   void takeBackendEndPoint(IEndPoint backendEndPoint);
 }

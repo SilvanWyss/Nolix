@@ -8,7 +8,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalNameHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalNameHolder;
 
 /**
  * @author Silvan Wyss
@@ -17,7 +17,7 @@ final class OptionalNameHolderTest extends StandardTest {
   @Test
   void testCase_getNameInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalNameHolder.class);
+    final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.getNameInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(true);
     Mockito.when(testUnit.getName()).thenReturn("name");
@@ -32,7 +32,7 @@ final class OptionalNameHolderTest extends StandardTest {
   @Test
   void testCase_hasName_whenHasTheGivenName() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalNameHolder.class);
+    final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(true);
     Mockito.when(testUnit.getName()).thenReturn("name");
@@ -47,7 +47,7 @@ final class OptionalNameHolderTest extends StandardTest {
   @Test
   void testCase_hasName_whenHasAnotherName() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalNameHolder.class);
+    final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(true);
     Mockito.when(testUnit.getName()).thenReturn("name");
@@ -62,7 +62,7 @@ final class OptionalNameHolderTest extends StandardTest {
   @Test
   void testCase_hasName_whenDoesNotHaveAName() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalNameHolder.class);
+    final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(false);
 

@@ -6,7 +6,7 @@ package ch.nolix.baseapi.document.node;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalHeaderHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.xml.IXmlNode;
 import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
@@ -23,7 +23,7 @@ import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
  * @author Silvan Wyss
  * @param <N> is the type of a {@link INode}.
  */
-public interface INode<N extends INode<N>> extends BlanknessRequestable, IOptionalHeaderHolder {
+public interface INode<N extends INode<N>> extends BlanknessRequestable, OptionalHeaderHolder {
   /**
    * @return true if the current {@link INode} contains child {@link INode}s,
    *         false otherwise.

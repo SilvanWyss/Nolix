@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalLabelHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalLabelHolder;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ final class OptionalLabelHolderTest extends StandardTest {
   @Test
   void testCase_getLabelInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalLabelHolder.class);
+    final var testUnit = Mockito.mock(OptionalLabelHolder.class);
     Mockito.when(testUnit.getLabelInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasLabel()).thenReturn(true);
     Mockito.when(testUnit.getLabel()).thenReturn("label");

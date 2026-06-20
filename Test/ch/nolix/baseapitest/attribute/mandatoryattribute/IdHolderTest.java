@@ -8,7 +8,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 
 /**
  * @author Silvan Wyss
@@ -17,7 +17,7 @@ final class IdHolderTest extends StandardTest {
   @Test
   void testCase_getIdInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(IIdHolder.class);
+    final var testUnit = Mockito.mock(IdHolder.class);
     Mockito.when(testUnit.getIdInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getId()).thenReturn("id");
 
@@ -31,7 +31,7 @@ final class IdHolderTest extends StandardTest {
   @Test
   void testCase_hasId_whenHasTheGivenId() {
     //setup
-    final var testUnit = Mockito.mock(IIdHolder.class);
+    final var testUnit = Mockito.mock(IdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getId()).thenReturn("id");
 
@@ -45,7 +45,7 @@ final class IdHolderTest extends StandardTest {
   @Test
   void testCase_hasId_whenDoesNotHaveTheGivenId() {
     //setup
-    final var testUnit = Mockito.mock(IIdHolder.class);
+    final var testUnit = Mockito.mock(IdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getId()).thenReturn("id");
 

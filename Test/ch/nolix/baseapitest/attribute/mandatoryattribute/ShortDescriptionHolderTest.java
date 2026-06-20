@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.mandatoryattribute.IShortDescriptionHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.ShortDescriptionHolder;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ final class ShortDescriptionHolderTest extends StandardTest {
   @Test
   void testCase_getShortDescriptionInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(IShortDescriptionHolder.class);
+    final var testUnit = Mockito.mock(ShortDescriptionHolder.class);
     Mockito.when(testUnit.getShortDescriptionInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getShortDescription()).thenReturn("short_description");
 

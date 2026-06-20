@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 /**
  * @author Silvan Wyss
  */
-public interface IColumn extends IDatabaseObject, IIdHolder, INameHolder {
+public interface IColumn extends IDatabaseObject, IdHolder, NameHolder {
   boolean containsValueInPersistedData(String value);
 
   boolean containsValueInPersistedDataIgnoringEntities(String value, IWellOrderContainer<String> entitiesToIgnoreIds);

@@ -3,11 +3,11 @@
  */
 package ch.nolix.baseapi.web.htmlelementmodel;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 
 /**
  * @author Silvan Wyss
  */
-public interface IHtmlAttribute extends INameHolder {
+public interface IHtmlAttribute extends NameHolder {
   String getValue();
 }

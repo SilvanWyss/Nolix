@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.time.moment.ITime;
 /**
  * @author Silvan Wyss
  */
-public interface IDatabase extends GroupCloseable, IDatabaseObject, INameHolder {
+public interface IDatabase extends GroupCloseable, IDatabaseObject, NameHolder {
   IEntityTypeSet getEntityTypeSet();
 
   ITime getSchemaTimestamp();

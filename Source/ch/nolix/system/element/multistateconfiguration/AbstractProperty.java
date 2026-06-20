@@ -4,7 +4,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -15,7 +15,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link AbstractMultiStateConfiguration} of a
  *            {@link AbstractProperty}.
  */
-public abstract class AbstractProperty<S extends Enum<S>> implements INameHolder {
+public abstract class AbstractProperty<S extends Enum<S>> implements NameHolder {
   private final String name;
 
   protected AbstractMultiStateConfiguration<?, S> parent;

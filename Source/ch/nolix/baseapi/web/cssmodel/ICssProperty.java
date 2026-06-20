@@ -3,11 +3,11 @@
  */
 package ch.nolix.baseapi.web.cssmodel;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 
 /**
  * @author Silvan Wyss
  */
-public interface ICssProperty extends INameHolder {
+public interface ICssProperty extends NameHolder {
   String getValue();
 }

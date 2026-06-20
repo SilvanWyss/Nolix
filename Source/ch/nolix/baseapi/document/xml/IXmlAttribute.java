@@ -3,12 +3,12 @@
  */
 package ch.nolix.baseapi.document.xml;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
-import ch.nolix.baseapi.attribute.mandatoryattribute.IValueHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.ValueHolder;
 
 /**
  * @author Silvan Wyss
  */
-public interface IXmlAttribute extends INameHolder, IValueHolder<String> {
+public interface IXmlAttribute extends NameHolder, ValueHolder<String> {
   //This interface is a dedicated union of other interfaces.
 }

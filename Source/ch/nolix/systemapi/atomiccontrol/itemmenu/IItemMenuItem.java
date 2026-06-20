@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.atomiccontrol.itemmenu;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.gui.selection.Selectable;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.gui.selection.Selectable;
  * @param <I> is the type of a {@link IItemMenuItem}.
  */
 public interface IItemMenuItem<I extends IItemMenuItem<I>>
-extends BlanknessRequestable, IIdHolder, IMutableElement, Selectable {
+extends BlanknessRequestable, IdHolder, IMutableElement, Selectable {
   boolean belongsToMenu();
 
   String getText();

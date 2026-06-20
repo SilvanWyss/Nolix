@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.middata.loader;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IDatabaseNameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.DatabaseNameHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.time.moment.ITime;
 /**
  * @author Silvan Wyss
  */
-public interface IDataReader extends GroupCloseable, IDatabaseNameHolder {
+public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
   /**
    * @param tableName
    * @return the number of the entities of the table with the given tableName from

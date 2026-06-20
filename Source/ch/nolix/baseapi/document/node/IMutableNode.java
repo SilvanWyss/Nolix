@@ -5,7 +5,7 @@ package ch.nolix.baseapi.document.node;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalHeaderHolder;
+import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalHeaderHolder;
 import ch.nolix.baseapi.state.statemutation.Resettable;
 
 /**
@@ -17,7 +17,7 @@ import ch.nolix.baseapi.state.statemutation.Resettable;
 public interface IMutableNode<N extends IMutableNode<N>>
 extends
 INode<N>,
-IFluentMutableOptionalHeaderHolder<N>,
+FluentMutableOptionalHeaderHolder<N>,
 Resettable {
   /**
    * Adds the given childNode to the current {@link IMutableNode}.

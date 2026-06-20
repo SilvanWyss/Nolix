@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.OneBasedIndexHolder;
 
 /**
  * @author Silvan Wyss
  */
-public enum ColumnColumn implements IOneBasedIndexHolder {
+public enum ColumnColumn implements OneBasedIndexHolder {
   ID(ColumnColumnNameCatalog.ID, 1),
   PARENT_TABLE_ID(ColumnColumnNameCatalog.PARENT_TABLE_ID, 2),
   NAME(ColumnColumnNameCatalog.NAME, 3),

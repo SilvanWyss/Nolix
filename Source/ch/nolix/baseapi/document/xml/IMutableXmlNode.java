@@ -3,13 +3,13 @@
  */
 package ch.nolix.baseapi.document.xml;
 
-import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalValueHolder;
+import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalValueHolder;
 
 /**
  * @author Silvan Wyss
  */
 public interface IMutableXmlNode
-extends IFluentMutableOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
+extends FluentMutableOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
   IMutableXmlNode addAttribute(IXmlAttribute attribute);
 
   IMutableXmlNode addAttributes(Iterable<IXmlAttribute> attributes);

@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.sql.model;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IOneBasedIndexHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.OneBasedIndexHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
@@ -13,6 +13,6 @@ import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
  * 
  * @author Silvan Wyss
  */
-public interface ISqlRecord extends IWellOrderContainer<String>, IOneBasedIndexHolder {
+public interface ISqlRecord extends IWellOrderContainer<String>, OneBasedIndexHolder {
   //This interface is a dedicated union of other interfaces.
 }

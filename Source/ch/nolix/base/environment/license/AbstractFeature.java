@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.environment.license;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 
 /**
@@ -11,7 +11,7 @@ import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
  * 
  * @author Silvan Wyss
  */
-public abstract class AbstractFeature implements INameHolder {
+public abstract class AbstractFeature implements NameHolder {
   /**
    * @return the authorized {@link License} types of the current
    *         {@link AbstractFeature}.

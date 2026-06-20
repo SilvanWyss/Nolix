@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.objectschema.model;
 
-import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.IFluentMutableNameHolder;
-import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
+import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableNameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -23,8 +23,8 @@ Deletable,
 EmptinessRequestable,
 IDatabaseComponent<IDatabase>,
 IDatabaseObject,
-IFluentMutableNameHolder<IColumn>,
-IIdHolder,
+FluentMutableNameHolder<IColumn>,
+IdHolder,
 ITableComponent<ITable> {
   DataType getDataType();
 

@@ -8,7 +8,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.mandatoryattribute.ITokenHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.TokenHolder;
 
 /**
  * @author Silvan Wyss
@@ -17,7 +17,7 @@ final class TokenHolderTest extends StandardTest {
   @Test
   void testCase_hasToken_whenHasTheGivenToken() {
     //setup
-    final var testUnit = Mockito.mock(ITokenHolder.class);
+    final var testUnit = Mockito.mock(TokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
@@ -31,7 +31,7 @@ final class TokenHolderTest extends StandardTest {
   @Test
   void testCase_hasToken_whenDoesNotHaveTheGivenToken() {
     //setup
-    final var testUnit = Mockito.mock(ITokenHolder.class);
+    final var testUnit = Mockito.mock(TokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getToken()).thenReturn("token");
 

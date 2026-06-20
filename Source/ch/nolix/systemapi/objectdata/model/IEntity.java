@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.IIdHolder;
-import ch.nolix.baseapi.attribute.mandatoryattribute.IShortDescriptionHolder;
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalSaveStampHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.ShortDescriptionHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalSaveStampHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -20,9 +20,9 @@ extends
 Deletable,
 IDatabaseComponent<IDatabase>,
 IDatabaseObject,
-IIdHolder,
-IOptionalSaveStampHolder,
-IShortDescriptionHolder,
+IdHolder,
+OptionalSaveStampHolder,
+ShortDescriptionHolder,
 ITableComponent<ITable<? extends IEntity>> {
   String getParentTableName();
 

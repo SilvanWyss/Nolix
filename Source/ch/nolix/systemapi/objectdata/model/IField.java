@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.attribute.mandatoryattribute.INameHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.IEntityComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
@@ -22,7 +22,7 @@ EmptinessRequestable,
 IDatabaseComponent<IDatabase>,
 IDatabaseObject,
 IEntityComponent<IEntity>,
-INameHolder,
+NameHolder,
 ITableComponent<ITable<? extends IEntity>>,
 MandatorynessRequestable {
   IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis();

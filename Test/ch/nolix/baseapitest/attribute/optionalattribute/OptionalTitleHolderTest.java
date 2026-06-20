@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalTitleHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalTitleHolder;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ final class OptionalTitleHolderTest extends StandardTest {
   @Test
   void testCase_getTitleInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(IOptionalTitleHolder.class);
+    final var testUnit = Mockito.mock(OptionalTitleHolder.class);
     Mockito.when(testUnit.getTitleInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasTitle()).thenReturn(true);
     Mockito.when(testUnit.getTitle()).thenReturn("title");

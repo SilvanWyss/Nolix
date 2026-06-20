@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.document.chainednode;
 
-import ch.nolix.baseapi.attribute.optionalattribute.IOptionalHeaderHolder;
+import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
@@ -20,7 +20,7 @@ import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
  * 
  * @author Silvan Wyss
  */
-public interface IChainedNode extends BlanknessRequestable, IOptionalHeaderHolder {
+public interface IChainedNode extends BlanknessRequestable, OptionalHeaderHolder {
   /**
    * @return true if the current {@link IChainedNode} contains child nodes, false
    *         otherwise.

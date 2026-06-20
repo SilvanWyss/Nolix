@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.attribute.mandatoryattribute.ITitleHolder;
+import ch.nolix.baseapi.attribute.mandatoryattribute.TitleHolder;
 
 /**
  * @author Silvan Wyss
@@ -16,7 +16,7 @@ final class TitleHolderTest extends StandardTest {
   @Test
   void testCase_getTitleInSingleQuotes() {
     //setup
-    final var testUnit = Mockito.mock(ITitleHolder.class);
+    final var testUnit = Mockito.mock(TitleHolder.class);
     Mockito.when(testUnit.getTitleInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getTitle()).thenReturn("title");
 

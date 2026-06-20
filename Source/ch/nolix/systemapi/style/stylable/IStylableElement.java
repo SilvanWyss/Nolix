@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.style.stylable;
 
-import ch.nolix.baseapi.attribute.fluentmutablemultiattribute.IFluentMutableMultiTokenHolder;
-import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.IFluentMutableOptionalIdHolder;
+import ch.nolix.baseapi.attribute.fluentmutablemultiattribute.FluentMutableMultiTokenHolder;
+import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalIdHolder;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.objectcomposition.type.TypeRequestable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
@@ -18,8 +18,8 @@ import ch.nolix.systemapi.element.mutableelement.IMutableElement;
  */
 public interface IStylableElement<E extends IStylableElement<E>>
 extends
-IFluentMutableMultiTokenHolder<E>,
-IFluentMutableOptionalIdHolder<E>,
+FluentMutableMultiTokenHolder<E>,
+FluentMutableOptionalIdHolder<E>,
 IMutableElement,
 TypeRequestable {
   /**
