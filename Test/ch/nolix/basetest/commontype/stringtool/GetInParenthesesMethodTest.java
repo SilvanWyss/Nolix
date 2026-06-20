@@ -9,7 +9,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.base.commontype.stringtool.StringToolUnit;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**
  * @author Silvan Wyss
@@ -20,18 +19,18 @@ final class GetInParenthesesMethodTest extends StandardTest {
     //setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
-    expectRunning(() -> testUnit.getInParentheses(null, null, null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given 1th object is null.");
+    //execution
+    final var result = testUnit.getInParentheses(null, null, null);
+
+    //verification
+    expect(result).isEqualTo("(null,null,null)");
   }
 
   @ParameterizedTest
   @CsvSource({
   "'', '()'", //
   "zebra, (zebra)", //
-  "lorem ipsum, (lorem ipsum)"
+  "lorem ipsum, (lorem ipsum)" //
   })
   void testCase_getInParantheses_when1StringIsGiven(final String string, final String expectedResult) {
     //setup
@@ -61,10 +60,10 @@ final class GetInParenthesesMethodTest extends StandardTest {
     //setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
-    expectRunning(() -> testUnit.getInParentheses("antelope", null, "baboon"))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given 2th object is null.");
+    //execution
+    final var result = testUnit.getInParentheses("antelope", null, "elephant");
+
+    //verification
+    expect(result).isEqualTo("(antelope,null,elephant)");
   }
 }

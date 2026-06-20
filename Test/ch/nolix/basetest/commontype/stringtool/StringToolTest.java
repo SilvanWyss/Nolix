@@ -10,8 +10,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.commontype.stringtool.StringToolUnit;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
 /**
@@ -80,10 +78,7 @@ final class StringToolTest extends StandardTest {
     final var testUnit = new StringToolUnit();
 
     //execution & verification
-    expectRunning(() -> testUnit.createTabs(-1))
-      .throwsException()
-      .ofType(NegativeArgumentException.class)
-      .withMessage("The given tab count '-1' is negative.");
+    expectRunning(() -> testUnit.createTabs(-1)).throwsException().ofType(RuntimeException.class);
   }
 
   @ParameterizedTest
@@ -107,11 +102,11 @@ final class StringToolTest extends StandardTest {
     //setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
-    expectRunning(() -> testUnit.getInBraces(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given Object is null.");
+    //execution
+    final var result = testUnit.getInBraces(null);
+
+    // verification
+    expect(result).isEqualTo("{null}");
   }
 
   @Test
@@ -119,11 +114,11 @@ final class StringToolTest extends StandardTest {
     //setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
-    expectRunning(() -> testUnit.getInSingleQuotes(null))
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given Object is null.");
+    //execution
+    final var result = testUnit.getInSingleQuotes(null);
+
+    // verification
+    expect(result).isEqualTo("'null'");
   }
 
   @ParameterizedTest

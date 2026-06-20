@@ -4,12 +4,10 @@
 package ch.nolix.base.commontype.stringtool;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontype.stringtool.IStringTool;
 import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 
 /**
  * The {@link StringToolUnit} provides methods to handle {@link String}s.
@@ -22,6 +20,7 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String createStringWithoutLastCharacters(final String string, final int n) {
+    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
     Validator.assertThat(n).thatIsNamed("n").isBetween(0, string.length());
 
     return string.substring(0, string.length() - n);
@@ -32,71 +31,47 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public String createTabs(final int tabCount) {
-    //Asserts that the given tabulatorCount is not negative.
-    Validator.assertThat(tabCount).thatIsNamed("tab count").isNotNegative();
-
-    final var stringBuilder = new StringBuilder();
-
-    for (var i = 1; i <= tabCount; i++) {
-      stringBuilder.append(CharacterCatalog.TABULATOR);
-    }
-
-    return stringBuilder.toString();
+    return StringCatalog.TABULATOR.repeat(tabCount);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public String getInBraces(final Object object) {
-    if (object == null) {
-      throw ArgumentIsNullException.forArgumentType(Object.class);
-    }
-
-    return ("{" + object + "}");
+    return StringCatalog.OPEN_BRACE + object + StringCatalog.CLOSED_BRACE;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public String getInParentheses(final Object... objects) {
-    if (objects == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.OBJECTS);
-    }
+    if (objects != null) {
+      final var stringBuilder = new StringBuilder();
+      var index = 1;
 
-    final var stringBuilder = new StringBuilder();
-    var index = 1;
+      for (final var o : objects) {
+        if (index > 1) {
+          stringBuilder.append(StringCatalog.COMMA);
+        }
 
-    for (final var o : objects) {
-      if (o == null) {
-        throw ArgumentIsNullException.forArgumentName(index + "th object");
+        stringBuilder.append(o);
+        index++;
       }
 
-      if (index > 1) {
-        stringBuilder.append(",");
-      }
-
-      stringBuilder.append(o);
-      index++;
+      return StringCatalog.OPEN_BRACKET + stringBuilder + StringCatalog.CLOSED_BRACKET;
     }
 
-    return ("(" + stringBuilder.toString() + ")");
+    return StringCatalog.EMPTY_STRING;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public String getInSingleQuotes(final Object object) {
-    if (object == null) {
-      throw ArgumentIsNullException.forArgumentType(Object.class);
-    }
-
-    return ("'" + object + "'");
+    return StringCatalog.SINGLE_QUOTE + object + StringCatalog.SINGLE_QUOTE;
   }
 
   /**
@@ -104,7 +79,6 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public boolean toBoolean(final String string) {
-    //Enumerates the given string.
     return //
     switch (string) {
       case "0", "F", "FALSE", "False", "false" ->
@@ -149,9 +123,7 @@ public final class StringToolUnit implements IStringTool {
    */
   @Override
   public double toProportion(final String string) {
-    Validator.assertThat(string).thatIsNamed(String.class).isNotNull();
-
-    if (string.endsWith("%")) {
+    if (string.endsWith(StringCatalog.PERCENTAGE)) {
       final var percentageStringLength = string.length() - 1;
       final var percentageString = string.substring(0, percentageStringLength);
       final var percentage = Double.valueOf(percentageString);
