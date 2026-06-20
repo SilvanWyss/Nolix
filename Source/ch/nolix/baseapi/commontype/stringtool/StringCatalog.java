@@ -17,6 +17,8 @@ public final class StringCatalog {
 
   public static final String BULLET_POINT = "\u2022";
 
+  public static final String CLOSED_BRACE = "}";
+
   public static final String CLOSED_BRACKET = ")";
 
   public static final String CLOSED_CROCODILE_BRACKET = ">";
@@ -64,6 +66,8 @@ public final class StringCatalog {
   public static final String MINUS = "-";
 
   public static final String NULL_HEADER = "null";
+
+  public static final String OPEN_BRACE = "{";
 
   public static final String OPEN_BRACKET = "(";
 
