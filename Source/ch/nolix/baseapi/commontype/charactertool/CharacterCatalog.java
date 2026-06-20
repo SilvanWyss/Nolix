@@ -17,6 +17,8 @@ public final class CharacterCatalog {
 
   public static final char BULLET_POINT = '\u2022';
 
+  public static final char CLOSED_BRACE = '}';
+
   public static final char CLOSED_BRACKET = ')';
 
   public static final char CLOSED_CROCODILE_BRACKET = '>';
@@ -56,6 +58,8 @@ public final class CharacterCatalog {
   public static final char NEW_LINE = '\n';
 
   public static final char ONE = '1';
+
+  public static final char OPEN_BRACE = '{';
 
   public static final char OPEN_BRACKET = '(';
 
