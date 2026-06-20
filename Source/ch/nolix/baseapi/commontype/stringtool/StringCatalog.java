@@ -75,6 +75,8 @@ public final class StringCatalog {
 
   public static final String OPEN_SQUARE_BRACKET = "[";
 
+  public static final String PERCENTAGE = "%";
+
   public static final String QUESTION_MARK = "?";
 
   public static final String RIGHT_ARROW = "\u2192";
