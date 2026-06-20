@@ -11,9 +11,9 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ContentHolder;
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableContentHolder}
- * @param <V> the type of the content of a {@link FluentMutableContentHolder}
+ * @param <C> the type of the content of a {@link FluentMutableContentHolder}
  */
-public interface FluentMutableContentHolder<H extends FluentMutableContentHolder<H, V>, V> extends ContentHolder<V> {
+public interface FluentMutableContentHolder<H extends FluentMutableContentHolder<H, C>, C> extends ContentHolder<C> {
   /**
    * Sets the content of the current {@link FluentMutableContentHolder}.
    * 
@@ -21,5 +21,5 @@ public interface FluentMutableContentHolder<H extends FluentMutableContentHolder
    * @return the current {@link FluentMutableContentHolder}
    * @throws RuntimeException if the given content is null
    */
-  H setContent(V content);
+  H setContent(C content);
 }
