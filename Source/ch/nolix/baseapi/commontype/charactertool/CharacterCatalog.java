@@ -67,6 +67,8 @@ public final class CharacterCatalog {
 
   public static final char OPEN_SQUARE_BRACKET = '[';
 
+  public static final char PERCENTAGE = '%';
+
   public static final char QUESTION_MARK = '?';
 
   public static final char RIGHT_ARROW = '\u2192';
