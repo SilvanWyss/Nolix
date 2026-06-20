@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
@@ -51,7 +51,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
     DEFAULT_TEXT_MODE,
     this::setTextMode,
     TextMode::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private Consumer<String> updateTextAction;
 

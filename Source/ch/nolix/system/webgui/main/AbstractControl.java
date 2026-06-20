@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.datamodel.id.IdCreator;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
@@ -71,7 +71,7 @@ implements IControl<C, S> {
     DEFAULT_PRESENCE,
     this::setPresence,
     Presence::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final OptionalValue<AbsoluteOrRelativeInt> minWidth = //
   OptionalValue.forElementWithNameAndSetterAndValueMapper(
@@ -103,7 +103,7 @@ implements IControl<C, S> {
     DEFAULT_CURSOR_ICON,
     this::setCursorIcon,
     CursorIcon::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final Extension<S> style = Extension.withExtension(createStyle());
 

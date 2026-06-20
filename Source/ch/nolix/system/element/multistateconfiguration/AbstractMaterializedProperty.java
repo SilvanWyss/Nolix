@@ -8,7 +8,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import ch.nolix.base.commontype.stringexaminer.StringExaminer;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.container.list.ILinkedList;
@@ -142,7 +142,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
       switch (assignmentType) {
         case STORING_VALUE:
 
-          final var valueSpecification = Node.withHeaderAndChildNode(
+          final var valueSpecification = ImmutableNode.withHeaderAndChildNode(
             s.getQualifyingPrefix() + getName(),
             specificationCreator.apply(stateProperty.getValue()).getStoredSingleChildNode());
 
@@ -151,7 +151,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
           break;
         case DEFINING_EMPTY:
 
-          list.addAtEnd(Node.withHeaderAndChildNode(s.getQualifyingPrefix() + getName(), NONE_HEADER));
+          list.addAtEnd(ImmutableNode.withHeaderAndChildNode(s.getQualifyingPrefix() + getName(), NONE_HEADER));
 
           break;
         case FORWARDING:

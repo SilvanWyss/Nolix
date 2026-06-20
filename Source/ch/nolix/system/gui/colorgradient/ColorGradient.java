@@ -4,7 +4,7 @@
 package ch.nolix.system.gui.colorgradient;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -109,8 +109,8 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws RuntimeException if the given attributes are not valid.
    */
   private static ColorGradient from2Attributes(IWellOrderContainer<? extends INode<?>> attributes) {
-    final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
-    final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
+    final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
+    final var color2Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(2));
 
     return //
     withColors(
@@ -124,9 +124,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @throws RuntimeException if the given attributes are not valid.
    */
   private static ColorGradient from3Attributes(IWellOrderContainer<? extends INode<?>> attributes) {
-    final var directionSpecification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(1));
-    final var color1Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(2));
-    final var color2Specification = Node.withChildNode(attributes.getStoredAtOneBasedIndex(3));
+    final var directionSpecification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
+    final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(2));
+    final var color2Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(3));
 
     return //
     new ColorGradient(
@@ -141,9 +141,9 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   @Override
   public IWellOrderContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(
-      Node.withHeader(getDirection().toString()),
-      Node.withHeader(getColor1().toHexadecimalString()),
-      Node.withHeader(getColor2().toHexadecimalString()));
+      ImmutableNode.withHeader(getDirection().toString()),
+      ImmutableNode.withHeader(getColor1().toHexadecimalString()),
+      ImmutableNode.withHeader(getColor2().toHexadecimalString()));
   }
 
   /**

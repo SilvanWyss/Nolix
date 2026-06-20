@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.nodemapper;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
@@ -19,9 +19,9 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
   @Override
   public INode<?> mapColumnDtoToBackReferenceableColumnIdsNode(final ColumnDto columnDto) {
     return //
-    Node.withHeaderAndChildNodes(
+    ImmutableNode.withHeaderAndChildNodes(
       NodeHeaderCatalog.BACK_REFERENCEABLE_COLUMN_IDS,
-      columnDto.backReferenceableColumnIds().to(Node::withHeader));
+      columnDto.backReferenceableColumnIds().to(ImmutableNode::withHeader));
   }
 
   /**
@@ -29,7 +29,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    */
   @Override
   public INode<?> mapColumnDtoToDataTypeNode(final ColumnDto columnDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.DATA_TYPE, columnDto.dataType().name());
+    return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.DATA_TYPE, columnDto.dataType().name());
   }
 
   /**
@@ -37,7 +37,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    */
   @Override
   public INode<?> mapColumnDtoToFieldTypeNode(final ColumnDto columnDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.FIELD_TYPE, columnDto.fieldType().name());
+    return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.FIELD_TYPE, columnDto.fieldType().name());
   }
 
   /**
@@ -45,7 +45,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    */
   @Override
   public INode<?> mapColumnDtoToIdNode(final ColumnDto columnDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.ID, columnDto.id());
+    return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.ID, columnDto.id());
   }
 
   /**
@@ -53,7 +53,7 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
    */
   @Override
   public INode<?> mapColumnDtoToNameNode(final ColumnDto columnDto) {
-    return Node.withHeaderAndChildNode(NodeHeaderCatalog.NAME, columnDto.name());
+    return ImmutableNode.withHeaderAndChildNode(NodeHeaderCatalog.NAME, columnDto.name());
   }
 
   /**
@@ -62,8 +62,8 @@ public final class ColumnNodeChildNodeMapper implements IColumnNodeChildNodeMapp
   @Override
   public INode<?> mapColumnDtoToReferenceableTableIdsNode(final ColumnDto columnDto) {
     return //
-    Node.withHeaderAndChildNodes(
+    ImmutableNode.withHeaderAndChildNodes(
       NodeHeaderCatalog.REFERENCEABLE_TABLE_IDS,
-      columnDto.referenceableTableIds().to(Node::withHeader));
+      columnDto.referenceableTableIds().to(ImmutableNode::withHeader));
   }
 }

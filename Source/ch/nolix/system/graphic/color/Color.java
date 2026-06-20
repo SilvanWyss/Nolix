@@ -5,7 +5,7 @@ package ch.nolix.system.graphic.color;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -374,7 +374,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public IWellOrderContainer<INode<?>> getAttributes() {
-    return LinkedList.withElement(Node.withHeader(toHexadecimalString()));
+    return LinkedList.withElement(ImmutableNode.withHeader(toHexadecimalString()));
   }
 
   /**

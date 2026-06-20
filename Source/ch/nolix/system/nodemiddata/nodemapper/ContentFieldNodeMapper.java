@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.nodemapper;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IContentFieldNodeMapper;
@@ -23,12 +23,12 @@ public final class ContentFieldNodeMapper implements IContentFieldNodeMapper {
       final var nullableAdditionalValue = valueStringFieldDto.nullableAdditionalValue();
 
       if (nullableAdditionalValue != null) {
-        return Node.withChildNodes(nullableValue, nullableAdditionalValue);
+        return ImmutableNode.withChildNodes(nullableValue, nullableAdditionalValue);
       }
 
-      return Node.fromString(nullableValue);
+      return ImmutableNode.fromString(nullableValue);
     }
 
-    return Node.EMPTY_NODE;
+    return ImmutableNode.EMPTY_NODE;
   }
 }

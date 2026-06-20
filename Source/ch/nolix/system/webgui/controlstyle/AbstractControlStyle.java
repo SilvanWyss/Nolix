@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
@@ -217,7 +217,7 @@ implements IControlStyle<S> {
     CORNER_SHADOWS_HEADER,
     ControlState.class,
     s -> s.getStoredChildNodes().to(CornerShadow::fromSpecification),
-    s -> Node.withChildNodes(s.to(CornerShadow::getSpecification)),
+    s -> ImmutableNode.withChildNodes(s.to(CornerShadow::getSpecification)),
     this::forStateSetCornerShadows,
     ImmutableList.createEmpty());
 

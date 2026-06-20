@@ -9,7 +9,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.AbstractNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -222,7 +222,7 @@ public final class NetEndPoint extends AbstractEndPoint {
     final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
     //Sends message and receives reply.
-    final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
+    final var reply = ImmutableNode.fromString(internalEndPoint.getReplyForRequest(message));
 
     //Enumerates the header of the reply.
     return switch (reply.getHeader()) {
@@ -282,7 +282,7 @@ public final class NetEndPoint extends AbstractEndPoint {
       //redirect and leave null.
     } else {
       //Sends the message and received reply.
-      final var reply = Node.fromString(replyAsString);
+      final var reply = ImmutableNode.fromString(replyAsString);
 
       //Enumerates the header of the reply.
       switch (reply.getHeader()) {
@@ -300,7 +300,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * Lets the current {@link NetEndPoint} receive the given message. This method
    * does not throw any exception and returns a reply in any case because the
    * protocol determines that error messages must be sent back. The reply must not
-   * collide with representations of a {@link Node}.
+   * collide with representations of a {@link ImmutableNode}.
    * 
    * @param message
    * @return the reply to the given message from the current {@link NetEndPoint}.

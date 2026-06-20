@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.containercontrol.verticalstack;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.system.containercontrol.linearcontainer.AbstractLinearContainer;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
@@ -32,7 +32,7 @@ implements IVerticalStack {
     DEFAULT_CONTENT_ALIGNMENT,
     this::setContentAlignment,
     HorizontalContentAlignment::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   @Override
   public HorizontalContentAlignment getContentAlignment() {

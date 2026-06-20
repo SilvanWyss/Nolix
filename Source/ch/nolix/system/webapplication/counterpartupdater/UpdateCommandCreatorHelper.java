@@ -5,7 +5,7 @@ package ch.nolix.system.webapplication.counterpartupdater;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
@@ -50,7 +50,7 @@ public final class UpdateCommandCreatorHelper {
     final IWellOrderContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
     final var eventFunctionsView = //
     htmlElementEventRegistrations.getViewOf(
-      e -> Node.withChildNodes(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
+      e -> ImmutableNode.withChildNodes(ImmutableNode.withHeader(e.getHtmlElementId()), ImmutableNode.withHeader(e.getHtmlEvent())));
 
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -88,6 +88,6 @@ public final class UpdateCommandCreatorHelper {
   public static ChainedNode createUserInputFunctionFromControlAndString(
     final IControl<?, ?> control,
     final String string) {
-    return ChainedNode.withChildNodes(Node.withHeader(control.getInternalId()), Node.withHeader(string));
+    return ChainedNode.withChildNodes(ImmutableNode.withHeader(control.getInternalId()), ImmutableNode.withHeader(string));
   }
 }

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.nodemapper;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
@@ -28,6 +28,6 @@ public final class EntityNodeMapper implements IEntityNodeMapper {
     final var entityHeader = NodeHeaderCatalog.ENTITY;
     final var fieldNodes = FIELD_NODE_MAPPER.mapEntityCreationDtoToFieldNodes(newEntity, saveStamp, tableView);
 
-    return Node.withHeaderAndChildNodes(entityHeader, fieldNodes);
+    return ImmutableNode.withHeaderAndChildNodes(entityHeader, fieldNodes);
   }
 }

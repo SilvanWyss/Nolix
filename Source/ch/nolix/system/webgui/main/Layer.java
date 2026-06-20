@@ -9,7 +9,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.datamodel.id.IdCreator;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -75,7 +75,7 @@ implements ILayer {
     ROLE_HEADER,
     this::setRole,
     LayerRole::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final Value<Double> opacity = //
   Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
@@ -83,7 +83,7 @@ implements ILayer {
     DEFAULT_OPACITY,
     this::setOpacity,
     s -> StringTool.toProportion(s.getSingleChildNodeHeader()),
-    Node::withChildNode);
+    ImmutableNode::withChildNode);
 
   private final OptionalValue<IBackground> background = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
@@ -98,7 +98,7 @@ implements ILayer {
     DEFAULT_CONTENT_POSITION,
     this::setContentAlignment,
     ContentAlignment::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final OptionalValue<IControl<?, ?>> memberRootControl = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(

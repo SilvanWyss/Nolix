@@ -5,7 +5,7 @@ package ch.nolix.systemtest.element.multistateconfiguration;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -46,7 +46,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     final var testUnit = new CustomFormatElement();
 
     //execution
-    testUnit.addOrChangeAttribute(Node.fromString("AColor(0xFF0000)"));
+    testUnit.addOrChangeAttribute(ImmutableNode.fromString("AColor(0xFF0000)"));
 
     //verification
     expect(testUnit.color.getValueOfState(CustomState.A)).isEqualTo(X11ColorCatalog.RED);
@@ -58,7 +58,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     final var testUnit = new CustomFormatElement();
 
     //execution
-    testUnit.addOrChangeAttribute(Node.fromString("BColor(0xFF0000)"));
+    testUnit.addOrChangeAttribute(ImmutableNode.fromString("BColor(0xFF0000)"));
 
     //verification
     expect(testUnit.color.getValueOfState(CustomState.B)).isEqualTo(X11ColorCatalog.RED);
@@ -70,7 +70,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     final var testUnit = new CustomFormatElement();
 
     //execution
-    testUnit.addOrChangeAttribute(Node.fromString("CColor(0xFF0000)"));
+    testUnit.addOrChangeAttribute(ImmutableNode.fromString("CColor(0xFF0000)"));
 
     //verification
     expect(testUnit.color.getValueOfState(CustomState.C)).isEqualTo(X11ColorCatalog.RED);
@@ -82,7 +82,7 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
     final var testUnit = new CustomFormatElement();
 
     //execution
-    testUnit.addOrChangeAttribute(Node.fromString("DColor(0xFF0000)"));
+    testUnit.addOrChangeAttribute(ImmutableNode.fromString("DColor(0xFF0000)"));
 
     //verification
     expect(testUnit.color.getValueOfState(CustomState.D)).isEqualTo(X11ColorCatalog.RED);

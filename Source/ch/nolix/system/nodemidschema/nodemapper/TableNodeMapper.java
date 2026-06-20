@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemidschema.nodemapper;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -30,6 +30,6 @@ public final class TableNodeMapper implements ITableNodeMapper {
     childNodes.addAtEnd(nameNode);
     childNodes.addAtEnd(columnNodes);
 
-    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.TABLE, childNodes);
+    return ImmutableNode.withHeaderAndChildNodes(NodeHeaderCatalog.TABLE, childNodes);
   }
 }

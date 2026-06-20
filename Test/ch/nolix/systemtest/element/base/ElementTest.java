@@ -6,7 +6,7 @@ package ch.nolix.systemtest.element.base;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -22,7 +22,7 @@ final class ElementTest extends StandardTest {
     final var testUnit = new AbstractElement() {
       @Override
       public IWellOrderContainer<INode<?>> getAttributes() {
-        return ImmutableList.withElements(Node.withHeader("my_flag"));
+        return ImmutableList.withElements(ImmutableNode.withHeader("my_flag"));
       }
     };
 

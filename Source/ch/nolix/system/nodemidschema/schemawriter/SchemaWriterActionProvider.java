@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.schemawriter;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.document.node.IMutableNode;
@@ -127,14 +127,14 @@ public final class SchemaWriterActionProvider {
     final var dataTypeNode = COLUMN_NODE_SEARCHER.getStoredDataTypeNodeFromColumnNode(columnNode);
     dataTypeNode.getStoredSingleChildNode().setHeader(dataType.name());
 
-    final var referenceablteTableIdsNodesView = referenceableTableIds.getViewOf(Node::withHeader);
+    final var referenceablteTableIdsNodesView = referenceableTableIds.getViewOf(ImmutableNode::withHeader);
 
     final var referenceablteTableIdsNode = //
     COLUMN_NODE_SEARCHER.getStoredReferenceableTableIdsNodeFromColumnNode(columnNode);
 
     referenceablteTableIdsNode.setChildNodes(referenceablteTableIdsNodesView);
 
-    final var backReferenceableColumnIdNodes = backReferenceableColumnIds.to(Node::withHeader);
+    final var backReferenceableColumnIdNodes = backReferenceableColumnIds.to(ImmutableNode::withHeader);
 
     final var backReferenceableColumnIdsNode = //
     COLUMN_NODE_SEARCHER.getStoredBackReferenceableColumnIdsNodeFromColumnNode(columnNode);

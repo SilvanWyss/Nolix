@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -22,14 +22,14 @@ final class FontTest extends StandardTest {
   private static IWellOrderContainer<Arguments> getSpecificationsAndTheirFonts() {
     return //
     ImmutableList.withElements(
-      Arguments.of(Node.withChildNodes("ARIAL"), Font.ARIAL),
-      Arguments.of(Node.withChildNodes("ARIAL_BLACK"), Font.ARIAL_BLACK),
-      Arguments.of(Node.withChildNodes("COMIC_SANS_MS"), Font.COMIC_SANS_MS),
-      Arguments.of(Node.withChildNodes("IMPACT"), Font.IMPACT),
-      Arguments.of(Node.withChildNodes("LUCIDA_CONSOLE"), Font.LUCIDA_CONSOLE),
-      Arguments.of(Node.withChildNodes("PAPYRUS"), Font.PAPYRUS),
-      Arguments.of(Node.withChildNodes("TAHOMA"), Font.TAHOMA),
-      Arguments.of(Node.withChildNodes("VERDANA"), Font.VERDANA));
+      Arguments.of(ImmutableNode.withChildNodes("ARIAL"), Font.ARIAL),
+      Arguments.of(ImmutableNode.withChildNodes("ARIAL_BLACK"), Font.ARIAL_BLACK),
+      Arguments.of(ImmutableNode.withChildNodes("COMIC_SANS_MS"), Font.COMIC_SANS_MS),
+      Arguments.of(ImmutableNode.withChildNodes("IMPACT"), Font.IMPACT),
+      Arguments.of(ImmutableNode.withChildNodes("LUCIDA_CONSOLE"), Font.LUCIDA_CONSOLE),
+      Arguments.of(ImmutableNode.withChildNodes("PAPYRUS"), Font.PAPYRUS),
+      Arguments.of(ImmutableNode.withChildNodes("TAHOMA"), Font.TAHOMA),
+      Arguments.of(ImmutableNode.withChildNodes("VERDANA"), Font.VERDANA));
   }
 
   @ParameterizedTest

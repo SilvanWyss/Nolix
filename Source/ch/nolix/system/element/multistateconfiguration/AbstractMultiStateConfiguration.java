@@ -6,7 +6,7 @@ package ch.nolix.system.element.multistateconfiguration;
 import java.lang.reflect.Field;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
@@ -73,7 +73,7 @@ implements IMultiStateConfiguration<C, S> {
    */
   @Override
   public final void addOrChangeAttribute(final String attribute) {
-    final var attributeNode = Node.fromString(attribute);
+    final var attributeNode = ImmutableNode.fromString(attribute);
 
     addOrChangeAttribute(attributeNode);
   }

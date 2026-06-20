@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.counterpartupdater;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -103,7 +103,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
       ObjectProtocol.GUI,
       ChainedNode.withHeaderAndChildNodes(
         CommandProtocol.SET_TITLE,
-        Node.withHeader(title)));
+        ImmutableNode.withHeader(title)));
   }
 
   /**

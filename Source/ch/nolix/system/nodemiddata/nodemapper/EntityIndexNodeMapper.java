@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.nodemapper;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.EntityCreationDto;
 import ch.nolix.systemapi.nodemiddata.nodemapper.IEntityIndexNodeMapper;
@@ -20,6 +20,6 @@ public final class EntityIndexNodeMapper implements IEntityIndexNodeMapper {
   public INode<?> mapEntityCreationDtoToEntityIndexNode(
     final EntityCreationDto entityCreationDto,
     final String tableId) {
-    return Node.withHeaderAndChildNodes(NodeHeaderCatalog.ENTITY_INDEX, entityCreationDto.id(), tableId);
+    return ImmutableNode.withHeaderAndChildNodes(NodeHeaderCatalog.ENTITY_INDEX, entityCreationDto.id(), tableId);
   }
 }

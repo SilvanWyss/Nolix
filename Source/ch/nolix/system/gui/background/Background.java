@@ -4,7 +4,7 @@
 package ch.nolix.system.gui.background;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -144,9 +144,9 @@ public final class Background extends AbstractElement implements IBackground {
       case COLOR_GRADIENT ->
         LinkedList.withElement(getColorGradient().getSpecification());
       case IMAGE ->
-        LinkedList.withElement(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
+        LinkedList.withElement(getImage().getSpecification(), ImmutableNode.fromEnum(getImageApplication()));
       case TRANSPARENCY ->
-        LinkedList.withElement(Node.withHeader(TRANSPARENCY_HEADER));
+        LinkedList.withElement(ImmutableNode.withHeader(TRANSPARENCY_HEADER));
       default ->
         throw InvalidArgumentException.forArgument(this);
     };

@@ -6,7 +6,7 @@ package ch.nolix.system.style.model;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -50,7 +50,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    *                          represent a standard configuration.
    */
   public static Style fromFile(final String filePath) {
-    final var specification = Node.fromFile(filePath);
+    final var specification = ImmutableNode.fromFile(filePath);
 
     return fromSpecification(specification);
   }
@@ -102,7 +102,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   public IWellOrderContainer<INode<?>> getAttributes() {
     return //
     ContainerView.forIterables(
-      getAttachingAttributes().getViewOf(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
+      getAttachingAttributes().getViewOf(a -> ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
       getSubStyles().getViewOf(ISelectingStyle::getSpecification));
   }
 

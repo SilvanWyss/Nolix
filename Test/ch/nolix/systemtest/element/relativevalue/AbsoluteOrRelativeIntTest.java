@@ -5,7 +5,7 @@ package ch.nolix.systemtest.element.relativevalue;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -18,7 +18,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
     //setup
-    final var specification = Node.fromString("Width(500)");
+    final var specification = ImmutableNode.fromString("Width(500)");
 
     //execution
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
@@ -31,7 +31,7 @@ final class AbsoluteOrRelativeIntTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
     //setup
-    final var specification = Node.fromString("Width(20%)");
+    final var specification = ImmutableNode.fromString("Width(20%)");
 
     //execution
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);

@@ -5,7 +5,7 @@ package ch.nolix.basetest.net.level3server;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
@@ -23,7 +23,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
   public INode<?> getDataForRequest(final IChainedNode request) {
     latestReceivedRequest = request;
 
-    return Node.withHeader("test_data");
+    return ImmutableNode.withHeader("test_data");
   }
 
   /**

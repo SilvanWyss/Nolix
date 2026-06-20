@@ -6,7 +6,7 @@ package ch.nolix.system.property.value;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
@@ -68,7 +68,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final boolean defaultValue,
     final Consumer<Boolean> setter) {
     return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsBoolean,
-      Node::withChildNode);
+      ImmutableNode::withChildNode);
   }
 
   /**
@@ -85,7 +85,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final double defaultValue,
     final Consumer<Double> setter) {
-    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsDouble, Node::withChildNode);
+    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
   }
 
   /**
@@ -123,7 +123,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final String name,
     final int defaultValue,
     final Consumer<Integer> setter) {
-    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsInt, Node::withChildNode);
+    return new Value<>(name, defaultValue, setter, INode::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
   }
 
   /**
@@ -145,7 +145,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
       defaultValue,
       setter,
       s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
-      Node::fromString);
+      ImmutableNode::fromString);
   }
 
   /**

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.datawriter;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
@@ -219,7 +219,7 @@ public final class DataWriter implements IDataWriter {
     final var multiBackReferenceColumnOneBasedOrdinalIndex = multiBackReferenceColumnView.oneBasedOrdinalIndex();
     final var backReferencedEntityId = multiBackReferenceEntry.backReferencedEntityId();
     final var backReferencedEntityTableId = multiBackReferenceEntry.backReferencedEntityTableId();
-    final var multiBackReferenceEntryNode = Node.withChildNodes(backReferencedEntityId, backReferencedEntityTableId);
+    final var multiBackReferenceEntryNode = ImmutableNode.withChildNodes(backReferencedEntityId, backReferencedEntityTableId);
 
     executiveDataWriter.insertMultiBackReferenceEntry(
       tableName,
@@ -243,7 +243,7 @@ public final class DataWriter implements IDataWriter {
     final var multiReferenceColumnOneBasedOrdinalIndex = multiReferenceColumnView.oneBasedOrdinalIndex();
 
     final var multiReferenceEntryNode = //
-    Node.withChildNodes(multiReferenceEntry.referencedEntityId(), multiReferenceEntry.referencedEntityTableId());
+    ImmutableNode.withChildNodes(multiReferenceEntry.referencedEntityId(), multiReferenceEntry.referencedEntityTableId());
 
     executiveDataWriter.insertMultiReferenceEntry(
       tableName,

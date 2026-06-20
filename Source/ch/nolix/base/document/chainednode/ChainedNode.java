@@ -4,7 +4,7 @@
 package ch.nolix.base.document.chainednode;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
@@ -506,19 +506,19 @@ implements IChainedNode {
    * {@inheritDoc}
    */
   @Override
-  public Node toNode() {
+  public ImmutableNode toNode() {
     //Asserts that the current ChainedNode can represent a Node.
     if (nextNode != null) {
-      throw UnrepresentingArgumentException.forArgumentAndType(this, Node.class);
+      throw UnrepresentingArgumentException.forArgumentAndType(this, INode.class);
     }
 
     //Handles the case that the current ChainedNode does not have a header.
     if (!hasHeader()) {
-      return Node.withChildNodes(getChildNodes().getViewOf(ChainedNode::toNode));
+      return ImmutableNode.withChildNodes(getChildNodes().getViewOf(ChainedNode::toNode));
     }
 
     //Handles the case that the current ChainedNode has a header.
-    return Node.withHeaderAndChildNodes(getHeader(), getChildNodes().getViewOf(ChainedNode::toNode));
+    return ImmutableNode.withHeaderAndChildNodes(getHeader(), getChildNodes().getViewOf(ChainedNode::toNode));
   }
 
   /**

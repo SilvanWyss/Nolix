@@ -6,7 +6,7 @@ package ch.nolix.system.webgui.main;
 import java.util.Optional;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -65,7 +65,7 @@ implements IWebGui<WebGui> {
     DEFAULT_TITLE,
     this::setTitle,
     INode::getSingleChildNodeHeader,
-    Node::withChildNodes);
+    ImmutableNode::withChildNodes);
 
   private final Value<Image> icon = //
   Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(

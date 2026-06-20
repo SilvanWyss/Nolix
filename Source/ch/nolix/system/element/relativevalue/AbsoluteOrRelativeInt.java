@@ -6,7 +6,7 @@ package ch.nolix.system.element.relativevalue;
 import java.text.DecimalFormat;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -95,9 +95,9 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (isAbsolute()) {
-      attributes.addAtEnd(Node.withHeader(getAbsoluteValue()));
+      attributes.addAtEnd(ImmutableNode.withHeader(getAbsoluteValue()));
     } else if (isRelative()) {
-      attributes.addAtEnd(Node.withHeader(new DecimalFormat("0.#").format(100.0 * getPercentage()) + "%"));
+      attributes.addAtEnd(ImmutableNode.withHeader(new DecimalFormat("0.#").format(100.0 * getPercentage()) + "%"));
     } else {
       throw InvalidArgumentException.forArgument(this);
     }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
@@ -25,7 +25,7 @@ final class BackgroundTest extends StandardTest {
   })
   void testCase_fromSpecification(final String backgroundSpecificationAsString) {
     //setup
-    final var backgroundSpecification = Node.fromString(backgroundSpecificationAsString);
+    final var backgroundSpecification = ImmutableNode.fromString(backgroundSpecificationAsString);
 
     //execute
     final var result = Background.fromSpecification(backgroundSpecification);

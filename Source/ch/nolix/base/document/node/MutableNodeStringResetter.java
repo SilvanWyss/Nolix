@@ -19,7 +19,7 @@ public final class MutableNodeStringResetter {
     if (setMutableNodeFromStringAndStartIndexAndGetEndIndex(mutableNode, string, 0) != string.length() - 1) {
       mutableNode.reset();
 
-      throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
+      throw UnrepresentingArgumentException.forArgumentAndType(string, ImmutableNode.class);
     }
   }
 
@@ -67,7 +67,7 @@ public final class MutableNodeStringResetter {
       }
     }
 
-    throw UnrepresentingArgumentException.forArgumentAndType(string, Node.class);
+    throw UnrepresentingArgumentException.forArgumentAndType(string, ImmutableNode.class);
   }
 
   private static int getHeaderLengthFromStringAndStartIndex(final String string, final int startIndex) {

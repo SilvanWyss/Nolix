@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.MutableNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 
@@ -40,24 +40,24 @@ final class TableNodeExaminerTest extends StandardTest {
     MutableNode
       .createEmpty()
       .addChildNodes(
-        Node.withHeaderAndChildNodes(
+        ImmutableNode.withHeaderAndChildNodes(
           "Entity",
-          Node.withHeader("id1"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Donald"),
-          Node.withHeader("Duck")),
-        Node.withHeaderAndChildNodes(
+          ImmutableNode.withHeader("id1"),
+          ImmutableNode.withHeader("save_stamp"),
+          ImmutableNode.withHeader("Donald"),
+          ImmutableNode.withHeader("Duck")),
+        ImmutableNode.withHeaderAndChildNodes(
           "Entity",
-          Node.withHeader("id2"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Daisy"),
-          Node.withHeader("Duck")),
-        Node.withHeaderAndChildNodes(
+          ImmutableNode.withHeader("id2"),
+          ImmutableNode.withHeader("save_stamp"),
+          ImmutableNode.withHeader("Daisy"),
+          ImmutableNode.withHeader("Duck")),
+        ImmutableNode.withHeaderAndChildNodes(
           "Entity",
-          Node.withHeader("id3"),
-          Node.withHeader("save_stamp"),
-          Node.withHeader("Dagobert"),
-          Node.withHeader("Duck")));
+          ImmutableNode.withHeader("id3"),
+          ImmutableNode.withHeader("save_stamp"),
+          ImmutableNode.withHeader("Dagobert"),
+          ImmutableNode.withHeader("Duck")));
 
     //setup of testUnit
     final var testUnit = new TableNodeExaminer();

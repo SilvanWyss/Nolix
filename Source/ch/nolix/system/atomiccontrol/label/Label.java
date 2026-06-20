@@ -6,7 +6,7 @@ package ch.nolix.system.atomiccontrol.label;
 import java.util.Optional;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
@@ -45,7 +45,7 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
     ROLE_HEADER,
     this::setRole,
     LabelRole::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final Value<String> text = //
   Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);

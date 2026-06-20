@@ -6,7 +6,7 @@ package ch.nolix.system.style.model;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -79,19 +79,19 @@ implements ISelectingStyleWithSelectors {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_ID_HEADER, getSelectorId()));
+      attributes.addAtEnd(ImmutableNode.withHeaderAndChildNode(SELECTOR_ID_HEADER, getSelectorId()));
     }
 
     if (hasSelectorType()) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_TYPE_HEADER, getSelectorType()));
+      attributes.addAtEnd(ImmutableNode.withHeaderAndChildNode(SELECTOR_TYPE_HEADER, getSelectorType()));
     }
 
     for (final var r : getSelectorRoles()) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(SELECTOR_ROLE_HEADER, r));
+      attributes.addAtEnd(ImmutableNode.withHeaderAndChildNode(SELECTOR_ROLE_HEADER, r));
     }
 
     for (final var a : getAttachingAttributes()) {
-      attributes.addAtEnd(Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, Node.fromString(a)));
+      attributes.addAtEnd(ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, ImmutableNode.fromString(a)));
     }
 
     for (final var s : getSubStyles()) {

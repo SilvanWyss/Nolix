@@ -6,7 +6,7 @@ package ch.nolix.systemtest.style.model;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.style.model.DeepSelectingStyle;
@@ -21,7 +21,7 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenIsEmpty() {
     //setup
-    final var specification = Node.withHeader("Style");
+    final var specification = ImmutableNode.withHeader("Style");
 
     //execution
     final var result = Style.fromSpecification(specification);
@@ -34,7 +34,7 @@ final class StyleTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenContainsAttachingAttributesAndSubStyles() {
     //setup
-    final var specification = Node
+    final var specification = ImmutableNode
       .fromString(
         "Style("
         + "AttachingAttribute(test_attaching_attribute_1),"

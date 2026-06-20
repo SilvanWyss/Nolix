@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemidschema.databaseinitializer;
 
 import ch.nolix.base.document.node.MutableNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemidschema.databaseinitializer.IDatabaseComponentCreator;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
@@ -48,7 +48,7 @@ public final class DatabaseComponentCreator implements IDatabaseComponentCreator
     return MutableNode
       .createEmpty()
       .setHeader(NodeHeaderCatalog.NAME)
-      .addChildNode(Node.withHeader(name));
+      .addChildNode(ImmutableNode.withHeader(name));
   }
 
   /**

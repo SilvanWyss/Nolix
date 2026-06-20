@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfiguration;
@@ -41,7 +41,7 @@ implements IControlBaseStyle<C> {
     ControlHeadStyleAttributeHeaderCatalog.OPACITY_HEADER,
     ControlState.class,
     s -> OpacityHelper.getOpacityFromString(s.getSingleChildNodeHeader()),
-    Node::withChildNode,
+    ImmutableNode::withChildNode,
     this::forStateSetOpacity,
     DEFAULT_OPACITY);
 
@@ -50,7 +50,7 @@ implements IControlBaseStyle<C> {
     ControlHeadStyleAttributeHeaderCatalog.FONT_HEADER,
     ControlState.class,
     Font::fromSpecification,
-    Node::fromEnum,
+    ImmutableNode::fromEnum,
     DEFAULT_FONT);
 
   private final CascadingProperty<ControlState, Boolean> memberBoldTextFlag = //
@@ -73,7 +73,7 @@ implements IControlBaseStyle<C> {
     ControlHeadStyleAttributeHeaderCatalog.TEXT_LINE_DECORATION_HEADER,
     ControlState.class,
     LineDecoration::fromSpecification,
-    Node::fromEnum,
+    ImmutableNode::fromEnum,
     DEFAULT_TEXT_LINE_DECORATION);
 
   private final CascadingProperty<ControlState, IColor> memberTextColor = //

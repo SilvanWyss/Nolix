@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemiddata.nodemapper;
 
 import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.midschemainfo.modelsearcher.TableInfoSearcher;
@@ -37,10 +37,10 @@ public final class FieldNodeMapper implements IFieldNodeMapper {
     final var attributes = new INode[size];
     final var entityId = entityCreationDto.id();
 
-    attributes[0] = Node.withHeader(entityId);
-    attributes[1] = Node.withHeader(saveStamp);
-    attributes[2] = Node.EMPTY_NODE;
-    attributes[3] = Node.EMPTY_NODE;
+    attributes[0] = ImmutableNode.withHeader(entityId);
+    attributes[1] = ImmutableNode.withHeader(saveStamp);
+    attributes[2] = ImmutableNode.EMPTY_NODE;
+    attributes[3] = ImmutableNode.EMPTY_NODE;
 
     for (final var f : entityCreationDto.contentFields()) {
       final var columnView = TABLE_VIEW_SEARCHER.getColumnViewByColumnName(tableView, f.columnName());

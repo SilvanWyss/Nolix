@@ -5,7 +5,7 @@ package ch.nolix.systemtest.graphic.color;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
@@ -31,7 +31,7 @@ final class ColorGradientTest extends StandardTest {
   @Test
   void testCase_fromSpecification_1A() {
     //setup
-    final var specification = Node.fromString("ColorGradient(0x000000,0xFFFFFF)");
+    final var specification = ImmutableNode.fromString("ColorGradient(0x000000,0xFFFFFF)");
 
     //execution
     final var result = ColorGradient.fromSpecification(specification);
@@ -45,7 +45,7 @@ final class ColorGradientTest extends StandardTest {
   @Test
   void testCase_fromSpecification_1B() {
     //setup
-    final var specification = Node.fromString("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
+    final var specification = ImmutableNode.fromString("ColorGradient(HORIZONTAL,0x000000,0xFFFFFF)");
 
     //execution
     final var result = ColorGradient.fromSpecification(specification);

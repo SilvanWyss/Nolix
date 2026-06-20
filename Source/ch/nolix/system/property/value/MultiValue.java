@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
@@ -83,7 +83,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
     final String name,
     final Consumer<E> adder,
     final Function<INode<?>, E> valueMapper) {
-    return new MultiValue<>(name, adder, valueMapper, e -> Node.withChildNode(e.getSpecification()));
+    return new MultiValue<>(name, adder, valueMapper, e -> ImmutableNode.withChildNode(e.getSpecification()));
   }
 
   /**
@@ -95,7 +95,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @throws RuntimeException if the given adder is null.
    */
   public static MultiValue<Integer> forIntsWithNameAndAdder(final String name, final Consumer<Integer> adder) {
-    return new MultiValue<>(name, adder, INode::toInt, Node::withHeader);
+    return new MultiValue<>(name, adder, INode::toInt, ImmutableNode::withHeader);
   }
 
   /**
@@ -107,7 +107,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @throws RuntimeException if the given adder is null.
    */
   public static MultiValue<String> forStringsWithNameAndAdder(final String name, final Consumer<String> adder) {
-    return new MultiValue<>(name, adder, INode::getHeader, Node::withHeader);
+    return new MultiValue<>(name, adder, INode::getHeader, ImmutableNode::withHeader);
   }
 
   /**

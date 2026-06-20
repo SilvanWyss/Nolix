@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -22,8 +22,8 @@ final class ImageApplicationTest extends StandardTest {
   private static IWellOrderContainer<Arguments> getSpecificationsAndTheirImageApplications() {
     return //
     ImmutableList.withElements(
-      Arguments.of(Node.withChildNodes("SCALE_TO_FRAME"), ImageApplication.SCALE_TO_FRAME),
-      Arguments.of(Node.withChildNodes("REPEAT"), ImageApplication.REPEAT));
+      Arguments.of(ImmutableNode.withChildNodes("SCALE_TO_FRAME"), ImageApplication.SCALE_TO_FRAME),
+      Arguments.of(ImmutableNode.withChildNodes("REPEAT"), ImageApplication.REPEAT));
   }
 
   @ParameterizedTest

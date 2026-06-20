@@ -3,7 +3,7 @@
  */
 package ch.nolix.template.webgui.colormode;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.atomiccontrol.dropdownmenu.DropdownMenu;
 import ch.nolix.system.atomiccontrol.imagecontrol.ImageControl;
@@ -36,7 +36,7 @@ public final class ParchmentModeSubStyleCatalog {
   private static final Background PARCHMENT_BACKGROUND = //
   Background.withImageAndImageApplication(PARCHMENT_IMAGE, ImageApplication.SCALE_TO_FRAME);
 
-  private static final Node PARCHMENT_BACKGROUND_SPECIFICATION = Node.fromNode(PARCHMENT_BACKGROUND.getSpecification());
+  private static final ImmutableNode PARCHMENT_BACKGROUND_SPECIFICATION = ImmutableNode.fromNode(PARCHMENT_BACKGROUND.getSpecification());
 
   private static final String PARCHMENT_BACKGROUND_SPECIFICATION_STRING = PARCHMENT_BACKGROUND_SPECIFICATION.toString();
 
@@ -66,11 +66,11 @@ public final class ParchmentModeSubStyleCatalog {
   DeepSelectingStyle.EMPTY
     .withSelectorType(Button.class)
     .withAttachingAttributes(
-      Node.withHeaderAndChildNode("BaseCornerShadows",
+      ImmutableNode.withHeaderAndChildNode("BaseCornerShadows",
         CornerShadow.withCornerAndLocationAndSide1ThicknessAnsSide2ThicknessAndBlurRadiusAndColor(Corner.BOTTOM_RIGHT,
           Location.OUTSIDE, 5, 5, 5, X11ColorCatalog.BROWN).getSpecification())
         .toString(),
-      Node.withHeaderAndChildNode("HoverCornerShadows",
+      ImmutableNode.withHeaderAndChildNode("HoverCornerShadows",
         CornerShadow.withCornerAndLocationAndSide1ThicknessAnsSide2ThicknessAndBlurRadiusAndColor(Corner.BOTTOM_RIGHT,
           Location.OUTSIDE, 5, 5, 5, X11ColorCatalog.BLACK).getSpecification())
         .toString(),

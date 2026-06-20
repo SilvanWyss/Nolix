@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
@@ -30,16 +30,16 @@ final class InvalidArgumentExceptionTest extends StandardTest {
   @Test
   void testCase_forArgument_whenArgumentIsANode() {
     //setup
-    final var node = Node.fromString("Parking(Slot(Id(A)), Slot(Id(B)))");
+    final var node = ImmutableNode.fromString("Parking(Slot(Id(A)), Slot(Id(B)))");
 
     //execution
     final var result = InvalidArgumentException.forArgument(node);
 
     //verification
-    expect(result.getArgumentName()).isEqualTo("Node");
+    expect(result.getArgumentName()).isEqualTo("ImmutableNode");
     expect(result.getStoredArgument()).is(node);
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
-    expect(result.getMessage()).isEqualTo("The given Node 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
+    expect(result.getMessage()).isEqualTo("The given ImmutableNode 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
   }
 
   @Test

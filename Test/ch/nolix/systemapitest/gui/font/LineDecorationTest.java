@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -22,9 +22,9 @@ final class LineDecorationTest extends StandardTest {
   private static IWellOrderContainer<Arguments> getSpecificationsAndTheirLineDecorations() {
     return //
     ImmutableList.withElements(
-      Arguments.of(Node.withChildNodes("UNDERLINE"), LineDecoration.UNDERLINE),
-      Arguments.of(Node.withChildNodes("MIDLINE"), LineDecoration.MIDLINE),
-      Arguments.of(Node.withChildNodes("OVERLINE"), LineDecoration.OVERLINE));
+      Arguments.of(ImmutableNode.withChildNodes("UNDERLINE"), LineDecoration.UNDERLINE),
+      Arguments.of(ImmutableNode.withChildNodes("MIDLINE"), LineDecoration.MIDLINE),
+      Arguments.of(ImmutableNode.withChildNodes("OVERLINE"), LineDecoration.OVERLINE));
   }
 
   @ParameterizedTest

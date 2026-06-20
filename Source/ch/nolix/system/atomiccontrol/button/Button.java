@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
@@ -48,7 +48,7 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
     ButtonAttributeHeaderCatalog.ROLE_HEADER,
     this::setRole,
     ButtonRole::fromSpecification,
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final Value<String> text = //
   Value.forStringWithNameAndDefaultValueAndSetter(

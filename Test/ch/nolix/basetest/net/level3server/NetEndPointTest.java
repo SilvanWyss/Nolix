@@ -6,7 +6,7 @@ package ch.nolix.basetest.net.level3server;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.net.level3server.NetEndPoint;
 import ch.nolix.base.net.level3server.Server;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
@@ -74,7 +74,7 @@ final class NetEndPointTest extends StandardTest {
         //verification
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
           .hasStringRepresentation("test_request");
-        expect(result).isEqualTo(Node.withHeader("test_data"));
+        expect(result).isEqualTo(ImmutableNode.withHeader("test_data"));
       }
     }
   }

@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 
 /**
  * @author Silvan Wyss
  */
-final class NodeTest extends BaseNodeTest<Node> {
+final class NodeTest extends BaseNodeTest<ImmutableNode> {
   @Test
   void testCase_asWithHeader_1A() {
     //setup
-    final var testUnit = Node.fromString("a(x,y)");
+    final var testUnit = ImmutableNode.fromString("a(x,y)");
 
     //execution
     final var result = testUnit.withNewHeader("b");
@@ -28,7 +28,7 @@ final class NodeTest extends BaseNodeTest<Node> {
   @Test
   void testCase_asWithHeader_1B() {
     //setup
-    final var testUnit = Node.fromString("(x,y)");
+    final var testUnit = ImmutableNode.fromString("(x,y)");
 
     //execution
     final var result = testUnit.withNewHeader("a");
@@ -40,7 +40,7 @@ final class NodeTest extends BaseNodeTest<Node> {
   @Test
   void testCase_asWithHeader_1C() {
     //setup
-    final var testUnit = Node.fromString("a");
+    final var testUnit = ImmutableNode.fromString("a");
 
     //execution
     final var result = testUnit.withNewHeader("b");
@@ -57,7 +57,7 @@ final class NodeTest extends BaseNodeTest<Node> {
   })
   void testCase_toXml(final String nodeStringRepresentation, final String expectedXmlStringRepresentation) {
     //setup
-    final var testUnit = Node.fromString(nodeStringRepresentation);
+    final var testUnit = ImmutableNode.fromString(nodeStringRepresentation);
 
     //execution
     final var result = testUnit.toXml();
@@ -70,23 +70,23 @@ final class NodeTest extends BaseNodeTest<Node> {
    * {@inheritDoc}
    */
   @Override
-  protected Node createBlankNode() {
-    return Node.EMPTY_NODE;
+  protected ImmutableNode createBlankNode() {
+    return ImmutableNode.EMPTY_NODE;
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  protected Node createNodeWithHeader(final String header) {
-    return Node.withHeader(header);
+  protected ImmutableNode createNodeWithHeader(final String header) {
+    return ImmutableNode.withHeader(header);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  protected Node createNodeWithHeaderAndChildNodes(final String header, final String... childNodes) {
-    return Node.withHeaderAndChildNodes(header, childNodes);
+  protected ImmutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodes) {
+    return ImmutableNode.withHeaderAndChildNodes(header, childNodes);
   }
 }

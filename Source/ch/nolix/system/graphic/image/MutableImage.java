@@ -14,7 +14,7 @@ import javax.imageio.ImageWriteParam;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.matrix.Matrix;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
@@ -54,7 +54,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
 
   private String nullableBase64JpgString;
 
-  private Node nullablePixelArraySpecification;
+  private ImmutableNode nullablePixelArraySpecification;
 
   private BufferedImage nullableBufferedImage;
 
@@ -131,7 +131,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage fromString(final String string) {
-    return fromSpecification(Node.fromString(string));
+    return fromSpecification(ImmutableNode.fromString(string));
   }
 
   public static MutableImage withPixels(final IMatrix<IColor> pixels) {
@@ -543,18 +543,18 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     return bufferedImage;
   }
 
-  private Node generatePixelArraySpecification() {
+  private ImmutableNode generatePixelArraySpecification() {
     return //
-    Node.withHeaderAndChildNodes(
+    ImmutableNode.withHeaderAndChildNodes(
       PIXEL_ARRAY_HEADER,
-      Node.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
-      Node.withHeaderAndChildNode(PascalCaseVariableCatalog.HEIGHT, getHeight()),
-      Node.withHeaderAndChildNodes(
+      ImmutableNode.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
+      ImmutableNode.withHeaderAndChildNode(PascalCaseVariableCatalog.HEIGHT, getHeight()),
+      ImmutableNode.withHeaderAndChildNodes(
         PluralPascalCaseVariableCatalog.PIXELS,
-        pixels.getViewOf(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue()))));
+        pixels.getViewOf(p -> ImmutableNode.withHeader(p.toHexadecimalStringWithAlphaValue()))));
   }
 
-  private Node getPixelArraySpecification() {
+  private ImmutableNode getPixelArraySpecification() {
     if (nullablePixelArraySpecification == null) {
       nullablePixelArraySpecification = generatePixelArraySpecification();
     }

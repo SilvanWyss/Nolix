@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.nodemapper;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
@@ -32,7 +32,7 @@ public final class ColumnNodeMapper implements IColumnNodeMapper {
     COLUMN_NODE_CHILD_NODE_MAPPER.mapColumnDtoToBackReferenceableColumnIdsNode(columnDto);
 
     return //
-    Node.withHeaderAndChildNodes(
+    ImmutableNode.withHeaderAndChildNodes(
       NodeHeaderCatalog.COLUMN,
       idNode,
       nameNode,

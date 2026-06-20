@@ -6,7 +6,7 @@ package ch.nolix.system.atomiccontrol.link;
 import java.util.Optional;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.base.web.url.UrlTool;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
@@ -63,7 +63,7 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
     DEFAULT_TARGET,
     this::setTarget,
     s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
-    Node::fromEnum);
+    ImmutableNode::fromEnum);
 
   private final OptionalValue<String> url = OptionalValue.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
 

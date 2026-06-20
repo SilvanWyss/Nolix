@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
@@ -19,7 +19,7 @@ final class ChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_fromNode_whenNodeIsBlank() {
     //setup
-    final var node = Node.EMPTY_NODE;
+    final var node = ImmutableNode.EMPTY_NODE;
 
     //setup verification
     expect(node.isBlank()).isTrue();
@@ -34,7 +34,7 @@ final class ChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_fromNode_whenNodeHasHeaderOnly() {
     //setup
-    final var node = Node.withHeader("a");
+    final var node = ImmutableNode.withHeader("a");
 
     //execution
     final var result = ChainedNode.fromNode(node);

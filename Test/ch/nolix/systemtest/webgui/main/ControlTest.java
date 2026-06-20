@@ -5,7 +5,7 @@ package ch.nolix.systemtest.webgui.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.misc.dataobject.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.containercontrol.floatcontainer.FloatContainer;
@@ -87,7 +87,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest
     final var result = testUnit.getAttributes();
 
     //verification
-    expect(result).containsEqualing(Node.fromString("Presence(COLLAPSED)"));
+    expect(result).containsEqualing(ImmutableNode.fromString("Presence(COLLAPSED)"));
   }
 
   @Test

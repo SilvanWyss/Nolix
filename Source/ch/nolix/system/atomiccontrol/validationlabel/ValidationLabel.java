@@ -6,7 +6,7 @@ package ch.nolix.system.atomiccontrol.validationlabel;
 import java.util.Optional;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
@@ -37,7 +37,7 @@ implements IValidationLabel {
     ERROR_HEADER,
     this::showError,
     s -> GeneralException.withErrorMessage(s.getHeader()),
-    e -> Node.withHeader(e.getMessage()));
+    e -> ImmutableNode.withHeader(e.getMessage()));
 
   public ValidationLabel() {
     //A reset is required to achieve a well-defined initial state, although everything would work without a reset.

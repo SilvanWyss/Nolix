@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemtest.application.main;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
@@ -24,7 +24,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
 
     latestGetDataFromHereRequest = request;
 
-    return Node.EMPTY_NODE;
+    return ImmutableNode.EMPTY_NODE;
   }
 
   /**

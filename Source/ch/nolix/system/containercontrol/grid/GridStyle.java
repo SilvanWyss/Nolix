@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.containercontrol.grid;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
@@ -39,7 +39,7 @@ public final class GridStyle extends AbstractControlStyle<IGridStyle> implements
     GRID_TYPE_HEADER,
     ControlState.class,
     GridType::fromSpecification,
-    Node::fromEnum,
+    ImmutableNode::fromEnum,
     this::setGridTypeForState,
     DEFAULT_GRID_TYPE);
 

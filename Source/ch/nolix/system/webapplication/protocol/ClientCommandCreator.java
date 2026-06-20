@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.net.target.IServerTarget;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
@@ -79,7 +79,7 @@ public final class ClientCommandCreator implements IClientCommandCreator {
     return //
     ChainedNode.withHeaderAndChildNodes(
       CommandProtocol.SAVE_FILE,
-      Node.withHeader(new String(bytes, StandardCharsets.UTF_8)));
+      ImmutableNode.withHeader(new String(bytes, StandardCharsets.UTF_8)));
   }
 
   /**

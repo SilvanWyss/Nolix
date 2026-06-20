@@ -9,7 +9,7 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -397,7 +397,7 @@ extends AbstractElement implements ITime {
       getMillisecondOfSecond(),
       getMicrosecondOfMillisecond());
 
-    final var attribute = Node.withHeader(timeCode);
+    final var attribute = ImmutableNode.withHeader(timeCode);
 
     return LinkedList.withElement(attribute);
   }

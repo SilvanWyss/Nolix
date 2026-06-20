@@ -6,7 +6,7 @@ package ch.nolix.system.element.multistateconfiguration;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -56,7 +56,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
       name,
       stateClass,
       INode::getSingleChildNodeAsBoolean,
-      Node::withChildNode,
+      ImmutableNode::withChildNode,
       defaultValue);
   }
 
@@ -70,7 +70,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends AbstractMater
       name,
       stateClass,
       INode::getSingleChildNodeAsInt,
-      Node::withChildNode,
+      ImmutableNode::withChildNode,
       setterMethod,
       defaultValue);
   }

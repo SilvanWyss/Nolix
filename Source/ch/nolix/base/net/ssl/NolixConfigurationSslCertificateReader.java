@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.ssl;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.independent.nolixenvironment.NolixEnvironmentService;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
@@ -70,6 +70,6 @@ public final class NolixConfigurationSslCertificateReader {
   }
 
   private static INode<?> getNolixConfiguration() {
-    return Node.fromFile(NolixEnvironmentService.getNolixConfigurationFilePath());
+    return ImmutableNode.fromFile(NolixEnvironmentService.getNolixConfigurationFilePath());
   }
 }

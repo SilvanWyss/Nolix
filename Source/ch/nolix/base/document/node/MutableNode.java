@@ -139,7 +139,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   @Override
   public INode<?> withNewHeader(String header) {
-    return Node.withHeaderAndChildNodes(header, getStoredChildNodes());
+    return ImmutableNode.withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
   /**

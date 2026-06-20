@@ -13,7 +13,7 @@ import java.util.Optional;
 import ch.nolix.base.commontype.inputstreamtool.InputStreamTool;
 import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.net.http.HttpRequest;
@@ -154,7 +154,7 @@ public final class SocketHandler {
       socket,
       socketInputStream,
       socketOutputStream,
-      Node.fromString(firstReveivedLine.substring(1)).getHeader());
+      ImmutableNode.fromString(firstReveivedLine.substring(1)).getHeader());
   }
 
   private static SocketEndPoint createSocketEndPointWithDefaultTarget(

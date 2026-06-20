@@ -4,7 +4,7 @@
 package ch.nolix.system.gui.box;
 
 import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -208,11 +208,11 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
   public IWellOrderContainer<INode<?>> getAttributes() {
     return //
     ArrayList.withElements(
-      Node.fromEnum(getCorner()),
-      Node.fromEnum(getLocation()),
-      Node.withHeaderAndChildNode(SIDE1_THICKNESS_HEADER, getSide1Thickness()),
-      Node.withHeaderAndChildNode(SIDT_THICKNESS_HEADER, getSide2Thickness()),
-      Node.withHeaderAndChildNode(BLUR_RADIUS_HEADER, getBlurRadius()),
+      ImmutableNode.fromEnum(getCorner()),
+      ImmutableNode.fromEnum(getLocation()),
+      ImmutableNode.withHeaderAndChildNode(SIDE1_THICKNESS_HEADER, getSide1Thickness()),
+      ImmutableNode.withHeaderAndChildNode(SIDT_THICKNESS_HEADER, getSide2Thickness()),
+      ImmutableNode.withHeaderAndChildNode(BLUR_RADIUS_HEADER, getBlurRadius()),
       getColor().getSpecification());
   }
 

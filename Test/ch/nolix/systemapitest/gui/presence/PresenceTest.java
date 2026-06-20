@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.document.node.INode;
@@ -22,9 +22,9 @@ final class PresenceTest extends StandardTest {
   private static IWellOrderContainer<Arguments> getSpecificationsAndTheirPresences() {
     return //
     ImmutableList.withElements(
-      Arguments.of(Node.withChildNodes("VISIBLE"), Presence.VISIBLE),
-      Arguments.of(Node.withChildNodes("INVISIBLE"), Presence.INVISIBLE),
-      Arguments.of(Node.withChildNodes("COLLAPSED"), Presence.COLLAPSED));
+      Arguments.of(ImmutableNode.withChildNodes("VISIBLE"), Presence.VISIBLE),
+      Arguments.of(ImmutableNode.withChildNodes("INVISIBLE"), Presence.INVISIBLE),
+      Arguments.of(ImmutableNode.withChildNodes("COLLAPSED"), Presence.COLLAPSED));
   }
 
   @ParameterizedTest

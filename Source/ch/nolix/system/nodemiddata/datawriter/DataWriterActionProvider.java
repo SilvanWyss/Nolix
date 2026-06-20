@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.datawriter;
 
-import ch.nolix.base.document.node.Node;
+import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.document.node.IMutableNode;
@@ -224,7 +224,7 @@ public final class DataWriterActionProvider {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
     final var multiValueNode = entityNode.getStoredChildNodeAtOneBasedIndex(multiValueColumnOneBasedOrdinalIndex);
-    final var multiValueValueNode = Node.withHeader(value);
+    final var multiValueValueNode = ImmutableNode.withHeader(value);
 
     multiValueNode.addChildNode(multiValueValueNode);
   }
