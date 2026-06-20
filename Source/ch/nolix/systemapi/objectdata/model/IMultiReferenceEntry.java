@@ -5,8 +5,8 @@ package ch.nolix.systemapi.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
-import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
  *            references.
  */
 public interface IMultiReferenceEntry<E extends IEntity>
-extends IDatabaseComponent<IDatabase>, IDatabaseObject, ITableComponent<ITable<? extends IEntity>> {
+extends DatabaseComponent<IDatabase>, IDatabaseObject, TableComponent<ITable<? extends IEntity>> {
   Optional<? extends IField> getOptionalStoredBaseBackReferenceWhoReferencesBackTheParentMultiReferenceOfThis();
 
   String getReferencedEntityId();

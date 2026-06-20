@@ -3,9 +3,9 @@
  */
 package ch.nolix.systemapi.webgui.controlstructure;
 
-import ch.nolix.baseapi.component.guicomponent.IControlComponent;
-import ch.nolix.baseapi.component.guicomponent.IGuiComponent;
-import ch.nolix.baseapi.component.guicomponent.ILayerComponent;
+import ch.nolix.baseapi.component.guicomponent.ControlComponent;
+import ch.nolix.baseapi.component.guicomponent.GuiComponent;
+import ch.nolix.baseapi.component.guicomponent.LayerComponent;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  * @author Silvan Wyss
  */
 public interface IControlParent
-extends IControlComponent<IControl<?, ?>>, IGuiComponent<IWebGui<?>>, ILayerComponent<ILayer> {
+extends ControlComponent<IControl<?, ?>>, GuiComponent<IWebGui<?>>, LayerComponent<ILayer> {
   /**
    * @return the {@link IControl} the current {@link IControlParent} is.
    */

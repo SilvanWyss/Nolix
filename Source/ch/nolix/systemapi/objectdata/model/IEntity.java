@@ -6,8 +6,8 @@ package ch.nolix.systemapi.objectdata.model;
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.ShortDescriptionHolder;
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalSaveStampHolder;
-import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
-import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
@@ -18,12 +18,12 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 public interface IEntity
 extends
 Deletable,
-IDatabaseComponent<IDatabase>,
+DatabaseComponent<IDatabase>,
 IDatabaseObject,
 IdHolder,
 OptionalSaveStampHolder,
 ShortDescriptionHolder,
-ITableComponent<ITable<? extends IEntity>> {
+TableComponent<ITable<? extends IEntity>> {
   String getParentTableName();
 
   IWellOrderContainer<? extends IField> internalGetStoredFields();

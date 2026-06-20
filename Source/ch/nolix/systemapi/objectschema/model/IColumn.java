@@ -5,8 +5,8 @@ package ch.nolix.systemapi.objectschema.model;
 
 import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableNameHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
-import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
-import ch.nolix.baseapi.component.datamodelcomponent.ITableComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
@@ -21,11 +21,11 @@ public interface IColumn
 extends
 Deletable,
 EmptinessRequestable,
-IDatabaseComponent<IDatabase>,
+DatabaseComponent<IDatabase>,
 IDatabaseObject,
 FluentMutableNameHolder<IColumn>,
 IdHolder,
-ITableComponent<ITable> {
+TableComponent<ITable> {
   DataType getDataType();
 
   FieldType getFieldType();

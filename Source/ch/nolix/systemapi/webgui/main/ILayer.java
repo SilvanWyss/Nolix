@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.main;
 
-import ch.nolix.baseapi.component.guicomponent.IGuiComponent;
+import ch.nolix.baseapi.component.guicomponent.GuiComponent;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.html.IHtmlGetter;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public interface ILayer
 extends
 IBackgroundHolder<ILayer>,
-IGuiComponent<IWebGui<?>>,
+GuiComponent<IWebGui<?>>,
 IHtmlGetter,
 IRootControlOwner<ILayer>,
 IStylableElement<ILayer> {

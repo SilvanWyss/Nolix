@@ -4,7 +4,7 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.component.applicationcomponent.IClientComponent;
+import ch.nolix.baseapi.component.applicationcomponent.ClientComponent;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -21,7 +21,7 @@ import ch.nolix.baseapi.programcontrol.trigger.IRefreshableSubscriber;
  *            a {@link AbstractSession}.
  */
 public abstract class AbstractSession<C extends AbstractBackendClient<C, S>, S>
-implements IClientComponent<C>, IRefreshableSubscriber {
+implements ClientComponent<C>, IRefreshableSubscriber {
   private C memberParentClient;
 
   private Object memberResult;

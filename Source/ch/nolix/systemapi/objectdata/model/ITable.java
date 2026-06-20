@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.component.datamodelcomponent.IDatabaseComponent;
+import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
  * @param <E> is the type of the {@link IEntity}s of a {@link ITable}.
  */
 public interface ITable<E extends IEntity>
-extends IDatabaseComponent<IDatabase>, IDatabaseObject, IdHolder, NameHolder {
+extends DatabaseComponent<IDatabase>, IDatabaseObject, IdHolder, NameHolder {
   boolean containsEntityWithId(String id);
 
   int getEntityCount();
