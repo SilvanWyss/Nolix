@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontype.arraytool.ArraySorter;
-import ch.nolix.base.datastructure.extendediterable.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
@@ -17,7 +17,7 @@ import ch.nolix.baseapi.datastructure.list.IArrayList;
  * @param <E> is the type of the elements of a
  *            {@link AbstractExtendedContainer}.
  */
-public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderContainer<E> {
+public abstract class AbstractExtendedContainer<E> extends AbstractExtendedIterable<E> {
   /**
    * {@inheritDoc}
    */
@@ -30,7 +30,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderCont
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -51,7 +51,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderCont
 
   /**
    * The time complexity of this implementation is O(n * log(n)) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */

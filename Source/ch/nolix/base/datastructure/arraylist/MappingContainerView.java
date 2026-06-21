@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.arraylist;
 import java.util.function.Function;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
-import ch.nolix.base.datastructure.extendediterable.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
@@ -52,7 +52,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws RuntimeException if the given mapper is null.
    */
   public static <T, T2> MappingContainerView<T, T2> forContainerAndMapper(
-    final AbstractWellOrderContainer<T> container,
+    final AbstractExtendedIterable<T> container,
     final Function<T, T2> mapper) {
     return new MappingContainerView<>(container, mapper);
   }

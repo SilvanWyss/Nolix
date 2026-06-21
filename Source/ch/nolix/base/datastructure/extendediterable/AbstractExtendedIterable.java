@@ -35,15 +35,15 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a
- *            {@link AbstractWellOrderContainer}.
+ *            {@link AbstractExtendedIterable}.
  */
-public abstract class AbstractWellOrderContainer<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
+public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
 implements ExtendedIterable<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -55,7 +55,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -69,7 +69,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -82,7 +82,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -94,7 +94,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -108,7 +108,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -138,7 +138,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -160,7 +160,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * The current {@link AbstractWellOrderContainer} contains m elements.
+   * The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * The given iterable contains n elements.
    * 
@@ -179,7 +179,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -224,7 +224,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -236,7 +236,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -250,7 +250,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -n objects are given.
    * 
@@ -263,7 +263,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -295,7 +295,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -306,7 +306,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -336,7 +336,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -347,7 +347,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -368,7 +368,7 @@ implements ExtendedIterable<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -392,7 +392,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -419,7 +419,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -443,7 +443,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -473,7 +473,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -503,7 +503,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -529,7 +529,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -568,7 +568,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -607,7 +607,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -652,7 +652,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n*log(n)) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -669,7 +669,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -765,7 +765,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -789,7 +789,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -804,7 +804,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -848,7 +848,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -913,7 +913,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -932,7 +932,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -949,10 +949,10 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current {@link AbstractWellOrderContainer} contains m elements.
+   * -The current {@link AbstractExtendedIterable} contains m elements.
    * 
    * -The given norm assignes the elements of the current
-   * {@link AbstractWellOrderContainer} in n groups.
+   * {@link AbstractExtendedIterable} in n groups.
    * 
    * {@inheritDoc}
    */
@@ -1000,7 +1000,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(1) or O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1012,7 +1012,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1047,7 +1047,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1090,7 +1090,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1120,7 +1120,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1148,7 +1148,7 @@ implements ExtendedIterable<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1175,7 +1175,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1202,7 +1202,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1244,7 +1244,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1365,7 +1365,7 @@ implements ExtendedIterable<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1398,7 +1398,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1425,7 +1425,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1458,7 +1458,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1491,7 +1491,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1508,7 +1508,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1541,7 +1541,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1575,7 +1575,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1609,10 +1609,10 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(m*n) if:
    * 
-   * -The current * {@link AbstractWellOrderContainer} contains m elements.
+   * -The current * {@link AbstractExtendedIterable} contains m elements.
    * 
    * -On average, the given multipleMapper maps n elements from an element of the
-   * current {@link AbstractWellOrderContainer}.
+   * current {@link AbstractExtendedIterable}.
    * 
    * {@inheritDoc}
    */
@@ -1642,7 +1642,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1678,7 +1678,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1703,7 +1703,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1723,7 +1723,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1742,7 +1742,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1754,7 +1754,7 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1774,7 +1774,7 @@ implements ExtendedIterable<E> {
   //For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * {@inheritDoc}
    */
@@ -1822,7 +1822,7 @@ implements ExtendedIterable<E> {
   /**
    * The time complexity of this implementation is O(1).
    * 
-   * @throws RuntimeException if the current {@link AbstractWellOrderContainer} is
+   * @throws RuntimeException if the current {@link AbstractExtendedIterable} is
    *                          empty.
    */
   private void assertIsNotEmpty() {
@@ -1861,12 +1861,12 @@ implements ExtendedIterable<E> {
 
   /**
    * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractWellOrderContainer} contains n elements.
+   * {@link AbstractExtendedIterable} contains n elements.
    * 
    * @param separator
    * @return a {@link String} representation of the current
-   *         {@link AbstractWellOrderContainer} using the given separator for the
-   *         case that the current {@link AbstractWellOrderContainer} contains
+   *         {@link AbstractExtendedIterable} using the given separator for the
+   *         case that the current {@link AbstractExtendedIterable} contains
    *         several elements.
    * @throws RuntimeException if the given separator is null.
    */

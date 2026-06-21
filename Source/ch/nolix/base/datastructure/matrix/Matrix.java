@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
-import ch.nolix.base.datastructure.extendediterable.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
@@ -23,7 +23,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentExc
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link Matrix} is a {@link AbstractWellOrderContainer} that stores its elements in
+ * A {@link Matrix} is a {@link AbstractExtendedIterable} that stores its elements in
  * rows and columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss

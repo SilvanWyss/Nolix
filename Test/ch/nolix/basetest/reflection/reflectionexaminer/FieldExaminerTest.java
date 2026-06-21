@@ -6,7 +6,7 @@ package ch.nolix.basetest.reflection.reflectionexaminer;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
-import ch.nolix.base.datastructure.extendediterable.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
@@ -45,7 +45,7 @@ final class FieldExaminerTest extends StandardTest {
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractWellOrderContainer.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractExtendedIterable.class);
 
     //verification
     expect(result).isTrue();

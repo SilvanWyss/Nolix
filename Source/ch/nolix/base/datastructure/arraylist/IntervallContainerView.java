@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.datastructure.arraylist;
 
-import ch.nolix.base.datastructure.extendediterable.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
@@ -22,7 +22,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link IntervallContainerView}.
  */
 public final class IntervallContainerView<E> extends AbstractExtendedContainer<E> {
-  private final AbstractWellOrderContainer<E> abstractWellOrderContainer;
+  private final AbstractExtendedIterable<E> abstractExtendedIterable;
 
   private final int startIndex;
 
@@ -43,7 +43,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given container.
    */
-  private IntervallContainerView(final AbstractWellOrderContainer<E> container, final int startIndex, final int endIndex) {
+  private IntervallContainerView(final AbstractExtendedIterable<E> container, final int startIndex, final int endIndex) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
@@ -58,7 +58,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
       .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
       .isNotBiggerThan(container.getCount());
 
-    this.abstractWellOrderContainer = container;
+    this.abstractExtendedIterable = container;
     this.startIndex = startIndex;
     this.endIndex = endIndex;
   }
@@ -80,7 +80,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    *                          elements of the given container.
    */
   public static <T> IntervallContainerView<T> forContainerAndStartIndexAndEndIndex(
-    final AbstractWellOrderContainer<T> container,
+    final AbstractExtendedIterable<T> container,
     final int startIndex,
     final int endIndex) {
     return new IntervallContainerView<>(container, startIndex, endIndex);
@@ -106,7 +106,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
       .thatIsNamed(LowerCaseVariableCatalog.INDEX)
       .isNotBiggerThan(getCount());
 
-    return abstractWellOrderContainer.getStoredAtOneBasedIndex(startIndex + oneBasedIndex - 1);
+    return abstractExtendedIterable.getStoredAtOneBasedIndex(startIndex + oneBasedIndex - 1);
   }
 
   /**
@@ -123,7 +123,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
   @Override
   public CopyableIterator<E> iterator() {
     return //
-    IntervallContainerViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractWellOrderContainer, startIndex, endIndex);
+    IntervallContainerViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractExtendedIterable, startIndex, endIndex);
   }
 
   /**
