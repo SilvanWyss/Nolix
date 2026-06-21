@@ -5,7 +5,7 @@ package ch.nolix.baseapi.container.sequencesearch;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link ISequencePattern} is a pattern for sequences.
@@ -47,7 +47,7 @@ public interface ISequencePattern<E> {
    * @throws RuntimeException if the given condition is null.
    * @throws RuntimeException if one of the given conditions is null.
    */
-  ISequencePattern<E> withConditionsForNexts(IWellOrderContainer<Predicate<E>> conditions);
+  ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions);
 
   /**
    * Adds the given sequenceCondition to the current {@link ISequencePattern}.
@@ -59,7 +59,7 @@ public interface ISequencePattern<E> {
    * @throws RuntimeException if the given sequenceCondition is null.
    * 
    */
-  ISequencePattern<E> withSequenceCondition(Predicate<IWellOrderContainer<E>> sequenceCondition);
+  ISequencePattern<E> withSequenceCondition(Predicate<ExtendedIterable<E>> sequenceCondition);
 
   /**
    * @param count
@@ -74,5 +74,5 @@ public interface ISequencePattern<E> {
    * @return all sequences from the given container that match the current
    *         {@link ISequencePattern}.
    */
-  IWellOrderContainer<? extends IWellOrderContainer<E>> getMatchingSequencesFrom(IWellOrderContainer<E> container);
+  ExtendedIterable<? extends ExtendedIterable<E>> getMatchingSequencesFrom(ExtendedIterable<E> container);
 }

@@ -17,7 +17,7 @@ import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
 import ch.nolix.baseapi.container.matrix.IMatrixColumn;
 import ch.nolix.baseapi.container.matrix.IMatrixRow;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -293,7 +293,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return the columns of the current {@link Matrix}.
    */
   @Override
-  public IWellOrderContainer<IMatrixColumn<E>> getColumns() {
+  public ExtendedIterable<IMatrixColumn<E>> getColumns() {
     final ILinkedList<IMatrixColumn<E>> columns = LinkedList.createEmpty();
 
     //Iterates the columns of the current matrix.
@@ -425,7 +425,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
    * @return the rows of the current {@link Matrix}.
    */
   @Override
-  public IWellOrderContainer<IMatrixRow<E>> getRows() {
+  public ExtendedIterable<IMatrixRow<E>> getRows() {
     final ILinkedList<IMatrixRow<E>> rows = LinkedList.createEmpty();
 
     for (var i = 1; i <= getRowCount(); i++) {

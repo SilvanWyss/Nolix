@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectschema.modelvalidator;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface IDatabaseValidator {
   void assertContainsTable(IDatabase database, ITable tables);
 
-  void assertContainsTables(IDatabase database, IWellOrderContainer<ITable> tables);
+  void assertContainsTables(IDatabase database, ExtendedIterable<ITable> tables);
 
   void assertAllBackReferencesAreValid(IDatabase database);
 

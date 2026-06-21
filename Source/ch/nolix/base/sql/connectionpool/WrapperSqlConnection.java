@@ -5,7 +5,7 @@ package ch.nolix.base.sql.connectionpool;
 
 import ch.nolix.base.resourcecontrol.resourcepool.AbstractWrapperResource;
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
@@ -36,7 +36,7 @@ implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public void executeStatements(final IWellOrderContainer<String> statements) {
+  public void executeStatements(final ExtendedIterable<String> statements) {
     getStoredResource().executeStatements(statements);
   }
 
@@ -60,7 +60,7 @@ implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ISqlRecord> getRecordsFromQuery(final String query) {
+  public ExtendedIterable<ISqlRecord> getRecordsFromQuery(final String query) {
     return getStoredResource().getRecordsFromQuery(query);
   }
 

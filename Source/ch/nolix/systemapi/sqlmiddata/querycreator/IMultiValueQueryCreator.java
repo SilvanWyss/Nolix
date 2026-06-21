@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmiddata.querycreator;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -12,7 +12,7 @@ public interface IMultiValueQueryCreator {
   String createQueryToCountMultiValueEntriesForGivenColumnAndValueIgnoringGivenEntities(
     String columnId,
     String value,
-    IWellOrderContainer<String> entitiesToIgnoreIds);
+    ExtendedIterable<String> entitiesToIgnoreIds);
 
   String createQueryToLoadMultiValueEntries(String entityId, String multiValueColumnId);
 

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.datamodel.id.IdCreator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.schemamapper.ColumnMapper;
 import ch.nolix.system.objectdata.schemasearcher.SchemaSearcher;
@@ -57,7 +57,7 @@ public final class SchemaInitializer {
   }
 
   private static void addBaseValueColumnsToTables(
-    final IWellOrderContainer<ITable> tables,
+    final ExtendedIterable<ITable> tables,
     final IEntityTypeSet entityTypeSet) {
     for (final var t : tables) {
       final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, t.getName());
@@ -84,9 +84,9 @@ public final class SchemaInitializer {
   }
 
   private static void addBaseReferenceColumnsToTables(
-    final IWellOrderContainer<ITable> tables,
+    final ExtendedIterable<ITable> tables,
     final IEntityTypeSet entityTypeSet,
-    final IWellOrderContainer<ITable> referencableTables) {
+    final ExtendedIterable<ITable> referencableTables) {
     for (final var t : tables) {
       final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, t.getName());
       addBaseReferenceColumnsToTable(t, entityType, referencableTables);
@@ -96,7 +96,7 @@ public final class SchemaInitializer {
   private static void addBaseReferenceColumnsToTable(
     final ITable table,
     final Class<? extends IEntity> entityType,
-    final IWellOrderContainer<ITable> referencableTables) {
+    final ExtendedIterable<ITable> referencableTables) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseReferencesView = //
@@ -113,9 +113,9 @@ public final class SchemaInitializer {
   }
 
   private static void addBaseBackReferenceColumnsToTables(
-    final IWellOrderContainer<ITable> tables,
+    final ExtendedIterable<ITable> tables,
     final IEntityTypeSet entityTypeSet,
-    final IWellOrderContainer<ITable> referencableTables) {
+    final ExtendedIterable<ITable> referencableTables) {
     for (final var t : tables) {
       final var entityType = SCHEMA_SEARCHER.getEntityTypeByName(entityTypeSet, t.getName());
       addBaseBackReferenceColumnsToTable(t, entityType, referencableTables);
@@ -125,7 +125,7 @@ public final class SchemaInitializer {
   private static void addBaseBackReferenceColumnsToTable(
     final ITable table,
     final Class<? extends IEntity> entityType,
-    final IWellOrderContainer<ITable> referencableTables) {
+    final ExtendedIterable<ITable> referencableTables) {
     final var entity = ENTITY_CREATOR.createEmptyEntityForEntityType(entityType);
 
     final var baseBackReferencesView = //

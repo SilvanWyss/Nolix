@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 
@@ -18,7 +18,7 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
   private final String backReferencedFieldName;
 
   protected AbstractBaseBackReference(
-    final IWellOrderContainer<String> backReferenceableTableNames,
+    final ExtendedIterable<String> backReferenceableTableNames,
     final String backReferencedFieldName) {
 
     Validator.assertThatTheStrings(backReferenceableTableNames).areNotBlank();
@@ -36,7 +36,7 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> getBackReferenceableTableNames() {
+  public final ExtendedIterable<String> getBackReferenceableTableNames() {
     return backReferenceableTableNames;
   }
 
@@ -52,7 +52,7 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public final ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 

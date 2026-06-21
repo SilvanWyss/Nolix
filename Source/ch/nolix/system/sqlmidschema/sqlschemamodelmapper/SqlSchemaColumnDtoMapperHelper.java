@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnConstraintDto;
@@ -20,7 +20,7 @@ public final class SqlSchemaColumnDtoMapperHelper {
     final ColumnDto columnDto) {
     final var columnName = columnDto.name();
     final var dataType = DataTypeTypeCatalog.TEXT;
-    final IWellOrderContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
+    final ExtendedIterable<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
 
     return new ch.nolix.systemapi.sqlschema.model.ColumnDto(columnName, dataType, constraints);
   }
@@ -29,7 +29,7 @@ public final class SqlSchemaColumnDtoMapperHelper {
     final ColumnDto columnDto) {
     final var columnName = columnDto.name() + "Table";
     final var dataType = DataTypeTypeCatalog.TEXT;
-    final IWellOrderContainer<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
+    final ExtendedIterable<ColumnConstraintDto> constraints = ImmutableList.createEmpty();
 
     return new ch.nolix.systemapi.sqlschema.model.ColumnDto(columnName, dataType, constraints);
   }

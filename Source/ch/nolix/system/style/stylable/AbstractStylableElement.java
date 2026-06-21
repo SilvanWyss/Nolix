@@ -4,7 +4,7 @@
 package ch.nolix.system.style.stylable;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
@@ -48,7 +48,7 @@ implements IStylableElement<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> getTokens() {
+  public final ExtendedIterable<String> getTokens() {
     return tokens.getStoredValues();
   }
 

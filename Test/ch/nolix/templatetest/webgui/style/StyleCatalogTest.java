@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.atomiccontrol.dropdownmenu.DropdownMenu;
 import ch.nolix.system.atomiccontrol.imagecontrol.ImageControl;
@@ -31,7 +31,7 @@ import ch.nolix.template.webgui.style.StyleCatalog;
  */
 final class StyleCatalogTest extends StandardTest {
   @MethodSource
-  private static IWellOrderContainer<Arguments> getStyles() {
+  private static ExtendedIterable<Arguments> getStyles() {
     return //
     ImmutableList.withElements(
       Arguments.of(StyleCatalog.DARK_EDGE_STYLE),

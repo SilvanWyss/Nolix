@@ -3,13 +3,13 @@
  */
 package ch.nolix.baseapi.objectcomposition.linking;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
  */
 public interface LinkedRequestable {
-  IWellOrderContainer<Object> getStoredLinkedObjects();
+  ExtendedIterable<Object> getStoredLinkedObjects();
 
   boolean isLinkedTo(Object object);
 

@@ -5,7 +5,7 @@ package ch.nolix.baseapi.document.xml;
 
 import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalNameHolder;
 import ch.nolix.baseapi.attribute.optionalattribute.OptionalValueHolder;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -13,13 +13,13 @@ import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
  */
 public interface IXmlNode<N extends IXmlNode<N>>
 extends FluentMutableOptionalNameHolder<N>, OptionalValueHolder<String> {
-  IWellOrderContainer<IXmlAttribute> getAttributes();
+  ExtendedIterable<IXmlAttribute> getAttributes();
 
   boolean containsAttributes();
 
   boolean containsChildNodes();
 
-  IWellOrderContainer<N> getStoredChildNodes();
+  ExtendedIterable<N> getStoredChildNodes();
 
   boolean hasMixedContent();
 }

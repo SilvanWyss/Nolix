@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link MultiTextHolder} can contain several texts.
@@ -14,5 +14,5 @@ public interface MultiTextHolder {
   /**
    * @return the texts of the current {@link MultiTextHolder}
    */
-  IWellOrderContainer<String> getTexts();
+  ExtendedIterable<String> getTexts();
 }

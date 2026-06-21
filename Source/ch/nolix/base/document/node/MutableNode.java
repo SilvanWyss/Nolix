@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -146,7 +146,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<MutableNode> getStoredChildNodes() {
+  public ExtendedIterable<MutableNode> getStoredChildNodes() {
     return memberChildNodes;
   }
 

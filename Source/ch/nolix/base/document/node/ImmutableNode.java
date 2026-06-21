@@ -6,7 +6,7 @@ package ch.nolix.base.document.node;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -36,7 +36,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given childNodes is null.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  private ImmutableNode(final IWellOrderContainer<ImmutableNode> childNodes) {
+  private ImmutableNode(final ExtendedIterable<ImmutableNode> childNodes) {
     this.nullableHeader = null;
     this.childNodes = ImmutableList.fromIterable(childNodes);
   }
@@ -63,7 +63,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given childNodes is null.
    * @throws RuntimeException if one of the given childNodes is null.
    */
-  private ImmutableNode(final String header, final IWellOrderContainer<ImmutableNode> childNodes) {
+  private ImmutableNode(final String header, final ExtendedIterable<ImmutableNode> childNodes) {
     Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
 
     this.nullableHeader = header;
@@ -387,7 +387,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ImmutableNode> getStoredChildNodes() {
+  public ExtendedIterable<ImmutableNode> getStoredChildNodes() {
     return childNodes;
   }
 

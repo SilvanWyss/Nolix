@@ -12,7 +12,7 @@ import ch.nolix.base.document.node.AbstractNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.logging.Logger;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -205,7 +205,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
     //Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
@@ -217,7 +217,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     //Creates message.
     final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 

@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.base;
 import java.util.Optional;
 
 import ch.nolix.base.document.chainednode.ChainedNode;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
@@ -82,7 +82,7 @@ implements ICookieManager {
 
   protected abstract void runHereOnBaseBackendWebClient(IChainedNode command);
 
-  final IWellOrderContainer<byte[]> internalGetFilesFromClipboardOfCounterpart() {
+  final ExtendedIterable<byte[]> internalGetFilesFromClipboardOfCounterpart() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "getFilesFromClipboard");
   }
 

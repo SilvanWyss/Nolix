@@ -10,7 +10,7 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -18,7 +18,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link FilterContainerView}.
  */
 public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
-  private final IWellOrderContainer<E> wellOrderContainer;
+  private final ExtendedIterable<E> wellOrderContainer;
 
   private final Predicate<E> selector;
 
@@ -31,7 +31,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given selector is null.
    */
-  private FilterContainerView(final IWellOrderContainer<E> container, final Predicate<E> selector) {
+  private FilterContainerView(final ExtendedIterable<E> container, final Predicate<E> selector) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -40,7 +40,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   /**
-   * @return a new {@link FilterContainerView} for an empty {@link IWellOrderContainer}.
+   * @return a new {@link FilterContainerView} for an empty {@link ExtendedIterable}.
    * @param <T> is the types of the elements of the created
    *            {@link FilterContainerView}.
    */
@@ -58,7 +58,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws RuntimeException if the given selector is null.
    */
   public static <T> FilterContainerView<T> forContainerAndSelector(
-    final IWellOrderContainer<T> container,
+    final ExtendedIterable<T> container,
     final Predicate<T> selector) {
     return new FilterContainerView<>(container, selector);
   }

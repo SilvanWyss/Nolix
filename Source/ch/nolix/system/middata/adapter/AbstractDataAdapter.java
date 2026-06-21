@@ -5,7 +5,7 @@ package ch.nolix.system.middata.adapter;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.middata.adapter.IDataAdapter;
@@ -179,7 +179,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<EntityLoadingDto> loadEntities(final String tableName) {
+  public final ExtendedIterable<EntityLoadingDto> loadEntities(final String tableName) {
     return dataReader.loadEntities(tableName);
   }
 
@@ -227,7 +227,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
+  public final ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnName) {
@@ -238,7 +238,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+  public ExtendedIterable<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final TableIdentification table,
     final String entityId,
     final ColumnIdentification multiBackReferenceColumn) {
@@ -249,7 +249,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
+  public final ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
@@ -260,7 +260,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<Object> loadMultiValueValues(
+  public final ExtendedIterable<Object> loadMultiValueValues(
     final String tableName,
     final String entityId,
     final String multiFieldColumnName) {
@@ -318,7 +318,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
     final String tableName,
     final String columnName,
     final String value,
-    final IWellOrderContainer<String> entitiesToIgnoreIds) {
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
     return //
     dataReader.tableContainsEntityWithValueAtColumnIgnoringEntities(
       tableName,

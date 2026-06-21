@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.resourcecontrol.closecontroller;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 
 /**
@@ -18,7 +18,7 @@ public interface IClosePool {
    * @throws RuntimeException if the current {@link IClosePool} contains already
    *                          one of the given elements.
    */
-  void addElements(IWellOrderContainer<GroupCloseable> elements);
+  void addElements(ExtendedIterable<GroupCloseable> elements);
 
   /**
    * Closes the elements of the current {@link IClosePool} if the state of the
@@ -29,7 +29,7 @@ public interface IClosePool {
   /**
    * @return the elements of the current {@link IClosePool}.
    */
-  IWellOrderContainer<GroupCloseable> getStoredElements();
+  ExtendedIterable<GroupCloseable> getStoredElements();
 
   /**
    * @return the state of the current {@link IClosePool}.

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -31,7 +31,7 @@ public final class GeneralEntity extends AbstractEntity {
    * {@inheritDoc}
    */
   @Override
-  IWellOrderContainer<AbstractField> findFields() {
+  ExtendedIterable<AbstractField> findFields() {
     return FieldFromTableCreator.createFieldsFromTable(getStoredParentTable());
   }
 }

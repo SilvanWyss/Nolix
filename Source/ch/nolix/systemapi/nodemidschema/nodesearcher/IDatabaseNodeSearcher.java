@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
@@ -26,7 +26,7 @@ public interface IDatabaseNodeSearcher {
     IMutableNode<?> nodeDatabase,
     String tableName);
 
-  IWellOrderContainer<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(IMutableNode<?> nodeDatabase);
+  ExtendedIterable<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(IMutableNode<?> nodeDatabase);
 
   int getTableNodeCount(IMutableNode<?> nodeDatabase);
 }

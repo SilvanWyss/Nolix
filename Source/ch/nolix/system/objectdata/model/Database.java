@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
@@ -24,7 +24,7 @@ public final class Database implements IDatabase {
 
   private final ITime schemaTimestamp;
 
-  private final IWellOrderContainer<? extends ITable<IEntity>> tables;
+  private final ExtendedIterable<? extends ITable<IEntity>> tables;
 
   private final IDataAdapterAndSchemaReader midDataAdapterAndSchemaReader;
 
@@ -101,7 +101,7 @@ public final class Database implements IDatabase {
    * {@inheritDoc}
    */
   @Override
-  public <E extends IEntity> IWellOrderContainer<E> getStoredEntitiesByType(final Class<E> type) {
+  public <E extends IEntity> ExtendedIterable<E> getStoredEntitiesByType(final Class<E> type) {
     final var table = getStoredTableByEntityType(type);
 
     return table.getStoredEntities();
@@ -130,7 +130,7 @@ public final class Database implements IDatabase {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends ITable<IEntity>> getStoredTables() {
+  public ExtendedIterable<? extends ITable<IEntity>> getStoredTables() {
     return tables;
   }
 

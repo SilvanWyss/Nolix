@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.datastructure.property.LazyCalculatedProperty;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.entitytool.EntityFiller;
@@ -49,7 +49,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   private final Class<E> entityClass;
 
-  private final LazyCalculatedProperty<IWellOrderContainer<IColumn>> columnsThatReferenceCurrentTable = //
+  private final LazyCalculatedProperty<ExtendedIterable<IColumn>> columnsThatReferenceCurrentTable = //
   LazyCalculatedProperty.forValueCreater(() -> TABLE_TOOL.getStoredColumsThatReferencesTable(this));
 
   private boolean loadedAllEntitiesInLocalData;
@@ -165,7 +165,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IColumn> getStoredColumns() {
+  public ExtendedIterable<IColumn> getStoredColumns() {
     return memberColumns;
   }
 
@@ -173,7 +173,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<E> getStoredEntities() {
+  public ExtendedIterable<E> getStoredEntities() {
     loadAllEntitiesInLocalDataIfNotLoaded();
 
     return entitiesInLocalData;
@@ -286,7 +286,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<E> internalGetStoredEntitiesInLocalData() {
+  public ExtendedIterable<E> internalGetStoredEntitiesInLocalData() {
     return entitiesInLocalData;
   }
 
@@ -304,11 +304,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
     memberColumns.addAtEnd(column);
   }
 
-  IWellOrderContainer<IColumn> internalGetColumnsThatReferencesCurrentTable() {
+  ExtendedIterable<IColumn> internalGetColumnsThatReferencesCurrentTable() {
     return columnsThatReferenceCurrentTable.getStoredValue();
   }
 
-  void internalSetColumns(final IWellOrderContainer<IColumn> columns) {
+  void internalSetColumns(final ExtendedIterable<IColumn> columns) {
     memberColumns.clear();
     memberColumns.addAtEnd(columns);
   }

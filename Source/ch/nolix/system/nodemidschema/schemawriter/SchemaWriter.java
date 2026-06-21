@@ -6,8 +6,8 @@ package ch.nolix.system.nodemidschema.schemawriter;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.time.moment.IncrementalCurrentTimeCreator;
@@ -169,8 +169,8 @@ public final class SchemaWriter implements ISchemaWriter {
     final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
-    final IWellOrderContainer<String> referenceableTableIds,
-    final IWellOrderContainer<String> backReferenceableColumnIds) {
+    final ExtendedIterable<String> referenceableTableIds,
+    final ExtendedIterable<String> backReferenceableColumnIds) {
     SchemaWriterActionProvider.setColumnModel(
       editedNodeDatabase,
       table,

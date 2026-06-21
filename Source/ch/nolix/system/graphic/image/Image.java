@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import ch.nolix.base.container.matrix.Matrix;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.graphic.color.IColor;
@@ -61,7 +61,7 @@ public final class Image extends AbstractElement implements IImage {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<INode<?>> getAttributes() {
+  public ExtendedIterable<INode<?>> getAttributes() {
     return internalImage.getAttributes();
   }
 

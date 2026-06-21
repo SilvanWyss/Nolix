@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.schemamapper;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -14,5 +14,5 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface ITableMapper {
   ITable mapEntityTypeToEmptyTable(Class<? extends IEntity> entityType);
 
-  IWellOrderContainer<ITable> mapSchemaToEmptyTables(IEntityTypeSet entityTypeSet);
+  ExtendedIterable<ITable> mapSchemaToEmptyTables(IEntityTypeSet entityTypeSet);
 }

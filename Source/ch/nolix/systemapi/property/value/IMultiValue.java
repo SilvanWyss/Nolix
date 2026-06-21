@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.property.value;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
@@ -22,7 +22,7 @@ public interface IMultiValue<V> extends Clearable, IBaseValue {
   /**
    * @return the values of the current {@link IMultiValue}.
    */
-  IWellOrderContainer<V> getStoredValues();
+  ExtendedIterable<V> getStoredValues();
 
   /**
    * Removes all occurrences of the given value from the current

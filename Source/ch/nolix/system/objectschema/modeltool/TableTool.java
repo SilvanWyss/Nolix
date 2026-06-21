@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.modeltool;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -25,7 +25,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IColumn> getStoredBaseBackReferenceColumns(final ITable table) {
+  public ExtendedIterable<? extends IColumn> getStoredBaseBackReferenceColumns(final ITable table) {
     return table.getStoredColumns().getStoredSelected(COLUMN_TOOL::isABackReferenceColumn);
   }
 
@@ -33,7 +33,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IColumn> getStoredBackReferencingColumns(final ITable table) {
+  public ExtendedIterable<? extends IColumn> getStoredBackReferencingColumns(final ITable table) {
     if (!table.belongsToDatabase()) {
       return TableToolHelper.getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(table);
     }
@@ -45,7 +45,7 @@ public final class TableTool extends DatabaseObjectExaminer implements ITableToo
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IColumn> getStoredReferencingColumns(final ITable table) {
+  public ExtendedIterable<? extends IColumn> getStoredReferencingColumns(final ITable table) {
     if (!table.belongsToDatabase()) {
       return TableToolHelper.getStoredReferencingColumnsWhenDoesNotBelongToDatabase(table);
     }

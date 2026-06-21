@@ -12,7 +12,7 @@ import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
@@ -252,7 +252,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -282,7 +282,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -302,7 +302,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements() {
     final ILinkedList<IControl<?, ?>> childConfigurableElements = LinkedList.createEmpty();
 
     if (containsAny()) {

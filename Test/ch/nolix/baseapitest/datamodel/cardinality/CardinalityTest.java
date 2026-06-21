@@ -9,16 +9,16 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
  */
 final class CardinalityTest extends StandardTest {
   @MethodSource
-  private static IWellOrderContainer<Arguments> getCardinalitysAndTheirBaseCardinality() {
+  private static ExtendedIterable<Arguments> getCardinalitysAndTheirBaseCardinality() {
     return //
     ImmutableList.withElements(
       Arguments.of(Cardinality.TO_ONE, BaseCardinality.SINGLE),

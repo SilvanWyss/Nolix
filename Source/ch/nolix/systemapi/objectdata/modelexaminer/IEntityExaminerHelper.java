@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.objectdata.modelexaminer;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 
 /**
  * @author Silvan Wyss
  */
 public interface IEntityExaminerHelper {
-  IWellOrderContainer<String> getLocallyDeletedEntitiesIds(IDatabase database);
+  ExtendedIterable<String> getLocallyDeletedEntitiesIds(IDatabase database);
 }

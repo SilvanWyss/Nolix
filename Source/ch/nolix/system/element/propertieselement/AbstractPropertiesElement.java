@@ -10,7 +10,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.errormapping.IllegalAccessErrorMapper;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -66,7 +66,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<INode<?>> getAttributes() {
+  public final ExtendedIterable<INode<?>> getAttributes() {
     //Creates attributes list.
     final LinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
@@ -205,7 +205,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * @return the {@link IProperty}s of the current
    *         {@link AbstractPropertiesElement}.
    */
-  private IWellOrderContainer<IProperty> getStoredProperties() {
+  private ExtendedIterable<IProperty> getStoredProperties() {
     addPropertiesIfNotAdded();
 
     return properties;

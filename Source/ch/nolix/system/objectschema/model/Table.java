@@ -7,8 +7,8 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectschema.modelmutationvalidator.TableMutationValidator;
@@ -69,7 +69,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
    * {@inheritDoc}
    */
   @Override
-  public ITable addColumns(final IWellOrderContainer<IColumn> columns) {
+  public ITable addColumns(final ExtendedIterable<IColumn> columns) {
     for (final var c : columns) {
       addColumn(c);
     }
@@ -93,8 +93,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
     final String name,
     final FieldType fieldType,
     final DataType dataType,
-    final IWellOrderContainer<? extends ITable> referenceableTables,
-    final IWellOrderContainer<? extends IColumn> backReferenceableColumns) {
+    final ExtendedIterable<? extends ITable> referenceableTables,
+    final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
     final var columnId = IdCreator.createIdOf10HexadecimalCharacters();
 
     final var column = //
@@ -149,7 +149,7 @@ public final class Table extends AbstractSchemaObject implements ITable {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IColumn> getStoredColumns() {
+  public ExtendedIterable<? extends IColumn> getStoredColumns() {
     return memberColumns;
   }
 

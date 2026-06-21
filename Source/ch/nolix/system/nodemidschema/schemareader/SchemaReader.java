@@ -5,7 +5,7 @@ package ch.nolix.system.nodemidschema.schemareader;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.nodemidschema.nodeexaminer.TableNodeExaminer;
@@ -100,7 +100,7 @@ public final class SchemaReader implements ISchemaReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<TableDto> loadTables() {
+  public ExtendedIterable<TableDto> loadTables() {
     final var tableNodes = DATABASE_NODE_SEARCHER.getStoredTableNodesFromNodeDatabase(nodeDatabase);
 
     return tableNodes.to(SCHEMA_READER_HELPER::loadTableFromTableNode);

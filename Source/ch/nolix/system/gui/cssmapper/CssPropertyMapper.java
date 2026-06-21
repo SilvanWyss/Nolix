@@ -6,7 +6,7 @@ package ch.nolix.system.gui.cssmapper;
 import java.util.Optional;
 
 import ch.nolix.base.web.cssmodel.CssProperty;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
@@ -25,7 +25,7 @@ public final class CssPropertyMapper implements ICssPropertyMapper {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ICssProperty> mapBackgroundToCssProperties(final IBackground background) {
+  public ExtendedIterable<ICssProperty> mapBackgroundToCssProperties(final IBackground background) {
     final var type = background.getType();
 
     return //
@@ -62,7 +62,7 @@ public final class CssPropertyMapper implements ICssPropertyMapper {
    */
   @Override
   public Optional<ICssProperty> mapCornerShadowsToOptionalCssProperty(
-    final IWellOrderContainer<? extends ICornerShadow> cornerShadows) {
+    final ExtendedIterable<? extends ICornerShadow> cornerShadows) {
     if (cornerShadows.containsAny()) {
       return //
       Optional.of(

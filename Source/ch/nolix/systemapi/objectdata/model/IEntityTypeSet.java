@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
  */
 public interface IEntityTypeSet {
-  IWellOrderContainer<Class<? extends IEntity>> getEntityTypes();
+  ExtendedIterable<Class<? extends IEntity>> getEntityTypes();
 }

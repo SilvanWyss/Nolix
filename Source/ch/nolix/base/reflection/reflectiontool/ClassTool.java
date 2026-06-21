@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.reflection.reflectionexaminer.IFieldExaminer;
 import ch.nolix.baseapi.reflection.reflectiontool.IClassTool;
 
@@ -45,7 +45,7 @@ public final class ClassTool implements IClassTool {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
+  public ExtendedIterable<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
     final var publicStaticFields = LinkedList.createEmpty();
 
     //Iterates the fields of the given Class.

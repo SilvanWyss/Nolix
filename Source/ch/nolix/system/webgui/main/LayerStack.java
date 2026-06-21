@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.webgui.main.IControl;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.ILayerStack;
@@ -81,7 +81,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
     return getStoredLayers().toMultiples(ILayer::getStoredControls);
   }
 
@@ -89,7 +89,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ILayer> getStoredLayers() {
+  public ExtendedIterable<ILayer> getStoredLayers() {
     return layers;
   }
 
@@ -97,7 +97,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     return getStoredLayers().toMultiples(ILayer::getStoredStructureControls);
   }
 

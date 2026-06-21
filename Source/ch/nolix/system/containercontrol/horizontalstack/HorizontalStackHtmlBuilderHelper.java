@@ -4,7 +4,7 @@
 package ch.nolix.system.containercontrol.horizontalstack;
 
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.containercontrol.horizontalstack.IHorizontalStack;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -16,7 +16,7 @@ public final class HorizontalStackHtmlBuilderHelper {
   private HorizontalStackHtmlBuilderHelper() {
   }
 
-  public static IWellOrderContainer<HtmlElement> createHtmlElementsForChildControlsOfHorizontalStack(
+  public static ExtendedIterable<HtmlElement> createHtmlElementsForChildControlsOfHorizontalStack(
     final IHorizontalStack horizontalStack) {
     return //
     horizontalStack.getStoredChildControls().to(HorizontalStackHtmlBuilderHelper::createHtmlElementsForChildControl);

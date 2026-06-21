@@ -9,7 +9,7 @@ import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -19,7 +19,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  *            from its elements.
  */
 public final class MappingContainerView<E, T> extends AbstractExtendedContainer<T> {
-  private final IWellOrderContainer<E> wellOrderContainer;
+  private final ExtendedIterable<E> wellOrderContainer;
 
   private final Function<E, T> mapper;
 
@@ -32,7 +32,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given mapper is null.
    */
-  private MappingContainerView(final IWellOrderContainer<E> container, final Function<E, T> mapper) {
+  private MappingContainerView(final ExtendedIterable<E> container, final Function<E, T> mapper) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
     this.wellOrderContainer = container;

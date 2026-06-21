@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmiddata.sqlmapper;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.sql.sqltool.SqlLiteralMapper;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.sqlmiddata.sqlmapper.ISqlPartsMapper;
@@ -20,7 +20,7 @@ public final class SqlPartsMapper implements ISqlPartsMapper {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> mapValueStringFieldDtoToColumnNames(final ValueStringFieldDto valueStringFieldDto) {
+  public ExtendedIterable<String> mapValueStringFieldDtoToColumnNames(final ValueStringFieldDto valueStringFieldDto) {
     final var columnName = valueStringFieldDto.columnName();
 
     if (valueStringFieldDto.nullableAdditionalValue() != null) {
@@ -36,7 +36,7 @@ public final class SqlPartsMapper implements ISqlPartsMapper {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> mapValueStringFieldDtoToSqlValueLiterals(final ValueStringFieldDto valueStringFieldDto) {
+  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueLiterals(final ValueStringFieldDto valueStringFieldDto) {
     final var nullableValueString = valueStringFieldDto.nullableValueString();
     final var valueSqlLiteral = SQL_LITERAL_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);
     final var nullableAdditionalValue = valueStringFieldDto.nullableAdditionalValue();

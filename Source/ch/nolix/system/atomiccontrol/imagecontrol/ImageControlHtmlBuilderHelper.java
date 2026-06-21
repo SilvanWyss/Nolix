@@ -6,7 +6,7 @@ package ch.nolix.system.atomiccontrol.imagecontrol;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
 import ch.nolix.systemapi.atomiccontrol.imagecontrol.IImageControl;
@@ -18,7 +18,7 @@ public final class ImageControlHtmlBuilderHelper {
   private ImageControlHtmlBuilderHelper() {
   }
 
-  public static IWellOrderContainer<IHtmlAttribute> createHtmlAttributesForImageControl(final IImageControl imageControl) {
+  public static ExtendedIterable<IHtmlAttribute> createHtmlAttributesForImageControl(final IImageControl imageControl) {
     final ILinkedList<IHtmlAttribute> htmlAttributes = LinkedList.createEmpty();
 
     if (imageControl.containsAny()) {

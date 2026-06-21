@@ -4,7 +4,7 @@
 package ch.nolix.system.containercontrol.floatcontainer;
 
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webgui.main.IControl;
 
@@ -15,7 +15,7 @@ public final class FloatContainerHtmlBuilderHelper {
   private FloatContainerHtmlBuilderHelper() {
   }
 
-  public static IWellOrderContainer<HtmlElement> createHtmlElementsForChildControlsOfFloatContainer(
+  public static ExtendedIterable<HtmlElement> createHtmlElementsForChildControlsOfFloatContainer(
     final FloatContainer floatContainer) {
     return //
     floatContainer.getStoredChildControls().to(FloatContainerHtmlBuilderHelper::createHtmlElementsForChildControl);

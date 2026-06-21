@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.querycreator;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.databasestructure.DatabaseProperty;
 import ch.nolix.systemapi.midschemainfo.model.ColumnInfoDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
@@ -67,7 +67,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     final String tableName,
     final String columnName,
     final String value,
-    final IWellOrderContainer<String> entitiesToIgnoreIds) {
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
     return //
     "SELECT COUNT("
     + columnName

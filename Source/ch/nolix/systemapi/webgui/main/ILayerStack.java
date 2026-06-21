@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webgui.main;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
@@ -18,11 +18,11 @@ public interface ILayerStack extends Clearable {
 
   Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
-  IWellOrderContainer<IControl<?, ?>> getStoredControls();
+  ExtendedIterable<IControl<?, ?>> getStoredControls();
 
-  IWellOrderContainer<ILayer> getStoredLayers();
+  ExtendedIterable<ILayer> getStoredLayers();
 
-  IWellOrderContainer<IControl<?, ?>> getStoredStructureControls();
+  ExtendedIterable<IControl<?, ?>> getStoredStructureControls();
 
   ILayer getStoredTopLayer();
 

@@ -7,7 +7,7 @@ import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -25,7 +25,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
   private static final ContainerView<Object> EMPTY_ARRAY_CONTAINER_VIEW = //
   new ContainerView<>(ImmutableList.createEmpty());
 
-  private final IWellOrderContainer<E> internalContainer;
+  private final ExtendedIterable<E> internalContainer;
 
   /**
    * Creates a new {@link ContainerView} for the given container.
@@ -33,7 +33,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @param container
    * @throws RuntimeException if the given container is null.
    */
-  private ContainerView(final IWellOrderContainer<E> container) {
+  private ContainerView(final ExtendedIterable<E> container) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
     internalContainer = container;

@@ -5,7 +5,7 @@ package ch.nolix.system.nodemiddata.loader;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.midschemainfo.modelsearcher.DatabaseInfoSearcher;
@@ -82,7 +82,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
+  public ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
     final String multiBackReferenceColumnName) {
@@ -97,7 +97,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+  public ExtendedIterable<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final TableIdentification table,
     final String entityId,
     final ColumnIdentification multiBackReferenceColumn) {
@@ -114,7 +114,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
+  public ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final String multiReferenceColumnName) {
@@ -127,7 +127,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<Object> loadMultiValueValues(
+  public ExtendedIterable<Object> loadMultiValueValues(
     final String tableName,
     final String entityId,
     final String multiValueColumnName) {
@@ -140,7 +140,7 @@ public final class DataReader implements IDataReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<EntityLoadingDto> loadEntities(final String tableName) {
+  public ExtendedIterable<EntityLoadingDto> loadEntities(final String tableName) {
     final var tableView = getTableViewByTableName(tableName);
 
     return internalDataReader.loadEntitiesOfTable(tableView);
@@ -185,7 +185,7 @@ public final class DataReader implements IDataReader {
     final String tableName,
     final String columnName,
     final String value,
-    final IWellOrderContainer<String> entitiesToIgnoreIds) {
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
     final var columnView = getColumnViewByTableNameAndColumnName(tableName, columnName);
 
     return //

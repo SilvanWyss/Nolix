@@ -10,7 +10,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.document.node.INodeComparator;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
@@ -139,7 +139,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> getChildNodesHeaders() {
+  public final ExtendedIterable<String> getChildNodesHeaders() {
     return getStoredChildNodes().to(INode::getHeader);
   }
 
@@ -163,7 +163,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<N> getStoredChildNodesWithHeader(final String header) {
+  public final ExtendedIterable<N> getStoredChildNodesWithHeader(final String header) {
     return getStoredChildNodesThat(a -> a.hasHeader(header));
   }
 
@@ -171,7 +171,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<N> getStoredChildNodesThat(final Predicate<INode<?>> selector) {
+  public final ExtendedIterable<N> getStoredChildNodesThat(final Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 

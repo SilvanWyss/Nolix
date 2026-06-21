@@ -7,7 +7,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.misc.dataobject.VoidObject;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -286,7 +286,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<? extends IApplication<?, ?>> getStoredApplications() {
+  public final ExtendedIterable<? extends IApplication<?, ?>> getStoredApplications() {
     return applications;
   }
 

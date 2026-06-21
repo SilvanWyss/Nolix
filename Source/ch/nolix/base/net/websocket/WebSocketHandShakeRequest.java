@@ -4,7 +4,7 @@
 package ch.nolix.base.net.websocket;
 
 import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -14,13 +14,13 @@ public final class WebSocketHandShakeRequest {
 
   private final String secWebSocketKey;
 
-  private WebSocketHandShakeRequest(final IWellOrderContainer<String> lines) {
+  private WebSocketHandShakeRequest(final ExtendedIterable<String> lines) {
     secWebSocketKey = lines
       .getStoredFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
       .substring(SEC_WEBSOCKET_KEY_HEADER.length() + 2);
   }
 
-  public static WebSocketHandShakeRequest fromLines(final IWellOrderContainer<String> lines) {
+  public static WebSocketHandShakeRequest fromLines(final ExtendedIterable<String> lines) {
     return new WebSocketHandShakeRequest(lines);
   }
 

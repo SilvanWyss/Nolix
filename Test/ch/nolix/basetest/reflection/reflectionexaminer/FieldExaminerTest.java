@@ -14,7 +14,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.matrix.IMatrix;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -71,7 +71,7 @@ final class FieldExaminerTest extends StandardTest {
     final var testUnit = new FieldExaminer();
 
     //execution
-    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IWellOrderContainer.class);
+    final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ExtendedIterable.class);
 
     //verification
     expect(result).isTrue();

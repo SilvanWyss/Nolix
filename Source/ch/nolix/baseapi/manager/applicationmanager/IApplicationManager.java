@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.manager.applicationmanager;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -13,5 +13,5 @@ public interface IApplicationManager<A> {
   /**
    * @return the applications of the current {@link IApplicationManager}.
    */
-  IWellOrderContainer<? extends A> getStoredApplications();
+  ExtendedIterable<? extends A> getStoredApplications();
 }

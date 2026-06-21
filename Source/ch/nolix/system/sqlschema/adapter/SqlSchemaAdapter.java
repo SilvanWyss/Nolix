@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlschema.adapter;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
@@ -52,7 +52,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public void addAdditionalSqlStatements(final IWellOrderContainer<String> additionalSqlStatements) {
+  public void addAdditionalSqlStatements(final ExtendedIterable<String> additionalSqlStatements) {
     schemaWriter.addAdditionalSqlStatements(additionalSqlStatements);
   }
 
@@ -68,7 +68,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public void addColumns(final TableIdentification table, final IWellOrderContainer<ColumnDto> columns) {
+  public void addColumns(final TableIdentification table, final ExtendedIterable<ColumnDto> columns) {
     for (final var c : columns) {
       addColumn(table, c);
     }
@@ -86,7 +86,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public void addTables(final IWellOrderContainer<TableDto> tables) {
+  public void addTables(final ExtendedIterable<TableDto> tables) {
     for (final var t : tables) {
       addTable(t);
     }
@@ -178,7 +178,7 @@ public final class SqlSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<TableDto> loadTables() {
+  public ExtendedIterable<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 

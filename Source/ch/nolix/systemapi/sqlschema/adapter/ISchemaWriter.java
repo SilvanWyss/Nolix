@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlschema.adapter;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.midschema.structure.TableIdentification;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
@@ -13,15 +13,15 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
  * @author Silvan Wyss
  */
 public interface ISchemaWriter extends IResettableChangeSaver {
-  void addAdditionalSqlStatements(IWellOrderContainer<String> additionalSqlStatements);
+  void addAdditionalSqlStatements(ExtendedIterable<String> additionalSqlStatements);
 
   void addColumn(TableIdentification table, ColumnDto column);
 
-  void addColumns(TableIdentification table, IWellOrderContainer<ColumnDto> columns);
+  void addColumns(TableIdentification table, ExtendedIterable<ColumnDto> columns);
 
   void addTable(TableDto table);
 
-  void addTables(IWellOrderContainer<TableDto> tables);
+  void addTables(ExtendedIterable<TableDto> tables);
 
   void addTables(TableDto... tables);
 

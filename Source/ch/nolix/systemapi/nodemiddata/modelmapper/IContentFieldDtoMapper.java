@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.modelmapper;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.FieldDto;
@@ -31,7 +31,7 @@ public interface IContentFieldDtoMapper {
    * @return new {ContentFieldDto}s from the given entityNode.
    * @throws RuntimeException if the given entityNode is null.
    */
-  IWellOrderContainer<FieldDto> mapEntityNodeToContentFieldDtos(
+  ExtendedIterable<FieldDto> mapEntityNodeToContentFieldDtos(
     IMutableNode<?> entityNode,
     TableInfoDto tableView);
 }

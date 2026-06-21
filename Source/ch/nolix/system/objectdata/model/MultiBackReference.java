@@ -8,7 +8,7 @@ import java.util.Iterator;
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.databaseobject.modelexaminer.DatabaseObjectExaminer;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldexaminer.FieldExaminer;
@@ -43,7 +43,7 @@ implements IMultiBackReference<E> {
   private final LinkedList<MultiBackReferenceEntry<E>> localEntries = LinkedList.createEmpty();
 
   private MultiBackReference(
-    final IWellOrderContainer<String> backReferenceableTableNames,
+    final ExtendedIterable<String> backReferenceableTableNames,
     final String backReferencedFieldName) {
     super(backReferenceableTableNames, backReferencedFieldName);
   }
@@ -61,7 +61,7 @@ implements IMultiBackReference<E> {
 
   public static <T extends IEntity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
-    final IWellOrderContainer<Class<? extends T>> backReferenceableEntityTypes) {
+    final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
     final var backReferenceableTableNamesView = //
     backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
@@ -70,7 +70,7 @@ implements IMultiBackReference<E> {
 
   public static <T extends IEntity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
-    final IWellOrderContainer<String> backReferenceableTableNames) {
+    final ExtendedIterable<String> backReferenceableTableNames) {
     return new MultiBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
@@ -78,7 +78,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> getAllBackReferencedEntityIds() {
+  public ExtendedIterable<String> getAllBackReferencedEntityIds() {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
     return //
@@ -91,7 +91,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<E> getAllStoredBackReferencedEntities() {
+  public ExtendedIterable<E> getAllStoredBackReferencedEntities() {
     updateStateLoadingAllPersistedBackReferencedEntityIdsIfNotLoaded();
 
     return //
@@ -104,7 +104,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
+  public ExtendedIterable<? extends IMultiBackReferenceEntry<E>> getStoredNewAndDeletedEntries() {
     return localEntries.getStoredSelected(DATABASE_OBJECT_EXAMINER::isNewOrDeleted);
   }
 
@@ -112,7 +112,7 @@ implements IMultiBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
+  public ExtendedIterable<IBaseReference> getStoredBackReferencedBaseReferences() {
     final ILinkedList<IBaseReference> abstractReferences = LinkedList.createEmpty();
     final var backReferencedBaseReferenceName = getBackReferencedFieldName();
 
@@ -227,7 +227,7 @@ implements IMultiBackReference<E> {
     return getAllStoredBackReferencedEntities().isEmpty();
   }
 
-  private IWellOrderContainer<MultiBackReferenceEntry<E>> loadAllPersistedEntries() {
+  private ExtendedIterable<MultiBackReferenceEntry<E>> loadAllPersistedEntries() {
     final var parentTable = getStoredParentTable();
     final var tableId = parentTable.getId();
     final var tableName = parentTable.getName();

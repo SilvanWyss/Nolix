@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
@@ -40,7 +40,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   private EntityCache<E> nullableBackReferencedEntityCache;
 
-  private BackReference(final IWellOrderContainer<String> backReferenceableTableNames, final String backReferencedFieldName) {
+  private BackReference(final ExtendedIterable<String> backReferenceableTableNames, final String backReferencedFieldName) {
     super(backReferenceableTableNames, backReferencedFieldName);
   }
 
@@ -57,7 +57,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   public static <T extends IEntity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
-    final IWellOrderContainer<Class<? extends T>> backReferenceableEntityTypes) {
+    final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
     final var backReferenceableTableNamesView = //
     backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
@@ -66,7 +66,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   public static <T extends IEntity> BackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
-    final IWellOrderContainer<String> backReferenceableTableNames) {
+    final ExtendedIterable<String> backReferenceableTableNames) {
     return new BackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
@@ -74,7 +74,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
+  public ExtendedIterable<IBaseReference> getStoredBackReferencedBaseReferences() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

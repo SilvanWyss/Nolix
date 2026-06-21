@@ -7,7 +7,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
@@ -47,7 +47,7 @@ public final class UpdateCommandCreatorHelper {
   }
 
   public static ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
-    final IWellOrderContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
+    final ExtendedIterable<IHtmlElementEvent> htmlElementEventRegistrations) {
     final var eventFunctionsView = //
     htmlElementEventRegistrations.getViewOf(
       e -> ImmutableNode.withChildNodes(ImmutableNode.withHeader(e.getHtmlElementId()), ImmutableNode.withHeader(e.getHtmlEvent())));
@@ -67,7 +67,7 @@ public final class UpdateCommandCreatorHelper {
         ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  public static ChainedNode createSetUserInputFunctionsCommandForControls(final IWellOrderContainer<IControl<?, ?>> controls) {
+  public static ChainedNode createSetUserInputFunctionsCommandForControls(final ExtendedIterable<IControl<?, ?>> controls) {
     final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {

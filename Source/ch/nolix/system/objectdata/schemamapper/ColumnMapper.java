@@ -4,8 +4,8 @@
 package ch.nolix.system.objectdata.schemamapper;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdata.model.AbstractBaseBackReference;
 import ch.nolix.system.objectdata.model.AbstractBaseReference;
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public final class ColumnMapper implements IColumnMapper {
 
   @Override
-  public IColumn mapFieldToColumn(final IField field, final String columnId, final IWellOrderContainer<ITable> tables) {
+  public IColumn mapFieldToColumn(final IField field, final String columnId, final ExtendedIterable<ITable> tables) {
     if (field instanceof final AbstractBaseValueField<?> baseValueField) {
       return //
       Column.withIdAndNameAndContentModel(

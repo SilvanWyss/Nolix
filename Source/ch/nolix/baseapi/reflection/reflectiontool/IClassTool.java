@@ -5,7 +5,7 @@ package ch.nolix.baseapi.reflection.reflectiontool;
 
 import java.lang.reflect.Constructor;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -15,5 +15,5 @@ public interface IClassTool {
 
   <T> Constructor<T> getDefaultConstructorOfClass(Class<T> paramClass);
 
-  IWellOrderContainer<Object> getStoredPublicStaticFieldValuesOfClass(Class<?> paramClass);
+  ExtendedIterable<Object> getStoredPublicStaticFieldValuesOfClass(Class<?> paramClass);
 }

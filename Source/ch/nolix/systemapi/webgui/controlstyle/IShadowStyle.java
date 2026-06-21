@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.controlstyle;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.webgui.main.ControlState;
 
@@ -12,13 +12,13 @@ import ch.nolix.systemapi.webgui.main.ControlState;
  * @param <S> is the type of a {@link IShadowStyle}.
  */
 public interface IShadowStyle<S extends IShadowStyle<S>> {
-  IWellOrderContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(ControlState state);
+  ExtendedIterable<? extends ICornerShadow> getCornerShadowsWhenHasState(ControlState state);
 
   void removeCustomCornerShadows();
 
   S forStateSetCornerShadow(ControlState state, ICornerShadow cornerShadow);
 
-  S forStateSetCornerShadows(ControlState state, IWellOrderContainer<? extends ICornerShadow> cornerShadows);
+  S forStateSetCornerShadows(ControlState state, ExtendedIterable<? extends ICornerShadow> cornerShadows);
 
   S forStateSetCornerShadows(ControlState state, ICornerShadow... cornerShadows);
 }

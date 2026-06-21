@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -21,10 +21,10 @@ public final class WebClientPartialCounterpartUpdater {
 
   private final BooleanSupplier openStateRequestable;
 
-  private final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner;
 
   private WebClientPartialCounterpartUpdater(
-    final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -34,19 +34,19 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   public static WebClientPartialCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
-    final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
   public void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
-    final IWellOrderContainer<IControl<?, ?>> controls = ImmutableList.withElements(control);
+    final ExtendedIterable<IControl<?, ?>> controls = ImmutableList.withElements(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   public void updateControlsOnCounterpart(
-    final IWellOrderContainer<IControl<?, ?>> controls,
+    final ExtendedIterable<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableCatalog.CONTROLS).isNotEmpty();
 

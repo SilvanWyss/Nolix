@@ -5,13 +5,13 @@ package ch.nolix.systemapi.gui.frontend;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
  */
 public interface IFrontEndReader {
-  IWellOrderContainer<byte[]> getFilesFromClipboard();
+  ExtendedIterable<byte[]> getFilesFromClipboard();
 
   String getTextFromClipboard();
 

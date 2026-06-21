@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.sql.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.OneBasedIndexHolder;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link ISqlRecord} represents a SQL record. A {@link ISqlRecord} stores
@@ -13,6 +13,6 @@ import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
  * 
  * @author Silvan Wyss
  */
-public interface ISqlRecord extends IWellOrderContainer<String>, OneBasedIndexHolder {
+public interface ISqlRecord extends ExtendedIterable<String>, OneBasedIndexHolder {
   //This interface is a dedicated union of other interfaces.
 }

@@ -24,7 +24,7 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -38,7 +38,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link AbstractWellOrderContainer}.
  */
 public abstract class AbstractWellOrderContainer<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
-implements IWellOrderContainer<E> {
+implements ExtendedIterable<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   /**
@@ -128,7 +128,7 @@ implements IWellOrderContainer<E> {
   @Override
   public final boolean containsAsManyAs(Iterable<?> iterable) {
     //Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof final IWellOrderContainer<?> container) {
+    if (iterable instanceof final ExtendedIterable<?> container) {
       return (getCount() == container.getCount());
     }
 
@@ -197,7 +197,7 @@ implements IWellOrderContainer<E> {
   @Override
   public final boolean containsLessThan(final Iterable<?> iterable) {
     //Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof final IWellOrderContainer<?> container) {
+    if (iterable instanceof final ExtendedIterable<?> container) {
       return (getCount() < container.getCount());
     }
 
@@ -214,7 +214,7 @@ implements IWellOrderContainer<E> {
   @Override
   public final boolean containsMoreThan(final Iterable<?> iterable) {
     //Handles the case that the given container is a IContainer.
-    if (iterable instanceof final IWellOrderContainer<?> container) {
+    if (iterable instanceof final ExtendedIterable<?> container) {
       return (getCount() > container.getCount());
     }
 
@@ -957,7 +957,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<? extends IWellOrderContainer<E>> getStoredInGroups(final Function<E, ?> norm) {
+  public final ExtendedIterable<? extends ExtendedIterable<E>> getStoredInGroups(final Function<E, ?> norm) {
     //Asserts that the given norm is not null.
     Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
@@ -1018,12 +1018,12 @@ implements IWellOrderContainer<E> {
    */
   @Override
   @SuppressWarnings("unchecked")
-  public final <T extends E> IWellOrderContainer<T> getStoredOfType(final Class<T> type) {
+  public final <T extends E> ExtendedIterable<T> getStoredOfType(final Class<T> type) {
     //Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
 
     //Calls other method.
-    return (IWellOrderContainer<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
+    return (ExtendedIterable<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
   //For a better performance, this implementation does not use all available comfort methods.
@@ -1095,7 +1095,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getStoredOthers(final Predicate<E> selector) {
+  public final ExtendedIterable<E> getStoredOthers(final Predicate<E> selector) {
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1125,7 +1125,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getStoredSelected(final Predicate<? super E> selector) {
+  public final ExtendedIterable<E> getStoredSelected(final Predicate<? super E> selector) {
     //Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -1249,7 +1249,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public <T> IWellOrderContainer<T> getViewOf(final Function<E, T> mapper) {
+  public <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
     return MappingContainerView.forContainerAndMapper(this, mapper);
   }
 
@@ -1259,7 +1259,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
+  public final ExtendedIterable<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(oneBasedStartIndex, getCount());
   }
@@ -1270,7 +1270,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
+  public final ExtendedIterable<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, oneBasedEndIndex);
   }
@@ -1281,7 +1281,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewWithoutFirst() {
+  public final ExtendedIterable<E> getViewWithoutFirst() {
     //Calls other method.
     return getViewWithoutFirst(1);
   }
@@ -1292,7 +1292,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewWithoutFirst(final int n) {
+  public final ExtendedIterable<E> getViewWithoutFirst(final int n) {
     //Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
@@ -1315,7 +1315,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewWithoutLast() {
+  public final ExtendedIterable<E> getViewWithoutLast() {
     //Calls other method.
     return getViewWithoutLast(1);
   }
@@ -1326,7 +1326,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewWithoutLast(final int n) {
+  public final ExtendedIterable<E> getViewWithoutLast(final int n) {
     //Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
@@ -1370,7 +1370,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <T> IWellOrderContainer<T> to(final Function<E, T> mapper) {
+  public final <T> ExtendedIterable<T> to(final Function<E, T> mapper) {
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
@@ -1617,7 +1617,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <T> IWellOrderContainer<T> toMultiples(final Function<E, IWellOrderContainer<T>> multipleMapper) {
+  public final <T> ExtendedIterable<T> toMultiples(final Function<E, ExtendedIterable<T>> multipleMapper) {
     //Asserts that the given multipleMapper is not null.
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
@@ -1647,7 +1647,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public <N extends Number> IWellOrderContainer<N> toNumbers(final Function<E, N> numberMapper) {
+  public <N extends Number> ExtendedIterable<N> toNumbers(final Function<E, N> numberMapper) {
     //Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 
@@ -1683,7 +1683,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> toReversedList() {
+  public final ExtendedIterable<E> toReversedList() {
     final var reversedList = createEmptyMutableList(new Marker<E>());
 
     @SuppressWarnings("unchecked")
@@ -1728,7 +1728,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> toStrings() {
+  public final ExtendedIterable<String> toStrings() {
     //Creates list.
     final var list = createEmptyMutableList(new Marker<String>());
 
@@ -1779,7 +1779,7 @@ implements IWellOrderContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <T> IWellOrderContainer<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
+  public final <T> ExtendedIterable<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
     //Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 

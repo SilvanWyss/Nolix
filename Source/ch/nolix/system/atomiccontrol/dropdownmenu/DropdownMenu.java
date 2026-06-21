@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.atomiccontrol.itemmenu.AbstractItemMenu;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
@@ -49,7 +49,7 @@ public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdow
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

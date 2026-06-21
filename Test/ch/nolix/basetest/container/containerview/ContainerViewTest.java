@@ -6,7 +6,7 @@ package ch.nolix.basetest.container.containerview;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**
@@ -80,7 +80,7 @@ final class ContainerViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+  protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return ContainerView.forArray(elements);
   }
 
@@ -88,7 +88,7 @@ final class ContainerViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createEmptyContainerForType(final Class<E> type) {
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
     return ContainerView.createEmpty();
   }
 }

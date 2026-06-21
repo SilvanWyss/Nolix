@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link MultiTagHolder} can contain several tags.
@@ -14,5 +14,5 @@ public interface MultiTagHolder {
   /**
    * @return the tags of the current {@link MultiTagHolder}
    */
-  IWellOrderContainer<String> getTags();
+  ExtendedIterable<String> getTags();
 }

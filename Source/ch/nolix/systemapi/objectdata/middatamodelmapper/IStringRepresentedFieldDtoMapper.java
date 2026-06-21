@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.middatamodelmapper;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.objectdata.model.IField;
 
@@ -17,7 +17,7 @@ public interface IStringRepresentedFieldDtoMapper {
    * @throws RuntimeException if the given fields is null or one of the given
    *                          fields is null.
    */
-  IWellOrderContainer<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(IWellOrderContainer<? extends IField> fields);
+  ExtendedIterable<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(ExtendedIterable<? extends IField> fields);
 
   /**
    * @param field

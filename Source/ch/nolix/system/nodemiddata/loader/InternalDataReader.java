@@ -4,7 +4,7 @@
 package ch.nolix.system.nodemiddata.loader;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.middata.valuemapper.ValueMapper;
 import ch.nolix.system.nodemiddata.modelmapper.EntityLoadingDtoMapper;
@@ -75,7 +75,7 @@ public final class InternalDataReader {
     return DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
   }
 
-  public IWellOrderContainer<EntityLoadingDto> loadEntitiesOfTable(final TableInfoDto tableView) {
+  public ExtendedIterable<EntityLoadingDto> loadEntitiesOfTable(final TableInfoDto tableView) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase,
       tableView.name());
 
@@ -84,7 +84,7 @@ public final class InternalDataReader {
       .to(rn -> ENTITY_LOADING_DTO_MAPPER.mapEntityNodeToEntityLoadingDto(rn, tableView));
   }
 
-  public IWellOrderContainer<String> loadMultiBackReferenceBackReferencedEntityIds(
+  public ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     final String tableName,
     final String entityId,
     final ColumnInfoDto multiBackReferenceColumnView) {
@@ -100,7 +100,7 @@ public final class InternalDataReader {
     return multiBackReferenceBackReferencedEntityNodes.to(b -> b.getStoredFirstChildNode().getHeader());
   }
 
-  public IWellOrderContainer<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
+  public ExtendedIterable<MultiBackReferenceEntryDto> loadMultiBackReferenceEntries(
     final String tableName,
     final String entityId,
     final ColumnInfoDto multiBackReferenceColumn) {
@@ -120,7 +120,7 @@ public final class InternalDataReader {
       multiBackReferenceNode);
   }
 
-  public IWellOrderContainer<MultiReferenceEntryDto> loadMultiReferenceEntries(
+  public ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
     final String tableName,
     final String entityId,
     final ColumnInfoDto multiReferenceColumnView) {
@@ -146,7 +146,7 @@ public final class InternalDataReader {
           n.getStoredChildNodeAtOneBasedIndex(2).getHeader()));
   }
 
-  public IWellOrderContainer<Object> loadMultiValueEntries(
+  public ExtendedIterable<Object> loadMultiValueEntries(
     final String tableName,
     final String entityId,
     final ColumnInfoDto multiValueColumnView) {
@@ -187,7 +187,7 @@ public final class InternalDataReader {
     final String tableName,
     final ColumnInfoDto columnView,
     final String value,
-    final IWellOrderContainer<String> entitiesToIgnoreIds) {
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromNodeDatabase(nodeDatabase, tableName);
     final var columnOneBasedOrdinalIndex = columnView.oneBasedOrdinalIndex();
 

@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
 
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.containercontrol.container.ContainerRole;
  */
 final class ContainerRoleTest extends StandardTest {
   @MethodSource
-  private static IWellOrderContainer<Arguments> getSpecificationsAndTheirContainerRole() {
+  private static ExtendedIterable<Arguments> getSpecificationsAndTheirContainerRole() {
     return //
     ImmutableList.withElements(
       Arguments.of(ImmutableNode.withChildNodes("DIALOG_CONTAINER"), ContainerRole.DIALOG_CONTAINER),

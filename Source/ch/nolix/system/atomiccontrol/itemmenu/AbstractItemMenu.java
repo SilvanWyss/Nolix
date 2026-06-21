@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.AbstractControl;
@@ -202,7 +202,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
+  public final ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
@@ -210,7 +210,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IItemMenuItem<?>> getStoredItems() {
+  public final ExtendedIterable<IItemMenuItem<?>> getStoredItems() {
     return memberItems.getStoredValues();
   }
 

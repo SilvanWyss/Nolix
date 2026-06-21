@@ -4,7 +4,7 @@
 package ch.nolix.base.net.level3server;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -133,7 +133,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
+  public ExtendedIterable<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 
@@ -141,7 +141,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+  public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return counterpart.getStoredReceiverController().getDataForRequests(requests);
   }
 

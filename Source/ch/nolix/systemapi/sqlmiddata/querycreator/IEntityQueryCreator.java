@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmiddata.querycreator;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
 /**
@@ -20,7 +20,7 @@ public interface IEntityQueryCreator {
     String tableName,
     String columnName,
     String value,
-    IWellOrderContainer<String> entitiesToIgnoreIds);
+    ExtendedIterable<String> entitiesToIgnoreIds);
 
   String createQueryToLoadEntitiesByTable(TableInfoDto tableView);
 

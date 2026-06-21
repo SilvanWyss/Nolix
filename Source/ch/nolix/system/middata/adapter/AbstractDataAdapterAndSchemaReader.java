@@ -4,7 +4,7 @@
 package ch.nolix.system.middata.adapter;
 
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.adapter.IDataAdapter;
 import ch.nolix.systemapi.middata.adapter.IDataAdapterAndSchemaReader;
 import ch.nolix.systemapi.midschema.adapter.ISchemaReader;
@@ -56,7 +56,7 @@ implements IDataAdapterAndSchemaReader {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<TableDto> loadTables() {
+  public final ExtendedIterable<TableDto> loadTables() {
     return schemaReader.loadTables();
   }
 }

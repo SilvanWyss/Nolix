@@ -11,7 +11,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.property.value.Value;
@@ -82,7 +82,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
@@ -90,7 +90,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

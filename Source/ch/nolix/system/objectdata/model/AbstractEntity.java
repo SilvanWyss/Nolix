@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -44,7 +44,7 @@ public abstract class AbstractEntity implements IEntity {
 
   private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
 
-  private IWellOrderContainer<AbstractField> fields;
+  private ExtendedIterable<AbstractField> fields;
 
   @Override
   public final boolean belongsToDatabase() {
@@ -142,7 +142,7 @@ public abstract class AbstractEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<? extends IField> internalGetStoredFields() {
+  public final ExtendedIterable<? extends IField> internalGetStoredFields() {
     return getStoredFields();
   }
 
@@ -236,7 +236,7 @@ public abstract class AbstractEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
-  public final boolean isReferencedInPersistedDataIgnoringGivenEntities(final IWellOrderContainer<String> entitiesToIgnoreIds) {
+  public final boolean isReferencedInPersistedDataIgnoringGivenEntities(final ExtendedIterable<String> entitiesToIgnoreIds) {
     return //
     belongsToTable()
     && isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(entitiesToIgnoreIds);
@@ -264,7 +264,7 @@ public abstract class AbstractEntity implements IEntity {
     }
   }
 
-  abstract IWellOrderContainer<AbstractField> findFields();
+  abstract ExtendedIterable<AbstractField> findFields();
 
   final IDataAdapterAndSchemaReader getStoredMidDataAdapterAndSchemaReader() {
     return ((Table<?>) getStoredParentTable()).getStoredMidDataDataAdapterAndSchemaReader();
@@ -314,7 +314,7 @@ public abstract class AbstractEntity implements IEntity {
     fields.forEach(f -> f.setParentEntity(this));
   }
 
-  private IWellOrderContainer<AbstractField> getStoredFields() {
+  private ExtendedIterable<AbstractField> getStoredFields() {
     extractFieldsIfNotExtracted();
 
     return fields;
@@ -330,7 +330,7 @@ public abstract class AbstractEntity implements IEntity {
   }
 
   private boolean isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(
-    final IWellOrderContainer<String> entitiesToIgnoreIds) {
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
     final var localId = getId();
 
     return //

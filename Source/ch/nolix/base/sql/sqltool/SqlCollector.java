@@ -5,7 +5,7 @@ package ch.nolix.base.sql.sqltool;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.sqltool.ISqlCollector;
 
@@ -71,7 +71,7 @@ public final class SqlCollector implements ISqlCollector {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> getSqlStatements() {
+  public ExtendedIterable<String> getSqlStatements() {
     return memberSqlStatements;
   }
 

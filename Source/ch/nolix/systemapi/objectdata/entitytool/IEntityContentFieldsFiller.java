@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.entitytool;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.middata.model.FieldDto;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -22,7 +22,7 @@ public interface IEntityContentFieldsFiller {
    * @throws RuntimeException if the given contentFieldDtos is null.
    * @throws RuntimeException if one of the given contentFieldDtos is null.
    */
-  void fillUpEntityContentFieldsFromContentFieldDtos(IEntity entity, IWellOrderContainer<FieldDto> contentFieldDtos);
+  void fillUpEntityContentFieldsFromContentFieldDtos(IEntity entity, ExtendedIterable<FieldDto> contentFieldDtos);
 
   /**
    * Fills up the content fields of the given entity from the given

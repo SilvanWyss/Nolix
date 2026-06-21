@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.manager.guimanager;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -13,5 +13,5 @@ public interface IControlManager<C> {
   /**
    * @return the controls of the current {@link IControlManager}.
    */
-  IWellOrderContainer<? extends C> getStoredControls();
+  ExtendedIterable<? extends C> getStoredControls();
 }

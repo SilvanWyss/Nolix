@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmidschema.modelmapper;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.sqlmidschema.modelmapper.IColumnDtoMapper;
@@ -19,7 +19,7 @@ public final class TableDtoMapper implements ITableDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public TableDto mapJoinedColumnSqlRecordsToTableDto(final IWellOrderContainer<ISqlRecord> joinedColumnSqlRecords) {
+  public TableDto mapJoinedColumnSqlRecordsToTableDto(final ExtendedIterable<ISqlRecord> joinedColumnSqlRecords) {
     final var firstJoinedColumnSqlRecord = joinedColumnSqlRecords.getStoredFirst();
     final var id = firstJoinedColumnSqlRecord.getStoredAtOneBasedIndex(3);
     final var name = firstJoinedColumnSqlRecord.getStoredAtOneBasedIndex(4);
@@ -32,8 +32,8 @@ public final class TableDtoMapper implements ITableDtoMapper {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<TableDto> mapJoinedColumnSqlRecordsToTableDtos(
-    final IWellOrderContainer<ISqlRecord> joinedColumnSqlRecords) {
+  public ExtendedIterable<TableDto> mapJoinedColumnSqlRecordsToTableDtos(
+    final ExtendedIterable<ISqlRecord> joinedColumnSqlRecords) {
     final var joinedColumnSqlRecordsGroupedByTable = //
     joinedColumnSqlRecords.getStoredInGroups(r -> r.getStoredAtOneBasedIndex(3));
 

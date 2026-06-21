@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.style.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link ISelectingStyleWithSelectors} is a {@link ISelectingStyle} that can
@@ -23,13 +23,13 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return the selector roles of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
-  IWellOrderContainer<String> getSelectorRoles();
+  ExtendedIterable<String> getSelectorRoles();
 
   /**
    * @return the selector tokens of the current
    *         {@link ISelectingStyleWithSelectors}.
    */
-  IWellOrderContainer<String> getSelectorTokens();
+  ExtendedIterable<String> getSelectorTokens();
 
   /**
    * @return the selector type of the current
@@ -90,7 +90,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.
    */
-  ISelectingStyleWithSelectors withAdditionalSelectorRoles(IWellOrderContainer<String> additionalSelectorRoles);
+  ISelectingStyleWithSelectors withAdditionalSelectorRoles(ExtendedIterable<String> additionalSelectorRoles);
 
   /**
    * @param additionalSelectorRoles
@@ -133,7 +133,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
    *                          or blank.
    */
-  ISelectingStyleWithSelectors withAdditionalSelectorTokens(IWellOrderContainer<String> additionalSelectorTokens);
+  ISelectingStyleWithSelectors withAdditionalSelectorTokens(ExtendedIterable<String> additionalSelectorTokens);
 
   /**
    * @param selectorId

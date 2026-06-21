@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.model.TableDto;
 
 /**
@@ -13,7 +13,7 @@ public final class TableMapper {
   private TableMapper() {
   }
 
-  public static IWellOrderContainer<Table> mapMidSchemaTableDtosToLoadedTables(final IWellOrderContainer<TableDto> midSchemaTableDtos) {
+  public static ExtendedIterable<Table> mapMidSchemaTableDtosToLoadedTables(final ExtendedIterable<TableDto> midSchemaTableDtos) {
     final var tables = mapMidSchemaTableDtosToEmptyLoadedTables(midSchemaTableDtos);
 
     for (final var t : tables) {
@@ -27,8 +27,8 @@ public final class TableMapper {
     return tables;
   }
 
-  private static IWellOrderContainer<Table> mapMidSchemaTableDtosToEmptyLoadedTables(
-    final IWellOrderContainer<TableDto> midSchemaTableDtos) {
+  private static ExtendedIterable<Table> mapMidSchemaTableDtosToEmptyLoadedTables(
+    final ExtendedIterable<TableDto> midSchemaTableDtos) {
     return midSchemaTableDtos.to(TableMapper::mapMidSchemaTableDtoToEmptyTable);
   }
 

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemiddata.modelmapper;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.middata.model.MultiBackReferenceEntryDto;
 
@@ -34,7 +34,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
    *         tableName, entityId, multiBackReferenceColumnId and
    *         multiBackReferenceNode.
    */
-  IWellOrderContainer<MultiBackReferenceEntryDto> mapMultiBackReferenceNodeToMultiBackReferenceEntryDtos(
+  ExtendedIterable<MultiBackReferenceEntryDto> mapMultiBackReferenceNodeToMultiBackReferenceEntryDtos(
     String tableName,
     String entityId,
     String multiBackReferenceColumnId,

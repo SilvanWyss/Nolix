@@ -5,7 +5,7 @@ package ch.nolix.system.style.model;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.style.model.IBaseStyle;
@@ -30,8 +30,8 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * @param subStyles
    */
   protected AbstractStyle(
-    final IWellOrderContainer<String> attachingAttributes,
-    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    final ExtendedIterable<String> attachingAttributes,
+    final ExtendedIterable<? extends ISelectingStyleWithSelectors> subStyles) {
     memberAttachingAttributes = ImmutableList.fromIterable(attachingAttributes);
 
     memberSubStyles = ImmutableList.fromIterable(subStyles);
@@ -41,7 +41,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> getAttachingAttributes() {
+  public final ExtendedIterable<String> getAttachingAttributes() {
     return memberAttachingAttributes;
   }
 
@@ -49,7 +49,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<? extends ISelectingStyleWithSelectors> getSubStyles() {
+  public final ExtendedIterable<? extends ISelectingStyleWithSelectors> getSubStyles() {
     return memberSubStyles;
   }
 

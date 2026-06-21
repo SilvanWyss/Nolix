@@ -6,7 +6,7 @@ package ch.nolix.basetest.container.matrix;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.matrix.Matrix;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**
@@ -177,7 +177,7 @@ final class MatrixTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+  protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     final Matrix<E> matrix = Matrix.createEmpty();
 
     matrix.addRow(elements);
@@ -189,7 +189,7 @@ final class MatrixTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createEmptyContainerForType(final Class<E> type) {
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
     return Matrix.createEmpty();
   }
 }

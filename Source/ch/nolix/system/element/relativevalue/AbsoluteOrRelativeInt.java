@@ -9,7 +9,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -91,7 +91,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<INode<?>> getAttributes() {
+  public ExtendedIterable<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (isAbsolute()) {

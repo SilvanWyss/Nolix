@@ -4,7 +4,7 @@
 package ch.nolix.system.containercontrol.linearcontainer;
 
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.ControlFactory;
@@ -57,7 +57,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final C addControls(final IWellOrderContainer<? extends IControl<?, ?>> controls) {
+  public final C addControls(final ExtendedIterable<? extends IControl<?, ?>> controls) {
     controls.forEach(this::addControl);
 
     return asConcrete();
@@ -75,7 +75,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
+  public final ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
     return childControls.getStoredValues();
   }
 
@@ -83,7 +83,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public final ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     return getStoredChildControls();
   }
 

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IBaseValueField;
@@ -29,7 +29,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
+  public final ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesWhoReferencesBackThis() {
     return ImmutableList.createEmpty();
   }
 
@@ -37,7 +37,7 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
+  public final ExtendedIterable<IBaseReference> getStoredBackReferencedBaseReferences() {
     return ImmutableList.createEmpty();
   }
 

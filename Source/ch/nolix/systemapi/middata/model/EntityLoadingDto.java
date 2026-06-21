@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.middata.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
-public record EntityLoadingDto(String id, String saveStamp, IWellOrderContainer<FieldDto> contentFields) {
+public record EntityLoadingDto(String id, String saveStamp, ExtendedIterable<FieldDto> contentFields) {
 }

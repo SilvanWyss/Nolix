@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.sqlmiddata.statementcreator;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 
 /**
  * @author Silvan Wyss
  */
 public interface ISqlValueAssignmentMapper {
-  IWellOrderContainer<String> mapValueStringFieldDtoToSqlValueAssignemnts(ValueStringFieldDto valueStringFieldDto);
+  ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(ValueStringFieldDto valueStringFieldDto);
 }

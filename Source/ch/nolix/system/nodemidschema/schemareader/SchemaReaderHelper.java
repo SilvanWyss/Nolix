@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.schemareader;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.system.nodemidschema.modelmapper.ColumnDtoMapper;
 import ch.nolix.system.nodemidschema.nodesearcher.TableNodeSearcher;
@@ -25,7 +25,7 @@ public final class SchemaReaderHelper implements ISchemaReaderHelper {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ColumnDto> loadColumnsFromTableNode(IMutableNode<?> tableNode) {
+  public ExtendedIterable<ColumnDto> loadColumnsFromTableNode(IMutableNode<?> tableNode) {
     final var columnNodes = TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
 
     return columnNodes.to(COLUMN_DTO_MAPPER::mapColumnNodeToColumnDto);

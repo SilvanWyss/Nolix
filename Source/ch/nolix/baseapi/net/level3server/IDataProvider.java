@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.net.level3server;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 
@@ -13,7 +13,7 @@ import ch.nolix.baseapi.document.node.INode;
 public interface IDataProvider {
   INode<?> getDataForRequest(IChainedNode request);
 
-  IWellOrderContainer<? extends INode<?>> getDataForRequests(IChainedNode... requests);
+  ExtendedIterable<? extends INode<?>> getDataForRequests(IChainedNode... requests);
 
-  IWellOrderContainer<? extends INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
+  ExtendedIterable<? extends INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
 }

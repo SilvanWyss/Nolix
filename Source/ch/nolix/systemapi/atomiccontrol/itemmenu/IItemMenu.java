@@ -5,7 +5,7 @@ package ch.nolix.systemapi.atomiccontrol.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.systemapi.webgui.main.IControl;
 
@@ -43,7 +43,7 @@ public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S
 
   String getIdByItemText(String itemText);
 
-  IWellOrderContainer<IItemMenuItem<?>> getStoredItems();
+  ExtendedIterable<IItemMenuItem<?>> getStoredItems();
 
   IItemMenuItem<?> getStoredSelectedItem();
 

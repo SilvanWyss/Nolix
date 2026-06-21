@@ -6,7 +6,7 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
@@ -27,7 +27,7 @@ public final class LayerHtmlBuilder {
       getHtmlChildElementsForLayer(layer));
   }
 
-  private static IWellOrderContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer layer) {
+  private static ExtendedIterable<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer layer) {
     final var idHtmlAttribute = createIdHtmlAttributeForLayer(layer);
 
     return ImmutableList.withElements(idHtmlAttribute);
@@ -37,7 +37,7 @@ public final class LayerHtmlBuilder {
     return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, layer.getInternalId());
   }
 
-  private static IWellOrderContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer layer) {
+  private static ExtendedIterable<IHtmlElement> getHtmlChildElementsForLayer(final ILayer layer) {
     if (layer.isEmpty()) {
       return ImmutableList.createEmpty();
     }

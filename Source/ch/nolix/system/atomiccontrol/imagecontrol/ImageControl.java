@@ -10,7 +10,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -102,7 +102,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredChildControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
@@ -118,7 +118,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

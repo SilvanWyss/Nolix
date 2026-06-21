@@ -12,7 +12,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -46,7 +46,7 @@ public final class RunningJar {
     }
   }
 
-  public static IWellOrderContainer<String> readLinesOfResource(final String path) {
+  public static ExtendedIterable<String> readLinesOfResource(final String path) {
     final ILinkedList<String> lines = LinkedList.createEmpty();
     final var inputStream = RunningJar.class.getResourceAsStream(StringCatalog.SLASH + path);
     final var inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.middata.loader;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.middata.model.EntityLoadingDto;
 import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
  * @author Silvan Wyss
  */
 public interface ISchematicEntityLoader {
-  IWellOrderContainer<EntityLoadingDto> loadEntitiesByTable(TableInfoDto table);
+  ExtendedIterable<EntityLoadingDto> loadEntitiesByTable(TableInfoDto table);
 
   EntityLoadingDto loadEntityByTableAndId(TableInfoDto table, String id);
 }

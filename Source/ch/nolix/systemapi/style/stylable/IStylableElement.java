@@ -5,7 +5,7 @@ package ch.nolix.systemapi.style.stylable;
 
 import ch.nolix.baseapi.attribute.fluentmutablemultiattribute.FluentMutableMultiTokenHolder;
 import ch.nolix.baseapi.attribute.fluentmutableoptionalattribute.FluentMutableOptionalIdHolder;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.type.TypeRequestable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 
@@ -26,7 +26,7 @@ TypeRequestable {
    * @return the child {@link IStylableElement}s of the current
    *         {@link IStylableElement}.
    */
-  IWellOrderContainer<? extends IStylableElement<?>> getStoredChildStylableElements();
+  ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements();
 
   /**
    * @param role

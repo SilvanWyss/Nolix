@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmiddata.statementcreator;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.sql.sqltool.SqlLiteralMapper;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.sqltool.ISqlLiteralMapper;
 import ch.nolix.systemapi.middata.model.ValueStringFieldDto;
 import ch.nolix.systemapi.sqlmiddata.statementcreator.ISqlValueAssignmentMapper;
@@ -17,7 +17,7 @@ public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper
   private static final ISqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();
 
   @Override
-  public IWellOrderContainer<String> mapValueStringFieldDtoToSqlValueAssignemnts(final ValueStringFieldDto valueStringFieldDto) {
+  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(final ValueStringFieldDto valueStringFieldDto) {
     final var columnName = valueStringFieldDto.columnName();
     final var nullableValueString = valueStringFieldDto.nullableValueString();
     final var valueSqlLiteral = SQL_LITERAL_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);

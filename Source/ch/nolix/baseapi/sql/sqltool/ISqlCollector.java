@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.sql.sqltool;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 
@@ -17,7 +17,7 @@ public interface ISqlCollector extends Clearable {
 
   ISqlCollector addSqlStatements(String... sqlStatements);
 
-  IWellOrderContainer<String> getSqlStatements();
+  ExtendedIterable<String> getSqlStatements();
 
   void executeAndClearUsingConnection(ISqlConnection sqlConnection);
 }

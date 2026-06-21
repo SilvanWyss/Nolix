@@ -9,7 +9,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.datastructure.pair.Pair;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.pair.IPair;
 import ch.nolix.systemapi.graphic.color.IColor;
 
@@ -22,7 +22,7 @@ public final class X11ColorCatalogExtractor {
   private X11ColorCatalogExtractor() {
   }
 
-  public static IWellOrderContainer<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
+  public static ExtendedIterable<IPair<String, IColor>> getColorConstantsFromClass(final Class<?> paramClass) {
     final LinkedList<IPair<String, IColor>> x11Colors = LinkedList.createEmpty();
     final var colorStringFields = getColorNameConstantFields(paramClass);
     final var colorFields = getColorFields(paramClass);

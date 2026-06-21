@@ -14,7 +14,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.misc.dataobject.VoidObject;
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -1253,7 +1253,7 @@ public abstract class ContainerTest extends StandardTest {
     expect(result.getStoredAtOneBasedIndex(5)).isEqualTo("xxxxxx");
   }
 
-  protected abstract <E> IWellOrderContainer<E> createContainerWithElements(@SuppressWarnings("unchecked") E... elements);
+  protected abstract <E> ExtendedIterable<E> createContainerWithElements(@SuppressWarnings("unchecked") E... elements);
 
-  protected abstract <E> IWellOrderContainer<E> createEmptyContainerForType(Class<E> type);
+  protected abstract <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type);
 }

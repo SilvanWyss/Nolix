@@ -5,7 +5,7 @@ package ch.nolix.system.gui.cssmapper;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.web.cssmodel.CssProperty;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
@@ -53,7 +53,7 @@ public final class BackgroundToCssMapperHelper {
     };
   }
 
-  public static IWellOrderContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsColor(final IBackground background) {
+  public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsColor(final IBackground background) {
     final var color = background.getColor();
     final var colorCssValue = CSS_VALUE_MAPPER.mapColorToCssValue(color);
     final var backgroundCssProperty = CssProperty.withNameAndValue(CssPropertyNameCatalog.BACKGROUND, colorCssValue);
@@ -61,7 +61,7 @@ public final class BackgroundToCssMapperHelper {
     return ImmutableList.withElements(backgroundCssProperty);
   }
 
-  public static IWellOrderContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(final IBackground background) {
+  public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(final IBackground background) {
     final var colorGradient = background.getColorGradient();
     final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
     final var color1CssValue = CSS_VALUE_MAPPER.mapColorToCssValue(colorGradient.getColor1());
@@ -74,7 +74,7 @@ public final class BackgroundToCssMapperHelper {
     return ImmutableList.withElements(backgroundCssProperty);
   }
 
-  public static IWellOrderContainer<ICssProperty> mapBackgroundToCssPropertiesWhenIsImage(final IBackground background) {
+  public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsImage(final IBackground background) {
     final var image = background.getImage();
     final var imageCode = "data:image/jpeg;base64," + image.toBase64Jpg();
     final var imageUrl = "url('" + imageCode + "')";

@@ -6,7 +6,7 @@ package ch.nolix.system.containercontrol.grid;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.containercontrol.grid.IGrid;
@@ -32,7 +32,7 @@ public final class GridHtmlBuilderHelper {
     return HtmlElement.withTypeAndChildElements(type, childElement);
   }
 
-  private static IWellOrderContainer<IHtmlElement> createHtmlElementsForChildControlsOfGrid(final IGrid grid) {
+  private static ExtendedIterable<IHtmlElement> createHtmlElementsForChildControlsOfGrid(final IGrid grid) {
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
     final var rowCount = grid.getRowCount();
 
@@ -50,7 +50,7 @@ public final class GridHtmlBuilderHelper {
     return HtmlElement.withTypeAndChildElements(type, childElements);
   }
 
-  private static IWellOrderContainer<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
+  private static ExtendedIterable<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
     final var columnCount = grid.getColumnCount();
 

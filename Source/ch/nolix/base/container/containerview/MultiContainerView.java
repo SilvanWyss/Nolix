@@ -9,7 +9,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 
 /**
@@ -17,14 +17,14 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRan
  * @param <E> is the type of the elements of a {@link MultiContainerView}.
  */
 public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
-  private final IWellOrderContainer<IWellOrderContainer<E>> wellOrderContainers;
+  private final ExtendedIterable<ExtendedIterable<E>> wellOrderContainers;
 
   private MultiContainerView() {
     wellOrderContainers = ImmutableList.createEmpty();
   }
 
   private MultiContainerView(@SuppressWarnings("unchecked") final E[]... arrays) {
-    final IArrayList<IWellOrderContainer<E>> localContainers = ArrayList.createEmpty();
+    final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var a : arrays) {
       localContainers.addAtEnd(ArrayContainerView.forArray(a));
@@ -34,7 +34,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   private MultiContainerView(@SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
-    final IArrayList<IWellOrderContainer<E>> localContainers = ArrayList.createEmpty();
+    final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var i : iterables) {
       localContainers.addAtEnd(IterableContainerView.forIterable(i));
@@ -70,7 +70,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public int getCount() {
-    return wellOrderContainers.getSumOfInts(IWellOrderContainer::getCount).intValue();
+    return wellOrderContainers.getSumOfInts(ExtendedIterable::getCount).intValue();
   }
 
   /**

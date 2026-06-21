@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.objectdata.modelsearcher;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IDatabase;
 import ch.nolix.systemapi.objectdata.model.IEntity;
 import ch.nolix.systemapi.objectdata.model.ITable;
@@ -16,7 +16,7 @@ public interface IDatabaseSearcher {
    * @param database
    * @return the {@link IEntity}s of the given database in the local data.
    */
-  IWellOrderContainer<IEntity> getStoredEntitiesInLocalData(IDatabase database);
+  ExtendedIterable<IEntity> getStoredEntitiesInLocalData(IDatabase database);
 
   /**
    * @param database

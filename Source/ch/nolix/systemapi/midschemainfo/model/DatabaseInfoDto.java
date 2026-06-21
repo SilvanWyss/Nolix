@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.midschemainfo.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
  * @param name
  * @param tableViews
  */
-public record DatabaseInfoDto(String name, IWellOrderContainer<TableInfoDto> tableViews) {
+public record DatabaseInfoDto(String name, ExtendedIterable<TableInfoDto> tableViews) {
 }

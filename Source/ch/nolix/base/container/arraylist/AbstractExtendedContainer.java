@@ -10,7 +10,7 @@ import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
 import ch.nolix.base.container.wellordercontainer.Marker;
 import ch.nolix.baseapi.container.list.IArrayList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -22,7 +22,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderCont
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+  public final ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
     final int oneBasedStartIndex,
     final int oneBasedEndIndex) {
     return IntervallContainerView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
@@ -35,7 +35,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderCont
    * {@inheritDoc}
    */
   @Override
-  public final <T> IWellOrderContainer<T> getViewOf(final Function<E, T> mapper) {
+  public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
     return MappingContainerView.forContainerAndMapper(this, mapper);
   }
 
@@ -45,7 +45,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderCont
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<E> getViewOfStoredSelected(final Predicate<E> selector) {
+  public final ExtendedIterable<E> getViewOfStoredSelected(final Predicate<E> selector) {
     return FilterContainerView.forContainerAndSelector(this, selector);
   }
 
@@ -56,7 +56,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractWellOrderCont
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> IWellOrderContainer<E> toOrderedList(final Function<E, C> norm) {
+  public final <C extends Comparable<C>> ExtendedIterable<E> toOrderedList(final Function<E, C> norm) {
     @SuppressWarnings("unchecked")
     final var array = (E[]) toArray();
 

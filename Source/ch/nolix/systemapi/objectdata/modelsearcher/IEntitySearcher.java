@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.modelsearcher;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.objectdata.model.IBaseBackReference;
 import ch.nolix.systemapi.objectdata.model.IBaseReference;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -30,13 +30,13 @@ public interface IEntitySearcher {
    * @param entity
    * @return the {@link IBaseBackReference}s that reference back the given entity.
    */
-  IWellOrderContainer<IBaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(IEntity entity);
+  ExtendedIterable<IBaseBackReference> getStoredBaseBackReferencesThatReferenceBackEntity(IEntity entity);
 
   /**
    * @param entity
    * @return the edited {@link IField}s of the given entity.
    */
-  IWellOrderContainer<? extends IField> getStoredEditedFields(IEntity entity);
+  ExtendedIterable<? extends IField> getStoredEditedFields(IEntity entity);
 
   /**
    * @param entity
@@ -51,5 +51,5 @@ public interface IEntitySearcher {
    * @param entity
    * @return the {@link IField}s the given entity references back.
    */
-  IWellOrderContainer<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
+  ExtendedIterable<IBaseReference> getStoredFieldsWhoAreBackReferencedFromEntity(IEntity entity);
 }

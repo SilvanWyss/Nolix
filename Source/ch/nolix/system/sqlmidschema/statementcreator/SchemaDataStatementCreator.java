@@ -5,8 +5,8 @@ package ch.nolix.system.sqlmidschema.statementcreator;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -48,7 +48,7 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> createStatementsToAddColumn(final TableIdentification table, final ColumnDto column) {
+  public ExtendedIterable<String> createStatementsToAddColumn(final TableIdentification table, final ColumnDto column) {
     final ILinkedList<String> statements = LinkedList.createEmpty();
     final var columnId = column.id();
     final var columnName = column.name();
@@ -207,13 +207,13 @@ public final class SchemaDataStatementCreator implements ISchemaDataStatementCre
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<String> createStatementsToSetContentModel(
+  public ExtendedIterable<String> createStatementsToSetContentModel(
     final TableIdentification table,
     final ColumnIdentification column,
     final FieldType fieldType,
     final DataType dataType,
-    final IWellOrderContainer<String> referenceableTableIds,
-    final IWellOrderContainer<String> backReferenceableColumnIds) {
+    final ExtendedIterable<String> referenceableTableIds,
+    final ExtendedIterable<String> backReferenceableColumnIds) {
     final ILinkedList<String> statements = LinkedList.createEmpty();
 
     final var statementToSetContentModelInColumnTable = // 

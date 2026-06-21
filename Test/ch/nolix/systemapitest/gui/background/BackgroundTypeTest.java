@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.gui.background.BackgroundType;
 
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.gui.background.BackgroundType;
  */
 final class BackgroundTypeTest extends StandardTest {
   @MethodSource
-  private static IWellOrderContainer<Arguments> getSpecificationsAndTheirBackgroundTypes() {
+  private static ExtendedIterable<Arguments> getSpecificationsAndTheirBackgroundTypes() {
     return //
     ImmutableList.withElements(
       Arguments.of(ImmutableNode.withChildNodes("COLOR"), BackgroundType.COLOR),

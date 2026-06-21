@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
@@ -42,7 +42,7 @@ implements IOptionalBackReference<E> {
   private EntityCache<E> nullableBackReferencedEntityCache;
 
   private OptionalBackReference(
-    final IWellOrderContainer<String> backReferenceableTableNamese,
+    final ExtendedIterable<String> backReferenceableTableNamese,
     final String backReferencedFieldName) {
     super(backReferenceableTableNamese, backReferencedFieldName);
   }
@@ -61,7 +61,7 @@ implements IOptionalBackReference<E> {
 
   public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
-    final IWellOrderContainer<Class<? extends T>> backReferenceableEntityTypes) {
+    final ExtendedIterable<Class<? extends T>> backReferenceableEntityTypes) {
     final var backReferenceableTableNamesView = //
     backReferenceableEntityTypes.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
@@ -70,7 +70,7 @@ implements IOptionalBackReference<E> {
 
   public static <T extends IEntity> OptionalBackReference<T> forBackReferencedFieldNameAndBackReferenceableTableNames(
     final String backReferencedFieldName,
-    final IWellOrderContainer<String> backReferenceableTableNames) {
+    final ExtendedIterable<String> backReferenceableTableNames) {
     return new OptionalBackReference<>(backReferenceableTableNames, backReferencedFieldName);
   }
 
@@ -143,7 +143,7 @@ implements IOptionalBackReference<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IBaseReference> getStoredBackReferencedBaseReferences() {
+  public ExtendedIterable<IBaseReference> getStoredBackReferencedBaseReferences() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }

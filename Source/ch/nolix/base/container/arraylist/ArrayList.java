@@ -9,7 +9,7 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.container.generalcontainer.CountRequestable;
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
 import ch.nolix.baseapi.container.list.IArrayList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
@@ -92,7 +92,7 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   }
 
   private static int getCountOfIterable(final Iterable<?> iterable) {
-    if (iterable instanceof final IWellOrderContainer<?> container) {
+    if (iterable instanceof final ExtendedIterable<?> container) {
       return container.getCount();
     }
 

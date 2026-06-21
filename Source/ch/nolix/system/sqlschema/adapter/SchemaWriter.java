@@ -9,7 +9,7 @@ import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.IArrayList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
@@ -56,7 +56,7 @@ public final class SchemaWriter implements ISchemaWriter {
    * {@inheritDoc}
    */
   @Override
-  public void addAdditionalSqlStatements(IWellOrderContainer<String> additionalSqlStatements) {
+  public void addAdditionalSqlStatements(ExtendedIterable<String> additionalSqlStatements) {
     addiditionalSqlStatements.addAtEnd(additionalSqlStatements);
   }
 
@@ -75,7 +75,7 @@ public final class SchemaWriter implements ISchemaWriter {
    * {@inheritDoc}
    */
   @Override
-  public void addColumns(final TableIdentification table, final IWellOrderContainer<ColumnDto> columns) {
+  public void addColumns(final TableIdentification table, final ExtendedIterable<ColumnDto> columns) {
     for (final var c : columns) {
       addColumn(table, c);
     }
@@ -95,7 +95,7 @@ public final class SchemaWriter implements ISchemaWriter {
    * {@inheritDoc}
    */
   @Override
-  public void addTables(final IWellOrderContainer<TableDto> tables) {
+  public void addTables(final ExtendedIterable<TableDto> tables) {
     for (final var t : tables) {
       addTable(t);
     }

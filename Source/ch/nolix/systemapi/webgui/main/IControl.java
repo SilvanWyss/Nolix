@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.objectcomposition.linking.Linkable;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.html.IHtmlGetter;
@@ -39,7 +39,7 @@ PresenceSettable<C> {
 
   C editStyle(Consumer<S> styleEditor);
 
-  IWellOrderContainer<ICssRule> getCssRules();
+  ExtendedIterable<ICssRule> getCssRules();
 
   CursorIcon getCursorIcon();
 
@@ -49,7 +49,7 @@ PresenceSettable<C> {
 
   Optional<IControl<?, ?>> getOptionalStoredChildControlByInternalId(String internalId);
 
-  IWellOrderContainer<IControl<?, ?>> getStoredChildControls();
+  ExtendedIterable<IControl<?, ?>> getStoredChildControls();
 
   IControl<?, ?> getStoredParentControl();
 
@@ -57,7 +57,7 @@ PresenceSettable<C> {
 
   ILayer getStoredParentLayer();
 
-  IWellOrderContainer<IControl<?, ?>> getStoredStructureControls();
+  ExtendedIterable<IControl<?, ?>> getStoredStructureControls();
 
   S getStoredStyle();
 

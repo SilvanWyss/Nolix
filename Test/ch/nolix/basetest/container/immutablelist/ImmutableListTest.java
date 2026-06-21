@@ -4,7 +4,7 @@
 package ch.nolix.basetest.container.immutablelist;
 
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**
@@ -15,7 +15,7 @@ final class ImmutableListTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+  protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return ImmutableList.fromArray(elements);
   }
 
@@ -23,7 +23,7 @@ final class ImmutableListTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createEmptyContainerForType(final Class<E> type) {
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
     return ImmutableList.createEmpty();
   }
 }

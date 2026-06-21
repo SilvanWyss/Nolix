@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.objectschema.modeleditor;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -39,8 +39,8 @@ public interface IColumnEditor<C extends IColumn> {
     C column,
     FieldType fieldType,
     DataType dataType,
-    IWellOrderContainer<? extends ITable> referenceableTables,
-    IWellOrderContainer<? extends IColumn> backReferenceableColumns);
+    ExtendedIterable<? extends ITable> referenceableTables,
+    ExtendedIterable<? extends IColumn> backReferenceableColumns);
 
   /**
    * Lets the current {@link IColumnEditor} set the given name to the given

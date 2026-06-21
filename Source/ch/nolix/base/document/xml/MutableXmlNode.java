@@ -7,7 +7,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.document.xml.IXmlAttribute;
 import ch.nolix.baseapi.document.xml.IXmlNode;
@@ -191,7 +191,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IXmlAttribute> getAttributes() {
+  public ExtendedIterable<IXmlAttribute> getAttributes() {
     return memberAttributes;
   }
 
@@ -219,7 +219,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IMutableXmlNode> getStoredChildNodes() {
+  public ExtendedIterable<IMutableXmlNode> getStoredChildNodes() {
     return memberChildNodes;
   }
 

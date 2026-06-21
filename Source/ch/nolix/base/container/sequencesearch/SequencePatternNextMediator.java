@@ -10,7 +10,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePatternNextMediator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -85,11 +85,11 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
 
   /**
    * @param paramCount
-   * @return a new {@link IWellOrderContainer} with as many blank conditions as the given
+   * @return a new {@link ExtendedIterable} with as many blank conditions as the given
    *         paramCount says.
    * @throws RuntimeException if the given paramCount is negative.
    */
-  private IWellOrderContainer<Predicate<E>> createBlanks(final int paramCount) {
+  private ExtendedIterable<Predicate<E>> createBlanks(final int paramCount) {
     final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);
 
     for (var i = 1; i < paramCount; i++) {

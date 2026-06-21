@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlschema.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
-public record TableDto(String name, IWellOrderContainer<ColumnDto> columns) {
+public record TableDto(String name, ExtendedIterable<ColumnDto> columns) {
 }

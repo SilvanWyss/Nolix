@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.container.wellordercontainer;
+package ch.nolix.baseapi.datastructure.extendediterable;
 
 import java.util.function.Function;
 
@@ -17,14 +17,14 @@ import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
- * A {@link IWellOrderContainer} can store several elements of a certain type. A
- * {@link IWellOrderContainer} stores its element in a linear order. There can exists
- * additional orders. A {@link IWellOrderContainer} is iterable.
+ * A {@link ExtendedIterable} can store several elements of a certain type. A
+ * {@link ExtendedIterable} stores its element in a linear order. There can exists
+ * additional orders. A {@link ExtendedIterable} is iterable.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link IWellOrderContainer}.
+ * @param <E> is the type of the elements of a {@link ExtendedIterable}.
  */
-public interface IWellOrderContainer<E>
+public interface ExtendedIterable<E>
 extends
 AggregationRequestable<E>,
 ArrayMappable<E>,
@@ -32,9 +32,9 @@ CountRequestable<E>,
 EmptinessRequestable,
 Filterable<E>,
 Groupable<E>,
-IFilteringContainerViewProvider<E>,
-IIntervallContainerViewProvider<E>,
-IMappingContainerViewProvider<E>,
+FilteringContainerViewProvider<E>,
+IntervallContainerViewProvider<E>,
+MappingContainerViewProvider<E>,
 IndexRequestable<E>,
 IterableWithCopyableIterator<E>,
 Mappable<E>,
@@ -46,19 +46,19 @@ StringMappable {
    * @param comparableMapper
    * @param <C>              is the type of the {@link Comparable}s the given
    *                         comparableMapper returns.
-   * @return a new {@link IWellOrderContainer} with the elements of the current
-   *         {@link IWellOrderContainer} ordered from the smallest to the biggest element
+   * @return a new {@link ExtendedIterable} with the elements of the current
+   *         {@link ExtendedIterable} ordered from the smallest to the biggest element
    *         according to the {@link Comparable}s the given comparableMapper maps
-   *         from the elements of the current {@link IWellOrderContainer}.
+   *         from the elements of the current {@link ExtendedIterable}.
    * @throws RuntimeException if the given comparableMapper is null.
    * @throws RuntimeException if one of the elements of the current
-   *                          {@link IWellOrderContainer} is null.
+   *                          {@link ExtendedIterable} is null.
    */
-  <C extends Comparable<C>> IWellOrderContainer<E> toOrderedList(Function<E, C> comparableMapper);
+  <C extends Comparable<C>> ExtendedIterable<E> toOrderedList(Function<E, C> comparableMapper);
 
   /**
-   * @return a new {@link IWellOrderContainer} with the elements of the current
-   *         {@link IWellOrderContainer} in reversed order.
+   * @return a new {@link ExtendedIterable} with the elements of the current
+   *         {@link ExtendedIterable} in reversed order.
    */
-  IWellOrderContainer<E> toReversedList();
+  ExtendedIterable<E> toReversedList();
 }

@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.model;
 
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
@@ -76,7 +76,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ITable> getStoredTables() {
+  public ExtendedIterable<ITable> getStoredTables() {
     loadTablesFromDatabaseIfNeeded();
 
     return tables;

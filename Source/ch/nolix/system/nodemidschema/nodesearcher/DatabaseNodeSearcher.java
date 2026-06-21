@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemidschema.nodesearcher;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;
 import ch.nolix.systemapi.nodemidschema.nodesearcher.IColumnNodeSearcher;
@@ -89,7 +89,7 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
+  public ExtendedIterable<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return nodeDatabase.getStoredChildNodesWithHeader(NodeHeaderCatalog.TABLE);
   }
 

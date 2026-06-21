@@ -8,7 +8,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.objectdata.model.AbstractField;
 import ch.nolix.systemapi.objectdata.entitytool.IEntityFieldExtractor;
 import ch.nolix.systemapi.objectdata.model.IEntity;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @author Silvan Wyss
  */
 public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity, AbstractField> {
-  private static IWellOrderContainer<AbstractField> extractStoredFieldsFromEntityWhenEntityIsNotNull(final IEntity entity) {
+  private static ExtendedIterable<AbstractField> extractStoredFieldsFromEntityWhenEntityIsNotNull(final IEntity entity) {
     final ILinkedList<AbstractField> fields = LinkedList.createEmpty();
 
     fillUpFieldsFromEntityIntoList(entity, fields);
@@ -69,7 +69,7 @@ public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<AbstractField> extractStoredFieldsFromEntity(final IEntity entity) {
+  public ExtendedIterable<AbstractField> extractStoredFieldsFromEntity(final IEntity entity) {
     if (entity == null) {
       return ImmutableList.createEmpty();
     }

@@ -10,7 +10,7 @@ import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.performancetest.PerformanceTest;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
@@ -28,7 +28,7 @@ final class LinkedListPerformanceTest extends PerformanceTest {
 
   @Test
   void testCase_getCount() {
-    expectOnAnObjectFrom(this::createLinkedList).running(IWellOrderContainer::getCount).hasConstantOrLowerTimeComplexity();
+    expectOnAnObjectFrom(this::createLinkedList).running(ExtendedIterable::getCount).hasConstantOrLowerTimeComplexity();
   }
 
   @Test

@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.controltool;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -16,5 +16,5 @@ import ch.nolix.systemapi.webgui.main.IControl;
  *            a {@link IControlCssBuilder} is for.
  */
 public interface IControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>> {
-  IWellOrderContainer<ICssRule> createCssRulesForControl(C control);
+  ExtendedIterable<ICssRule> createCssRulesForControl(C control);
 }

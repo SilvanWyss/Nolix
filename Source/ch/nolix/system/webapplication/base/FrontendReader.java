@@ -6,7 +6,7 @@ package ch.nolix.system.webapplication.base;
 import java.util.Optional;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 
 final class FrontendReader implements IFrontEndReader {
@@ -27,7 +27,7 @@ final class FrontendReader implements IFrontEndReader {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<byte[]> getFilesFromClipboard() {
+  public ExtendedIterable<byte[]> getFilesFromClipboard() {
     return parentBackendWebClient.internalGetFilesFromClipboardOfCounterpart();
   }
 

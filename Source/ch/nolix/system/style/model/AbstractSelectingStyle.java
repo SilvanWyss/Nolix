@@ -9,7 +9,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.systemapi.style.model.ISelectingStyleWithSelectors;
@@ -40,10 +40,10 @@ implements ISelectingStyleWithSelectors {
   protected AbstractSelectingStyle(
     final String optionalSelectorId,
     final String optionalSelectorType,
-    IWellOrderContainer<String> selectorRoles,
-    IWellOrderContainer<String> selectorTokens,
-    final IWellOrderContainer<String> attachingAttributes,
-    final IWellOrderContainer<? extends ISelectingStyleWithSelectors> subStyles) {
+    ExtendedIterable<String> selectorRoles,
+    ExtendedIterable<String> selectorTokens,
+    final ExtendedIterable<String> attachingAttributes,
+    final ExtendedIterable<? extends ISelectingStyleWithSelectors> subStyles) {
     super(attachingAttributes, subStyles);
 
     Validator.assertThatTheStrings(selectorRoles).areNotBlank();
@@ -75,7 +75,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<INode<?>> getAttributes() {
+  public final ExtendedIterable<INode<?>> getAttributes() {
     final ILinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
     if (hasSelectorId()) {
@@ -115,7 +115,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> getSelectorRoles() {
+  public final ExtendedIterable<String> getSelectorRoles() {
     return memberSelectorRoles;
   }
 
@@ -123,7 +123,7 @@ implements ISelectingStyleWithSelectors {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<String> getSelectorTokens() {
+  public final ExtendedIterable<String> getSelectorTokens() {
     return memberSelectorTokens;
   }
 

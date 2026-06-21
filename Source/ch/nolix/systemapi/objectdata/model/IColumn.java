@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
@@ -15,15 +15,15 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 public interface IColumn extends IDatabaseObject, IdHolder, NameHolder {
   boolean containsValueInPersistedData(String value);
 
-  boolean containsValueInPersistedDataIgnoringEntities(String value, IWellOrderContainer<String> entitiesToIgnoreIds);
+  boolean containsValueInPersistedDataIgnoringEntities(String value, ExtendedIterable<String> entitiesToIgnoreIds);
 
   Class<?> getDataTypeClass();
 
   FieldType getFieldType();
 
-  IWellOrderContainer<? extends IColumn> getStoredBackReferenceableColumns();
+  ExtendedIterable<? extends IColumn> getStoredBackReferenceableColumns();
 
   ITable<IEntity> getStoredParentTable();
 
-  IWellOrderContainer<? extends ITable<IEntity>> getStoredReferenceableTables();
+  ExtendedIterable<? extends ITable<IEntity>> getStoredReferenceableTables();
 }

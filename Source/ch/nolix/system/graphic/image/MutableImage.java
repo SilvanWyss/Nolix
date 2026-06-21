@@ -19,7 +19,7 @@ import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.matrix.IMatrix;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
@@ -313,7 +313,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     }
   }
 
-  public void setPixelArray(final IWellOrderContainer<IColor> pixelArray) {
+  public void setPixelArray(final ExtendedIterable<IColor> pixelArray) {
     Validator.assertThat(pixelArray.getCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 
     removeGeneratedOutputs();

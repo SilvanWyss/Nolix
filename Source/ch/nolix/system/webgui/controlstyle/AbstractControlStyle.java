@@ -7,7 +7,7 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -212,7 +212,7 @@ implements IControlStyle<S> {
     this::setBottomPaddingForState,
     AbsoluteOrRelativeInt.withIntValue(DEFAULT_PADDING));
 
-  private final NonCascadingProperty<ControlState, IWellOrderContainer<CornerShadow>> memberCornerShadows = //
+  private final NonCascadingProperty<ControlState, ExtendedIterable<CornerShadow>> memberCornerShadows = //
   NonCascadingProperty.withNameAndStateClassAndValueMapperAndSpecificationMapperAndSetterAndDefaultValue(
     CORNER_SHADOWS_HEADER,
     ControlState.class,
@@ -297,7 +297,7 @@ implements IControlStyle<S> {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
+  public final ExtendedIterable<? extends ICornerShadow> getCornerShadowsWhenHasState(final ControlState state) {
     return memberCornerShadows.getValueWhenHasState(state);
   }
 
@@ -677,7 +677,7 @@ implements IControlStyle<S> {
    */
   @Override
   public final S forStateSetCornerShadows(final ControlState state,
-    final IWellOrderContainer<? extends ICornerShadow> cornerShadows) {
+    final ExtendedIterable<? extends ICornerShadow> cornerShadows) {
     memberCornerShadows.setValueForState(state, cornerShadows.to(CornerShadow::fromCornerShadow));
 
     return asConcrete();

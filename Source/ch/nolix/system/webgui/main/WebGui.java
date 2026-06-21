@@ -9,7 +9,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
@@ -200,7 +200,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IHtmlElementEvent> getHtmlElementEventRegistrations() {
+  public ExtendedIterable<IHtmlElementEvent> getHtmlElementEventRegistrations() {
     final ILinkedList<IHtmlElementEvent> htmlElementEventRegistrations = LinkedList.createEmpty();
 
     registerHtmlElementEventsAt(htmlElementEventRegistrations);
@@ -228,7 +228,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+  public ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return getStoredLayers();
   }
 
@@ -236,7 +236,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
     return layerStack.getStoredControls();
   }
 
@@ -244,12 +244,12 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<ILayer> getStoredLayers() {
+  public ExtendedIterable<ILayer> getStoredLayers() {
     return layerStack.getStoredLayers();
   }
 
   @Override
-  public IWellOrderContainer<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
     return layerStack.getStoredStructureControls();
   }
 

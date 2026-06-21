@@ -12,7 +12,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.container.sequencesearch.ISequencePattern;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link SequencePattern} is not mutable.
@@ -22,9 +22,9 @@ import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
  *            {@link SequencePattern}.
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {
-  private final IWellOrderContainer<Predicate<E>> elementConditions;
+  private final ExtendedIterable<Predicate<E>> elementConditions;
 
-  private final IWellOrderContainer<Predicate<IWellOrderContainer<E>>> sequenceConditions;
+  private final ExtendedIterable<Predicate<ExtendedIterable<E>>> sequenceConditions;
 
   private final Predicate<E> blankCondition = _ -> true; //NOSONAR: This field must be a member.
 
@@ -47,8 +47,8 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @throws RuntimeException if one of the given sequenceConditions is null.
    */
   private SequencePattern(
-    final IWellOrderContainer<Predicate<E>> elementConditions,
-    final IWellOrderContainer<Predicate<IWellOrderContainer<E>>> sequenceConditions) {
+    final ExtendedIterable<Predicate<E>> elementConditions,
+    final ExtendedIterable<Predicate<ExtendedIterable<E>>> sequenceConditions) {
     this.elementConditions = ImmutableList.fromIterable(elementConditions);
     this.sequenceConditions = ImmutableList.fromIterable(sequenceConditions);
   }
@@ -77,8 +77,8 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @throws RuntimeException if one of the given sequenceConditions is null.
    */
   private static <T> SequencePattern<T> withElementConditionsAndSequenceConditions(
-    final IWellOrderContainer<Predicate<T>> elementConditions,
-    final IWellOrderContainer<Predicate<IWellOrderContainer<T>>> sequenceConditions) {
+    final ExtendedIterable<Predicate<T>> elementConditions,
+    final ExtendedIterable<Predicate<ExtendedIterable<T>>> sequenceConditions) {
     return new SequencePattern<>(elementConditions, sequenceConditions);
   }
 
@@ -104,7 +104,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> withConditionsForNexts(IWellOrderContainer<Predicate<E>> conditions) {
+  public ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions) {
     Validator.assertThatTheElements(conditions).areNotNull();
 
     final var allElementConditions = ContainerView.forIterables(elementConditions, conditions);
@@ -116,7 +116,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * {@inheritDoc}
    */
   @Override
-  public ISequencePattern<E> withSequenceCondition(final Predicate<IWellOrderContainer<E>> sequenceCondition) {
+  public ISequencePattern<E> withSequenceCondition(final Predicate<ExtendedIterable<E>> sequenceCondition) {
     final var newSequenceConditions = ContainerView.forIterableAndElement(sequenceConditions, sequenceCondition);
 
     return withElementConditionsAndSequenceConditions(elementConditions, newSequenceConditions);
@@ -134,7 +134,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<? extends IWellOrderContainer<E>> getMatchingSequencesFrom(final IWellOrderContainer<E> list) {
+  public ExtendedIterable<? extends ExtendedIterable<E>> getMatchingSequencesFrom(final ExtendedIterable<E> list) {
     final ILinkedList<ILinkedList<E>> sequences = LinkedList.createEmpty();
 
     final int maxSequenceCount = list.getCount() - getSize() + 1;

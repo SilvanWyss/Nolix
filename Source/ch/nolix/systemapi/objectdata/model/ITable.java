@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**
@@ -25,13 +25,13 @@ extends DatabaseComponent<IDatabase>, IDatabaseObject, IdHolder, NameHolder {
 
   Optional<E> getOptionalStoredEntityById(String id);
 
-  IWellOrderContainer<IColumn> getStoredColumns();
+  ExtendedIterable<IColumn> getStoredColumns();
 
-  IWellOrderContainer<E> getStoredEntities();
+  ExtendedIterable<E> getStoredEntities();
 
   E getStoredEntityById(String id);
 
   ITable<E> insertEntity(E entity);
 
-  IWellOrderContainer<E> internalGetStoredEntitiesInLocalData();
+  ExtendedIterable<E> internalGetStoredEntitiesInLocalData();
 }

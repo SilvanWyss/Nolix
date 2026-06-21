@@ -4,7 +4,7 @@
 package ch.nolix.system.containercontrol.verticalstack;
 
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.webgui.main.IControl;
@@ -16,7 +16,7 @@ public final class VerticalStackHtmlBuilderHelper {
   private VerticalStackHtmlBuilderHelper() {
   }
 
-  public static IWellOrderContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(
+  public static ExtendedIterable<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(
     final IVerticalStack verticalStack) {
     return verticalStack.getStoredChildControls().to(VerticalStackHtmlBuilderHelper::createHtmlElementsForChildControl);
   }

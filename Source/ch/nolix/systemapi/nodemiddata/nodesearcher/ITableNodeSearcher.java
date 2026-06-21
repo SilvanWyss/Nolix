@@ -5,7 +5,7 @@ package ch.nolix.systemapi.nodemiddata.nodesearcher;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
@@ -18,11 +18,11 @@ public interface ITableNodeSearcher {
     IMutableNode<?> tableNode,
     String id);
 
-  IWellOrderContainer<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
+  ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(IMutableNode<?> tableNode);
 
   IMutableNode<?> getStoredEntityNodeFromTableNode(IMutableNode<?> tableNode, String id);
 
-  IWellOrderContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
+  ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(IMutableNode<?> tableNode);
 
   IMutableNode<?> getStoredIdNodeFromTableNode(IMutableNode<?> tableNode);
 

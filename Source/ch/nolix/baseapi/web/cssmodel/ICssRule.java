@@ -3,13 +3,13 @@
  */
 package ch.nolix.baseapi.web.cssmodel;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
  */
 public interface ICssRule {
-  IWellOrderContainer<? extends ICssProperty> getProperties();
+  ExtendedIterable<? extends ICssProperty> getProperties();
 
   String getSelector();
 

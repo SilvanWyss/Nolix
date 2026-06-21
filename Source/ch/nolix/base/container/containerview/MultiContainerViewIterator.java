@@ -4,7 +4,7 @@
 package ch.nolix.base.container.containerview;
 
 import ch.nolix.baseapi.container.iterator.CopyableIterator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
@@ -15,11 +15,11 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  *            {@link MultiContainerViewIterator}.
  */
 public final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
-  private final CopyableIterator<IWellOrderContainer<E>> mainIterator;
+  private final CopyableIterator<ExtendedIterable<E>> mainIterator;
 
   private CopyableIterator<E> currentSubIterator;
 
-  private MultiContainerViewIterator(final IWellOrderContainer<IWellOrderContainer<E>> containers) {
+  private MultiContainerViewIterator(final ExtendedIterable<ExtendedIterable<E>> containers) {
     mainIterator = containers.iterator();
 
     if (mainIterator.hasNext()) {
@@ -30,14 +30,14 @@ public final class MultiContainerViewIterator<E> implements CopyableIterator<E> 
   }
 
   private MultiContainerViewIterator(
-    final CopyableIterator<IWellOrderContainer<E>> mainIterator,
+    final CopyableIterator<ExtendedIterable<E>> mainIterator,
     final CopyableIterator<E> currentIterator) {
     this.mainIterator = mainIterator;
     this.currentSubIterator = currentIterator;
   }
 
   public static <T> MultiContainerViewIterator<T> forContainers(
-    final IWellOrderContainer<IWellOrderContainer<T>> containers) {
+    final ExtendedIterable<ExtendedIterable<T>> containers) {
     return new MultiContainerViewIterator<>(containers);
   }
 

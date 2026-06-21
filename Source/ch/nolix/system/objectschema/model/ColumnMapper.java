@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.objectschema.model.ITable;
@@ -15,9 +15,9 @@ public final class ColumnMapper {
   private ColumnMapper() {
   }
 
-  public static IWellOrderContainer<Column> mapMidSchemaTableDtoToLoadedColumns(
+  public static ExtendedIterable<Column> mapMidSchemaTableDtoToLoadedColumns(
     final TableDto midTableDto,
-    final IWellOrderContainer<Table> tables) {
+    final ExtendedIterable<Table> tables) {
     final var tableName = midTableDto.name();
     final var table = tables.getStoredFirst(t -> t.hasName(tableName));
     final var midColumns = midTableDto.columns();
@@ -28,7 +28,7 @@ public final class ColumnMapper {
   private static Column mapMidSchemaColumnDtoToLoadedColumn(
     final Table parentTable,
     final ColumnDto midColumnDto,
-    final IWellOrderContainer<Table> tables) {
+    final ExtendedIterable<Table> tables) {
     final var id = midColumnDto.id();
     final var name = midColumnDto.name();
     final var fieldType = midColumnDto.fieldType();

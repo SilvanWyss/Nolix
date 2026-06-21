@@ -6,7 +6,7 @@ package ch.nolix.basetest.container.containerview;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.containerview.ArrayContainerView;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.basetest.container.base.ContainerTest;
 
@@ -27,7 +27,7 @@ final class ArrayViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
+  protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
     return ArrayContainerView.forArray(elements);
   }
 
@@ -35,7 +35,7 @@ final class ArrayViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createEmptyContainerForType(Class<E> type) {
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
     return ArrayContainerView.createEmpty();
   }
 }

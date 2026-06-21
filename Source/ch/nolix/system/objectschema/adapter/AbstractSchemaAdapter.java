@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.adapter;
 
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.system.objectschema.model.Database;
 import ch.nolix.system.objectschema.modelsearcher.DatabaseSearcher;
@@ -84,7 +84,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<ITable> getStoredTables() {
+  public final ExtendedIterable<ITable> getStoredTables() {
     return database.getStoredTables();
   }
 

@@ -6,7 +6,7 @@ package ch.nolix.system.atomiccontrol.link;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
@@ -21,7 +21,7 @@ public final class LinkHtmlBuilderHelper {
   private LinkHtmlBuilderHelper() {
   }
 
-  public static IWellOrderContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
+  public static ExtendedIterable<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
     final ILinkedList<IHtmlAttribute> htmlAttribtues = LinkedList.createEmpty();
 
     htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));

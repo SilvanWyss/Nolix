@@ -11,7 +11,7 @@ import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
 import ch.nolix.baseapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -117,7 +117,7 @@ public final class LicenseManagerUnit {
   /**
    * @return the types of the licenses of the current {@link LicenseManagerUnit}.
    */
-  public IWellOrderContainer<Class<?>> getLicenseTypes() {
+  public ExtendedIterable<Class<?>> getLicenseTypes() {
     return licenses.to(License::getClass);
   }
 

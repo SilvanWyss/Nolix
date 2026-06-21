@@ -3,10 +3,10 @@
  */
 package ch.nolix.systemapi.middata.model;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 public record EntityUpdateDto(
 String id,
 String saveStamp,
-IWellOrderContainer<ValueStringFieldDto> updatedContentFields) {
+ExtendedIterable<ValueStringFieldDto> updatedContentFields) {
 }

@@ -9,7 +9,7 @@ import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
 import ch.nolix.systemapi.graphic.image.IImage;
@@ -118,8 +118,8 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IChainedNode> createUpdateCommandsForControls(
-    final IWellOrderContainer<IControl<?, ?>> controls,
+  public ExtendedIterable<IChainedNode> createUpdateCommandsForControls(
+    final ExtendedIterable<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableCatalog.CONTROLS).isNotEmpty();
 
@@ -143,7 +143,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IWellOrderContainer<IChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
+  public ExtendedIterable<IChainedNode> createUpdateCommandsForWebGui(final IWebGui<?> webGui) {
     return //
     ImmutableList.withElements(
       createSetTitleCommandForWebGui(webGui),

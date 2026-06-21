@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.midschema.adapter;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.savecontrol.IResettableChangeSaver;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
@@ -33,6 +33,6 @@ public interface ISchemaWriter extends IResettableChangeSaver {
     ColumnIdentification columnIdentification,
     FieldType fieldType,
     DataType dataType,
-    IWellOrderContainer<String> referenceableTableIds,
-    IWellOrderContainer<String> backReferenceableColumnIds);
+    ExtendedIterable<String> referenceableTableIds,
+    ExtendedIterable<String> backReferenceableColumnIds);
 }

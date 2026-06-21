@@ -12,7 +12,7 @@ import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -111,7 +111,7 @@ implements IApplication<C, S> {
   /**
    * @return the {@link AbstractClient}s of the current {@link Application}.
    */
-  public final IWellOrderContainer<C> getStoredClients() {
+  public final ExtendedIterable<C> getStoredClients() {
     removeClosedClients();
 
     return clients;

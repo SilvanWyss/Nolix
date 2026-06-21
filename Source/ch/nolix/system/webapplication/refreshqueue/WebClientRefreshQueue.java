@@ -10,7 +10,7 @@ import ch.nolix.base.container.immutablelist.ImmutableList;
 import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.system.webapplication.counterpartupdater.WebClientCounterpartUpdater;
 import ch.nolix.system.webapplication.counterpartupdater.WebClientPartialCounterpartUpdater;
@@ -23,14 +23,14 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 public final class WebClientRefreshQueue {
   private final BooleanSupplier openStateRequestable;
 
-  private final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner;
 
   private boolean updatingCounterpart;
 
   private UpdateTicket memberUpdateTicket;
 
   private WebClientRefreshQueue(
-    final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequestable) {
     Validator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     Validator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -40,7 +40,7 @@ public final class WebClientRefreshQueue {
   }
 
   public static WebClientRefreshQueue forCounterpartRunnerAndOpenStateRequestable(
-    final Consumer<IWellOrderContainer<? extends IChainedNode>> counterpartRunner,
+    final Consumer<ExtendedIterable<? extends IChainedNode>> counterpartRunner,
     final BooleanSupplier openStateRequester) {
     return new WebClientRefreshQueue(counterpartRunner, openStateRequester);
   }
@@ -48,13 +48,13 @@ public final class WebClientRefreshQueue {
   public void updateControlOnCounterpart(
     final IControl<?, ?> control,
     final boolean updateConstellationOrStyle) {
-    final IWellOrderContainer<IControl<?, ?>> controls = ImmutableList.withElements(control);
+    final ExtendedIterable<IControl<?, ?>> controls = ImmutableList.withElements(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   public void updateControlsOnCounterpart(
-    final IWellOrderContainer<IControl<?, ?>> controls,
+    final ExtendedIterable<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     setUpdatingControlsOnCounterpartAsRequired(controls, updateConstellationOrStyle);
 
@@ -92,7 +92,7 @@ public final class WebClientRefreshQueue {
   }
 
   private LinkedList<IControl<?, ?>> getStoredAllControlsFromUpdateTicketAndGivenControls(
-    final IWellOrderContainer<IControl<?, ?>> controls) {
+    final ExtendedIterable<IControl<?, ?>> controls) {
     final var allControls = LinkedList.fromIterable(memberUpdateTicket.getStoredControls());
 
     for (final var c : controls) {
@@ -113,7 +113,7 @@ public final class WebClientRefreshQueue {
   }
 
   private synchronized void setUpdatingControlsOnCounterpartAsRequired(
-    final IWellOrderContainer<IControl<?, ?>> controls,
+    final ExtendedIterable<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     if (updatingCounterpartIsRequired()) {
       if (memberUpdateTicket.isForSpecificControls()) {

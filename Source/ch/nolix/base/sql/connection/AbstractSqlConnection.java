@@ -12,7 +12,7 @@ import ch.nolix.base.container.containerview.ContainerView;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.net.netconstant.IPv4Catalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
@@ -87,7 +87,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public final void executeStatements(final IWellOrderContainer<String> statements) {
+  public final void executeStatements(final ExtendedIterable<String> statements) {
     try (final var statement = connection.createStatement()) {
       connection.setAutoCommit(false);
 
@@ -130,7 +130,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
    * {@inheritDoc}
    */
   @Override
-  public final IWellOrderContainer<ISqlRecord> getRecordsFromQuery(final String query) {
+  public final ExtendedIterable<ISqlRecord> getRecordsFromQuery(final String query) {
     try (final var statement = connection.createStatement()) {
       return SqlConnectionHelper.getRecordsFromStatement(query, statement);
     } catch (final SQLException sqlException) {

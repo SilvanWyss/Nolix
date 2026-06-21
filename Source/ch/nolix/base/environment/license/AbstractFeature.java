@@ -4,7 +4,7 @@
 package ch.nolix.base.environment.license;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link AbstractFeature} can be required for certain functionalities.
@@ -16,7 +16,7 @@ public abstract class AbstractFeature implements NameHolder {
    * @return the authorized {@link License} types of the current
    *         {@link AbstractFeature}.
    */
-  public abstract IWellOrderContainer<Class<?>> getAuthorizedLicenseTypes();
+  public abstract ExtendedIterable<Class<?>> getAuthorizedLicenseTypes();
 
   /**
    * {@inheritDoc}

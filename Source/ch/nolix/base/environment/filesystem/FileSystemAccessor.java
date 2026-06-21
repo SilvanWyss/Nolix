@@ -14,7 +14,7 @@ import ch.nolix.base.container.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
@@ -260,7 +260,7 @@ public final class FileSystemAccessor {
    * @return new {@link FileAccessor}s for the files in the folder with the given
    *         path.
    */
-  public static IWellOrderContainer<FileAccessor> getFileAccessors(final String path) {
+  public static ExtendedIterable<FileAccessor> getFileAccessors(final String path) {
     return //
     ContainerView.forArray(new File(path).listFiles())
       .getViewOfStoredSelected(File::isFile)
@@ -273,7 +273,7 @@ public final class FileSystemAccessor {
    * @return new {@link FileAccessor}s for the files in the folder with the given
    *         path, that have the given extension.
    */
-  public static IWellOrderContainer<FileAccessor> getFileAccessors(final String path, final String extension) {
+  public static ExtendedIterable<FileAccessor> getFileAccessors(final String path, final String extension) {
     return getFileAccessors(path).getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
@@ -303,7 +303,7 @@ public final class FileSystemAccessor {
    * @return new {@link FileSystemItemAccessor}s for the file system items in
    *         the folder with the given path.
    */
-  public static IWellOrderContainer<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
+  public static ExtendedIterable<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
     return ContainerView.forArray(new File(path).listFiles())
       .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }

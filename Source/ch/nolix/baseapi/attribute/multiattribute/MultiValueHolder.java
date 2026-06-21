@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.multiattribute;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * A {@link MultiValueHolder} can contain several values.
@@ -15,5 +15,5 @@ public interface MultiValueHolder<V> {
   /**
    * @return the values of the current {@link MultiValueHolder}
    */
-  IWellOrderContainer<V> getStoredValues();
+  ExtendedIterable<V> getStoredValues();
 }

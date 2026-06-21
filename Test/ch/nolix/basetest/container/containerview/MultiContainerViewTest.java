@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.container.containerview.MultiContainerView;
 import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
 /**
@@ -32,7 +32,7 @@ final class MultiContainerViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createContainerWithElements(
+  protected <E> ExtendedIterable<E> createContainerWithElements(
     final @SuppressWarnings("unchecked") E... elements) {
     final var container = ImmutableList.withElements(elements);
 
@@ -43,7 +43,7 @@ final class MultiContainerViewTest extends ContainerTest {
    * {@inheritDoc}
    */
   @Override
-  protected <E> IWellOrderContainer<E> createEmptyContainerForType(Class<E> type) {
+  protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
     return MultiContainerView.forEmpty();
   }
 }

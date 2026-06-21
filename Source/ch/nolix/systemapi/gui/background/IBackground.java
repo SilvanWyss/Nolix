@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.gui.background;
 
-import ch.nolix.baseapi.container.wellordercontainer.IWellOrderContainer;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.graphic.color.IColor;
@@ -24,5 +24,5 @@ public interface IBackground extends IElement {
 
   BackgroundType getType();
 
-  IWellOrderContainer<ICssProperty> toCssProperties();
+  ExtendedIterable<ICssProperty> toCssProperties();
 }
