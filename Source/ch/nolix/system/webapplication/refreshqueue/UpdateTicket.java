@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webapplication.refreshqueue;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

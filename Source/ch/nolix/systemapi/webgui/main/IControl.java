@@ -6,8 +6,8 @@ package ch.nolix.systemapi.webgui.main;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.objectcomposition.linking.Linkable;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.html.IHtmlGetter;

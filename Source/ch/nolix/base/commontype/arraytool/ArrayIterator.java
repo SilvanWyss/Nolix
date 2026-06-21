@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 
 import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss

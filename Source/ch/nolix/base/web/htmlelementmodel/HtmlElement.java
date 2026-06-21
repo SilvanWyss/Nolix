@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.web.htmlelementmodel;
 
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

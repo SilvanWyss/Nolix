@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.resourcecontrol.closecontroller;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.programcontrol.processproperty.CloseState;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;

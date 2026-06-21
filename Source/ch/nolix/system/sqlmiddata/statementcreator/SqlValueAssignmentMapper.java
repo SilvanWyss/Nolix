@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmiddata.statementcreator;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.sql.sqltool.SqlLiteralMapper;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.sql.sqltool.ISqlLiteralMapper;

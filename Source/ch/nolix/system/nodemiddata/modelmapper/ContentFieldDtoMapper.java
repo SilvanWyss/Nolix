@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.nodemiddata.modelmapper;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

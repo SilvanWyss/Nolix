@@ -11,7 +11,7 @@ import ch.nolix.base.commontype.stringexaminer.StringExaminer;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

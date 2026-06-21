@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.level2server;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

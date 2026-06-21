@@ -5,7 +5,7 @@ package ch.nolix.system.webapplication.protocol;
 
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;

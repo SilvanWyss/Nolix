@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.objectdata.model;
 
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;

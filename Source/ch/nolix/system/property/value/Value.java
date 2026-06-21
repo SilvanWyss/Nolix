@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.systemapi.element.base.IElement;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.gui.box;
 
-import ch.nolix.base.container.arraylist.ArrayList;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

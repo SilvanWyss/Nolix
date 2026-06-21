@@ -5,7 +5,7 @@ package ch.nolix.basetest.web.htmlelementmodel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;

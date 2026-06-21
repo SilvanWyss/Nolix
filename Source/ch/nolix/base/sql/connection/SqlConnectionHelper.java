@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.sql.model.SqlRecord;
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 
 /**

@@ -3,7 +3,7 @@
  */
 package ch.nolix.basetest.container.immutablelist;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 

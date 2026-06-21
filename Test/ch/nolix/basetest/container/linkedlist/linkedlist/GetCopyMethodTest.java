@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.linkedlist.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**

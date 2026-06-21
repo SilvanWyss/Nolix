@@ -5,8 +5,8 @@ package ch.nolix.basetest.container.sequencesearch;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.container.sequencesearch.SequencePattern;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.sequencesearch.SequencePattern;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**

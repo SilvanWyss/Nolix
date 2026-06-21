@@ -3,9 +3,9 @@
  */
 package ch.nolix.basetest.container.matrix;
 
-import ch.nolix.base.container.matrix.Matrix;
-import ch.nolix.base.container.matrix.MatrixIterator;
-import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.base.datastructure.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.MatrixIterator;
+import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.basetest.container.base.CopyableIteratorTest;
 
 /**

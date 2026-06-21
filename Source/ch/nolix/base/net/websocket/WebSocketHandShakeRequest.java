@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.net.websocket;
 
-import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**

@@ -5,7 +5,7 @@ package ch.nolix.systemtest.sqlmidschema.statementcreator;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;

@@ -12,14 +12,14 @@ import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.matrix.Matrix;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.matrix.IMatrix;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.matrix.IMatrix;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;

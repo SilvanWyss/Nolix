@@ -4,7 +4,7 @@
 package ch.nolix.base.web.cssmodel;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

@@ -6,7 +6,7 @@ package ch.nolix.basetest.container.arraylist;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.container.arraylist.ArrayListCapacityCalculator;
+import ch.nolix.base.datastructure.arraylist.ArrayListCapacityCalculator;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**

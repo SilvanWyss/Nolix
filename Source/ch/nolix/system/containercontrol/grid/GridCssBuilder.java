@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.containercontrol.grid;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.base.web.cssmodel.CssRule;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;

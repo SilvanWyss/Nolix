@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.nodemiddata.nodemapper;
 
-import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;

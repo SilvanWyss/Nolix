@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.matrix;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 

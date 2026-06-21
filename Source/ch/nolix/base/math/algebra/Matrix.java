@@ -7,11 +7,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 import ch.nolix.base.commontype.doubletool.DoubleTool;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;

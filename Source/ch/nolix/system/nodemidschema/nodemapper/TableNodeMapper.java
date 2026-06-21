@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.nodemidschema.nodemapper;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.systemapi.midschema.model.TableDto;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.resourcecontrol.resourcepool;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.Closeable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;

@@ -5,16 +5,16 @@ package ch.nolix.basetest.reflection.reflectionexaminer;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.base.container.linkedlist.LinkedList;
-import ch.nolix.base.container.matrix.Matrix;
-import ch.nolix.base.container.wellordercontainer.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractWellOrderContainer;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.list.IArrayList;
-import ch.nolix.baseapi.container.list.ILinkedList;
-import ch.nolix.baseapi.container.matrix.IMatrix;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.matrix.IMatrix;
 
 /**
  * @author Silvan Wyss

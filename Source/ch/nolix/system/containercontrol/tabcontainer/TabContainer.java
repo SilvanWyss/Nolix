@@ -5,10 +5,10 @@ package ch.nolix.system.containercontrol.tabcontainer;
 
 import java.util.function.Consumer;
 
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.atomiccontrol.button.ButtonStyle;

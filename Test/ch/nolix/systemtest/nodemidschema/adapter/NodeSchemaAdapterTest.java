@@ -5,7 +5,7 @@ package ch.nolix.systemtest.nodemidschema.adapter;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;

@@ -12,7 +12,7 @@ import java.util.Optional;
 
 import ch.nolix.base.commontype.inputstreamtool.InputStreamTool;
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.errorcontrol.logging.Logger;

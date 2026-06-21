@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.environment.filesystem;
 
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 
 /**

@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.containercontrol.linearcontainer;
 
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.ControlFactory;

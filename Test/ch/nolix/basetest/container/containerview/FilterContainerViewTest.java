@@ -3,7 +3,7 @@
  */
 package ch.nolix.basetest.container.containerview;
 
-import ch.nolix.base.container.arraylist.FilterContainerView;
+import ch.nolix.base.datastructure.arraylist.FilterContainerView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 

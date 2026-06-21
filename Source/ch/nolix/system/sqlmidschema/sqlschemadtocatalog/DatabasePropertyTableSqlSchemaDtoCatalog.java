@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.systemapi.sqlmiddatabasestructure.column.DatabasePropertyColumn;
 import ch.nolix.systemapi.sqlmiddatabasestructure.table.MetaDataTable;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;

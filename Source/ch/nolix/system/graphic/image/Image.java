@@ -5,7 +5,7 @@ package ch.nolix.system.graphic.image;
 
 import java.awt.image.BufferedImage;
 
-import ch.nolix.base.container.matrix.Matrix;
+import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.environment.runningjar.RunningJar;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

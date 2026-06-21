@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlschema.modelmapper;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlschema.model.DataTypeDto;

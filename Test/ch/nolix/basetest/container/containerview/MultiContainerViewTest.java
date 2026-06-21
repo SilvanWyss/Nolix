@@ -5,8 +5,8 @@ package ch.nolix.basetest.container.containerview;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.containerview.MultiContainerView;
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.extendediterableview.MultiContainerView;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 

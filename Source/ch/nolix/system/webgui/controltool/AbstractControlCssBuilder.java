@@ -5,12 +5,12 @@ package ch.nolix.system.webgui.controltool;
 
 import java.util.Locale;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.base.web.cssmodel.CssRule;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;

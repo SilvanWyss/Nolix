@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.sqlschema.adapter;
 
-import ch.nolix.base.container.arraylist.ArrayList;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.list.IArrayList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;

@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.containerview;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 

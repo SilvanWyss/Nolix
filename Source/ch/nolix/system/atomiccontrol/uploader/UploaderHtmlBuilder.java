@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.atomiccontrol.uploader;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;

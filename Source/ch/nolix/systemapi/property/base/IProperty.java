@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.property.base;
 
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 

@@ -5,7 +5,7 @@ package ch.nolix.base.document.node;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.container.containerview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.base.environment.filesystem.FileAccessor;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.base.validation.validator.Validator;

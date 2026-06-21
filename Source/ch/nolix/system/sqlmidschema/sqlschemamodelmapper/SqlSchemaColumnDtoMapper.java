@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 
-import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.systemapi.midschema.model.ColumnDto;
 import ch.nolix.systemapi.sqlmidschema.sqlschemamodelmapper.ISqlSchemaColumnDtoMapper;
 

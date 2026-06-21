@@ -5,7 +5,7 @@ package ch.nolix.basetest.net.ssl;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.net.ssl.SslCertificateKeyReader;
 import ch.nolix.base.testing.standardtest.StandardTest;
 

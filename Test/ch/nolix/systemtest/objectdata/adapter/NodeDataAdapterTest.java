@@ -5,7 +5,7 @@ package ch.nolix.systemtest.objectdata.adapter;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.errorcontrol.generalexception.ChangedResourceException;
 import ch.nolix.base.testing.standardtest.StandardTest;

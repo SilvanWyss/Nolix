@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.containercontrol.singlecontainer;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainer;

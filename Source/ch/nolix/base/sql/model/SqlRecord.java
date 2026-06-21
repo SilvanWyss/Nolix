@@ -3,9 +3,9 @@
  */
 package ch.nolix.base.sql.model;
 
-import ch.nolix.base.container.arraylist.AbstractExtendedContainer;
-import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

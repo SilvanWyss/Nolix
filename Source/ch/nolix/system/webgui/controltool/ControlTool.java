@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webgui.controltool;
 
-import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.baseapi.container.list.IArrayList;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.systemapi.webgui.controltool.IControlTool;
 import ch.nolix.systemapi.webgui.main.IControl;
 

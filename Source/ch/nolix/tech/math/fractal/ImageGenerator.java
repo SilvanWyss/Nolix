@@ -6,14 +6,14 @@ package ch.nolix.tech.math.fractal;
 //Java import
 import java.math.BigDecimal;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.programcontrol.future.AbstractFuture;
 import ch.nolix.base.programcontrol.jobpool.JobPool;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

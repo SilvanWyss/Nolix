@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.graphic.color;
 
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;

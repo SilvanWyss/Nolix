@@ -6,8 +6,8 @@ package ch.nolix.system.webapplication.refreshqueue;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

@@ -5,14 +5,14 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 import java.util.function.Function;
 
-import ch.nolix.baseapi.container.basewellordercontainer.ArrayMappable;
-import ch.nolix.baseapi.container.basewellordercontainer.IndexRequestable;
-import ch.nolix.baseapi.container.basewellordercontainer.IterableWithCopyableIterator;
-import ch.nolix.baseapi.container.basewellordercontainer.SingleSearchable;
-import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
-import ch.nolix.baseapi.container.basewellordercontainer.StringMappable;
-import ch.nolix.baseapi.container.generalcontainer.AggregationRequestable;
-import ch.nolix.baseapi.container.generalcontainer.CountRequestable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.ArrayMappable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.IndexRequestable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.IterableWithCopyableIterator;
+import ch.nolix.baseapi.datastructure.baseextendediterable.SingleSearchable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.StringMappable;
+import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
+import ch.nolix.baseapi.datastructure.general.CountRequestable;
 import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 

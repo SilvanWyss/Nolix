@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.style.model;
 
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
-import ch.nolix.baseapi.container.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;

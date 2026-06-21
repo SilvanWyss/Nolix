@@ -3,8 +3,8 @@
  */
 package ch.nolix.basetest.container.arraylist;
 
-import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.basetest.container.base.CopyableIteratorTest;
 
 /**

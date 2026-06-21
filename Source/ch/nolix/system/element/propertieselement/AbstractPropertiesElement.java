@@ -5,8 +5,8 @@ package ch.nolix.system.element.propertieselement;
 
 import java.lang.reflect.Field;
 
-import ch.nolix.base.container.arraylist.ArrayList;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.errorcontrol.errormapping.IllegalAccessErrorMapper;
 import ch.nolix.base.validation.validator.Validator;

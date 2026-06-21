@@ -6,7 +6,7 @@ package ch.nolix.baseapitest.misc.variable;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;

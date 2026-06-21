@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.model;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;

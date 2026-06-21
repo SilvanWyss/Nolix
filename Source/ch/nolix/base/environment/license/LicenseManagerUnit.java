@@ -5,7 +5,7 @@ package ch.nolix.base.environment.license;
 
 import java.lang.reflect.InvocationTargetException;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.environment.filesystem.FolderAccessor;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;

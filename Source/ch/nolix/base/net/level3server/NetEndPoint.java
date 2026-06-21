@@ -4,9 +4,9 @@
 package ch.nolix.base.net.level3server;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.base.container.containerview.ContainerView;
-import ch.nolix.base.container.immutablelist.ImmutableList;
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
 import ch.nolix.base.document.node.AbstractNode;
 import ch.nolix.base.document.node.ImmutableNode;

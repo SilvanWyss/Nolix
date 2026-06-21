@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.arraylist;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.container.arraylist.ArrayList;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.basetest.container.base.ContainerTest;

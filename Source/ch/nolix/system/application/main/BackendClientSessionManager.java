@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.validation.validator.Validator;

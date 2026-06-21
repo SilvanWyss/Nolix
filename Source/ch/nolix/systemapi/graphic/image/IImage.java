@@ -5,7 +5,7 @@ package ch.nolix.systemapi.graphic.image;
 
 import java.awt.image.BufferedImage;
 
-import ch.nolix.baseapi.container.matrix.IMatrix;
+import ch.nolix.baseapi.datastructure.matrix.IMatrix;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 

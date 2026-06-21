@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.container.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss

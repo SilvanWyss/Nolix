@@ -5,7 +5,7 @@ package ch.nolix.base.programcontrol.jobpool;
 
 import java.util.Optional;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
 /**

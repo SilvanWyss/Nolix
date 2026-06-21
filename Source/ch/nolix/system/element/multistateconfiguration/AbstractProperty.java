@@ -5,7 +5,7 @@ package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
-import ch.nolix.baseapi.container.list.ILinkedList;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 

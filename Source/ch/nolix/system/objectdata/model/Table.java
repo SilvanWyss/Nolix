@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.datastructure.property.LazyCalculatedProperty;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

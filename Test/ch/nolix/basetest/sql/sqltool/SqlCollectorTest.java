@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;

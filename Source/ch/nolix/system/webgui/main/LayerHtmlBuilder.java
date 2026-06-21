@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.main;
 
-import ch.nolix.base.container.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlelementmodel.HtmlElement;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

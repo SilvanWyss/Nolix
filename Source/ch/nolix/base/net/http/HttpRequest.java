@@ -4,7 +4,7 @@
 package ch.nolix.base.net.http;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.container.basewellordercontainer.StoringRequestable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 public record HttpRequest(String content) {

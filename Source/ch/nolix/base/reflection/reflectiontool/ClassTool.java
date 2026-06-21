@@ -5,7 +5,7 @@ package ch.nolix.base.reflection.reflectiontool;
 
 import java.lang.reflect.Constructor;
 
-import ch.nolix.base.container.linkedlist.LinkedList;
+import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectionexaminer.FieldExaminer;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
