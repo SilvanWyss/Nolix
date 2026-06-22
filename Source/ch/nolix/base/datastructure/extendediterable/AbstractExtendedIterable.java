@@ -17,7 +17,7 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontype.iteratortool.IterableTool;
-import ch.nolix.base.datastructure.arraylist.MappingContainerView;
+import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
@@ -1250,7 +1250,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
-    return MappingContainerView.forContainerAndMapper(this, mapper);
+    return ExtendedIterableMapperView.forContainerAndMapper(this, mapper);
   }
 
   /**

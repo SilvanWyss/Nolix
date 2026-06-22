@@ -1,11 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.arraylist;
+package ch.nolix.base.datastructure.extendediterablemapperview;
 
 import java.util.function.Function;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -14,17 +15,17 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link MappingContainerView}.
- * @param <T> is the type of the elements a {@link MappingContainerView} maps
+ * @param <E> is the type of the elements of a {@link ExtendedIterableMapperView}.
+ * @param <T> is the type of the elements a {@link ExtendedIterableMapperView} maps
  *            from its elements.
  */
-public final class MappingContainerView<E, T> extends AbstractExtendedContainer<T> {
+public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedContainer<T> {
   private final ExtendedIterable<E> wellOrderContainer;
 
   private final Function<E, T> mapper;
 
   /**
-   * Creates a new {@link MappingContainerView} for the given container and
+   * Creates a new {@link ExtendedIterableMapperView} for the given container and
    * mapper.
    * 
    * @param container
@@ -32,7 +33,7 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given mapper is null.
    */
-  private MappingContainerView(final ExtendedIterable<E> container, final Function<E, T> mapper) {
+  private ExtendedIterableMapperView(final ExtendedIterable<E> container, final Function<E, T> mapper) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
 
     this.wellOrderContainer = container;
@@ -43,18 +44,18 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    * @param container
    * @param mapper
    * @param <T>       is the type of the elements of the created
-   *                  {@link MappingContainerView}.
+   *                  {@link ExtendedIterableMapperView}.
    * @param <T2>      is the type of the elements the created
-   *                  {@link MappingContainerView} maps from its elements.
-   * @return a new {@link MappingContainerView} with the given container and
+   *                  {@link ExtendedIterableMapperView} maps from its elements.
+   * @return a new {@link ExtendedIterableMapperView} with the given container and
    *         mapper.
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given mapper is null.
    */
-  public static <T, T2> MappingContainerView<T, T2> forContainerAndMapper(
+  public static <T, T2> ExtendedIterableMapperView<T, T2> forContainerAndMapper(
     final AbstractExtendedIterable<T> container,
     final Function<T, T2> mapper) {
-    return new MappingContainerView<>(container, mapper);
+    return new ExtendedIterableMapperView<>(container, mapper);
   }
 
   /**
@@ -88,6 +89,6 @@ public final class MappingContainerView<E, T> extends AbstractExtendedContainer<
    */
   @Override
   public CopyableIterator<T> iterator() {
-    return MappingContainerViewIterator.forIteratorAndMapper(wellOrderContainer.iterator(), mapper);
+    return ExtendedIterableMapperViewIterator.forIteratorAndMapper(wellOrderContainer.iterator(), mapper);
   }
 }

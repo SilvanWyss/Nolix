@@ -9,6 +9,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
+import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.base.datastructure.filterextendediterableview.FilterExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
@@ -37,7 +38,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
    */
   @Override
   public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
-    return MappingContainerView.forContainerAndMapper(this, mapper);
+    return ExtendedIterableMapperView.forContainerAndMapper(this, mapper);
   }
 
   /**
