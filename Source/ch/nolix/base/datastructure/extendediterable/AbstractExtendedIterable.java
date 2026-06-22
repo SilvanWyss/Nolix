@@ -34,8 +34,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
- *            {@link AbstractExtendedIterable}.
+ * @param <E> is the type of the elements of a {@link AbstractExtendedIterable}.
  */
 public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
 implements ExtendedIterable<E> {
@@ -1249,7 +1248,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
+  public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
     return ExtendedIterableMapperView.forContainerAndMapper(this, mapper);
   }
 

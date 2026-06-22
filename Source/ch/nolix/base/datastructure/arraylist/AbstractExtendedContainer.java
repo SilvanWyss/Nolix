@@ -11,7 +11,6 @@ import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.base.datastructure.extendediterableintervallview.ExtendedIterableIntervallView;
-import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 
@@ -28,18 +27,8 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
   public final ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
     final int oneBasedStartIndex,
     final int oneBasedEndIndex) {
-    return ExtendedIterableIntervallView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex, oneBasedEndIndex);
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  public final <T> ExtendedIterable<T> getViewOf(final Function<E, T> mapper) {
-    return ExtendedIterableMapperView.forContainerAndMapper(this, mapper);
+    return ExtendedIterableIntervallView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex,
+      oneBasedEndIndex);
   }
 
   /**
