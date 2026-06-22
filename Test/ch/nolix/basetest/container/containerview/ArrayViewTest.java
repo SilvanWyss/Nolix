@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.containerview;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datastructure.extendediterableview.ArrayContainerView;
+import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.basetest.container.base.ContainerTest;
@@ -17,7 +17,7 @@ final class ArrayViewTest extends ContainerTest {
   @Test
   void testCase_forArray_whenTheGivenArrayIsNull() {
     //execution & verification
-    expectRunning(() -> ArrayContainerView
+    expectRunning(() -> ArrayExtendedIterableView
       .forArray(null)).throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given array is null.");
@@ -28,7 +28,7 @@ final class ArrayViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
-    return ArrayContainerView.forArray(elements);
+    return ArrayExtendedIterableView.forArray(elements);
   }
 
   /**
@@ -36,6 +36,6 @@ final class ArrayViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
-    return ArrayContainerView.createEmpty();
+    return ArrayExtendedIterableView.createEmpty();
   }
 }

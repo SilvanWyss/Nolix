@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.datastructure.extendediterableview;
 
+import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
@@ -55,7 +56,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws RuntimeException if the given array is null.
    */
   public static <T> ContainerView<T> forArray(final T[] array) {
-    final var container = ArrayContainerView.forArray(array);
+    final var container = ArrayExtendedIterableView.forArray(array);
 
     return new ContainerView<>(container);
   }

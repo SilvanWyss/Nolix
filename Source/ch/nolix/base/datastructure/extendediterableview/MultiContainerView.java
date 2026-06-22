@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.datastructure.extendediterableview;
 
+import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
@@ -27,7 +28,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var a : arrays) {
-      localContainers.addAtEnd(ArrayContainerView.forArray(a));
+      localContainers.addAtEnd(ArrayExtendedIterableView.forArray(a));
     }
 
     wellOrderContainers = localContainers;
