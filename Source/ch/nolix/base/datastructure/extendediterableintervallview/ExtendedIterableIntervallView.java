@@ -1,8 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.arraylist;
+package ch.nolix.base.datastructure.extendediterableintervallview;
 
+import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -10,18 +11,18 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link IntervallContainerView} can iterate over a part of another
+ * A {@link ExtendedIterableIntervallView} can iterate over a part of another
  * container.
  * 
- * A {@link IntervallContainerView} must not use the methods of the accessed
+ * A {@link ExtendedIterableIntervallView} must not use the methods of the accessed
  * container except the iterator method. The reason is that the accessed
  * container can be a specialized container that does not use its iterator in
  * any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link IntervallContainerView}.
+ * @param <E> is the type of the elements of a {@link ExtendedIterableIntervallView}.
  */
-public final class IntervallContainerView<E> extends AbstractExtendedContainer<E> {
+public final class ExtendedIterableIntervallView<E> extends AbstractExtendedContainer<E> {
   private final AbstractExtendedIterable<E> abstractExtendedIterable;
 
   private final int startIndex;
@@ -29,7 +30,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
   private final int endIndex;
 
   /**
-   * Creates a new {@link IntervallContainerView} with the given container,
+   * Creates a new {@link ExtendedIterableIntervallView} with the given container,
    * startIndex and endIndex.
    * 
    * @param container
@@ -43,7 +44,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given container.
    */
-  private IntervallContainerView(final AbstractExtendedIterable<E> container, final int startIndex, final int endIndex) {
+  private ExtendedIterableIntervallView(final AbstractExtendedIterable<E> container, final int startIndex, final int endIndex) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
@@ -68,8 +69,8 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @param startIndex
    * @param endIndex
    * @param <T>        is the type of the elements of the created
-   *                   {@link IntervallContainerView}.
-   * @return a new {@link IntervallContainerView} with the given container,
+   *                   {@link ExtendedIterableIntervallView}.
+   * @return a new {@link ExtendedIterableIntervallView} with the given container,
    *         startIndex and endIndex.
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given startIndex is not positive.
@@ -79,11 +80,11 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given container.
    */
-  public static <T> IntervallContainerView<T> forContainerAndStartIndexAndEndIndex(
+  public static <T> ExtendedIterableIntervallView<T> forContainerAndStartIndexAndEndIndex(
     final AbstractExtendedIterable<T> container,
     final int startIndex,
     final int endIndex) {
-    return new IntervallContainerView<>(container, startIndex, endIndex);
+    return new ExtendedIterableIntervallView<>(container, startIndex, endIndex);
   }
 
   /**
@@ -123,7 +124,7 @@ public final class IntervallContainerView<E> extends AbstractExtendedContainer<E
   @Override
   public CopyableIterator<E> iterator() {
     return //
-    IntervallContainerViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractExtendedIterable, startIndex, endIndex);
+    ExtendedIterableIntervallViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractExtendedIterable, startIndex, endIndex);
   }
 
   /**
