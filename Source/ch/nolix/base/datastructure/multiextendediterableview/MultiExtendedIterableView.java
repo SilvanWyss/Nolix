@@ -7,8 +7,8 @@ import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterab
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.Marker;
-import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
@@ -40,7 +40,7 @@ public final class MultiExtendedIterableView<E> extends AbstractExtendedContaine
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var i : iterables) {
-      localContainers.addAtEnd(ExtendedIterableView.forIterable(i));
+      localContainers.addAtEnd(IterableExtendedIterableView.forIterable(i));
     }
 
     wellOrderContainers = localContainers;

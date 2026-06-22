@@ -8,6 +8,7 @@ import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
 import ch.nolix.base.datastructure.multiextendediterableview.MultiExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -86,7 +87,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws RuntimeException if the given iterable is null.
    */
   public static <T> ContainerView<T> forIterable(final Iterable<T> iterable) {
-    final var container = ExtendedIterableView.forIterable(iterable);
+    final var container = IterableExtendedIterableView.forIterable(iterable);
 
     return new ContainerView<>(container);
   }

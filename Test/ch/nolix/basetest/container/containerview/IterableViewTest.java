@@ -4,7 +4,7 @@
 package ch.nolix.basetest.container.containerview;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
-import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
+import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
@@ -17,7 +17,7 @@ final class IterableViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
-    return ExtendedIterableView.forIterable(ArrayList.withElements(elements));
+    return IterableExtendedIterableView.forIterable(ArrayList.withElements(elements));
   }
 
   /**
@@ -25,6 +25,6 @@ final class IterableViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
-    return new ExtendedIterableView<>();
+    return new IterableExtendedIterableView<>();
   }
 }

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.extendediterableview;
+package ch.nolix.base.datastructure.iterableextendediterableview;
 
 import java.util.Iterator;
 
@@ -11,16 +11,16 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of the parent {@link Iterable} of a
- *            {@link ExtendedIterableViewIterator}.
+ *            {@link IterableExtendedIterableViewIterator}.
  */
-public final class ExtendedIterableViewIterator<E> implements CopyableIterator<E> {
+public final class IterableExtendedIterableViewIterator<E> implements CopyableIterator<E> {
   private final Iterable<E> parentIterable;
 
   private final Iterator<E> internalIterator;
 
   private int iterationCount;
 
-  private ExtendedIterableViewIterator(final Iterable<E> parentIterable) {
+  private IterableExtendedIterableViewIterator(final Iterable<E> parentIterable) {
     Validator.assertThat(parentIterable).thatIsNamed("parent iterable").isNotNull();
 
     this.parentIterable = parentIterable;
@@ -28,7 +28,7 @@ public final class ExtendedIterableViewIterator<E> implements CopyableIterator<E
     iterationCount = 0;
   }
 
-  private ExtendedIterableViewIterator(final Iterable<E> parentIterable, final int iterationCount) {
+  private IterableExtendedIterableViewIterator(final Iterable<E> parentIterable, final int iterationCount) {
     Validator.assertThat(iterationCount).thatIsNamed("iteration count").isNotNegative();
 
     this.parentIterable = parentIterable;
@@ -41,8 +41,8 @@ public final class ExtendedIterableViewIterator<E> implements CopyableIterator<E
     this.iterationCount = iterationCount;
   }
 
-  public static <T> ExtendedIterableViewIterator<T> forIterable(final Iterable<T> iterable) {
-    return new ExtendedIterableViewIterator<>(iterable);
+  public static <T> IterableExtendedIterableViewIterator<T> forIterable(final Iterable<T> iterable) {
+    return new IterableExtendedIterableViewIterator<>(iterable);
   }
 
   /**
@@ -50,7 +50,7 @@ public final class ExtendedIterableViewIterator<E> implements CopyableIterator<E
    */
   @Override
   public CopyableIterator<E> getCopy() {
-    return new ExtendedIterableViewIterator<>(parentIterable, iterationCount);
+    return new IterableExtendedIterableViewIterator<>(parentIterable, iterationCount);
   }
 
   /**
