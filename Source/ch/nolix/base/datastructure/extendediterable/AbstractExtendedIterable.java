@@ -15,8 +15,12 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
+import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
+import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterableIntervalView;
 import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -1269,6 +1273,29 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
+  public final ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
+    final int oneBasedStartIndex,
+    final int oneBasedEndIndex) {
+    return ExtendedIterableIntervalView.forExtendedIterableAndStartIndexAndEndIndex(this, oneBasedStartIndex,
+      oneBasedEndIndex);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final ExtendedIterable<E> getViewOfStoredSelected(final Predicate<E> selector) {
+    return ExtendedIterableFilterView.forContainerAndSelector(this, selector);
+  }
+
+  /**
+   * The time complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
   public final ExtendedIterable<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
     //Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, oneBasedEndIndex);
@@ -1673,6 +1700,22 @@ implements ExtendedIterable<E> {
 
     //Returns numbers.
     return numbers;
+  }
+
+  /**
+   * The time complexity of this implementation is O(n * log(n)) if the current
+   * {@link AbstractExtendedIterable} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final <C extends Comparable<C>> ExtendedIterable<E> toOrderedList(final Function<E, C> norm) {
+    @SuppressWarnings("unchecked")
+    final var array = (E[]) toArray();
+
+    ArraySorter.sortArray(array, getCount(), norm);
+
+    return ArrayList.withElements(array);
   }
 
   /**

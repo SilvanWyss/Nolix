@@ -4,8 +4,8 @@
 package ch.nolix.base.datastructure.arrayextendediterableview;
 
 import ch.nolix.base.commontype.arraytool.ArrayIterator;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -18,7 +18,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a
  *            {@link ArrayExtendedIterableView}.
  */
-public final class ArrayExtendedIterableView<E> extends AbstractExtendedContainer<E> {
+public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private static final ArrayExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = new ArrayExtendedIterableView<>(
     new Object[0]);
 

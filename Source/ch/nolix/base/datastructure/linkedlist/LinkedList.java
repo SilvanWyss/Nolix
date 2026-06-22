@@ -6,7 +6,6 @@ package ch.nolix.base.datastructure.linkedlist;
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
@@ -30,7 +29,7 @@ import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
-extends AbstractExtendedContainer<E>
+extends AbstractExtendedIterable<E>
 implements ILinkedList<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 

@@ -4,8 +4,8 @@
 package ch.nolix.base.datastructure.multiextendediterableview;
 
 import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
@@ -17,9 +17,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRan
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link MultiExtendedIterableView}.
+ * @param <E> is the type of the elements of a
+ *            {@link MultiExtendedIterableView}.
  */
-public final class MultiExtendedIterableView<E> extends AbstractExtendedContainer<E> {
+public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private final ExtendedIterable<ExtendedIterable<E>> wellOrderContainers;
 
   private MultiExtendedIterableView() {

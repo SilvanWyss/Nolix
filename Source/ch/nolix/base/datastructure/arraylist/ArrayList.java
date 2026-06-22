@@ -4,6 +4,7 @@
 package ch.nolix.base.datastructure.arraylist;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -17,7 +18,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link ArrayList}.
  */
-public final class ArrayList<E> extends AbstractExtendedContainer<E> implements IArrayList<E> {
+public final class ArrayList<E> extends AbstractExtendedIterable<E> implements IArrayList<E> {
   private int memberElementCount;
 
   @SuppressWarnings("unchecked")

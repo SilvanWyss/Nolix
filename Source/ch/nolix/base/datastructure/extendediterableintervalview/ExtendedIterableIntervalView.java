@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.datastructure.extendediterableintervalview;
 
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -18,10 +18,9 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * {@link ExtendedIterable}.
  * 
  * @author Silvan Wyss
- * @param <E> the type of the elements of a
- *            {@link ExtendedIterableIntervalView}
+ * @param <E> the type of the elements of a {@link ExtendedIterableIntervalView}
  */
-public final class ExtendedIterableIntervalView<E> extends AbstractExtendedContainer<E> {
+public final class ExtendedIterableIntervalView<E> extends AbstractExtendedIterable<E> {
   private final ExtendedIterable<E> extendedIterable;
 
   private final int startIndex;

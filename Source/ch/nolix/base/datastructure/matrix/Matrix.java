@@ -6,7 +6,6 @@ package ch.nolix.base.datastructure.matrix;
 import java.util.Arrays;
 import java.util.function.Function;
 
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
@@ -32,7 +31,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMatrix<E> {
+public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMatrix<E> {
   private Object[][] memberElements = new Object[0][0];
 
   /**

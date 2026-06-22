@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.datastructure.matrix;
 
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -17,7 +17,7 @@ import ch.nolix.baseapi.datastructure.matrix.IMatrixRow;
  * @param <E> is the type of the elements of the parent {@link Matrix} of a
  *            {@link MatrixRow}.
  */
-public final class MatrixRow<E> extends AbstractExtendedContainer<E> implements IMatrixRow<E> {
+public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements IMatrixRow<E> {
   private final Matrix<E> parentMatrix;
 
   private final int oneBasedRowIndex;

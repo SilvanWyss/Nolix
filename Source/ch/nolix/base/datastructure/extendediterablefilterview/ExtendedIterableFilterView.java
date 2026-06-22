@@ -6,8 +6,8 @@ package ch.nolix.base.datastructure.extendediterablefilterview;
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
@@ -22,7 +22,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <E> is the type of the elements of a
  *            {@link ExtendedIterableFilterView}.
  */
-public final class ExtendedIterableFilterView<E> extends AbstractExtendedContainer<E> {
+public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterable<E> {
   private final ExtendedIterable<E> wellOrderContainer;
 
   private final Predicate<E> selector;

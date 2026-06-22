@@ -6,7 +6,6 @@ package ch.nolix.base.datastructure.extendediterablemapperview;
 import java.util.function.Function;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
@@ -23,7 +22,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @param <T> is the type of the elements a {@link ExtendedIterableMapperView}
  *            maps from its elements.
  */
-public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedContainer<T> {
+public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIterable<T> {
   private final ExtendedIterable<E> wellOrderContainer;
 
   private final Function<E, T> mapper;

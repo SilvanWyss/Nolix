@@ -3,8 +3,8 @@
  */
 package ch.nolix.base.sql.model;
 
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
@@ -20,7 +20,7 @@ import ch.nolix.baseapi.sql.model.ISqlRecord;
  * 
  * @author Silvan Wyss
  */
-public final class SqlRecord extends AbstractExtendedContainer<String> implements ISqlRecord {
+public final class SqlRecord extends AbstractExtendedIterable<String> implements ISqlRecord {
   private final int memberOneBasedIndex;
 
   private final ImmutableList<String> values;

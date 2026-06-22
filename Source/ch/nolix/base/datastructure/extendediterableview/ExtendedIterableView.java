@@ -4,8 +4,8 @@
 package ch.nolix.base.datastructure.extendediterableview;
 
 import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.iterableextendediterableview.IterableExtendedIterableView;
@@ -17,17 +17,17 @@ import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link ExtendedIterableView} wraps one or several given {@link Iterable}s or
- * arrays.
+ * A {@link ExtendedIterableView} wraps one or several given {@link Iterable}s
+ * or arrays.
  * 
- * A {@link ExtendedIterableView} prevents that its accessed {@link Iterable}s or
- * arrays are mutated. A {@link ExtendedIterableView} does not prevent that the
- * elements of its {@link Iterable} or array are mutated.
+ * A {@link ExtendedIterableView} prevents that its accessed {@link Iterable}s
+ * or arrays are mutated. A {@link ExtendedIterableView} does not prevent that
+ * the elements of its {@link Iterable} or array are mutated.
  * 
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link ExtendedIterableView}.
  */
-public final class ExtendedIterableView<E> extends AbstractExtendedContainer<E> {
+public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private static final ExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = //
   new ExtendedIterableView<>(ImmutableList.createEmpty());
 
@@ -47,7 +47,8 @@ public final class ExtendedIterableView<E> extends AbstractExtendedContainer<E> 
 
   /**
    * @return an empty {@link ExtendedIterableView}.
-   * @param <T> is the types the elements the {@link ExtendedIterableView} would have.
+   * @param <T> is the types the elements the {@link ExtendedIterableView} would
+   *            have.
    */
   @SuppressWarnings("unchecked")
   public static <T> ExtendedIterableView<T> createEmpty() {
@@ -97,7 +98,8 @@ public final class ExtendedIterableView<E> extends AbstractExtendedContainer<E> 
    * @param element
    * @param <T>      is the type of the elements of the given iterable and
    *                 element.
-   * @return a new {@link ExtendedIterableView} for the given iterable and element.
+   * @return a new {@link ExtendedIterableView} for the given iterable and
+   *         element.
    * @throws RuntimeException if the given iterable is null.
    */
   public static <T> ExtendedIterableView<T> forIterableAndElement(final Iterable<T> iterable, final T element) {

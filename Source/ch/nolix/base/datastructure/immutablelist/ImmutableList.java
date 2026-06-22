@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 
 import ch.nolix.base.commontype.arraytool.ArrayIterator;
 import ch.nolix.base.commontype.iteratortool.IterableTool;
-import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -24,7 +24,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link ImmutableList}.
  */
-public final class ImmutableList<E> extends AbstractExtendedContainer<E> {
+public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
   private static final ImmutableList<Object> EMPTY = new ImmutableList<>(new Object[0]);
 
   private final E[] elements;
