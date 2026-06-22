@@ -6,6 +6,7 @@ package ch.nolix.systemapi.webgui.main;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import ch.nolix.baseapi.component.guicomponent.GuiComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.objectcomposition.linking.Linkable;
@@ -25,15 +26,14 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
  */
 public interface IControl<C extends IControl<C, S>, S extends IControlStyle<S>>
 extends
-ISizeAdjustableBox<C>,
+GuiComponent<IWebGui<?>>,
 IHtmlGetter,
+ISizeAdjustableBox<C>,
 IStylableElement<C>,
 IUserInputCell<C>,
 Linkable,
 PresenceSettable<C> {
   boolean belongsToControl();
-
-  boolean belongsToGui();
 
   boolean belongsToLayer();
 
@@ -52,8 +52,6 @@ PresenceSettable<C> {
   ExtendedIterable<IControl<?, ?>> getStoredChildControls();
 
   IControl<?, ?> getStoredParentControl();
-
-  IWebGui<?> getStoredParentGui();
 
   ILayer getStoredParentLayer();
 
