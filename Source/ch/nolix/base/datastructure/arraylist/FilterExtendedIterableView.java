@@ -15,15 +15,15 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link FilterContainerView}.
+ * @param <E> is the type of the elements of a {@link FilterExtendedIterableView}.
  */
-public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
+public final class FilterExtendedIterableView<E> extends AbstractExtendedContainer<E> {
   private final ExtendedIterable<E> wellOrderContainer;
 
   private final Predicate<E> selector;
 
   /**
-   * Creates a new {@link FilterContainerView} for the given container and
+   * Creates a new {@link FilterExtendedIterableView} for the given container and
    * selector.
    * 
    * @param container
@@ -31,7 +31,7 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given selector is null.
    */
-  private FilterContainerView(final ExtendedIterable<E> container, final Predicate<E> selector) {
+  private FilterExtendedIterableView(final ExtendedIterable<E> container, final Predicate<E> selector) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -40,11 +40,11 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
   }
 
   /**
-   * @return a new {@link FilterContainerView} for an empty {@link ExtendedIterable}.
+   * @return a new {@link FilterExtendedIterableView} for an empty {@link ExtendedIterable}.
    * @param <T> is the types of the elements of the created
-   *            {@link FilterContainerView}.
+   *            {@link FilterExtendedIterableView}.
    */
-  public static <T> FilterContainerView<T> createEmpty() {
+  public static <T> FilterExtendedIterableView<T> createEmpty() {
     return forContainerAndSelector(ArrayList.createEmpty(), _ -> true);
   }
 
@@ -52,15 +52,15 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @param container
    * @param selector
    * @param <T>       is the type of the elements of the given container.
-   * @return a new {@link FilterContainerView} for the given container and
+   * @return a new {@link FilterExtendedIterableView} for the given container and
    *         selector.
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given selector is null.
    */
-  public static <T> FilterContainerView<T> forContainerAndSelector(
+  public static <T> FilterExtendedIterableView<T> forContainerAndSelector(
     final ExtendedIterable<T> container,
     final Predicate<T> selector) {
-    return new FilterContainerView<>(container, selector);
+    return new FilterExtendedIterableView<>(container, selector);
   }
 
   /**
@@ -68,11 +68,11 @@ public final class FilterContainerView<E> extends AbstractExtendedContainer<E> {
    * @param selector
    * @param <T>      is the type of the given element and elements of the given
    *                 array.
-   * @return a new {@link FilterContainerView} for the given element and array.
+   * @return a new {@link FilterExtendedIterableView} for the given element and array.
    * @throws RuntimeException if the given array is null.
    * @throws RuntimeException if the given selector is null.
    */
-  public static <T> FilterContainerView<T> forArrayAndSelector(
+  public static <T> FilterExtendedIterableView<T> forArrayAndSelector(
     final T[] array,
     final Predicate<T> selector) {
     final var container = ContainerView.forArray(array);

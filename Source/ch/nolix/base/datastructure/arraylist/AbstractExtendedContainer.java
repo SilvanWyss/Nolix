@@ -46,7 +46,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
    */
   @Override
   public final ExtendedIterable<E> getViewOfStoredSelected(final Predicate<E> selector) {
-    return FilterContainerView.forContainerAndSelector(this, selector);
+    return FilterExtendedIterableView.forContainerAndSelector(this, selector);
   }
 
   /**
