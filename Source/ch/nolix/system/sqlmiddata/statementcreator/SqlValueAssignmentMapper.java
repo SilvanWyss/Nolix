@@ -17,7 +17,8 @@ public final class SqlValueAssignmentMapper implements ISqlValueAssignmentMapper
   private static final ISqlLiteralMapper SQL_LITERAL_MAPPER = new SqlLiteralMapper();
 
   @Override
-  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(final ValueStringFieldDto valueStringFieldDto) {
+  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueAssignemnts(
+    final ValueStringFieldDto valueStringFieldDto) {
     final var columnName = valueStringFieldDto.columnName();
     final var nullableValueString = valueStringFieldDto.nullableValueString();
     final var valueSqlLiteral = SQL_LITERAL_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);

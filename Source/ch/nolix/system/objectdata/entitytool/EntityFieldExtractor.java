@@ -17,7 +17,8 @@ import ch.nolix.systemapi.objectdata.model.IEntity;
  * @author Silvan Wyss
  */
 public final class EntityFieldExtractor implements IEntityFieldExtractor<IEntity, AbstractField> {
-  private static ExtendedIterable<AbstractField> extractStoredFieldsFromEntityWhenEntityIsNotNull(final IEntity entity) {
+  private static ExtendedIterable<AbstractField> extractStoredFieldsFromEntityWhenEntityIsNotNull(
+    final IEntity entity) {
     final ILinkedList<AbstractField> fields = LinkedList.createEmpty();
 
     fillUpFieldsFromEntityIntoList(entity, fields);

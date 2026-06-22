@@ -13,7 +13,8 @@ public final class TableMapper {
   private TableMapper() {
   }
 
-  public static ExtendedIterable<Table> mapMidSchemaTableDtosToLoadedTables(final ExtendedIterable<TableDto> midSchemaTableDtos) {
+  public static ExtendedIterable<Table> mapMidSchemaTableDtosToLoadedTables(
+    final ExtendedIterable<TableDto> midSchemaTableDtos) {
     final var tables = mapMidSchemaTableDtosToEmptyLoadedTables(midSchemaTableDtos);
 
     for (final var t : tables) {

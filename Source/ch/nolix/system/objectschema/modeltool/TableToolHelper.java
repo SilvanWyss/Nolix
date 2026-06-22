@@ -34,7 +34,8 @@ public final class TableToolHelper {
     return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
-  public static ExtendedIterable<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
+  public static ExtendedIterable<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(
+    final ITable table) {
     return //
     table
       .getStoredParentDatabase()

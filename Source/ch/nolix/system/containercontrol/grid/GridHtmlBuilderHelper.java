@@ -50,7 +50,9 @@ public final class GridHtmlBuilderHelper {
     return HtmlElement.withTypeAndChildElements(type, childElements);
   }
 
-  private static ExtendedIterable<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
+  private static ExtendedIterable<IHtmlElement> createHtmlElementsForCellsOfRowOfGrid(
+    final IGrid grid,
+    final int rowIndex) {
     final ILinkedList<IHtmlElement> htmlElements = LinkedList.createEmpty();
     final var columnCount = grid.getColumnCount();
 

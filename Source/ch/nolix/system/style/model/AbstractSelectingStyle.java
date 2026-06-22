@@ -91,7 +91,8 @@ implements ISelectingStyleWithSelectors {
     }
 
     for (final var a : getAttachingAttributes()) {
-      attributes.addAtEnd(ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, ImmutableNode.fromString(a)));
+      attributes.addAtEnd(
+        ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, ImmutableNode.fromString(a)));
     }
 
     for (final var s : getSubStyles()) {

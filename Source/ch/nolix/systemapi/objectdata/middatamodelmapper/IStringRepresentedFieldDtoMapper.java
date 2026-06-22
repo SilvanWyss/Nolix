@@ -17,7 +17,8 @@ public interface IStringRepresentedFieldDtoMapper {
    * @throws RuntimeException if the given fields is null or one of the given
    *                          fields is null.
    */
-  ExtendedIterable<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(ExtendedIterable<? extends IField> fields);
+  ExtendedIterable<ValueStringFieldDto> mapFieldsToStringRepresentedFieldDtos(
+    ExtendedIterable<? extends IField> fields);
 
   /**
    * @param field

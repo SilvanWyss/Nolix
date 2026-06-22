@@ -150,22 +150,23 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAdditionalSelectorRoles(final ExtendedIterable<String> additionalSelectorRoles) {
+  public ISelectingStyleWithSelectors withAdditionalSelectorRoles(
+    final ExtendedIterable<String> additionalSelectorRoles) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorRoles = LinkedList.createEmpty();
-  
+
     if (hasSelectorId()) {
       optionalSelectorId = getSelectorId();
     }
-  
+
     if (hasSelectorType()) {
       optionalSelectorType = getSelectorType();
     }
-  
+
     allSelectorRoles.addAtEnd(getSelectorRoles());
     allSelectorRoles.addAtEnd(additionalSelectorRoles);
-  
+
     return //
     new SelectingStyle(
       optionalSelectorId,
@@ -231,7 +232,8 @@ public final class SelectingStyle extends AbstractSelectingStyle {
    * {@inheritDoc}
    */
   @Override
-  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(final ExtendedIterable<String> additionalSelectorTokens) {
+  public ISelectingStyleWithSelectors withAdditionalSelectorTokens(
+    final ExtendedIterable<String> additionalSelectorTokens) {
     String optionalSelectorId = null;
     String optionalSelectorType = null;
     final ILinkedList<String> allSelectorTokens = LinkedList.createEmpty();

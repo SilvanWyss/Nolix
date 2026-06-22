@@ -61,7 +61,8 @@ public final class BackgroundToCssMapperHelper {
     return ImmutableList.withElements(backgroundCssProperty);
   }
 
-  public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(final IBackground background) {
+  public static ExtendedIterable<ICssProperty> mapBackgroundToCssPropertiesWhenIsColorGradient(
+    final IBackground background) {
     final var colorGradient = background.getColorGradient();
     final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
     final var color1CssValue = CSS_VALUE_MAPPER.mapColorToCssValue(colorGradient.getColor1());

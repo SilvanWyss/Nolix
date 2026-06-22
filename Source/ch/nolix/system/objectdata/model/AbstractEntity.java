@@ -236,7 +236,8 @@ public abstract class AbstractEntity implements IEntity {
    * {@inheritDoc}
    */
   @Override
-  public final boolean isReferencedInPersistedDataIgnoringGivenEntities(final ExtendedIterable<String> entitiesToIgnoreIds) {
+  public final boolean isReferencedInPersistedDataIgnoringGivenEntities(
+    final ExtendedIterable<String> entitiesToIgnoreIds) {
     return //
     belongsToTable()
     && isReferencedInPersistedDataIgnoringGivenEntitiesWhenBelongsToTable(entitiesToIgnoreIds);

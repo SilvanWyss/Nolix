@@ -36,7 +36,8 @@ public final class SqlPartsMapper implements ISqlPartsMapper {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueLiterals(final ValueStringFieldDto valueStringFieldDto) {
+  public ExtendedIterable<String> mapValueStringFieldDtoToSqlValueLiterals(
+    final ValueStringFieldDto valueStringFieldDto) {
     final var nullableValueString = valueStringFieldDto.nullableValueString();
     final var valueSqlLiteral = SQL_LITERAL_MAPPER.mapNullableValueStringToSqlLiteral(nullableValueString);
     final var nullableAdditionalValue = valueStringFieldDto.nullableAdditionalValue();

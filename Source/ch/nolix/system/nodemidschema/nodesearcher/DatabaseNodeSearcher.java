@@ -89,7 +89,8 @@ public final class DatabaseNodeSearcher implements IDatabaseNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(final IMutableNode<?> nodeDatabase) {
+  public ExtendedIterable<? extends IMutableNode<?>> getStoredTableNodesFromNodeDatabase(
+    final IMutableNode<?> nodeDatabase) {
     return nodeDatabase.getStoredChildNodesWithHeader(NodeHeaderCatalog.TABLE);
   }
 

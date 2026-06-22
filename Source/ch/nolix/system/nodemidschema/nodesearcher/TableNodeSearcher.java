@@ -64,7 +64,8 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
+  public ExtendedIterable<? extends IMutableNode<?>> getStoredColumnNodesFromTableNode(
+    final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.COLUMN);
   }
 
@@ -72,7 +73,8 @@ public final class TableNodeSearcher implements ITableNodeSearcher {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
+  public ExtendedIterable<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(
+    final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(NodeHeaderCatalog.ENTITY);
   }
 

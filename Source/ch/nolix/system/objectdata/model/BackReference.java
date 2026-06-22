@@ -40,7 +40,9 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
 
   private EntityCache<E> nullableBackReferencedEntityCache;
 
-  private BackReference(final ExtendedIterable<String> backReferenceableTableNames, final String backReferencedFieldName) {
+  private BackReference(
+    final ExtendedIterable<String> backReferenceableTableNames,
+    final String backReferencedFieldName) {
     super(backReferenceableTableNames, backReferencedFieldName);
   }
 

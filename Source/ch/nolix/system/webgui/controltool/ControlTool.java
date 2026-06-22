@@ -29,7 +29,8 @@ public final class ControlTool implements IControlTool {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(final IControl<?, ?> control) {
+  public ExtendedIterable<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(
+    final IControl<?, ?> control) {
     final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
 
     ControlToolHelper.fillUpStructureControlsOfControlIntoListRecursively(control, list);

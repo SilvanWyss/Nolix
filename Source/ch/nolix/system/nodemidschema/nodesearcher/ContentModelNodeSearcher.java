@@ -18,7 +18,8 @@ public final class ContentModelNodeSearcher implements IContentModelNodeSearcher
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<String> getBackReferenceableColumnIdsFromContentModelNode(final IMutableNode<?> contentModelNode) {
+  public ExtendedIterable<String> getBackReferenceableColumnIdsFromContentModelNode(
+    final IMutableNode<?> contentModelNode) {
     final var backReferenceableColumnIdsNode = //
     getStoredBackReferenceableColumnIdsNodeFromContentModelNode(contentModelNode);
 

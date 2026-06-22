@@ -36,7 +36,8 @@ public final class ParchmentModeSubStyleCatalog {
   private static final Background PARCHMENT_BACKGROUND = //
   Background.withImageAndImageApplication(PARCHMENT_IMAGE, ImageApplication.SCALE_TO_FRAME);
 
-  private static final ImmutableNode PARCHMENT_BACKGROUND_SPECIFICATION = ImmutableNode.fromNode(PARCHMENT_BACKGROUND.getSpecification());
+  private static final ImmutableNode PARCHMENT_BACKGROUND_SPECIFICATION = //
+  ImmutableNode.fromNode(PARCHMENT_BACKGROUND.getSpecification());
 
   private static final String PARCHMENT_BACKGROUND_SPECIFICATION_STRING = PARCHMENT_BACKGROUND_SPECIFICATION.toString();
 

@@ -50,7 +50,9 @@ public final class UpdateCommandCreatorHelper {
     final ExtendedIterable<IHtmlElementEvent> htmlElementEventRegistrations) {
     final var eventFunctionsView = //
     htmlElementEventRegistrations.getViewOf(
-      e -> ImmutableNode.withChildNodes(ImmutableNode.withHeader(e.getHtmlElementId()), ImmutableNode.withHeader(e.getHtmlEvent())));
+      e -> ImmutableNode.withChildNodes(
+        ImmutableNode.withHeader(e.getHtmlElementId()),
+        ImmutableNode.withHeader(e.getHtmlEvent())));
 
     return ChainedNode.withHeaderAndNextNode(
       ObjectProtocol.GUI,
@@ -67,7 +69,8 @@ public final class UpdateCommandCreatorHelper {
         ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  public static ChainedNode createSetUserInputFunctionsCommandForControls(final ExtendedIterable<IControl<?, ?>> controls) {
+  public static ChainedNode createSetUserInputFunctionsCommandForControls(
+    final ExtendedIterable<IControl<?, ?>> controls) {
     final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {
@@ -88,6 +91,7 @@ public final class UpdateCommandCreatorHelper {
   public static ChainedNode createUserInputFunctionFromControlAndString(
     final IControl<?, ?> control,
     final String string) {
-    return ChainedNode.withChildNodes(ImmutableNode.withHeader(control.getInternalId()), ImmutableNode.withHeader(string));
+    return //
+    ChainedNode.withChildNodes(ImmutableNode.withHeader(control.getInternalId()), ImmutableNode.withHeader(string));
   }
 }

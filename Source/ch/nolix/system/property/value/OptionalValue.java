@@ -109,7 +109,11 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
     Validator.assertThat(enumClass).thatIsNamed("enum class").isNotNull();
 
     return //
-    new OptionalValue<>(name, setter, n -> Enum.valueOf(enumClass, n.getSingleChildNodeHeader()), ImmutableNode::fromEnum);
+    new OptionalValue<>(
+      name,
+      setter,
+      n -> Enum.valueOf(enumClass, n.getSingleChildNodeHeader()),
+      ImmutableNode::fromEnum);
   }
 
   /**
