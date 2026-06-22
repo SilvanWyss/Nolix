@@ -5,52 +5,49 @@ package ch.nolix.base.datastructure.extendediterableintervallview;
 
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
-import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link ExtendedIterableIntervallView} can iterate over a part of another
- * container.
- * 
- * A {@link ExtendedIterableIntervallView} must not use the methods of the
- * accessed container except the iterator method. The reason is that the
- * accessed container can be a specialized container that does not use its
- * iterator in any of its declared or overwritten method.
+ * A {@link ExtendedIterableIntervallView} can iterate over an intervall of a
+ * {@link ExtendedIterable}.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
- *            {@link ExtendedIterableIntervallView}.
+ * @param <E> the type of the elements of a
+ *            {@link ExtendedIterableIntervallView}
  */
 public final class ExtendedIterableIntervallView<E> extends AbstractExtendedContainer<E> {
-  private final AbstractExtendedIterable<E> abstractExtendedIterable;
+  private final ExtendedIterable<E> extendedIterable;
 
   private final int startIndex;
 
   private final int endIndex;
 
   /**
-   * Creates a new {@link ExtendedIterableIntervallView} with the given container,
-   * startIndex and endIndex.
+   * Creates a new {@link ExtendedIterableIntervallView} with the given
+   * extendedIterable, startIndex and endIndex.
    * 
-   * @param container
+   * @param extendedIterable
    * @param startIndex
    * @param endIndex
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given extendedIterable is null.
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
    * @throws RuntimeException if the given endIndex is smaller than the given
    *                          startIndex.
    * @throws RuntimeException if the given endIndex is bigger than the number of
-   *                          elements of the given container.
+   *                          elements of the given extendedIterable.
    */
-  private ExtendedIterableIntervallView(final AbstractExtendedIterable<E> container, final int startIndex,
+  private ExtendedIterableIntervallView(
+    final ExtendedIterable<E> extendedIterable,
+    final int startIndex,
     final int endIndex) {
-    Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
+    Validator.assertThat(extendedIterable).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
 
@@ -62,34 +59,34 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
     Validator
       .assertThat(endIndex)
       .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
-      .isNotBiggerThan(container.getCount());
+      .isNotBiggerThan(extendedIterable.getCount());
 
-    this.abstractExtendedIterable = container;
+    this.extendedIterable = extendedIterable;
     this.startIndex = startIndex;
     this.endIndex = endIndex;
   }
 
   /**
-   * @param container
+   * @param extendedIterable
    * @param startIndex
    * @param endIndex
-   * @param <T>        is the type of the elements of the created
-   *                   {@link ExtendedIterableIntervallView}.
-   * @return a new {@link ExtendedIterableIntervallView} with the given container,
-   *         startIndex and endIndex.
-   * @throws RuntimeException if the given container is null.
+   * @param <T>              is the type of the elements of the created
+   *                         {@link ExtendedIterableIntervallView}.
+   * @return a new {@link ExtendedIterableIntervallView} with the given
+   *         extendedIterable, startIndex and endIndex.
+   * @throws RuntimeException if the given extendedIterable is null.
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
    * @throws RuntimeException if the given endIndex is smaller than the given
    *                          startIndex.
    * @throws RuntimeException if the given endIndex is bigger than the number of
-   *                          elements of the given container.
+   *                          elements of the given extendedIterable.
    */
-  public static <T> ExtendedIterableIntervallView<T> forContainerAndStartIndexAndEndIndex(
-    final AbstractExtendedIterable<T> container,
+  public static <T> ExtendedIterableIntervallView<T> forExtendedIterableAndStartIndexAndEndIndex(
+    final ExtendedIterable<T> extendedIterable,
     final int startIndex,
     final int endIndex) {
-    return new ExtendedIterableIntervallView<>(container, startIndex, endIndex);
+    return new ExtendedIterableIntervallView<>(extendedIterable, startIndex, endIndex);
   }
 
   /**
@@ -97,7 +94,7 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
    */
   @Override
   public int getCount() {
-    return (endIndex - startIndex + 1);
+    return endIndex - startIndex + 1;
   }
 
   /**
@@ -106,13 +103,11 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
     Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
+    Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isNotBiggerThan(getCount());
 
-    Validator
-      .assertThat(oneBasedIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
-      .isNotBiggerThan(getCount());
+    final var internalOneBasedIndex = startIndex + oneBasedIndex - 1;
 
-    return abstractExtendedIterable.getStoredAtOneBasedIndex(startIndex + oneBasedIndex - 1);
+    return extendedIterable.getStoredAtOneBasedIndex(internalOneBasedIndex);
   }
 
   /**
@@ -129,8 +124,10 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
   @Override
   public CopyableIterator<E> iterator() {
     return //
-    ExtendedIterableIntervallViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractExtendedIterable,
-      startIndex, endIndex);
+    ExtendedIterableIntervallViewIterator.forParentContainerAndStartIndexAndEndIndex(
+      extendedIterable,
+      startIndex,
+      endIndex);
   }
 
   /**

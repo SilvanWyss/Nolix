@@ -25,7 +25,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
   public final ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
     final int oneBasedStartIndex,
     final int oneBasedEndIndex) {
-    return ExtendedIterableIntervallView.forContainerAndStartIndexAndEndIndex(this, oneBasedStartIndex,
+    return ExtendedIterableIntervallView.forExtendedIterableAndStartIndexAndEndIndex(this, oneBasedStartIndex,
       oneBasedEndIndex);
   }
 
