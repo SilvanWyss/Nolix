@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.extendediterableintervallview;
+package ch.nolix.base.datastructure.extendediterableintervalview;
 
 import java.util.Iterator;
 
@@ -14,9 +14,9 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a
- *            {@link ExtendedIterableIntervallViewIterator}.
+ *            {@link ExtendedIterableIntervalViewIterator}.
  */
-final class ExtendedIterableIntervallViewIterator<E> implements CopyableIterator<E> {
+final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<E> {
   private final ExtendedIterable<E> parentContainer;
 
   private final int endIndex;
@@ -26,7 +26,7 @@ final class ExtendedIterableIntervallViewIterator<E> implements CopyableIterator
   private int currentIndex;
 
   /**
-   * Creates a new {@link ExtendedIterableIntervallViewIterator} for the given
+   * Creates a new {@link ExtendedIterableIntervalViewIterator} for the given
    * parentContainer, startIndex and endIndex.
    * 
    * @param parentContainer
@@ -38,7 +38,7 @@ final class ExtendedIterableIntervallViewIterator<E> implements CopyableIterator
    * @throws RuntimeException if the given endIndex is not bigger than the given
    *                          startIndex or does not equal the given startIndex.
    */
-  private ExtendedIterableIntervallViewIterator(
+  private ExtendedIterableIntervalViewIterator(
     final ExtendedIterable<E> parentContainer,
     final int startIndex,
     final int endIndex) {
@@ -62,8 +62,8 @@ final class ExtendedIterableIntervallViewIterator<E> implements CopyableIterator
    * @param startIndex
    * @param endIndex
    * @param <T>             is the type of the elements of the created
-   *                        {@link ExtendedIterableIntervallViewIterator}.
-   * @return a new {@link ExtendedIterableIntervallViewIterator} for the given
+   *                        {@link ExtendedIterableIntervalViewIterator}.
+   * @return a new {@link ExtendedIterableIntervalViewIterator} for the given
    *         parentContainer, startIndex and endIndex.
    * @throws RuntimeException if the given parentContainer is null.
    * @throws RuntimeException if the given startIndex is not positive.
@@ -71,11 +71,11 @@ final class ExtendedIterableIntervallViewIterator<E> implements CopyableIterator
    * @throws RuntimeException if the given endIndex is not bigger than the given
    *                          startIndex or does not equal the given startIndex.
    */
-  public static <T> ExtendedIterableIntervallViewIterator<T> forParentContainerAndStartIndexAndEndIndex(
+  public static <T> ExtendedIterableIntervalViewIterator<T> forParentContainerAndStartIndexAndEndIndex(
     final ExtendedIterable<T> parentContainer,
     final int startIndex,
     final int endIndex) {
-    return new ExtendedIterableIntervallViewIterator<>(parentContainer, startIndex, endIndex);
+    return new ExtendedIterableIntervalViewIterator<>(parentContainer, startIndex, endIndex);
   }
 
   /**
@@ -83,7 +83,7 @@ final class ExtendedIterableIntervallViewIterator<E> implements CopyableIterator
    */
   @Override
   public CopyableIterator<E> getCopy() {
-    return new ExtendedIterableIntervallViewIterator<>(parentContainer, currentIndex, endIndex);
+    return new ExtendedIterableIntervalViewIterator<>(parentContainer, currentIndex, endIndex);
   }
 
   /**

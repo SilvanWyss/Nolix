@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.extendediterableintervallview;
+package ch.nolix.base.datastructure.extendediterableintervalview;
 
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
@@ -14,14 +14,14 @@ import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link ExtendedIterableIntervallView} can iterate over an intervall of a
+ * A {@link ExtendedIterableIntervalView} can iterate over an intervall of a
  * {@link ExtendedIterable}.
  * 
  * @author Silvan Wyss
  * @param <E> the type of the elements of a
- *            {@link ExtendedIterableIntervallView}
+ *            {@link ExtendedIterableIntervalView}
  */
-public final class ExtendedIterableIntervallView<E> extends AbstractExtendedContainer<E> {
+public final class ExtendedIterableIntervalView<E> extends AbstractExtendedContainer<E> {
   private final ExtendedIterable<E> extendedIterable;
 
   private final int startIndex;
@@ -29,7 +29,7 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
   private final int endIndex;
 
   /**
-   * Creates a new {@link ExtendedIterableIntervallView} with the given
+   * Creates a new {@link ExtendedIterableIntervalView} with the given
    * extendedIterable, startIndex and endIndex.
    * 
    * @param extendedIterable
@@ -43,7 +43,7 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given extendedIterable.
    */
-  private ExtendedIterableIntervallView(
+  private ExtendedIterableIntervalView(
     final ExtendedIterable<E> extendedIterable,
     final int startIndex,
     final int endIndex) {
@@ -71,8 +71,8 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
    * @param startIndex
    * @param endIndex
    * @param <T>              is the type of the elements of the created
-   *                         {@link ExtendedIterableIntervallView}.
-   * @return a new {@link ExtendedIterableIntervallView} with the given
+   *                         {@link ExtendedIterableIntervalView}.
+   * @return a new {@link ExtendedIterableIntervalView} with the given
    *         extendedIterable, startIndex and endIndex.
    * @throws RuntimeException if the given extendedIterable is null.
    * @throws RuntimeException if the given startIndex is not positive.
@@ -82,11 +82,11 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given extendedIterable.
    */
-  public static <T> ExtendedIterableIntervallView<T> forExtendedIterableAndStartIndexAndEndIndex(
+  public static <T> ExtendedIterableIntervalView<T> forExtendedIterableAndStartIndexAndEndIndex(
     final ExtendedIterable<T> extendedIterable,
     final int startIndex,
     final int endIndex) {
-    return new ExtendedIterableIntervallView<>(extendedIterable, startIndex, endIndex);
+    return new ExtendedIterableIntervalView<>(extendedIterable, startIndex, endIndex);
   }
 
   /**
@@ -124,7 +124,7 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
   @Override
   public CopyableIterator<E> iterator() {
     return //
-    ExtendedIterableIntervallViewIterator.forParentContainerAndStartIndexAndEndIndex(
+    ExtendedIterableIntervalViewIterator.forParentContainerAndStartIndexAndEndIndex(
       extendedIterable,
       startIndex,
       endIndex);

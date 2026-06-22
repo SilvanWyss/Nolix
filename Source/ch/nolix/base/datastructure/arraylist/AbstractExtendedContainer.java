@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
-import ch.nolix.base.datastructure.extendediterableintervallview.ExtendedIterableIntervallView;
+import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterableIntervalView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
@@ -25,7 +25,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
   public final ExtendedIterable<E> getViewFromOneBasedStartIndexToOneBasedEndIndex(
     final int oneBasedStartIndex,
     final int oneBasedEndIndex) {
-    return ExtendedIterableIntervallView.forExtendedIterableAndStartIndexAndEndIndex(this, oneBasedStartIndex,
+    return ExtendedIterableIntervalView.forExtendedIterableAndStartIndexAndEndIndex(this, oneBasedStartIndex,
       oneBasedEndIndex);
   }
 
