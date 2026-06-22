@@ -85,7 +85,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    * @throws RuntimeException if the given iterable is null.
    */
   public static <T> ContainerView<T> forIterable(final Iterable<T> iterable) {
-    final var container = IterableContainerView.forIterable(iterable);
+    final var container = ExtendedIterableView.forIterable(iterable);
 
     return new ContainerView<>(container);
   }

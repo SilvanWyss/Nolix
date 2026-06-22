@@ -39,7 +39,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var i : iterables) {
-      localContainers.addAtEnd(IterableContainerView.forIterable(i));
+      localContainers.addAtEnd(ExtendedIterableView.forIterable(i));
     }
 
     wellOrderContainers = localContainers;

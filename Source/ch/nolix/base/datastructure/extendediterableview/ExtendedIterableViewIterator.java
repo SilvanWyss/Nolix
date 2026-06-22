@@ -11,16 +11,16 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of the parent {@link Iterable} of a
- *            {@link IterableContainerViewIterator}.
+ *            {@link ExtendedIterableViewIterator}.
  */
-public final class IterableContainerViewIterator<E> implements CopyableIterator<E> {
+public final class ExtendedIterableViewIterator<E> implements CopyableIterator<E> {
   private final Iterable<E> parentIterable;
 
   private final Iterator<E> internalIterator;
 
   private int iterationCount;
 
-  private IterableContainerViewIterator(final Iterable<E> parentIterable) {
+  private ExtendedIterableViewIterator(final Iterable<E> parentIterable) {
     Validator.assertThat(parentIterable).thatIsNamed("parent iterable").isNotNull();
 
     this.parentIterable = parentIterable;
@@ -28,7 +28,7 @@ public final class IterableContainerViewIterator<E> implements CopyableIterator<
     iterationCount = 0;
   }
 
-  private IterableContainerViewIterator(final Iterable<E> parentIterable, final int iterationCount) {
+  private ExtendedIterableViewIterator(final Iterable<E> parentIterable, final int iterationCount) {
     Validator.assertThat(iterationCount).thatIsNamed("iteration count").isNotNegative();
 
     this.parentIterable = parentIterable;
@@ -41,8 +41,8 @@ public final class IterableContainerViewIterator<E> implements CopyableIterator<
     this.iterationCount = iterationCount;
   }
 
-  public static <T> IterableContainerViewIterator<T> forIterable(final Iterable<T> iterable) {
-    return new IterableContainerViewIterator<>(iterable);
+  public static <T> ExtendedIterableViewIterator<T> forIterable(final Iterable<T> iterable) {
+    return new ExtendedIterableViewIterator<>(iterable);
   }
 
   /**
@@ -50,7 +50,7 @@ public final class IterableContainerViewIterator<E> implements CopyableIterator<
    */
   @Override
   public CopyableIterator<E> getCopy() {
-    return new IterableContainerViewIterator<>(parentIterable, iterationCount);
+    return new ExtendedIterableViewIterator<>(parentIterable, iterationCount);
   }
 
   /**
