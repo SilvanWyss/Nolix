@@ -9,7 +9,7 @@ import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.Marker;
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -72,7 +72,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedContain
   public static <T> ExtendedIterableFilterView<T> forArrayAndSelector(
     final T[] array,
     final Predicate<T> selector) {
-    final var container = ContainerView.forArray(array);
+    final var container = ExtendedIterableView.forArray(array);
 
     return forContainerAndSelector(container, selector);
   }

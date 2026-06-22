@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.sequencesearch;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
@@ -95,7 +95,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    */
   @Override
   public ISequencePattern<E> withConditionForNext(final Predicate<E> condition) {
-    final var allElementConditions = ContainerView.forIterableAndElement(elementConditions, condition);
+    final var allElementConditions = ExtendedIterableView.forIterableAndElement(elementConditions, condition);
 
     return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
   }
@@ -107,7 +107,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   public ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions) {
     Validator.assertThatTheElements(conditions).areNotNull();
 
-    final var allElementConditions = ContainerView.forIterables(elementConditions, conditions);
+    final var allElementConditions = ExtendedIterableView.forIterables(elementConditions, conditions);
 
     return withElementConditionsAndSequenceConditions(allElementConditions, sequenceConditions);
   }
@@ -117,7 +117,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    */
   @Override
   public ISequencePattern<E> withSequenceCondition(final Predicate<ExtendedIterable<E>> sequenceCondition) {
-    final var newSequenceConditions = ContainerView.forIterableAndElement(sequenceConditions, sequenceCondition);
+    final var newSequenceConditions = ExtendedIterableView.forIterableAndElement(sequenceConditions, sequenceCondition);
 
     return withElementConditionsAndSequenceConditions(elementConditions, newSequenceConditions);
   }

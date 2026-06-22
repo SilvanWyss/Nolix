@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Iterator;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
@@ -52,7 +52,7 @@ implements IMultiBackReference<E> {
   public static <T extends IEntity> MultiBackReference<T> forBackReferencedFieldNameAndBackReferenceableEntityTypes(
     final String backReferencedFieldName,
     final Class<T>... backReferenceableEntityTypes) {
-    final var backReferenceableEntityTypesContainerView = ContainerView.forArray(backReferenceableEntityTypes);
+    final var backReferenceableEntityTypesContainerView = ExtendedIterableView.forArray(backReferenceableEntityTypes);
     final var backReferenceableTableNamesView = //
     backReferenceableEntityTypesContainerView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 

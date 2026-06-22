@@ -5,7 +5,7 @@ package ch.nolix.base.document.node;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.environment.filesystem.FileAccessor;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
 import ch.nolix.base.validation.validator.Validator;
@@ -158,8 +158,8 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public ContainerView<FileNode> getStoredChildNodes() {
-    return ContainerView.forIterable(
+  public ExtendedIterableView<FileNode> getStoredChildNodes() {
+    return ExtendedIterableView.forIterable(
       internalSpecification.getStoredChildNodes().to(
         a -> new FileNode(getStoredRootFileNode(), a)));
   }

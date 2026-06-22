@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
@@ -49,7 +49,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
   @SafeVarargs
   public static <T extends IEntity> MultiReference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
-    final var entityTypesView = ContainerView.forArray(entityTypes);
+    final var entityTypesView = ExtendedIterableView.forArray(entityTypes);
     final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new MultiReference<>(referenceableTableNamesView);
@@ -69,7 +69,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
 
   public static <T extends IEntity> MultiReference<T> forReferenceableTableNames(
     final String... referenceableTableNames) {
-    final var referenceableTableNamesView = ContainerView.forArray(referenceableTableNames);
+    final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);
 
     return new MultiReference<>(referenceableTableNamesView);
   }

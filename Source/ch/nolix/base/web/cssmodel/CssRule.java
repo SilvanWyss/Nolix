@@ -4,7 +4,7 @@
 package ch.nolix.base.web.cssmodel;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -39,7 +39,7 @@ public final class CssRule implements ICssRule {
   public static CssRule withSelectorAndProperties(
     final String selector,
     final ICssProperty... properties) {
-    final var propertiesContainer = ContainerView.forArray(properties);
+    final var propertiesContainer = ExtendedIterableView.forArray(properties);
 
     return new CssRule(selector, propertiesContainer);
   }

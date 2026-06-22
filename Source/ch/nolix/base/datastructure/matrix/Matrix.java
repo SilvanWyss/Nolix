@@ -10,7 +10,7 @@ import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -84,7 +84,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   @SuppressWarnings("unchecked")
   public Matrix<E> addColumn(final E... elements) {
     //Collects allElements.
-    final var elementContainer = ContainerView.forArray(elements);
+    final var elementContainer = ExtendedIterableView.forArray(elements);
 
     //Calls other method.
     return addColumn(elementContainer);
@@ -108,7 +108,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
-    final var lElements = ContainerView.forIterable(elements);
+    final var lElements = ExtendedIterableView.forIterable(elements);
 
     //Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
@@ -167,7 +167,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
   @SuppressWarnings("unchecked")
   public Matrix<E> addRow(final E... elements) {
     //Creates elementsContainerView.
-    final var elementsContainerView = ContainerView.forArray(elements);
+    final var elementsContainerView = ExtendedIterableView.forArray(elements);
 
     //Calls other method.
     return addRow(elementsContainerView);
@@ -191,7 +191,7 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     //Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
-    final var lElements = ContainerView.forIterable(elements);
+    final var lElements = ExtendedIterableView.forIterable(elements);
 
     //Handles the case that the current matrix is empty.
     if (isEmpty()) {

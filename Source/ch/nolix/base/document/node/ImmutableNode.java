@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.document.node;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -182,7 +182,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withChildNodes(final INode<?>... childNodes) {
-    final var childNodesContainer = ContainerView.forArray(childNodes).getViewOf(ImmutableNode::fromNode);
+    final var childNodesContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(childNodesContainer);
   }
@@ -194,7 +194,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withChildNodes(final Iterable<? extends INode<?>> childNodes) {
-    final var childNodesContainer = ContainerView.forIterable(childNodes).getViewOf(ImmutableNode::fromNode);
+    final var childNodesContainer = ExtendedIterableView.forIterable(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(childNodesContainer);
   }
@@ -207,7 +207,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    *                          {@link ImmutableNode}.
    */
   public static ImmutableNode withChildNodes(final String... childNodes) {
-    final var childNodesContainer = ContainerView.forArray(childNodes).getViewOf(ImmutableNode::fromString);
+    final var childNodesContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromString);
 
     return new ImmutableNode(childNodesContainer);
   }
@@ -328,7 +328,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header, final INode<?>... childNodes) {
-    final var childNodesContainer = ContainerView.forArray(childNodes).getViewOf(ImmutableNode::fromNode);
+    final var childNodesContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(header, childNodesContainer);
   }
@@ -343,7 +343,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header,
     final Iterable<? extends INode<?>> childNodes) {
-    final var childNodesContainer = ContainerView.forIterable(childNodes).getViewOf(ImmutableNode::fromNode);
+    final var childNodesContainer = ExtendedIterableView.forIterable(childNodes).getViewOf(ImmutableNode::fromNode);
 
     return new ImmutableNode(header, childNodesContainer);
   }
@@ -358,7 +358,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    *                          {@link ImmutableNode}.
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header, final String... childNodes) {
-    final var childNodeContainer = ContainerView.forArray(childNodes).getViewOf(ImmutableNode::fromString);
+    final var childNodeContainer = ExtendedIterableView.forArray(childNodes).getViewOf(ImmutableNode::fromString);
 
     return new ImmutableNode(header, childNodeContainer);
   }

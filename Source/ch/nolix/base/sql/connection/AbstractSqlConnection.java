@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
@@ -113,7 +113,7 @@ public abstract class AbstractSqlConnection implements ISqlConnection {
    */
   @Override
   public final void executeStatements(final String... statements) {
-    final var statementsContainer = ContainerView.forArray(statements);
+    final var statementsContainer = ExtendedIterableView.forArray(statements);
 
     executeStatements(statementsContainer);
   }

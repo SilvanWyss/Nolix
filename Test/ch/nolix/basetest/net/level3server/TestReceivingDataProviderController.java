@@ -3,7 +3,7 @@
  */
 package ch.nolix.basetest.net.level3server;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -39,7 +39,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
    */
   @Override
   public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-    return ContainerView.forIterable(requests).to(this::getDataForRequest);
+    return ExtendedIterableView.forIterable(requests).to(this::getDataForRequest);
   }
 
   public IChainedNode getLatestReceivedCommand() {

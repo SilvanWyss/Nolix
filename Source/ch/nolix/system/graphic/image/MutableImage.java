@@ -12,7 +12,7 @@ import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.environment.runningjar.RunningJar;
@@ -152,7 +152,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
       }
 
       for (var i = 1; i <= height; i++) {
-        pixels.addRow(ContainerView.forArray(row));
+        pixels.addRow(ExtendedIterableView.forArray(row));
       }
     }
 

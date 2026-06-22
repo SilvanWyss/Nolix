@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.sqlmidschema.sqlschemamodelmapper;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.EntitySqlSchemaColumnDtoCatalog;
 import ch.nolix.systemapi.midschema.model.TableDto;
@@ -32,7 +32,7 @@ public final class SqlSchemaTableDtoMapper implements ISqlSchemaTableDtoMapper {
     final var contentColumns = //
     tableDto.columns().toMultiples(SQL_SCHEMA_COLUMN_DTO_MAPPER::mapColumnDtoToSqlSchemaColumnDtos);
 
-    final var columns = ContainerView.forIterables(META_COLUMN_SQL_SCHEMA_COLUMNS, contentColumns);
+    final var columns = ExtendedIterableView.forIterables(META_COLUMN_SQL_SCHEMA_COLUMNS, contentColumns);
 
     return new ch.nolix.systemapi.sqlschema.model.TableDto(tableName, columns);
   }

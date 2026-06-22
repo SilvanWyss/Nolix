@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.style.model;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
@@ -192,7 +192,7 @@ public final class SelectingStyle extends AbstractSelectingStyle {
       optionalSelectorType = getSelectorType();
     }
 
-    final var allAttachingAttributes = ContainerView.forIterables(getAttachingAttributes(), attachingAttributes);
+    final var allAttachingAttributes = ExtendedIterableView.forIterables(getAttachingAttributes(), attachingAttributes);
 
     return //
     new SelectingStyle(

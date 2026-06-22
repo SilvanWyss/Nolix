@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.application.main;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.net.level3server.AbstractEndPoint;
 import ch.nolix.base.validation.validator.Validator;
@@ -68,7 +68,7 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   @Override
   public ExtendedIterable<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-    return ContainerView.forIterable(requests).to(parentClient::getDataFromHere);
+    return ExtendedIterableView.forIterable(requests).to(parentClient::getDataFromHere);
   }
 
   /**

@@ -5,7 +5,7 @@ package ch.nolix.basetest.container.containerview;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
@@ -21,7 +21,7 @@ final class ContainerViewTest extends ContainerTest {
     final String[] array3 = { "flower", "tree", "palm" };
 
     //execution
-    final var testUnit = ContainerView.forArrays(array1, array2, array3);
+    final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
     //execution
     expect(testUnit.containsEqualing("apple")).isTrue();
@@ -46,7 +46,7 @@ final class ContainerViewTest extends ContainerTest {
     final String[] array3 = { "flower", "tree", "palm" };
 
     //execution
-    final var testUnit = ContainerView.forArrays(array1, array2, array3);
+    final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
     //verification
     expect(testUnit.getStoredAtOneBasedIndex(1)).isEqualTo("apple");
@@ -68,7 +68,7 @@ final class ContainerViewTest extends ContainerTest {
     final String[] array3 = { "C", "CC", "CCC" };
 
     //execution
-    final var testUnit = ContainerView.forArrays(array1, array2, array3);
+    final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
     //verification
     expect(testUnit.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
@@ -81,7 +81,7 @@ final class ContainerViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createContainerWithElements(final @SuppressWarnings("unchecked") E... elements) {
-    return ContainerView.forArray(elements);
+    return ExtendedIterableView.forArray(elements);
   }
 
   /**
@@ -89,6 +89,6 @@ final class ContainerViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
-    return ContainerView.createEmpty();
+    return ExtendedIterableView.createEmpty();
   }
 }

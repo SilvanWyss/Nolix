@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.style.model;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
@@ -101,7 +101,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   @Override
   public ExtendedIterable<INode<?>> getAttributes() {
     return //
-    ContainerView.forIterables(
+    ExtendedIterableView.forIterables(
       getAttachingAttributes().getViewOf(a -> ImmutableNode.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
       getSubStyles().getViewOf(ISelectingStyle::getSpecification));
   }
@@ -120,7 +120,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
    */
   @Override
   public IStyle withAttachingAttributes(final ExtendedIterable<String> attachingAttributes) {
-    final var allAttachingAttributes = ContainerView.forIterables(getAttachingAttributes(), attachingAttributes);
+    final var allAttachingAttributes = ExtendedIterableView.forIterables(getAttachingAttributes(), attachingAttributes);
 
     return new Style(allAttachingAttributes, getSubStyles());
   }

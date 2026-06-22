@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.graphic.color;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
@@ -107,7 +107,7 @@ public final class Color extends AbstractElement implements IColor {
   }
 
   public static Color createAverageFromColors(final IColor... colors) {
-    final var colorsContainer = ContainerView.forArray(colors);
+    final var colorsContainer = ExtendedIterableView.forArray(colors);
 
     return createAverageFromColors(colorsContainer);
   }

@@ -5,7 +5,7 @@ package ch.nolix.system.objectdata.model;
 
 import java.util.Optional;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -48,7 +48,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   @SafeVarargs
   public static <T extends IEntity> Reference<T> forEntityTypes(
     final Class<? extends T>... entityTypes) {
-    final var entityTypesView = ContainerView.forArray(entityTypes);
+    final var entityTypesView = ExtendedIterableView.forArray(entityTypes);
     final var referenceableTableNamesView = entityTypesView.getViewOf(TABLE_NAME_EXTRACTOR::getTableNameOfEntityType);
 
     return new Reference<>(referenceableTableNamesView);
@@ -67,7 +67,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   }
 
   public static <T extends IEntity> Reference<T> forReferenceableTableNames(final String... referenceableTableNames) {
-    final var referenceableTableNamesView = ContainerView.forArray(referenceableTableNames);
+    final var referenceableTableNamesView = ExtendedIterableView.forArray(referenceableTableNames);
 
     return new Reference<>(referenceableTableNamesView);
   }

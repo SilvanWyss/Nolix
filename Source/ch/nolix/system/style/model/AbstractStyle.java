@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.style.model;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -76,7 +76,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    */
   @Override
   public final S withAdditionalSubStyles(final ISelectingStyleWithSelectors... additionalSubStyles) {
-    final var additionalSubStylesContainer = ContainerView.forArray(additionalSubStyles);
+    final var additionalSubStylesContainer = ExtendedIterableView.forArray(additionalSubStyles);
 
     return withSubStyles(additionalSubStylesContainer);
   }
@@ -86,7 +86,7 @@ abstract class AbstractStyle<S extends IBaseStyle<S>> extends AbstractElement im
    */
   @Override
   public final S withAttachingAttributes(final String... attachingAttributes) {
-    final var attachingAttributesView = ContainerView.forArray(attachingAttributes);
+    final var attachingAttributesView = ExtendedIterableView.forArray(attachingAttributes);
 
     return withAttachingAttributes(attachingAttributesView);
   }

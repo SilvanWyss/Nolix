@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.webgui.controlstyle;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
@@ -688,7 +688,7 @@ implements IControlStyle<S> {
    */
   @Override
   public final S forStateSetCornerShadows(final ControlState state, final ICornerShadow... cornerShadows) {
-    final var cornerShadowsContainer = ContainerView.forArray(cornerShadows);
+    final var cornerShadowsContainer = ExtendedIterableView.forArray(cornerShadows);
 
     return forStateSetCornerShadows(state, cornerShadowsContainer);
   }

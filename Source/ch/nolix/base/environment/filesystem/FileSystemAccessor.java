@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
@@ -262,7 +262,7 @@ public final class FileSystemAccessor {
    */
   public static ExtendedIterable<FileAccessor> getFileAccessors(final String path) {
     return //
-    ContainerView.forArray(new File(path).listFiles())
+    ExtendedIterableView.forArray(new File(path).listFiles())
       .getViewOfStoredSelected(File::isFile)
       .to(f -> FileAccessor.withFilePath(f.getAbsolutePath()));
   }
@@ -304,7 +304,7 @@ public final class FileSystemAccessor {
    *         the folder with the given path.
    */
   public static ExtendedIterable<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
-    return ContainerView.forArray(new File(path).listFiles())
+    return ExtendedIterableView.forArray(new File(path).listFiles())
       .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }
 

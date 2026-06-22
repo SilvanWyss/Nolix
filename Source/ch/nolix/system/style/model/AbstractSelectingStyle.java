@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.style.model;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.node.ImmutableNode;
@@ -212,7 +212,7 @@ implements ISelectingStyleWithSelectors {
   @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final Enum<?>... additionalSelectorRoles) {
     final var additionalSelectorRolesStrings = //
-    ContainerView.forArray(additionalSelectorRoles).getViewOf(Object::toString);
+    ExtendedIterableView.forArray(additionalSelectorRoles).getViewOf(Object::toString);
 
     return withAdditionalSelectorRoles(additionalSelectorRolesStrings);
   }
@@ -222,7 +222,7 @@ implements ISelectingStyleWithSelectors {
    */
   @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorRoles(final String... additionalSelectorRoles) {
-    final var selectorRolesContainer = ContainerView.forArray(additionalSelectorRoles);
+    final var selectorRolesContainer = ExtendedIterableView.forArray(additionalSelectorRoles);
 
     return withAdditionalSelectorRoles(selectorRolesContainer);
   }
@@ -239,7 +239,7 @@ implements ISelectingStyleWithSelectors {
    */
   @Override
   public final ISelectingStyleWithSelectors withAdditionalSelectorTokens(final String... additionalSelectorTokens) {
-    final var additionalSelectorTokensContainer = ContainerView.forArray(additionalSelectorTokens);
+    final var additionalSelectorTokensContainer = ExtendedIterableView.forArray(additionalSelectorTokens);
 
     return withAdditionalSelectorTokens(additionalSelectorTokensContainer);
   }

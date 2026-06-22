@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -75,7 +75,7 @@ public final class ShellProvider {
   private static String[] createRuntimeCommandFromCommand(final String[] command) {
     final var preCommand = new String[] { "cmd.exe", "/c" };
 
-    return ContainerView.forArrays(preCommand, command).toStringArray();
+    return ExtendedIterableView.forArrays(preCommand, command).toStringArray();
   }
 
   private static String getUrlWithHttpPrefix(final String url) {

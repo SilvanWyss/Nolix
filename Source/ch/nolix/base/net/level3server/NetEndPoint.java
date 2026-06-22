@@ -4,7 +4,7 @@
 package ch.nolix.base.net.level3server;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.document.chainednode.ChainedNode;
@@ -273,7 +273,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
     //Creates message.
-    final var message = MessageHeaderCatalog.COMMANDS_HEADER + '(' + ContainerView.forIterable(commands) + ')';
+    final var message = MessageHeaderCatalog.COMMANDS_HEADER + '(' + ExtendedIterableView.forIterable(commands) + ')';
 
     final var replyAsString = internalEndPoint.getReplyForRequest(message);
 

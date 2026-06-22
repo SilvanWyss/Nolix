@@ -5,7 +5,7 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import java.util.function.BooleanSupplier;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.errorcontrol.logging.Logger;
 import ch.nolix.base.programcontrol.job.JobTool;
 import ch.nolix.base.validation.validator.Validator;
@@ -321,7 +321,7 @@ public final class JobExecutor extends Thread {
   }
 
   public static JobExecutor forJobs(final Runnable... jobs) {
-    final var jobContainer = ContainerView.forArray(jobs);
+    final var jobContainer = ExtendedIterableView.forArray(jobs);
 
     return forJobs(jobContainer);
   }

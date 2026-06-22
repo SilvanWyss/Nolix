@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.web.htmlelementmodel;
 
-import ch.nolix.base.datastructure.extendediterableview.ContainerView;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
@@ -86,7 +86,7 @@ public final class HtmlElement implements IHtmlElement {
     final String type,
     final ExtendedIterable<? extends IHtmlAttribute> attributes,
     final IHtmlElement... childElements) {
-    final var childElementsContainerView = ContainerView.forArray(childElements);
+    final var childElementsContainerView = ExtendedIterableView.forArray(childElements);
 
     return new HtmlElement(type, attributes, StringCatalog.EMPTY_STRING, childElementsContainerView);
   }
@@ -124,7 +124,7 @@ public final class HtmlElement implements IHtmlElement {
       type,
       ImmutableList.createEmpty(),
       StringCatalog.EMPTY_STRING,
-      ContainerView.forArray(childElements));
+      ExtendedIterableView.forArray(childElements));
   }
 
   public static HtmlElement withTypeAndChildElements(
@@ -221,7 +221,7 @@ public final class HtmlElement implements IHtmlElement {
    */
   @Override
   public IHtmlElement withAdditionalAttributes(final ExtendedIterable<IHtmlAttribute> additionalAttributes) {
-    final var attributes = ContainerView.forIterables(getAttributes(), additionalAttributes);
+    final var attributes = ExtendedIterableView.forIterables(getAttributes(), additionalAttributes);
 
     if (containsChildElements()) {
       return withTypeAndAttributesAndChildElements(getType(), attributes, getChildElements());
@@ -235,7 +235,7 @@ public final class HtmlElement implements IHtmlElement {
    */
   @Override
   public IHtmlElement withAdditionalAttributes(final IHtmlAttribute... additionalAttributes) {
-    final var additionalAttributesContainer = ContainerView.forArray(additionalAttributes);
+    final var additionalAttributesContainer = ExtendedIterableView.forArray(additionalAttributes);
 
     return withAdditionalAttributes(additionalAttributesContainer);
   }
