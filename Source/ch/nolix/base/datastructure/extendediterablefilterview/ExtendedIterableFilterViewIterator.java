@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.filterextendediterableview;
+package ch.nolix.base.datastructure.extendediterablefilterview;
 
 import java.util.function.Predicate;
 
@@ -13,9 +13,9 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a
- *            {@link FilterExtendedIterableViewIterator}.
+ *            {@link ExtendedIterableFilterViewIterator}.
  */
-public final class FilterExtendedIterableViewIterator<E> implements CopyableIterator<E> {
+public final class ExtendedIterableFilterViewIterator<E> implements CopyableIterator<E> {
   private static final IteratorValidator ITERATOR_VALIDATOR = new IteratorValidator();
 
   private final CopyableIterator<E> iterator;
@@ -25,7 +25,7 @@ public final class FilterExtendedIterableViewIterator<E> implements CopyableIter
   private E optionalNextElement;
 
   /**
-   * Creates a new {@link FilterExtendedIterableViewIterator} with the given iterator and
+   * Creates a new {@link ExtendedIterableFilterViewIterator} with the given iterator and
    * selector.
    * 
    * @param iterator
@@ -33,7 +33,7 @@ public final class FilterExtendedIterableViewIterator<E> implements CopyableIter
    * @throws RuntimeException if the given container is null.
    * @throws RuntimeException if the given selector is null.
    */
-  private FilterExtendedIterableViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {
+  private ExtendedIterableFilterViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
@@ -43,10 +43,10 @@ public final class FilterExtendedIterableViewIterator<E> implements CopyableIter
     moveToOptionalNextElement();
   }
 
-  public static <T> FilterExtendedIterableViewIterator<T> forIteratorAndSelector(
+  public static <T> ExtendedIterableFilterViewIterator<T> forIteratorAndSelector(
     final CopyableIterator<T> iterator,
     final Predicate<T> selector) {
-    return new FilterExtendedIterableViewIterator<>(iterator, selector);
+    return new ExtendedIterableFilterViewIterator<>(iterator, selector);
   }
 
   /**

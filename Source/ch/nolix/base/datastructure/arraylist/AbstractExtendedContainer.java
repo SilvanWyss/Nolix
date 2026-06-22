@@ -9,9 +9,9 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
+import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.base.datastructure.extendediterableintervallview.ExtendedIterableIntervallView;
 import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
-import ch.nolix.base.datastructure.filterextendediterableview.FilterExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 
@@ -49,7 +49,7 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
    */
   @Override
   public final ExtendedIterable<E> getViewOfStoredSelected(final Predicate<E> selector) {
-    return FilterExtendedIterableView.forContainerAndSelector(this, selector);
+    return ExtendedIterableFilterView.forContainerAndSelector(this, selector);
   }
 
   /**
