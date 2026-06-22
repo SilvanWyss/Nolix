@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.independent.immutablelist;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 import ch.nolix.base.independent.arraytool.ArrayValidator;
@@ -28,13 +27,6 @@ public final class ImmutableList<E> implements Iterable<E> {
     elements = paramElements.clone();
 
     ARRAY_VALIDATOR.assertDoesNotContainNull(elements);
-  }
-
-  private ImmutableList(final E element, final E[] paramElements) {
-    elements = Arrays.copyOfRange(paramElements, 0, 1 + paramElements.length);
-    elements[paramElements.length] = element;
-
-    ARRAY_VALIDATOR.assertDoesNotContainNull(paramElements);
   }
 
   public static <T> ImmutableList<T> createEmptyList() {
