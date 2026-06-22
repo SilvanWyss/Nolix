@@ -1,11 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.arraylist;
+package ch.nolix.base.datastructure.filterextendediterableview;
 
 import java.util.function.Predicate;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
@@ -15,7 +16,8 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link FilterExtendedIterableView}.
+ * @param <E> is the type of the elements of a
+ *            {@link FilterExtendedIterableView}.
  */
 public final class FilterExtendedIterableView<E> extends AbstractExtendedContainer<E> {
   private final ExtendedIterable<E> wellOrderContainer;
@@ -40,15 +42,6 @@ public final class FilterExtendedIterableView<E> extends AbstractExtendedContain
   }
 
   /**
-   * @return a new {@link FilterExtendedIterableView} for an empty {@link ExtendedIterable}.
-   * @param <T> is the types of the elements of the created
-   *            {@link FilterExtendedIterableView}.
-   */
-  public static <T> FilterExtendedIterableView<T> createEmpty() {
-    return forContainerAndSelector(ArrayList.createEmpty(), _ -> true);
-  }
-
-  /**
    * @param container
    * @param selector
    * @param <T>       is the type of the elements of the given container.
@@ -68,7 +61,8 @@ public final class FilterExtendedIterableView<E> extends AbstractExtendedContain
    * @param selector
    * @param <T>      is the type of the given element and elements of the given
    *                 array.
-   * @return a new {@link FilterExtendedIterableView} for the given element and array.
+   * @return a new {@link FilterExtendedIterableView} for the given element and
+   *         array.
    * @throws RuntimeException if the given array is null.
    * @throws RuntimeException if the given selector is null.
    */
@@ -109,7 +103,7 @@ public final class FilterExtendedIterableView<E> extends AbstractExtendedContain
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return FilterContainerViewIterator.forIteratorAndSelector(wellOrderContainer.iterator(), selector);
+    return FilterExtendedIterableViewIterator.forIteratorAndSelector(wellOrderContainer.iterator(), selector);
   }
 
   /**

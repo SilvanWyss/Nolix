@@ -3,7 +3,7 @@
  */
 package ch.nolix.basetest.container.containerview;
 
-import ch.nolix.base.datastructure.arraylist.FilterExtendedIterableView;
+import ch.nolix.base.datastructure.filterextendediterableview.FilterExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
@@ -24,6 +24,9 @@ public final class FilterContainerViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(final Class<E> type) {
-    return FilterExtendedIterableView.createEmpty();
+    @SuppressWarnings("unchecked")
+    final var emptyArray = (E[]) (new Object[0]);
+
+    return FilterExtendedIterableView.forArrayAndSelector(emptyArray, _ -> true);
   }
 }
