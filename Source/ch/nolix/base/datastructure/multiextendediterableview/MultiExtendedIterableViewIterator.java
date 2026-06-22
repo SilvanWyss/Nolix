@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.extendediterableview;
+package ch.nolix.base.datastructure.multiextendediterableview;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
@@ -11,15 +11,15 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 /**
  * @author Silvan Wyss
  * @param <E> is the type of the elements of the parent
- *            {@link MultiContainerView} of a
- *            {@link MultiContainerViewIterator}.
+ *            {@link MultiExtendedIterableView} of a
+ *            {@link MultiExtendedIterableViewIterator}.
  */
-public final class MultiContainerViewIterator<E> implements CopyableIterator<E> {
+public final class MultiExtendedIterableViewIterator<E> implements CopyableIterator<E> {
   private final CopyableIterator<ExtendedIterable<E>> mainIterator;
 
   private CopyableIterator<E> currentSubIterator;
 
-  private MultiContainerViewIterator(final ExtendedIterable<ExtendedIterable<E>> containers) {
+  private MultiExtendedIterableViewIterator(final ExtendedIterable<ExtendedIterable<E>> containers) {
     mainIterator = containers.iterator();
 
     if (mainIterator.hasNext()) {
@@ -29,16 +29,16 @@ public final class MultiContainerViewIterator<E> implements CopyableIterator<E> 
     forwardSubIteratorToNextOrEnd();
   }
 
-  private MultiContainerViewIterator(
+  private MultiExtendedIterableViewIterator(
     final CopyableIterator<ExtendedIterable<E>> mainIterator,
     final CopyableIterator<E> currentIterator) {
     this.mainIterator = mainIterator;
     this.currentSubIterator = currentIterator;
   }
 
-  public static <T> MultiContainerViewIterator<T> forContainers(
+  public static <T> MultiExtendedIterableViewIterator<T> forContainers(
     final ExtendedIterable<ExtendedIterable<T>> containers) {
-    return new MultiContainerViewIterator<>(containers);
+    return new MultiExtendedIterableViewIterator<>(containers);
   }
 
   /**
@@ -46,7 +46,7 @@ public final class MultiContainerViewIterator<E> implements CopyableIterator<E> 
    */
   @Override
   public CopyableIterator<E> getCopy() {
-    return new MultiContainerViewIterator<>(mainIterator.getCopy(), currentSubIterator.getCopy());
+    return new MultiExtendedIterableViewIterator<>(mainIterator.getCopy(), currentSubIterator.getCopy());
   }
 
   /**

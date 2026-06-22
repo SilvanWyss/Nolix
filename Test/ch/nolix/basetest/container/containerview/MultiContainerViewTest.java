@@ -5,8 +5,8 @@ package ch.nolix.basetest.container.containerview;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.datastructure.extendediterableview.MultiContainerView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.multiextendediterableview.MultiExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.basetest.container.base.ContainerTest;
 
@@ -22,7 +22,7 @@ final class MultiContainerViewTest extends ContainerTest {
     final var array3 = new String[] { "z", "zz" };
 
     //execution
-    final var result = MultiContainerView.forArrays(array1, array2, array3);
+    final var result = MultiExtendedIterableView.forArrays(array1, array2, array3);
 
     //verification
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
@@ -36,7 +36,7 @@ final class MultiContainerViewTest extends ContainerTest {
     final @SuppressWarnings("unchecked") E... elements) {
     final var container = ImmutableList.withElements(elements);
 
-    return MultiContainerView.forIterables(container);
+    return MultiExtendedIterableView.forIterables(container);
   }
 
   /**
@@ -44,6 +44,6 @@ final class MultiContainerViewTest extends ContainerTest {
    */
   @Override
   protected <E> ExtendedIterable<E> createEmptyContainerForType(Class<E> type) {
-    return MultiContainerView.forEmpty();
+    return MultiExtendedIterableView.forEmpty();
   }
 }

@@ -8,6 +8,7 @@ import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.datastructure.multiextendediterableview.MultiExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
@@ -73,7 +74,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @SafeVarargs
   public static <T> ContainerView<T> forArrays(final T[]... arrays) {
-    final var container = MultiContainerView.forArrays(arrays);
+    final var container = MultiExtendedIterableView.forArrays(arrays);
 
     return new ContainerView<>(container);
   }
@@ -100,7 +101,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    */
   public static <T> ContainerView<T> forIterableAndElement(final Iterable<T> iterable, final T element) {
     final var iterableWithElement = ImmutableList.withElement(element);
-    final var container = MultiContainerView.forIterables(iterable, iterableWithElement);
+    final var container = MultiExtendedIterableView.forIterables(iterable, iterableWithElement);
 
     return new ContainerView<>(container);
   }
@@ -114,7 +115,7 @@ public final class ContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @SafeVarargs
   public static <T> ContainerView<T> forIterables(final Iterable<? extends T>... iterables) {
-    final var container = MultiContainerView.forIterables(iterables);
+    final var container = MultiExtendedIterableView.forIterables(iterables);
 
     return new ContainerView<>(container);
   }

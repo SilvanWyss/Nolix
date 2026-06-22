@@ -1,12 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.datastructure.extendediterableview;
+package ch.nolix.base.datastructure.multiextendediterableview;
 
 import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.Marker;
+import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -16,16 +17,16 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRan
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link MultiContainerView}.
+ * @param <E> is the type of the elements of a {@link MultiExtendedIterableView}.
  */
-public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
+public final class MultiExtendedIterableView<E> extends AbstractExtendedContainer<E> {
   private final ExtendedIterable<ExtendedIterable<E>> wellOrderContainers;
 
-  private MultiContainerView() {
+  private MultiExtendedIterableView() {
     wellOrderContainers = ImmutableList.createEmpty();
   }
 
-  private MultiContainerView(@SuppressWarnings("unchecked") final E[]... arrays) {
+  private MultiExtendedIterableView(@SuppressWarnings("unchecked") final E[]... arrays) {
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var a : arrays) {
@@ -35,7 +36,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     wellOrderContainers = localContainers;
   }
 
-  private MultiContainerView(@SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
+  private MultiExtendedIterableView(@SuppressWarnings("unchecked") final Iterable<? extends E>... iterables) {
     final IArrayList<ExtendedIterable<E>> localContainers = ArrayList.createEmpty();
 
     for (final var i : iterables) {
@@ -45,18 +46,18 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
     wellOrderContainers = localContainers;
   }
 
-  public static <T> MultiContainerView<T> forArrays(
+  public static <T> MultiExtendedIterableView<T> forArrays(
     @SuppressWarnings("unchecked") final T[]... arrays) {
-    return new MultiContainerView<>(arrays);
+    return new MultiExtendedIterableView<>(arrays);
   }
 
-  public static <T> MultiContainerView<T> forEmpty() {
-    return new MultiContainerView<>();
+  public static <T> MultiExtendedIterableView<T> forEmpty() {
+    return new MultiExtendedIterableView<>();
   }
 
   @SafeVarargs
-  public static <T> MultiContainerView<T> forIterables(final Iterable<? extends T>... iterables) {
-    return new MultiContainerView<>(iterables);
+  public static <T> MultiExtendedIterableView<T> forIterables(final Iterable<? extends T>... iterables) {
+    return new MultiExtendedIterableView<>(iterables);
   }
 
   /**
@@ -64,7 +65,7 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
    */
   @Override
   public CopyableIterator<E> iterator() {
-    return MultiContainerViewIterator.forContainers(wellOrderContainers);
+    return MultiExtendedIterableViewIterator.forContainers(wellOrderContainers);
   }
 
   /**
