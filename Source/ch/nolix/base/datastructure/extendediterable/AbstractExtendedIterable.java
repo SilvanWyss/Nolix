@@ -24,7 +24,6 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -961,7 +960,7 @@ implements ExtendedIterable<E> {
     Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
     //Initializes groups.
-    final var groups = createEmptyMutableList(new Marker<IArrayList<E>>());
+    final var groups = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<IArrayList<E>>(), 0);
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -977,7 +976,7 @@ implements ExtendedIterable<E> {
         //Handles the case that the optionalGroup of the current element does not exist.
         if (optionalGroup.isEmpty()) {
           //Creates group for the current element.
-          final var group = createEmptyMutableList(new Marker<E>());
+          final var group = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 1);
 
           //Adds the current element to the group for the current element.
           group.addAtEnd(e);
@@ -1099,7 +1098,8 @@ implements ExtendedIterable<E> {
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes otherElements.
-    final var otherElements = createEmptyMutableList(new Marker<E>());
+    final var initialCapacity = getCount() / 2;
+    final var otherElements = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), initialCapacity);
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1129,7 +1129,7 @@ implements ExtendedIterable<E> {
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElements.
-    final var selectedElements = createEmptyMutableList(new Marker<E>());
+    final var selectedElements = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 10);
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1305,7 +1305,7 @@ implements ExtendedIterable<E> {
     }
 
     //Handles the case that the current Container contains n or less elements.
-    return createEmptyMutableList(new Marker<E>());
+    return createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 0);
   }
 
   /**
@@ -1339,7 +1339,7 @@ implements ExtendedIterable<E> {
     }
 
     //Handles the case that the current Container contains n or less elements.
-    return createEmptyMutableList(new Marker<E>());
+    return createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 0);
   }
 
   /**
@@ -1374,7 +1374,7 @@ implements ExtendedIterable<E> {
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<T>());
+    final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), getCount());
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1621,7 +1621,7 @@ implements ExtendedIterable<E> {
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<T>());
+    final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), getCount());
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1651,7 +1651,7 @@ implements ExtendedIterable<E> {
     Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 
     //Initializes numbers.
-    final var numbers = createEmptyMutableList(new Marker<N>());
+    final var numbers = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<N>(), getCount());
 
     //Creates zero.
     @SuppressWarnings("unchecked")
@@ -1683,7 +1683,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> toReversedList() {
-    final var reversedList = createEmptyMutableList(new Marker<E>());
+    final var reversedList = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), getCount());
 
     @SuppressWarnings("unchecked")
     final var array = (E[]) new Object[(getCount())];
@@ -1729,7 +1729,7 @@ implements ExtendedIterable<E> {
   @Override
   public final ExtendedIterable<String> toStrings() {
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<String>());
+    final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<String>(), getCount());
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -1783,7 +1783,7 @@ implements ExtendedIterable<E> {
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
 
     //Creates list.
-    final var list = createEmptyMutableList(new Marker<T>());
+    final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), 0);
 
     //Declares index.
     var index = 1;
@@ -1812,11 +1812,14 @@ implements ExtendedIterable<E> {
 
   /**
    * @param marker
-   * @param <T>    is the type of the elements the created {@link ILinkedList} can
-   *               contain.
-   * @return a new empty {@link ILinkedList}.
+   * @param initialCapacity
+   * @param <T>             the type of the elements the created
+   *                        {@link IArrayList} can contain
+   * @return a new empty {@link IArrayList}
    */
-  protected abstract <T> IArrayList<T> createEmptyMutableList(final Marker<T> marker);
+  protected abstract <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    Marker<T> marker,
+    int initialCapacity);
 
   /**
    * The time complexity of this implementation is O(1).

@@ -4,6 +4,7 @@
 package ch.nolix.base.datastructure.arraylist;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -126,19 +127,19 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   @Override
   public void addAtEnd(final Iterable<? extends E> elements) {
     Validator.assertThatTheElements(elements).areNotNull();
-  
+
     final var newElementCount = getCount() + getCountOfIterable(elements);
-  
+
     growAtLeastToRequiredCapacity(newElementCount);
-  
+
     var index = getCount();
-  
+
     for (final var e : elements) {
       memberElements[index] = e;
-  
+
       index++;
     }
-  
+
     memberElementCount = newElementCount;
   }
 
@@ -259,6 +260,16 @@ public final class ArrayList<E> extends AbstractExtendedContainer<E> implements 
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<T> marker,
+    final int initialCapacity) {
+    return withInitialCapacity(initialCapacity);
   }
 
   /**

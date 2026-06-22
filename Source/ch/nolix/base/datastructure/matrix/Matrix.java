@@ -7,13 +7,16 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.extendediterableview.ContainerView;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.datastructure.matrix.IMatrix;
 import ch.nolix.baseapi.datastructure.matrix.IMatrixColumn;
@@ -23,8 +26,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentExc
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
- * A {@link Matrix} is a {@link AbstractExtendedIterable} that stores its elements in
- * rows and columns. A {@link Matrix} is clearable.
+ * A {@link Matrix} is a {@link AbstractExtendedIterable} that stores its
+ * elements in rows and columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
  * @param <E> is the type of the elements of a {@link Matrix}.
@@ -634,6 +637,16 @@ public final class Matrix<E> extends AbstractExtendedContainer<E> implements IMa
     }
 
     return stringBuilder.toString();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<T> marker,
+    final int initialCapacity) {
+    return ArrayList.withInitialCapacity(initialCapacity);
   }
 
   /**

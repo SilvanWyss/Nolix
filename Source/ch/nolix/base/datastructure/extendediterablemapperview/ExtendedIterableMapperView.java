@@ -7,17 +7,21 @@ import java.util.function.Function;
 
 import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ExtendedIterableMapperView}.
- * @param <T> is the type of the elements a {@link ExtendedIterableMapperView} maps
- *            from its elements.
+ * @param <E> is the type of the elements of a
+ *            {@link ExtendedIterableMapperView}.
+ * @param <T> is the type of the elements a {@link ExtendedIterableMapperView}
+ *            maps from its elements.
  */
 public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedContainer<T> {
   private final ExtendedIterable<E> wellOrderContainer;
@@ -90,5 +94,15 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedCont
   @Override
   public CopyableIterator<T> iterator() {
     return ExtendedIterableMapperViewIterator.forIteratorAndMapper(wellOrderContainer.iterator(), mapper);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <U> IArrayList<U> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<U> marker,
+    final int initialCapacity) {
+    return ArrayList.withInitialCapacity(initialCapacity);
   }
 }

@@ -8,11 +8,9 @@ import java.util.function.Predicate;
 
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
-import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.base.datastructure.extendediterableintervallview.ExtendedIterableIntervallView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.datastructure.list.IArrayList;
 
 /**
  * @author Silvan Wyss
@@ -55,15 +53,5 @@ public abstract class AbstractExtendedContainer<E> extends AbstractExtendedItera
     ArraySorter.sortArray(array, getCount(), norm);
 
     return ArrayList.withElements(array);
-  }
-
-  /**
-   * The time complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
-  protected final <T> IArrayList<T> createEmptyMutableList(Marker<T> marker) {
-    return ArrayList.createEmpty();
   }
 }

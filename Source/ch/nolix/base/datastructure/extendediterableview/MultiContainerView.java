@@ -6,6 +6,7 @@ package ch.nolix.base.datastructure.extendediterableview;
 import ch.nolix.base.datastructure.arrayextendediterableview.ArrayExtendedIterableView;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -110,5 +111,15 @@ public final class MultiContainerView<E> extends AbstractExtendedContainer<E> {
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<T> marker,
+    final int initialCapacity) {
+    return ArrayList.withInitialCapacity(initialCapacity);
   }
 }

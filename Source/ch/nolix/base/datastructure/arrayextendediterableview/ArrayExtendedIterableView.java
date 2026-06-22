@@ -5,17 +5,22 @@ package ch.nolix.base.datastructure.arrayextendediterableview;
 
 import ch.nolix.base.commontype.arraytool.ArrayIterator;
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ArrayExtendedIterableView}.
+ * @param <E> is the type of the elements of a
+ *            {@link ArrayExtendedIterableView}.
  */
 public final class ArrayExtendedIterableView<E> extends AbstractExtendedContainer<E> {
-  private static final ArrayExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = new ArrayExtendedIterableView<>(new Object[0]);
+  private static final ArrayExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = new ArrayExtendedIterableView<>(
+    new Object[0]);
 
   private final E[] array;
 
@@ -33,8 +38,8 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedContaine
 
   /**
    * @return an empty {@link ArrayExtendedIterableView}.
-   * @param <T> is the types the elements the {@link ArrayExtendedIterableView} would
-   *            have.
+   * @param <T> is the types the elements the {@link ArrayExtendedIterableView}
+   *            would have.
    */
   @SuppressWarnings("unchecked")
   public static <T> ArrayExtendedIterableView<T> createEmpty() {
@@ -93,5 +98,15 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedContaine
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<T> marker,
+    final int initialCapacity) {
+    return ArrayList.withInitialCapacity(initialCapacity);
   }
 }

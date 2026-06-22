@@ -4,23 +4,27 @@
 package ch.nolix.base.datastructure.extendediterableintervallview;
 
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
 
 /**
  * A {@link ExtendedIterableIntervallView} can iterate over a part of another
  * container.
  * 
- * A {@link ExtendedIterableIntervallView} must not use the methods of the accessed
- * container except the iterator method. The reason is that the accessed
- * container can be a specialized container that does not use its iterator in
- * any of its declared or overwritten method.
+ * A {@link ExtendedIterableIntervallView} must not use the methods of the
+ * accessed container except the iterator method. The reason is that the
+ * accessed container can be a specialized container that does not use its
+ * iterator in any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ExtendedIterableIntervallView}.
+ * @param <E> is the type of the elements of a
+ *            {@link ExtendedIterableIntervallView}.
  */
 public final class ExtendedIterableIntervallView<E> extends AbstractExtendedContainer<E> {
   private final AbstractExtendedIterable<E> abstractExtendedIterable;
@@ -44,7 +48,8 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
    * @throws RuntimeException if the given endIndex is bigger than the number of
    *                          elements of the given container.
    */
-  private ExtendedIterableIntervallView(final AbstractExtendedIterable<E> container, final int startIndex, final int endIndex) {
+  private ExtendedIterableIntervallView(final AbstractExtendedIterable<E> container, final int startIndex,
+    final int endIndex) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
     Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
     Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
@@ -124,7 +129,8 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
   @Override
   public CopyableIterator<E> iterator() {
     return //
-    ExtendedIterableIntervallViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractExtendedIterable, startIndex, endIndex);
+    ExtendedIterableIntervallViewIterator.forParentContainerAndStartIndexAndEndIndex(abstractExtendedIterable,
+      startIndex, endIndex);
   }
 
   /**
@@ -133,5 +139,15 @@ public final class ExtendedIterableIntervallView<E> extends AbstractExtendedCont
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalog.COMMA);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<T> marker,
+    final int initialCapacity) {
+    return ArrayList.withInitialCapacity(initialCapacity);
   }
 }

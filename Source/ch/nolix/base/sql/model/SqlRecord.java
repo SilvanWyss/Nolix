@@ -4,8 +4,11 @@
 package ch.nolix.base.sql.model;
 
 import ch.nolix.base.datastructure.arraylist.AbstractExtendedContainer;
+import ch.nolix.base.datastructure.arraylist.ArrayList;
+import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
+import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
@@ -108,5 +111,15 @@ public final class SqlRecord extends AbstractExtendedContainer<String> implement
   @Override
   public CopyableIterator<String> iterator() {
     return values.iterator();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected <T> IArrayList<T> createEmptyArrayListFromMarkerWithInitialCapacity(
+    final Marker<T> marker,
+    final int initialCapacity) {
+    return ArrayList.withInitialCapacity(initialCapacity);
   }
 }
