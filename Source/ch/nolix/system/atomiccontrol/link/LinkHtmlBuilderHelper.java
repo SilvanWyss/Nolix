@@ -8,11 +8,11 @@ import ch.nolix.base.html.htmlmodel.HtmlAttribute;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.html.htmlattribute.LinkTarget;
 import ch.nolix.baseapi.html.htmlcatalog.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.html.htmlmodel.IHtmlAttribute;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.atomiccontrol.link.ILink;
+import ch.nolix.systemapi.atomiccontrol.link.LinkTarget;
 
 /**
  * @author Silvan Wyss

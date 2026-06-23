@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.html.htmlattribute;
+package ch.nolix.systemapi.atomiccontrol.link;
 
 /**
  * @author Silvan Wyss

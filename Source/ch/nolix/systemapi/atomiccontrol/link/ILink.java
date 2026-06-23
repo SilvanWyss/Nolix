@@ -3,7 +3,6 @@
  */
 package ch.nolix.systemapi.atomiccontrol.link;
 
-import ch.nolix.baseapi.html.htmlattribute.LinkTarget;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**
