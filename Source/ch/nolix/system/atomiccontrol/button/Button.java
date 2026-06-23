@@ -18,8 +18,8 @@ import ch.nolix.system.atomiccontrol.validationlabel.ValidationLabelTool;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
+import ch.nolix.system.webgui.html.HtmlElementEvent;
 import ch.nolix.system.webgui.main.AbstractControl;
-import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.atomiccontrol.button.IButton;
 import ch.nolix.systemapi.atomiccontrol.button.IButtonStyle;
@@ -27,9 +27,9 @@ import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabelTool;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
-import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss

@@ -13,8 +13,8 @@ import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.IControl;
-import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss

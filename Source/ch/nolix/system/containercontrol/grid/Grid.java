@@ -18,9 +18,9 @@ import ch.nolix.systemapi.containercontrol.grid.IGrid;
 import ch.nolix.systemapi.containercontrol.grid.IGridStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
-import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss

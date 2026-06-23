@@ -14,6 +14,7 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 import ch.nolix.systemapi.gui.model.IGui;
 import ch.nolix.systemapi.style.stylable.IStyleElement;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss

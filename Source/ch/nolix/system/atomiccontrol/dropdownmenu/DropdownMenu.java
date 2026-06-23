@@ -10,14 +10,14 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.system.atomiccontrol.itemmenu.AbstractItemMenu;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.webgui.main.HtmlElementEvent;
+import ch.nolix.system.webgui.html.HtmlElementEvent;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenuStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.IControl;
-import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss

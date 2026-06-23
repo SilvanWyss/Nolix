@@ -1,10 +1,10 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.system.webgui.main;
+package ch.nolix.system.webgui.html;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 //record
 public record HtmlElementEvent(String htmlElementId, String htmlEvent) implements IHtmlElementEvent {

@@ -11,8 +11,8 @@ import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainer;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.IControl;
-import ch.nolix.systemapi.webgui.main.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
