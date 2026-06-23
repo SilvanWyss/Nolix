@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.component.guicomponent.GuiComponent;
+import ch.nolix.baseapi.component.guicomponent.LayerComponent;
 import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
@@ -17,8 +18,8 @@ import ch.nolix.systemapi.gui.presence.PresenceSettable;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
-import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.html.HtmlGetter;
+import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 
 /**
  * @author Silvan Wyss
@@ -32,11 +33,10 @@ HtmlGetter,
 ISizeAdjustableBox<C>,
 IStylableElement<C>,
 IUserInputCell<C>,
+LayerComponent<ILayer>,
 Linkable,
 PresenceSettable<C> {
   boolean belongsToControl();
-
-  boolean belongsToLayer();
 
   C editStyle(Consumer<S> styleEditor);
 
@@ -53,8 +53,6 @@ PresenceSettable<C> {
   ExtendedIterable<Control<?, ?>> getStoredChildControls();
 
   Control<?, ?> getStoredParentControl();
-
-  ILayer getStoredParentLayer();
 
   ExtendedIterable<Control<?, ?>> getStoredStructureControls();
 
