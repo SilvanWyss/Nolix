@@ -12,7 +12,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.systemapi.containercontrol.container.ContainerRole;
+import ch.nolix.systemapi.control.container.ContainerRole;
 
 /**
  * @author Silvan Wyss

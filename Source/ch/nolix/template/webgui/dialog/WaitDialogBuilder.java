@@ -6,11 +6,11 @@ package ch.nolix.template.webgui.dialog;
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.baseapi.objectcreation.builder.IBuilder;
-import ch.nolix.system.atomiccontrol.label.Label;
-import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.control.label.Label;
+import ch.nolix.system.control.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
-import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
-import ch.nolix.systemapi.containercontrol.container.ContainerRole;
+import ch.nolix.systemapi.control.container.ContainerRole;
+import ch.nolix.systemapi.control.label.LabelRole;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 

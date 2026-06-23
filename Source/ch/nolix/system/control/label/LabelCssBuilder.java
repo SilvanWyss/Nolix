@@ -1,0 +1,59 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.control.label;
+
+import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.baseapi.css.cssmodel.ICssRule;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
+import ch.nolix.systemapi.control.label.ILabel;
+import ch.nolix.systemapi.control.label.ILabelStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILabelStyle> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
+    final ILabel control,
+    final ILinkedList<ICssProperty> list) {
+    //Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
+    final ILabel label,
+    final ControlState state,
+    final ILinkedList<? super ICssRule> list) {
+    //Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
+    final ILabel label,
+    final ILinkedList<? super ICssRule> list) {
+    //Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpCssPropertiesForControlAndStateIntoList(
+    final ILabel label,
+    final ControlState state,
+    final ILinkedList<ICssProperty> list) {
+    //Does nothing.
+  }
+}

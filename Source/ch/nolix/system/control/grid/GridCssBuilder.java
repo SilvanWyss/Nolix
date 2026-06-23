@@ -1,0 +1,82 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.control.grid;
+
+import ch.nolix.base.css.cssmodel.CssProperty;
+import ch.nolix.base.css.cssmodel.CssRule;
+import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.baseapi.css.cssmodel.ICssRule;
+import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
+import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
+import ch.nolix.system.webgui.controltool.CssValueMapper;
+import ch.nolix.systemapi.control.grid.IGrid;
+import ch.nolix.systemapi.control.grid.IGridStyle;
+import ch.nolix.systemapi.webgui.main.ControlState;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGridStyle> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
+    final IGrid control,
+    final ILinkedList<ICssProperty> list) {
+    //Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpCssPropertiesForControlAndStateIntoList(
+    final IGrid control,
+    final ControlState state,
+    final ILinkedList<ICssProperty> list) {
+    //Does nothing.
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
+    final IGrid control,
+    final ControlState state,
+    final ILinkedList<? super ICssRule> list) {
+    final var style = control.getStoredStyle();
+    final var gridThickness = style.getGridThicknessWhenHasState(state);
+    final var gridcolor = style.getGridColorWhenHasState(state);
+    final var childControlMargin = style.getChildControlMarginWhenHasState(state);
+
+    list.addAtEnd(
+      CssRule.withSelectorAndProperties(
+        "table, th, td",
+        ImmutableList.withElements(
+          CssProperty.withNameAndValue("border-collapse", "collapse"),
+          CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
+          CssProperty.withNameAndValue("border-color",
+            CssValueMapper.mapColorToCssValue(gridcolor)))));
+
+    list.addAtEnd(
+      CssRule.withSelectorAndProperties(
+        HtmlElementTypeCatalog.TD,
+        ImmutableList.withElements(
+          CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
+    final IGrid control,
+    final ILinkedList<? super ICssRule> list) {
+    //Does nothing.
+  }
+}

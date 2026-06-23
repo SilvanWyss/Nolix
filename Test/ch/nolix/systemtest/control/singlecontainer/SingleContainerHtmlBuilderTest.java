@@ -1,0 +1,39 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.systemtest.control.singlecontainer;
+
+import ch.nolix.system.control.singlecontainer.SingleContainer;
+import ch.nolix.system.control.singlecontainer.SingleContainerHtmlBuilder;
+import ch.nolix.systemapi.control.singlecontainer.ISingleContainer;
+import ch.nolix.systemtest.webgui.basecontroltool.ControlHtmlBuilderTest;
+
+/**
+ * @author Silvan Wyss
+ */
+final class SingleContainerHtmlBuilderTest
+extends ControlHtmlBuilderTest<SingleContainerHtmlBuilder, ISingleContainer> {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected ISingleContainer createControl() {
+    return new SingleContainer();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected SingleContainerHtmlBuilder createTestUnit() {
+    return new SingleContainerHtmlBuilder();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected String getExpectedStringRepresentationOfCreatedHtmlElementForNewControl() {
+    return "<div />";
+  }
+}

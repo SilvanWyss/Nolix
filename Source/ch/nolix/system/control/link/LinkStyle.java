@@ -1,0 +1,16 @@
+/*
+ * Copyright © by Silvan Wyss. All rights reserved.
+ */
+package ch.nolix.system.control.link;
+
+import ch.nolix.system.webgui.controlstyle.AbstractControlStyle;
+import ch.nolix.systemapi.control.link.ILinkStyle;
+
+/**
+ * @author Silvan Wyss
+ */
+public final class LinkStyle extends AbstractControlStyle<ILinkStyle> implements ILinkStyle {
+  public LinkStyle() {
+    initialize();
+  }
+}

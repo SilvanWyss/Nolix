@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
-import ch.nolix.systemapi.atomiccontrol.button.IButton;
+import ch.nolix.systemapi.control.button.ButtonRole;
+import ch.nolix.systemapi.control.button.IButton;
 import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;

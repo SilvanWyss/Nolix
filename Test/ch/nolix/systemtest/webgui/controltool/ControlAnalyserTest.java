@@ -6,13 +6,13 @@ package ch.nolix.systemtest.webgui.controltool;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.system.atomiccontrol.button.Button;
-import ch.nolix.system.atomiccontrol.imagecontrol.ImageControl;
-import ch.nolix.system.atomiccontrol.label.Label;
-import ch.nolix.system.atomiccontrol.link.Link;
-import ch.nolix.system.atomiccontrol.textbox.Textbox;
-import ch.nolix.system.containercontrol.floatcontainer.FloatContainer;
-import ch.nolix.system.containercontrol.verticalstack.VerticalStack;
+import ch.nolix.system.control.button.Button;
+import ch.nolix.system.control.floatcontainer.FloatContainer;
+import ch.nolix.system.control.imagecontrol.ImageControl;
+import ch.nolix.system.control.label.Label;
+import ch.nolix.system.control.link.Link;
+import ch.nolix.system.control.textbox.Textbox;
+import ch.nolix.system.control.verticalstack.VerticalStack;
 import ch.nolix.system.webgui.controltool.ControlAnalyser;
 
 /**
