@@ -4,14 +4,14 @@
 package ch.nolix.baseapi.datamodel.cardinality;
 
 /**
- * A {@link IFluentMutableCardinalityHolder} is a {@link ICardinalityHolder}
+ * A {@link IFluentMutableCardinalityHolder} is a {@link CardinalityHolder}
  * whose {@link Cardinality} can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @param <H> is the type of a {@link IFluentMutableCardinalityHolder}.
  */
 public interface IFluentMutableCardinalityHolder<H extends IFluentMutableCardinalityHolder<H>>
-extends ICardinalityHolder {
+extends CardinalityHolder {
   /**
    * Sets the {@link Cardinality} of the current
    * {@link IFluentMutableCardinalityHolder}.

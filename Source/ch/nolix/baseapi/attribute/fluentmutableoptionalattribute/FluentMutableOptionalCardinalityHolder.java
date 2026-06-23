@@ -3,18 +3,18 @@
  */
 package ch.nolix.baseapi.attribute.fluentmutableoptionalattribute;
 
-import ch.nolix.baseapi.datamodel.cardinality.ICardinalityHolder;
+import ch.nolix.baseapi.datamodel.cardinality.CardinalityHolder;
 
 /**
  * A {@link FluentMutableOptionalCardinalityHolder} is a
- * {@link ICardinalityHolder} whose cardinality can be set programmatically and
+ * {@link CardinalityHolder} whose cardinality can be set programmatically and
  * fluently and removed programmatically.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableOptionalCardinalityHolder}
  */
 public interface FluentMutableOptionalCardinalityHolder<H extends FluentMutableOptionalCardinalityHolder<H>>
-extends ICardinalityHolder {
+extends CardinalityHolder {
   /**
    * Removes the cardinality of the current
    * {@link FluentMutableOptionalCardinalityHolder}.

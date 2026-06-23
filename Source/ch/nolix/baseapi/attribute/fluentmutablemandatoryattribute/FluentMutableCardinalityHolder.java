@@ -4,17 +4,17 @@
 package ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute;
 
 import ch.nolix.baseapi.datamodel.cardinality.Cardinality;
-import ch.nolix.baseapi.datamodel.cardinality.ICardinalityHolder;
+import ch.nolix.baseapi.datamodel.cardinality.CardinalityHolder;
 
 /**
- * A {@link FluentMutableCardinalityHolder} is a {@link ICardinalityHolder}
+ * A {@link FluentMutableCardinalityHolder} is a {@link CardinalityHolder}
  * whose cardinality can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @param <H> the type of a {@link FluentMutableCardinalityHolder}
  */
 public interface FluentMutableCardinalityHolder<H extends FluentMutableCardinalityHolder<H>>
-extends ICardinalityHolder {
+extends CardinalityHolder {
   /**
    * Sets the cardinality of the current {@link FluentMutableCardinalityHolder}.
    * 

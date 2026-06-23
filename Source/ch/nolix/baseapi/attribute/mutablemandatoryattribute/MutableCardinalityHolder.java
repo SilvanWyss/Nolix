@@ -3,15 +3,15 @@
  */
 package ch.nolix.baseapi.attribute.mutablemandatoryattribute;
 
-import ch.nolix.baseapi.datamodel.cardinality.ICardinalityHolder;
+import ch.nolix.baseapi.datamodel.cardinality.CardinalityHolder;
 
 /**
- * A {@link MutableCardinalityHolder} is a {@link ICardinalityHolder} whose
+ * A {@link MutableCardinalityHolder} is a {@link CardinalityHolder} whose
  * cardinality can be set programmatically.
  * 
  * @author Silvan Wyss
  */
-public interface MutableCardinalityHolder extends ICardinalityHolder {
+public interface MutableCardinalityHolder extends CardinalityHolder {
   /**
    * Sets the cardinality of the current {@link MutableCardinalityHolder}.
    * 

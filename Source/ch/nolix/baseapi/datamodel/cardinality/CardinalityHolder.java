@@ -4,19 +4,19 @@
 package ch.nolix.baseapi.datamodel.cardinality;
 
 /**
- * A {@link ICardinalityHolder} has a {@link Cardinality}.
+ * A {@link CardinalityHolder} has a {@link Cardinality}.
  * 
  * @author Silvan Wyss
  */
-public interface ICardinalityHolder {
+public interface CardinalityHolder {
   /**
-   * @return the {@link Cardinality} of the current {@link ICardinalityHolder}.
+   * @return the {@link Cardinality} of the current {@link CardinalityHolder}
    */
   Cardinality getCardinality();
 
   /**
-   * @return the {@link BaseCardinality} of the current
-   *         {@link ICardinalityHolder}.
+   * @return the {@link BaseCardinality} of the {@link Cardinality} of the current
+   *         {@link CardinalityHolder}
    */
   default BaseCardinality getBaseCardinality() {
     return getCardinality().getBaseCardinality();
