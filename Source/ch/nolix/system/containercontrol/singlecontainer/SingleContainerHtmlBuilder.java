@@ -4,7 +4,7 @@
 package ch.nolix.system.containercontrol.singlecontainer;
 
 import ch.nolix.base.web.htmlmodel.HtmlElement;
-import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainer;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;

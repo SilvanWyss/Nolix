@@ -4,7 +4,7 @@
 package ch.nolix.system.atomiccontrol.dropdownmenu;
 
 import ch.nolix.base.web.htmlmodel.HtmlElement;
-import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

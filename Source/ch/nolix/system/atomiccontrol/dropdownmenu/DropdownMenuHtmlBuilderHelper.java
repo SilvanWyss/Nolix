@@ -8,7 +8,7 @@ import ch.nolix.base.web.htmlmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.atomiccontrol.dropdownmenu.IDropdownMenu;

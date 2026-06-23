@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.base.web.htmlmodel.HtmlAttribute;
 import ch.nolix.base.web.htmlmodel.HtmlElement;
-import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 
 /**
  * @author Silvan Wyss

@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.web.htmlmodel.HtmlAttribute;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 import ch.nolix.systemapi.atomiccontrol.imagecontrol.IImageControl;
 

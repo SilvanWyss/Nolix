@@ -4,7 +4,7 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.base.web.htmlmodel.HtmlAttribute;
-import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 import ch.nolix.systemapi.webgui.main.IControl;
 
