@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.base;
+package ch.nolix.basetest.datastructure.extendediterable;
 
 import java.math.BigDecimal;
 
@@ -22,7 +22,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 /**
  * @author Silvan Wyss
  */
-public abstract class ContainerTest extends StandardTest {
+public abstract class ExtendedIterableTest extends StandardTest {
   @Test
   final void testCase_contains_whenContainsTheGivenElement() {
     //setup

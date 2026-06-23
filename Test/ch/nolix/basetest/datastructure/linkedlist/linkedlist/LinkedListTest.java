@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.linkedlist.linkedlist;
+package ch.nolix.basetest.datastructure.linkedlist.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,12 +11,12 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.basetest.container.base.ContainerTest;
+import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-final class LinkedListTest extends ContainerTest {
+final class LinkedListTest extends ExtendedIterableTest {
   @Test
   void testCase_addAtBegin_whenIsEmpty() {
     //setup

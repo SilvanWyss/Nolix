@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.linkedlist.linkedlist;
+package ch.nolix.basetest.datastructure.linkedlist.linkedlist;
 
 import org.junit.jupiter.api.Test;
 

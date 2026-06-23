@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.sequencesearch;
+package ch.nolix.basetest.datastructure.sequencesearch;
 
 import org.junit.jupiter.api.Test;
 

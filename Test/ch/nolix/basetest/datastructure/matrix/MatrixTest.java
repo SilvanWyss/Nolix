@@ -1,18 +1,18 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.matrix;
+package ch.nolix.basetest.datastructure.matrix;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.basetest.container.base.ContainerTest;
+import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-final class MatrixTest extends ContainerTest {
+final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_addColumn() {
     //setup

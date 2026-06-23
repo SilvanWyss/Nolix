@@ -1,16 +1,16 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.containerview;
+package ch.nolix.basetest.datastructure.extendediterablefilterview;
 
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.basetest.container.base.ContainerTest;
+import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-public final class FilterContainerViewTest extends ContainerTest {
+public final class ExtendedIterableFilterViewTest extends ExtendedIterableTest {
   /**
    * {@inheritDoc}
    */

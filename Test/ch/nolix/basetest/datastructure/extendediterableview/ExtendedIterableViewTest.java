@@ -1,18 +1,18 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.containerview;
+package ch.nolix.basetest.datastructure.extendediterableview;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.basetest.container.base.ContainerTest;
+import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-final class ContainerViewTest extends ContainerTest {
+final class ExtendedIterableViewTest extends ExtendedIterableTest {
   @Test
   void testCase_containsEqualing() {
     //setup

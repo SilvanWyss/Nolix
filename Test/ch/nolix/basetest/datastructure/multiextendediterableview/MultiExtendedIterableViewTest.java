@@ -1,19 +1,19 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.containerview;
+package ch.nolix.basetest.datastructure.multiextendediterableview;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.datastructure.multiextendediterableview.MultiExtendedIterableView;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.basetest.container.base.ContainerTest;
+import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-final class MultiContainerViewTest extends ContainerTest {
+final class MultiExtendedIterableViewTest extends ExtendedIterableTest {
   @Test
   void testCase_forArray() {
     //setup

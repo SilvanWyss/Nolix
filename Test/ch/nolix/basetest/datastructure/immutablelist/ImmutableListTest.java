@@ -1,16 +1,16 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.immutablelist;
+package ch.nolix.basetest.datastructure.immutablelist;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.basetest.container.base.ContainerTest;
+import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 
 /**
  * @author Silvan Wyss
  */
-final class ImmutableListTest extends ContainerTest {
+final class ImmutableListTest extends ExtendedIterableTest {
   /**
    * {@inheritDoc}
    */

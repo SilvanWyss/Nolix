@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.container.arraylist;
+package ch.nolix.basetest.datastructure.arraylist;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
-import ch.nolix.basetest.container.base.CopyableIteratorTest;
+import ch.nolix.basetest.datastructure.extendediterable.CopyableIteratorTest;
 
 /**
  * @author Silvan Wyss
