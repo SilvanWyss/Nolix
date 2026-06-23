@@ -3,13 +3,13 @@
  */
 package ch.nolix.system.containercontrol.grid;
 
+import ch.nolix.base.css.cssmodel.CssProperty;
+import ch.nolix.base.css.cssmodel.CssRule;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.web.cssmodel.CssProperty;
-import ch.nolix.base.web.cssmodel.CssRule;
+import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
-import ch.nolix.baseapi.web.cssmodel.ICssProperty;
-import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.system.webgui.controltool.CssValueMapper;
 import ch.nolix.systemapi.containercontrol.grid.IGrid;

@@ -3,14 +3,14 @@
  */
 package ch.nolix.system.containercontrol.floatcontainer;
 
+import ch.nolix.base.css.cssmodel.CssProperty;
+import ch.nolix.base.css.cssmodel.CssRule;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.web.cssmodel.CssProperty;
-import ch.nolix.base.web.cssmodel.CssRule;
+import ch.nolix.baseapi.css.csscatalog.CssPropertyNameCatalog;
+import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
-import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
-import ch.nolix.baseapi.web.cssmodel.ICssProperty;
-import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
 

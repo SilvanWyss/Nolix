@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.web.cssmodel;
+package ch.nolix.basetest.css.cssmodel;
 
 import org.junit.jupiter.api.Test;
 
+import ch.nolix.base.css.cssmodel.CssProperty;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 /**

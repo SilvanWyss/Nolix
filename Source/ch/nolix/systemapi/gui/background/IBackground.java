@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.gui.background;
 
+import ch.nolix.baseapi.css.cssmodel.ICssProperty;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.graphic.color.IColor;
 import ch.nolix.systemapi.graphic.image.IImage;

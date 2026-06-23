@@ -3,10 +3,10 @@
  */
 package ch.nolix.system.atomiccontrol.textbox;
 
-import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.base.css.cssmodel.CssProperty;
+import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.web.cssmodel.ICssProperty;
-import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextboxStyle;

@@ -4,8 +4,8 @@
 package ch.nolix.systemapi.webgui.main;
 
 import ch.nolix.baseapi.component.guicomponent.GuiComponent;
+import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.background.IBackgroundHolder;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
