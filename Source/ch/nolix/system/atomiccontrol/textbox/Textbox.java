@@ -13,7 +13,7 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;
@@ -34,7 +34,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
 
   public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
 
-  private static final String TEXT_HEADER = PascalCaseVariableCatalog.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableNameCatalog.TEXT;
 
   private static final String TEXT_MODE_HEADER = "TextMode";
 

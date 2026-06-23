@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -31,8 +31,8 @@ public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableI
    * @throws RuntimeException if the given mapper is null.
    */
   private ExtendedIterableMapperViewIterator(final CopyableIterator<E> iterator, final Function<E, T> mapper) {
-    Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();
-    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
+    Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableNameCatalog.ITERATOR).isNotNull();
+    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableNameCatalog.MAPPER).isNotNull();
 
     this.iterator = iterator;
     this.mapper = mapper;

@@ -11,7 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -31,7 +31,7 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
    * @throws RuntimeException if the given array is null.
    */
   private ArrayExtendedIterableView(final E[] array) {
-    Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
+    Validator.assertThat(array).thatIsNamed(LowerCaseVariableNameCatalog.ARRAY).isNotNull();
 
     this.array = array; //NOSONAR: An ArrayContainerView operates on the original instance.
   }

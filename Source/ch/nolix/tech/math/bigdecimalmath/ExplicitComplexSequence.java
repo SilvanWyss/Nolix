@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.function.IntFunction;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**
@@ -17,7 +17,7 @@ public final class ExplicitComplexSequence extends AbstractSequence<IComplexNumb
   private final IntFunction<IComplexNumber> valueSupplier;
 
   private ExplicitComplexSequence(final IntFunction<IComplexNumber> valueSupplier) {
-    Validator.assertThat(valueSupplier).thatIsNamed(LowerCaseVariableCatalog.VALUE_SUPPLIER).isNotNull();
+    Validator.assertThat(valueSupplier).thatIsNamed(LowerCaseVariableNameCatalog.VALUE_SUPPLIER).isNotNull();
 
     this.valueSupplier = valueSupplier;
   }

@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.misc.variable;
+package ch.nolix.baseapi.misc.variablenamecatalog;
 
 /**
- * Of the {@link PascalCaseVariableCatalog} an instance cannot be created.
+ * Of the {@link PascalCaseVariableNameCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
  */
-public final class PascalCaseVariableCatalog {
+public final class PascalCaseVariableNameCatalog {
   public static final String ACTION = "Action";
 
   public static final String ADDER = "Adder";
@@ -462,9 +462,9 @@ public final class PascalCaseVariableCatalog {
   public static final String ZERO_BASED_INDEX = "ZeroBasedIndex";
 
   /**
-   * Prevents that an instance of the {@link PascalCaseVariableCatalog} can be
+   * Prevents that an instance of the {@link PascalCaseVariableNameCatalog} can be
    * created.
    */
-  private PascalCaseVariableCatalog() {
+  private PascalCaseVariableNameCatalog() {
   }
 }

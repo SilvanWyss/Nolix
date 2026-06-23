@@ -13,7 +13,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link ChainedNode} has the following attributes. -0 or 1 header -an
@@ -374,7 +374,7 @@ implements IChainedNode {
   public String getHeader() {
     //Asserts that the current ChainedNode has a header.
     if (memberHeader == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
     }
 
     return memberHeader;
@@ -740,13 +740,13 @@ implements IChainedNode {
   private void setHeader(final String header) {
     //Asserts that the given header is not null.
     if (header == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.HEADER);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.HEADER);
     }
 
     //Asserts that the given header is not blank.
     if (header.isBlank()) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        LowerCaseVariableCatalog.HEADER,
+        LowerCaseVariableNameCatalog.HEADER,
         header,
         "is blank");
     }

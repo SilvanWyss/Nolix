@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
 import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * Of the {@link DatabasePropertyColumnNameCatalog} an instance cannot be
@@ -14,10 +14,10 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
  */
 public final class DatabasePropertyColumnNameCatalog {
   //'Key' is a reserved word in MSSQL.
-  public static final String KEY = PascalCaseVariableCatalog.KEY + CharacterCatalog.UNDERSCORE;
+  public static final String KEY = PascalCaseVariableNameCatalog.KEY + CharacterCatalog.UNDERSCORE;
 
   //'Value' is a reserved word in MSSQL.
-  public static final String VALUE = PascalCaseVariableCatalog.VALUE + CharacterCatalog.UNDERSCORE;
+  public static final String VALUE = PascalCaseVariableNameCatalog.VALUE + CharacterCatalog.UNDERSCORE;
 
   /**
    * Prevents that an instance of the {@link DatabasePropertyColumnNameCatalog}

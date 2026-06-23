@@ -8,7 +8,7 @@ import ch.nolix.base.resourcecontrol.resourcepool.AbstractResourcePool;
 import ch.nolix.base.sql.connection.AbstractSqlConnection;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.baseapi.sql.connection.ISqlDatabaseTarget;
 import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
@@ -39,7 +39,7 @@ implements ISqlDatabaseTarget {
     final String loginName,
     final String loginPassword) {
     Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isBetween(0, 65_535);
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isBetween(0, 65_535);
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 

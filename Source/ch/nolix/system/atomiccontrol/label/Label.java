@@ -12,8 +12,8 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.AbstractControl;
@@ -32,9 +32,9 @@ import ch.nolix.systemapi.webgui.main.IControl;
 public final class Label extends AbstractControl<ILabel, ILabelStyle> implements ILabel {
   public static final String DEFAULT_TEXT = StringCatalog.MINUS;
 
-  private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableNameCatalog.ROLE;
 
-  private static final String TEXT_HEADER = PascalCaseVariableCatalog.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableNameCatalog.TEXT;
 
   private static final LabelHtmlBuilder HTML_BUILDER = new LabelHtmlBuilder();
 
@@ -158,7 +158,7 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
    */
   @Override
   public ILabel setText(final String text) {
-    Validator.assertThat(text).thatIsNamed(LowerCaseVariableCatalog.TEXT).isNotNull();
+    Validator.assertThat(text).thatIsNamed(LowerCaseVariableNameCatalog.TEXT).isNotNull();
 
     this.text.setValue(text);
 

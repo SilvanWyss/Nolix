@@ -4,7 +4,7 @@
 package ch.nolix.base.net.level1server;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level1server.ISlot;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
 import ch.nolix.baseapi.net.netproperty.PeerType;
@@ -154,7 +154,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   @Override
   public void sendMessage(final String message) {
     //Asserts that the given message is not null.
-    Validator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
+    Validator.assertThat(message).thatIsNamed(LowerCaseVariableNameCatalog.MESSAGE).isNotNull();
 
     //Asserts that the current LocalEndPoint is open.
     assertIsOpen();

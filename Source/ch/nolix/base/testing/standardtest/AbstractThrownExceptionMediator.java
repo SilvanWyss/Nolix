@@ -6,7 +6,7 @@ package ch.nolix.base.testing.standardtest;
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -64,7 +64,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
   public final void withMessage(final String message) {
     //Asserts that the given message is not null.
     if (message == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MESSAGE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.MESSAGE);
     }
 
     //Handles the case that the current AbstractThrownExceptionMediator has an exception.
@@ -152,7 +152,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
     //Asserts that the current AbstractThrownExceptionMediator has an exception.
     if (nullableException == null) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.EXCEPTION);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.EXCEPTION);
     }
 
     return nullableException;

@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.DeletedArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectdata.modelflyweight.EntityFlyWeight;
 import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
@@ -153,8 +153,8 @@ public abstract class AbstractEntity implements IEntity {
   public final void internalSetLoadedAndIdAndSaveStamp(final String id, final String saveStamp) {
     DATABASE_OBJECT_VALIDATOR.assertIsNew(this);
 
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-    Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableCatalog.SAVE_STAMP).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
+    Validator.assertThat(saveStamp).thatIsNamed(LowerCaseVariableNameCatalog.SAVE_STAMP).isNotBlank();
 
     this.state = DatabaseObjectState.UNEDITED;
     memberId = id;

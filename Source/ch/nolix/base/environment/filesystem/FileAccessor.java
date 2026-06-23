@@ -16,7 +16,7 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A file accessor can access a given file.
@@ -34,7 +34,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
   private FileAccessor(final String filePath) {
     if (!FileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        LowerCaseVariableCatalog.FILE_PATH,
+        LowerCaseVariableNameCatalog.FILE_PATH,
         filePath,
         "is not a file");
     }

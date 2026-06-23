@@ -10,7 +10,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -22,11 +22,11 @@ final class PluralLowerCaseVariableCatalogTest extends StandardTest {
   void testCase_constants() {
     //setup
     final var exceptions = //
-    LinkedList.withElement(PluralLowerCaseVariableCatalog.GUIS, PluralLowerCaseVariableCatalog.URLS);
+    LinkedList.withElement(PluralLowerCaseVariableNameCatalog.GUIS, PluralLowerCaseVariableNameCatalog.URLS);
 
     //verification
     for (final var c : ReflectionTool
-      .getStoredPublicStaticFieldValuesOfClass(PluralLowerCaseVariableCatalog.class)) {
+      .getStoredPublicStaticFieldValuesOfClass(PluralLowerCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);
 
       final var stringValue = c.toString();

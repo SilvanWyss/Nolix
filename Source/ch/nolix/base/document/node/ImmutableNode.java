@@ -9,7 +9,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -48,7 +48,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if the given header is null or blank.
    */
   private ImmutableNode(final String header) {
-    Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
+    Validator.assertThat(header).thatIsNamed(LowerCaseVariableNameCatalog.HEADER).isNotBlank();
 
     this.nullableHeader = header;
     this.childNodes = ImmutableList.createEmpty();
@@ -64,7 +64,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @throws RuntimeException if one of the given childNodes is null.
    */
   private ImmutableNode(final String header, final ExtendedIterable<ImmutableNode> childNodes) {
-    Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
+    Validator.assertThat(header).thatIsNamed(LowerCaseVariableNameCatalog.HEADER).isNotBlank();
 
     this.nullableHeader = header;
     this.childNodes = ImmutableList.fromIterable(childNodes);
@@ -377,7 +377,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   @Override
   public String getHeader() {
     if (nullableHeader == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.HEADER);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
     }
 
     return nullableHeader;

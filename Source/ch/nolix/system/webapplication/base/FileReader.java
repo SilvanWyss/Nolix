@@ -11,7 +11,7 @@ import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.application.basewebapplicationprotocol.CommandProtocol;
 
 final class FileReader {
@@ -104,7 +104,7 @@ final class FileReader {
   }
 
   private void receiveFileFromCounterpart(final byte[] file) {
-    Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
+    Validator.assertThat(file).thatIsNamed(LowerCaseVariableNameCatalog.FILE).isNotNull();
     assertIsWaitingForFileFromCounterpart();
 
     isWaitingForFileFromCounterpart = false;

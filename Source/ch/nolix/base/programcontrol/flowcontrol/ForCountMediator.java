@@ -6,7 +6,7 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.IntConsumer;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IForCountMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
@@ -44,7 +44,7 @@ public final class ForCountMediator implements IForCountMediator {
    */
   @Override
   public void run(final Runnable job) {
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableNameCatalog.JOB).isNotNull();
 
     for (var i = 1; i <= maxRunCount; i++) {
       job.run();
@@ -56,7 +56,7 @@ public final class ForCountMediator implements IForCountMediator {
    */
   @Override
   public void run(final IntConsumer job) {
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableNameCatalog.JOB).isNotNull();
 
     for (var i = 1; i <= maxRunCount; i++) {
       job.accept(i);

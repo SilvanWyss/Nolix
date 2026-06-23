@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmidschema.sqlschemadtocatalog;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.sqlmidschema.datatype.DataTypeTypeCatalog;
 import ch.nolix.systemapi.sqlschema.model.ColumnDto;
 
@@ -13,10 +13,10 @@ import ch.nolix.systemapi.sqlschema.model.ColumnDto;
  */
 public final class EntitySqlSchemaColumnDtoCatalog {
   public static final ColumnDto ID_COLUMN_DTO = //
-  new ColumnDto(PascalCaseVariableCatalog.ID, DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
+  new ColumnDto(PascalCaseVariableNameCatalog.ID, DataTypeTypeCatalog.TEXT, ImmutableList.createEmpty());
 
   public static final ColumnDto SAVE_STAMP_COLUMN_DTO = //
-  new ColumnDto(PascalCaseVariableCatalog.SAVE_STAMP, DataTypeTypeCatalog.INTEGER, ImmutableList.createEmpty());
+  new ColumnDto(PascalCaseVariableNameCatalog.SAVE_STAMP, DataTypeTypeCatalog.INTEGER, ImmutableList.createEmpty());
 
   /**
    * Prevents that an instance of the {@link EntitySqlSchemaColumnDtoCatalog} can

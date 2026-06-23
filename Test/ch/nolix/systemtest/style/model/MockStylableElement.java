@@ -6,7 +6,7 @@ package ch.nolix.systemtest.style.model;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 
@@ -60,7 +60,7 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
 
   private void assertHasRole() {
     if (!hasRole()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ROLE);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.ROLE);
     }
   }
 

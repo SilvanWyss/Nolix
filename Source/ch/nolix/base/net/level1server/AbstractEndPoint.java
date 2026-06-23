@@ -10,7 +10,7 @@ import ch.nolix.base.programcontrol.flowcontrol.FlowController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level1server.IEndPoint;
 
 /**
@@ -55,7 +55,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   @Override
   public final void setReceiver(final Consumer<String> receiver) {
     //Asserts that the given receiver is not null.
-    Validator.assertThat(receiver).thatIsNamed(LowerCaseVariableCatalog.RECEIVER).isNotNull();
+    Validator.assertThat(receiver).thatIsNamed(LowerCaseVariableNameCatalog.RECEIVER).isNotNull();
 
     //Asserts that the current EndPoint is open.
     assertIsOpen();
@@ -117,7 +117,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   private void assertHasCustomTargetSlot() {
     if (!hasCustomTargetSlot()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.TARGET);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.TARGET);
     }
   }
 
@@ -129,7 +129,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   private void assertHasReceiver() {
     if (!hasReceiver()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.RECEIVER);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RECEIVER);
     }
   }
 }

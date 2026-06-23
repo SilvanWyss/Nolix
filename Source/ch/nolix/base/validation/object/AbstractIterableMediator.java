@@ -16,8 +16,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.baseapi.independent.iterabletool.IIterableExaminer;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -48,7 +48,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   public void contains(final Predicate<E> condition) {
     if (condition == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.CONDITION);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.CONDITION);
     }
 
     var found = false;
@@ -69,7 +69,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   public void containsAll(final Object[] elements) {
     if (elements == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ELEMENTS);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.ELEMENTS);
     }
 
     for (final var e : elements) {
@@ -79,7 +79,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   public void containsAll(final Iterable<Object> elements) {
     if (elements == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ELEMENTS);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.ELEMENTS);
     }
 
     elements.forEach(this::contains);
@@ -87,7 +87,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   public void containsAsManyElementsAs(final Object[] array) {
     if (array == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ARRAY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ARRAY);
     }
 
     hasElementCount(array.length);
@@ -238,7 +238,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    */
   public void hasElementCount(final int elementCount) {
     if (elementCount < 0) {
-      throw NegativeArgumentException.forArgumentAndArgumentName(elementCount, LowerCaseVariableCatalog.ELEMENT_COUNT);
+      throw NegativeArgumentException.forArgumentAndArgumentName(elementCount, LowerCaseVariableNameCatalog.ELEMENT_COUNT);
     }
 
     isNotNull();
@@ -277,7 +277,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    */
   public void hasSameSizeAs(final double[] array) {
     if (array == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ARRAY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ARRAY);
     }
 
     hasElementCount(array.length);

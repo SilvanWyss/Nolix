@@ -9,7 +9,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.validation.object.IOptionalMediator;
 
 /**
@@ -81,7 +81,7 @@ public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> imp
   @Override
   public final void containsObjectOfType(Class<Object> type) {
     if (type == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TYPE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TYPE);
     }
 
     final var argument = getStoredArgument();

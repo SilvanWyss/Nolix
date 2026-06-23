@@ -5,7 +5,7 @@ package ch.nolix.base.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 
 /**
@@ -35,7 +35,7 @@ public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
   public final N andPort(final int port) {
     Validator
       .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalog.PORT)
+      .thatIsNamed(LowerCaseVariableNameCatalog.PORT)
       .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     return setArgumentAndGetNext(port);

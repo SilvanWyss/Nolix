@@ -11,7 +11,7 @@ import ch.nolix.base.programcontrol.job.JobTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.job.IJobTool;
 
 /**
@@ -43,7 +43,7 @@ public final class JobExecutor extends Thread {
    * @throws RuntimeException if the given step is null.
    */
   private JobExecutor(final Runnable step) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
 
     this.step = step;
     this.optionalMaxStepRunCount = 1;
@@ -61,7 +61,7 @@ public final class JobExecutor extends Thread {
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
   private JobExecutor(final Runnable step, final BooleanSupplier nextStepRunCondition) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
     Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
     this.step = step;
@@ -86,7 +86,7 @@ public final class JobExecutor extends Thread {
     final Runnable step,
     final BooleanSupplier nextStepRunCondition,
     final int delayBetweenStepRunsInMilliseconds) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
     Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
     Validator
@@ -109,7 +109,7 @@ public final class JobExecutor extends Thread {
    * @throws RuntimeException if the given maxStepRunCount is negative.
    */
   private JobExecutor(final Runnable step, final int maxStepRunCount) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
     Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
 
     this.step = step;
@@ -130,7 +130,7 @@ public final class JobExecutor extends Thread {
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
   private JobExecutor(final Runnable step, final int maxStepRunCount, final BooleanSupplier nextStepRunCondition) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
     Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
     Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
@@ -159,7 +159,7 @@ public final class JobExecutor extends Thread {
     final int maxStepRunCount,
     final BooleanSupplier nextStepRunCondition,
     final int delayBetweenStepRunsInMilliseconds) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
     Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
     Validator.assertThat(nextStepRunCondition).thatIsNamed("next step run condition").isNotNull();
 
@@ -189,7 +189,7 @@ public final class JobExecutor extends Thread {
     final Runnable step,
     final int maxStepRunCount,
     final int delayBetweenStepRunsInMilliseconds) {
-    Validator.assertThat(step).thatIsNamed(LowerCaseVariableCatalog.STEP).isNotNull();
+    Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
     Validator.assertThat(maxStepRunCount).thatIsNamed("max step run count").isNotNegative();
 
     Validator
@@ -344,7 +344,7 @@ public final class JobExecutor extends Thread {
   public Throwable getError() {
     //Asserts that the current JobRunner has an error.
     if (optionalCaughtError == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.ERROR);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.ERROR);
     }
 
     return optionalCaughtError;

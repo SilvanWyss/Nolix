@@ -8,7 +8,7 @@ import ch.nolix.base.web.htmlmodel.HtmlAttribute;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.htmlattribute.LinkTarget;
 import ch.nolix.baseapi.web.htmlcatalog.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
@@ -47,7 +47,7 @@ public final class LinkHtmlBuilderHelper {
       case NEW_TAB ->
         HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.TARGET, "_blank");
       default ->
-        throw InvalidArgumentException.forArgumentAndArgumentName(target, LowerCaseVariableCatalog.TARGET);
+        throw InvalidArgumentException.forArgumentAndArgumentName(target, LowerCaseVariableNameCatalog.TARGET);
     };
   }
 }

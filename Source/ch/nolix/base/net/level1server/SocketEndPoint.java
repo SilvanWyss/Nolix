@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.netconstant.IPv6Catalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
@@ -43,7 +43,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   private SocketEndPoint(final String host, final int port) {
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
-    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
 
     peerType = PeerType.FRONTEND;
 
@@ -73,7 +73,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
   private SocketEndPoint(final String host, final int port, final String slot) {
     super(slot);
 
-    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
 
     peerType = PeerType.FRONTEND;
 

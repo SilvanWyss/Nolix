@@ -10,7 +10,7 @@ import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlschema.statementcreator.StatementCreator;
@@ -37,7 +37,7 @@ public final class SchemaWriter implements ISchemaWriter {
   private int saveCount;
 
   private SchemaWriter(final String databaseName, final ISqlConnection sqlConnection) {
-    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
     ResourceValidator.assertIsOpen(sqlConnection);
 
     this.sqlConnection = sqlConnection;

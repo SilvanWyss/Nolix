@@ -5,7 +5,7 @@ package ch.nolix.base.math.stochastic;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -50,11 +50,11 @@ public abstract class AbstractStatisticalModel {
   }
 
   protected final double getValueFromBack(final int index) {
-    Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
+    Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isPositive();
 
     Validator
       .assertThat(index)
-      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.INDEX)
       .isNotBiggerThan(inputValues.length + forecasts.getCount());
 
     if (index > forecasts.getCount()) {

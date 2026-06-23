@@ -12,7 +12,7 @@ import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.document.xml.IXmlAttribute;
 import ch.nolix.baseapi.document.xml.IXmlNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -209,7 +209,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
   @Override
   public String getName() {
     if (memberName == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NAME);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.NAME);
     }
 
     return memberName;
@@ -290,7 +290,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
    */
   @Override
   public IMutableXmlNode setName(final String name) {
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
 
     memberName = name;
 
@@ -354,7 +354,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   private void supposeHasValue() {
     if (!hasValue()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.VALUE);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.VALUE);
     }
   }
 }

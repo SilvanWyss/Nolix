@@ -10,7 +10,7 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.ColumnValidator;
 import ch.nolix.systemapi.midschema.adapter.ISchemaAdapter;
@@ -57,7 +57,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     final DataType dataType,
     final ExtendedIterable<? extends ITable> referenceableTables,
     final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
 
     this.id = id;
     setName(name);

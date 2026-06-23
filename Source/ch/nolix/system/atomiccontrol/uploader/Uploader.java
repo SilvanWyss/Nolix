@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploader;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploaderStyle;
@@ -99,7 +99,7 @@ public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> i
    */
   @Override
   public void internalSetFile(final byte[] file) {
-    Validator.assertThat(file).thatIsNamed(LowerCaseVariableCatalog.FILE).isNotNull();
+    Validator.assertThat(file).thatIsNamed(LowerCaseVariableNameCatalog.FILE).isNotNull();
 
     memberFile = file; //NOSONAR: A Uploader operates on the original input.
   }
@@ -162,7 +162,7 @@ public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> i
 
   private void assertHasFile() {
     if (!hasFile()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.FILE);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.FILE);
     }
   }
 

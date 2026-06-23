@@ -4,7 +4,7 @@
 package ch.nolix.base.datamodel.dataobject;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link UnsignedByte} is not mutable.
@@ -66,7 +66,7 @@ public final class UnsignedByte {
    */
   public static UnsignedByte fromNumber(final int number) {
     //Asserts that the given number is in [0, 255].
-    Validator.assertThat(number).thatIsNamed(LowerCaseVariableCatalog.NUMBER).isBetween(0, 255);
+    Validator.assertThat(number).thatIsNamed(LowerCaseVariableNameCatalog.NUMBER).isBetween(0, 255);
 
     return new UnsignedByte((byte) (number - 128));
   }
@@ -108,7 +108,7 @@ public final class UnsignedByte {
    *         int.
    */
   public int getBitAtAsInt(final int index) {
-    Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isBetween(1, 8);
+    Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isBetween(1, 8);
 
     return (memberByte >> (8 - index)) & 1;
   }

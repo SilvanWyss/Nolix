@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**
@@ -140,7 +140,7 @@ public final class ComplexNumber implements IComplexNumber {
    */
   @Override
   public ComplexNumber getPower(final int exponent) {
-    Validator.assertThat(exponent).thatIsNamed(LowerCaseVariableCatalog.EXPONENT).isPositive();
+    Validator.assertThat(exponent).thatIsNamed(LowerCaseVariableNameCatalog.EXPONENT).isPositive();
 
     var complexNumber = this;
 

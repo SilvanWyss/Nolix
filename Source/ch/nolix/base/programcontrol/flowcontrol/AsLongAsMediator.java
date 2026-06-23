@@ -7,7 +7,7 @@ import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
@@ -27,7 +27,7 @@ public final class AsLongAsMediator implements IAsLongAsMediator {
    * @throws RuntimeException if the given condition is null.
    */
   private AsLongAsMediator(final BooleanSupplier condition) {
-    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
 
     this.condition = condition;
   }

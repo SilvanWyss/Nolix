@@ -5,7 +5,7 @@ package ch.nolix.system.middata.valuemapper;
 
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.middata.valuemapper.IValueMapper;
 
 /**
@@ -36,7 +36,7 @@ public final class ValueMapper implements IValueMapper {
       case STRING ->
         string;
       default ->
-        throw InvalidArgumentException.forArgumentAndArgumentName(dataType, LowerCaseVariableCatalog.DATA_TYPE);
+        throw InvalidArgumentException.forArgumentAndArgumentName(dataType, LowerCaseVariableNameCatalog.DATA_TYPE);
     };
   }
 }

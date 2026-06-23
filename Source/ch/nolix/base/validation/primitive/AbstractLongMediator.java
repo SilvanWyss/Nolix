@@ -19,7 +19,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.PositiveArgumentEx
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.independent.arraytool.IArrayTool;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 
 /**
@@ -141,7 +141,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    */
   public final void isEqualToAnyOf(final long... values) {
     if (values == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.VALUES);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.VALUES);
     }
 
     for (final long v : values) {

@@ -12,7 +12,7 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.property.value.OptionalValue;
@@ -34,7 +34,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
 public final class ImageControl extends AbstractControl<IImageControl, IImageControlStyle> implements IImageControl {
   public static final String DEFAULT_ALTERNATE_TEXT = StringCatalog.EMPTY_STRING;
 
-  private static final String IMAGE_HEADER = PascalCaseVariableCatalog.IMAGE;
+  private static final String IMAGE_HEADER = PascalCaseVariableNameCatalog.IMAGE;
 
   private static final String ALTERNATE_TEXT_HEADER = "AlternateText";
 

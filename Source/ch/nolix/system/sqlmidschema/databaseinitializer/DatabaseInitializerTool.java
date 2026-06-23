@@ -4,7 +4,7 @@
 package ch.nolix.system.sqlmidschema.databaseinitializer;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.BackReferenceableColumnTableSqlSchemaDtoCatalog;
 import ch.nolix.system.sqlmidschema.sqlschemadtocatalog.ColumnTableSqlSchemaDtoCatalog;
@@ -66,7 +66,7 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
     final ITime schemaTimestamp,
     final ISqlConnection sqlConnection,
     final String databaseName) {
-    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
 
     final var query = //
     DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createStatementToCreateSchemaTimestampEntry(schemaTimestamp);

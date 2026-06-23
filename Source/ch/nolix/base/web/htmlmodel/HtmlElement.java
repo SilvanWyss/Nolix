@@ -8,7 +8,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 
@@ -29,7 +29,7 @@ public final class HtmlElement implements IHtmlElement {
     final ExtendedIterable<? extends IHtmlAttribute> attributes,
     final String innerText,
     final ExtendedIterable<? extends IHtmlElement> childElements) {
-    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotBlank();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotBlank();
     Validator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 
     this.type = type;

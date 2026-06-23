@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netconstant.IPv4Catalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 
@@ -23,7 +23,7 @@ public final class ShellProvider {
   }
 
   public static void run(final String[] command) {
-    Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
+    Validator.assertThat(command).thatIsNamed(LowerCaseVariableNameCatalog.COMMAND).isNotNull();
 
     final var runtimeCommand = createRuntimeCommandFromCommand(command);
 
@@ -53,12 +53,12 @@ public final class ShellProvider {
   public static void startFirefox(final String url, final int port) {
     Validator
       .assertThat(url)
-      .thatIsNamed(LowerCaseVariableCatalog.URL)
+      .thatIsNamed(LowerCaseVariableNameCatalog.URL)
       .isNotBlank();
 
     Validator
       .assertThat(port)
-      .thatIsNamed(LowerCaseVariableCatalog.PORT)
+      .thatIsNamed(LowerCaseVariableNameCatalog.PORT)
       .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
     run(new String[] { "start", "firefox", "--url", url + ":" + port });

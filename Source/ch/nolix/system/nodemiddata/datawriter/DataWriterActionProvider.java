@@ -9,8 +9,8 @@ import ch.nolix.baseapi.datamodel.cardinality.BaseCardinality;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.system.midschemainfo.modelsearcher.TableInfoSearcher;
 import ch.nolix.system.nodemiddata.nodeeditor.TableNodeEditor;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
@@ -153,7 +153,7 @@ public final class DataWriterActionProvider {
     DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
 
     if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
-      throw ChangedResourceException.forResource(LowerCaseVariableCatalog.SCHEMA);
+      throw ChangedResourceException.forResource(LowerCaseVariableNameCatalog.SCHEMA);
     }
   }
 
@@ -239,7 +239,7 @@ public final class DataWriterActionProvider {
     final var entityNodeContainer = TABLE_NODE_SEARCHER.getOptionalStoredEntityNodeFromTableNode(tableNode, entityId);
 
     if (entityNodeContainer.isEmpty()) {
-      throw ChangedResourceException.forResource(PluralLowerCaseVariableCatalog.DATA);
+      throw ChangedResourceException.forResource(PluralLowerCaseVariableNameCatalog.DATA);
     }
 
     final var saveStamp = entityUpdate.saveStamp();
@@ -248,7 +248,7 @@ public final class DataWriterActionProvider {
     final var actualSaveStamp = saveStampNode.getHeader();
 
     if (!saveStamp.equals(actualSaveStamp)) {
-      throw ChangedResourceException.forResource(PluralLowerCaseVariableCatalog.DATA);
+      throw ChangedResourceException.forResource(PluralLowerCaseVariableNameCatalog.DATA);
     }
 
     final var newSaveStamp = String.valueOf(Integer.valueOf(saveStamp) + 1);

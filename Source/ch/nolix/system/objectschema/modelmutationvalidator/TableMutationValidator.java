@@ -4,7 +4,7 @@
 package ch.nolix.system.objectschema.modelmutationvalidator;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.system.objectschema.modeltool.ColumnTool;
 import ch.nolix.system.objectschema.modelvalidator.DatabaseValidator;
@@ -77,6 +77,6 @@ public final class TableMutationValidator implements ITableMutationValidator {
       DATABASE_VALIDATOR.assertDoesNotContainTableWithGivenName(table.getStoredParentDatabase(), name);
     }
 
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
   }
 }

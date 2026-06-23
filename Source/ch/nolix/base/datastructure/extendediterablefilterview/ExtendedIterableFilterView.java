@@ -15,7 +15,7 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -37,8 +37,8 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * @throws RuntimeException if the given selector is null.
    */
   private ExtendedIterableFilterView(final ExtendedIterable<E> container, final Predicate<E> selector) {
-    Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     this.wellOrderContainer = container;
     this.selector = selector;

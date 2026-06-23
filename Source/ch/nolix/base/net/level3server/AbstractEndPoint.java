@@ -9,7 +9,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level3server.IDataProviderController;
 import ch.nolix.baseapi.net.level3server.IEndPoint;
 
@@ -88,7 +88,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
 
     if (!hasReceivingDataProviderController()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.RECEIVER);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RECEIVER);
     }
 
     return receiverController;

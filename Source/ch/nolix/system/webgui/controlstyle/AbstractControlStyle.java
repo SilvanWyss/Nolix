@@ -8,7 +8,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
@@ -43,9 +43,9 @@ implements IControlStyle<S> {
 
   public static final int DEFAULT_PADDING = 0;
 
-  private static final String WIDTH_HEADER = PascalCaseVariableCatalog.WIDTH;
+  private static final String WIDTH_HEADER = PascalCaseVariableNameCatalog.WIDTH;
 
-  private static final String HEIGHT_HEADER = PascalCaseVariableCatalog.HEIGHT;
+  private static final String HEIGHT_HEADER = PascalCaseVariableNameCatalog.HEIGHT;
 
   private static final String CORNER_RADIUS_HEADER = "CornerRadius";
 

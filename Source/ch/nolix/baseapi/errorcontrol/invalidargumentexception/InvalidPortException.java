@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.errorcontrol.invalidargumentexception;
 
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.ArgumentNameDto;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link InvalidPortException} is a {@link AbstractInvalidArgumentException}
@@ -14,7 +14,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  */
 @SuppressWarnings("serial")
 public final class InvalidPortException extends AbstractInvalidArgumentException {
-  private static final String ARGUMENT_NAME = LowerCaseVariableCatalog.PORT;
+  private static final String ARGUMENT_NAME = LowerCaseVariableNameCatalog.PORT;
 
   /**
    * Creates a new {@link InvalidPortException} for the given port.

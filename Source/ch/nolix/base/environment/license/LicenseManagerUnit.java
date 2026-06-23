@@ -16,7 +16,7 @@ import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
 import ch.nolix.baseapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link LicenseManagerUnit} contains {@link License}s.
@@ -69,7 +69,7 @@ public final class LicenseManagerUnit {
    */
   public LicenseManagerUnit addLicense(final License license) {
     //Asserts that the given license is not null.
-    Validator.assertThat(license).thatIsNamed(LowerCaseVariableCatalog.LICENSE).isNotNull();
+    Validator.assertThat(license).thatIsNamed(LowerCaseVariableNameCatalog.LICENSE).isNotNull();
 
     //Assets thath the given license is actiaved.
     LICENSE_VALIDATOR.assertIsActivated(license);
@@ -174,7 +174,7 @@ public final class LicenseManagerUnit {
    */
   private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
     //Asserts that the given licenseType is not null.
-    Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 
     return readKeyFromLicenseFile(licenseType.getName());
   }

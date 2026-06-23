@@ -6,7 +6,7 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.model.IColumn;
@@ -40,8 +40,8 @@ public final class Column implements IColumn {
     final Class<?> dataTypeClass,
     final ExtendedIterable<? extends ITable<IEntity>> referenceableTables,
     final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(fieldType).thatIsNamed(FieldType.class).isNotNull();
     Validator.assertThat(dataTypeClass).thatIsNamed(DATA_TYPE_CLASS_VARIABLE).isNotNull();
 

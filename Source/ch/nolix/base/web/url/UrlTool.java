@@ -4,7 +4,7 @@
 package ch.nolix.base.web.url;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.url.IUrlTool;
 
 /**
@@ -16,7 +16,7 @@ public final class UrlTool implements IUrlTool {
    */
   @Override
   public String getDisplayTextForUrl(final String url) {
-    Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotNull();
+    Validator.assertThat(url).thatIsNamed(LowerCaseVariableNameCatalog.URL).isNotNull();
 
     if (url.startsWith("http://www.")) {
       return url.substring(11);

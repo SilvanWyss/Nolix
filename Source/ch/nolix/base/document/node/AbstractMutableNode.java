@@ -9,7 +9,7 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -24,7 +24,7 @@ implements IMutableNode<N> {
   @Override
   public final N addPostfixToHeader(final String postfix) {
     //Asserts that the given postfix is not blank.
-    Validator.assertThat(postfix).thatIsNamed(LowerCaseVariableCatalog.POSTFIX).isNotBlank();
+    Validator.assertThat(postfix).thatIsNamed(LowerCaseVariableNameCatalog.POSTFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
@@ -44,7 +44,7 @@ implements IMutableNode<N> {
   @Override
   public final N addPrefixToHeader(final String prefix) {
     //Asserts that the given prefix is not blank.
-    Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
+    Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableNameCatalog.PREFIX).isNotBlank();
 
     //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {

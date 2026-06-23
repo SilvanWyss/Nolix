@@ -18,8 +18,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotCon
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 
 /**
  * A {@link LinkedList} is a {@link AbstractExtendedIterable} that can add
@@ -61,7 +61,7 @@ implements ILinkedList<E> {
    * @throws RuntimeException if one of the elements in the given array is null.
    */
   public static <T> LinkedList<T> fromArray(final T[] array) {
-    Validator.assertThat(array).thatIsNamed(LowerCaseVariableCatalog.ARRAY).isNotNull();
+    Validator.assertThat(array).thatIsNamed(LowerCaseVariableNameCatalog.ARRAY).isNotNull();
 
     final var list = new LinkedList<T>();
     list.addAtEnd(array);
@@ -152,7 +152,7 @@ implements ILinkedList<E> {
   @Override
   public void addAtBegin(final Iterable<? extends E> elements) {
     //Asserts that the given elements is not null.
-    Validator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableCatalog.ELEMENTS).isNotNull();
+    Validator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableNameCatalog.ELEMENTS).isNotNull();
 
     //Handles the case that the given elements is not empty.
     if (ITERABLE_EXAMINER.containsAny(elements)) {
@@ -741,7 +741,7 @@ implements ILinkedList<E> {
    */
   private void removeNextNode(final LinkedListNode<E> node) {
     //Asserts that the given node is not null.
-    Validator.assertThat(node).thatIsNamed(LowerCaseVariableCatalog.NODE).isNotNull();
+    Validator.assertThat(node).thatIsNamed(LowerCaseVariableNameCatalog.NODE).isNotNull();
 
     final var nextNode = node.getNextNode();
 

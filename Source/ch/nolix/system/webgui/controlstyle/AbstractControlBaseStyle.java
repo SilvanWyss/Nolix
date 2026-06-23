@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.multistateconfiguration.AbstractMultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -219,7 +219,7 @@ implements IControlBaseStyle<C> {
    */
   @Override
   public final C forStateSetOpacity(final ControlState state, final double opacity) {
-    Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableCatalog.OPACITY).isBetween(0.0, 1.0);
+    Validator.assertThat(opacity).thatIsNamed(LowerCaseVariableNameCatalog.OPACITY).isBetween(0.0, 1.0);
 
     memberOpacity.setValueForState(state, opacity);
 
@@ -251,7 +251,7 @@ implements IControlBaseStyle<C> {
    */
   @Override
   public final C forStateSetTextSize(final ControlState state, final int textSize) {
-    Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableCatalog.TEXT_SIZE).isPositive();
+    Validator.assertThat(textSize).thatIsNamed(LowerCaseVariableNameCatalog.TEXT_SIZE).isPositive();
 
     memberTextSize.setValueForState(state, textSize);
 

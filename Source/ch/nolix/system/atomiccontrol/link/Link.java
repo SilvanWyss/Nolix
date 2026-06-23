@@ -13,8 +13,8 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.htmlattribute.LinkTarget;
 import ch.nolix.baseapi.web.url.IUrlTool;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -41,9 +41,9 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
 
   private static final String DISPLAY_TEXT_HEADER = "DisplayText";
 
-  private static final String TARGET_HEADER = PascalCaseVariableCatalog.TARGET;
+  private static final String TARGET_HEADER = PascalCaseVariableNameCatalog.TARGET;
 
-  private static final String URL_HEADER = PascalCaseVariableCatalog.URL;
+  private static final String URL_HEADER = PascalCaseVariableNameCatalog.URL;
 
   private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
 
@@ -199,7 +199,7 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
    */
   @Override
   public ILink setUrl(final String url) {
-    Validator.assertThat(url).thatIsNamed(LowerCaseVariableCatalog.URL).isNotBlank();
+    Validator.assertThat(url).thatIsNamed(LowerCaseVariableNameCatalog.URL).isNotBlank();
 
     this.url.setValue(url);
 

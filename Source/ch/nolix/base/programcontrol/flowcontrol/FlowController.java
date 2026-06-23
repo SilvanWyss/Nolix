@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 import ch.nolix.base.programcontrol.jobpool.JobPool;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsSoonAsMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IForCountMediator;
@@ -190,7 +190,7 @@ public final class FlowController {
    * @throws RuntimeException if the given condition is null.
    */
   public static IWaitMediator waitAsLongAs(final BooleanSupplier condition) {
-    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
 
     var i = 1;
     while (condition.getAsBoolean()) {

@@ -9,8 +9,8 @@ import ch.nolix.base.datamodel.id.IdCreator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
@@ -23,9 +23,9 @@ import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuItem;
 public final class ItemMenuItem extends AbstractPropertiesElement implements IItemMenuItem<ItemMenuItem> {
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
-  private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
+  private static final String ID_HEADER = PascalCaseVariableNameCatalog.ID;
 
-  private static final String TEXT_HEADER = PascalCaseVariableCatalog.TEXT;
+  private static final String TEXT_HEADER = PascalCaseVariableNameCatalog.TEXT;
 
   private static final String SELECTION_FLAG_HEADER = "Selected";
 
@@ -229,7 +229,7 @@ public final class ItemMenuItem extends AbstractPropertiesElement implements IIt
   }
 
   private void setId(final String id) {
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
 
     this.id.setValue(id);
   }

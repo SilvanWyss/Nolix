@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.atomiccontrol.button.Button;
 import ch.nolix.system.atomiccontrol.button.ButtonStyle;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
@@ -39,7 +39,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
  */
 public final class TabContainer //NOSONAR: A TabContainer has many dependencies.
 extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabContainer {
-  private static final String TAB_HEADER = PascalCaseVariableCatalog.TAB;
+  private static final String TAB_HEADER = PascalCaseVariableNameCatalog.TAB;
 
   private static final String MENU_BUTTON_STYLE_HEADER = "MenuButtonStyle";
 

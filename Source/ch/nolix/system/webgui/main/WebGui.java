@@ -11,8 +11,8 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICss;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.system.graphic.color.Color;
@@ -45,19 +45,19 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 public final class WebGui //NOSONAR: A WebGui is a principal object thus it has many methods.
 extends AbstractStyleElement<WebGui>
 implements IWebGui<WebGui> {
-  public static final String DEFAULT_TITLE = PascalCaseVariableCatalog.GUI;
+  public static final String DEFAULT_TITLE = PascalCaseVariableNameCatalog.GUI;
 
   public static final Image DEFAULT_ICON = IconCatalog.NOLIX_ICON;
 
   public static final Color DEFAULT_BACKGROUND_COLOR = X11ColorCatalog.WHITE;
 
-  private static final String TITLE_HEADER = PascalCaseVariableCatalog.TITLE;
+  private static final String TITLE_HEADER = PascalCaseVariableNameCatalog.TITLE;
 
-  private static final String ICON_HEADER = PascalCaseVariableCatalog.ICON;
+  private static final String ICON_HEADER = PascalCaseVariableNameCatalog.ICON;
 
-  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalog.BACKGROUND;
+  private static final String BACKGROUND_HEADER = PascalCaseVariableNameCatalog.BACKGROUND;
 
-  private static final String LAYER_HEADER = PascalCaseVariableCatalog.LAYER;
+  private static final String LAYER_HEADER = PascalCaseVariableNameCatalog.LAYER;
 
   private final Value<String> title = //
   Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
@@ -432,7 +432,7 @@ implements IWebGui<WebGui> {
    */
   @Override
   public WebGui setTitle(final String title) {
-    Validator.assertThat(title).thatIsNamed(LowerCaseVariableCatalog.TITLE).isNotBlank();
+    Validator.assertThat(title).thatIsNamed(LowerCaseVariableNameCatalog.TITLE).isNotBlank();
 
     this.title.setValue(title);
 

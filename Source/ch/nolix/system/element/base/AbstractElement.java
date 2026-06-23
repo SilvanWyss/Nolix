@@ -5,7 +5,7 @@ package ch.nolix.system.element.base;
 
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 
@@ -56,6 +56,6 @@ public abstract class AbstractElement implements IElement {
       return localClass.getSimpleName();
     }
 
-    return PascalCaseVariableCatalog.ELEMENT;
+    return PascalCaseVariableNameCatalog.ELEMENT;
   }
 }

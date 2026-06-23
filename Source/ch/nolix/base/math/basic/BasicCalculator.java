@@ -5,7 +5,7 @@ package ch.nolix.base.math.basic;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.math.basic.IBasicCalculator;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -95,7 +95,7 @@ public final class BasicCalculator implements IBasicCalculator {
     }
 
     if (count == 0) {
-      throw EmptyArgumentException.forArgumentAndArgumentName(values, PluralLowerCaseVariableCatalog.VALUES);
+      throw EmptyArgumentException.forArgumentAndArgumentName(values, PluralLowerCaseVariableNameCatalog.VALUES);
     }
 
     return sum / count;

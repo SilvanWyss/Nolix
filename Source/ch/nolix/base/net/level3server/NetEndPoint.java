@@ -17,7 +17,7 @@ import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level3serverprotocol.MessageHeaderCatalog;
 import ch.nolix.baseapi.net.netproperty.BaseConnectionType;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
@@ -231,7 +231,7 @@ public final class NetEndPoint extends AbstractEndPoint {
       case MessageHeaderCatalog.ERROR_HEADER ->
         throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
       default ->
-        throw InvalidArgumentException.forArgumentAndArgumentName(reply, LowerCaseVariableCatalog.REPLY);
+        throw InvalidArgumentException.forArgumentAndArgumentName(reply, LowerCaseVariableNameCatalog.REPLY);
     };
   }
 
@@ -291,7 +291,7 @@ public final class NetEndPoint extends AbstractEndPoint {
         case MessageHeaderCatalog.ERROR_HEADER:
           throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
         default:
-          throw InvalidArgumentException.forArgumentAndArgumentName(reply, LowerCaseVariableCatalog.REPLY);
+          throw InvalidArgumentException.forArgumentAndArgumentName(reply, LowerCaseVariableNameCatalog.REPLY);
       }
     }
   }
@@ -347,7 +347,7 @@ public final class NetEndPoint extends AbstractEndPoint {
         MessageHeaderCatalog.MULTI_DATA_HEADER
         + StringTool.getInParentheses(receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
-        throw InvalidArgumentException.forArgumentAndArgumentName(message, LowerCaseVariableCatalog.MESSAGE);
+        throw InvalidArgumentException.forArgumentAndArgumentName(message, LowerCaseVariableNameCatalog.MESSAGE);
     }
   }
 }

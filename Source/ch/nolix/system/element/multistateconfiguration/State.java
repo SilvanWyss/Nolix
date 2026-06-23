@@ -4,7 +4,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -18,8 +18,8 @@ public final class State<S extends Enum<S>> {
   private final S memberEnumValue;
 
   private State(final String prefix, final int index, final S enumValue) {
-    Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableCatalog.PREFIX).isNotBlank();
-    Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isNotNegative();
+    Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableNameCatalog.PREFIX).isNotBlank();
+    Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isNotNegative();
     Validator.assertThat(enumValue).thatIsNamed("enum value").isNotNull();
 
     this.qualifyingPrefix = prefix;

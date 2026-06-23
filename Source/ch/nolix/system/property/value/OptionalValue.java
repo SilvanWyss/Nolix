@@ -11,7 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.property.value.IOptionalValue;
 
@@ -43,7 +43,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
     final Function<V, INode<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
-    Validator.assertThat(setter).thatIsNamed(LowerCaseVariableCatalog.SETTER).isNotNull();
+    Validator.assertThat(setter).thatIsNamed(LowerCaseVariableNameCatalog.SETTER).isNotNull();
 
     this.setter = setter;
   }
@@ -197,7 +197,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
       ArgumentDoesNotContainElementException.forArgumentAndArgumentNameAndElementName(
         this,
         getName(),
-        LowerCaseVariableCatalog.VALUE);
+        LowerCaseVariableNameCatalog.VALUE);
     }
 
     return memberOptionalValue;
@@ -216,7 +216,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    */
   @Override
   public void setValue(final V value) {
-    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableNameCatalog.VALUE).isNotNull();
 
     memberOptionalValue = value;
   }

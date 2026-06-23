@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.general.CountRequestable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -68,7 +68,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
   public static <T> ArrayList<T> withInitialCapacity(final int initialCapacity) {
     Validator
       .assertThat(initialCapacity)
-      .thatIsNamed(LowerCaseVariableCatalog.INITIAL_CAPACITY)
+      .thatIsNamed(LowerCaseVariableNameCatalog.INITIAL_CAPACITY)
       .isNotNegative();
 
     final var arrayList = new ArrayList<T>();
@@ -109,7 +109,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    */
   @Override
   public void addAtEnd(final E element) {
-    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT).isNotNull();
 
     final var localElementCount = getCount();
     final var newElementCount = localElementCount + 1;
@@ -224,7 +224,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
     Validator.assertThat(oneBasedIndex).thatIsNamed("one-based index").isBetween(1, getCount() + 1);
 
     if (oneBasedIndex <= getCount()) {
-      Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+      Validator.assertThat(element).thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT).isNotNull();
 
       memberElements[oneBasedIndex - 1] = element;
     } else {

@@ -5,7 +5,7 @@ package ch.nolix.base.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -20,7 +20,7 @@ public class AndPasswordCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N andPassword(final String password) {
-    Validator.assertThat(password).thatIsNamed(LowerCaseVariableCatalog.PASSWORD).isNotNull();
+    Validator.assertThat(password).thatIsNamed(LowerCaseVariableNameCatalog.PASSWORD).isNotNull();
 
     return setArgumentAndGetNext(password);
   }

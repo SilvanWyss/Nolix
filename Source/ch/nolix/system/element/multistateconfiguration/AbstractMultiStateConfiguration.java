@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.element.multistateconfiguration.IMultiStateConfiguration;
 
@@ -64,7 +64,7 @@ implements IMultiStateConfiguration<C, S> {
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
     if (!addedOrChangedAttribute(attribute)) {
-      throw InvalidArgumentException.forArgumentAndArgumentName(attribute, LowerCaseVariableCatalog.ATTRIBUTE);
+      throw InvalidArgumentException.forArgumentAndArgumentName(attribute, LowerCaseVariableNameCatalog.ATTRIBUTE);
     }
   }
 
@@ -128,7 +128,7 @@ implements IMultiStateConfiguration<C, S> {
 
   @Override
   public final void addChild(final IMultiStateConfiguration<?, S> child) {
-    Validator.assertThat(child).thatIsNamed(LowerCaseVariableCatalog.CHILD).isNotNull();
+    Validator.assertThat(child).thatIsNamed(LowerCaseVariableNameCatalog.CHILD).isNotNull();
 
     ((AbstractMultiStateConfiguration<?, S>) child).setParent(this);
   }

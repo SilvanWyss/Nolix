@@ -14,7 +14,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link ExtendedIterableView} wraps one or several given {@link Iterable}s
@@ -40,7 +40,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @throws RuntimeException if the given container is null.
    */
   private ExtendedIterableView(final ExtendedIterable<E> container) {
-    Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
+    Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
 
     internalContainer = container;
   }

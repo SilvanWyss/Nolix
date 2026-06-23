@@ -14,7 +14,7 @@ import ch.nolix.baseapi.commontype.stringexaminer.IStringExaminer;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 /**
@@ -193,7 +193,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
       }
     }
 
-    throw InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableCatalog.SPECIFICATION);
+    throw InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableNameCatalog.SPECIFICATION);
   }
 
   private void extractStateProperties() {

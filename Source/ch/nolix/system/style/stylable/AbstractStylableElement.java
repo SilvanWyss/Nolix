@@ -5,8 +5,8 @@ package ch.nolix.system.style.stylable;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.property.value.OptionalValue;
@@ -19,9 +19,9 @@ import ch.nolix.systemapi.style.stylable.IStylableElement;
 public abstract class AbstractStylableElement<E extends IStylableElement<E>>
 extends AbstractPropertiesElement
 implements IStylableElement<E> {
-  private static final String ID_HEADER = PascalCaseVariableCatalog.ID;
+  private static final String ID_HEADER = PascalCaseVariableNameCatalog.ID;
 
-  private static final String TOKEN_HEADER = PascalCaseVariableCatalog.TOKEN;
+  private static final String TOKEN_HEADER = PascalCaseVariableNameCatalog.TOKEN;
 
   private final OptionalValue<String> id = OptionalValue.forStringWithNameAndSetter(ID_HEADER, this::setId);
 
@@ -29,7 +29,7 @@ implements IStylableElement<E> {
 
   @Override
   public final E addToken(final String token) {
-    Validator.assertThat(token).thatIsNamed(LowerCaseVariableCatalog.TOKEN).isNotBlank();
+    Validator.assertThat(token).thatIsNamed(LowerCaseVariableNameCatalog.TOKEN).isNotBlank();
 
     tokens.addValue(token);
 
@@ -112,7 +112,7 @@ implements IStylableElement<E> {
    */
   @Override
   public final E setId(final String id) {
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
 
     this.id.setValue(id);
 

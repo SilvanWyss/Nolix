@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectschema.modelexaminer.DatabaseExaminer;
 import ch.nolix.systemapi.objectschema.model.IColumn;
 import ch.nolix.systemapi.objectschema.model.IDatabase;
@@ -55,7 +55,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
   public void assertCanAddGivenTable(final IDatabase database, final ITable table) {
     if (!DATABASE_EXAMINER.canAddTable(database, table)) {
       if (table == null) {
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TABLE);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TABLE);
       }
 
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -71,7 +71,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
   public void assertCanSetGivenNameToDatabase(final String name) {
     if (!DATABASE_EXAMINER.canSetName(name)) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
-        LowerCaseVariableCatalog.NAME,
+        LowerCaseVariableNameCatalog.NAME,
         name,
         "cannot be set to database");
     }

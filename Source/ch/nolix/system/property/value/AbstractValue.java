@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.property.value.IBaseValue;
 
 /**
@@ -36,7 +36,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
     final String name,
     final Function<INode<?>, V> valueMapper,
     final Function<V, INode<?>> specificationMapper) {
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
     Validator.assertThat(specificationMapper).thatIsNamed("specification mapper").isNotNull();
 

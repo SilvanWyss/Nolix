@@ -33,7 +33,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -381,7 +381,7 @@ implements ExtendedIterable<E> {
       //Asserts that the given mapper is not null.
       if (mapper == null) {
         //Creates and throws a new ArgumentIsNullException. 
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.MAPPER);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.MAPPER);
       }
 
       //Returns 0.0.
@@ -401,7 +401,7 @@ implements ExtendedIterable<E> {
   @Override
   public final int getCount(final Predicate<E> selector) {
     //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     //Initializes count.
     var count = 0;
@@ -452,7 +452,7 @@ implements ExtendedIterable<E> {
   @Override
   public final int getOneBasedIndexOfFirst(final Predicate<E> selector) {
     //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     //Initializes localOneBasedIndex.
     var localOneBasedIndex = 1;
@@ -774,7 +774,7 @@ implements ExtendedIterable<E> {
   @Override
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
     //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     //Iterates the current Container.
     for (final var e : this) {
@@ -942,7 +942,7 @@ implements ExtendedIterable<E> {
   @SuppressWarnings("unchecked")
   public final <T extends E> T getStoredFirstOfType(final Class<T> type) {
     //Asserts that the given type is not null.
-    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 
     //Calls other method.
     return (T) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
@@ -1022,7 +1022,7 @@ implements ExtendedIterable<E> {
   @SuppressWarnings("unchecked")
   public final <T extends E> ExtendedIterable<T> getStoredOfType(final Class<T> type) {
     //Asserts that the given type is not null.
-    Validator.assertThat(type).thatIsNamed(LowerCaseVariableCatalog.TYPE).isNotNull();
+    Validator.assertThat(type).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 
     //Calls other method.
     return (ExtendedIterable<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
@@ -1056,7 +1056,7 @@ implements ExtendedIterable<E> {
   @Override
   public final E getStoredOne(final Predicate<? super E> selector) {
     //Asserts that the given selector is not null.
-    Validator.assertThat(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElement.
     E selectedElement = null;
@@ -1099,7 +1099,7 @@ implements ExtendedIterable<E> {
   @Override
   public final ExtendedIterable<E> getStoredOthers(final Predicate<E> selector) {
     //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     //Initializes otherElements.
     final var initialCapacity = getCount() / 2;
@@ -1130,7 +1130,7 @@ implements ExtendedIterable<E> {
   @Override
   public final ExtendedIterable<E> getStoredSelected(final Predicate<? super E> selector) {
     //Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     //Initializes selectedElements.
     final var selectedElements = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 10);
@@ -1398,7 +1398,7 @@ implements ExtendedIterable<E> {
   @Override
   public final <T> ExtendedIterable<T> to(final Function<E, T> mapper) {
     //Asserts that the given mapper is not null.
-    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
+    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableNameCatalog.MAPPER).isNotNull();
 
     //Creates list.
     final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), getCount());
@@ -1408,7 +1408,7 @@ implements ExtendedIterable<E> {
       //Asserts that the current element is not null.
       if (e == null) {
         //Creates and throws a ArgumentIsNullException.
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
       }
 
       //Lets the given given mapper create mappingElement from the current element.
@@ -1655,7 +1655,7 @@ implements ExtendedIterable<E> {
       //Asserts that the current element is not null.
       if (e == null) {
         //Creates and throws a ArgumentIsNullException.
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
       }
 
       //Adds the elements the given multipleMapper maps from the current element at the end of the list.
@@ -1823,7 +1823,7 @@ implements ExtendedIterable<E> {
   @Override
   public final <T> ExtendedIterable<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
     //Asserts that the given mapper is not null.
-    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableCatalog.MAPPER).isNotNull();
+    Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableNameCatalog.MAPPER).isNotNull();
 
     //Creates list.
     final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), 0);
@@ -1836,7 +1836,7 @@ implements ExtendedIterable<E> {
       //Asserts that the current element is not null.
       if (e == null) {
         //Creates and throws a ArgumentIsNullException.
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
       }
 
       //Lets the given mapper create mappingElement from the current element.
@@ -1917,7 +1917,7 @@ implements ExtendedIterable<E> {
    */
   private String toStringWhenContainsSeveralElements(final String separator) {
     //Asserts that the given separator is not null.
-    Validator.assertThat(separator).thatIsNamed(LowerCaseVariableCatalog.SEPARATOR).isNotNull();
+    Validator.assertThat(separator).thatIsNamed(LowerCaseVariableNameCatalog.SEPARATOR).isNotNull();
 
     //Creates a StringBuilder.
     final var stringBuilder = new StringBuilder();

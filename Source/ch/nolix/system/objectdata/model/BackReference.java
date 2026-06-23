@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.entitytool.TableNameExtractor;
 import ch.nolix.system.objectdata.fieldvalidator.FieldValidator;
 import ch.nolix.system.objectdata.modelsearcher.DatabaseSearcher;
@@ -169,7 +169,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
     final var id = (String) nullableValue;
 
     if (id == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ID);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ID);
     }
 
     final var tableId = nullableAdditionalValue;

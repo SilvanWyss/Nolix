@@ -7,13 +7,13 @@ import java.math.BigInteger;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;
 
 public record WebSocketFramePayloadLength(long value) {
   public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
 
-    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNegative();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableNameCatalog.VALUE).isNotNegative();
 
     this.value = value;
   }

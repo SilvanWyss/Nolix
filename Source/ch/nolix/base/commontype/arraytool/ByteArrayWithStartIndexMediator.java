@@ -6,7 +6,7 @@ package ch.nolix.base.commontype.arraytool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.arraytool.IByteArrayWithStartIndexMediator;
 import ch.nolix.baseapi.commontype.arraytool.INextIndexMediator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -21,7 +21,7 @@ public final class ByteArrayWithStartIndexMediator implements IByteArrayWithStar
 
     Validator
       .assertThat(startIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.START_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.START_INDEX)
       .isBetween(0, byteArray.length);
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.

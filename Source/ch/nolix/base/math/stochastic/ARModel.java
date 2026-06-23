@@ -5,7 +5,7 @@ package ch.nolix.base.math.stochastic;
 
 import ch.nolix.base.math.algebra.Matrix;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -60,7 +60,7 @@ public final class ARModel extends AbstractStatisticalModel {
   }
 
   public double getPCoefficient(final int index) {
-    Validator.assertThat(index).thatIsNamed(LowerCaseVariableCatalog.INDEX).isBetween(1, getPOrder());
+    Validator.assertThat(index).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isBetween(1, getPOrder());
 
     return pCoefficients[index - 1];
   }

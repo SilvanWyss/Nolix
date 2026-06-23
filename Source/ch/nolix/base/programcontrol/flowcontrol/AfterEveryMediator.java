@@ -7,7 +7,7 @@ import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
 
@@ -33,7 +33,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   private AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
-    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableCatalog.CONDITION).isNotNull();
+    Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
     Validator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     maxRunCount = null;
@@ -92,7 +92,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   private void assertHasCondition() {
     if (!hasCondition()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.CONDITION);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.CONDITION);
     }
   }
 
@@ -189,7 +189,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    *                                               not have condition.
    */
   private void runWhenDoesNotHaveMaxRunCount(final Runnable job) {
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableNameCatalog.JOB).isNotNull();
 
     assertHasCondition();
 
@@ -206,7 +206,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param job
    */
   private void runWhenHasMaxRunCount(final Runnable job) {
-    Validator.assertThat(job).thatIsNamed(LowerCaseVariableCatalog.JOB).isNotNull();
+    Validator.assertThat(job).thatIsNamed(LowerCaseVariableNameCatalog.JOB).isNotNull();
 
     //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {

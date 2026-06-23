@@ -20,7 +20,7 @@ import ch.nolix.base.net.http.HttpRequest;
 import ch.nolix.base.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.level1server.IEndPoint;
 import ch.nolix.baseapi.net.level1server.SocketType;
@@ -172,7 +172,7 @@ public final class SocketHandler {
       final var line = INPUT_STREAM_TOOL.readLineFromInputStreamOrNull(inputStream);
 
       if (line == null) {
-        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.LINE);
+        throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.LINE);
       }
 
       if (line.isEmpty()) {

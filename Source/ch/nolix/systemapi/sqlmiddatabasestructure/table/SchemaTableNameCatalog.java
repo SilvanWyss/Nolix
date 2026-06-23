@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmiddatabasestructure.table;
 
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * Of the {@link SchemaTableNameCatalog} an instance cannot be created.
@@ -11,9 +11,9 @@ import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
  * @author Silvan Wyss
  */
 public final class SchemaTableNameCatalog {
-  public static final String TABLE = PascalCaseVariableCatalog.TABLE;
+  public static final String TABLE = PascalCaseVariableNameCatalog.TABLE;
 
-  public static final String COLUMN = PascalCaseVariableCatalog.COLUMN;
+  public static final String COLUMN = PascalCaseVariableNameCatalog.COLUMN;
 
   public static final String REFERENCEABLE_TABLE = "ReferenceableTable";
 

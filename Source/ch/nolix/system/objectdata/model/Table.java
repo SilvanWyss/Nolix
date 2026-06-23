@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.datastructure.property.LazyCalculatedProperty;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.entitytool.EntityFiller;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;
@@ -64,8 +64,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
     final String id,
     final Class<E> entityClass) {
     Validator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
-    Validator.assertThat(id).thatIsNamed(LowerCaseVariableCatalog.ID).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
+    Validator.assertThat(id).thatIsNamed(LowerCaseVariableNameCatalog.ID).isNotBlank();
     Validator.assertThat(entityClass).thatIsNamed("entity class").isNotNull();
 
     this.parentDatabase = parentDatabase;

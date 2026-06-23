@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.component.applicationcomponent.ClientComponent;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.trigger.IRefreshableSubscriber;
 
 /**
@@ -148,7 +148,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
 
   final Object internalGetStoredResult() {
     if (memberResult == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.RESULT);
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RESULT);
     }
 
     return memberResult;
@@ -181,7 +181,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
   }
 
   final void internalSetResult(final Object result) {
-    Validator.assertThat(result).thatIsNamed(LowerCaseVariableCatalog.RESULT).isNotNull();
+    Validator.assertThat(result).thatIsNamed(LowerCaseVariableNameCatalog.RESULT).isNotNull();
 
     memberResult = result;
   }

@@ -11,8 +11,8 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.property.proxy.IMultiValueProxy;
 
 /**
@@ -51,9 +51,9 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
     final Supplier<ExtendedIterable<V>> getter,
     final Function<INode<?>, V> valueMapper,
     final Function<V, INode<?>> specificationMapper) {
-    Validator.assertThat(name).thatIsNamed(PascalCaseVariableCatalog.NAME).isNotBlank();
-    Validator.assertThat(adder).thatIsNamed(LowerCaseVariableCatalog.ADDER).isNotNull();
-    Validator.assertThat(getter).thatIsNamed(LowerCaseVariableCatalog.GETTER).isNotNull();
+    Validator.assertThat(name).thatIsNamed(PascalCaseVariableNameCatalog.NAME).isNotBlank();
+    Validator.assertThat(adder).thatIsNamed(LowerCaseVariableNameCatalog.ADDER).isNotNull();
+    Validator.assertThat(getter).thatIsNamed(LowerCaseVariableNameCatalog.GETTER).isNotNull();
     Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
     Validator.assertThat(specificationMapper).thatIsNamed("specification mapper").isNotNull();
 

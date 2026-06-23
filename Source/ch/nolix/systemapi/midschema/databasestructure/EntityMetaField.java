@@ -3,16 +3,16 @@
  */
 package ch.nolix.systemapi.midschema.databasestructure;
 
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public enum EntityMetaField {
-  ID(PascalCaseVariableCatalog.ID),
-  SAVE_STAMP(PascalCaseVariableCatalog.SAVE_STAMP),
-  VALID_FROM_DATE_TIME(PascalCaseVariableCatalog.VALID_FROM_DATE_TIME),
-  VALID_TO_DATE_TIME(PascalCaseVariableCatalog.VALID_TO_DATE_TIME);
+  ID(PascalCaseVariableNameCatalog.ID),
+  SAVE_STAMP(PascalCaseVariableNameCatalog.SAVE_STAMP),
+  VALID_FROM_DATE_TIME(PascalCaseVariableNameCatalog.VALID_FROM_DATE_TIME),
+  VALID_TO_DATE_TIME(PascalCaseVariableNameCatalog.VALID_TO_DATE_TIME);
 
   private final String stringRepresentation;
 

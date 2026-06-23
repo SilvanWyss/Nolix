@@ -7,7 +7,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 
@@ -20,7 +20,7 @@ public final class CssRule implements ICssRule {
   private final ExtendedIterable<CssProperty> properties;
 
   private CssRule(final String selector, final ExtendedIterable<? extends ICssProperty> properties) {
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     this.properties = properties.to(CssProperty::fromCssProperty);
     this.selector = selector;

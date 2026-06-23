@@ -14,8 +14,8 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
@@ -60,7 +60,7 @@ implements IControl<C, S> {
 
   private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 
-  private static final String CURSOR_ICON_HEADER = PascalCaseVariableCatalog.CURSOR_ICON;
+  private static final String CURSOR_ICON_HEADER = PascalCaseVariableNameCatalog.CURSOR_ICON;
 
   //An id works correctly for CSS only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
@@ -597,7 +597,7 @@ implements IControl<C, S> {
       if (parent.isLayer()) {
         throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredLayer());
       }
-      throw InvalidArgumentException.forArgumentAndArgumentName(parent, LowerCaseVariableCatalog.PARENT);
+      throw InvalidArgumentException.forArgumentAndArgumentName(parent, LowerCaseVariableNameCatalog.PARENT);
     }
   }
 

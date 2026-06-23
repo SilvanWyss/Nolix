@@ -4,7 +4,7 @@
 package ch.nolix.base.validation.multi;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -22,7 +22,7 @@ public abstract class AbstractMultiArgumentMediator<A> { //NOSONAR: The Abstract
    */
   protected AbstractMultiArgumentMediator(final Iterable<A> arguments) {
     if (arguments == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.ARGUMENTS);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.ARGUMENTS);
     }
 
     this.arguments = arguments;

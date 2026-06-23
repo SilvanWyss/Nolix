@@ -7,7 +7,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.application.main.AbstractBackendClient;
 
 /**
@@ -20,7 +20,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
 
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
-    Validator.assertThat(request).thatIsNamed(LowerCaseVariableCatalog.REQUEST).isNotNull();
+    Validator.assertThat(request).thatIsNamed(LowerCaseVariableNameCatalog.REQUEST).isNotNull();
 
     latestGetDataFromHereRequest = request;
 
@@ -32,7 +32,7 @@ public final class MockBackendClient extends AbstractBackendClient<MockBackendCl
    */
   @Override
   protected void runHere(final IChainedNode command) {
-    Validator.assertThat(command).thatIsNamed(LowerCaseVariableCatalog.COMMAND).isNotNull();
+    Validator.assertThat(command).thatIsNamed(LowerCaseVariableNameCatalog.COMMAND).isNotNull();
 
     latestRunHereCommand = command;
   }

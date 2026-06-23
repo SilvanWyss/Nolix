@@ -13,7 +13,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -37,7 +37,7 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    * @throws RuntimeException if the given mapper is null.
    */
   private ExtendedIterableMapperView(final ExtendedIterable<E> container, final Function<E, T> mapper) {
-    Validator.assertThat(container).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
+    Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
 
     this.wellOrderContainer = container;
     this.mapper = mapper;

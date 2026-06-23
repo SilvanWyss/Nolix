@@ -4,7 +4,7 @@
 package ch.nolix.base.web.cssmodel;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 
 /**
@@ -18,11 +18,11 @@ public final class CssProperty implements ICssProperty {
   //For a better performance, this implementation does not use all available comfort methods.
   private CssProperty(final String name, final String value) {
     if (name == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.NAME);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.NAME);
     }
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.VALUE);
     }
 
     this.name = name;

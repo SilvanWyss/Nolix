@@ -11,7 +11,7 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link ExtendedIterableIntervalView} can iterate over an intervall of a
@@ -46,18 +46,18 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
     final ExtendedIterable<E> extendedIterable,
     final int startIndex,
     final int endIndex) {
-    Validator.assertThat(extendedIterable).thatIsNamed(LowerCaseVariableCatalog.CONTAINER).isNotNull();
-    Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
-    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
+    Validator.assertThat(extendedIterable).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
+    Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableNameCatalog.START_INDEX).isPositive();
+    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableNameCatalog.END_INDEX).isPositive();
 
     Validator
       .assertThat(endIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.END_INDEX)
       .isBiggerThanOrEquals(startIndex);
 
     Validator
       .assertThat(endIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.END_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.END_INDEX)
       .isNotBiggerThan(extendedIterable.getCount());
 
     this.extendedIterable = extendedIterable;
@@ -101,8 +101,8 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isPositive();
-    Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableCatalog.INDEX).isNotBiggerThan(getCount());
+    Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isPositive();
+    Validator.assertThat(oneBasedIndex).thatIsNamed(LowerCaseVariableNameCatalog.INDEX).isNotBiggerThan(getCount());
 
     final var internalOneBasedIndex = startIndex + oneBasedIndex - 1;
 

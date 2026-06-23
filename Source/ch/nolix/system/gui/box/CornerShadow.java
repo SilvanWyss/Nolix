@@ -9,8 +9,8 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -45,7 +45,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
 
   private static final String BLUR_RADIUS_HEADER = "BlurRadius";
 
-  private static final String COLOR_HEADER = PascalCaseVariableCatalog.COLOR;
+  private static final String COLOR_HEADER = PascalCaseVariableNameCatalog.COLOR;
 
   private final Corner corner;
 
@@ -161,7 +161,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
           color = Color.fromSpecification(a);
           break;
         default:
-          throw InvalidArgumentException.forArgumentAndArgumentName(a, LowerCaseVariableCatalog.ATTRIBUTE);
+          throw InvalidArgumentException.forArgumentAndArgumentName(a, LowerCaseVariableNameCatalog.ATTRIBUTE);
       }
     }
 

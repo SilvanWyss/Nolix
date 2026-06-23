@@ -6,7 +6,7 @@ package ch.nolix.base.validation.object;
 import java.lang.reflect.Modifier;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -14,7 +14,7 @@ import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
  */
 public class TypeMediator<T> extends AbstractObjectMediator<Class<T>> {
   protected TypeMediator(final Class<T> argument) {
-    super(argument, LowerCaseVariableCatalog.TYPE);
+    super(argument, LowerCaseVariableNameCatalog.TYPE);
   }
 
   protected TypeMediator(final String argumentName, final Class<T> argument) {

@@ -12,7 +12,7 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
@@ -30,7 +30,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
 public final class ValidationLabel
 extends AbstractControl<IValidationLabel, IValidationLabelStyle>
 implements IValidationLabel {
-  private static final String ERROR_HEADER = PascalCaseVariableCatalog.ERROR;
+  private static final String ERROR_HEADER = PascalCaseVariableNameCatalog.ERROR;
 
   private final OptionalValue<Throwable> memberError = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(

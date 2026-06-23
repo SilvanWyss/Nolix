@@ -11,7 +11,7 @@ import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -41,7 +41,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
     //Asserts that the given container is not null.
     Validator
       .assertThat(container)
-      .thatIsNamed(LowerCaseVariableCatalog.CONTAINER)
+      .thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER)
       .isNotNull();
 
     //Sets the container of the current IterableView.

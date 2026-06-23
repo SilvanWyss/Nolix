@@ -13,7 +13,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.performanceanalysis.IPerformanceAnalyzer;
 import ch.nolix.baseapi.errorcontrol.performanceanalysis.TimeComplexityFunctionCatalog;
 import ch.nolix.baseapi.errorcontrol.performancevalidation.IActionMediator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -29,7 +29,7 @@ public final class ActionMediator<O> implements IActionMediator {
 
   private ActionMediator(final IntFunction<O> objectSupplier, final Consumer<O> action) {
     Validator.assertThat(objectSupplier).thatIsNamed("object supplier").isNotNull();
-    Validator.assertThat(action).thatIsNamed(LowerCaseVariableCatalog.ACTION).isNotNull();
+    Validator.assertThat(action).thatIsNamed(LowerCaseVariableNameCatalog.ACTION).isNotNull();
 
     this.objectSupplier = objectSupplier;
     this.action = action;

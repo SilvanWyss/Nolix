@@ -5,7 +5,7 @@ package ch.nolix.base.argumentcaptor.toargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -24,7 +24,7 @@ public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N toDatabase(final String databaseName) {
-    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableCatalog.DATABASE_NAME).isNotBlank();
+    Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
 
     return setArgumentAndGetNext(databaseName);
   }

@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenu;
@@ -29,7 +29,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
 public abstract class AbstractItemMenu //NOSONAR: A AbstractItemMenu is a principal object thus it has many methods.
 <M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>
 extends AbstractControl<M, S> implements IItemMenu<M, S> {
-  private static final String ITEM_HEADER = PascalCaseVariableCatalog.ITEM;
+  private static final String ITEM_HEADER = PascalCaseVariableNameCatalog.ITEM;
 
   private static final IItemMenuSearcher ITEM_MENU_SEARCHER = new ItemMenuSearcher();
 

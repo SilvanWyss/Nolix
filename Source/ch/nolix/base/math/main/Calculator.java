@@ -8,7 +8,7 @@ import ch.nolix.base.math.algebra.Polynom;
 import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.math.stochastic.ARModel;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * The {@link Calculator} provides mathematical functions.
@@ -142,11 +142,11 @@ public final class Calculator {
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
     //Asserts that the given degree is not negative.
-    Validator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isNotNegative();
+    Validator.assertThat(degree).thatIsNamed(LowerCaseVariableNameCatalog.DEGREE).isNotNegative();
 
     //Asserts that the given degree is not bigger than the count of the given
     //xValues.
-    Validator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isNotBiggerThan(xValues.length);
+    Validator.assertThat(degree).thatIsNamed(LowerCaseVariableNameCatalog.DEGREE).isNotBiggerThan(xValues.length);
 
     //Asserts that the count of the given yValues equals the count of the given
     //xValues.

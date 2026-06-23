@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link LinkedListNode} contains an element and can have a next node.
@@ -105,7 +105,7 @@ public final class LinkedListNode<E> {
    */
   public void setElement(final E element) {
     if (element == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.ELEMENT);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
     }
 
     memberElement = element;

@@ -21,9 +21,9 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.matrix.IMatrix;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralPascalCaseVariableNameCatalog;
 import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -112,16 +112,16 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
 
     final var width = //
     pixelArraySpecification
-      .getStoredFirstChildNodeWithHeader(PascalCaseVariableCatalog.WIDTH)
+      .getStoredFirstChildNodeWithHeader(PascalCaseVariableNameCatalog.WIDTH)
       .getSingleChildNodeAsInt();
 
     final var height = //
     pixelArraySpecification
-      .getStoredFirstChildNodeWithHeader(PascalCaseVariableCatalog.HEIGHT)
+      .getStoredFirstChildNodeWithHeader(PascalCaseVariableNameCatalog.HEIGHT)
       .getSingleChildNodeAsInt();
 
     final var pixelArray = //
-    pixelArraySpecification.getStoredFirstChildNodeThat(a -> a.hasHeader(PluralPascalCaseVariableCatalog.PIXELS));
+    pixelArraySpecification.getStoredFirstChildNodeThat(a -> a.hasHeader(PluralPascalCaseVariableNameCatalog.PIXELS));
 
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
 
@@ -139,8 +139,8 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
   }
 
   public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final IColor color) {
-    Validator.assertThat(width).thatIsNamed(LowerCaseVariableCatalog.WIDTH).isPositive();
-    Validator.assertThat(height).thatIsNamed(LowerCaseVariableCatalog.HEIGHT).isPositive();
+    Validator.assertThat(width).thatIsNamed(LowerCaseVariableNameCatalog.WIDTH).isPositive();
+    Validator.assertThat(height).thatIsNamed(LowerCaseVariableNameCatalog.HEIGHT).isPositive();
     Validator.assertThat(color).thatIsNamed(Color.class).isNotNull();
 
     Matrix<IColor> pixels = Matrix.createEmpty();
@@ -229,12 +229,12 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
 
     Validator
       .assertThat(width)
-      .thatIsNamed(LowerCaseVariableCatalog.WIDTH)
+      .thatIsNamed(LowerCaseVariableNameCatalog.WIDTH)
       .isBetween(0, getWidth() - xPosition + 1);
 
     Validator
       .assertThat(height)
-      .thatIsNamed(LowerCaseVariableCatalog.WIDTH)
+      .thatIsNamed(LowerCaseVariableNameCatalog.WIDTH)
       .isBetween(0, getHeight() - yPosition + 1);
 
     final var section = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
@@ -449,7 +449,7 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
    */
   @Override
   public MutableImage toScaledImage(final double factor) {
-    Validator.assertThat(factor).thatIsNamed(LowerCaseVariableCatalog.FACTOR).isPositive();
+    Validator.assertThat(factor).thatIsNamed(LowerCaseVariableNameCatalog.FACTOR).isPositive();
 
     return toScaledImage(factor, factor);
   }
@@ -547,10 +547,10 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     return //
     ImmutableNode.withHeaderAndChildNodes(
       PIXEL_ARRAY_HEADER,
-      ImmutableNode.withHeaderAndChildNode(PascalCaseVariableCatalog.WIDTH, getWidth()),
-      ImmutableNode.withHeaderAndChildNode(PascalCaseVariableCatalog.HEIGHT, getHeight()),
+      ImmutableNode.withHeaderAndChildNode(PascalCaseVariableNameCatalog.WIDTH, getWidth()),
+      ImmutableNode.withHeaderAndChildNode(PascalCaseVariableNameCatalog.HEIGHT, getHeight()),
       ImmutableNode.withHeaderAndChildNodes(
-        PluralPascalCaseVariableCatalog.PIXELS,
+        PluralPascalCaseVariableNameCatalog.PIXELS,
         pixels.getViewOf(p -> ImmutableNode.withHeader(p.toHexadecimalStringWithAlphaValue()))));
   }
 

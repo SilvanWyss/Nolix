@@ -16,7 +16,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link ImmutableList} is not mutable.
@@ -37,7 +37,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    */
   @SuppressWarnings("unchecked")
   private ImmutableList(final E element) {
-    Validator.assertThat(element).thatIsNamed(LowerCaseVariableCatalog.ELEMENT).isNotNull();
+    Validator.assertThat(element).thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT).isNotNull();
 
     elements = (E[]) new Object[] { element };
   }

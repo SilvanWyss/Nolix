@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import ch.nolix.base.datastructure.pair.Pair;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 /**
@@ -32,8 +32,8 @@ public final class ClosedInterval implements IClosedInterval {
    * @throws RuntimeException if the given max is null.
    */
   private ClosedInterval(final BigDecimal min, final BigDecimal max) {
-    Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
-    Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
+    Validator.assertThat(min).thatIsNamed(LowerCaseVariableNameCatalog.MINIMUM).isNotNull();
+    Validator.assertThat(max).thatIsNamed(LowerCaseVariableNameCatalog.MAXIMUM).isNotSmallerThan(min);
 
     final var decimalPlaceCount = Calculator.getMax(min.scale(), max.scale());
 
@@ -53,8 +53,8 @@ public final class ClosedInterval implements IClosedInterval {
    * @throws RuntimeException if the given decimalPlaceCount is not positive.
    */
   private ClosedInterval(final BigDecimal min, final BigDecimal max, final int decimalPlaceCount) {
-    Validator.assertThat(min).thatIsNamed(LowerCaseVariableCatalog.MINIMUM).isNotNull();
-    Validator.assertThat(max).thatIsNamed(LowerCaseVariableCatalog.MAXIMUM).isNotSmallerThan(min);
+    Validator.assertThat(min).thatIsNamed(LowerCaseVariableNameCatalog.MINIMUM).isNotNull();
+    Validator.assertThat(max).thatIsNamed(LowerCaseVariableNameCatalog.MAXIMUM).isNotSmallerThan(min);
     Validator.assertThat(decimalPlaceCount).thatIsNamed("decimal place count").isPositive();
 
     this.min = min.setScale(decimalPlaceCount, RoundingMode.HALF_UP);

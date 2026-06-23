@@ -1,14 +1,14 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.misc.variable;
+package ch.nolix.baseapi.misc.variablenamecatalog;
 
 /**
- * Of the {@link LowerCaseVariableCatalog} an instance cannot be created.
+ * Of the {@link LowerCaseVariableNameCatalog} an instance cannot be created.
  * 
  * @author Silvan Wyss
  */
-public final class LowerCaseVariableCatalog {
+public final class LowerCaseVariableNameCatalog {
   public static final String ACTION = "action";
 
   public static final String ADDER = "adder";
@@ -462,9 +462,9 @@ public final class LowerCaseVariableCatalog {
   public static final String ZERO_BASED_INDEX = "zero-based index";
 
   /**
-   * Prevents that an instance of the {@link LowerCaseVariableCatalog} can be
+   * Prevents that an instance of the {@link LowerCaseVariableNameCatalog} can be
    * created.
    */
-  private LowerCaseVariableCatalog() {
+  private LowerCaseVariableNameCatalog() {
   }
 }

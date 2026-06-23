@@ -4,7 +4,7 @@
 package ch.nolix.base.net.target;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netconstant.PortCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 import ch.nolix.baseapi.net.target.IServerTarget;
@@ -24,7 +24,7 @@ public class ServerTarget implements IServerTarget {
     final int port,
     final SecurityMode securityModeForConnections) {
     Validator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
 
     Validator
       .assertThat(securityModeForConnections)

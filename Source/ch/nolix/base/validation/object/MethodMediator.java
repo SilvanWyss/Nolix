@@ -8,14 +8,14 @@ import java.lang.reflect.Method;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
  */
 public class MethodMediator extends AbstractObjectMediator<Method> {
   protected MethodMediator(final Method argument) {
-    super(argument, LowerCaseVariableCatalog.METHOD);
+    super(argument, LowerCaseVariableNameCatalog.METHOD);
   }
 
   private MethodMediator(final String argumentName, final Method argument) {

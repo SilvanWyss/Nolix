@@ -5,7 +5,7 @@ package ch.nolix.base.environment.license;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * Of the {@link KeyRefinder} an instance cannot be created.
@@ -25,7 +25,7 @@ public final class KeyRefinder {
    * @throws RuntimeException if the given key is null.
    */
   public static String getRefinedKeyFromKey(final String key) {
-    Validator.assertThat(key).thatIsNamed(LowerCaseVariableCatalog.KEY).isNotNull();
+    Validator.assertThat(key).thatIsNamed(LowerCaseVariableNameCatalog.KEY).isNotNull();
 
     return //
     key

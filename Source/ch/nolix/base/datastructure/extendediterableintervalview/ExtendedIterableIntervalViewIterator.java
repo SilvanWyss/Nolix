@@ -9,7 +9,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -43,9 +43,9 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
     final int startIndex,
     final int endIndex) {
     Validator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
-    Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalog.START_INDEX).isPositive();
-    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isPositive();
-    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalog.END_INDEX).isBiggerThanOrEquals(startIndex);
+    Validator.assertThat(startIndex).thatIsNamed(LowerCaseVariableNameCatalog.START_INDEX).isPositive();
+    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableNameCatalog.END_INDEX).isPositive();
+    Validator.assertThat(endIndex).thatIsNamed(LowerCaseVariableNameCatalog.END_INDEX).isBiggerThanOrEquals(startIndex);
 
     this.parentContainer = parentContainer;
     this.endIndex = endIndex;
@@ -103,7 +103,7 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
   public E next() {
     if (!hasNext()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.NEXT_ELEMENT);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.NEXT_ELEMENT);
     }
 
     currentIndex++;

@@ -5,7 +5,7 @@ package ch.nolix.basetest.net.level2server;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level2server.IEndPoint;
 import ch.nolix.baseapi.net.level2server.ISlot;
 
@@ -49,7 +49,7 @@ public final class MockSlot implements ISlot {
   }
 
   private String getReply(final String message) {
-    Validator.assertThat(message).thatIsNamed(LowerCaseVariableCatalog.MESSAGE).isNotNull();
+    Validator.assertThat(message).thatIsNamed(LowerCaseVariableNameCatalog.MESSAGE).isNotNull();
 
     latestReceivedMessage = message;
 

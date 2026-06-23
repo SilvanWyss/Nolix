@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.pair;
 import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.baseapi.datastructure.pair.IKeyValuePair;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -21,11 +21,11 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   //For a better performance, this implementation does not use all available comfort methods.
   private KeyValuePair(final K key, final V value) {
     if (key == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.KEY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.KEY);
     }
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.VALUE);
     }
 
     this.key = key;

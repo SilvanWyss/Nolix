@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -21,7 +21,7 @@ public abstract class AbstractProperty<S extends Enum<S>> implements NameHolder 
   protected AbstractMultiStateConfiguration<?, S> parent;
 
   protected AbstractProperty(final String name) {
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
 
     this.name = name;
   }
@@ -43,7 +43,7 @@ public abstract class AbstractProperty<S extends Enum<S>> implements NameHolder 
   protected abstract void setValueFromSpecification(INode<?> specification);
 
   final void setParent(final AbstractMultiStateConfiguration<?, S> parent) {
-    Validator.assertThat(parent).thatIsNamed(LowerCaseVariableCatalog.PARENT).isNotNull();
+    Validator.assertThat(parent).thatIsNamed(LowerCaseVariableNameCatalog.PARENT).isNotNull();
 
     this.parent = parent;
   }

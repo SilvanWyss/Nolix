@@ -4,7 +4,7 @@
 package ch.nolix.base.net.level2server;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level1server.IEndPoint;
 import ch.nolix.baseapi.net.level1server.ISlot;
 
@@ -26,7 +26,7 @@ public final class Slot implements ISlot {
    * @throws RuntimeException if the given parentServer is null.
    */
   private Slot(final String name, final AbstractServer parentServer) {
-    Validator.assertThat(name).thatIsNamed(LowerCaseVariableCatalog.NAME).isNotBlank();
+    Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
     this.parentServer = parentServer;

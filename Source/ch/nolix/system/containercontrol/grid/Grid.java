@@ -8,8 +8,8 @@ import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.atomiccontrol.label.Label;
 import ch.nolix.system.containercontrol.container.AbstractContainer;
 import ch.nolix.system.property.proxy.MultiValueProxy;
@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements IGrid {
-  private static final String CELL_HEADER = PascalCaseVariableCatalog.CELL;
+  private static final String CELL_HEADER = PascalCaseVariableNameCatalog.CELL;
 
   private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
 
@@ -204,7 +204,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   private void expandColumnsTo(final int columnIndex) {
-    Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX).isPositive();
+    Validator.assertThat(columnIndex).thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.withOneBasedRowIndexAndColumnIndex(1, 1));
@@ -222,7 +222,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   }
 
   private void expandRowsTo(final int rowIndex) {
-    Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX).isPositive();
+    Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX).isPositive();
 
     if (cells.isEmpty()) {
       cells.addRow(GridCell.withOneBasedRowIndexAndColumnIndex(1, 1));

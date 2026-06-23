@@ -8,7 +8,7 @@ import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level1server.IEndPoint;
 import ch.nolix.baseapi.net.level2serverprotocol.MessageRole;
 import ch.nolix.baseapi.net.netproperty.ConnectionType;
@@ -353,7 +353,7 @@ public final class NetEndPoint extends AbstractEndPoint {
       case ERROR_RESPONSE ->
         throw GeneralException.withErrorMessage(response.getStoredContent());
       default ->
-        throw InvalidArgumentException.forArgumentAndArgumentName(response, LowerCaseVariableCatalog.REPLY);
+        throw InvalidArgumentException.forArgumentAndArgumentName(response, LowerCaseVariableNameCatalog.REPLY);
     };
   }
 

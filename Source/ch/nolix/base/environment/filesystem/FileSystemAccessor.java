@@ -16,7 +16,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**
@@ -100,7 +100,7 @@ public final class FileSystemAccessor {
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode) {
     //Asserts that the if given path is not null or empty.
-    Validator.assertThat(path).thatIsNamed(LowerCaseVariableCatalog.PATH).isNotBlank();
+    Validator.assertThat(path).thatIsNamed(LowerCaseVariableNameCatalog.PATH).isNotBlank();
 
     //Creates file.
     try {

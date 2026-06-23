@@ -8,7 +8,7 @@ import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link Polynom} is not mutable.
@@ -79,7 +79,7 @@ public final class Polynom {
   public double getCoefficientForDegree(final int degree) {
     //Asserts that the given degree is between 0 and the degree of the current
     //Polynom.
-    Validator.assertThat(degree).thatIsNamed(LowerCaseVariableCatalog.DEGREE).isBetween(0, getDegree());
+    Validator.assertThat(degree).thatIsNamed(LowerCaseVariableNameCatalog.DEGREE).isBetween(0, getDegree());
 
     return coefficients[coefficients.length - degree - 1];
   }

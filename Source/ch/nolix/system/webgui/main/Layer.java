@@ -14,7 +14,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
@@ -51,11 +51,11 @@ implements ILayer {
 
   public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 
-  private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableNameCatalog.ROLE;
 
-  private static final String OPACITY_HEADER = PascalCaseVariableCatalog.OPACITY;
+  private static final String OPACITY_HEADER = PascalCaseVariableNameCatalog.OPACITY;
 
-  private static final String BACKGROUND_HEADER = PascalCaseVariableCatalog.BACKGROUND;
+  private static final String BACKGROUND_HEADER = PascalCaseVariableNameCatalog.BACKGROUND;
 
   private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
 

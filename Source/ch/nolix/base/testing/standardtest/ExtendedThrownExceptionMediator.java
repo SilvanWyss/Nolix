@@ -5,7 +5,7 @@ package ch.nolix.base.testing.standardtest;
 
 import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link ExtendedThrownExceptionMediator} is not mutable.
@@ -49,7 +49,7 @@ public final class ExtendedThrownExceptionMediator extends AbstractThrownExcepti
   public <E extends Exception> ThrownExceptionMediator ofType(final Class<E> type) {
     //Asserts that the given type is not null.
     if (type == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.TYPE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TYPE);
     }
 
     //Handles the case that the current extended thrown exception mediator

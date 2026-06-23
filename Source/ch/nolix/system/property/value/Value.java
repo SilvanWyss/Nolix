@@ -10,7 +10,7 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.property.value.IValue;
 
@@ -46,8 +46,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
     final Function<V, INode<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
-    Validator.assertThat(setter).thatIsNamed(LowerCaseVariableCatalog.SETTER).isNotNull();
-    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
+    Validator.assertThat(setter).thatIsNamed(LowerCaseVariableNameCatalog.SETTER).isNotNull();
+    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableNameCatalog.DEFAULT_VALUE).isNotNull();
 
     this.setter = setter;
     this.memberValue = defaultValue;
@@ -204,7 +204,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    */
   @Override
   public void setValue(final V value) {
-    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableNameCatalog.VALUE).isNotNull();
 
     this.memberValue = value;
   }

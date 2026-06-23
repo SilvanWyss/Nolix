@@ -12,7 +12,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -53,7 +53,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    */
   public final void fulfills(Predicate<A> condition) {
     if (condition == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.CONDITION);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.CONDITION);
     }
 
     if (!condition.test(getStoredArgument())) {

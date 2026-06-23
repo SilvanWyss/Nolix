@@ -11,8 +11,8 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
@@ -27,11 +27,11 @@ import ch.nolix.systemapi.webgui.main.IControl;
  * @author Silvan Wyss
  */
 public final class TabContainerTab extends AbstractPropertiesElement implements ITabContainerTab {
-  public static final String DEFAULT_HEADER = PascalCaseVariableCatalog.HEADER;
+  public static final String DEFAULT_HEADER = PascalCaseVariableNameCatalog.HEADER;
 
   public static final boolean DEFAULT_SELECTION_FLAG = false;
 
-  private static final String HEADER_HEADER = PascalCaseVariableCatalog.HEADER;
+  private static final String HEADER_HEADER = PascalCaseVariableNameCatalog.HEADER;
 
   private static final String SELECTION_FLAG_HEADER = "Selected";
 
@@ -189,7 +189,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
    */
   @Override
   public ITabContainerTab setHeader(final String header) {
-    Validator.assertThat(header).thatIsNamed(LowerCaseVariableCatalog.HEADER).isNotBlank();
+    Validator.assertThat(header).thatIsNamed(LowerCaseVariableNameCatalog.HEADER).isNotBlank();
 
     this.header.setValue(header);
 

@@ -14,7 +14,7 @@ import ch.nolix.base.reflection.reflectionexaminer.MemberExaminer;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.reflection.reflectionexaminer.IFieldExaminer;
 
 /**
@@ -49,7 +49,7 @@ public final class ReflectionTool {
   }
 
   public static Field getFirstFieldOfObjectThatStoresValue(final Object object, final Object value) {
-    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableNameCatalog.VALUE).isNotNull();
 
     var localClass = object.getClass();
     while (localClass != null) {

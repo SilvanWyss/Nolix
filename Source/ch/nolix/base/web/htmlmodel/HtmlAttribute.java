@@ -4,7 +4,7 @@
 package ch.nolix.base.web.htmlmodel;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 
 /**
@@ -18,11 +18,11 @@ public final class HtmlAttribute implements IHtmlAttribute {
   //For a better performance, this implementation does not use all available comfort methods.
   private HtmlAttribute(final String name, final String value) {
     if (name == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.KEY);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.KEY);
     }
 
     if (value == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableCatalog.VALUE);
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.VALUE);
     }
 
     this.name = name;

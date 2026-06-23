@@ -9,7 +9,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.webapplication.base.AbstractWebClient;
 import ch.nolix.system.webapplication.refreshqueue.WebClientRefreshQueue;
 import ch.nolix.systemapi.atomiccontrol.uploader.IUploader;
@@ -30,7 +30,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
   @Override
   protected INode<?> getDataFromHere(final IChainedNode request) {
-    throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableCatalog.REQUEST);
+    throw InvalidArgumentException.forArgumentAndArgumentName(request, LowerCaseVariableNameCatalog.REQUEST);
   }
 
   /**
@@ -43,7 +43,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
         runGuiCommand(command.getNextNode());
         break;
       default:
-        throw InvalidArgumentException.forArgumentAndArgumentName(command, LowerCaseVariableCatalog.COMMAND);
+        throw InvalidArgumentException.forArgumentAndArgumentName(command, LowerCaseVariableNameCatalog.COMMAND);
     }
   }
 
@@ -87,7 +87,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
         break;
       default:
-        throw InvalidArgumentException.forArgumentAndArgumentName(command, LowerCaseVariableCatalog.COMMAND);
+        throw InvalidArgumentException.forArgumentAndArgumentName(command, LowerCaseVariableNameCatalog.COMMAND);
     }
   }
 

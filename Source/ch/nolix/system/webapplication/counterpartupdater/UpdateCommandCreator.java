@@ -11,7 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
@@ -121,7 +121,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
   public ExtendedIterable<IChainedNode> createUpdateCommandsForControls(
     final ExtendedIterable<IControl<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
-    Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableCatalog.CONTROLS).isNotEmpty();
+    Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableNameCatalog.CONTROLS).isNotEmpty();
 
     final var webGui = controls.getStoredFirst().getStoredParentGui();
 

@@ -8,7 +8,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentExcep
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link StringMediator} is a {@link AbstractMediator} for an argument that
@@ -61,7 +61,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
   public void hasLength(final int length) {
     //Asserts that the given length is not negative.
     if (length < 0) {
-      throw NegativeArgumentException.forArgumentAndArgumentName(length, LowerCaseVariableCatalog.LENGTH);
+      throw NegativeArgumentException.forArgumentAndArgumentName(length, LowerCaseVariableNameCatalog.LENGTH);
     }
 
     //Asserts that the argument of the current StringMediator is not null.

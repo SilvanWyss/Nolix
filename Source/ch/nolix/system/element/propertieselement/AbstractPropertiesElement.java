@@ -13,8 +13,8 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
 import ch.nolix.systemapi.property.base.IProperty;
@@ -115,7 +115,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
       return localClass.getSimpleName();
     }
 
-    return PascalCaseVariableCatalog.ELEMENT;
+    return PascalCaseVariableNameCatalog.ELEMENT;
   }
 
   /**
@@ -194,7 +194,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
 
       final var property = (IProperty) (field.get(this));
 
-      Validator.assertThat(property).thatIsNamed(LowerCaseVariableCatalog.PROPERTY).isNotNull();
+      Validator.assertThat(property).thatIsNamed(LowerCaseVariableNameCatalog.PROPERTY).isNotNull();
       properties.addAtEnd(property);
     } catch (final IllegalAccessException illegalAccessException) {
       throw IllegalAccessErrorMapper.mapIllegalAccessExceptionToIllegalAccessError(illegalAccessException);

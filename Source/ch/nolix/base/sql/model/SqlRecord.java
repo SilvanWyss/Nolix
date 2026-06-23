@@ -11,8 +11,8 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
-import ch.nolix.baseapi.misc.variable.PluralLowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.sql.model.ISqlRecord;
 
 /**
@@ -37,11 +37,11 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
   private SqlRecord(final int oneBasedIndex, final ImmutableList<String> values) {
     if (oneBasedIndex < 1) {
       throw //
-      NonPositiveArgumentException.forArgumentAndArgumentName(oneBasedIndex, LowerCaseVariableCatalog.ONE_BASED_INDEX);
+      NonPositiveArgumentException.forArgumentAndArgumentName(oneBasedIndex, LowerCaseVariableNameCatalog.ONE_BASED_INDEX);
     }
 
     if (values == null) {
-      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableCatalog.VALUES);
+      throw ArgumentIsNullException.forArgumentName(PluralLowerCaseVariableNameCatalog.VALUES);
     }
 
     memberOneBasedIndex = oneBasedIndex;

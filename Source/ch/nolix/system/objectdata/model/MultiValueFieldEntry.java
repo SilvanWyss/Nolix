@@ -4,7 +4,7 @@
 package ch.nolix.system.objectdata.model;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.databaseobject.modelvalidator.DatabaseObjectValidator;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 import ch.nolix.systemapi.objectdata.model.IMultiValueField;
@@ -29,7 +29,7 @@ public final class MultiValueFieldEntry<V> implements IMultiValueFieldEntry<V> {
     final V value) {
     Validator.assertThat(parentMultiValue).thatIsNamed("parent MultiValue").isNotNull();
     Validator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
-    Validator.assertThat(value).thatIsNamed(LowerCaseVariableCatalog.VALUE).isNotNull();
+    Validator.assertThat(value).thatIsNamed(LowerCaseVariableNameCatalog.VALUE).isNotNull();
 
     this.parentMultiValue = parentMultiValue;
     state = initialState;

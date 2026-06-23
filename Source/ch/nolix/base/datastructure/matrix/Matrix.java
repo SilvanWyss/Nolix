@@ -22,7 +22,7 @@ import ch.nolix.baseapi.datastructure.matrix.IMatrixColumn;
 import ch.nolix.baseapi.datastructure.matrix.IMatrixRow;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link Matrix} is a {@link AbstractExtendedIterable} that stores its
@@ -486,7 +486,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
     //Asserts that the given element is not null.
     Validator
       .assertThat(element)
-      .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
+      .thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT)
       .isNotNull();
 
     //Sets the given element at the given index to the current matrix.
@@ -522,7 +522,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
     //Asserts that the given element is not null.
     Validator
       .assertThat(element)
-      .thatIsNamed(LowerCaseVariableCatalog.ELEMENT)
+      .thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT)
       .isNotNull();
 
     memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1] = element;
@@ -657,12 +657,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   private void assertContainsAt(final int index) {
     Validator
       .assertThat(index)
-      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.INDEX)
       .isPositive();
 
     Validator
       .assertThat(index)
-      .thatIsNamed(LowerCaseVariableCatalog.INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.INDEX)
       .isNotBiggerThan(getCount());
   }
 
@@ -679,22 +679,22 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   private void assertContainsAt(final int rowIndex, final int columnIndex) {
     Validator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX)
       .isPositive();
 
     Validator
       .assertThat(rowIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.ROW_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX)
       .isNotBiggerThan(getRowCount());
 
     Validator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_INDEX)
       .isPositive();
 
     Validator
       .assertThat(columnIndex)
-      .thatIsNamed(LowerCaseVariableCatalog.COLUMN_INDEX)
+      .thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_INDEX)
       .isNotBiggerThan(getColumnCount());
   }
 }

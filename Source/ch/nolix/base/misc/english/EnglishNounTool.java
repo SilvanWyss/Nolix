@@ -6,7 +6,7 @@ package ch.nolix.base.misc.english;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.misc.english.EnglishArticleCatalog;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -46,7 +46,7 @@ public final class EnglishNounTool {
     if (firstLetter < 65
     || (firstLetter > 90 && firstLetter < 97)
     || firstLetter > 122) {
-      throw InvalidArgumentException.forArgumentAndArgumentName(firstLetter, LowerCaseVariableCatalog.LETTER);
+      throw InvalidArgumentException.forArgumentAndArgumentName(firstLetter, LowerCaseVariableNameCatalog.LETTER);
     }
 
     //Enumerates the given letter.
@@ -69,7 +69,7 @@ public final class EnglishNounTool {
   }
 
   private static String getPluralOfNounDependingOnEnding(final String noun) {
-    Validator.assertThat(noun).thatIsNamed(LowerCaseVariableCatalog.NOUN).isNotBlank();
+    Validator.assertThat(noun).thatIsNamed(LowerCaseVariableNameCatalog.NOUN).isNotBlank();
 
     if (noun.endsWith("man")) {
       return (noun.substring(0, noun.length() - 3) + "men");

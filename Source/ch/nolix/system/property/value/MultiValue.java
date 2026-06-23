@@ -12,7 +12,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.IElement;
 import ch.nolix.systemapi.property.value.IMultiValue;
 
@@ -45,7 +45,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
     final Function<V, INode<?>> specificationMapper) {
     super(name, valueMapper, specificationMapper);
 
-    Validator.assertThat(adder).thatIsNamed(LowerCaseVariableCatalog.ADDER).isNotNull();
+    Validator.assertThat(adder).thatIsNamed(LowerCaseVariableNameCatalog.ADDER).isNotNull();
 
     this.adder = adder;
   }

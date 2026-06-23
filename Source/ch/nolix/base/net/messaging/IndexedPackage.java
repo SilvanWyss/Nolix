@@ -4,7 +4,7 @@
 package ch.nolix.base.net.messaging;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link IndexedPackage} bundles an index and a content.
@@ -26,7 +26,7 @@ public class IndexedPackage<C> {
    */
   protected IndexedPackage(final int index, final C content) {
     //Asserts that the given content is not null.
-    Validator.assertThat(content).thatIsNamed(LowerCaseVariableCatalog.CONTENT).isNotNull();
+    Validator.assertThat(content).thatIsNamed(LowerCaseVariableNameCatalog.CONTENT).isNotNull();
 
     //Sets the index of the current IndexedPackage.
     memberIndex = index;

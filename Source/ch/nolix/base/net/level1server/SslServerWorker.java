@@ -6,7 +6,7 @@ package ch.nolix.base.net.level1server;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -34,7 +34,7 @@ final class SslServerWorker extends AbstractWorker {
     final String htmlPage,
     final ISslCertificate paramSSLCertificate) {
     Validator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
-    Validator.assertThat(port).thatIsNamed(LowerCaseVariableCatalog.PORT).isPort();
+    Validator.assertThat(port).thatIsNamed(LowerCaseVariableNameCatalog.PORT).isPort();
     Validator.assertThat(paramSSLCertificate).thatIsNamed(ISslCertificate.class).isNotNull();
 
     this.parentWebSocketServer = parentWebSocketServer;

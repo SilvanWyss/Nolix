@@ -9,7 +9,7 @@ import java.util.function.Function;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -27,7 +27,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     final V defaultValue) {
     super(name, stateClass, valueCreator, specificationCreator);
 
-    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
+    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableNameCatalog.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
   }
@@ -41,7 +41,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends AbstractMa
     final V defaultValue) {
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
-    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableCatalog.DEFAULT_VALUE).isNotNull();
+    Validator.assertThat(defaultValue).thatIsNamed(LowerCaseVariableNameCatalog.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
   }

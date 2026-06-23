@@ -11,7 +11,7 @@ import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
@@ -129,7 +129,7 @@ public final class Background extends AbstractElement implements IBackground {
     return //
     UnrepresentingArgumentException.forArgumentAndArgumentNameAndType(
       specification,
-      LowerCaseVariableCatalog.SPECIFICATION,
+      LowerCaseVariableNameCatalog.SPECIFICATION,
       Background.class);
   }
 

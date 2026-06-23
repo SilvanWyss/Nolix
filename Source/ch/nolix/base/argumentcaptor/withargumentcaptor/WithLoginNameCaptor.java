@@ -5,7 +5,7 @@ package ch.nolix.base.argumentcaptor.withargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -24,7 +24,7 @@ public class WithLoginNameCaptor<N> extends ArgumentCaptor<String, N> {
   }
 
   public final N withLoginName(final String loginName) {
-    Validator.assertThat(loginName).thatIsNamed(LowerCaseVariableCatalog.LOGIN_NAME).isNotBlank();
+    Validator.assertThat(loginName).thatIsNamed(LowerCaseVariableNameCatalog.LOGIN_NAME).isNotBlank();
 
     return setArgumentAndGetNext(loginName);
   }

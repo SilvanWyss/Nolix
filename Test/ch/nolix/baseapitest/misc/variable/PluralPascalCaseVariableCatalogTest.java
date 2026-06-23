@@ -9,7 +9,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.misc.variable.PluralPascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PluralPascalCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -19,11 +19,11 @@ final class PluralPascalCaseVariableCatalogTest extends StandardTest {
   void testCase_constants() {
     //setup
     final var exceptions = //
-    LinkedList.withElement(PluralPascalCaseVariableCatalog.GUIS, PluralPascalCaseVariableCatalog.URLS);
+    LinkedList.withElement(PluralPascalCaseVariableNameCatalog.GUIS, PluralPascalCaseVariableNameCatalog.URLS);
 
     //verification
     for (final var c : ReflectionTool
-      .getStoredPublicStaticFieldValuesOfClass(PluralPascalCaseVariableCatalog.class)) {
+      .getStoredPublicStaticFieldValuesOfClass(PluralPascalCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);
 
       final var stringValue = c.toString();

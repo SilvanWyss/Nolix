@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
@@ -34,8 +34,8 @@ public final class ExtendedIterableFilterViewIterator<E> implements CopyableIter
    * @throws RuntimeException if the given selector is null.
    */
   private ExtendedIterableFilterViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {
-    Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableCatalog.ITERATOR).isNotNull();
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableCatalog.SELECTOR).isNotNull();
+    Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableNameCatalog.ITERATOR).isNotNull();
+    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
     this.iterator = iterator;
     this.selector = selector;

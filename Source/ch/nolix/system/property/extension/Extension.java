@@ -6,7 +6,7 @@ package ch.nolix.system.property.extension;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
 import ch.nolix.systemapi.property.exension.IExtension;
 
@@ -24,7 +24,7 @@ public final class Extension<E extends IRespondingMutableElement<E>> implements 
    * @throws RuntimeException if the given extension is null.
    */
   private Extension(final E extension) {
-    Validator.assertThat(extension).thatIsNamed(LowerCaseVariableCatalog.EXTENSION).isNotNull();
+    Validator.assertThat(extension).thatIsNamed(LowerCaseVariableNameCatalog.EXTENSION).isNotNull();
 
     this.memberExtension = extension;
   }

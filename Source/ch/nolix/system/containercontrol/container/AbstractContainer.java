@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.ControlParent;
@@ -25,7 +25,7 @@ import ch.nolix.systemapi.webgui.main.IControl;
  */
 public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
 extends AbstractControl<C, S> implements IContainer<C, S> {
-  private static final String ROLE_HEADER = PascalCaseVariableCatalog.ROLE;
+  private static final String ROLE_HEADER = PascalCaseVariableNameCatalog.ROLE;
 
   private final OptionalValue<ContainerRole> memberRole = //
   OptionalValue.forEnumWithNameAndSetter(ContainerRole.class, ROLE_HEADER, this::setRole);

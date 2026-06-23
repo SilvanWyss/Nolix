@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variable.LowerCaseVariableCatalog;
+import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.element.relativevalue.IAbsoluteOrRelativeInt;
 
@@ -48,7 +48,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * @throws RuntimeException if the given percentage is negative.
    */
   private AbsoluteOrRelativeInt(final double percentage) {
-    Validator.assertThat(percentage).thatIsNamed(LowerCaseVariableCatalog.PERCENTAGE).isNotNegative();
+    Validator.assertThat(percentage).thatIsNamed(LowerCaseVariableNameCatalog.PERCENTAGE).isNotNegative();
 
     isAbsolute = false;
     absoluteValue = 0;
@@ -186,7 +186,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   private void assertIsRelative() {
     if (!isRelative()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalog.PERCENTAGE);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.PERCENTAGE);
     }
   }
 }
