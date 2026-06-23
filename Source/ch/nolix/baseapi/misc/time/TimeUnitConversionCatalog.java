@@ -21,6 +21,8 @@ public final class TimeUnitConversionCatalog {
 
   public static final long NANOSECONDS_PER_DAY = 86_400_000_000_000L;
 
+  public static final long NANOSECONDS_PER_WEEK = 604_800_000_000_000L;
+
   public static final int MICROSECONDS_PER_MILLISECOND = 1000;
 
   public static final int MICROSECONDS_PER_SECOND = 1_000_000;
@@ -31,6 +33,8 @@ public final class TimeUnitConversionCatalog {
 
   public static final long MICROSECONDS_PER_DAY = 86_400_000_000L;
 
+  public static final long MICROSECONDS_PER_WEEK = 604_800_000_000L;
+
   public static final int MILLISECONDS_PER_SECOND = 1000;
 
   public static final int MILLISECONDS_PER_MINUTE = 60000;
@@ -39,17 +43,25 @@ public final class TimeUnitConversionCatalog {
 
   public static final int MILLISECONDS_PER_DAY = 86_400_000;
 
+  public static final int MILLISECONDS_PER_WEEK = 604_800_000;
+
   public static final int SECONDS_PER_MINUTE = 60;
 
   public static final int SECONDS_PER_HOUR = 3600;
 
   public static final int SECONDS_PER_DAY = 86400;
 
+  public static final int SECONDS_PER_WEEK = 604_800;
+
   public static final int MINUTES_PER_HOUR = 60;
 
   public static final int MINUTES_PER_DAY = 1440;
 
+  public static final int MINUTES_PER_WEEK = 10_080;
+
   public static final int HOURS_PER_DAY = 24;
+
+  public static final int HOURS_PER_WEEK = 168;
 
   /**
    * Prevents that an instance of the {@link TimeUnitConversionCatalog} can be
