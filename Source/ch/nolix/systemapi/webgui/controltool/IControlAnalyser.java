@@ -3,11 +3,11 @@
  */
 package ch.nolix.systemapi.webgui.controltool;
 
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
 public interface IControlAnalyser {
-  boolean firstControlContainsSecondControl(IControl<?, ?> firstControl, IControl<?, ?> secondControl);
+  boolean firstControlContainsSecondControl(Control<?, ?> firstControl, Control<?, ?> secondControl);
 }

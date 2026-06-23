@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.atomiccontrol.uploader;
 
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface IUploader extends IControl<IUploader, IUploaderStyle> {
+public interface IUploader extends Control<IUploader, IUploaderStyle> {
   byte[] getFile();
 
   boolean hasFile();

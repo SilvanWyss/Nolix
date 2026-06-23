@@ -22,10 +22,10 @@ import ch.nolix.systemapi.webgui.html.HtmlGetter;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link IControl}.
- * @param <S> is the type of the {@link IControlStyle} of a {@link IControl}.
+ * @param <C> is the type of a {@link Control}.
+ * @param <S> is the type of the {@link IControlStyle} of a {@link Control}.
  */
-public interface IControl<C extends IControl<C, S>, S extends IControlStyle<S>>
+public interface Control<C extends Control<C, S>, S extends IControlStyle<S>>
 extends
 GuiComponent<IWebGui<?>>,
 HtmlGetter,
@@ -48,15 +48,15 @@ PresenceSettable<C> {
 
   Optional<String> getOptionalJavaScriptUserInputFunction();
 
-  Optional<IControl<?, ?>> getOptionalStoredChildControlByInternalId(String internalId);
+  Optional<Control<?, ?>> getOptionalStoredChildControlByInternalId(String internalId);
 
-  ExtendedIterable<IControl<?, ?>> getStoredChildControls();
+  ExtendedIterable<Control<?, ?>> getStoredChildControls();
 
-  IControl<?, ?> getStoredParentControl();
+  Control<?, ?> getStoredParentControl();
 
   ILayer getStoredParentLayer();
 
-  ExtendedIterable<IControl<?, ?>> getStoredStructureControls();
+  ExtendedIterable<Control<?, ?>> getStoredStructureControls();
 
   S getStoredStyle();
 

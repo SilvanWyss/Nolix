@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabel;
 import ch.nolix.systemapi.atomiccontrol.validationlabel.IValidationLabelTool;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -18,7 +18,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
    * {@inheritDoc}
    */
   @Override
-  public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
+  public void clearNearestValidationLabelOfControl(final Control<?, ?> control) {
     final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);
 
     validationLabel.ifPresent(IValidationLabel::clear);
@@ -29,7 +29,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
    */
   @Override
   public void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-    final IControl<?, ?> control,
+    final Control<?, ?> control,
     final Runnable action) {
     try {
       action.run();
@@ -43,7 +43,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
    * {@inheritDoc}
    */
   @Override
-  public <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+  public <C extends Control<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
     C control,
     Consumer<? super C> action) {
     try {
@@ -58,7 +58,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
    * {@inheritDoc}
    */
   @Override
-  public Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(final IControl<?, ?> control) {
+  public Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(final Control<?, ?> control) {
     if (control.belongsToControl()) {
       final var parentControl = control.getStoredParentControl();
 
@@ -79,7 +79,7 @@ public final class ValidationLabelTool implements IValidationLabelTool {
    */
   @Override
   public void showErrorInNearestValidationLabelOfControlOrSwallowError(
-    final IControl<?, ?> control,
+    final Control<?, ?> control,
     final Throwable error) {
     final var validationLabel = getOptionalStoredNearestValidationLabelOfControl(control);
 

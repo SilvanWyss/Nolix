@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
@@ -18,7 +18,7 @@ public final class UpdateTicket {
 
   private final IWebGui<?> webGui;
 
-  private final ImmutableList<IControl<?, ?>> controls;
+  private final ImmutableList<Control<?, ?>> controls;
 
   private UpdateTicket(final IWebGui<?> webGui, final boolean updateConstellationOrStyle) {
     Validator.assertThat(webGui).thatIsNamed(IWebGui.class).isNotNull();
@@ -28,14 +28,14 @@ public final class UpdateTicket {
     controls = null;
   }
 
-  private UpdateTicket(final ExtendedIterable<IControl<?, ?>> controls, final boolean updateConstellationOrStyle) {
+  private UpdateTicket(final ExtendedIterable<Control<?, ?>> controls, final boolean updateConstellationOrStyle) {
     this.updateConstellationOrStyle = updateConstellationOrStyle;
     webGui = null;
     this.controls = ImmutableList.fromIterable(controls);
   }
 
   public static UpdateTicket forControls(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     return new UpdateTicket(controls, updateConstellationOrStyle);
   }
@@ -46,7 +46,7 @@ public final class UpdateTicket {
     return new UpdateTicket(webGui, updateConstellationOrStyle);
   }
 
-  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredControls() {
     assertIsForSpecificControls();
 
     return controls;

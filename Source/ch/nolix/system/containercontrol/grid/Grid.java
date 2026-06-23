@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.ControlState;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -78,7 +78,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  public IControl<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(
+  public Control<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(
     final int oneBasedRowIndex,
     final int oneBasedColumnIndex) {
     return cells.getStoredAtOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex)
@@ -97,8 +97,8 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
-    final ILinkedList<IControl<?, ?>> childControls = LinkedList.createEmpty();
+  public ExtendedIterable<Control<?, ?>> getStoredChildControls() {
+    final ILinkedList<Control<?, ?>> childControls = LinkedList.createEmpty();
     for (final var c : cells) {
       if (c.containsAny()) {
         childControls.addAtEnd(c.getStoredControl());
@@ -112,7 +112,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return getStoredChildControls();
   }
 
@@ -123,7 +123,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
   public IGrid insertControlAtRowAndColumn(
     final int oneBasedRowIndex,
     final int oneBasedColumnIndex,
-    final IControl<?, ?> control) {
+    final Control<?, ?> control) {
     final var controlParent = ControlParent.forControl(this);
     final var cell = GridCell.withOneBasedRowIndexAndColumnIndex(oneBasedRowIndex, oneBasedColumnIndex);
 

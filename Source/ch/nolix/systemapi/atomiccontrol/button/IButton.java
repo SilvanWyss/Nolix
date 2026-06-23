@@ -6,12 +6,12 @@ package ch.nolix.systemapi.atomiccontrol.button;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableTextHolder;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface IButton extends IControl<IButton, IButtonStyle>, FluentMutableTextHolder<IButton> {
+public interface IButton extends Control<IButton, IButtonStyle>, FluentMutableTextHolder<IButton> {
   ButtonRole getRole();
 
   boolean hasRole();

@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.atomiccontrol.label;
 
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface ILabel extends IControl<ILabel, ILabelStyle> {
+public interface ILabel extends Control<ILabel, ILabelStyle> {
   LabelRole getRole();
 
   String getText();

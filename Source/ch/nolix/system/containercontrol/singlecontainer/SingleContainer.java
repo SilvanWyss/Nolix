@@ -14,7 +14,7 @@ import ch.nolix.systemapi.containercontrol.singlecontainer.ISingleContainerStyle
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -28,12 +28,12 @@ implements ISingleContainer {
 
   private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 
-  private final OptionalValue<IControl<?, ?>> memberControl = //
+  private final OptionalValue<Control<?, ?>> memberControl = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,
-    IControl::getSpecification);
+    Control::getSpecification);
 
   /**
    * {@inheritDoc}
@@ -50,7 +50,7 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredChildControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -62,7 +62,7 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return getStoredChildControls();
   }
 
@@ -70,7 +70,7 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public IControl<?, ?> getStoredControl() {
+  public Control<?, ?> getStoredControl() {
     return memberControl.getStoredValue();
   }
 
@@ -94,7 +94,7 @@ implements ISingleContainer {
    * {@inheritDoc}
    */
   @Override
-  public SingleContainer setControl(final IControl<?, ?> control) {
+  public SingleContainer setControl(final Control<?, ?> control) {
     if (!containsControl(control)) {
       clear();
       registerChildControl(control);
@@ -141,7 +141,7 @@ implements ISingleContainer {
    * @return true if the current {@link SingleContainer} contains the given
    *         control, false otherwise
    */
-  private boolean containsControl(final IControl<?, ?> control) {
+  private boolean containsControl(final Control<?, ?> control) {
     return containsAny() && getStoredControl() == control;
   }
 }

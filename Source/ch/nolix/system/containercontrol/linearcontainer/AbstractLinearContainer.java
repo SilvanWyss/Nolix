@@ -12,7 +12,7 @@ import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainer;
 import ch.nolix.systemapi.containercontrol.linearcontainer.ILinearContainerStyle;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -25,14 +25,14 @@ extends AbstractContainer<C, S>
 implements ILinearContainer<C, S> {
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
-  private final MultiValue<IControl<?, ?>> childControls = //
+  private final MultiValue<Control<?, ?>> childControls = //
   MultiValue.forElementsWithNameAndAdderAndValueMapper(
     CHILD_CONTROL_HEADER,
     this::addControl,
     ControlFactory::createControlFromSpecification);
 
   @Override
-  public final C addControl(final IControl<?, ?> control) {
+  public final C addControl(final Control<?, ?> control) {
     final var controlParent = ControlParent.forControl(this);
 
     control.internalSetControlParent(controlParent);
@@ -45,7 +45,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final C addControls(final IControl<?, ?>... controls) {
+  public final C addControls(final Control<?, ?>... controls) {
     for (final var c : controls) {
       addControl(c);
     }
@@ -57,7 +57,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final C addControls(final ExtendedIterable<? extends IControl<?, ?>> controls) {
+  public final C addControls(final ExtendedIterable<? extends Control<?, ?>> controls) {
     controls.forEach(this::addControl);
 
     return asConcrete();
@@ -75,7 +75,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
+  public final ExtendedIterable<Control<?, ?>> getStoredChildControls() {
     return childControls.getStoredValues();
   }
 
@@ -83,7 +83,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public final ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return getStoredChildControls();
   }
 
@@ -107,7 +107,7 @@ implements ILinearContainer<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final void removeControl(final IControl<?, ?> control) {
+  public final void removeControl(final Control<?, ?> control) {
     childControls.removeAllOccurrencesOfValue(control);
   }
 }

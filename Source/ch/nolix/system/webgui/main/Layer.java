@@ -34,7 +34,7 @@ import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.gui.colorgradient.IColorGradient;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 import ch.nolix.systemapi.webgui.controltool.IControlTool;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 import ch.nolix.systemapi.webgui.main.LayerRole;
@@ -100,12 +100,12 @@ implements ILayer {
     ContentAlignment::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final OptionalValue<IControl<?, ?>> memberRootControl = //
+  private final OptionalValue<Control<?, ?>> memberRootControl = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
     ControlFactory::createControlFromSpecification,
-    IControl::getSpecification);
+    Control::getSpecification);
 
   private IWebGui<?> memberParentGui;
 
@@ -128,7 +128,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsControl(final IControl<?, ?> control) {
+  public boolean containsControl(final Control<?, ?> control) {
     return (containsAny() && containsControlWhenContainsAny(control));
   }
 
@@ -234,7 +234,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
+  public Optional<Control<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
     if (isEmpty()) {
       return Optional.empty();
     }
@@ -252,7 +252,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -274,7 +274,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public IControl<?, ?> getStoredRootControl() {
+  public Control<?, ?> getStoredRootControl() {
     return memberRootControl.getStoredValue();
   }
 
@@ -282,7 +282,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -303,7 +303,7 @@ implements ILayer {
    */
   @Override
   public ExtendedIterable<? extends IStylableElement<?>> getStoredChildStylableElements() {
-    final ILinkedList<IControl<?, ?>> childConfigurableElements = LinkedList.createEmpty();
+    final ILinkedList<Control<?, ?>> childConfigurableElements = LinkedList.createEmpty();
 
     if (containsAny()) {
       childConfigurableElements.addAtEnd(getStoredRootControl());
@@ -427,7 +427,7 @@ implements ILayer {
    * {@inheritDoc}
    */
   @Override
-  public Layer setRootControl(final IControl<?, ?> rootControl) {
+  public Layer setRootControl(final Control<?, ?> rootControl) {
     final var controlParent = ControlParent.forLayer(this);
 
     rootControl.internalSetControlParent(controlParent);
@@ -491,7 +491,7 @@ implements ILayer {
     memberRootControl.clear();
   }
 
-  private boolean containsControlWhenContainsAny(final IControl<?, ?> control) {
+  private boolean containsControlWhenContainsAny(final Control<?, ?> control) {
     final var localRootControl = getStoredRootControl();
 
     if (localRootControl == control) {

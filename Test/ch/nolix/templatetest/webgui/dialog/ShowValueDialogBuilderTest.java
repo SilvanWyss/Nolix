@@ -9,7 +9,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.atomiccontrol.button.IButton;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
@@ -47,7 +47,7 @@ final class ShowValueDialogBuilderTest extends StandardTest {
     expect(result.belongsToGui()).isFalse();
   }
 
-  private boolean isConfirmButton(final IControl<?, ?> control) {
+  private boolean isConfirmButton(final Control<?, ?> control) {
     return //
     control instanceof final IButton button
     && button.hasRole()

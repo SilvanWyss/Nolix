@@ -32,7 +32,7 @@ import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
@@ -43,9 +43,9 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
  *            {@link AbstractControl}.
  */
 public abstract class AbstractControl //NOSONAR: A AbstractControl is a principal object thus it has many methods.
-<C extends IControl<C, S>, S extends IControlStyle<S>>
+<C extends Control<C, S>, S extends IControlStyle<S>>
 extends AbstractStylableElement<C>
-implements IControl<C, S> {
+implements Control<C, S> {
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
 
   public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
@@ -219,7 +219,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final Optional<IControl<?, ?>> getOptionalStoredChildControlByInternalId(final String internalId) {
+  public final Optional<Control<?, ?>> getOptionalStoredChildControlByInternalId(final String internalId) {
     return getStoredChildControls().getOptionalStoredFirst(cs -> cs.hasInternalId(internalId));
   }
 
@@ -247,7 +247,7 @@ implements IControl<C, S> {
    * {@inheritDoc}
    */
   @Override
-  public final IControl<?, ?> getStoredParentControl() {
+  public final Control<?, ?> getStoredParentControl() {
     return getStoredParent().getStoredControl();
   }
 

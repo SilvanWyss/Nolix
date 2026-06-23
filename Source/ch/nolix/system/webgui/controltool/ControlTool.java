@@ -7,7 +7,7 @@ import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.systemapi.webgui.controltool.IControlTool;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -17,8 +17,8 @@ public final class ControlTool implements IControlTool {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getListWithControlAndChildControlsRecursively(final IControl<?, ?> control) {
-    final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
+  public ExtendedIterable<Control<?, ?>> getListWithControlAndChildControlsRecursively(final Control<?, ?> control) {
+    final IArrayList<Control<?, ?>> list = ArrayList.withElements(control);
 
     ControlToolHelper.fillUpChildControlsOfControlIntoListRecursively(control, list);
 
@@ -29,9 +29,9 @@ public final class ControlTool implements IControlTool {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(
-    final IControl<?, ?> control) {
-    final IArrayList<IControl<?, ?>> list = ArrayList.withElements(control);
+  public ExtendedIterable<Control<?, ?>> getListWithControlAndStructureControlsRecursively(
+    final Control<?, ?> control) {
+    final IArrayList<Control<?, ?>> list = ArrayList.withElements(control);
 
     ControlToolHelper.fillUpStructureControlsOfControlIntoListRecursively(control, list);
 

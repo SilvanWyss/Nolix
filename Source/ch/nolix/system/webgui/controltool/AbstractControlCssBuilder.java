@@ -20,16 +20,16 @@ import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link IControl} of a
+ * @param <C> is the type of the {@link Control} of a
  *            {@link AbstractControlCssBuilder}.
- * @param <S> is the type of the {@link IControlStyle}s of the {@link IControl}
+ * @param <S> is the type of the {@link IControlStyle}s of the {@link Control}
  *            of a {@link AbstractControlCssBuilder}.
  */
-public abstract class AbstractControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>>
+public abstract class AbstractControlCssBuilder<C extends Control<C, S>, S extends IControlStyle<S>>
 implements IControlCssBuilder<C, S> {
   private static final ICssPropertyMapper CSS_PROPERTY_MAPPER = new CssPropertyMapper();
 

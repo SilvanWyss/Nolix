@@ -4,13 +4,13 @@
 package ch.nolix.systemapi.containercontrol.singlecontainer;
 
 import ch.nolix.systemapi.containercontrol.container.IContainer;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
 public interface ISingleContainer extends IContainer<ISingleContainer, ISingleContainerStyle> {
-  IControl<?, ?> getStoredControl();
+  Control<?, ?> getStoredControl();
 
-  ISingleContainer setControl(IControl<?, ?> control);
+  ISingleContainer setControl(Control<?, ?> control);
 }

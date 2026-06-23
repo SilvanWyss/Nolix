@@ -4,12 +4,12 @@
 package ch.nolix.systemapi.atomiccontrol.validationlabel;
 
 import ch.nolix.baseapi.state.statemutation.Clearable;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface IValidationLabel extends Clearable, IControl<IValidationLabel, IValidationLabelStyle> {
+public interface IValidationLabel extends Clearable, Control<IValidationLabel, IValidationLabelStyle> {
   Throwable getError();
 
   void showError(Throwable error);

@@ -6,7 +6,7 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.base.html.htmlmodel.HtmlAttribute;
 import ch.nolix.baseapi.html.htmlcatalog.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.html.htmlmodel.IHtmlAttribute;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * Of the {@link ControlHelper} an instance cannot be created.
@@ -25,7 +25,7 @@ public final class ControlHelper {
    * @return a new id Html attribute for the given control.
    * @throws RuntimeException if the given control is null.
    */
-  public static IHtmlAttribute createIdHtmlAttributeForControl(final IControl<?, ?> control) {
+  public static IHtmlAttribute createIdHtmlAttributeForControl(final Control<?, ?> control) {
     return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, control.getInternalId());
   }
 }

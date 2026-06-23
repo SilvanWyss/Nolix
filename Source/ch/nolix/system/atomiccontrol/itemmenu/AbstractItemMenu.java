@@ -18,7 +18,7 @@ import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuSearcher;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuStyle;
 import ch.nolix.systemapi.atomiccontrol.itemmenu.IItemMenuValidator;
 import ch.nolix.systemapi.gui.model.CursorIcon;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -202,7 +202,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
+  public final ExtendedIterable<Control<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 

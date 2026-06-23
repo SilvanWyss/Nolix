@@ -9,16 +9,16 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.main.ControlState;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  * @param <B> is the type of the {@link IControlCssBuilder}s of a
  *            {@link ControlCssBuilderTest}.
- * @param <C> is the type of the {@link IControl} of the
+ * @param <C> is the type of the {@link Control} of the
  *            {@link IControlCssBuilder}s of a {@link ControlCssBuilderTest}.
  */
-public abstract class ControlCssBuilderTest<B extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
+public abstract class ControlCssBuilderTest<B extends IControlCssBuilder<C, ?>, C extends Control<C, ?>>
 extends StandardTest {
   protected abstract C createControl();
 

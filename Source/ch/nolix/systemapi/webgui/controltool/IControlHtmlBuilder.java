@@ -4,13 +4,13 @@
 package ch.nolix.systemapi.webgui.controltool;
 
 import ch.nolix.baseapi.html.htmlmodel.IHtmlElement;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link IControl}s a {@link IControlHtmlBuilder}
+ * @param <C> is the type of the {@link Control}s a {@link IControlHtmlBuilder}
  *            is for.
  */
-public interface IControlHtmlBuilder<C extends IControl<C, ?>> {
+public interface IControlHtmlBuilder<C extends Control<C, ?>> {
   IHtmlElement createHtmlElementForControl(C control);
 }

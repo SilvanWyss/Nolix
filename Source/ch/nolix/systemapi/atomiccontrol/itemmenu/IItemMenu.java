@@ -7,10 +7,10 @@ import java.util.function.Consumer;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.state.statemutation.Clearable;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 //An IItemMenu can contain 0 or 1 selected item.
-public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends Clearable, IControl<M, S> {
+public interface IItemMenu<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends Clearable, Control<M, S> {
   M addBlankItem();
 
   M addItem(IItemMenuItem<?> item);

@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.system.webapplication.base.AbstractWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.application.main.IApplication;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
@@ -31,12 +31,12 @@ extends AbstractWebClientSession<WebClient<S>, S> {
     getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui(), true);
   }
 
-  public final void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
+  public final void updateControlOnCounterpart(final Control<?, ?> control, final boolean updateConstellationOrStyle) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control, updateConstellationOrStyle);
   }
 
   public final void updateControlsOnCounterpart(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     getStoredParentClient().internalUpdateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }

@@ -16,7 +16,7 @@ import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.counterpart.IUpdateCommandCreator;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
@@ -68,7 +68,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    * {@inheritDoc}
    */
   @Override
-  public IChainedNode createSetRootHtmlElementCommandForControl(final IControl<?, ?> control) {
+  public IChainedNode createSetRootHtmlElementCommandForControl(final Control<?, ?> control) {
     final var htmlElementId = control.getInternalId();
     final var htmlElement = control.getHtml();
 
@@ -119,7 +119,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
    */
   @Override
   public ExtendedIterable<IChainedNode> createUpdateCommandsForControls(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableNameCatalog.CONTROLS).isNotEmpty();
 

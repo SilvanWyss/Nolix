@@ -21,7 +21,7 @@ GuiComponent<IWebGui<?>>,
 HtmlGetter,
 IRootControlOwner<ILayer>,
 IStylableElement<ILayer> {
-  boolean containsControl(IControl<?, ?> control);
+  boolean containsControl(Control<?, ?> control);
 
   ContentAlignment getContentAlignment();
 
@@ -33,7 +33,7 @@ IStylableElement<ILayer> {
 
   LayerRole getRole();
 
-  ExtendedIterable<IControl<?, ?>> getStoredStructureControls();
+  ExtendedIterable<Control<?, ?>> getStoredStructureControls();
 
   boolean hasInternalId(String internalId);
 

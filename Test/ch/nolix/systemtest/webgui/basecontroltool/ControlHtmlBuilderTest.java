@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  * @param <B> is the type of the {@link IControlHtmlBuilder}s of a
  *            {@link ControlHtmlBuilderTest}.
- * @param <C> is the type of the {@link IControl} of the
+ * @param <C> is the type of the {@link Control} of the
  *            {@link IControlHtmlBuilder}s of a {@link ControlHtmlBuilderTest}.
  */
-public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
+public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends Control<C, ?>>
 extends StandardTest {
   @Test
   final void testCase_createHtmlElementForNewControl() {

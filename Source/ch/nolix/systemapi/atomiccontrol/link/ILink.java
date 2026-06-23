@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.atomiccontrol.link;
 
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface ILink extends IControl<ILink, ILinkStyle> {
+public interface ILink extends Control<ILink, ILinkStyle> {
   String getDisplayText();
 
   LinkTarget getTarget();

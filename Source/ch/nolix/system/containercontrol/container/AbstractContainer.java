@@ -15,7 +15,7 @@ import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.container.ContainerRole;
 import ch.nolix.systemapi.containercontrol.container.IContainer;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -109,7 +109,7 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
    * 
    * @param childControl
    */
-  protected final void registerChildControl(final IControl<?, ?> childControl) {
+  protected final void registerChildControl(final Control<?, ?> childControl) {
     final var controlParent = ControlParent.forControl(this);
 
     childControl.internalSetControlParent(controlParent);
@@ -140,7 +140,7 @@ extends AbstractControl<C, S> implements IContainer<C, S> {
    * 
    */
   protected final void unregisterChildControl(
-    final IControl<?, ?> childControl) {
+    final Control<?, ?> childControl) {
     if (childControl == null || !childControl.belongsToControl() || childControl.getStoredParentControl() != this) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(

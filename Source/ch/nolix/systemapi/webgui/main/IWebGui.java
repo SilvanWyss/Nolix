@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
  * @param <G> is the type of a {@link IWebGui}.
  */
 public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHolder<G>, IGui<G>, IStyleElement<G> {
-  boolean containsControl(IControl<?, ?> control);
+  boolean containsControl(Control<?, ?> control);
 
   ICss getCss();
 
@@ -31,13 +31,13 @@ public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHol
 
   int getLayerCount();
 
-  Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId);
+  Optional<Control<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
-  ExtendedIterable<IControl<?, ?>> getStoredControls();
+  ExtendedIterable<Control<?, ?>> getStoredControls();
 
   ExtendedIterable<ILayer> getStoredLayers();
 
-  ExtendedIterable<IControl<?, ?>> getStoredStructureControls();
+  ExtendedIterable<Control<?, ?>> getStoredStructureControls();
 
   ILayer getStoredTopLayer();
 
@@ -45,7 +45,7 @@ public interface IWebGui<G extends IWebGui<G>> extends Clearable, IBackgroundHol
 
   G pushLayer(ILayer layer);
 
-  G pushLayerWithRootControl(IControl<?, ?> rootControl);
+  G pushLayerWithRootControl(Control<?, ?> rootControl);
 
   void removeLayer(ILayer layer);
 

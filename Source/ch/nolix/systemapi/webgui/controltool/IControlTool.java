@@ -4,13 +4,13 @@
 package ch.nolix.systemapi.webgui.controltool;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
 public interface IControlTool {
-  ExtendedIterable<IControl<?, ?>> getListWithControlAndChildControlsRecursively(IControl<?, ?> control);
+  ExtendedIterable<Control<?, ?>> getListWithControlAndChildControlsRecursively(Control<?, ?> control);
 
-  ExtendedIterable<IControl<?, ?>> getListWithControlAndStructureControlsRecursively(IControl<?, ?> control);
+  ExtendedIterable<Control<?, ?>> getListWithControlAndStructureControlsRecursively(Control<?, ?> control);
 }

@@ -6,15 +6,15 @@ package ch.nolix.systemapi.webgui.controltool;
 import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link IControl}s a {@link IControlCssBuilder}
+ * @param <C> is the type of the {@link Control}s a {@link IControlCssBuilder}
  *            is for.
- * @param <S> is the type of the {@link IControlStyle} of the {@link IControl}s
+ * @param <S> is the type of the {@link IControlStyle} of the {@link Control}s
  *            a {@link IControlCssBuilder} is for.
  */
-public interface IControlCssBuilder<C extends IControl<C, S>, S extends IControlStyle<S>> {
+public interface IControlCssBuilder<C extends Control<C, S>, S extends IControlStyle<S>> {
   ExtendedIterable<ICssRule> createCssRulesForControl(C control);
 }

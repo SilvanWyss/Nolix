@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ControlCommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
@@ -47,12 +47,12 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     }
   }
 
-  void internalUpdateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
+  void internalUpdateControlOnCounterpart(final Control<?, ?> control, final boolean updateConstellationOrStyle) {
     refreshQueue.updateControlOnCounterpart(control, updateConstellationOrStyle);
   }
 
   void internalUpdateControlsOnCounterpart(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     refreshQueue.updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
@@ -69,7 +69,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     ((WebClientSession<C>) getStoredCurrentSession()).refresh();
   }
 
-  private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
+  private void runCommandOnControl(final Control<?, ?> control, final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
         runHtmlEventCommand(control, command);
@@ -118,7 +118,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     }
   }
 
-  private void runHtmlEventCommand(final IControl<?, ?> triggeredControl, final IChainedNode htmlEventCommand) {
+  private void runHtmlEventCommand(final Control<?, ?> triggeredControl, final IChainedNode htmlEventCommand) {
     final var htmlEvent = htmlEventCommand.getSingleChildNodeHeader();
 
     WebClientHtmlEventExecutor.runHtmlEventOfTriggeredControlAndUpdateAccordingly(
@@ -163,7 +163,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     }
   }
 
-  private void updateCounterpartWhenOpen(final IControl<?, ?> control) {
+  private void updateCounterpartWhenOpen(final Control<?, ?> control) {
     final var component = ControlHelper.getOptionalStoredParentComponentOfControl(control);
 
     if (component.isEmpty()) {

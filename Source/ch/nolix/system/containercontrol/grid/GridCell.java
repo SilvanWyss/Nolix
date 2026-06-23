@@ -12,7 +12,7 @@ import ch.nolix.system.element.propertieselement.AbstractPropertiesElement;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.webgui.main.ControlFactory;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -30,12 +30,12 @@ public final class GridCell extends AbstractPropertiesElement implements Clearab
   private final Value<Integer> columnIndex = //
   Value.forIntWithNameAndDefaultValueAndSetter(COLUMN_INDEX_HEADER, 1, this::setColumnIndex);
 
-  private final OptionalValue<IControl<?, ?>> control = //
+  private final OptionalValue<Control<?, ?>> control = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     CONTROL_HEADER,
     this::setControl,
     ControlFactory::createControlFromSpecification,
-    IControl::getSpecification);
+    Control::getSpecification);
 
   private GridCell() {
   }
@@ -67,7 +67,7 @@ public final class GridCell extends AbstractPropertiesElement implements Clearab
     return columnIndex.getStoredValue();
   }
 
-  public IControl<?, ?> getStoredControl() {
+  public Control<?, ?> getStoredControl() {
     return control.getStoredValue();
   }
 
@@ -91,7 +91,7 @@ public final class GridCell extends AbstractPropertiesElement implements Clearab
     clear();
   }
 
-  public void setControl(final IControl<?, ?> control) {
+  public void setControl(final Control<?, ?> control) {
     this.control.setValue(control);
   }
 

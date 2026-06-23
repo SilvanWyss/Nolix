@@ -4,7 +4,7 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -19,15 +19,15 @@ public final class ControlFactory {
     return CONTROL_FACTORY.canCreateControlOfType(type);
   }
 
-  public static IControl<?, ?> createControlFromSpecification(final INode<?> specification) {
+  public static Control<?, ?> createControlFromSpecification(final INode<?> specification) {
     return CONTROL_FACTORY.createControlFromSpecification(specification);
   }
 
-  public static IControl<?, ?> createControlOfType(final String type) {
+  public static Control<?, ?> createControlOfType(final String type) {
     return CONTROL_FACTORY.createControlOfType(type);
   }
 
-  public static void registerControlClass(final Class<? extends IControl<?, ?>> controlClass) {
+  public static void registerControlClass(final Class<? extends Control<?, ?>> controlClass) {
     CONTROL_FACTORY.registerControlClass(controlClass);
   }
 

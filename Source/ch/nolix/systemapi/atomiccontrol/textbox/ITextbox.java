@@ -6,12 +6,12 @@ package ch.nolix.systemapi.atomiccontrol.textbox;
 import java.util.function.Consumer;
 
 import ch.nolix.baseapi.attribute.fluentmutablemandatoryattribute.FluentMutableTextHolder;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, FluentMutableTextHolder<ITextbox> {
+public interface ITextbox extends Control<ITextbox, ITextboxStyle>, FluentMutableTextHolder<ITextbox> {
   void emptyText();
 
   TextMode getTextMode();

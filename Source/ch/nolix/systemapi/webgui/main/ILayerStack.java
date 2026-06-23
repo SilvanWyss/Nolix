@@ -12,17 +12,17 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
  * @author Silvan Wyss
  */
 public interface ILayerStack extends Clearable {
-  boolean containsControl(IControl<?, ?> control);
+  boolean containsControl(Control<?, ?> control);
 
   int getLayerCount();
 
-  Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId);
+  Optional<Control<?, ?>> getOptionalStoredControlByInternalId(String internalId);
 
-  ExtendedIterable<IControl<?, ?>> getStoredControls();
+  ExtendedIterable<Control<?, ?>> getStoredControls();
 
   ExtendedIterable<ILayer> getStoredLayers();
 
-  ExtendedIterable<IControl<?, ?>> getStoredStructureControls();
+  ExtendedIterable<Control<?, ?>> getStoredStructureControls();
 
   ILayer getStoredTopLayer();
 
@@ -30,7 +30,7 @@ public interface ILayerStack extends Clearable {
 
   ILayerStack pushLayer(ILayer layer);
 
-  ILayerStack pushLayerWithRootControl(IControl<?, ?> rootControl);
+  ILayerStack pushLayerWithRootControl(Control<?, ?> rootControl);
 
   void removeLayer(ILayer layer);
 

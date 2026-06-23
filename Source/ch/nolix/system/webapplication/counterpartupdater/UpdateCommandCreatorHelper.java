@@ -14,7 +14,7 @@ import ch.nolix.baseapi.html.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -70,7 +70,7 @@ public final class UpdateCommandCreatorHelper {
   }
 
   public static ChainedNode createSetUserInputFunctionsCommandForControls(
-    final ExtendedIterable<IControl<?, ?>> controls) {
+    final ExtendedIterable<Control<?, ?>> controls) {
     final ILinkedList<IChainedNode> userInputFunctions = LinkedList.createEmpty();
 
     for (final var c : controls) {
@@ -89,7 +89,7 @@ public final class UpdateCommandCreatorHelper {
   }
 
   public static ChainedNode createUserInputFunctionFromControlAndString(
-    final IControl<?, ?> control,
+    final Control<?, ?> control,
     final String string) {
     return //
     ChainedNode.withChildNodes(ImmutableNode.withHeader(control.getInternalId()), ImmutableNode.withHeader(string));

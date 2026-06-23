@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.ILayerStack;
 import ch.nolix.systemapi.webgui.main.IWebGui;
@@ -39,7 +39,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public boolean containsControl(final IControl<?, ?> control) {
+  public boolean containsControl(final Control<?, ?> control) {
     return getStoredLayers().containsAny(l -> l.containsControl(control));
   }
 
@@ -65,7 +65,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
+  public Optional<Control<?, ?>> getOptionalStoredControlByInternalId(String internalId) {
     for (final var l : getStoredLayers()) {
       final var control = l.getOptionalStoredControlByInternalId(internalId);
 
@@ -81,7 +81,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredControls() {
     return getStoredLayers().toMultiples(ILayer::getStoredControls);
   }
 
@@ -97,7 +97,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return getStoredLayers().toMultiples(ILayer::getStoredStructureControls);
   }
 
@@ -141,7 +141,7 @@ public final class LayerStack implements ILayerStack {
    * {@inheritDoc}
    */
   @Override
-  public ILayerStack pushLayerWithRootControl(IControl<?, ?> rootControl) {
+  public ILayerStack pushLayerWithRootControl(Control<?, ?> rootControl) {
     return pushLayer(new Layer().setRootControl(rootControl));
   }
 

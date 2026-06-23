@@ -29,7 +29,7 @@ import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
 import ch.nolix.systemapi.webgui.main.ControlState;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -85,7 +85,7 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredChildControls() {
     return ImmutableList.createEmpty();
   }
 
@@ -101,7 +101,7 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return ImmutableList.createEmpty();
   }
 

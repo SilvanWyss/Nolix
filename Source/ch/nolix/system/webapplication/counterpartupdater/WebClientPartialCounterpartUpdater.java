@@ -11,7 +11,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -39,14 +39,14 @@ public final class WebClientPartialCounterpartUpdater {
     return new WebClientPartialCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
-  public void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
-    final ExtendedIterable<IControl<?, ?>> controls = ImmutableList.withElements(control);
+  public void updateControlOnCounterpart(final Control<?, ?> control, final boolean updateConstellationOrStyle) {
+    final ExtendedIterable<Control<?, ?>> controls = ImmutableList.withElements(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   public void updateControlsOnCounterpart(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableNameCatalog.CONTROLS).isNotEmpty();
 

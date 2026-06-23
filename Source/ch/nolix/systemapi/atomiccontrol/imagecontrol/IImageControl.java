@@ -8,12 +8,12 @@ import java.util.function.Consumer;
 import ch.nolix.baseapi.state.statemutation.Clearable;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.graphic.image.IMutableImage;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
+public interface IImageControl extends Clearable, Control<IImageControl, IImageControlStyle> {
   String getAlternateText();
 
   IMutableImage<?> getStoredImage();

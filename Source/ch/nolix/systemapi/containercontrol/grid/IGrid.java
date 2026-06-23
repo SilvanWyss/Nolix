@@ -4,7 +4,7 @@
 package ch.nolix.systemapi.containercontrol.grid;
 
 import ch.nolix.systemapi.containercontrol.container.IContainer;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -14,11 +14,11 @@ public interface IGrid extends IContainer<IGrid, IGridStyle> {
 
   int getColumnCount();
 
-  IControl<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(int rowIndex, int columnIndex);
+  Control<?, ?> getStoredChildControlAtOneBasedRowAndColumnIndex(int rowIndex, int columnIndex);
 
   int getRowCount();
 
-  IGrid insertControlAtRowAndColumn(int oneBasedRowIndex, int oneBasedColumnIndex, IControl<?, ?> control);
+  IGrid insertControlAtRowAndColumn(int oneBasedRowIndex, int oneBasedColumnIndex, Control<?, ?> control);
 
   IGrid insertTextAtRowAndColumn(int oneBasedRowIndex, int oneBasedColumnIndex, String text);
 }

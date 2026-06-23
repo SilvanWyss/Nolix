@@ -34,7 +34,7 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndReader;
 import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 import ch.nolix.systemapi.style.stylable.IStylableElement;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.ILayerStack;
 import ch.nolix.systemapi.webgui.main.IWebGui;
@@ -104,7 +104,7 @@ implements IWebGui<WebGui> {
   }
 
   @Override
-  public boolean containsControl(final IControl<?, ?> control) {
+  public boolean containsControl(final Control<?, ?> control) {
     return layerStack.containsControl(control);
   }
 
@@ -220,7 +220,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
+  public Optional<Control<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
     return layerStack.getOptionalStoredControlByInternalId(internalId);
   }
 
@@ -236,7 +236,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredControls() {
     return layerStack.getStoredControls();
   }
 
@@ -249,7 +249,7 @@ implements IWebGui<WebGui> {
   }
 
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredStructureControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredStructureControls() {
     return layerStack.getStoredStructureControls();
   }
 
@@ -331,7 +331,7 @@ implements IWebGui<WebGui> {
    * {@inheritDoc}
    */
   @Override
-  public WebGui pushLayerWithRootControl(final IControl<?, ?> rootControl) {
+  public WebGui pushLayerWithRootControl(final Control<?, ?> rootControl) {
     layerStack.pushLayerWithRootControl(rootControl);
 
     return this;

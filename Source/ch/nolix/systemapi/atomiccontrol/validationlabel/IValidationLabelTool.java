@@ -6,21 +6,21 @@ package ch.nolix.systemapi.atomiccontrol.validationlabel;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
 public interface IValidationLabelTool {
-  void clearNearestValidationLabelOfControl(IControl<?, ?> control);
+  void clearNearestValidationLabelOfControl(Control<?, ?> control);
 
-  void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(IControl<?, ?> control, Runnable action);
+  void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(Control<?, ?> control, Runnable action);
 
-  <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+  <C extends Control<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
     C control,
     Consumer<? super C> action);
 
-  Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(IControl<?, ?> control);
+  Optional<IValidationLabel> getOptionalStoredNearestValidationLabelOfControl(Control<?, ?> control);
 
-  void showErrorInNearestValidationLabelOfControlOrSwallowError(IControl<?, ?> control, Throwable error);
+  void showErrorInNearestValidationLabelOfControlOrSwallowError(Control<?, ?> control, Throwable error);
 }

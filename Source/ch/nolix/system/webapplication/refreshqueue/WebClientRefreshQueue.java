@@ -14,7 +14,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.system.webapplication.counterpartupdater.WebClientCounterpartUpdater;
 import ch.nolix.system.webapplication.counterpartupdater.WebClientPartialCounterpartUpdater;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
 /**
@@ -46,15 +46,15 @@ public final class WebClientRefreshQueue {
   }
 
   public void updateControlOnCounterpart(
-    final IControl<?, ?> control,
+    final Control<?, ?> control,
     final boolean updateConstellationOrStyle) {
-    final ExtendedIterable<IControl<?, ?>> controls = ImmutableList.withElements(control);
+    final ExtendedIterable<Control<?, ?>> controls = ImmutableList.withElements(control);
 
     updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   public void updateControlsOnCounterpart(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     setUpdatingControlsOnCounterpartAsRequired(controls, updateConstellationOrStyle);
 
@@ -91,8 +91,8 @@ public final class WebClientRefreshQueue {
     return localUpdateTicket;
   }
 
-  private LinkedList<IControl<?, ?>> getStoredAllControlsFromUpdateTicketAndGivenControls(
-    final ExtendedIterable<IControl<?, ?>> controls) {
+  private LinkedList<Control<?, ?>> getStoredAllControlsFromUpdateTicketAndGivenControls(
+    final ExtendedIterable<Control<?, ?>> controls) {
     final var allControls = LinkedList.fromIterable(memberUpdateTicket.getStoredControls());
 
     for (final var c : controls) {
@@ -113,7 +113,7 @@ public final class WebClientRefreshQueue {
   }
 
   private synchronized void setUpdatingControlsOnCounterpartAsRequired(
-    final ExtendedIterable<IControl<?, ?>> controls,
+    final ExtendedIterable<Control<?, ?>> controls,
     final boolean updateConstellationOrStyle) {
     if (updatingCounterpartIsRequired()) {
       if (memberUpdateTicket.isForSpecificControls()) {

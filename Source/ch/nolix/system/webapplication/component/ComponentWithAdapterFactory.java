@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webapplication.component.IComponentStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -42,7 +42,7 @@ implements IComponent {
 
   private final C memberController;
 
-  private IControl<?, ?> childControl;
+  private Control<?, ?> childControl;
 
   protected ComponentWithAdapterFactory(
     final C controller,
@@ -68,7 +68,7 @@ implements IComponent {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<IControl<?, ?>> getStoredChildControls() {
+  public final ExtendedIterable<Control<?, ?>> getStoredChildControls() {
     if (childControl == null) {
       return ImmutableList.createEmpty();
     }
@@ -157,7 +157,7 @@ implements IComponent {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
-  protected abstract IControl<?, ?> createControl(C controller, A adapter);
+  protected abstract Control<?, ?> createControl(C controller, A adapter);
 
   @Override
   protected IComponentStyle createStyle() {

@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.RefreshTrigger;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -19,11 +19,11 @@ public final class WebClientHtmlEventExecutor {
   }
 
   public static void runHtmlEventOfTriggeredControlAndUpdateAccordingly(
-    final IControl<?, ?> triggeredControl,
+    final Control<?, ?> triggeredControl,
     final String htmlEvent,
     final BooleanSupplier openStateRequester,
     final Runnable guiUpdater,
-    final Consumer<IControl<?, ?>> controlUpdater) {
+    final Consumer<Control<?, ?>> controlUpdater) {
     final var gui = triggeredControl.getStoredParentGui();
     final var originalLayerCount = gui.getLayerCount();
 
@@ -43,7 +43,7 @@ public final class WebClientHtmlEventExecutor {
     }
   }
 
-  private static Optional<IControl<?, ?>> getOptionalStoredParentComponentOfControl(final IControl<?, ?> control) {
+  private static Optional<Control<?, ?>> getOptionalStoredParentComponentOfControl(final Control<?, ?> control) {
     if (control.isLinkedToAnObject()
     && control.getStoredLinkedObjects().getStoredFirst() instanceof final IComponent component) {
       return Optional.of(component);
@@ -57,7 +57,7 @@ public final class WebClientHtmlEventExecutor {
   }
 
   private static RefreshTrigger getRefreshTrigger(
-    final IControl<?, ?> triggeredControl,
+    final Control<?, ?> triggeredControl,
     final int originalLayerCount,
     final BooleanSupplier openStateRequester) {
     if (!openStateRequester.getAsBoolean()) {
@@ -78,7 +78,7 @@ public final class WebClientHtmlEventExecutor {
     return RefreshTrigger.REFRESH_COMPONENT;
   }
 
-  private static IControl<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final IControl<?, ?> triggeredControl) {
+  private static Control<?, ?> getStoredControlToUpdateFromTriggeredConntrol(final Control<?, ?> triggeredControl) {
     final var componentContainer = getOptionalStoredParentComponentOfControl(triggeredControl);
 
     return componentContainer.orElse(triggeredControl);

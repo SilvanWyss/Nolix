@@ -3,12 +3,12 @@
  */
 package ch.nolix.systemapi.atomiccontrol.checkbox;
 
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface ICheckbox extends IControl<ICheckbox, ICheckboxStyle> {
+public interface ICheckbox extends Control<ICheckbox, ICheckboxStyle> {
   ICheckbox check();
 
   boolean isChecked();

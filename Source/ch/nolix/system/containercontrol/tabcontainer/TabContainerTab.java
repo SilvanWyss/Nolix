@@ -21,7 +21,7 @@ import ch.nolix.system.webgui.main.ControlFactory;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainer;
 import ch.nolix.systemapi.containercontrol.tabcontainer.ITabContainerTab;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -50,12 +50,12 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
     DEFAULT_SELECTION_FLAG,
     this::setSelectionFlag);
 
-  private final OptionalValue<IControl<?, ?>> memberRootControl = //
+  private final OptionalValue<Control<?, ?>> memberRootControl = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
     ROOT_CONTROL_HEADER,
     this::setRootControl,
     ControlFactory::createControlFromSpecification,
-    IControl::getSpecification);
+    Control::getSpecification);
 
   public static TabContainerTab fromSpecification(final INode<?> specification) {
     final var tab = new TabContainerTab();
@@ -92,7 +92,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
    * {@inheritDoc}
    */
   @Override
-  public Optional<IControl<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
+  public Optional<Control<?, ?>> getOptionalStoredControlByInternalId(final String internalId) {
     if (isEmpty()) {
       return Optional.empty();
     }
@@ -110,7 +110,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
    * {@inheritDoc}
    */
   @Override
-  public ExtendedIterable<IControl<?, ?>> getStoredControls() {
+  public ExtendedIterable<Control<?, ?>> getStoredControls() {
     if (isEmpty()) {
       return ImmutableList.createEmpty();
     }
@@ -132,7 +132,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
    * {@inheritDoc}
    */
   @Override
-  public IControl<?, ?> getStoredRootControl() {
+  public Control<?, ?> getStoredRootControl() {
     return memberRootControl.getStoredValue();
   }
 
@@ -200,7 +200,7 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
    * {@inheritDoc}
    */
   @Override
-  public ITabContainerTab setRootControl(final IControl<?, ?> rootControl) {
+  public ITabContainerTab setRootControl(final Control<?, ?> rootControl) {
     if (belongsToTabContainer()) {
       final var controlParent = ControlParent.forControl(getStoredParentTabContainer());
 

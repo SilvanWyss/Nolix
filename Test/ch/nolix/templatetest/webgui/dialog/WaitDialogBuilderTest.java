@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.systemapi.atomiccontrol.label.ILabel;
 import ch.nolix.systemapi.atomiccontrol.label.LabelRole;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 
@@ -30,7 +30,7 @@ final class WaitDialogBuilderTest extends StandardTest {
     expect(controls).contains(this::isMainLabel);
   }
 
-  private boolean isMainLabel(final IControl<?, ?> control) {
+  private boolean isMainLabel(final Control<?, ?> control) {
     if (control instanceof final ILabel label) {
       return (label.getRole() == LabelRole.MAIN_LABEL);
     }

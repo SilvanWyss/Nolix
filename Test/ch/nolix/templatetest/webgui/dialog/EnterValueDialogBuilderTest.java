@@ -15,7 +15,7 @@ import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.atomiccontrol.button.ButtonRole;
 import ch.nolix.systemapi.atomiccontrol.button.IButton;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.LayerRole;
 import ch.nolix.template.webgui.dialog.EnterValueDialogBuilder;
 
@@ -134,7 +134,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     Mockito.verify(valueTakerMock).accept(value);
   }
 
-  private boolean isCancelButton(final IControl<?, ?> control) {
+  private boolean isCancelButton(final Control<?, ?> control) {
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CANCEL_BUTTON);
     }
@@ -142,7 +142,7 @@ final class EnterValueDialogBuilderTest extends StandardTest {
     return false;
   }
 
-  private boolean isConfirmButton(final IControl<?, ?> control) {
+  private boolean isConfirmButton(final Control<?, ?> control) {
     if (control instanceof final IButton button) {
       return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
     }

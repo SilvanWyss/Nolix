@@ -4,7 +4,7 @@
 package ch.nolix.system.webgui.controltool;
 
 import ch.nolix.baseapi.datastructure.list.IArrayList;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
@@ -14,8 +14,8 @@ public final class ControlToolHelper {
   }
 
   public static void fillUpChildControlsOfControlIntoListRecursively(
-    final IControl<?, ?> control,
-    final IArrayList<IControl<?, ?>> list) {
+    final Control<?, ?> control,
+    final IArrayList<Control<?, ?>> list) {
     final var childControls = control.getStoredChildControls();
 
     for (final var c : childControls) {
@@ -25,8 +25,8 @@ public final class ControlToolHelper {
   }
 
   public static void fillUpStructureControlsOfControlIntoListRecursively(
-    final IControl<?, ?> control,
-    final IArrayList<IControl<?, ?>> list) {
+    final Control<?, ?> control,
+    final IArrayList<Control<?, ?>> list) {
     final var structureControls = control.getStoredStructureControls();
 
     for (final var s : structureControls) {

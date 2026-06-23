@@ -13,13 +13,13 @@ import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.webgui.main.ControlState;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link IControl}s of a {@link ControlTest}.
+ * @param <C> is the type of the {@link Control}s of a {@link ControlTest}.
  */
-public abstract class ControlTest<C extends IControl<C, ?>> extends StandardTest {
+public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest {
   protected abstract C createTestUnit();
 
   @Test

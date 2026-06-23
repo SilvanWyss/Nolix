@@ -7,7 +7,7 @@ import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.systemapi.webgui.controlstructure.IControlParent;
-import ch.nolix.systemapi.webgui.main.IControl;
+import ch.nolix.systemapi.webgui.main.Control;
 import ch.nolix.systemapi.webgui.main.ILayer;
 import ch.nolix.systemapi.webgui.main.IWebGui;
 
@@ -17,10 +17,10 @@ import ch.nolix.systemapi.webgui.main.IWebGui;
 public final class ControlParent implements IControlParent {
   private final ILayer layer;
 
-  private final IControl<?, ?> control;
+  private final Control<?, ?> control;
 
-  private ControlParent(final IControl<?, ?> control) {
-    Validator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
+  private ControlParent(final Control<?, ?> control) {
+    Validator.assertThat(control).thatIsNamed(Control.class).isNotNull();
 
     this.layer = null;
     this.control = control;
@@ -33,7 +33,7 @@ public final class ControlParent implements IControlParent {
     this.control = null;
   }
 
-  public static ControlParent forControl(final IControl<?, ?> control) {
+  public static ControlParent forControl(final Control<?, ?> control) {
     return new ControlParent(control);
   }
 
@@ -77,7 +77,7 @@ public final class ControlParent implements IControlParent {
    * {@inheritDoc}
    */
   @Override
-  public IControl<?, ?> getStoredControl() {
+  public Control<?, ?> getStoredControl() {
     assertIsControl();
 
     return control;
@@ -94,7 +94,7 @@ public final class ControlParent implements IControlParent {
    * {@inheritDoc}
    */
   @Override
-  public IControl<?, ?> getStoredParentControl() {
+  public Control<?, ?> getStoredParentControl() {
     assertBelongsToControl();
 
     return control.getStoredParentControl();
@@ -142,7 +142,7 @@ public final class ControlParent implements IControlParent {
 
   private void assertBelongsToControl() {
     if (!belongsToControl()) {
-      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IControl.class);
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, Control.class);
     }
   }
 
