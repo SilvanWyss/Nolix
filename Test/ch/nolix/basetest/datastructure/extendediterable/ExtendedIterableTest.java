@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.misc.dataobject.VoidObject;
 import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;

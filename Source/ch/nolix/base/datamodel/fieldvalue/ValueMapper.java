@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.datamodel.fieldvalue;
 
-import ch.nolix.base.misc.dataobject.Blob;
+import ch.nolix.base.datamodel.dataobject.Blob;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

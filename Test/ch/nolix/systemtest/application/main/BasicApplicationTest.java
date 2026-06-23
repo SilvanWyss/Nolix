@@ -5,7 +5,7 @@ package ch.nolix.systemtest.application.main;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.misc.dataobject.VoidObject;
+import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.application.main.BasicApplication;
 import ch.nolix.system.application.maintestutil.TestSession;

@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.datamodel.fieldproperty;
 
-import ch.nolix.baseapi.misc.dataobject.IBlob;
+import ch.nolix.baseapi.datamodel.dataobject.IBlob;
 
 /**
  * @author Silvan Wyss

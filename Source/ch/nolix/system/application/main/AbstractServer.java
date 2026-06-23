@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.application.main;
 
+import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.misc.dataobject.VoidObject;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;

@@ -5,7 +5,7 @@ package ch.nolix.basetest.misc.dataobject;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.misc.dataobject.UnsignedByte;
+import ch.nolix.base.datamodel.dataobject.UnsignedByte;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**
