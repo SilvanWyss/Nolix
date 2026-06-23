@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.datastructure.extendediterable;
+package ch.nolix.basetest.datastructure.iterator;
 
 import org.junit.jupiter.api.Test;
 

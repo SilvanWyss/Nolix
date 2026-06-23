@@ -5,7 +5,7 @@ package ch.nolix.basetest.datastructure.arraylist;
 
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
-import ch.nolix.basetest.datastructure.extendediterable.CopyableIteratorTest;
+import ch.nolix.basetest.datastructure.iterator.CopyableIteratorTest;
 
 /**
  * @author Silvan Wyss

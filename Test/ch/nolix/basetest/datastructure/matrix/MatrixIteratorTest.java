@@ -6,7 +6,7 @@ package ch.nolix.basetest.datastructure.matrix;
 import ch.nolix.base.datastructure.matrix.Matrix;
 import ch.nolix.base.datastructure.matrix.MatrixIterator;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
-import ch.nolix.basetest.datastructure.extendediterable.CopyableIteratorTest;
+import ch.nolix.basetest.datastructure.iterator.CopyableIteratorTest;
 
 /**
  * @author Silvan Wyss
