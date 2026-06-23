@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.independent.math;
 
-import ch.nolix.baseapi.math.machineprecision.ComparsionThresholdCatalog;
+import ch.nolix.baseapi.math.number.ComparsionThresholdCatalog;
 
 /**
  * @author Silvan Wyss
