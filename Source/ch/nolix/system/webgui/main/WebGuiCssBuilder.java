@@ -9,7 +9,7 @@ import ch.nolix.base.web.cssmodel.Css;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.base.web.cssmodel.CssRule;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.webgui.main.ILayer;

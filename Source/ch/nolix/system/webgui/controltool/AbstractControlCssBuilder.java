@@ -12,7 +12,7 @@ import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;

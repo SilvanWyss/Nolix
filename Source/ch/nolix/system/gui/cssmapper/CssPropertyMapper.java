@@ -8,7 +8,7 @@ import java.util.Optional;
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.box.ICornerShadow;

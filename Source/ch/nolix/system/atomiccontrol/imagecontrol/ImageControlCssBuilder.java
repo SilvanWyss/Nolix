@@ -5,7 +5,7 @@ package ch.nolix.system.atomiccontrol.imagecontrol;
 
 import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;

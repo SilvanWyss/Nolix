@@ -10,7 +10,7 @@ import ch.nolix.base.web.cssmodel.CssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.web.css.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.box.ContentAlignment;
 import ch.nolix.systemapi.webgui.main.ILayer;
