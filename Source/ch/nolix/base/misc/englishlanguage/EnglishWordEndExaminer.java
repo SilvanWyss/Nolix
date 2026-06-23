@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.misc.english;
+package ch.nolix.base.misc.englishlanguage;
 
-import ch.nolix.baseapi.misc.english.IEnglishWordEndExaminer;
+import ch.nolix.baseapi.misc.englishlanguage.IEnglishWordEndExaminer;
 
 /**
  * @author Silvan Wyss

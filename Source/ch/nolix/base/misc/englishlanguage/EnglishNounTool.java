@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.misc.english;
+package ch.nolix.base.misc.englishlanguage;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.english.EnglishArticleCatalog;
+import ch.nolix.baseapi.misc.englishlanguage.EnglishArticleCatalog;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**

@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.misc.english;
+package ch.nolix.baseapi.misc.englishlanguage;
 
 /**
  * The {@link EnglishArticleCatalog} provides English articles.

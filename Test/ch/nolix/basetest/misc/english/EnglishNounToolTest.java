@@ -6,7 +6,7 @@ package ch.nolix.basetest.misc.english;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.misc.english.EnglishNounTool;
+import ch.nolix.base.misc.englishlanguage.EnglishNounTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
 
 /**
