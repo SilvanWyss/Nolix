@@ -1,9 +1,9 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.web.htmlelementmodel;
+package ch.nolix.base.web.htmlmodel;
 
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 
 /**
  * @author Silvan Wyss

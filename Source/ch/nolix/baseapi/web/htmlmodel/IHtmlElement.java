@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.web.htmlelementmodel;
+package ch.nolix.baseapi.web.htmlmodel;
 
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 

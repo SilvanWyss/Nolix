@@ -10,7 +10,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.chainednode.IChainedNode;
 import ch.nolix.baseapi.web.cssmodel.ICss;
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.webapplication.protocol.CommandProtocol;
 import ch.nolix.systemapi.webapplication.protocol.ObjectProtocol;
 import ch.nolix.systemapi.webgui.main.IControl;

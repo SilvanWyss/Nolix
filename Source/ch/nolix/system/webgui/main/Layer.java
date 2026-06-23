@@ -16,7 +16,7 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.misc.variable.PascalCaseVariableCatalog;
 import ch.nolix.baseapi.web.cssmodel.ICssRule;
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.property.value.OptionalValue;

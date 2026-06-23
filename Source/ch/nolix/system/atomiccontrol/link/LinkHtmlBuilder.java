@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.atomiccontrol.link;
 
-import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.atomiccontrol.link.ILink;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

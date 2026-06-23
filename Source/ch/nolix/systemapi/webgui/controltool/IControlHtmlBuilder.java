@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.webgui.controltool;
 
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.webgui.main.IControl;
 
 /**

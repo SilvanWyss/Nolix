@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.containercontrol.horizontalstack;
 
-import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.containercontrol.horizontalstack.IHorizontalStack;

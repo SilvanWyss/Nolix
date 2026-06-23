@@ -4,8 +4,8 @@
 package ch.nolix.system.atomiccontrol.textbox;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
-import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.base.web.htmlmodel.HtmlAttribute;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.atomiccontrol.textbox.ITextbox;

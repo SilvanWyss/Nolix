@@ -4,13 +4,13 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.web.htmlelementmodel.HtmlAttribute;
-import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.base.web.htmlmodel.HtmlAttribute;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.web.html.HtmlAttributeNameCatalog;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlAttribute;
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.webgui.main.ILayer;
 
 /**

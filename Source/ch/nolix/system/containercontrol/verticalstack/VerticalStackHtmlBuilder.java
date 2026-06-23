@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.containercontrol.verticalstack;
 
-import ch.nolix.base.web.htmlelementmodel.HtmlElement;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.web.html.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.containercontrol.verticalstack.IVerticalStack;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;

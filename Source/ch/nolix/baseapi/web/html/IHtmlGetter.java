@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.web.html;
 
-import ch.nolix.baseapi.web.htmlelementmodel.IHtmlElement;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 
 /**
  * @author Silvan Wyss
