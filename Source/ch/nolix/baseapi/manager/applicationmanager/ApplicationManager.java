@@ -7,11 +7,11 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
- * @param <A> is the type of the applications of a {@link IApplicationManager}.
+ * @param <A> the type of the applications of a {@link ApplicationManager}
  */
-public interface IApplicationManager<A> {
+public interface ApplicationManager<A> {
   /**
-   * @return the applications of the current {@link IApplicationManager}.
+   * @return the applications of the current {@link ApplicationManager}
    */
   ExtendedIterable<? extends A> getStoredApplications();
 }

@@ -7,11 +7,11 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the clients of a {@link IClientManager}.
+ * @param <C> the type of the clients of a {@link ClientManager}
  */
-public interface IClientManager<C> {
+public interface ClientManager<C> {
   /**
-   * @return the clients of the current {@link IClientManager}.
+   * @return the clients of the current {@link ClientManager}
    */
   ExtendedIterable<? extends C> getStoredClients();
 }

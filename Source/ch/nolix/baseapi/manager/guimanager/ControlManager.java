@@ -7,11 +7,11 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the controls of a {@link IControlManager}.
+ * @param <C> the type of the controls of a {@link ControlManager}
  */
-public interface IControlManager<C> {
+public interface ControlManager<C> {
   /**
-   * @return the controls of the current {@link IControlManager}.
+   * @return the controls of the current {@link ControlManager}
    */
   ExtendedIterable<? extends C> getStoredControls();
 }
