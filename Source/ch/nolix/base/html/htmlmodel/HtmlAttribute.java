@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.web.htmlmodel;
+package ch.nolix.base.html.htmlmodel;
 
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.baseapi.html.htmlmodel.IHtmlAttribute;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 
 /**
  * @author Silvan Wyss

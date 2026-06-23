@@ -4,11 +4,11 @@
 package ch.nolix.system.containercontrol.grid;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.web.htmlmodel.HtmlElement;
+import ch.nolix.base.html.htmlmodel.HtmlElement;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
-import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
-import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
+import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.html.htmlmodel.IHtmlElement;
 import ch.nolix.systemapi.containercontrol.grid.IGrid;
 
 /**

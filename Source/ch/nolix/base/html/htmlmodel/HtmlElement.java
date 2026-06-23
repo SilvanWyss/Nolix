@@ -1,16 +1,16 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.web.htmlmodel;
+package ch.nolix.base.html.htmlmodel;
 
 import ch.nolix.base.datastructure.extendediterableview.ExtendedIterableView;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.html.htmlmodel.IHtmlAttribute;
+import ch.nolix.baseapi.html.htmlmodel.IHtmlElement;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
-import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 
 /**
  * @author Silvan Wyss

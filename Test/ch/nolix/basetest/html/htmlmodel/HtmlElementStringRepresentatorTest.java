@@ -1,15 +1,15 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.web.htmlmodel;
+package ch.nolix.basetest.html.htmlmodel;
 
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
+import ch.nolix.base.html.htmlmodel.HtmlAttribute;
+import ch.nolix.base.html.htmlmodel.HtmlElement;
+import ch.nolix.base.html.htmlmodel.HtmlElementStringRepresentator;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.base.web.htmlmodel.HtmlAttribute;
-import ch.nolix.base.web.htmlmodel.HtmlElement;
-import ch.nolix.base.web.htmlmodel.HtmlElementStringRepresentator;
 
 /**
  * @author Silvan Wyss
