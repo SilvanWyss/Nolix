@@ -3,13 +3,13 @@
  */
 package ch.nolix.systemapi.objectdata.model;
 
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
  * @param <V> the type of the value a {@link IMultiValueFieldEntry}.
  */
-public interface IMultiValueFieldEntry<V> extends IDatabaseObject {
+public interface IMultiValueFieldEntry<V> extends DatabaseObject {
   IMultiValueField<V> getStoredParentMultiValue();
 
   V getStoredValue();

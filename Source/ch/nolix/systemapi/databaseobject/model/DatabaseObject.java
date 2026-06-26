@@ -13,11 +13,11 @@ import ch.nolix.systemapi.databaseobject.request.EditingRequestable;
 import ch.nolix.systemapi.databaseobject.request.LoadingRequestable;
 
 /**
- * A {@link IDatabaseObject} can be connected with a real database.
+ * A {@link DatabaseObject} can be connected with a real database.
  * 
  * @author Silvan Wyss
  */
-public interface IDatabaseObject
+public interface DatabaseObject
 extends
 CloseStateRequestable,
 CreationRequestable,

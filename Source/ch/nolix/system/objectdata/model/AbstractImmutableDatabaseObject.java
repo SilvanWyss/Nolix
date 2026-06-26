@@ -6,10 +6,10 @@ package ch.nolix.system.objectdata.model;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
-abstract class AbstractImmutableDatabaseObject implements GroupCloseable, IDatabaseObject {
+abstract class AbstractImmutableDatabaseObject implements GroupCloseable, DatabaseObject {
   private final ICloseController closeController = CloseController.forElement(this);
 
   @Override

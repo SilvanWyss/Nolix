@@ -9,7 +9,7 @@ import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**
@@ -19,7 +19,7 @@ public interface ITable
 extends
 Deletable,
 DatabaseComponent<IDatabase>,
-IDatabaseObject,
+DatabaseObject,
 FluentMutableNameHolder<ITable>,
 IdHolder {
   ITable addColumn(IColumn column);

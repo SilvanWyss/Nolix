@@ -6,13 +6,13 @@ package ch.nolix.systemapi.objectdata.model;
 import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**
  * @author Silvan Wyss
  */
-public interface IColumn extends IDatabaseObject, IdHolder, NameHolder {
+public interface IColumn extends DatabaseObject, IdHolder, NameHolder {
   boolean containsValueInPersistedData(String value);
 
   boolean containsValueInPersistedDataIgnoringEntities(String value, ExtendedIterable<String> entitiesToIgnoreIds);

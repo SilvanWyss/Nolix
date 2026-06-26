@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdata.model;
 
 import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
  *            {@link IMultiBackReferenceEntry} references back.
  */
 public interface IMultiBackReferenceEntry<E extends IEntity>
-extends DatabaseComponent<IDatabase>, IDatabaseObject, TableComponent<ITable<? extends IEntity>> {
+extends DatabaseComponent<IDatabase>, DatabaseObject, TableComponent<ITable<? extends IEntity>> {
   String getBackReferencedEntityId();
 
   String getBackReferencedTableId();

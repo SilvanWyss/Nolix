@@ -3,19 +3,19 @@
  */
 package ch.nolix.systemapi.databaseobject.modelexaminer;
 
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
  */
 public interface IDatabaseObjectExaminer {
-  boolean isNewOrDeleted(IDatabaseObject databaseObject);
+  boolean isNewOrDeleted(DatabaseObject databaseObject);
 
-  boolean isNewOrEdited(IDatabaseObject databaseObject);
+  boolean isNewOrEdited(DatabaseObject databaseObject);
 
-  boolean isNewOrEditedOrDeleted(IDatabaseObject databaseObject);
+  boolean isNewOrEditedOrDeleted(DatabaseObject databaseObject);
 
-  boolean isNewOrLoaded(IDatabaseObject databaseObject);
+  boolean isNewOrLoaded(DatabaseObject databaseObject);
 
-  boolean isNewOrLoadedOrEdited(IDatabaseObject databaseObject);
+  boolean isNewOrLoadedOrEdited(DatabaseObject databaseObject);
 }

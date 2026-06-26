@@ -10,7 +10,7 @@ import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.systemapi.databaseobject.model.Deletable;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
@@ -19,7 +19,7 @@ public interface IEntity
 extends
 Deletable,
 DatabaseComponent<IDatabase>,
-IDatabaseObject,
+DatabaseObject,
 IdHolder,
 OptionalSaveStampHolder,
 ShortDescriptionHolder,

@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.databaseobject.modelexaminer;
 
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.databaseobject.modelexaminer.IDatabaseObjectExaminer;
 import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 
@@ -15,7 +15,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isNewOrDeleted(IDatabaseObject databaseObject) {
+  public boolean isNewOrDeleted(DatabaseObject databaseObject) {
     if (databaseObject == null) {
       return false;
     }
@@ -31,7 +31,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
    * {@inheritDoc}
    */
   @Override
-  public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
+  public final boolean isNewOrEdited(final DatabaseObject databaseObject) {
     if (databaseObject == null) {
       return false;
     }
@@ -47,7 +47,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isNewOrEditedOrDeleted(final IDatabaseObject databaseObject) {
+  public boolean isNewOrEditedOrDeleted(final DatabaseObject databaseObject) {
     if (databaseObject == null) {
       return false;
     }
@@ -63,7 +63,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isNewOrLoaded(final IDatabaseObject databaseObject) {
+  public boolean isNewOrLoaded(final DatabaseObject databaseObject) {
     if (databaseObject == null) {
       return false;
     }
@@ -79,7 +79,7 @@ public class DatabaseObjectExaminer implements IDatabaseObjectExaminer {
    * {@inheritDoc}
    */
   @Override
-  public boolean isNewOrLoadedOrEdited(final IDatabaseObject databaseObject) {
+  public boolean isNewOrLoadedOrEdited(final DatabaseObject databaseObject) {
     if (databaseObject == null) {
       return false;
     }

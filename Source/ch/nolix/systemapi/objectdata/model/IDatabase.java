@@ -6,13 +6,13 @@ package ch.nolix.systemapi.objectdata.model;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.GroupCloseable;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 import ch.nolix.systemapi.time.moment.ITime;
 
 /**
  * @author Silvan Wyss
  */
-public interface IDatabase extends GroupCloseable, IDatabaseObject, NameHolder {
+public interface IDatabase extends GroupCloseable, DatabaseObject, NameHolder {
   IEntityTypeSet getEntityTypeSet();
 
   ITime getSchemaTimestamp();

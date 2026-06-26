@@ -5,12 +5,12 @@ package ch.nolix.systemapi.objectschema.model;
 
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
  */
-public interface IDatabase extends IDatabaseObject, NameHolder {
+public interface IDatabase extends DatabaseObject, NameHolder {
   IDatabase addTable(ITable table);
 
   IDatabase createTableWithName(String name);

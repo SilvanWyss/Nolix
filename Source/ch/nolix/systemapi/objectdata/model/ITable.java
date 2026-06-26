@@ -9,14 +9,14 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
 
 /**
  * @author Silvan Wyss
  * @param <E> the type of the {@link IEntity}s of a {@link ITable}.
  */
 public interface ITable<E extends IEntity>
-extends DatabaseComponent<IDatabase>, IDatabaseObject, IdHolder, NameHolder {
+extends DatabaseComponent<IDatabase>, DatabaseObject, IdHolder, NameHolder {
   boolean containsEntityWithId(String id);
 
   int getEntityCount();
