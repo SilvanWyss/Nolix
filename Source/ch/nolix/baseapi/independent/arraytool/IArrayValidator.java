@@ -9,7 +9,7 @@ package ch.nolix.baseapi.independent.arraytool;
 public interface IArrayValidator {
   /**
    * @param array
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    * @throws RuntimeException if the given array contains a null element.
    */
   void assertDoesNotContainNull(Object[] array);

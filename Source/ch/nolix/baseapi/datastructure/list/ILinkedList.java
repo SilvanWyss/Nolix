@@ -31,7 +31,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * elements will be added in the given order.
    * 
    * @param elements
-   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null.
    */
   void addAtBegin(@SuppressWarnings("unchecked") E... elements);

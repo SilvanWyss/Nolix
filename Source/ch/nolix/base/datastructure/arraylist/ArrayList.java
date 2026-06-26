@@ -44,7 +44,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link ArrayList} with the given elements.
-   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null.
    */
   @SafeVarargs

@@ -18,7 +18,7 @@ public interface AggregationRequestable<E> {
    * @return the average of the values the given valueMapper maps from the
    *         elements of the current {@link AggregationRequestable}. Maps null
    *         elements to 0.0.
-   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty.
    */
@@ -42,7 +42,7 @@ public interface AggregationRequestable<E> {
    * @return the biggest {@link Comparable} the given comparableMapper maps from
    *         the elements of the current {@link AggregationRequestable}. Ignores
    *         null elements.
-   * @throws RuntimeException if the given comparableMapper is null.
+   * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} does
    *                          not contain a non-null element.
    */
@@ -62,7 +62,7 @@ public interface AggregationRequestable<E> {
    * @return the median of the numbers the given numberMapper maps from the
    *         elements of the current {@link AggregationRequestable}. Maps null
    *         elements to 0.0.
-   * @throws RuntimeException if the given numberMapper is null.
+   * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty.
    */
@@ -86,7 +86,7 @@ public interface AggregationRequestable<E> {
    * @return the smallest {@link Comparable} the given comparableMapper maps from
    *         the elements of the current {@link AggregationRequestable}. Ignores
    *         null elements.
-   * @throws RuntimeException if the given comparableMapper is null.
+   * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} does
    *                          not contain a non-null element.
    */
@@ -105,7 +105,7 @@ public interface AggregationRequestable<E> {
    * @param numberMapper
    * @return the standard deviation of the numbers the given numberMapper maps
    *         from the elements of the current {@link AggregationRequestable}.
-   * @throws RuntimeException if the given numberMapper is null.
+   * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty.
    */
@@ -133,7 +133,7 @@ public interface AggregationRequestable<E> {
    * @return the variance of the numbers the given numberMapper maps from the
    *         elements of the current {@link AggregationRequestable}. Maps null
    *         elements to 0.0.
-   * @throws RuntimeException if the given numberMapper is null.
+   * @throws RuntimeException if the given numberMapper is null
    * @throws RuntimeException if the current {@link AggregationRequestable} is
    *                          empty.
    */

@@ -71,7 +71,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @param arrays
    * @param <T>    is the type of the elements of the given arrays.
    * @return a new {@link ExtendedIterableView} for the given arrays.
-   * @throws RuntimeException if the given arrays is null.
+   * @throws RuntimeException if the given arrays is null
    * @throws RuntimeException if one of the given arrays is null.
    */
   @SafeVarargs
@@ -113,7 +113,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @param iterables
    * @param <T>       is the type of the elements of the given iterables.
    * @return a new {@link ExtendedIterableView} for the given iterables.
-   * @throws RuntimeException if the given iterables is null.
+   * @throws RuntimeException if the given iterables is null
    * @throws RuntimeException if one of the given iterables is null.
    */
   @SafeVarargs

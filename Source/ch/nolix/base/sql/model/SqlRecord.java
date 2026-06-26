@@ -66,7 +66,7 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
    * @param values
    * @return a new {@link SqlRecord} with the oneBasedIndex and given values.
    * @throws RuntimeException if the given oneBasedIndex is not positive.
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    * @throws RuntimeException if one of the given values is null.
    */
   public static SqlRecord withOneBasedIndexAndValues(final int oneBasedIndex, final Iterable<String> values) {

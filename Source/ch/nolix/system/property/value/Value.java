@@ -33,9 +33,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param valueMapper
    * @param specificationMapper
    * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given defaultValue is null.
-   * @throws RuntimeException if the given setter is null.
-   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given defaultValue is null
+   * @throws RuntimeException if the given setter is null
+   * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null.
    */
   private Value(
@@ -59,7 +59,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
    *         that will store a {@link Boolean}.
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
@@ -77,7 +77,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
    *         that will store a {@link Double}.
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
@@ -97,8 +97,8 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @return a new {@link Value} with the given name, defaultValue, setter and
    *         valueMapper and and that can store a {@link IElement}.
    * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given defaultValue is null.
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given defaultValue is null
+   * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null.
    */
   public static <E extends IElement> Value<E> forElementWithNameAndDefaultValueAndSetterAndValueMapper(
@@ -115,7 +115,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
    *         that will store a {@link Integer}.
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
@@ -132,7 +132,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @return a new {@link Value} with the given name, defaultValue and setter and
    *         that will store a {@link String}.
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the given setter is null.
    */
@@ -159,9 +159,9 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @return a new {@link Value} with the given name, defaultValue, setter,
    *         valueMapper and specificationMapper.
    * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given defaultValue is null.
-   * @throws RuntimeException if the given setter is null.
-   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given defaultValue is null
+   * @throws RuntimeException if the given setter is null
+   * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null.
    */
   public static <T> Value<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(

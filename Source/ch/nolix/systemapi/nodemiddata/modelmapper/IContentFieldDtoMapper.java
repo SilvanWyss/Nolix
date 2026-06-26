@@ -18,7 +18,7 @@ public interface IContentFieldDtoMapper {
    * @param contentFieldNode
    * @param columnView
    * @return a new {@link FieldDto} from the given contentFieldNode.
-   * @throws RuntimeException if the given contentFieldNode is null.
+   * @throws RuntimeException if the given contentFieldNode is null
    * @throws RuntimeException if the given columnView is null.
    */
   FieldDto mapContentFieldNodeToContentFieldDto(

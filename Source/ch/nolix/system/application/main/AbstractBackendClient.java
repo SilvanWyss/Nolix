@@ -164,7 +164,7 @@ implements IBackendClient<S> {
    * belong to.
    * 
    * @param parentApplication
-   * @throws RuntimeException if the given parentApplication is null.
+   * @throws RuntimeException if the given parentApplication is null
    * @throws RuntimeException if the current {@link AbstractBackendClient}
    *                          references already its parent {@link Application}.
    */

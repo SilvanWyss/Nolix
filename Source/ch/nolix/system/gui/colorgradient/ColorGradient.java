@@ -41,8 +41,8 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param direction
    * @param color1
    * @param color2
-   * @throws RuntimeException if the given direction is null.
-   * @throws RuntimeException if the given color 1 is null.
+   * @throws RuntimeException if the given direction is null
+   * @throws RuntimeException if the given color 1 is null
    * @throws RuntimeException if the given color 2 is null.
    */
   private ColorGradient(final Direction direction, final Color color1, final Color color2) {
@@ -79,7 +79,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color1
    * @param color2
    * @return a new {@link ColorGradient} with the given color1 and color2.
-   * @throws RuntimeException if the given color1 is null.
+   * @throws RuntimeException if the given color1 is null
    * @throws RuntimeException if the given color2 is null.
    */
   public static ColorGradient withColors(final Color color1, final Color color2) {
@@ -92,8 +92,8 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color2
    * @return a new {@link ColorGradient} with the given direction, color1 and
    *         color2.
-   * @throws RuntimeException if the given direction is null.
-   * @throws RuntimeException if the given color 1 is null.
+   * @throws RuntimeException if the given direction is null
+   * @throws RuntimeException if the given color 1 is null
    * @throws RuntimeException if the given color 2 is null.
    */
   public static ColorGradient withDirectionAndColors(

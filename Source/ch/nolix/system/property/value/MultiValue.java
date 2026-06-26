@@ -34,8 +34,8 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param adder
    * @param specificationMapper
    * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given adder is null.
-   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given adder is null
+   * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null.
    */
   private MultiValue(

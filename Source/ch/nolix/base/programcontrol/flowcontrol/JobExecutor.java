@@ -57,7 +57,7 @@ public final class JobExecutor extends Thread {
    * 
    * @param step
    * @param nextStepRunCondition
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
   private JobExecutor(final Runnable step, final BooleanSupplier nextStepRunCondition) {
@@ -77,8 +77,8 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param nextStepRunCondition
    * @param delayBetweenStepRunsInMilliseconds
-   * @throws RuntimeException if the given step is null.
-   * @throws RuntimeException if the given nextStepRunCondition is null.
+   * @throws RuntimeException if the given step is null
+   * @throws RuntimeException if the given nextStepRunCondition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
    */
@@ -105,7 +105,7 @@ public final class JobExecutor extends Thread {
    * 
    * @param step
    * @param maxStepRunCount
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative.
    */
   private JobExecutor(final Runnable step, final int maxStepRunCount) {
@@ -125,7 +125,7 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param maxStepRunCount
    * @param nextStepRunCondition
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative.
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
@@ -148,9 +148,9 @@ public final class JobExecutor extends Thread {
    * @param maxStepRunCount
    * @param nextStepRunCondition
    * @param delayBetweenStepRunsInMilliseconds
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    * @throws RuntimeException if the given maxRunCount is negative.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
    */
@@ -181,7 +181,7 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param maxStepRunCount
    * @param delayBetweenStepRunsInMilliseconds
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    * @throws RuntimeException if the given maxRunCount is negative.
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
@@ -216,7 +216,7 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param maxStepRunCount
    * @return a new {@link JobExecutor} with the given step and maxStepRunCount.
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative.
    */
   public static JobExecutor forStepAndMaxStepRunCount(final Runnable step, final int maxStepRunCount) {
@@ -229,7 +229,7 @@ public final class JobExecutor extends Thread {
    * @param delayBetweenStepRunsInMilliseconds
    * @return a new {@link JobExecutor} with the given step, maxStepRunCount and
    *         delayBetweenStepRunsInMilliseconds.
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative.
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
@@ -247,7 +247,7 @@ public final class JobExecutor extends Thread {
    * @param nextStepRunCondition
    * @return a new {@link JobExecutor} with the given step, maxStepRunCount and
    *         nextStepRunCondition.
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative.
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
@@ -265,9 +265,9 @@ public final class JobExecutor extends Thread {
    * @param delayBetweenStepRunsInMilliseconds
    * @return a new {@link JobExecutor} with the given step, maxStepRunCount,
    *         nextStepRunCondition and delayBetweenStepRunsInMilliseconds.
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    * @throws RuntimeException if the given maxRunCount is negative.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
    */
@@ -284,7 +284,7 @@ public final class JobExecutor extends Thread {
    * @param nextStepRunCondition
    * @return a new {@link JobExecutor} with the given step and
    *         nextStepRunCondition.
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given nextStepRunCondition is null.
    */
   public static JobExecutor forStepAndNextStepRunCondition(
@@ -299,8 +299,8 @@ public final class JobExecutor extends Thread {
    * @param delayBetweenStepRunsInMilliseconds
    * @return a new {@link JobExecutor} with the given step, nextStepRunCondition
    *         and delayBetweenStepRunsInMilliseconds.
-   * @throws RuntimeException if the given job is null.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given job is null
+   * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given delayBetweenStepRunsInMilliseconds is
    *                          negative.
    */

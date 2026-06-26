@@ -135,7 +135,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
 
   /**
    * @param values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    * @throws RuntimeException if the argument of the current {@link LongMediator}
    *                          does not equal one of the given values.
    */

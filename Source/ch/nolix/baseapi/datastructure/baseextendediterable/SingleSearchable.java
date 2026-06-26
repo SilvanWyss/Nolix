@@ -47,7 +47,7 @@ public interface SingleSearchable<E> {
    * @return the element with the biggest {@link Comparable} the given
    *         comparableMapper maps from the elements of the current
    *         {@link SingleSearchable}. Ignores null elements.
-   * @throws RuntimeException if the given comparableMapper is null.
+   * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain a non-null element.
    */
@@ -61,7 +61,7 @@ public interface SingleSearchable<E> {
    * @return the element with the smallest {@link Comparable} the given
    *         comparableMapper maps from the elements of the current
    *         {@link SingleSearchable}. Ignores null elements.
-   * @throws RuntimeException if the given comparableMapper is null.
+   * @throws RuntimeException if the given comparableMapper is null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain a non-null element.
    */
@@ -88,7 +88,7 @@ public interface SingleSearchable<E> {
    * @param <T>  is the given type.
    * @return the first element from the current {@link SingleSearchable} that is
    *         of the given type.
-   * @throws RuntimeException if the given type is null.
+   * @throws RuntimeException if the given type is null
    * @throws RuntimeException if the current {@link SingleSearchable} does not
    *                          contain an element of the given type.
    */
@@ -114,7 +114,7 @@ public interface SingleSearchable<E> {
    * @param selector
    * @return the one element the given selector selects from the current
    *         {@link SingleSearchable}. Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
+   * @throws RuntimeException if the given selector is null
    * @throws RuntimeException if the given selector selects none or several
    *                          elements from the current {@link SingleSearchable}.
    */

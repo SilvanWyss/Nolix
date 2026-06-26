@@ -64,7 +64,7 @@ Resettable {
    * 
    * @param strings
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if the given strings is null.
+   * @throws RuntimeException if the given strings is null
    * @throws RuntimeException if one of the given strings does not represent a
    *                          {@link INode}.
    */
@@ -78,7 +78,7 @@ Resettable {
    * 
    * @param postfix
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if the given postfix is null.
+   * @throws RuntimeException if the given postfix is null
    * @throws RuntimeException if the given postfix is blank.
    */
   N addPostfixToHeader(String postfix);
@@ -91,7 +91,7 @@ Resettable {
    * 
    * @param prefix
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if the given prefix is null.
+   * @throws RuntimeException if the given prefix is null
    * @throws RuntimeException if the given prefix is blank.
    */
   N addPrefixToHeader(String prefix);

@@ -82,7 +82,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @param slot
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given slot is null.
+   * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
   private NetEndPoint(final String host, final int port, final String slot) {
@@ -121,7 +121,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
    *         given port on the given host.
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given slot is null.
+   * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
   public static NetEndPoint toGivenHostAndGivenPortAndGivenSlot(final String host, final int port, final String slot) {

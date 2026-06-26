@@ -33,7 +33,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * 
    * @param container
    * @param selector
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given selector is null.
    */
   private ExtendedIterableFilterView(final ExtendedIterable<E> container, final Predicate<E> selector) {
@@ -50,7 +50,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    * @param <T>       is the type of the elements of the given container.
    * @return a new {@link ExtendedIterableFilterView} for the given container and
    *         selector.
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given selector is null.
    */
   public static <T> ExtendedIterableFilterView<T> forContainerAndSelector(
@@ -66,7 +66,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    *                 array.
    * @return a new {@link ExtendedIterableFilterView} for the given element and
    *         array.
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    * @throws RuntimeException if the given selector is null.
    */
   public static <T> ExtendedIterableFilterView<T> forArrayAndSelector(

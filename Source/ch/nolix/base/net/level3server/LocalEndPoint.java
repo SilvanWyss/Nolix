@@ -79,7 +79,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * 
    * @param counterpart
    * @param target
-   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException if the given target is null
    * @throws RuntimeException if the given target is empty.
    */
   private LocalEndPoint(

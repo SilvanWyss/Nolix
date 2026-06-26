@@ -26,7 +26,7 @@ public interface IUpdaterCollector<O> extends Clearable {
    * Adds the given updaters to the current {@link IUpdaterCollector}.
    * 
    * @param updaters
-   * @throws RuntimeException if the given updaters is null.
+   * @throws RuntimeException if the given updaters is null
    * @throws RuntimeException if one of the given updaters is null.
    */
   void addUpdaters(ExtendedIterable<Consumer<O>> updaters);

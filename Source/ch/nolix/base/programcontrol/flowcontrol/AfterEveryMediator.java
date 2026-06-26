@@ -29,7 +29,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param condition
    * @param timeIntervalInMilliseconds
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   private AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
@@ -46,7 +46,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param timeIntervalInMilliseconds
    * @return a new {@link AfterEveryMediator} with the given condition and
    *         timeIntervalInMilliseconds.
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
    */
   public static AfterEveryMediator withConditionAndTimeIntervalInMilliSeconds(

@@ -165,7 +165,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * Sets the parent client of the current {@link AbstractSession}.
    * 
    * @param parentClient
-   * @throws RuntimeException if the given parent client is null.
+   * @throws RuntimeException if the given parent client is null
    * @throws RuntimeException if the current {@link AbstractSession} belongs to a
    *                          client.
    */

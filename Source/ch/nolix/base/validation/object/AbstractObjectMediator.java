@@ -46,7 +46,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
 
   /**
    * @param condition
-   * @throws RuntimeException if the given condition is null.
+   * @throws RuntimeException if the given condition is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} does not fulfill the
    *                          given condition.
@@ -67,7 +67,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
 
   /**
    * @param object
-   * @throws RuntimeException if the given object is null.
+   * @throws RuntimeException if the given object is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} does not have the
    *                          same {@link String} representation as the given
@@ -182,7 +182,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
   /**
    * @param type
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractObjectMediator} is null.
+   *                          {@link AbstractObjectMediator} is null
    * @throws RuntimeException if the argument of the current
    *                          {@link AbstractObjectMediator} is not of the given
    *                          type.

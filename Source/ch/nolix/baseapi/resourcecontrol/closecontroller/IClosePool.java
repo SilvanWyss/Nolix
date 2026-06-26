@@ -14,7 +14,7 @@ public interface IClosePool {
    * Adds the given elements to the current {@link IClosePool}.
    * 
    * @param elements
-   * @throws RuntimeException if one of the given elements is null.
+   * @throws RuntimeException if one of the given elements is null
    * @throws RuntimeException if the current {@link IClosePool} contains already
    *                          one of the given elements.
    */

@@ -30,7 +30,7 @@ public final class ExtendedIterableFilterViewIterator<E> implements CopyableIter
    * 
    * @param iterator
    * @param selector
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given selector is null.
    */
   private ExtendedIterableFilterViewIterator(final CopyableIterator<E> iterator, final Predicate<E> selector) {

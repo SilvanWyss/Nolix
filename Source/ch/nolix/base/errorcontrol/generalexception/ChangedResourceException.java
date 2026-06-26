@@ -17,7 +17,7 @@ public final class ChangedResourceException extends RuntimeException {
    * Creates a new {@link ChangedResourceException} for the given resource.
    * 
    * @param resource
-   * @throws IllegalArgumentException if the given resource is null.
+   * @throws IllegalArgumentException if the given resource is null
    * @throws IllegalArgumentException if the given resource is blank.
    */
   private ChangedResourceException(final String resource) {
@@ -27,7 +27,7 @@ public final class ChangedResourceException extends RuntimeException {
   /**
    * @param resource
    * @return a new {@link ChangedResourceException} for the given resource.
-   * @throws IllegalArgumentException if the given resource is null.
+   * @throws IllegalArgumentException if the given resource is null
    * @throws IllegalArgumentException if the given resource is blank.
    */
   public static ChangedResourceException forResource(final String resource) {
@@ -37,7 +37,7 @@ public final class ChangedResourceException extends RuntimeException {
   /**
    * @param resource
    * @return a valid resource for the given resource.
-   * @throws IllegalArgumentException if the given resource is null.
+   * @throws IllegalArgumentException if the given resource is null
    * @throws IllegalArgumentException if the given resource is blank.
    */
   private static String validateAndGetResource(final String resource) {

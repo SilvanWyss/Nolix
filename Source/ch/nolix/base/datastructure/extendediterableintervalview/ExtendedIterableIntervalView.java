@@ -34,7 +34,7 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
    * @param extendedIterable
    * @param startIndex
    * @param endIndex
-   * @throws RuntimeException if the given extendedIterable is null.
+   * @throws RuntimeException if the given extendedIterable is null
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
    * @throws RuntimeException if the given endIndex is smaller than the given
@@ -73,7 +73,7 @@ public final class ExtendedIterableIntervalView<E> extends AbstractExtendedItera
    *                         {@link ExtendedIterableIntervalView}.
    * @return a new {@link ExtendedIterableIntervalView} with the given
    *         extendedIterable, startIndex and endIndex.
-   * @throws RuntimeException if the given extendedIterable is null.
+   * @throws RuntimeException if the given extendedIterable is null
    * @throws RuntimeException if the given startIndex is not positive.
    * @throws RuntimeException if the given endIndex is not positive.
    * @throws RuntimeException if the given endIndex is smaller than the given

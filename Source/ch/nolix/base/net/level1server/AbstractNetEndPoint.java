@@ -26,7 +26,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Creates a new {@link AbstractNetEndPoint} with the given targetInfoState.
    * 
    * @param targetInfoState
-   * @throws RuntimeException if the given connectionOrigin is null.
+   * @throws RuntimeException if the given connectionOrigin is null
    * @throws RuntimeException if the given targetInfoState is null.
    */
   AbstractNetEndPoint(final TargetInfoState targetInfoState) {
@@ -42,8 +42,8 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Creates a new {@link AbstractNetEndPoint} with the given target.
    * 
    * @param target
-   * @throws RuntimeException if the given connectionOrigin is null.
-   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException if the given connectionOrigin is null
+   * @throws RuntimeException if the given target is null
    * @throws RuntimeException if the given target is blank.
    */
   AbstractNetEndPoint(final String target) {

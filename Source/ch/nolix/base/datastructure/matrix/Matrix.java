@@ -73,8 +73,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws RuntimeException         if the given elements is null.
-   * @throws RuntimeException         if one of the given elements is null.
+   * @throws RuntimeException         if the given elements is null
+   * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
    *                                  or not as many elements are given as the
    *                                  number of rows of the current
@@ -96,8 +96,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws RuntimeException         if the given elements is null.
-   * @throws RuntimeException         if one of the given elements is null.
+   * @throws RuntimeException         if the given elements is null
+   * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException if the current {@link Matrix} is not empty
    *                                  and if not as many elements are given as the
    *                                  number of rows of the current
@@ -156,8 +156,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws RuntimeException         if the given elements is null.
-   * @throws RuntimeException         if one of the given elements is null.
+   * @throws RuntimeException         if the given elements is null
+   * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException the current {@link Matrix} is not empty and
    *                                  if not as many elements are given as the
    *                                  number of columns of the current
@@ -179,8 +179,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * 
    * @param elements
    * @return the current {@link Matrix}.
-   * @throws RuntimeException         if the given elements is null.
-   * @throws RuntimeException         if one of the given elements is null.
+   * @throws RuntimeException         if the given elements is null
+   * @throws RuntimeException         if one of the given elements is null
    * @throws UnequalArgumentException the current {@link Matrix} is not empty and
    *                                  if not as many elements are given as the
    *                                  number of columns of the current

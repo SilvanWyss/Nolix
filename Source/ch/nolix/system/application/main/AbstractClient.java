@@ -141,7 +141,7 @@ public abstract class AbstractClient<C extends AbstractClient<C>> implements ICl
    * Sets the {@link AbstractEndPoint} of the current {@link AbstractClient}.
    * 
    * @param endPoint
-   * @throws RuntimeException if the given endPoint is null.
+   * @throws RuntimeException if the given endPoint is null
    * @throws RuntimeException if the current {@link AbstractClient} is already
    *                          connected.
    */

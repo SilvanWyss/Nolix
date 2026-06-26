@@ -38,7 +38,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * 
    * @param parentMatrix
    * @param oneBasedStartIndex
-   * @throws RuntimeException if the given parentMatrix is null.
+   * @throws RuntimeException if the given parentMatrix is null
    * @throws RuntimeException if the given oneBasedStartIndex is bigger than the
    *                          element count of the given parentMatrix.
    */

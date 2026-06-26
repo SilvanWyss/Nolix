@@ -30,7 +30,7 @@ public final class ValueProxy implements IValueProxy {
    * @param valueSpecificationConsumer
    * @param valueSpecificationSupplier
    * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given valueSpecificationConsumer is null.
+   * @throws RuntimeException if the given valueSpecificationConsumer is null
    * @throws RuntimeException if the given valueSpecificationSupplier is null.
    */
   private ValueProxy(
@@ -53,7 +53,7 @@ public final class ValueProxy implements IValueProxy {
    * @return a new {@link ValueProxy} with the given name,
    *         valueSpecificationConsumer and valueSpecificationSupplier.
    * @throws RuntimeException if the given name is null or blank.
-   * @throws RuntimeException if the given valueSpecificationConsumer is null.
+   * @throws RuntimeException if the given valueSpecificationConsumer is null
    * @throws RuntimeException if the given valueSpecificationSupplier is null.
    */
   public static ValueProxy withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(

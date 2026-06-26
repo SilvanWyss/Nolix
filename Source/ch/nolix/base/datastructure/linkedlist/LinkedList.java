@@ -57,7 +57,7 @@ implements ILinkedList<E> {
    * @param array
    * @param <T>   is the type of the elements of the given array.
    * @return a new {@link LinkedList} with the elements in the given array.
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    * @throws RuntimeException if one of the elements in the given array is null.
    */
   public static <T> LinkedList<T> fromArray(final T[] array) {
@@ -73,7 +73,7 @@ implements ILinkedList<E> {
    * @param container
    * @param <T>       is the type of the elements of the given container.
    * @return a new {@link LinkedList} with the elements in the given container.
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    * @throws RuntimeException if one of the elements in the given container is
    *                          null.
    */
@@ -735,7 +735,7 @@ implements ILinkedList<E> {
    * Removes the next node of the given node.
    * 
    * @param node
-   * @throws RuntimeException                      if the given node is null.
+   * @throws RuntimeException                      if the given node is null
    * @throws ArgumentDoesNotHaveAttributeException if the given node does not have
    *                                               a next node.
    */

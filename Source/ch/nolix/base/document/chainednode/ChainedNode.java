@@ -142,7 +142,7 @@ implements IChainedNode {
   /**
    * @param nodes
    * @return a new {@link ChainedNode} with the childNodes
-   * @throws RuntimeException if the given nodes is null.
+   * @throws RuntimeException if the given nodes is null
    * @throws RuntimeException if one of the given nodes is null.
    */
   public static ChainedNode withChildNodes(final INode<?>... nodes) {
@@ -170,7 +170,7 @@ implements IChainedNode {
   /**
    * @param header
    * @return a new {@link ChainedNode} with the given header.
-   * @throws RuntimeException if the given header is null.
+   * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank.
    */
   public static ChainedNode withHeader(final String header) {
@@ -202,7 +202,7 @@ implements IChainedNode {
    * @return a new {@link ChainedNode} with the given header and childNodes.
    * @throws RuntimeException if the given header is null or blank.
    * @throws RuntimeException if the given header is blank.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ChainedNode withHeaderAndChildNodes(final String header, final IChainedNode... childNodes) {
@@ -234,7 +234,7 @@ implements IChainedNode {
    * @param header
    * @param attributes
    * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws RuntimeException if the given header is null.
+   * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank.
    * @throws RuntimeException if one of the given attribute is null.
    */
@@ -253,7 +253,7 @@ implements IChainedNode {
    * @param childNodes
    * @return a new {@link ChainedNode} with the given header and childNodes.
    * @throws RuntimeException if the given header is null or blank.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ChainedNode withHeaderAndChildNodes(final String header, final INode<?>... childNodes) {
@@ -271,7 +271,7 @@ implements IChainedNode {
    * @param header
    * @param attributes
    * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws RuntimeException if the given header is null.
+   * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank.
    * @throws RuntimeException if one of the given attributes is null.
    */
@@ -289,7 +289,7 @@ implements IChainedNode {
    * @param header
    * @param nextNode
    * @return a new {@link ChainedNode} with the given header and nextNode.
-   * @throws RuntimeException if the given header is null.
+   * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank.
    * @throws RuntimeException if the given nextNode is null.
    */
@@ -545,7 +545,7 @@ implements IChainedNode {
    * Adds the given childNodes to the current {@link ChainedNode}.
    * 
    * @param childNodes
-   * @throws RuntimeException the given childNodes is null.
+   * @throws RuntimeException the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   private void addChildNodes(final IChainedNode... childNodes) {
@@ -560,7 +560,7 @@ implements IChainedNode {
    * Adds the given childNodes to the current {@link ChainedNode}.
    * 
    * @param childNodes
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   private void addChildNodes(final INode<?>... childNodes) {
@@ -734,7 +734,7 @@ implements IChainedNode {
    * Sets the header of the current {@link ChainedNode}.
    * 
    * @param header
-   * @throws RuntimeException if the given header is null.
+   * @throws RuntimeException if the given header is null
    * @throws RuntimeException if the given header is blank.
    */
   private void setHeader(final String header) {

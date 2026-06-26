@@ -33,7 +33,7 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    * 
    * @param container
    * @param mapper
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given mapper is null.
    */
   private ExtendedIterableMapperView(final ExtendedIterable<E> container, final Function<E, T> mapper) {
@@ -52,7 +52,7 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    *                  {@link ExtendedIterableMapperView} maps from its elements.
    * @return a new {@link ExtendedIterableMapperView} with the given container and
    *         mapper.
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    * @throws RuntimeException if the given mapper is null.
    */
   public static <T, T2> ExtendedIterableMapperView<T, T2> forContainerAndMapper(

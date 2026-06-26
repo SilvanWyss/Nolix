@@ -26,7 +26,7 @@ public interface IDatabaseInitializerTool {
    * @param schemaTimestamp
    * @param sqlConnection
    * @param databaseName
-   * @throws RuntimeException if the given schemaTimestamp is null.
+   * @throws RuntimeException if the given schemaTimestamp is null
    * @throws RuntimeException if the given sqlConnection is null or closed.
    * @throws RuntimeException if the given databaseName is null or blank.
    */

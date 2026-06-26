@@ -69,8 +69,8 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @param side2Thickness
    * @param blurRadius
    * @param color
-   * @throws RuntimeException if the given corner is null.
-   * @throws RuntimeException if the given location is null.
+   * @throws RuntimeException if the given corner is null
+   * @throws RuntimeException if the given location is null
    * @throws RuntimeException if the given side1Thickness is negative.
    * @throws RuntimeException if the given side2Thickness is negative.
    * @throws RuntimeException if the given blurRadius is negative.
@@ -184,8 +184,8 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @param color
    * @return a new {@link CornerShadow} with the given corner, location,
    *         side1Thickness, side2Thickness, blurRadius and color.
-   * @throws RuntimeException if the given corner is null.
-   * @throws RuntimeException if the given location is null.
+   * @throws RuntimeException if the given corner is null
+   * @throws RuntimeException if the given location is null
    * @throws RuntimeException if the given side1Thickness is negative.
    * @throws RuntimeException if the given side2Thickness is negative.
    * @throws RuntimeException if the given blurRadius is negative.

@@ -11,14 +11,14 @@ import ch.nolix.systemapi.webgui.main.ILayer;
 public interface ILayerValidator {
   /**
    * @param layer
-   * @throws RuntimeException if the given layer is null.
+   * @throws RuntimeException if the given layer is null
    * @throws RuntimeException if the given layer does not belong to a GUI.
    */
   void assertBelongsToGui(ILayer layer);
 
   /**
    * @param layer
-   * @throws RuntimeException if the given layer is null.
+   * @throws RuntimeException if the given layer is null
    * @throws RuntimeException if the given layer belongs to a GUI.
    */
   void assertDoesNotBelongToGui(ILayer layer);

@@ -40,7 +40,7 @@ public final class Polynom {
    * Creates a new {@link Polynom} with the given coefficientArray.
    * 
    * @param coefficientArray
-   * @throws RuntimeException if the given coefficients is null.
+   * @throws RuntimeException if the given coefficients is null
    * @throws RuntimeException if the highest of the given coefficients is 0.0.
    */
   private Polynom(final double[] coefficientArray) {

@@ -259,7 +259,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * Saves the current {@link AbstractNode} to the file with the given file path.
    * 
    * @param path
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank.
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
@@ -274,7 +274,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * 
    * @param path
    * @param writeMode
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank.
    * @throws RuntimeException if the given writeMode
    *                          flag={@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}

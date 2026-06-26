@@ -23,7 +23,7 @@ public final class LicenseManager {
    * Adds the given license to the {@link LicenseManager}.
    * 
    * @param license
-   * @throws RuntimeException if the given license is null.
+   * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the {@link LicenseManager} contains already a
    *                          {@link License} of the type the given license is.
    */
@@ -37,7 +37,7 @@ public final class LicenseManager {
    * 
    * @param licenseType
    * @param <L>         is the given licenseType.
-   * @throws RuntimeException if the given licenseType is null.
+   * @throws RuntimeException if the given licenseType is null
    * @throws RuntimeException if if there was not found a file with the key for a
    *                          License of the given licenseType.
    * @throws RuntimeException if the given licenseType does not contain a

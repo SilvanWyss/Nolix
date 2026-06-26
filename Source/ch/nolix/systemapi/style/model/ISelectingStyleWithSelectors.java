@@ -76,7 +76,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRoles.
-   * @throws RuntimeException if the given additionalSelectorRoles is null.
+   * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null.
    */
   ISelectingStyleWithSelectors withAdditionalSelectorRoles(Enum<?>... additionalSelectorRoles);
@@ -86,7 +86,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRoles.
-   * @throws RuntimeException if the given additionalSelectorRoles is null.
+   * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.
    */
@@ -97,7 +97,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRoles .
-   * @throws RuntimeException if the given additionalSelectorRoles is null.
+   * @throws RuntimeException if the given additionalSelectorRoles is null
    * @throws RuntimeException if one of the given additionalSelectorRoles is null
    *                          or blank.
    */
@@ -118,7 +118,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorTokens.
-   * @throws RuntimeException if the given additionalSelectorTokens is null.
+   * @throws RuntimeException if the given additionalSelectorTokens is null
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
    *                          or blank.
    */
@@ -129,7 +129,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorTokens.
-   * @throws RuntimeException if the given additionalSelectorTokens is null.
+   * @throws RuntimeException if the given additionalSelectorTokens is null
    * @throws RuntimeException if one of the given additionalSelectorTokens is null
    *                          or blank.
    */

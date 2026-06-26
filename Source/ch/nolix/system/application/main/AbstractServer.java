@@ -52,7 +52,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param application
    * @param nameAddendum
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException if the given application is null.
+   * @throws RuntimeException if the given application is null
    * @throws RuntimeException if the given application belongs already to a
    *                          {@link AbstractServer}.
    * @throws RuntimeException if the given instanceName is null
@@ -84,7 +84,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                            of the given initialSessionClass.
    * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException if the given instanceName is null.
+   * @throws RuntimeException if the given instanceName is null
    * @throws RuntimeException if the given instanceName is blank.
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with the given
@@ -116,7 +116,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param <C>                 is the type of the {@link AbstractBackendClient}
    *                            of the given initialSessionClass.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with an instanceName
@@ -175,7 +175,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    *                            of the given initialSessionClass.
    * @param <U>                 is the type of the given applicationService.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException if the given instanceName is null.
+   * @throws RuntimeException if the given instanceName is null
    * @throws RuntimeException if the given instanceName is blank.
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a default {@link Application}.
@@ -210,7 +210,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param <C>                 is the type of the {@link AbstractBackendClient}
    *                            of the given initialSessionClass.
    * @return the current {@link AbstractServer}.
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with an instanceName

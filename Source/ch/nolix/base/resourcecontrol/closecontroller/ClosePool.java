@@ -75,7 +75,7 @@ final class ClosePool implements IClosePool {
    * Adds the given element to the current {@link ClosePool}.
    * 
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    * @throws RuntimeException if the current {@link ClosePool} contains already
    *                          the given element.
    */

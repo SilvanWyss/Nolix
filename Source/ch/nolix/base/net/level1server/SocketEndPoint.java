@@ -67,7 +67,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param port
    * @param slot
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given slot is null.
+   * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
   private SocketEndPoint(final String host, final int port, final String slot) {
@@ -97,8 +97,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socket
    * @param socketInputStream
    * @param socketOutputStream
-   * @throws RuntimeException if the given socket is null.
-   * @throws RuntimeException if the given socketInputStream is null.
+   * @throws RuntimeException if the given socket is null
+   * @throws RuntimeException if the given socketInputStream is null
    * @throws RuntimeException if the given socketOutputStream is null.
    */
   private SocketEndPoint(
@@ -128,10 +128,10 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @param socketInputStream
    * @param socketOutputStream
    * @param target
-   * @throws RuntimeException if the given socket is null.
-   * @throws RuntimeException if the given socketInputStream is null.
-   * @throws RuntimeException if the given socketOutputStream is null.
-   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException if the given socket is null
+   * @throws RuntimeException if the given socketInputStream is null
+   * @throws RuntimeException if the given socketOutputStream is null
+   * @throws RuntimeException if the given target is null
    * @throws RuntimeException if the given target is blank.
    */
   private SocketEndPoint(
@@ -171,7 +171,7 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @return a new {@link SocketEndPoint} that will connect to the given slot on
    *         the given port on the given host.
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given slot is null.
+   * @throws RuntimeException if the given slot is null
    * @throws RuntimeException if the given slot is blank.
    */
   public static SocketEndPoint toGivenHostAndGivenPortAndGivenSlot(
@@ -220,8 +220,8 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @return a new {@link AbstractNetEndPoint} with the given socket. The given
    *         socketInputStream and the given socketOutputStream belong to the
    *         given socket.
-   * @throws RuntimeException if the given socket is null.
-   * @throws RuntimeException if the given socketInputStream is null.
+   * @throws RuntimeException if the given socket is null
+   * @throws RuntimeException if the given socketInputStream is null
    * @throws RuntimeException if the given socketOutputStream is null.
    */
   public static SocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStream(
@@ -239,10 +239,10 @@ public final class SocketEndPoint extends AbstractNetEndPoint {
    * @return a new {@link AbstractNetEndPoint} with the given socket and target.
    *         The given socketInputStream and the given socketOutputStream belong
    *         to the given socket.
-   * @throws RuntimeException if the given socket is null.
-   * @throws RuntimeException if the given socketInputStream is null.
-   * @throws RuntimeException if the given socketOutputStream is null.
-   * @throws RuntimeException if the given target is null.
+   * @throws RuntimeException if the given socket is null
+   * @throws RuntimeException if the given socketInputStream is null
+   * @throws RuntimeException if the given socketOutputStream is null
+   * @throws RuntimeException if the given target is null
    * @throws RuntimeException if the given target is blank.
    */
   public static SocketEndPoint withSocketAndSocketInputStreamAndSocketOutputStreamAndTarget(

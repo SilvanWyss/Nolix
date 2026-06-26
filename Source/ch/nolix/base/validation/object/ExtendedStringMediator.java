@@ -40,7 +40,7 @@ public final class ExtendedStringMediator extends StringMediator {
    * @param argumentName
    * @return a new string mediator for the argument of this extended string
    *         mediator with the given argument name.
-   * @throws RuntimeException if the given argument name is null.
+   * @throws RuntimeException if the given argument name is null
    * @throws RuntimeException if the given argument name is empty.
    */
   public StringMediator thatIsNamed(final String argumentName) {

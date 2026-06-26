@@ -26,7 +26,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * 
    * @param valueCreator
    * @param needToUpdateSupplier
-   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given valueCreator is null
    * @throws RuntimeException if the given needToUpdateSupplier is null.
    */
   private LazyCalculatedProperty(final Supplier<V> valueCreator, final BooleanSupplier needToUpdateSupplier) {
@@ -44,7 +44,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    *                             {@link LazyCalculatedProperty}.
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator and
    *         needToUpdateSupplier.
-   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given valueCreator is null
    * @throws RuntimeException if the given needToUpdateSupplier is null.
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreaterAndNeedToUpdateSupplier(

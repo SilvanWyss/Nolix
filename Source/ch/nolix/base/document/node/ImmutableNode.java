@@ -33,7 +33,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * Creates a new {@link ImmutableNode} with the given childNodes.
    * 
    * @param childNodes
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   private ImmutableNode(final ExtendedIterable<ImmutableNode> childNodes) {
@@ -60,7 +60,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @param header
    * @param childNodes
    * @throws RuntimeException if the given header is null or blank.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   private ImmutableNode(final String header, final ExtendedIterable<ImmutableNode> childNodes) {
@@ -178,7 +178,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param childNodes
    * @return a new {@link ImmutableNode} with the given childNodes.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withChildNodes(final INode<?>... childNodes) {
@@ -190,7 +190,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param childNodes
    * @return a new {@link ImmutableNode} with the given childNodes.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withChildNodes(final Iterable<? extends INode<?>> childNodes) {
@@ -202,7 +202,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param childNodes
    * @return a new {@link ImmutableNode} with the given childNodes.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes does not represent a
    *                          {@link ImmutableNode}.
    */
@@ -324,7 +324,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @param childNodes
    * @return a new {@link ImmutableNode} with the given header and childNodes.
    * @throws RuntimeException if the given header is null or blank.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header, final INode<?>... childNodes) {
@@ -338,7 +338,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @param childNodes
    * @return a new {@link ImmutableNode} with the given header and childNodes.
    * @throws RuntimeException if the given header is null or blank.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes is null.
    */
   public static ImmutableNode withHeaderAndChildNodes(final String header,
@@ -353,7 +353,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @param childNodes
    * @return a new {@link ImmutableNode} with the given header and childNodes.
    * @throws RuntimeException if the given header is null or blank.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    * @throws RuntimeException if one of the given childNodes does not represent a
    *                          {@link ImmutableNode}.
    */

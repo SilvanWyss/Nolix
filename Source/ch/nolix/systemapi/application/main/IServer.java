@@ -20,7 +20,7 @@ extends Clearable, GroupCloseable, ApplicationManager<IApplication<?, ?>>, ISecu
    * 
    * @param application
    * @return the current {@link IServer}.
-   * @throws RuntimeException if the given application is null.
+   * @throws RuntimeException if the given application is null
    * @throws RuntimeException if the current {@link IServer} contains already a
    *                          {@link IApplication} with the same instanceName as
    *                          the given application.

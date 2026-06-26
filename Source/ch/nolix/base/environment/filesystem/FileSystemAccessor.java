@@ -75,7 +75,7 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @return a new {@link FileAccessor} to the created file.
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is empty.
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
@@ -91,7 +91,7 @@ public final class FileSystemAccessor {
    * @param path
    * @param writeMode
    * @return a new {@link FileAccessor} to the created file.
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank.
    * @throws RuntimeException if the given writeMode flag =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
@@ -134,7 +134,7 @@ public final class FileSystemAccessor {
    * @param writeMode
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank.
    * @throws RuntimeException if the given writeMode =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
@@ -157,7 +157,7 @@ public final class FileSystemAccessor {
    * @param writeMode
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank.
    * @throws RuntimeException if the given writeMode =
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
@@ -179,7 +179,7 @@ public final class FileSystemAccessor {
    * @param path
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is empty.
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.
@@ -198,7 +198,7 @@ public final class FileSystemAccessor {
    * @param path
    * @param content
    * @return a new {@link FileAccessor} to the created file.
-   * @throws RuntimeException if the given path is null.
+   * @throws RuntimeException if the given path is null
    * @throws RuntimeException if the given path is blank.
    * @throws RuntimeException if there exists already a file system item with the
    *                          given path.

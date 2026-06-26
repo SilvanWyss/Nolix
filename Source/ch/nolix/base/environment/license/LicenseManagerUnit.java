@@ -35,7 +35,7 @@ public final class LicenseManagerUnit {
    * @param licenseType
    * @param <L>         is the given licenseType.
    * @return the current {@link LicenseManagerUnit}.
-   * @throws RuntimeException if the given licenseType is null.
+   * @throws RuntimeException if the given licenseType is null
    * @throws RuntimeException if if there was not found a file with the key for a
    *                          License of the given licenseType.
    * @throws RuntimeException if the given licenseType does not contain a
@@ -61,7 +61,7 @@ public final class LicenseManagerUnit {
    * 
    * @param license
    * @return the current {@link LicenseManagerUnit}.
-   * @throws RuntimeException if the given license is null.
+   * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the given license is not activated.
    * @throws RuntimeException if the current {@link LicenseManagerUnit} contains
    *                          already a {@link License} of the type the given

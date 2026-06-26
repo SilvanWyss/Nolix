@@ -71,7 +71,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @param port
    * @param name
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the current {@link AbstractFrontendClient} is
    *                          already connected.
@@ -86,7 +86,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * 
    * @param server
    * @param instanceName
-   * @throws RuntimeException if the given instanceName is null.
+   * @throws RuntimeException if the given instanceName is null
    * @throws RuntimeException if the given instanceName is blank.
    * @throws RuntimeException if the current {@link AbstractFrontendClient} is
    *                          already connected.
@@ -134,7 +134,7 @@ public abstract class AbstractFrontendClient<C extends AbstractFrontendClient<C>
    * @param port
    * @param name
    * @throws RuntimeException if the given port is not in [0, 65535].
-   * @throws RuntimeException if the given name is null.
+   * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank.
    * @throws RuntimeException if the current {@link AbstractFrontendClient} is
    *                          already connected.

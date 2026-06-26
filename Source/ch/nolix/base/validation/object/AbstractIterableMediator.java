@@ -271,7 +271,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   /**
    * @param array
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    * @throws RuntimeException if the argument of this container mediator contains
    *                          less or more elements than the given array.
    */
@@ -285,7 +285,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   /**
    * @throws RuntimeException          if the argument of this container mediator
-   *                                   is null.
+   *                                   is null
    * @throws NonEmptyArgumentException if the argument of this container mediator
    *                                   is empty.
    */
@@ -298,7 +298,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
   }
 
   /**
-   * @throws RuntimeException if the argument of this container mediator is null.
+   * @throws RuntimeException if the argument of this container mediator is null
    * @throws RuntimeException if the argument of this container mediator is empty.
    */
   public void isNotEmpty() {

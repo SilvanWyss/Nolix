@@ -46,7 +46,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * Creates a new {@link ImmutableList} with the given elements.
    * 
    * @param elements
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    * @throws RuntimeException if one of the given elements is null.
    */
   private ImmutableList(final E[] elements) {
@@ -60,7 +60,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * Creates a new {@link ImmutableList} with the given elements.
    * 
    * @param elements
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    * @throws RuntimeException if one of the given elements is null.
    */
   @SuppressWarnings("unchecked")
@@ -115,7 +115,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param <T>
    * @param iterable
    * @return a new {@link ImmutableList} with the elements of the given iterable.
-   * @throws RuntimeException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null
    * @throws RuntimeException if one of the elements of the given iterable is
    *                          null.
    */
@@ -132,7 +132,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param stream
    * @param <T>    is the type of the elements of the given stream.
    * @return a new {@link ImmutableList} with the elements from the given stream.
-   * @throws RuntimeException if the given stream is null.
+   * @throws RuntimeException if the given stream is null
    * @throws RuntimeException if one of the elements of the given stream is null.
    */
   public static <T> ImmutableList<T> fromStream(final Stream<T> stream) {
@@ -155,7 +155,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param elements
    * @param <T>      is the type of the given elements.
    * @return a new {@link ImmutableList} with the given elements.
-   * @throws RuntimeException if the given elements is null.
+   * @throws RuntimeException if the given elements is null
    * @throws RuntimeException if one of the given elements is null.
    */
   @SafeVarargs

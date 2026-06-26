@@ -17,7 +17,7 @@ public interface Mappable<E> {
    *               elements of the current {@link Mappable}.
    * @return a new {@link ExtendedIterable} with the elements the given mapper maps from
    *         the elements of the current {@link Mappable}.
-   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper is null
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
@@ -31,7 +31,7 @@ public interface Mappable<E> {
    * @return a new {@link ExtendedIterable} with the elements of the {@link ExtendedIterable}s
    *         the given multipleMapper maps from the elements of the current
    *         {@link Mappable}.
-   * @throws RuntimeException if the given multipleMapper is null.
+   * @throws RuntimeException if the given multipleMapper is null
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
@@ -62,7 +62,7 @@ public interface Mappable<E> {
    * @return a new {@link ExtendedIterable} with the elements the given mapper maps from
    *         the elements of the current {@link Mappable} and from the one-based
    *         index of these elements.
-   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper is null
    * @throws RuntimeException if one of the elements of the current
    *                          {@link Mappable} is null.
    */
