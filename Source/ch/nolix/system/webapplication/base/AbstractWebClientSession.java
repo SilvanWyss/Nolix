@@ -10,9 +10,9 @@ import ch.nolix.systemapi.gui.frontend.IFrontEndWriter;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link AbstractWebClient} of a
+ * @param <C> the type of the {@link AbstractWebClient} of a
  *            {@link AbstractWebClientSession}.
- * @param <S> is the type of the application service of the {@link IApplication}
+ * @param <S> the type of the application service of the {@link IApplication}
  *            of the {@link AbstractWebClient} of a
  *            {@link AbstractWebClientSession}.
  */

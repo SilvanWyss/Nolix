@@ -37,7 +37,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link AbstractExtendedIterable}.
+ * @param <E> the type of the elements of a {@link AbstractExtendedIterable}.
  */
 public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
 implements ExtendedIterable<E> {

@@ -11,7 +11,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link LinkedListIterator}.
+ * @param <E> the type of the elements of a {@link LinkedListIterator}.
  */
 final class LinkedListIterator<E> implements CopyableIterator<E> {
   private LinkedListNode<E> nextNode;

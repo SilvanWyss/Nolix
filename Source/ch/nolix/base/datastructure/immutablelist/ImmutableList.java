@@ -22,7 +22,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
  * A {@link ImmutableList} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ImmutableList}.
+ * @param <E> the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
   private static final ImmutableList<Object> EMPTY = new ImmutableList<>(new Object[0]);
@@ -99,7 +99,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
 
   /**
    * @return a new empty {@link ImmutableList}.
-   * @param <T> is the type of the elements the {@link ImmutableList} would have.
+   * @param <T> the type of the elements the {@link ImmutableList} would have.
    */
   @SuppressWarnings("unchecked")
   public static <T> ImmutableList<T> createEmpty() {

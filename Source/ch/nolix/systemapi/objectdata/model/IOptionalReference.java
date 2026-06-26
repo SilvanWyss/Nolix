@@ -7,7 +7,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity} a {@link IOptionalReference}
+ * @param <E> the type of the {@link IEntity} a {@link IOptionalReference}
  *            can reference.
  */
 public interface IOptionalReference<E extends IEntity> extends Clearable, IBaseReference {

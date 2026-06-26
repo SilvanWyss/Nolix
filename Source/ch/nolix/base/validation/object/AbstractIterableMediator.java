@@ -21,7 +21,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCata
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the argument of a
+ * @param <E> the type of the elements of the argument of a
  *            {@link AbstractIterableMediator}.
  */
 public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator<Iterable<E>> {

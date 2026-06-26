@@ -12,9 +12,9 @@ import ch.nolix.baseapi.resourcecontrol.resourcepool.IResourcePool;
 
 /**
  * @author Silvan Wyss
- * @param <W> is the type of the {@link AbstractWrapperResource}s of a
+ * @param <W> the type of the {@link AbstractWrapperResource}s of a
  *            {@link AbstractResourcePool}.
- * @param <R> is the type of the resource of the
+ * @param <R> the type of the resource of the
  *            {@link AbstractWrapperResource}s of a
  *            {@link AbstractResourcePool}.
  */

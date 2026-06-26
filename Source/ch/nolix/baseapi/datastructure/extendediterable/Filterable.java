@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements a {@link Filterable}.
+ * @param <E> the type of the elements a {@link Filterable}.
  */
 public interface Filterable<E> {
   /**

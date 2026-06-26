@@ -24,9 +24,9 @@ import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link AbstractBackendClient}s of a
+ * @param <C> the type of the {@link AbstractBackendClient}s of a
  *            {@link Application}.
- * @param <S> is the type of the application service of a {@link Application}.
+ * @param <S> the type of the application service of a {@link Application}.
  */
 public abstract class Application //NOSONAR: An application class is expected to be abstract.
 <C extends AbstractBackendClient<C, S>, S>

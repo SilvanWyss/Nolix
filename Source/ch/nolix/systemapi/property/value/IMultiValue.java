@@ -8,7 +8,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values of a {@link IValue}.
+ * @param <V> the type of the values of a {@link IValue}.
  */
 public interface IMultiValue<V> extends Clearable, IBaseValue {
   /**

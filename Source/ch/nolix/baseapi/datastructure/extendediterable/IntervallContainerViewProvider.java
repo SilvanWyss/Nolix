@@ -5,7 +5,7 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
+ * @param <E> the type of the elements of a
  *            {@link IntervallContainerViewProvider}.
  */
 public interface IntervallContainerViewProvider<E> {

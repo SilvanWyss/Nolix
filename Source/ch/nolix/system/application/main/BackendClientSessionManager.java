@@ -12,9 +12,9 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the parent {@link AbstractBackendClient} of a
+ * @param <C> the type of the parent {@link AbstractBackendClient} of a
  *            {@link BackendClientSessionManager}.
- * @param <S> is the type of the application service of the parent
+ * @param <S> the type of the application service of the parent
  *            {@link Application} of the parent {@link AbstractBackendClient} of
  *            a {@link BackendClientSessionManager}.
  */

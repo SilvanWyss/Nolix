@@ -12,7 +12,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link MatrixIterator}.
+ * @param <E> the type of the elements of a {@link MatrixIterator}.
  */
 public final class MatrixIterator<E> implements CopyableIterator<E> {
   private final Matrix<E> parentMatrix;

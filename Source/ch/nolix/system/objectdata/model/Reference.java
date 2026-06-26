@@ -26,7 +26,7 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity} a {@link Reference} references.
+ * @param <E> the type of the {@link IEntity} a {@link Reference} references.
  */
 public final class Reference<E extends IEntity> extends AbstractBaseReference<E> implements IReference<E> {
   private static final DatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();

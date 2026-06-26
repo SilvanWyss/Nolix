@@ -24,7 +24,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiReferenceEntry;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity}s a {@link MultiReference} can
+ * @param <E> the type of the {@link IEntity}s a {@link MultiReference} can
  *            reference.
  */
 public final class MultiReference<E extends IEntity> extends AbstractBaseReference<E> implements IMultiReference<E> {

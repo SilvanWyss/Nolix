@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
+ * @param <E> the type of the elements of a
  *            {@link MappingContainerViewProvider}.
  */
 public interface MappingContainerViewProvider<E> {

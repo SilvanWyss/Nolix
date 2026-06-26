@@ -18,7 +18,7 @@ import ch.nolix.baseapi.datastructure.sequencesearch.ISequencePattern;
  * A {@link SequencePattern} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the sequences of a
+ * @param <E> the type of the elements of the sequences of a
  *            {@link SequencePattern}.
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {

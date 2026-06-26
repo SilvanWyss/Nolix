@@ -16,7 +16,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ArrayList}.
+ * @param <E> the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedIterable<E> implements IArrayList<E> {
   private int memberElementCount;
@@ -32,7 +32,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
 
   /**
    * @return a new empty {@link ArrayList}.
-   * @param <T> is the type of the elements of the {@link ArrayList}.
+   * @param <T> the type of the elements of the {@link ArrayList}.
    */
   public static <T> ArrayList<T> createEmpty() {
     return new ArrayList<>();

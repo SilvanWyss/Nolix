@@ -13,7 +13,7 @@ import ch.nolix.baseapi.programcontrol.process.IUpdaterCollector;
 
 /**
  * @author Silvan Wyss
- * @param <O> is the type of the {@link Object}s the updaters of a
+ * @param <O> the type of the {@link Object}s the updaters of a
  *            {@link UpdaterCollector} can mutate.
  */
 public final class UpdaterCollector<O> implements IUpdaterCollector<O> {

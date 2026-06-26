@@ -23,7 +23,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 /**
  * @author Silvan Wyss
  * @param <M> is the type of a {@link AbstractItemMenu}.
- * @param <S> is the type of the {@link IItemMenuStyle}s of a
+ * @param <S> the type of the {@link IItemMenuStyle}s of a
  *            {@link AbstractItemMenu}.
  */
 public abstract class AbstractItemMenu //NOSONAR: A AbstractItemMenu is a principal object thus it has many methods.

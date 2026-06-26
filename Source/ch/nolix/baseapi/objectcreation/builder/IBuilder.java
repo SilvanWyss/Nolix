@@ -7,7 +7,7 @@ package ch.nolix.baseapi.objectcreation.builder;
  * A {@link IBuilder} can build {@link Object}s.
  * 
  * @author Silvan Wyss
- * @param <O> is the type of the {@link Object}s a {@link IBuilder} can build.
+ * @param <O> the type of the {@link Object}s a {@link IBuilder} can build.
  */
 public interface IBuilder<O> {
   /**

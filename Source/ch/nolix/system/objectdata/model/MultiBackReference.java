@@ -24,7 +24,7 @@ import ch.nolix.systemapi.objectdata.model.IMultiBackReferenceEntry;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity}s a {@link MultiBackReference}
+ * @param <E> the type of the {@link IEntity}s a {@link MultiBackReference}
  *            can reference back.
  */
 public final class MultiBackReference<E extends IEntity>

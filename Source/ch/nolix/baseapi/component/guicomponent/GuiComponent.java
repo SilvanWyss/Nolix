@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.guicomponent;
  * A {@link GuiComponent} can belong to a GUI.
  * 
  * @author Silvan Wyss
- * @param <G> is the type of the GUI a {@link GuiComponent} can belong to.
+ * @param <G> the type of the GUI a {@link GuiComponent} can belong to.
  */
 public interface GuiComponent<G> {
   /**

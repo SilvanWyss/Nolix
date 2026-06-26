@@ -5,7 +5,7 @@ package ch.nolix.systemapi.property.value;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link IValue}.
+ * @param <V> the type of the value of a {@link IValue}.
  */
 public interface IValue<V> extends IBaseValue {
   /**

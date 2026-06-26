@@ -8,7 +8,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of the {@link Enum} representation of a {@link State}.
+ * @param <S> the type of the {@link Enum} representation of a {@link State}.
  */
 public final class State<S extends Enum<S>> {
   private final String qualifyingPrefix;

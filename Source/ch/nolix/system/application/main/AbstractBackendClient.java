@@ -13,7 +13,7 @@ import ch.nolix.systemapi.application.main.IApplication;
 /**
  * @author Silvan Wyss
  * @param <C> is the type of a {@link AbstractBackendClient}.
- * @param <S> is the type of the application service of the {@link IApplication}
+ * @param <S> the type of the application service of the {@link IApplication}
  *            of a {@link AbstractBackendClient}.
  */
 public abstract class AbstractBackendClient<C extends AbstractBackendClient<C, S>, S>

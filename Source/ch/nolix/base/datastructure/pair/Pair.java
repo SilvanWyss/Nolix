@@ -10,8 +10,8 @@ import ch.nolix.baseapi.datastructure.pair.IPair;
  * A {@link Pair} contains 2 elements. A {@link Pair} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <E1> is the type of the element 1 of a {@link Pair}.
- * @param <E2> is the type of the element 2 of a {@link Pair}.
+ * @param <E1> the type of the element 1 of a {@link Pair}.
+ * @param <E2> the type of the element 2 of a {@link Pair}.
  */
 public final class Pair<E1, E2> implements IPair<E1, E2> {
   private final E1 element1;

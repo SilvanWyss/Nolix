@@ -19,10 +19,10 @@ import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of the state of the
+ * @param <S> the type of the state of the
  *            {@link AbstractMultiStateConfiguration} of a
  *            {@link AbstractMaterializedProperty}.
- * @param <V> is the type of the values of a
+ * @param <V> the type of the values of a
  *            {@link AbstractMaterializedProperty}.
  */
 public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {

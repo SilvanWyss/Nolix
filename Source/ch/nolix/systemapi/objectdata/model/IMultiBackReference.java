@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity}s a {@link IMultiBackReference}
+ * @param <E> the type of the {@link IEntity}s a {@link IMultiBackReference}
  *            can reference back.
  */
 public interface IMultiBackReference<E extends IEntity> extends IBaseBackReference, Iterable<E> {

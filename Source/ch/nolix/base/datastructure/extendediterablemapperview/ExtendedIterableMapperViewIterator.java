@@ -11,9 +11,9 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
+ * @param <E> the type of the elements of a
  *            {@link ExtendedIterableMapperViewIterator}.
- * @param <T> is the type of the elements a {@link ExtendedIterableMapperViewIterator}
+ * @param <T> the type of the elements a {@link ExtendedIterableMapperViewIterator}
  *            maps from its elements.
  */
 public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableIterator<T> {

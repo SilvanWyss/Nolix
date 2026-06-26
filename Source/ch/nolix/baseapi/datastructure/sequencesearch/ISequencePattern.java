@@ -19,7 +19,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  * conditions of the {@link ISequencePattern}.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the sequences a
+ * @param <E> the type of the elements of the sequences a
  *            {@link ISequencePattern} selects.
  */
 public interface ISequencePattern<E> {

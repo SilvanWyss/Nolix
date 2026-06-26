@@ -10,7 +10,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the parent
+ * @param <E> the type of the elements of the parent
  *            {@link MultiExtendedIterableView} of a
  *            {@link MultiExtendedIterableViewIterator}.
  */

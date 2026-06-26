@@ -17,7 +17,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRan
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
+ * @param <E> the type of the elements of a
  *            {@link MultiExtendedIterableView}.
  */
 public final class MultiExtendedIterableView<E> extends AbstractExtendedIterable<E> {

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.property.value.IBaseValue;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values of a {@link AbstractValue}.
+ * @param <V> the type of the values of a {@link AbstractValue}.
  */
 public abstract class AbstractValue<V> implements IBaseValue {
   private final String name;

@@ -10,8 +10,8 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <K> is the type of the key of of a {@link KeyValuePair}.
- * @param <V> is the type of the value of of a {@link KeyValuePair}.
+ * @param <K> the type of the key of of a {@link KeyValuePair}.
+ * @param <V> the type of the value of of a {@link KeyValuePair}.
  */
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
   private final K key;

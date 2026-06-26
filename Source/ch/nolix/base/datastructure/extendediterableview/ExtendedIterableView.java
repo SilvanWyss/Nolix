@@ -25,7 +25,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
  * the elements of its {@link Iterable} or array are mutated.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ExtendedIterableView}.
+ * @param <E> the type of the elements of a {@link ExtendedIterableView}.
  */
 public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
   private static final ExtendedIterableView<Object> EMPTY_ARRAY_CONTAINER_VIEW = //

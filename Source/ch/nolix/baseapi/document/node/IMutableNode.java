@@ -42,7 +42,7 @@ Resettable {
    * 
    * @param childNodes
    * @return the current {@link IMutableNode}.
-   * @param <N2> is the type of the given childNodes.
+   * @param <N2> the type of the given childNodes.
    * @throws RuntimeException if one of the given childNodes is null.
    */
   <N2 extends INode<?>> N addChildNodes(Iterable<N2> childNodes);

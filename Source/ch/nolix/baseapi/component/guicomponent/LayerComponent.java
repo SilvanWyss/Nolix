@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.guicomponent;
  * A {@link LayerComponent} can belong to a layer.
  * 
  * @author Silvan Wyss
- * @param <L> is the type of the layer a {@link LayerComponent} can belong to.
+ * @param <L> the type of the layer a {@link LayerComponent} can belong to.
  */
 public interface LayerComponent<L> {
   /**

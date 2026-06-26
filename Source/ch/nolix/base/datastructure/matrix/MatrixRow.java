@@ -14,7 +14,7 @@ import ch.nolix.baseapi.datastructure.matrix.IMatrixRow;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the parent {@link Matrix} of a
+ * @param <E> the type of the elements of the parent {@link Matrix} of a
  *            {@link MatrixRow}.
  */
 public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements IMatrixRow<E> {

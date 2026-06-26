@@ -12,7 +12,7 @@ import ch.nolix.systemapi.property.exension.IExtension;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the extension of a {@link Extension}.
+ * @param <E> the type of the extension of a {@link Extension}.
  */
 public final class Extension<E extends IRespondingMutableElement<E>> implements IExtension<E> {
   private final E memberExtension;

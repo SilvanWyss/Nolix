@@ -12,9 +12,9 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
- * @param <M> is the type of the {@link IItemMenu}s of a
+ * @param <M> the type of the {@link IItemMenu}s of a
  *            {@link AbstractItemMenuCssBuilder}.
- * @param <S> is the type of the {@link IItemMenuStyle}s of the
+ * @param <S> the type of the {@link IItemMenuStyle}s of the
  *            {@link IItemMenu}s of a {@link AbstractItemMenuCssBuilder}.
  */
 public abstract class AbstractItemMenuCssBuilder<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>>

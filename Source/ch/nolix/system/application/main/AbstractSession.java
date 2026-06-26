@@ -14,9 +14,9 @@ import ch.nolix.baseapi.programcontrol.trigger.IRefreshableSubscriber;
  * A {@link AbstractSession} manages user run methods and user data methods.
  * 
  * @author Silvan Wyss
- * @param <C> is the type of the {@link AbstractBackendClient} of a
+ * @param <C> the type of the {@link AbstractBackendClient} of a
  *            {@link AbstractSession}.
- * @param <S> is the type of the application service of the parent
+ * @param <S> the type of the application service of the parent
  *            {@link Application} of the parent {@link AbstractBackendClient} of
  *            a {@link AbstractSession}.
  */

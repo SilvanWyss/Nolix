@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdata.model.IValueField;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values of a {@link ValueField}.
+ * @param <V> the type of the values of a {@link ValueField}.
  */
 public final class ValueField<V> extends AbstractBaseValueField<V> implements IValueField<V> {
   private static final IValueFieldValidator VALUE_VALIDATOR = new ValueFieldValidator();

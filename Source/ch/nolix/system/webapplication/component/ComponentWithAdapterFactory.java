@@ -25,9 +25,9 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link Controller} of a
+ * @param <C> the type of the {@link Controller} of a
  *            {@link ComponentWithAdapterFactory}.
- * @param <F> is the type of the {@link IAdapterFactory} of a
+ * @param <F> the type of the {@link IAdapterFactory} of a
  *            {@link ComponentWithAdapterFactory}.
  * @param <A> is the typoe of the adapters of the {@link IAdapterFactory} of a
  *            {@link ComponentWithAdapterFactory}.

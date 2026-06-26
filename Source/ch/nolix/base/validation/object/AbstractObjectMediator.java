@@ -16,7 +16,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <A> is the type of the argument of an {@link AbstractObjectMediator}.
+ * @param <A> the type of the argument of an {@link AbstractObjectMediator}.
  */
 public abstract class AbstractObjectMediator<A> extends AbstractMediator {
   private final A argument;

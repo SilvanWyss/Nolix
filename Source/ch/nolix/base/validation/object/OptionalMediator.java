@@ -14,7 +14,7 @@ import ch.nolix.baseapi.validation.object.IOptionalMediator;
 
 /**
  * @author Silvan Wyss
- * @param <T> is the type of the element of the {@link Optional} of a
+ * @param <T> the type of the element of the {@link Optional} of a
  *            {@link OptionalMediator}.
  */
 public class OptionalMediator<T> extends AbstractObjectMediator<Optional<T>> implements IOptionalMediator {

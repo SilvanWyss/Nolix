@@ -17,7 +17,7 @@ import ch.nolix.systemapi.property.proxy.IMultiValueProxy;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values a {@link MultiValueProxy} forwards.
+ * @param <V> the type of the values a {@link MultiValueProxy} forwards.
  */
 public final class MultiValueProxy<V> implements IMultiValueProxy {
   private final String name;

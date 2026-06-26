@@ -5,7 +5,7 @@ package ch.nolix.base.validation.object;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the argument of a
+ * @param <E> the type of the elements of the argument of a
  *            {@link NamableIterableMediator}.
  */
 public final class NamableIterableMediator<E> extends AbstractIterableMediator<E> {

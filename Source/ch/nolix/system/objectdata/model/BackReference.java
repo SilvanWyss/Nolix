@@ -26,7 +26,7 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity} a {@link BackReference}
+ * @param <E> the type of the {@link IEntity} a {@link BackReference}
  *            reference back.
  */
 public final class BackReference<E extends IEntity> extends AbstractBaseBackReference implements IBackReference<E> {

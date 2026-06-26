@@ -10,7 +10,7 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the parent {@link Iterable} of a
+ * @param <E> the type of the elements of the parent {@link Iterable} of a
  *            {@link IterableExtendedIterableViewIterator}.
  */
 public final class IterableExtendedIterableViewIterator<E> implements CopyableIterator<E> {

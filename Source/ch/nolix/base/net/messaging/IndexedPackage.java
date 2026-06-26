@@ -10,7 +10,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
  * A {@link IndexedPackage} bundles an index and a content.
  * 
  * @author Silvan Wyss
- * @param <C> is the type of the content of a {@link IndexedPackage}.
+ * @param <C> the type of the content of a {@link IndexedPackage}.
  */
 public class IndexedPackage<C> {
   private final int memberIndex;

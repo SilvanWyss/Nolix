@@ -11,7 +11,7 @@ import ch.nolix.baseapi.objectcreation.copier.Copyable;
  * A {@link CopyableIterator} is a {@link Iterator} that can be copied.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements a {@link CopyableIterator}.
+ * @param <E> the type of the elements a {@link CopyableIterator}.
  */
 public interface CopyableIterator<E> extends Copyable<CopyableIterator<E>>, Iterator<E> {
   //This interface is a dedicated union of other interfaces.

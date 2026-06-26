@@ -24,9 +24,9 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link Control} of a
+ * @param <C> the type of the {@link Control} of a
  *            {@link AbstractControlCssBuilder}.
- * @param <S> is the type of the {@link IControlStyle}s of the {@link Control}
+ * @param <S> the type of the {@link IControlStyle}s of the {@link Control}
  *            of a {@link AbstractControlCssBuilder}.
  */
 public abstract class AbstractControlCssBuilder<C extends Control<C, S>, S extends IControlStyle<S>>

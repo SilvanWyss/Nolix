@@ -25,7 +25,7 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity} a {@link OptionalReference} can
+ * @param <E> the type of the {@link IEntity} a {@link OptionalReference} can
  *            reference.
  */
 public final class OptionalReference<E extends IEntity>

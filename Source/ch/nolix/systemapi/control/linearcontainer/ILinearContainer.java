@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 /**
  * @author Silvan Wyss
  * @param <C> is the type of a {@link ILinearContainer}.
- * @param <S> is the type of the {@link ILinearContainerStyle} of a
+ * @param <S> the type of the {@link ILinearContainerStyle} of a
  *            {@link ILinearContainer}.
  */
 public interface ILinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>

@@ -10,7 +10,7 @@ import java.util.function.ToLongFunction;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements a {@link ArrayMappable}.
+ * @param <E> the type of the elements a {@link ArrayMappable}.
  */
 public interface ArrayMappable<E> {
   /**

@@ -26,7 +26,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCata
  * elements at the begin or end. A {@link LinkedList} is clearable.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link LinkedList}.
+ * @param <E> the type of the elements of a {@link LinkedList}.
  */
 public final class LinkedList<E> //NOSONAR: A LinkedList is a principal object thus it has many methods.
 extends AbstractExtendedIterable<E>
@@ -46,7 +46,7 @@ implements ILinkedList<E> {
   }
 
   /**
-   * @param <T> is the type of the elements of the created {@link LinkedList}.
+   * @param <T> the type of the elements of the created {@link LinkedList}.
    * @return a new empty {@link LinkedList}.
    */
   public static <T> LinkedList<T> createEmpty() {

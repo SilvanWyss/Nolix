@@ -10,9 +10,9 @@ import ch.nolix.system.application.main.Application;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the parent {@link AbstractBackendClient} of a
+ * @param <C> the type of the parent {@link AbstractBackendClient} of a
  *            {@link TestSession}.
- * @param <S> is the type of the application service of the parent
+ * @param <S> the type of the application service of the parent
  *            {@link Application} of the parent {@link AbstractBackendClient} of
  *            a {@link TestSession}.
  */

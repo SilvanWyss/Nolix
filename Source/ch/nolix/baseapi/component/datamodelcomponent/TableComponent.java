@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.datamodelcomponent;
  * A {@link TableComponent} can belong to a table.
  * 
  * @author Silvan Wyss
- * @param <T> is the type of the table a {@link TableComponent} can belong to.
+ * @param <T> the type of the table a {@link TableComponent} can belong to.
  */
 public interface TableComponent<T> {
   /**

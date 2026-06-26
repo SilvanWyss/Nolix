@@ -17,7 +17,7 @@ import ch.nolix.systemapi.property.value.IOptionalValue;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link OptionalValue}.
+ * @param <V> the type of the value of a {@link OptionalValue}.
  */
 public final class OptionalValue<V> extends AbstractValue<V> implements IOptionalValue<V> {
   private final Consumer<V> setter;

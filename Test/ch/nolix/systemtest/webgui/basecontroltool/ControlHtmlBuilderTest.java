@@ -11,9 +11,9 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <B> is the type of the {@link IControlHtmlBuilder}s of a
+ * @param <B> the type of the {@link IControlHtmlBuilder}s of a
  *            {@link ControlHtmlBuilderTest}.
- * @param <C> is the type of the {@link Control} of the
+ * @param <C> the type of the {@link Control} of the
  *            {@link IControlHtmlBuilder}s of a {@link ControlHtmlBuilderTest}.
  */
 public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C extends Control<C, ?>>

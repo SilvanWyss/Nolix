@@ -10,7 +10,7 @@ import ch.nolix.baseapi.document.node.IMutableNode;
 
 /**
  * @author Silvan Wyss
- * @param <N> is the type of the next thing of a {@link ForNodeDatabaseCaptor}.
+ * @param <N> the type of the next thing of a {@link ForNodeDatabaseCaptor}.
  */
 public class ForNodeDatabaseCaptor<N> extends ArgumentCaptor<IMutableNode<?>, N> {
   public ForNodeDatabaseCaptor() {

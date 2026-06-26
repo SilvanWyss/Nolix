@@ -7,7 +7,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the parent {@link IMatrix} of a
+ * @param <E> the type of the elements of the parent {@link IMatrix} of a
  *            {@link IMatrixRow}.
  */
 public interface IMatrixRow<E> extends ExtendedIterable<E> {

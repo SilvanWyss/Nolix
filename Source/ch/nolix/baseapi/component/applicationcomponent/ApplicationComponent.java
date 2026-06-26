@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.applicationcomponent;
  * A {@link ApplicationComponent} can belong to an application.
  * 
  * @author Silvan Wyss
- * @param <A> is the type of the application a {@link ApplicationComponent} can
+ * @param <A> the type of the application a {@link ApplicationComponent} can
  *            belong to.
  */
 public interface ApplicationComponent<A> {

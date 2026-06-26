@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity}s of a
+ * @param <E> the type of the {@link IEntity}s of a
  *            {@link AbstractBaseReference}.
  */
 public abstract class AbstractBaseReference<E extends IEntity> extends AbstractField implements IBaseReference {

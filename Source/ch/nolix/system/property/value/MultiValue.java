@@ -18,7 +18,7 @@ import ch.nolix.systemapi.property.value.IMultiValue;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values of a {@link MultiValue}.
+ * @param <V> the type of the values of a {@link MultiValue}.
  */
 public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue<V> {
   private final LinkedList<V> values = LinkedList.createEmpty();

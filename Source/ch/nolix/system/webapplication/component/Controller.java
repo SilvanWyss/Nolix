@@ -11,7 +11,7 @@ import ch.nolix.systemapi.application.main.IApplication;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of the application service of the {@link IApplication}
+ * @param <S> the type of the application service of the {@link IApplication}
  *            of the {@link AbstractBackendClient} of the
  *            {@link WebClientSession} of a {@link Controller}.
  */

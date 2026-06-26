@@ -10,7 +10,7 @@ import java.util.function.ToIntFunction;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements a {@link AggregationRequestable}.
+ * @param <E> the type of the elements a {@link AggregationRequestable}.
  */
 public interface AggregationRequestable<E> {
   /**

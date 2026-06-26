@@ -5,7 +5,7 @@ package ch.nolix.base.validation.object;
 
 /**
  * @author Silvan Wyss
- * @param <A> is the type of the argument of a {@link NamableObjectMediator}.
+ * @param <A> the type of the argument of a {@link NamableObjectMediator}.
  */
 public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
   /**

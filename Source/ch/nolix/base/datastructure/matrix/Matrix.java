@@ -29,7 +29,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
  * elements in rows and columns. A {@link Matrix} is clearable.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link Matrix}.
+ * @param <E> the type of the elements of a {@link Matrix}.
  */
 public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMatrix<E> {
   private Object[][] memberElements = new Object[0][0];
@@ -42,7 +42,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
   /**
    * @return a new empty {@link Matrix}.
-   * @param <T> is the type of the elements of the created {@link Matrix}.
+   * @param <T> the type of the elements of the created {@link Matrix}.
    */
   public static <T> Matrix<T> createEmpty() {
     return new Matrix<>();

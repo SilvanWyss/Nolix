@@ -8,7 +8,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCata
 
 /**
  * @author Silvan Wyss
- * @param <A> is the type of the arguments of a
+ * @param <A> the type of the arguments of a
  *            {@link AbstractMultiArgumentMediator}.
  */
 public abstract class AbstractMultiArgumentMediator<A> { //NOSONAR: The AbstractMultiArgumentMediator is a super type.

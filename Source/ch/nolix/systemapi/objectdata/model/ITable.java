@@ -13,7 +13,7 @@ import ch.nolix.systemapi.databaseobject.model.IDatabaseObject;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the {@link IEntity}s of a {@link ITable}.
+ * @param <E> the type of the {@link IEntity}s of a {@link ITable}.
  */
 public interface ITable<E extends IEntity>
 extends DatabaseComponent<IDatabase>, IDatabaseObject, IdHolder, NameHolder {

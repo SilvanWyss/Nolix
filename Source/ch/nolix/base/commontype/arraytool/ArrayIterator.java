@@ -11,7 +11,7 @@ import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the parent array of a
+ * @param <E> the type of the elements of the parent array of a
  *            {@link ArrayIterator}.
  */
 public final class ArrayIterator<E> implements CopyableIterator<E> {

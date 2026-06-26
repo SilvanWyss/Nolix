@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.guicomponent;
  * A {@link ControlComponent} can belong to a control.
  * 
  * @author Silvan Wyss
- * @param <C> is the type of the control a {@link ControlComponent} can belong
+ * @param <C> the type of the control a {@link ControlComponent} can belong
  *            to.
  */
 public interface ControlComponent<C> {

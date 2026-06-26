@@ -7,7 +7,7 @@ package ch.nolix.base.validation.object;
  * A {@link ObjectMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <A> is the type of the argument of an {@link ObjectMediator}.
+ * @param <A> the type of the argument of an {@link ObjectMediator}.
  */
 public final class ObjectMediator<A> extends AbstractObjectMediator<A> {
   /**

@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements a {@link Groupable}.
+ * @param <E> the type of the elements a {@link Groupable}.
  */
 public interface Groupable<E> {
   /**

@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
+ * @param <E> the type of the elements of a
  *            {@link FilteringContainerViewProvider}.
  */
 public interface FilteringContainerViewProvider<E> {

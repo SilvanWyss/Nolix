@@ -16,7 +16,7 @@ import ch.nolix.systemapi.property.value.IValue;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link Value}.
+ * @param <V> the type of the value of a {@link Value}.
  */
 public final class Value<V> extends AbstractValue<V> implements IValue<V> {
   private final Consumer<V> setter;

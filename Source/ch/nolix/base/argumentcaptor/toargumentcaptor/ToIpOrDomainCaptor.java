@@ -9,7 +9,7 @@ import ch.nolix.baseapi.net.netconstant.IPv4Catalog;
 
 /**
  * @author Silvan Wyss
- * @param <N> is the type of the next thing of a {@link ToIpOrDomainCaptor}.
+ * @param <N> the type of the next thing of a {@link ToIpOrDomainCaptor}.
  */
 public class ToIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
   public ToIpOrDomainCaptor() {

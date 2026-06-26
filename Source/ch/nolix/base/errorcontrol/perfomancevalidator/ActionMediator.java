@@ -17,7 +17,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <O> is the type of the {@link Object}s a {@link ActionMediator} is
+ * @param <O> the type of the {@link Object}s a {@link ActionMediator} is
  *            for.
  */
 public final class ActionMediator<O> implements IActionMediator {

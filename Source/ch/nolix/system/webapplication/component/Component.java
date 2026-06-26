@@ -25,8 +25,8 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link Controller} of a {@link Component}.
- * @param <S> is the type of the application service of the parent
+ * @param <C> the type of the {@link Controller} of a {@link Component}.
+ * @param <S> the type of the application service of the parent
  *            {@link IApplication} of the parent web client of the parent web
  *            client session of the parent root GUI of a {@link Component}.
  * 

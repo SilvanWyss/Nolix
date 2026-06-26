@@ -22,7 +22,7 @@ import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
  * additional orders. A {@link ExtendedIterable} is iterable.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ExtendedIterable}.
+ * @param <E> the type of the elements of a {@link ExtendedIterable}.
  */
 public interface ExtendedIterable<E>
 extends

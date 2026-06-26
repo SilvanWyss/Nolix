@@ -9,7 +9,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <N> is the type of the next thing of a {@link WithLoginNameCaptor}.
+ * @param <N> the type of the next thing of a {@link WithLoginNameCaptor}.
  */
 public class WithLoginNameCaptor<N> extends ArgumentCaptor<String, N> {
   public WithLoginNameCaptor() {

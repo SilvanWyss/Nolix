@@ -11,7 +11,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of the {@link Enum} representation of the state of the
+ * @param <S> the type of the {@link Enum} representation of the state of the
  *            {@link AbstractMultiStateConfiguration} of a
  *            {@link AbstractProperty}.
  */

@@ -9,7 +9,7 @@ import ch.nolix.base.independent.arraytool.ArrayTool;
  * A {@link MultiArgumentMediator} is not mutable.
  * 
  * @author Silvan Wyss
- * @param <A> is the type of the arguments of a multi argument mediator.
+ * @param <A> the type of the arguments of a multi argument mediator.
  */
 public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediator<A> {
   private static final ArrayTool ARRAY_TOOL = new ArrayTool();

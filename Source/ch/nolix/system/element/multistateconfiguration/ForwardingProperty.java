@@ -11,8 +11,8 @@ import ch.nolix.baseapi.document.node.INode;
 
 /**
  * @author Silvan Wyss
- * @param <S> is the type of the states of a {@link ForwardingProperty}.
- * @param <V> is the type of the values of a {@link ForwardingProperty}.
+ * @param <S> the type of the states of a {@link ForwardingProperty}.
+ * @param <V> the type of the values of a {@link ForwardingProperty}.
  */
 public final class ForwardingProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
   private final ExtendedIterable<AbstractMaterializedProperty<S, V>> abstractMaterializedProperties;

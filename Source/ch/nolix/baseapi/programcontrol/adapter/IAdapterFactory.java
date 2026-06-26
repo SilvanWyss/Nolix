@@ -5,7 +5,7 @@ package ch.nolix.baseapi.programcontrol.adapter;
 
 /**
  * @author Silvan Wyss
- * @param <A> is the type of the adapters a {@link IAdapterFactory} creates.
+ * @param <A> the type of the adapters a {@link IAdapterFactory} creates.
  */
 public interface IAdapterFactory<A> {
   /**

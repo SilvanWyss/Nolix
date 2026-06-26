@@ -4,7 +4,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link IOptionalValue}.
+ * @param <V> the type of the value of a {@link IOptionalValue}.
  */
 public interface IOptionalValue<V> extends Clearable, IBaseValue {
   /**

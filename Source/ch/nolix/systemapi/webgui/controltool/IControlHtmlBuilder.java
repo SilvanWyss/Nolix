@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link Control}s a {@link IControlHtmlBuilder}
+ * @param <C> the type of the {@link Control}s a {@link IControlHtmlBuilder}
  *            is for.
  */
 public interface IControlHtmlBuilder<C extends Control<C, ?>> {

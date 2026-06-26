@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements a {@link Mappable}.
+ * @param <E> the type of the elements a {@link Mappable}.
  */
 public interface Mappable<E> {
   /**

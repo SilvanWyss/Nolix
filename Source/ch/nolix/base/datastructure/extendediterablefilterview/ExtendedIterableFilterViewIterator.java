@@ -12,7 +12,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a
+ * @param <E> the type of the elements of a
  *            {@link ExtendedIterableFilterViewIterator}.
  */
 public final class ExtendedIterableFilterViewIterator<E> implements CopyableIterator<E> {

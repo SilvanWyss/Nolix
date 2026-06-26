@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdata.model.IField;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the values of a {@link AbstractBaseValueField}.
+ * @param <V> the type of the values of a {@link AbstractBaseValueField}.
  */
 public abstract class AbstractBaseValueField<V> extends AbstractField implements IBaseValueField<V> {
   private final Class<V> valueType;

@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of the {@link Control}s of a {@link ControlTest}.
+ * @param <C> the type of the {@link Control}s of a {@link ControlTest}.
  */
 public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest {
   protected abstract C createTestUnit();

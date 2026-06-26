@@ -13,7 +13,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <R> is the type of the result of the resulltJob of a
+ * @param <R> the type of the result of the resulltJob of a
  *            {@link ResultJobExecutor}.
  */
 final class ResultJobExecutor<R> extends Thread {

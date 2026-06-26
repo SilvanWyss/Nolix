@@ -14,7 +14,7 @@ import ch.nolix.baseapi.datastructure.sequencesearch.ISequencePatternNextMediato
 
 /**
  * @author Silvan Wyss
- * @param <E> is the type of the elements of the sequences of the
+ * @param <E> the type of the elements of the sequences of the
  *            {@link SequencePattern} of a {@link SequencePatternNextMediator}.
  */
 public final class SequencePatternNextMediator<E> implements ISequencePatternNextMediator<E> {

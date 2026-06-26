@@ -7,7 +7,7 @@ package ch.nolix.baseapi.state.staterequest;
  * A {@link StateRequestable} has a certain state.
  * 
  * @author Silvan Wyss
- * @param <S> is the type of the state of a {@link StateRequestable}.
+ * @param <S> the type of the state of a {@link StateRequestable}.
  */
 public interface StateRequestable<S extends Enum<S>> {
   /**

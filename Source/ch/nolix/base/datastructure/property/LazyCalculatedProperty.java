@@ -11,7 +11,7 @@ import ch.nolix.baseapi.datastructure.property.ILazyCalculatedProperty;
 
 /**
  * @author Silvan Wyss
- * @param <V> is the type of the value of a {@link LazyCalculatedProperty}.
+ * @param <V> the type of the value of a {@link LazyCalculatedProperty}.
  */
 public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<V> {
   private final Supplier<V> valueCreator;

@@ -14,7 +14,7 @@ import ch.nolix.baseapi.state.statemutation.Clearable;
  * remove elements.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the elements of a {@link ILinkedList}.
+ * @param <E> the type of the elements of a {@link ILinkedList}.
  */
 public interface ILinkedList<E>
 extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterable<E> {

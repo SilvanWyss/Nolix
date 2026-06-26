@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.datamodelcomponent;
  * A {@link EntityComponent} can belong to an entity.
  * 
  * @author Silvan Wyss
- * @param <E> is the type of the entity a {@link EntityComponent} can belong
+ * @param <E> the type of the entity a {@link EntityComponent} can belong
  *            to.
  */
 public interface EntityComponent<E> {

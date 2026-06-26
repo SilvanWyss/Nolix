@@ -7,7 +7,7 @@ package ch.nolix.baseapi.component.datamodelcomponent;
  * A {@link DatabaseComponent} can belong to a database.
  * 
  * @author Silvan Wyss
- * @param <D> is the type of the database a {@link DatabaseComponent} can
+ * @param <D> the type of the database a {@link DatabaseComponent} can
  *            belong to.
  */
 public interface DatabaseComponent<D> {
