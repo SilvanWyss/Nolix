@@ -109,8 +109,9 @@ implements IApplication<C, S> {
   }
 
   /**
-   * @return the {@link AbstractClient}s of the current {@link Application}.
+   * {@inheritDoc}
    */
+  @Override
   public final ExtendedIterable<C> getStoredClients() {
     removeClosedClients();
 

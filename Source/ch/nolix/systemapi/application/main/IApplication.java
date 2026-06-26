@@ -3,6 +3,7 @@
  */
 package ch.nolix.systemapi.application.main;
 
+import ch.nolix.baseapi.manager.applicationmanager.ClientManager;
 import ch.nolix.baseapi.net.target.IApplicationInstanceTarget;
 import ch.nolix.systemapi.application.client.IBackendClient;
 
@@ -12,7 +13,7 @@ import ch.nolix.systemapi.application.client.IBackendClient;
  * @param <C> is the type of the {@link IBackendClient}s of a
  *            {@link IApplication}.
  */
-public interface IApplication<C extends IBackendClient<S>, S> {
+public interface IApplication<C extends IBackendClient<S>, S> extends ClientManager<C> {
   /**
    * @return a target representation of the current {@link IApplication}.
    */
