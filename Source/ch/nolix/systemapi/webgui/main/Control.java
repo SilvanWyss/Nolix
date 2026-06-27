@@ -66,6 +66,8 @@ PresenceSettable<C> {
 
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 
+  void removeParentLayerFromGui();
+
   void runHtmlEvent(String htmlEvent);
 
   C setCursorIcon(CursorIcon cursorIcon);

@@ -429,6 +429,14 @@ implements Control<C, S> {
    * {@inheritDoc}
    */
   @Override
+  public final void removeParentLayerFromGui() {
+    getStoredParentLayer().removeSelfFromGui();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final C setCollapsed() {
     setPresence(Presence.COLLAPSED);
 
