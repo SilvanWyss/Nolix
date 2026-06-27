@@ -37,7 +37,9 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
   private SqlRecord(final int oneBasedIndex, final ImmutableList<String> values) {
     if (oneBasedIndex < 1) {
       throw //
-      NonPositiveArgumentException.forArgumentAndArgumentName(oneBasedIndex, LowerCaseVariableNameCatalog.ONE_BASED_INDEX);
+      NonPositiveArgumentException.forArgumentAndArgumentName(
+        oneBasedIndex,
+        LowerCaseVariableNameCatalog.ONE_BASED_INDEX);
     }
 
     if (values == null) {

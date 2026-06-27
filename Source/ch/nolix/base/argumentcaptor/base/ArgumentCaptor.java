@@ -90,7 +90,8 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
 
   private void assertHasBuilder() {
     if (!hasBuilder()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.BUILDER);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.BUILDER);
     }
   }
 

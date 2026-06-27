@@ -64,7 +64,9 @@ public final class MultiExtendedIterableViewIterator<E> implements CopyableItera
   public E next() {
     if (!hasNext()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.NEXT_ELEMENT);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
+        this,
+        LowerCaseVariableNameCatalog.NEXT_ELEMENT);
     }
 
     final var element = currentSubIterator.next();

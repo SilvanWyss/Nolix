@@ -148,7 +148,8 @@ implements ClientComponent<C>, IRefreshableSubscriber {
 
   final Object internalGetStoredResult() {
     if (memberResult == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RESULT);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.RESULT);
     }
 
     return memberResult;

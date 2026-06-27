@@ -77,7 +77,9 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
           break;
         default:
           throw //
-          InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableNameCatalog.SPECIFICATION);
+          InvalidArgumentException.forArgumentAndArgumentName(
+            specification,
+            LowerCaseVariableNameCatalog.SPECIFICATION);
       }
     }
 

@@ -114,7 +114,9 @@ public final class SelectingStyle extends AbstractSelectingStyle {
           break;
         default:
           throw //
-          InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableNameCatalog.SPECIFICATION);
+          InvalidArgumentException.forArgumentAndArgumentName(
+            specification,
+            LowerCaseVariableNameCatalog.SPECIFICATION);
       }
     }
 

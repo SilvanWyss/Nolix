@@ -238,7 +238,8 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    */
   public void hasElementCount(final int elementCount) {
     if (elementCount < 0) {
-      throw NegativeArgumentException.forArgumentAndArgumentName(elementCount, LowerCaseVariableNameCatalog.ELEMENT_COUNT);
+      throw //
+      NegativeArgumentException.forArgumentAndArgumentName(elementCount, LowerCaseVariableNameCatalog.ELEMENT_COUNT);
     }
 
     isNotNull();

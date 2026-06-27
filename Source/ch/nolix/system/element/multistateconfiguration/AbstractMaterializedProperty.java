@@ -22,8 +22,7 @@ import ch.nolix.systemapi.element.multistateconfiguration.ValueStoringState;
  * @param <S> the type of the state of the
  *            {@link AbstractMultiStateConfiguration} of a
  *            {@link AbstractMaterializedProperty}.
- * @param <V> the type of the values of a
- *            {@link AbstractMaterializedProperty}.
+ * @param <V> the type of the values of a {@link AbstractMaterializedProperty}.
  */
 public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends AbstractProperty<S> {
   private static final String NONE_HEADER = "None";
@@ -193,7 +192,8 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
       }
     }
 
-    throw InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableNameCatalog.SPECIFICATION);
+    throw //
+    InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableNameCatalog.SPECIFICATION);
   }
 
   private void extractStateProperties() {

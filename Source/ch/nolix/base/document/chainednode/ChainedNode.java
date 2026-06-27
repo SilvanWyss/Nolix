@@ -374,7 +374,8 @@ implements IChainedNode {
   public String getHeader() {
     //Asserts that the current ChainedNode has a header.
     if (memberHeader == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
     }
 
     return memberHeader;

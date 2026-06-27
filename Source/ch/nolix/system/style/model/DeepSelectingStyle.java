@@ -95,7 +95,9 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
           break;
         default:
           throw //
-          InvalidArgumentException.forArgumentAndArgumentName(specification, LowerCaseVariableNameCatalog.SPECIFICATION);
+          InvalidArgumentException.forArgumentAndArgumentName(
+            specification,
+            LowerCaseVariableNameCatalog.SPECIFICATION);
       }
     }
 

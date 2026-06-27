@@ -103,7 +103,9 @@ final class ExtendedIterableIntervalViewIterator<E> implements CopyableIterator<
   public E next() {
     if (!hasNext()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.NEXT_ELEMENT);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
+        this,
+        LowerCaseVariableNameCatalog.NEXT_ELEMENT);
     }
 
     currentIndex++;

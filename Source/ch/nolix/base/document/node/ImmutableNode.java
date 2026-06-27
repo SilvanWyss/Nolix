@@ -377,7 +377,8 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   @Override
   public String getHeader() {
     if (nullableHeader == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
     }
 
     return nullableHeader;

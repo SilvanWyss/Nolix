@@ -28,7 +28,9 @@ public final class IteratorValidator implements IIteratorValidator {
     //Asserts that the given iterator has a next element.
     if (!iterator.hasNext()) {
       throw //
-      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.NEXT_ELEMENT);
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
+        this,
+        LowerCaseVariableNameCatalog.NEXT_ELEMENT);
     }
   }
 }

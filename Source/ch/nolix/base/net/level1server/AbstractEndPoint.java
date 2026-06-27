@@ -117,7 +117,8 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   private void assertHasCustomTargetSlot() {
     if (!hasCustomTargetSlot()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.TARGET);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.TARGET);
     }
   }
 

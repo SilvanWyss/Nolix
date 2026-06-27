@@ -12,7 +12,8 @@ import ch.nolix.systemapi.webapplication.main.IWebApplicationService;
  * @author Silvan Wyss
  */
 public class WebApplicationService implements IWebApplicationService {
-  public static final IImage DEFAULT_APPLICATION_LOGO = ImmutableImage.fromResource("image/default_application_logo.jpg");
+  public static final IImage DEFAULT_APPLICATION_LOGO = //
+  ImmutableImage.fromResource("image/default_application_logo.jpg");
 
   private IImage applicationLogo = DEFAULT_APPLICATION_LOGO;
 

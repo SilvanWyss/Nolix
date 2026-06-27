@@ -130,7 +130,7 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
     for (final var s : strings) {
       addChildNode(fromString(s));
     }
-  
+
     return this;
   }
 
@@ -252,7 +252,8 @@ public final class MutableNode extends AbstractMutableNode<MutableNode> {
    */
   private void assertHasHeader() {
     if (!hasHeader()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
     }
   }
 }
