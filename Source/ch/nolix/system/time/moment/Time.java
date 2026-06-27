@@ -48,6 +48,8 @@ extends AbstractElement implements ITime {
 
   public static final int DEFAULT_MICROSECOND_OF_MILLISECOND = 0;
 
+  private static final TimeZoneMapper TIME_ZONE_MAPPER = new TimeZoneMapper();
+
   private static final Time DEFAULT_INSTANCE = forZonedDateTime(ZonedDateTime.of(
     DEFAULT_YEAR,
     DEFAULT_MONTH_OF_YEAR,
@@ -473,62 +475,9 @@ extends AbstractElement implements ITime {
    */
   @Override
   public TimeZone getTimeZone() {
-    final var offset = internalZonedDateTime.getOffset().toString();
+    final var zoneOffset = internalZonedDateTime.getOffset();
 
-    return //
-    switch (offset) {
-      case "-11:00" ->
-        TimeZone.UTC_MINUS_11;
-      case "-10:00" ->
-        TimeZone.UTC_MINUS_10;
-      case "-09:00" ->
-        TimeZone.UTC_MINUS_9;
-      case "-08:00" ->
-        TimeZone.UTC_MINUS_8;
-      case "-07:00" ->
-        TimeZone.UTC_MINUS_7;
-      case "-06:00" ->
-        TimeZone.UTC_MINUS_6;
-      case "05:00" ->
-        TimeZone.UTC_MINUS_5;
-      case "-04:00" ->
-        TimeZone.UTC_MINUS_4;
-      case "-03:00" ->
-        TimeZone.UTC_MINUS_3;
-      case "-02:00" ->
-        TimeZone.UTC_MINUS_2;
-      case "-01:00" ->
-        TimeZone.UTC_MINUS_1;
-      case "Z" ->
-        TimeZone.UTC;
-      case "+01:00" ->
-        TimeZone.UTC_PLUS_1;
-      case "+02:00" ->
-        TimeZone.UTC_PLUS_2;
-      case "+03:00" ->
-        TimeZone.UTC_PLUS_3;
-      case "+04:00" ->
-        TimeZone.UTC_PLUS_4;
-      case "+05:00" ->
-        TimeZone.UTC_PLUS_5;
-      case "+06:00" ->
-        TimeZone.UTC_PLUS_6;
-      case "+07:00" ->
-        TimeZone.UTC_PLUS_7;
-      case "+08:00" ->
-        TimeZone.UTC_PLUS_8;
-      case "+09:00" ->
-        TimeZone.UTC_PLUS_9;
-      case "+10:00" ->
-        TimeZone.UTC_PLUS_10;
-      case "+11:00" ->
-        TimeZone.UTC_PLUS_11;
-      case "+12:00" ->
-        TimeZone.UTC_PLUS_12;
-
-      default ->
-        throw InvalidArgumentException.forArgumentAndArgumentName(offset, "offset");
-    };
+    return TIME_ZONE_MAPPER.mapZoneOffsetToTimeZone(zoneOffset);
   }
 
   /**
