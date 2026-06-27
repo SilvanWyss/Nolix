@@ -15,7 +15,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.system.gui.colorgradient.ColorGradient;
 import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.graphic.color.IColor;
@@ -97,7 +97,7 @@ public final class Background extends AbstractElement implements IBackground {
         withColorGradient(ColorGradient.fromSpecification(childNode));
       case IMAGE_HEADER ->
         withImageAndImageApplication(
-          Image.fromSpecification(specification.getStoredChildNodeAtOneBasedIndex(1)),
+          ImmutableImage.fromSpecification(specification.getStoredChildNodeAtOneBasedIndex(1)),
           ImageApplication.fromSpecification(specification.getStoredChildNodeAtOneBasedIndex(2)));
       case TRANSPARENCY_HEADER ->
         TRANSPARENT_BACKGROUND;
@@ -144,7 +144,9 @@ public final class Background extends AbstractElement implements IBackground {
       case COLOR_GRADIENT ->
         LinkedList.withElement(getColorGradient().getSpecification());
       case IMAGE ->
-        LinkedList.withElement(getImage().getSpecification(), ImmutableNode.fromEnum(getImageApplication()));
+        LinkedList.withElement(
+          getImage().getSpecification().withNewHeader(IMAGE_HEADER),
+          ImmutableNode.fromEnum(getImageApplication()));
       case TRANSPARENCY ->
         LinkedList.withElement(ImmutableNode.withHeader(TRANSPARENCY_HEADER));
       default ->

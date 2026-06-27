@@ -18,43 +18,43 @@ import ch.nolix.systemapi.graphic.image.IMutableImage;
 /**
  * @author Silvan Wyss
  */
-public final class Image extends AbstractElement implements IImage {
+public final class ImmutableImage extends AbstractElement implements IImage {
   private final MutableImage internalImage;
 
-  private Image(final MutableImage internalImage) {
+  private ImmutableImage(final MutableImage internalImage) {
     Validator.assertThat(internalImage).thatIsNamed("internal image").isNotNull();
 
     this.internalImage = internalImage;
   }
 
-  public static Image fromAnyImage(final IImage image) {
-    if (image instanceof final Image lImage) {
+  public static ImmutableImage fromAnyImage(final IImage image) {
+    if (image instanceof final ImmutableImage lImage) {
       return lImage;
     }
 
-    return new Image(MutableImage.fromAnyImage(image));
+    return new ImmutableImage(MutableImage.fromAnyImage(image));
   }
 
-  public static Image fromBytes(final byte[] bytes) {
+  public static ImmutableImage fromBytes(final byte[] bytes) {
     final var mutableImage = MutableImage.fromBytes(bytes);
 
     return fromAnyImage(mutableImage);
   }
 
-  public static Image fromFile(final String filePath) {
-    return new Image(MutableImage.fromFile(filePath));
+  public static ImmutableImage fromFile(final String filePath) {
+    return new ImmutableImage(MutableImage.fromFile(filePath));
   }
 
-  public static Image fromResource(final String path) {
-    return new Image(MutableImage.fromBytes(RunningJar.getResourceAsBytes(path)));
+  public static ImmutableImage fromResource(final String path) {
+    return new ImmutableImage(MutableImage.fromBytes(RunningJar.getResourceAsBytes(path)));
   }
 
-  public static Image fromSpecification(final INode<?> specification) {
-    return new Image(MutableImage.fromSpecification(specification));
+  public static ImmutableImage fromSpecification(final INode<?> specification) {
+    return new ImmutableImage(MutableImage.fromSpecification(specification));
   }
 
-  public static Image withPixels(Matrix<IColor> pixels) {
-    return new Image(MutableImage.withPixels(pixels));
+  public static ImmutableImage withPixels(Matrix<IColor> pixels) {
+    return new ImmutableImage(MutableImage.withPixels(pixels));
   }
 
   /**
@@ -173,7 +173,7 @@ public final class Image extends AbstractElement implements IImage {
    * {@inheritDoc}
    */
   @Override
-  public Image toImmutableImage() {
+  public ImmutableImage toImmutableImage() {
     return this;
   }
 

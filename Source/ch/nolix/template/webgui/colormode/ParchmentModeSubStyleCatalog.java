@@ -13,7 +13,7 @@ import ch.nolix.system.control.link.Link;
 import ch.nolix.system.control.textbox.Textbox;
 import ch.nolix.system.control.validationlabel.ValidationLabel;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.box.CornerShadow;
 import ch.nolix.system.style.model.DeepSelectingStyle;
@@ -31,7 +31,7 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
  * @author Silvan Wyss
  */
 public final class ParchmentModeSubStyleCatalog {
-  private static final Image PARCHMENT_IMAGE = Image.fromResource("image/parchment_paper.jpg");
+  private static final ImmutableImage PARCHMENT_IMAGE = ImmutableImage.fromResource("image/parchment_paper.jpg");
 
   private static final Background PARCHMENT_BACKGROUND = //
   Background.withImageAndImageApplication(PARCHMENT_IMAGE, ImageApplication.SCALE_TO_FRAME);

@@ -17,7 +17,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.iconresource.IconCatalog;
 import ch.nolix.system.property.proxy.MultiValueProxy;
@@ -47,7 +47,7 @@ extends AbstractStyleElement<WebGui>
 implements IWebGui<WebGui> {
   public static final String DEFAULT_TITLE = PascalCaseVariableNameCatalog.GUI;
 
-  public static final Image DEFAULT_ICON = IconCatalog.NOLIX_ICON;
+  public static final ImmutableImage DEFAULT_ICON = IconCatalog.NOLIX_ICON;
 
   public static final Color DEFAULT_BACKGROUND_COLOR = X11ColorCatalog.WHITE;
 
@@ -67,13 +67,13 @@ implements IWebGui<WebGui> {
     INode::getSingleChildNodeHeader,
     ImmutableNode::withChildNodes);
 
-  private final Value<Image> icon = //
+  private final Value<ImmutableImage> icon = //
   Value.withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     ICON_HEADER,
     DEFAULT_ICON,
     this::setIcon,
-    Image::fromSpecification,
-    Image::getSpecification);
+    ImmutableImage::fromSpecification,
+    ImmutableImage::getSpecification);
 
   private final OptionalValue<IBackground> background = //
   OptionalValue.withNameAndSetterAndValueMapperAndSpecificationMapper(
@@ -412,7 +412,7 @@ implements IWebGui<WebGui> {
    */
   @Override
   public WebGui setIcon(final IImage icon) {
-    this.icon.setValue(Image.fromAnyImage(icon));
+    this.icon.setValue(ImmutableImage.fromAnyImage(icon));
 
     return this;
   }

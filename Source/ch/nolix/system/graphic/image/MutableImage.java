@@ -366,8 +366,8 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
    * {@inheritDoc}
    */
   @Override
-  public Image toImmutableImage() {
-    return Image.withPixels(pixels);
+  public ImmutableImage toImmutableImage() {
+    return ImmutableImage.withPixels(pixels);
   }
 
   /**

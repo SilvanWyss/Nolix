@@ -8,7 +8,7 @@ import ch.nolix.system.control.imagecontrol.ImageControl;
 import ch.nolix.system.control.label.Label;
 import ch.nolix.system.control.verticalstack.VerticalStack;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
-import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.system.webapplication.main.WebClientSession;
 import ch.nolix.systemapi.control.container.ContainerRole;
 import ch.nolix.systemapi.control.label.LabelRole;
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webgui.main.ControlState;
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
   private static final String CRANE_IMAGE_RESOURCE_PATH = "image/crane.jpg";
 
-  private static final IImage CRANE_IMAGE = Image.fromResource(CRANE_IMAGE_RESOURCE_PATH);
+  private static final IImage CRANE_IMAGE = ImmutableImage.fromResource(CRANE_IMAGE_RESOURCE_PATH);
 
   @Override
   protected void initialize() {

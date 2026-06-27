@@ -4,7 +4,7 @@
 package ch.nolix.system.webapplication.main;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.graphic.image.ImmutableImage;
 import ch.nolix.systemapi.graphic.image.IImage;
 import ch.nolix.systemapi.webapplication.main.IWebApplicationService;
 
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webapplication.main.IWebApplicationService;
  * @author Silvan Wyss
  */
 public class WebApplicationService implements IWebApplicationService {
-  public static final IImage DEFAULT_APPLICATION_LOGO = Image.fromResource("image/default_application_logo.jpg");
+  public static final IImage DEFAULT_APPLICATION_LOGO = ImmutableImage.fromResource("image/default_application_logo.jpg");
 
   private IImage applicationLogo = DEFAULT_APPLICATION_LOGO;
 
