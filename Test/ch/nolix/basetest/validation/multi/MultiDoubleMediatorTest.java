@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.errorcontrol.validator;
+package ch.nolix.basetest.validation.multi;
 
 import org.junit.jupiter.api.Test;
 

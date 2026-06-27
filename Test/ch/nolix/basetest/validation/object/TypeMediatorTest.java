@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.errorcontrol.validator;
+package ch.nolix.basetest.validation.object;
 
 import java.util.AbstractList;
 import java.util.ArrayList;
