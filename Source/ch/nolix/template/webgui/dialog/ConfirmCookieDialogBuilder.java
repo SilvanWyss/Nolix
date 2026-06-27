@@ -33,10 +33,10 @@ public final class ConfirmCookieDialogBuilder implements IBuilder<ILayer> {
           .setRole(ContainerRole.DIALOG_CONTAINER)
           .addControls(
             new Label()
-              .setText(TextCatalog.OK),
+              .setText(SentenceCatalog.THIS_PAGE_USES_COOKIES),
             new Button()
               .setRole(ButtonRole.CONFIRM_BUTTON)
-              .setText(SentenceCatalog.THIS_PAGE_USES_COOKIES)
+              .setText(TextCatalog.OK)
               .setLeftMouseButtonPressAction(IButton::removeParentLayerFromGui)));
   }
 }
