@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 
 /**

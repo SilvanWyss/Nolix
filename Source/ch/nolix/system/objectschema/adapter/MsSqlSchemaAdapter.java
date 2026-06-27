@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.objectschema.adapter;
 
-import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 
 /**

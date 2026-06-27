@@ -20,7 +20,7 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentExc
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.baseapi.independent.arraytool.IArrayTool;
 import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**
  * @author Silvan Wyss

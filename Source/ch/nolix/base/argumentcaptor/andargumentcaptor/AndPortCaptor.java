@@ -6,7 +6,7 @@ package ch.nolix.base.argumentcaptor.andargumentcaptor;
 import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**
  * @author Silvan Wyss

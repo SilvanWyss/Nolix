@@ -13,7 +13,7 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.resourcecontrol.closecontroller.CloseController;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.net.netconstant.IPv4Catalog;
+import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
 import ch.nolix.baseapi.resourcecontrol.closecontroller.ICloseController;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.baseapi.sql.model.ISqlRecord;

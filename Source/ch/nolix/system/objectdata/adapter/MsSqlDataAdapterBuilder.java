@@ -9,7 +9,7 @@ import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndSchemaCaptor;
 import ch.nolix.base.argumentcaptor.toargumentcaptor.ToIpOrDomainCaptor;
 import ch.nolix.base.argumentcaptor.withargumentcaptor.WithLoginNameCaptor;
-import ch.nolix.baseapi.net.netconstant.PortCatalog;
+import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 import ch.nolix.systemapi.objectdata.model.IEntityTypeSet;
 
 /**
