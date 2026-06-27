@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapitest.misc.variable;
+package ch.nolix.baseapitest.misc.variablenamecatalog;
 
 import org.junit.jupiter.api.Test;
 
