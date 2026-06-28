@@ -45,7 +45,7 @@ public final class ComplexNumber implements IComplexNumber {
   }
 
   private ComplexNumber(final double realComponent, final double imaginaryComponent) {
-    this(BigDecimal.valueOf(realComponent), BigDecimal.valueOf(imaginaryComponent));
+    this(BigDecimal.valueOf(realComponent), BigDecimal.valueOf(imaginaryComponent), 20);
   }
 
   private ComplexNumber(final double realComponent, final double imaginaryComponent, final int decimalPlaces) {
