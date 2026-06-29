@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 //JUnit import
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
+import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.datamodel.dataobject.VoidObject;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -24,7 +24,7 @@ final class ArgumentCaptorTest extends StandardTest {
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
     //execution & verification
     expectRunning(() -> //
-    new ArgumentCaptor<String, VoidObject>(null) {
+    new AbstractArgumentCaptor<String, VoidObject>(null) {
       //This class is just a sub class without additional methods.
     }) //
       .throwsException()
@@ -35,7 +35,7 @@ final class ArgumentCaptorTest extends StandardTest {
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNotValid() {
     //execution & verification
     expectRunning(() -> //
-    new ArgumentCaptor<String, VoidObject>(new VoidObject()) {
+    new AbstractArgumentCaptor<String, VoidObject>(new VoidObject()) {
       //This class is just a sub class without additional methods.
     }) //
       .throwsException()
@@ -46,7 +46,7 @@ final class ArgumentCaptorTest extends StandardTest {
   void testCase_defaultConstructor() {
     //execution & verification
     expectRunning(() -> //
-    new ArgumentCaptor<String, VoidObject>() {
+    new AbstractArgumentCaptor<String, VoidObject>() {
       //This class is just a sub class without additional methods.
     }) //
       .doesNotThrowException();
@@ -56,7 +56,7 @@ final class ArgumentCaptorTest extends StandardTest {
   void testCase_nxtArgCpt_whenDoesNotHaveNextArgumentCaptor() {
     //setup
     final var testUnit = //
-    new ArgumentCaptor<String, VoidObject>() {
+    new AbstractArgumentCaptor<String, VoidObject>() {
       //This class is just a sub class without additional methods.
     };
 
@@ -69,7 +69,7 @@ final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_setBuilder_whenTheGivenBuilderIsNull() {
     //setup
-    final var testUnit = new ArgumentCaptor<String, VoidObject>() {
+    final var testUnit = new AbstractArgumentCaptor<String, VoidObject>() {
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }
@@ -85,7 +85,7 @@ final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_setBuilder_whenHasAlreadyBuilder() {
     //setup
-    final var testUnit = new ArgumentCaptor<String, VoidObject>() {
+    final var testUnit = new AbstractArgumentCaptor<String, VoidObject>() {
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }

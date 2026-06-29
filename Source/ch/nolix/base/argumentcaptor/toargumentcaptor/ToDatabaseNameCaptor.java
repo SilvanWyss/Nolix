@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.argumentcaptor.toargumentcaptor;
 
-import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
+import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
@@ -11,7 +11,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
  * @author Silvan Wyss
  * @param <N> the type of the next thing of a {@link ToDatabaseNameCaptor}.
  */
-public class ToDatabaseNameCaptor<N> extends ArgumentCaptor<String, N> {
+public class ToDatabaseNameCaptor<N> extends AbstractArgumentCaptor<String, N> {
   public ToDatabaseNameCaptor() {
   }
 

@@ -6,6 +6,7 @@ package ch.nolix.base.argumentcaptor.base;
 import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.argumentcaptor.base.IArgumentCaptor;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -13,50 +14,51 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <A> is the type of a {@link ArgumentCaptor}.
- * @param <N> the type of the next thing of a {@link ArgumentCaptor}.
+ * @param <A> the type of the argument of a {@link AbstractArgumentCaptor}.
+ * @param <S> the type of the successor of a {@link AbstractArgumentCaptor}.
  */
-public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not have abstract methods.
-
+public abstract class AbstractArgumentCaptor<A, S> implements IArgumentCaptor<S> {
   private boolean hasArgument;
 
-  private A argument;
+  private A optionalArgument;
 
-  private final ArgumentCaptor<?, ?> nextArgumentCaptor;
+  private final AbstractArgumentCaptor<?, ?> successorArgumentCaptor;
 
-  private final N nextArgumentCaptorAsNext;
+  private final S successorArgumentCaptorAsSuccessor;
 
-  private Supplier<N> builder;
+  private Supplier<S> optionalBuilder;
 
-  protected ArgumentCaptor() {
-    nextArgumentCaptor = null;
-
-    nextArgumentCaptorAsNext = null;
+  protected AbstractArgumentCaptor() {
+    successorArgumentCaptor = null;
+    successorArgumentCaptorAsSuccessor = null;
   }
 
-  protected ArgumentCaptor(final N nextArgumentCaptor) {
-    if (nextArgumentCaptor instanceof final ArgumentCaptor<?, ?> localArgumentCaptor) {
-      this.nextArgumentCaptor = localArgumentCaptor;
-
-      nextArgumentCaptorAsNext = nextArgumentCaptor;
+  protected AbstractArgumentCaptor(final S successorArgumentCaptor) {
+    if (successorArgumentCaptor instanceof final AbstractArgumentCaptor<?, ?> argumentCaptor) {
+      this.successorArgumentCaptor = argumentCaptor;
+      this.successorArgumentCaptorAsSuccessor = successorArgumentCaptor;
     } else {
-      throw InvalidArgumentException.forArgumentAndArgumentName(nextArgumentCaptor, "next argument captor");
+      throw InvalidArgumentException.forArgumentAndArgumentName(successorArgumentCaptor, "successor argument captor");
     }
   }
 
-  public final N nxtArgCpt() {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S nxtArgCpt() {
     assertHasNextArgumentCaptor();
 
-    return nextArgumentCaptorAsNext;
+    return successorArgumentCaptorAsSuccessor;
   }
 
   protected final A getStoredArgument() {
     assertHasArgument();
 
-    return argument;
+    return optionalArgument;
   }
 
-  protected final N setArgumentAndGetNext(final A argument) {
+  protected final S setArgumentAndGetNext(final A argument) {
     setArgument(argument);
 
     return getNext();
@@ -65,13 +67,12 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   @SuppressWarnings("unchecked")
   protected final void setBuilder(final Supplier<?> builder) {
     if (hasNextArgumentCaptor()) {
-      nextArgumentCaptor.setBuilder(builder);
+      successorArgumentCaptor.setBuilder(builder);
     } else {
       assertDoesNotHaveBuilder();
-
       Validator.assertThat(builder).thatIsNamed(LowerCaseVariableNameCatalog.BUILDER).isNotNull();
 
-      this.builder = (Supplier<N>) builder;
+      this.optionalBuilder = (Supplier<S>) builder;
     }
   }
 
@@ -83,8 +84,8 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
 
   private void assertHasArgument() {
     if (!hasArgument()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this,
-        LowerCaseVariableNameCatalog.ARGUMENT);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.ARGUMENT);
     }
   }
 
@@ -101,22 +102,22 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
     }
   }
 
-  private N build() {
+  private S build() {
     return getStoredBuilder().get();
   }
 
-  private N getNext() {
+  private S getNext() {
     if (hasNextArgumentCaptor()) {
-      return nextArgumentCaptorAsNext;
+      return successorArgumentCaptorAsSuccessor;
     }
 
     return build();
   }
 
-  private Supplier<N> getStoredBuilder() {
+  private Supplier<S> getStoredBuilder() {
     assertHasBuilder();
 
-    return builder;
+    return optionalBuilder;
   }
 
   private boolean hasArgument() {
@@ -124,16 +125,16 @@ public abstract class ArgumentCaptor<A, N> { //NOSONAR: ArgumentCaptor does not 
   }
 
   private boolean hasBuilder() {
-    return (builder != null);
+    return optionalBuilder != null;
   }
 
   private boolean hasNextArgumentCaptor() {
-    return (nextArgumentCaptor != null);
+    return successorArgumentCaptor != null;
   }
 
   private void setArgument(final A argument) {
     hasArgument = true;
 
-    this.argument = argument;
+    this.optionalArgument = argument;
   }
 }

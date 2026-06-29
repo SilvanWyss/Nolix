@@ -3,14 +3,14 @@
  */
 package ch.nolix.base.argumentcaptor.withargumentcaptor;
 
-import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
+import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 
 /**
  * @author Silvan Wyss
  * @param <D> the type of the database of a {@link WithDatabaseCaptor}.
  * @param <N> the type of the next thing of a {@link WithDatabaseCaptor}.
  */
-public class WithDatabaseCaptor<D, N> extends ArgumentCaptor<D, N> {
+public class WithDatabaseCaptor<D, N> extends AbstractArgumentCaptor<D, N> {
   public WithDatabaseCaptor() {
   }
 

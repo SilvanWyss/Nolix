@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.argumentcaptor.withargumentcaptor;
 
-import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
+import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
 
@@ -11,7 +11,7 @@ import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
  * @author Silvan Wyss
  * @param <N> the type of the next thing of a {@link WithIpOrDomainCaptor}.
  */
-public class WithIpOrDomainCaptor<N> extends ArgumentCaptor<String, N> {
+public class WithIpOrDomainCaptor<N> extends AbstractArgumentCaptor<String, N> {
   public WithIpOrDomainCaptor() {
   }
 

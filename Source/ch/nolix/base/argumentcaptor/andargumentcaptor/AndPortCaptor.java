@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.argumentcaptor.andargumentcaptor;
 
-import ch.nolix.base.argumentcaptor.base.ArgumentCaptor;
+import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
@@ -12,7 +12,7 @@ import ch.nolix.baseapi.net.netcatalog.PortCatalog;
  * @author Silvan Wyss
  * @param <N> the type of the next thing of a {@link AndPortCaptor}.
  */
-public class AndPortCaptor<N> extends ArgumentCaptor<Integer, N> {
+public class AndPortCaptor<N> extends AbstractArgumentCaptor<Integer, N> {
   public AndPortCaptor() {
   }
 
