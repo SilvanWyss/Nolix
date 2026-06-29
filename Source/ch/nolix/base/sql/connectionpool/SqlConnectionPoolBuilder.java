@@ -40,10 +40,10 @@ AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
     return //
     SqlConnectionPool.withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
       getIpOrDomain(),
-      nxtArgCpt().getPort(),
-      nxtArgCpt().nxtArgCpt().getDatabaseName(),
-      nxtArgCpt().nxtArgCpt().nxtArgCpt().getSqlDatabaseEngine(),
-      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName(),
-      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword());
+      scsArgCpt().getPort(),
+      scsArgCpt().scsArgCpt().getDatabaseName(),
+      scsArgCpt().scsArgCpt().scsArgCpt().getSqlDatabaseEngine(),
+      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
+      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginPassword());
   }
 }

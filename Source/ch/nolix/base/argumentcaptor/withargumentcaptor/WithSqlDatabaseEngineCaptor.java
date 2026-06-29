@@ -27,6 +27,6 @@ public class WithSqlDatabaseEngineCaptor<N> extends AbstractArgumentCaptor<SqlDa
   public final N withSqlDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine) {
     Validator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 
-    return setArgumentAndGetNext(sqlDatabaseEngine);
+    return setArgumentAndGetStoredSuccessor(sqlDatabaseEngine);
   }
 }

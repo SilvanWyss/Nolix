@@ -26,7 +26,7 @@ public class ToIpOrDomainCaptor<N> extends AbstractArgumentCaptor<String, N> {
   public final N toIpOrDomain(final String ipOrDomain) {
     Validator.assertThat(ipOrDomain).thatIsNamed("ip or domain").isNotBlank();
 
-    return setArgumentAndGetNext(ipOrDomain);
+    return setArgumentAndGetStoredSuccessor(ipOrDomain);
   }
 
   public final N toLocalAddress() {

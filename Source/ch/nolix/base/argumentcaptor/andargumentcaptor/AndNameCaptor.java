@@ -26,6 +26,6 @@ public class AndNameCaptor<N> extends AbstractArgumentCaptor<String, N> {
   public final N andName(final String name) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
 
-    return setArgumentAndGetNext(name);
+    return setArgumentAndGetStoredSuccessor(name);
   }
 }

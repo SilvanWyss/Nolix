@@ -26,6 +26,6 @@ public class ToDatabaseNameCaptor<N> extends AbstractArgumentCaptor<String, N> {
   public final N toDatabase(final String databaseName) {
     Validator.assertThat(databaseName).thatIsNamed(LowerCaseVariableNameCatalog.DATABASE_NAME).isNotBlank();
 
-    return setArgumentAndGetNext(databaseName);
+    return setArgumentAndGetStoredSuccessor(databaseName);
   }
 }

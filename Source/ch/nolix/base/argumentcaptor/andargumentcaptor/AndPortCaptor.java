@@ -38,7 +38,7 @@ public class AndPortCaptor<N> extends AbstractArgumentCaptor<Integer, N> {
       .thatIsNamed(LowerCaseVariableNameCatalog.PORT)
       .isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
-    return setArgumentAndGetNext(port);
+    return setArgumentAndGetStoredSuccessor(port);
   }
 
   public final int getPort() {

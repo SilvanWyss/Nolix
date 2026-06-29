@@ -23,7 +23,7 @@ public class ForNodeDatabaseCaptor<N> extends AbstractArgumentCaptor<IMutableNod
   public final N forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     Validator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
 
-    return setArgumentAndGetNext(nodeDatabase);
+    return setArgumentAndGetStoredSuccessor(nodeDatabase);
   }
 
   public final N forTemporaryInMemoryNodeDatabase() {

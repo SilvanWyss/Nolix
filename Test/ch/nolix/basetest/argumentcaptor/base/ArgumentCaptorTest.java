@@ -61,7 +61,7 @@ final class ArgumentCaptorTest extends StandardTest {
     };
 
     //execution & verification
-    expectRunning(testUnit::nxtArgCpt)
+    expectRunning(testUnit::scsArgCpt)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }

@@ -14,5 +14,5 @@ public interface IArgumentCaptor<S> {
    * @throws RuntimeException if the current {@link IArgumentCaptor} does not have
    *                          a successor {@link IArgumentCaptor}
    */
-  S nxtArgCpt();
+  S scsArgCpt();
 }

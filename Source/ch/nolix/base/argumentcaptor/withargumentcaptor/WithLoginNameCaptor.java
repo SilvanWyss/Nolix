@@ -26,6 +26,6 @@ public class WithLoginNameCaptor<N> extends AbstractArgumentCaptor<String, N> {
   public final N withLoginName(final String loginName) {
     Validator.assertThat(loginName).thatIsNamed(LowerCaseVariableNameCatalog.LOGIN_NAME).isNotBlank();
 
-    return setArgumentAndGetNext(loginName);
+    return setArgumentAndGetStoredSuccessor(loginName);
   }
 }

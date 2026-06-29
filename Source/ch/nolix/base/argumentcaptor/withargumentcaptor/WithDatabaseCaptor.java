@@ -23,6 +23,6 @@ public class WithDatabaseCaptor<D, N> extends AbstractArgumentCaptor<D, N> {
   }
 
   public final N withDatabase(final D database) {
-    return setArgumentAndGetNext(database);
+    return setArgumentAndGetStoredSuccessor(database);
   }
 }

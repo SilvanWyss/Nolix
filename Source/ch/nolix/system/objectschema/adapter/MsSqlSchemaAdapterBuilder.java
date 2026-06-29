@@ -36,14 +36,14 @@ MsSqlSchemaAdapter>>>>> {
   }
 
   private MsSqlSchemaAdapter buildMsSqlSchemaAdapter() {
-    final var databaseName = nxtArgCpt().nxtArgCpt().getDatabaseName();
+    final var databaseName = scsArgCpt().scsArgCpt().getDatabaseName();
 
     final var msSqlConnection = //
     MsSqlConnection.toHostAndPortAndWithUserNameAndUserPassword(
       getIpOrDomain(),
-      nxtArgCpt().getPort(),
-      nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginName(),
-      nxtArgCpt().nxtArgCpt().nxtArgCpt().nxtArgCpt().getLoginPassword());
+      scsArgCpt().getPort(),
+      scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
+      scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginPassword());
 
     return MsSqlSchemaAdapter.forDatabaseNameAndSqlConnection(databaseName, msSqlConnection);
   }

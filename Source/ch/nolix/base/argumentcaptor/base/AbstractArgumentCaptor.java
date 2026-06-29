@@ -20,7 +20,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 public abstract class AbstractArgumentCaptor<A, S> implements IArgumentCaptor<S> {
   private boolean hasArgument;
 
-  private A optionalArgument;
+  private A argument;
 
   private final AbstractArgumentCaptor<?, ?> successorArgumentCaptor;
 
@@ -46,7 +46,7 @@ public abstract class AbstractArgumentCaptor<A, S> implements IArgumentCaptor<S>
    * {@inheritDoc}
    */
   @Override
-  public final S nxtArgCpt() {
+  public final S scsArgCpt() {
     assertHasNextArgumentCaptor();
 
     return successorArgumentCaptorAsSuccessor;
@@ -55,10 +55,10 @@ public abstract class AbstractArgumentCaptor<A, S> implements IArgumentCaptor<S>
   protected final A getStoredArgument() {
     assertHasArgument();
 
-    return optionalArgument;
+    return argument;
   }
 
-  protected final S setArgumentAndGetNext(final A argument) {
+  protected final S setArgumentAndGetStoredSuccessor(final A argument) {
     setArgument(argument);
 
     return getNext();
@@ -135,6 +135,6 @@ public abstract class AbstractArgumentCaptor<A, S> implements IArgumentCaptor<S>
   private void setArgument(final A argument) {
     hasArgument = true;
 
-    this.optionalArgument = argument;
+    this.argument = argument;
   }
 }

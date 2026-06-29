@@ -22,7 +22,7 @@ public class AndLoginPasswordCaptor<N> extends AbstractArgumentCaptor<String, N>
   public final N andLoginPassword(final String loginPassword) {
     Validator.assertThat(loginPassword).thatIsNamed(LowerCaseVariableNameCatalog.LOGIN_PASSWORD).isNotBlank();
 
-    return setArgumentAndGetNext(loginPassword);
+    return setArgumentAndGetStoredSuccessor(loginPassword);
   }
 
   public final String getLoginPassword() {

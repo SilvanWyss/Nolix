@@ -19,7 +19,7 @@ public class AndSchemaCaptor<S, N> extends AbstractArgumentCaptor<S, N> {
   }
 
   public final N andSchema(final S schema) {
-    return setArgumentAndGetNext(schema);
+    return setArgumentAndGetStoredSuccessor(schema);
   }
 
   public final S getStoredSchema() {
