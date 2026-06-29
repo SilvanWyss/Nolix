@@ -145,7 +145,7 @@ final class ComplexNumberTest extends StandardTest {
     final var result = testUnit.getMagnitude();
 
     //verification
-    expect(result).isEqualTo(BigDecimal.valueOf(expectedMagnitude));
+    expect(result).isEqualTo(BigDecimal.valueOf(expectedMagnitude).setScale(20));
   }
 
   @Test
