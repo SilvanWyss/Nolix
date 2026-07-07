@@ -5,7 +5,7 @@ package ch.nolix.base.programcontrol.flowcontrol;
 
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
+import ch.nolix.baseapi.physics.unitconversioncatalog.TimeUnitConversionCatalog;
 
 /**
  * The {@link Waiter} provides methods to wait for specific durations. Of the

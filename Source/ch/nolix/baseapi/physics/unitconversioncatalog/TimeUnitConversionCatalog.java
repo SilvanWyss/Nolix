@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.misc.time;
+package ch.nolix.baseapi.physics.unitconversioncatalog;
 
 /**
  * Of the {@link TimeUnitConversionCatalog} an instance cannot be created.

@@ -15,7 +15,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.baseapi.misc.time.TimeUnitConversionCatalog;
+import ch.nolix.baseapi.physics.unitconversioncatalog.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
 import ch.nolix.systemapi.time.moment.ITime;
 import ch.nolix.systemapi.time.timestructure.Month;
