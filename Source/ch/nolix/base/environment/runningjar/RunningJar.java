@@ -10,9 +10,9 @@ import java.nio.charset.StandardCharsets;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * @author Silvan Wyss

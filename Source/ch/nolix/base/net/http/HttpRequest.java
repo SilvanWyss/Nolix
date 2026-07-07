@@ -5,7 +5,7 @@ package ch.nolix.base.net.http;
 
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 public record HttpRequest(String content) {
   public static final String ACCEPT_HEADER = "Accept";

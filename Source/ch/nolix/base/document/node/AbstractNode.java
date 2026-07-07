@@ -9,12 +9,12 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.xml.MutableXmlNode;
 import ch.nolix.base.environment.filesystem.FileSystemAccessor;
-import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.document.node.INodeComparator;
 import ch.nolix.baseapi.document.xml.IMutableXmlNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 import ch.nolix.baseapi.programcontrol.processproperty.WriteMode;
 
 /**

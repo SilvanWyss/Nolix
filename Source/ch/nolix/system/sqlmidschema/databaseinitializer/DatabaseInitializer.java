@@ -5,7 +5,7 @@ package ch.nolix.system.sqlmidschema.databaseinitializer;
 
 import ch.nolix.base.resourcecontrol.resourcevalidator.ResourceValidator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 import ch.nolix.system.midschema.databaseinitializer.AbstractDatabaseInitializer;
 import ch.nolix.system.sqlschema.adapter.SchemaWriter;

@@ -3,9 +3,9 @@
  */
 package ch.nolix.baseapi.errorcontrol.exceptionargumentpreparatorimpl;
 
-import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.exceptionargumentpreparator.IExceptionArgumentStringRepresentaionPreparator;
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * @author Silvan Wyss

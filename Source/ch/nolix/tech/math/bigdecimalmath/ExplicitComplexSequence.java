@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.function.IntFunction;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 
 /**

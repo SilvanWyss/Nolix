@@ -4,7 +4,7 @@
 package ch.nolix.baseapi.errorcontrol.invalidargumentexception;
 
 import ch.nolix.baseapi.errorcontrol.exceptionargumentbox.ArgumentNameDto;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link InvalidPortException} is a {@link AbstractInvalidArgumentException}

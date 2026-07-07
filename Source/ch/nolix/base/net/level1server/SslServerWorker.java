@@ -6,7 +6,7 @@ package ch.nolix.base.net.level1server;
 import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.programcontrol.worker.AbstractWorker;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.ssl.ISslCertificate;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

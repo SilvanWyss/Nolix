@@ -10,7 +10,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.control.button.ButtonRole;
 import ch.nolix.systemapi.control.button.IButton;

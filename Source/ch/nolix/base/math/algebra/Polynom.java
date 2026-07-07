@@ -8,7 +8,7 @@ import ch.nolix.base.independent.math.NumberComparator;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.doubletool.IDoubleTool;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link Polynom} is not mutable.

@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.optionalattribute;
 
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * A {@link OptionalNameHolder} can have a name.

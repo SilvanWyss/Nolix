@@ -7,9 +7,9 @@ import java.util.function.Consumer;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.system.property.value.MultiValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.systemapi.control.itemmenu.IItemMenu;

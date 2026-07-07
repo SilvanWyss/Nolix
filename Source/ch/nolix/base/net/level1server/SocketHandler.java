@@ -20,7 +20,7 @@ import ch.nolix.base.net.http.HttpRequest;
 import ch.nolix.base.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.baseapi.commontype.inputstreamtool.IInputStreamTool;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.endpointprotocol.MessageType;
 import ch.nolix.baseapi.net.level1server.IEndPoint;
 import ch.nolix.baseapi.net.level1server.SocketType;

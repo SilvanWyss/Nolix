@@ -9,7 +9,7 @@ import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.misc.variablenamecatalog.PluralPascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralPascalCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss

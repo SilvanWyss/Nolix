@@ -4,7 +4,7 @@
 package ch.nolix.base.net.messaging;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link IndexedPackage} bundles an index and a content.

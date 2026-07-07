@@ -5,6 +5,8 @@ package ch.nolix.baseapi.commontype.stringtool;
 
 import java.util.regex.Pattern;
 
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+
 /**
  * Of the {@link RegularExpressionStringPatternCatalog} an instance cannot be
  * created.

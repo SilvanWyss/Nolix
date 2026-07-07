@@ -6,8 +6,8 @@ package ch.nolix.base.commontype.stringtool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.stringtool.IStringTool;
 import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * The {@link StringToolUnit} provides methods to handle {@link String}s.

@@ -6,7 +6,7 @@ package ch.nolix.template.webgui.dialog;
 import java.util.function.Consumer;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.objectcreation.builder.IBuilder;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;

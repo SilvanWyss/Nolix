@@ -6,7 +6,7 @@ package ch.nolix.base.commontype.arraytool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.commontype.arraytool.IByteArrayWithStartIndexMediator;
 import ch.nolix.baseapi.commontype.arraytool.INextIndexMediator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss

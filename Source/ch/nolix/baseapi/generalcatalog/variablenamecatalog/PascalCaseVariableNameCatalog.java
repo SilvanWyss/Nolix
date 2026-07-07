@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.misc.variablenamecatalog;
+package ch.nolix.baseapi.generalcatalog.variablenamecatalog;
 
 /**
  * Of the {@link PascalCaseVariableNameCatalog} an instance cannot be created.

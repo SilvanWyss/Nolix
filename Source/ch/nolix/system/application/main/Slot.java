@@ -4,7 +4,7 @@
 package ch.nolix.system.application.main;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.level3server.IEndPoint;
 import ch.nolix.baseapi.net.level3server.ISlot;
 

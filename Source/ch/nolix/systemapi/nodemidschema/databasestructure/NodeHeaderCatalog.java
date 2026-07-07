@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.nodemidschema.databasestructure;
 
-import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss

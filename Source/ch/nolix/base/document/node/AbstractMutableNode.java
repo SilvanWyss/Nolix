@@ -5,11 +5,11 @@ package ch.nolix.base.document.node;
 
 import ch.nolix.base.environment.filesystem.FileAccessor;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss

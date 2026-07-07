@@ -3,7 +3,7 @@
  */
 package ch.nolix.system.control.button;
 
-import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss

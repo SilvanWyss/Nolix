@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.commontype.stringtool;
+package ch.nolix.baseapi.generalcatalog.textcatalog;
 
 /**
  * Of the {@link StringCatalog} an instance cannot be created.

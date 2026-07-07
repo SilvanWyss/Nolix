@@ -5,7 +5,7 @@ package ch.nolix.baseapi.attribute.optionalattribute;
 
 import java.util.Optional;
 
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * A {@link OptionalHeaderHolder} can have a header.

@@ -18,8 +18,8 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.PositiveArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.independent.arraytool.IArrayTool;
-import ch.nolix.baseapi.misc.variablenamecatalog.PluralLowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**

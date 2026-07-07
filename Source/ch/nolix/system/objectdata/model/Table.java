@@ -9,7 +9,7 @@ import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.datastructure.property.LazyCalculatedProperty;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.entitytool.EntityCreator;
 import ch.nolix.system.objectdata.entitytool.EntityFiller;
 import ch.nolix.system.objectdata.modelexaminer.EntityExaminer;

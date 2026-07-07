@@ -16,7 +16,7 @@ import ch.nolix.baseapi.environment.license.ILicenseValidator;
 import ch.nolix.baseapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A {@link LicenseManagerUnit} contains {@link AbstractLicense}s.

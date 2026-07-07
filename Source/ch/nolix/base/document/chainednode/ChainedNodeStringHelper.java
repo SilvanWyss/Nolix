@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.document.chainednode;
 
-import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
 
 /**
  * @author Silvan Wyss

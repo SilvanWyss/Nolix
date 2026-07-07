@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.sqlmiddatabasestructure.column;
 
-import ch.nolix.baseapi.commontype.charactertool.CharacterCatalog;
-import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * Of the {@link DatabasePropertyColumnNameCatalog} an instance cannot be

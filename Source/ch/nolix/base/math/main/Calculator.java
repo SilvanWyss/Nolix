@@ -8,7 +8,7 @@ import ch.nolix.base.math.algebra.Polynom;
 import ch.nolix.base.math.basic.BasicCalculator;
 import ch.nolix.base.math.stochastic.ARModel;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * The {@link Calculator} provides mathematical functions.

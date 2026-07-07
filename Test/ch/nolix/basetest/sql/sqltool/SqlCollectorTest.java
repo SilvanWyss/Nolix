@@ -11,9 +11,9 @@ import org.mockito.Mockito;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.sql.sqltool.SqlCollector;
 import ch.nolix.base.testing.standardtest.StandardTest;
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 import ch.nolix.baseapi.sql.connection.ISqlConnection;
 
 /**

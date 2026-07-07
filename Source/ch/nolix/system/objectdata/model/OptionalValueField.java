@@ -7,7 +7,7 @@ import ch.nolix.base.datamodel.fieldvalue.ValueMapper;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datamodel.fieldvalue.IValueMapper;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.system.objectdata.fieldvalidator.OptionalValueFieldValidator;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 import ch.nolix.systemapi.objectdata.fieldvalidator.IOptionalValueFieldValidator;

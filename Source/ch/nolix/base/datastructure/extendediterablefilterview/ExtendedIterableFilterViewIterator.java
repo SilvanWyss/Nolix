@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import ch.nolix.base.commontype.iteratorvalidator.IteratorValidator;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.iterator.CopyableIterator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * @author Silvan Wyss

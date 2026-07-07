@@ -7,7 +7,7 @@ import java.io.File;
 
 import ch.nolix.baseapi.commontype.stringtool.RegularExpressionPatternCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
  * A file system item accessor can access a given file system item. A file

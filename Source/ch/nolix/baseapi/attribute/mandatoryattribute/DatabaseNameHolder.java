@@ -3,7 +3,7 @@
  */
 package ch.nolix.baseapi.attribute.mandatoryattribute;
 
-import ch.nolix.baseapi.commontype.stringtool.StringCatalog;
+import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 
 /**
  * A {@link DatabaseNameHolder} has a database name.

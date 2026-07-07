@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import ch.nolix.base.datastructure.pair.Pair;
 import ch.nolix.base.math.main.Calculator;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.techapi.math.bigdecimalmath.IClosedInterval;
 
 /**

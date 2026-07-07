@@ -3,7 +3,7 @@
  */
 package ch.nolix.systemapi.sqlmiddatabasestructure.table;
 
-import ch.nolix.baseapi.misc.variablenamecatalog.PascalCaseVariableNameCatalog;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 
 /**
  * Of the {@link SchemaTableNameCatalog} an instance cannot be created.

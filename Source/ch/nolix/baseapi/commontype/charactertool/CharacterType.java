@@ -3,6 +3,8 @@
  */
 package ch.nolix.baseapi.commontype.charactertool;
 
+import ch.nolix.baseapi.generalcatalog.textcatalog.CharacterCatalog;
+
 /**
  * @author Silvan Wyss
  */
