@@ -11,13 +11,13 @@ package ch.nolix.baseapi.datamodel.fieldrequest;
 public interface MandatorynessRequestable {
   /**
    * @return true if the current {@link MandatorynessRequestable} is mandatory,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isMandatory();
 
   /**
    * @return true if the current {@link MandatorynessRequestable} is optional,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isOptional() {
     return !isMandatory();

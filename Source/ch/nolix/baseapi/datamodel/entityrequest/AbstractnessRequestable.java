@@ -12,13 +12,13 @@ package ch.nolix.baseapi.datamodel.entityrequest;
 public interface AbstractnessRequestable {
   /**
    * @return true if the current {@link AbstractnessRequestable} is abstract,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isAbstract();
 
   /**
-   * @return true if the current {@link AbstractnessRequestable} is concreate,
-   *         false otherwise.
+   * @return true if the current {@link AbstractnessRequestable} is concrete,
+   *         false otherwise
    */
   default boolean isConcrete() {
     return !isAbstract();

@@ -26,7 +26,7 @@ import ch.nolix.baseapi.state.staterequest.BlanknessRequestable;
 public interface INode<N extends INode<N>> extends BlanknessRequestable, OptionalHeaderHolder {
   /**
    * @return true if the current {@link INode} contains child {@link INode}s,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsChildNodes();
 
@@ -46,7 +46,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 
   /**
    * @return true if the current {@link INode} contains 1 child {@link INode},
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsOneChildNode();
 

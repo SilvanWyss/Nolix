@@ -26,7 +26,7 @@ public interface INodeComparator {
    * @param node1
    * @param node2
    * @return true if the given ndoe1 and node2 have an equal header constellation,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean haveEqualHeaderConstellationLikeNode(INode<?> node1, INode<?> node2);
 }

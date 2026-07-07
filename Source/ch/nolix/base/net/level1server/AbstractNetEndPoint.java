@@ -65,7 +65,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
 
   /**
    * @return true if the current {@link AbstractNetEndPoint} has a target info,
-   *         false otherwise.
+   *         false otherwise
    */
   protected final boolean hasTargetInfo() {
     return hasTargetInfo;

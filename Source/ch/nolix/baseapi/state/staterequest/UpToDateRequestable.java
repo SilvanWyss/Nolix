@@ -11,7 +11,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface UpToDateRequestable {
   /**
    * @return true if the current {@link UpToDateRequestable} is not up-to-date,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isOutOfDate() {
     return !isUpToDate();

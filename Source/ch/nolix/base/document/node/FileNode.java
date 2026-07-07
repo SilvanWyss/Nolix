@@ -269,7 +269,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
 
   /**
    * @return true if the current {@link FileNode} is a root {@link FileNode},
-   *         false otherwise.
+   *         false otherwise
    */
   private boolean isRootFileNode() {
     return (fileAccessor != null);

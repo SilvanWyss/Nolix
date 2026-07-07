@@ -11,7 +11,7 @@ package ch.nolix.baseapi.resourcecontrol.savecontrol;
 public interface ChangeRequestable {
   /**
    * @return true if the current {@link ChangeRequestable} has uncomitted changes,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean hasChanges();
 

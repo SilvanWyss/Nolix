@@ -35,7 +35,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
 
   /**
    * @return true if the current {@link IBaseStyle} contains attaching attributes,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsAttachingAttributes();
 

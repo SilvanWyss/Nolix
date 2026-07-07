@@ -13,7 +13,7 @@ package ch.nolix.baseapi.component.datamodelcomponent;
 public interface EntityComponent<E> {
   /**
    * @return true if the current {@link EntityComponent} belongs to an entity,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean belongsToEntity();
 

@@ -186,7 +186,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
   /**
    * @param list
    * @return true if the current {@link SequencePattern} matches the given list,
-   *         false otherwise.
+   *         false otherwise
    */
   public boolean matches(final LinkedList<E> list) {
     //Asserts that the given list has as many elements as the current SequencePattern requires.

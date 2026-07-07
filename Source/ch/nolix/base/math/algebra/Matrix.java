@@ -1029,7 +1029,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @param lineIndex
    * @return true if the line with the given index of the current {@link Matrix}
    *         allows to the current {@link Matrix} to be a identity {@link Matrix},
-   *         false otherwise.
+   *         false otherwise
    */
   private boolean canBeLineInIdentityMatrix(final int lineIndex) {
     final var columnCount = getColumnCount();

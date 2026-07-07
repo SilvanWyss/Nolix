@@ -13,7 +13,7 @@ public interface IExecutableExaminer {
    * @param executable
    * @param type
    * @return true if all parameters of the given executable are of the given type,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean allParametersOfExecutableAreOfType(Executable executable, Class<?> type);
 }

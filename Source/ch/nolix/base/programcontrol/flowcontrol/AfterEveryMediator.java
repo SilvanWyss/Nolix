@@ -106,7 +106,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
 
   /**
    * @return true if the current {@link AfterEveryMediator} has a max run count,
-   *         false otherwise.
+   *         false otherwise
    */
   private boolean hasMaxRunCount() {
     return (maxRunCount != null);

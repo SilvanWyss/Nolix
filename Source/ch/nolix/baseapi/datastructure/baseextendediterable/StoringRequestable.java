@@ -75,7 +75,7 @@ public interface StoringRequestable<E> {
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains exactly
    *         elements that equal the elements of given iterable in the same order,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsExactlyEqualingInSameOrder(Iterable<?> iterable);
 

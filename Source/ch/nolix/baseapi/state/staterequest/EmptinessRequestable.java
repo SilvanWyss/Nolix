@@ -20,7 +20,7 @@ public interface EmptinessRequestable {
 
   /**
    * @return true if {@link EmptinessRequestable} does not contain an element,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isEmpty();
 }

@@ -17,7 +17,7 @@ public interface CloseStateRequestable {
 
   /**
    * @return true if the current {@link CloseStateRequestable} is not closed,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isOpen() {
     return !isClosed();

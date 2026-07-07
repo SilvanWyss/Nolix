@@ -21,7 +21,7 @@ public interface IClient extends ConnectionSideRequestable, GroupCloseable, ISec
 
   /**
    * @return true if the current {@link IClient} has requested the connection,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean hasRequestedConnection();
 

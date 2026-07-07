@@ -53,7 +53,7 @@ final class ResultJobExecutor<R> extends Thread {
 
   /**
    * @return true if the current {@link ResultJobExecutor} has caught an error,
-   *         false otherwise.
+   *         false otherwise
    */
   public boolean caughtError() {
     return (error != null);

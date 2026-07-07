@@ -46,7 +46,7 @@ implements ILicense {
   /**
    * @param refinedKey
    * @return true if the current {@link License} accepts the given refinedKey,
-   *         false otherwise.
+   *         false otherwise
    */
   protected abstract boolean acceptsRefinedKey(String refinedKey);
 

@@ -111,7 +111,7 @@ final class ClosePool implements IClosePool {
   /**
    * @param element
    * @return true if the current {@link ClosePool} contains the given element,
-   *         false otherwise.
+   *         false otherwise
    */
   private boolean containsElement(final GroupCloseable element) {
     return memberElements.contains(element);

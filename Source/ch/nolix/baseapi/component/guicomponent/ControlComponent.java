@@ -13,7 +13,7 @@ package ch.nolix.baseapi.component.guicomponent;
 public interface ControlComponent<C> {
   /**
    * @return true if the current {@link ControlComponent} belongs to a control,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean belongsToControl();
 

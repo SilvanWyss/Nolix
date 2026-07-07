@@ -390,7 +390,7 @@ public final class JobExecutor extends Thread {
 
   /**
    * @return true if the current {@link JobExecutor} is finished successfully,
-   *         false otherwise.
+   *         false otherwise
    */
   public boolean isFinishedSuccessfully() {
     return (isFinished() && !caughtError());

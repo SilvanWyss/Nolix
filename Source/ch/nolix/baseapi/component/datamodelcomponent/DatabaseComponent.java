@@ -13,7 +13,7 @@ package ch.nolix.baseapi.component.datamodelcomponent;
 public interface DatabaseComponent<D> {
   /**
    * @return true if the current {@link DatabaseComponent} belongs to a database,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean belongsToDatabase();
 

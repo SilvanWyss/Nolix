@@ -27,7 +27,7 @@ extends ControlComponent<Control<?, ?>>, GuiComponent<IWebGui<?>>, LayerComponen
 
   /**
    * @return true if the current {@link IControlParent} is a {@link Control},
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isControl();
 

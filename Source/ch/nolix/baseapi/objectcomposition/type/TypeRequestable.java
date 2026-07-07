@@ -38,7 +38,7 @@ public interface TypeRequestable {
   /**
    * @param type
    * @return true if the current {@link TypeRequestable} is of the given type,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isOfType(final Class<?> type) {
     return type.isAssignableFrom(getClass());
@@ -47,7 +47,7 @@ public interface TypeRequestable {
   /**
    * @param type
    * @return true if the current {@link TypeRequestable} is of the given type,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isOfType(final String type) {
     //Iterates the classes of this type requestable object.

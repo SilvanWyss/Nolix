@@ -11,7 +11,7 @@ package ch.nolix.baseapi.state.staterequest;
 public interface MutabilityRequestable {
   /**
    * @return true if the current {@link MutabilityRequestable} is not mutable,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isImmutable() {
     return !isMutable();

@@ -14,7 +14,7 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
   /**
    * @param entity
    * @return true if all new and mandatory fields of the given entity are set,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean allNewAndEditedMandatoryFieldsAreSet(IEntity entity);
 
@@ -72,7 +72,7 @@ public interface IEntityExaminer extends IDatabaseObjectExaminer {
    * @param sourceEntity
    * @param targetEntity
    * @return true if the given sourceEntity referecned the given targetEntity,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean referencesGivenEntity(IEntity sourceEntity, IEntity targetEntity);
 }

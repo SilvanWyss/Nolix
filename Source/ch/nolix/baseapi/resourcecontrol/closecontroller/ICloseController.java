@@ -31,7 +31,7 @@ public interface ICloseController {
 
   /**
    * @return true if the current {@link ICloseController} has closed its elements,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean hasClosed();
 

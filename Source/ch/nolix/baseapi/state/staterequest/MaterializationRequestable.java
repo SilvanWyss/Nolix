@@ -29,7 +29,7 @@ public interface MaterializationRequestable {
 
   /**
    * @return true if the current {@link MaterializationRequestable} is a view,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isView() {
     return !isMaterialized();

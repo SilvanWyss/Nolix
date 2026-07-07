@@ -13,7 +13,7 @@ package ch.nolix.baseapi.component.applicationcomponent;
 public interface ClientComponent<C> {
   /**
    * @return true if the current {@link ClientComponent} belongs to a client,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean belongsToClient();
 

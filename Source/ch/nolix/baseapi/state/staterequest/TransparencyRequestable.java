@@ -19,7 +19,7 @@ public interface TransparencyRequestable {
 
   /**
    * @return true if the current {@link TransparencyRequestable} is transparent,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isTransparent();
 }

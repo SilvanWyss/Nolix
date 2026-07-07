@@ -66,7 +66,7 @@ public interface IApplication<C extends IBackendClient<S>, S> extends ClientMana
 
   /**
    * @return true if the current {@link IApplication} has an instance appendix,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean hasInstanceAppendix();
 }

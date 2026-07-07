@@ -19,7 +19,7 @@ public interface FieldTypeRequestable {
 
   /**
    * @return true if the current {@link FieldTypeRequestable} is for references,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isForReferences() {
     return !isForValues();

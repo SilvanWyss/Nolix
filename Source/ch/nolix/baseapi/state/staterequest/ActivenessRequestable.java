@@ -17,7 +17,7 @@ public interface ActivenessRequestable {
 
   /**
    * @return true if the current {@link ActivenessRequestable} is not active,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isInactive();
 }

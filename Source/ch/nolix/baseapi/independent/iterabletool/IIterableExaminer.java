@@ -19,7 +19,7 @@ public interface IIterableExaminer {
    * @param iterable
    * @param element
    * @return true if the given iterable contains the given element multiple times,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsElementMultipleTimes(Iterable<?> iterable, Object element);
 
@@ -27,7 +27,7 @@ public interface IIterableExaminer {
    * @param iterable
    * @param element
    * @return true if the given iterable contains the given element exactly 1 time,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsElementOnce(Iterable<?> iterable, Object element);
 

@@ -11,13 +11,13 @@ package ch.nolix.baseapi.state.staterequest;
 public interface CompletenessRequestable {
   /**
    * @return true if the current {@link CompletenessRequestable} is complete,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean isComplete();
 
   /**
    * @return true if the current {@link CompletenessRequestable} is not complete,
-   *         false otherwise.
+   *         false otherwise
    */
   default boolean isIncomplete() {
     return !isComplete();

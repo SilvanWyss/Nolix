@@ -45,7 +45,7 @@ public interface ITableExaminer {
    * @param table
    * @param name
    * @return if the given table contains a {@link IColumn} with the given name,
-   *         false otherwise.
+   *         false otherwise
    */
   boolean containsColumnWithName(ITable table, String name);
 
