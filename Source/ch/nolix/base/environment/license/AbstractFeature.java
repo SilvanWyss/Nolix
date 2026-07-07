@@ -13,7 +13,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  */
 public abstract class AbstractFeature implements NameHolder {
   /**
-   * @return the authorized {@link License} types of the current
+   * @return the authorized {@link AbstractLicense} types of the current
    *         {@link AbstractFeature}.
    */
   public abstract ExtendedIterable<Class<?>> getAuthorizedLicenseTypes();

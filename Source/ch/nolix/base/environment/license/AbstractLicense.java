@@ -3,15 +3,14 @@
  */
 package ch.nolix.base.environment.license;
 
-import ch.nolix.baseapi.environment.licenseapi.ILicense;
-import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
+import ch.nolix.baseapi.environment.license.License;
+import ch.nolix.baseapi.environment.license.ILicenseValidator;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 
 /**
  * @author Silvan Wyss
  */
-public abstract class License //NOSONAR: A license class is expected to be abstract.
-implements ILicense {
+public abstract class AbstractLicense implements License {
   private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
   private boolean activated;
@@ -45,15 +44,15 @@ implements ILicense {
 
   /**
    * @param refinedKey
-   * @return true if the current {@link License} accepts the given refinedKey,
-   *         false otherwise
+   * @return true if the current {@link AbstractLicense} accepts the given
+   *         refinedKey, false otherwise
    */
   protected abstract boolean acceptsRefinedKey(String refinedKey);
 
   /**
    * @param key
-   * @return true if the current {@link License} accepts the given key, false
-   *         otherwise.
+   * @return true if the current {@link AbstractLicense} accepts the given key,
+   *         false otherwise.
    */
   private boolean acceptsKey(final String key) {
     final var refinedKey = KeyRefinder.getRefinedKeyFromKey(key);
@@ -63,8 +62,8 @@ implements ILicense {
 
   /**
    * @param key
-   * @throws UnacceptedKeyException if the current {@link License} does no accepts
-   *                                the given key.
+   * @throws UnacceptedKeyException if the current {@link AbstractLicense} does no
+   *                                accepts the given key.
    */
   private void assertAcceptsKey(final String key) {
     if (!acceptsKey(key)) {

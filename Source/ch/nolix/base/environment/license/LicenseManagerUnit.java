@@ -12,24 +12,24 @@ import ch.nolix.base.errorcontrol.generalexception.WrapperException;
 import ch.nolix.base.reflection.reflectiontool.ReflectionTool;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.baseapi.environment.licenseapi.ILicenseValidator;
+import ch.nolix.baseapi.environment.license.ILicenseValidator;
 import ch.nolix.baseapi.environment.nolixenvironment.NolixDirectoryAndFileCatalog;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 /**
- * A {@link LicenseManagerUnit} contains {@link License}s.
+ * A {@link LicenseManagerUnit} contains {@link AbstractLicense}s.
  * 
  * @author Silvan Wyss
  */
 public final class LicenseManagerUnit {
   private static final ILicenseValidator LICENSE_VALIDATOR = new LicenseValidator();
 
-  private final LinkedList<License> licenses = LinkedList.createEmpty();
+  private final LinkedList<AbstractLicense> abstractLicenses = LinkedList.createEmpty();
 
   /**
-   * Creates and adds a new {@link License} of the given licenseType to the
+   * Creates and adds a new {@link AbstractLicense} of the given licenseType to the
    * current {@link LicenseManagerUnit}
    * 
    * @param licenseType
@@ -42,13 +42,13 @@ public final class LicenseManagerUnit {
    *                          constructor with 1 {@link String} parameter.
    * @throws RuntimeException if the found key is not valid.
    * @throws RuntimeException if the current {@link LicenseManagerUnit} does
-   *                          contain already a {@link License} of the given
+   *                          contain already a {@link AbstractLicense} of the given
    *                          licenseType.
    */
-  public <L extends License> LicenseManagerUnit addLicense(final Class<L> licenseType) {
+  public <L extends AbstractLicense> LicenseManagerUnit addLicense(final Class<L> licenseType) {
     final var key = readKeyFromLicenseFile(licenseType);
 
-    final var license = ReflectionTool.createInstanceFromDefaultConstructorOfClass(License.class);
+    final var license = ReflectionTool.createInstanceFromDefaultConstructorOfClass(AbstractLicense.class);
     license.activateWithKey(key);
 
     addLicense(license);
@@ -59,25 +59,25 @@ public final class LicenseManagerUnit {
   /**
    * Adds the given license to the current {@link LicenseManagerUnit}.
    * 
-   * @param license
+   * @param abstractLicense
    * @return the current {@link LicenseManagerUnit}.
    * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the given license is not activated.
    * @throws RuntimeException if the current {@link LicenseManagerUnit} contains
-   *                          already a {@link License} of the type the given
+   *                          already a {@link AbstractLicense} of the type the given
    *                          license is.
    */
-  public LicenseManagerUnit addLicense(final License license) {
+  public LicenseManagerUnit addLicense(final AbstractLicense abstractLicense) {
     //Asserts that the given license is not null.
-    Validator.assertThat(license).thatIsNamed(LowerCaseVariableNameCatalog.LICENSE).isNotNull();
+    Validator.assertThat(abstractLicense).thatIsNamed(LowerCaseVariableNameCatalog.LICENSE).isNotNull();
 
     //Assets thath the given license is actiaved.
-    LICENSE_VALIDATOR.assertIsActivated(license);
+    LICENSE_VALIDATOR.assertIsActivated(abstractLicense);
 
     //Handles the case that the current LicenseManager
     //does not contain already a License of the type the given license is.
-    if (!containsLicense(license.getClass())) {
-      licenses.addAtEnd(license);
+    if (!containsLicense(abstractLicense.getClass())) {
+      abstractLicenses.addAtEnd(abstractLicense);
     }
 
     return this;
@@ -108,30 +108,30 @@ public final class LicenseManagerUnit {
    * @param licenseType
    * @param <L>         is the given licenseType.
    * @return true if the current {@link LicenseManagerUnit} contains a
-   *         {@link License} of the given licenseType, false otherwise.
+   *         {@link AbstractLicense} of the given licenseType, false otherwise.
    */
-  public <L extends License> boolean containsLicense(final Class<L> licenseType) {
-    return licenses.containsAny(l -> l.getClass() == licenseType);
+  public <L extends AbstractLicense> boolean containsLicense(final Class<L> licenseType) {
+    return abstractLicenses.containsAny(l -> l.getClass() == licenseType);
   }
 
   /**
    * @return the types of the licenses of the current {@link LicenseManagerUnit}.
    */
   public ExtendedIterable<Class<?>> getLicenseTypes() {
-    return licenses.to(License::getClass);
+    return abstractLicenses.to(AbstractLicense::getClass);
   }
 
   /**
    * Removes the given license from the current {@link LicenseManagerUnit}.
    * 
-   * @param license
+   * @param abstractLicense
    * @throws ArgumentDoesNotContainElementException if the current
    *                                                {@link LicenseManagerUnit}
    *                                                does not contain the given
    *                                                license.
    */
-  public void removeLicense(final License license) {
-    licenses.removeStrictlyFirstOccurrenceOf(license);
+  public void removeLicense(final AbstractLicense abstractLicense) {
+    abstractLicenses.removeStrictlyFirstOccurrenceOf(abstractLicense);
   }
 
   /**
@@ -172,7 +172,7 @@ public final class LicenseManagerUnit {
    *         file. The license file is on the local computer.
    * @throws RuntimeException if the given licenseType is null.
    */
-  private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
+  private <L extends AbstractLicense> String readKeyFromLicenseFile(final Class<L> licenseType) {
     //Asserts that the given licenseType is not null.
     Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 

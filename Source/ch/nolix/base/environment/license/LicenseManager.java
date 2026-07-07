@@ -22,17 +22,17 @@ public final class LicenseManager {
   /**
    * Adds the given license to the {@link LicenseManager}.
    * 
-   * @param license
+   * @param abstractLicense
    * @throws RuntimeException if the given license is null
    * @throws RuntimeException if the {@link LicenseManager} contains already a
-   *                          {@link License} of the type the given license is.
+   *                          {@link AbstractLicense} of the type the given license is.
    */
-  public static void addLicense(final License license) {
-    LICENSE_MANAGER.addLicense(license);
+  public static void addLicense(final AbstractLicense abstractLicense) {
+    LICENSE_MANAGER.addLicense(abstractLicense);
   }
 
   /**
-   * Creates and adds a new {@link License} of the given licenseType to the
+   * Creates and adds a new {@link AbstractLicense} of the given licenseType to the
    * {@link LicenseManager}.
    * 
    * @param licenseType
@@ -44,9 +44,9 @@ public final class LicenseManager {
    *                          constructor with 1 {@link String} parameter.
    * @throws RuntimeException if the found key is not valid.
    * @throws RuntimeException if the {@link LicenseManager} contains already a
-   *                          {@link License} of the given licenseType.
+   *                          {@link AbstractLicense} of the given licenseType.
    */
-  public static <L extends License> void addLicense(final Class<L> licenseType) {
+  public static <L extends AbstractLicense> void addLicense(final Class<L> licenseType) {
     LICENSE_MANAGER.addLicense(licenseType);
   }
 
@@ -68,12 +68,12 @@ public final class LicenseManager {
   /**
    * Removes the given license from the {@link LicenseManager}.
    * 
-   * @param license
+   * @param abstractLicense
    * @throws RuntimeException if the {@link LicenseManager} does not contain the
    *                          given license.
    */
-  public static void removeLicense(final License license) {
-    LICENSE_MANAGER.removeLicense(license);
+  public static void removeLicense(final AbstractLicense abstractLicense) {
+    LICENSE_MANAGER.removeLicense(abstractLicense);
   }
 
   /**

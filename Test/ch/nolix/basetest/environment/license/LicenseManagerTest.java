@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.misc.license;
+package ch.nolix.basetest.environment.license;
 
 import java.util.Objects;
 
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
 import ch.nolix.base.environment.license.AbstractFeature;
-import ch.nolix.base.environment.license.License;
+import ch.nolix.base.environment.license.AbstractLicense;
 import ch.nolix.base.environment.license.LicenseManager;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -18,7 +18,7 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  * @author Silvan Wyss
  */
 final class LicenseManagerTest extends StandardTest {
-  private static final class TestLicense extends License {
+  private static final class TestLicense extends AbstractLicense {
     @Override
     protected boolean acceptsRefinedKey(String key) {
       return Objects.equals(key, "00000000");
