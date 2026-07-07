@@ -6,7 +6,7 @@ package ch.nolix.base.argumentcaptor.base;
 import java.util.function.Supplier;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.argumentcaptor.base.IArgumentCaptor;
+import ch.nolix.baseapi.argumentcaptor.base.ArgumentCaptor;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -17,7 +17,7 @@ import ch.nolix.baseapi.misc.variablenamecatalog.LowerCaseVariableNameCatalog;
  * @param <A> the type of the argument of a {@link AbstractArgumentCaptor}.
  * @param <S> the type of the successor of a {@link AbstractArgumentCaptor}.
  */
-public abstract class AbstractArgumentCaptor<A, S> implements IArgumentCaptor<S> {
+public abstract class AbstractArgumentCaptor<A, S> implements ArgumentCaptor<S> {
   private boolean hasArgument;
 
   private A optionalArgument;
