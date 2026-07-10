@@ -6,8 +6,8 @@ package ch.nolix.base.programcontrol.flowcontrol;
 import java.util.function.BooleanSupplier;
 
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.generalcatalog.unitconversioncatalog.TimeUnitConversionCatalog;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.physics.unitconversioncatalog.TimeUnitConversionCatalog;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAfterEveryMediator;
 import ch.nolix.baseapi.programcontrol.flowcontrol.IAsLongAsMediator;
 import ch.nolix.baseapi.programcontrol.future.IFuture;
