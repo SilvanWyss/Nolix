@@ -40,7 +40,8 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     final ExtendedIterable<? extends ITable> referenceableTables,
     final ExtendedIterable<? extends IColumn> backReferenceableColumns) {
     return //
-    COLUMN_EXAMINER.isOpenAndEmptyAndNotBackReferenced(column)
+    COLUMN_EXAMINER //NOSONAR: There is no advantage to spreading the conditions.
+      .isOpenAndEmptyAndNotBackReferenced(column)
     && fieldType != null
     && dataType != null
     && referenceableTables != null

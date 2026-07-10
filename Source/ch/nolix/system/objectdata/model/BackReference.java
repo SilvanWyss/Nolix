@@ -26,8 +26,8 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the {@link IEntity} a {@link BackReference}
- *            reference back.
+ * @param <E> the type of the {@link IEntity} a {@link BackReference} references
+ *            back
  */
 public final class BackReference<E extends IEntity> extends AbstractBaseBackReference implements IBackReference<E> {
   private static final IDatabaseSearcher DATABASE_SEARCHER = new DatabaseSearcher();
@@ -232,7 +232,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   @Override
   public boolean referencesBackField(final IField field) {
     return //
-    field != null
+    field != null //NOSONAR: There is no advantage to spreading the conditions.
     && field.belongsToEntity()
     && containsAny()
     && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())

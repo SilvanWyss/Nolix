@@ -26,7 +26,7 @@ import ch.nolix.systemapi.objectdata.structure.EntityCache;
 /**
  * @author Silvan Wyss
  * @param <E> the type of the {@link IEntity} a {@link OptionalBackReference}
- *            can reference back.
+ *            can references back
  */
 public final class OptionalBackReference<E extends IEntity>
 extends AbstractBaseBackReference
@@ -225,7 +225,7 @@ implements IOptionalBackReference<E> {
   @Override
   public boolean referencesBackField(final IField field) {
     return //
-    field != null
+    field != null //NOSONAR: There is no advantage to spreading the conditions.
     && field.belongsToEntity()
     && containsAny()
     && getBackReferencedTableName().equals(field.getStoredParentEntity().getParentTableName())
