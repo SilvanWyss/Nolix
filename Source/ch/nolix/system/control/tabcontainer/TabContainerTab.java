@@ -57,6 +57,10 @@ public final class TabContainerTab extends AbstractPropertiesElement implements 
     ControlFactory::createControlFromSpecification,
     Control::getSpecification);
 
+  public TabContainerTab() {
+    optionalParentTabContainer = null;
+  }
+
   public static TabContainerTab fromSpecification(final INode<?> specification) {
     final var tab = new TabContainerTab();
     tab.resetFromSpecification(specification);
