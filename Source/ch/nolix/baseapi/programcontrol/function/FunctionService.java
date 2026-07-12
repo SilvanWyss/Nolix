@@ -134,6 +134,6 @@ public final class FunctionService {
    * @throws GeneralException
    */
   public static void throwException() {
-    throw GeneralException.withErrorMessage("An error was provoked.");
+    throw new RuntimeException("An error was provoked.");
   }
 }

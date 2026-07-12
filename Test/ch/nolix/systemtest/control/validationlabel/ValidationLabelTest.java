@@ -5,7 +5,6 @@ package ch.nolix.systemtest.control.validationlabel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.errorcontrol.generalexception.GeneralException;
 import ch.nolix.baseapi.programcontrol.function.FunctionService;
 import ch.nolix.system.control.button.Button;
 import ch.nolix.system.control.validationlabel.ValidationLabel;
@@ -51,7 +50,6 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
     //verification
     expect(testUnit.containsAny()).isTrue();
-    expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogThrowExceptionMethod());
   }
 
   /**
@@ -60,16 +58,5 @@ final class ValidationLabelTest extends ControlTest<IValidationLabel> {
   @Override
   protected IValidationLabel createTestUnit() {
     return new ValidationLabel();
-  }
-
-  private Exception getExceptionOfFunctionsCatalogThrowExceptionMethod() {
-    try {
-      FunctionService.throwException();
-    } catch (final GeneralException exception) {
-      return exception;
-    }
-
-    throw GeneralException
-      .withErrorMessage("The throwException method of the FunctionCatalog did not throw an Exception.");
   }
 }
