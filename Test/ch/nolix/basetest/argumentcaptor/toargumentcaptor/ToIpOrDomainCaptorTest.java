@@ -20,7 +20,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
     final var testUnit = new ToIpOrDomainCaptor<>();
 
     //execution & verification
-    expectRunning(testUnit::getIpOrDomain).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+    expectRunning(testUnit::getHost).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
@@ -29,7 +29,7 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
     final var testUnit = new ToIpOrDomainCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.toIpOrDomain("nolix.ch"))
+    expectRunning(() -> testUnit.toHost("nolix.ch"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
@@ -44,10 +44,10 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
     final var testUnit = new ToIpOrDomainCaptor<>(andNameCaptor);
 
     //execution
-    final var result = testUnit.toIpOrDomain(domain);
+    final var result = testUnit.toHost(domain);
 
     //verification
-    expect(testUnit.getIpOrDomain()).isEqualTo(domain);
+    expect(testUnit.getHost()).isEqualTo(domain);
     expect(result).is(andNameCaptor);
   }
 
@@ -58,10 +58,10 @@ final class ToIpOrDomainCaptorTest extends StandardTest {
     final var testUnit = new ToIpOrDomainCaptor<>(andNameCaptor);
 
     //execution
-    final var result = testUnit.toLocalAddress();
+    final var result = testUnit.toLocalHost();
 
     //verification
-    expect(testUnit.getIpOrDomain()).isEqualTo("127.0.0.1");
+    expect(testUnit.getHost()).isEqualTo("127.0.0.1");
     expect(result).is(andNameCaptor);
   }
 }

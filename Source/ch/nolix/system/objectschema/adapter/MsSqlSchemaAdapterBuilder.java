@@ -40,7 +40,7 @@ MsSqlSchemaAdapter>>>>> {
 
     final var msSqlConnection = //
     MsSqlConnection.toHostAndPortAndWithUserNameAndUserPassword(
-      getIpOrDomain(),
+      getHost(),
       scsArgCpt().getPort(),
       scsArgCpt().scsArgCpt().scsArgCpt().getLoginName(),
       scsArgCpt().scsArgCpt().scsArgCpt().scsArgCpt().getLoginPassword());

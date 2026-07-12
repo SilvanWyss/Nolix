@@ -5,31 +5,45 @@ package ch.nolix.base.argumentcaptor.toargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.argumentcaptor.toargumentcaptor.IToHostCaptor;
+import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netcatalog.IPv4Catalog;
 
 /**
  * @author Silvan Wyss
- * @param <N> the type of the next thing of a {@link ToIpOrDomainCaptor}.
+ * @param <S> the type of the successor of a {@link ToIpOrDomainCaptor}.
  */
-public class ToIpOrDomainCaptor<N> extends AbstractArgumentCaptor<String, N> {
+public class ToIpOrDomainCaptor<S> extends AbstractArgumentCaptor<String, S> implements IToHostCaptor<S> {
   public ToIpOrDomainCaptor() {
   }
 
-  public ToIpOrDomainCaptor(final N nextArgumentCaptor) {
+  public ToIpOrDomainCaptor(final S nextArgumentCaptor) {
     super(nextArgumentCaptor);
   }
 
-  public final String getIpOrDomain() {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final String getHost() {
     return getStoredArgument();
   }
 
-  public final N toIpOrDomain(final String ipOrDomain) {
-    Validator.assertThat(ipOrDomain).thatIsNamed("ip or domain").isNotBlank();
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S toHost(final String host) {
+    Validator.assertThat(host).thatIsNamed(LowerCaseVariableNameCatalog.HOST).isNotBlank();
 
-    return setArgumentAndGetStoredSuccessor(ipOrDomain);
+    return setArgumentAndGetStoredSuccessor(host);
   }
 
-  public final N toLocalAddress() {
-    return toIpOrDomain(IPv4Catalog.LOOP_BACK_ADDRESS);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S toLocalHost() {
+    return toHost(IPv4Catalog.LOOP_BACK_ADDRESS);
   }
 }
