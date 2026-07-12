@@ -5,34 +5,39 @@ package ch.nolix.base.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
 import ch.nolix.base.validation.validator.Validator;
+import ch.nolix.baseapi.argumentcaptor.andargumentcaptor.IAndPortCaptor;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.baseapi.net.netcatalog.PortCatalog;
 
 /**
  * @author Silvan Wyss
- * @param <N> the type of the next thing of a {@link AndPortCaptor}.
+ * @param <S> the type of the next thing of a {@link AndPortCaptor}.
  */
-public class AndPortCaptor<N> extends AbstractArgumentCaptor<Integer, N> {
+public class AndPortCaptor<S> extends AbstractArgumentCaptor<Integer, S> implements IAndPortCaptor<S> {
   public AndPortCaptor() {
   }
 
-  public AndPortCaptor(final N nextArgumentCaptor) {
+  public AndPortCaptor(final S nextArgumentCaptor) {
     super(nextArgumentCaptor);
   }
 
-  public final N andHttpPort() {
+  public final S andHttpPort() {
     return andPort(PortCatalog.HTTP);
   }
 
-  public final N andHttpsPort() {
+  public final S andHttpsPort() {
     return andPort(PortCatalog.HTTPS);
   }
 
-  public final N andMsSqlPort() {
+  public final S andMsSqlPort() {
     return andPort(PortCatalog.MS_SQL);
   }
 
-  public final N andPort(final int port) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S andPort(final int port) {
     Validator
       .assertThat(port)
       .thatIsNamed(LowerCaseVariableNameCatalog.PORT)
@@ -41,6 +46,10 @@ public class AndPortCaptor<N> extends AbstractArgumentCaptor<Integer, N> {
     return setArgumentAndGetStoredSuccessor(port);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final int getPort() {
     return getStoredArgument();
   }
