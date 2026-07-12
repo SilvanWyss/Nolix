@@ -781,8 +781,8 @@ public abstract class ExtendedIterableTest extends StandardTest {
     //execution & verification
     expectRunning(testUnit::getStoredFirst)
       .throwsException()
-      .ofType(EmptyArgumentException.class)
-      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " does not contain a non-null element.");
   }
 
   @Test

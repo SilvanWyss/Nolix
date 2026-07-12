@@ -6,7 +6,7 @@ package ch.nolix.baseapi.commontype.iterabletool;
 /**
  * @author Silvan Wyss
  */
-public interface IIterableSearcher extends IIterableCountSearcher {
+public interface IIterableSearcher extends IIterableFirstElementSearcher, IIterableCountSearcher {
   /**
    * @param iterable      the searched {@link Iterable}, is considered to be empty
    *                      when is null

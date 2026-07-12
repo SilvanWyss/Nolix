@@ -17,6 +17,7 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
+import ch.nolix.base.commontype.iteratortool.IterableSearcher;
 import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
@@ -27,7 +28,6 @@ import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -42,6 +42,8 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
 implements ExtendedIterable<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
+
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
 
   /**
    * The time complexity of this implementation is O(n) if the current
@@ -900,17 +902,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final E getStoredFirst() {
-    //Creates iterator.
-    final var iterator = iterator();
-
-    //Handles the case that the iterator has a next element.
-    if (iterator.hasNext()) {
-      //Returns the next element of the iterator.
-      return iterator.next();
-    }
-
-    //Handles the case that the iterator does not have a next element.
-    throw EmptyArgumentException.forArgument(this);
+    return ITERABLE_SEARCHER.getStoredFirst(this);
   }
 
   /**
@@ -921,15 +913,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final E getStoredFirst(final Predicate<? super E> selector) {
-    //Iterates the current Container.
-    for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        return e;
-      }
-    }
-
-    throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element the given selector selects");
+    return ITERABLE_SEARCHER.getStoredFirst(this, selector);
   }
 
   /**
