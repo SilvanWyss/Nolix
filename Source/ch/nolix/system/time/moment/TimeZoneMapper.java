@@ -12,7 +12,7 @@ import ch.nolix.systemapi.time.timestructure.TimeZone;
 /**
  * @author Silvan Wyss
  */
-public class TimeZoneMapper implements ITimeZoneMapper {
+public final class TimeZoneMapper implements ITimeZoneMapper {
   /**
    * {@inheritDoc}
    */

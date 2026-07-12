@@ -5,7 +5,6 @@ package ch.nolix.system.time.moment;
 
 import java.time.Year;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
@@ -13,7 +12,6 @@ import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.base.validation.validator.Validator;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.document.node.INode;
-import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.baseapi.generalcatalog.unitconversioncatalog.TimeUnitConversionCatalog;
 import ch.nolix.system.element.base.AbstractElement;
@@ -49,6 +47,8 @@ extends AbstractElement implements ITime {
   public static final int DEFAULT_MICROSECOND_OF_MILLISECOND = 0;
 
   private static final TimeZoneMapper TIME_ZONE_MAPPER = new TimeZoneMapper();
+
+  private static final ZoneOffsetMapper ZONE_OFFSET_MAPPER = new ZoneOffsetMapper();
 
   private static final Time DEFAULT_INSTANCE = forZonedDateTime(ZonedDateTime.of(
     DEFAULT_YEAR,
@@ -593,61 +593,8 @@ extends AbstractElement implements ITime {
    */
   @Override
   public ITime withTimeZone(final TimeZone timeZone) {
-    final var zoneId = //
-    switch (timeZone) {
-      case UTC_MINUS_11 ->
-        ZoneOffset.ofHours(-11);
-      case UTC_MINUS_10 ->
-        ZoneOffset.ofHours(-10);
-      case UTC_MINUS_9 ->
-        ZoneOffset.ofHours(-9);
-      case UTC_MINUS_8 ->
-        ZoneOffset.ofHours(-8);
-      case UTC_MINUS_7 ->
-        ZoneOffset.ofHours(-7);
-      case UTC_MINUS_6 ->
-        ZoneOffset.ofHours(-6);
-      case UTC_MINUS_5 ->
-        ZoneOffset.ofHours(-5);
-      case UTC_MINUS_4 ->
-        ZoneOffset.ofHours(-4);
-      case UTC_MINUS_3 ->
-        ZoneOffset.ofHours(-3);
-      case UTC_MINUS_2 ->
-        ZoneOffset.ofHours(-2);
-      case UTC_MINUS_1 ->
-        ZoneOffset.ofHours(-1);
-      case UTC ->
-        ZoneOffset.ofHours(0);
-      case UTC_PLUS_1 ->
-        ZoneOffset.ofHours(1);
-      case UTC_PLUS_2 ->
-        ZoneOffset.ofHours(2);
-      case UTC_PLUS_3 ->
-        ZoneOffset.ofHours(3);
-      case UTC_PLUS_4 ->
-        ZoneOffset.ofHours(4);
-      case UTC_PLUS_5 ->
-        ZoneOffset.ofHours(5);
-      case UTC_PLUS_6 ->
-        ZoneOffset.ofHours(6);
-      case UTC_PLUS_7 ->
-        ZoneOffset.ofHours(7);
-      case UTC_PLUS_8 ->
-        ZoneOffset.ofHours(8);
-      case UTC_PLUS_9 ->
-        ZoneOffset.ofHours(9);
-      case UTC_PLUS_10 ->
-        ZoneOffset.ofHours(10);
-      case UTC_PLUS_11 ->
-        ZoneOffset.ofHours(11);
-      case UTC_PLUS_12 ->
-        ZoneOffset.ofHours(12);
-      default ->
-        throw InvalidArgumentException.forArgumentAndArgumentName(timeZone, "time zone");
-    };
-
-    final var zonedDateTime = internalZonedDateTime.withZoneSameLocal(zoneId);
+    final var zoneOffset = ZONE_OFFSET_MAPPER.mapTimeZoneToZoneOffset(timeZone);
+    final var zonedDateTime = internalZonedDateTime.withZoneSameLocal(zoneOffset);
 
     return forZonedDateTime(zonedDateTime);
   }
