@@ -7,7 +7,7 @@ import ch.nolix.base.argumentcaptor.andargumentcaptor.AndDatabaseNameCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginNameCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndLoginPasswordCaptor;
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndPortCaptor;
-import ch.nolix.base.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
+import ch.nolix.base.argumentcaptor.forargumentcaptor.ForHostCaptor;
 import ch.nolix.base.argumentcaptor.withargumentcaptor.WithSqlDatabaseEngineCaptor;
 
 /**
@@ -15,7 +15,7 @@ import ch.nolix.base.argumentcaptor.withargumentcaptor.WithSqlDatabaseEngineCapt
  */
 public final class SqlConnectionPoolBuilder
 extends
-ForIpOrDomainCaptor< //
+ForHostCaptor< //
 AndPortCaptor< //
 AndDatabaseNameCaptor< //
 WithSqlDatabaseEngineCaptor< //
@@ -39,7 +39,7 @@ AndLoginPasswordCaptor<SqlConnectionPool>>>>>> {
   private SqlConnectionPool buildSqlConnectionPool() {
     return //
     SqlConnectionPool.withHostAndPortAndDatabaseNameAndSqlDatabaseEngineAndLoginNameAndLoginPassword(
-      getIpOrDomain(),
+      getHost(),
       scsArgCpt().getPort(),
       scsArgCpt().scsArgCpt().getDatabaseName(),
       scsArgCpt().scsArgCpt().scsArgCpt().getSqlDatabaseEngine(),

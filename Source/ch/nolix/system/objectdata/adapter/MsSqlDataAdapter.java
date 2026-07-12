@@ -30,7 +30,7 @@ public final class MsSqlDataAdapter extends AbstractDataAdapter {
       entityTypeSet,
       SqlConnectionPoolBuilder
         .createConnectionPool()
-        .forIpOrDomain(ipOrDomain)
+        .forHost(ipOrDomain)
         .andPort(port)
         .andDatabase(databaseName)
         .withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL)

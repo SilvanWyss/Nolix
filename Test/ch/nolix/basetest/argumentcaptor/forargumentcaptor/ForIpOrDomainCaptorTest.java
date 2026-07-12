@@ -6,7 +6,7 @@ package ch.nolix.basetest.argumentcaptor.forargumentcaptor;
 import org.junit.jupiter.api.Test;
 
 import ch.nolix.base.argumentcaptor.andargumentcaptor.AndNameCaptor;
-import ch.nolix.base.argumentcaptor.forargumentcaptor.ForIpOrDomainCaptor;
+import ch.nolix.base.argumentcaptor.forargumentcaptor.ForHostCaptor;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 
@@ -17,10 +17,10 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
   @Test
   void testCase_forIpOrDomain_whenDoesNotHaveNext() {
     //setup
-    final var testUnit = new ForIpOrDomainCaptor<>();
+    final var testUnit = new ForHostCaptor<>();
 
     //execution & verification
-    expectRunning(() -> testUnit.forIpOrDomain("nolix.ch"))
+    expectRunning(() -> testUnit.forHost("nolix.ch"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
@@ -32,13 +32,13 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
 
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new ForIpOrDomainCaptor<>(andNameCaptor);
+    final var testUnit = new ForHostCaptor<>(andNameCaptor);
 
     //execution
-    final var result = testUnit.forIpOrDomain(domain);
+    final var result = testUnit.forHost(domain);
 
     //verification
-    expect(testUnit.getIpOrDomain()).isEqualTo(domain);
+    expect(testUnit.getHost()).isEqualTo(domain);
     expect(result).is(andNameCaptor);
   }
 
@@ -46,22 +46,22 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
   void testCase_forLocalAddress_whenHasNext() {
     //setup
     final var andNameCaptor = new AndNameCaptor<>();
-    final var testUnit = new ForIpOrDomainCaptor<>(andNameCaptor);
+    final var testUnit = new ForHostCaptor<>(andNameCaptor);
 
     //execution
-    final var result = testUnit.forLocalAddress();
+    final var result = testUnit.forLocalHost();
 
     //verification
-    expect(testUnit.getIpOrDomain()).isEqualTo("127.0.0.1");
+    expect(testUnit.getHost()).isEqualTo("127.0.0.1");
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
     //setup
-    final var testUnit = new ForIpOrDomainCaptor<>();
+    final var testUnit = new ForHostCaptor<>();
 
     //execution & verification
-    expectRunning(testUnit::getIpOrDomain).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+    expectRunning(testUnit::getHost).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }
