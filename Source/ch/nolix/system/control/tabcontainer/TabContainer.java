@@ -31,8 +31,8 @@ import ch.nolix.systemapi.gui.box.HorizontalContentAlignment;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
-import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.Control;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss
@@ -77,7 +77,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * Creates a new {@link TabContainer}.
    */
   public TabContainer() {
-    final var controlParent = ControlParent.forControl(this);
+    final var controlParent = ControlParent.forControl(this); //NOSONAR: The TabContainer will be fully constructed on time.
 
     rootVerticalStack.internalSetControlParent(controlParent);
     rootVerticalStack.addControls(menuHorizontalStack, canvasSingleContainer);
