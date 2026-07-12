@@ -9,12 +9,7 @@ import java.util.function.Predicate;
  * @author Silvan Wyss
  * @param <E> the type of the elements a {@link CountRequestable}.
  */
-public interface CountRequestable<E> {
-  /**
-   * @return the number of elements of the current {@link CountRequestable}.
-   */
-  int getCount();
-
+public interface CountRequestable<E> extends BaseCountRequestable {
   /**
    * @param selector
    * @return the number of elements the given selector selects from the current
