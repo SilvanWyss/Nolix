@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.misc.dataobject;
+package ch.nolix.basetest.datamodel.dataobject;
 
 import org.junit.jupiter.api.Test;
 
