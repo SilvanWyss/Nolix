@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.nodemidschema.databaseinitializer;
 
-import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.document.node.ImmutableNode;
+import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.baseapi.document.node.IMutableNode;
 import ch.nolix.systemapi.nodemidschema.databaseinitializer.IDatabaseComponentCreator;
 import ch.nolix.systemapi.nodemidschema.databasestructure.NodeHeaderCatalog;

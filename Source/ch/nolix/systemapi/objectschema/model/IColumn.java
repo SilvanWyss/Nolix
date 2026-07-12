@@ -10,8 +10,8 @@ import ch.nolix.baseapi.component.datamodelcomponent.TableComponent;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
-import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

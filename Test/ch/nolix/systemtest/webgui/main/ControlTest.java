@@ -12,8 +12,8 @@ import ch.nolix.system.control.floatcontainer.FloatContainer;
 import ch.nolix.system.graphic.color.X11ColorCatalog;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.gui.model.CursorIcon;
-import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.Control;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss

@@ -8,8 +8,8 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.IdHolder;
 import ch.nolix.baseapi.component.datamodelcomponent.DatabaseComponent;
 import ch.nolix.baseapi.datamodel.fieldproperty.DataType;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
-import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.databaseobject.model.DatabaseObject;
+import ch.nolix.systemapi.databaseobject.model.Deletable;
 import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 
 /**

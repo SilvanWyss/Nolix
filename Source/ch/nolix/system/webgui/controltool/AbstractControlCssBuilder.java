@@ -19,8 +19,8 @@ import ch.nolix.system.gui.cssmapper.CssPropertyMapper;
 import ch.nolix.systemapi.gui.cssmapper.ICssPropertyMapper;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.controltool.IControlCssBuilder;
-import ch.nolix.systemapi.webgui.main.ControlState;
 import ch.nolix.systemapi.webgui.main.Control;
+import ch.nolix.systemapi.webgui.main.ControlState;
 
 /**
  * @author Silvan Wyss

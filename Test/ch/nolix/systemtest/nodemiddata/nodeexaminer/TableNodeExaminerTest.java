@@ -6,9 +6,9 @@ package ch.nolix.systemtest.nodemiddata.nodeexaminer;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
 import ch.nolix.base.document.node.ImmutableNode;
+import ch.nolix.base.document.node.MutableNode;
 import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.system.nodemiddata.nodeexaminer.TableNodeExaminer;
 
