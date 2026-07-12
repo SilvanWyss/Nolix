@@ -4,25 +4,34 @@
 package ch.nolix.base.argumentcaptor.andargumentcaptor;
 
 import ch.nolix.base.argumentcaptor.base.AbstractArgumentCaptor;
+import ch.nolix.baseapi.argumentcaptor.andargumentcaptor.IAndSchemaCaptor;
 
 /**
  * @author Silvan Wyss
- * @param <S> the type of the schema of a {@link AndSchemaCaptor}.
- * @param <N> the type of the next thing of a {@link AndSchemaCaptor}.
+ * @param <C> the type of the schema of a {@link AndSchemaCaptor}
+ * @param <S> the type of the successor of a {@link AndSchemaCaptor}
  */
-public class AndSchemaCaptor<S, N> extends AbstractArgumentCaptor<S, N> {
+public class AndSchemaCaptor<C, S> extends AbstractArgumentCaptor<C, S> implements IAndSchemaCaptor<C, S> {
   public AndSchemaCaptor() {
   }
 
-  public AndSchemaCaptor(final N nextArgumentCaptor) {
+  public AndSchemaCaptor(final S nextArgumentCaptor) {
     super(nextArgumentCaptor);
   }
 
-  public final N andSchema(final S schema) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final S andSchema(final C schema) {
     return setArgumentAndGetStoredSuccessor(schema);
   }
 
-  public final S getStoredSchema() {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final C getStoredSchema() {
     return getStoredArgument();
   }
 }
