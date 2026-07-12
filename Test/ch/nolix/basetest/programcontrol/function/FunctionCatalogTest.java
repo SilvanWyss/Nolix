@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.misc.function;
+package ch.nolix.basetest.programcontrol.function;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.misc.function.FunctionService;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.baseapi.programcontrol.function.FunctionService;
 
 /**
  * @author Silvan Wyss
