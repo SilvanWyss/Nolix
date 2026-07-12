@@ -4,7 +4,8 @@
 package ch.nolix.baseapi.generalcatalog.variablenamecatalog;
 
 /**
- * Of the {@link PluralLowerCaseVariableNameCatalog} an instance cannot be created.
+ * Of the {@link PluralLowerCaseVariableNameCatalog} an instance cannot be
+ * created.
  * 
  * @author Silvan Wyss
  */
@@ -198,6 +199,8 @@ public final class PluralLowerCaseVariableNameCatalog {
   public static final String HEADERS = "headers";
 
   public static final String HEIGHTS = "heights";
+
+  public static final String HOSTS = "hosts";
 
   public static final String ICON = "icons";
 
@@ -464,8 +467,8 @@ public final class PluralLowerCaseVariableNameCatalog {
   public static final String ZERO_BASED_INDEXES = "zero-based indexes";
 
   /**
-   * Prevents that an instance of the {@link PluralLowerCaseVariableNameCatalog} can
-   * be created.
+   * Prevents that an instance of the {@link PluralLowerCaseVariableNameCatalog}
+   * can be created.
    */
   private PluralLowerCaseVariableNameCatalog() {
   }

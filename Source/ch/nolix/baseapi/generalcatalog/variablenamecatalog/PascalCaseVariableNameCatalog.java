@@ -197,6 +197,8 @@ public final class PascalCaseVariableNameCatalog {
 
   public static final String HEIGHT = "Height";
 
+  public static final String HOST = "Host";
+
   public static final String ICON = "Icon";
 
   public static final String ID = "Id";

@@ -197,6 +197,8 @@ public final class LowerCaseVariableNameCatalog {
 
   public static final String HEIGHT = "height";
 
+  public static final String HOST = "host";
+
   public static final String ICON = "icon";
 
   public static final String ID = "id";
