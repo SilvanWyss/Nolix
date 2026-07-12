@@ -144,4 +144,18 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
     return //
     new InvalidArgumentException(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(errorPredicate));
   }
+
+  /**
+   * @param argument
+   * @param argumentType
+   * @param <A>          the type of the given argument
+   * @return a new @link InvalidArgumentException} for the givne argument and
+   *         argumentType.
+   * @throws RuntimeException if the given arumentType is null
+   */
+  public static <A> InvalidArgumentException forArgumentAndArgumentType(
+    final A argument,
+    final Class<A> argumentType) {
+    return new InvalidArgumentException(argument, new ArgumentNameDto(argumentType.getSimpleName()));
+  }
 }
