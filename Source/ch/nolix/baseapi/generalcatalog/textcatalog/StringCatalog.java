@@ -27,8 +27,6 @@ public final class StringCatalog {
 
   public static final String COMMA = ",";
 
-  public static final String DEFAULT_STRING = "Default";
-
   public static final String DOLLAR = "$";
 
   public static final String DOT = ".";
@@ -38,8 +36,6 @@ public final class StringCatalog {
   public static final String ELLIPSIS = "\u2026";
 
   public static final String EMPTY_STRING = "";
-
-  public static final String FALSE_HEADER = "false";
 
   public static final String FAT_CHECK_MARK = "\u2714";
 
@@ -57,15 +53,19 @@ public final class StringCatalog {
 
   public static final String LOWER_CASE_AE = "\u00E4";
 
+  public static final String LOWER_CASE_FALSE = "false";
+
+  public static final String LOWER_CASE_NULL = "null";
+
   public static final String LOWER_CASE_OE = "\u00F6";
+
+  public static final String LOWER_CASE_TRUE = "true";
 
   public static final String LOWER_CASE_UE = "\u00FC";
 
   public static final String NEW_LINE = "\n";
 
   public static final String MINUS = "-";
-
-  public static final String NULL_HEADER = "null";
 
   public static final String OPEN_BRACE = "{";
 
@@ -74,6 +74,14 @@ public final class StringCatalog {
   public static final String OPEN_CROCODILE_BRACKET = "<";
 
   public static final String OPEN_SQUARE_BRACKET = "[";
+
+  public static final String PASCAL_CASE_DEFAULT = "Default";
+
+  public static final String PASCAL_CASE_FALSE = "False";
+
+  public static final String PASCAL_CASE_NULL = "Null";
+
+  public static final String PASCAL_CASE_TRUE = "True";
 
   public static final String PERCENTAGE = "%";
 
@@ -92,8 +100,6 @@ public final class StringCatalog {
   public static final String TABULATOR = "\t";
 
   public static final String THIN_CROSS = "\u2715";
-
-  public static final String TRUE_HEADER = "true";
 
   public static final String UNDERSCORE = "_";
 

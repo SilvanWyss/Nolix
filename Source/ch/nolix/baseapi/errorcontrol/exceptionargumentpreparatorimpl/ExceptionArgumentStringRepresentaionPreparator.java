@@ -41,7 +41,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
       return getStringRepresentationOfArgumentWhenIsNotNull(argument);
     }
 
-    return StringCatalog.NULL_HEADER;
+    return StringCatalog.LOWER_CASE_NULL;
   }
 
   /**
@@ -71,7 +71,7 @@ implements IExceptionArgumentStringRepresentaionPreparator {
         return string;
       }
 
-      return StringCatalog.NULL_HEADER;
+      return StringCatalog.LOWER_CASE_NULL;
     } catch (final Throwable _) { //NOSONAR: All Throwable must be caught.
       return StringCatalog.EMPTY_STRING;
     }

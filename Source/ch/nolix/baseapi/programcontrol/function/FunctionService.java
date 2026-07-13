@@ -93,7 +93,7 @@ public final class FunctionService {
    */
   public static String getStringRepresentationOf(final Object object) {
     if (object == null) {
-      return StringCatalog.NULL_HEADER;
+      return StringCatalog.LOWER_CASE_NULL;
     }
 
     return object.toString();

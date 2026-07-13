@@ -28,7 +28,7 @@ import ch.nolix.systemapi.objectschema.modelvalidator.IColumnValidator;
  * @author Silvan Wyss
  */
 public final class Column extends AbstractSchemaObject implements IColumn {
-  private static final String INITIAL_HEADER = StringCatalog.DEFAULT_STRING;
+  private static final String INITIAL_HEADER = StringCatalog.PASCAL_CASE_DEFAULT;
 
   private static final IColumnEditor<Column> COLUMN_EDITOR = new ColumnEditor();
 
