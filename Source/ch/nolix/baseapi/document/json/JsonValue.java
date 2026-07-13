@@ -3,11 +3,12 @@
  */
 package ch.nolix.baseapi.document.json;
 
+import ch.nolix.baseapi.document.base.FormattedStringRepresentable;
 import ch.nolix.baseapi.document.node.NodeRepresentable;
 
 /**
  * @author Silvan Wyss
  */
-public interface JsonValue extends NodeRepresentable {
+public interface JsonValue extends FormattedStringRepresentable, NodeRepresentable {
   JsonValueType getType();
 }
