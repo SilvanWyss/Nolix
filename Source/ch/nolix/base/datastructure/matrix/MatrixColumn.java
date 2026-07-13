@@ -103,7 +103,7 @@ public final class MatrixColumn<E> extends AbstractExtendedIterable<E> implement
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalog.COMMA);
+    return toStringWithDelimiter(CharacterCatalog.COMMA);
   }
 
   /**

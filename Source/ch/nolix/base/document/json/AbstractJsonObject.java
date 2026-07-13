@@ -47,6 +47,6 @@ public abstract class AbstractJsonObject implements JsonObject {
   private String getNameValuePairsFlatString() {
     final var nameValuePairsStrings = getStoredNameValuePairs().getViewOf(JsonNameValuePair::toString);
 
-    return nameValuePairsStrings.toStringWithSeparator(JsonStringPartCatalog.NAME_VALUE_PAIR_FLAT_DELIMITER);
+    return nameValuePairsStrings.toStringWithDelimiter(JsonStringPartCatalog.NAME_VALUE_PAIR_FLAT_DELIMITER);
   }
 }

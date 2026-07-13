@@ -36,11 +36,11 @@ public final class StatementCreatorHelper {
   }
 
   private static String getConstraintsAsSql(final ColumnDto column) {
-    return column.constraints().getViewOf(StatementCreatorHelper::getConstraintAsSql).toStringWithSeparator(",");
+    return column.constraints().getViewOf(StatementCreatorHelper::getConstraintAsSql).toStringWithDelimiter(",");
   }
 
   private static String getConstraintParametersAsSql(final ColumnConstraintDto constraint) {
-    return ("(" + constraint.parameters().toStringWithSeparator(",") + ")");
+    return ("(" + constraint.parameters().toStringWithDelimiter(",") + ")");
   }
 
   private static String getDataTypeAsSql(final DataTypeDto dataType) {

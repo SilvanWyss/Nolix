@@ -106,10 +106,10 @@ public final class HtmlElementStringRepresentator {
   }
 
   private static String getChildElementsAsString(final IHtmlElement htmlElement) {
-    return htmlElement.getChildElements().toStringWithSeparator("");
+    return htmlElement.getChildElements().toStringWithDelimiter("");
   }
 
   private static String getAttributesAsString(final IHtmlElement htmlElement) {
-    return htmlElement.getAttributes().toStringWithSeparator(" ");
+    return htmlElement.getAttributes().toStringWithDelimiter(" ");
   }
 }

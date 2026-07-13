@@ -103,10 +103,10 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     return //
     "INSERT INTO " + tableName
     + " (Id, SaveStamp, "
-    + contentColumnNames.toStringWithSeparator(", ")
+    + contentColumnNames.toStringWithDelimiter(", ")
     + ") VALUES ('"
     + newEntity.id() + "', '" + 1 + "', "
-    + values.toStringWithSeparator(", ")
+    + values.toStringWithDelimiter(", ")
     + ");";
   }
 
@@ -152,7 +152,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     + (Integer.valueOf(entityUpdate.saveStamp()) + 1)
     + "'"
     + contentFieldSetsPrecessor
-    + updatedContentFieldSqlValueAssignments.toStringWithSeparator(", ")
+    + updatedContentFieldSqlValueAssignments.toStringWithDelimiter(", ")
     + " WHERE Id = '"
     + entityUpdate.id()
     + "' AND SaveStamp = '"

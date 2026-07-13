@@ -101,7 +101,7 @@ public final class MatrixRow<E> extends AbstractExtendedIterable<E> implements I
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalog.COMMA);
+    return toStringWithDelimiter(CharacterCatalog.COMMA);
   }
 
   /**

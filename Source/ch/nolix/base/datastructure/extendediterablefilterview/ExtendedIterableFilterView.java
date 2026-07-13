@@ -114,7 +114,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalog.COMMA);
+    return toStringWithDelimiter(CharacterCatalog.COMMA);
   }
 
   /**

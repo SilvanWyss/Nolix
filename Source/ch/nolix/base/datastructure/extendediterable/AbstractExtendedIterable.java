@@ -1773,9 +1773,9 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final String toStringWithSeparator(final char separator) {
+  public final String toStringWithDelimiter(final char delimiter) {
     //Calls other method.
-    return toStringWithSeparator(String.valueOf(separator));
+    return toStringWithDelimiter(String.valueOf(delimiter));
   }
 
   /**
@@ -1785,7 +1785,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final String toStringWithSeparator(final String separator) {
+  public final String toStringWithDelimiter(final String delimiter) {
     //Enumerates the element count of the current Container.
     return switch (getCount()) {
       case 0 ->
@@ -1793,7 +1793,7 @@ implements ExtendedIterable<E> {
       case 1 ->
         getStoredFirst().toString();
       default ->
-        toStringWhenContainsSeveralElements(separator);
+        toStringWhenContainsSeveralElements(delimiter);
     };
   }
 

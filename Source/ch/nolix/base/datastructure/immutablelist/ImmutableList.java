@@ -202,7 +202,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalog.COMMA);
+    return toStringWithDelimiter(CharacterCatalog.COMMA);
   }
 
   /**

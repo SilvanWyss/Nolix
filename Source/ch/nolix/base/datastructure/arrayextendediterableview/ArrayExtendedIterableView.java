@@ -97,7 +97,7 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
    */
   @Override
   public String toString() {
-    return toStringWithSeparator(CharacterCatalog.COMMA);
+    return toStringWithDelimiter(CharacterCatalog.COMMA);
   }
 
   /**

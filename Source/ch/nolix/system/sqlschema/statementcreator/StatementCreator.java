@@ -27,7 +27,7 @@ public final class StatementCreator implements IStatementCreator {
     return //
     "CREATE TABLE "
     + table.name()
-    + " (" + table.columns().getViewOf(StatementCreatorHelper::getColumnAsSql).toStringWithSeparator(", ")
+    + " (" + table.columns().getViewOf(StatementCreatorHelper::getColumnAsSql).toStringWithDelimiter(", ")
     + ");";
   }
 
