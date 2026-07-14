@@ -8,22 +8,22 @@ import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.document.node.INode;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.mutableelement.IRespondingMutableElement;
-import ch.nolix.systemapi.property.exension.IExtension;
+import ch.nolix.systemapi.property.exension.IExtensionProperty;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the extension of a {@link Extension}.
+ * @param <E> the type of the extension of a {@link ExtensionProperty}.
  */
-public final class Extension<E extends IRespondingMutableElement<E>> implements IExtension<E> {
+public final class ExtensionProperty<E extends IRespondingMutableElement<E>> implements IExtensionProperty<E> {
   private final E memberExtension;
 
   /**
-   * Creates a new {@link Extension} with the given extension.
+   * Creates a new {@link ExtensionProperty} with the given extension.
    * 
    * @param extension
    * @throws RuntimeException if the given extension is null.
    */
-  private Extension(final E extension) {
+  private ExtensionProperty(final E extension) {
     Validator.assertThat(extension).thatIsNamed(LowerCaseVariableNameCatalog.EXTENSION).isNotNull();
 
     this.memberExtension = extension;
@@ -32,12 +32,12 @@ public final class Extension<E extends IRespondingMutableElement<E>> implements 
   /**
    * @param extension
    * @param <T>       is the type of the extension of the created
-   *                  {@link Extension}.
-   * @return a new {@link Extension} with the given extension.
+   *                  {@link ExtensionProperty}.
+   * @return a new {@link ExtensionProperty} with the given extension.
    * @throws RuntimeException if the given extension is null.
    */
-  public static <T extends IRespondingMutableElement<T>> Extension<T> withExtension(final T extension) {
-    return new Extension<>(extension);
+  public static <T extends IRespondingMutableElement<T>> ExtensionProperty<T> withExtension(final T extension) {
+    return new ExtensionProperty<>(extension);
   }
 
   /**

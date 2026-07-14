@@ -20,7 +20,7 @@ import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.baseapi.web.htmlmodel.IHtmlElement;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeIntValidator;
-import ch.nolix.system.property.extension.Extension;
+import ch.nolix.system.property.extension.ExtensionProperty;
 import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.property.value.Value;
 import ch.nolix.system.style.stylable.AbstractStylableElement;
@@ -105,7 +105,7 @@ implements Control<C, S> {
     CursorIcon::fromSpecification,
     ImmutableNode::fromEnum);
 
-  private final Extension<S> style = Extension.withExtension(createStyle());
+  private final ExtensionProperty<S> style = ExtensionProperty.withExtension(createStyle());
 
   private IControlParent parent;
 

@@ -8,11 +8,11 @@ import ch.nolix.systemapi.property.base.Property;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the extension of a {@link IExtension}.
+ * @param <E> the type of the extension of a {@link IExtensionProperty}.
  */
-public interface IExtension<E extends IRespondingMutableElement<E>> extends Property {
+public interface IExtensionProperty<E extends IRespondingMutableElement<E>> extends Property {
   /**
-   * @return the extension of the current {@link IExtension}.
+   * @return the extension of the current {@link IExtensionProperty}.
    */
   E getStoredExtension();
 }
