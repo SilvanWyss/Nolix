@@ -3,13 +3,13 @@
  */
 package ch.nolix.systemapi.control.grid;
 
-import ch.nolix.systemapi.control.container.IContainer;
+import ch.nolix.systemapi.control.container.Container;
 import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
  */
-public interface IGrid extends IContainer<IGrid, IGridStyle> {
+public interface IGrid extends Container<IGrid, IGridStyle> {
   boolean containsControlAtOneBasedRowAndColumnIndex(int oneBasedRowIndex, int oneBasedColumnIndex);
 
   int getColumnCount();

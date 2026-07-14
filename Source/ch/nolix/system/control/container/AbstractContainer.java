@@ -13,7 +13,7 @@ import ch.nolix.system.property.value.OptionalValue;
 import ch.nolix.system.webgui.main.AbstractControl;
 import ch.nolix.system.webgui.main.ControlParent;
 import ch.nolix.systemapi.control.container.ContainerRole;
-import ch.nolix.systemapi.control.container.IContainer;
+import ch.nolix.systemapi.control.container.Container;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.Control;
 
@@ -23,8 +23,8 @@ import ch.nolix.systemapi.webgui.main.Control;
  * @param <S> the type of the {@link IControlStyle}s of a
  *            {@link AbstractContainer}
  */
-public abstract class AbstractContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
-extends AbstractControl<C, S> implements IContainer<C, S> {
+public abstract class AbstractContainer<C extends Container<C, S>, S extends IControlStyle<S>>
+extends AbstractControl<C, S> implements Container<C, S> {
   private static final String ROLE_HEADER = PascalCaseVariableNameCatalog.ROLE;
 
   private final OptionalValue<ContainerRole> memberRole = //

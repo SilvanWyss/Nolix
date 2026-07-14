@@ -13,7 +13,7 @@ import ch.nolix.systemapi.control.verticalstack.IVerticalStack;
  * @author Silvan Wyss
  */
 public interface ITabContainer
-extends ch.nolix.systemapi.control.container.IContainer<ITabContainer, ITabContainerStyle> {
+extends ch.nolix.systemapi.control.container.Container<ITabContainer, ITabContainerStyle> {
   ITabContainer addTab(ITabContainerTab tab);
 
   ITabContainer addTabs(ExtendedIterable<ITabContainerTab> tabs);

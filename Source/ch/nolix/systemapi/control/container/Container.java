@@ -9,10 +9,10 @@ import ch.nolix.systemapi.webgui.main.Control;
 
 /**
  * @author Silvan Wyss
- * @param <C> is the type of a {@link IContainer}.
- * @param <S> the type of the {@link IControlStyle} of a {@link IContainer}.
+ * @param <C> is the type of a {@link Container}.
+ * @param <S> the type of the {@link IControlStyle} of a {@link Container}.
  */
-public interface IContainer<C extends IContainer<C, S>, S extends IControlStyle<S>>
+public interface Container<C extends Container<C, S>, S extends IControlStyle<S>>
 extends Clearable, Control<C, S> {
   ContainerRole getRole();
 

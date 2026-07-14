@@ -12,7 +12,7 @@ import ch.nolix.systemapi.control.linearcontainer.ILinearContainerStyle;
  * @author Silvan Wyss
  */
 public interface IAccordion
-extends ch.nolix.systemapi.control.container.IContainer<IAccordion, IAccordionStyle> {
+extends ch.nolix.systemapi.control.container.Container<IAccordion, IAccordionStyle> {
   IAccordion addTab(IAccordionTab tab);
 
   IAccordion addTabs(IAccordionTab... tabs);

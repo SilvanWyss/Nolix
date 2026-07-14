@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webgui.main.Control;
  *            {@link ILinearContainer}.
  */
 public interface ILinearContainer<C extends ILinearContainer<C, S>, S extends ILinearContainerStyle<S>>
-extends ch.nolix.systemapi.control.container.IContainer<C, S> {
+extends ch.nolix.systemapi.control.container.Container<C, S> {
   C addControl(Control<?, ?> control);
 
   C addControls(Control<?, ?>... controls);
