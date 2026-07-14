@@ -15,7 +15,7 @@ public interface IDatabaseComponentCreator {
    * @param initialSchemaTimeStamp
    * @return a new database properties node with the given name and
    *         initialSchemaTimeStamp.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given initialSchemaTimeStamp is null.
    */
   IMutableNode<?> createDatabasePropertiesNodeWithDatabaseNameAndInitialSchemaTimeStamp(
@@ -30,7 +30,7 @@ public interface IDatabaseComponentCreator {
   /**
    * @param name
    * @return a new name node with the given name.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    */
   IMutableNode<?> createNameNodeWithName(String name);
 

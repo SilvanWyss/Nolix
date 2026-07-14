@@ -33,7 +33,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param valueMapper
    * @param adder
    * @param specificationMapper
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null.
@@ -91,7 +91,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param adder
    * @return a new {@link MultiValue} with the given name and adder and that can
    *         store {@link Integer}s.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null.
    */
   public static MultiValue<Integer> forIntsWithNameAndAdder(final String name, final Consumer<Integer> adder) {
@@ -103,7 +103,7 @@ public final class MultiValue<V> extends AbstractValue<V> implements IMultiValue
    * @param adder
    * @return a new {@link MultiValue} with the given name and adder and that can
    *         store {@link String}s.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null.
    */
   public static MultiValue<String> forStringsWithNameAndAdder(final String name, final Consumer<String> adder) {

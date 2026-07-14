@@ -39,7 +39,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @param getter
    * @param valueMapper
    * @param specificationMapper
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given getter is null
    * @throws RuntimeException if the given valueMapper is null
@@ -74,7 +74,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    *                            {@link MultiValueProxy} forwards.
    * @return a new {@link MultiValueProxy} with the given name, adder, getter,
    *         valueMapper and specificationMapper.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given getter is null
    * @throws RuntimeException if the given valueMapper is null

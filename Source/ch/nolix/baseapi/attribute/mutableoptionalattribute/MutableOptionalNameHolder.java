@@ -21,7 +21,7 @@ public interface MutableOptionalNameHolder extends OptionalNameHolder {
    * Sets the name of the current {@link MutableOptionalNameHolder}.
    * 
    * @param name
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    */
   void setName(String name);
 }

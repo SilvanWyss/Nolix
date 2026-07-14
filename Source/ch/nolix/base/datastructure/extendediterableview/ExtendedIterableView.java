@@ -85,7 +85,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @param iterable
    * @param <T>      is the type of the elements of the given iterable.
    * @return a new {@link ExtendedIterableView} for the given iterable.
-   * @throws RuntimeException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null
    */
   public static <T> ExtendedIterableView<T> forIterable(final Iterable<T> iterable) {
     final var container = IterableExtendedIterableView.forIterable(iterable);
@@ -100,7 +100,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    *                 element.
    * @return a new {@link ExtendedIterableView} for the given iterable and
    *         element.
-   * @throws RuntimeException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null
    */
   public static <T> ExtendedIterableView<T> forIterableAndElement(final Iterable<T> iterable, final T element) {
     final var iterableWithElement = ImmutableList.withElement(element);

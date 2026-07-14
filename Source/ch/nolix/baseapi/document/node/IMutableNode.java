@@ -24,7 +24,7 @@ Resettable {
    * 
    * @param childNode
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if the given childNodes is null.
+   * @throws RuntimeException if the given childNodes is null
    */
   N addChildNode(INode<?> childNode);
 
@@ -33,7 +33,7 @@ Resettable {
    * 
    * @param childNodes
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if one of the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null
    */
   N addChildNodes(INode<?>... childNodes);
 
@@ -43,7 +43,7 @@ Resettable {
    * @param childNodes
    * @return the current {@link IMutableNode}.
    * @param <N2> the type of the given childNodes.
-   * @throws RuntimeException if one of the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null
    */
   <N2 extends INode<?>> N addChildNodes(Iterable<N2> childNodes);
 
@@ -175,7 +175,7 @@ Resettable {
    * 
    * @param childNodes
    * @return the current {@link IMutableNode}.
-   * @throws RuntimeException if one of the given childNodes is null.
+   * @throws RuntimeException if one of the given childNodes is null
    */
   N setChildNodes(Iterable<? extends INode<?>> childNodes);
 }

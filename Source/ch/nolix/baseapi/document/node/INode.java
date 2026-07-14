@@ -216,7 +216,7 @@ extends BlanknessRequestable, FormattedStringRepresentable, OptionalHeaderHolder
    * @param header
    * @return a new {@link INode} from the current {@link INode} with the given new
    *         header.
-   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given header is null or blank
    */
   INode<?> withNewHeader(String header);
 }

@@ -42,7 +42,7 @@ public interface IIterableExaminer {
   /**
    * @param iterable
    * @return true if the given iterable is empty, false otherwise.
-   * @throws RuntimeException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null
    */
   boolean isEmpty(Iterable<?> iterable);
 }

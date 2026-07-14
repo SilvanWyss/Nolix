@@ -52,7 +52,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    * @param iterable
    * @param <T>      is the type of the elements of the given iterable.
    * @return a new {@link IterableExtendedIterableView} for the given iterable.
-   * @throws RuntimeException if the given iterable is null.
+   * @throws RuntimeException if the given iterable is null
    */
   public static <T> IterableExtendedIterableView<T> forIterable(final Iterable<? extends T> iterable) {
     return new IterableExtendedIterableView<>(iterable);

@@ -28,7 +28,7 @@ public abstract class AbstractValue<V> implements IBaseValue {
    * @param name
    * @param valueMapper
    * @param specificationMapper
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueMapper is null
    * @throws RuntimeException if the given specificationMapper is null.
    */

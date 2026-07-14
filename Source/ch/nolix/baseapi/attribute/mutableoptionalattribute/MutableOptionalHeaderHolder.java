@@ -21,7 +21,7 @@ public interface MutableOptionalHeaderHolder extends OptionalHeaderHolder {
    * Sets the header of the current {@link MutableOptionalHeaderHolder}.
    * 
    * @param header
-   * @throws RuntimeException if the given header is null or blank.
+   * @throws RuntimeException if the given header is null or blank
    */
   void setHeader(String header);
 }

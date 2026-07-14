@@ -9,8 +9,8 @@ package ch.nolix.baseapi.web.url;
 public interface IUrlTool {
   /**
    * @param url
-   * @return a display text for the given url.
-   * @throws RuntimeException if the given url is null.
+   * @return a display text for the given url
+   * @throws RuntimeException if the given url is null
    */
   String getDisplayTextForUrl(String url);
 }

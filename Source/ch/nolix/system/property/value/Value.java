@@ -32,7 +32,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param setter
    * @param valueMapper
    * @param specificationMapper
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null
@@ -96,7 +96,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @param <E>          is the type of the value of a {@link Value}.
    * @return a new {@link Value} with the given name, defaultValue, setter and
    *         valueMapper and and that can store a {@link IElement}.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null.
@@ -158,7 +158,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    *                            {@link Value}.
    * @return a new {@link Value} with the given name, defaultValue, setter,
    *         valueMapper and specificationMapper.
-   * @throws RuntimeException if the given name is null or blank.
+   * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null

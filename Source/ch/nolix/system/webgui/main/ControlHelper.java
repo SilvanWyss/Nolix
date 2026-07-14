@@ -23,7 +23,7 @@ public final class ControlHelper {
   /**
    * @param control
    * @return a new id Html attribute for the given control.
-   * @throws RuntimeException if the given control is null.
+   * @throws RuntimeException if the given control is null
    */
   public static IHtmlAttribute createIdHtmlAttributeForControl(final Control<?, ?> control) {
     return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalog.ID, control.getInternalId());
