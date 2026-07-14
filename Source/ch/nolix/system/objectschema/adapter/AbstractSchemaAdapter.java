@@ -84,7 +84,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
    * {@inheritDoc}
    */
   @Override
-  public final ExtendedIterable<ITable> getStoredTables() {
+  public final ExtendedIterable<? extends ITable> getStoredTables() {
     return database.getStoredTables();
   }
 

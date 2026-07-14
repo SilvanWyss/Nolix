@@ -17,7 +17,7 @@ public interface ISchemaAdapter extends IResettableChangeSaver {
 
   ITable getStoredTableByName(String name);
 
-  ExtendedIterable<ITable> getStoredTables();
+  ExtendedIterable<? extends ITable> getStoredTables();
 
   int getTableCount();
 }
