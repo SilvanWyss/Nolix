@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.document.json;
 
+import ch.nolix.base.commontype.stringtool.StringTool;
 import ch.nolix.base.document.node.ImmutableNode;
 import ch.nolix.baseapi.document.json.JsonString;
 import ch.nolix.baseapi.document.json.JsonValueType;
@@ -61,8 +62,10 @@ public final class ImmutableJsonString implements JsonString {
    * {@inheritDoc}
    */
   @Override
-  public String toFormattedString() {
-    return StringCatalog.DOUBLE_QUOTE + string + StringCatalog.DOUBLE_QUOTE;
+  public String toFormattedStringWithIndentationLevel(final int indentationLevel) {
+    final var indentation = StringTool.createTabs(indentationLevel);
+
+    return indentation + StringCatalog.DOUBLE_QUOTE + string + StringCatalog.DOUBLE_QUOTE;
   }
 
   //For a better performance, this implementation does not use all available comfort methods.

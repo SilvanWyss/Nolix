@@ -305,8 +305,22 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    * {@inheritDoc}
    */
   @Override
-  public final String toFormattedString() {
-    return toFormattedString(0);
+  public final String toFormattedStringWithIndentationLevel(final int indentationLevel) {
+    final var stringBuilder = new StringBuilder();
+
+    stringBuilder.append(StringTool.createTabs(indentationLevel));
+
+    //Handles the case that the current specification has a header.
+    if (hasHeader()) {
+      stringBuilder.append(getReproducingHeader());
+    }
+
+    //Handles the case that the current BaseNode contains child nodes.
+    if (containsChildNodes()) {
+      appendFormattedStringRepresentationOfChildNodesToStringBuilder(indentationLevel, stringBuilder);
+    }
+
+    return stringBuilder.toString();
   }
 
   /**
@@ -393,7 +407,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       final var attributeCount = getChildNodeCount();
       var index = 1;
       for (final AbstractNode<?> cn : getStoredChildNodes()) {
-        stringBuilder.append(cn.toFormattedString(leadingTabulators + 1));
+        stringBuilder.append(cn.toFormattedStringWithIndentationLevel(leadingTabulators + 1));
 
         if (index < attributeCount) {
           stringBuilder.append(CharacterCatalog.COMMA);
@@ -416,29 +430,5 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   private String getReproducingHeader() {
     return getEscapeStringFor(getHeader());
-  }
-
-  /**
-   * @param leadingTabulators
-   * @return a formated {@link String} representation of the current
-   *         {@link AbstractNode} with as many leading tabulators as the given
-   *         leading tabulator count says.
-   */
-  private String toFormattedString(final int leadingTabulators) {
-    final var stringBuilder = new StringBuilder();
-
-    stringBuilder.append(StringTool.createTabs(leadingTabulators));
-
-    //Handles the case that the current specification has a header.
-    if (hasHeader()) {
-      stringBuilder.append(getReproducingHeader());
-    }
-
-    //Handles the case that the current BaseNode contains child nodes.
-    if (containsChildNodes()) {
-      appendFormattedStringRepresentationOfChildNodesToStringBuilder(leadingTabulators, stringBuilder);
-    }
-
-    return stringBuilder.toString();
   }
 }
