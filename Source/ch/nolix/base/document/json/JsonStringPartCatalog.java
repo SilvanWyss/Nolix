@@ -13,6 +13,11 @@ public final class JsonStringPartCatalog {
 
   public static final String OBJECT_END_FLAT_STRING = StringCatalog.SPACE + StringCatalog.CLOSED_BRACE;
 
+  public static final String EMPTY_ARRAY_FLAT_STRING = //
+  StringCatalog.OPEN_SQUARE_BRACKET + StringCatalog.SPACE + StringCatalog.CLOSED_SQUARE_BRACKET;
+
+  public static final String ARRAY_FLAT_DELIMITER = StringCatalog.COMMA + StringCatalog.SPACE;
+
   public static final String NAME_VALUE_PAIR_FLAT_DELIMITER = StringCatalog.COMMA + StringCatalog.SPACE;
 
   private JsonStringPartCatalog() {
