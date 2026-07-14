@@ -10,21 +10,21 @@ import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 /**
  * @author Silvan Wyss
  */
-public interface IProperty extends MaterializationRequestable {
+public interface Property extends MaterializationRequestable {
   /**
-   * Adds or changes the given attribute to the current {@link IProperty} if the
-   * given attribute is for the current {@link IProperty}.
+   * Adds or changes the given attribute to the current {@link Property} if the
+   * given attribute is for the current {@link Property}.
    * 
    * @param attribute
    * @return true if the given attribute was added or changed to the current
-   *         {@link IProperty}, false otherwise.
+   *         {@link Property}, false otherwise.
    * @throws RuntimeException if the given attribute is for the current
-   *                          {@link IProperty}, but is not valid.
+   *                          {@link Property}, but is not valid.
    */
   boolean addedOrChangedAttribute(INode<?> attribute);
 
   /**
-   * Fills up the attributes of the current {@link IProperty} into the given list.
+   * Fills up the attributes of the current {@link Property} into the given list.
    * 
    * @param list
    * @throws RuntimeException if the given list is null.

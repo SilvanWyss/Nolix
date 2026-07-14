@@ -17,13 +17,13 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNameCatalog;
 import ch.nolix.systemapi.element.base.SpecificationRepresentable;
 import ch.nolix.systemapi.element.mutableelement.IMutableElement;
-import ch.nolix.systemapi.property.base.IProperty;
+import ch.nolix.systemapi.property.base.Property;
 
 /**
  * @author Silvan Wyss
  */
 public abstract class AbstractPropertiesElement implements IMutableElement {
-  private ArrayList<IProperty> properties;
+  private ArrayList<Property> properties;
 
   /**
    * {@inheritDoc}
@@ -119,10 +119,10 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Adds the {@link IProperty}s from the current
+   * Adds the {@link Property}s from the current
    * {@link AbstractPropertiesElement} to the current
    * {@link AbstractPropertiesElement} if the current
-   * {@link AbstractPropertiesElement} has not added its {@link IProperty}s.
+   * {@link AbstractPropertiesElement} has not added its {@link Property}s.
    */
   private void addPropertiesIfNotAdded() {
     if (!hasAddedProperties()) {
@@ -132,14 +132,14 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
 
   /**
    * @return true if the current {@link AbstractPropertiesElement}s has added its
-   *         {@link IProperty}s, false otherwise
+   *         {@link Property}s, false otherwise
    */
   private boolean hasAddedProperties() {
     return properties != null;
   }
 
   /**
-   * Adds the {@link IProperty}s from the current
+   * Adds the {@link Property}s from the current
    * {@link AbstractPropertiesElement} to the current
    * {@link AbstractPropertiesElement}.
    */
@@ -154,7 +154,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Adds the {@link IProperty}s from the given paramClass to the current
+   * Adds the {@link Property}s from the given paramClass to the current
    * {@link AbstractPropertiesElement}.
    * 
    * @param paramClass
@@ -167,21 +167,21 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * Adds the {@link IProperty} from the given field to the current
+   * Adds the {@link Property} from the given field to the current
    * {@link AbstractPropertiesElement} if the given field contains a
-   * {@link IProperty}.
+   * {@link Property}.
    * 
    * @param field
    * @throws RuntimeException if the given field is null.
    */
   private void addPotentialPropertyFromField(final Field field) {
-    if (IProperty.class.isAssignableFrom(field.getType())) {
+    if (Property.class.isAssignableFrom(field.getType())) {
       addPropertyFromField(field);
     }
   }
 
   /**
-   * Adds the {@link IProperty} from the given field to the current
+   * Adds the {@link Property} from the given field to the current
    * {@link AbstractPropertiesElement}.
    * 
    * @param field
@@ -192,7 +192,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
     try {
       field.setAccessible(true);
 
-      final var property = (IProperty) (field.get(this));
+      final var property = (Property) (field.get(this));
 
       Validator.assertThat(property).thatIsNamed(LowerCaseVariableNameCatalog.PROPERTY).isNotNull();
       properties.addAtEnd(property);
@@ -202,10 +202,10 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
   }
 
   /**
-   * @return the {@link IProperty}s of the current
+   * @return the {@link Property}s of the current
    *         {@link AbstractPropertiesElement}.
    */
-  private ExtendedIterable<IProperty> getStoredProperties() {
+  private ExtendedIterable<Property> getStoredProperties() {
     addPropertiesIfNotAdded();
 
     return properties;
