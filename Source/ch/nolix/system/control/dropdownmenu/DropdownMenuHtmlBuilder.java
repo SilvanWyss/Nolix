@@ -3,8 +3,8 @@
  */
 package ch.nolix.system.control.dropdownmenu;
 
-import ch.nolix.base.html.htmlmodel.HtmlElement;
-import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.control.dropdownmenu.IDropdownMenu;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

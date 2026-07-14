@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.webapplication.component;
 
-import ch.nolix.baseapi.css.cssmodel.ICssProperty;
-import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.webapplication.component.IComponent;
 import ch.nolix.systemapi.webapplication.component.IComponentStyle;

@@ -1,12 +1,12 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.css.cssmodel;
+package ch.nolix.base.web.cssmodel;
 
 import ch.nolix.base.commontype.stringtool.StringTool;
-import ch.nolix.baseapi.css.cssmodel.ICss;
-import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.web.cssmodel.ICss;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 
 /**
  * @author Silvan Wyss

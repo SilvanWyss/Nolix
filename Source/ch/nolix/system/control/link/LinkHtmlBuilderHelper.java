@@ -4,13 +4,13 @@
 package ch.nolix.system.control.link;
 
 import ch.nolix.base.datastructure.linkedlist.LinkedList;
-import ch.nolix.base.html.htmlmodel.HtmlAttribute;
+import ch.nolix.base.web.htmlmodel.HtmlAttribute;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
-import ch.nolix.baseapi.html.htmlcatalog.HtmlAttributeNameCatalog;
-import ch.nolix.baseapi.html.htmlmodel.IHtmlAttribute;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlAttributeNameCatalog;
+import ch.nolix.baseapi.web.htmlmodel.IHtmlAttribute;
 import ch.nolix.systemapi.control.link.ILink;
 import ch.nolix.systemapi.control.link.LinkTarget;
 

@@ -5,7 +5,7 @@ package ch.nolix.systemtest.control.horizontalstack;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.system.control.horizontalstack.HorizontalStack;
 import ch.nolix.system.control.horizontalstack.HorizontalStackHtmlBuilder;
 import ch.nolix.system.control.label.Label;

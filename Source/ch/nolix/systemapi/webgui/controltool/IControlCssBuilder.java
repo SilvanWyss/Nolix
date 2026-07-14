@@ -3,8 +3,8 @@
  */
 package ch.nolix.systemapi.webgui.controltool;
 
-import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
 import ch.nolix.systemapi.webgui.main.Control;
 

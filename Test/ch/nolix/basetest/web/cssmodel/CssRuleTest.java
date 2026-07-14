@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.css.cssmodel;
+package ch.nolix.basetest.web.cssmodel;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.css.cssmodel.CssProperty;
-import ch.nolix.base.css.cssmodel.CssRule;
 import ch.nolix.base.testing.standardtest.StandardTest;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.base.web.cssmodel.CssRule;
 
 /**
  * @author Silvan Wyss

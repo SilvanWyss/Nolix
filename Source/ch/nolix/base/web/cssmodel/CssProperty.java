@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.css.cssmodel;
+package ch.nolix.base.web.cssmodel;
 
-import ch.nolix.baseapi.css.cssmodel.ICssProperty;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 
 /**
  * @author Silvan Wyss

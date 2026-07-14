@@ -3,12 +3,12 @@
  */
 package ch.nolix.system.gui.cssmapper;
 
-import ch.nolix.base.css.cssmodel.CssProperty;
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.baseapi.css.csscatalog.CssPropertyNameCatalog;
-import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.base.web.cssmodel.CssProperty;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.background.IBackground;
 import ch.nolix.systemapi.gui.background.ImageApplication;
 import ch.nolix.systemapi.gui.box.Direction;

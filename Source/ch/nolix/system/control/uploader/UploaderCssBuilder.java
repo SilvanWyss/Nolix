@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.control.uploader;
 
-import ch.nolix.baseapi.css.cssmodel.ICssProperty;
-import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.system.webgui.controltool.AbstractControlCssBuilder;
 import ch.nolix.systemapi.control.uploader.IUploader;
 import ch.nolix.systemapi.control.uploader.IUploaderStyle;

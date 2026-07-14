@@ -3,9 +3,9 @@
  */
 package ch.nolix.system.gui.cssmapper;
 
-import ch.nolix.base.css.cssmodel.CssProperty;
-import ch.nolix.baseapi.css.csscatalog.CssPropertyNameCatalog;
-import ch.nolix.baseapi.css.cssmodel.ICssProperty;
+import ch.nolix.base.web.cssmodel.CssProperty;
+import ch.nolix.baseapi.web.csscatalog.CssPropertyNameCatalog;
+import ch.nolix.baseapi.web.cssmodel.ICssProperty;
 import ch.nolix.systemapi.gui.box.ICornerShadow;
 import ch.nolix.systemapi.gui.cssmapper.ICssValueMapper;
 

@@ -4,10 +4,10 @@
 package ch.nolix.system.control.textbox;
 
 import ch.nolix.base.datastructure.immutablelist.ImmutableList;
-import ch.nolix.base.html.htmlmodel.HtmlAttribute;
-import ch.nolix.base.html.htmlmodel.HtmlElement;
-import ch.nolix.baseapi.html.htmlcatalog.HtmlAttributeNameCatalog;
-import ch.nolix.baseapi.html.htmlcatalog.HtmlElementTypeCatalog;
+import ch.nolix.base.web.htmlmodel.HtmlAttribute;
+import ch.nolix.base.web.htmlmodel.HtmlElement;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlAttributeNameCatalog;
+import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 import ch.nolix.systemapi.control.textbox.ITextbox;
 import ch.nolix.systemapi.webgui.controltool.IControlHtmlBuilder;
 

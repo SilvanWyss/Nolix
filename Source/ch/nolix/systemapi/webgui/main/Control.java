@@ -8,10 +8,10 @@ import java.util.function.Consumer;
 
 import ch.nolix.baseapi.component.guicomponent.GuiComponent;
 import ch.nolix.baseapi.component.guicomponent.LayerComponent;
-import ch.nolix.baseapi.css.cssmodel.ICssRule;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.ILinkedList;
 import ch.nolix.baseapi.objectcomposition.linking.Linkable;
+import ch.nolix.baseapi.web.cssmodel.ICssRule;
 import ch.nolix.systemapi.gui.box.ISizeAdjustableBox;
 import ch.nolix.systemapi.gui.model.CursorIcon;
 import ch.nolix.systemapi.gui.presence.PresenceSettable;
