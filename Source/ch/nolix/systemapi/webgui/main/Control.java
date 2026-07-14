@@ -6,6 +6,7 @@ package ch.nolix.systemapi.webgui.main;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import ch.nolix.baseapi.component.guicomponent.ControlComponent;
 import ch.nolix.baseapi.component.guicomponent.GuiComponent;
 import ch.nolix.baseapi.component.guicomponent.LayerComponent;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
@@ -28,6 +29,7 @@ import ch.nolix.systemapi.webgui.html.IHtmlElementEvent;
  */
 public interface Control<C extends Control<C, S>, S extends IControlStyle<S>>
 extends
+ControlComponent<Control<?, ?>>,
 GuiComponent<IWebGui<?>>,
 HtmlGetter,
 ISizeAdjustableBox<C>,
@@ -36,8 +38,6 @@ IUserInputCell<C>,
 LayerComponent<ILayer>,
 Linkable,
 PresenceSettable<C> {
-  boolean belongsToControl();
-
   C editStyle(Consumer<S> styleEditor);
 
   ExtendedIterable<ICssRule> getCssRules();
@@ -51,8 +51,6 @@ PresenceSettable<C> {
   Optional<Control<?, ?>> getOptionalStoredChildControlByInternalId(String internalId);
 
   ExtendedIterable<Control<?, ?>> getStoredChildControls();
-
-  Control<?, ?> getStoredParentControl();
 
   ExtendedIterable<Control<?, ?>> getStoredStructureControls();
 
