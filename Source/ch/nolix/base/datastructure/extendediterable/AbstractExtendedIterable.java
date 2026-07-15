@@ -373,23 +373,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getCount(final Predicate<E> selector) {
-    // Asserts that the given selector is not null.
-    Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
-
-    // Initializes count.
-    var count = 0;
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element is not null and the given selector selects the current element.
-      if (e != null && selector.test(e)) {
-        // Increments the count.
-        count++;
-      }
-    }
-
-    // Returns the count.
-    return count;
+    return ITERABLE_SEARCHER.getCount(this, selector);
   }
 
   /**
@@ -400,20 +384,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getCountOf(final Object element) {
-    // Initializes count.
-    var count = 0;
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element is the given element.
-      if (e == element) {
-        // Increments the count.
-        count++;
-      }
-    }
-
-    // Returns the count.
-    return count;
+    return ITERABLE_SEARCHER.getCountOf(this, element);
   }
 
   /**

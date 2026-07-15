@@ -39,6 +39,46 @@ public final class IterableSearcher implements IIterableSearcher {
    * {@inheritDoc}
    */
   @Override
+  public <E> int getCount(final Iterable<E> iterable, final Predicate<E> selector) {
+    if (iterable != null && selector != null) {
+      var count = 0;
+
+      for (final var e : iterable) {
+        if (e != null && selector.test(e)) {
+          count++;
+        }
+      }
+
+      return count;
+    }
+
+    return 0;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getCountOf(final Iterable<?> iterable, final Object object) {
+    if (iterable != null) {
+      var count = 0;
+
+      for (final var e : iterable) {
+        if (e == object) {
+          count++;
+        }
+      }
+
+      return count;
+    }
+
+    return 0;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public <E> E getStoredAtOneBasedIndex(final Iterable<E> iterable, final int oneBasedIndex) {
     var iteratorOneBasedIndex = 1;
 
