@@ -25,7 +25,7 @@ final class PascalCaseVariableCatalogTest extends StandardTest {
       expect(c).isOfType(String.class);
 
       final var stringValue = c.toString();
-      if (!exceptions.containsEqualing(stringValue)) {
+      if (!exceptions.containsEqual(stringValue)) {
         expect(stringValue).fulfills(StringTool::isPascalCase);
       }
     }

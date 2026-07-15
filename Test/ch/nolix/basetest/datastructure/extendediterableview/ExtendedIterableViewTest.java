@@ -24,18 +24,18 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
     // execution
-    expect(testUnit.containsEqualing("apple")).isTrue();
-    expect(testUnit.containsEqualing("banana")).isTrue();
-    expect(testUnit.containsEqualing("cerish")).isTrue();
-    expect(testUnit.containsEqualing("antelope")).isTrue();
-    expect(testUnit.containsEqualing("baboon")).isTrue();
-    expect(testUnit.containsEqualing("lion")).isTrue();
-    expect(testUnit.containsEqualing("flower")).isTrue();
-    expect(testUnit.containsEqualing("tree")).isTrue();
-    expect(testUnit.containsEqualing("palm")).isTrue();
-    expect(testUnit.containsEqualing("jupiter")).isFalse();
-    expect(testUnit.containsEqualing("saturn")).isFalse();
-    expect(testUnit.containsEqualing("uranus")).isFalse();
+    expect(testUnit.containsEqual("apple")).isTrue();
+    expect(testUnit.containsEqual("banana")).isTrue();
+    expect(testUnit.containsEqual("cerish")).isTrue();
+    expect(testUnit.containsEqual("antelope")).isTrue();
+    expect(testUnit.containsEqual("baboon")).isTrue();
+    expect(testUnit.containsEqual("lion")).isTrue();
+    expect(testUnit.containsEqual("flower")).isTrue();
+    expect(testUnit.containsEqual("tree")).isTrue();
+    expect(testUnit.containsEqual("palm")).isTrue();
+    expect(testUnit.containsEqual("jupiter")).isFalse();
+    expect(testUnit.containsEqual("saturn")).isFalse();
+    expect(testUnit.containsEqual("uranus")).isFalse();
   }
 
   @Test

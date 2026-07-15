@@ -27,7 +27,7 @@ public final class TableNodeExaminer implements ITableNodeExaminer {
       a -> a.hasHeader(NodeHeaderCatalog.ENTITY)
       && a.getStoredChildNodeAtOneBasedIndex(oneBasedIndex).hasHeader(value)
       && !entitiesToIgnoreIds
-        .containsEqualing(a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
+        .containsEqual(a.getStoredChildNodeAtOneBasedIndex(FieldIndexCatalog.ID_INDEX).getHeader()));
   }
 
   /**

@@ -56,7 +56,7 @@ implements ISelectingStyleWithSelectors {
   }
 
   public final boolean containsSelectorRole(final String selectorRole) {
-    return memberSelectorRoles.containsEqualing(selectorRole);
+    return memberSelectorRoles.containsEqual(selectorRole);
   }
 
   public final boolean containsSelectorRoles() {
@@ -64,7 +64,7 @@ implements ISelectingStyleWithSelectors {
   }
 
   public final boolean containsSelectorToken(final String selectorToken) {
-    return memberSelectorTokens.containsEqualing(selectorToken);
+    return memberSelectorTokens.containsEqual(selectorToken);
   }
 
   public final boolean containsSelectorTokens() {

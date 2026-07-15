@@ -206,7 +206,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
       return false;
     }
 
-    return getAllReferencedEntityIds().containsEqualing(entity.getId());
+    return getAllReferencedEntityIds().containsEqual(entity.getId());
   }
 
   /**

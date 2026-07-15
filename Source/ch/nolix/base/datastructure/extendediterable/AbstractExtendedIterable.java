@@ -147,18 +147,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsEqualing(final Object element) {
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the current element equals the given element.
-      if (e.equals(element)) {
-        // Returns true.
-        return true;
-      }
-    }
-
-    // Returns false.
-    return false;
+  public final boolean containsEqual(final Object object) {
+    return ITERABLE_EXAMINER.containsEqual(this, object);
   }
 
   /**
@@ -315,27 +305,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOneEqualing(final E object) {
-    // Initializes found.
-    var found = false;
-
-    // Iterates the current container.
-    for (final var e : this) {
-      // Handles the case that the current element equals he given object..
-      if (Objects.equals(e, object)) {
-        // Handles the case that an element that equals the given object is already found.
-        if (found) {
-          // Returns false.
-          return false;
-        }
-
-        // Handles the case that an element that equals the given object is not already found.
-        found = true;
-      }
-    }
-
-    // Returns found.
-    return found;
+  public final boolean containsOneEqual(final E object) {
+    return ITERABLE_EXAMINER.containsOneEqual(this, object);
   }
 
   /**

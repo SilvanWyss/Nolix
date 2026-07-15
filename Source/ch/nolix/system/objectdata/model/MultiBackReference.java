@@ -202,7 +202,7 @@ implements IMultiBackReference<E> {
    */
   @Override
   public boolean referencesBackEntityWithId(final String id) {
-    return getAllBackReferencedEntityIds().containsEqualing(id);
+    return getAllBackReferencedEntityIds().containsEqual(id);
   }
 
   void internalAddBackReferencedEntity(final IEntity backReferencedEntity) {
