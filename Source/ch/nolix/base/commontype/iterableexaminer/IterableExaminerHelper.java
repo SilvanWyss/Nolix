@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.commontype.iterableexaminer;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -19,6 +20,22 @@ public final class IterableExaminerHelper {
 
     for (final var e : iterable) {
       if (e == object) {
+        if (found) {
+          return false;
+        }
+
+        found = true;
+      }
+    }
+
+    return found;
+  }
+
+  public static boolean containsOneEqualWhenNotNull(final Iterable<?> iterable, final Object object) {
+    var found = false;
+
+    for (final var e : iterable) {
+      if (Objects.equals(e, object)) {
         if (found) {
           return false;
         }

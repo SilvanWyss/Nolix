@@ -3,6 +3,7 @@
  */
 package ch.nolix.base.commontype.iterableexaminer;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import ch.nolix.baseapi.commontype.iterableexaminer.IIterableExaminer;
@@ -107,6 +108,22 @@ public final class IterableExaminer implements IIterableExaminer {
     }
 
     return true;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsEqual(final Iterable<?> iterable, final Object object) {
+    if (iterable != null) {
+      for (final var e : iterable) {
+        if (Objects.equals(e, object)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   /**
@@ -273,6 +290,18 @@ public final class IterableExaminer implements IIterableExaminer {
   public boolean containsOnce(final Iterable<?> iterable, final Object object) {
     if (iterable != null) {
       return IterableExaminerHelper.containsOnceWhenNotNull(iterable, object);
+    }
+
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean containsOneEqual(final Iterable<?> iterable, final Object object) {
+    if (iterable != null) {
+      return IterableExaminerHelper.containsOneEqualWhenNotNull(iterable, object);
     }
 
     return false;

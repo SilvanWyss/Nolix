@@ -8,6 +8,7 @@ package ch.nolix.baseapi.commontype.iterableexaminer;
  */
 public interface IIterableExaminer
 extends
+IIterableContainEqualExaminer,
 IIterableContainExaminer,
 IIterableContainMatchingExaminer,
 IIterableContainMultipleObjectExaminer,
