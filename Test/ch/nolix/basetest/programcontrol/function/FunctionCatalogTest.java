@@ -14,91 +14,91 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 final class FunctionCatalogTest extends StandardTest {
   @Test
   void testCase_getFalse() {
-    //execution
+    // execution
     final var result = FunctionService.getFalse();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_getNull() {
-    //execution
+    // execution
     final var result = FunctionService.getNull();
 
-    //verification
+    // verification
     expect(result).isNull();
   }
 
   @Test
   void testCase_getOne() {
-    //execution
+    // execution
     final var result = FunctionService.getOne();
 
-    //verification
+    // verification
     expect(result).isEqualTo(1);
   }
 
   @Test
   void testCase_getStringRepresentationOf_whenNullIsGiven() {
-    //execution
+    // execution
     final var result = FunctionService.getStringRepresentationOf(null);
 
-    //verification
+    // verification
     expect(result).isEqualTo("null");
   }
 
   @Test
   void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
-    //execution
+    // execution
     final var result = FunctionService.getStringRepresentationOf(2500);
 
-    //verification
+    // verification
     expect(result).isEqualTo("2500");
   }
 
   @Test
   void testCase_getStringRepresentationOf_whenAStringIsGiven() {
-    //execution
+    // execution
     final var result = FunctionService.getStringRepresentationOf("Lorem ipsum");
 
-    //verification
+    // verification
     expect(result).isEqualTo("Lorem ipsum");
   }
 
   @Test
   void testCase_getTrue() {
-    //execution
+    // execution
     final var result = FunctionService.getTrue();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_getTypeOf_whenIntIsGiven() {
-    //execution
+    // execution
     final var result = FunctionService.getTypeOf(2500);
 
-    //verification
+    // verification
     expect(result).is(Integer.class);
   }
 
   @Test
   void testCase_getTypeOf_whenStringIsGiven() {
-    //execution
+    // execution
     final var result = FunctionService.getTypeOf("");
 
-    //verification
+    // verification
     expect(result).is(String.class);
   }
 
   @Test
   void testCase_getZero() {
-    //execution
+    // execution
     final var result = FunctionService.getZero();
 
-    //verification
+    // verification
     expect(result).isEqualTo(0);
   }
 }

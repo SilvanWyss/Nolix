@@ -26,15 +26,15 @@ extends StandardTest {
 
   @Test
   final void testCase_createCssRulesForControl_whenGivenControlHasAHoverBackgroundColor() {
-    //setup
+    // setup
     final var control = createControl();
     control.editStyle(s -> s.forStateSetBackgroundColor(ControlState.HOVER, Color.fromString("0x102030")));
     final B testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.createCssRulesForControl(control);
 
-    //verification
+    // verification
     final var controlInternalId = control.getInternalId();
     final var hoverCssRule = result.getStoredOne(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"));
     expect(hoverCssRule.getProperties()).containsExactlyOneWithStringRepresentation("background: #102030;");
@@ -42,23 +42,23 @@ extends StandardTest {
 
   @Test
   final void testCase_createCssRulesForControl_whenGivenControlIsNew() {
-    //setup
+    // setup
     final var control = createControl();
     final var controlInternalId = control.getInternalId();
     final B testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.createCssRulesForControl(control);
 
-    //verification part 1
+    // verification part 1
     expect(result).hasElementCount(4);
     final var cssRuleForAllStates = result.getStoredFirst(r -> r.getSelector().startsWith("#" + controlInternalId));
     expect(cssRuleForAllStates.getProperties().containsAny(p -> p.hasName("cursor"))).isTrue();
 
-    //verification part 2
+    // verification part 2
     expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"))).isTrue();
 
-    //verification part 3
+    // verification part 3
     expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":focus"))).isTrue();
   }
 }

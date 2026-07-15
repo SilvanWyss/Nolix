@@ -41,7 +41,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the given length is not positive.
    */
   private Matrix(final int length) {
-    //Asserts that the given length is positive.
+    // Asserts that the given length is positive.
     Validator.assertThat(length).thatIsNamed(LowerCaseVariableNameCatalog.LENGTH).isPositive();
 
     values = new double[length][length];
@@ -57,10 +57,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the given columnCount is not positive.
    */
   private Matrix(final int rowCount, final int columnCount) {
-    //Asserts that the given rowCount is positive.
+    // Asserts that the given rowCount is positive.
     Validator.assertThat(rowCount).thatIsNamed(LowerCaseVariableNameCatalog.ROW_COUNT).isPositive();
 
-    //Asserts that the given columnCount is positive.
+    // Asserts that the given columnCount is positive.
     Validator.assertThat(columnCount).thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_COUNT).isPositive();
 
     values = new double[rowCount][columnCount];
@@ -94,7 +94,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @return a new {@link Matrix} with the given length.
    */
   public static Matrix createRandomQuadraticMatrixWithLength(final int length) {
-    //Asserts that the given size is positive.
+    // Asserts that the given size is positive.
     Validator.assertThat(length).thatIsNamed(LowerCaseVariableNameCatalog.LENGTH).isPositive();
 
     return createRandomQuadraticMatrixWithRowCountAndColumnCount(length, length);
@@ -114,12 +114,12 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public static Matrix createRandomQuadraticMatrixWithRowCountAndColumnCount(
     final int rowCount,
     final int columnCount) {
-    //Creates Matrix.
+    // Creates Matrix.
     final var matrix = new Matrix(rowCount, columnCount);
 
-    //Iterates the rows of the matrix.
+    // Iterates the rows of the matrix.
     for (var i = 0; i < matrix.getRowCount(); i++) {
-      //Iterates the cells of the current row.
+      // Iterates the cells of the current row.
       for (var j = 0; j < matrix.getColumnCount(); j++) {
         matrix.values[i][j] = RANDOM.nextInt(100);
       }
@@ -151,7 +151,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the given columnCount is not positive.
    */
   public static Matrix withRowCountAndColumnCount(final int rowCount, final int columnCount) {
-    //Calls constructor.
+    // Calls constructor.
     return new Matrix(rowCount, columnCount);
   }
 
@@ -186,21 +186,21 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                                  as the current {@link Matrix}.
    */
   public Matrix add(final Matrix matrix) {
-    //Asserts that the given Matrix has as many rows as the current Matrix.
+    // Asserts that the given Matrix has as many rows as the current Matrix.
     Validator
       .assertThat(matrix.getRowCount())
       .thatIsNamed("number of rows of the given matrix")
       .isEqualTo(getRowCount());
 
-    //Asserts that the given Matrix has as many columns as the current Matrix.
+    // Asserts that the given Matrix has as many columns as the current Matrix.
     Validator
       .assertThat(matrix.getColumnCount())
       .thatIsNamed("number of columns of the given matrix")
       .isEqualTo(getColumnCount());
 
-    //Iterates the rows of the current Matrix.
+    // Iterates the rows of the current Matrix.
     for (var i = 0; i < getRowCount(); i++) {
-      //Iterates the cells of the current row.
+      // Iterates the cells of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
         values[i][j] += matrix.values[i][j];
       }
@@ -218,7 +218,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                                  the current {@link Matrix}.
    */
   public Matrix appendAtRight(final Matrix matrix) {
-    //Asserts that the given Matrix has as many rows as the current Matrix.
+    // Asserts that the given Matrix has as many rows as the current Matrix.
     Validator
       .assertThat(matrix.getRowCount())
       .thatIsNamed("number of rows of the given matrix")
@@ -332,7 +332,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the given column count is not valid.
    */
   public Matrix getMatrixWithFirstColumns(int columnCount) {
-    //Asserts that the given column count is valid.
+    // Asserts that the given column count is valid.
     Validator
       .assertThat(columnCount)
       .thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_COUNT)
@@ -353,7 +353,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the given column count is not valid.
    */
   public Matrix getMatrixWithLastColumns(final int columnCount) {
-    //Asserts that the given column count is valid.
+    // Asserts that the given column count is valid.
     Validator
       .assertThat(columnCount)
       .thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_COUNT)
@@ -383,14 +383,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                                  rows as the current {@link Matrix}.
    */
   public Matrix getMinimalFactorMatrix(final Matrix solutionMatrix) {
-    //Asserts that the given solution Matrix has 1 column.
+    // Asserts that the given solution Matrix has 1 column.
     Validator
       .assertThat(solutionMatrix.getColumnCount())
       .thatIsNamed("number of columns of the given soluction matrix")
       .isEqualTo(1);
 
-    //Asserts that the given solution Matrix has as many rows as the current
-    //Matrix.
+    // Asserts that the given solution Matrix has as many rows as the current
+    // Matrix.
     Validator
       .assertThat(solutionMatrix.getRowCount())
       .thatIsNamed("number of rows of the given solution matrix")
@@ -419,8 +419,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                                  the current {@link Matrix} columns has.
    */
   public Matrix getProduct(final Matrix matrix) {
-    //Asserts that the given Matrix has as many rows as the number of columns of
-    //the current Matrix.
+    // Asserts that the given Matrix has as many rows as the number of columns of
+    // the current Matrix.
     Validator
       .assertThat(matrix.getRowCount())
       .thatIsNamed("number of rows of the given matrix")
@@ -444,7 +444,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   public Matrix getPseudoInverse() {
-    //Asserts that the current Matrix is quadratic.
+    // Asserts that the current Matrix is quadratic.
     assertIsQuadratic();
 
     return getSum(new Matrix(getRowCount())
@@ -457,7 +457,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   public int getRank() {
-    //Asserts that the current Matrix is quadratic.
+    // Asserts that the current Matrix is quadratic.
     assertIsQuadratic();
 
     return getClone().transformToEquivalentUpperLeftMatrix().getRowCount();
@@ -539,7 +539,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    * @throws RuntimeException if the current {@link Matrix} is not quadratic.
    */
   public double getTrace() {
-    //Asserts that the current Matrix is quadratic.
+    // Asserts that the current Matrix is quadratic.
     assertIsQuadratic();
 
     var trace = 0.0;
@@ -561,14 +561,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          column with the given column index.
    */
   public double getValue(final int rowIndex, final int columnIndex) {
-    //Asserts that the current Matrix contains a row with the given row index.
+    // Asserts that the current Matrix contains a row with the given row index.
     Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX)
       .isBetween(1, getRowCount());
 
-    //Asserts that the current Matrix contains a column with the given column
-    //index.
+    // Asserts that the current Matrix contains a column with the given column
+    // index.
     Validator
       .assertThat(columnIndex)
       .thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_INDEX)
@@ -655,10 +655,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          with the given row index.
    */
   public Matrix multiplyRow(final int rowIndex, final double factor) {
-    //Asserts that the current Matrix contains a row with the given row index.
+    // Asserts that the current Matrix contains a row with the given row index.
     Validator.assertThat(rowIndex).thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
-    //Iterates the cells of the row with the given row index.
+    // Iterates the cells of the row with the given row index.
     for (var i = 0; i < getColumnCount(); i++) {
       values[rowIndex][i] *= factor;
     }
@@ -722,12 +722,12 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          {@link Matrix} contains.
    */
   public Matrix setValues(final double... values) {
-    //Asserts that as many values are given as the current Matrix contains.
+    // Asserts that as many values are given as the current Matrix contains.
     Validator.assertThat(values).hasElementCount(getSize());
   
-    //Iterates the rows of the current Matrix.
+    // Iterates the rows of the current Matrix.
     for (var i = 0; i < getRowCount(); i++) {
-      //Iterates the cells of the current row.
+      // Iterates the cells of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
         this.values[i][j] = values[i * getColumnCount() + j];
       }
@@ -750,14 +750,14 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          column with the given column index.
    */
   public Matrix setValue(final int rowIndex, final int columnIndex, final double value) {
-    //Asserts that the current Matrix contains a row with the given row index.
+    // Asserts that the current Matrix contains a row with the given row index.
     Validator
       .assertThat(rowIndex)
       .thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX)
       .isBetween(1, getRowCount());
 
-    //Asserts that the current Matrix contains a column with the given column
-    //index.
+    // Asserts that the current Matrix contains a column with the given column
+    // index.
     Validator
       .assertThat(columnIndex)
       .thatIsNamed(LowerCaseVariableNameCatalog.COLUMN_INDEX)
@@ -797,10 +797,10 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          with the given row1 index.
    */
   public Matrix swapRows(int row1Index, int row2Index) {
-    //Asserts that the current Matrix has a row with the given row 1 index.
+    // Asserts that the current Matrix has a row with the given row 1 index.
     Validator.assertThat(row1Index).thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
-    //Asserts that the current Matrix has a row with the given row 2 index.
+    // Asserts that the current Matrix has a row with the given row 2 index.
     Validator.assertThat(row2Index).thatIsNamed(LowerCaseVariableNameCatalog.ROW_INDEX).isBetween(1, getRowCount());
 
     final double[] temp = values[row1Index - 1];
@@ -816,17 +816,17 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          {@link Polynom}.
    */
   public Polynom toPolynom() {
-    //Asserts that the upper left element of the current {@link Matrix} is 0.
+    // Asserts that the upper left element of the current {@link Matrix} is 0.
     if (NumberComparator.isZero(values[0][0])) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
     }
 
-    //Handles the case that the current Matrix consists of 1 row.
+    // Handles the case that the current Matrix consists of 1 row.
     if (getRowCount() == 1) {
       return Polynom.withCoefficients(values[0]);
     }
 
-    //Handles the case that the current Matrix consists of 1 column.
+    // Handles the case that the current Matrix consists of 1 column.
     if (getColumnCount() == 1) {
       final var lValues = new double[getRowCount()];
 
@@ -837,8 +837,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
       return Polynom.withCoefficients(lValues);
     }
 
-    //Handles the case that the current Matrix does not consist of 1 row nor of 1
-    //column.
+    // Handles the case that the current Matrix does not consist of 1 row nor of 1
+    // column.
     throw UnrepresentingArgumentException.forArgumentAndType(this, Polynom.class);
   }
 
@@ -848,12 +848,12 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
    *                          {@link Vector}.
    */
   public Vector toVector() {
-    //Handles the case that the current Matrix contains 1 row.
+    // Handles the case that the current Matrix contains 1 row.
     if (getRowCount() == 1) {
       return Vector.withValues(values[0]);
     }
 
-    //Handles the case that the current Matrix contains 1 column.
+    // Handles the case that the current Matrix contains 1 column.
     if (getColumnCount() == 1) {
       final var lValues = new double[getRowCount()];
 
@@ -864,8 +864,8 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
       return Vector.withValues(lValues);
     }
 
-    //Handles the case that the current Matrix does not either contain 1 row nor 1
-    //column.
+    // Handles the case that the current Matrix does not either contain 1 row nor 1
+    // column.
     throw UnrepresentingArgumentException.forArgumentAndType(this, Vector.class);
   }
 
@@ -882,20 +882,20 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix tranformFirstPartToIdentityMatrix() {
     final var rowCount = getRowCount();
 
-    //Asserts that the current Matrix has not more rows than columns.
+    // Asserts that the current Matrix has not more rows than columns.
     if (rowCount > getColumnCount()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has more rows than columns");
     }
 
-    //Transforms the current Matrix to an equivalent upper left matrix.
+    // Transforms the current Matrix to an equivalent upper left matrix.
     transformToEquivalentUpperLeftMatrix();
 
-    //Asserts that the current Matrix does not have a linear depending rows.
+    // Asserts that the current Matrix does not have a linear depending rows.
     if (rowCount != getRowCount()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
     }
 
-    //Iterates the rows of the current Matrix.
+    // Iterates the rows of the current Matrix.
     for (var i = getRowCount() - 1; i >= 0; i--) {
       if (NumberComparator.isZero(values[i][i])) {
         throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has linear depending rows");
@@ -927,12 +927,12 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
   public Matrix transformToEquivalentUpperLeftMatrix() {
     var minColumnIndex = 0;
 
-    //Iterate over rows of the current {@link Matrix}.
+    // Iterate over rows of the current {@link Matrix}.
     for (var i = 0; i < values.length; i++) {
       var found = false;
 
       while (!found && minColumnIndex < values[i].length) {
-        //Iterates over the current row and the rows below the current row.
+        // Iterates over the current row and the rows below the current row.
         for (var j = i; j < values.length; j++) {
           if (values[j][minColumnIndex] != 0) {
             found = true;
@@ -947,11 +947,11 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
       }
 
       if (found) {
-        //Iterates the rows under the current row.
+        // Iterates the rows under the current row.
         for (var j = i + 1; j < values.length; j++) {
           var factor = -values[j][minColumnIndex] / values[i][minColumnIndex];
 
-          //Iterates the values of the row.
+          // Iterates the values of the row.
           for (int k = minColumnIndex; k < values[j].length; k++) {
             values[j][k] += factor * values[i][k];
           }
@@ -960,7 +960,7 @@ public final class Matrix { //NOSONAR: A Matrix is a principal object thus it ha
         break;
       }
 
-      //Updates min column index.
+      // Updates min column index.
       minColumnIndex++;
     }
 

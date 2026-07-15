@@ -7,18 +7,18 @@ package ch.nolix.systemapi.databaseobject.property;
  * @author Silvan Wyss
  */
 public enum DatabaseObjectState {
-  //not persisted in database
+  // not persisted in database
   NEW,
 
-  //loaded from database and not (!) edited
+  // loaded from database and not (!) edited
   UNEDITED,
 
-  //loaded from database and edited
+  // loaded from database and edited
   EDITED,
 
-  //loaded from database and deleted
+  // loaded from database and deleted
   DELETED,
 
-  //not valid anymore
+  // not valid anymore
   CLOSED
 }

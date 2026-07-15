@@ -12,5 +12,5 @@ IIterableContainExaminer,
 IIterableContainMatchingExaminer,
 IIterableContainMultipleObjectExaminer,
 IIterableContainObjectExaminer {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

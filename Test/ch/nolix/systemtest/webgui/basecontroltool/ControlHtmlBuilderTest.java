@@ -20,13 +20,13 @@ public abstract class ControlHtmlBuilderTest<B extends IControlHtmlBuilder<C>, C
 extends StandardTest {
   @Test
   final void testCase_createHtmlElementForNewControl() {
-    //setup
+    // setup
     final B testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.createHtmlElementForControl(createControl());
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation(getExpectedStringRepresentationOfCreatedHtmlElementForNewControl());
   }
 

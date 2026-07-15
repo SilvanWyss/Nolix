@@ -282,13 +282,13 @@ public abstract class AbstractEntity implements IEntity {
 
     switch (state) {
       case NEW:
-        //Does nothing.
+        // Does nothing.
         break;
       case UNEDITED:
         state = DatabaseObjectState.EDITED;
         break;
       case EDITED:
-        //Does nothing.
+        // Does nothing.
         break;
       case DELETED:
         throw DeletedArgumentException.forArgument(this);

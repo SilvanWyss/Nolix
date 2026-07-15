@@ -17,50 +17,50 @@ import ch.nolix.system.property.value.Value;
 final class ValueTest extends StandardTest {
   @Test
   void testCase_forInt() {
-    //execution
+    // execution
     final var result = //
     Value.forIntWithNameAndDefaultValueAndSetter("amount", 0, FunctionService::takeObjectAndDoNothing);
 
-    //verification
+    // verification
     expect(result.getName()).isEqualTo("amount");
     expect(result.containsAny()).isTrue();
   }
 
   @Test
   void testCase_setValue_whenTheGivenValueIsNull() {
-    //setup
+    // setup
     final var testUnit = //
     Value.forStringWithNameAndDefaultValueAndSetter(
       "name",
       StringCatalog.EMPTY_STRING,
       FunctionService::takeObjectAndDoNothing);
 
-    //setup verification
+    // setup verification
     expect(testUnit.containsAny()).isTrue();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.setValue(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given value is null.");
 
-    //verification
+    // verification
     expect(testUnit.containsAny()).isTrue();
   }
 
   @Test
   void testCase_setValue_whenTheGivenValueIsValid() {
-    //setup
+    // setup
     final var testUnit = //
     Value.forStringWithNameAndDefaultValueAndSetter(
       "name",
       StringCatalog.EMPTY_STRING,
       FunctionService::takeObjectAndDoNothing);
 
-    //execution
+    // execution
     testUnit.setValue("Garfield");
 
-    //verification
+    // verification
     expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("Garfield");
   }

@@ -131,12 +131,12 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsAsManyAs(Iterable<?> iterable) {
-    //Handles the case that the given iterable is a IContainer.
+    // Handles the case that the given iterable is a IContainer.
     if (iterable instanceof final ExtendedIterable<?> container) {
       return (getCount() == container.getCount());
     }
 
-    //Handles the case that the given iterable is not a IContainer.
+    // Handles the case that the given iterable is not a IContainer.
     return (getCount() == IterableTool.getCount(iterable));
   }
 
@@ -148,16 +148,16 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsEqualing(final Object element) {
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element equals the given element.
+      // Handles the case that the current element equals the given element.
       if (e.equals(element)) {
-        //Returns true.
+        // Returns true.
         return true;
       }
     }
 
-    //Returns false.
+    // Returns false.
     return false;
   }
 
@@ -172,12 +172,12 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsExactlyEqualingInSameOrder(final Iterable<?> iterable) {
-    //Handles the case that the given iterable is null.
+    // Handles the case that the given iterable is null.
     if (iterable == null) {
       return isEmpty();
     }
 
-    //Handles the case that the given iterable is not null.
+    // Handles the case that the given iterable is not null.
     return containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(iterable);
   }
 
@@ -200,12 +200,12 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsLessThan(final Iterable<?> iterable) {
-    //Handles the case that the given iterable is a IContainer.
+    // Handles the case that the given iterable is a IContainer.
     if (iterable instanceof final ExtendedIterable<?> container) {
       return (getCount() < container.getCount());
     }
 
-    //Handles the case that the given iterable is not a IContainer.
+    // Handles the case that the given iterable is not a IContainer.
     return (getCount() < IterableTool.getCount(iterable));
   }
 
@@ -217,12 +217,12 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsMoreThan(final Iterable<?> iterable) {
-    //Handles the case that the given container is a IContainer.
+    // Handles the case that the given container is a IContainer.
     if (iterable instanceof final ExtendedIterable<?> container) {
       return (getCount() > container.getCount());
     }
 
-    //Handles the case that the given container is not a IContainer.
+    // Handles the case that the given container is not a IContainer.
     return (getCount() > IterableTool.getCount(iterable));
   }
 
@@ -276,7 +276,7 @@ implements ExtendedIterable<E> {
     return ITERABLE_EXAMINER.containsOnce(this, object);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -284,15 +284,15 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsOne() {
-    //Creates iterator.
+    // Creates iterator.
     final var iterator = iterator();
 
-    //Handles the case that the current Container is empty.
+    // Handles the case that the current Container is empty.
     if (!iterator.hasNext()) {
       return false;
     }
 
-    //Handles the case that the current Container is not empty.
+    // Handles the case that the current Container is not empty.
     iterator.next();
     return !iterator.hasNext();
   }
@@ -316,25 +316,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsOneEqualing(final E object) {
-    //Initializes found.
+    // Initializes found.
     var found = false;
 
-    //Iterates the current container.
+    // Iterates the current container.
     for (final var e : this) {
-      //Handles the case that the current element equals he given object..
+      // Handles the case that the current element equals he given object..
       if (Objects.equals(e, object)) {
-        //Handles the case that an element that equals the given object is already found.
+        // Handles the case that an element that equals the given object is already found.
         if (found) {
-          //Returns false.
+          // Returns false.
           return false;
         }
 
-        //Handles the case that an element that equals the given object is not already found.
+        // Handles the case that an element that equals the given object is not already found.
         found = true;
       }
     }
 
-    //Returns found.
+    // Returns found.
     return found;
   }
 
@@ -357,19 +357,19 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getAverage(final Function<E, Number> valueMapper) {
-    //Asserts that the current Container is not empty.
+    // Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
-    //Calculates the average as BigDecimal.
+    // Calculates the average as BigDecimal.
     final var sumAsBigDecimal = getSum(valueMapper);
     final var elementCountAsBigDecimal = BigDecimal.valueOf(getCount());
     final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 
-    //Returns the average as double.
+    // Returns the average as double.
     return averageAsBigDecimal.doubleValue();
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractExtendedIterable} contains n elements.
@@ -378,19 +378,19 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getAverageOrZero(final Function<E, Number> mapper) {
-    //Handles the case that the current Container is empty.
+    // Handles the case that the current Container is empty.
     if (isEmpty()) {
-      //Asserts that the given mapper is not null.
+      // Asserts that the given mapper is not null.
       if (mapper == null) {
-        //Creates and throws a new ArgumentIsNullException. 
+        // Creates and throws a new ArgumentIsNullException. 
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.MAPPER);
       }
 
-      //Returns 0.0.
+      // Returns 0.0.
       return 0.0;
     }
 
-    //Handles the case that the current Container is not empty.
+    // Handles the case that the current Container is not empty.
     return getAverage(mapper);
   }
 
@@ -402,22 +402,22 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getCount(final Predicate<E> selector) {
-    //Asserts that the given selector is not null.
+    // Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    //Initializes count.
+    // Initializes count.
     var count = 0;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
+      // Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        //Increments the count.
+        // Increments the count.
         count++;
       }
     }
 
-    //Returns the count.
+    // Returns the count.
     return count;
   }
 
@@ -429,19 +429,19 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getCountOf(final Object element) {
-    //Initializes count.
+    // Initializes count.
     var count = 0;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is the given element.
+      // Handles the case that the current element is the given element.
       if (e == element) {
-        //Increments the count.
+        // Increments the count.
         count++;
       }
     }
 
-    //Returns the count.
+    // Returns the count.
     return count;
   }
 
@@ -453,25 +453,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getOneBasedIndexOfFirst(final Predicate<E> selector) {
-    //Asserts that the given selector is not null.
+    // Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    //Initializes localOneBasedIndex.
+    // Initializes localOneBasedIndex.
     var localOneBasedIndex = 1;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
+      // Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        //Returns the localOneBasedIndex.
+        // Returns the localOneBasedIndex.
         return localOneBasedIndex;
       }
 
-      //Increments the localOneBasedIndex.
+      // Increments the localOneBasedIndex.
       localOneBasedIndex++;
     }
 
-    //Creates and throws a new ArgumentDoesNotContainElementException. 
+    // Creates and throws a new ArgumentDoesNotContainElementException. 
     throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
@@ -483,22 +483,22 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getOneBasedIndexOfFirstEqualElement(final Object object) {
-    //Initializes localOneBasedIndex.
+    // Initializes localOneBasedIndex.
     var localOneBasedIndex = 1;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element equals the given object.
+      // Handles the case that the current element equals the given object.
       if (Objects.equals(e, object)) {
-        //Returns the localOneBasedIndex.
+        // Returns the localOneBasedIndex.
         return localOneBasedIndex;
       }
 
-      //Handles the case that the current element does not equals the given object.
+      // Handles the case that the current element does not equals the given object.
       localOneBasedIndex++;
     }
 
-    //Creates and throws a new InvalidArgumentException. 
+    // Creates and throws a new InvalidArgumentException. 
     throw //
     InvalidArgumentException.forArgumentAndErrorPredicate(
       this,
@@ -513,21 +513,21 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int getOneBasedIndexOfFirstOccurrenceOf(final Object object) {
-    //Initializes localOneBasedIndex.
+    // Initializes localOneBasedIndex.
     var localOneBasedIndex = 1;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is the given object.
+      // Handles the case that the current element is the given object.
       if (e == object) {
         return localOneBasedIndex;
       }
 
-      //Handles the case that the current element is not the given object.
+      // Handles the case that the current element is not the given object.
       localOneBasedIndex++;
     }
 
-    //Creates and throws a new ArgumentDoesNotContainElementException. 
+    // Creates and throws a new ArgumentDoesNotContainElementException. 
     throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, object);
   }
 
@@ -539,34 +539,34 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <C extends Comparable<C>> C getMax(final Function<E, C> comparableMapper) {
-    //Asserts that the given comparableMapper is not null.
+    // Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
-    //Initializes max.
+    // Initializes max.
     C max = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the Comparable of the current element.
+        // Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that max is null or the Comparable of the current element is bigger than max.
+        // Handles the case that max is null or the Comparable of the current element is bigger than max.
         if (max == null || comparable.compareTo(max) > 0) {
-          //Sets max as the Comparable of the current element.
+          // Sets max as the Comparable of the current element.
           max = comparable;
         }
       }
     }
 
-    //Handles the case that max is null.
+    // Handles the case that max is null.
     if (max == null) {
-      //Creates and throws a new InvalidArgumentException.
+      // Creates and throws a new InvalidArgumentException.
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
     }
 
-    //Handles the case that max is not null.
+    // Handles the case that max is not null.
     return max;
   }
 
@@ -578,34 +578,34 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getMaxOrZero(Function<E, Number> numberMapper) {
-    //Asserts that the given numberMapper is not null.
+    // Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
-    //Initializes max.
+    // Initializes max.
     Double max = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the number of the current element.
+        // Gets the number of the current element.
         final var number = numberMapper.apply(e).doubleValue();
 
-        //Handles the case that max is null or the number of the current element is bigger than max.
+        // Handles the case that max is null or the number of the current element is bigger than max.
         if (max == null || number > max) {
-          //Sets max as the number of the current element..
+          // Sets max as the number of the current element..
           max = number;
         }
       }
     }
 
-    //Handles the case that max is null.
+    // Handles the case that max is null.
     if (max == null) {
-      //Returns 0.0.
+      // Returns 0.0.
       return 0.0;
     }
 
-    //Handles the case that max is not null.
+    // Handles the case that max is not null.
     return max;
   }
 
@@ -617,40 +617,40 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getMedian(final Function<E, Number> numberMapper) {
-    //Asserts that the current Container is not empty.
+    // Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
-    //Gets the numbers the numberMapper maps from the elements of the current Container.
+    // Gets the numbers the numberMapper maps from the elements of the current Container.
     final var numbers = toNumbers(numberMapper);
 
-    //Orders the numbers by an ascending order.
+    // Orders the numbers by an ascending order.
     final var orderedValues = numbers.toOrderedList(Number::doubleValue);
 
-    //Gets the number of numbers.
+    // Gets the number of numbers.
     final var valueCount = numbers.getCount();
 
-    //Handles the case that the number of values is even.
+    // Handles the case that the number of values is even.
     if (valueCount % 2 == 0) {
-      //Calculates the preMedianIndex.
+      // Calculates the preMedianIndex.
       final var preMedianIndex = valueCount / 2;
 
-      //Calculates the postMedianIndex.
+      // Calculates the postMedianIndex.
       final var postMedianIndex = preMedianIndex + 1;
 
-      //Calculates the preMedian.
+      // Calculates the preMedian.
       final var preMedian = orderedValues.getStoredAtOneBasedIndex(preMedianIndex).doubleValue();
 
-      //Calculates the postMedian
+      // Calculates the postMedian
       final var postMedian = orderedValues.getStoredAtOneBasedIndex(postMedianIndex).doubleValue();
 
-      //Calculates and returns the median.
+      // Calculates and returns the median.
       return 0.5 * (preMedian + postMedian);
     }
 
-    //Calculates the medianIndex.
+    // Calculates the medianIndex.
     final var medianIndex = (valueCount / 2) + 1;
 
-    //Calculates and returns the median.
+    // Calculates and returns the median.
     return orderedValues.getStoredAtOneBasedIndex(medianIndex).doubleValue();
   }
 
@@ -662,12 +662,12 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getMedianOrZero(Function<E, Number> norm) {
-    //Handles the case that the current Container is empty.
+    // Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;
     }
 
-    //Handles the case that the current Container contains elements.
+    // Handles the case that the current Container contains elements.
     return getMedian(norm);
   }
 
@@ -679,34 +679,34 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <C extends Comparable<C>> C getMin(final Function<E, C> comparableMapper) {
-    //Asserts that the given comparableMapper is not null.
+    // Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
-    //Initializes min.
+    // Initializes min.
     C min = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the Comparable of the current element.
+        // Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that min is null or the Comparable of the current element is smaller than min.
+        // Handles the case that min is null or the Comparable of the current element is smaller than min.
         if (min == null || comparable.compareTo(min) < 0) {
-          //Sets min as the Comparable of the current element.
+          // Sets min as the Comparable of the current element.
           min = comparable;
         }
       }
     }
 
-    //Handles the case that min is null.
+    // Handles the case that min is null.
     if (min == null) {
-      //Creates and throws a new InvalidArgumentException.
+      // Creates and throws a new InvalidArgumentException.
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
     }
 
-    //Handles the case that min is not null.
+    // Handles the case that min is not null.
     return min;
   }
 
@@ -715,38 +715,38 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getMinOrZero(final Function<E, Number> numberMapper) {
-    //Asserts that the given numberMapper is not null.
+    // Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("Number mapper").isNotNull();
 
-    //Initializes min.
+    // Initializes min.
     Double min = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the number of the current element.
+        // Gets the number of the current element.
         final var number = numberMapper.apply(e).doubleValue();
 
-        //Handles the case that min is null or the number of the current element is smaller than min.
+        // Handles the case that min is null or the number of the current element is smaller than min.
         if (min == null || number < min) {
-          //Sets min as the number of the current element..
+          // Sets min as the number of the current element..
           min = number;
         }
       }
     }
 
-    //Handles the case that min is null.
+    // Handles the case that min is null.
     if (min == null) {
-      //Returns 0.0.
+      // Returns 0.0.
       return 0.0;
     }
 
-    //Handles the case that min is not null.
+    // Handles the case that min is not null.
     return min;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -754,16 +754,16 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final Optional<E> getOptionalStoredFirst() {
-    //Creates iterator.
+    // Creates iterator.
     final var iterator = iterator();
 
-    //Handles the case that the iterator has a next element.
+    // Handles the case that the iterator has a next element.
     if (iterator.hasNext()) {
-      //Creates and returns a new Optional with the next element of the iterator.
+      // Creates and returns a new Optional with the next element of the iterator.
       return Optional.ofNullable(iterator.next());
     }
 
-    //Handles the case that the iterator does not have a next element.
+    // Handles the case that the iterator does not have a next element.
     return Optional.empty();
   }
 
@@ -775,19 +775,19 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final Optional<E> getOptionalStoredFirst(final Predicate<? super E> selector) {
-    //Asserts that the given selector is not null.
+    // Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
+      // Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        //Creates an returns a new Optional with the current element.
+        // Creates an returns a new Optional with the current element.
         return Optional.of(e);
       }
     }
 
-    //Creates an empty Optional.
+    // Creates an empty Optional.
     return Optional.empty();
   }
 
@@ -799,10 +799,10 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getStandardDeviation(final Function<E, Number> norm) {
-    //Calculates the variance.
+    // Calculates the variance.
     final var variance = getVariance(norm);
 
-    //Calculates and returns the standard deviation.
+    // Calculates and returns the standard deviation.
     return Math.sqrt(variance);
   }
 
@@ -814,39 +814,39 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> comparableMapper) {
-    //Asserts that the given comparableMapper is not null.
+    // Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
-    //Declares max.
+    // Declares max.
     E max = null;
 
-    //Declares comparebleOfMax.
+    // Declares comparebleOfMax.
     C comparebleOfMax = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the Comparable of the current element.
+        // Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that max is null or the Comparable of the current element is bigger than comparebleOfMax.
+        // Handles the case that max is null or the Comparable of the current element is bigger than comparebleOfMax.
         if (max == null || comparable.compareTo(comparebleOfMax) > 0) {
-          //Sets max as the the current element.
+          // Sets max as the the current element.
           max = e;
 
-          //Sets comparebleOfMax as the Comparable of the current element.
+          // Sets comparebleOfMax as the Comparable of the current element.
           comparebleOfMax = comparable;
         }
       }
     }
 
-    //Handles the case that max is null.
+    // Handles the case that max is null.
     if (max == null) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
     }
 
-    //Handles the case that max is not null.
+    // Handles the case that max is not null.
     return max;
   }
 
@@ -858,43 +858,43 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> comparableMapper) {
-    //Asserts that the given comparableMapper is not null.
+    // Asserts that the given comparableMapper is not null.
     Validator.assertThat(comparableMapper).thatIsNamed("Comparable mapper").isNotNull();
 
-    //Declares min.
+    // Declares min.
     E min = null;
 
-    //Declares comparebleOfMin.
+    // Declares comparebleOfMin.
     C comparebleOfMin = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the Comparable of the current element.
+        // Gets the Comparable of the current element.
         final var comparable = comparableMapper.apply(e);
 
-        //Handles the case that min is null or the Comparable of the current element is smaller than comparebleOfMin.
+        // Handles the case that min is null or the Comparable of the current element is smaller than comparebleOfMin.
         if (min == null || comparable.compareTo(comparebleOfMin) < 0) {
-          //Sets min as the the current element.
+          // Sets min as the the current element.
           min = e;
 
-          //Sets comparebleOfMin as the Comparable of the current element.
+          // Sets comparebleOfMin as the Comparable of the current element.
           comparebleOfMin = comparable;
         }
       }
     }
 
-    //Handles the case that min is null.
+    // Handles the case that min is null.
     if (min == null) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain a non-null element");
     }
 
-    //Handles the case that min is not null.
+    // Handles the case that min is not null.
     return min;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -925,10 +925,10 @@ implements ExtendedIterable<E> {
   @Override
   @SuppressWarnings("unchecked")
   public final <T extends E> T getStoredFirstOfType(final Class<T> type) {
-    //Asserts that the given type is not null.
+    // Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 
-    //Calls other method.
+    // Calls other method.
     return (T) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
   }
 
@@ -944,43 +944,43 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<? extends ExtendedIterable<E>> getStoredInGroups(final Function<E, ?> norm) {
-    //Asserts that the given norm is not null.
+    // Asserts that the given norm is not null.
     Validator.assertThat(norm).thatIsNamed("norm").isNotNull();
 
-    //Initializes groups.
+    // Initializes groups.
     final var groups = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<IArrayList<E>>(), 0);
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Gets the groupKey of the current element.
+        // Gets the groupKey of the current element.
         final var groupKey = norm.apply(e);
 
-        //Gets the optionalGroup of the current element.
+        // Gets the optionalGroup of the current element.
         final var optionalGroup = //
         groups.getOptionalStoredFirst(g -> g.containsAny() && norm.apply(g.getStoredFirst()).equals(groupKey));
 
-        //Handles the case that the optionalGroup of the current element does not exist.
+        // Handles the case that the optionalGroup of the current element does not exist.
         if (optionalGroup.isEmpty()) {
-          //Creates group for the current element.
+          // Creates group for the current element.
           final var group = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 1);
 
-          //Adds the current element to the group for the current element.
+          // Adds the current element to the group for the current element.
           group.addAtEnd(e);
 
-          //Adds the group for the current element to the groups.
+          // Adds the group for the current element to the groups.
           groups.addAtEnd(group);
 
-          //Handles the case that the optionalGroup of the current element exists. 
+          // Handles the case that the optionalGroup of the current element exists. 
         } else {
-          //Adds the current element to the group for the current element.
+          // Adds the current element to the group for the current element.
           optionalGroup.get().addAtEnd(e);
         }
       }
     }
 
-    //Returns groups.
+    // Returns groups.
     return groups;
   }
 
@@ -992,7 +992,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final E getStoredLast() {
-    //Calls other method.
+    // Calls other method.
     return getStoredAtOneBasedIndex(getCount());
   }
 
@@ -1005,14 +1005,14 @@ implements ExtendedIterable<E> {
   @Override
   @SuppressWarnings("unchecked")
   public final <T extends E> ExtendedIterable<T> getStoredOfType(final Class<T> type) {
-    //Asserts that the given type is not null.
+    // Asserts that the given type is not null.
     Validator.assertThat(type).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 
-    //Calls other method.
+    // Calls other method.
     return (ExtendedIterable<T>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(1).
    * 
@@ -1020,7 +1020,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final E getStoredOne() {
-    //Enumerates the element count of the current Container.
+    // Enumerates the element count of the current Container.
     return switch (getCount()) {
       case 0 ->
         throw EmptyArgumentException.forArgument(this);
@@ -1039,17 +1039,17 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final E getStoredOne(final Predicate<? super E> selector) {
-    //Asserts that the given selector is not null.
+    // Asserts that the given selector is not null.
     Validator.assertThat(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    //Initializes selectedElement.
+    // Initializes selectedElement.
     E selectedElement = null;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
+      // Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        //Handles the case that the given selector selected already an element.
+        // Handles the case that the given selector selected already an element.
         if (selectedElement != null) {
           throw //
           InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -1057,12 +1057,12 @@ implements ExtendedIterable<E> {
             "contains several elements the given selector selects");
         }
 
-        //Handles the case that the given selector did not select already an element.
+        // Handles the case that the given selector did not select already an element.
         selectedElement = e;
       }
     }
 
-    //Handles the case that the given selector did not select an element.
+    // Handles the case that the given selector did not select an element.
     if (selectedElement == null) {
       throw //
       InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -1070,7 +1070,7 @@ implements ExtendedIterable<E> {
         "does not contain an element the given selector selects");
     }
 
-    //Handles the case that the given selector selected an element.
+    // Handles the case that the given selector selected an element.
     return selectedElement;
   }
 
@@ -1082,26 +1082,26 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getStoredOthers(final Predicate<E> selector) {
-    //Asserts that the given selector is not null.
+    // Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    //Initializes otherElements.
+    // Initializes otherElements.
     final var initialCapacity = getCount() / 2;
     final var otherElements = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), initialCapacity);
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
       /*
        * Handles the case that the current element is not null and the given selector
        * does not select the current element.
        */
       if (e != null && !selector.test(e)) {
-        //Adds the current element to the otherElements.
+        // Adds the current element to the otherElements.
         otherElements.addAtEnd(e);
       }
     }
 
-    //Returns the otherElements.
+    // Returns the otherElements.
     return otherElements;
   }
 
@@ -1113,26 +1113,26 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getStoredSelected(final Predicate<? super E> selector) {
-    //Asserts that the given selector is not null.
+    // Asserts that the given selector is not null.
     Validator.assertThat(selector).thatIsNamed(LowerCaseVariableNameCatalog.SELECTOR).isNotNull();
 
-    //Initializes selectedElements.
+    // Initializes selectedElements.
     final var selectedElements = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 10);
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null and the given selector selects the current element.
+      // Handles the case that the current element is not null and the given selector selects the current element.
       if (e != null && selector.test(e)) {
-        //Adds the current element to the selectedElements.
+        // Adds the current element to the selectedElements.
         selectedElements.addAtEnd(e);
       }
     }
 
-    //Returns the selectedElements.
+    // Returns the selectedElements.
     return selectedElements;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractExtendedIterable} contains n elements.
@@ -1141,22 +1141,22 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final BigDecimal getSum(final Function<E, Number> valueMapper) {
-    //Asserts that the given valueMapper is not null.
+    // Asserts that the given valueMapper is not null.
     Validator.assertThat(valueMapper).thatIsNamed("value mapper").isNotNull();
 
-    //Initializes sum.
+    // Initializes sum.
     var sum = BigDecimal.ZERO;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Adds the value the given valueMapper maps from the current element to the sum.
+        // Adds the value the given valueMapper maps from the current element to the sum.
         sum = sum.add(BigDecimal.valueOf(valueMapper.apply(e).doubleValue()));
       }
     }
 
-    //Returns sum.
+    // Returns sum.
     return sum;
   }
 
@@ -1168,22 +1168,22 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final BigInteger getSumOfInts(final ToIntFunction<E> intMapper) {
-    //Asserts that the given intMapper is not null.
+    // Asserts that the given intMapper is not null.
     Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
-    //Initializes sum.
+    // Initializes sum.
     var sum = BigInteger.ZERO;
 
-    //Iterates the current container.
+    // Iterates the current container.
     for (final var e : this) {
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
-        //Adds the int the given intMapper maps from the current element to the sum.
+        // Adds the int the given intMapper maps from the current element to the sum.
         sum = sum.add(BigInteger.valueOf(intMapper.applyAsInt(e)));
       }
     }
 
-    //Returns the sum.
+    // Returns the sum.
     return sum;
   }
 
@@ -1195,37 +1195,37 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double getVariance(final Function<E, Number> numberMapper) {
-    //Calculates the average.
+    // Calculates the average.
     final var average = getAverage(numberMapper);
 
-    //Initializes sumOfSquaredDifferencesToAverage.
+    // Initializes sumOfSquaredDifferencesToAverage.
     var sumOfSquaredDifferencesToAverage = BigDecimal.ZERO;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Initializes number.
+      // Initializes number.
       var number = 0.0;
 
-      //Handles the case that the current element is not null.
+      // Handles the case that the current element is not null.
       if (e != null) {
         number = numberMapper.apply(e).doubleValue();
       }
 
-      //Calculates differenceToAverage.
+      // Calculates differenceToAverage.
       final var differenceToAverage = number - average;
 
-      //Calculates squaredDifferenceToAverage.
+      // Calculates squaredDifferenceToAverage.
       final var squaredDifferenceToAverage = Math.pow(differenceToAverage, 2);
 
-      //Adds the squaredDifferenceToAverage to the sumOfSquaredDifferencesToAverage.
+      // Adds the squaredDifferenceToAverage to the sumOfSquaredDifferencesToAverage.
       sumOfSquaredDifferencesToAverage = //
       sumOfSquaredDifferencesToAverage.add(BigDecimal.valueOf(squaredDifferenceToAverage));
     }
 
-    //Gets the elementCount.
+    // Gets the elementCount.
     final var elementCount = BigDecimal.valueOf(getCount());
 
-    //Calculates and returns the variance.
+    // Calculates and returns the variance.
     return sumOfSquaredDifferencesToAverage.divide(elementCount, MathContext.DECIMAL32).doubleValue();
   }
 
@@ -1247,7 +1247,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewFromOneBasedStartIndex(final int oneBasedStartIndex) {
-    //Calls other method.
+    // Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(oneBasedStartIndex, getCount());
   }
 
@@ -1281,7 +1281,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewToOneBasedEndIndex(final int oneBasedEndIndex) {
-    //Calls other method.
+    // Calls other method.
     return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, oneBasedEndIndex);
   }
 
@@ -1292,7 +1292,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewWithoutFirst() {
-    //Calls other method.
+    // Calls other method.
     return getViewWithoutFirst(1);
   }
 
@@ -1303,19 +1303,19 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewWithoutFirst(final int n) {
-    //Asserts that the given n is not negative.
+    // Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
-    //Gets the count.
+    // Gets the count.
     final var count = getCount();
 
-    //Handles the case that the current Container contains more than n elements.
+    // Handles the case that the current Container contains more than n elements.
     if (count > n) {
-      //Creates and returns a new view IContainer.
+      // Creates and returns a new view IContainer.
       return getViewFromOneBasedStartIndexToOneBasedEndIndex(n + 1, count);
     }
 
-    //Handles the case that the current Container contains n or less elements.
+    // Handles the case that the current Container contains n or less elements.
     return createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 0);
   }
 
@@ -1326,7 +1326,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewWithoutLast() {
-    //Calls other method.
+    // Calls other method.
     return getViewWithoutLast(1);
   }
 
@@ -1337,19 +1337,19 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<E> getViewWithoutLast(final int n) {
-    //Asserts that the given n is not negative.
+    // Asserts that the given n is not negative.
     Validator.assertThat(n).thatIsNamed("n").isNotNegative();
 
-    //Gets the count.
+    // Gets the count.
     final var count = getCount();
 
-    //Handles the case that the current Container contains more than n elements.
+    // Handles the case that the current Container contains more than n elements.
     if (count > 0) {
-      //Creates and returns a new view IContainer.
+      // Creates and returns a new view IContainer.
       return getViewFromOneBasedStartIndexToOneBasedEndIndex(1, count - n);
     }
 
-    //Handles the case that the current Container contains n or less elements.
+    // Handles the case that the current Container contains n or less elements.
     return createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<E>(), 0);
   }
 
@@ -1372,7 +1372,7 @@ implements ExtendedIterable<E> {
     return true;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractExtendedIterable} contains n elements.
@@ -1381,28 +1381,28 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <T> ExtendedIterable<T> to(final Function<E, T> mapper) {
-    //Asserts that the given mapper is not null.
+    // Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableNameCatalog.MAPPER).isNotNull();
 
-    //Creates list.
+    // Creates list.
     final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), getCount());
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Asserts that the current element is not null.
+      // Asserts that the current element is not null.
       if (e == null) {
-        //Creates and throws a ArgumentIsNullException.
+        // Creates and throws a ArgumentIsNullException.
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
       }
 
-      //Lets the given given mapper create mappingElement from the current element.
+      // Lets the given given mapper create mappingElement from the current element.
       final var mappingElement = mapper.apply(e);
 
-      //Adds the mappingElement at the end of the list.
+      // Adds the mappingElement at the end of the list.
       list.addAtEnd(mappingElement);
     }
 
-    //Returns list.
+    // Returns list.
     return list;
   }
 
@@ -1414,22 +1414,22 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final Object[] toArray() {
-    //Creates array.
+    // Creates array.
     final var array = new Object[getCount()];
 
-    //Initializes index.
+    // Initializes index.
     var index = 0;
 
-    //Iterates the current container.
+    // Iterates the current container.
     for (final var e : this) {
-      //Sets the field of the array at the current index to the current element.
+      // Sets the field of the array at the current index to the current element.
       array[index] = e;
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
-    //Returns the array.
+    // Returns the array.
     return array;
   }
 
@@ -1441,25 +1441,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final byte[] toByteArray(final Function<E, Byte> byteMapper) {
-    //Asserts that the given byteMapper is not null.
+    // Asserts that the given byteMapper is not null.
     Validator.assertThat(byteMapper).thatIsNamed("byte mapper").isNotNull();
 
-    //Creates array.
+    // Creates array.
     final var array = new byte[getCount()];
 
-    //Fills up the array.
+    // Fills up the array.
     var index = 0;
     for (final var e : this) {
-      //Handles the case that the current element is null.
+      // Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0;
 
-        //Handles the case that the current element is not  null.
+        // Handles the case that the current element is not  null.
       } else {
         array[index] = byteMapper.apply(e);
       }
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
@@ -1474,25 +1474,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final char[] toCharArray(final Function<E, Character> charMapper) {
-    //Asserts that the given charMapper is not null.
+    // Asserts that the given charMapper is not null.
     Validator.assertThat(charMapper).thatIsNamed("char mapper").isNotNull();
 
-    //Creates array.
+    // Creates array.
     final var array = new char[getCount()];
 
-    //Fills up the array.
+    // Fills up the array.
     var index = 0;
     for (final var e : this) {
-      //Handles the case that the current element is null.
+      // Handles the case that the current element is null.
       if (e == null) {
         array[index] = CharacterCatalog.SPACE;
 
-        //Handles the case that the current element is not  null.
+        // Handles the case that the current element is not  null.
       } else {
         array[index] = charMapper.apply(e);
       }
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
@@ -1524,25 +1524,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final double[] toDoubleArray(final ToDoubleFunction<E> doubleMapper) {
-    //Asserts that the given doubleMapper is not null.
+    // Asserts that the given doubleMapper is not null.
     Validator.assertThat(doubleMapper).thatIsNamed("double mapper").isNotNull();
 
-    //Creates array.
+    // Creates array.
     final var array = new double[getCount()];
 
-    //Fills up the array.
+    // Fills up the array.
     var index = 0;
     for (final var e : this) {
-      //Handles the case that the current element is null.
+      // Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0.0;
 
-        //Handles the case that the current element is not null.
+        // Handles the case that the current element is not null.
       } else {
         array[index] = doubleMapper.applyAsDouble(e);
       }
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
@@ -1557,26 +1557,26 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final int[] toIntArray(final ToIntFunction<E> intMapper) {
-    //Asserts that the given intMapper is not null.
+    // Asserts that the given intMapper is not null.
     Validator.assertThat(intMapper).thatIsNamed("int mapper").isNotNull();
 
-    //Creates array.
+    // Creates array.
     final var array = new int[getCount()];
 
-    //Fills up the array.
+    // Fills up the array.
     var index = 0;
     for (final var e : this) {
-      //Handles the case that the current element is null.
+      // Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0;
 
-        //Handles the case that the current element is not null.
+        // Handles the case that the current element is not null.
       } else {
         array[index] = intMapper.applyAsInt(e);
 
       }
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
@@ -1591,25 +1591,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final long[] toLongArray(final ToLongFunction<E> longMapper) {
-    //Asserts that the given longMapper is not null.
+    // Asserts that the given longMapper is not null.
     Validator.assertThat(longMapper).thatIsNamed("long mapper").isNotNull();
 
-    //Creates the array.
+    // Creates the array.
     final var array = new long[getCount()];
 
-    //Fills up the array.
+    // Fills up the array.
     var index = 0;
     for (final var e : this) {
-      //Handles the case that the current element is null.
+      // Handles the case that the current element is null.
       if (e == null) {
         array[index] = 0L;
 
-        //Handles the case that the current element is not null.
+        // Handles the case that the current element is not null.
       } else {
         array[index] = longMapper.applyAsLong(e);
       }
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
@@ -1628,25 +1628,25 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <T> ExtendedIterable<T> toMultiples(final Function<E, ExtendedIterable<T>> multipleMapper) {
-    //Asserts that the given multipleMapper is not null.
+    // Asserts that the given multipleMapper is not null.
     Validator.assertThat(multipleMapper).thatIsNamed("multiple mapper").isNotNull();
 
-    //Creates list.
+    // Creates list.
     final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), getCount());
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Asserts that the current element is not null.
+      // Asserts that the current element is not null.
       if (e == null) {
-        //Creates and throws a ArgumentIsNullException.
+        // Creates and throws a ArgumentIsNullException.
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
       }
 
-      //Adds the elements the given multipleMapper maps from the current element at the end of the list.
+      // Adds the elements the given multipleMapper maps from the current element at the end of the list.
       list.addAtEnd(multipleMapper.apply(e));
     }
 
-    //Returns the list.
+    // Returns the list.
     return list;
   }
 
@@ -1658,31 +1658,31 @@ implements ExtendedIterable<E> {
    */
   @Override
   public <N extends Number> ExtendedIterable<N> toNumbers(final Function<E, N> numberMapper) {
-    //Asserts that the given numberMapper is not null.
+    // Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 
-    //Initializes numbers.
+    // Initializes numbers.
     final var numbers = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<N>(), getCount());
 
-    //Creates zero.
+    // Creates zero.
     @SuppressWarnings("unchecked")
     final var zero = (N) Double.valueOf(0.0);
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the current element is null.
+      // Handles the case that the current element is null.
       if (e == null) {
-        //Adds zero to numbers.
+        // Adds zero to numbers.
         numbers.addAtEnd(zero);
 
-        //Handles the case that the current element is not null.
+        // Handles the case that the current element is not null.
       } else {
-        //Adds the Numebr the given numberMapper maps from the current element.
+        // Adds the Numebr the given numberMapper maps from the current element.
         numbers.addAtEnd(numberMapper.apply(e));
       }
     }
 
-    //Returns numbers.
+    // Returns numbers.
     return numbers;
   }
 
@@ -1737,7 +1737,7 @@ implements ExtendedIterable<E> {
   public final String[] toStringArray() {
     final var stringArray = new String[getCount()];
 
-    //Iterates the elements of the current Container.
+    // Iterates the elements of the current Container.
     var i = 0;
     for (final var e : this) {
       stringArray[i] = e.toString();
@@ -1755,10 +1755,10 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final ExtendedIterable<String> toStrings() {
-    //Creates list.
+    // Creates list.
     final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<String>(), getCount());
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
       list.addAtEnd(Objects.toString(e));
     }
@@ -1774,7 +1774,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final String toStringWithDelimiter(final char delimiter) {
-    //Calls other method.
+    // Calls other method.
     return toStringWithDelimiter(String.valueOf(delimiter));
   }
 
@@ -1786,7 +1786,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final String toStringWithDelimiter(final String delimiter) {
-    //Enumerates the element count of the current Container.
+    // Enumerates the element count of the current Container.
     return switch (getCount()) {
       case 0 ->
         StringCatalog.EMPTY_STRING;
@@ -1797,7 +1797,7 @@ implements ExtendedIterable<E> {
     };
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link AbstractExtendedIterable} contains n elements.
@@ -1806,34 +1806,34 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final <T> ExtendedIterable<T> toWithOneBasedIndex(final BiFunction<Integer, E, T> mapper) {
-    //Asserts that the given mapper is not null.
+    // Asserts that the given mapper is not null.
     Validator.assertThat(mapper).thatIsNamed(LowerCaseVariableNameCatalog.MAPPER).isNotNull();
 
-    //Creates list.
+    // Creates list.
     final var list = createEmptyArrayListFromMarkerWithInitialCapacity(new Marker<T>(), 0);
 
-    //Declares index.
+    // Declares index.
     var index = 1;
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Asserts that the current element is not null.
+      // Asserts that the current element is not null.
       if (e == null) {
-        //Creates and throws a ArgumentIsNullException.
+        // Creates and throws a ArgumentIsNullException.
         throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.ELEMENT);
       }
 
-      //Lets the given mapper create mappingElement from the current element.
+      // Lets the given mapper create mappingElement from the current element.
       final var mappingElement = mapper.apply(index, e);
 
-      //Adds the mappingElement at the end of the list.
+      // Adds the mappingElement at the end of the list.
       list.addAtEnd(mappingElement);
 
-      //Increments the index.
+      // Increments the index.
       index++;
     }
 
-    //Returns list.
+    // Returns list.
     return list;
   }
 
@@ -1867,19 +1867,19 @@ implements ExtendedIterable<E> {
    *         false otherwise, for the case that the given iterable is not null.
    */
   private boolean containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
-    //Gets a new iterator from the given iterable.
+    // Gets a new iterator from the given iterable.
     var iterator = iterable.iterator();
 
-    //Iterates the current Container.
+    // Iterates the current Container.
     for (final var e : this) {
-      //Handles the case that the iterator has a next.
+      // Handles the case that the iterator has a next.
       if (iterator.hasNext()) {
-        //Handles the case that the current element does not equal the next of the iterator.
+        // Handles the case that the current element does not equal the next of the iterator.
         if (!Objects.equals(e, iterator.next())) {
           return false;
         }
 
-        //Handles the case that the iterator has does not have a next.
+        // Handles the case that the iterator has does not have a next.
       } else {
         return false;
       }
@@ -1900,19 +1900,19 @@ implements ExtendedIterable<E> {
    * @throws RuntimeException if the given separator is null.
    */
   private String toStringWhenContainsSeveralElements(final String separator) {
-    //Asserts that the given separator is not null.
+    // Asserts that the given separator is not null.
     Validator.assertThat(separator).thatIsNamed(LowerCaseVariableNameCatalog.SEPARATOR).isNotNull();
 
-    //Creates a StringBuilder.
+    // Creates a StringBuilder.
     final var stringBuilder = new StringBuilder();
 
-    //Appends the String representation of the first element to the StringBuilder.
+    // Appends the String representation of the first element to the StringBuilder.
     stringBuilder.append(getStoredFirst());
 
-    //Iterates the elements of the current Container without the first element.
+    // Iterates the elements of the current Container without the first element.
     for (final var e : getViewWithoutFirst()) {
-      //Appends the separator and the String representation of the current element to
-      //the StringBuilder.
+      // Appends the separator and the String representation of the current element to
+      // the StringBuilder.
       stringBuilder.append(separator).append(e);
     }
 

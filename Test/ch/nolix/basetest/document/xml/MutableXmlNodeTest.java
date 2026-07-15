@@ -14,69 +14,69 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class MutableXmlNodeTest extends StandardTest {
   @Test
   void test_toString() {
-    //setup
+    // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node");
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("<Node></Node>");
   }
 
   @Test
   void test_toString_whenHas1Attribute() {
-    //setup
+    // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node").addAttributeWithNameAndValue("key",
       "value");
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("<Node key='value'></Node>");
   }
 
   @Test
   void test_toString_whenHas1ChildNode() {
-    //setup
+    // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode().setName("Node")
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode"));
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("<Node><ChildNode></ChildNode></Node>");
   }
 
   @Test
   void test_toString_whenHas2Attributes() {
-    //setup
+    // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode()
       .setName("Node")
       .addAttributeWithNameAndValue("key1", "value1")
       .addAttributeWithNameAndValue("key2", "value2");
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("<Node key1='value1' key2='value2'></Node>");
   }
 
   @Test
   void test_toString_whenHas2ChildNodes() {
-    //setup
+    // setup
     final var testUnit = MutableXmlNode.createBlankMutableXmlNode()
       .setName("Node")
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode1"))
       .addChildNode(MutableXmlNode.createBlankMutableXmlNode().setName("ChildNode2"));
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("<Node><ChildNode1></ChildNode1><ChildNode2></ChildNode2></Node>");
   }
 }

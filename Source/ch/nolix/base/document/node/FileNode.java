@@ -33,17 +33,17 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * @param filePath
    */
   private FileNode(final String filePath) {
-    //Handles the case that there does not exist a file system item with the given
-    //filePath.
+    // Handles the case that there does not exist a file system item with the given
+    // filePath.
     if (!FileSystemAccessor.exists(filePath)) {
       fileAccessor = FileSystemAccessor.createFile(filePath);
 
-      //Handles the case that there exists a file with the given filePath.
+      // Handles the case that there exists a file with the given filePath.
     } else if (FileSystemAccessor.isFile(filePath)) {
       fileAccessor = FileAccessor.withFilePath(filePath);
 
-      //Handles the case that there exists file system item with the given filePath
-      //that is not a file.
+      // Handles the case that there exists file system item with the given filePath
+      // that is not a file.
     } else {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(filePath, "is not a file");
     }
@@ -61,20 +61,20 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
    * @param internalSpecification
    */
   private FileNode(final FileNode parentFileNode, final IMutableNode<?> internalSpecification) {
-    //Asserts that the given simple persistent specification is not null.
+    // Asserts that the given simple persistent specification is not null.
     Validator
       .assertThat(parentFileNode)
       .isOfType(FileNode.class);
 
-    //Asserts that the given internal specification is not null.
+    // Asserts that the given internal specification is not null.
     Validator.assertThat(internalSpecification)
       .thatIsNamed("internal specification")
       .isNotNull();
 
-    //Sets the simple persistent specification of the current SubNode.
+    // Sets the simple persistent specification of the current SubNode.
     this.parentFileNode = parentFileNode;
 
-    //Sets the internal specification of the current SubNode.
+    // Sets the internal specification of the current SubNode.
     this.internalSpecification = internalSpecification;
 
     fileAccessor = null;

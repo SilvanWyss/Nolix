@@ -15,43 +15,43 @@ import ch.nolix.systemapi.time.timestructure.Weekday;
 final class TimeTest extends StandardTest {
   @Test
   void testCase_getWeekday_whenIs2020_01_01() {
-    //setup
+    // setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 1);
 
-    //execution
+    // execution
     final var result = testUnit.getWeekday();
 
-    //verification
+    // verification
     expect(result).isEqualTo(Weekday.WEDNESDAY);
   }
 
   @Test
   void testCase_getWeekday_whenIs2020_01_02() {
-    //setup
+    // setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 2);
 
-    //execution
+    // execution
     final var result = testUnit.getWeekday();
 
-    //verification
+    // verification
     expect(result).isEqualTo(Weekday.THURSDAY);
   }
 
   @Test
   void testCase_getWeekday_whenIs2020_01_03() {
-    //setup
+    // setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 3);
 
-    //execution
+    // execution
     final var result = testUnit.getWeekday();
 
-    //verification
+    // verification
     expect(result).isEqualTo(Weekday.FRIDAY);
   }
 
   @Test
   void testCase_isAfter_whenTheGivenTimeIsBefore() {
-    //setup
+    // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
@@ -71,16 +71,16 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    //execution
+    // execution
     final var result = testUnit.isAfter(time);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isAfter_whenTheGivenTimeEquals() {
-    //setup
+    // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
@@ -100,16 +100,16 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    //execution
+    // execution
     final var result = testUnit.isAfter(time);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isAfter_whenTheGivenTimeIsAfter() {
-    //setup
+    // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
@@ -129,16 +129,16 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    //execution
+    // execution
     final var result = testUnit.isAfter(time);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isBefore_whenTheGivenTimeIsBefore() {
-    //setup
+    // setup
     final var time = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
@@ -158,16 +158,16 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    //execution
+    // execution
     final var result = testUnit.isBefore(time);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isBefore_whenTheGivenTimeEquals() {
-    //setup
+    // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
@@ -187,16 +187,16 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    //execution
+    // execution
     final var result = testUnit.isBefore(time);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isBefore_whenTheGivenTimeIsAfter() {
-    //setup
+    // setup
     final var testUnit = //
     Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHourAndSecOfMinAndMillisecOfSec(
       2030,
@@ -216,10 +216,10 @@ final class TimeTest extends StandardTest {
       00,
       000);
 
-    //execution
+    // execution
     final var result = testUnit.isBefore(time);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
@@ -228,10 +228,10 @@ final class TimeTest extends StandardTest {
     for (var y = 1999; y <= 2099; y++) {
       for (var m = 1; m <= 12; m++) {
         for (var d = 1; d <= 25; d++) {
-          //execution
+          // execution
           final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 
-          //verification
+          // verification
           expect(result.getYear()).isEqualTo(y);
           expect(result.getMonthOfYearAsInt()).isEqualTo(m);
           expect(result.getDayOfMonth()).isEqualTo(d);
@@ -242,13 +242,13 @@ final class TimeTest extends StandardTest {
 
   @Test
   void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour() {
-    //main loop
+    // main loop
     for (var h = 0; h <= 23; h++) {
       for (var m = 0; m <= 59; m++) {
-        //execution
+        // execution
         final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinOfHour(2000, 1, 1, h, m);
 
-        //verification
+        // verification
         expect(result.getYear()).isEqualTo(2000);
         expect(result.getMonthOfYearAsInt()).isEqualTo(1);
         expect(result.getDayOfMonth()).isEqualTo(1);

@@ -91,7 +91,7 @@ public abstract class AbstractServer implements IServer {
    */
   @Override
   public final void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

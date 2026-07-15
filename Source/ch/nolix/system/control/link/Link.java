@@ -68,7 +68,7 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
   private final OptionalValue<String> url = OptionalValue.forStringWithNameAndSetter(URL_HEADER, this::setUrl);
 
   public Link() {
-    //Info: Reset is technically optional, but required to achieve a well-defined initial state.
+    // Info: Reset is technically optional, but required to achieve a well-defined initial state.
     reset();
 
     getStoredStyle()
@@ -153,7 +153,7 @@ public final class Link extends AbstractControl<ILink, ILinkStyle> implements IL
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

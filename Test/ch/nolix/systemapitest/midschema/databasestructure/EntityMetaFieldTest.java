@@ -28,10 +28,10 @@ final class EntityMetaFieldTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getFieldTypesAndTheirCardinality")
   void testCase_toString(final EntityMetaField testUnit, final String expectedResult) {
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

@@ -32,102 +32,102 @@ final class ArrayListTest extends ExtendedIterableTest {
 
   @Test
   void testCase_addAtEnd_whenHasAvailableCapacity() {
-    //setup
+    // setup
     final var elements = new String[] {};
     final var testUnit = ArrayList.withInitialCapacity(10);
 
-    //execution
+    // execution
     testUnit.addAtEnd(elements);
 
-    //verification
+    // verification
     expect(testUnit).containsAll(elements);
   }
 
   @Test
   void testCase_addAtEnd_whenDoesNotHaveAvailableCapacity() {
-    //setup
+    // setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = ArrayList.withInitialCapacity(5);
 
-    //execution
+    // execution
     testUnit.addAtEnd(elements);
 
-    //verification
+    // verification
     expect(testUnit).containsAll(elements);
   }
 
   @Test
   void testCase_clear_whenIsEmpty() {
-    //setup
+    // setup
     final ArrayList<String> testUnit = ArrayList.createEmpty();
 
-    //execution
+    // execution
     testUnit.clear();
 
-    //verification
+    // verification
     expect(testUnit).isEmpty();
   }
 
   @Test
   void testCase_clear_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
-    //execution
+    // execution
     testUnit.clear();
 
-    //verification
+    // verification
     expect(testUnit).isEmpty();
   }
 
   @Test
   void testCase_getCopy() {
-    //setup
+    // setup
     final var testUnit = ArrayList.withElements("antelope", "baboon", "elephant", "lion", "rhino", "zebra");
 
-    //execution
+    // execution
     final var result = testUnit.getCopy();
 
-    //verification
+    // verification
     expect(result).containsExactlyInSameOrder(testUnit);
   }
 
   @Test
   void testCase_isMaterialized() {
-    //setup
+    // setup
     final var testUnit = ArrayList.createEmpty();
 
-    //execution
+    // execution
     final var result = testUnit.isMaterialized();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_withElemens() {
-    //setup
+    // setup
     final var elements = new String[] { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
 
-    //execution
+    // execution
     final var result = ArrayList.withElements(elements);
 
-    //verification
+    // verification
     expect(result).containsExactlyInSameOrder(elements);
   }
 
   @Test
   void testCase_withInitialCapacity() {
-    //execution
+    // execution
     final var result = ArrayList.withInitialCapacity(10);
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_withInitialCapacity_whenTheGivenInitialCapacityIsNegative() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> ArrayList.withInitialCapacity(-1))
       .throwsException()
       .ofType(NegativeArgumentException.class)

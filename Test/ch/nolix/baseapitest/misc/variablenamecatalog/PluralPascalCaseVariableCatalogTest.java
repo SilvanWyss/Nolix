@@ -17,11 +17,11 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PluralPascalCaseVaria
 final class PluralPascalCaseVariableCatalogTest extends StandardTest {
   @Test
   void testCase_constants() {
-    //setup
+    // setup
     final var exceptions = //
     LinkedList.withElement(PluralPascalCaseVariableNameCatalog.GUIS, PluralPascalCaseVariableNameCatalog.URLS);
 
-    //verification
+    // verification
     for (final var c : ReflectionTool
       .getStoredPublicStaticFieldValuesOfClass(PluralPascalCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);

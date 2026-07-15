@@ -17,7 +17,7 @@ import ch.nolix.base.testing.archunit.ArchUnitRuleCatalog;
 final class ExaminerTest {
   @Test
   void testCase() {
-    //setup
+    // setup
     final var testUnit = //
     new ClassFileImporter()
       .importPackages("ch.nolix..")
@@ -29,7 +29,7 @@ final class ExaminerTest {
           }
         });
 
-    //execution & verification
+    // execution & verification
     ArchUnitRuleCatalog.PUBLIC_NON_STATIC_METHODS_RETURN_A_PRIMITIVE_BOOLEAN.check(testUnit);
   }
 }

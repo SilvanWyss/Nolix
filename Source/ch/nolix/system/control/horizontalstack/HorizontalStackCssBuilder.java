@@ -75,6 +75,6 @@ extends AbstractControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
     final IHorizontalStack horizontalStack,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

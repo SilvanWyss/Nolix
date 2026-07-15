@@ -161,7 +161,7 @@ public final class DataReader implements IDataReader {
    */
   @Override
   public void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

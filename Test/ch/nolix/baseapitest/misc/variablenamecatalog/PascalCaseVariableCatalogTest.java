@@ -17,10 +17,10 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNam
 final class PascalCaseVariableCatalogTest extends StandardTest {
   @Test
   void testCase_constants() {
-    //setup
+    // setup
     final var exceptions = LinkedList.withElement(PascalCaseVariableNameCatalog.GUI, PascalCaseVariableNameCatalog.URL);
 
-    //verification
+    // verification
     for (final var c : ReflectionTool.getStoredPublicStaticFieldValuesOfClass(PascalCaseVariableNameCatalog.class)) {
       expect(c).isOfType(String.class);
 

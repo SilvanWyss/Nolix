@@ -15,10 +15,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 final class MethodMediatorTest extends StandardTest {
   @Test
   void testCase_hasReturnType_whenIsNull() {
-    //setup
+    // setup
     final var testUnit = MethodMediator.forArgument(null);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.hasReturnType(String.class))
       .throwsException()
       .ofType(InvalidArgumentException.class)

@@ -455,8 +455,8 @@ implements IWebGui<WebGui> {
    */
   @Override
   protected void resetStyle() {
-    //An image will not be reset since an image is not supposed to be applied from
-    //a Style.
+    // An image will not be reset since an image is not supposed to be applied from
+    // a Style.
     if (hasBackground() && getBackground().getType() != BackgroundType.IMAGE) {
       setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
     }

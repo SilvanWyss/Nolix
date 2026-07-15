@@ -22,10 +22,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 final class ArgumentCaptorTest extends StandardTest {
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNull() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>(null) {
-      //This class is just a sub class without additional methods.
+      // This class is just a sub class without additional methods.
     }) //
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -33,10 +33,10 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_constructor_whenTheGivenNextArgumentCaptorIsNotValid() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>(new VoidObject()) {
-      //This class is just a sub class without additional methods.
+      // This class is just a sub class without additional methods.
     }) //
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -44,23 +44,23 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_defaultConstructor() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> //
     new AbstractArgumentCaptor<String, VoidObject>() {
-      //This class is just a sub class without additional methods.
+      // This class is just a sub class without additional methods.
     }) //
       .doesNotThrowException();
   }
 
   @Test
   void testCase_nxtArgCpt_whenDoesNotHaveNextArgumentCaptor() {
-    //setup
+    // setup
     final var testUnit = //
     new AbstractArgumentCaptor<String, VoidObject>() {
-      //This class is just a sub class without additional methods.
+      // This class is just a sub class without additional methods.
     };
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::scsArgCpt)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -68,14 +68,14 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_setBuilder_whenTheGivenBuilderIsNull() {
-    //setup
+    // setup
     final var testUnit = new AbstractArgumentCaptor<String, VoidObject>() {
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
       }
     };
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.publicSetBuilder(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -84,7 +84,7 @@ final class ArgumentCaptorTest extends StandardTest {
 
   @Test
   void testCase_setBuilder_whenHasAlreadyBuilder() {
-    //setup
+    // setup
     final var testUnit = new AbstractArgumentCaptor<String, VoidObject>() {
       public void publicSetBuilder(final Supplier<VoidObject> builder) {
         setBuilder(builder);
@@ -92,7 +92,7 @@ final class ArgumentCaptorTest extends StandardTest {
     };
     testUnit.publicSetBuilder(VoidObject::new);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.publicSetBuilder(VoidObject::new))
       .throwsException()
       .ofType(ArgumentHasAttributeException.class);

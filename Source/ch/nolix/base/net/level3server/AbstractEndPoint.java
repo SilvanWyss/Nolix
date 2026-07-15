@@ -47,7 +47,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -55,10 +55,10 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
-    //Asserts that the given receiverController is not null.
+    // Asserts that the given receiverController is not null.
     Validator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 
-    //Sets the receiver controller of the current EndPoint.
+    // Sets the receiver controller of the current EndPoint.
     this.receiverController = receiverController;
   }
 

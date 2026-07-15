@@ -14,11 +14,11 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class ARModelTest extends StandardTest {
   @Test
   void testCase_constructor_1() {
-    //execution
+    // execution
     final double[] inputValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     final var lARModel = ARModel.withOrderAndInputValues(1, inputValues);
 
-    //verification
+    // verification
     expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(11.0);
     expect(lARModel.getForecast(2)).withMaxDeviation(0.01).isEqualTo(12.0);
     expect(lARModel.getForecast(3)).withMaxDeviation(0.01).isEqualTo(13.0);
@@ -27,11 +27,11 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_2() {
-    //execution
+    // execution
     final double[] inputValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     final var lARModel = ARModel.withOrderAndInputValues(2, inputValues);
 
-    //verification
+    // verification
     expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(11.0);
     expect(lARModel.getForecast(2)).withMaxDeviation(0.01).isEqualTo(12.0);
     expect(lARModel.getForecast(3)).withMaxDeviation(0.01).isEqualTo(13.0);
@@ -40,11 +40,11 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_3() {
-    //execution
+    // execution
     final double[] inputValues = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
     final var lARModel = ARModel.withOrderAndInputValues(2, inputValues);
 
-    //verification
+    // verification
     expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
     expect(lARModel.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
     expect(lARModel.getForecast(3)).withMaxDeviation(0.01).isEqualTo(1.0);
@@ -53,11 +53,11 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_4() {
-    //execution
+    // execution
     final double[] inputValues = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
     final var lARModel = ARModel.withOrderAndInputValues(3, inputValues);
 
-    //verification
+    // verification
     expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
     expect(lARModel.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
     expect(lARModel.getForecast(3)).withMaxDeviation(0.01).isEqualTo(1.0);
@@ -66,11 +66,11 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_5() {
-    //execution
+    // execution
     final double[] inputValues = { 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 };
     final var lARModel = ARModel.withOrderAndInputValues(3, inputValues);
 
-    //verification
+    // verification
     expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
     expect(lARModel.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
     expect(lARModel.getForecast(3)).withMaxDeviation(0.01).isEqualTo(3.0);
@@ -81,11 +81,11 @@ final class ARModelTest extends StandardTest {
 
   @Test
   void testCase_constructor_6() {
-    //exection
+    // exection
     final double[] inputValues = { 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3 };
     final var lARModel = ARModel.withOrderAndInputValues(4, inputValues);
 
-    //verification
+    // verification
     expect(lARModel.getForecast(1)).withMaxDeviation(0.01).isEqualTo(1.0);
     expect(lARModel.getForecast(2)).withMaxDeviation(0.01).isEqualTo(2.0);
     expect(lARModel.getForecast(3)).withMaxDeviation(0.01).isEqualTo(3.0);

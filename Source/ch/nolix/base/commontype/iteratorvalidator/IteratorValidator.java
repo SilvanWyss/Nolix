@@ -14,18 +14,18 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  */
 public final class IteratorValidator implements IIteratorValidator {
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public void assertHasNext(final Iterator<?> iterator) {
-    //Asserts that the given iterator is not null.
+    // Asserts that the given iterator is not null.
     if (iterator == null) {
       throw ArgumentIsNullException.forArgumentType(Iterator.class);
     }
 
-    //Asserts that the given iterator has a next element.
+    // Asserts that the given iterator has a next element.
     if (!iterator.hasNext()) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(

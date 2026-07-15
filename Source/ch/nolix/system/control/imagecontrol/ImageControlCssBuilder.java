@@ -25,7 +25,7 @@ extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IImageControl imageControl,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -36,7 +36,7 @@ extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
     final IImageControl imageControl,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -46,7 +46,7 @@ extends AbstractControlCssBuilder<IImageControl, IImageControlStyle> {
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IImageControl control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

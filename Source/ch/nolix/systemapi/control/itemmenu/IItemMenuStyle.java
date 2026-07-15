@@ -10,5 +10,5 @@ import ch.nolix.systemapi.webgui.controlstyle.IControlStyle;
  * @param <S> is the type of a {@link IItemMenuStyle}.
  */
 public interface IItemMenuStyle<S extends IItemMenuStyle<S>> extends IControlStyle<S> {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

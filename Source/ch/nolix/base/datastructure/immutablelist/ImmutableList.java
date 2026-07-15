@@ -55,7 +55,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
     this.elements = elements.clone();
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Creates a new {@link ImmutableList} with the given elements.
    * 
@@ -110,7 +110,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
     return new ImmutableList<>(array);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @param <T>
    * @param iterable
@@ -120,7 +120,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    *                          null.
    */
   public static <T> ImmutableList<T> fromIterable(final Iterable<T> iterable) {
-    //This part is not mandatory, but provides a better performance.
+    // This part is not mandatory, but provides a better performance.
     if (iterable instanceof final ImmutableList<T> immutableList) {
       return immutableList;
     }

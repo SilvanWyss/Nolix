@@ -23,7 +23,7 @@ public abstract class Controller<S> { //NOSONAR: A Controller is a base class wi
     return getStoredWebClientSession().getStoredApplicationService();
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   protected final WebClientSession<S> getStoredWebClientSession() {
     if (memberWebClientSession == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(this, WebClientSession.class);

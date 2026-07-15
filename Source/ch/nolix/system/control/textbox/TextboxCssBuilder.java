@@ -24,7 +24,7 @@ public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox,
     final ITextbox textbox,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -34,7 +34,7 @@ public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox,
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ITextbox textbox,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -55,6 +55,6 @@ public final class TextboxCssBuilder extends AbstractControlCssBuilder<ITextbox,
     final ITextbox textbox,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

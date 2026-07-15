@@ -15,16 +15,16 @@ import ch.nolix.tech.math.fractal.ImageGenerator;
 final class ImageGeneratorTest extends StandardTest {
   @Test
   void testCase_getStoredImage() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setWidthInPixel(10).setHeightInPixel(5);
     final var fractal = fractalBuilder.build();
     final var testUnit = ImageGenerator.forFractal(fractal);
     testUnit.waitUntilIsFinished();
 
-    //execution
+    // execution
     final var result = testUnit.getStoredImage();
 
-    //verification
+    // verification
     expect(result.getWidth()).isEqualTo(10);
     expect(result.getHeight()).isEqualTo(5);
   }

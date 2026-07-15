@@ -18,7 +18,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 
   private final V value;
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   private KeyValuePair(final K key, final V value) {
     if (key == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.KEY);
@@ -52,7 +52,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
     return value;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public String toString() {
     return StringTool.getInParentheses(key + ";" + value);

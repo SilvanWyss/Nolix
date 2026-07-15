@@ -16,27 +16,27 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 final class AndLoginPasswordCaptorTest extends StandardTest {
   @Test
   void testCase_andLoginPassword_whenHasNext() {
-    //parameter definition
+    // parameter definition
     final var loginPassword = "my_login_password";
 
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndLoginPasswordCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.andLoginPassword(loginPassword);
 
-    //verification
+    // verification
     expect(testUnit.getLoginPassword()).isEqualTo(loginPassword);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_andLoginPassword_whenDoesNotHaveNext() {
-    //setup
+    // setup
     final var testUnit = new AndLoginPasswordCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.andLoginPassword("my_login_password"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -44,10 +44,10 @@ final class AndLoginPasswordCaptorTest extends StandardTest {
 
   @Test
   void testCase_getLoginPassword_whenDoesNotHaveLoginPassword() {
-    //setup
+    // setup
     final var testUnit = new AndLoginPasswordCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getLoginPassword).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

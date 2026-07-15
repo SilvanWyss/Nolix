@@ -21,12 +21,12 @@ public final class ClosureMediator {
    * @throws RuntimeException if the given closure is null.
    */
   private ClosureMediator(final Runnable closure) {
-    //Asserts that the given closure is not null.
+    // Asserts that the given closure is not null.
     if (closure == null) {
       throw ArgumentIsNullException.forArgumentName("closure");
     }
 
-    //Sets the closure of the current ClosureMediator.
+    // Sets the closure of the current ClosureMediator.
     this.closure = closure;
   }
 

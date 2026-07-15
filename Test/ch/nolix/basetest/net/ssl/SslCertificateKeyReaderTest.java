@@ -15,7 +15,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class SslCertificateKeyReaderTest extends StandardTest {
   @Test
   void testCase_getKeyFromPemFileLines() {
-    //setup
+    // setup
     final var pemFileLines = //
     ImmutableList.withElements(
       "-----BEGIN PRIVATE KEY-----",
@@ -24,10 +24,10 @@ final class SslCertificateKeyReaderTest extends StandardTest {
       "-----END PRIVATE KEY-----");
     final var testUnit = new SslCertificateKeyReader();
 
-    //execution
+    // execution
     final var result = testUnit.getKeyFromPemFileLines(pemFileLines);
 
-    //verification
+    // verification
     expect(result).isEqualTo("AAAAABBBBB");
   }
 }

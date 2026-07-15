@@ -25,7 +25,7 @@ public final class SqlRecord extends AbstractExtendedIterable<String> implements
 
   private final ImmutableList<String> values;
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Creates a new {@link SqlRecord} with the given values.
    * 

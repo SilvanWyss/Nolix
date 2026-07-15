@@ -15,13 +15,13 @@ import ch.nolix.system.webgui.main.LayerHtmlBuilder;
 final class LayerHtmlBuilderTest extends StandardTest {
   @Test
   void testCase_createIdHtmlAttributeForLayer() {
-    //setup
+    // setup
     final var layer = new Layer();
 
-    //execution
+    // execution
     final var result = LayerHtmlBuilder.createIdHtmlAttributeForLayer(layer);
 
-    //verification
+    // verification
     expect(result.hasName("id")).isTrue();
     expect(result.getValue().startsWith("i")).isTrue();
   }

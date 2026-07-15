@@ -33,13 +33,13 @@ public final class ServerListener extends AbstractWorker implements CloseStateRe
    * @throws RuntimeException if the given parentServer is null.
    */
   private ServerListener(final Server parentServer) {
-    //Asserts that the given parentServer is not null.
+    // Asserts that the given parentServer is not null.
     Validator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
-    //Sets the parentServer of the current ServerListener.
+    // Sets the parentServer of the current ServerListener.
     this.parentServer = parentServer;
 
-    //Starts the current ServerListener. 
+    // Starts the current ServerListener. 
     start();
   }
 

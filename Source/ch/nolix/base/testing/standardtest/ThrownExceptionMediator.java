@@ -28,7 +28,7 @@ public final class ThrownExceptionMediator extends AbstractThrownExceptionMediat
    * @throws RuntimeException if the given exception is null.
    */
   private ThrownExceptionMediator(final Throwable exception) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     super(exception);
   }
 

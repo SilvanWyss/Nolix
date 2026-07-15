@@ -36,7 +36,7 @@ public final class StateProperty<V> {
     return ValueStoringState.STORING_VALUE;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   public V getValue() {
     if (!hasValueOrDefinesEmpty || value == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.VALUE);
@@ -63,7 +63,7 @@ public final class StateProperty<V> {
     value = null;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   public void setValue(final V value) {
     if (value == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.VALUE);

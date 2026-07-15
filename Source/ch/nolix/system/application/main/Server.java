@@ -30,12 +30,12 @@ public final class Server extends AbstractServer<Server> implements SinglePortSe
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private Server(final int port) {
-    //Creates the internalServer of the current Server.
+    // Creates the internalServer of the current Server.
     internalServer = ch.nolix.base.net.level3server.Server.forPortAndHttpMessage(
       port,
       new ServerHttpMessage(getIp(), port).toString());
 
-    //Creates a close dependency between the current Server and its internalServer.
+    // Creates a close dependency between the current Server and its internalServer.
     createCloseDependencyTo(internalServer);
   }
 

@@ -16,126 +16,126 @@ import ch.nolix.system.style.model.SelectingStyle;
 final class SelectingStyleTest extends StandardTest {
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveId() {
-    //setup mockStylableElement
+    // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorId("x");
 
-    //setup verification
+    // setup verification
     expect(mockStylableElement.hasId()).isFalse();
 
-    //execution
+    // execution
     final var result = testUnit.selectsElement(mockStylableElement);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
-    //setup mockStylableElement
+    // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
     mockStylableElement.setId("x");
 
-    //setup
+    // setup
     final var testUnit = SelectingStyle.EMPTY.withSelectorId("x");
 
-    //setup verification
+    // setup verification
     expect(mockStylableElement.hasId()).isTrue();
 
-    //execution
+    // execution
     final var result = testUnit.selectsElement(mockStylableElement);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
-    //setup mockStylableElement
+    // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
     mockStylableElement.setId("x");
 
-    //setup
+    // setup
     final var testUnit = SelectingStyle.EMPTY.withSelectorId("y");
 
-    //setup verification
+    // setup verification
     expect(mockStylableElement.hasId());
 
-    //execution
+    // execution
     final var result = testUnit.selectsElement(mockStylableElement);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
-    //setup mockStylableElement
+    // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorType(ImmutableImage.class);
 
-    //execution
+    // execution
     final var result = testUnit.selectsElement(mockStylableElement);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
-    //setup mockStylableElement
+    // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorType(MockStylableElement.class);
 
-    //execution
+    // execution
     final var result = testUnit.selectsElement(mockStylableElement);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
-    //setup mockStylableElement
+    // setup mockStylableElement
     final var mockStylableElement = new MockStylableElement();
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = SelectingStyle.EMPTY.withSelectorType(AbstractPropertiesElement.class);
 
-    //execution
+    // execution
     final var result = testUnit.selectsElement(mockStylableElement);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_selectsChildElements() {
-    //setup
+    // setup
     final var testUnit = SelectingStyle.EMPTY;
 
-    //execution
+    // execution
     final var result = testUnit.selectsChildElements();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_skipsChildElements() {
-    //setup
+    // setup
     final var testUnit = SelectingStyle.EMPTY;
 
-    //execution
+    // execution
     final var result = testUnit.skipsChildElements();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 }

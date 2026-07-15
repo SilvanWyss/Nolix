@@ -18,36 +18,36 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 final class WithDatabaseCaptorTest extends StandardTest {
   @Test
   void testCase_getStoredDatabase_whenDoesNotHaveDatabase() {
-    //setup
+    // setup
     final var testUnit = new WithDatabaseCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getStoredDatabase).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
   void testCase_withDatabase_whenHasNext() {
-    //parameter definition
+    // parameter definition
     final var database = MutableNode.createEmpty();
 
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new WithDatabaseCaptor<IMutableNode<?>, AndNameCaptor<?>>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.withDatabase(database);
 
-    //verification
+    // verification
     expect(testUnit.getStoredDatabase()).is(database);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_withDatabase_whenDoesNotHaveNext() {
-    //setup
+    // setup
     final var testUnit = new WithDatabaseCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.withDatabase(MutableNode.createEmpty()))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

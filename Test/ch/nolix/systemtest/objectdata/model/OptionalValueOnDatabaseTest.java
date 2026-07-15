@@ -38,17 +38,17 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenIsEmptyAndSaved() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insertEntity(garfield);
 
-    //execution
+    // execution
     nodeDataAdapter.saveChanges();
 
-    //verification
+    // verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     expect(loadedGarfield.hasName()).isFalse();
@@ -56,7 +56,7 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -64,16 +64,16 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
     garfield.setName("Garfield");
     nodeDataAdapter.insertEntity(garfield);
 
-    //execution
+    // execution
     final var result = garfield.getName();
 
-    //verification
+    // verification
     expect(result).isEqualTo("Garfield");
   }
 
   @Test
   void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
-    //setup part 1
+    // setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -82,14 +82,14 @@ final class OptionalValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-    //setup part 2
+    // setup part 2
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
-    //execution
+    // execution
     final var result = loadedGarfield.getName();
 
-    //verification
+    // verification
     expect(result).isEqualTo("Garfield");
   }
 }

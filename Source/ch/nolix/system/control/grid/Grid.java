@@ -157,7 +157,7 @@ public final class Grid extends AbstractContainer<IGrid, IGridStyle> implements 
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

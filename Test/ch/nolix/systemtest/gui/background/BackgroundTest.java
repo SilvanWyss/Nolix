@@ -24,22 +24,22 @@ final class BackgroundTest extends StandardTest {
   "Background(Transparency)"
   })
   void testCase_fromSpecification(final String backgroundSpecificationAsString) {
-    //setup
+    // setup
     final var backgroundSpecification = ImmutableNode.fromString(backgroundSpecificationAsString);
 
-    //execute
+    // execute
     final var result = Background.fromSpecification(backgroundSpecification);
 
-    //verification
+    // verification
     expect(result.getSpecification()).isEqualTo(backgroundSpecification);
   }
 
   @Test
   void testCase_withColor() {
-    //execution
+    // execution
     final var result = Background.withColor(X11ColorCatalog.BLUE);
 
-    //verification
+    // verification
     expect(result.getType()).is(BackgroundType.COLOR);
     expect(result.getColor()).is(X11ColorCatalog.BLUE);
   }

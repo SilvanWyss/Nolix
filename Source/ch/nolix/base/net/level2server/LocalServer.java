@@ -23,7 +23,7 @@ public final class LocalServer extends AbstractServer {
    */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -31,7 +31,7 @@ public final class LocalServer extends AbstractServer {
    */
   @Override
   protected void noteAddedSlot(final ISlot slot) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -39,6 +39,6 @@ public final class LocalServer extends AbstractServer {
    */
   @Override
   protected void noteRemovedSlot(final ISlot slot) {
-    //Does nothing.
+    // Does nothing.
   }
 }

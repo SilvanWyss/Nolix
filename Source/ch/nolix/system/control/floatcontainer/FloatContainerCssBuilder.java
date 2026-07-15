@@ -61,7 +61,7 @@ extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final FloatContainer control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -72,6 +72,6 @@ extends AbstractControlCssBuilder<FloatContainer, FloatContainerStyle> {
     final FloatContainer floatContainer,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

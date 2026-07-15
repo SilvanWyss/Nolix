@@ -32,10 +32,10 @@ public final class LocalEndPoint extends AbstractEndPoint {
   public LocalEndPoint() {
     peerType = PeerType.FRONTEND;
 
-    //Creates the counterpart of this {@link LocalEndPoint}.
+    // Creates the counterpart of this {@link LocalEndPoint}.
     this.counterpart = new LocalEndPoint(this);
 
-    //Clears the target of this {@link LocalEndPoint}.
+    // Clears the target of this {@link LocalEndPoint}.
     customTargetSlot = null;
   }
 
@@ -62,15 +62,15 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private LocalEndPoint(LocalEndPoint counterpart) {
     peerType = PeerType.BACKEND;
 
-    //Asserts that the given counterpart is not null.
+    // Asserts that the given counterpart is not null.
     Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    //Sets the counterpart of this {@link LocalEndPoint}.
+    // Sets the counterpart of this {@link LocalEndPoint}.
     this.counterpart = counterpart;
 
     createCloseDependencyTo(counterpart);
 
-    //Clears the target of this {@link LocalEndPoint}.
+    // Clears the target of this {@link LocalEndPoint}.
     customTargetSlot = null;
   }
 
@@ -87,16 +87,16 @@ public final class LocalEndPoint extends AbstractEndPoint {
     final String target) {
     peerType = PeerType.BACKEND;
 
-    //Asserts that the given counterpart is not null.
+    // Asserts that the given counterpart is not null.
     Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    //Sets the counterpart of this {@link LocalEndPoint}.
+    // Sets the counterpart of this {@link LocalEndPoint}.
     this.counterpart = counterpart;
 
-    //Asserts that the given target is not null or empty.
+    // Asserts that the given target is not null or empty.
     Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 
-    //Sets the target of this {@link LocalEndPoint}.
+    // Sets the target of this {@link LocalEndPoint}.
     this.customTargetSlot = target;
   }
 

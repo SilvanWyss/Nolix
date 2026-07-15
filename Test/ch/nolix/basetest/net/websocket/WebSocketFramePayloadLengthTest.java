@@ -16,98 +16,98 @@ import ch.nolix.baseapi.net.websocket.WebSocketFramePayloadLengthType;
 final class WebSocketFramePayloadLengthTest extends StandardTest {
   @Test
   void testCase_getType_whenPayloadLengthIs0() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(0);
 
-    //execution
+    // execution
     final var result = testUnit.getType();
 
-    //verification
+    // verification
     expect(result).is(WebSocketFramePayloadLengthType.BITS_7);
   }
 
   @Test
   void testCase_getType_whenPayloadLengthIs125() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(125);
 
-    //execution
+    // execution
     final var result = testUnit.getType();
 
-    //verification
+    // verification
     expect(result).is(WebSocketFramePayloadLengthType.BITS_7);
   }
 
   @Test
   void testCase_getType_whenPayloadLengthIs126() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(126);
 
-    //execution
+    // execution
     final var result = testUnit.getType();
 
-    //verification
+    // verification
     expect(result).is(WebSocketFramePayloadLengthType.BITS_16);
   }
 
   @Test
   void testCase_getType_whenPayloadLengthIs65535() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(65535);
 
-    //execution
+    // execution
     final var result = testUnit.getType();
 
-    //verification
+    // verification
     expect(result).is(WebSocketFramePayloadLengthType.BITS_16);
   }
 
   @Test
   void testCase_getType_whenPayloadLengthIs65536() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(65536);
 
-    //execution
+    // execution
     final var result = testUnit.getType();
 
-    //verification
+    // verification
     expect(result).is(WebSocketFramePayloadLengthType.BITS_64);
   }
 
   @Test
   void testCase_getType_whenPayloadLengthIs9223372036854775807() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807L);
 
-    //execution
+    // execution
     final var result = testUnit.getType();
 
-    //verification
+    // verification
     expect(result).is(WebSocketFramePayloadLengthType.BITS_64);
   }
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs125() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(125);
 
-    //execution
+    // execution
     final var result = testUnit.toBytes();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(1);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("01111101");
   }
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs126() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(126);
 
-    //execution
+    // execution
     final var result = testUnit.toBytes();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(2);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000000");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("01111110");
@@ -115,13 +115,13 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs65535() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(65535);
 
-    //execution
+    // execution
     final var result = testUnit.toBytes();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(2);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("11111111");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("11111111");
@@ -129,13 +129,13 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs65536() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(65536);
 
-    //execution
+    // execution
     final var result = testUnit.toBytes();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(8);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("00000000");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("00000000");
@@ -149,13 +149,13 @@ final class WebSocketFramePayloadLengthTest extends StandardTest {
 
   @Test
   void testCase_toBytes_whenPayloadLengthIs9223372036854775807() {
-    //setup
+    // setup
     final var testUnit = new WebSocketFramePayloadLength(9_223_372_036_854_775_807L);
 
-    //execution
+    // execution
     final var result = testUnit.toBytes();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(8);
     expect(UnsignedByte.fromByte(result[0]).toBitString()).isEqualTo("01111111");
     expect(UnsignedByte.fromByte(result[1]).toBitString()).isEqualTo("11111111");

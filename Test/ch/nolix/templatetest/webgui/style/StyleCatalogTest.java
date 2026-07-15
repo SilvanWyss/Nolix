@@ -41,10 +41,10 @@ final class StyleCatalogTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getStyles")
   void testCase_styles(final IStyle testUnit) {
-    //setup
+    // setup
     final var webGuiWithVariousContent = createWebGuiWithVariousContent();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.applyToElement(webGuiWithVariousContent)).doesNotThrowException();
   }
 

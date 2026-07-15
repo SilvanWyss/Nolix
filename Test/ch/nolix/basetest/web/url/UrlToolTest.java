@@ -17,10 +17,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 final class UrlToolTest extends StandardTest {
   @Test
   void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNull() {
-    //setup
+    // setup
     final var testUnit = new UrlTool();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.getDisplayTextForUrl(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -37,13 +37,13 @@ final class UrlToolTest extends StandardTest {
   "nolix.ch, nolix.ch"
   })
   void testCase_getDisplayTextForUrl_whenTheGivenUrlIsNotNull(final String url, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new UrlTool();
 
-    //execution
+    // execution
     final var result = testUnit.getDisplayTextForUrl(url);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

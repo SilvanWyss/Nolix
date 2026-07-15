@@ -16,45 +16,45 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalTokenHolder;
 final class OptionalTokenHolderTest extends StandardTest {
   @Test
   void testCase_hasToken_whenHasTheGivenToken() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalTokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasToken()).thenReturn(true);
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-    //execution
+    // execution
     final var result = testUnit.hasToken("token");
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasToken_whenHasAnotherToken() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalTokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasToken()).thenReturn(true);
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-    //execution
+    // execution
     final var result = testUnit.hasToken("Token");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_hasToken_whenDoesNotHaveAToken() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalTokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasToken()).thenReturn(false);
 
-    //execution
+    // execution
     final var result = testUnit.hasToken("token");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

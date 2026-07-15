@@ -17,76 +17,76 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
 final class LabelTest extends ControlTest<ILabel> {
   @Test
   void testCase_removeRole() {
-    //setup
+    // setup
     final var testUnit = new Label();
     testUnit.setRole(LabelRole.TITLE);
 
-    //setup verification
+    // setup verification
     expect(testUnit.hasRole()).isTrue();
 
-    //execution
+    // execution
     testUnit.removeRole();
 
-    //verification
+    // verification
     expect(testUnit.hasRole()).isFalse();
   }
 
   @Test
   void testCase_setRole() {
-    //setup
+    // setup
     final var testUnit = new Label();
 
-    //setup verification
+    // setup verification
     expect(testUnit.hasRole()).isFalse();
 
-    //execution
+    // execution
     final var result = testUnit.setRole(LabelRole.TITLE);
 
-    //verification
+    // verification
     expect(result).is(testUnit);
     expect(testUnit.getRole()).is(LabelRole.TITLE);
   }
 
   @Test
   void testCase_setText() {
-    //setup
+    // setup
     final var testUnit = new Label();
 
-    //setup verification
+    // setup verification
     expect(testUnit.getText()).isEqualTo("-");
 
-    //execution
+    // execution
     testUnit.setText("Lorem Ipsum");
 
-    //verification
+    // verification
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
   @Test
   void testCase_setText_whenGivenTextIsEmpty() {
-    //setup
+    // setup
     final var testUnit = new Label();
 
-    //execution
+    // execution
     testUnit.setText("");
 
-    //verification
+    // verification
     expect(testUnit.getText()).isEqualTo("");
   }
 
   @Test
   void testCase_setText_whenGivenTextIsNull() {
-    //setup
+    // setup
     final var testUnit = new Label();
     testUnit.setText("Lorem Ipsum");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.setText(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given text is null.");
 
-    //verification
+    // verification
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 

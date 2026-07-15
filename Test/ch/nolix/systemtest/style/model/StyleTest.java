@@ -20,20 +20,20 @@ import ch.nolix.system.webgui.main.WebGui;
 final class StyleTest extends StandardTest {
   @Test
   void testCase_fromSpecification_whenIsEmpty() {
-    //setup
+    // setup
     final var specification = ImmutableNode.withHeader("Style");
 
-    //execution
+    // execution
     final var result = Style.fromSpecification(specification);
 
-    //verification
+    // verification
     expect(result.getAttachingAttributes()).isEmpty();
     expect(result.getSubStyles()).isEmpty();
   }
 
   @Test
   void testCase_fromSpecification_whenContainsAttachingAttributesAndSubStyles() {
-    //setup
+    // setup
     final var specification = ImmutableNode
       .fromString(
         "Style("
@@ -43,10 +43,10 @@ final class StyleTest extends StandardTest {
         + "DeepSelectingStyle"
         + ")");
 
-    //execution
+    // execution
     final var result = Style.fromSpecification(specification);
 
-    //verification
+    // verification
     expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing(
       "test_attaching_attribute_1",
       "test_attaching_attribute_2");
@@ -57,32 +57,32 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_styleElement() {
-    //setup part 1: create WebGui
+    // setup part 1: create WebGui
     final var webGui = new WebGui();
 
-    //setup part 2: create testUnit
+    // setup part 2: create testUnit
     final var testUnit = //
     Style.withAttachingAttributesAndSubStyles(
       ImmutableList.withElements("Title(my_title)", "Background(Color(Blue))"),
       ImmutableList.createEmpty());
 
-    //execution
+    // execution
     testUnit.applyToElement(webGui);
 
-    //verification
+    // verification
     expect(webGui.getTitle()).isEqualTo("my_title");
     expect(webGui.getBackgroundColor()).isEqualTo(X11ColorCatalog.BLUE);
   }
 
   @Test
   void testCase_withAttachingAttribute_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = Style.EMPTY;
 
-    //execution
+    // execution
     final var result = testUnit.withAttachingAttributes("p1(v1)", "p2(v2)");
 
-    //verification
+    // verification
     expect(result.getAttachingAttributes()
       .toStrings())
       .containsExactlyEqualing("p1(v1)", "p2(v2)");
@@ -91,15 +91,15 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withSubStyle_whenIsEmpty() {
-    //setup
+    // setup
     final var subStyle1 = SelectingStyle.EMPTY;
     final var subStyle2 = SelectingStyle.EMPTY;
     final var testUnit = Style.EMPTY;
 
-    //execution
+    // execution
     final var result = testUnit.withAdditionalSubStyles(subStyle1, subStyle2);
 
-    //verification
+    // verification
     expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(2);
@@ -109,13 +109,13 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withAttachingAttribute_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = Style.EMPTY.withAttachingAttributes("p1(v1)", "p2(v2)");
 
-    //execution
+    // execution
     final var result = testUnit.withAttachingAttributes("p3(v3)", "p4(v4)");
 
-    //verification
+    // verification
     expect(result.getAttachingAttributes().toStrings())
       .containsExactlyEqualing(
         "p1(v1)",
@@ -127,17 +127,17 @@ final class StyleTest extends StandardTest {
 
   @Test
   void testCase_withSubStyle_whenContainsAny() {
-    //setup
+    // setup
     final var subStyle1 = SelectingStyle.EMPTY;
     final var subStyle2 = SelectingStyle.EMPTY;
     final var subStyle3 = SelectingStyle.EMPTY;
     final var subStyle4 = SelectingStyle.EMPTY;
     final var testUnit = Style.EMPTY.withAdditionalSubStyles(subStyle1, subStyle2);
 
-    //execution
+    // execution
     final var result = testUnit.withAdditionalSubStyles(subStyle3, subStyle4);
 
-    //verification
+    // verification
     expect(result.getAttachingAttributes()).isEmpty();
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(4);

@@ -17,7 +17,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 public final class ImmutableJsonString implements JsonString {
   private final String string;
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Creates a new {@link ImmutableJsonString} with the given string.
    * 
@@ -57,7 +57,7 @@ public final class ImmutableJsonString implements JsonString {
     return JsonValueType.STRING;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -68,7 +68,7 @@ public final class ImmutableJsonString implements JsonString {
     return indentation + StringCatalog.DOUBLE_QUOTE + string + StringCatalog.DOUBLE_QUOTE;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -77,7 +77,7 @@ public final class ImmutableJsonString implements JsonString {
     return ImmutableNode.withHeader(string);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

@@ -162,7 +162,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

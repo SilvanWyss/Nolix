@@ -14,7 +14,7 @@ public final class MultiValueEntryColumnNameCatalog {
 
   public static final String MULTI_VALUE_COLUMN_ID = "MultiValueColumnId";
 
-  //'Value' is a reserved word in MSSQL databases.
+  // 'Value' is a reserved word in MSSQL databases.
   public static final String VALUE = "Value_";
 
   /**

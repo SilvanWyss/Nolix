@@ -11,5 +11,5 @@ import ch.nolix.systemapi.property.base.Property;
  * @author Silvan Wyss
  */
 public interface IBaseValue extends EmptinessRequestable, NameHolder, Property {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

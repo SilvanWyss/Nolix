@@ -16,79 +16,79 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.NameHolder;
 final class NameHolderTest extends StandardTest {
   @Test
   void testCase_getNameInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.getNameInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.getNameInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'name'");
   }
 
   @Test
   void testCase_hasName_whenHasTheGivenName() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.hasName("name");
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasName_whenDoesNotHaveTheGivenName() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.hasName("Name");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_hasSameNameAs_whenHasTheSameName() {
-    //setup part 1: create nameHolderMock
+    // setup part 1: create nameHolderMock
     final var nameHolderMock = Mockito.mock(NameHolder.class);
     Mockito.when(nameHolderMock.getName()).thenReturn("name");
 
-    //setup part 2: create testUnit
+    // setup part 2: create testUnit
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.hasSameNameAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.hasSameNameAs(nameHolderMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasSameNameAs_whenDoesNotHaveTheSameName() {
-    //setup part 1: create nameHolderMock
+    // setup part 1: create nameHolderMock
     final var nameHolderMock = Mockito.mock(NameHolder.class);
     Mockito.when(nameHolderMock.getName()).thenReturn("Name");
 
-    //setup part 2: create testUnit
+    // setup part 2: create testUnit
     final var testUnit = Mockito.mock(NameHolder.class);
     Mockito.when(testUnit.hasSameNameAs(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.hasSameNameAs(nameHolderMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

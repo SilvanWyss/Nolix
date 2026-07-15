@@ -15,14 +15,14 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class WebSocketHandShakeRequestTest extends StandardTest {
   @Test
   void testCase() {
-    //setup
+    // setup
     final var lines = LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==");
     final var testUnit = WebSocketHandShakeRequest.fromLines(lines);
 
-    //execution
+    // execution
     final var result = testUnit.getSecWebSocketKey();
 
-    //verification
+    // verification
     expect(result).isEqualTo("dGhlIHNhbXBsZSBub25jZQ==");
   }
 }

@@ -17,17 +17,17 @@ import ch.nolix.system.webapplication.main.WebClient;
 final class BasicApplicationTest extends StandardTest {
   @Test
   void testCase_withNameAndInitialSessionClassAndContext() {
-    //setup
+    // setup
     final var applicationService = new VoidObject();
 
-    //execution
+    // execution
     @SuppressWarnings("unchecked")
     final var result = BasicApplication.withNameAndInitialSessionClassAndContext(
       "My application",
       TestSession.withClientClass(WebClient.class).getClass(),
       applicationService);
 
-    //verification
+    // verification
     expect(result.getApplicationName()).isEqualTo("My application");
     expect(result.hasInstanceAppendix()).isFalse();
     expect(result.getStoredApplicationService()).is(applicationService);

@@ -100,7 +100,7 @@ implements ILinearContainer<C, S> {
    */
   @Override
   public final void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

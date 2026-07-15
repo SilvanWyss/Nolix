@@ -22,7 +22,7 @@ public final class LayerStack implements ILayerStack {
 
   private Runnable removeLayerAction;
 
-  //multi-atribute
+  // multi-atribute
   private final ILinkedList<ILayer> layers = LinkedList.createEmpty();
 
   private LayerStack(final IWebGui<?> parentGui) {
@@ -155,7 +155,7 @@ public final class LayerStack implements ILayerStack {
     runProbableRemoveLayerAction();
   }
 
-  //mehod
+  // mehod
   @Override
   public ILayerStack setRemoveLayerAction(Runnable removeLayerAction) {
     Validator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();

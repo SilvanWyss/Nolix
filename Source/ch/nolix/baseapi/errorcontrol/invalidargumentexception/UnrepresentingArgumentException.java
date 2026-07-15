@@ -122,7 +122,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
       throw new IllegalArgumentException("The given noun is blank.");
     }
 
-    //Enumerates the first character of the given noun.
+    // Enumerates the first character of the given noun.
     return switch (noun.charAt(0)) {
       case
       'A',

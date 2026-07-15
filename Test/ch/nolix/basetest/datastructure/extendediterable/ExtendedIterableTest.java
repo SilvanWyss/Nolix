@@ -25,39 +25,39 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 public abstract class ExtendedIterableTest extends StandardTest {
   @Test
   final void testCase_contains_whenContainsTheGivenElement() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
-    //execution
+    // execution
     final var result = testUnit.contains(lion);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_contains_whenDoesNotContainTheGivenElement() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
-    //execution
+    // execution
     final var result = testUnit.contains(lion);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsAll_forIterable_whenContainsNoneOfTheGivenElements() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -65,32 +65,32 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope);
     final var list = ImmutableList.withElements(baboon, elephant, lion);
 
-    //execution
+    // execution
     final var result = testUnit.containsAllOf(list);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsAll_forVarargs_whenContainsNoneOfTheGivenElements() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope);
 
-    //execution
+    // execution
     final var result = testUnit.containsAllOf(baboon, elephant, lion);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsAll_forIterable_whenContainsOnlySomeOfTheGivenElements() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -98,32 +98,32 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
     final var list = ImmutableList.withElements(antelope, baboon, elephant, lion);
 
-    //execution
+    // execution
     final var result = testUnit.containsAllOf(list);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsAll_forVarargs_whenContainsOnlySomeOfTheGivenElements() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
-    //execution
+    // execution
     final var result = testUnit.containsAllOf(antelope, baboon, elephant, lion);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsAll_forIterable_whenContainsAllTheGivenElements() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -131,234 +131,234 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
     final var list = ImmutableList.withElements(antelope, baboon, elephant);
 
-    //execution
+    // execution
     final var result = testUnit.containsAllOf(list);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_containsAll_forVarargs_whenContainsAllTheGivenElements() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
-    //execution
+    // execution
     final var result = testUnit.containsAllOf(antelope, baboon, elephant);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_containsAnyOf_whenIsEmpty() {
-    //setup
+    // setup
     final var element1 = "x";
     final var element2 = "xx";
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.containsAnyOf(element1, element2);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsAnyOf_whenContainsGivenElementsAndMore() {
-    //setup
+    // setup
     final var element1 = "x";
     final var element2 = "xx";
     final var element3 = "xxx";
     final var element4 = "xxxx";
     final var testUnit = createContainerWithElements(element1, element2, element3, element4);
 
-    //execution
+    // execution
     final var result = testUnit.containsAnyOf(element1, element2, element3, element4);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_containsAnyOf_whenContainsOtherElementsOnly() {
-    //setup
+    // setup
     final var element1 = "x";
     final var element2 = "xx";
     final var element3 = "xxx";
     final var element4 = "xxxx";
     final var testUnit = createContainerWithElements(element1, element2);
 
-    //execution
+    // execution
     final var result = testUnit.containsAnyOf(element3, element4);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsExactlyInSameOrder_whenIsEmptyAndGivenContainerIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
     final var container = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.containsExactlyInSameOrder(container);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void //
   testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
     final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.containsExactlyInSameOrder(container);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void //
   testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
     final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxxx", "xxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.containsExactlyInSameOrder(container);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsOnce_whenDoesNotContainTheGivenElement() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
-    //execution
+    // execution
     final var result = testUnit.containsOnce(lion);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsOnce_whenContainsTheGivenElementOnce() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
-    //execution
+    // execution
     final var result = testUnit.containsOnce(lion);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_containsOnce_whenContainsTheGivenElementSeveralTimes() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
     final var lion = "lion";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, lion);
 
-    //execution
+    // execution
     final var result = testUnit.containsOnce(lion);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsOne_1A() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.containsOne();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsOne_1B() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x");
 
-    //execution
+    // execution
     final var result = testUnit.containsOne();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_containsOne_1C() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx");
 
-    //execution
+    // execution
     final var result = testUnit.containsOne();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_containsOne_ElementTakerBooleanGetter1A() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xx", "xx", "xx", "xx");
 
-    //execution
+    // execution
     final var result = testUnit.containsOne(e -> e.equals("x"));
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_containsOne_ElementTakerBooleanGetter1B() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xx", "xx");
 
-    //execution
+    // execution
     final var result = testUnit.containsOne(e -> e.equals("x"));
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_forEach() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
     final var list = ArrayList.createEmpty();
 
-    //execution
+    // execution
     testUnit.forEach(list::addAtEnd);
 
-    //verification
+    // verification
     expect(list.getCount()).isEqualTo(6);
     for (var i = 1; i <= 6; i++) {
       expect(testUnit.getStoredAtOneBasedIndex(i)).isEqualTo(list.getStoredAtOneBasedIndex(i));
@@ -367,13 +367,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_from() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getViewFromOneBasedStartIndex(4);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("xxxx");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xxxxx");
@@ -382,10 +382,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getAverage_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(Double.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.getAverage(FunctionService::getSelf))
       .throwsException()
       .ofType(EmptyArgumentException.class)
@@ -394,37 +394,37 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getAverage_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
 
-    //execution
+    // execution
     final var result = testUnit.getAverage(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(17.5);
   }
 
   @Test
   final void testCase_getAverageOrZero_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(Double.class);
 
-    //execution
+    // execution
     final var result = testUnit.getAverageOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(0.0);
   }
 
   @Test
   final void testCase_getAverageOrZero_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
 
-    //execution
+    // execution
     final var result = testUnit.getAverageOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(17.5);
   }
 
@@ -441,40 +441,40 @@ public abstract class ExtendedIterableTest extends StandardTest {
   "8, 0",
   })
   final void testCase_getCount(final int minLength, final int expectedCount) {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("", "", "x", "x", "xx", "xx", "xxx", "xxx", "xxxx", "xxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getCount(e -> e.length() >= minLength);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedCount);
   }
 
   @Test
   final void testCase_getElementCount() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "x", "x", "x", "x", "x");
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getCount()).isEqualTo(6);
   }
 
   @Test
   final void testCase_getElementCount_whenLinkedListIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getCount()).isEqualTo(0);
   }
 
   @Test
   final void testCase_getOneBasedIndexOfFirst_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.getOneBasedIndexOfFirst(e -> e.startsWith("x")))
       .throwsException()
       .ofType(ArgumentDoesNotContainElementException.class);
@@ -482,22 +482,22 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getOneBasedIndexOfFirst_whenContainsAMatchingElement() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("wx", "xx", "yx", "zx");
 
-    //execution
+    // execution
     final var result = testUnit.getOneBasedIndexOfFirst(e -> e.startsWith("y"));
 
-    //verification
+    // verification
     expect(result).isEqualTo(3);
   }
 
   @Test
   final void testCase_getMax_whenIsEmptyAndTheGivenComparableMapperMapsToIntegers() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.getMax(String::length))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -505,62 +505,62 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getMax_whenContainsSomeAndGivenNormIsDouble() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getMax(e -> 1.0 / e.length());
 
-    //verification
+    // verification
     expect(result).isEqualTo(1.0);
   }
 
   @Test
   final void testCase_getMax_whenContainsSomeAndGivenNormIsInteger() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getMax(String::length);
 
-    //verification
+    // verification
     expect(result).isEqualTo(6);
   }
 
   @Test
   final void testCase_getMaxOrZero_whenIsEmptyContainerForBigDecimals() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
 
-    //execution
+    // execution
     final var result = testUnit.getMaxOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(0.0);
   }
 
   @Test
   final void testCase_getMaxOrZero_whenContainsBigDecimals() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(
       BigDecimal.valueOf(10.0),
       BigDecimal.valueOf(10.0),
       BigDecimal.valueOf(11.5),
       BigDecimal.valueOf(9.5));
 
-    //execution
+    // execution
     final var result = testUnit.getMaxOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(11.5);
   }
 
   @Test
   final void testCase_getMedian_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.getMedian(FunctionService::getSelf))
       .throwsException()
       .ofType(EmptyArgumentException.class);
@@ -568,135 +568,135 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getMedian_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 
-    //execution
+    // execution
     final var result = testUnit.getMedian(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(4.0);
   }
 
   @Test
   final void testCase_getMedianOrZero_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    //execution
+    // execution
     final var result = testUnit.getMedianOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(0.0);
   }
 
   @Test
   final void testCase_getMedianOrZero_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 
-    //execution
+    // execution
     final var result = testUnit.getMedianOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(4.0);
   }
 
   @Test
   final void testCase_getMin_whenIsEmptyAndTheGivenComparableMapperMapstoIntegers() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.getMin(String::length)).throwsException().ofType(InvalidArgumentException.class);
   }
 
   @Test
   final void testCase_getMin_whenContainsSomeAndGivenNormIsDouble() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getMin(e -> 1.0 / e.length());
 
-    //verification
+    // verification
     expect(result).isEqualTo(0.2);
   }
 
   @Test
   final void testCase_getMin_whenContainsSomeAndGivenNormIsInteger() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getMin(String::length);
 
-    //verification
+    // verification
     expect(result).isEqualTo(1);
   }
 
   @Test
   final void testCase_getMinOrZero_whenIsEmptyContainerForBigDecimals() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(BigDecimal.class);
 
-    //execution
+    // execution
     final var result = testUnit.getMinOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(0.0);
   }
 
   @Test
   final void testCase_getMinOrZero_whenContainsBigDecimals() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(
       BigDecimal.valueOf(10.0),
       BigDecimal.valueOf(10.0),
       BigDecimal.valueOf(11.5),
       BigDecimal.valueOf(9.5));
 
-    //execution
+    // execution
     final var result = testUnit.getMinOrZero(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(9.5);
   }
 
   @Test
   void testCase_getOptionalStoredFirst_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.getOptionalStoredFirst();
 
-    //verification
+    // verification
     expect(result.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_getOptionalStoredFirst_whenContainsSeveralElements() {
-    //setup
+    // setup
     final var elephant = "elephant";
     final var lion = "lion";
     final var rhino = "rhino";
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(elephant, lion, rhino, zebra);
 
-    //execution
+    // execution
     final var result = testUnit.getOptionalStoredFirst();
 
-    //verification
+    // verification
     expect(result.orElseThrow()).is(elephant);
   }
 
   @Test
   final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.getStoredByMax(String::length))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -704,34 +704,34 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsDouble() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredByMax(e -> 1.0 / e.length());
 
-    //verification
+    // verification
     expect(result).isEqualTo("x");
   }
 
   @Test
   final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsInteger() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredByMax(String::length);
 
-    //verification
+    // verification
     expect(result).isEqualTo("xxxxxx");
   }
 
   @Test
   final void testCase_getStoredByMin_whenIsEmptyAndGivenNormIsInteger() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.getStoredByMin(String::length))
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -739,46 +739,46 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsDouble() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredByMin(e -> 1.0 / e.length());
 
-    //verification
+    // verification
     expect(result).isEqualTo("xxxxxx");
   }
 
   @Test
   final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsInteger() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredByMin(String::length);
 
-    //verification
+    // verification
     expect(result).isEqualTo("x");
   }
 
   @Test
   final void testCase_getStoredFirst() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredFirst();
 
-    //verification
+    // verification
     expect(result).isEqualTo("x");
   }
 
   @Test
   final void testCase_getStoredFirst_whenLinkedListIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getStoredFirst)
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -787,38 +787,38 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getStoredGroups_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.getStoredInGroups(String::length);
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   final void testCase_getStoredGroups_1A() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "y", "x", "y", "x", "y");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredInGroups(String::length);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(1);
     expect(result.getStoredOne()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
   }
 
   @Test
   final void testCase_getStoredGroups_1B() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredInGroups(String::length);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("x", "y");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("xx", "yy");
@@ -827,35 +827,35 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   void testCase_getStoredLast_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getStoredLast).throwsException();
   }
 
   @Test
   void testCase_getStoredLast_whenContainsSeveralElements() {
-    //setup
+    // setup
     final var elephant = "elephant";
     final var lion = "lion";
     final var rhino = "rhino";
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(elephant, lion, rhino, zebra);
 
-    //execution
+    // execution
     final var result = testUnit.getStoredLast();
 
-    //verification
+    // verification
     expect(result).is(zebra);
   }
 
   @Test
   final void testCase_getStoredOne_whenDoesNotContainAMatchingElement() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 7))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -867,22 +867,22 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getStoredOne_whenContainsOneMatchingElement() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredOne(e -> e.length() == 3);
 
-    //verification
+    // verification
     expect(result).isEqualTo("xxx");
   }
 
   @Test
   final void testCase_getStoredOne_whenContainsSeveralMatchingElements() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 3))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -894,13 +894,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getStoredSelected_1A() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredSelected(e -> e.length() < 4);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(3);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
@@ -909,64 +909,64 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_getStoredSelected_1B() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getStoredSelected(e -> e.length() > 6);
 
-    //verification
+    // verification
     expect(result.isEmpty()).isTrue();
   }
 
   @Test
   final void testCase_getSumByInt_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.getSum(String::length);
 
-    //verification
+    // verification
     expect(result.intValue()).isEqualTo(0);
   }
 
   @Test
   final void testCase_getSum_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getSum(String::length);
 
-    //verification
+    // verification
     expect(result.intValue()).isEqualTo(21);
   }
 
   @Test
   final void testCase_getVariance() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(0.0, 0.0, 0.5, 1.0, 1.0);
 
-    //execution
+    // execution
     final var result = testUnit.getVariance(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result).isEqualTo(0.2);
   }
 
   @Test
   final void testCase_getViewWithoutFirst_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getViewWithoutFirst).throwsException();
   }
 
   @Test
   final void testCase_getViewWithoutFirst_whenContainsSeveral() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -975,25 +975,25 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
 
-    //execution
+    // execution
     final var result = testUnit.getViewWithoutFirst();
 
-    //verification
+    // verification
     expect(result).containsExactlyInSameOrder(baboon, elephant, lion, rhino, zebra);
   }
 
   @Test
   final void testCase_getViewWithoutLast_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getViewWithoutLast).throwsException();
   }
 
   @Test
   final void testCase_getViewWithoutLast_whenContainsSeveral() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -1002,34 +1002,34 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
 
-    //execution
+    // execution
     final var result = testUnit.getViewWithoutLast();
 
-    //verification
+    // verification
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino);
   }
 
   @Test
   final void testCase_isView() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(VoidObject.class);
 
-    //execution
+    // execution
     final var result = testUnit.isView();
 
-    //verification
+    // verification
     expect(result).is(!testUnit.isMaterialized());
   }
 
   @Test
   final void testCase_toArray() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.toArray();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo("x");
     expect(result[1]).isEqualTo("xx");
@@ -1041,49 +1041,49 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toConcatenatedString_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.toConcatenatedString();
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   final void testCase_toConcatenatedString_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "yy", "zzz", "pppp");
 
-    //execution
+    // execution
     final var result = testUnit.toConcatenatedString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("xyyzzzpppp");
   }
 
   @Test
   final void testCase_toDoubleArray_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(String.class);
 
-    //execution
+    // execution
     final var result = testUnit.toDoubleArray(String::length);
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(0);
   }
 
   @Test
   final void testCase_toDoubleArray_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xxx", "xxx");
 
-    //execution
+    // execution
     final var result = testUnit.toDoubleArray(String::length);
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo(1.0);
     expect(result[1]).isEqualTo(1.0);
@@ -1095,13 +1095,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toOrderedList_1A() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("xxxxxx", "xxxxx", "xxxx", "xxx", "xx", "x");
 
-    //execution
+    // execution
     final var result = testUnit.toOrderedList(String::length);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
@@ -1113,13 +1113,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toOrderedList_1B() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("python", "elephant", "zebra", "lion", "shark", "jaguar");
 
-    //execution
+    // execution
     final var result = testUnit.toOrderedList(FunctionService::getSelf);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("elephant");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("jaguar");
@@ -1131,13 +1131,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toIntArray() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.toIntArray(String::length);
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(6);
     expect(result[0]).isEqualTo(1);
     expect(result[1]).isEqualTo(2);
@@ -1149,25 +1149,25 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toStringArray_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    //execution
+    // execution
     final var result = testUnit.toStringArray();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(0);
   }
 
   @Test
   final void testCase_toStringArray_whenContainsElements() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(10, 20, 30, 40);
 
-    //execution
+    // execution
     final var result = testUnit.toStringArray();
 
-    //verification
+    // verification
     expect(result.length).isEqualTo(4);
     expect(result[0]).isEqualTo("10");
     expect(result[1]).isEqualTo("20");
@@ -1177,13 +1177,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toStrings() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements(10, 20, 30, 40, 50, 60);
 
-    //execution
+    // execution
     final var result = testUnit.toStrings();
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(6);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("10");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("20");
@@ -1195,25 +1195,25 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_toStrings_whenContainerIsEmpty() {
-    //setup
+    // setup
     final var testUnit = createEmptyContainerForType(Integer.class);
 
-    //execution
+    // execution
     final var result = testUnit.toStrings();
 
-    //verifications
+    // verifications
     expect(result).isEmpty();
   }
 
   @Test
   final void testCase_until() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getViewToOneBasedEndIndex(5);
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(5);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("x");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xx");
@@ -1224,10 +1224,10 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_withElements() {
-    //execution
+    // execution
     final var result = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //verification
+    // verification
     expect(result).contains(s -> s.equals("x"));
     expect(result).contains(s -> s.equals("xx"));
     expect(result).contains(s -> s.equals("xxx"));
@@ -1238,13 +1238,13 @@ public abstract class ExtendedIterableTest extends StandardTest {
 
   @Test
   final void testCase_withoutFirst() {
-    //setup
+    // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    //execution
+    // execution
     final var result = testUnit.getViewWithoutFirst();
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(5);
     expect(result.getStoredAtOneBasedIndex(1)).isEqualTo("xx");
     expect(result.getStoredAtOneBasedIndex(2)).isEqualTo("xxx");

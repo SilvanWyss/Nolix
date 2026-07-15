@@ -26,7 +26,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_isSaved_whenIsNewAndEmpty() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -34,16 +34,16 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(round);
     nodeDataAdapter.saveChanges();
 
-    //execution
+    // execution
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    //verification
+    // verification
     expect(loadedRound.amounts.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_isSaved_whenIsNewAndContainsValue() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -55,10 +55,10 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(round);
     nodeDataAdapter.saveChanges();
 
-    //execution
+    // execution
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    //verification
+    // verification
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(4);
     expect(loadedValues.containsAllOf(10, 20, 30, 40)).isTrue();
@@ -66,7 +66,7 @@ final class MultiValueOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_removeValue_whenIsLoadedAndContainsValue() {
-    //setup part 1
+    // setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -78,13 +78,13 @@ final class MultiValueOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(round);
     nodeDataAdapter.saveChanges();
 
-    //setup part 2
+    // setup part 2
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    //execution
+    // execution
     loadedRound.amounts.removeValue(40);
 
-    //verification
+    // verification
     final var loadedValues = loadedRound.amounts.getAllStoredValues();
     expect(loadedValues.getCount()).isEqualTo(3);
     expect(loadedValues.containsAllOf(10, 20, 30)).isTrue();

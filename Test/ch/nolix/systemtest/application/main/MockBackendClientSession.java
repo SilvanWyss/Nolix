@@ -14,7 +14,7 @@ public final class MockBackendClientSession extends AbstractSession<MockBackendC
    */
   @Override
   public void refresh() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -22,7 +22,7 @@ public final class MockBackendClientSession extends AbstractSession<MockBackendC
    */
   @Override
   protected void fullInitialize() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

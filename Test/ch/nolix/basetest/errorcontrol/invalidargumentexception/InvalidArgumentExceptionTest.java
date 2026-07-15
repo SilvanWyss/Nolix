@@ -17,10 +17,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentExc
 final class InvalidArgumentExceptionTest extends StandardTest {
   @Test
   void testCase_forArgument_whenArgumentIsNull() {
-    //execution
+    // execution
     final var result = InvalidArgumentException.forArgument(null);
 
-    //verification
+    // verification
     expect(result.getArgumentName()).isEqualTo("argument");
     expect(result.getStoredArgument()).isNull();
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
@@ -29,13 +29,13 @@ final class InvalidArgumentExceptionTest extends StandardTest {
 
   @Test
   void testCase_forArgument_whenArgumentIsANode() {
-    //setup
+    // setup
     final var node = ImmutableNode.fromString("Parking(Slot(Id(A)), Slot(Id(B)))");
 
-    //execution
+    // execution
     final var result = InvalidArgumentException.forArgument(node);
 
-    //verification
+    // verification
     expect(result.getArgumentName()).isEqualTo("ImmutableNode");
     expect(result.getStoredArgument()).is(node);
     expect(result.getErrorPredicate()).isEqualTo("is not valid");
@@ -44,13 +44,13 @@ final class InvalidArgumentExceptionTest extends StandardTest {
 
   @Test
   void testCase_forArgumentAndErrorPredicate() {
-    //setup
+    // setup
     final var amount = BigDecimal.valueOf(10.5);
 
-    //execution
+    // execution
     final var result = InvalidArgumentException.forArgumentAndErrorPredicate(amount, "is not a whole number");
 
-    //verification
+    // verification
     expect(result.getArgumentName()).isEqualTo("BigDecimal");
     expect(result.getStoredArgument()).is(amount);
     expect(result.getErrorPredicate()).isEqualTo("is not a whole number");
@@ -59,16 +59,16 @@ final class InvalidArgumentExceptionTest extends StandardTest {
 
   @Test
   void testCase_forArgumentNameAndArgumentAndErrorPredicate() {
-    //setup
+    // setup
     final var amount = BigDecimal.valueOf(10.5);
 
-    //execution
+    // execution
     final var result = InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
       amount,
       "amount",
       "is not a whole number");
 
-    //verification
+    // verification
     expect(result.getArgumentName()).isEqualTo("amount");
     expect(result.getStoredArgument()).is(amount);
     expect(result.getErrorPredicate()).isEqualTo("is not a whole number");

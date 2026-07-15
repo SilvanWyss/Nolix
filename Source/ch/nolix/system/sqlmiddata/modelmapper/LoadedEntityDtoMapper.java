@@ -44,7 +44,7 @@ public final class LoadedEntityDtoMapper implements ILoadedEntityDtoMapper {
     final ILinkedList<FieldDto> contentFieldDtos = LinkedList.createEmpty();
     var sqlRecordValueIterator = sqlRecord.iterator();
 
-    //Skips meta fields.
+    // Skips meta fields.
     FlowController
       .forCount(FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS)
       .run(sqlRecordValueIterator::next);

@@ -58,7 +58,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
     return new MatrixIterator<>(matrix);
   }
 
-  //static mehtod
+  // static mehtod
   public static <T> MatrixIterator<T> forMatrixAndOneBasedStartIndex(
     final Matrix<T> matrix,
     final int oneBasedStartIndex) {

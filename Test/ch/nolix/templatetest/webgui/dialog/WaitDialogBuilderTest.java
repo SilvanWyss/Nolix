@@ -18,13 +18,13 @@ import ch.nolix.template.webgui.dialog.WaitDialogBuilder;
 final class WaitDialogBuilderTest extends StandardTest {
   @Test
   void testCase_build() {
-    //setup
+    // setup
     final var testUnit = new WaitDialogBuilder();
 
-    //execution
+    // execution
     final var result = testUnit.build();
 
-    //verification
+    // verification
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
     expect(controls).contains(this::isMainLabel);

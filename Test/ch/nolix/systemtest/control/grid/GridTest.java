@@ -24,28 +24,28 @@ final class GridTest extends ContainerTest<IGrid> {
 
   @Test
   void testCase_clear() {
-    //setup
+    // setup
     final var control = new Label();
     final var testUnit = new Grid();
     testUnit.insertControlAtRowAndColumn(2, 3, control);
 
-    //execution
+    // execution
     testUnit.clear();
 
-    //verification
+    // verification
     expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_insertControlAtRowAndColumn_whenIsEmpty() {
-    //setup
+    // setup
     final var control = new Label();
     final var testUnit = new Grid();
 
-    //execution
+    // execution
     testUnit.insertControlAtRowAndColumn(2, 3, control);
 
-    //verification
+    // verification
     expect(testUnit.getRowCount()).isEqualTo(2);
     expect(testUnit.getColumnCount()).isEqualTo(3);
     expect(testUnit.getStoredChildControls()).containsExactly(control);

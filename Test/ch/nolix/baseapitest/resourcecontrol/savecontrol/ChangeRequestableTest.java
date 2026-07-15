@@ -13,25 +13,25 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class ChangeRequestableTest extends StandardTest {
   @Test
   void testCase_isChangeFree_whenIsChangeFree() {
-    //setup
+    // setup
     final var testUnit = ChangeRequestableMock.withHasChangesFlag(false);
 
-    //execution
+    // execution
     final var result = testUnit.isChangeFree();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isChangeFree_whenHasChanges() {
-    //setup
+    // setup
     final var testUnit = ChangeRequestableMock.withHasChangesFlag(true);
 
-    //execution
+    // execution
     final var result = testUnit.isChangeFree();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

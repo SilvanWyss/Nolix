@@ -14,26 +14,26 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class WrapperExceptionTest extends StandardTest {
   @Test
   void testCase_forError() {
-    //setup
+    // setup
     final var exception = new Exception();
 
-    //execution
+    // execution
     final var result = WrapperException.forError(exception);
 
-    //verification
+    // verification
     expect(result.getCause()).is(exception);
   }
 
   @Test
   void testCase_forErrorMessageAndError() {
-    //setup
+    // setup
     final var errorMessage = "An Exception arrised.";
     final var exception = new Exception();
 
-    //execution
+    // execution
     final var result = WrapperException.forErrorMessageAndError(errorMessage, exception);
 
-    //verification
+    // verification
     expect(result.getMessage()).is(errorMessage);
     expect(result.getCause()).is(exception);
   }

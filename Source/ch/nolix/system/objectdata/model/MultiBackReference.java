@@ -139,7 +139,7 @@ implements IMultiBackReference<E> {
    */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

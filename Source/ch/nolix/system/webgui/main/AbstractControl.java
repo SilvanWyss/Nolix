@@ -62,7 +62,7 @@ implements Control<C, S> {
 
   private static final String CURSOR_ICON_HEADER = PascalCaseVariableNameCatalog.CURSOR_ICON;
 
-  //An id works correctly for CSS only when it begins with a letter.
+  // An id works correctly for CSS only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
   private final Value<Presence> presence = //
@@ -111,7 +111,7 @@ implements Control<C, S> {
 
   private Object linkedObject;
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public final boolean belongsToControl() {
     return (parent != null && parent.isControl());
@@ -125,7 +125,7 @@ implements Control<C, S> {
     return (belongsToLayer() && getStoredParentLayer().belongsToGui());
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public final boolean belongsToLayer() {
     return (parent != null && parent.belongsToLayer());

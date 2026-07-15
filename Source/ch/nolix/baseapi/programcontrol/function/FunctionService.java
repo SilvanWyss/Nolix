@@ -42,7 +42,7 @@ public final class FunctionService {
    * Does nothing.
    */
   public static void doNothing() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -127,7 +127,7 @@ public final class FunctionService {
    * @param object
    */
   public static void takeObjectAndDoNothing(final Object object) { //NOSONAR: The parameter is necessary.
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

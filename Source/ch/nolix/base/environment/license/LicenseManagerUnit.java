@@ -68,14 +68,14 @@ public final class LicenseManagerUnit {
    *                          license is.
    */
   public LicenseManagerUnit addLicense(final AbstractLicense abstractLicense) {
-    //Asserts that the given license is not null.
+    // Asserts that the given license is not null.
     Validator.assertThat(abstractLicense).thatIsNamed(LowerCaseVariableNameCatalog.LICENSE).isNotNull();
 
-    //Assets thath the given license is actiaved.
+    // Assets thath the given license is actiaved.
     LICENSE_VALIDATOR.assertIsActivated(abstractLicense);
 
-    //Handles the case that the current LicenseManager
-    //does not contain already a License of the type the given license is.
+    // Handles the case that the current LicenseManager
+    // does not contain already a License of the type the given license is.
     if (!containsLicense(abstractLicense.getClass())) {
       abstractLicenses.addAtEnd(abstractLicense);
     }
@@ -148,8 +148,8 @@ public final class LicenseManagerUnit {
    *                                               given featureType.
    */
   public <F extends AbstractFeature> LicenseManagerUnit requireFeature(final Class<F> featureType) {
-    //Asserts that the current LicenseManager contains a feature of the given
-    //featureType.
+    // Asserts that the current LicenseManager contains a feature of the given
+    // featureType.
     if (!containsFeature(featureType)) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, featureType.getSimpleName());
     }
@@ -173,7 +173,7 @@ public final class LicenseManagerUnit {
    * @throws RuntimeException if the given licenseType is null.
    */
   private <L extends AbstractLicense> String readKeyFromLicenseFile(final Class<L> licenseType) {
-    //Asserts that the given licenseType is not null.
+    // Asserts that the given licenseType is not null.
     Validator.assertThat(licenseType).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
 
     return readKeyFromLicenseFile(licenseType.getName());

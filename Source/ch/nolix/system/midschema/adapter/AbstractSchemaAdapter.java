@@ -153,7 +153,7 @@ public abstract class AbstractSchemaAdapter implements ISchemaAdapter {
    */
   @Override
   public final void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

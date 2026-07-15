@@ -115,7 +115,7 @@ implements IChainedNode {
   public static String getEscapeStringForString(final String string) {
     return string
 
-      //It is essential to replace the dollar symbol at first.
+      // It is essential to replace the dollar symbol at first.
       .replace(String.valueOf(CharacterCatalog.DOLLAR), DOLLAR_SYMBOL_CODE)
 
       .replace(String.valueOf(CharacterCatalog.DOT), DOT_CODE)
@@ -135,7 +135,7 @@ implements IChainedNode {
       .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalog.OPEN_BRACKET))
       .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalog.CLOSED_BRACKET))
 
-      //It is essential to replace the dollar symbol code at last.
+      // It is essential to replace the dollar symbol code at last.
       .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalog.DOLLAR));
   }
 
@@ -372,7 +372,7 @@ implements IChainedNode {
    */
   @Override
   public String getHeader() {
-    //Asserts that the current ChainedNode has a header.
+    // Asserts that the current ChainedNode has a header.
     if (memberHeader == null) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.HEADER);
@@ -389,7 +389,7 @@ implements IChainedNode {
    */
   @Override
   public ChainedNode getNextNode() {
-    //Asserts that the current ChanedNode has a next node.
+    // Asserts that the current ChanedNode has a next node.
     if (nextNode == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
     }
@@ -479,7 +479,7 @@ implements IChainedNode {
    */
   @Override
   public double toDouble() {
-    //Asserts that the current ChainedNode can represent a Double.
+    // Asserts that the current ChainedNode can represent a Double.
     if (memberHeader == null || memberChildNodes.containsAny()) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
@@ -508,17 +508,17 @@ implements IChainedNode {
    */
   @Override
   public ImmutableNode toNode() {
-    //Asserts that the current ChainedNode can represent a Node.
+    // Asserts that the current ChainedNode can represent a Node.
     if (nextNode != null) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, INode.class);
     }
 
-    //Handles the case that the current ChainedNode does not have a header.
+    // Handles the case that the current ChainedNode does not have a header.
     if (!hasHeader()) {
       return ImmutableNode.withChildNodes(getChildNodes().getViewOf(ChainedNode::toNode));
     }
 
-    //Handles the case that the current ChainedNode has a header.
+    // Handles the case that the current ChainedNode has a header.
     return ImmutableNode.withHeaderAndChildNodes(getHeader(), getChildNodes().getViewOf(ChainedNode::toNode));
   }
 
@@ -604,12 +604,12 @@ implements IChainedNode {
    * @param stringBuilder
    */
   private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
-    //Handles the case that the current ChainedNode has a header.
+    // Handles the case that the current ChainedNode has a header.
     if (memberHeader != null) {
       stringBuilder.append(getEscapeStringForString(memberHeader));
     }
 
-    //Handles the case that the current ChainedNode contains attributes.
+    // Handles the case that the current ChainedNode contains attributes.
     if (memberChildNodes.containsAny()) {
       stringBuilder.append("(");
 
@@ -627,7 +627,7 @@ implements IChainedNode {
       stringBuilder.append(")");
     }
 
-    //Handles the case that the current ChainedNode contains a next node.
+    // Handles the case that the current ChainedNode contains a next node.
     if (nextNode != null) {
       stringBuilder.append(".");
       nextNode.appendStringRepresentationTo(stringBuilder);
@@ -654,7 +654,7 @@ implements IChainedNode {
         nextIndex++;
         break;
       } else {
-        //Does nothing and continues the current loop.
+        // Does nothing and continues the current loop.
       }
     }
 
@@ -739,12 +739,12 @@ implements IChainedNode {
    * @throws RuntimeException if the given header is blank.
    */
   private void setHeader(final String header) {
-    //Asserts that the given header is not null.
+    // Asserts that the given header is not null.
     if (header == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.HEADER);
     }
 
-    //Asserts that the given header is not blank.
+    // Asserts that the given header is not blank.
     if (header.isBlank()) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableNameCatalog.HEADER,
@@ -762,7 +762,7 @@ implements IChainedNode {
    * @throws RuntimeException if the given nextNode is null.
    */
   private void setNextNode(final IChainedNode nextNode) {
-    //Asserts that the given nextNode is not null.
+    // Asserts that the given nextNode is not null.
     if (nextNode == null) {
       throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
     }

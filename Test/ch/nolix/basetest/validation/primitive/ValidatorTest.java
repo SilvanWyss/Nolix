@@ -21,121 +21,121 @@ import ch.nolix.baseapi.programcontrol.function.FunctionService;
 final class ValidatorTest extends StandardTest {
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByte() {
-    //setup
+    // setup
     final var argument = (byte) 127;
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(NamableByteMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAByteArray() {
-    //setup
+    // setup
     final var argument = new byte[100];
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsADouble() {
-    //setup
+    // setup
     final var argument = 1.0;
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(NamableDoubleMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsADoubleArray() {
-    //setup
+    // setup
     final var argument = new double[100];
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAnInt() {
-    //setup
+    // setup
     final var argument = 50;
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(AbstractLongMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAnIntArray() {
-    //setup
+    // setup
     final var argument = new int[100];
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsALong() {
-    //setup
+    // setup
     final var argument = 50L;
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(AbstractLongMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsALongArray() {
-    //setup
+    // setup
     final var argument = new long[100];
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(NamableIterableMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAMethod() throws NoSuchMethodException {
-    //setup
+    // setup
     final var argument = FunctionService.class.getMethod("doNothing");
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(MethodMediator.class);
   }
 
   @Test
   void testCase_assertThat_whenTheGivenArgumentIsAString() {
-    //setup
+    // setup
     final var argument = "lorem ipsum";
 
-    //execution
+    // execution
     final var result = Validator.assertThat(argument);
 
-    //verification
+    // verification
     expect(result).isOfType(StringMediator.class);
   }
 }

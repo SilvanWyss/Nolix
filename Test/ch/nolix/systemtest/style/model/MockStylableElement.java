@@ -55,7 +55,7 @@ public final class MockStylableElement extends AbstractStylableElement<MockStyla
    */
   @Override
   protected void resetStyle() {
-    //Does nothing.
+    // Does nothing.
   }
 
   private void assertHasRole() {

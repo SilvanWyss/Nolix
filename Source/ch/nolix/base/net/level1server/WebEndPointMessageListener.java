@@ -45,8 +45,8 @@ final class WebEndPointMessageListener extends AbstractBatchWorker {
   }
 
   private void receiveMessage(final String message) {
-    //A web socket can send frames that contain a payload of length 0 resp. an
-    //empty message.
+    // A web socket can send frames that contain a payload of length 0 resp. an
+    // empty message.
     if (!message.isEmpty()) {
       parentWebEndPoint.receiveRawMessageInBackground(message);
     }

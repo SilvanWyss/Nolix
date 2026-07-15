@@ -15,7 +15,7 @@ import ch.nolix.baseapi.generalcatalog.textcatalog.StringCatalog;
 final class StringCatalogTest extends StandardTest {
   @Test
   void testCase_constants() {
-    //verification
+    // verification
     for (final var f : StringCatalog.class.getFields()) {
       expect(ReflectionTool.isPublic(f)).isTrue();
       expect(ReflectionTool.isStatic(f)).isTrue();

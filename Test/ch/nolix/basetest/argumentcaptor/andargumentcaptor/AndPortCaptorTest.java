@@ -16,27 +16,27 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 final class AndPortCaptorTest extends StandardTest {
   @Test
   void testCase_andPort_whenHasNext() {
-    //parameter definition
+    // parameter definition
     final var port = 8000;
 
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.andPort(port);
 
-    //verification
+    // verification
     expect(testUnit.getPort()).isEqualTo(port);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_andPort_whenDoesNotHaveNext() {
-    //setup
+    // setup
     final var testUnit = new AndPortCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.andPort(8000))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -44,52 +44,52 @@ final class AndPortCaptorTest extends StandardTest {
 
   @Test
   void testCase_andHttpPort_whenHasNext() {
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.andHttpPort();
 
-    //verification
+    // verification
     expect(testUnit.getPort()).isEqualTo(80);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_andHttpsPort_whenHasNext() {
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.andHttpsPort();
 
-    //verification
+    // verification
     expect(testUnit.getPort()).isEqualTo(443);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_andMsSqlPort_whenHasNext() {
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new AndPortCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.andMsSqlPort();
 
-    //verification
+    // verification
     expect(testUnit.getPort()).isEqualTo(1433);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_getPort_whenDoesNotHavePort() {
-    //setup
+    // setup
     final var testUnit = new AndPortCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getPort).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

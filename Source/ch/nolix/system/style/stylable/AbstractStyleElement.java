@@ -32,7 +32,7 @@ implements IStyleElement<E> {
    */
   @Override
   public void applyStyleIfHasStyle() {
-    //Handles the case that the current ConfigurationElement has a Configuration.
+    // Handles the case that the current ConfigurationElement has a Configuration.
     if (hasStyle()) {
       resetStyleRecursively();
       getStoredConfiguration().applyToElement(this);

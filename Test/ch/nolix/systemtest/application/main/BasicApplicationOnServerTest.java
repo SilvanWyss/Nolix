@@ -19,7 +19,7 @@ final class BasicApplicationOnServerTest extends StandardTest {
   @Test
   void testCase_getNameAddendum_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
-      //setup
+      // setup
       final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -28,17 +28,17 @@ final class BasicApplicationOnServerTest extends StandardTest {
         applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
-      //execution
+      // execution
       final var result = testUnit.getInstanceAppendix();
 
-      //verification
+      // verification
       expect(result).isEqualTo("Instance1");
     }
   }
 
   @Test
   void testCase_getInstanceName_whenDoesNotBelongToAServer() {
-    //setup
+    // setup
     final var applicationService = new VoidObject();
     @SuppressWarnings("unchecked")
     final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -46,17 +46,17 @@ final class BasicApplicationOnServerTest extends StandardTest {
       TestSession.withClientClass(WebClient.class).getClass(),
       applicationService);
 
-    //execution
+    // execution
     final var result = testUnit.getInstanceName();
 
-    //verification
+    // verification
     expect(result).isEqualTo("My application");
   }
 
   @Test
   void testCase_getInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
-      //setup
+      // setup
       final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -65,10 +65,10 @@ final class BasicApplicationOnServerTest extends StandardTest {
         applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
-      //execution
+      // execution
       final var result = testUnit.getInstanceName();
 
-      //verification
+      // verification
       expect(result).isEqualTo("My application Instance1");
     }
   }
@@ -76,7 +76,7 @@ final class BasicApplicationOnServerTest extends StandardTest {
   @Test
   void testCase_getUrlInstanceName_whenBelongsToServer() {
     try (final var localServer = new LocalServer()) {
-      //setup
+      // setup
       final var applicationService = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -85,10 +85,10 @@ final class BasicApplicationOnServerTest extends StandardTest {
         applicationService);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
-      //execution
+      // execution
       final var result = testUnit.getUrlInstanceName();
 
-      //verification
+      // verification
       expect(result).isEqualTo("my_application_instance1");
     }
   }

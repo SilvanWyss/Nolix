@@ -21,45 +21,45 @@ import ch.nolix.system.webgui.controltool.ControlAnalyser;
 final class ControlAnalyserTest extends StandardTest {
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlIsNull() {
-    //setup
+    // setup
     final var testUnit = new ControlAnalyser();
 
-    //execution
+    // execution
     final var result = testUnit.firstControlContainsSecondControl(null, new Label());
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenSecondControlIsNull() {
-    //setup
+    // setup
     final var testUnit = new ControlAnalyser();
 
-    //execution
+    // execution
     final var result = testUnit.firstControlContainsSecondControl(new Label(), null);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlDirectly() {
-    //setup
+    // setup
     final var label = new Label();
     final var verticalStack = new VerticalStack().addControls(new Button(), new Link(), label);
     final var testUnit = new ControlAnalyser();
 
-    //execution
+    // execution
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_firstControlContainsSecondControl_whenTheGivenFirstControlContainsTheGivenSecondControlRecursively() {
-    //setup
+    // setup
     final var label = new Label();
     final var verticalStack = //
     new VerticalStack()
@@ -73,10 +73,10 @@ final class ControlAnalyserTest extends StandardTest {
             label));
     final var testUnit = new ControlAnalyser();
 
-    //execution
+    // execution
     final var result = testUnit.firstControlContainsSecondControl(verticalStack, label);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 }

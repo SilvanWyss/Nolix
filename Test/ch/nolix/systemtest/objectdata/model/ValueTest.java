@@ -15,10 +15,10 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 final class ValueTest extends StandardTest {
   @Test
   void testCase_constructor() {
-    //execution
+    // execution
     final var result = ValueField.withValueType(String.class);
 
-    //verification
+    // verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
     expect(result.isOpen()).isTrue();
     expect(result.isDeleted()).isFalse();
@@ -29,13 +29,13 @@ final class ValueTest extends StandardTest {
 
   @Test
   void testCase_setValue() {
-    //setup
+    // setup
     final var testUnit = ValueField.withValueType(String.class);
 
-    //execution
+    // execution
     testUnit.setValue("LoremIpsum");
 
-    //verification
+    // verification
     expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
   }

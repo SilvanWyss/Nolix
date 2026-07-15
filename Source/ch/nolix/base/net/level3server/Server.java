@@ -23,11 +23,11 @@ public final class Server extends AbstractServer {
    * @throws RuntimeException if the given port is not in [0, 65535].
    */
   private Server(final int port) {
-    //Creates the internal net server of the current net server.
+    // Creates the internal net server of the current net server.
     internalServer = ch.nolix.base.net.level2server.Server.forPort(port);
 
-    //Creates a close dependency to the internal net server of the current net
-    //server.
+    // Creates a close dependency to the internal net server of the current net
+    // server.
     createCloseDependencyTo(internalServer);
   }
 
@@ -45,11 +45,11 @@ public final class Server extends AbstractServer {
    * @throws RuntimeException if the given httpMessage is blank.
    */
   private Server(final int port, final String httpMessage) {
-    //Creates the internal net server of the current net server.
+    // Creates the internal net server of the current net server.
     internalServer = ch.nolix.base.net.level2server.Server.forPortAndHttpMessage(port, httpMessage);
 
-    //Creates a close dependency to the internal net server of the current net
-    //server.
+    // Creates a close dependency to the internal net server of the current net
+    // server.
     createCloseDependencyTo(internalServer);
   }
 

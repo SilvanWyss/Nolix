@@ -334,7 +334,7 @@ public final class JobExecutor extends Thread {
     return (optionalCaughtError != null);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the error of the current {@link JobExecutor}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -342,7 +342,7 @@ public final class JobExecutor extends Thread {
    *                                               have an error.
    */
   public Throwable getError() {
-    //Asserts that the current JobRunner has an error.
+    // Asserts that the current JobRunner has an error.
     if (optionalCaughtError == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.ERROR);
     }

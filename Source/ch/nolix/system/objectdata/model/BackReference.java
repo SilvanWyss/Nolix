@@ -146,7 +146,7 @@ public final class BackReference<E extends IEntity> extends AbstractBaseBackRefe
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredBackReferencedTable() {
-    //This part is not mandatory, but provides a better performance.
+    // This part is not mandatory, but provides a better performance.
     final var backReferencedEntity = nullableBackReferencedEntityCache.nullableEntity();
     if (backReferencedEntity != null && backReferencedEntity.belongsToTable()) {
       return (ITable<E>) backReferencedEntity.getStoredParentTable();

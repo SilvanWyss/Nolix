@@ -15,16 +15,16 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalLabelHolder;
 final class OptionalLabelHolderTest extends StandardTest {
   @Test
   void testCase_getLabelInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalLabelHolder.class);
     Mockito.when(testUnit.getLabelInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasLabel()).thenReturn(true);
     Mockito.when(testUnit.getLabel()).thenReturn("label");
 
-    //execution
+    // execution
     final var result = testUnit.getLabelInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'label'");
   }
 }

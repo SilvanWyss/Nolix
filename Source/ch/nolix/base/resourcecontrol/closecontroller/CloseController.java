@@ -77,10 +77,10 @@ public final class CloseController implements ICloseController {
    */
   @Override
   public void setParentClosePool(final IClosePool parentClosePool) {
-    //Asserts that the given parentClosePool is not null.
+    // Asserts that the given parentClosePool is not null.
     Validator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
 
-    //Sets the parentClosePool of the current CloseController.
+    // Sets the parentClosePool of the current CloseController.
     this.parentClosePool = parentClosePool;
   }
 }

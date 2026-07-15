@@ -17,7 +17,7 @@ import ch.nolix.baseapi.web.htmlcatalog.HtmlElementTypeCatalog;
 final class HtmlElementTest extends StandardTest {
   @Test
   void testCase_withAdditionalAttributes_whenContainsAttributesAndHasNonEmptyInnerText() {
-    //setup
+    // setup
     final var attribute1 = HtmlAttribute.withNameAndValue("n1", "v1");
     final var attribute2 = HtmlAttribute.withNameAndValue("n2", "v2");
     final var attribute3 = HtmlAttribute.withNameAndValue("n3", "v3");
@@ -27,7 +27,7 @@ final class HtmlElementTest extends StandardTest {
       ImmutableList.withElements(attribute1, attribute2),
       "my inner text");
 
-    //setup verification
+    // setup verification
     expect(testUnit)
       .isEqualTo(
         HtmlElement.withTypeAndAttributesAndInnerText(
@@ -35,10 +35,10 @@ final class HtmlElementTest extends StandardTest {
           ImmutableList.withElements(attribute1, attribute2),
           "my inner text"));
 
-    //execution
+    // execution
     final var result = testUnit.withAdditionalAttributes(attribute3, attribute4);
 
-    //verification
+    // verification
     expect(result).isEqualTo(
       HtmlElement.withTypeAndAttributesAndInnerText(
         HtmlElementTypeCatalog.DIV,

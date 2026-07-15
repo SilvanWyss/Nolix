@@ -17,35 +17,35 @@ import ch.nolix.base.web.htmlmodel.HtmlElementStringRepresentator;
 final class HtmlElementStringRepresentatorTest extends StandardTest {
   @Test
   void testCase_toString() {
-    //setup
+    // setup
     final var htmlElement = HtmlElement.withType("div");
 
-    //execution
+    // execution
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-    //verification
+    // verification
     expect(result).isEqualTo("<div />");
   }
 
   @Test
   void testCase_toString_whenContainsAttributes() {
-    //setup
+    // setup
     final var htmlElement = //
     HtmlElement.withTypeAndAttributes(
       "div",
       HtmlAttribute.withNameAndValue("class", "my_class"),
       HtmlAttribute.withNameAndValue("title", "my_title"));
 
-    //execution
+    // execution
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-    //verification
+    // verification
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\" />");
   }
 
   @Test
   void testCase_toString_whenContainsAttributesAndChildElements() {
-    //setup
+    // setup
     final var htmlElement = //
     HtmlElement.withTypeAndAttributesAndChildElements(
       "div",
@@ -55,16 +55,16 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
       HtmlElement.withType("h1"),
       HtmlElement.withType("p"));
 
-    //execution
+    // execution
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-    //verification
+    // verification
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\"><h1 /><p /></div>");
   }
 
   @Test
   void testCase_toString_whenContainsAttributesAndInnerText() {
-    //setup
+    // setup
     final var htmlElement = //
     HtmlElement.withTypeAndAttributesAndInnerText(
       "div",
@@ -73,38 +73,38 @@ final class HtmlElementStringRepresentatorTest extends StandardTest {
         HtmlAttribute.withNameAndValue("title", "my_title")),
       "my_content");
 
-    //execution
+    // execution
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-    //verification
+    // verification
     expect(result).isEqualTo("<div class=\"my_class\" title=\"my_title\">my_content</div>");
   }
 
   @Test
   void testCase_toString_whenContainsChildElements() {
-    //setup
+    // setup
     final var htmlElement = //
     HtmlElement.withTypeAndChildElements(
       "div",
       HtmlElement.withType("h1"),
       HtmlElement.withType("p"));
 
-    //execution
+    // execution
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-    //verification
+    // verification
     expect(result).isEqualTo("<div><h1 /><p /></div>");
   }
 
   @Test
   void testCase_toString_whenContainsInnerText() {
-    //setup
+    // setup
     final var htmlElement = HtmlElement.withTypeAndInnerText("div", "my_content");
 
-    //execution
+    // execution
     final var result = HtmlElementStringRepresentator.toString(htmlElement);
 
-    //verification
+    // verification
     expect(result).isEqualTo("<div>my_content</div>");
   }
 }

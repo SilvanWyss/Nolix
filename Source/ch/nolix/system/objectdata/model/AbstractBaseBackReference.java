@@ -77,6 +77,6 @@ public abstract class AbstractBaseBackReference extends AbstractField implements
    */
   @Override
   protected final void noteInsertIntoDatabase() {
-    //Does nothing.
+    // Does nothing.
   }
 }

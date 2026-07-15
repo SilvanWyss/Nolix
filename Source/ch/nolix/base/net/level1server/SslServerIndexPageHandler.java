@@ -52,21 +52,21 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    */
   @Override
   protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
-    //Handle a bad request.
+    // Handle a bad request.
     if (!req.decoderResult().isSuccess()) {
       sendHttpResponse(ctx, req,
         new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.BAD_REQUEST, ctx.alloc().buffer(0)));
       return;
     }
 
-    //Allow only GET methods.
+    // Allow only GET methods.
     if (!HttpMethod.GET.equals(req.method())) {
       sendHttpResponse(ctx, req,
         new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.FORBIDDEN, ctx.alloc().buffer(0)));
       return;
     }
 
-    //Send the index page
+    // Send the index page
     ByteBuf content = Unpooled.copiedBuffer(htmlPage, CharsetUtil.US_ASCII);
     FullHttpResponse res = new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.OK, content);
     res.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
@@ -84,14 +84,14 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
   }
 
   private static void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, FullHttpResponse res) {
-    //Generate an error page if response getStatus code is not OK (200).
+    // Generate an error page if response getStatus code is not OK (200).
     HttpResponseStatus responseStatus = res.status();
     if (responseStatus.code() != 200) {
       ByteBufUtil.writeUtf8(res.content(), responseStatus.toString());
       HttpUtil.setContentLength(res, res.content().readableBytes());
     }
 
-    //Send the response and close the connection if necessary.
+    // Send the response and close the connection if necessary.
     boolean keepAlive = HttpUtil.isKeepAlive(req) && responseStatus.code() == 200;
     HttpUtil.setKeepAlive(res, keepAlive);
     ChannelFuture future = ctx.writeAndFlush(res);

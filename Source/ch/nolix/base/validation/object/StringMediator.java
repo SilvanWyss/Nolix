@@ -23,7 +23,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
    * @param argument
    */
   protected StringMediator(final String argument) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     super(argument);
   }
 
@@ -37,7 +37,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
    * @throws RuntimeException if the given argumentName is blank.
    */
   protected StringMediator(final String argumentName, final String argument) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     super(argument, argumentName);
   }
 
@@ -59,16 +59,16 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                          length.
    */
   public void hasLength(final int length) {
-    //Asserts that the given length is not negative.
+    // Asserts that the given length is not negative.
     if (length < 0) {
       throw NegativeArgumentException.forArgumentAndArgumentName(length, LowerCaseVariableNameCatalog.LENGTH);
     }
 
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current StringMediator does not have the
-    //given length.
+    // Asserts that the argument of the current StringMediator does not have the
+    // given length.
     if (getStoredArgument().length() != length) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -85,10 +85,10 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                                   {@link StringMediator} is not empty.
    */
   public void isEmpty() {
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current StringMediator is not empty.
+    // Asserts that the argument of the current StringMediator is not empty.
     if (!getStoredArgument().isEmpty()) {
       throw NonEmptyArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
     }
@@ -101,10 +101,10 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                          {@link StringMediator} is empty.
    */
   public void isNotEmpty() {
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current StringMediator is not empty.
+    // Asserts that the argument of the current StringMediator is not empty.
     if (getStoredArgument().isEmpty()) {
       throw EmptyArgumentException.forArgumentAndArgumentName(getStoredArgument(), getArgumentName());
     }
@@ -117,10 +117,10 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                          {@link StringMediator} is blank.
    */
   public void isNotBlank() {
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the the argument of the current StringMediator is not blank.
+    // Asserts that the the argument of the current StringMediator is not blank.
     if (getStoredArgument().isBlank()) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -139,11 +139,11 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                          length says.
    */
   public void isNotLongerThan(final int maxLength) {
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current StringMediator is not longer than
-    //the given max length says.
+    // Asserts that the argument of the current StringMediator is not longer than
+    // the given max length says.
     if (getStoredArgument().length() > maxLength) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -162,11 +162,11 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                          length says.
    */
   public void isNotShorterThan(final int minLength) {
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current StringMediator is not shorter than
-    //the given min length says.
+    // Asserts that the argument of the current StringMediator is not shorter than
+    // the given min length says.
     if (getStoredArgument().length() < minLength) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
@@ -183,11 +183,11 @@ public class StringMediator extends AbstractObjectMediator<String> {
    *                          regularExpression.
    */
   public void matches(final String regularExpression) {
-    //Asserts that the argument of the current StringMediator is not null.
+    // Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    //Asserts that the argument of the current StringMediator matches the given
-    //regularExpression.
+    // Asserts that the argument of the current StringMediator matches the given
+    // regularExpression.
     if (!getStoredArgument().matches(regularExpression)) {
       throw //
       InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(

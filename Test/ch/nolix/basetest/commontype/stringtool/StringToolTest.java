@@ -37,13 +37,13 @@ final class StringToolTest extends StandardTest {
     final String string,
     final int lastCharacterCount,
     final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.createStringWithoutLastCharacters(string, lastCharacterCount);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -62,22 +62,22 @@ final class StringToolTest extends StandardTest {
   "10, '\t\t\t\t\t\t\t\t\t\t'" //
   })
   void testCase_createTabs(final int tabCount, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.createTabs(tabCount);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_createTabs_whenTheGivenTabCountIsNegative() {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.createTabs(-1)).throwsException().ofType(RuntimeException.class);
   }
 
@@ -87,22 +87,22 @@ final class StringToolTest extends StandardTest {
   "zebra, {zebra}" //
   })
   void testCase_getIngetInBraces(final String string, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInBraces(string);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getInInBraces_whenTheGivenObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInBraces(null);
 
     // verification
@@ -111,10 +111,10 @@ final class StringToolTest extends StandardTest {
 
   @Test
   void testCase_getInSingleQuotes_whenTheGivenObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInSingleQuotes(null);
 
     // verification
@@ -128,10 +128,10 @@ final class StringToolTest extends StandardTest {
   "CursorIcon" //
   })
   void testCase_isPascalCase_whenTheGivenStringIsPascalCase(final String string) {
-    //execution
+    // execution
     final var result = StringTool.isPascalCase(string);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
@@ -142,10 +142,10 @@ final class StringToolTest extends StandardTest {
   "cursorIcon" //
   })
   void testCase_isPascalCase_whenTheGivenStringIsNotPascalCase(final String string) {
-    //execution
+    // execution
     final var result = StringTool.isPascalCase(string);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
@@ -158,13 +158,13 @@ final class StringToolTest extends StandardTest {
   "false" //
   })
   void testCase_toBoolean_whenTheGivenStringRepresentsFalse(final String string) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.toBoolean(string);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
@@ -177,13 +177,13 @@ final class StringToolTest extends StandardTest {
   "true" //
   })
   void testCase_toBoolean_whenTheGivenStringRepresentsTrue(final String string) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.toBoolean(string);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
@@ -199,10 +199,10 @@ final class StringToolTest extends StandardTest {
   "10" //
   })
   void testCase_toBoolean_whenTheGivenStringDoesNotRepresentABoolean(final String string) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.toBoolean(string))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -219,10 +219,10 @@ final class StringToolTest extends StandardTest {
   "2", //
   })
   void testCase_toDouble_whenTheGivenStringDoesNotRepresentADouble(final String string) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.toDouble(string))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -257,13 +257,13 @@ final class StringToolTest extends StandardTest {
   "Cursor500Icon, CURSOR500ICON" //
   })
   void testCase_toCapitalSnakeCase(final String string, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.toCapitalSnakeCase(string);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 
@@ -295,13 +295,13 @@ final class StringToolTest extends StandardTest {
   "Cursor500Icon, Cursor500Icon" //
   })
   void testCase_toPascalCase(final String string, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.toPascalCase(string);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

@@ -81,7 +81,7 @@ public final class FileSystemAccessor {
    *                          given path.
    */
   public static FileAccessor createFile(final String path) {
-    //Calls other method.
+    // Calls other method.
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
@@ -99,10 +99,10 @@ public final class FileSystemAccessor {
    *                          given path.
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode) {
-    //Asserts that the if given path is not null or empty.
+    // Asserts that the if given path is not null or empty.
     Validator.assertThat(path).thatIsNamed(LowerCaseVariableNameCatalog.PATH).isNotBlank();
 
-    //Creates file.
+    // Creates file.
     try {
       if (!new File(path).createNewFile()) {
         switch (writeMode) {
@@ -204,7 +204,7 @@ public final class FileSystemAccessor {
    *                          given path.
    */
   public static FileAccessor createFile(final String path, final String content) {
-    //Calls other method.
+    // Calls other method.
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY, content);
   }
 
@@ -217,8 +217,8 @@ public final class FileSystemAccessor {
    *                          given path.
    */
   public static FolderAccessor createFolder(final String path) {
-    //Asserts that there does not exist already a file system item with the given
-    //path.
+    // Asserts that there does not exist already a file system item with the given
+    // path.
     if (exists(path)) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         "file system item",
@@ -226,10 +226,10 @@ public final class FileSystemAccessor {
         "exists already");
     }
 
-    //Creates folder.
+    // Creates folder.
     new File(path).mkdirs();
 
-    //Creates and returns a FolderAccessor to the folder.
+    // Creates and returns a FolderAccessor to the folder.
     return FolderAccessor.forFolderPath(path);
   }
 
@@ -325,12 +325,12 @@ public final class FileSystemAccessor {
   }
 
   public static void overwriteFile(final String path, final byte[] content) {
-    //Asserts that there does not exist a folder with the given path.
+    // Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
     }
 
-    //Handles the case that there does not exist a file with the given path.
+    // Handles the case that there does not exist a file with the given path.
     if (!isFile(path)) {
       createFile(path);
     }
@@ -348,12 +348,12 @@ public final class FileSystemAccessor {
    *                          path.
    */
   public static void overwriteFile(final String path, final String content) {
-    //Asserts that there does not exist a folder with the given path.
+    // Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
     }
 
-    //Handles the case that there does not exist a file with the given path.
+    // Handles the case that there does not exist a file with the given path.
     if (!isFile(path)) {
       createFile(path);
     }

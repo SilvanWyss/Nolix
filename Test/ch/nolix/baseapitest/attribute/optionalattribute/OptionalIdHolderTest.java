@@ -16,60 +16,60 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalIdHolder;
 final class OptionalIdHolderTest extends StandardTest {
   @Test
   void testCase_getIdInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.getIdInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(true);
     Mockito.when(testUnit.getId()).thenReturn("id");
 
-    //execution
+    // execution
     final var result = testUnit.getIdInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'id'");
   }
 
   @Test
   void testCase_hasId_whenHasTheGivenId() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(true);
     Mockito.when(testUnit.getId()).thenReturn("id");
 
-    //execution
+    // execution
     final var result = testUnit.hasId("id");
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasId_whenHasAnotherId() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(true);
     Mockito.when(testUnit.getId()).thenReturn("id");
 
-    //execution
+    // execution
     final var result = testUnit.hasId("Id");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_hasId_whenDoesNotHaveAId() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalIdHolder.class);
     Mockito.when(testUnit.hasId(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasId()).thenReturn(false);
 
-    //execution
+    // execution
     final var result = testUnit.hasId("id");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

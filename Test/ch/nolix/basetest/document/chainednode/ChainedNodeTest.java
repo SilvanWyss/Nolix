@@ -17,37 +17,37 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
 final class ChainedNodeTest extends StandardTest {
   @Test
   void testCase_equals_whenIsBlankAndAnUnequalChainedNodeIsGiven() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("");
 
-    //execution
+    // execution
     final var result = testUnit.equals(ChainedNode.fromString("a"));
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_equals_whenIsBlankAndAnEqualChainedNodeIsGiven() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("");
 
-    //execution
+    // execution
     final var result = testUnit.equals(ChainedNode.fromString(""));
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_getOneAttributeAsInt_whenDoesNotContainAttributes() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.withHeader("a");
 
-    //setup verification
+    // setup verification
     expect(testUnit.containsChildNodes()).isFalse();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
       .throwsException()
       .ofType(EmptyArgumentException.class);
@@ -55,13 +55,13 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatDoesNotRepresentAnInt() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("a(b)");
 
-    //setup verification
+    // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(1);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class);
@@ -69,28 +69,28 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_getOneAttributeAsInt_whenContainsOneAttributeThatRepresentsAnInt() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("a(10)");
 
-    //setup verification
+    // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(1);
 
-    //execution
+    // execution
     final var result = testUnit.getSingleChildNodeAsInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(10);
   }
 
   @Test
   void testCase_getOneAttributeAsInt_whenContainsSeveralAttributes() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("a(10, 20)");
 
-    //setup verification
+    // setup verification
     expect(testUnit.getChildNodeCount()).isEqualTo(2);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -98,34 +98,34 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_isBlank_whenIsBlank() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("");
 
-    //execution
+    // execution
     final var result = testUnit.isBlank();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isBlank_whenHasHeaderOnly() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.withHeader("a");
 
-    //execution
+    // execution
     final var result = testUnit.isBlank();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A1() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.EMPTY_CHAINED_NODE;
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::toInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -134,10 +134,10 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenDoesNotRepresentInt_A2() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("100(x)");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::toInt)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)
@@ -146,70 +146,70 @@ final class ChainedNodeTest extends StandardTest {
 
   @Test
   void testCase_toInt_whenRepresentsNegativeInt() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.withHeader("-100");
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(-100);
   }
 
   @Test
   void testCase_toInt_whenRepresentsPositiveInt() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.withHeader("100");
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(100);
   }
 
   @Test
   void testCase_toInt_whenRepresentsZeroInt() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.withHeader("0");
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(0);
   }
 
   @Test
   void testCase_toNode_whenIsBlank() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("");
 
-    //execution
+    // execution
     final var result = testUnit.toNode();
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("");
   }
 
   @Test
   void testCase_toNode_whenHasHeaderOnly() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.withHeader("a");
 
-    //execution
+    // execution
     final var result = testUnit.toNode();
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("a");
   }
 
   @Test
   void testCase_toNode_whenHasNextNode() {
-    //setup
+    // setup
     final var testUnit = ChainedNode.fromString("a.b");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::toNode)
       .throwsException()
       .ofType(UnrepresentingArgumentException.class)

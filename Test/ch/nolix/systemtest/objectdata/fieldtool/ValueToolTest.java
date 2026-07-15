@@ -26,21 +26,21 @@ final class ValueToolTest extends StandardTest {
 
   @Test
   void testCase_canSetValue() {
-    //setup
+    // setup
     final var pet = new Pet();
     final String valueToSet = "Garfield";
     final var testUnit = new ValueFieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_canSetValue_whenTheGivenValueIsClosed() {
-    //setup
+    // setup
     final var pet = new Pet();
     try ( //
     final var databaseAdapter = //
@@ -53,27 +53,27 @@ final class ValueToolTest extends StandardTest {
     final String valueToSet = "Garfield";
     final var testUnit = new ValueFieldExaminer();
 
-    //setup verification
+    // setup verification
     expect(pet.name.isClosed()).isTrue();
 
-    //execution
+    // execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_canSetValue_whenTheGivenValueToSetIsNull() {
-    //setup
+    // setup
     final var pet = new Pet();
     final String valueToSet = null;
     final var testUnit = new ValueFieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canSetValue(pet.name, valueToSet);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

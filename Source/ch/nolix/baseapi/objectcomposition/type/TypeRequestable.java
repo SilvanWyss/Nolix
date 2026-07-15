@@ -25,7 +25,7 @@ public interface TypeRequestable {
     return (getClass() == concreteType);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
@@ -50,10 +50,10 @@ public interface TypeRequestable {
    *         false otherwise
    */
   default boolean isOfType(final String type) {
-    //Iterates the classes of this type requestable object.
+    // Iterates the classes of this type requestable object.
     Class<?> c = getClass();
     while (c.getSuperclass() != null) {
-      //Handles the case that the current class is the given type or super type.
+      // Handles the case that the current class is the given type or super type.
       if (c.getSimpleName().equals(type)) {
         return true;
       }

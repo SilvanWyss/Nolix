@@ -27,10 +27,10 @@ public class FileSystemItemAccessor {
    *                          given path in the file system on the local machine.
    */
   protected FileSystemItemAccessor(final String path) {
-    //Creates the internal file accessor of this file accessor.
+    // Creates the internal file accessor of this file accessor.
     internalAccessor = new File(path);
 
-    //Asserts that the given file path does not point to a directory.
+    // Asserts that the given file path does not point to a directory.
     if (!internalAccessor.exists()) {
       throw InvalidArgumentException.forArgumentAndArgumentNameAndErrorPredicate(
         LowerCaseVariableNameCatalog.PATH,

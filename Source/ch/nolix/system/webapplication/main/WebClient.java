@@ -80,7 +80,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
 
         final var fileString = command.getSingleChildNodeHeader();
 
-        //Important: The received fileString is a Base 64 encoded string.
+        // Important: The received fileString is a Base 64 encoded string.
         final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
         uploader.internalSetFile(bytes);
@@ -99,7 +99,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
     final var controls = gui.getStoredStructureControls();
     final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
 
-    //The Control could be removed on the server in the meanwhile.
+    // The Control could be removed on the server in the meanwhile.
     if (control.isPresent()) {
       runCommandOnControl(control.get(), command);
     }
@@ -139,7 +139,7 @@ public final class WebClient<C> extends AbstractWebClient<WebClient<C>, C> {
       final var userInput = p.getChildNodeAtOneBasedIndex(2).getHeaderOrEmptyString();
       final var control = controls.getOptionalStoredFirst(c -> c.hasInternalId(internalControlId));
 
-      //The Control could be removed on the server in the meanwhile.
+      // The Control could be removed on the server in the meanwhile.
       if (control.isPresent()) {
         control.get().setUserInput(userInput);
       }

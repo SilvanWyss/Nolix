@@ -42,7 +42,7 @@ public final class SslServerPage {
     + "<html>\n"
     + "<head>\n"
 
-    //The 'data:,' link avoids that a browser requests a favorite icon.
+    // The 'data:,' link avoids that a browser requests a favorite icon.
     + "<link id=\"icon\" rel=\"icon\" href=\"data:,\">\n"
 
     + "<script>\n"

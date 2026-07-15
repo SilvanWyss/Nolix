@@ -22,13 +22,13 @@ final class StringExaminerTest extends StandardTest {
   "cheesburger§" //
   })
   void testCase_isLowerCase_whenTheGivenStringIsLowerCase(final String string) {
-    //setup
+    // setup
     final var testUnit = new StringExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isLowerCase(string);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
@@ -41,13 +41,13 @@ final class StringExaminerTest extends StandardTest {
   "Cheesburger§" //
   })
   void testCase_isLowerCase_whenTheGivenStringIsNotLowerCase(final String string) {
-    //setup
+    // setup
     final var testUnit = new StringExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isLowerCase(string);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
@@ -82,13 +82,13 @@ final class StringExaminerTest extends StandardTest {
   void testCase_startsWithIgnoringCase_whenTheGivenStringStartsWithTheGivenPrefix(
     final String string,
     final String prefix) {
-    //setup
+    // setup
     final var testUnit = new StringExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
@@ -147,13 +147,13 @@ final class StringExaminerTest extends StandardTest {
   void testCase_startsWithIgnoringCase_whenTheGivenStringDoesNotStartWithTheGivenPrefix(
     final String string,
     final String prefix) {
-    //setup
+    // setup
     final var testUnit = new StringExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.startsWithIgnoringCase(string, prefix);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

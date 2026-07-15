@@ -19,69 +19,69 @@ import ch.nolix.systemapi.webgui.main.LayerRole;
 final class LayerTest extends StandardTest {
   @Test
   void testCase_clear_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = new Layer();
 
-    //setup verification
+    // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    //execution
+    // execution
     testUnit.clear();
 
-    //verification
+    // verification
     expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_clear_whenContainsAny() {
-    //setup
+    // setup
     final var testUnit = new Layer();
     testUnit.setRootControl(new Label());
 
-    //setup verification
+    // setup verification
     expect(testUnit.containsAny()).isTrue();
 
-    //execution
+    // execution
     testUnit.clear();
 
-    //verification
+    // verification
     expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
-    //setup
+    // setup
     final var testUnit = new Layer();
 
-    //setup verification
+    // setup verification
     expect(testUnit.belongsToGui()).isFalse();
 
-    //execution
+    // execution
     expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
   }
 
   @Test
   void testCase_removeSelfFromGui_whenBelongsToGui() {
-    //setup
+    // setup
     final var webGui = new WebGui();
     final var testUnit = new Layer();
     webGui.pushLayer(testUnit);
 
-    //setup verification
+    // setup verification
     expect(webGui.getStoredLayers()).contains(testUnit);
     expect(testUnit.belongsToGui()).isTrue();
 
-    //execution
+    // execution
     testUnit.removeSelfFromGui();
 
-    //verification
+    // verification
     expect(webGui.getStoredLayers().contains(testUnit)).isFalse();
     expect(testUnit.belongsToGui()).isFalse();
   }
 
   @Test
   void testCase_reset() {
-    //setup
+    // setup
     final var testUnit = new Layer()
       .setId("id")
       .setRole(LayerRole.MAIN_LAYER)
@@ -90,10 +90,10 @@ final class LayerTest extends StandardTest {
       .setContentAlignment(ContentAlignment.BOTTOM_RIGHT)
       .setRootControl(new Label());
 
-    //execution
+    // execution
     testUnit.reset();
 
-    //verification
+    // verification
     expect(testUnit.hasId()).isFalse();
     expect(testUnit.hasRole()).isFalse();
     expect(testUnit.getOpacity()).isEqualTo(1.0);

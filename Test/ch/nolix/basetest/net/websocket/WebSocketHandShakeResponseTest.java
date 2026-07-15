@@ -14,33 +14,33 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class WebSocketHandShakeResponseTest extends StandardTest {
   @Test
   void testCase_getSecWebSocketAccept() {
-    //parameter definition
+    // parameter definition
     final var secWebSocketKey = "dGhlIHNhbXBsZSBub25jZQ==";
     final var expcetedSecWebSocketAccept = "s3pPLMBiTxaQ9kYGzzhZRbK+xOo=";
 
-    //setup
+    // setup
     final var webSocketHandShakeResponse = WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
 
-    //execution
+    // execution
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
 
-    //verification
+    // verification
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 
   @Test
   void testCase_getSecWebSocketAccept_2() {
-    //parameter definition
+    // parameter definition
     final var secWebSocketKey = "xqBt3ImNzJbYqRINxEFlkg==";
     final var expcetedSecWebSocketAccept = "K7DJLdLooIwIG/MOpvWFB3y3FE8=";
 
-    //setup
+    // setup
     final var webSocketHandShakeResponse = WebSocketHandShakeResponse.withSecWebSocketKey(secWebSocketKey);
 
-    //execution
+    // execution
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
 
-    //verification
+    // verification
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 }

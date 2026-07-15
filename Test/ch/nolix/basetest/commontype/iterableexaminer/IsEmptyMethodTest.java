@@ -15,53 +15,53 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class IsEmptyMethodTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenGivenIterableIsNull() {
-    //setup
+    // setup
     final Iterable<Object> iterable = null;
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isEmpty(iterable);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isEmpty_whenGivenIterableIsEmpty() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isEmpty(iterable);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isEmpty_whenGivenIterableContains1Element() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isEmpty(iterable);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isEmpty_whenGivenIterableContains2Elements() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isEmpty(iterable);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

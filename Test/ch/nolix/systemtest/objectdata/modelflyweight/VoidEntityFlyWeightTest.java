@@ -14,10 +14,10 @@ import ch.nolix.system.objectdata.modelflyweight.VoidEntityFlyWeight;
 final class VoidEntityFlyWeightTest extends StandardTest {
   @Test
   void testCase_creation() {
-    //execution
+    // execution
     final var testUnit = new VoidEntityFlyWeight();
 
-    //verification
+    // verification
     expect(testUnit.isVoid()).isTrue();
   }
 }

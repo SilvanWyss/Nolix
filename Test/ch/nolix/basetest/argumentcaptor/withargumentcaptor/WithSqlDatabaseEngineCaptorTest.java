@@ -17,36 +17,36 @@ import ch.nolix.baseapi.sql.sqlproperty.SqlDatabaseEngine;
 final class WithSqlDatabaseEngineCaptorTest extends StandardTest {
   @Test
   void testCase_getSqlDatabaseEngine_whenDoesNotHaveSqlDatabaseEngine() {
-    //setup
+    // setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getSqlDatabaseEngine).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
   void testCase_withSqlDatabaseEngine_whenHasNext() {
-    //parameter definition
+    // parameter definition
     final var sqlDatabaseEngine = SqlDatabaseEngine.MS_SQL;
 
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new WithSqlDatabaseEngineCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.withSqlDatabaseEngine(sqlDatabaseEngine);
 
-    //verification
+    // verification
     expect(testUnit.getSqlDatabaseEngine()).isEqualTo(sqlDatabaseEngine);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_withSqlDatabaseEngine_whenDoesNotHaveNext() {
-    //setup
+    // setup
     final var testUnit = new WithSqlDatabaseEngineCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.withSqlDatabaseEngine(SqlDatabaseEngine.MS_SQL))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

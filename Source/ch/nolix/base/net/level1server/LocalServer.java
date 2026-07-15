@@ -22,6 +22,6 @@ public final class LocalServer extends AbstractServer {
    */
   @Override
   public void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 }

@@ -30,15 +30,15 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    */
   @Override
   public final void addOrChangeAttribute(final INode<?> attribute) {
-    //Iterates the properties of the current AbstractPropertiesElement.
+    // Iterates the properties of the current AbstractPropertiesElement.
     for (final var p : getStoredProperties()) {
-      //Handles the case that the current property has added or changed the given attribute.
+      // Handles the case that the current property has added or changed the given attribute.
       if (p.addedOrChangedAttribute(attribute)) {
         return;
       }
     }
 
-    //Handles the case that the current AbstractPropertiesElement cannot have the given attribute.
+    // Handles the case that the current AbstractPropertiesElement cannot have the given attribute.
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot have a " + attribute.getHeader());
   }
 
@@ -47,10 +47,10 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    */
   @Override
   public final void addOrChangeAttribute(final String attribute) {
-    //Maps the given attribute to a Node.
+    // Maps the given attribute to a Node.
     final var attributeNode = ImmutableNode.fromString(attribute);
 
-    //Calls other method.
+    // Calls other method.
     addOrChangeAttribute(attributeNode);
   }
 
@@ -67,16 +67,16 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    */
   @Override
   public final ExtendedIterable<INode<?>> getAttributes() {
-    //Creates attributes list.
+    // Creates attributes list.
     final LinkedList<INode<?>> attributes = LinkedList.createEmpty();
 
-    //Iterates the properties of the current AbstractPropertiesElement.
+    // Iterates the properties of the current AbstractPropertiesElement.
     for (final var p : getStoredProperties()) {
-      //Fills up the attributes of the current property into the attributes list.
+      // Fills up the attributes of the current property into the attributes list.
       p.fillUpAttributesIntoList(attributes);
     }
 
-    //Returns the attributes list.
+    // Returns the attributes list.
     return attributes;
   }
 

@@ -73,7 +73,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
       .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalog.OPEN_BRACKET))
       .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalog.CLOSED_BRACKET))
 
-      //It is essential to replace the dollar symbol code at last.
+      // It is essential to replace the dollar symbol code at last.
       .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalog.DOLLAR));
   }
 
@@ -265,7 +265,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    *                          given path.
    */
   public final void saveToFile(final String path) {
-    //Calls other method.
+    // Calls other method.
     saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
@@ -310,12 +310,12 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
 
     stringBuilder.append(StringTool.createTabs(indentationLevel));
 
-    //Handles the case that the current specification has a header.
+    // Handles the case that the current specification has a header.
     if (hasHeader()) {
       stringBuilder.append(getReproducingHeader());
     }
 
-    //Handles the case that the current BaseNode contains child nodes.
+    // Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       appendFormattedStringRepresentationOfChildNodesToStringBuilder(indentationLevel, stringBuilder);
     }
@@ -346,12 +346,12 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   public final String toString() {
     final var stringBuilder = new StringBuilder();
 
-    //Handles the case that the current specification has a header.
+    // Handles the case that the current specification has a header.
     if (hasHeader()) {
       stringBuilder.append(getReproducingHeader());
     }
 
-    //Handles the case that the current BaseNode contains child nodes.
+    // Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
@@ -367,16 +367,16 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final IMutableXmlNode toXml() {
-    //Creates an XmlNode.
+    // Creates an XmlNode.
     final var xmlNode = MutableXmlNode.createBlankMutableXmlNode().setName(getHeader());
 
-    //Iterates the child nodes of the current BaseNode.
+    // Iterates the child nodes of the current BaseNode.
     for (final AbstractNode<?> cn : getStoredChildNodes()) {
-      //Handles the case that the current child node itself does not contain child nodes.
+      // Handles the case that the current child node itself does not contain child nodes.
       if (!cn.containsChildNodes()) {
         xmlNode.setValue(cn.toString());
 
-        //Handles the case that the current child node itself contains child nodes.
+        // Handles the case that the current child node itself contains child nodes.
       } else {
         xmlNode.addChildNode(cn.toXml());
       }
@@ -388,22 +388,22 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
     final int leadingTabulators,
     final StringBuilder stringBuilder) {
-    //Handles the case that all child nodes of the current BaseNode themselves do
-    //not contain child nodes.
+    // Handles the case that all child nodes of the current BaseNode themselves do
+    // not contain child nodes.
     if (getStoredChildNodes().containsNone(INode::containsChildNodes)) {
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
         .append(getStoredChildNodes().toString())
         .append(CharacterCatalog.CLOSED_BRACKET);
 
-      //Handles the case that the current BaseNode contains child nodes that
-      //themselves contains child nodes.
+      // Handles the case that the current BaseNode contains child nodes that
+      // themselves contains child nodes.
     } else {
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
         .append(CharacterCatalog.NEW_LINE);
 
-      //Iterates the child nodes of the current BaseNode.
+      // Iterates the child nodes of the current BaseNode.
       final var attributeCount = getChildNodeCount();
       var index = 1;
       for (final AbstractNode<?> cn : getStoredChildNodes()) {

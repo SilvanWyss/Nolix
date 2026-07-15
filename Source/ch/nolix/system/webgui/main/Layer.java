@@ -67,7 +67,7 @@ implements ILayer {
 
   private static final IControlTool CONTROL_TOOL = new ControlTool();
 
-  //For CSS an id works only when it begins with a letter.
+  // For CSS an id works only when it begins with a letter.
   private final String memberInternalId = "i" + IdCreator.createIdOf10HexadecimalCharacters();
 
   private final OptionalValue<LayerRole> memberRole = //

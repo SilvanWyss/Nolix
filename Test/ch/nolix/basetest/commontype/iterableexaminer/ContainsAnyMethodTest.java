@@ -15,53 +15,53 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class ContainsAnyMethodTest extends StandardTest {
   @Test
   void testCase_containsAny_whenGivenIterableIsNull() {
-    //setup
+    // setup
     final Iterable<Object> iterable = null;
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.containsAny(iterable);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_containsAny_whenGivenIterableIsEmpty() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.createEmpty();
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.containsAny(iterable);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_containsAny_whenGivenIterableContains1Element() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.containsAny(iterable);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_containsAny_whenGivenIterableContains2Elements() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
     final var testUnit = new IterableExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.containsAny(iterable);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 }

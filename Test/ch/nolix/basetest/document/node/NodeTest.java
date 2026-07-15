@@ -15,37 +15,37 @@ import ch.nolix.base.document.node.ImmutableNode;
 final class NodeTest extends BaseNodeTest<ImmutableNode> {
   @Test
   void testCase_asWithHeader_1A() {
-    //setup
+    // setup
     final var testUnit = ImmutableNode.fromString("a(x,y)");
 
-    //execution
+    // execution
     final var result = testUnit.withNewHeader("b");
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("b(x,y)");
   }
 
   @Test
   void testCase_asWithHeader_1B() {
-    //setup
+    // setup
     final var testUnit = ImmutableNode.fromString("(x,y)");
 
-    //execution
+    // execution
     final var result = testUnit.withNewHeader("a");
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("a(x,y)");
   }
 
   @Test
   void testCase_asWithHeader_1C() {
-    //setup
+    // setup
     final var testUnit = ImmutableNode.fromString("a");
 
-    //execution
+    // execution
     final var result = testUnit.withNewHeader("b");
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("b");
   }
 
@@ -56,13 +56,13 @@ final class NodeTest extends BaseNodeTest<ImmutableNode> {
   "a(b(c)), <a><b>c</b></a>"
   })
   void testCase_toXml(final String nodeStringRepresentation, final String expectedXmlStringRepresentation) {
-    //setup
+    // setup
     final var testUnit = ImmutableNode.fromString(nodeStringRepresentation);
 
-    //execution
+    // execution
     final var result = testUnit.toXml();
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation(expectedXmlStringRepresentation);
   }
 

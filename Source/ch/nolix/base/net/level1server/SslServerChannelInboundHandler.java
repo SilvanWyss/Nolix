@@ -46,8 +46,8 @@ final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<W
     if (parentWebSocketServerEndPoint == null) {
       parentWebSocketServerEndPoint = SslServerEndPoint.withChannelHandlerContext(channelHandlerContext);
 
-      //The end point must receive the current message to know its content before it
-      //is added to the server.
+      // The end point must receive the current message to know its content before it
+      // is added to the server.
       final var rawMessage = ((TextWebSocketFrame) webSocketFrame).text();
       parentWebSocketServerEndPoint.receiveRawMessage(rawMessage);
 

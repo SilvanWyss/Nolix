@@ -76,7 +76,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
     return new Column(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public boolean belongsToDatabase() {
     return //
@@ -299,7 +299,7 @@ public final class Column extends AbstractSchemaObject implements IColumn {
    */
   @Override
   protected void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   private ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {

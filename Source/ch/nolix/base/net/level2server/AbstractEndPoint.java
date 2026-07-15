@@ -33,7 +33,7 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -41,10 +41,10 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public void setReplier(final UnaryOperator<String> replier) {
-    //Asserts that the given replier is not null.
+    // Asserts that the given replier is not null.
     Validator.assertThat(replier).thatIsNamed("replier").isNotNull();
 
-    //Sets the replier of this end point.
+    // Sets the replier of this end point.
     this.replier = replier;
   }
 
@@ -65,10 +65,10 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
   protected final Function<String, String> getStoredReplier() {
     final long startTimeInMilliseconds = System.currentTimeMillis();
 
-    //This loop suffers from being optimized away by the compiler or the JVM.
+    // This loop suffers from being optimized away by the compiler or the JVM.
     while (!hasReplier()) {
-      //The following statement, that is actually unnecessary,
-      //makes that the current loop is not optimized away.
+      // The following statement, that is actually unnecessary,
+      // makes that the current loop is not optimized away.
       System.out.flush(); //NOSONAR: This statement is used to keep the loop.
 
       if (System.currentTimeMillis() - startTimeInMilliseconds > REPLIER_GETTING_DELAY_IN_MILLISECONDS) {

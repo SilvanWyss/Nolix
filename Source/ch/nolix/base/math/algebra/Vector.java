@@ -167,7 +167,7 @@ public final class Vector {
     return Arrays.copyOf(values, values.length);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

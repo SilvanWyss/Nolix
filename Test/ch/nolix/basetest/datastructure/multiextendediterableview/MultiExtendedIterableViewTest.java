@@ -16,15 +16,15 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 final class MultiExtendedIterableViewTest extends ExtendedIterableTest {
   @Test
   void testCase_forArray() {
-    //setup
+    // setup
     final var array1 = new String[] { "x", "xx" };
     final var array2 = new String[] { "y", "yy" };
     final var array3 = new String[] { "z", "zz" };
 
-    //execution
+    // execution
     final var result = MultiExtendedIterableView.forArrays(array1, array2, array3);
 
-    //verification
+    // verification
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
   }
 

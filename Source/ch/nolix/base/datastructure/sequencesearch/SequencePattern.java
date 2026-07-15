@@ -139,10 +139,10 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
     final int maxSequenceCount = list.getCount() - getSize() + 1;
 
-    //Iterates the given list.
+    // Iterates the given list.
     final var iterator = list.iterator();
     for (var i = 1; i <= maxSequenceCount; i++) {
-      //Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
+      // Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
       var sequenceFulfillsElementConditions = true;
       final var iterator2 = iterator.getCopy();
       for (final Predicate<E> c : elementConditions) {
@@ -162,13 +162,13 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
           sequence.addAtEnd(iterator3.next());
         }
 
-        //Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
+        // Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
         if (sequenceConditions.containsOnly(sc -> sc.test(sequence))) {
           sequences.addAtEnd(sequence);
         }
       }
 
-      //Increments the iterator.
+      // Increments the iterator.
       iterator.next();
     }
 
@@ -189,7 +189,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    *         false otherwise
    */
   public boolean matches(final LinkedList<E> list) {
-    //Asserts that the given list has as many elements as the current SequencePattern requires.
+    // Asserts that the given list has as many elements as the current SequencePattern requires.
     if (list.getCount() != getSize()) {
       return false;
     }
@@ -205,7 +205,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       }
     }
 
-    //Asserts that the given list fulfils the sequence conditions of the current SequencePattern.
+    // Asserts that the given list fulfils the sequence conditions of the current SequencePattern.
     return sequenceConditions.containsOnly(sc -> sc.test(list));
   }
 }

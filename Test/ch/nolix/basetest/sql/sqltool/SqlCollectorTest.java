@@ -22,27 +22,27 @@ import ch.nolix.baseapi.sql.connection.ISqlConnection;
 final class SqlCollectorTest extends StandardTest {
   @Test
   void testCase_addSqlStatement() {
-    //setup
+    // setup
     final var sqlStatement1 = "CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);";
     final var sqlStatement2 = "CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);";
     final var testUnit = new SqlCollector();
 
-    //execution
+    // execution
     testUnit.addSqlStatement(sqlStatement1);
     testUnit.addSqlStatement(sqlStatement2);
 
-    //verification
+    // verification
     final var actualSqlStatements = testUnit.getSqlStatements();
     expect(actualSqlStatements).containsExactlyInSameOrder(sqlStatement1, sqlStatement2);
   }
 
   @Test
   void testCase_addSqlStatement_whenTheGivenSqlStatementIsNull() {
-    //setup
+    // setup
     final String sqlStatement = null;
     final var testUnit = new SqlCollector();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.addSqlStatement(sqlStatement))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -52,10 +52,10 @@ final class SqlCollectorTest extends StandardTest {
   @ParameterizedTest
   @ValueSource(strings = { StringCatalog.EMPTY_STRING, StringCatalog.SPACE, StringCatalog.TABULATOR })
   void testCase_addSqlStatement_whenTheGivenSqlStatementIsBlank(final String sqlStatement) {
-    //setup
+    // setup
     final var testUnit = new SqlCollector();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.addSqlStatement(sqlStatement))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -64,42 +64,42 @@ final class SqlCollectorTest extends StandardTest {
 
   @Test
   void testCase_addSqlStatements() {
-    //setup
+    // setup
     final var sqlStatement1 = "CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);";
     final var sqlStatement2 = "CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);";
     final var sqlStatements = ImmutableList.withElements(sqlStatement1, sqlStatement2);
     final var testUnit = new SqlCollector();
 
-    //execution
+    // execution
     testUnit.addSqlStatements(sqlStatements);
 
-    //verification
+    // verification
     final var actualSqlStatements = testUnit.getSqlStatements();
     expect(actualSqlStatements).containsExactlyInSameOrder(sqlStatement1, sqlStatement2);
   }
 
   @Test
   void testCase_constructor() {
-    //execution
+    // execution
     final var result = new SqlCollector();
 
-    //verification
+    // verification
     expect(result.isEmpty()).isTrue();
     expect(result.getSqlStatements()).isEmpty();
   }
 
   @Test
   void testCase_executeAndClearUsingConnection() {
-    //setup
+    // setup
     final var sqlConnectionMock = Mockito.mock(ISqlConnection.class);
     final var testUnit = new SqlCollector();
     testUnit.addSqlStatement("CREATE TABLE Person (Name nvarchar(100),WeightInKilogram Float);");
     testUnit.addSqlStatement("CREATE TABLE Pet (Name nvarchar(100),WeightInKilogram Float);");
 
-    //execution
+    // execution
     testUnit.executeAndClearUsingConnection(sqlConnectionMock);
 
-    //verification
+    // verification
     expect(testUnit.isEmpty()).isTrue();
     Mockito.verify(sqlConnectionMock).executeStatements(testUnit.getSqlStatements());
   }

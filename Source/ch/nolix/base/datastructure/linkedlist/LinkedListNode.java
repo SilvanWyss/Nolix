@@ -40,7 +40,7 @@ public final class LinkedListNode<E> {
     return new LinkedListNode<>(element);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @param selector
    * @return true if the current {@link LinkedListNode} contains an element the
@@ -50,7 +50,7 @@ public final class LinkedListNode<E> {
     return selector.test(memberElement);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @param element
    * @return true if the current {@link LinkedListNode} contains the given
@@ -67,7 +67,7 @@ public final class LinkedListNode<E> {
     return memberElement;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the next node of the current {@link LinkedListNode}.
    * @throws RuntimeException if the current {@link LinkedListNode} does not have
@@ -96,7 +96,7 @@ public final class LinkedListNode<E> {
     nullableNextNode = null;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Sets the element of the current {@link LinkedListNode}.
    * 
@@ -111,7 +111,7 @@ public final class LinkedListNode<E> {
     memberElement = element;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Sets the next node of the current {@link LinkedListNode}.
    * 
@@ -126,7 +126,7 @@ public final class LinkedListNode<E> {
     nullableNextNode = nextNode;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Swaps the element of the current {@link LinkedListNode} with the element of
    * the next node of the current {@link LinkedListNode}.

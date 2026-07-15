@@ -25,7 +25,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    * Creates a new {@link IterableExtendedIterableView} for a new empty container.
    */
   public IterableExtendedIterableView() {
-    //Calls other constructor.
+    // Calls other constructor.
     this(ArrayList.createEmpty());
   }
 
@@ -38,13 +38,13 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    */
   @SuppressWarnings("unchecked")
   private <T extends E> IterableExtendedIterableView(final Iterable<T> container) {
-    //Asserts that the given container is not null.
+    // Asserts that the given container is not null.
     Validator
       .assertThat(container)
       .thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER)
       .isNotNull();
 
-    //Sets the container of the current IterableView.
+    // Sets the container of the current IterableView.
     this.iterable = (Iterable<E>) container;
   }
 
@@ -65,7 +65,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
   public int getCount() {
     var size = 0;
 
-    //Iterates the current IterableView.
+    // Iterates the current IterableView.
     final var iterator = iterable.iterator();
     while (iterator.hasNext()) {
       size++;
@@ -80,10 +80,10 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    //Iterates the current IterableView.
+    // Iterates the current IterableView.
     var i = 1;
     for (final var e : this) {
-      //Asserts that the current index is the given index.
+      // Asserts that the current index is the given index.
       if (i == oneBasedIndex) {
         return e;
       }

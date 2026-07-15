@@ -22,7 +22,7 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ILabel control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -33,7 +33,7 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
     final ILabel label,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -43,7 +43,7 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ILabel label,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -54,6 +54,6 @@ public final class LabelCssBuilder extends AbstractControlCssBuilder<ILabel, ILa
     final ILabel label,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

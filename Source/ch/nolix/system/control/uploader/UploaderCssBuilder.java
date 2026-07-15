@@ -22,7 +22,7 @@ public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploade
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IUploader button,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -33,7 +33,7 @@ public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploade
     final IUploader button,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -43,7 +43,7 @@ public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploade
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IUploader control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -54,6 +54,6 @@ public final class UploaderCssBuilder extends AbstractControlCssBuilder<IUploade
     final IUploader button,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

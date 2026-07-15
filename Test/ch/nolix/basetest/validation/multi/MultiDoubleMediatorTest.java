@@ -15,21 +15,21 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonPositiveArgumen
 final class MultiDoubleMediatorTest extends StandardTest {
   @Test
   void testCase_arePositive_whenTheGivenArgumentsAreAllPositive() {
-    //setup
+    // setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);
 
-    //execution
+    // execution
     expectRunning(testUnit::arePositive).doesNotThrowException();
   }
 
   @Test
   void testCase_arePositive_whenOneOfTheGivenArgumentsIs0() {
-    //setup
+    // setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, 0.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);
 
-    //execution
+    // execution
     expectRunning(testUnit::arePositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)
@@ -38,11 +38,11 @@ final class MultiDoubleMediatorTest extends StandardTest {
 
   @Test
   void testCase_arePositive_whenOneOfTheGivenArgumentsIsNegative() {
-    //setup
+    // setup
     final var arguments = new double[] { 1.0, 2.0, 3.0, 4.0, 5.0, -1.0 };
     final var testUnit = MultiDoubleMediator.forArugments(arguments);
 
-    //execution
+    // execution
     expectRunning(testUnit::arePositive)
       .throwsException()
       .ofType(NonPositiveArgumentException.class)

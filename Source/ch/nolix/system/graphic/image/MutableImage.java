@@ -469,14 +469,14 @@ extends AbstractPropertiesElement implements IMutableImage<MutableImage> {
     final var reziprocalWidthFactor = 1.0 / widthFactor;
     final var reziprocalHeightFactor = 1.0 / heightFactor;
 
-    //sourceYs[y] := the source Image's y for the new Image's y
+    // sourceYs[y] := the source Image's y for the new Image's y
     final var sourceYs = new int[image.getHeight() + 1];
     for (var i = 1; i <= image.getHeight(); i++) {
       sourceYs[i] = (int) ((i - 1) * reziprocalHeightFactor) + 1;
     }
 
     for (var x = 1; x <= image.getWidth(); x++) {
-      //sourceX := the source Image's x for the new Image's x
+      // sourceX := the source Image's x for the new Image's x
       final var sourceX = (int) ((x - 1) * reziprocalWidthFactor) + 1;
 
       for (var y = 1; y <= image.getHeight(); y++) {

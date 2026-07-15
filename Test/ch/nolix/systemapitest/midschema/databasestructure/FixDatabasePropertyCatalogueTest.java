@@ -14,10 +14,10 @@ import ch.nolix.systemapi.midschema.databasestructure.FixDatabasePropertyCatalog
 final class FixDatabasePropertyCatalogueTest extends StandardTest {
   @Test
   void testCase_numberOfEntityFields() {
-    //execution
+    // execution
     final var result = FixDatabasePropertyCatalogue.NUMBER_OF_ENTITY_META_FIELDS;
 
-    //verification
+    // verification
     expect(result).isEqualTo(4);
   }
 }

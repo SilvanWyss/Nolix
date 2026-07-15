@@ -17,80 +17,80 @@ import ch.nolix.system.webgui.main.WebGui;
 final class UpdateCommandCreatorTest extends StandardTest {
   @Test
   void testCase_createSetCssCommandFromWebGui() {
-    //setup
+    // setup
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createSetCssCommandForWebGui(webGui);
 
-    //verification
+    // verification
     expect(result.toString()).matches("GUI.SetCSS(.*)");
   }
 
   @Test
   void testCase_createSetTitleCommandForTitle() {
-    //setup
+    // setup
     final var testUnit = new UpdateCommandCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createSetTitleCommandForTitle("my_title");
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
   }
 
   @Test
   void testCase_createSetTitleCommandFromWebGui() {
-    //setup
+    // setup
     final var webGui = new WebGui().setTitle("my_title");
     final var testUnit = new UpdateCommandCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createSetTitleCommandForWebGui(webGui);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("GUI.SetTitle(my_title)");
   }
 
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiIsEmpty() {
-    //setup
+    // setup
     final var webGui = new WebGui();
     final var testUnit = new UpdateCommandCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContainsAButton() {
-    //setup
+    // setup
     final var button = new Button();
     final var webGui = new WebGui().pushLayerWithRootControl(button);
     final var testUnit = new UpdateCommandCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("GUI.SetUserInputFunctions");
   }
 
   @Test
   void testCase_createSetUserInputFunctionsCommandFromWebGui_whenTheGivenWebGuiContaisATextbox() {
-    //setup
+    // setup
     final var textbox = new Textbox();
     final var webGui = new WebGui().pushLayerWithRootControl(textbox);
     final var testUnit = new UpdateCommandCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createSetUserInputFunctionsCommandForWebGui(webGui);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation(
       "GUI.SetUserInputFunctions((" + textbox.getInternalId() + ",return x$Dvalue;))");
   }

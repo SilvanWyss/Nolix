@@ -27,7 +27,7 @@ final class Waiter {
    * @throws RuntimeException if the given duractionInSeconds is negative.
    */
   public static void waitForSeconds(final int duractionInSeconds) {
-    //Asserts that the given duractionInSeconds is not negative.
+    // Asserts that the given duractionInSeconds is not negative.
     Validator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 
     waitForMilliseconds(TimeUnitConversionCatalog.MILLISECONDS_PER_SECOND * duractionInSeconds);
@@ -40,7 +40,7 @@ final class Waiter {
    * @throws RuntimeException if the given durationInMilliseconds is negative.
    */
   public static void waitForMilliseconds(final int durationInMilliseconds) {
-    //Asserts that the given durationInMilliseconds is not negative.
+    // Asserts that the given durationInMilliseconds is not negative.
     Validator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 
     try {

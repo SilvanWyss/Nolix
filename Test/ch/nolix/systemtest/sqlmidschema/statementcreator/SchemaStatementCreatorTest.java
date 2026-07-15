@@ -18,21 +18,21 @@ import ch.nolix.systemapi.sqlschema.model.TableDto;
 final class SchemaStatementCreatorTest extends StandardTest {
   @Test
   void testCase_createStatementToAddColumn() {
-    //setup
+    // setup
     final var dataTypeDto = new DataTypeDto("nvarchar", "100");
     final var columnDto = new ColumnDto("Name", dataTypeDto, ImmutableList.createEmpty());
     final var testUnit = new StatementCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createStatementToAddColumn("Pet", columnDto);
 
-    //verification
+    // verification
     expect(result).isEqualTo("ALTER TABLE Pet ADD Name nvarchar(100);");
   }
 
   @Test
   void testCase_createStatementToAddTable() {
-    //setup
+    // setup
     final var tableDto = new TableDto(
       "Pet",
       ImmutableList.withElements(
@@ -40,10 +40,10 @@ final class SchemaStatementCreatorTest extends StandardTest {
         new ColumnDto("WeightInKilogram", new DataTypeDto("float", null), ImmutableList.createEmpty())));
     final var testUnit = new StatementCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createStatementToAddTable(tableDto);
 
-    //verification
+    // verification
     expect(result).isEqualTo("CREATE TABLE Pet (Name nvarchar(100), WeightInKilogram float);");
   }
 }

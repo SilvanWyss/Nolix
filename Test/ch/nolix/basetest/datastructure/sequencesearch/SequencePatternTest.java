@@ -15,7 +15,7 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class SequencePatternTest extends StandardTest {
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_1A() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
@@ -23,10 +23,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("A"))
       .withConditionForNext(e -> e.equals("B"));
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -36,7 +36,7 @@ final class SequencePatternTest extends StandardTest {
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_1B() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
@@ -44,10 +44,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("A"))
       .withBlankForNext();
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -57,7 +57,7 @@ final class SequencePatternTest extends StandardTest {
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_2A() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
@@ -66,10 +66,10 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("B"))
       .withSequenceCondition(s -> s.getSum(String::length).intValue() == 2);
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -79,7 +79,7 @@ final class SequencePatternTest extends StandardTest {
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerContainsMatchingSequences_2B() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
@@ -88,10 +88,10 @@ final class SequencePatternTest extends StandardTest {
       .withBlankForNext()
       .withSequenceCondition(s -> s.getSum(String::length).intValue() == 2);
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).hasElementCount(4);
     expect(result.getStoredAtOneBasedIndex(1)).containsExactlyEqualing("A", "B");
     expect(result.getStoredAtOneBasedIndex(2)).containsExactlyEqualing("A", "B");
@@ -101,7 +101,7 @@ final class SequencePatternTest extends StandardTest {
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_1A() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "A", "C", "A", "A", "C", "A", "A", "C", "A", "A", "C");
     final var testUnit = //
     SequencePattern
@@ -109,16 +109,16 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("A"))
       .withConditionForNext(e -> e.equals("B"));
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_1B() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "A", "C", "A", "A", "C", "A", "A", "C", "A", "A", "C");
     final var testUnit = //
     SequencePattern
@@ -126,16 +126,16 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("B"))
       .withBlankForNext();
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_2A() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
@@ -144,16 +144,16 @@ final class SequencePatternTest extends StandardTest {
       .withConditionForNext(e -> e.equals("B"))
       .withSequenceCondition(s -> s.getSum(String::length).intValue() > 2);
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_getMatchingSequencesFrom_whenTheGivenContainerDoesNotContainMatchinSequences_2B() {
-    //setup
+    // setup
     final var letters = ImmutableList.withElements("A", "B", "C", "A", "B", "C", "A", "B", "C", "A", "B", "C");
     final var testUnit = //
     SequencePattern
@@ -162,10 +162,10 @@ final class SequencePatternTest extends StandardTest {
       .withBlankForNext()
       .withSequenceCondition(s -> s.getSum(String::length).intValue() > 2);
 
-    //execution
+    // execution
     final var result = testUnit.getMatchingSequencesFrom(letters);
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 }

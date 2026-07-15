@@ -16,14 +16,14 @@ import ch.nolix.techapi.math.bigdecimalmath.IComplexNumber;
 final class ComplexSequenceDefinedBy2PredecessorTest extends StandardTest {
   @Test
   void test_getValueAtOneBasedIndex() {
-    //setup
+    // setup
     final var testUnit = //
     ComplexSequenceDefinedBy2Predecessor.withFirstValueAndSecondValueAndNextValueSupplier(
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(1.0, 0.0, 20),
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 2.0, 20),
       IComplexNumber::getSum);
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getValueAtOneBasedIndex(1))
       .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(1.0, 0.0, 20));
     expect(testUnit.getValueAtOneBasedIndex(2))

@@ -15,14 +15,14 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
 final class TextboxTest extends ControlTest<ITextbox> {
   @Test
   void testCase_emptyText() {
-    //setup
+    // setup
     final var testUnit = new Textbox();
     testUnit.setText("Lorem ipsum");
 
-    //execution
+    // execution
     testUnit.emptyText();
 
-    //verification
+    // verification
     expect(testUnit.getText()).isEmpty();
   }
 

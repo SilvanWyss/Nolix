@@ -14,14 +14,14 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class ArrayToolTest extends StandardTest {
   @Test
   void testCase_onArray_fromIndex_write() {
-    //setup
+    // setup
     final var array = new byte[10];
     final var testUnit = new ArrayTool();
 
-    //execution
+    // execution
     final var result = testUnit.onArray(array).fromIndex(2).write(new byte[] { 30, 40, 50 });
 
-    //verification part 1
+    // verification part 1
     expect(array[0]).isEqualTo(0);
     expect(array[1]).isEqualTo(0);
     expect(array[2]).isEqualTo(30);
@@ -33,7 +33,7 @@ final class ArrayToolTest extends StandardTest {
     expect(array[8]).isEqualTo(0);
     expect(array[9]).isEqualTo(0);
 
-    //verification part 2
+    // verification part 2
     expect(result.andGetNextIndex()).isEqualTo(5);
   }
 }

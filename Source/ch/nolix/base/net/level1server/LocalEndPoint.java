@@ -32,19 +32,19 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws RuntimeException     if the given slot is blank.
    */
   private LocalEndPoint(final AbstractServer server, final String slot) {
-    //Sets the peerType of the current LocalEndPoint.
+    // Sets the peerType of the current LocalEndPoint.
     peerType = PeerType.FRONTEND;
 
-    //Sets the slot of the current LocalEndPoint.
+    // Sets the slot of the current LocalEndPoint.
     setCustomTargetSlot(slot);
 
-    //Creates the counterpart of the current LocalEndPoint.
+    // Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
 
-    //Sets the slot of the counterpart of the current LocalEndPoint.
+    // Sets the slot of the counterpart of the current LocalEndPoint.
     getStoredCounterPart().setCustomTargetSlot(slot);
 
-    //Lets the given server take the counterpart of the current LocalEndPoint.
+    // Lets the given server take the counterpart of the current LocalEndPoint.
     server.internalTakeBackendEndPoint(getStoredCounterPart());
   }
 
@@ -55,18 +55,18 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given target is null.
    */
   private LocalEndPoint(final ISlot slot) {
-    //Asserts that the given slot is not null.
+    // Asserts that the given slot is not null.
     Validator.assertThat(slot).thatIsNamed(ISlot.class).isNotNull();
 
     peerType = PeerType.FRONTEND;
 
-    //Creates the counterpart of the current LocalEndPoint.
+    // Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
 
-    //Sets the target of the counterpart of the current LocalEndPoint.
+    // Sets the target of the counterpart of the current LocalEndPoint.
     getStoredCounterPart().setCustomTargetSlot(slot.getName());
 
-    //Lets the given slot take the counterpart of the current LocalEndPoint.
+    // Lets the given slot take the counterpart of the current LocalEndPoint.
     slot.takeBackendEndPoint(getStoredCounterPart());
   }
 
@@ -79,14 +79,14 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private LocalEndPoint(final LocalEndPoint counterpart) {
     peerType = PeerType.BACKEND;
 
-    //Asserts that the given counterpart is not null.
+    // Asserts that the given counterpart is not null.
     Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    //Creates a close dependency from the current LocalEndPoint to the given
-    //counterpart.
+    // Creates a close dependency from the current LocalEndPoint to the given
+    // counterpart.
     createCloseDependencyTo(counterpart);
 
-    //Sets the counterpart of the current LocalEndPoint.
+    // Sets the counterpart of the current LocalEndPoint.
     this.counterpart = counterpart;
   }
 
@@ -141,7 +141,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -153,13 +153,13 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public void sendMessage(final String message) {
-    //Asserts that the given message is not null.
+    // Asserts that the given message is not null.
     Validator.assertThat(message).thatIsNamed(LowerCaseVariableNameCatalog.MESSAGE).isNotNull();
 
-    //Asserts that the current LocalEndPoint is open.
+    // Asserts that the current LocalEndPoint is open.
     assertIsOpen();
 
-    //Lets the counterpart of the current LocalEndPoint receive the given message.
+    // Lets the counterpart of the current LocalEndPoint receive the given message.
     counterpart.receiveMessage(message);
   }
 

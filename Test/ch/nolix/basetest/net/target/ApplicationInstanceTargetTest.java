@@ -16,7 +16,7 @@ import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 final class ApplicationInstanceTargetTest extends StandardTest {
   @Test
   void testCase_forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections() {
-    //execution
+    // execution
     final var result = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
@@ -25,7 +25,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.SSL);
 
-    //verification
+    // verification
     expect(result.getIpOrDomain()).isEqualTo("nolix.tech");
     expect(result.getPort()).isEqualTo(PortCatalog.HTTPS);
     expect(result.getApplicationInstanceName()).isEqualTo("Demo Application");
@@ -35,7 +35,7 @@ final class ApplicationInstanceTargetTest extends StandardTest {
 
   @Test
   void testCase_toUrl_forHttpPortAndNoneSecurityMode() {
-    //setup
+    // setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
@@ -44,16 +44,16 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.NONE);
 
-    //execution
+    // execution
     final var result = testUnit.toUrl();
 
-    //verification
+    // verification
     expect(result).isEqualTo("http://nolix.tech?app=demo_application");
   }
 
   @Test
   void testCase_toUrl_forHttpsPortAndSSLSecurityMode() {
-    //setup
+    // setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
@@ -62,16 +62,16 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.SSL);
 
-    //execution
+    // execution
     final var result = testUnit.toUrl();
 
-    //verification
+    // verification
     expect(result).isEqualTo("https://nolix.tech?app=demo_application");
   }
 
   @Test
   void testCase_toUrl_forCustomPortAndNoneSecurityMode() {
-    //setup
+    // setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
@@ -80,16 +80,16 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.NONE);
 
-    //execution
+    // execution
     final var result = testUnit.toUrl();
 
-    //verification
+    // verification
     expect(result).isEqualTo("http://nolix.tech:50000?app=demo_application");
   }
 
   @Test
   void testCase_toUrl_forCustomPortAndSslSecurityMode() {
-    //setup
+    // setup
     final var testUnit = ApplicationInstanceTarget
       .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityModeForConnections(
         "nolix.tech",
@@ -98,10 +98,10 @@ final class ApplicationInstanceTargetTest extends StandardTest {
         "demo_application",
         SecurityMode.SSL);
 
-    //execution
+    // execution
     final var result = testUnit.toUrl();
 
-    //verification
+    // verification
     expect(result).isEqualTo("https://nolix.tech:50000?app=demo_application");
   }
 }

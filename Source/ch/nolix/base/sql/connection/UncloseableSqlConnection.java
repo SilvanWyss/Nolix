@@ -111,6 +111,6 @@ public final class UncloseableSqlConnection implements ISqlConnection {
    */
   @Override
   public void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 }

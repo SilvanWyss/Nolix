@@ -18,16 +18,16 @@ final class SystemArchitectureTest {
 
   @Test
   void testCase_cycles() {
-    //setup
+    // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.system.(*)..").should().beFreeOfCycles();
 
-    //execution & verification
+    // execution & verification
     rule.check(TEST_UNIT);
   }
 
   @Test
   void testCase_dependencies() {
-    //setup
+    // setup
     final var rule = //
     ArchRuleDefinition
       .classes()
@@ -41,7 +41,7 @@ final class SystemArchitectureTest {
         "java..",
         "javax..");
 
-    //execution & verification
+    // execution & verification
     rule.check(TEST_UNIT);
   }
 }

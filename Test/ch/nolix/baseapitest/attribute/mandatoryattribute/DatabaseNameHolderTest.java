@@ -15,15 +15,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.DatabaseNameHolder;
 final class DatabaseNameHolderTest extends StandardTest {
   @Test
   void testCase_getNameInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(DatabaseNameHolder.class);
     Mockito.when(testUnit.getDatabaseNameInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getDatabaseName()).thenReturn("database");
 
-    //execution
+    // execution
     final var result = testUnit.getDatabaseNameInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'database'");
   }
 }

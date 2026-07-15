@@ -16,60 +16,60 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalNameHolder;
 final class OptionalNameHolderTest extends StandardTest {
   @Test
   void testCase_getNameInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.getNameInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(true);
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.getNameInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'name'");
   }
 
   @Test
   void testCase_hasName_whenHasTheGivenName() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(true);
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.hasName("name");
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasName_whenHasAnotherName() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(true);
     Mockito.when(testUnit.getName()).thenReturn("name");
 
-    //execution
+    // execution
     final var result = testUnit.hasName("Name");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_hasName_whenDoesNotHaveAName() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalNameHolder.class);
     Mockito.when(testUnit.hasName(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasName()).thenReturn(false);
 
-    //execution
+    // execution
     final var result = testUnit.hasName("name");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

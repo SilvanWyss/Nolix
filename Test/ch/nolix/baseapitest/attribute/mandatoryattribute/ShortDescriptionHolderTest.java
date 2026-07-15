@@ -15,15 +15,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ShortDescriptionHolder;
 final class ShortDescriptionHolderTest extends StandardTest {
   @Test
   void testCase_getShortDescriptionInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(ShortDescriptionHolder.class);
     Mockito.when(testUnit.getShortDescriptionInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getShortDescription()).thenReturn("short_description");
 
-    //execution
+    // execution
     final var result = testUnit.getShortDescriptionInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'short_description'");
   }
 }

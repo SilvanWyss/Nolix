@@ -141,15 +141,15 @@ public final class Calculator {
    *                          count of the given xValues.
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
-    //Asserts that the given degree is not negative.
+    // Asserts that the given degree is not negative.
     Validator.assertThat(degree).thatIsNamed(LowerCaseVariableNameCatalog.DEGREE).isNotNegative();
 
-    //Asserts that the given degree is not bigger than the count of the given
-    //xValues.
+    // Asserts that the given degree is not bigger than the count of the given
+    // xValues.
     Validator.assertThat(degree).thatIsNamed(LowerCaseVariableNameCatalog.DEGREE).isNotBiggerThan(xValues.length);
 
-    //Asserts that the count of the given yValues equals the count of the given
-    //xValues.
+    // Asserts that the count of the given yValues equals the count of the given
+    // xValues.
     Validator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 
     final var factorMatrix = Matrix.withRowCountAndColumnCount(xValues.length, degree + 1);

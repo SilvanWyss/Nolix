@@ -13,10 +13,10 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.PascalCaseVariableNam
  * @author Silvan Wyss
  */
 public final class DatabasePropertyColumnNameCatalog {
-  //'Key' is a reserved word in MSSQL.
+  // 'Key' is a reserved word in MSSQL.
   public static final String KEY = PascalCaseVariableNameCatalog.KEY + CharacterCatalog.UNDERSCORE;
 
-  //'Value' is a reserved word in MSSQL.
+  // 'Value' is a reserved word in MSSQL.
   public static final String VALUE = PascalCaseVariableNameCatalog.VALUE + CharacterCatalog.UNDERSCORE;
 
   /**

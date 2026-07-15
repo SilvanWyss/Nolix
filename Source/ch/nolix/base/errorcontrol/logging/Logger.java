@@ -10,19 +10,19 @@ import ch.nolix.baseapi.errorcontrol.logging.HarmLevel;
  * @author Silvan Wyss
  */
 public final class Logger {
-  //static attribute
+  // static attribute
   private static boolean active = true;
 
-  //static attribute
+  // static attribute
   private static LogWorker logWorker;
 
-  //static multi-attribute
+  // static multi-attribute
   private static final List<AbstractLogHandler> abstractLogHandlers = List.createEmpty();
 
   private Logger() {
   }
 
-  //static initialization
+  // static initialization
   static {
     abstractLogHandlers.addAtBegin(new StandardConsoleLogHandler());
     abstractLogHandlers.addAtBegin(new FileLogHandler());

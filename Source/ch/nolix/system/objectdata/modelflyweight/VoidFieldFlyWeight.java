@@ -22,6 +22,6 @@ public final class VoidFieldFlyWeight implements IFieldFlyWeight {
    */
   @Override
   public void noteUpdate() {
-    //Does nothing.
+    // Does nothing.
   }
 }

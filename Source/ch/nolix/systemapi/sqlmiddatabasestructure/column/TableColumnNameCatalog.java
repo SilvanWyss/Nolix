@@ -9,7 +9,7 @@ package ch.nolix.systemapi.sqlmiddatabasestructure.column;
  * @author Silvan Wyss
  */
 public final class TableColumnNameCatalog {
-  //'Id' is a reserved word in MSSQL databases.
+  // 'Id' is a reserved word in MSSQL databases.
   public static final String ID = "Id_";
 
   public static final String NAME = "Name";

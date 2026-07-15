@@ -17,13 +17,13 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_1() {
-    //setup
+    // setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
       p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal.valueOf(2.5), 4))
       .isEqualTo(3);
     expect(testUnit.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal.valueOf(12.5), 4))
@@ -36,13 +36,13 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   @Test
   void test_getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne_2() {
-    //setup
+    // setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
       p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal.valueOf(2.5), 1))
       .isEqualTo(-1);
     expect(testUnit.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal.valueOf(2.5), 2))
@@ -55,13 +55,13 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   @Test
   void test_getSquaredMagnitudeOfValueAtOneBasedIndex() {
-    //setup
+    // setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
       p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(1)).isEqualTo(BigDecimal.valueOf(0.0).setScale(20));
     expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(2)).isEqualTo(BigDecimal.valueOf(1.0).setScale(20));
     expect(testUnit.getSquaredMagnitudeOfValueAtOneBasedIndex(3)).isEqualTo(BigDecimal.valueOf(4.0).setScale(20));
@@ -70,13 +70,13 @@ final class ComplexSequenceDefinedBy1PredecessorTest extends StandardTest {
 
   @Test
   void test_getValueAtOneBasedIndex() {
-    //setup
+    // setup
     final var testUnit = //
     ComplexSequenceDefinedBy1Predecessor.withFirstValueAndNextValueFunction(
       ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20),
       p -> p.getPower2().getSum(ComplexNumber.withRealComponentAndImaginaryComponent(1.0, 0.0)));
 
-    //execution & verification
+    // execution & verification
     expect(testUnit.getValueAtOneBasedIndex(1))
       .isEqualTo(ComplexNumber.withRealComponentAndImaginaryComponentAndDecimalPlaceCount(0.0, 0.0, 20));
     expect(testUnit.getValueAtOneBasedIndex(2))

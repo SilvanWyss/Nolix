@@ -15,7 +15,7 @@ public final class ExtendedStringMediator extends StringMediator {
    * @param value
    */
   private ExtendedStringMediator(final String value) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     super(value);
   }
 

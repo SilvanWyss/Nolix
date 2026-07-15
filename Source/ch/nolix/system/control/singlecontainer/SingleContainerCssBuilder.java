@@ -23,7 +23,7 @@ extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ISingleContainer control,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -34,7 +34,7 @@ extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
     final ISingleContainer control,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -44,7 +44,7 @@ extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final ISingleContainer control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -55,6 +55,6 @@ extends AbstractControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
     final ISingleContainer control,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

@@ -18,14 +18,14 @@ import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 final class LayerValidatorTest extends StandardTest {
   @Test
   void testCase_assertBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {
-    //setup
+    // setup
     final var layer = new Layer();
     final var testUnit = new LayerValidator();
 
-    //setup verification
+    // setup verification
     expect(layer.belongsToGui()).isFalse();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertBelongsToGui(layer))
       .throwsException()
       .ofType(ArgumentDoesNotBelongToParentException.class);
@@ -33,42 +33,42 @@ final class LayerValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertBelongsToGui_whenTheGivenLayerBelongsToAGui() {
-    //setup
+    // setup
     final var layer = new Layer();
     new WebGui().pushLayer(layer);
     final var testUnit = new LayerValidator();
 
-    //setup verification
+    // setup verification
     expect(layer.belongsToGui()).isTrue();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertBelongsToGui(layer)).doesNotThrowException();
   }
 
   @Test
   void testCase_assertDoesNotBelongsToGui_whenTheGivenLayerDoesNotBelongToAGui() {
-    //setup
+    // setup
     final var layer = new Layer();
     final var testUnit = new LayerValidator();
 
-    //setup verification
+    // setup verification
     expect(layer.belongsToGui()).isFalse();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer)).doesNotThrowException();
   }
 
   @Test
   void testCase_assertDoesNotBelongToGui_whenTheGivenLayerBelongsToAGui() {
-    //setup
+    // setup
     final var layer = new Layer();
     new WebGui().pushLayer(layer);
     final var testUnit = new LayerValidator();
 
-    //setup verification
+    // setup verification
     expect(layer.belongsToGui()).isTrue();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertDoesNotBelongToGui(layer))
       .throwsException()
       .ofType(ArgumentBelongsToParentException.class);

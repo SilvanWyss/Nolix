@@ -151,10 +151,10 @@ implements ILinkedList<E> {
    */
   @Override
   public void addAtBegin(final Iterable<? extends E> elements) {
-    //Asserts that the given elements is not null.
+    // Asserts that the given elements is not null.
     Validator.assertThat(elements).thatIsNamed(PluralLowerCaseVariableNameCatalog.ELEMENTS).isNotNull();
 
-    //Handles the case that the given elements is not empty.
+    // Handles the case that the given elements is not empty.
     if (ITERABLE_EXAMINER.containsAny(elements)) {
       final LinkedListNode<E> newFirstNode = LinkedListNode.withElement(elements.iterator().next());
 
@@ -191,7 +191,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void addAtEnd(final E element) {
-    //Creates new node.
+    // Creates new node.
     final var node = LinkedListNode.withElement(element);
 
     if (isEmpty()) {
@@ -222,7 +222,7 @@ implements ILinkedList<E> {
    */
   @Override
   public <T extends E> void addAtEnd(@SuppressWarnings("unchecked") T... elements) {
-    //Iterates the given elements.
+    // Iterates the given elements.
     for (final var e : elements) {
       addAtEnd(e);
     }
@@ -236,7 +236,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void clear() {
-    //Handles the case that the current list contains any elements.
+    // Handles the case that the current list contains any elements.
     if (containsAny()) {
       var iterator = firstNode;
       while (iterator.hasNextNode()) {
@@ -258,12 +258,12 @@ implements ILinkedList<E> {
    */
   @Override
   public boolean equals(final Object object) {
-    //Handles the case that the given object is a LinkedList.
+    // Handles the case that the given object is a LinkedList.
     if (object instanceof final LinkedList<?> linkedList) {
       return containsExactlyInSameOrder(linkedList);
     }
 
-    //Handles the case that the given object is not a LinkedList.
+    // Handles the case that the given object is not a LinkedList.
     return false;
   }
 
@@ -275,10 +275,10 @@ implements ILinkedList<E> {
    */
   @Override
   public ILinkedList<E> getCopy() {
-    //Creates a LinkedList.
+    // Creates a LinkedList.
     final var copy = new LinkedList<E>();
 
-    //Iterates the current LinkedList.
+    // Iterates the current LinkedList.
     for (final var e : this) {
       copy.addAtEnd(e);
     }
@@ -317,10 +317,10 @@ implements ILinkedList<E> {
       return lastNode.getElement();
     }
 
-    //Iterates the current LinkedList.
+    // Iterates the current LinkedList.
     var index = 1;
     for (final var e : this) {
-      //Asserts that the current index is the given index.
+      // Asserts that the current index is the given index.
       if (index == oneBasedIndex) {
         return e;
       }
@@ -439,7 +439,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void removeFirst() {
-    //Enumerates the element count of the current LinkedList.
+    // Enumerates the element count of the current LinkedList.
     switch (getCount()) {
       case 0:
         break;
@@ -459,7 +459,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void removeFirstStrictly() {
-    //Enumerates the element count of the current LinkedList.
+    // Enumerates the element count of the current LinkedList.
     switch (getCount()) {
       case 0:
         throw EmptyArgumentException.forArgument(this);
@@ -480,7 +480,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void removeFirst(final Predicate<E> selector) {
-    //Handles the case that the current LinkedList contains elements.
+    // Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
       removeFirstWhenContainsAny(selector);
     }
@@ -494,7 +494,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void removeFirstOccurrenceOf(final Object element) {
-    //Handles the case that the current LinkedList contains any.
+    // Handles the case that the current LinkedList contains any.
     if (containsAny()) {
       removeFirstOccurrenceOfWhenContainsAny(element);
     }
@@ -507,7 +507,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void removeLast() {
-    //Handles the case that the current LinkedList contains elements.
+    // Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
       removeLastWhenContainsAny();
     }
@@ -532,7 +532,7 @@ implements ILinkedList<E> {
    */
   @Override
   public void removeStrictlyFirstOccurrenceOf(Object element) {
-    //Handles the case that the current LinkedList contains any.
+    // Handles the case that the current LinkedList contains any.
     if (containsAny()) {
       removeStrictlyFirstOccurrenceOfWhenContainsAny(element);
     }
@@ -713,11 +713,11 @@ implements ILinkedList<E> {
    * that the current {@link LinkedList} contains elements.
    */
   private void removeLastWhenContainsAny() {
-    //Handles the case that the current list contains 1 element.
+    // Handles the case that the current list contains 1 element.
     if (containsOne()) {
       clear();
 
-      //Handles the case that the current list contains several elements.
+      // Handles the case that the current list contains several elements.
     } else {
       var iterator = firstNode;
 
@@ -740,7 +740,7 @@ implements ILinkedList<E> {
    *                                               a next node.
    */
   private void removeNextNode(final LinkedListNode<E> node) {
-    //Asserts that the given node is not null.
+    // Asserts that the given node is not null.
     Validator.assertThat(node).thatIsNamed(LowerCaseVariableNameCatalog.NODE).isNotNull();
 
     final var nextNode = node.getNextNode();

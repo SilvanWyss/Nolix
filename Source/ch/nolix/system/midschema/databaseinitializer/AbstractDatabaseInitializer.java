@@ -25,7 +25,7 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
         initializeDatabase();
         break;
       case INITIALIZED:
-        //Does nothing.
+        // Does nothing.
         break;
       case INVALID:
         throw GeneralException.withErrorMessage("The database has a schema that does not suit.");

@@ -16,41 +16,41 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentExcep
 abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeContains1ChildNode() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
-    //execution
+    // execution
     final N result = testUnit.getStoredSingleChildNode();
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("b");
   }
 
   @Test
   void testCase_getStoredChildNodeAtOneBasedIndex() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
-    //execution
+    // execution
     final N result1 = testUnit.getStoredChildNodeAtOneBasedIndex(1);
     final N result2 = testUnit.getStoredChildNodeAtOneBasedIndex(2);
     final N result3 = testUnit.getStoredChildNodeAtOneBasedIndex(3);
 
-    //verification part 1
+    // verification part 1
     expect(result1.toString()).isEqualTo("b");
     expect(result2.toString()).isEqualTo("c");
     expect(result3.toString()).isEqualTo("d");
 
-    //verification part 2
+    // verification part 2
     expectRunning(
       () -> testUnit.getStoredChildNodeAtOneBasedIndex(-1)).throwsException()
       .ofType(ArgumentIsOutOfRangeException.class);
@@ -74,46 +74,46 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   "Lorem,Ipsum",
   "Lorem Ipsum" })
   void testCase_getHeader(final String header) {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeaderAndChildNodes(header);
 
-    //execution
+    // execution
     final var result = testUnit.getHeader();
 
-    //verification
+    // verification
     expect(result).isEqualTo(header);
   }
 
   @Test
   void testCase_getStoredSingleChildNode_1A() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 
-    //execution
+    // execution
     final N result = testUnit.getStoredSingleChildNode();
 
-    //verification
+    // verification
     expect(result.toString()).isEqualTo("b");
   }
 
   @Test
   void testCase_getStoredSingleChildNode_1B() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution
+    // execution
     expectRunning(testUnit::getStoredSingleChildNode).throwsException().ofType(EmptyArgumentException.class);
   }
 
   @Test
   void testCase_toString_1() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("a(b,c,d)");
   }
 
@@ -124,13 +124,13 @@ abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   "'Lorem,', 'Lorem$M'"
   })
   void testCase_toString_2(final String header, final String expectedResult) {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeader(header);
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 

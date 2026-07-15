@@ -7,5 +7,5 @@ package ch.nolix.systemapi.element.base;
  * @author Silvan Wyss
  */
 public interface IElement extends AttributesRepresentable, SpecificationRepresentable {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

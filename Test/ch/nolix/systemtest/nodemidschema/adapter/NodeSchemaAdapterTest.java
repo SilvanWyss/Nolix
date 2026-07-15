@@ -21,18 +21,18 @@ import ch.nolix.systemapi.midschema.structure.TableIdentification;
 final class NodeSchemaAdapterTest extends StandardTest {
   @Test
   void testCase_addColumn() {
-    //parameter definition
+    // parameter definition
     final var tableId = "table_id";
     final var tableName = "table_name";
     final var columnName = "column_name";
 
-    //Setups nodeDatabase.
+    // Setups nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
 
-    //Setups tableDto.
+    // Setups tableDto.
     final var tableDto = new TableDto(tableId, tableName, ImmutableList.createEmpty());
 
-    //Setups columnDto.
+    // Setups columnDto.
     final var columnDto = //
     new ColumnDto(
       "column_id",
@@ -42,59 +42,59 @@ final class NodeSchemaAdapterTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-    //Setups testUnit.
+    // Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
 
-    //execution
+    // execution
     testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
-    //verification
+    // verification
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTable(tableName).columns()).contains(c -> c.name().equals(columnName));
   }
 
   @Test
   void testCase_addTable() {
-    //parameter definition
+    // parameter definition
     final var tableName = "table_name";
 
-    //Setups nodeDatabase.
+    // Setups nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
 
-    //Setups tableDto.
+    // Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
 
-    //Setups testUnit.
+    // Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
 
-    //setup verification
+    // setup verification
     expect(testUnit.isChangeFree()).isTrue();
 
-    //execution
+    // execution
     testUnit.addTable(tableDto);
     testUnit.saveChanges();
 
-    //verification
+    // verification
     expect(testUnit.isChangeFree());
     expect(testUnit.loadTables()).contains(t -> t.name().equals(tableName));
   }
 
   @Test
   void testCase_deleteColumn() {
-    //parameter definition
+    // parameter definition
     final var tableId = "table_id";
     final var tableName = "table_name";
     final var columnName = "column_name";
 
-    //Setups nodeDatabase.
+    // Setups nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
 
-    //Setups tableDto.
+    // Setups tableDto.
     final var tableDto = new TableDto(tableId, tableName, ImmutableList.createEmpty());
 
-    //Setups columnDto
+    // Setups columnDto
     final var columnDto = //
     new ColumnDto(
       "column_id",
@@ -104,42 +104,42 @@ final class NodeSchemaAdapterTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-    //Setups testUnit.
+    // Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
     testUnit.addTable(tableDto);
     testUnit.addColumn(new TableIdentification(tableId, tableName), columnDto);
     testUnit.saveChanges();
 
-    //execution
+    // execution
     testUnit.deleteColumn(new TableIdentification(tableId, tableName), columnName);
     testUnit.saveChanges();
 
-    //verification
+    // verification
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTable(tableName).columns()).isEmpty();
   }
 
   @Test
   void testCase_deleteTable() {
-    //parameter definition
+    // parameter definition
     final var tableName = "table_name";
 
-    //Setups nodeDatabase.
+    // Setups nodeDatabase.
     final var nodeDatabase = MutableNode.createEmpty();
 
-    //Setups testUnit.
+    // Setups testUnit.
     final var testUnit = NodeSchemaAdapter.forNodeDatabase(nodeDatabase);
 
-    //Setups tableDto.
+    // Setups tableDto.
     final var tableDto = new TableDto("table_id", tableName, ImmutableList.createEmpty());
     testUnit.addTable(tableDto);
     testUnit.saveChanges();
 
-    //execution
+    // execution
     testUnit.deleteTable(tableName);
     testUnit.saveChanges();
 
-    //verification
+    // verification
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.loadTables()).isEmpty();
   }

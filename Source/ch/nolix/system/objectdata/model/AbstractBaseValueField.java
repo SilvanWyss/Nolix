@@ -94,6 +94,6 @@ public abstract class AbstractBaseValueField<V> extends AbstractField implements
    */
   @Override
   protected final void noteInsertIntoDatabase() {
-    //Does nothing.
+    // Does nothing.
   }
 }

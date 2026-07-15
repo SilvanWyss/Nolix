@@ -16,10 +16,10 @@ public final class ARModel extends AbstractStatisticalModel {
   private final double[] pCoefficients;
 
   private ARModel(final int pOrder, final double[] inputValues) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     super(pOrder, inputValues);
 
-    //Creates factor1 matrix.
+    // Creates factor1 matrix.
     final var factor1Matrix = Matrix.withRowCountAndColumnCount(inputValues.length - pOrder, pOrder + 1);
     for (var i = 1; i <= factor1Matrix.getRowCount(); i++) {
       for (var j = 1; j < factor1Matrix.getColumnCount(); j++) {
@@ -29,22 +29,22 @@ public final class ARModel extends AbstractStatisticalModel {
       factor1Matrix.setValue(i, factor1Matrix.getColumnCount(), 1);
     }
 
-    //Creates product matrix.
+    // Creates product matrix.
     final var productMatrix = Matrix.withRowCountAndColumnCount(inputValues.length - pOrder, 1);
     for (var i = pOrder; i < inputValues.length; i++) {
       productMatrix.setValue(i - pOrder + 1, 1, inputValues[i]);
     }
 
-    //Calculates factor2 matrix.
+    // Calculates factor2 matrix.
     final var factor2Matrix = factor1Matrix.getMinimalFactorMatrix(productMatrix);
 
-    //Sets p-coefficients.
+    // Sets p-coefficients.
     pCoefficients = new double[pOrder];
     for (var i = 0; i < pOrder; i++) {
       pCoefficients[i] = factor2Matrix.getValue(i + 1, 1);
     }
 
-    //Sets constant.
+    // Sets constant.
     constant = factor2Matrix.getValue(factor2Matrix.getSize(), 1);
   }
 

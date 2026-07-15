@@ -16,10 +16,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 final class ForIpOrDomainCaptorTest extends StandardTest {
   @Test
   void testCase_forIpOrDomain_whenDoesNotHaveNext() {
-    //setup
+    // setup
     final var testUnit = new ForHostCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.forHost("nolix.ch"))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -27,41 +27,41 @@ final class ForIpOrDomainCaptorTest extends StandardTest {
 
   @Test
   void testCase_forIpOrDomain_whenHasNext() {
-    //parameter definition
+    // parameter definition
     final var domain = "nolix.ch";
 
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForHostCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.forHost(domain);
 
-    //verification
+    // verification
     expect(testUnit.getHost()).isEqualTo(domain);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_forLocalAddress_whenHasNext() {
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForHostCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.forLocalHost();
 
-    //verification
+    // verification
     expect(testUnit.getHost()).isEqualTo("127.0.0.1");
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_getIpOrDomain_whenDoesNotHaveIpOrDomain() {
-    //setup
+    // setup
     final var testUnit = new ForHostCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getHost).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 }

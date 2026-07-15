@@ -9,7 +9,7 @@ import ch.nolix.base.environment.license.AbstractLicense;
  * @author Silvan Wyss
  */
 public final class Nolix2026Pro extends AbstractLicense {
-  //key = '45680060'
+  // key = '45680060'
   @Override
   protected boolean acceptsRefinedKey(final String filteredKey) {
     try {

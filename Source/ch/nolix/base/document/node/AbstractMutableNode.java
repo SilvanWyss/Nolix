@@ -23,14 +23,14 @@ implements IMutableNode<N> {
    */
   @Override
   public final N addPostfixToHeader(final String postfix) {
-    //Asserts that the given postfix is not blank.
+    // Asserts that the given postfix is not blank.
     Validator.assertThat(postfix).thatIsNamed(LowerCaseVariableNameCatalog.POSTFIX).isNotBlank();
 
-    //Handles the case that the current BaseMutableNode does not have a header.
+    // Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
       setHeader(postfix);
 
-      //Handles the case that the current BaseMutableNode has a header.
+      // Handles the case that the current BaseMutableNode has a header.
     } else {
       setHeader(getHeader() + postfix);
     }
@@ -43,14 +43,14 @@ implements IMutableNode<N> {
    */
   @Override
   public final N addPrefixToHeader(final String prefix) {
-    //Asserts that the given prefix is not blank.
+    // Asserts that the given prefix is not blank.
     Validator.assertThat(prefix).thatIsNamed(LowerCaseVariableNameCatalog.PREFIX).isNotBlank();
 
-    //Handles the case that the current BaseMutableNode does not have a header.
+    // Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
       setHeader(prefix);
 
-      //Handles the case that the current BaseMutableNode has a header.
+      // Handles the case that the current BaseMutableNode has a header.
     } else {
       setHeader(prefix + getHeader());
     }

@@ -145,7 +145,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
-    //This part is not mandatory, but provides a better performance.
+    // This part is not mandatory, but provides a better performance.
     final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
     if (referencedEntity != null && referencedEntity.belongsToTable()) {
       return (ITable<E>) referencedEntity.getStoredParentTable();
@@ -168,7 +168,7 @@ public final class Reference<E extends IEntity> extends AbstractBaseReference<E>
     return FieldType.REFERENCE;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
     final var id = (String) nullableValue;

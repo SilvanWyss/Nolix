@@ -22,61 +22,61 @@ final class ToStringMethodTest extends StandardTest {
   "4, '[1.0,0.0,0.0,0.0;0.0,1.0,0.0,0.0;0.0,0.0,1.0,0.0;0.0,0.0,0.0,1.0]'"
   })
   void testCase_toString_whenIsIdentityMatrix(final int size, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = Matrix.createIdendityMatrixWithLength(size);
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //execution
+    // execution
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_toString_whenMatrixIs1x1Matrix() {
-    //setup
+    // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(1, 1);
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //execution
+    // execution
     expect(result).isEqualTo("[0.0]");
   }
 
   @Test
   void testCase_toString_whenMatrixIs2x2Matrix() {
-    //setup
+    // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(2, 2);
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //execution
+    // execution
     expect(result).isEqualTo("[0.0,0.0;0.0,0.0]");
   }
 
   @Test
   void testCase_toString_whenMatrixIs3x3Matrix() {
-    //setup
+    // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(3, 3);
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //execution
+    // execution
     expect(result).isEqualTo("[0.0,0.0,0.0;0.0,0.0,0.0;0.0,0.0,0.0]");
   }
 
   @Test
   void testCase_toString_whenMatrixIs4x4Matrix() {
-    //setup
+    // setup
     final var testUnit = Matrix.withRowCountAndColumnCount(4, 4);
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //execution
+    // execution
     expect(result).isEqualTo("[0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0;0.0,0.0,0.0,0.0]");
   }
 }

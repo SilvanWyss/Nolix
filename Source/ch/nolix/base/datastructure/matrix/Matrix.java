@@ -82,10 +82,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    */
   @SuppressWarnings("unchecked")
   public Matrix<E> addColumn(final E... elements) {
-    //Collects allElements.
+    // Collects allElements.
     final var elementContainer = ExtendedIterableView.forArray(elements);
 
-    //Calls other method.
+    // Calls other method.
     return addColumn(elementContainer);
   }
 
@@ -104,17 +104,17 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    *                                  {@link Matrix}.
    */
   public Matrix<E> addColumn(final Iterable<E> elements) {
-    //Asserts that the given elements are not null.
+    // Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
     final var lElements = ExtendedIterableView.forIterable(elements);
 
-    //Handles the case that the current {@link Matrix} is empty.
+    // Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
         memberElements = new Object[lElements.getCount()][1];
 
-        //Iterates the given elements.
+        // Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
           memberElements[i][0] = e;
@@ -123,10 +123,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
         }
       }
 
-      //Handles the case that the current matrix is not empty.
+      // Handles the case that the current matrix is not empty.
     } else {
-      //Asserts that as many elements are given as the number of rows of the current
-      //matrix.
+      // Asserts that as many elements are given as the number of rows of the current
+      // matrix.
       Validator
         .assertThat(lElements.getCount())
         .thatIsNamed("number of the given elements")
@@ -134,7 +134,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
       final var columnCount = getColumnCount();
 
-      //Iterates the given elements.
+      // Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
         final var row = Arrays.copyOf(memberElements[i], columnCount + 1);
@@ -165,10 +165,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    */
   @SuppressWarnings("unchecked")
   public Matrix<E> addRow(final E... elements) {
-    //Creates elementsContainerView.
+    // Creates elementsContainerView.
     final var elementsContainerView = ExtendedIterableView.forArray(elements);
 
-    //Calls other method.
+    // Calls other method.
     return addRow(elementsContainerView);
   }
 
@@ -187,17 +187,17 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    *                                  {@link Matrix}.
    */
   public Matrix<E> addRow(final Iterable<E> elements) {
-    //Asserts that the given elements are not null.
+    // Asserts that the given elements are not null.
     Validator.assertThatTheElements(elements).areNotNull();
 
     final var lElements = ExtendedIterableView.forIterable(elements);
 
-    //Handles the case that the current matrix is empty.
+    // Handles the case that the current matrix is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
         memberElements = new Object[1][lElements.getCount()];
 
-        //Iterates the given elements.
+        // Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
           memberElements[0][i] = e;
@@ -206,10 +206,10 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
         }
       }
 
-      //Handles the case that the current matrix is not empty.
+      // Handles the case that the current matrix is not empty.
     } else {
-      //Asserts that as many elements are given as the number of columns of the
-      //current matrix.
+      // Asserts that as many elements are given as the number of columns of the
+      // current matrix.
       Validator
         .assertThat(lElements.getCount())
         .thatIsNamed("number of the given elements")
@@ -219,7 +219,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
       final var newElements = Arrays.copyOf(memberElements, rowCount + 1);
       newElements[rowCount] = new Object[getColumnCount()];
 
-      //Iterates the given elements.
+      // Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
         newElements[rowCount][i] = e;
@@ -261,12 +261,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    */
   @Override
   public int getColumnCount() {
-    //Handles the case that the current {@link Matrix} is empty.
+    // Handles the case that the current {@link Matrix} is empty.
     if (memberElements.length < 1) {
       return 0;
     }
 
-    //Handles the case that the current {@link Matrix} is not empty.
+    // Handles the case that the current {@link Matrix} is not empty.
     return memberElements[0].length;
   }
 
@@ -279,7 +279,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    *                          elements of the current {@link Matrix}.
    */
   public int getColumnIndexOf(final int index) {
-    //Asserts that the current matrix contains an element at the given index.
+    // Asserts that the current matrix contains an element at the given index.
     assertContainsAt(index);
 
     final var columnCount = getColumnCount();
@@ -298,7 +298,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   public ExtendedIterable<IMatrixColumn<E>> getColumns() {
     final ILinkedList<IMatrixColumn<E>> columns = LinkedList.createEmpty();
 
-    //Iterates the columns of the current matrix.
+    // Iterates the columns of the current matrix.
     for (var i = 1; i <= getColumnCount(); i++) {
       columns.addAtEnd(MatrixColumn.forMatrixAndOneBasedColumnIndex(this, i));
     }
@@ -349,8 +349,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    *                          of columns of the current {@link Matrix}.
    */
   public int getIndexOf(final int rowIndex, final int columnIndex) {
-    //Asserts that the current matrix contains an element
-    //at the given row index and the given column index.
+    // Asserts that the current matrix contains an element
+    // at the given row index and the given column index.
     assertContainsAt(rowIndex, columnIndex);
 
     return ((rowIndex - 1) * getColumnCount() + columnIndex);
@@ -384,8 +384,8 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   @Override
   @SuppressWarnings("unchecked")
   public E getStoredAtOneBasedRowIndexAndColumnIndex(final int oneBasedRowIndex, final int oneBasedColumnIndex) {
-    //Asserts that the current matrix contains an element at the given row index
-    //and column index.
+    // Asserts that the current matrix contains an element at the given row index
+    // and column index.
     assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
 
     return (E) memberElements[oneBasedRowIndex - 1][oneBasedColumnIndex - 1];
@@ -411,7 +411,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    *                          elements of the current {@link Matrix}.
    */
   public int getRowIndexOf(final int index) {
-    //Asserts that the current matrix contains an element at the given index.
+    // Asserts that the current matrix contains an element at the given index.
     assertContainsAt(index);
 
     final var columnCount = getColumnCount();
@@ -444,12 +444,12 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    */
   @Override
   public int getRowCount() {
-    //Handles the case that the current {@link Matrix} is empty.
+    // Handles the case that the current {@link Matrix} is empty.
     if (memberElements.length < 1) {
       return 0;
     }
 
-    //Handles the case that the current {@link Matrix} is not empty.
+    // Handles the case that the current {@link Matrix} is not empty.
     return memberElements.length;
   }
 
@@ -483,13 +483,13 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @throws RuntimeException if the given element is null.
    */
   public void setAt(final int index, final E element) {
-    //Asserts that the given element is not null.
+    // Asserts that the given element is not null.
     Validator
       .assertThat(element)
       .thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT)
       .isNotNull();
 
-    //Sets the given element at the given index to the current matrix.
+    // Sets the given element at the given index to the current matrix.
     memberElements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
   }
 
@@ -515,11 +515,11 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
     final int oneBasedRowIndex,
     final int oneBasedColumnIndex,
     final E element) {
-    //Asserts that the current matrix contains an element at the given row index
-    //and column index.
+    // Asserts that the current matrix contains an element at the given row index
+    // and column index.
     assertContainsAt(oneBasedRowIndex, oneBasedColumnIndex);
 
-    //Asserts that the given element is not null.
+    // Asserts that the given element is not null.
     Validator
       .assertThat(element)
       .thatIsNamed(LowerCaseVariableNameCatalog.ELEMENT)
@@ -539,13 +539,13 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    */
   @SuppressWarnings("unchecked")
   public <O> Matrix<O> toMatrix(final Function<E, O> transformer) {
-    //Creates matrix.
+    // Creates matrix.
     final var matrix = new Matrix<O>();
 
-    //Fills up the elements of the matrix.
+    // Fills up the elements of the matrix.
     matrix.memberElements = new Object[getRowCount()][getColumnCount()];
     for (var i = 0; i < getRowCount(); i++) {
-      //Iterates the columns of the current row.
+      // Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
         matrix.memberElements[i][j] = transformer.apply((E) memberElements[i][j]);
       }
@@ -554,7 +554,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
     return matrix;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Matrix} contains n elements.
@@ -570,9 +570,9 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
     leftRotatedMatrix.memberElements = leftRotatedMatrixElements;
 
-    //Iterates the rows of the left rotated matrix.
+    // Iterates the rows of the left rotated matrix.
     for (var i = 0; i < leftRotatedMatrixRowCount; i++) {
-      //Iterates the columns of the current row.
+      // Iterates the columns of the current row.
       for (var j = 0; j < leftRotatedMatrixColumnCount; j++) {
         leftRotatedMatrixElements[i][j] = memberElements[j][leftRotatedMatrixRowCount - i - 1];
       }
@@ -581,7 +581,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
     return leftRotatedMatrix;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * The time complexity of this implementation is O(n) if the current
    * {@link Matrix} contains n elements.
@@ -597,9 +597,9 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
 
     rightRotatedMatrix.memberElements = rightRotatedMatrixElements;
 
-    //Iterates the rows of the right rotated matrix.
+    // Iterates the rows of the right rotated matrix.
     for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
-      //Iterates the columns of the current row.
+      // Iterates the columns of the current row.
       for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
         rightRotatedMatrixElements[i][j] = memberElements[rightRotatedMatrixColumnCount - j - 1][i];
       }
@@ -619,13 +619,13 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
   public String toString() {
     final var stringBuilder = new StringBuilder();
 
-    //Iterates the rows of the current matrix.
+    // Iterates the rows of the current matrix.
     for (var i = 0; i < getRowCount(); i++) {
       if (i > 0) {
         stringBuilder.append(CharacterCatalog.SEMICOLON);
       }
 
-      //Iterates the columns of the current row.
+      // Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
         if (j > 0) {
           stringBuilder.append(CharacterCatalog.COMMA);

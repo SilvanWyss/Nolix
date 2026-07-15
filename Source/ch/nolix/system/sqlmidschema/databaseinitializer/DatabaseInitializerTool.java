@@ -35,26 +35,26 @@ public final class DatabaseInitializerTool implements IDatabaseInitializerTool {
    */
   @Override
   public void initializeFixTables(final ISchemaWriter schemaWriter) {
-    //Adds database property table.
+    // Adds database property table.
     schemaWriter.addTable(DatabasePropertyTableSqlSchemaDtoCatalog.DATABASE_PROPERTY_TABLE_SQL_DTO);
 
-    //Adds schema tables.
+    // Adds schema tables.
     schemaWriter.addTables(
       TableTableSqlSchemaDtoCatalog.TABLE_TABLE_SQL_DTO,
       ColumnTableSqlSchemaDtoCatalog.COLUMN_TABLE_SQL_DTO,
       ReferenceableTableSqlSchemaDtoCatalog.REFERENCEABLE_TABLE_TABLE_SQL_DTO,
       BackReferenceableColumnTableSqlSchemaDtoCatalog.BACK_REFERENCEABLE_COLUMN_TABLE_SQL_DTO);
 
-    //Adds entity index table.
+    // Adds entity index table.
     schemaWriter.addTable(EntityIndexTableSqlSchemaDtoCatalog.ENTITY_INDEX_SQL_SCHEMA_TABLE_DTO);
 
-    //Adds multi-entry tables.
+    // Adds multi-entry tables.
     schemaWriter.addTables(
       MultiValueEntryTableSqlSchemaDtoCatalog.MULTI_VALUE_ENTRY_TABLE_SQL_DTO,
       MultiReferenceEntryTableSqlSchemaDtoCatalog.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO,
       MultiBackReferenceEntryTableSqlSchemaDtoCatalog.MULTI_BACK_REFERENCE_ENTRY_TABLE_SQL_DTO);
 
-    //Saves the changes to the database.
+    // Saves the changes to the database.
     schemaWriter.saveChanges();
   }
 

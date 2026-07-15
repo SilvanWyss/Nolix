@@ -21,7 +21,7 @@ public final class DropdownMenuCssBuilder extends AbstractItemMenuCssBuilder<IDr
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IDropdownMenu control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -32,6 +32,6 @@ public final class DropdownMenuCssBuilder extends AbstractItemMenuCssBuilder<IDr
     final IDropdownMenu dropdownMenu,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

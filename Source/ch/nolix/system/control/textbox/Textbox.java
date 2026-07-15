@@ -56,7 +56,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
   private Consumer<String> updateTextAction;
 
   public Textbox() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredStyle().forStateSetBorderThickness(ControlState.BASE, 1);
@@ -131,7 +131,7 @@ public final class Textbox extends AbstractControl<ITextbox, ITextboxStyle> impl
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

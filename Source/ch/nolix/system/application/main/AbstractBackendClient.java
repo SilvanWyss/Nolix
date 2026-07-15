@@ -169,13 +169,13 @@ implements IBackendClient<S> {
    *                          references already its parent {@link Application}.
    */
   final void internalSetParentApplication(final Application<C, S> parentApplication) {
-    //Asserts that the given parent application is not null.
+    // Asserts that the given parent application is not null.
     Validator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
 
-    //Asserts that the current client does not reference its parent application.
+    // Asserts that the current client does not reference its parent application.
     assertDoesNotReferenceParentApplication();
 
-    //Sets the parent Application of the current Client.
+    // Sets the parent Application of the current Client.
     memberParentApplication = parentApplication;
   }
 

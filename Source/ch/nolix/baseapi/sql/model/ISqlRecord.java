@@ -14,5 +14,5 @@ import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
  * @author Silvan Wyss
  */
 public interface ISqlRecord extends ExtendedIterable<String>, OneBasedIndexHolder {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

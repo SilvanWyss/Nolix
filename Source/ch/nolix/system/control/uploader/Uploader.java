@@ -32,7 +32,7 @@ public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> i
   private byte[] memberFile;
 
   public Uploader() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
   }
 
@@ -109,7 +109,7 @@ public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> i
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -117,7 +117,7 @@ public final class Uploader extends AbstractControl<IUploader, IUploaderStyle> i
    */
   @Override
   public void runHtmlEvent(final String htmlEvent) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

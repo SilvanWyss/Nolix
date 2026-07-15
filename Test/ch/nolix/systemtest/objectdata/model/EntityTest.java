@@ -14,24 +14,24 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
  */
 final class EntityTest extends StandardTest {
   private static final class Thing extends Entity {
-    //This class is just a sub class without additional methods.
+    // This class is just a sub class without additional methods.
   }
 
   @Test
   void testCase_constructor() {
-    //execution
+    // execution
     final var result = new Thing();
 
-    //verification part 1: parents
+    // verification part 1: parents
     expect(result.belongsToDatabase()).isFalse();
     expect(result.belongsToTable()).isFalse();
 
-    //verification part 2: attributes
+    // verification part 2: attributes
     expect(result.getId()).hasLength(10);
     expect(result.internalGetStoredFields()).isEmpty();
     expect(result.hasSaveStamp()).isFalse();
 
-    //verification part 3: state
+    // verification part 3: state
     expect(result.getState()).is(DatabaseObjectState.NEW);
     expect(result.isNew()).isTrue();
     expect(result.isLoaded()).isFalse();
@@ -44,25 +44,25 @@ final class EntityTest extends StandardTest {
 
   @Test
   void testCase_getShortDescription() {
-    //setup
+    // setup
     final var testUnit = new Thing();
 
-    //execution
+    // execution
     final var result = testUnit.getShortDescription();
 
-    //verification
+    // verification
     expect(result).isEqualTo("Thing (id: " + testUnit.getId() + ")");
   }
 
   @Test
   void testCase_toString() {
-    //setup
+    // setup
     final var testUnit = new Thing();
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     final var shortDescription = testUnit.getShortDescription();
     expect(result).isEqualTo(shortDescription);
   }

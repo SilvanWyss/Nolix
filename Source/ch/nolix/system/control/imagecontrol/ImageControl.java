@@ -60,7 +60,7 @@ public final class ImageControl extends AbstractControl<IImageControl, IImageCon
   private Consumer<IImageControl> leftMouseButtonReleaseAction;
 
   public ImageControl() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredStyle().forStateSetBackgroundColor(ControlState.BASE, X11ColorCatalog.LIGHT_GREY);

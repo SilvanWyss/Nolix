@@ -19,21 +19,21 @@ import ch.nolix.systemapi.midschemainfo.model.TableInfoDto;
 final class EntityQueryCreatorTest extends StandardTest {
   @Test
   void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {
-    //setup
+    // setup
     final var testUnit = new EntityQueryCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createQueryToCountEntitiesWithGivenValueAtGivenColumn("MyTable", "MyColumn",
       "my_value");
 
-    //verification
+    // verification
     final var expectedResult = "SELECT COUNT(MyColumn) FROM MyTable WHERE MyColumn = 'my_value';";
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_createQueryToLoadEntitiesOfTable() {
-    //setup
+    // setup
     final var testUnit = new EntityQueryCreator();
     final var tableView = new TableInfoDto(
       "ttttttt1",
@@ -42,17 +42,17 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnInfoDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
         new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
-    //execution
+    // execution
     final var result = testUnit.createQueryToLoadEntitiesByTable(tableView);
 
-    //verification
+    // verification
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat;";
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_createQueryToLoadEntity() {
-    //setup
+    // setup
     final var testUnit = new EntityQueryCreator();
     final var tableView = new TableInfoDto(
       "ttttttt1",
@@ -61,26 +61,26 @@ final class EntityQueryCreatorTest extends StandardTest {
         new ColumnInfoDto("ccccccc1", "name", 0, FieldType.VALUE_FIELD, DataType.STRING),
         new ColumnInfoDto("ccccccc2", "year_of_birth", 0, FieldType.VALUE_FIELD, DataType.INTEGER_4BYTE)));
 
-    //execution
+    // execution
     final var result = testUnit.createQueryToLoadEntityByTableAndId("eeeeeee1", tableView);
 
-    //verification
+    // verification
     final var expectedResult = "SELECT Id, SaveStamp, name, year_of_birth FROM Cat WHERE Id = 'eeeeeee1';";
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_createQueryToLoadSchemaTimestamp() {
-    //setup
+    // setup
     final var testUnit = new EntityQueryCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createQueryToLoadSchemaTimestamp();
 
-    //verification setup
+    // verification setup
     final var expectedResult = "SELECT Value_ FROM DatabaseProperty WHERE Key_ = 'SchemaTimestamp';";
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

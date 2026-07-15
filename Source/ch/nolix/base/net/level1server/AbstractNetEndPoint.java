@@ -30,7 +30,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given targetInfoState is null.
    */
   AbstractNetEndPoint(final TargetInfoState targetInfoState) {
-    //Asserts that the given targetInfoState is not null.
+    // Asserts that the given targetInfoState is not null.
     Validator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
 
     if (targetInfoState == TargetInfoState.RECEIVED_TARGET_INFO) {
@@ -47,7 +47,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given target is blank.
    */
   AbstractNetEndPoint(final String target) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     setCustomTargetSlot(target);
 
     confirmReceivedTargetInfo();
@@ -77,7 +77,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @param rawMessage
    */
   protected final void sendRawMessage(final char rawMessage) {
-    //Calls other method.
+    // Calls other method.
     sendRawMessage(String.valueOf(rawMessage));
   }
 
@@ -113,7 +113,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    *                          already a target info.
    */
   private void confirmReceivedTargetInfo() {
-    //Asserts that the current BaseNetEndPoint has already a target info.
+    // Asserts that the current BaseNetEndPoint has already a target info.
     if (hasTargetInfo()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has already a target info");
     }
@@ -125,12 +125,12 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @return the target message of the current {@link AbstractNetEndPoint}.
    */
   private String getTargetMessage() {
-    //Handles the case that the current BaseNetEndPoint has a target.
+    // Handles the case that the current BaseNetEndPoint has a target.
     if (!hasCustomTargetSlot()) {
       return MessageType.DEFAULT_TARGET_MESSAGE.getPrefix();
     }
 
-    //Handles the case that the current BaseNetEndPoint does not have a target.
+    // Handles the case that the current BaseNetEndPoint does not have a target.
     return (MessageType.TARGET_MESSAGE.getPrefix() + getCustomTargetSlot());
   }
 
@@ -142,7 +142,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    *                          closed.
    */
   private void receiveMessage(final String message) {
-    //Asserts that the current NetEndPoint is open.
+    // Asserts that the current NetEndPoint is open.
     assertIsOpen();
 
     getStoredReceiver().accept(message);
@@ -155,10 +155,10 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if the given rawMessage is not valid.
    */
   void receiveRawMessage(final String rawMessage) {
-    //Determinate the message type of the given rawMessage.
+    // Determinate the message type of the given rawMessage.
     final var messageType = MessageType.forPrefix(rawMessage.substring(0, 1));
 
-    //Enumerates the messageType.
+    // Enumerates the messageType.
     switch (messageType) {
       case DEFAULT_TARGET_MESSAGE:
 

@@ -18,7 +18,7 @@ import ch.nolix.system.element.base.AbstractElement;
 final class ElementTest extends StandardTest {
   @Test
   void testCase_hashCode() {
-    //setup
+    // setup
     final var testUnit = new AbstractElement() {
       @Override
       public ExtendedIterable<INode<?>> getAttributes() {
@@ -26,13 +26,13 @@ final class ElementTest extends StandardTest {
       }
     };
 
-    //verification setup
+    // verification setup
     final var expectedResult = testUnit.getSpecification().hashCode();
 
-    //execution
+    // execution
     final var result = testUnit.hashCode();
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

@@ -65,7 +65,7 @@ public final class UnsignedByte {
    * @throws RuntimeException if the given number is not in [0, 255].
    */
   public static UnsignedByte fromNumber(final int number) {
-    //Asserts that the given number is in [0, 255].
+    // Asserts that the given number is in [0, 255].
     Validator.assertThat(number).thatIsNamed(LowerCaseVariableNameCatalog.NUMBER).isBetween(0, 255);
 
     return new UnsignedByte((byte) (number - 128));

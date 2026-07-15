@@ -14,10 +14,10 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class UnsignedByteTest extends StandardTest {
   @Test
   void testCase_getBitAtAsInt_1A() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
-    //execution
+    // execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -27,7 +27,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    //verification
+    // verification
     expect(resultBit1).isEqualTo(0);
     expect(resultBit2).isEqualTo(0);
     expect(resultBit3).isEqualTo(0);
@@ -40,10 +40,10 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_getBitAtAsInt_1B() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
-    //execution
+    // execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -53,7 +53,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    //verification
+    // verification
     expect(resultBit1).isEqualTo(0);
     expect(resultBit2).isEqualTo(0);
     expect(resultBit3).isEqualTo(0);
@@ -66,10 +66,10 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_getBitAtAsInt_1C() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
-    //execution
+    // execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -79,7 +79,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    //verification
+    // verification
     expect(resultBit1).isEqualTo(1);
     expect(resultBit2).isEqualTo(1);
     expect(resultBit3).isEqualTo(1);
@@ -92,10 +92,10 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_getBitAtAsInt_1D() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
-    //execution
+    // execution
     final var resultBit1 = testUnit.getBitAtAsInt(1);
     final var resultBit2 = testUnit.getBitAtAsInt(2);
     final var resultBit3 = testUnit.getBitAtAsInt(3);
@@ -105,7 +105,7 @@ final class UnsignedByteTest extends StandardTest {
     final var resultBit7 = testUnit.getBitAtAsInt(7);
     final var resultBit8 = testUnit.getBitAtAsInt(8);
 
-    //verification
+    // verification
     expect(resultBit1).isEqualTo(1);
     expect(resultBit2).isEqualTo(1);
     expect(resultBit3).isEqualTo(1);
@@ -118,111 +118,111 @@ final class UnsignedByteTest extends StandardTest {
 
   @Test
   void testCase_toBitString_1A() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
-    //execution
+    // execution
     final var result = testUnit.toBitString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("00000000");
   }
 
   @Test
   void testCase_toBitString_1B() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
-    //execution
+    // execution
     final var result = testUnit.toBitString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("00000111");
   }
 
   @Test
   void testCase_toBitString_1C() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
-    //execution
+    // execution
     final var result = testUnit.toBitString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("11100000");
   }
 
   @Test
   void testCase_toBitString_1D() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
-    //execution
+    // execution
     final var result = testUnit.toBitString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("11111111");
   }
 
   @Test
   void testCase_toByte() {
     for (var i = 0; i <= 255; i++) {
-      //setup
+      // setup
       final var testUnit = UnsignedByte.fromNumber(i);
 
-      //execution
+      // execution
       final var resullt = testUnit.toByte();
 
-      //verification
+      // verification
       expect(resullt).isEqualTo(i - 128);
     }
   }
 
   @Test
   void testCase_toInt_1A() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 0, 0, 0);
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(0);
   }
 
   @Test
   void testCase_toInt_1B() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(0, 0, 0, 0, 0, 1, 1, 1);
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(7);
   }
 
   @Test
   void testCase_toInt_1C() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 0, 0, 0, 0, 0);
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(224);
   }
 
   @Test
   void testCase_toInt_1D() {
-    //setup
+    // setup
     final var testUnit = UnsignedByte.withBits(1, 1, 1, 1, 1, 1, 1, 1);
 
-    //execution
+    // execution
     final var result = testUnit.toInt();
 
-    //verification
+    // verification
     expect(result).isEqualTo(255);
   }
 }

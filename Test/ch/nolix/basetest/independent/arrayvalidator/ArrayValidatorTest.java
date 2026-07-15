@@ -14,11 +14,11 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class ArrayValidatorTest extends StandardTest {
   @Test
   void testCase_assertDoesNotContainNull_whenGivenArrayIsNull() {
-    //setup
+    // setup
     final String[] array = null;
     final var testUnit = new ArrayValidator();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))
       .throwsException()
       .ofType(IllegalArgumentException.class)
@@ -27,31 +27,31 @@ final class ArrayValidatorTest extends StandardTest {
 
   @Test
   void testCase_assertDoesNotContainNull_whenGivenArrayIsEmpty() {
-    //setup
+    // setup
     final String[] array = {};
     final var testUnit = new ArrayValidator();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertDoesNotContainNull(array)).doesNotThrowException();
   }
 
   @Test
   void testCase_assertDoesNotContainNull_whenGivenArrayContainsAnyButNotNull() {
-    //setup
+    // setup
     final String[] array = { "antelope", "baboon", "elephant", "lion", "rhino", "zebra" };
     final var testUnit = new ArrayValidator();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertDoesNotContainNull(array)).doesNotThrowException();
   }
 
   @Test
   void testCase_assertDoesNotContainNull_whenGivenArrayContainsNull() {
-    //setup
+    // setup
     final String[] array = { "antelope", "baboon", "elephant", "lion", null, "rhino", "zebra" };
     final var testUnit = new ArrayValidator();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.assertDoesNotContainNull(array))
       .throwsException()
       .ofType(IllegalArgumentException.class)

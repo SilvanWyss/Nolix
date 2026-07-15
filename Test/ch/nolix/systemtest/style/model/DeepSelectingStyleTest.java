@@ -17,16 +17,16 @@ import ch.nolix.systemapi.control.label.LabelRole;
 final class DeepSelectingStyleTest extends StandardTest {
   @Test
   void testCase_getSpecification_whenHasSelectorIdAndContainsAttachingeAttributes() {
-    //setup
+    // setup
     final var testUnit = //
     DeepSelectingStyle.EMPTY
       .withSelectorId("selector_id")
       .withAttachingAttributes("BaseBorderThickness(1)", "BaseBackgroundColor(Anthrazit)");
 
-    //execution
+    // execution
     final var specification = testUnit.getSpecification();
 
-    //verification
+    // verification
     final var expectedStringRepresentation = //
     "DeepSelectingStyle(SelectorId(selector_id),AttachingAttribute(BaseBorderThickness(1)),AttachingAttribute(BaseBackgroundColor(Anthrazit)))";
     expect(specification).hasStringRepresentation(expectedStringRepresentation);
@@ -34,16 +34,16 @@ final class DeepSelectingStyleTest extends StandardTest {
 
   @Test
   void testCase_getSpecification_whenHasSelectorRoleAndContainsAttachingeAttributes() {
-    //setup
+    // setup
     final var testUnit = //
     DeepSelectingStyle.EMPTY
       .withAdditionalSelectorRoles(LabelRole.TITLE)
       .withAttachingAttributes("BaseTextSize(50)", "BaseTextColor(Black)");
 
-    //execution
+    // execution
     final var specification = testUnit.getSpecification();
 
-    //verification
+    // verification
     final var expectedStringRepresentation = //
     "DeepSelectingStyle(SelectorRole(TITLE),AttachingAttribute(BaseTextSize(50)),AttachingAttribute(BaseTextColor(Black)))";
     expect(specification).hasStringRepresentation(expectedStringRepresentation);
@@ -51,31 +51,31 @@ final class DeepSelectingStyleTest extends StandardTest {
 
   @Test
   void testCase_selectsChildElements() {
-    //setup
+    // setup
     final var testUnit = DeepSelectingStyle.EMPTY;
 
-    //execution
+    // execution
     final var result = testUnit.selectsChildElements();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_skipsChildElements() {
-    //setup
+    // setup
     final var testUnit = DeepSelectingStyle.EMPTY;
 
-    //execution
+    // execution
     final var result = testUnit.skipsChildElements();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_withSelectorTokens() {
-    //setup
+    // setup
     final var testUnit = //
     DeepSelectingStyle.EMPTY
       .withSelectorId("id")
@@ -84,10 +84,10 @@ final class DeepSelectingStyleTest extends StandardTest {
       .withAdditionalSelectorTokens("token1", "token2")
       .withAttachingAttributes("BaseTextSize(20)", "BaseTextColor(Black)");
 
-    //execution
+    // execution
     final var result = testUnit.withAdditionalSelectorTokens("token3", "token4");
 
-    //verification
+    // verification
     expect(result.getSelectorId()).isEqualTo("id");
     expect(result.getSelectorType()).isEqualTo("Button");
     expect(result.getSelectorRoles()).containsExactly("CREATE_BUTTON", "DELETE_BUTTON");

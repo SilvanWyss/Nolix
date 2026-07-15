@@ -18,7 +18,7 @@ public final class UncloseableClosePool implements IClosePool {
    */
   @Override
   public void addElements(final ExtendedIterable<GroupCloseable> elements) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -26,7 +26,7 @@ public final class UncloseableClosePool implements IClosePool {
    */
   @Override
   public void closeElementsIfStateIsOpen() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

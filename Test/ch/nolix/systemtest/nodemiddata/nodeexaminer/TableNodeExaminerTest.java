@@ -35,7 +35,7 @@ final class TableNodeExaminerTest extends StandardTest {
     final String value,
     final String ingoredEntityId,
     final boolean expectedResult) {
-    //setup of tableNode
+    // setup of tableNode
     final var tableNode = //
     MutableNode
       .createEmpty()
@@ -59,10 +59,10 @@ final class TableNodeExaminerTest extends StandardTest {
           ImmutableNode.withHeader("Dagobert"),
           ImmutableNode.withHeader("Duck")));
 
-    //setup of testUnit
+    // setup of testUnit
     final var testUnit = new TableNodeExaminer();
 
-    //execution
+    // execution
     final var result = //
     testUnit.tableNodeContainsEntityNodeWithFieldAtGivenOneBasedIndexWithGivenValueIgnoringGivenEntities(
       tableNode,
@@ -70,7 +70,7 @@ final class TableNodeExaminerTest extends StandardTest {
       value,
       ImmutableList.withElements(ingoredEntityId));
 
-    //verification
+    // verification
     expect(Boolean.valueOf(result)).isEqualTo(expectedResult);
   }
 }

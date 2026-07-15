@@ -19,16 +19,16 @@ final class HorizontalStackHtmlBuilderTest
 extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
   @Test
   void testCase_createHtmlElement_whenContainsChildControls() {
-    //setup control
+    // setup control
     final var control = createControl().addControls(new Label(), new Label(), new Label());
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.createHtmlElementForControl(control);
 
-    //verification
+    // verification
     expect(result.getInnerText().isEmpty()).isTrue();
     final var childElements = result.getChildElements();
     expect(childElements).hasElementCount(3);

@@ -14,125 +14,125 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgu
 abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends BaseNodeTest<N> {
   @Test
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsBlank() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.addPostfixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given postfix is blank.");
 
-    //verification
+    // verification
     expect(testUnit.hasHeader()).isFalse();
   }
 
   @Test
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsNotBlank() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution
+    // execution
     testUnit.addPostfixToHeader("1");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("1");
   }
 
   @Test
   void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsBlank() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeader("Color");
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.addPostfixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given postfix is blank.");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("Color");
   }
 
   @Test
   void testCase_addPostfixToHeader_whenHasHeader_andTheGivenPostfixIsNotBlank() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeader("Color");
 
-    //execution
+    // execution
     testUnit.addPostfixToHeader("1");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("Color1");
   }
 
   @Test
   void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsBlank() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.addPrefixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given prefix is blank.");
 
-    //verification
+    // verification
     expect(testUnit.hasHeader()).isFalse();
   }
 
   @Test
   void testCase_addPrefixToHeader_whenDoesNotHaveHeader_andTheGivenPrefixIsNotBlank() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution
+    // execution
     testUnit.addPrefixToHeader("Background");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("Background");
   }
 
   @Test
   void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsBlank() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeader("Color");
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.addPrefixToHeader(" "))
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessageThatMatches("The given prefix is blank.");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("Color");
   }
 
   @Test
   void testCase_addPrefixToHeader_whenHasHeader_andTheGivenPrefixIsNotBlank() {
-    //setup
+    // setup
     final N testUnit = createNodeWithHeader("Color");
 
-    //execution
+    // execution
     testUnit.addPrefixToHeader("Background");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("BackgroundColor");
   }
 
   @Test
   void testCase_removeHeader() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
 
-    //setup verification
+    // setup verification
     expect(testUnit.hasHeader()).isTrue();
 
-    //execution
+    // execution
     testUnit.removeHeader();
 
-    //verification
+    // verification
     expect(testUnit.hasHeader()).isFalse();
   }
 
@@ -151,22 +151,22 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
   "a(b(c),d(e),f(g))"
   })
   void testCase_resetFromString(final String string) {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution
+    // execution
     testUnit.resetFromString(string);
 
-    //verification
+    // verification
     expect(testUnit).hasStringRepresentation(string);
   }
 
   @Test
   void testCase_resetFromString_whenTheGivenStringIsNotValid() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.resetFromString("a(b).c"))
       .throwsException()
       .ofType(UnrepresentingArgumentException.class);
@@ -174,17 +174,17 @@ abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends Bas
 
   @Test
   void testCase_setHeader() {
-    //setup
+    // setup
     final N testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
 
-    //setup verification
+    // setup verification
     expect(testUnit.hasHeader());
 
-    //execution
+    // execution
     testUnit.setHeader("Ipsum");
 
-    //verification
+    // verification
     expect(testUnit.getHeader()).isEqualTo("Ipsum");
   }
 }

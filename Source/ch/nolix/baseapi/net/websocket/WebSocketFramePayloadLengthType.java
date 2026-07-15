@@ -44,7 +44,7 @@ public enum WebSocketFramePayloadLengthType {
       return BITS_16;
     }
 
-    //payloadLength < 2^63
+    // payloadLength < 2^63
     return WebSocketFramePayloadLengthType.BITS_64;
   }
 }

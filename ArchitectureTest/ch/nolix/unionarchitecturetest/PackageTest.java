@@ -14,10 +14,10 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 final class PackageTest {
   @Test
   void testCase_packagesHaveAMaxHierarchyDepthOf5() {
-    //parameter definition
+    // parameter definition
     final var maxPackageHierarchyDepth = 5;
 
-    //setup
+    // setup
     final var rule = //
     ArchRuleDefinition
       .classes()
@@ -29,7 +29,7 @@ final class PackageTest {
       .haveNameMatching("ch[.]nolix([.][0-9a-zA-Z[-]]*){0," + (maxPackageHierarchyDepth - 1) + "}");
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix...");
 
-    //execution & verification
+    // execution & verification
     rule.check(testUnit);
   }
 }

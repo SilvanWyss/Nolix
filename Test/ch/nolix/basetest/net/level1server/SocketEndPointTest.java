@@ -18,15 +18,15 @@ final class SocketEndPointTest extends StandardTest {
 
   @Test
   void testCase_constructor() {
-    //parameter definition
+    // parameter definition
     final var port = 50000;
 
-    //setup
+    // setup
     try (final var server = Server.forPort(port)) {
-      //setup
+      // setup
       server.addDefaultSlot(new MockSlot());
 
-      //execution & verification
+      // execution & verification
       expectRunning(
         () -> {
           try (final var _ = SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port)) {
@@ -39,20 +39,20 @@ final class SocketEndPointTest extends StandardTest {
 
   @Test
   void testCase_sendMessage() {
-    //parameter definition
+    // parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
-      //setup
+      // setup
       final var slot = new MockSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port)) {
-        //execution
+        // execution
         testUnit.sendMessage("MESSAGE");
         FlowController.waitForMilliseconds(WAITING_TIME_IN_MILLISECONDS);
 
-        //verification
+        // verification
         expect(slot.getLatestReceivedMessage()).isEqualTo("MESSAGE");
       }
     }

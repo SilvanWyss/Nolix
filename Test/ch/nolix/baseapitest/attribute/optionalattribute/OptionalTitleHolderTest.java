@@ -15,16 +15,16 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalTitleHolder;
 final class OptionalTitleHolderTest extends StandardTest {
   @Test
   void testCase_getTitleInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalTitleHolder.class);
     Mockito.when(testUnit.getTitleInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.hasTitle()).thenReturn(true);
     Mockito.when(testUnit.getTitle()).thenReturn("title");
 
-    //execution
+    // execution
     final var result = testUnit.getTitleInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'title'");
   }
 }

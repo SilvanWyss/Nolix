@@ -14,7 +14,7 @@ import ch.nolix.baseapi.programcontrol.process.FinishRequestable;
 final class FinishRequestableTest extends StandardTest {
   @Test
   void testCase_isRunning_whenIsNotFinished() {
-    //setup
+    // setup
     final var testUnit = new FinishRequestable() {
       @Override
       public boolean isFinished() {
@@ -22,16 +22,16 @@ final class FinishRequestableTest extends StandardTest {
       }
     };
 
-    //execution
+    // execution
     final var result = testUnit.isRunning();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isRunning_whenIsFinished() {
-    //setup
+    // setup
     final var testUnit = new FinishRequestable() {
       @Override
       public boolean isFinished() {
@@ -39,10 +39,10 @@ final class FinishRequestableTest extends StandardTest {
       }
     };
 
-    //execution
+    // execution
     final var result = testUnit.isRunning();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

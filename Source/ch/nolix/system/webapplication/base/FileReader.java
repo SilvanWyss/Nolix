@@ -49,7 +49,7 @@ final class FileReader {
 
         final var fileString = receiveOptionalFileCommand.getSingleChildNode().getHeader();
 
-        //The received fileString is a Base64-encoded String.
+        // The received fileString is a Base64-encoded String.
         final var file = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
         receiveFileFromCounterpart(file);

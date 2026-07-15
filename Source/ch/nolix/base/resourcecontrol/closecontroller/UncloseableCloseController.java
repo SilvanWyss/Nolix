@@ -15,7 +15,7 @@ public final class UncloseableCloseController implements ICloseController {
 
   @Override
   public void close() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -23,7 +23,7 @@ public final class UncloseableCloseController implements ICloseController {
    */
   @Override
   public void createCloseDependencyTo(final GroupCloseable element) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -47,6 +47,6 @@ public final class UncloseableCloseController implements ICloseController {
    */
   @Override
   public void setParentClosePool(final IClosePool parentClosePool) {
-    //Does nothing.
+    // Does nothing.
   }
 }

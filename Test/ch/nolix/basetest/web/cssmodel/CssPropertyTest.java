@@ -15,29 +15,29 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 final class CssPropertyTest extends StandardTest {
   @Test
   void testCase_toString() {
-    //setup
+    // setup
     final var testUnit = CssProperty.withNameAndValue("width", "200px");
 
-    //execution
+    // execution
     final var result = testUnit.toString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("width: 200px;");
   }
 
   @Test
   void testCase_withNameAndValue() {
-    //execution
+    // execution
     final var result = CssProperty.withNameAndValue("width", "200px");
 
-    //verification
+    // verification
     expect(result.getName()).isEqualTo("width");
     expect(result.getValue()).isEqualTo("200px");
   }
 
   @Test
   void testCase_withNameAndValue_whenTheGivenNameIsNull() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> CssProperty.withNameAndValue(null, "200px"))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -46,10 +46,10 @@ final class CssPropertyTest extends StandardTest {
 
   @Test
   void testCase_withNameAndValue_whenTheGivenValueIsNull() {
-    //setup
+    // setup
     final String value = null;
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> CssProperty.withNameAndValue("width", value))
       .throwsException()
       .ofType(ArgumentIsNullException.class)

@@ -83,7 +83,7 @@ public abstract class AbstractBaseReference<E extends IEntity> extends AbstractF
 
           break;
         default:
-          //Does nothing.
+          // Does nothing.
       }
     }
   }

@@ -20,7 +20,7 @@ public abstract class CopyableIteratorTest extends StandardTest {
 
   @Test
   void testCase_getCopy() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -31,10 +31,10 @@ public abstract class CopyableIteratorTest extends StandardTest {
     createIteratorForContainerWithElements(antelope, baboon, elephant, lion, rhino, zebra);
     FlowController.forCount(4).run(testUnit::next);
 
-    //execution
+    // execution
     final var result = testUnit.getCopy();
 
-    //verification
+    // verification
     expect(testUnit.next()).is(rhino);
     expect(testUnit.next()).is(zebra);
     expect(testUnit.hasNext()).isFalse();

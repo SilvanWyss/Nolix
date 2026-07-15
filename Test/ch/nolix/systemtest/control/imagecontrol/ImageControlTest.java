@@ -26,27 +26,27 @@ final class ImageControlTest extends ControlTest<IImageControl> {
 
   @Test
   void testCase_getStoredImage_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = new ImageControl();
 
-    //setup verification
+    // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getStoredImage).throwsException().ofType(ArgumentDoesNotContainElementException.class);
   }
 
   @Test
   void testCase_getStoredImage_whenContainsMutableImage() {
-    //setup
+    // setup
     final var mutableImage = MutableImage.withWidthAndHeightAndColor(16, 16, X11ColorCatalog.WHITE);
     final var testUnit = new ImageControl();
     testUnit.setImage(mutableImage);
 
-    //execution
+    // execution
     final var result = testUnit.getStoredImage();
 
-    //verification
+    // verification
     expect(result).is(mutableImage);
   }
 }

@@ -25,13 +25,13 @@ public class IndexedPackage<C> {
    * @throws RuntimeException if the given content is null.
    */
   protected IndexedPackage(final int index, final C content) {
-    //Asserts that the given content is not null.
+    // Asserts that the given content is not null.
     Validator.assertThat(content).thatIsNamed(LowerCaseVariableNameCatalog.CONTENT).isNotNull();
 
-    //Sets the index of the current IndexedPackage.
+    // Sets the index of the current IndexedPackage.
     memberIndex = index;
 
-    //Sets the content of the current IndexedPackage.
+    // Sets the content of the current IndexedPackage.
     this.content = content;
   }
 

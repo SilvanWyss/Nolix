@@ -42,6 +42,6 @@ extends AbstractLinearContainer<FloatContainer, FloatContainerStyle> {
    */
   @Override
   protected void resetContainer() {
-    //Does nothing.
+    // Does nothing.
   }
 }

@@ -42,74 +42,74 @@ final class MultiStateConfigurationWithNonCascadingPropertyTest extends Standard
 
   @Test
   void testCase_addOrChangeAttribute_1A() {
-    //setup
+    // setup
     final var testUnit = new CustomFormatElement();
 
-    //execution
+    // execution
     testUnit.addOrChangeAttribute(ImmutableNode.fromString("AColor(0xFF0000)"));
 
-    //verification
+    // verification
     expect(testUnit.color.getValueOfState(CustomState.A)).isEqualTo(X11ColorCatalog.RED);
   }
 
   @Test
   void testCase_addOrChangeAttribute_1B() {
-    //setup
+    // setup
     final var testUnit = new CustomFormatElement();
 
-    //execution
+    // execution
     testUnit.addOrChangeAttribute(ImmutableNode.fromString("BColor(0xFF0000)"));
 
-    //verification
+    // verification
     expect(testUnit.color.getValueOfState(CustomState.B)).isEqualTo(X11ColorCatalog.RED);
   }
 
   @Test
   void testCase_addOrChangeAttribute_1C() {
-    //setup
+    // setup
     final var testUnit = new CustomFormatElement();
 
-    //execution
+    // execution
     testUnit.addOrChangeAttribute(ImmutableNode.fromString("CColor(0xFF0000)"));
 
-    //verification
+    // verification
     expect(testUnit.color.getValueOfState(CustomState.C)).isEqualTo(X11ColorCatalog.RED);
   }
 
   @Test
   void testCase_addOrChangeAttribute_1D() {
-    //setup
+    // setup
     final var testUnit = new CustomFormatElement();
 
-    //execution
+    // execution
     testUnit.addOrChangeAttribute(ImmutableNode.fromString("DColor(0xFF0000)"));
 
-    //verification
+    // verification
     expect(testUnit.color.getValueOfState(CustomState.D)).isEqualTo(X11ColorCatalog.RED);
   }
 
   @Test
   void testCase_constructor() {
-    //execution
+    // execution
     final var testUnit = new CustomFormatElement();
 
-    //verification
+    // verification
     expect(testUnit.color.getName()).isEqualTo("Color");
   }
 
   @Test
   void testCase_getSpecification() {
-    //setup
+    // setup
     final var testUnit = new CustomFormatElement();
     testUnit.color.setValueForState(CustomState.A, X11ColorCatalog.BLACK);
     testUnit.color.setValueForState(CustomState.B, X11ColorCatalog.BLUE);
     testUnit.color.setValueForState(CustomState.C, X11ColorCatalog.RED);
     testUnit.color.setValueForState(CustomState.D, X11ColorCatalog.GREEN);
 
-    //execution
+    // execution
     final var result = testUnit.getSpecification();
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation(
       "CustomFormatElement(AColor(0x000000),BColor(0x0000FF),CColor(0xFF0000),DColor(0x008000))");
   }

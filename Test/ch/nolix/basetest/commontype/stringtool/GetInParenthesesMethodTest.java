@@ -16,13 +16,13 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class GetInParenthesesMethodTest extends StandardTest {
   @Test
   void testCase_getInParantheses_whenGivenObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInParentheses(null, null, null);
 
-    //verification
+    // verification
     expect(result).isEqualTo("(null,null,null)");
   }
 
@@ -33,37 +33,37 @@ final class GetInParenthesesMethodTest extends StandardTest {
   "lorem ipsum, (lorem ipsum)" //
   })
   void testCase_getInParantheses_when1StringIsGiven(final String string, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInParentheses(string);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getInParantheses_when3StringsAreGiven() {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInParentheses("antelope", "baboon", "elephant");
 
-    //verification
+    // verification
     expect(result).isEqualTo("(antelope,baboon,elephant)");
   }
 
   @Test
   void testCase_getInParantheses_whenOneOfGivenStringsIsNull() {
-    //setup
+    // setup
     final var testUnit = new StringToolUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInParentheses("antelope", null, "elephant");
 
-    //verification
+    // verification
     expect(result).isEqualTo("(antelope,null,elephant)");
   }
 }

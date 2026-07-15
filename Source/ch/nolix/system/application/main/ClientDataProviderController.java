@@ -56,10 +56,10 @@ final class ClientDataProviderController implements IDataProviderController {
    */
   @Override
   public ExtendedIterable<INode<?>> getDataForRequests(final IChainedNode... requests) {
-    //Concatenates the given requests.
+    // Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
-    //Calls other method.
+    // Calls other method.
     return getDataForRequests(concatenatedRequests);
   }
 

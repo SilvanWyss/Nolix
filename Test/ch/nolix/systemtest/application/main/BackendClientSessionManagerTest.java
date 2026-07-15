@@ -16,13 +16,13 @@ import ch.nolix.system.application.main.BackendClientSessionManager;
 final class BackendClientSessionManagerTest extends StandardTest {
   @Test
   void testCase_forClient() {
-    //setup
+    // setup
     final var mockBackendClient = new MockBackendClient();
 
-    //execution
+    // execution
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
 
-    //verification
+    // verification
     expect(testUnit.getSessionStackSize()).isEqualTo(0);
     expect(testUnit.containsPreviousSession()).isFalse();
     expect(testUnit.containsCurrentSession()).isFalse();
@@ -31,7 +31,7 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_forClient_whenTheGivenClientIsNull() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> BackendClientSessionManager.forClient(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -40,26 +40,26 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_popCurrentSession_whenDoesNotContainSession() {
-    //setup
+    // setup
     final var mockBackendClient = new MockBackendClient();
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::popCurrentSession).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   @Test
   void testCase_popCurrentSession_whenContains1Session() {
-    //setup
+    // setup
     final var mockBackendClient = new MockBackendClient();
     final var mockBackendClientSession = new MockBackendClientSession();
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
     testUnit.pushSession(mockBackendClientSession);
 
-    //execution
+    // execution
     testUnit.popCurrentSession();
 
-    //verification
+    // verification
     expect(testUnit.getSessionStackSize()).isEqualTo(0);
     expect(testUnit.containsPreviousSession()).isFalse();
     expect(testUnit.containsCurrentSession()).isFalse();
@@ -68,15 +68,15 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_pushSession_whenDoesNotContainSession() {
-    //setup
+    // setup
     final var mockBackendClient = new MockBackendClient();
     final var mockBackendClientSession = new MockBackendClientSession();
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
 
-    //execution
+    // execution
     testUnit.pushSession(mockBackendClientSession);
 
-    //verification
+    // verification
     expect(testUnit.getSessionStackSize()).isEqualTo(1);
     expect(testUnit.containsPreviousSession()).isFalse();
     expect(testUnit.containsCurrentSession()).isTrue();
@@ -86,17 +86,17 @@ final class BackendClientSessionManagerTest extends StandardTest {
 
   @Test
   void testCase_pushSession_whenContains1Session() {
-    //setup
+    // setup
     final var mockBackendClient = new MockBackendClient();
     final var mockBackendClientSession1 = new MockBackendClientSession();
     final var mockBackendClientSession2 = new MockBackendClientSession();
     final var testUnit = BackendClientSessionManager.forClient(mockBackendClient);
     testUnit.pushSession(mockBackendClientSession1);
 
-    //execution
+    // execution
     testUnit.pushSession(mockBackendClientSession2);
 
-    //verification
+    // verification
     expect(testUnit.getSessionStackSize()).isEqualTo(2);
     expect(testUnit.containsPreviousSession()).isTrue();
     expect(testUnit.containsCurrentSession()).isTrue();

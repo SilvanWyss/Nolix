@@ -15,15 +15,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.TitleHolder;
 final class TitleHolderTest extends StandardTest {
   @Test
   void testCase_getTitleInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(TitleHolder.class);
     Mockito.when(testUnit.getTitleInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getTitle()).thenReturn("title");
 
-    //execution
+    // execution
     final var result = testUnit.getTitleInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'title'");
   }
 }

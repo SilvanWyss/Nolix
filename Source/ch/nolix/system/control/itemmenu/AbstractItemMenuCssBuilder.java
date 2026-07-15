@@ -27,7 +27,7 @@ extends AbstractControlCssBuilder<M, S> {
     final M itemMenu,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -37,6 +37,6 @@ extends AbstractControlCssBuilder<M, S> {
   protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final M itemMenu,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

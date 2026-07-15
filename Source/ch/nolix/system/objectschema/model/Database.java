@@ -107,7 +107,7 @@ public final class Database extends AbstractSchemaObject implements IDatabase {
    */
   @Override
   protected void noteClose() {
-    //Does not call getStoredTables method to avoid that the tables are loaded from the database.
+    // Does not call getStoredTables method to avoid that the tables are loaded from the database.
     for (final var t : tables) {
       ((Table) t).close();
     }

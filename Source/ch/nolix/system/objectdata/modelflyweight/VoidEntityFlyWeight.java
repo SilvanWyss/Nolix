@@ -22,6 +22,6 @@ public final class VoidEntityFlyWeight implements IEntityFlyWeight {
    */
   @Override
   public void noteInsertIntoDatabase() {
-    //Does nothing.
+    // Does nothing.
   }
 }

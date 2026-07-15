@@ -42,14 +42,14 @@ public final class EnglishNounTool {
   }
 
   private static String getArticleOfNounWithFirstLetter(final char firstLetter) {
-    //Asserts that the given letter is valid.
+    // Asserts that the given letter is valid.
     if (firstLetter < 65
     || (firstLetter > 90 && firstLetter < 97)
     || firstLetter > 122) {
       throw InvalidArgumentException.forArgumentAndArgumentName(firstLetter, LowerCaseVariableNameCatalog.LETTER);
     }
 
-    //Enumerates the given letter.
+    // Enumerates the given letter.
     return switch (firstLetter) {
       case
       'A',

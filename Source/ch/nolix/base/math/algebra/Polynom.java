@@ -44,16 +44,16 @@ public final class Polynom {
    * @throws RuntimeException if the highest of the given coefficients is 0.0.
    */
   private Polynom(final double[] coefficientArray) {
-    //Asserts that the given coefficientArray is not null.
+    // Asserts that the given coefficientArray is not null.
     Validator.assertThat(coefficientArray).thatIsNamed("coefficient array").isNotNull();
 
-    //Handles the case that the given coefficient array is not empty.
+    // Handles the case that the given coefficient array is not empty.
     if (coefficientArray.length > 0) {
-      //Asserts that the given highest coefficient is not 0.0.
+      // Asserts that the given highest coefficient is not 0.0.
       Validator.assertThat(coefficientArray[0]).thatIsNamed("highest coefficient").isNotEqualTo(0.0);
     }
 
-    //Sets the coefficients of the current Polynom.
+    // Sets the coefficients of the current Polynom.
     coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
   }
 
@@ -77,8 +77,8 @@ public final class Polynom {
    *                          of the current {@link Polynom}.
    */
   public double getCoefficientForDegree(final int degree) {
-    //Asserts that the given degree is between 0 and the degree of the current
-    //Polynom.
+    // Asserts that the given degree is between 0 and the degree of the current
+    // Polynom.
     Validator.assertThat(degree).thatIsNamed(LowerCaseVariableNameCatalog.DEGREE).isBetween(0, getDegree());
 
     return coefficients[coefficients.length - degree - 1];

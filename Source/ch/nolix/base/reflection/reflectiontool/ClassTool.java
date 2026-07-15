@@ -48,9 +48,9 @@ public final class ClassTool implements IClassTool {
   public ExtendedIterable<Object> getStoredPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
     final var publicStaticFields = LinkedList.createEmpty();
 
-    //Iterates the fields of the given Class.
+    // Iterates the fields of the given Class.
     for (final var f : paramClass.getDeclaredFields()) {
-      //Handles the case that the current field is .
+      // Handles the case that the current field is .
       if (FIELD_EXAMINER.isStatic(f) && ReflectionTool.isPublic(f)) {
         try {
           publicStaticFields.addAtEnd(f.get(null));

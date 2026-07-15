@@ -28,10 +28,10 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   private final LinkedList<AbstractSession<C, S>> sessionStack = LinkedList.createEmpty();
 
   private BackendClientSessionManager(final C parentClient) {
-    //Asserts that the given parentClient is not null.
+    // Asserts that the given parentClient is not null.
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
-    //Sets the parentClient of the current ClientSessionManager.
+    // Sets the parentClient of the current ClientSessionManager.
     this.parentClient = parentClient;
   }
 
@@ -81,17 +81,17 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   public void pushSession(final AbstractSession<C, S> session) {
-    //Asserts that the given session is not null.
+    // Asserts that the given session is not null.
     Validator.assertThat(session).isOfType(AbstractSession.class);
 
-    //Sets the given session to the Client of the current ClientSessionManager.
+    // Sets the given session to the Client of the current ClientSessionManager.
     session.internalSetParentClient(parentClient);
 
-    //Pushes the given session to the current ClientSessionManager.
+    // Pushes the given session to the current ClientSessionManager.
     sessionStack.addAtEnd(session);
     currentSession = session;
 
-    //Initializes the given session.
+    // Initializes the given session.
     initializeSession(session);
   }
 
@@ -146,7 +146,7 @@ public final class BackendClientSessionManager<C extends AbstractBackendClient<C
   }
 
   private void initializeSession(final AbstractSession<C, S> session) {
-    //Check if the parentClient is open because it could be closed before.
+    // Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {
       session.fullInitialize();
     }

@@ -15,15 +15,15 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.LabelHolder;
 final class LabelHolderTest extends StandardTest {
   @Test
   void testCase_getLabelInSingleQuotes() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(LabelHolder.class);
     Mockito.when(testUnit.getLabelInSingleQuotes()).thenCallRealMethod();
     Mockito.when(testUnit.getLabel()).thenReturn("label");
 
-    //execution
+    // execution
     final var result = testUnit.getLabelInSingleQuotes();
 
-    //verification
+    // verification
     expect(result).isEqualTo("'label'");
   }
 }

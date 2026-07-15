@@ -15,13 +15,13 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 final class MatrixTest extends ExtendedIterableTest {
   @Test
   void testCase_addColumn() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
 
-    //execution
+    // execution
     matrix.addColumn("apple", "banana", "cerish");
 
-    //verification
+    // verification
     expect(matrix.getRowCount()).isEqualTo(3);
     expect(matrix.getColumnCount()).isEqualTo(1);
     expect(matrix.getColumn(1).toString()).isEqualTo("apple,banana,cerish");
@@ -29,13 +29,13 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_addRow() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
 
-    //execution
+    // execution
     matrix.addRow("apple", "banana", "cerish");
 
-    //verification
+    // verification
     expect(matrix.getRowCount()).isEqualTo(1);
     expect(matrix.getColumnCount()).isEqualTo(3);
     expect(matrix.getRow(1).toString()).isEqualTo("apple,banana,cerish");
@@ -43,18 +43,18 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_getColumn() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
-    //execution
+    // execution
     final var column1 = matrix.getColumn(1);
     final var column2 = matrix.getColumn(2);
     final var column3 = matrix.getColumn(3);
 
-    //verification
+    // verification
     expect(column1.getCount()).isEqualTo(3);
     expect(column1.toString()).isEqualTo("apple,antelope,flower");
     expect(column2.getCount()).isEqualTo(3);
@@ -65,16 +65,16 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_getCopy() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
-    //execution
+    // execution
     final var copy = matrix.getCopy();
 
-    //verification
+    // verification
     expect(copy.getColumnCount()).isEqualTo(3);
     expect(copy.getRowCount()).isEqualTo(3);
     expect(copy.getRow(1).toString()).isEqualTo("apple,banana,cerish");
@@ -84,13 +84,13 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_getIndexOf() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephante");
     matrix.addRow("flower", "tree", "palm");
 
-    //execution
+    // execution
     final var index1 = matrix.getIndexOf(1, 1);
     final var index2 = matrix.getIndexOf(1, 2);
     final var index3 = matrix.getIndexOf(1, 3);
@@ -101,7 +101,7 @@ final class MatrixTest extends ExtendedIterableTest {
     final var index8 = matrix.getIndexOf(3, 2);
     final var index9 = matrix.getIndexOf(3, 3);
 
-    //verification
+    // verification
     expect(index1).isEqualTo(1);
     expect(index2).isEqualTo(2);
     expect(index3).isEqualTo(3);
@@ -115,18 +115,18 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_getRow() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
-    //execution
+    // execution
     final var row1 = matrix.getRow(1);
     final var row2 = matrix.getRow(2);
     final var row3 = matrix.getRow(3);
 
-    //verification
+    // verification
     expect(row1.getCount()).isEqualTo(3);
     expect(row1.toString()).isEqualTo("apple,banana,cerish");
     expect(row2.getCount()).isEqualTo(3);
@@ -137,16 +137,16 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_toLeftRotatedMatrix() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "baboon", "elephant");
     matrix.addRow("flower", "tree", "palm");
 
-    //execution
+    // execution
     final var leftRotatedMatrix = matrix.toLeftRotatedMatrix();
 
-    //verification
+    // verification
     expect(leftRotatedMatrix.getRowCount()).isEqualTo(3);
     expect(leftRotatedMatrix.getColumnCount()).isEqualTo(3);
     expect(leftRotatedMatrix.getRow(1).toString()).isEqualTo("cerish,elephant,palm");
@@ -156,16 +156,16 @@ final class MatrixTest extends ExtendedIterableTest {
 
   @Test
   void testCase_toRightRotatedMatrix() {
-    //setup
+    // setup
     final Matrix<String> matrix = Matrix.createEmpty();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("antelope", "elephant", "baboon");
     matrix.addRow("flower", "tree", "palm");
 
-    //execution
+    // execution
     final var rightRotatedMatrix = matrix.toRightRotatedMatrix();
 
-    //verification
+    // verification
     expect(rightRotatedMatrix.getRowCount()).isEqualTo(3);
     expect(rightRotatedMatrix.getColumnCount()).isEqualTo(3);
     expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,antelope,apple");

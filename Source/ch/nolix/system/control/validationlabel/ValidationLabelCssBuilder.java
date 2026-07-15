@@ -23,7 +23,7 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IValidationLabel control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -34,7 +34,7 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
     final IValidationLabel text,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -44,7 +44,7 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IValidationLabel text,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -55,6 +55,6 @@ extends AbstractControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
     final IValidationLabel text,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

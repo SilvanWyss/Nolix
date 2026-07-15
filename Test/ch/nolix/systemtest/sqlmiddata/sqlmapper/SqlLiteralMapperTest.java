@@ -16,13 +16,13 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class SqlLiteralMapperTest extends StandardTest {
   @Test
   void testCase_whenTheGivenNullableValueStringIsNull() {
-    //setup
+    // setup
     final var testUnit = new SqlLiteralMapper();
 
-    //execution
+    // execution
     final var result = testUnit.mapNullableValueStringToSqlLiteral(null);
 
-    //verification
+    // verification
     expect(result).isEqualTo("NULL");
   }
 
@@ -34,13 +34,13 @@ final class SqlLiteralMapperTest extends StandardTest {
   "text, '\''text'\''"
   })
   void testCase_whenTheGivenNullableValueIsNotNull(final String nullableValue, final String expectedResult) {
-    //setup
+    // setup
     final var testUnit = new SqlLiteralMapper();
 
-    //execution
+    // execution
     final var result = testUnit.mapNullableValueStringToSqlLiteral(nullableValue);
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

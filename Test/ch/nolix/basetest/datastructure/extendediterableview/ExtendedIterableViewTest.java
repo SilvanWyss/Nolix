@@ -15,15 +15,15 @@ import ch.nolix.basetest.datastructure.extendediterable.ExtendedIterableTest;
 final class ExtendedIterableViewTest extends ExtendedIterableTest {
   @Test
   void testCase_containsEqualing() {
-    //setup
+    // setup
     final String[] array1 = { "apple", "banana", "cerish" };
     final String[] array2 = { "antelope", "baboon", "lion" };
     final String[] array3 = { "flower", "tree", "palm" };
 
-    //execution
+    // execution
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
-    //execution
+    // execution
     expect(testUnit.containsEqualing("apple")).isTrue();
     expect(testUnit.containsEqualing("banana")).isTrue();
     expect(testUnit.containsEqualing("cerish")).isTrue();
@@ -40,15 +40,15 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
 
   @Test
   void testCase_getStoredAtOneBasedIndex() {
-    //setup
+    // setup
     final String[] array1 = { "apple", "banana", "cerish" };
     final String[] array2 = { "antelope", "baboon", "elephant" };
     final String[] array3 = { "flower", "tree", "palm" };
 
-    //execution
+    // execution
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
-    //verification
+    // verification
     expect(testUnit.getStoredAtOneBasedIndex(1)).isEqualTo("apple");
     expect(testUnit.getStoredAtOneBasedIndex(2)).isEqualTo("banana");
     expect(testUnit.getStoredAtOneBasedIndex(3)).isEqualTo("cerish");
@@ -62,15 +62,15 @@ final class ExtendedIterableViewTest extends ExtendedIterableTest {
 
   @Test
   void testCase_getStoredSelected() {
-    //setup
+    // setup
     final String[] array1 = { "A", "AA", "AAA" };
     final String[] array2 = { "B", "BB", "BBB" };
     final String[] array3 = { "C", "CC", "CCC" };
 
-    //execution
+    // execution
     final var testUnit = ExtendedIterableView.forArrays(array1, array2, array3);
 
-    //verification
+    // verification
     expect(testUnit.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
     expect(testUnit.getStoredSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
     expect(testUnit.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");

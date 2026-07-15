@@ -171,7 +171,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
 
   protected abstract V getValueWhenHasState(State<S> state);
 
-  //mehod declaration
+  // mehod declaration
   protected abstract boolean hasValueWhenHasState(State<S> currentStateObject);
 
   @Override
@@ -222,7 +222,7 @@ public abstract class AbstractMaterializedProperty<S extends Enum<S>, V> extends
     }
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   private void setValueForStateUsingSetterMethod(final S state, final V value) {
     if (setterMethod == null) {
       setValueForState(state, value);

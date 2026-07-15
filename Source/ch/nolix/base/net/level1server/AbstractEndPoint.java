@@ -54,13 +54,13 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    */
   @Override
   public final void setReceiver(final Consumer<String> receiver) {
-    //Asserts that the given receiver is not null.
+    // Asserts that the given receiver is not null.
     Validator.assertThat(receiver).thatIsNamed(LowerCaseVariableNameCatalog.RECEIVER).isNotNull();
 
-    //Asserts that the current EndPoint is open.
+    // Asserts that the current EndPoint is open.
     assertIsOpen();
 
-    //Sets the receiver of the current EndPoint.
+    // Sets the receiver of the current EndPoint.
     this.receiver = receiver;
   }
 
@@ -100,13 +100,13 @@ public abstract class AbstractEndPoint extends AbstractBaseEndPoint implements I
    * @throws RuntimeException if the current {@link AbstractEndPoint} is closed.
    */
   protected final void setCustomTargetSlot(final String customTargetSlot) {
-    //Asserts that the given customTargetSlot is not blank.
+    // Asserts that the given customTargetSlot is not blank.
     Validator.assertThat(customTargetSlot).thatIsNamed("custom target slot").isNotBlank();
 
-    //Asserts that the current EndPoint is open.
+    // Asserts that the current EndPoint is open.
     assertIsOpen();
 
-    //Sets the customTargetSlot of the current EndPoint.
+    // Sets the customTargetSlot of the current EndPoint.
     this.customTargetSlot = customTargetSlot;
   }
 

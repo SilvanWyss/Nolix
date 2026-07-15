@@ -114,7 +114,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -163,7 +163,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
     memberChildNodes.addAtEnd(childNodes);

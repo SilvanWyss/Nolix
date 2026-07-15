@@ -41,7 +41,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    */
   @Override
   protected void noteAddedApplication(Application<?, ?> application) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -49,7 +49,7 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    */
   @Override
   protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication2) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -57,6 +57,6 @@ public final class LocalServer extends AbstractServer<LocalServer> {
    */
   @Override
   protected void noteRemovedApplication(IApplication<?, ?> application) {
-    //Does nothing.
+    // Does nothing.
   }
 }

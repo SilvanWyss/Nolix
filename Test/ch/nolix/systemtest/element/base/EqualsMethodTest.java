@@ -19,7 +19,7 @@ import ch.nolix.system.element.base.AbstractElement;
 final class EqualsMethodTest extends StandardTest {
   @Test
   void testCase_equals_whenTheGivenObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new AbstractElement() {
       @Override
       public ExtendedIterable<INode<?>> getAttributes() {
@@ -27,16 +27,16 @@ final class EqualsMethodTest extends StandardTest {
       }
     };
 
-    //execution
+    // execution
     final var result = testUnit.equals(null);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_equals_whenTheGivenObjectIsAVoidObject() {
-    //setup
+    // setup
     final Object object = new VoidObject();
     final var testUnit = new AbstractElement() {
       @Override
@@ -45,16 +45,16 @@ final class EqualsMethodTest extends StandardTest {
       }
     };
 
-    //execution
+    // execution
     final var result = testUnit.equals(object);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_equals_whenTheGivenObjectIsTheSame() {
-    //setup
+    // setup
     final var testUnit = new AbstractElement() {
       @Override
       public ExtendedIterable<INode<?>> getAttributes() {
@@ -62,10 +62,10 @@ final class EqualsMethodTest extends StandardTest {
       }
     };
 
-    //execution
+    // execution
     final var result = testUnit.equals(testUnit);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 }

@@ -18,28 +18,28 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 final class ChainedNodeCreationTest extends StandardTest {
   @Test
   void testCase_fromNode_whenNodeIsBlank() {
-    //setup
+    // setup
     final var node = ImmutableNode.EMPTY_NODE;
 
-    //setup verification
+    // setup verification
     expect(node.isBlank()).isTrue();
 
-    //execution
+    // execution
     final var result = ChainedNode.fromNode(node);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("");
   }
 
   @Test
   void testCase_fromNode_whenNodeHasHeaderOnly() {
-    //setup
+    // setup
     final var node = ImmutableNode.withHeader("a");
 
-    //execution
+    // execution
     final var result = ChainedNode.fromNode(node);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("a");
   }
 
@@ -61,16 +61,16 @@ final class ChainedNodeCreationTest extends StandardTest {
   "a(b).c(d).e(f).g(h)"
   })
   void testCase_fromString(final String string) {
-    //execution
+    // execution
     final var result = ChainedNode.fromString(string);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation(string);
   }
 
   @Test
   void testCase_withHeader_whenNullHeaderIsGiven() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> ChainedNode.withHeader(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -79,10 +79,10 @@ final class ChainedNodeCreationTest extends StandardTest {
 
   @Test
   void testCase_withHeader_whenHeaderIsGiven() {
-    //execution
+    // execution
     final var result = ChainedNode.withHeader("a");
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("a");
   }
 }

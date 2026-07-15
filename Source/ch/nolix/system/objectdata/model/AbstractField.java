@@ -36,7 +36,7 @@ public abstract class AbstractField implements IField {
 
   private boolean edited;
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public final boolean belongsToDatabase() {
     return //
@@ -52,7 +52,7 @@ public abstract class AbstractField implements IField {
     return (parentEntity != null);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   @Override
   public final boolean belongsToTable() {
     return //

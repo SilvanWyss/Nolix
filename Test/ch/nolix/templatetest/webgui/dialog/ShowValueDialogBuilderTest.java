@@ -19,31 +19,31 @@ import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 final class ShowValueDialogBuilderTest extends StandardTest {
   @Test
   void testCase_build() {
-    //setup
+    // setup
     final var testUnit = new ShowValueDialogBuilder();
 
-    //execution
+    // execution
     final var result = testUnit.build();
 
-    //verification
+    // verification
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
   }
 
   @Test
   void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
-    //setup
+    // setup
     final var webGui = new WebGui();
     final var testUnit = new ShowValueDialogBuilder();
 
-    //execution part 1
+    // execution part 1
     final var result = testUnit.build();
     webGui.pushLayer(result);
 
-    //execution part 2
+    // execution part 2
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
-    //verification
+    // verification
     expect(result.belongsToGui()).isFalse();
   }
 

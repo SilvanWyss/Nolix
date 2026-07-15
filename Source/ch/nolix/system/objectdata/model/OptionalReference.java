@@ -158,7 +158,7 @@ implements IOptionalReference<E> {
   @Override
   @SuppressWarnings("unchecked")
   public ITable<E> getStoredReferencedTable() {
-    //This part is not mandatory, but provides a better performance.
+    // This part is not mandatory, but provides a better performance.
     final var referencedEntity = nullableReferencedEntityCache.nullableEntity();
     if (referencedEntity != null && referencedEntity.belongsToTable()) {
       return (ITable<E>) referencedEntity.getStoredParentTable();

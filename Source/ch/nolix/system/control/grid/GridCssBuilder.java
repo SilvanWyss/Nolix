@@ -27,7 +27,7 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IGrid control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -38,7 +38,7 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
     final IGrid control,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -77,6 +77,6 @@ public final class GridCssBuilder extends AbstractControlCssBuilder<IGrid, IGrid
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IGrid control,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

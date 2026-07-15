@@ -60,29 +60,29 @@ public final class Server extends AbstractServer {
    * @throws RuntimeException if the given initialHttpMessage is blank.
    */
   private Server(final int port, final String initialHttpMessage) {
-    //Asserts that the given port is in [0,65535].
+    // Asserts that the given port is in [0,65535].
     Validator.assertThat(port).isBetween(PortCatalog.MIN_PORT, PortCatalog.MAX_PORT);
 
-    //Asserts that the given initialHttpMessage is not blank.
+    // Asserts that the given initialHttpMessage is not blank.
     Validator.assertThat(initialHttpMessage).thatIsNamed("initial HTTP message").isNotBlank();
 
-    //Sets the port of the current Server.
+    // Sets the port of the current Server.
     this.port = port;
 
-    //Sets the initialHttpMessageForWebBrowsers of the current Server.
+    // Sets the initialHttpMessageForWebBrowsers of the current Server.
     this.initialHttpMessage = initialHttpMessage;
 
     try {
-      //Creates the serverSocket of the current Server.
+      // Creates the serverSocket of the current Server.
       serverSocket = new ServerSocket(getPort());
 
-      //Makes that the address of the current Server can be reused immediately after the current Sever is closed.
+      // Makes that the address of the current Server can be reused immediately after the current Sever is closed.
       serverSocket.setReuseAddress(true);
     } catch (final IOException ioException) {
       throw WrapperException.forError(ioException);
     }
 
-    //Creates and starts a ServerListener for the current Server.
+    // Creates and starts a ServerListener for the current Server.
     createServerListener();
   }
 

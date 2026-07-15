@@ -14,19 +14,19 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class GetCopyMethodTest extends StandardTest {
   @Test
   void testCase_getCopy_whenIsEmpty() {
-    //setup
+    // setup
     final var testUnit = LinkedList.createEmpty();
 
-    //execution
+    // execution
     final var result = testUnit.getCopy();
 
-    //verification
+    // verification
     expect(result.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_getCopy_whenContainsAny() {
-    //setup
+    // setup
     final var antelope = "antelope";
     final var baboon = "baboon";
     final var elephant = "elephant";
@@ -35,10 +35,10 @@ final class GetCopyMethodTest extends StandardTest {
     final var zebra = "zebra";
     final var testUnit = LinkedList.withElement(antelope, baboon, elephant, lion, rhino, zebra);
 
-    //execution
+    // execution
     final var result = testUnit.getCopy();
 
-    //verification
+    // verification
     expect(result).containsExactlyInSameOrder(antelope, baboon, elephant, lion, rhino, zebra);
   }
 }

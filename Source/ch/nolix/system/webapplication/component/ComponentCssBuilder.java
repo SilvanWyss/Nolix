@@ -22,7 +22,7 @@ public final class ComponentCssBuilder extends AbstractControlCssBuilder<ICompon
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IComponent button,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -33,7 +33,7 @@ public final class ComponentCssBuilder extends AbstractControlCssBuilder<ICompon
     final IComponent button,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -43,7 +43,7 @@ public final class ComponentCssBuilder extends AbstractControlCssBuilder<ICompon
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IComponent control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -54,6 +54,6 @@ public final class ComponentCssBuilder extends AbstractControlCssBuilder<ICompon
     final IComponent button,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

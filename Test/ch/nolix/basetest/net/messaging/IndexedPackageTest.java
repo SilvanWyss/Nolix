@@ -15,25 +15,25 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class IndexedPackageTest extends StandardTest {
   @Test
   void testCase_hasIndex_whenHasTheGivenIndex() {
-    //setup
+    // setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
 
-    //execution
+    // execution
     final var result = testUnit.hasIndex(105);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasIndex_whenDoesNotHaveTheGivenIndex() {
-    //setup
+    // setup
     final var testUnit = IndexedPackage.withIndexAndContent(105, new VoidObject());
 
-    //execution
+    // execution
     final var result = testUnit.hasIndex(106);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

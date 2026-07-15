@@ -66,16 +66,16 @@ public final class LocalEndPoint extends AbstractEndPoint {
   private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
     peerType = PeerType.BACKEND;
 
-    //Asserts that the given counter part is not null.
+    // Asserts that the given counter part is not null.
     Validator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    //Sets the counter part of this local end point.
+    // Sets the counter part of this local end point.
     this.counterpart = counterpart;
 
-    //Asserts that the given target is not null or empty.
+    // Asserts that the given target is not null or empty.
     Validator.assertThat(target).thatIsNamed("target").isNotEmpty();
 
-    //Sets the target of this local end point.
+    // Sets the target of this local end point.
     this.target = target;
   }
 
@@ -125,7 +125,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @throws RuntimeException if this local end point is closed.
    */
   public String sendAndWaitToReply(final String message) {
-    //Asserts that this local end point is open.
+    // Asserts that this local end point is open.
     assertIsOpen();
 
     return getStoredCounterpart().receiveAndGetReply(message);
@@ -145,7 +145,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    */
   @Override
   public String getCustomTargetSlot() {
-    //Asserts that this local end point has a target.
+    // Asserts that this local end point has a target.
     if (!hasCustomTargetSlot()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target");
     }

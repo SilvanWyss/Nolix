@@ -15,38 +15,38 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullExce
 final class KeyValuePairTest extends StandardTest {
   @Test
   void testCase_toString() {
-    //test parameters
+    // test parameters
     final var key = "France";
     final var value = "Paris";
 
-    //execution
+    // execution
     final var result = KeyValuePair.withKeyAndValue(key, value);
 
-    //verification
+    // verification
     expect(result).hasStringRepresentation("(France;Paris)");
   }
 
   @Test
   void testCase_withKeyAndValue() {
-    //test parameters
+    // test parameters
     final var key = "France";
     final var value = "Paris";
 
-    //execution
+    // execution
     final var result = KeyValuePair.withKeyAndValue(key, value);
 
-    //verification
+    // verification
     expect(result.getKey()).is(key);
     expect(result.getStoredValue()).is(value);
   }
 
   @Test
   void testCase_withKeyAndValue_whenTheGivenKeyIsNull() {
-    //test parameters
+    // test parameters
     final String key = null;
     final String value = "Paris";
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> KeyValuePair.withKeyAndValue(key, value))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -55,11 +55,11 @@ final class KeyValuePairTest extends StandardTest {
 
   @Test
   void testCase_withKeyAndValue_whenTheGivenValueIsNull() {
-    //test parameters
+    // test parameters
     final String key = "France";
     final String value = null;
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> KeyValuePair.withKeyAndValue(key, value))
       .throwsException()
       .ofType(ArgumentIsNullException.class)

@@ -61,7 +61,7 @@ public final class Button extends AbstractControl<IButton, IButtonStyle> impleme
   private Consumer<IButton> leftMouseButtonReleaseAction;
 
   public Button() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     setMinWidth(200);

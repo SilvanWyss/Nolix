@@ -24,131 +24,131 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
 
   @Test
   final void testCase_belongsToGui_whenDoesNotBelongToGui() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.belongsToGui();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   final void testCase_belongsToGui_whenBelongsDirectlyToGui() {
-    //setup
+    // setup
     final var webGui = new WebGui();
     final var testUnit = createTestUnit();
     webGui.pushLayerWithRootControl(testUnit);
 
-    //execution
+    // execution
     final var result = testUnit.belongsToGui();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_belongsToGui_whenBelongsToControlThatBelongsToGui() {
-    //setup
+    // setup
     final var webGui = new WebGui();
     final var floatContainer = new FloatContainer();
     webGui.pushLayerWithRootControl(floatContainer);
     final var testUnit = createTestUnit();
     floatContainer.addControl(testUnit);
 
-    //execution
+    // execution
     final var result = testUnit.belongsToGui();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   final void testCase_editStyle() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
 
-    //execution
+    // execution
     testUnit.editStyle(s -> s.forStateSetTextColor(ControlState.BASE, X11ColorCatalog.DARK_CYAN));
 
-    //verification
+    // verification
     final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);
     expect(actualBaseTextColor).isEqualTo(X11ColorCatalog.DARK_CYAN);
   }
 
   @Test
   final void testCase_getAttributes_whenIsCollapsed() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
     testUnit.setCollapsed();
 
-    //execution
+    // execution
     final var result = testUnit.getAttributes();
 
-    //verification
+    // verification
     expect(result).containsEqualing(ImmutableNode.fromString("Presence(COLLAPSED)"));
   }
 
   @Test
   final void testCase_getInternalId() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getInternalId();
 
-    //verification
+    // verification
     expect(result).startsWith("i");
     expect(result).hasLength(11);
   }
 
   @Test
   final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
     final var internalId = testUnit.getInternalId();
 
     for (var i = 1; i <= 10_000; i++) {
-      //execution
+      // execution
       final var result = testUnit.getInternalId();
 
-      //verification
+      // verification
       expect(result).isEqualTo(internalId);
     }
   }
 
   @Test
   final void testCase_getStoredChildControls() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
 
-    //execution
+    // execution
     final var result = testUnit.getStoredChildControls();
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   final void testCase_linkTo() {
-    //setup
+    // setup
     final var voidObject = new VoidObject();
     final var testUnit = createTestUnit();
 
-    //setup verification
+    // setup verification
     expect(testUnit.isLinkedToAnObject()).isFalse();
 
-    //execution
+    // execution
     testUnit.linkTo(voidObject);
 
-    //verification
+    // verification
     expect(testUnit.getStoredLinkedObjects()).containsExactly(voidObject);
   }
 
   @Test
   final void testCase_reset() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
     testUnit.setInvisible();
     testUnit.setMinWidth(1000);
@@ -157,10 +157,10 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
     testUnit.setMaxHeight(600);
     testUnit.setCursorIcon(CursorIcon.HAND);
 
-    //execution
+    // execution
     testUnit.reset();
 
-    //verification
+    // verification
     expect(testUnit.isVisible()).isTrue();
     expect(testUnit.hasMinWidth()).isFalse();
     expect(testUnit.hasMinHeight()).isFalse();
@@ -170,16 +170,16 @@ public abstract class ControlTest<C extends Control<C, ?>> extends StandardTest 
 
   @Test
   final void testCase_setCursorIcon() {
-    //setup
+    // setup
     final var testUnit = createTestUnit();
 
-    //setup verification
+    // setup verification
     expect(testUnit.getCursorIcon()).isNot(CursorIcon.MOVE);
 
-    //execution
+    // execution
     final var result = testUnit.setCursorIcon(CursorIcon.MOVE);
 
-    //verification
+    // verification
     expect(result).is(testUnit);
     expect(testUnit.getCursorIcon()).is(CursorIcon.MOVE);
   }

@@ -16,29 +16,29 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.TokenHolder;
 final class TokenHolderTest extends StandardTest {
   @Test
   void testCase_hasToken_whenHasTheGivenToken() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(TokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-    //execution
+    // execution
     final var result = testUnit.hasToken("token");
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasToken_whenDoesNotHaveTheGivenToken() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(TokenHolder.class);
     Mockito.when(testUnit.hasToken(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.getToken()).thenReturn("token");
 
-    //execution
+    // execution
     final var result = testUnit.hasToken("Token");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

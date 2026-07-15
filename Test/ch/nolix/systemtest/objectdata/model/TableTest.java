@@ -37,23 +37,23 @@ final class TableTest extends StandardTest {
 
   @Test
   void testCase_getStoredAllEntities_whenIsEmpty() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Person.class);
 
-    //execution
+    // execution
     final var result = testUnit.getStoredEntities();
 
-    //verification
+    // verification
     expect(nodeDataAdapter.hasChanges()).isFalse();
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_getStoredAllEntities() {
-    //setup part 1
+    // setup part 1
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -62,14 +62,14 @@ final class TableTest extends StandardTest {
     nodeDataAdapter.insertEntity(person);
     nodeDataAdapter.saveChanges();
 
-    //setup part 2
+    // setup part 2
     final var nodeDataAdapter2 = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var testUnit = nodeDataAdapter2.getStoredTableByEntityType(Person.class);
 
-    //execution
+    // execution
     final var result = testUnit.getStoredEntities();
 
-    //verification
+    // verification
     expect(result.getCount()).isEqualTo(1);
     final var loadedPerson = result.getStoredAtOneBasedIndex(1);
     expect(loadedPerson.getId()).isEqualTo(person.getId());

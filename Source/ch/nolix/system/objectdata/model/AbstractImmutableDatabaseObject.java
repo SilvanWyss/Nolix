@@ -70,6 +70,6 @@ abstract class AbstractImmutableDatabaseObject implements GroupCloseable, Databa
    */
   @Override
   public final void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 }

@@ -25,7 +25,7 @@ final class LicenseManagerTest extends StandardTest {
     }
   }
 
-  //This class must be public that it can be processed by reflection.
+  // This class must be public that it can be processed by reflection.
   public static final class TestFeature extends AbstractFeature {
     @Override
     public ExtendedIterable<Class<?>> getAuthorizedLicenseTypes() {
@@ -35,21 +35,21 @@ final class LicenseManagerTest extends StandardTest {
 
   @Test
   void testCase_requireFeature_whenLicenseIsNotThere() {
-    //execution & verification
+    // execution & verification
     expectRunning(() -> LicenseManager.requireFeature(TestFeature.class)).throwsException();
   }
 
   @Test
   void testCase_requireFeature_whenLicenseIsThere() {
-    //setup
+    // setup
     final var testLicense = new TestLicense();
     testLicense.activateWithKey("0000-0000");
     LicenseManager.addLicense(testLicense);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> LicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
 
-    //cleanup
+    // cleanup
     LicenseManager.removeLicense(testLicense);
   }
 }

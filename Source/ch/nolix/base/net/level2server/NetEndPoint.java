@@ -247,13 +247,13 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         {@link NetEndPoint}
    */
   int getNextSentPackageIndex() {
-    //Resets the index of the text sent package if it has reached the maximum
-    //value.
+    // Resets the index of the text sent package if it has reached the maximum
+    // value.
     if (nextSentPackageIndex == Integer.MAX_VALUE) {
       nextSentPackageIndex = 0;
     }
 
-    //Returns and increments the next sent package index.
+    // Returns and increments the next sent package index.
     return nextSentPackageIndex++;
   }
 
@@ -263,7 +263,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param paramPackage
    */
   void receive(final Package paramPackage) {
-    //Enumerates the message role of the given package.
+    // Enumerates the message role of the given package.
     switch (paramPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case RESPONSE_EXPECTING_MESSAGE:
         receiveResponseExpectingMessage(paramPackage);
@@ -368,15 +368,15 @@ public final class NetEndPoint extends AbstractEndPoint {
    *                          index.
    */
   private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
-    //This loop suffers from being optimized away by the compiler or the JVM.
+    // This loop suffers from being optimized away by the compiler or the JVM.
     while (!receivedPackage(index)) {
-      //Handles the case that the current NetEndPoint is closed.
+      // Handles the case that the current NetEndPoint is closed.
       if (isClosed()) {
         return null;
       }
 
-      //This statement, which is theoretically unnecessary, makes that the current
-      //loop is not optimized away.
+      // This statement, which is theoretically unnecessary, makes that the current
+      // loop is not optimized away.
       System.err.flush(); //NOSONAR: This statement is used to keep the loop.
     }
 

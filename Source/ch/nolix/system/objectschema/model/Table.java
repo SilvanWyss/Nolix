@@ -178,8 +178,8 @@ public final class Table extends AbstractSchemaObject implements ITable {
    */
   @Override
   protected void noteClose() {
-    //Does not call getStoredColumns method to avoid that the columns need to be
-    //loaded from the database.
+    // Does not call getStoredColumns method to avoid that the columns need to be
+    // loaded from the database.
     for (final var c : memberColumns) {
       c.close();
     }

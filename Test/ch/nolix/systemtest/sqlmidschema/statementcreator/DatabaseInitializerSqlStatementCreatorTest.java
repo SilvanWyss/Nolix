@@ -15,18 +15,18 @@ import ch.nolix.system.time.moment.Time;
 final class DatabaseInitializerSqlStatementCreatorTest extends StandardTest {
   @Test
   void testCase_createSqlStatementToCreateSchemaTimestampEntry() {
-    //setup
+    // setup
     final var time = Time.withYear(2025);
     final var testUnit = new DatabaseInitializationStatementCreator();
 
-    //execution
+    // execution
     final var result = testUnit.createStatementToCreateSchemaTimestampEntry(time);
 
-    //verification setup
+    // verification setup
     final var expectedResult = //
     "INSERT INTO DatabaseProperty (Key_, Value_) VALUES ('SchemaTimestamp', '2025-01-01-00-00-00-000-000');";
 
-    //verification
+    // verification
     expect(result).isEqualTo(expectedResult);
   }
 }

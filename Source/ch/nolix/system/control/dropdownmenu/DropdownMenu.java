@@ -28,7 +28,7 @@ public final class DropdownMenu extends AbstractItemMenu<IDropdownMenu, IDropdow
   private static final DropdownMenuCssBuilder CSS_BUILDER = new DropdownMenuCssBuilder();
 
   public DropdownMenu() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredStyle()

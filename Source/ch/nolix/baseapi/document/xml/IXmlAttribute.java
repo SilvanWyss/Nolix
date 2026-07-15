@@ -10,5 +10,5 @@ import ch.nolix.baseapi.attribute.mandatoryattribute.ValueHolder;
  * @author Silvan Wyss
  */
 public interface IXmlAttribute extends NameHolder, ValueHolder<String> {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

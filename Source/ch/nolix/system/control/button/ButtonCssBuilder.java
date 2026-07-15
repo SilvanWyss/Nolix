@@ -22,7 +22,7 @@ public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, I
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IButton button,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -33,7 +33,7 @@ public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, I
     final IButton button,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -43,7 +43,7 @@ public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, I
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
     final IButton control,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -54,6 +54,6 @@ public final class ButtonCssBuilder extends AbstractControlCssBuilder<IButton, I
     final IButton button,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

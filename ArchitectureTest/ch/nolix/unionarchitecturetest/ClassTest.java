@@ -15,10 +15,10 @@ import ch.nolix.base.testing.archunit.ArchUnitRuleCatalog;
 final class ClassTest {
   @Test
   void testCase_publicClassesDoNotContainNestedClasses() {
-    //setup
+    // setup
     final var testUnit = new ClassFileImporter().importPackages("ch.nolix..");
 
-    //execution & verification
+    // execution & verification
     ArchUnitRuleCatalog.PUBLIC_CLASSES_DO_NOT_CONTAIN_NESTED_CLASSES.check(testUnit);
   }
 }

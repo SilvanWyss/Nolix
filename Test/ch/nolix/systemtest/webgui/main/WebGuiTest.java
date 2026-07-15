@@ -17,10 +17,10 @@ import ch.nolix.system.webgui.main.WebGui;
 final class WebGuiTest extends StandardTest {
   @Test
   void testCase_constructor() {
-    //execution
+    // execution
     final var result = new WebGui();
 
-    //verification
+    // verification
     expect(result.getTitle()).isEqualTo(WebGui.DEFAULT_TITLE);
     expect(result.getIcon()).isEqualTo(WebGui.DEFAULT_ICON);
     expect(result.getBackgroundColor()).isEqualTo(WebGui.DEFAULT_BACKGROUND_COLOR);
@@ -30,17 +30,17 @@ final class WebGuiTest extends StandardTest {
 
   @Test
   void testCase_reset() {
-    //setup
+    // setup
     final var testUnit = new WebGui();
     testUnit.setTitle("my_title");
     testUnit.setIcon(MutableImage.withWidthAndHeightAndColor(100, 5, X11ColorCatalog.BLUE));
     testUnit.pushLayer(new Layer());
     testUnit.addToken("my_token");
 
-    //execution
+    // execution
     testUnit.reset();
 
-    //verification
+    // verification
     expect(testUnit.getTitle()).isEqualTo(WebGui.DEFAULT_TITLE);
     expect(testUnit.getIcon()).isEqualTo(WebGui.DEFAULT_ICON);
     expect(testUnit.isEmpty()).isTrue();

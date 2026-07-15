@@ -9,5 +9,5 @@ import ch.nolix.systemapi.control.linearcontainer.ILinearContainerStyle;
  * @author Silvan Wyss
  */
 public interface IVerticalStackStyle extends ILinearContainerStyle<IVerticalStackStyle> {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

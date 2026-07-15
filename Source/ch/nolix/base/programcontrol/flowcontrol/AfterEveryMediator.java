@@ -60,11 +60,11 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   @Override
   public void run(final Runnable job) {
-    //Handles the case that the current AfterEveryMediator does not have a max run count.
+    // Handles the case that the current AfterEveryMediator does not have a max run count.
     if (!hasMaxRunCount()) {
       runWhenDoesNotHaveMaxRunCount(job);
 
-      //Handles the case that the current AfterEveryMediator has a max run count.
+      // Handles the case that the current AfterEveryMediator has a max run count.
     } else {
       runWhenHasMaxRunCount(job);
     }
@@ -75,12 +75,12 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    */
   @Override
   public IFuture runInBackground(final Runnable job) {
-    //Handles the case that the current AfterEveryMediator does not have a max count.
+    // Handles the case that the current AfterEveryMediator does not have a max count.
     if (!hasMaxRunCount()) {
       return runInBackgroundWhenDoesNotHaveMaxRunConunt(job);
     }
 
-    //Handles the case that the current AfterEveryMediator has a max count.
+    // Handles the case that the current AfterEveryMediator has a max count.
     return runInBackgroundWhenHasMaxRunConunt(job);
   }
 
@@ -122,7 +122,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @throws RuntimeException if the given job is null.
    */
   private IFuture runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable step) {
-    //Handles the case that the current AfterAllMediator does not have a condition.
+    // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       final var jobExecutor = //
       JobExecutor.forStepAndMaxStepRunCountAndDelayBetweenStepRunsInMilliseconds(step, maxRunCount,
@@ -133,7 +133,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
       return Future.forJobExecutor(jobExecutor);
     }
 
-    //Handles the case that the current AfterAllMediator has a condition.
+    // Handles the case that the current AfterAllMediator has a condition.
     final var jobExecutor = //
     JobExecutor.forStepAndNextStepRunConditionAndDelayBetweenStepRunsInMilliseconds(
       step,
@@ -154,7 +154,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @throws RuntimeException if the given job is null.
    */
   private IFuture runInBackgroundWhenHasMaxRunConunt(final Runnable step) {
-    //Handles the case that the current AfterAllMediator does not have a condition.
+    // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       final var jobExecutor = //
       JobExecutor.forStepAndMaxStepRunCountAndDelayBetweenStepRunsInMilliseconds(
@@ -167,7 +167,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
       return Future.forJobExecutor(jobExecutor);
     }
 
-    //Handles the case that the current AfterAllMediator has a condition.
+    // Handles the case that the current AfterAllMediator has a condition.
     final var jobExecutor = //
     JobExecutor
       .forStepAndMaxStepRunCountAndNextStepRunConditionAndDelayBetweenStepRunsInMilliseconds(
@@ -208,7 +208,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
   private void runWhenHasMaxRunCount(final Runnable job) {
     Validator.assertThat(job).thatIsNamed(LowerCaseVariableNameCatalog.JOB).isNotNull();
 
-    //Handles the case that the current AfterAllMediator does not have a condition.
+    // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       for (var i = 1; i <= maxRunCount; i++) {
         Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
@@ -216,7 +216,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
         job.run();
       }
 
-      //Handles the case that the current AfterAllMediator has a condition.
+      // Handles the case that the current AfterAllMediator has a condition.
     } else {
       for (var i = 1; i <= maxRunCount; i++) {
         Waiter.waitForMilliseconds(timeIntervalInMilliseconds);

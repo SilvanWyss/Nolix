@@ -71,12 +71,12 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   public static NamableIterableMediator<Byte> assertThat(final byte[] argument) {
-    //Handles the case that the given argument is null.
+    // Handles the case that the given argument is null.
     if (argument == null) {
       NamableIterableMediator.forArgument(null);
     }
 
-    //Handles the case that the given argument is not null.
+    // Handles the case that the given argument is not null.
     return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
   }
 
@@ -102,12 +102,12 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   public static NamableIterableMediator<Double> assertThat(final double[] argument) {
-    //Handles the case that the given argument is null.
+    // Handles the case that the given argument is null.
     if (argument == null) {
       return NamableIterableMediator.forArgument(null);
     }
 
-    //Handles the case that the given argument is not null.
+    // Handles the case that the given argument is not null.
     return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
   }
 
@@ -124,12 +124,12 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   public static NamableIterableMediator<Long> assertThat(final int[] argument) {
-    //Handles the case that the given argument is null.
+    // Handles the case that the given argument is null.
     if (argument == null) {
       return NamableIterableMediator.forArgument(null);
     }
 
-    //Handles the case that the given argument is not null.
+    // Handles the case that the given argument is not null.
     return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
   }
 
@@ -155,12 +155,12 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @return a new {@link NamableIterableMediator} for the given argument.
    */
   public static NamableIterableMediator<Long> assertThat(final long[] argument) {
-    //Handles the case that the given argument is null.
+    // Handles the case that the given argument is null.
     if (argument == null) {
       return NamableIterableMediator.forArgument(null);
     }
 
-    //Handles the case that the given argument is not null.
+    // Handles the case that the given argument is not null.
     return NamableIterableMediator.forArgument(ARRAY_TOOL.createIterable(argument));
   }
 

@@ -19,10 +19,10 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.NonEmptyArgumentEx
 final class StringMediatorTest extends StandardTest {
   @Test
   void testCase_isEmpty_whenTheGivenArgumentIsNull() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(null);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isEmpty)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -31,19 +31,19 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isEmpty_whenTheGivenArgumentIsEmpty() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isEmpty).doesNotThrowException();
   }
 
   @Test
   void testCase_isEmpty_whenTheGivenArgumentConsistsOfASpace() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(" ");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isEmpty)
       .throwsException()
       .ofType(NonEmptyArgumentException.class)
@@ -52,10 +52,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isEmpty_whenTheGivenArgumentConsistsOfLetters() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("aaa");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isEmpty)
       .throwsException()
       .ofType(NonEmptyArgumentException.class)
@@ -64,10 +64,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_hasLength_whenTheGivenLengthIsNegative() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("aaa");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.hasLength(-1))
       .throwsException()
       .ofType(NegativeArgumentException.class)
@@ -76,10 +76,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_hasLength_whenTheGivenArgumentIsNull() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(null);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.hasLength(4))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -88,10 +88,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_hasLength_whenTheGivenArgumentIsShorterThanTheGivenLength() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("aaa");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.hasLength(4))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -100,19 +100,19 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_hasLength_whenTheGivenArgumentHasTheGivenLength() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("aaaa");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.hasLength(4)).doesNotThrowException();
   }
 
   @Test
   void testCase_hasLength_whenTheGivenArgumentIsLongerThanTheGivenLength() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("aaaaa");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.hasLength(4))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -121,10 +121,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentIsNull() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(null);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotEmpty)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -133,10 +133,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentIsEmpty() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotEmpty)
       .throwsException()
       .ofType(EmptyArgumentException.class)
@@ -145,28 +145,28 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfASpace() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(" ");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotEmpty).doesNotThrowException();
   }
 
   @Test
   void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfALetter() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("a");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotEmpty).doesNotThrowException();
   }
 
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentIsNull() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(null);
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotBlank)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -175,10 +175,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentIsEmpty() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotBlank)
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -186,10 +186,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentConsistsOfASpace() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(" ");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotBlank)
       .throwsException()
       .ofType(InvalidArgumentException.class);
@@ -197,37 +197,37 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_isNotBlank_whenTheGivenArgumentConsistsOfALetter() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("a");
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::isNotBlank).doesNotThrowException();
   }
 
   @Test
   void testCase_isNotLongerThan_whenTheArgumentIsShorterThanTheMaxLength() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("lorem");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10)).doesNotThrowException();
   }
 
   @Test
   void testCase_isNotLongerThan_whenTheArgumentHasTheMaxLength() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("lorem ipsu");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10)).doesNotThrowException();
   }
 
   @Test
   void testCase_isNotLongerThan_whenTheArgumentIsLongerThanTheMaxLength() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("lorem ipsum dolor");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -236,19 +236,19 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_matches_whenTheGivenArgumentMatches() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("lore");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.matches("....")).doesNotThrowException();
   }
 
   @Test
   void testCase_matches_whenTheGivenArgumentDoesNotMatch() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("lorem");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.matches("...."))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -257,10 +257,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_startsWith_whenTheGivenArgumentIsNull() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument(null);
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.startsWith("Mada"))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
@@ -269,28 +269,28 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_startsWith_whenTheGivenArgumentStartWithTheGivenPrefix() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("Madagascar");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.startsWith("Mada")).doesNotThrowException();
   }
 
   @Test
   void testCase_startsWith_whenTheGivenArgumentEqualsTheGivenPrefix() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("Madagascar");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.startsWith("Madagascar")).doesNotThrowException();
   }
 
   @Test
   void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_1() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("Madagascar");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.startsWith("mada"))
       .throwsException()
       .ofType(InvalidArgumentException.class)
@@ -299,10 +299,10 @@ final class StringMediatorTest extends StandardTest {
 
   @Test
   void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_2() {
-    //setup
+    // setup
     final var testUnit = StringMediator.forArgument("Madagascar");
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.startsWith("Madu"))
       .throwsException()
       .ofType(InvalidArgumentException.class)

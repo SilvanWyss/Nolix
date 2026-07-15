@@ -84,7 +84,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
     rootVerticalStack.setContentAlignment(HorizontalContentAlignment.LEFT);
     menuHorizontalStack.getStoredStyle().setChildControlMarginForState(ControlState.BASE, 10);
 
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     getStoredMenuButtonStyle()
@@ -246,7 +246,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -314,7 +314,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    */
   @Override
   protected void resetContainer() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

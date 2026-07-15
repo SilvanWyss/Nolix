@@ -65,7 +65,7 @@ public final class ImmutableJsonArray implements JsonArray {
     return JsonValueType.ARRAY;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -91,7 +91,7 @@ public final class ImmutableJsonArray implements JsonArray {
     + indentation + StringCatalog.CLOSED_SQUARE_BRACKET; // last line
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -102,7 +102,7 @@ public final class ImmutableJsonArray implements JsonArray {
     return ImmutableNode.withChildNodes(childNodes);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

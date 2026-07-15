@@ -264,8 +264,8 @@ implements IControlCssBuilder<C, S> {
 
     switch (presence) {
       case VISIBLE:
-        //Does nothing. Since presence is configured for all states, the Control will
-        //be visible per default.
+        // Does nothing. Since presence is configured for all states, the Control will
+        // be visible per default.
         break;
       case INVISIBLE:
         list.addAtEnd(CssProperty.withNameAndValue("visibility", "hidden"));

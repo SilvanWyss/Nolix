@@ -27,105 +27,105 @@ final class FieldExaminerTest extends StandardTest {
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_1A() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, LinkedList.class);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_1B() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, AbstractExtendedIterable.class);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_2A() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ILinkedList.class);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_2B() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ExtendedIterable.class);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_3A() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, Matrix.class);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_3B() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, ArrayList.class);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_4A() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IMatrix.class);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_canStoreValueOfTypeOrSuperType_4B() throws NoSuchFieldException {
-    //setup
+    // setup
     final var studentsField = Lecture.class.getField("students");
     final var testUnit = new FieldExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.canStoreValueOfTypeOrSuperType(studentsField, IArrayList.class);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

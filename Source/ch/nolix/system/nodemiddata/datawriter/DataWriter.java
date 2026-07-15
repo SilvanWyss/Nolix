@@ -287,7 +287,7 @@ public final class DataWriter implements IDataWriter {
    */
   @Override
   public void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

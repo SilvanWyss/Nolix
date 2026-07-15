@@ -15,15 +15,15 @@ import ch.nolix.baseapi.net.securityproperty.SecurityMode;
 final class ServerTargetTest extends StandardTest {
   @Test
   void testCase_forIpOrDomainAndPortAndSecurityModeForConnections() {
-    //parameter definition
+    // parameter definition
     final var domain = "nolix.ch";
     final var port = 443;
     final var securiyMode = SecurityMode.SSL;
 
-    //execution
+    // execution
     final var result = ServerTarget.forIpOrDomainAndPortAndSecurityModeForConnections(domain, port, securiyMode);
 
-    //verification
+    // verification
     expect(result.getIpOrDomain()).isEqualTo(domain);
     expect(result.getPort()).isEqualTo(port);
     expect(result.getSecurityModeForConnection()).isEqualTo(securiyMode);

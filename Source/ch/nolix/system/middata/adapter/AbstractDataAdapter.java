@@ -272,7 +272,7 @@ public abstract class AbstractDataAdapter implements IDataAdapter {
    */
   @Override
   public final void noteClose() {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

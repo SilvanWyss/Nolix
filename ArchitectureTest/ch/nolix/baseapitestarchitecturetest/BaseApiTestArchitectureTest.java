@@ -15,16 +15,16 @@ final class BaseApiTestArchitectureTest {
 
   @Test
   void testCase_cycles() {
-    //setup
+    // setup
     final var rule = SlicesRuleDefinition.slices().matching("ch.nolix.baseapitest.(*)..").should().beFreeOfCycles();
 
-    //execution & verification
+    // execution & verification
     rule.check(TEST_UNIT);
   }
 
   @Test
   void testCase_dependencies() {
-    //setup
+    // setup
     final var rule = //
     ArchRuleDefinition
       .classes()
@@ -38,7 +38,7 @@ final class BaseApiTestArchitectureTest {
         "org.junit.jupiter..",
         "org.mockito..");
 
-    //execution & verification
+    // execution & verification
     rule.check(TEST_UNIT);
   }
 }

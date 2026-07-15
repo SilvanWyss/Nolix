@@ -15,22 +15,22 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 final class OptionalValueTest extends StandardTest {
   @Test
   void testCase_clear() {
-    //setup
+    // setup
     final var testUnit = OptionalValueField.withInitialValue("LoremIpsum");
 
-    //execution
+    // execution
     testUnit.clear();
 
-    //verification
+    // verification
     expect(testUnit.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_constructor() {
-    //execution
+    // execution
     final var result = OptionalValueField.withValueType(String.class);
 
-    //verification
+    // verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
     expect(result.isOpen()).isTrue();
     expect(result.isDeleted()).isFalse();
@@ -41,13 +41,13 @@ final class OptionalValueTest extends StandardTest {
 
   @Test
   void testCase_setValue() {
-    //setup
+    // setup
     final var testUnit = OptionalValueField.withValueType(String.class);
 
-    //execution
+    // execution
     testUnit.setValue("LoremIpsum");
 
-    //verification
+    // verification
     expect(testUnit.containsAny()).isTrue();
     expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
   }

@@ -206,10 +206,10 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public ExtendedIterable<? extends INode<?>> getDataForRequests(final IChainedNode... requests) {
-    //Concatenates the given requests.
+    // Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElements(requests);
 
-    //Calls other method.
+    // Calls other method.
     return getDataForRequests(concatenatedRequests);
   }
 
@@ -218,13 +218,13 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public ExtendedIterable<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-    //Creates message.
+    // Creates message.
     final var message = MessageHeaderCatalog.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
-    //Sends message and receives reply.
+    // Sends message and receives reply.
     final var reply = ImmutableNode.fromString(internalEndPoint.getReplyForRequest(message));
 
-    //Enumerates the header of the reply.
+    // Enumerates the header of the reply.
     return switch (reply.getHeader()) {
       case MessageHeaderCatalog.MULTI_DATA_HEADER ->
         reply.getStoredChildNodes();
@@ -272,19 +272,19 @@ public final class NetEndPoint extends AbstractEndPoint {
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
-    //Creates message.
+    // Creates message.
     final var message = MessageHeaderCatalog.COMMANDS_HEADER + '(' + ExtendedIterableView.forIterable(commands) + ')';
 
     final var replyAsString = internalEndPoint.getReplyForRequest(message);
 
     if (replyAsString == null) {
-      //When one of the given commands is a redirect command, the counterpart will
-      //redirect and leave null.
+      // When one of the given commands is a redirect command, the counterpart will
+      // redirect and leave null.
     } else {
-      //Sends the message and received reply.
+      // Sends the message and received reply.
       final var reply = ImmutableNode.fromString(replyAsString);
 
-      //Enumerates the header of the reply.
+      // Enumerates the header of the reply.
       switch (reply.getHeader()) {
         case MessageHeaderCatalog.DONE_HEADER:
           break;
@@ -330,10 +330,10 @@ public final class NetEndPoint extends AbstractEndPoint {
    *                                               have a receiver.
    */
   private String receiveAndGetReply(final ChainedNode message) {
-    //Gets the receiver controller of the current NetEndPoint.
+    // Gets the receiver controller of the current NetEndPoint.
     final var receiverController = getStoredReceiverController();
 
-    //Enumerates the header of the given message.
+    // Enumerates the header of the given message.
     switch (message.getHeader()) {
       case MessageHeaderCatalog.COMMANDS_HEADER:
 

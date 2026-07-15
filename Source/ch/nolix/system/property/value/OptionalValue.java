@@ -173,7 +173,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
     memberOptionalValue = null;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -186,7 +186,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
     }
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

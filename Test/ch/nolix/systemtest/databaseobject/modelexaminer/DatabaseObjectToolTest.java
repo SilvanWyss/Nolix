@@ -17,369 +17,369 @@ import ch.nolix.systemapi.databaseobject.property.DatabaseObjectState;
 final class DatabaseObjectToolTest extends StandardTest {
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrDeleted(null);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsNew() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsLoaded() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsEdited() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsDeleted() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrDeleted_whenTheGivenDatabaseObjectIsClosed() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrDeleted(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrEdited(null);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsNew() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsEdited() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrEdited_whenTheGivenDatabaseObjectIsClosed() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoaded(null);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsNew() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsLoaded() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsEdited() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsDeleted() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoaded_whenTheGivenDatabaseObjectIsClosed() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoaded(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNull() {
-    //setup
+    // setup
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoadedOrEdited(null);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsNew() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.NEW);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsLoaded() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.UNEDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsEdited() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.EDITED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsDeleted() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.DELETED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isNewOrLoadedOrEdited_whenTheGivenDatabaseObjectIsClosed() {
-    //setup databaseObjectMock
+    // setup databaseObjectMock
     final var databaseObjectMock = Mockito.mock(DatabaseObject.class);
     Mockito.when(databaseObjectMock.getState()).thenReturn(DatabaseObjectState.CLOSED);
 
-    //setup testUnit
+    // setup testUnit
     final var testUnit = new DatabaseObjectExaminer();
 
-    //execution
+    // execution
     final var result = testUnit.isNewOrLoadedOrEdited(databaseObjectMock);
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

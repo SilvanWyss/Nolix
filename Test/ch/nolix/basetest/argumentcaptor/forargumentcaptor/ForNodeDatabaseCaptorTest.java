@@ -18,11 +18,11 @@ import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotHav
 final class ForNodeDatabaseCaptorTest extends StandardTest {
   @Test
   void testCase_forNodeDatabase_whenDoesNotHaveNext() {
-    //setup
+    // setup
     final var database = MutableNode.createEmpty();
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> testUnit.forNodeDatabase(database))
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);
@@ -30,39 +30,39 @@ final class ForNodeDatabaseCaptorTest extends StandardTest {
 
   @Test
   void testCase_forNodeDatabase_whenHasNext() {
-    //setup
+    // setup
     final var database = MutableNode.createEmpty();
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.forNodeDatabase(database);
 
-    //verification
+    // verification
     expect(testUnit.getStoredNodeDatabase()).isEqualTo(database);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_forTemporaryInMemoryNodeDatabase_whenHasNext() {
-    //setup
+    // setup
     final var andNameCaptor = new AndNameCaptor<>();
     final var testUnit = new ForNodeDatabaseCaptor<>(andNameCaptor);
 
-    //execution
+    // execution
     final var result = testUnit.forTemporaryInMemoryNodeDatabase();
 
-    //verification
+    // verification
     expect(testUnit.getStoredNodeDatabase()).isOfType(IMutableNode.class);
     expect(result).is(andNameCaptor);
   }
 
   @Test
   void testCase_getStoredNodeDatabase_whenDoesNotHaveNodeDatabase() {
-    //setup
+    // setup
     final var testUnit = new ForNodeDatabaseCaptor<>();
 
-    //execution & verification
+    // execution & verification
     expectRunning(testUnit::getStoredNodeDatabase)
       .throwsException()
       .ofType(ArgumentDoesNotHaveAttributeException.class);

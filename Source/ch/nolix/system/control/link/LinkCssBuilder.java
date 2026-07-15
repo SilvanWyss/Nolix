@@ -23,7 +23,7 @@ public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILink
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final ILink control,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -34,7 +34,7 @@ public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILink
     final ILink control,
     final ControlState state,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -55,6 +55,6 @@ public final class LinkCssBuilder extends AbstractControlCssBuilder<ILink, ILink
     final ILink control,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

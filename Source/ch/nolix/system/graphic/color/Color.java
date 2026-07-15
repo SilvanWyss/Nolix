@@ -159,14 +159,14 @@ public final class Color extends AbstractElement implements IColor {
    *                          {@link Color}.
    */
   public static Color fromLong(final long pLong) {
-    //Asserts that the given pLong is a true color value.
+    // Asserts that the given pLong is a true color value.
     Validator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
 
     var lLong = pLong;
 
     var alphaValue = DEFAULT_ALPHA_VALUE;
 
-    //Handles the case that the given pLong specifies an alpha value.
+    // Handles the case that the given pLong specifies an alpha value.
     if (lLong >= 16_777_216) {
       alphaValue = ((int) (lLong % 256));
       lLong /= 256;
@@ -202,7 +202,7 @@ public final class Color extends AbstractElement implements IColor {
     final var webColorAndName = getX11Colors()
       .getOptionalStoredFirst(p -> p.getStoredElement1().equals(string));
 
-    //Handles the case that the given string is not a color name.
+    // Handles the case that the given string is not a color name.
     if (webColorAndName.isEmpty()) {
       if ((string.length() != 8 || string.length() != 10)
       && !string.substring(0, 2).equals(StringCatalog.HEXADECIMAL_PREFIX)) {
@@ -213,17 +213,17 @@ public final class Color extends AbstractElement implements IColor {
       final var greenValue = getColorComponentFrom(string.substring(4, 6));
       final var blueValue = getColorComponentFrom(string.substring(6, 8));
 
-      //Handles the case that the given string does not specify an alpha value.
+      // Handles the case that the given string does not specify an alpha value.
       if (string.length() == 8) {
         return new Color(redValue, greenValue, blueValue);
       }
 
-      //Handles the case that the given string specifies an alpha value.
+      // Handles the case that the given string specifies an alpha value.
       final var alphaValue = getColorComponentFrom(string.substring(8, 10));
       return new Color(redValue, greenValue, blueValue, alphaValue);
     }
 
-    //Handles the case that the given value is a color name.
+    // Handles the case that the given value is a color name.
     return (Color) webColorAndName.get().getStoredElement2();
   }
 
@@ -281,7 +281,7 @@ public final class Color extends AbstractElement implements IColor {
     var value = 0;
     var base = 1;
 
-    //Iterates the given string.
+    // Iterates the given string.
     for (var i = string.length() - 1; i >= 0; i--) {
       final var hexadecimalDigit = string.charAt(i);
       final var characterInt = mapHexadecimalDigitFromStringToInt(hexadecimalDigit, string);
@@ -314,7 +314,7 @@ public final class Color extends AbstractElement implements IColor {
   private static int mapHexadecimalDigitFromStringToInt( //NOSONAR: This method is uniform.
     char hexadecimalDigit,
     final String string) {
-    //Enumerates the given character.
+    // Enumerates the given character.
     return switch (hexadecimalDigit) {
       case '0' ->
         0;
@@ -400,7 +400,7 @@ public final class Color extends AbstractElement implements IColor {
   public String getColorNameOrHexadecimalString() {
     final var webColorAndName = getX11Colors().getOptionalStoredFirst(wc -> wc.getStoredElement2().equals(this));
 
-    //Handles the case that the current Color has a color name.
+    // Handles the case that the current Color has a color name.
     if (webColorAndName.isPresent()) {
       return webColorAndName.get().getStoredElement1();
     }
@@ -424,7 +424,7 @@ public final class Color extends AbstractElement implements IColor {
     return memberGreenValue;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -453,7 +453,7 @@ public final class Color extends AbstractElement implements IColor {
     return memberRedValue;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -462,7 +462,7 @@ public final class Color extends AbstractElement implements IColor {
     return (memberAlphaValue == MAX_COLOR_COMPONENT);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -471,7 +471,7 @@ public final class Color extends AbstractElement implements IColor {
     return (memberBlueValue == MAX_COLOR_COMPONENT);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -480,7 +480,7 @@ public final class Color extends AbstractElement implements IColor {
     return (memberGreenValue == MAX_COLOR_COMPONENT);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -507,7 +507,7 @@ public final class Color extends AbstractElement implements IColor {
     + String.format("%02X", memberGreenValue)
     + String.format("%02X", memberBlueValue);
 
-    //Handles the case that the current color does not have a full alpha value.
+    // Handles the case that the current color does not have a full alpha value.
     if (!hasFullAlphaValue()) {
       string += String.format("%02X", memberAlphaValue);
     }
@@ -532,7 +532,7 @@ public final class Color extends AbstractElement implements IColor {
    */
   @Override
   public long toLong() {
-    //Handles the case that the current Color does not have a full alpha value.
+    // Handles the case that the current Color does not have a full alpha value.
     if (!hasFullAlphaValue()) {
       return 16_777_216L * getRedValue()
       + 65536 * getGreenValue()
@@ -540,13 +540,13 @@ public final class Color extends AbstractElement implements IColor {
       + getAlphaValue();
     }
 
-    //Handles the case that the current Color has a full alpha value.
+    // Handles the case that the current Color has a full alpha value.
     return 65536L * getRedValue()
     + 256 * getGreenValue()
     + getBlueValue();
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -564,7 +564,7 @@ public final class Color extends AbstractElement implements IColor {
       (int) (MAX_COLOR_COMPONENT * floatingPointAlphaValue));
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */
@@ -573,7 +573,7 @@ public final class Color extends AbstractElement implements IColor {
     return new Color(memberRedValue, memberGreenValue, memberBlueValue);
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * {@inheritDoc}
    */

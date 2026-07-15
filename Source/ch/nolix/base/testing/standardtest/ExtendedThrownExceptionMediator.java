@@ -21,7 +21,7 @@ public final class ExtendedThrownExceptionMediator extends AbstractThrownExcepti
    * @throws RuntimeException if the given exception is null.
    */
   private ExtendedThrownExceptionMediator(final Throwable exception) {
-    //Calls constructor of the base class.
+    // Calls constructor of the base class.
     super(exception);
   }
 
@@ -47,19 +47,19 @@ public final class ExtendedThrownExceptionMediator extends AbstractThrownExcepti
    * @throws RuntimeException if the given type is null.
    */
   public <E extends Exception> ThrownExceptionMediator ofType(final Class<E> type) {
-    //Asserts that the given type is not null.
+    // Asserts that the given type is not null.
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TYPE);
     }
 
-    //Handles the case that the current extended thrown exception mediator
-    //does not have an exception.
+    // Handles the case that the current extended thrown exception mediator
+    // does not have an exception.
     if (!hasException()) {
       return ThrownExceptionMediator.withoutException();
     }
 
-    //Handles the case that the current extended thrown exception mediator has an
-    //exception.
+    // Handles the case that the current extended thrown exception mediator has an
+    // exception.
     if (!type.isAssignableFrom(getException().getClass())) {
       throw GeneralException.withErrorMessage(
         "An exception of the type "

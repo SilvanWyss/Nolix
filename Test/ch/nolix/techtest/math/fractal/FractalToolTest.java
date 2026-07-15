@@ -17,154 +17,154 @@ import ch.nolix.tech.math.fractal.FractalTool;
 final class FractalToolTest extends StandardTest {
   @Test
   void testCase_getMaxX() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getMaxX(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(2.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getMaxY() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getMaxY(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(2.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getMinX() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getMinX(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(-1.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getMinY() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getMinY(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(-1.5).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getPixelCountPerHorizontalUnit() {
-    //setup
+    // setup
     final var fractalBuilder = //
     new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(500).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getPixelCountPerHorizontalUnit(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(250).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getPixelCountPerVerticalUnit() {
-    //setup
+    // setup
     final var fractalBuilder = //
     new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(500).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getPixelCountPerVerticalUnit(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(250).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getSquaredMinMagnitudeForDivergence_1() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(1.0).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getSquaredMinMagnitudeForDivergence(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(1.0).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getSquaredMinMagnitudeForDivergence_2() {
-    //setup
+    // setup
     final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(2.0).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getSquaredMinMagnitudeForDivergence(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(4.0).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getUnitsPerHorizontalPixel() {
-    //setup
+    // setup
     final var fractalBuilder = //
     new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(400).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getUnitsPerHorizontalPixel(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(0.005).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }
 
   @Test
   void testCase_getUnitsPerVerticalPixel() {
-    //setup
+    // setup
     final var fractalBuilder = //
     new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(400).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalTool();
 
-    //execution
+    // execution
     final var result = testUnit.getUnitsPerVerticalPixel(fractal);
 
-    //verification
+    // verification
     final var expectedResult = BigDecimal.valueOf(0.005).setScale(12);
     expect(result).isEqualTo(expectedResult);
   }

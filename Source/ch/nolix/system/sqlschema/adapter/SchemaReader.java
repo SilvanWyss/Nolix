@@ -102,7 +102,7 @@ public final class SchemaReader implements ISchemaReader {
    */
   @Override
   public void noteClose() {
-    //Does nothing
+    // Does nothing
   }
 
   /**

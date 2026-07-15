@@ -91,7 +91,7 @@ public final class MultiValueField<V> extends AbstractBaseValueField<V> implemen
    */
   @Override
   public void internalSetNullableValue(final Object nullableValue, final String nullableAdditionalValue) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

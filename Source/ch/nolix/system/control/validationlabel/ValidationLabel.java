@@ -40,7 +40,7 @@ implements IValidationLabel {
     e -> ImmutableNode.withHeader(e.getMessage()));
 
   public ValidationLabel() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
 
     setMinWidth(500);
@@ -115,7 +115,7 @@ implements IValidationLabel {
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

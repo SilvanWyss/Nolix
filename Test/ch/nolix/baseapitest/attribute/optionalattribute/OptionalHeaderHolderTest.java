@@ -16,103 +16,103 @@ import ch.nolix.baseapi.attribute.optionalattribute.OptionalHeaderHolder;
 final class OptionalHeaderHolderTest extends StandardTest {
   @Test
   void testCase_getHeaderOrEmptyString_whenHasAHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.getHeaderOrEmptyString()).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    //execution
+    // execution
     final var result = testUnit.getHeaderOrEmptyString();
 
-    //verification
+    // verification
     expect(result).isEqualTo("header");
   }
 
   @Test
   void testCase_getHeaderOrEmptyString_whenDoesNotHaveAHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.getHeaderOrEmptyString()).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(false);
 
-    //execution
+    // execution
     final var result = testUnit.getHeaderOrEmptyString();
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_getOptionalHeader_whenHasAHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.getOptionalHeader()).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    //execution
+    // execution
     final var result = testUnit.getOptionalHeader();
 
-    //verification
+    // verification
     expect(result).containsEqualObject("header");
   }
 
   @Test
   void testCase_getOptionalHeader_whenDoesNotHaveAHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.getOptionalHeader()).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(false);
 
-    //execution
+    // execution
     final var result = testUnit.getOptionalHeader();
 
-    //verification
+    // verification
     expect(result).isEmpty();
   }
 
   @Test
   void testCase_hasHeader_whenHasTheGivenHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    //execution
+    // execution
     final var result = testUnit.hasHeader("header");
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 
   @Test
   void testCase_hasHeader_whenHasAnotherHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(true);
     Mockito.when(testUnit.getHeader()).thenReturn("header");
 
-    //execution
+    // execution
     final var result = testUnit.hasHeader("Header");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_hasHeader_whenDoesNotHaveAHeader() {
-    //setup
+    // setup
     final var testUnit = Mockito.mock(OptionalHeaderHolder.class);
     Mockito.when(testUnit.hasHeader(ArgumentMatchers.any())).thenCallRealMethod();
     Mockito.when(testUnit.hasHeader()).thenReturn(false);
 
-    //execution
+    // execution
     final var result = testUnit.hasHeader("header");
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 }

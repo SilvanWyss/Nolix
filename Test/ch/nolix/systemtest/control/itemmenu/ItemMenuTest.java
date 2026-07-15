@@ -20,29 +20,29 @@ import ch.nolix.systemtest.webgui.main.ControlTest;
 public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMenuStyle<S>> extends ControlTest<M> {
   @Test
   final void testCase_creation() {
-    //setup
+    // setup
     final M testUnit = createTestUnit();
 
-    //setup verification
+    // setup verification
     expect(testUnit.isEmpty()).isTrue();
     expect(testUnit.containsSelectedItem()).isFalse();
   }
 
   @Test
   final void testCase_addItemWithIdAndText() {
-    //setup
+    // setup
     final M testUnit = createTestUnit();
 
-    //setup verification
+    // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    //execution
+    // execution
     testUnit
       .addItemWithIdAndText("my_id1", "my_text1")
       .addItemWithIdAndText("my_id2", "my_text2")
       .addItemWithIdAndText("my_id3", "my_text3");
 
-    //verification
+    // verification
     expect(testUnit.getStoredItems()).containsExactlyEqualing(
       ItemMenuItem.withIdAndText("my_id1", "my_text1"),
       ItemMenuItem.withIdAndText("my_id2", "my_text2"),
@@ -51,23 +51,23 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
 
   @Test
   final void testCase_addItemWithText() {
-    //setup
+    // setup
     final M testUnit = createTestUnit();
 
-    //setup verification
+    // setup verification
     expect(testUnit.isEmpty()).isTrue();
 
-    //execution
+    // execution
     testUnit.addItems("my_text1", "my_text2", "my_text3", "my_text4");
 
-    //verification
+    // verification
     expect(testUnit.getStoredItems().getViewOf(IItemMenuItem::getText))
       .containsExactlyEqualing("my_text1", "my_text2", "my_text3", "my_text4");
   }
 
   @Test
   final void testCase_selectItemById_whenContainsItemWithGivenId() {
-    //setup
+    // setup
     final var item = ItemMenuItem.withIdAndText("my_id2", "my_text2");
     final M testUnit = createTestUnit()
       .addItems(
@@ -75,13 +75,13 @@ public abstract class ItemMenuTest<M extends IItemMenu<M, S>, S extends IItemMen
         item,
         ItemMenuItem.withIdAndText("my_id3", "my_text3"));
 
-    //setup verification
+    // setup verification
     expect(item.isSelected()).isFalse();
 
-    //execution
+    // execution
     testUnit.selectItemById("my_id2");
 
-    //verification
+    // verification
     expect(item.isSelected());
   }
 }

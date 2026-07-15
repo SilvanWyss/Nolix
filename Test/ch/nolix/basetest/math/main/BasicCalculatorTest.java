@@ -38,13 +38,13 @@ final class BasicCalculatorTest extends StandardTest {
     final double value1,
     final double value2,
     final double expectedAbsoluteDifference) {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAbsoluteDifference(value1, value2);
 
-    //validation
+    // validation
     expect(result).isEqualTo(expectedAbsoluteDifference);
   }
 
@@ -61,13 +61,13 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1, 0"
   })
   void testCase_getAbsoluteDifference(final int value1, final int value2, final int expectedAbsoluteDifference) {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAbsoluteDifference(value1, value2);
 
-    //validation
+    // validation
     expect(result).isEqualTo(expectedAbsoluteDifference);
   }
 
@@ -84,13 +84,13 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1, 0"
   })
   void testCase_getAbsoluteDifference(final long value1, final long value2, final long expectedAbsoluteDifference) {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAbsoluteDifference(value1, value2);
 
-    //validation
+    // validation
     expect(result).isEqualTo(expectedAbsoluteDifference);
   }
 
@@ -103,13 +103,13 @@ final class BasicCalculatorTest extends StandardTest {
   "1.0, 1.0"
   })
   void testCase_getAbsoluteValue(final double value, final double expectedAbsoluteValue) {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAbsoluteValue(value);
 
-    //validation
+    // validation
     expect(result).isEqualTo(expectedAbsoluteValue);
   }
 
@@ -120,13 +120,13 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1"
   })
   void testCase_getAbsoluteValue(final int value, final int expectedAbsoluteValue) {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAbsoluteValue(value);
 
-    //validation
+    // validation
     expect(result).isEqualTo(expectedAbsoluteValue);
   }
 
@@ -137,36 +137,36 @@ final class BasicCalculatorTest extends StandardTest {
   "1, 1"
   })
   void testCase_getAbsoluteValue(final long value, final long expectedAbsoluteValue) {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAbsoluteValue(value);
 
-    //validation
+    // validation
     expect(result).isEqualTo(expectedAbsoluteValue);
   }
 
   @Test
   void testCase_getAverage() {
-    //setup
+    // setup
     final var values = ImmutableList.withElements(80.0, 90.0, 100.0, 110.0, 120.0);
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getAverage(values);
 
-    //verification
+    // verification
     expect(result).isEqualTo(100.0);
   }
 
   @Test
   void testCase_getAverage_whenTheGivenIterableIsEmpty() {
-    //setup
+    // setup
     final ImmutableList<Double> values = ImmutableList.createEmpty();
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     expectRunning(() -> testUnit.getAverage(values))
       .throwsException()
       .ofType(EmptyArgumentException.class)
@@ -175,25 +175,25 @@ final class BasicCalculatorTest extends StandardTest {
 
   @Test
   void testCase_getMax() {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getMax(-2.0, -1.0, 0.0, 1.0, 2.0);
 
-    //validation
+    // validation
     expect(result).isEqualTo(2.0);
   }
 
   @Test
   void testCase_getMin() {
-    //setup
+    // setup
     final var testUnit = new BasicCalculator();
 
-    //execution
+    // execution
     final var result = testUnit.getMin(-2.0, -1.0, 0.0, 1.0, 2.0);
 
-    //validation
+    // validation
     expect(result).isEqualTo(-2.0);
   }
 }

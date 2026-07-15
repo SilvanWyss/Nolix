@@ -15,7 +15,7 @@ public final class HtmlAttribute implements IHtmlAttribute {
 
   private final String value;
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   private HtmlAttribute(final String name, final String value) {
     if (name == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.KEY);

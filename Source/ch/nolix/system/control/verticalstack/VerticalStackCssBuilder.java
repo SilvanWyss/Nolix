@@ -45,7 +45,7 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
     final IVerticalStack verticalStack,
     final ILinkedList<? super ICssRule> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**
@@ -69,6 +69,6 @@ extends AbstractControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
     final IVerticalStack verticalStack,
     final ControlState state,
     final ILinkedList<ICssProperty> list) {
-    //Does nothing.
+    // Does nothing.
   }
 }

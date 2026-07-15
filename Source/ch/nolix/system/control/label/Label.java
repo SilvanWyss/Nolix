@@ -51,7 +51,7 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
   Value.forStringWithNameAndDefaultValueAndSetter(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   public Label() {
-    //A reset is required to achieve a well-defined initial state, although everything would work without a reset.
+    // A reset is required to achieve a well-defined initial state, although everything would work without a reset.
     reset();
   }
 
@@ -124,7 +124,7 @@ public final class Label extends AbstractControl<ILabel, ILabelStyle> implements
    */
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    //Does nothing.
+    // Does nothing.
   }
 
   /**

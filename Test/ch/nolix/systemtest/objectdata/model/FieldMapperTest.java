@@ -21,10 +21,10 @@ import ch.nolix.systemapi.midschema.fieldproperty.FieldType;
 final class FieldMapperTest extends StandardTest {
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForValueFields() {
-    //setup part 1: Creates tableMock.
+    // setup part 1: Creates tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
-    //setup part 1: Creates column.
+    // setup part 1: Creates column.
     @SuppressWarnings("unchecked")
     final var column = //
     Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
@@ -36,26 +36,26 @@ final class FieldMapperTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-    //execution
+    // execution
     final var result = FieldMapper.mapColumnToField(column);
 
-    //verification part 1: Verifies parents.
+    // verification part 1: Verifies parents.
     verifyParentsOfCreatedField(result, column);
 
-    //verification part 2: Verifies attributes.
+    // verification part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
     expect(result.getType()).is(FieldType.VALUE_FIELD);
 
-    //verification part 3: Verifies states.
+    // verification part 3: Verifies states.
     verifyStateOfCreatedField(result);
   }
 
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForOptionalValueFields() {
-    //setup part 1: Creates tableMock.
+    // setup part 1: Creates tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
-    //setup part 1: Creates column.
+    // setup part 1: Creates column.
     @SuppressWarnings("unchecked")
     final var column = //
     Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
@@ -67,12 +67,12 @@ final class FieldMapperTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-    //execution
+    // execution
     final var result = FieldMapper.mapColumnToField(column);
 
     verifyParentsOfCreatedField(result, column);
 
-    //verification part 2: Verifies attributes.
+    // verification part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
     expect(result.getType()).is(FieldType.OPTIONAL_VALUE_FIELD);
 
@@ -81,10 +81,10 @@ final class FieldMapperTest extends StandardTest {
 
   @Test
   void testCase_mapColumnToField_whenGivenColumnIsForMultiValueFields() {
-    //setup part 1: Creates tableMock.
+    // setup part 1: Creates tableMock.
     final var tableMock = Mockito.mock(Table.class);
 
-    //setup part 1: Creates column.
+    // setup part 1: Creates column.
     @SuppressWarnings("unchecked")
     final var column = //
     Column.withParentTableAndIdAndNameAndFieldTypeAndDataTypeClassAndReferenceableTablesAndBackReferenceableColumns(
@@ -96,12 +96,12 @@ final class FieldMapperTest extends StandardTest {
       ImmutableList.createEmpty(),
       ImmutableList.createEmpty());
 
-    //execution
+    // execution
     final var result = FieldMapper.mapColumnToField(column);
 
     verifyParentsOfCreatedField(result, column);
 
-    //verification part 2: Verifies attributes.
+    // verification part 2: Verifies attributes.
     expect(result.getName()).isEqualTo("name");
     expect(result.getType()).is(FieldType.MULTI_VALUE_FIELD);
 

@@ -31,10 +31,10 @@ final class BackgroundTypeTest extends StandardTest {
   @ParameterizedTest
   @MethodSource("getSpecificationsAndTheirBackgroundTypes")
   void testCase_fromSpecification(final INode<?> specification, final BackgroundType expectedBackgroundType) {
-    //execution
+    // execution
     final var result = BackgroundType.fromSpecification(specification);
 
-    //verification
+    // verification
     expect(result).is(expectedBackgroundType);
   }
 }

@@ -48,23 +48,23 @@ public final class PopupWindowProvider {
     String title;
     final var textStringBuilder = new StringBuilder();
 
-    //Handles the case that the given exception is null.
+    // Handles the case that the given exception is null.
     if (error == null) {
       title = "Exception";
       textStringBuilder.append("An exception, that is null, occured.");
 
-      //Handles the case that the given exception is not null.
+      // Handles the case that the given exception is not null.
     } else {
-      //Sets the title.
+      // Sets the title.
       title = error.getClass().getSimpleName();
 
-      //Handles the case that the given exception has a message.
+      // Handles the case that the given exception has a message.
       if (error.getMessage() != null && !error.getMessage().isEmpty()) {
         textStringBuilder.append(
           error.getMessage() + CharacterCatalog.NEW_LINE + CharacterCatalog.NEW_LINE);
       }
 
-      //Iterates the stack trace of the given exception.
+      // Iterates the stack trace of the given exception.
       for (final StackTraceElement e : error.getStackTrace()) {
         final String[] classPath = e.getClassName().split("\\.");
         textStringBuilder.append(classPath[classPath.length - 1]);

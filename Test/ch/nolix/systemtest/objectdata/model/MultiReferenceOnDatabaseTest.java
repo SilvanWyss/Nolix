@@ -32,7 +32,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenIsLoadedAndEmpty() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -40,16 +40,16 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    //execution
+    // execution
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-    //verification
+    // verification
     expect(loadedJohn.pets.isEmpty()).isTrue();
   }
 
   @Test
   void testCase_whenIsLoadedAndNotEmpty() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -63,10 +63,10 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    //execution
+    // execution
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-    //verification
+    // verification
     expect(loadedJohn.pets.getAllStoredReferencedEntities().getCount()).isEqualTo(2);
     expect(loadedJohn.pets.getAllStoredReferencedEntities()).contains(p -> p.hasId(garfield.getId()));
     expect(loadedJohn.pets.getAllStoredReferencedEntities()).contains(p -> p.hasId(odie.getId()));
@@ -74,7 +74,7 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
 
   @Test
   void testCase_whenReferencedEntityIsLoadedAndDeleted() {
-    //setup part 1: initialize database
+    // setup part 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -88,17 +88,17 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    //setup part 2: prepare changes
+    // setup part 2: prepare changes
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
 
-    //execution & verification
+    // execution & verification
     expectRunning(loadedGarfield::delete).throwsException();
   }
 
   @Test
   void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
-    //setup part 1: initialize database
+    // setup part 1: initialize database
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -112,25 +112,25 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     nodeDataAdapter.saveChanges();
 
-    //setup part 2: remove Entity from MultiReference
+    // setup part 2: remove Entity from MultiReference
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     loadedJohn.pets.removeEntity(loadedGarfield);
     nodeDataAdapter.saveChanges();
 
-    //setup part 3: prepare deleting Entity
+    // setup part 3: prepare deleting Entity
     final var loadedGarfield2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
       .getStoredEntityById(garfield.getId());
     loadedGarfield2.delete();
 
-    //execution & verification
+    // execution & verification
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
 
   @Test
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -138,16 +138,16 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
-    //execution
+    // execution
     john.pets.addEntity(garfield);
 
-    //verification
+    // verification
     expect(garfield.belongsToTable()).isTrue();
   }
 
   @Test
   void testCase_addEntity_whenParentEntityBelongsToTableAndAddedEntityDoesNot_andIsSaved() {
-    //setup
+    // setup
     final var nodeDatabase = MutableNode.createEmpty();
     final var schema = EntityTypeSet.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -155,11 +155,11 @@ final class MultiReferenceOnDatabaseTest extends StandardTest {
     nodeDataAdapter.insertEntity(john);
     final var garfield = new Pet();
 
-    //execution
+    // execution
     john.pets.addEntity(garfield);
     nodeDataAdapter.saveChanges();
 
-    //verification
+    // verification
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = //
     nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());

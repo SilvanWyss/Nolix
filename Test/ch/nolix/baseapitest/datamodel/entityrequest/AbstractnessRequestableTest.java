@@ -13,25 +13,25 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class AbstractnessRequestableTest extends StandardTest {
   @Test
   void testCase_isConcrete_whenIsAbstract() {
-    //setup
+    // setup
     final var testUnit = AbstractnessRequestableMock.withIsAbstractFlag(true);
 
-    //execution
+    // execution
     final var result = testUnit.isConcrete();
 
-    //verification
+    // verification
     expect(result).isFalse();
   }
 
   @Test
   void testCase_isConcrete_whenIsConcrete() {
-    //setup
+    // setup
     final var testUnit = AbstractnessRequestableMock.withIsAbstractFlag(false);
 
-    //execution
+    // execution
     final var result = testUnit.isConcrete();
 
-    //verification
+    // verification
     expect(result).isTrue();
   }
 }

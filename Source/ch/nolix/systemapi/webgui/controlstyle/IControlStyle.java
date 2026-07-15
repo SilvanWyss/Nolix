@@ -16,5 +16,5 @@ ICornerStyle<S>,
 IShadowStyle<S>,
 ISizeStyle<S>,
 IPaddingStyle<S> {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

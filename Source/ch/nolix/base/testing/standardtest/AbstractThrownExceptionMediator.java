@@ -29,22 +29,22 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
    * @throws RuntimeException if the given exception is null.
    */
   protected AbstractThrownExceptionMediator(final Throwable exception) {
-    //Asserts that the given exception is not null.
+    // Asserts that the given exception is not null.
     if (exception == null) {
       throw ArgumentIsNullException.forArgumentType(Exception.class);
     }
 
-    //Sets the exception of the current thrown exception mediator.
+    // Sets the exception of the current thrown exception mediator.
     this.nullableException = exception;
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Generates an error if the exception of the current
    * {@link AbstractThrownExceptionMediator} does not have a message.
    */
   public final void withMessage() {
-    //Handles the case that the current thrown exception mediator has an exception.
+    // Handles the case that the current thrown exception mediator has an exception.
     if (nullableException != null && nullableException.getMessage() == null) {
       throw //
       GeneralException.withErrorMessage(
@@ -53,7 +53,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
     }
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Generates an error if the exception of the current
    * {@link AbstractThrownExceptionMediator} does not have the given message.
@@ -62,15 +62,15 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
    * @throws RuntimeException if the given message is null.
    */
   public final void withMessage(final String message) {
-    //Asserts that the given message is not null.
+    // Asserts that the given message is not null.
     if (message == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.MESSAGE);
     }
 
-    //Handles the case that the current AbstractThrownExceptionMediator has an exception.
+    // Handles the case that the current AbstractThrownExceptionMediator has an exception.
     if (nullableException != null) {
-      //Asserts that the exception of the current AbstractThrownExceptionMediator has a
-      //message.
+      // Asserts that the exception of the current AbstractThrownExceptionMediator has a
+      // message.
       if (nullableException.getMessage() == null) {
         throw //
         GeneralException.withErrorMessage(
@@ -79,8 +79,8 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
           + "' was expected, but an exception without messag was received.");
       }
 
-      //Asserts that the exception of the current AbstractThrownExceptionMediator has the
-      //given message.
+      // Asserts that the exception of the current AbstractThrownExceptionMediator has the
+      // given message.
       if (!nullableException.getMessage().equals(message)) {
         throw //
         GeneralException.withErrorMessage(
@@ -123,17 +123,17 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
         + message
         + "' was thrown.");
     } else {
-      //Does nothing because there was not found any error.
+      // Does nothing because there was not found any error.
     }
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * Generates an error if the exception of the current
    * {@link AbstractThrownExceptionMediator} has a message.
    */
   public final void withoutMessage() {
-    //Handles the case that the current AbstractThrownExceptionMediator has an exception.
+    // Handles the case that the current AbstractThrownExceptionMediator has an exception.
     if (nullableException != null && nullableException.getMessage() != null) {
       throw //
       GeneralException.withErrorMessage(
@@ -143,13 +143,13 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
     }
   }
 
-  //For a better performance, this implementation does not use all available comfort methods.
+  // For a better performance, this implementation does not use all available comfort methods.
   /**
    * @return the exception of the current {@link AbstractThrownExceptionMediator}.
    * 
    */
   protected final Throwable getException() {
-    //Asserts that the current AbstractThrownExceptionMediator has an exception.
+    // Asserts that the current AbstractThrownExceptionMediator has an exception.
     if (nullableException == null) {
       throw //
       ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableNameCatalog.EXCEPTION);

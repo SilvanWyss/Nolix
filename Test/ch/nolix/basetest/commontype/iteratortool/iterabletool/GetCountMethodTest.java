@@ -15,46 +15,46 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 final class GetCountMethodTest extends StandardTest {
   @Test
   void testCase_getCount_whenGivenIterableIsNull() {
-    //setup
+    // setup
     final Iterable<Object> iterable = null;
 
-    //execution & verification
+    // execution & verification
     expectRunning(() -> IterableTool.getCount(iterable)).throwsException();
   }
 
   @Test
   void testCase_getCount_whenGivenIterableIsEmpty() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.createEmpty();
 
-    //execution
+    // execution
     final var result = IterableTool.getCount(iterable);
 
-    //verification
+    // verification
     expect(result).isEqualTo(0);
   }
 
   @Test
   void testCase_getCount_whenGivenIterableContains1Element() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope" });
 
-    //execution
+    // execution
     final var result = IterableTool.getCount(iterable);
 
-    //verification
+    // verification
     expect(result).isEqualTo(1);
   }
 
   @Test
   void testCase_getCount_whenGivenIterableContains2Elements() {
-    //setup
+    // setup
     final Iterable<Object> iterable = List.fromArray(new String[] { "antelope", "elephant" });
 
-    //execution
+    // execution
     final var result = IterableTool.getCount(iterable);
 
-    //verification
+    // verification
     expect(result).isEqualTo(2);
   }
 }

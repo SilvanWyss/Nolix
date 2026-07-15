@@ -10,5 +10,5 @@ import ch.nolix.systemapi.property.base.Property;
  * @author Silvan Wyss
  */
 public interface IValueProxy extends NameHolder, Property {
-  //This interface is a dedicated union of other interfaces.
+  // This interface is a dedicated union of other interfaces.
 }

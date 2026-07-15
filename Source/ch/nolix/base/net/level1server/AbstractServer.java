@@ -113,14 +113,14 @@ public abstract class AbstractServer implements IServer {
    *                                               the given endPoint.
    */
   final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
-    //Asserts that the given endPoint is open.
+    // Asserts that the given endPoint is open.
     ResourceValidator.assertIsOpen(endPoint);
 
-    //Handles the case that the given endPoint does not have a target.
+    // Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultSlot().takeBackendEndPoint(endPoint);
 
-      //Handles the case that the given endPoint has a target.
+      // Handles the case that the given endPoint has a target.
     } else {
       getStoredSlotName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
     }
