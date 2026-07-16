@@ -16,8 +16,8 @@ public interface IIterableContainMatchingExaminer {
    *                 when is null
    * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable contains an element the given selector
-   *         selects, false otherwise. Ignores null elements in the given
-   *         iterable.
+   *         selects, false otherwise, ignoring null elements in the given
+   *         iterable
    */
   <T> boolean containsMatching(Iterable<T> iterable, Predicate<T> selector);
 
@@ -28,7 +28,7 @@ public interface IIterableContainMatchingExaminer {
    *                 when is null
    * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable contains only elements the given selector
-   *         selects, false otherwise. Ignores null elements in the given
+   *         selects, false otherwise, ignoring null elements in the given
    *         iterable.
    */
   <T> boolean containsMatchingOnly(Iterable<T> iterable, Predicate<T> selector);
@@ -39,9 +39,21 @@ public interface IIterableContainMatchingExaminer {
    * @param selector can select elements, is considered not to select any element
    *                 when is null
    * @param <T>      the type of the elements of the given iterable
+   * @return true if the given iterable does not contain an element the given
+   *         selector selects, false otherwise, ignoring null elements in the
+   *         given iterable.
+   */
+  <T> boolean containsNoMatching(Iterable<T> iterable, Predicate<T> selector);
+
+  /**
+   * @param iterable the searched {@link Iterable}, is considered to be empty when
+   *                 is null
+   * @param selector can select elements, is considered not to select any element
+   *                 when is null
+   * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable contains exactly 1 element the given
-   *         selector selects, false otherwise. Ignores null elements in the given
-   *         iterable.
+   *         selector selects, false otherwise, ignoring null elements in the
+   *         given iterable.
    */
   <T> boolean containsOneMatching(Iterable<T> iterable, Predicate<T> selector);
 }
