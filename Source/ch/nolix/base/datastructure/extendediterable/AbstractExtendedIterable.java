@@ -18,7 +18,6 @@ import java.util.function.ToLongFunction;
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
 import ch.nolix.base.commontype.iteratortool.IterableSearcher;
-import ch.nolix.base.commontype.iteratortool.IterableTool;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterableIntervalView;
@@ -137,7 +136,7 @@ implements ExtendedIterable<E> {
     }
 
     // Handles the case that the given iterable is not a IContainer.
-    return (getCount() == IterableTool.getCount(iterable));
+    return (getCount() == ITERABLE_SEARCHER.getCount(iterable));
   }
 
   /**
@@ -196,7 +195,7 @@ implements ExtendedIterable<E> {
     }
 
     // Handles the case that the given iterable is not a IContainer.
-    return (getCount() < IterableTool.getCount(iterable));
+    return (getCount() < ITERABLE_SEARCHER.getCount(iterable));
   }
 
   /**
@@ -213,7 +212,7 @@ implements ExtendedIterable<E> {
     }
 
     // Handles the case that the given container is not a IContainer.
-    return (getCount() > IterableTool.getCount(iterable));
+    return (getCount() > ITERABLE_SEARCHER.getCount(iterable));
   }
 
   /**

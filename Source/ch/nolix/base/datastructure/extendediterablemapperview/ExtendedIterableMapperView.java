@@ -5,7 +5,7 @@ package ch.nolix.base.datastructure.extendediterablemapperview;
 
 import java.util.function.Function;
 
-import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iteratortool.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
@@ -17,12 +17,13 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a
- *            {@link ExtendedIterableMapperView}.
- * @param <T> the type of the elements a {@link ExtendedIterableMapperView}
- *            maps from its elements.
+ * @param <E> the type of the elements of a {@link ExtendedIterableMapperView}.
+ * @param <T> the type of the elements a {@link ExtendedIterableMapperView} maps
+ *            from its elements.
  */
 public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIterable<T> {
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
+
   private final ExtendedIterable<E> wellOrderContainer;
 
   private final Function<E, T> mapper;
@@ -66,7 +67,7 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    */
   @Override
   public int getCount() {
-    return IterableTool.getCount(this);
+    return ITERABLE_SEARCHER.getCount(this);
   }
 
   /**

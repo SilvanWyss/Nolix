@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.datastructure.arraylist;
 
-import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iteratortool.IterableSearcher;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
@@ -19,6 +19,8 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @param <E> the type of the elements of a {@link ArrayList}.
  */
 public final class ArrayList<E> extends AbstractExtendedIterable<E> implements IArrayList<E> {
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
+
   private int memberElementCount;
 
   @SuppressWarnings("unchecked")
@@ -98,7 +100,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
       return container.getCount();
     }
 
-    return IterableTool.getCount(iterable);
+    return ITERABLE_SEARCHER.getCount(iterable);
   }
 
   /**

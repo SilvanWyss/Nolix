@@ -5,7 +5,7 @@ package ch.nolix.base.datastructure.extendediterablefilterview;
 
 import java.util.function.Predicate;
 
-import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iteratortool.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
@@ -19,10 +19,11 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements of a
- *            {@link ExtendedIterableFilterView}.
+ * @param <E> the type of the elements of a {@link ExtendedIterableFilterView}.
  */
 public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterable<E> {
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
+
   private final ExtendedIterable<E> wellOrderContainer;
 
   private final Predicate<E> selector;
@@ -82,7 +83,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    */
   @Override
   public int getCount() {
-    return IterableTool.getCount(this);
+    return ITERABLE_SEARCHER.getCount(this);
   }
 
   /**
@@ -90,7 +91,7 @@ public final class ExtendedIterableFilterView<E> extends AbstractExtendedIterabl
    */
   @Override
   public E getStoredAtOneBasedIndex(final int oneBasedIndex) {
-    return IterableTool.getStoredAtOneBasedIndex(this, oneBasedIndex);
+    return ITERABLE_SEARCHER.getStoredAtOneBasedIndex(this, oneBasedIndex);
   }
 
   /**

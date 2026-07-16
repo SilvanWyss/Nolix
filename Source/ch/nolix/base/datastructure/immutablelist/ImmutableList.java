@@ -6,7 +6,7 @@ package ch.nolix.base.datastructure.immutablelist;
 import java.util.stream.Stream;
 
 import ch.nolix.base.commontype.arraytool.ArrayIterator;
-import ch.nolix.base.commontype.iteratortool.IterableTool;
+import ch.nolix.base.commontype.iteratortool.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
@@ -25,6 +25,8 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @param <E> the type of the elements of a {@link ImmutableList}.
  */
 public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
+  private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
+
   private static final ImmutableList<Object> EMPTY = new ImmutableList<>(new Object[0]);
 
   private final E[] elements;
@@ -92,7 +94,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
     if (iterable instanceof final ExtendedIterable<T> container) {
       elementCount = container.getCount();
     } else {
-      elementCount = IterableTool.getCount(iterable);
+      elementCount = ITERABLE_SEARCHER.getCount(iterable);
     }
     return elementCount;
   }
