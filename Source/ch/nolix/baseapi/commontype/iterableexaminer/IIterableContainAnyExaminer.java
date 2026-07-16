@@ -6,7 +6,7 @@ package ch.nolix.baseapi.commontype.iterableexaminer;
 /**
  * @author Silvan Wyss
  */
-public interface IIterableContainExaminer {
+public interface IIterableContainAnyExaminer {
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
