@@ -239,6 +239,22 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
+  public boolean containsNoEqual(final Iterable<?> iterable, final Object object) {
+    if (iterable != null) {
+      for (final var e : iterable) {
+        if (Objects.equals(e, object)) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean containsNone(final Iterable<?> iterable, final Iterable<?> objects) {
     if (objects != null) {
       for (final var o : objects) {
