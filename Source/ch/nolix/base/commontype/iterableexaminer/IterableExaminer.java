@@ -342,6 +342,18 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
+  public boolean containsOneNoneNull(final Iterable<?> iterable) {
+    if (iterable != null) {
+      return IterableExaminerHelper.containsOneNoneNullWhenNotNull(iterable);
+    }
+
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean containsOnly(final Iterable<?> iterable, final Object object) {
     if (iterable != null) {
       for (final var e : iterable) {

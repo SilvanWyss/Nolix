@@ -65,6 +65,22 @@ public final class IterableExaminerHelper {
     return found;
   }
 
+  public static boolean containsOneNoneNullWhenNotNull(final Iterable<?> iterable) {
+    var found = false;
+
+    for (final var e : iterable) {
+      if (e != null) {
+        if (found) {
+          return false;
+        }
+
+        found = true;
+      }
+    }
+
+    return found;
+  }
+
   public static int getCount(final Iterable<?> iterable) {
     if (iterable != null) {
       var count = 0;
