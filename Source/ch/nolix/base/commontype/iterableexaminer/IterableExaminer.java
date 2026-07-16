@@ -299,6 +299,25 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
+  public boolean containsOne(final Iterable<?> iterable) {
+    if (iterable != null) {
+      final var iterator = iterable.iterator();
+
+      if (!iterator.hasNext()) {
+        return false;
+      }
+
+      iterator.next();
+      return !iterator.hasNext();
+    }
+
+    return false;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean containsOneEqual(final Iterable<?> iterable, final Object object) {
     if (iterable != null) {
       return IterableExaminerHelper.containsOneEqualWhenNotNull(iterable, object);

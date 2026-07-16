@@ -18,9 +18,17 @@ public interface IIterableContainExaminer {
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @return true if the given iterable contains a non-null element, false
-   *         otherwise.
+   *         otherwise
    */
   boolean containsNonNull(Iterable<?> iterable);
+
+  /**
+   * @param iterable the searched {@link Iterable}, is considered to be empty when
+   *                 is null
+   * @return true if the given iterable contains exactly 1 element, false
+   *         otherwise
+   */
+  boolean containsOne(Iterable<?> iterable);
 
   /**
    * @param iterable the searched {@link Iterable}, is considered to be empty when

@@ -274,17 +274,7 @@ implements ExtendedIterable<E> {
    */
   @Override
   public final boolean containsOne() {
-    // Creates iterator.
-    final var iterator = iterator();
-
-    // Handles the case that the current Container is empty.
-    if (!iterator.hasNext()) {
-      return false;
-    }
-
-    // Handles the case that the current Container is not empty.
-    iterator.next();
-    return !iterator.hasNext();
+    return ITERABLE_EXAMINER.containsOne(this);
   }
 
   /**
