@@ -9,6 +9,9 @@ package ch.nolix.baseapi.datastructure.baseextendediterable;
  */
 public interface ContainEqualRequestable<E> {
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link ContainEqualRequestable} contains n elements.
+   * 
    * @param object
    * @return true if the current {@link ContainEqualRequestable} contains an
    *         element that equals the given object, false otherwise
@@ -16,6 +19,9 @@ public interface ContainEqualRequestable<E> {
   boolean containsEqual(Object object);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link ContainEqualRequestable} contains n elements.
+   * 
    * @param object
    * @return true if the current {@link ContainEqualRequestable} does not contain
    *         an element that equals the given object, false otherwise
@@ -23,6 +29,9 @@ public interface ContainEqualRequestable<E> {
   boolean containsNoEqual(E object);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link ContainEqualRequestable} contains n elements.
+   * 
    * @param object
    * @return true if the current {@link ContainEqualRequestable} contains exactly
    *         1 element that equals the given object, false otherwise
