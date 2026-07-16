@@ -180,7 +180,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final N getStoredFirstChildNode() {
-    return getStoredChildNodes().getStoredFirst();
+    return getStoredChildNodes().getStoredFirstNonNull();
   }
 
   /**

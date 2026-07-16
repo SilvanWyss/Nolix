@@ -104,7 +104,7 @@ public final class IterableSearcher implements IIterableSearcher {
    * {@inheritDoc}
    */
   @Override
-  public <E> E getStoredFirst(final Iterable<E> iterable) {
+  public <E> E getStoredFirstNonNull(final Iterable<E> iterable) {
     if (iterable != null) {
       final var iterator = iterable.iterator();
 

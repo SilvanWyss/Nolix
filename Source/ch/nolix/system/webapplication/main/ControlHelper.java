@@ -17,7 +17,7 @@ public final class ControlHelper {
 
   public static Optional<IComponent> getOptionalStoredParentComponentOfControl(final Control<?, ?> control) {
     if (control.isLinkedToAnObject()
-    && control.getStoredLinkedObjects().getStoredFirst() instanceof final IComponent component) {
+    && control.getStoredLinkedObjects().getStoredFirstNonNull() instanceof final IComponent component) {
       return Optional.of(component);
     }
 

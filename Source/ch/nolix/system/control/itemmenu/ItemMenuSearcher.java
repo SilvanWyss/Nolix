@@ -24,7 +24,7 @@ public final class ItemMenuSearcher implements IItemMenuSearcher {
    */
   @Override
   public IItemMenuItem<?> getStoredFirstItem(final IItemMenu<?, ?> itemMenu) {
-    return itemMenu.getStoredItems().getStoredFirst();
+    return itemMenu.getStoredItems().getStoredFirstNonNull();
   }
 
   /**

@@ -767,7 +767,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
     // execution
-    final var result = testUnit.getStoredFirst();
+    final var result = testUnit.getStoredFirstNonNull();
 
     // verification
     expect(result).isEqualTo("x");
@@ -779,7 +779,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(String.class);
 
     // execution & verification
-    expectRunning(testUnit::getStoredFirst)
+    expectRunning(testUnit::getStoredFirstNonNull)
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given " + testUnit.getClass().getSimpleName() + " does not contain a non-null element.");

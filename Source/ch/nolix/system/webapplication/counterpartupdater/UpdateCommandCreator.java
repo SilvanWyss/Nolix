@@ -123,7 +123,7 @@ public final class UpdateCommandCreator implements IUpdateCommandCreator {
     final boolean updateConstellationOrStyle) {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableNameCatalog.CONTROLS).isNotEmpty();
 
-    final var webGui = controls.getStoredFirst().getStoredParentGui();
+    final var webGui = controls.getStoredFirstNonNull().getStoredParentGui();
 
     final ILinkedList<IChainedNode> updatedCommands = LinkedList.createEmpty();
 

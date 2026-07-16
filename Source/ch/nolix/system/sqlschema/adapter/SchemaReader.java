@@ -72,7 +72,7 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToGetTableCount();
     final var sqlRecord = sqlConnection.getSingleRecordFromQuery(query);
 
-    return Integer.valueOf(sqlRecord.getStoredFirst());
+    return Integer.valueOf(sqlRecord.getStoredFirstNonNull());
   }
 
   /**
@@ -121,6 +121,6 @@ public final class SchemaReader implements ISchemaReader {
     final var query = QUERY_CREATOR.createQueryToGetTableCount(tableName);
     final var records = sqlConnection.getSingleRecordFromQuery(query);
 
-    return (Integer.valueOf(records.getStoredFirst()) > 0);
+    return (Integer.valueOf(records.getStoredFirstNonNull()) > 0);
   }
 }

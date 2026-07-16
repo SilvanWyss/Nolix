@@ -218,7 +218,7 @@ public final class InternalDataReader {
         entitiesToIgnoreIds);
 
     final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
-    final var entityCount = Integer.valueOf(localRecord.getStoredFirst());
+    final var entityCount = Integer.valueOf(localRecord.getStoredFirstNonNull());
 
     return (entityCount > 0);
   }
@@ -244,7 +244,7 @@ public final class InternalDataReader {
       entitiesToIgnoreIds);
 
     final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
-    final var entityCount = Integer.valueOf(localRecord.getStoredFirst());
+    final var entityCount = Integer.valueOf(localRecord.getStoredFirstNonNull());
 
     return entityCount > 0;
   }
@@ -275,7 +275,7 @@ public final class InternalDataReader {
       entitiesToIgnoreIds);
 
     final var localRecord = sqlConnection.getSingleRecordFromQuery(query);
-    final var entityCount = Integer.valueOf(localRecord.getStoredFirst());
+    final var entityCount = Integer.valueOf(localRecord.getStoredFirstNonNull());
 
     return entityCount > 0;
   }

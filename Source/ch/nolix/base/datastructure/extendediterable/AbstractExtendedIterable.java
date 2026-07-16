@@ -833,8 +833,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredFirst() {
-    return ITERABLE_SEARCHER.getStoredFirst(this);
+  public final E getStoredFirstNonNull() {
+    return ITERABLE_SEARCHER.getStoredFirstNonNull(this);
   }
 
   /**
@@ -891,7 +891,7 @@ implements ExtendedIterable<E> {
 
         // Gets the optionalGroup of the current element.
         final var optionalGroup = //
-        groups.getOptionalStoredFirst(g -> g.containsAny() && norm.apply(g.getStoredFirst()).equals(groupKey));
+        groups.getOptionalStoredFirst(g -> g.containsAny() && norm.apply(g.getStoredFirstNonNull()).equals(groupKey));
 
         // Handles the case that the optionalGroup of the current element does not exist.
         if (optionalGroup.isEmpty()) {
@@ -1723,7 +1723,7 @@ implements ExtendedIterable<E> {
       case 0 ->
         StringCatalog.EMPTY_STRING;
       case 1 ->
-        getStoredFirst().toString();
+        getStoredFirstNonNull().toString();
       default ->
         toStringWhenContainsSeveralElements(delimiter);
     };
@@ -1839,7 +1839,7 @@ implements ExtendedIterable<E> {
     final var stringBuilder = new StringBuilder();
 
     // Appends the String representation of the first element to the StringBuilder.
-    stringBuilder.append(getStoredFirst());
+    stringBuilder.append(getStoredFirstNonNull());
 
     // Iterates the elements of the current Container without the first element.
     for (final var e : getViewWithoutFirst()) {

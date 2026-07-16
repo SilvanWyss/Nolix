@@ -322,7 +322,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * @throws RuntimeException if the current {@link TabContainer} is empty.
    */
   private ITabContainerTab getStoredFirstTab() {
-    return getStoredTabs().getStoredFirst();
+    return getStoredTabs().getStoredFirstNonNull();
   }
 
   /**

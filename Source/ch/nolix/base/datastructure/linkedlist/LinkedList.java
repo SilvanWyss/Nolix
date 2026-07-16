@@ -396,7 +396,7 @@ implements ILinkedList<E> {
    */
   @Override
   public E removeAndGetStoredFirst() {
-    final var element = getStoredFirst();
+    final var element = getStoredFirstNonNull();
 
     removeFirst();
 
@@ -689,7 +689,7 @@ implements ILinkedList<E> {
    * @param selector
    */
   private void removeFirstWhenContainsAny(final Predicate<E> selector) {
-    if (selector.test(getStoredFirst())) {
+    if (selector.test(getStoredFirstNonNull())) {
       removeFirst();
     } else {
       var iterator = firstNode;

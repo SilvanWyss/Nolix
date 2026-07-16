@@ -27,7 +27,7 @@ public final class ComponentHtmlBuilder implements IControlHtmlBuilder<IComponen
       case 1 ->
         HtmlElement.withTypeAndChildElement(
           HtmlElementTypeCatalog.DIV,
-          childControls.getStoredFirst().getHtml());
+          childControls.getStoredFirstNonNull().getHtml());
       default ->
         throw InvalidArgumentException.forArgument(control);
     };

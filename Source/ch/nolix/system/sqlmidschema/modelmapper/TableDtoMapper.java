@@ -20,7 +20,7 @@ public final class TableDtoMapper implements ITableDtoMapper {
    */
   @Override
   public TableDto mapJoinedColumnSqlRecordsToTableDto(final ExtendedIterable<ISqlRecord> joinedColumnSqlRecords) {
-    final var firstJoinedColumnSqlRecord = joinedColumnSqlRecords.getStoredFirst();
+    final var firstJoinedColumnSqlRecord = joinedColumnSqlRecords.getStoredFirstNonNull();
     final var id = firstJoinedColumnSqlRecord.getStoredAtOneBasedIndex(3);
     final var name = firstJoinedColumnSqlRecord.getStoredAtOneBasedIndex(4);
     final var columns = joinedColumnSqlRecords.to(COLUMN_DTO_MAPPER::mapJoinedColumnSqlRecordToColumnDto);

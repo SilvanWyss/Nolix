@@ -68,11 +68,11 @@ public interface SingleSearchable<E> {
   <C extends Comparable<C>> E getStoredByMin(Function<E, C> comparableMapper);
 
   /**
-   * @return the first element of the current {@link SingleSearchable}. The
-   *         element can be null.
-   * @throws RuntimeException if the current {@link SingleSearchable} is empty.
+   * @return the first non-null element of the current {@link SingleSearchable}
+   * @throws RuntimeException if the current {@link SingleSearchable} does not
+   *                          contain a non-null element
    */
-  E getStoredFirst();
+  E getStoredFirstNonNull();
 
   /**
    * @param selector

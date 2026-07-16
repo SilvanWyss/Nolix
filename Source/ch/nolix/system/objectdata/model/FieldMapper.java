@@ -72,7 +72,7 @@ public final class FieldMapper {
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
-    final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
+    final var backReferencedFieldName = backReferenceableColumns.getStoredFirstNonNull().getName();
     final var backReferenceableTablesView = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
     final var backReferenceableTableNames = backReferenceableTablesView.getViewOf(ITable::getName);
 
@@ -86,7 +86,7 @@ public final class FieldMapper {
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
-    final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
+    final var backReferencedFieldName = backReferenceableColumns.getStoredFirstNonNull().getName();
     final var backReferenceableTablesView = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
     final var backReferenceableTableNamesView = backReferenceableTablesView.getViewOf(ITable::getName);
 
@@ -100,7 +100,7 @@ public final class FieldMapper {
     final IColumn column) {
 
     final var backReferenceableColumns = column.getStoredBackReferenceableColumns();
-    final var backReferencedFieldName = backReferenceableColumns.getStoredFirst().getName();
+    final var backReferencedFieldName = backReferenceableColumns.getStoredFirstNonNull().getName();
     final var backReferenceableTablesView = backReferenceableColumns.getViewOf(IColumn::getStoredParentTable);
     final var backReferenceableTableNamesView = backReferenceableTablesView.getViewOf(ITable::getName);
 

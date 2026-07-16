@@ -51,7 +51,7 @@ public final class WebClientPartialCounterpartUpdater {
     Validator.assertThat(controls).thatIsNamed(PluralLowerCaseVariableNameCatalog.CONTROLS).isNotEmpty();
 
     if (updateConstellationOrStyle) {
-      final var webGui = controls.getStoredFirst().getStoredParentGui();
+      final var webGui = controls.getStoredFirstNonNull().getStoredParentGui();
       webGui.applyStyleIfHasStyle();
     }
 

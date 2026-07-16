@@ -14,7 +14,7 @@ public interface IIterableFirstElementSearcher {
    * @throws RuntimeException if the given iterable does not contain a non-null
    *                          element
    */
-  <E> E getStoredFirst(Iterable<E> iterable);
+  <E> E getStoredFirstNonNull(Iterable<E> iterable);
 
   /**
    * Null elements in the given iterable will be ignored.

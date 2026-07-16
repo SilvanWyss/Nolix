@@ -40,6 +40,6 @@ public final class TableDtoMapper implements ITableDtoMapper {
 
     final var columnsGroupedByTable = columnsView.getStoredInGroups(ColumnDto::name);
 
-    return columnsGroupedByTable.to(c -> new TableDto(c.getStoredFirst().name(), c));
+    return columnsGroupedByTable.to(c -> new TableDto(c.getStoredFirstNonNull().name(), c));
   }
 }

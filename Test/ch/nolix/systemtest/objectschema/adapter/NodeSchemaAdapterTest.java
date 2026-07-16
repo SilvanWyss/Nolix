@@ -52,7 +52,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // verification part 2
     final var tableNodes = database.getStoredChildNodesWithHeader("Table");
     expect(tableNodes.containsOne()).isTrue();
-    final var tableNode = tableNodes.getStoredFirst();
+    final var tableNode = tableNodes.getStoredFirstNonNull();
     final var nameNode = tableNode.getStoredFirstChildNodeWithHeader("Name");
     expect(nameNode.getSingleChildNodeHeader()).isEqualTo("MyTable");
   }
