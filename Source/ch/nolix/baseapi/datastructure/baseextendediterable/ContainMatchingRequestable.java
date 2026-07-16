@@ -16,8 +16,9 @@ public interface ContainMatchingRequestable<E> {
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
-   * @return true if the current {@link StoringRequestable} contains an element
-   *         the given selector selects, false otherwise, ignoring null elements
+   * @return true if the current {@link ContainMatchingRequestable} contains an
+   *         element the given selector selects, false otherwise, ignoring null
+   *         elements
    */
   boolean containsMatching(Predicate<E> selector);
 
@@ -27,9 +28,9 @@ public interface ContainMatchingRequestable<E> {
    * 
    * @param selector can select elements, is considered not to select any element
    *                 when is null
-   * @return true if the current {@link StoringRequestable} does not contain an
-   *         element the given selector selects, false otherwise, ignoring null
-   *         elements
+   * @return true if the current {@link ContainMatchingRequestable} does not
+   *         contain an element the given selector selects, false otherwise,
+   *         ignoring null elements
    * @throws RuntimeException if the given selector is null.
    */
   boolean containsNoMatching(Predicate<E> selector);
