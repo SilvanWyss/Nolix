@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.basetest.commontype.iteratortool.iterablesearcher;
+package ch.nolix.basetest.commontype.iterablesearcher.iterablesearcher;
 
 import org.junit.jupiter.api.Test;
 
-import ch.nolix.base.commontype.iteratortool.IterableSearcher;
+import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.independent.list.List;
 import ch.nolix.base.testing.standardtest.StandardTest;
 

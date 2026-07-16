@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.commontype.iterabletool;
+package ch.nolix.baseapi.commontype.iterablesearcher;
 
 /**
  * @author Silvan Wyss

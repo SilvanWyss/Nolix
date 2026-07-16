@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.base.commontype.iteratortool;
+package ch.nolix.base.commontype.iterablesearcher;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.commontype.iterabletool.IIterableSearcher;
+import ch.nolix.baseapi.commontype.iterablesearcher.IIterableSearcher;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;

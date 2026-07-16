@@ -5,7 +5,7 @@ package ch.nolix.base.datastructure.extendediterablemapperview;
 
 import java.util.function.Function;
 
-import ch.nolix.base.commontype.iteratortool.IterableSearcher;
+import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;

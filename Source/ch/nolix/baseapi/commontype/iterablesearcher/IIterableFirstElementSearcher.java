@@ -1,4 +1,4 @@
-package ch.nolix.baseapi.commontype.iterabletool;
+package ch.nolix.baseapi.commontype.iterablesearcher;
 
 import java.util.function.Predicate;
 

@@ -17,7 +17,7 @@ import java.util.function.ToLongFunction;
 
 import ch.nolix.base.commontype.arraytool.ArraySorter;
 import ch.nolix.base.commontype.iterableexaminer.IterableExaminer;
-import ch.nolix.base.commontype.iteratortool.IterableSearcher;
+import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.arraylist.ArrayList;
 import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFilterView;
 import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterableIntervalView;

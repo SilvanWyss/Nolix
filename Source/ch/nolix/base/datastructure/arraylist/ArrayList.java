@@ -3,7 +3,7 @@
  */
 package ch.nolix.base.datastructure.arraylist;
 
-import ch.nolix.base.commontype.iteratortool.IterableSearcher;
+import ch.nolix.base.commontype.iterablesearcher.IterableSearcher;
 import ch.nolix.base.datastructure.extendediterable.AbstractExtendedIterable;
 import ch.nolix.base.datastructure.extendediterable.Marker;
 import ch.nolix.base.validation.validator.Validator;
