@@ -47,7 +47,7 @@ final class NodeSchemaAdapterTest extends StandardTest {
     // verification part 1
     expect(testUnit.isChangeFree()).isTrue();
     expect(testUnit.getStoredTables().getCount()).isEqualTo(1);
-    expect(testUnit.getStoredTables().containsOne(t -> t.hasName("MyTable")));
+    expect(testUnit.getStoredTables().containsOneMatching(t -> t.hasName("MyTable")));
 
     // verification part 2
     final var tableNodes = database.getStoredChildNodesWithHeader("Table");

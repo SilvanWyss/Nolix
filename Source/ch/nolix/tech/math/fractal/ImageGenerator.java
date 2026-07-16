@@ -69,7 +69,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
    */
   @Override
   public boolean caughtError() {
-    return futures.containsAny(IFuture::caughtError);
+    return futures.containsMatching(IFuture::caughtError);
   }
 
   /**

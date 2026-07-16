@@ -36,11 +36,11 @@ public final class ColumnMapper {
     final var referenceableTableIds = midColumnDto.referenceableTableIds();
     final var backReferenceableColumnsIds = midColumnDto.backReferenceableColumnIds();
 
-    final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
+    final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsMatching(t::hasId));
 
     final var columns = tables.toMultiples(ITable::getStoredColumns);
     final var backReferenceableColumns = //
-    columns.getStoredSelected(c -> backReferenceableColumnsIds.containsAny(c::hasId));
+    columns.getStoredSelected(c -> backReferenceableColumnsIds.containsMatching(c::hasId));
 
     final var column = //
     Column.withIdAndNameAndContentModel(id, name, fieldType, dataType, referenceableTables, backReferenceableColumns);

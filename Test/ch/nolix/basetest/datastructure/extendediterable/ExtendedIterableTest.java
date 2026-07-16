@@ -331,7 +331,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "xx", "xx", "xx", "xx", "xx");
 
     // execution
-    final var result = testUnit.containsOne(e -> e.equals("x"));
+    final var result = testUnit.containsOneMatching(e -> e.equals("x"));
 
     // verification
     expect(result).isTrue();
@@ -343,7 +343,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xx", "xx");
 
     // execution
-    final var result = testUnit.containsOne(e -> e.equals("x"));
+    final var result = testUnit.containsOneMatching(e -> e.equals("x"));
 
     // verification
     expect(result).isFalse();

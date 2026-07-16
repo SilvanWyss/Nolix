@@ -4,7 +4,7 @@
 package ch.nolix.base.net.http;
 
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
+import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableNameCatalog;
 
 public record HttpRequest(String content) {
@@ -16,10 +16,10 @@ public record HttpRequest(String content) {
 
   public static final String HTTP_HEADER = "HTTP";
 
-  public static boolean canBe(final StoringRequestable<String> lines) {
-    return lines.containsAny(l -> l.contains(HTTP_HEADER))
-    && lines.containsAny(l -> l.contains(HOST_HEADER))
-    && lines.containsAny(l -> l.contains(ACCEPT_HEADER + ": text/html"));
+  public static boolean canBe(final ExtendedIterable<String> lines) {
+    return lines.containsMatching(l -> l.contains(HTTP_HEADER))
+    && lines.containsMatching(l -> l.contains(HOST_HEADER))
+    && lines.containsMatching(l -> l.contains(ACCEPT_HEADER + ": text/html"));
   }
 
   public HttpRequest(final String content) { //NOSONAR: This constructor does more than the default one.

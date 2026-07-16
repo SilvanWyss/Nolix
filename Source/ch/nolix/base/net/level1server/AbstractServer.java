@@ -67,7 +67,7 @@ public abstract class AbstractServer implements IServer {
    */
   @Override
   public final boolean containsSlotWithName(final String name) {
-    return slots.containsAny(s -> s.hasName(name));
+    return slots.containsMatching(s -> s.hasName(name));
   }
 
   /**

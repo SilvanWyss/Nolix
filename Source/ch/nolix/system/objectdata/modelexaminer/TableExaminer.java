@@ -50,7 +50,7 @@ public final class TableExaminer extends DatabaseObjectExaminer implements ITabl
    */
   @Override
   public boolean containsEntityWithGivenIdInLocalData(final ITable<?> table, final String id) {
-    return table.internalGetStoredEntitiesInLocalData().containsAny(e -> e.hasId(id));
+    return table.internalGetStoredEntitiesInLocalData().containsMatching(e -> e.hasId(id));
   }
 
   /**

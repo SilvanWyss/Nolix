@@ -156,7 +156,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    */
   @Override
   public boolean containsSelectedTab() {
-    return getStoredTabs().containsAny(ITabContainerTab::isSelected);
+    return getStoredTabs().containsMatching(ITabContainerTab::isSelected);
   }
 
   /**

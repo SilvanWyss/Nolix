@@ -214,7 +214,7 @@ public final class MultiReference<E extends IEntity> extends AbstractBaseReferen
    */
   @Override
   public boolean referencesUninsertedEntity() {
-    return getAllStoredReferencedEntities().containsAny(e -> !e.belongsToTable());
+    return getAllStoredReferencedEntities().containsMatching(e -> !e.belongsToTable());
   }
 
   /**

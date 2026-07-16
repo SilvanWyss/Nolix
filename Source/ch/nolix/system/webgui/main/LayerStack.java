@@ -40,7 +40,7 @@ public final class LayerStack implements ILayerStack {
    */
   @Override
   public boolean containsControl(final Control<?, ?> control) {
-    return getStoredLayers().containsAny(l -> l.containsControl(control));
+    return getStoredLayers().containsMatching(l -> l.containsControl(control));
   }
 
   /**

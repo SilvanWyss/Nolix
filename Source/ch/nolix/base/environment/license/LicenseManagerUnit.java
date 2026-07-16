@@ -111,7 +111,7 @@ public final class LicenseManagerUnit {
    *         {@link AbstractLicense} of the given licenseType, false otherwise.
    */
   public <L extends AbstractLicense> boolean containsLicense(final Class<L> licenseType) {
-    return abstractLicenses.containsAny(l -> l.getClass() == licenseType);
+    return abstractLicenses.containsMatching(l -> l.getClass() == licenseType);
   }
 
   /**

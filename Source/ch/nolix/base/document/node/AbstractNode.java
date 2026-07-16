@@ -90,7 +90,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
    */
   @Override
   public final boolean containsChildNodeThat(final Predicate<INode<?>> selector) {
-    return getStoredChildNodes().containsAny(selector::test);
+    return getStoredChildNodes().containsMatching(selector::test);
   }
 
   /**
@@ -390,7 +390,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
     final StringBuilder stringBuilder) {
     // Handles the case that all child nodes of the current BaseNode themselves do
     // not contain child nodes.
-    if (getStoredChildNodes().containsNone(INode::containsChildNodes)) {
+    if (getStoredChildNodes().containsNoMatching(INode::containsChildNodes)) {
       stringBuilder
         .append(CharacterCatalog.OPEN_BRACKET)
         .append(getStoredChildNodes().toString())

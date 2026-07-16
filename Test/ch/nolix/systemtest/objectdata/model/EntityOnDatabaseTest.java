@@ -175,7 +175,7 @@ final class EntityOnDatabaseTest extends StandardTest {
       nodeDataAdapter
         .getStoredTableByEntityType(Pet.class)
         .getStoredEntities()
-        .containsNone(e -> e.hasId(garfield.getId())));
+        .containsNoMatching(e -> e.hasId(garfield.getId())));
   }
 
   @Test

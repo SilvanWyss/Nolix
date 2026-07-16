@@ -71,7 +71,7 @@ public final class ColumnMutationExaminer implements IColumnMutationExaminer {
     final String name) {
     return //
     column != null
-    && (!column.belongsToTable() || column.getStoredParentTable().getStoredColumns().containsAny(c -> c.hasName(name)));
+    && (!column.belongsToTable() || column.getStoredParentTable().getStoredColumns().containsMatching(c -> c.hasName(name)));
   }
 
   /**

@@ -90,7 +90,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAny(final Predicate<E> selector) {
+  public final boolean containsMatching(final Predicate<E> selector) {
     return ITERABLE_EXAMINER.containsMatching(this, selector);
   }
 
@@ -216,14 +216,11 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNone(final Predicate<E> selector) {
-    return !ITERABLE_EXAMINER.containsMatching(this, selector);
+  public final boolean containsNoMatching(final Predicate<E> selector) {
+    return ITERABLE_EXAMINER.containsNoMatching(this, selector);
   }
 
   /**
@@ -277,13 +274,10 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOne(final Predicate<E> selector) {
+  public final boolean containsOneMatching(final Predicate<E> selector) {
     return ITERABLE_EXAMINER.containsOneMatching(this, selector);
   }
 

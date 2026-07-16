@@ -82,7 +82,7 @@ public final class Database implements IDatabase {
       return DatabaseObjectState.CLOSED;
     }
 
-    if (getStoredTables().containsAny(ITable::isEdited)) {
+    if (getStoredTables().containsMatching(ITable::isEdited)) {
       return DatabaseObjectState.EDITED;
     }
 

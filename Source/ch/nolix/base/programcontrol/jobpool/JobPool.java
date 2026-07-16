@@ -42,7 +42,7 @@ public final class JobPool {
    *         otherwise.
    */
   public boolean containsWaitingJobs() {
-    return jobWrappers.containsAny(JobWrapper::isFresh);
+    return jobWrappers.containsMatching(JobWrapper::isFresh);
   }
 
   /**

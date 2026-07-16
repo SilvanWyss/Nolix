@@ -29,7 +29,7 @@ public final class ColumnMapper {
     final var dataTypeClass = (Class<Object>) midSchemaColumnDto.dataType().getDataTypeClass();
 
     final var referenceableTableIds = midSchemaColumnDto.referenceableTableIds();
-    final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsAny(t::hasId));
+    final var referenceableTables = tables.getStoredSelected(t -> referenceableTableIds.containsMatching(t::hasId));
     final var columns = tables.toMultiples(ITable::getStoredColumns);
     final var backReferenceableColumnIds = midSchemaColumnDto.backReferenceableColumnIds();
     final var backReferenceableColumns = columns.getStoredSelected(c -> backReferenceableColumnIds.contains(c.getId()));

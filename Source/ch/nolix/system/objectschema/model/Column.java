@@ -323,11 +323,11 @@ public final class Column extends AbstractSchemaObject implements IColumn {
       return COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
-        .containsAny(t -> t.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
+        .containsMatching(t -> t.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
 
     if (belongsToTable()) {
-      return getStoredParentTable().getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
+      return getStoredParentTable().getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
     return false;

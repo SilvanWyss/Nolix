@@ -212,7 +212,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
       return DatabaseObjectState.CLOSED;
     }
 
-    if (internalGetStoredEntitiesInLocalData().containsAny(ENTITY_EXAMINER::isNewOrEditedOrDeleted)) {
+    if (internalGetStoredEntitiesInLocalData().containsMatching(ENTITY_EXAMINER::isNewOrEditedOrDeleted)) {
       return DatabaseObjectState.EDITED;
     }
 

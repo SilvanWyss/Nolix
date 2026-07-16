@@ -163,7 +163,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    */
   @Override
   public final boolean containsBlankItem() {
-    return getStoredItems().containsAny(IItemMenuItem::isBlank);
+    return getStoredItems().containsMatching(IItemMenuItem::isBlank);
   }
 
   /**
@@ -171,7 +171,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    */
   @Override
   public final boolean containsItemWithId(final String id) {
-    return getStoredItems().containsAny(i -> i.hasId(id));
+    return getStoredItems().containsMatching(i -> i.hasId(id));
   }
 
   /**
@@ -179,7 +179,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    */
   @Override
   public final boolean containsItemWithText(final String text) {
-    return getStoredItems().containsAny(i -> i.getText().equals(text));
+    return getStoredItems().containsMatching(i -> i.getText().equals(text));
   }
 
   /**
@@ -187,7 +187,7 @@ extends AbstractControl<M, S> implements IItemMenu<M, S> {
    */
   @Override
   public final boolean containsSelectedItem() {
-    return getStoredItems().containsAny(IItemMenuItem::isSelected);
+    return getStoredItems().containsMatching(IItemMenuItem::isSelected);
   }
 
   /**

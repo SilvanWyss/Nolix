@@ -56,7 +56,7 @@ public final class ControlFactoryUnit {
   }
 
   private boolean containsControlClassWithName(final String name) {
-    return memberControlClasses.containsAny(cc -> cc.getSimpleName().equals(name));
+    return memberControlClasses.containsMatching(cc -> cc.getSimpleName().equals(name));
   }
 
   private Class<? extends Control<?, ?>> getControlClassByName(final String name) {

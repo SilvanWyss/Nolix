@@ -53,12 +53,12 @@ extends StandardTest {
     // verification part 1
     expect(result).hasElementCount(4);
     final var cssRuleForAllStates = result.getStoredFirst(r -> r.getSelector().startsWith("#" + controlInternalId));
-    expect(cssRuleForAllStates.getProperties().containsAny(p -> p.hasName("cursor"))).isTrue();
+    expect(cssRuleForAllStates.getProperties().containsMatching(p -> p.hasName("cursor"))).isTrue();
 
     // verification part 2
-    expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"))).isTrue();
+    expect(result.containsMatching(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover"))).isTrue();
 
     // verification part 3
-    expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":focus"))).isTrue();
+    expect(result.containsMatching(r -> r.getSelector().startsWith("#" + controlInternalId + ":focus"))).isTrue();
   }
 }

@@ -270,7 +270,7 @@ implements ISelectingStyleWithSelectors {
   }
 
   private boolean selectorRolesAllowToSelectElement(IStylableElement<?> element) {
-    return !containsSelectorRoles() || getSelectorRoles().containsAny(element::hasRole);
+    return !containsSelectorRoles() || getSelectorRoles().containsMatching(element::hasRole);
   }
 
   private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {

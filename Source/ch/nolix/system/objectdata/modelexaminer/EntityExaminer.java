@@ -95,7 +95,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
       final var tables = entity.getStoredParentDatabase().getStoredTables();
 
       for (final var t : tables) {
-        if (t.internalGetStoredEntitiesInLocalData().containsAny(e -> !e.isDeleted()
+        if (t.internalGetStoredEntitiesInLocalData().containsMatching(e -> !e.isDeleted()
         && referencesGivenEntity(e, entity))) {
           return true;
         }
@@ -125,6 +125,6 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
    */
   @Override
   public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
-    return sourceEntity.internalGetStoredFields().containsAny(p -> p.referencesEntity(entity));
+    return sourceEntity.internalGetStoredFields().containsMatching(p -> p.referencesEntity(entity));
   }
 }

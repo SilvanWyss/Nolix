@@ -34,14 +34,6 @@ public interface StoringRequestable<E> {
   boolean containsAllOf(Object... objects);
 
   /**
-   * @param selector
-   * @return true if the current {@link StoringRequestable} contains an element
-   *         the given selector selects, false otherwise. Ignores null elements.
-   * @throws RuntimeException if the given selector is null.
-   */
-  boolean containsAny(Predicate<E> selector);
-
-  /**
    * @param objects
    * @return true if the current {@link StoringRequestable} contains any of the
    *         given objects, false otherwise.
@@ -101,15 +93,6 @@ public interface StoringRequestable<E> {
   boolean containsMoreThan(Iterable<?> iterable);
 
   /**
-   * @param selector
-   * @return true if the current {@link StoringRequestable} does not contain an
-   *         element the given selector selects, false otherwise. Ignores null
-   *         elements.
-   * @throws RuntimeException if the given selector is null.
-   */
-  boolean containsNone(Predicate<E> selector);
-
-  /**
    * @param objects
    * @return true if the current {@link StoringRequestable} does not contain any
    *         of the given objects, false otherwise.
@@ -137,15 +120,6 @@ public interface StoringRequestable<E> {
    *         element, false otherwise.
    */
   boolean containsOne();
-
-  /**
-   * @param selector
-   * @return true if the current {@link StoringRequestable} contains exactly 1
-   *         element the given selector selects, false otherwise. Ignores null
-   *         elements.
-   * @throws RuntimeException if the given selector is null.
-   */
-  boolean containsOne(Predicate<E> selector);
 
   /**
    * @param object

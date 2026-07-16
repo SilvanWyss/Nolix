@@ -36,7 +36,7 @@ public final class TableExaminer implements ITableExaminer {
     // This part is not mandatory, but provides a better performance.
     && COLUMN_TOOL.isABackReferenceColumn(column)
 
-    && table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
+    && table.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
   }
 
   /**
@@ -50,7 +50,7 @@ public final class TableExaminer implements ITableExaminer {
     // This part is not mandatory, but provides a better performance.
     && COLUMN_TOOL.isAReferenceColumn(column)
 
-    && table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
+    && table.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, column));
   }
 
   /**
@@ -62,7 +62,7 @@ public final class TableExaminer implements ITableExaminer {
     final ITable otherTable) {
     return //
     table != null
-    && table.getStoredColumns().containsAny(c -> COLUMN_TOOL.referencesGivenTable(c, otherTable));
+    && table.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesGivenTable(c, otherTable));
   }
 
   /**
@@ -72,7 +72,7 @@ public final class TableExaminer implements ITableExaminer {
   public boolean containsColumnWithName(final ITable table, final String name) {
     return //
     table != null
-    && table.getStoredColumns().containsAny(c -> c.hasName(name));
+    && table.getStoredColumns().containsMatching(c -> c.hasName(name));
   }
 
   /**
@@ -83,6 +83,6 @@ public final class TableExaminer implements ITableExaminer {
     return //
     table != null
     && table.belongsToDatabase()
-    && table.getStoredParentDatabase().getStoredTables().containsAny(t -> containsColumnThatReferencesTable(t, table));
+    && table.getStoredParentDatabase().getStoredTables().containsMatching(t -> containsColumnThatReferencesTable(t, table));
   }
 }

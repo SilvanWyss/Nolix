@@ -3,7 +3,6 @@
  */
 package ch.nolix.base.net.websocket;
 
-import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 
 /**
@@ -24,8 +23,8 @@ public final class WebSocketHandShakeRequest {
     return new WebSocketHandShakeRequest(lines);
   }
 
-  public static boolean canBe(final StoringRequestable<String> lines) {
-    return lines.containsAny(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
+  public static boolean canBe(final ExtendedIterable<String> lines) {
+    return lines.containsMatching(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
   }
 
   public WebSocketHandShakeResponse getWebSocketHandShakeResponse() {

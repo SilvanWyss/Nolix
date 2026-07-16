@@ -292,7 +292,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         the given index, false otherwise.
    */
   private boolean receivedPackage(final int index) {
-    return getStoredReceivedPackages().containsAny(rp -> rp.hasIndex(index));
+    return getStoredReceivedPackages().containsMatching(rp -> rp.hasIndex(index));
   }
 
   /**

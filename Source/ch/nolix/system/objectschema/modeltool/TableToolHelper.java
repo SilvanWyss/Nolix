@@ -24,14 +24,14 @@ public final class TableToolHelper {
     return //
     table
       .getStoredColumns()
-      .getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
+      .getStoredSelected(c -> columns.containsMatching(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
   public static ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
     final ITable table) {
     final var columns = table.getStoredColumns();
 
-    return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
+    return columns.getStoredSelected(c -> columns.containsMatching(c2 -> COLUMN_TOOL.referencesBackGivenColumn(c, c2)));
   }
 
   public static ExtendedIterable<? extends IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(

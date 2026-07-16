@@ -82,7 +82,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     return //
     database != null
     && //
-    database.getStoredTables().containsAny(t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
+    database.getStoredTables().containsMatching(t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
   }
 
   /**
@@ -107,7 +107,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
     return //
     database != null
-    && database.getStoredTables().containsAny(t -> COLUMN_TOOL.referencesGivenTable(column, t));
+    && database.getStoredTables().containsMatching(t -> COLUMN_TOOL.referencesGivenTable(column, t));
   }
 
   /**
@@ -117,7 +117,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   public boolean containsTableWithColumn(final IDatabase database, final IColumn column) {
     return //
     database != null
-    && database.getStoredTables().containsAny(t -> TABLE_EXAMINER.containsColumn(t, column));
+    && database.getStoredTables().containsMatching(t -> TABLE_EXAMINER.containsColumn(t, column));
   }
 
   /**
@@ -127,7 +127,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   public boolean containsTableWithName(final IDatabase database, final String name) {
     return //
     database != null
-    && database.getStoredTables().containsAny(t -> t.hasName(name));
+    && database.getStoredTables().containsMatching(t -> t.hasName(name));
   }
 
   private boolean canAddGivenTableBecauseOfColumns(final IDatabase database, final ITable table) {
