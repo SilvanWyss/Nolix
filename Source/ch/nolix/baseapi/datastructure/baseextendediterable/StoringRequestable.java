@@ -57,13 +57,6 @@ public interface StoringRequestable<E> {
   boolean containsAsManyAs(Iterable<?> container);
 
   /**
-   * @param object
-   * @return true if the current {@link StoringRequestable} contains an element
-   *         that equals the given element, false otherwise
-   */
-  boolean containsEqual(Object object);
-
-  /**
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains exactly
    *         elements that equal the elements of given iterable in the same order,
@@ -120,13 +113,6 @@ public interface StoringRequestable<E> {
    *         element, false otherwise.
    */
   boolean containsOne();
-
-  /**
-   * @param object
-   * @return true if the current {@link StoringRequestable} contains exactly 1
-   *         element that equals the given object, false otherwise
-   */
-  boolean containsOneEqual(E object);
 
   /**
    * @param selector

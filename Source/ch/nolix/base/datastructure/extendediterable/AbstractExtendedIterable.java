@@ -219,6 +219,14 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
+  public final boolean containsNoEqual(final E object) {
+    return ITERABLE_EXAMINER.containsNoEqual(this, object);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean containsNoMatching(final Predicate<E> selector) {
     return ITERABLE_EXAMINER.containsNoMatching(this, selector);
   }
@@ -1582,7 +1590,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public <N extends Number> ExtendedIterable<N> toNumbers(final Function<E, N> numberMapper) {
+  public final <N extends Number> ExtendedIterable<N> toNumbers(final Function<E, N> numberMapper) {
     // Asserts that the given numberMapper is not null.
     Validator.assertThat(numberMapper).thatIsNamed("number mapper").isNotNull();
 

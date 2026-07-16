@@ -6,6 +6,7 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 import java.util.function.Function;
 
 import ch.nolix.baseapi.datastructure.baseextendediterable.ArrayMappable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.ContainEqualRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMatchingRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IndexRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IterableWithCopyableIterator;
@@ -29,6 +30,7 @@ public interface ExtendedIterable<E>
 extends
 AggregationRequestable<E>,
 ArrayMappable<E>,
+ContainEqualRequestable<E>,
 ContainMatchingRequestable<E>,
 CountRequestable<E>,
 EmptinessRequestable,

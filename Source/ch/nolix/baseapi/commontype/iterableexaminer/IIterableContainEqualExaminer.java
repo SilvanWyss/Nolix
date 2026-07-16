@@ -20,8 +20,8 @@ public interface IIterableContainEqualExaminer {
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @param object   the object of which equal elements will be searched for
-   * @return true if the given iterable does not contain an element that euqls the
-   *         given object, false otherwise
+   * @return true if the given iterable does not contain an element that equals
+   *         the given object, false otherwise
    */
   boolean containsNoEqual(Iterable<?> iterable, Object object);
 
