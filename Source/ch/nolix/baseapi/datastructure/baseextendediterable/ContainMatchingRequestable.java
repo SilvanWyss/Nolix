@@ -29,8 +29,8 @@ public interface ContainMatchingRequestable<E> {
    * @param selector can select elements, is considered not to select any element
    *                 when is null
    * @return true if the current {@link ContainMatchingRequestable} contains only
-   *         elements the given selector selects, false otherwise, ignoring null
-   *         elements
+   *         elements the given selector selects, but at least 1 time, false
+   *         otherwise, ignoring null elements
    */
   boolean containsMatchingOnly(Predicate<E> selector);
 

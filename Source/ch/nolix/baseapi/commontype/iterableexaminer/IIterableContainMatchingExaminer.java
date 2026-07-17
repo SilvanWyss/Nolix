@@ -28,8 +28,8 @@ public interface IIterableContainMatchingExaminer {
    *                 when is null
    * @param <T>      the type of the elements of the given iterable
    * @return true if the given iterable contains only elements the given selector
-   *         selects, false otherwise, ignoring null elements in the given
-   *         iterable.
+   *         selects, but at least 1 time, false otherwise, ignoring null elements
+   *         in the given iterable.
    */
   <T> boolean containsMatchingOnly(Iterable<T> iterable, Predicate<T> selector);
 
