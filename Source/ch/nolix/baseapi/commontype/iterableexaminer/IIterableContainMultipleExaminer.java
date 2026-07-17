@@ -66,6 +66,16 @@ public interface IIterableContainMultipleExaminer {
    *                 is null
    * @param objects  the searched for objects, is considered to be empty when is
    *                 null
+   * @return true if the given iterable contains exactly such elements that equal
+   *         the given objects in the same order, false otherwise
+   */
+  boolean containsExactlyAllEqualInSameOrder(Iterable<?> iterable, Iterable<?> objects);
+
+  /**
+   * @param iterable the searched {@link Iterable}, is considered to be empty when
+   *                 is null
+   * @param objects  the searched for objects, is considered to be empty when is
+   *                 null
    * @return true if the given iterable contains exactly all the given objects in
    *         the same order, false otherwise
    */

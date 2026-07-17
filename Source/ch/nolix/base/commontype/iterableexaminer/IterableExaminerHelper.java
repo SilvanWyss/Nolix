@@ -15,6 +15,22 @@ public final class IterableExaminerHelper {
   private IterableExaminerHelper() {
   }
 
+  public static boolean containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(Iterable<?> iterable) {
+    final var objectsIterator = iterable.iterator();
+
+    for (final var e : iterable) {
+      if (objectsIterator.hasNext()) {
+        if (!Objects.equals(e, objectsIterator.next())) {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    }
+
+    return !objectsIterator.hasNext();
+  }
+
   public static boolean containsOnceWhenNotNull(final Iterable<?> iterable, final Object object) {
     var found = false;
 

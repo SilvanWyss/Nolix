@@ -112,14 +112,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsEqualsExactlyInSameOrder(final Iterable<?> iterable) {
-    // Handles the case that the given iterable is null.
-    if (iterable == null) {
-      return isEmpty();
-    }
-
-    // Handles the case that the given iterable is not null.
-    return containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(iterable);
+  public final boolean containsExactlyAllEqualInSameOrder(final Iterable<?> objects) {
+    return ITERABLE_EXAMINER.containsExactlyAllEqualInSameOrder(this, objects);
   }
 
   /**
@@ -1690,34 +1684,6 @@ implements ExtendedIterable<E> {
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
-  }
-
-  /**
-   * @param iterable
-   * @return true if the current {@link AbstractExtendedIterable} contains exactly
-   *         elements that equal the elements of given iterable in the same order,
-   *         false otherwise, for the case that the given iterable is not null.
-   */
-  private boolean containsExactlyEqualingInSameOrderWhenGivenIterableIsNotNull(final Iterable<?> iterable) {
-    // Gets a new iterator from the given iterable.
-    var iterator = iterable.iterator();
-
-    // Iterates the current Container.
-    for (final var e : this) {
-      // Handles the case that the iterator has a next.
-      if (iterator.hasNext()) {
-        // Handles the case that the current element does not equal the next of the iterator.
-        if (!Objects.equals(e, iterator.next())) {
-          return false;
-        }
-
-        // Handles the case that the iterator has does not have a next.
-      } else {
-        return false;
-      }
-    }
-
-    return !iterator.hasNext();
   }
 
   /**

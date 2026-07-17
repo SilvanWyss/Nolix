@@ -150,6 +150,22 @@ public final class IterableExaminer implements IIterableExaminer {
    * {@inheritDoc}
    */
   @Override
+  public boolean containsExactlyAllEqualInSameOrder(Iterable<?> iterable, Iterable<?> objects) {
+    if (iterable != null) {
+      if (objects != null) {
+        return IterableExaminerHelper.containsExactlyAllEqualInSameOrderWhenIterableNotNullAndObjectsNotNull(iterable);
+      }
+
+      return isEmpty(iterable);
+    }
+
+    return isEmpty(objects);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public boolean containsExactlyAllInSameOrder(final Iterable<?> iterable, final Iterable<?> objects) {
     if (iterable != null && objects != null) {
       final var objectsIterator = objects.iterator();
