@@ -23,7 +23,6 @@ import ch.nolix.base.datastructure.extendediterablefilterview.ExtendedIterableFi
 import ch.nolix.base.datastructure.extendediterableintervalview.ExtendedIterableIntervalView;
 import ch.nolix.base.datastructure.extendediterablemapperview.ExtendedIterableMapperView;
 import ch.nolix.base.validation.validator.Validator;
-import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.extendediterable.ExtendedIterable;
 import ch.nolix.baseapi.datastructure.list.IArrayList;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -105,20 +104,6 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAsManyAs(Iterable<?> iterable) {
-    // Handle the case that the given iterable is a ExtendedIterable.
-    if (iterable instanceof final ExtendedIterable<?> container) {
-      return getCount() == container.getCount();
-    }
-
-    // Handle the case that the given iterable is not a ExtendedIterable.
-    return getCount() == ITERABLE_SEARCHER.getCount(iterable);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean containsEqual(final Object object) {
     return ITERABLE_EXAMINER.containsEqual(this, object);
   }
@@ -149,36 +134,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsLessThan(final Iterable<?> iterable) {
-    // Handles the case that the given iterable is a IContainer.
-    if (iterable instanceof final ExtendedIterable<?> container) {
-      return (getCount() < container.getCount());
-    }
-
-    // Handles the case that the given iterable is not a IContainer.
-    return (getCount() < ITERABLE_SEARCHER.getCount(iterable));
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean containsMatchingOnly(final Predicate<E> selector) {
     return ITERABLE_EXAMINER.containsMatchingOnly(this, selector);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final boolean containsMoreThan(final Iterable<?> iterable) {
-    // Handles the case that the given container is a IContainer.
-    if (iterable instanceof final ExtendedIterable<?> container) {
-      return (getCount() > container.getCount());
-    }
-
-    // Handles the case that the given container is not a IContainer.
-    return (getCount() > ITERABLE_SEARCHER.getCount(iterable));
   }
 
   /**
@@ -1737,7 +1694,7 @@ implements ExtendedIterable<E> {
 
   /**
    * @param iterable
-   * @return true if the current {@link StoringRequestable} contains exactly
+   * @return true if the current {@link AbstractExtendedIterable} contains exactly
    *         elements that equal the elements of given iterable in the same order,
    *         false otherwise, for the case that the given iterable is not null.
    */

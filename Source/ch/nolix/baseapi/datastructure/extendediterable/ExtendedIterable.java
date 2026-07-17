@@ -9,7 +9,6 @@ import ch.nolix.baseapi.datastructure.baseextendediterable.ArrayMappable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IndexRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.baseextendediterable.SingleSearchable;
-import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.StringMappable;
 import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.general.CountRequestable;
@@ -40,7 +39,6 @@ IterableWithCopyableIterator<E>,
 Mappable<E>,
 MaterializationRequestable,
 SingleSearchable<E>,
-StoringRequestable,
 StringMappable {
   /**
    * @param comparableMapper

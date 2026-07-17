@@ -3,8 +3,6 @@
  */
 package ch.nolix.baseapi.datastructure.iterablerequest;
 
-import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
-
 /**
  * @author Silvan Wyss
  */
@@ -82,8 +80,8 @@ public interface ContainMultipleRequestable {
    * given.
    * 
    * @param objects the searched objects, is considered to be empty when is null
-   * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects, false otherwise
+   * @return true if the current {@link ContainMultipleRequestable} does not
+   *         contain any of the given objects, false otherwise
    */
   boolean containsNone(Iterable<?> objects);
 
@@ -93,8 +91,8 @@ public interface ContainMultipleRequestable {
    * given.
    * 
    * @param objects the searched objects, is considered to be empty when is null
-   * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects, false otherwise
+   * @return true if the current {@link ContainMultipleRequestable} does not
+   *         contain any of the given objects, false otherwise
    */
   boolean containsNone(Object... objects);
 }
