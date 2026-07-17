@@ -21,48 +21,6 @@ public interface StoringRequestable<E> {
   boolean contains(Object object);
 
   /**
-   * The time complexity of this method is O(m*n) if the current
-   * {@link StoringRequestable} contains m elements and n objects are given.
-   * 
-   * @param objects the searched objects, is considered to be empty when is null
-   * @return true if the current {@link StoringRequestable} contains all of the
-   *         given objects, false otherwise
-   */
-  boolean containsAll(Iterable<?> objects);
-
-  /**
-   * The time complexity of this method is O(m*n) if the current
-   * {@link StoringRequestable} contains m elements and n objects are given.
-   * 
-   * @param objects the searched objects, is considered to be empty when is null
-   * @return true if the current {@link StoringRequestable} contains all of the
-   *         given objects, false otherwise
-   */
-  boolean containsAll(Object... objects);
-
-  /**
-   * The time complexity of this method is O(m*n) if the current
-   * {@link StoringRequestable} contains m elements and n objects are given.
-   * 
-   * @param objects the searched objects, is considered to be empty when is null
-   * @return true if the current {@link StoringRequestable} contains any of the
-   *         given objects, false otherwise
-   * @throws RuntimeException if the given objects is null
-   */
-  boolean containsAnyOf(Iterable<?> objects);
-
-  /**
-   * The time complexity of this method is O(m*n) if the current
-   * {@link StoringRequestable} contains m elements and n objects are given.
-   * 
-   * @param objects the searched objects, is considered to be empty when is null
-   * @return true if the current {@link StoringRequestable} contains at least one
-   *         of the given objects, false otherwise
-   * @throws RuntimeException if the given objects is null
-   */
-  boolean containsAnyOf(Object... objects);
-
-  /**
    * The time complexity of this method is O(m+n) if the current
    * {@link StoringRequestable} contains m elements and the given iterable
    * contains n elements.
@@ -86,13 +44,6 @@ public interface StoringRequestable<E> {
 
   /**
    * @param iterable
-   * @return true if the current {@link StoringRequestable} contains exactly the
-   *         elements of the given iterable in the same order, false otherwise
-   */
-  boolean containsExactlyInSameOrder(Iterable<?> iterable);
-
-  /**
-   * @param iterable
    * @return true if the current {@link StoringRequestable} contains less elements
    *         than the given container, false otherwise
    */
@@ -104,22 +55,6 @@ public interface StoringRequestable<E> {
    *         than the given container, false otherwise
    */
   boolean containsMoreThan(Iterable<?> iterable);
-
-  /**
-   * @param objects
-   * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects, false otherwise
-   * @throws RuntimeException if the given objects is null
-   */
-  boolean containsNoneOf(Iterable<?> objects);
-
-  /**
-   * @param objects
-   * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects, false otherwise
-   * @throws RuntimeException if the given objects is null
-   */
-  boolean containsNoneOf(Object... objects);
 
   /**
    * @param object

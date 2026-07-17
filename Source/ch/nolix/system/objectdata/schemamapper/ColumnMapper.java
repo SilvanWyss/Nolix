@@ -37,7 +37,7 @@ public final class ColumnMapper implements IColumnMapper {
     if (field instanceof final AbstractBaseReference<?> baseReference) {
 
       final var referenceableTableNames = baseReference.getReferenceableTableNames();
-      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableNames.containsAnyOf(t.getName()));
+      final var referenceableTables = tables.getStoredSelected(t -> referenceableTableNames.containsAny(t.getName()));
 
       return //
       Column.withIdAndNameAndContentModel(

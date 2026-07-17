@@ -274,7 +274,7 @@ implements ISelectingStyleWithSelectors {
   }
 
   private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {
-    return !containsSelectorTokens() || getSelectorTokens().containsAnyOf(element.getTokens());
+    return !containsSelectorTokens() || getSelectorTokens().containsAny(element.getTokens());
   }
 
   private boolean selectorTypeAllowsToSelectElement(final IStylableElement<?> element) {

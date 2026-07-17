@@ -162,7 +162,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createEmptyContainerForType(String.class);
 
     // execution
-    final var result = testUnit.containsAnyOf(element1, element2);
+    final var result = testUnit.containsAny(element1, element2);
 
     // verification
     expect(result).isFalse();
@@ -178,7 +178,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(element1, element2, element3, element4);
 
     // execution
-    final var result = testUnit.containsAnyOf(element1, element2, element3, element4);
+    final var result = testUnit.containsAny(element1, element2, element3, element4);
 
     // verification
     expect(result).isTrue();
@@ -194,7 +194,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(element1, element2);
 
     // execution
-    final var result = testUnit.containsAnyOf(element3, element4);
+    final var result = testUnit.containsAny(element3, element4);
 
     // verification
     expect(result).isFalse();

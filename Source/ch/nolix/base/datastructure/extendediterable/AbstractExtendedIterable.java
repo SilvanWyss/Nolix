@@ -81,7 +81,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAnyOf(final Iterable<?> objects) {
+  public final boolean containsAny(final Iterable<?> objects) {
     return ITERABLE_EXAMINER.containsAny(this, objects);
   }
 
@@ -89,7 +89,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAnyOf(final Object... objects) {
+  public final boolean containsAny(final Object... objects) {
     return ITERABLE_EXAMINER.containsAny(this, objects);
   }
 
@@ -130,9 +130,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -200,7 +197,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNoneOf(final Iterable<?> elements) {
+  public final boolean containsNone(final Iterable<?> elements) {
     return ITERABLE_EXAMINER.containsNone(this, elements);
   }
 
@@ -214,7 +211,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNoneOf(final Object... objects) {
+  public final boolean containsNone(final Object... objects) {
     return ITERABLE_EXAMINER.containsNone(this, objects);
   }
 

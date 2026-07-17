@@ -8,6 +8,7 @@ import java.util.function.Function;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ArrayMappable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ContainEqualRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMatchingRequestable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMultipleRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IndexRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.baseextendediterable.SingleSearchable;
@@ -32,6 +33,7 @@ AggregationRequestable<E>,
 ArrayMappable<E>,
 ContainEqualRequestable<E>,
 ContainMatchingRequestable<E>,
+ContainMultipleRequestable,
 CountRequestable<E>,
 EmptinessRequestable,
 Filterable<E>,

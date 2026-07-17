@@ -92,7 +92,7 @@ public final class LicenseManagerUnit {
   public <F extends AbstractFeature> boolean containsFeature(final Class<F> featureType) {
     try {
       final var feature = featureType.getConstructor().newInstance();
-      return feature.getAuthorizedLicenseTypes().containsAnyOf(getLicenseTypes());
+      return feature.getAuthorizedLicenseTypes().containsAny(getLicenseTypes());
     } catch (final
     InstantiationException
     | IllegalAccessException
