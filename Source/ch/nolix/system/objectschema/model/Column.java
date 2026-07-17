@@ -304,7 +304,8 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private ExtendedIterable<? extends IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
     if (COLUMN_TOOL.belongsToDatabase(this)) {
-      return COLUMN_TOOL
+      return //
+      COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
         .toMultiples(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
@@ -320,14 +321,17 @@ public final class Column extends AbstractSchemaObject implements IColumn {
 
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
     if (COLUMN_TOOL.belongsToDatabase(this)) {
-      return COLUMN_TOOL
+      return //
+      COLUMN_TOOL
         .getParentDatabase(this)
         .getStoredTables()
-        .containsMatching(t -> t.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
+        .containsMatching(
+          t -> t.getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this)));
     }
 
     if (belongsToTable()) {
-      return getStoredParentTable().getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
+      return //
+      getStoredParentTable().getStoredColumns().containsMatching(c -> COLUMN_TOOL.referencesBackGivenColumn(c, this));
     }
 
     return false;

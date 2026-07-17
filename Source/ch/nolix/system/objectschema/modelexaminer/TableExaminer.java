@@ -83,6 +83,7 @@ public final class TableExaminer implements ITableExaminer {
     return //
     table != null
     && table.belongsToDatabase()
-    && table.getStoredParentDatabase().getStoredTables().containsMatching(t -> containsColumnThatReferencesTable(t, table));
+    && table.getStoredParentDatabase().getStoredTables().containsMatching(
+      t -> containsColumnThatReferencesTable(t, table));
   }
 }

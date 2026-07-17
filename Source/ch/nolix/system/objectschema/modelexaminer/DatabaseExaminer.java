@@ -80,9 +80,10 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
     }
 
     return //
-    database != null
-    && //
-    database.getStoredTables().containsMatching(t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
+    database != null //
+    &&
+    database.getStoredTables().containsMatching(
+      t -> TABLE_EXAMINER.containsColumnThatIsBackReferencedByColumn(t, column));
   }
 
   /**
