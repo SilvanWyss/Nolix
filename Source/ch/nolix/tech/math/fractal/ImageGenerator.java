@@ -99,7 +99,7 @@ public final class ImageGenerator extends AbstractFuture implements IImageGenera
    */
   @Override
   public boolean isFinished() {
-    return futures.containsOnly(IFuture::isFinished);
+    return futures.containsMatchingOnly(IFuture::isFinished);
   }
 
   /**

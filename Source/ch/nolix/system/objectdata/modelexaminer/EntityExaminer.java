@@ -25,7 +25,7 @@ public final class EntityExaminer extends DatabaseObjectExaminer implements IEnt
   @Override
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IEntity entity) {
     if (isNewOrEdited(entity)) {
-      return entity.internalGetStoredFields().containsOnly(FIELD_EXAMINER::isSetForCaseWhenIsMandatoryAndNewOrEdited);
+      return entity.internalGetStoredFields().containsMatchingOnly(FIELD_EXAMINER::isSetForCaseWhenIsMandatoryAndNewOrEdited);
     }
 
     return true;

@@ -19,7 +19,7 @@ public final class DatabaseExaminer extends DatabaseObjectExaminer implements ID
    */
   @Override
   public boolean allNewAndEditedMandatoryFieldsAreSet(final IDatabase database) {
-    return database.getStoredTables().containsOnly(TABLE_EXAMINER::allNewAndEditedMandatoryFieldsAreSet);
+    return database.getStoredTables().containsMatchingOnly(TABLE_EXAMINER::allNewAndEditedMandatoryFieldsAreSet);
   }
 
   /**

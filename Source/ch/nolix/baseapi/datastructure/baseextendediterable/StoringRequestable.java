@@ -3,8 +3,6 @@
  */
 package ch.nolix.baseapi.datastructure.baseextendediterable;
 
-import java.util.function.Predicate;
-
 /**
  * @author Silvan Wyss
  * @param <E> the type of the elements a {@link StoringRequestable}.
@@ -51,12 +49,4 @@ public interface StoringRequestable<E> {
    *         element, false otherwise
    */
   boolean containsOne();
-
-  /**
-   * @param selector
-   * @return true if the current {@link StoringRequestable} contains only elements
-   *         the given selector selects, false otherwise, ignoring null elements
-   * @throws RuntimeException if the given selector is null
-   */
-  boolean containsOnly(Predicate<E> selector);
 }

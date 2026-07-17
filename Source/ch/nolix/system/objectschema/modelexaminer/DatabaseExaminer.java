@@ -32,7 +32,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
 
     final var baseBackReferenceColumns = DATABASE_SEARCHER.getStoredBaseBackReferenceColumns(database);
 
-    return baseBackReferenceColumns.containsOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
+    return baseBackReferenceColumns.containsMatchingOnly(COLUMN_TOOL::isAValidBackReferenceColumn);
   }
 
   /**
@@ -131,7 +131,7 @@ public final class DatabaseExaminer implements IDatabaseExaminer {
   }
 
   private boolean canAddGivenTableBecauseOfColumns(final IDatabase database, final ITable table) {
-    return table.getStoredColumns().containsOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
+    return table.getStoredColumns().containsMatchingOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
   }
 
   private boolean canAddGivenTableBecauseOfGivenColumn(

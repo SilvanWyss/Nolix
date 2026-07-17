@@ -23,6 +23,18 @@ public interface ContainMatchingRequestable<E> {
   boolean containsMatching(Predicate<E> selector);
 
   /**
+   * The time complexity of this implementation is O(n) if the current
+   * {@link ContainMatchingRequestable} contains n elements.
+   * 
+   * @param selector can select elements, is considered not to select any element
+   *                 when is null
+   * @return true if the current {@link ContainMatchingRequestable} contains only
+   *         elements the given selector selects, false otherwise, ignoring null
+   *         elements
+   */
+  boolean containsMatchingOnly(Predicate<E> selector);
+
+  /**
    * The time complexity of this method is O(n) if the current
    * {@link ContainMatchingRequestable} contains n elements.
    * 

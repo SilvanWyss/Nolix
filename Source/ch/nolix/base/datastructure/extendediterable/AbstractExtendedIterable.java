@@ -257,13 +257,10 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOnly(final Predicate<E> selector) {
+  public final boolean containsMatchingOnly(final Predicate<E> selector) {
     return ITERABLE_EXAMINER.containsMatchingOnly(this, selector);
   }
 

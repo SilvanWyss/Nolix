@@ -163,7 +163,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
         }
 
         // Asserts that the current sequence fulfills the sequence conditions of the current SequencePattern.
-        if (sequenceConditions.containsOnly(sc -> sc.test(sequence))) {
+        if (sequenceConditions.containsMatchingOnly(sc -> sc.test(sequence))) {
           sequences.addAtEnd(sequence);
         }
       }
@@ -206,6 +206,6 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     }
 
     // Asserts that the given list fulfils the sequence conditions of the current SequencePattern.
-    return sequenceConditions.containsOnly(sc -> sc.test(list));
+    return sequenceConditions.containsMatchingOnly(sc -> sc.test(list));
   }
 }

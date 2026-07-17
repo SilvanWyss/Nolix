@@ -22,7 +22,7 @@ public final class TableExaminer extends DatabaseObjectExaminer implements ITabl
   public boolean allNewAndEditedMandatoryFieldsAreSet(final ITable<?> table) {
     return table
       .internalGetStoredEntitiesInLocalData()
-      .containsOnly(
+      .containsMatchingOnly(
         e -> ENTITY_EXAMINER.allNewAndEditedMandatoryFieldsAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
       );
   }
