@@ -127,7 +127,7 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsExactlyEqualInSameOrder(final Iterable<?> iterable) {
+  public final boolean containsEqualsExactlyInSameOrder(final Iterable<?> iterable) {
     // Handles the case that the given iterable is null.
     if (iterable == null) {
       return isEmpty();

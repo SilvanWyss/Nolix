@@ -19,17 +19,6 @@ public interface StoringRequestable {
   boolean containsAsManyAs(Iterable<?> iterable);
 
   /**
-   * The time complexity of this method is O(n) if the current
-   * {@link StoringRequestable} contains n elements.
-   * 
-   * @param iterable
-   * @return true if the current {@link StoringRequestable} contains exactly
-   *         elements that equal the elements of given iterable in the same order,
-   *         false otherwise
-   */
-  boolean containsExactlyEqualInSameOrder(Iterable<?> iterable);
-
-  /**
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains less elements
    *         than the given container, false otherwise

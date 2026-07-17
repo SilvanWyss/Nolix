@@ -41,6 +41,6 @@ public final class ChainedNodeComparator {
   private static boolean canEqualBecauseOfChildNodesWhenNotNull(
     final IChainedNode chainedNode1,
     final IChainedNode chainedNode2) {
-    return chainedNode1.getChildNodes().containsExactlyEqualInSameOrder(chainedNode2.getChildNodes());
+    return chainedNode1.getChildNodes().containsEqualsExactlyInSameOrder(chainedNode2.getChildNodes());
   }
 }

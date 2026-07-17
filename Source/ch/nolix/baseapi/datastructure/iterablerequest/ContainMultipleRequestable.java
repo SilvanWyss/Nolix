@@ -54,6 +54,17 @@ public interface ContainMultipleRequestable {
   boolean containsAny(Object... objects);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link ContainMultipleRequestable} contains n elements.
+   * 
+   * @param iterable the searched iterable, is considered to be empty when is null
+   * @return true if the current {@link ContainMultipleRequestable} contains
+   *         exactly such elements that equal the elements of given iterable in
+   *         the same order, false otherwise
+   */
+  boolean containsEqualsExactlyInSameOrder(Iterable<?> iterable);
+
+  /**
    * The time complexity of this implementation is O(n) if the current
    * {@link ContainMultipleRequestable} contains n elements.
    * 
