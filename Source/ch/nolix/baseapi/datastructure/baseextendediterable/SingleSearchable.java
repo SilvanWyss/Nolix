@@ -84,8 +84,11 @@ public interface SingleSearchable<E> {
   E getStoredFirst(Predicate<? super E> selector);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link SingleSearchable} contains n elements.
+   * 
    * @param type
-   * @param <T>  is the given type.
+   * @param <T>  the modeled type of the given type
    * @return the first element from the current {@link SingleSearchable} that is
    *         of the given type.
    * @throws RuntimeException if the given type is null

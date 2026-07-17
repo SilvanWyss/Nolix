@@ -814,13 +814,8 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  @SuppressWarnings("unchecked")
   public final <T extends E> T getStoredFirstOfType(final Class<T> type) {
-    // Asserts that the given type is not null.
-    Validator.assertThat(type).thatIsNamed(LowerCaseVariableNameCatalog.TYPE).isNotNull();
-
-    // Calls other method.
-    return (T) getStoredFirst(e -> type.isAssignableFrom(e.getClass()));
+    return ITERABLE_SEARCHER.getStoredFirstOfType(this, type);
   }
 
   /**

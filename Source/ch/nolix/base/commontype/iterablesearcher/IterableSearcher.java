@@ -125,11 +125,7 @@ public final class IterableSearcher implements IIterableSearcher {
    */
   @Override
   public <E> E getStoredFirst(final Iterable<E> iterable, final Predicate<? super E> selector) {
-    if (selector == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.SELECTOR);
-    }
-
-    if (iterable != null) {
+    if (iterable != null && selector != null) {
       for (final var e : iterable) {
         if (e != null && selector.test(e)) {
           return e;
@@ -141,5 +137,29 @@ public final class IterableSearcher implements IIterableSearcher {
     InvalidArgumentException.forArgumentAndErrorPredicate(
       iterable,
       "does not contain a non-null element the given selector selects");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  @SuppressWarnings("unchecked")
+  public <E, T extends E> T getStoredFirstOfType(final Iterable<E> iterable, final Class<T> type) {
+    if (type == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseVariableNameCatalog.TYPE);
+    }
+
+    if (iterable != null) {
+      for (final var e : iterable) {
+        if (e != null && type.isAssignableFrom(e.getClass())) {
+          return (T) e;
+        }
+      }
+    }
+
+    throw //
+    InvalidArgumentException.forArgumentAndErrorPredicate(
+      iterable,
+      "does not contain an element of the given type '" + type + "'");
   }
 }
