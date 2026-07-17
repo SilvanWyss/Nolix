@@ -260,6 +260,14 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
+  public final boolean containsOnly(final Object object) {
+    return ITERABLE_EXAMINER.containsOnly(this, object);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean containsMatchingOnly(final Predicate<E> selector) {
     return ITERABLE_EXAMINER.containsMatchingOnly(this, selector);
   }

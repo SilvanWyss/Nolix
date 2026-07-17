@@ -28,8 +28,8 @@ public interface IIterableContainObjectExaminer {
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @param object
-   * @return true if the given iterable contains only the given object, whether 1
-   *         or several times, false otherwise
+   * @return true if the given iterable contains only the given object, but at
+   *         least 1 time, false otherwise
    */
   boolean containsOnly(Iterable<?> iterable, Object object);
 }
