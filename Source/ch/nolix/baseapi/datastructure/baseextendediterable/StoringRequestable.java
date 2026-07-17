@@ -11,16 +11,6 @@ import java.util.function.Predicate;
  */
 public interface StoringRequestable<E> {
   /**
-   * The time complexity of this method is O(n) if the current
-   * {@link StoringRequestable} contains n elements.
-   * 
-   * @param object
-   * @return true if the current {@link StoringRequestable} contains the given
-   *         object, false otherwise
-   */
-  boolean contains(Object object);
-
-  /**
    * The time complexity of this method is O(m+n) if the current
    * {@link StoringRequestable} contains m elements and the given iterable
    * contains n elements.
@@ -55,13 +45,6 @@ public interface StoringRequestable<E> {
    *         than the given container, false otherwise
    */
   boolean containsMoreThan(Iterable<?> iterable);
-
-  /**
-   * @param object
-   * @return true if the current {@link StoringRequestable} contains the given
-   *         object exactly 1 time, false otherwise
-   */
-  boolean containsOnce(Object object);
 
   /**
    * @return true if the current {@link StoringRequestable} contains exactly 1
