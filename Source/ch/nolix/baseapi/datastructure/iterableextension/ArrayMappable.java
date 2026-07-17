@@ -1,7 +1,7 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datastructure.baseextendediterable;
+package ch.nolix.baseapi.datastructure.iterableextension;
 
 import java.util.function.Function;
 import java.util.function.ToDoubleFunction;

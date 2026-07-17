@@ -2,7 +2,7 @@ package ch.nolix.baseapi.commontype.iterablesearcher;
 
 import java.util.function.Predicate;
 
-import ch.nolix.baseapi.datastructure.baseextendediterable.SingleSearchable;
+import ch.nolix.baseapi.datastructure.iterableextension.SingleSearchable;
 
 /**
  * @author Silvan Wyss
