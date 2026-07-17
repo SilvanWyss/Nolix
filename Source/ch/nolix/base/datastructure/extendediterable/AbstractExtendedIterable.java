@@ -81,6 +81,14 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
+  public final boolean containsAny() {
+    return iterator().hasNext();
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean containsAny(final Iterable<?> objects) {
     return ITERABLE_EXAMINER.containsAny(this, objects);
   }
@@ -138,9 +146,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the given iterable
-   * contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -155,9 +160,14 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the given iterable
-   * contains n elements.
-   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsMatchingOnly(final Predicate<E> selector) {
+    return ITERABLE_EXAMINER.containsMatchingOnly(this, selector);
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
@@ -188,12 +198,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * -n objects are given.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -202,12 +206,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * -n objects are given.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -216,9 +214,14 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsNonNull() {
+    return ITERABLE_EXAMINER.containsNonNull(this);
+  }
+
+  /**
    * {@inheritDoc}
    */
   @Override
@@ -226,10 +229,7 @@ implements ExtendedIterable<E> {
     return ITERABLE_EXAMINER.containsOnce(this, object);
   }
 
-  // For a better performance, this implementation does not use all available comfort methods.
   /**
-   * The time complexity of this implementation is O(1).
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -241,17 +241,6 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOneMatching(final Predicate<E> selector) {
-    return ITERABLE_EXAMINER.containsOneMatching(this, selector);
-  }
-
-  /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean containsOneEqual(final E object) {
     return ITERABLE_EXAMINER.containsOneEqual(this, object);
   }
@@ -260,16 +249,24 @@ implements ExtendedIterable<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOnly(final Object object) {
-    return ITERABLE_EXAMINER.containsOnly(this, object);
+  public final boolean containsOneMatching(final Predicate<E> selector) {
+    return ITERABLE_EXAMINER.containsOneMatching(this, selector);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsMatchingOnly(final Predicate<E> selector) {
-    return ITERABLE_EXAMINER.containsMatchingOnly(this, selector);
+  public final boolean containsOneNoneNull() {
+    return ITERABLE_EXAMINER.containsOneNoneNull(this);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean containsOnly(final Object object) {
+    return ITERABLE_EXAMINER.containsOnly(this, object);
   }
 
   /**

@@ -5,9 +5,8 @@ package ch.nolix.baseapi.datastructure.baseextendediterable;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link StoringRequestable}.
  */
-public interface StoringRequestable<E> {
+public interface StoringRequestable {
   /**
    * The time complexity of this method is O(m+n) if the current
    * {@link StoringRequestable} contains m elements and the given iterable
@@ -44,9 +43,4 @@ public interface StoringRequestable<E> {
    */
   boolean containsMoreThan(Iterable<?> iterable);
 
-  /**
-   * @return true if the current {@link StoringRequestable} contains exactly 1
-   *         element, false otherwise
-   */
-  boolean containsOne();
 }

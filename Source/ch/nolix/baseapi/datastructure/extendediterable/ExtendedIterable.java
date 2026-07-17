@@ -6,6 +6,7 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 import java.util.function.Function;
 
 import ch.nolix.baseapi.datastructure.baseextendediterable.ArrayMappable;
+import ch.nolix.baseapi.datastructure.baseextendediterable.ContainAnyRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ContainEqualRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMatchingRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMultipleRequestable;
@@ -17,7 +18,6 @@ import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.StringMappable;
 import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.general.CountRequestable;
-import ch.nolix.baseapi.state.staterequest.EmptinessRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
@@ -32,12 +32,12 @@ public interface ExtendedIterable<E>
 extends
 AggregationRequestable<E>,
 ArrayMappable<E>,
+ContainAnyRequestable,
 ContainEqualRequestable<E>,
 ContainMatchingRequestable<E>,
 ContainMultipleRequestable,
 ContainObjectRequestable,
 CountRequestable<E>,
-EmptinessRequestable,
 Filterable<E>,
 Groupable<E>,
 FilteringContainerViewProvider<E>,
@@ -48,7 +48,7 @@ IterableWithCopyableIterator<E>,
 Mappable<E>,
 MaterializationRequestable,
 SingleSearchable<E>,
-StoringRequestable<E>,
+StoringRequestable,
 StringMappable {
   /**
    * @param comparableMapper
