@@ -12,7 +12,7 @@ import ch.nolix.baseapi.datastructure.baseextendediterable.SingleSearchable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.StringMappable;
 import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.general.CountRequestable;
-import ch.nolix.baseapi.datastructure.iterablerequest.IterableRequestable;
+import ch.nolix.baseapi.datastructure.iterablecontainrequest.IterableContainRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
@@ -32,7 +32,7 @@ Filterable<E>,
 Groupable<E>,
 FilteringContainerViewProvider<E>,
 IntervallContainerViewProvider<E>,
-IterableRequestable<E>,
+IterableContainRequestable<E>,
 MappingContainerViewProvider<E>,
 IndexRequestable<E>,
 IterableWithCopyableIterator<E>,
