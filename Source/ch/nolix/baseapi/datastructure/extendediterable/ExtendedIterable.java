@@ -6,11 +6,6 @@ package ch.nolix.baseapi.datastructure.extendediterable;
 import java.util.function.Function;
 
 import ch.nolix.baseapi.datastructure.baseextendediterable.ArrayMappable;
-import ch.nolix.baseapi.datastructure.baseextendediterable.ContainAnyRequestable;
-import ch.nolix.baseapi.datastructure.baseextendediterable.ContainEqualRequestable;
-import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMatchingRequestable;
-import ch.nolix.baseapi.datastructure.baseextendediterable.ContainMultipleRequestable;
-import ch.nolix.baseapi.datastructure.baseextendediterable.ContainObjectRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IndexRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.IterableWithCopyableIterator;
 import ch.nolix.baseapi.datastructure.baseextendediterable.SingleSearchable;
@@ -18,6 +13,7 @@ import ch.nolix.baseapi.datastructure.baseextendediterable.StoringRequestable;
 import ch.nolix.baseapi.datastructure.baseextendediterable.StringMappable;
 import ch.nolix.baseapi.datastructure.general.AggregationRequestable;
 import ch.nolix.baseapi.datastructure.general.CountRequestable;
+import ch.nolix.baseapi.datastructure.iterablerequest.IterableRequestable;
 import ch.nolix.baseapi.state.staterequest.MaterializationRequestable;
 
 /**
@@ -32,16 +28,12 @@ public interface ExtendedIterable<E>
 extends
 AggregationRequestable<E>,
 ArrayMappable<E>,
-ContainAnyRequestable,
-ContainEqualRequestable<E>,
-ContainMatchingRequestable<E>,
-ContainMultipleRequestable,
-ContainObjectRequestable,
 CountRequestable<E>,
 Filterable<E>,
 Groupable<E>,
 FilteringContainerViewProvider<E>,
 IntervallContainerViewProvider<E>,
+IterableRequestable<E>,
 MappingContainerViewProvider<E>,
 IndexRequestable<E>,
 IterableWithCopyableIterator<E>,

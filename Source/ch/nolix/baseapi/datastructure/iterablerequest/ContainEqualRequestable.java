@@ -1,11 +1,11 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datastructure.baseextendediterable;
+package ch.nolix.baseapi.datastructure.iterablerequest;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link ContainEqualRequestable}.
+ * @param <E> the type of the elements a {@link ContainEqualRequestable}
  */
 public interface ContainEqualRequestable<E> {
   /**

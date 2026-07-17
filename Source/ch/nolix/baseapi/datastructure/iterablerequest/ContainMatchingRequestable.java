@@ -1,13 +1,13 @@
 /*
  * Copyright © by Silvan Wyss. All rights reserved.
  */
-package ch.nolix.baseapi.datastructure.baseextendediterable;
+package ch.nolix.baseapi.datastructure.iterablerequest;
 
 import java.util.function.Predicate;
 
 /**
  * @author Silvan Wyss
- * @param <E> the type of the elements a {@link ContainMatchingRequestable}.
+ * @param <E> the type of the elements a {@link ContainMatchingRequestable}
  */
 public interface ContainMatchingRequestable<E> {
   /**
