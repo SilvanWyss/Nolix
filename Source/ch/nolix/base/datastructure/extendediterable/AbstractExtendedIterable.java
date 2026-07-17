@@ -1245,22 +1245,11 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(1) if the current Container
-   * does not contain null elements. The time complexity of this implementation is
-   * O(n) if the current Container contains null elements and if the current
-   * Container contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
   public final boolean isEmpty() {
-    for (final var e : this) {
-      if (e != null) {
-        return false;
-      }
-    }
-
-    return true;
+    return !iterator().hasNext();
   }
 
   // For a better performance, this implementation does not use all available comfort methods.
