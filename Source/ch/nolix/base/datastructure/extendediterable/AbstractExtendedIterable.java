@@ -38,16 +38,13 @@ import ch.nolix.baseapi.generalcatalog.variablenamecatalog.LowerCaseVariableName
  * @author Silvan Wyss
  * @param <E> the type of the elements of a {@link AbstractExtendedIterable}.
  */
-public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractWellOrderContainer is a principal object thus it has many methods.
+public abstract class AbstractExtendedIterable<E> //NOSONAR: An AbstractExtendedIterable is a principal object thus it has many methods.
 implements ExtendedIterable<E> {
   private static final IterableExaminer ITERABLE_EXAMINER = new IterableExaminer();
 
   private static final IterableSearcher ITERABLE_SEARCHER = new IterableSearcher();
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -56,37 +53,23 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * -n objects are given.
    * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAllOf(final Object... objects) {
+  public final boolean containsAll(final Object... objects) {
     return ITERABLE_EXAMINER.containsAll(this, objects);
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * -n objects are given.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAllOf(final Iterable<?> objects) {
+  public final boolean containsAll(final Iterable<?> objects) {
     return ITERABLE_EXAMINER.containsAll(this, objects);
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -95,12 +78,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * -n objects are given.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -109,12 +86,6 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * -The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * -n objects are given.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -123,26 +94,20 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current container
-   * contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
   public final boolean containsAsManyAs(Iterable<?> iterable) {
-    // Handles the case that the given iterable is a IContainer.
+    // Handle the case that the given iterable is a ExtendedIterable.
     if (iterable instanceof final ExtendedIterable<?> container) {
-      return (getCount() == container.getCount());
+      return getCount() == container.getCount();
     }
 
-    // Handles the case that the given iterable is not a IContainer.
-    return (getCount() == ITERABLE_SEARCHER.getCount(iterable));
+    // Handle the case that the given iterable is not a ExtendedIterable.
+    return getCount() == ITERABLE_SEARCHER.getCount(iterable);
   }
 
   /**
-   * The time complexity of this implementation is O(n) if the current
-   * {@link AbstractExtendedIterable} contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
@@ -151,16 +116,10 @@ implements ExtendedIterable<E> {
   }
 
   /**
-   * The time complexity of this implementation is O(m*n) if:
-   * 
-   * The current {@link AbstractExtendedIterable} contains m elements.
-   * 
-   * The given iterable contains n elements.
-   * 
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsExactlyEqualingInSameOrder(final Iterable<?> iterable) {
+  public final boolean containsExactlyEqualInSameOrder(final Iterable<?> iterable) {
     // Handles the case that the given iterable is null.
     if (iterable == null) {
       return isEmpty();

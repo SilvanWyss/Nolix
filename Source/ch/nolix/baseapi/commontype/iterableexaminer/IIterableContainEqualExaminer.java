@@ -8,6 +8,9 @@ package ch.nolix.baseapi.commontype.iterableexaminer;
  */
 public interface IIterableContainEqualExaminer {
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link IIterableContainEqualExaminer} contains n elements.
+   * 
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @param object   the object of which an equal element will be searched for
@@ -17,6 +20,9 @@ public interface IIterableContainEqualExaminer {
   boolean containsEqual(Iterable<?> iterable, Object object);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link IIterableContainEqualExaminer} contains n elements.
+   * 
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @param object   the object of which equal elements will be searched for
@@ -26,6 +32,9 @@ public interface IIterableContainEqualExaminer {
   boolean containsNoEqual(Iterable<?> iterable, Object object);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link IIterableContainEqualExaminer} contains n elements.
+   * 
    * @param iterable the searched {@link Iterable}, is considered to be empty when
    *                 is null
    * @param object   the object of which exactly 1 equal element will be searched

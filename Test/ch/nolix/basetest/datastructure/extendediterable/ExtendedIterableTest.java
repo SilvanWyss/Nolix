@@ -66,7 +66,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var list = ImmutableList.withElements(baboon, elephant, lion);
 
     // execution
-    final var result = testUnit.containsAllOf(list);
+    final var result = testUnit.containsAll(list);
 
     // verification
     expect(result).isFalse();
@@ -82,7 +82,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope);
 
     // execution
-    final var result = testUnit.containsAllOf(baboon, elephant, lion);
+    final var result = testUnit.containsAll(baboon, elephant, lion);
 
     // verification
     expect(result).isFalse();
@@ -99,7 +99,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var list = ImmutableList.withElements(antelope, baboon, elephant, lion);
 
     // execution
-    final var result = testUnit.containsAllOf(list);
+    final var result = testUnit.containsAll(list);
 
     // verification
     expect(result).isFalse();
@@ -115,7 +115,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope, baboon, elephant);
 
     // execution
-    final var result = testUnit.containsAllOf(antelope, baboon, elephant, lion);
+    final var result = testUnit.containsAll(antelope, baboon, elephant, lion);
 
     // verification
     expect(result).isFalse();
@@ -132,7 +132,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var list = ImmutableList.withElements(antelope, baboon, elephant);
 
     // execution
-    final var result = testUnit.containsAllOf(list);
+    final var result = testUnit.containsAll(list);
 
     // verification
     expect(result).isTrue();
@@ -148,7 +148,7 @@ public abstract class ExtendedIterableTest extends StandardTest {
     final var testUnit = createContainerWithElements(antelope, baboon, elephant, lion);
 
     // execution
-    final var result = testUnit.containsAllOf(antelope, baboon, elephant);
+    final var result = testUnit.containsAll(antelope, baboon, elephant);
 
     // verification
     expect(result).isTrue();

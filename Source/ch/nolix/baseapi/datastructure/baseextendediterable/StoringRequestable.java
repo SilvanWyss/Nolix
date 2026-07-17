@@ -11,63 +11,83 @@ import java.util.function.Predicate;
  */
 public interface StoringRequestable<E> {
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link StoringRequestable} contains n elements.
+   * 
    * @param object
    * @return true if the current {@link StoringRequestable} contains the given
-   *         object, false otherwise.
+   *         object, false otherwise
    */
   boolean contains(Object object);
 
   /**
-   * @param objects
+   * The time complexity of this method is O(m*n) if the current
+   * {@link StoringRequestable} contains m elements and n objects are given.
+   * 
+   * @param objects the searched objects, is considered to be empty when is null
    * @return true if the current {@link StoringRequestable} contains all of the
-   *         given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
+   *         given objects, false otherwise
    */
-  boolean containsAllOf(Iterable<?> objects);
+  boolean containsAll(Iterable<?> objects);
 
   /**
-   * @param objects
+   * The time complexity of this method is O(m*n) if the current
+   * {@link StoringRequestable} contains m elements and n objects are given.
+   * 
+   * @param objects the searched objects, is considered to be empty when is null
    * @return true if the current {@link StoringRequestable} contains all of the
-   *         given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
+   *         given objects, false otherwise
    */
-  boolean containsAllOf(Object... objects);
+  boolean containsAll(Object... objects);
 
   /**
-   * @param objects
+   * The time complexity of this method is O(m*n) if the current
+   * {@link StoringRequestable} contains m elements and n objects are given.
+   * 
+   * @param objects the searched objects, is considered to be empty when is null
    * @return true if the current {@link StoringRequestable} contains any of the
-   *         given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
+   *         given objects, false otherwise
+   * @throws RuntimeException if the given objects is null
    */
   boolean containsAnyOf(Iterable<?> objects);
 
   /**
-   * @param objects
+   * The time complexity of this method is O(m*n) if the current
+   * {@link StoringRequestable} contains m elements and n objects are given.
+   * 
+   * @param objects the searched objects, is considered to be empty when is null
    * @return true if the current {@link StoringRequestable} contains at least one
-   *         of the given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
+   *         of the given objects, false otherwise
+   * @throws RuntimeException if the given objects is null
    */
   boolean containsAnyOf(Object... objects);
 
   /**
-   * @param container
+   * The time complexity of this method is O(m+n) if the current
+   * {@link StoringRequestable} contains m elements and the given iterable
+   * contains n elements.
+   * 
+   * @param iterable the searched iterable, is considered to be empty when is null
    * @return true if the current {@link StoringRequestable} contains as many
-   *         elements as the given container, false otherwise.
+   *         elements as the given container, false otherwise
    */
-  boolean containsAsManyAs(Iterable<?> container);
+  boolean containsAsManyAs(Iterable<?> iterable);
 
   /**
+   * The time complexity of this method is O(n) if the current
+   * {@link StoringRequestable} contains n elements.
+   * 
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains exactly
    *         elements that equal the elements of given iterable in the same order,
    *         false otherwise
    */
-  boolean containsExactlyEqualingInSameOrder(Iterable<?> iterable);
+  boolean containsExactlyEqualInSameOrder(Iterable<?> iterable);
 
   /**
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains exactly the
-   *         elements of the given iterable in the same order, false otherwise.
+   *         elements of the given iterable in the same order, false otherwise
    */
   boolean containsExactlyInSameOrder(Iterable<?> iterable);
 
@@ -81,45 +101,44 @@ public interface StoringRequestable<E> {
   /**
    * @param iterable
    * @return true if the current {@link StoringRequestable} contains more elements
-   *         than the given container, false otherwise.
+   *         than the given container, false otherwise
    */
   boolean containsMoreThan(Iterable<?> iterable);
 
   /**
    * @param objects
    * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
+   *         of the given objects, false otherwise
+   * @throws RuntimeException if the given objects is null
    */
   boolean containsNoneOf(Iterable<?> objects);
 
   /**
    * @param objects
    * @return true if the current {@link StoringRequestable} does not contain any
-   *         of the given objects, false otherwise.
-   * @throws RuntimeException if the given objects is null.
+   *         of the given objects, false otherwise
+   * @throws RuntimeException if the given objects is null
    */
   boolean containsNoneOf(Object... objects);
 
   /**
    * @param object
    * @return true if the current {@link StoringRequestable} contains the given
-   *         object exactly 1 time, false otherwise.
+   *         object exactly 1 time, false otherwise
    */
   boolean containsOnce(Object object);
 
   /**
    * @return true if the current {@link StoringRequestable} contains exactly 1
-   *         element, false otherwise.
+   *         element, false otherwise
    */
   boolean containsOne();
 
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} contains only elements
-   *         the given selector selects, false otherwise.. Null element are
-   *         regarded as unselectable.
-   * @throws RuntimeException if the given selector is null.
+   *         the given selector selects, false otherwise, ignoring null elements
+   * @throws RuntimeException if the given selector is null
    */
   boolean containsOnly(Predicate<E> selector);
 }
