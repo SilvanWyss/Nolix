@@ -44,6 +44,10 @@ sourceSets {
     java {
       srcDirs = ['Test', 'ArchitectureTest', 'PerformanceTest']
     }
+    
+    resources {
+      srcDirs = ['TestResource']
+    }
   }
 }
 

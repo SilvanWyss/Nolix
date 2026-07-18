@@ -1,0 +1,6 @@
+Cat(
+  Name(Garfield),
+  Sex(Male),
+  AgeInYears(5),
+  WeightInGrams(6500)
+)
