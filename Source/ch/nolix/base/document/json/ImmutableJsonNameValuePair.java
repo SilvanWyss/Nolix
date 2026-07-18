@@ -68,6 +68,23 @@ public final class ImmutableJsonNameValuePair implements JsonNameValuePair {
    * {@inheritDoc}
    */
   @Override
+  public String toFormattedStringWithIndentationLevelAndIndentationSymbol(
+    final int indentationLevel,
+    final String indentationSymbol) {
+    final var indentation = indentationSymbol.repeat(indentationLevel);
+    final var incrementedIndentationLevel = indentationLevel + 1;
+
+    final var formattedValueString = //
+    value.toFormattedStringWithIndentationLevelAndIndentationSymbol(incrementedIndentationLevel, indentationSymbol);
+
+    return indentation + name + JsonStringPartCatalog.NAME_VALUE_PAIR_MIDDLE + formattedValueString;
+  }
+
+  //For a better performance, this implementation does not use all available comfort methods.
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public INode<?> toNode() {
     return ImmutableNode.withHeaderAndChildNode(name, value.toNode());
   }
