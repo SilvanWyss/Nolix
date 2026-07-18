@@ -13,7 +13,7 @@ public interface ITableSchemaViewDtoMapper {
   /**
    * @param tableNode
    * @return a new {@link TableInfoDto} from the given tableNode
-   * @throws RuntimeException if the given tableNode is null.
+   * @throws RuntimeException if the given tableNode is null
    */
   TableInfoDto mapTableNodeToTableViewDto(IMutableNode<?> tableNode);
 }

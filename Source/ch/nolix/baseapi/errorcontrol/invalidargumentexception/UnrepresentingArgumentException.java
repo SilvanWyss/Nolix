@@ -111,7 +111,7 @@ public final class UnrepresentingArgumentException extends AbstractInvalidArgume
   /**
    * @param noun
    * @return the pronoun for the given noun
-   * @throws RuntimeException if the given noun is null or blank.
+   * @throws RuntimeException if the given noun is null or blank
    */
   private static String getPronounForNoun(final String noun) {
     if (noun == null) {

@@ -22,14 +22,14 @@ public interface ITableValidator {
   /**
    * @param table
    * @throws RuntimeException if the given table does not belong to a
-   *                          {@link IDatabase}.
+   *                          {@link IDatabase}
    */
   void assertDoesNotBelongToDatabase(ITable table);
 
   /**
    * @param table
    * @param column
-   * @throws RuntimeException if the given table contains the given column.
+   * @throws RuntimeException if the given table contains the given column
    */
   void assertDoesNotContainColumn(ITable table, IColumn column);
 
@@ -43,7 +43,7 @@ public interface ITableValidator {
 
   /**
    * @param table
-   * @throws RuntimeException if the given table is referenced.
+   * @throws RuntimeException if the given table is referenced
    */
   void assertIsNotReferenced(ITable table);
 }

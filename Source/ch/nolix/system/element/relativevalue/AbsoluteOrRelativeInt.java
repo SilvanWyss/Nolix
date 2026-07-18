@@ -45,7 +45,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
    * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
    * 
    * @param percentage
-   * @throws RuntimeException if the given percentage is negative.
+   * @throws RuntimeException if the given percentage is negative
    */
   private AbsoluteOrRelativeInt(final double percentage) {
     Validator.assertThat(percentage).thatIsNamed(LowerCaseVariableNameCatalog.PERCENTAGE).isNotNegative();
@@ -58,7 +58,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   /**
    * @param specification
    * @return a new {@link AbsoluteOrRelativeInt} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static AbsoluteOrRelativeInt fromSpecification(final INode<?> specification) {
     final var attribute = specification.getSingleChildNodeHeader();
@@ -81,7 +81,7 @@ public final class AbsoluteOrRelativeInt extends AbstractElement implements IAbs
   /**
    * @param percentage
    * @return a new {@link AbsoluteOrRelativeInt} with the given percentage
-   * @throws RuntimeException if the given percentage is negative.
+   * @throws RuntimeException if the given percentage is negative
    */
   public static AbsoluteOrRelativeInt withPercentage(final double percentage) {
     return new AbsoluteOrRelativeInt(percentage);

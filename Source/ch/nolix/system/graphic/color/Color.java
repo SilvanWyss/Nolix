@@ -137,7 +137,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @param color
    * @return a new {@link Color} from the given color
-   * @throws NullPointerException if the given color is null.
+   * @throws NullPointerException if the given color is null
    */
   public static Color fromColor(final IColor color) {
     if (color instanceof final Color localColor) {
@@ -186,7 +186,7 @@ public final class Color extends AbstractElement implements IColor {
   /**
    * @param specification
    * @return a new {@link Color} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static Color fromSpecification(final INode<?> specification) {
     return Color.fromString(specification.getSingleChildNodeHeader());
@@ -308,7 +308,7 @@ public final class Color extends AbstractElement implements IColor {
    * @param string
    * @return the int the given hexadecimalDigit, that is from the given string,
    *         represents
-   * @InvalidArgumentException if the given hexadecimalDigit is not valid.
+   * @InvalidArgumentException if the given hexadecimalDigit is not valid
    */
   private static int mapHexadecimalDigitFromStringToInt( //NOSONAR: This method is uniform.
     char hexadecimalDigit,

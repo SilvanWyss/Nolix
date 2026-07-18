@@ -40,7 +40,7 @@ public final class NamableObjectMediator<A> extends AbstractObjectMediator<A> {
    * @param argumentName
    * @return a new {@link ObjectMediator} for the argument of the current
    *         {@link NamableObjectMediator} and the given argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public ObjectMediator<A> thatIsNamed(final String argumentName) {
     return ObjectMediator.forArgumentAndArgumentName(getStoredArgument(), argumentName);

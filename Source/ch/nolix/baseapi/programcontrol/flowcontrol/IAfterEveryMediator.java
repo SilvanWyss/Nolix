@@ -13,7 +13,7 @@ public interface IAfterEveryMediator {
    * Lets the current {@link IAfterEveryMediator} run the given job.
    * 
    * @param job
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   void run(Runnable job);
 
@@ -23,7 +23,7 @@ public interface IAfterEveryMediator {
    * 
    * @param job
    * @return a new {@link IFuture}
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   IFuture runInBackground(Runnable job);
 }

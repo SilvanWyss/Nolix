@@ -43,7 +43,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color2
    * @throws RuntimeException if the given direction is null
    * @throws RuntimeException if the given color 1 is null
-   * @throws RuntimeException if the given color 2 is null.
+   * @throws RuntimeException if the given color 2 is null
    */
   private ColorGradient(final Direction direction, final Color color1, final Color color2) {
     Validator.assertThat(direction).thatIsNamed("direction").isNotNull();
@@ -58,7 +58,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param specification
    * @return a new {@link ColorGradient} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static ColorGradient fromSpecification(final INode<?> specification) {
     final var attributes = specification.getStoredChildNodes();
@@ -80,7 +80,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    * @param color2
    * @return a new {@link ColorGradient} with the given color1 and color2
    * @throws RuntimeException if the given color1 is null
-   * @throws RuntimeException if the given color2 is null.
+   * @throws RuntimeException if the given color2 is null
    */
   public static ColorGradient withColors(final Color color1, final Color color2) {
     return new ColorGradient(DEFAULT_DIRECTION, color1, color2);
@@ -94,7 +94,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
    *         color2
    * @throws RuntimeException if the given direction is null
    * @throws RuntimeException if the given color 1 is null
-   * @throws RuntimeException if the given color 2 is null.
+   * @throws RuntimeException if the given color 2 is null
    */
   public static ColorGradient withDirectionAndColors(
     final Direction direction,
@@ -106,7 +106,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes
-   * @throws RuntimeException if the given attributes are not valid.
+   * @throws RuntimeException if the given attributes are not valid
    */
   private static ColorGradient from2Attributes(ExtendedIterable<? extends INode<?>> attributes) {
     final var color1Specification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));
@@ -121,7 +121,7 @@ public final class ColorGradient extends AbstractElement implements IColorGradie
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes
-   * @throws RuntimeException if the given attributes are not valid.
+   * @throws RuntimeException if the given attributes are not valid
    */
   private static ColorGradient from3Attributes(ExtendedIterable<? extends INode<?>> attributes) {
     final var directionSpecification = ImmutableNode.withChildNode(attributes.getStoredAtOneBasedIndex(1));

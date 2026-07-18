@@ -1695,7 +1695,7 @@ implements ExtendedIterable<E> {
    *         {@link AbstractExtendedIterable} using the given separator for the
    *         case that the current {@link AbstractExtendedIterable} contains
    *         several elements
-   * @throws RuntimeException if the given separator is null.
+   * @throws RuntimeException if the given separator is null
    */
   private String toStringWhenContainsSeveralElements(final String separator) {
     // Asserts that the given separator is not null.

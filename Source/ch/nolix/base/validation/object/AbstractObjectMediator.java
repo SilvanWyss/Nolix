@@ -36,7 +36,7 @@ public abstract class AbstractObjectMediator<A> extends AbstractMediator {
    * 
    * @param argument
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   protected AbstractObjectMediator(final A argument, final String argumentName) {
     super(argumentName);

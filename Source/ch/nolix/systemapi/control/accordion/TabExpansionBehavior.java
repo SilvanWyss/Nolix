@@ -19,7 +19,7 @@ public enum TabExpansionBehavior {
   /**
    * @param specification
    * @return a new {@link TabExpansionBehavior} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static TabExpansionBehavior fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());

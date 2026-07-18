@@ -23,7 +23,7 @@ public final class DatabaseInfoSearcherForDatabaseView implements IDatabaseInfoS
    * databaseView.
    * 
    * @param databaseView
-   * @throws RuntimeException if the given databaseView is null.
+   * @throws RuntimeException if the given databaseView is null
    */
   private DatabaseInfoSearcherForDatabaseView(final DatabaseInfoDto databaseView) {
     Validator.assertThat(databaseView).thatIsNamed("database view").isNotNull();
@@ -35,7 +35,7 @@ public final class DatabaseInfoSearcherForDatabaseView implements IDatabaseInfoS
    * @param databaseView
    * @return a new {@link DatabaseInfoSearcherForDatabaseView} for the given
    *         databaseView
-   * @throws RuntimeException if the given databaseView is null.
+   * @throws RuntimeException if the given databaseView is null
    */
   public static DatabaseInfoSearcherForDatabaseView forDatabaseView(final DatabaseInfoDto databaseView) {
     return new DatabaseInfoSearcherForDatabaseView(databaseView);

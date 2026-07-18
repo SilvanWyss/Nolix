@@ -13,7 +13,7 @@ public interface IExceptionCausePreparator {
   /**
    * @param cause
    * @return a validated cause from the given cause
-   * @throws RuntimeException if the given cause is null.
+   * @throws RuntimeException if the given cause is null
    */
   Throwable getValidatedCauseFromCause(final Throwable cause);
 }

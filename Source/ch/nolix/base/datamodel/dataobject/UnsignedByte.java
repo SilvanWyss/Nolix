@@ -62,7 +62,7 @@ public final class UnsignedByte {
   /**
    * @param number
    * @return a new {@link UnsignedByte} from the given number
-   * @throws RuntimeException if the given number is not in [0, 255].
+   * @throws RuntimeException if the given number is not in [0, 255]
    */
   public static UnsignedByte fromNumber(final int number) {
     // Asserts that the given number is in [0, 255].

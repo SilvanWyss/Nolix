@@ -18,7 +18,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
    * Creates a new {@link MultiLongMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   private MultiLongMediator(final Iterable<Long> arguments) {
     super(arguments);
@@ -27,7 +27,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
   /**
    * @param arguments
    * @return a new {@link MultiLongMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiLongMediator forArguments(final int[] arguments) {
     final List<Long> longArguments = List.createEmpty();
@@ -42,7 +42,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
   /**
    * @param arguments
    * @return a new {@link MultiLongMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiLongMediator forArguments(final Iterable<Long> arguments) {
     return new MultiLongMediator(arguments);
@@ -51,7 +51,7 @@ public final class MultiLongMediator extends AbstractMultiArgumentMediator<Long>
   /**
    * @param arguments
    * @return a new {@link MultiLongMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiLongMediator forArguments(final long[] arguments) {
     final List<Long> longArguments = List.createEmpty();

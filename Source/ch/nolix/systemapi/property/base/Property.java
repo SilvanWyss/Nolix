@@ -19,7 +19,7 @@ public interface Property extends MaterializationRequestable {
    * @return true if the given attribute was added or changed to the current
    *         {@link Property}, false otherwise
    * @throws RuntimeException if the given attribute is for the current
-   *                          {@link Property}, but is not valid.
+   *                          {@link Property}, but is not valid
    */
   boolean addedOrChangedAttribute(INode<?> attribute);
 
@@ -27,7 +27,7 @@ public interface Property extends MaterializationRequestable {
    * Fills up the attributes of the current {@link Property} into the given list.
    * 
    * @param list
-   * @throws RuntimeException if the given list is null.
+   * @throws RuntimeException if the given list is null
    */
   void fillUpAttributesIntoList(ILinkedList<INode<?>> list);
 }

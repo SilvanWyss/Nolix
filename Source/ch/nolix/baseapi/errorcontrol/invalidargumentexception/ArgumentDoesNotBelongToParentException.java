@@ -32,7 +32,7 @@ public final class ArgumentDoesNotBelongToParentException extends AbstractInvali
    * 
    * @param argument   - Can be null
    * @param parentType
-   * @throws RuntimeException if the given parentType is null.
+   * @throws RuntimeException if the given parentType is null
    */
   private ArgumentDoesNotBelongToParentException(
     final Object argument,
@@ -54,7 +54,7 @@ public final class ArgumentDoesNotBelongToParentException extends AbstractInvali
    * @param parentType
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
    *         argument and parentType
-   * @throws RuntimeException if the given parentType is null.
+   * @throws RuntimeException if the given parentType is null
    */
   public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
     final Object argument,
@@ -65,7 +65,7 @@ public final class ArgumentDoesNotBelongToParentException extends AbstractInvali
   /**
    * @param parentType
    * @return the name of the given parentType
-   * @throws RuntimeException if the given parentType is null.
+   * @throws RuntimeException if the given parentType is null
    */
   private static String getNameOfParentType(final Class<?> parentType) {
     if (parentType == null) {

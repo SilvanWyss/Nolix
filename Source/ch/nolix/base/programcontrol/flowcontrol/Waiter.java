@@ -24,7 +24,7 @@ final class Waiter {
    * Waits for the given duractionInSeconds.
    * 
    * @param duractionInSeconds
-   * @throws RuntimeException if the given duractionInSeconds is negative.
+   * @throws RuntimeException if the given duractionInSeconds is negative
    */
   public static void waitForSeconds(final int duractionInSeconds) {
     // Asserts that the given duractionInSeconds is not negative.
@@ -37,7 +37,7 @@ final class Waiter {
    * Waits for the given durationInMilliseconds.
    * 
    * @param durationInMilliseconds
-   * @throws RuntimeException if the given durationInMilliseconds is negative.
+   * @throws RuntimeException if the given durationInMilliseconds is negative
    */
   public static void waitForMilliseconds(final int durationInMilliseconds) {
     // Asserts that the given durationInMilliseconds is not negative.

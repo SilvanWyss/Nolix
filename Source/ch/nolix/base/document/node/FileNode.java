@@ -278,7 +278,7 @@ public final class FileNode extends AbstractMutableNode<FileNode> {
   /**
    * Saves this {@link FileNode}.
    * 
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   private void save() {
     if (!isRootFileNode()) {

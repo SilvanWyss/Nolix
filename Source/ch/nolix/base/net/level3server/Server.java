@@ -20,7 +20,7 @@ public final class Server extends AbstractServer {
    * given port.
    * 
    * @param port
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private Server(final int port) {
     // Creates the internal net server of the current net server.
@@ -42,7 +42,7 @@ public final class Server extends AbstractServer {
    * @param httpMessage
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given httpMessage is null
-   * @throws RuntimeException if the given httpMessage is blank.
+   * @throws RuntimeException if the given httpMessage is blank
    */
   private Server(final int port, final String httpMessage) {
     // Creates the internal net server of the current net server.
@@ -57,7 +57,7 @@ public final class Server extends AbstractServer {
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
    *         given port
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static Server forPort(final int port) {
     return new Server(port);
@@ -72,7 +72,7 @@ public final class Server extends AbstractServer {
    *         connection
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given httpMessage is null
-   * @throws RuntimeException if the given httpMessage is blank.
+   * @throws RuntimeException if the given httpMessage is blank
    */
   public static Server forPortAndHttpMessage(final int port, final String httpMessage) {
     return new Server(port, httpMessage);

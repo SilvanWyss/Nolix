@@ -160,7 +160,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
   /**
    * @param ints
    * @return a new {@link MultiLongMediator} for the given ints
-   * @throws RuntimeException if the given ints is null.
+   * @throws RuntimeException if the given ints is null
    */
   protected static final MultiLongMediator expectTheInts(final int... ints) {
     return MultiLongMediator.forArguments(ints);
@@ -169,7 +169,7 @@ public abstract class StandardTest { //NOSONAR: StandardTest does not have abstr
   /**
    * @param longs
    * @return a new {@link MultiLongMediator} for the given longs
-   * @throws RuntimeException if the given longs is null.
+   * @throws RuntimeException if the given longs is null
    */
   protected static final MultiLongMediator expectTheLongs(final Iterable<Long> longs) {
     return MultiLongMediator.forArguments(longs);

@@ -58,7 +58,7 @@ public final class Style extends AbstractStyle<IStyle> implements IStyle {
   /**
    * @param specification
    * @return a new {@link Style} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static Style fromSpecification(final INode<?> specification) {
     final ILinkedList<String> attachingAttributes = LinkedList.createEmpty();

@@ -27,7 +27,7 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
    * Creates a new {@link ArrayExtendedIterableView} for the given array.
    * 
    * @param array
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    */
   private ArrayExtendedIterableView(final E[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableNameCatalog.ARRAY).isNotNull();
@@ -49,7 +49,7 @@ public final class ArrayExtendedIterableView<E> extends AbstractExtendedIterable
    * @param array
    * @param <T>   the type of the elements of the given array
    * @return a new {@link ArrayExtendedIterableView} for the given array
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    */
   public static <T> ArrayExtendedIterableView<T> forArray(final T[] array) {
     return new ArrayExtendedIterableView<>(array);

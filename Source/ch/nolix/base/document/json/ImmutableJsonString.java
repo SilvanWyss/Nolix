@@ -21,7 +21,7 @@ public final class ImmutableJsonString implements JsonString {
    * Creates a new {@link ImmutableJsonString} with the given string.
    * 
    * @param string
-   * @throws RuntimeException if the given string is null.
+   * @throws RuntimeException if the given string is null
    */
   private ImmutableJsonString(final String string) {
     if (string == null) {
@@ -34,7 +34,7 @@ public final class ImmutableJsonString implements JsonString {
   /**
    * @param string
    * @return a new {@link ImmutableJsonString} with the given string
-   * @throws RuntimeException if the given string is null.
+   * @throws RuntimeException if the given string is null
    */
   public static ImmutableJsonString withString(final String string) {
     return new ImmutableJsonString(string);

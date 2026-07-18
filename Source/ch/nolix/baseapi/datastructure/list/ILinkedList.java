@@ -97,7 +97,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
   /**
    * Removes the first element from the current {@link ILinkedList}.
    * 
-   * @throws RuntimeException if the current {@link ILinkedList} is empty.
+   * @throws RuntimeException if the current {@link ILinkedList} is empty
    */
   void removeFirstStrictly();
 
@@ -125,7 +125,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
   /**
    * Removes the last element from the current {@link ILinkedList}.
    * 
-   * @throws RuntimeException if the current {@link ILinkedList} is empty.
+   * @throws RuntimeException if the current {@link ILinkedList} is empty
    */
   void removeLastStrictly();
 
@@ -145,7 +145,7 @@ extends Clearable, Copyable<ILinkedList<E>>, IAppendableList<E>, ExtendedIterabl
    * 
    * @param selector
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   void replaceFirst(Predicate<E> selector, E element);
 }

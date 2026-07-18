@@ -15,7 +15,7 @@ public interface IDatabaseSchemaViewLoader {
    * @param schemaAdapter
    * @return a new {@link DatabaseInfoDto} with the given databaseName from the
    *         given schemaAdapter
-   * @throws RuntimeException if the given schemaAdapter is null.
+   * @throws RuntimeException if the given schemaAdapter is null
    */
   DatabaseInfoDto loadDatabaseSchemaView(String databaseName, ISchemaReader schemaAdapter);
 }

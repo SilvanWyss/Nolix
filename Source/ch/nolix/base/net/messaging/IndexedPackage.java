@@ -22,7 +22,7 @@ public class IndexedPackage<C> {
    * 
    * @param index
    * @param content
-   * @throws RuntimeException if the given content is null.
+   * @throws RuntimeException if the given content is null
    */
   protected IndexedPackage(final int index, final C content) {
     // Asserts that the given content is not null.
@@ -40,7 +40,7 @@ public class IndexedPackage<C> {
    * @param content
    * @param <C2>    the type of the given content
    * @return a new {@link IndexedPackage} with the given index and content
-   * @throws RuntimeException if the given content is null.
+   * @throws RuntimeException if the given content is null
    */
   public static <C2> IndexedPackage<C2> withIndexAndContent(final int index, final C2 content) {
     return new IndexedPackage<>(index, content);

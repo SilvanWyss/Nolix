@@ -25,7 +25,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * 
    * @param argument     - Can be null
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private NegativeArgumentException(final BigDecimal argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -37,7 +37,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * 
    * @param argument     - Can be null
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private NegativeArgumentException(final double argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -49,7 +49,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * 
    * @param argument     - Can be null
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private NegativeArgumentException(final long argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -60,7 +60,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * @param argumentName - Can be null
    * @return a new {@link NegativeArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
     final BigDecimal argument,
@@ -73,7 +73,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * @param argumentName - Can be null
    * @return a new {@link NegativeArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
     final double argument,
@@ -86,7 +86,7 @@ public final class NegativeArgumentException extends AbstractInvalidArgumentExce
    * @param argumentName - Can be null
    * @return a new {@link NegativeArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static NegativeArgumentException forArgumentAndArgumentName(
     final long argument,

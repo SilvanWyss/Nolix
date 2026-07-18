@@ -19,7 +19,7 @@ public final class CloseController implements ICloseController {
    * Creates a new {@link CloseController} for the given element.
    * 
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   private CloseController(final GroupCloseable element) {
     parentClosePool = ClosePool.forElement(element);
@@ -28,7 +28,7 @@ public final class CloseController implements ICloseController {
   /**
    * @param element
    * @return a new {@link CloseController} for the given element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   public static CloseController forElement(final GroupCloseable element) {
     return new CloseController(element);

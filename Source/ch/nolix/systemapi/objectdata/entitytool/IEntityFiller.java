@@ -16,7 +16,7 @@ public interface IEntityFiller {
    * @param entity
    * @param entityLoadingDto
    * @throws RuntimeException if the given entity is not valid
-   * @throws RuntimeException if the given entityLoadingDto is not valid.
+   * @throws RuntimeException if the given entityLoadingDto is not valid
    */
   void fillUpEntityFromEntityLoadingDto(IEntity entity, EntityLoadingDto entityLoadingDto);
 }

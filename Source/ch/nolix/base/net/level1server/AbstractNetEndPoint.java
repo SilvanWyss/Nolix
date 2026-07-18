@@ -27,7 +27,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * 
    * @param targetInfoState
    * @throws RuntimeException if the given connectionOrigin is null
-   * @throws RuntimeException if the given targetInfoState is null.
+   * @throws RuntimeException if the given targetInfoState is null
    */
   AbstractNetEndPoint(final TargetInfoState targetInfoState) {
     // Asserts that the given targetInfoState is not null.
@@ -44,7 +44,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * @param target
    * @throws RuntimeException if the given connectionOrigin is null
    * @throws RuntimeException if the given target is null
-   * @throws RuntimeException if the given target is blank.
+   * @throws RuntimeException if the given target is blank
    */
   AbstractNetEndPoint(final String target) {
     // Calls constructor of the base class.
@@ -152,7 +152,7 @@ public abstract class AbstractNetEndPoint extends AbstractEndPoint {
    * Lets the current {@link AbstractNetEndPoint} receive the given rawMessage.
    * 
    * @param rawMessage
-   * @throws RuntimeException if the given rawMessage is not valid.
+   * @throws RuntimeException if the given rawMessage is not valid
    */
   void receiveRawMessage(final String rawMessage) {
     // Determinate the message type of the given rawMessage.

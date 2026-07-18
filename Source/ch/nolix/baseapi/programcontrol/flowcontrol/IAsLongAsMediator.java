@@ -36,7 +36,7 @@ public interface IAsLongAsMediator {
    * 
    * @param step
    * @return a new {@link IFuture}
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    */
   IFuture runInBackground(Runnable step);
 }

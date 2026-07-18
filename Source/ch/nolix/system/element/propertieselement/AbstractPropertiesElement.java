@@ -156,7 +156,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@link AbstractPropertiesElement}.
    * 
    * @param paramClass
-   * @throws RuntimeException if the given paramClass is null.
+   * @throws RuntimeException if the given paramClass is null
    */
   private void addPropertiesFromClass(final Class<?> paramClass) {
     for (final var f : paramClass.getDeclaredFields()) {
@@ -170,7 +170,7 @@ public abstract class AbstractPropertiesElement implements IMutableElement {
    * {@link Property}.
    * 
    * @param field
-   * @throws RuntimeException if the given field is null.
+   * @throws RuntimeException if the given field is null
    */
   private void addPotentialPropertyFromField(final Field field) {
     if (Property.class.isAssignableFrom(field.getType())) {

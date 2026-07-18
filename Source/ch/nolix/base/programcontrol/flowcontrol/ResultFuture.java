@@ -19,7 +19,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    * Creates a new {@link ResultFuture} with the given resultJobExecutor.
    * 
    * @param resultJobExecutor
-   * @throws RuntimeException if the given resultJobExecutor is null.
+   * @throws RuntimeException if the given resultJobExecutor is null
    */
   private ResultFuture(final ResultJobExecutor<R> resultJobExecutor) {
     Validator.assertThat(resultJobExecutor).isOfType(ResultJobExecutor.class);
@@ -32,7 +32,7 @@ public final class ResultFuture<R> extends AbstractFuture implements IResultFutu
    * @param <T>               the type of the result of created
    *                          {@link ResultFuture}
    * @return a new {@link ResultFuture} with the given resultJobExecutor
-   * @throws RuntimeException if the given resultJobExecutor is null.
+   * @throws RuntimeException if the given resultJobExecutor is null
    */
   public static <T> ResultFuture<T> forResultJobExecutor(final ResultJobExecutor<T> resultJobExecutor) {
     return new ResultFuture<>(resultJobExecutor);

@@ -43,7 +43,7 @@ implements IApplication<C, S> {
    * Creates a new {@link Application} with the given applicationService.
    * 
    * @param applicationService
-   * @throws RuntimeException if the given applicationService is null.
+   * @throws RuntimeException if the given applicationService is null
    */
   protected Application(final S applicationService) {
     Validator.assertThat(applicationService).thatIsNamed("application service").isNotNull();

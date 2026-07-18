@@ -18,7 +18,7 @@ public final class Future extends AbstractFuture {
    * Creates a new {@link Future} with the given jobExecutor.
    * 
    * @param jobExecutor
-   * @throws RuntimeException if the given jobExecutor is null.
+   * @throws RuntimeException if the given jobExecutor is null
    */
   private Future(final JobExecutor jobExecutor) {
     Validator.assertThat(jobExecutor).isNotNull();
@@ -29,7 +29,7 @@ public final class Future extends AbstractFuture {
   /**
    * @param jobExecutor
    * @return a new {@link Future} with the given jobExecutor
-   * @throws RuntimeException if the given jobExecutor is null.
+   * @throws RuntimeException if the given jobExecutor is null
    */
   public static Future forJobExecutor(final JobExecutor jobExecutor) {
     return new Future(jobExecutor);

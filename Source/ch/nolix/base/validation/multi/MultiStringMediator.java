@@ -17,7 +17,7 @@ public final class MultiStringMediator extends AbstractMultiArgumentMediator<Str
    * Creates a new {@link MultiStringMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   private MultiStringMediator(final Iterable<String> arguments) {
     super(arguments);
@@ -26,7 +26,7 @@ public final class MultiStringMediator extends AbstractMultiArgumentMediator<Str
   /**
    * @param arguments
    * @return a new {@link MultiStringMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiStringMediator forArguments(final Iterable<String> arguments) {
     return new MultiStringMediator(arguments);
@@ -34,7 +34,7 @@ public final class MultiStringMediator extends AbstractMultiArgumentMediator<Str
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiStringMediator} is null or blank.
+   *                          {@link MultiStringMediator} is null or blank
    */
   public void areNotBlank() {
     var index = 1;
@@ -55,7 +55,7 @@ public final class MultiStringMediator extends AbstractMultiArgumentMediator<Str
 
   /**
    * @throws RuntimeException if one of the arguments of the current
-   *                          {@link MultiStringMediator} is null or empty.
+   *                          {@link MultiStringMediator} is null or empty
    */
   public void areNotEmpty() {
     var index = 1;

@@ -91,7 +91,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractClient} with the given result.
    * 
    * @param result
-   * @throws RuntimeException if the given result is null.
+   * @throws RuntimeException if the given result is null
    */
   public final void pop(final Object result) {
     getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
@@ -102,7 +102,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractSession}.
    * 
    * @param session
-   * @throws RuntimeException if the given session is null.
+   * @throws RuntimeException if the given session is null
    */
   public final void push(final AbstractSession<C, S> session) {
     getStoredParentClient().internalPush(session);
@@ -115,7 +115,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * @param session
    * @param <R>     the type of the returned result
    * @return the result from the given session
-   * @throws RuntimeException if the given session is null.
+   * @throws RuntimeException if the given session is null
    */
   public final <R> R pushAndGetResult(final AbstractSession<C, S> session) {
     return getStoredParentClient().internalPushAndGetResult(session);
@@ -129,7 +129,7 @@ implements ClientComponent<C>, IRefreshableSubscriber {
    * {@link AbstractSession}.
    * 
    * @param session
-   * @throws RuntimeException if the given session is null.
+   * @throws RuntimeException if the given session is null
    */
   public final void setNext(final AbstractSession<C, S> session) {
     getStoredParentClient().internalSetCurrentSession(session);

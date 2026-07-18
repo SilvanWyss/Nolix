@@ -10,14 +10,14 @@ public interface IItemMenuSearcher {
   /**
    * @param itemMenu
    * @return the blank item of the given itemMenu
-   * @throws RuntimeException if the given itemMenu does not contain a blank item.
+   * @throws RuntimeException if the given itemMenu does not contain a blank item
    */
   IItemMenuItem<?> getStoredBlankItem(IItemMenu<?, ?> itemMenu);
 
   /**
    * @param itemMenu
    * @return the first item of the given itemMenu
-   * @throws RuntimeException if the given itemMenu dies not contain an item.
+   * @throws RuntimeException if the given itemMenu dies not contain an item
    */
   IItemMenuItem<?> getStoredFirstItem(IItemMenu<?, ?> itemMenu);
 

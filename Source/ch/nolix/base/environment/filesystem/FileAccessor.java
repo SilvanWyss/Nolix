@@ -64,7 +64,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * Overwrites the file of this file accessor with the given bytes.
    * 
    * @param bytes
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   public void overwriteFile(final byte[] bytes) {
     try (final var fileOutputStream = new FileOutputStream(getInternalAccessor())) {
@@ -79,7 +79,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * Overwrites the file of this file accessor with the given content.
    * 
    * @param content
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   public void overwriteFile(final String content) {
     try (final var printWriter = new PrintWriter(getInternalAccessor(), StandardCharsets.UTF_8)) {
@@ -94,7 +94,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * Reads the content of the file of this file accessor.
    * 
    * @return the content of the file of this file accessor
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   public String readFile() {
     return new String(readFileToBytes(), StandardCharsets.UTF_8).replace("\r", StringCatalog.EMPTY_STRING);
@@ -104,7 +104,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * Reads the content of the file of this file accessor to bytes.
    * 
    * @return the bytes of the file of this file accessor
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   public byte[] readFileToBytes() {
     try {
@@ -118,7 +118,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
    * Reads the content of the file of this file accessor to lines.
    * 
    * @return the lines of the file of this file accessor
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   public ILinkedList<String> readFileToLines() {
     final ILinkedList<String> lines = LinkedList.createEmpty();

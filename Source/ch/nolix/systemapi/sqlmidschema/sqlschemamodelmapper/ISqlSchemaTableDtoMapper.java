@@ -13,7 +13,7 @@ public interface ISqlSchemaTableDtoMapper {
    * @param tableDto
    * @return a new {@link ch.nolix.systemapi.sqlschema.model.TableDto} from the
    *         given tableDto
-   * @throws RuntimeException if the given tableDto is null.
+   * @throws RuntimeException if the given tableDto is null
    */
   ch.nolix.systemapi.sqlschema.model.TableDto mapTableDtoSqlSchemaTableDto(TableDto tableDto);
 }

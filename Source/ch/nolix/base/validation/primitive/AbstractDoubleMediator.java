@@ -36,7 +36,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * 
    * @param argument
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   protected AbstractDoubleMediator(final double argument, final String argumentName) {
     super(argumentName);
@@ -127,7 +127,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractDoubleMediator} is negative.
+   *                          {@link AbstractDoubleMediator} is negative
    */
   public final void isNotNegative() {
     if (argument < 0) {
@@ -159,7 +159,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current
-   *                          {@link AbstractDoubleMediator} is not positive.
+   *                          {@link AbstractDoubleMediator} is not positive
    */
   public final void isPositive() {
     if (argument <= 0) {
@@ -188,7 +188,7 @@ public abstract class AbstractDoubleMediator extends AbstractMediator {
    * @return a new {@link DoubleDeviationMediator} for the argument and
    *         argumentName of the current {@link AbstractDoubleMediator} and the
    *         given maxDeviation
-   * @throws RuntimeException if the given maxDeviation is negative.
+   * @throws RuntimeException if the given maxDeviation is negative
    */
   public final DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
     return //

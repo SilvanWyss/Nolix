@@ -76,7 +76,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * @param argumentNameDto
    * @throws RuntimeException if the given argumentNameDto is null
    * @throws RuntimeException if the argumentName of the given argumentNameDto is
-   *                          null or blank.
+   *                          null or blank
    */
   protected AbstractInvalidArgumentException(final Object argument, final ArgumentNameDto argumentNameDto) {
     super(
@@ -105,7 +105,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    *                          null or blank
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
-   *                          is null or blank.
+   *                          is null or blank
    */
   protected AbstractInvalidArgumentException(
     final Object argument,
@@ -140,7 +140,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
    *                          is null or blank
    * @throws RuntimeException if the given causeDto is null
-   * @throws RuntimeException if the cause of the given causeDto is null.
+   * @throws RuntimeException if the cause of the given causeDto is null
    */
   protected AbstractInvalidArgumentException(
     final Object argument,
@@ -169,7 +169,7 @@ public abstract class AbstractInvalidArgumentException extends RuntimeException 
    * @param errorPredicateDto
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
-   *                          is null or blank.
+   *                          is null or blank
    */
   protected AbstractInvalidArgumentException(final Object argument, final ErrorPredicateDto errorPredicateDto) {
     super(

@@ -89,7 +89,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with the given
    *                          instanceName
-   * @throws RuntimeException if the given initialSessionClass is null.
+   * @throws RuntimeException if the given initialSessionClass is null
    */
   public final <T extends AbstractSession<C, U>, C extends AbstractBackendClient<C, U>, U> S//
   addApplicationWithNameAndInitialSessionClassAndContext(
@@ -121,7 +121,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with an instanceName
    *                          that equals the given name
-   * @throws RuntimeException if the given initialSessionClass is null.
+   * @throws RuntimeException if the given initialSessionClass is null
    */
   public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S //
   addApplicationWithNameAndInitialSessionClassAndVoidContext(
@@ -148,7 +148,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @param <U>                the type of the context of the given
    *                           defaultApplication
    * @return the current {@link AbstractServer}
-   * @throws RuntimeException if the given defaultApplication is null.
+   * @throws RuntimeException if the given defaultApplication is null
    */
   public final <C extends AbstractBackendClient<C, U>, U> S addDefaultApplication(
     final Application<C, U> defaultApplication) {
@@ -182,7 +182,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with the given
    *                          instanceName
-   * @throws RuntimeException if the given initialSessionClass is null.
+   * @throws RuntimeException if the given initialSessionClass is null
    */
   public final <T extends AbstractSession<C, U>, C extends AbstractBackendClient<C, U>, U> S //
   addDefaultApplicationWithNameAndInitialSessionClassAndContext(
@@ -215,7 +215,7 @@ public abstract class AbstractServer<S extends AbstractServer<S>> implements ISe
    * @throws RuntimeException if the current {@link AbstractServer} contains
    *                          already a {@link Application} with an instanceName
    *                          that equals the given name
-   * @throws RuntimeException if the given initialSessionClass is null.
+   * @throws RuntimeException if the given initialSessionClass is null
    */
   public final <T extends AbstractSession<C, Object>, C extends AbstractBackendClient<C, Object>> S//
   addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(

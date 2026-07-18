@@ -15,7 +15,7 @@ public interface IDatabaseInitializerTool {
    * Initializes the fix tables of the database using the given schemaWriter.
    * 
    * @param schemaWriter
-   * @throws RuntimeException if the given schemaWriter is null or closed.
+   * @throws RuntimeException if the given schemaWriter is null or closed
    */
   void initializeFixTables(ISchemaWriter schemaWriter);
 
@@ -28,7 +28,7 @@ public interface IDatabaseInitializerTool {
    * @param databaseName
    * @throws RuntimeException if the given schemaTimestamp is null
    * @throws RuntimeException if the given sqlConnection is null or closed
-   * @throws RuntimeException if the given databaseName is null or blank.
+   * @throws RuntimeException if the given databaseName is null or blank
    */
   void saveSchemaTimestamp(ITime schemaTimestamp, ISqlConnection sqlConnection, String databaseName);
 }

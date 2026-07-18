@@ -53,7 +53,7 @@ public final class ArgumentContainsElementException extends AbstractInvalidArgum
    * @param element
    * @return the name of the given element for the case that the given element is
    *         not null
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   private static String getNameOfElementWhenIsNotNull(final Object element) {
     final var name = element.getClass().getSimpleName();

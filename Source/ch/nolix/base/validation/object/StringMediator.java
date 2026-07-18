@@ -34,7 +34,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
    * @param argumentName
    * @param argument
    * @throws RuntimeException if the given argumentName is null
-   * @throws RuntimeException if the given argumentName is blank.
+   * @throws RuntimeException if the given argumentName is blank
    */
   protected StringMediator(final String argumentName, final String argument) {
     // Calls constructor of the base class.
@@ -98,7 +98,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
    * @throws RuntimeException if the argument of the current
    *                          {@link StringMediator} is null
    * @throws RuntimeException if the argument of the current
-   *                          {@link StringMediator} is empty.
+   *                          {@link StringMediator} is empty
    */
   public void isNotEmpty() {
     // Asserts that the argument of the current StringMediator is not null.
@@ -114,7 +114,7 @@ public class StringMediator extends AbstractObjectMediator<String> {
    * @throws RuntimeException if the argument of the current
    *                          {@link StringMediator} is null
    * @throws RuntimeException if the argument of the current
-   *                          {@link StringMediator} is blank.
+   *                          {@link StringMediator} is blank
    */
   public void isNotBlank() {
     // Asserts that the argument of the current StringMediator is not null.

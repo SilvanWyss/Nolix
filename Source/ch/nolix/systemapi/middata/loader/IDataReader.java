@@ -21,13 +21,13 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param tableName
    * @return the number of the entities of the table with the given tableName from
    *         the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   int getEntityCount(String tableName);
 
   /**
    * @return the schema timestamp from the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   ITime getSchemaTimestamp();
 
@@ -35,7 +35,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param tableName
    * @return the entities, that are in the table with the given tableName, from
    *         the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   ExtendedIterable<EntityLoadingDto> loadEntities(String tableName);
 
@@ -44,7 +44,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param entityId
    * @return the entity, that is in the table with the given tableName and has the
    *         given entityId, from the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   EntityLoadingDto loadEntity(String tableName, String entityId);
 
@@ -56,7 +56,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    *         reference column with the given multiBackReferenceColumnName and
    *         belongs to the entity, that has the given entityId and is in the
    *         table with the given tableName, from the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   ExtendedIterable<String> loadMultiBackReferenceBackReferencedEntityIds(
     String tableName,
@@ -82,7 +82,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    *         in the multi reference column with the given multiReferenceColumnName
    *         and belongs to the entity, that has the given entityId and is in the
    *         table with the given tableName, from the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   ExtendedIterable<MultiReferenceEntryDto> loadMultiReferenceEntries(
     String tableName,
@@ -97,7 +97,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    *         the given multiValueColumnName and belongs to the entity, that has
    *         the given entityId and is in the table with the given tableName, from
    *         the database
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   ExtendedIterable<Object> loadMultiValueValues(String tableName, String entityId, String multiValueColumnName);
 
@@ -106,7 +106,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @param entityId
    * @return true if the table with the given tableName contains an entity with
    *         the given entityId on the database, false otherwise
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   boolean tableContainsEntity(String tableName, String entityId);
 
@@ -117,7 +117,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @return true if the table with the given tableName contains in the column
    *         with the given columnName the given value on the database, false
    *         otherwise
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   boolean tableContainsEntityWithValueAtColumn(String tableName, String columnName, String value);
 
@@ -129,7 +129,7 @@ public interface IDataReader extends GroupCloseable, DatabaseNameHolder {
    * @return true if the table with the given tableName contains in the column
    *         with the given columnName the given value ignoring the entities with
    *         the given entitiesToIgnoreIds on the database, false otherwise
-   * @throws RuntimeException if the current {@link IDataReader} is closed.
+   * @throws RuntimeException if the current {@link IDataReader} is closed
    */
   boolean tableContainsEntityWithValueAtColumnIgnoringEntities(
     String tableName,

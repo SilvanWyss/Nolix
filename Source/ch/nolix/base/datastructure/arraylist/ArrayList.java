@@ -86,7 +86,7 @@ public final class ArrayList<E> extends AbstractExtendedIterable<E> implements I
    * @param <T>       the type of the elements of the created {@link ArrayList}
    * @return a new {@link ArrayList} with a initialCapacity that is the size of
    *         the given container
-   * @throws NullPointerException if the given container is null.
+   * @throws NullPointerException if the given container is null
    */
   public static <T> ArrayList<T> withInitialCapacityFromSizeOfContainer(final CountRequestable<?> container) {
     final var initialCapacity = container.getCount();

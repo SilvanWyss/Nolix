@@ -25,7 +25,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @param min
    * @throws RuntimeException if the given argumentName is null or blank
-   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given min is null
    */
   private SmallerArgumentException(final BigDecimal argument, final String argumentName, final BigDecimal min) {
     super(
@@ -41,7 +41,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @param argument
    * @param argumentName
    * @param min
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private SmallerArgumentException(final double argument, final String argumentName, final double min) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is smaller than " + min));
@@ -54,7 +54,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @return a new {@link SmallerArgumentException} for the given argument,
    *         argumentName and limit
    * @throws RuntimeException if the given argumentName is null or blank
-   * @throws RuntimeException if the given limit is null.
+   * @throws RuntimeException if the given limit is null
    */
   public static SmallerArgumentException forArgumentAndArgumentNameAndLimit(
     final BigDecimal argument,
@@ -69,7 +69,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
    * @param min
    * @return a new {@link SmallerArgumentException} for the given argument,
    *         argumentName and min
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static SmallerArgumentException forArgumentAndArgumentNameAndMin(
     final double argument,
@@ -81,7 +81,7 @@ public final class SmallerArgumentException extends AbstractInvalidArgumentExcep
   /**
    * @param min
    * @return a validated min from the given min
-   * @throws RuntimeException if the given min is null.
+   * @throws RuntimeException if the given min is null
    */
   private static BigDecimal getValidatedMinFromMin(final BigDecimal min) {
     if (min == null) {

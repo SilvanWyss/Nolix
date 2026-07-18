@@ -35,7 +35,7 @@ public final class StringTool {
    * @param tabCount
    * @return a new {@link String} consisting of as many tabulators as the given
    *         tabCount says
-   * @throws RuntimeException if the given tabCount is negative.
+   * @throws RuntimeException if the given tabCount is negative
    */
   public static String createTabs(final int tabCount) {
     return STRING_TOOL_UNIT.createTabs(tabCount);
@@ -44,7 +44,7 @@ public final class StringTool {
   /**
    * @param object
    * @return the {@link String} representation of the given object in braces
-   * @throws RuntimeException if the given object is null.
+   * @throws RuntimeException if the given object is null
    */
   public static String getInBraces(final Object object) {
     return STRING_TOOL_UNIT.getInBraces(object);
@@ -54,7 +54,7 @@ public final class StringTool {
    * @param objects
    * @return the {@link String} representation of the given objects in parentheses
    * @throws RuntimeException if the given objects is null
-   * @throws RuntimeException if one of the given objects is null.
+   * @throws RuntimeException if one of the given objects is null
    */
   public static String getInParentheses(final Object... objects) {
     return STRING_TOOL_UNIT.getInParentheses(objects);
@@ -64,7 +64,7 @@ public final class StringTool {
    * @param object
    * @return the {@link String} representation of the given object in single
    *         quotes
-   * @throws RuntimeException if the given object is null.
+   * @throws RuntimeException if the given object is null
    */
   public static String getInSingleQuotes(final Object object) {
     return STRING_TOOL_UNIT.getInSingleQuotes(object);
@@ -81,7 +81,7 @@ public final class StringTool {
   /**
    * @param string
    * @return the boolean the given string represents
-   * @throws RuntimeException if the given string does not represent a boolean.
+   * @throws RuntimeException if the given string does not represent a boolean
    */
   public static boolean toBoolean(final String string) {
     return STRING_TOOL_UNIT.toBoolean(string);
@@ -98,7 +98,7 @@ public final class StringTool {
   /**
    * @param string
    * @return the double the given string represents
-   * @throws RuntimeException if the given string does not represent a double.
+   * @throws RuntimeException if the given string does not represent a double
    */
   public static double toDouble(final String string) {
     return STRING_TOOL_UNIT.toDouble(string);
@@ -115,7 +115,7 @@ public final class StringTool {
   /**
    * @param string
    * @return a proportion in [0, 1] from the given string
-   * @throws RuntimeException if the given string does not represent a proportion.
+   * @throws RuntimeException if the given string does not represent a proportion
    * 
    */
   public static double toProportion(String string) {

@@ -26,7 +26,7 @@ public final class JobPool {
    * 
    * @param job
    * @return a {@link IFuture} for the given job
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   public IFuture enqueue(final Runnable job) {
     final var jobWrapper = JobWrapper.withJob(job);

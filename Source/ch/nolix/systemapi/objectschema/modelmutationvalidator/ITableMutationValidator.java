@@ -20,14 +20,14 @@ public interface ITableMutationValidator {
 
   /**
    * @param table
-   * @throws RuntimeException if the given table cannot be deleted.
+   * @throws RuntimeException if the given table cannot be deleted
    */
   void assertCanDeleteTable(ITable table);
 
   /**
    * @param table
    * @param name
-   * @throws RuntimeException if the given name cannot be set to the given table.
+   * @throws RuntimeException if the given name cannot be set to the given table
    */
   void assertCanSetNameToTable(ITable table, String name);
 }

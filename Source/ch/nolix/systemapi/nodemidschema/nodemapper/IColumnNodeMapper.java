@@ -13,7 +13,7 @@ public interface IColumnNodeMapper {
   /**
    * @param columnDto
    * @return a new {@link INode} from the given columnDto
-   * @throws RuntimeException if the given columnDto is null.
+   * @throws RuntimeException if the given columnDto is null
    */
   INode<?> mapColumnDtoToColumnNode(final ColumnDto columnDto);
 }

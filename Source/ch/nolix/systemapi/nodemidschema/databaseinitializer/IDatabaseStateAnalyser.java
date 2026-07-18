@@ -13,7 +13,7 @@ public interface IDatabaseStateAnalyser {
   /**
    * @param nodeDatabase
    * @return the state of the given nodeDatabase
-   * @throws RuntimeException if the given nodeDatabase is null.
+   * @throws RuntimeException if the given nodeDatabase is null
    */
   DatabaseState getStateOfNodeDatabase(IMutableNode<?> nodeDatabase);
 }

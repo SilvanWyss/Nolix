@@ -319,7 +319,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
 
   /**
    * @return the first tab of the current {@link TabContainer}
-   * @throws RuntimeException if the current {@link TabContainer} is empty.
+   * @throws RuntimeException if the current {@link TabContainer} is empty
    */
   private ITabContainerTab getStoredFirstTab() {
     return getStoredTabs().getStoredFirstNonNull();
@@ -329,7 +329,7 @@ extends AbstractContainer<ITabContainer, ITabContainerStyle> implements ITabCont
    * Sets the given menuButtonStyle to the current {@link TabContainer}.
    * 
    * @param menuButtonStyle
-   * @throws RuntimeException if the given menuButtonStyle is null.
+   * @throws RuntimeException if the given menuButtonStyle is null
    */
   private void setMenuButtonStyle(final IButtonStyle menuButtonStyle) {
     this.menuButtonStyle.setValue(menuButtonStyle);

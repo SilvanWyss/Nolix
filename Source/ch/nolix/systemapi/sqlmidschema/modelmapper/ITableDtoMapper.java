@@ -15,7 +15,7 @@ public interface ITableDtoMapper {
    * @param joinedColumnSqlRecords
    * @return a new {@link TableDto} from the given joinedColumnSqlRecords
    * @throws RuntimeException if the given joinedColumnSqlRecords is null or one
-   *                          of the given joinedColumnSqlRecords is null.
+   *                          of the given joinedColumnSqlRecords is null
    */
   TableDto mapJoinedColumnSqlRecordsToTableDto(ExtendedIterable<ISqlRecord> joinedColumnSqlRecords);
 
@@ -23,7 +23,7 @@ public interface ITableDtoMapper {
    * @param joinedColumnSqlRecords
    * @return new {@link TableDto}s from the given joinedColumnSqlRecords
    * @throws RuntimeException if the given joinedColumnSqlRecords is null or one
-   *                          of the given joinedColumnSqlRecords is null.
+   *                          of the given joinedColumnSqlRecords is null
    */
   ExtendedIterable<TableDto> mapJoinedColumnSqlRecordsToTableDtos(ExtendedIterable<ISqlRecord> joinedColumnSqlRecords);
 }

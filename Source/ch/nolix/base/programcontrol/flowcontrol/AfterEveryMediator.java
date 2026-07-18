@@ -30,7 +30,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @param condition
    * @param timeIntervalInMilliseconds
    * @throws RuntimeException if the given condition is null
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative
    */
   private AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
     Validator.assertThat(condition).thatIsNamed(LowerCaseVariableNameCatalog.CONDITION).isNotNull();
@@ -47,7 +47,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * @return a new {@link AfterEveryMediator} with the given condition and
    *         timeIntervalInMilliseconds
    * @throws RuntimeException if the given condition is null
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative
    */
   public static AfterEveryMediator withConditionAndTimeIntervalInMilliSeconds(
     final BooleanSupplier condition,
@@ -119,7 +119,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param step
    * @return a new {@link Future}
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   private IFuture runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable step) {
     // Handles the case that the current AfterAllMediator does not have a condition.
@@ -151,7 +151,7 @@ public final class AfterEveryMediator implements IAfterEveryMediator {
    * 
    * @param step
    * @return a new {@link Future}
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   private IFuture runInBackgroundWhenHasMaxRunConunt(final Runnable step) {
     // Handles the case that the current AfterAllMediator does not have a condition.

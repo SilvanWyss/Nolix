@@ -31,7 +31,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @param sequencePattern
    * @param count
    * @throws RuntimeException if the sequencePattern is null
-   * @throws RuntimeException if the given count is negative.
+   * @throws RuntimeException if the given count is negative
    */
   private SequencePatternNextMediator(final ISequencePattern<E> sequencePattern, final int count) {
     Validator.assertThat(sequencePattern).thatIsNamed(ISequencePattern.class).isNotNull();
@@ -51,7 +51,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    *                        {@link ISequencePattern} of the
    *                        {@link ISequencePatternNextMediator}
    * @throws RuntimeException if the sequencePattern is null
-   * @throws RuntimeException if the given count is negative.
+   * @throws RuntimeException if the given count is negative
    */
   public static <T> SequencePatternNextMediator<T> forSequencePatternAndCount(
     final ISequencePattern<T> sequencePattern,
@@ -87,7 +87,7 @@ public final class SequencePatternNextMediator<E> implements ISequencePatternNex
    * @param paramCount
    * @return a new {@link ExtendedIterable} with as many blank conditions as the
    *         given paramCount says
-   * @throws RuntimeException if the given paramCount is negative.
+   * @throws RuntimeException if the given paramCount is negative
    */
   private ExtendedIterable<Predicate<E>> createBlanks(final int paramCount) {
     final IArrayList<Predicate<E>> blanks = ArrayList.withInitialCapacity(paramCount);

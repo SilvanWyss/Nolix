@@ -15,7 +15,7 @@ public interface IAsSoonAsMediator {
    * 
    * @param job
    * @return a new {@link IFuture}
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   IFuture runInBackground(Runnable job);
 }

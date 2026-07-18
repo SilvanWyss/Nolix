@@ -40,14 +40,14 @@ public interface IFlowControllerMediator {
    * 
    * @param job
    * @return a {@link IFuture} for the given job
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   IFuture enqueue(Runnable job);
 
   /**
    * @param maxRunCount
    * @return a new {@link IForCountMediator} with the given maxRunCount
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative
    */
   IForCountMediator forCount(int maxRunCount);
 
@@ -55,7 +55,7 @@ public interface IFlowControllerMediator {
    * @param maxDurationInMilliseconds
    * @return a new {@link IForMaxMillisecondsMediator} for the given
    *         maxDurationInMilliseconds
-   * @throws RuntimeException if the given maxDurationInMilliseconds is negative.
+   * @throws RuntimeException if the given maxDurationInMilliseconds is negative
    */
   IForMaxMillisecondsMediator forMaxMilliseconds(int maxDurationInMilliseconds);
 
@@ -63,7 +63,7 @@ public interface IFlowControllerMediator {
    * @param maxDurationInSeconds
    * @return a new {@link IForMaxMillisecondsMediator} for the given
    *         maxDurationInSeconds
-   * @throws RuntimeException if the given maxDurationInSeconds is negative.
+   * @throws RuntimeException if the given maxDurationInSeconds is negative
    */
   IForMaxMillisecondsMediator forMaxSeconds(int maxDurationInSeconds);
 
@@ -72,7 +72,7 @@ public interface IFlowControllerMediator {
    * 
    * @param job
    * @return a new {@link IFuture} for the execution of the given job
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   IFuture runInBackground(Runnable job);
 
@@ -83,7 +83,7 @@ public interface IFlowControllerMediator {
    * @param resultJob
    * @param <R>       the type of the result the given resultJob returns
    * @return a new {@link IResultFuture} for the execution of the given resultJob
-   * @throws RuntimeException if the given resultJob is null.
+   * @throws RuntimeException if the given resultJob is null
    */
   <R> IResultFuture<R> runInBackground(Supplier<R> resultJob);
 
@@ -107,7 +107,7 @@ public interface IFlowControllerMediator {
    * Waits for the given durationInMilliseconds.
    * 
    * @param durationInMilliseconds
-   * @throws RuntimeException if the given durationInMilliseconds is negative.
+   * @throws RuntimeException if the given durationInMilliseconds is negative
    */
   void waitForMilliseconds(int durationInMilliseconds);
 
@@ -115,7 +115,7 @@ public interface IFlowControllerMediator {
    * Waits for the given durationInSeconds.
    * 
    * @param durationInSeconds
-   * @throws RuntimeException if the given durationInSeconds is negative.
+   * @throws RuntimeException if the given durationInSeconds is negative
    */
   void waitForSeconds(int durationInSeconds);
 

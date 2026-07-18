@@ -20,7 +20,7 @@ public final class ArgumentHasAttributeException extends AbstractInvalidArgument
    * 
    * @param argument
    * @param attributeName
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   private ArgumentHasAttributeException(final Object argument, final String attributeName) {
     super(argument, new ErrorPredicateDto("has a " + getValidatedAttributeNameFromAttributeName(attributeName)));
@@ -31,7 +31,7 @@ public final class ArgumentHasAttributeException extends AbstractInvalidArgument
    * @param attributeName
    * @return a new {@link ArgumentHasAttributeException} for the given argument
    *         and attributeName
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   public static ArgumentHasAttributeException forArgumentAndAttributeName(
     final Object argument,
@@ -42,7 +42,7 @@ public final class ArgumentHasAttributeException extends AbstractInvalidArgument
   /**
    * @param attributeName
    * @return a validated attribute name from the given attribtueName
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {
     if (attributeName == null) {

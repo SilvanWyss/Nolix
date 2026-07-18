@@ -23,7 +23,7 @@ public final class NonNegativeArgumentException extends AbstractInvalidArgumentE
    * 
    * @param argument
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private NonNegativeArgumentException(final double argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -35,7 +35,7 @@ public final class NonNegativeArgumentException extends AbstractInvalidArgumentE
    * 
    * @param argument
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private NonNegativeArgumentException(final long argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -46,7 +46,7 @@ public final class NonNegativeArgumentException extends AbstractInvalidArgumentE
    * @param argumentName
    * @return a new {@link NonNegativeArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static NonNegativeArgumentException forArgumentAndArgumentName(
     final double argument,
@@ -59,7 +59,7 @@ public final class NonNegativeArgumentException extends AbstractInvalidArgumentE
    * @param argumentName
    * @return a new {@link NonNegativeArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static NonNegativeArgumentException forArgumentAndArgumentName(
     final long argument,

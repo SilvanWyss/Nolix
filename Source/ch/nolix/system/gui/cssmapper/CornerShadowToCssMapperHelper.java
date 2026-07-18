@@ -28,7 +28,7 @@ public final class CornerShadowToCssMapperHelper {
    * @param cornerShadow
    * @return a new {@link ICssProperty} from the given cornerShadow when the
    *         shadow is inside the box
-   * @throws RuntimeException if the given cornerShadow is null.
+   * @throws RuntimeException if the given cornerShadow is null
    */
   public static ICssProperty mapCornerShadowToCssPropertyWhenShadowIsInsideTheBox(final ICornerShadow cornerShadow) {
     final var side1Thickness = cornerShadow.getSide1Thickness();
@@ -62,7 +62,7 @@ public final class CornerShadowToCssMapperHelper {
    * @param cornerShadow
    * @return a new {@link ICssProperty} from the given cornerShadow when the
    *         shadow is outside the box
-   * @throws RuntimeException if the given cornerShadow is null.
+   * @throws RuntimeException if the given cornerShadow is null
    */
   public static ICssProperty mapCornerShadowToCssPropertyWhenShadowIsOutsideTheBox(final ICornerShadow cornerShadow) {
     final var side1Thickness = cornerShadow.getSide1Thickness();

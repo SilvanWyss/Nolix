@@ -20,7 +20,7 @@ public interface IEntityContentFieldsFiller {
    * @param contentFieldDtos
    * @throws RuntimeException if the given entity is null
    * @throws RuntimeException if the given contentFieldDtos is null
-   * @throws RuntimeException if one of the given contentFieldDtos is null.
+   * @throws RuntimeException if one of the given contentFieldDtos is null
    */
   void fillUpEntityContentFieldsFromContentFieldDtos(IEntity entity, ExtendedIterable<FieldDto> contentFieldDtos);
 
@@ -31,7 +31,7 @@ public interface IEntityContentFieldsFiller {
    * @param entity
    * @param entityLoadingDto
    * @throws RuntimeException if the given entity is null
-   * @throws RuntimeException if the given entityLoadingDto is null.
+   * @throws RuntimeException if the given entityLoadingDto is null
    */
   void fillUpEntityContentFieldsFromEntityLoadingDto(IEntity entity, EntityLoadingDto entityLoadingDto);
 }

@@ -32,7 +32,7 @@ public final class NonEmptyArgumentException extends AbstractInvalidArgumentExce
    * 
    * @param argument     - Can be null
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private NonEmptyArgumentException(final Object argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -51,7 +51,7 @@ public final class NonEmptyArgumentException extends AbstractInvalidArgumentExce
    * @param argumentName
    * @return a new {@link NonEmptyArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static NonEmptyArgumentException forArgumentAndArgumentName(
     final Object argument,

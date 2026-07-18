@@ -21,7 +21,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    * Creates a new {@link ExtensionProperty} with the given extension.
    * 
    * @param extension
-   * @throws RuntimeException if the given extension is null.
+   * @throws RuntimeException if the given extension is null
    */
   private ExtensionProperty(final E extension) {
     Validator.assertThat(extension).thatIsNamed(LowerCaseVariableNameCatalog.EXTENSION).isNotNull();
@@ -34,7 +34,7 @@ public final class ExtensionProperty<E extends IRespondingMutableElement<E>> imp
    * @param <T>       the type of the extension of the created
    *                  {@link ExtensionProperty}
    * @return a new {@link ExtensionProperty} with the given extension
-   * @throws RuntimeException if the given extension is null.
+   * @throws RuntimeException if the given extension is null
    */
   public static <T extends IRespondingMutableElement<T>> ExtensionProperty<T> withExtension(final T extension) {
     return new ExtensionProperty<>(extension);

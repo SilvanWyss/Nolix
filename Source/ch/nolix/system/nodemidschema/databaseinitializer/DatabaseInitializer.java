@@ -31,7 +31,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    * @param databaseName
    * @param nodeDatabase
    * @throws RuntimeException if the given databaseName is null or blank
-   * @throws RuntimeException if the given nodeDatabase is null.
+   * @throws RuntimeException if the given nodeDatabase is null
    */
   private DatabaseInitializer(final String databaseName, final IMutableNode<?> nodeDatabase) {
     Validator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
@@ -46,7 +46,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    * @param nodeDatabase
    * @return a new {@link DatabaseInitializer} for the given nodeDatabase
    * @throws RuntimeException if the given databaseName is null or blank
-   * @throws RuntimeException if the given nodeDatabase is null.
+   * @throws RuntimeException if the given nodeDatabase is null
    */
   public static DatabaseInitializer forDatabaseNameAndNodeDatabase(
     final String databaseName,
@@ -67,7 +67,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    * Initializes the database with the given initialSchemaTimeStamp.
    * 
    * @param initialSchemaTimeStamp
-   * @throws RuntimeException if the given initialSchemaTimeStamp is null.
+   * @throws RuntimeException if the given initialSchemaTimeStamp is null
    */
   @Override
   protected void initializeDatabaseWithInitialSchemaTimestamp(final ITime initialSchemaTimeStamp) {

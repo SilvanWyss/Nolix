@@ -22,7 +22,7 @@ final class ClosePool implements IClosePool {
    * Creates a new {@link ClosePool} with the given element.
    * 
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   private ClosePool(final GroupCloseable element) {
     addElement(element);
@@ -31,7 +31,7 @@ final class ClosePool implements IClosePool {
   /**
    * @param element
    * @return a new {@link ClosePool} with the given element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   public static ClosePool forElement(final GroupCloseable element) {
     return new ClosePool(element);

@@ -35,7 +35,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * Creates a new {@link ImmutableList} with the given element.
    * 
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   @SuppressWarnings("unchecked")
   private ImmutableList(final E element) {
@@ -135,7 +135,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param <T>    the type of the elements of the given stream
    * @return a new {@link ImmutableList} with the elements from the given stream
    * @throws RuntimeException if the given stream is null
-   * @throws RuntimeException if one of the elements of the given stream is null.
+   * @throws RuntimeException if one of the elements of the given stream is null
    */
   public static <T> ImmutableList<T> fromStream(final Stream<T> stream) {
     Validator.assertThat(stream).thatIsNamed(Stream.class).isNotNull();
@@ -147,7 +147,7 @@ public final class ImmutableList<E> extends AbstractExtendedIterable<E> {
    * @param element
    * @param <T>     the type of the given element
    * @return a new {@link ImmutableList} with the given element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   public static <T> ImmutableList<T> withElement(final T element) {
     return new ImmutableList<>(element);

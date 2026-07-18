@@ -26,7 +26,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
    * @param slot
-   * @throws NullPointerException if the given slot is null.
+   * @throws NullPointerException if the given slot is null
    */
   private LocalEndPoint(final ISlot slot) {
     this.peerType = PeerType.FRONTEND;
@@ -44,7 +44,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param server
    * @throws NullPointerException if the given server is null
    * @throws RuntimeException     if the given slot is null
-   * @throws RuntimeException     if the given slot is null.
+   * @throws RuntimeException     if the given slot is null
    */
   private LocalEndPoint(final AbstractServer server, final String slot) {
     this.peerType = PeerType.FRONTEND;
@@ -61,7 +61,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param target
    * @throws RuntimeException if the given counterpart is null
    * @throws RuntimeException if the given target is null
-   * @throws RuntimeException if the given target is empty.
+   * @throws RuntimeException if the given target is empty
    */
   private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
     peerType = PeerType.BACKEND;
@@ -82,7 +82,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   /**
    * @param slot
    * @return a new {@link LocalEndPoint} that will connect to the given slot
-   * @throws NullPointerException if the given slot is null.
+   * @throws NullPointerException if the given slot is null
    */
   public static LocalEndPoint toSlot(final ISlot slot) {
     return new LocalEndPoint(slot);
@@ -95,7 +95,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    *         the given server
    * @throws NullPointerException if the given server is null
    * @throws RuntimeException     if the given slot is null
-   * @throws RuntimeException     if the given slot is null.
+   * @throws RuntimeException     if the given slot is null
    */
   public static LocalEndPoint toServerAndSlot(final AbstractServer server, final String slot) {
     return new LocalEndPoint(server, slot);
@@ -122,7 +122,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * 
    * @param message
    * @return the reply to the given message
-   * @throws RuntimeException if this local end point is closed.
+   * @throws RuntimeException if this local end point is closed
    */
   public String sendAndWaitToReply(final String message) {
     // Asserts that this local end point is open.

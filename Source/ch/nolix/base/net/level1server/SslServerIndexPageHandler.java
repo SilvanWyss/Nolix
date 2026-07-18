@@ -30,7 +30,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
    * Creates a new {@link SslServerIndexPageHandler} with the givne htmlPage.
    * 
    * @param htmlPage
-   * @throws RuntimeException if the given htmlPage is null.
+   * @throws RuntimeException if the given htmlPage is null
    */
   private SslServerIndexPageHandler(String htmlPage) {
     Validator.assertThat(htmlPage).thatIsNamed("html page").isNotNull();
@@ -41,7 +41,7 @@ public final class SslServerIndexPageHandler extends SimpleChannelInboundHandler
   /**
    * @param htmlPage
    * @return a new {@link SslServerIndexPageHandler} with the givne htmlPage
-   * @throws RuntimeException if the given htmlPage is null.
+   * @throws RuntimeException if the given htmlPage is null
    */
   public static SslServerIndexPageHandler withHtmlPage(String htmlPage) {
     return new SslServerIndexPageHandler(htmlPage);

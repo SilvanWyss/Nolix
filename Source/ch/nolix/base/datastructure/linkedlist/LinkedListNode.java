@@ -24,7 +24,7 @@ public final class LinkedListNode<E> {
    * Creates a new {@link LinkedListNode} with the given element.
    * 
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   private LinkedListNode(final E element) {
     setElement(element);
@@ -34,7 +34,7 @@ public final class LinkedListNode<E> {
    * @param element
    * @param <T>     the type of the given element
    * @return a new {@link LinkedListNode} with the given element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   public static <T> LinkedListNode<T> withElement(final T element) {
     return new LinkedListNode<>(element);
@@ -101,7 +101,7 @@ public final class LinkedListNode<E> {
    * Sets the element of the current {@link LinkedListNode}.
    * 
    * @param element
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   public void setElement(final E element) {
     if (element == null) {
@@ -116,7 +116,7 @@ public final class LinkedListNode<E> {
    * Sets the next node of the current {@link LinkedListNode}.
    * 
    * @param nextNode
-   * @throws RuntimeException if the given next node is null.
+   * @throws RuntimeException if the given next node is null
    */
   public void setNextNode(final LinkedListNode<E> nextNode) {
     if (nextNode == null) {

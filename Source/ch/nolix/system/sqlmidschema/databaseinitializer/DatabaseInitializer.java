@@ -33,7 +33,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    * @param databaseName
    * @param sqlConnection
    * @throws RuntimeException if the given datbaseName is null or blank
-   * @throws RuntimeException if the given sqlConnection is null or closed.
+   * @throws RuntimeException if the given sqlConnection is null or closed
    */
   private DatabaseInitializer(
     final String databaseName,
@@ -51,7 +51,7 @@ public final class DatabaseInitializer extends AbstractDatabaseInitializer {
    * @return a new {@link DatabaseInitializer} with the given databaseName and
    *         sqlConnection
    * @throws RuntimeException if the given datbaseName is null or blank
-   * @throws RuntimeException if the given sqlConnection is null or closed.
+   * @throws RuntimeException if the given sqlConnection is null or closed
    */
   public static DatabaseInitializer forDatabaseNameAndSqlConnection(
     final String databaseName,

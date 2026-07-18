@@ -44,7 +44,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @throws RuntimeException if the given elementConditions is null
    * @throws RuntimeException if one of the given sequenceConditions is null
    * @throws RuntimeException if the given elementConditions is null
-   * @throws RuntimeException if one of the given sequenceConditions is null.
+   * @throws RuntimeException if one of the given sequenceConditions is null
    */
   private SequencePattern(
     final ExtendedIterable<Predicate<E>> elementConditions,
@@ -74,7 +74,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @throws RuntimeException if the given elementConditions is null
    * @throws RuntimeException if one of the given sequenceConditions is null
    * @throws RuntimeException if the given elementConditions is null
-   * @throws RuntimeException if one of the given sequenceConditions is null.
+   * @throws RuntimeException if one of the given sequenceConditions is null
    */
   private static <T> SequencePattern<T> withElementConditionsAndSequenceConditions(
     final ExtendedIterable<Predicate<T>> elementConditions,

@@ -45,7 +45,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
    * 
    * @param argumentName
    * @param argument
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   protected AbstractLongMediator(final String argumentName, final long argument) {
     super(argumentName);
@@ -257,7 +257,7 @@ public abstract class AbstractLongMediator extends AbstractMediator {
 
   /**
    * @throws RuntimeException if the argument of the current {@link LongMediator}
-   *                          is not positive.
+   *                          is not positive
    */
   public final void isPositive() {
     if (argument < 1) {

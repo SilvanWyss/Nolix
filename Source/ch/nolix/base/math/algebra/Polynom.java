@@ -41,7 +41,7 @@ public final class Polynom {
    * 
    * @param coefficientArray
    * @throws RuntimeException if the given coefficients is null
-   * @throws RuntimeException if the highest of the given coefficients is 0.0.
+   * @throws RuntimeException if the highest of the given coefficients is 0.0
    */
   private Polynom(final double[] coefficientArray) {
     // Asserts that the given coefficientArray is not null.
@@ -95,7 +95,7 @@ public final class Polynom {
    * @param deriveCount
    * @return a new {@link Polynom} that is derived from the current
    *         {@link Polynom} as many times as the given deriveCount says
-   * @throws RuntimeException if the given deriveCount is negative.
+   * @throws RuntimeException if the given deriveCount is negative
    */
   public Polynom getDerived(final int deriveCount) {
     if (deriveCount == 1) {
@@ -128,7 +128,7 @@ public final class Polynom {
    * @param integrationCount
    * @return a new {@link Polynom} that is the integration from the current
    *         {@link Polynom} as many times as the given integrationCount says
-   * @throws RuntimeException if the given integrationCount is negative.
+   * @throws RuntimeException if the given integrationCount is negative
    */
   public Polynom getIntegrated(final int integrationCount) {
     Validator.assertThat(integrationCount).thatIsNamed("integration count").isNotNegative();
@@ -222,7 +222,7 @@ public final class Polynom {
    * @param parameterSymbol
    * @return a {@link String} representation of the current {@link Polynom} with
    *         the given parameterSymbol
-   * @throws RuntimeException if the given parameterSymbol is null.
+   * @throws RuntimeException if the given parameterSymbol is null
    */
   public String toString(final String parameterSymbol) {
     Validator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();

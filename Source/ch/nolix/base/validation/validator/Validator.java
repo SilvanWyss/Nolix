@@ -203,7 +203,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param arguments
    * @return a new {@link MultiDoubleMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
     return MultiDoubleMediator.forArugments(arguments);
@@ -213,7 +213,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @param arguments
    * @param <E>       the type of the given arguments
    * @return a new {@link MultiArgumentMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final E[] arguments) {
     return MultiArgumentMediator.forArguments(arguments);
@@ -223,7 +223,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
    * @param arguments
    * @param <E>       the type of the given arguments
    * @return a new {@link MultiArgumentMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static <E> MultiArgumentMediator<E> assertThatTheElements(final Iterable<E> arguments) {
     return MultiArgumentMediator.forArguments(arguments);
@@ -232,7 +232,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param longs
    * @return a new {@link MultiLongMediator} for the given longs
-   * @throws RuntimeException if the given longs is null.
+   * @throws RuntimeException if the given longs is null
    */
   public static MultiLongMediator assertThatTheLongs(final Iterable<Long> longs) {
     return MultiLongMediator.forArguments(longs);
@@ -241,7 +241,7 @@ public final class Validator { //NOSONAR: The GlobalValidator bundles all valida
   /**
    * @param arguments
    * @return a new {@link MultiStringMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {
     return MultiStringMediator.forArguments(arguments);

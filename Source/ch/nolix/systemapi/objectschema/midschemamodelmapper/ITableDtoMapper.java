@@ -13,7 +13,7 @@ public interface ITableDtoMapper {
   /**
    * @param table
    * @return a new {@link TableDto} from the given table
-   * @throws RuntimeException if the given table is null.
+   * @throws RuntimeException if the given table is null
    */
   TableDto mapTableToTableDto(ITable table);
 }

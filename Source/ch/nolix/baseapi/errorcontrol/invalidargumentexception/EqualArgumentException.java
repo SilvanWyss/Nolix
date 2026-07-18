@@ -33,7 +33,7 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * @param argument     - Can be null
    * @param argumentName
    * @param equalValue   - Can be null
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private EqualArgumentException(final double argument, final String argumentName, final double equalValue) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("equals " + equalValue));
@@ -46,7 +46,7 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * @param argument     - Can be null
    * @param argumentName
    * @param equalValue   - Can be null
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private EqualArgumentException(final long argument, final String argumentName, final long equalValue) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("equals " + equalValue));
@@ -58,7 +58,7 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * @param equalValue   - Can be null
    * @return a new {@link EqualArgumentException} for the given argument,
    *         argumentName and equalValue
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
     final double argument,
@@ -73,7 +73,7 @@ public final class EqualArgumentException extends AbstractInvalidArgumentExcepti
    * @param equalValue   - Can be null
    * @return a new {@link EqualArgumentException} for the given argument,
    *         argumentName and equalValue
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static EqualArgumentException forArgumentAndArgumentNameAndEqualValue(
     final long argument,

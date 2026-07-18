@@ -23,7 +23,7 @@ public final class MatrixIterator<E> implements CopyableIterator<E> {
    * Creates a new {@link MatrixIterator} with the given parentMatrix.
    * 
    * @param parentMatrix
-   * @throws RuntimeException if the given parentMatrix is null.
+   * @throws RuntimeException if the given parentMatrix is null
    */
   private MatrixIterator(final Matrix<E> parentMatrix) {
     Validator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();

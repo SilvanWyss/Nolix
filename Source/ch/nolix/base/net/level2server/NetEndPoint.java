@@ -33,7 +33,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * the given port on the local machine.
    * 
    * @param port
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final int port) {
     this(ch.nolix.base.net.level1server.SocketEndPoint.toLocaleMachineAndGivenPortAndDefaultSlot(port));
@@ -46,7 +46,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param slot
    * @param port
    * @throws RuntimeException if the given port is not in [0, 65535]
-   * @throws RuntimeException if the given slot is null or blank.
+   * @throws RuntimeException if the given slot is null or blank
    */
   private NetEndPoint(final int port, final String slot) {
     this(ch.nolix.base.net.level1server.SocketEndPoint.toLocalMachineAndGivenPortAndGivenSlot(port, slot));
@@ -68,7 +68,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * 
    * @param host
    * @param port
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   private NetEndPoint(final String host, final int port) {
     this(ch.nolix.base.net.level1server.SocketEndPoint.toGivenHostAndGivenPortAndDefaultSlot(host, port));
@@ -83,7 +83,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param slot
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null
-   * @throws RuntimeException if the given slot is blank.
+   * @throws RuntimeException if the given slot is blank
    */
   private NetEndPoint(final String host, final int port, final String slot) {
     this(ch.nolix.base.net.level1server.SocketEndPoint.toGivenHostAndGivenPortAndGivenSlot(host, port, slot));
@@ -93,7 +93,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
    * @param internalEndPoint
-   * @throws RuntimeException if the given internalEndPoint is null.
+   * @throws RuntimeException if the given internalEndPoint is null
    */
   private NetEndPoint(final IEndPoint internalEndPoint) {
     Validator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
@@ -108,7 +108,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @return a new {@link NetEndPoint} that will connect to the default slot on
    *         the given port on the given host
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static NetEndPoint toGivenHostAndGivenPortAndDefaultSlot(final String host, final int port) {
     return new NetEndPoint(host, port);
@@ -122,7 +122,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    *         given port on the given host
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given slot is null
-   * @throws RuntimeException if the given slot is blank.
+   * @throws RuntimeException if the given slot is blank
    */
   public static NetEndPoint toGivenHostAndGivenPortAndGivenSlot(final String host, final int port, final String slot) {
     return new NetEndPoint(host, port, slot);
@@ -141,7 +141,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @param port
    * @return a new {@link NetEndPoint} that will connect to the default slot on
    *         the given port on the local machine
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndDefaultSlot(final int port) {
     return new NetEndPoint(port);
@@ -153,7 +153,7 @@ public final class NetEndPoint extends AbstractEndPoint {
    * @return a new {@link NetEndPoint} that will connect to the given slot on the
    *         given port on the local machine
    * @throws RuntimeException if the given port is not in [0, 65535]
-   * @throws RuntimeException if the given slot is null or blank.
+   * @throws RuntimeException if the given slot is null or blank
    */
   public static NetEndPoint toLocalMachineAndGivenPortAndGivenSlot(int port, String slot) {
     return new NetEndPoint(port, slot);
@@ -162,7 +162,7 @@ public final class NetEndPoint extends AbstractEndPoint {
   /**
    * @param internalEndPoint
    * @return a new {@link NetEndPoint} with the given internalEndPoint
-   * @throws RuntimeException if the given internalEndPoint is null.
+   * @throws RuntimeException if the given internalEndPoint is null
    */
   static NetEndPoint withInternalEndPoint(final IEndPoint internalEndPoint) {
     return new NetEndPoint(internalEndPoint);

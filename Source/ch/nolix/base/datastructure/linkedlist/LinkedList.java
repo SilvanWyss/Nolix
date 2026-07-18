@@ -58,7 +58,7 @@ implements ILinkedList<E> {
    * @param <T>   the type of the elements of the given array
    * @return a new {@link LinkedList} with the elements in the given array
    * @throws RuntimeException if the given array is null
-   * @throws RuntimeException if one of the elements in the given array is null.
+   * @throws RuntimeException if one of the elements in the given array is null
    */
   public static <T> LinkedList<T> fromArray(final T[] array) {
     Validator.assertThat(array).thatIsNamed(LowerCaseVariableNameCatalog.ARRAY).isNotNull();
@@ -88,7 +88,7 @@ implements ILinkedList<E> {
    * @param element
    * @param <T>     the type of the given element
    * @return a new {@link LinkedList} with the given element
-   * @throws RuntimeException if one of the given element is null.
+   * @throws RuntimeException if one of the given element is null
    */
   @SuppressWarnings("unchecked")
   public static <T> LinkedList<T> withElement(final T... element) {
@@ -645,7 +645,7 @@ implements ILinkedList<E> {
   }
 
   /**
-   * @throws RuntimeException if the current {@link LinkedList} is empty.
+   * @throws RuntimeException if the current {@link LinkedList} is empty
    */
   private void assertContainsAny() {
     if (isEmpty()) {

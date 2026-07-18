@@ -22,7 +22,7 @@ public final class BiggerArgumentException extends AbstractInvalidArgumentExcept
    * @param argument
    * @param argumentName
    * @param max
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private BiggerArgumentException(final double argument, final String argumentName, final double max) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is bigger than " + max));
@@ -35,7 +35,7 @@ public final class BiggerArgumentException extends AbstractInvalidArgumentExcept
    * @param argument
    * @param argumentName
    * @param max
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private BiggerArgumentException(final long argument, final String argumentName, final long max) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto("is bigger than " + max));
@@ -47,7 +47,7 @@ public final class BiggerArgumentException extends AbstractInvalidArgumentExcept
    * @param max
    * @return a new {@link BiggerArgumentException} for the given argument,
    *         argumentName and max
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static BiggerArgumentException forArgumentAndArgumentNameAndMax(
     final double argument,
@@ -62,7 +62,7 @@ public final class BiggerArgumentException extends AbstractInvalidArgumentExcept
    * @param max
    * @return a new {@link BiggerArgumentException} for the given argument,
    *         argumentName and max
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static BiggerArgumentException forArgumentAndArgumentNameAndMax(
     final long argument,

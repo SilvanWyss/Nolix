@@ -15,7 +15,7 @@ public interface IMultiBackReferenceEntryDtoMapper {
    * @param multiBackReferenceEntry
    * @return a new {@link MultiBackReferenceEntryDto} from the given
    *         multiBackReferenceEntry
-   * @throws RuntimeException if the given multiBackReferenceEntry is null.
+   * @throws RuntimeException if the given multiBackReferenceEntry is null
    */
   MultiBackReferenceEntryDto mapMultiBackReferenceEntryToMultiBackReferenceEntryDto(
     IMultiBackReferenceEntry<? extends IEntity> multiBackReferenceEntry);

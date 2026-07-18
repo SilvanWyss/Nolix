@@ -60,7 +60,7 @@ public final class DeepSelectingStyle extends AbstractSelectingStyle {
   /**
    * @param specification
    * @return a new {@link DeepSelectingStyle} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
     String optionalselectorId = null;

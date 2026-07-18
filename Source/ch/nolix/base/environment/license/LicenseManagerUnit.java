@@ -170,7 +170,7 @@ public final class LicenseManagerUnit {
    * @param <L>         is the given licenseType
    * @return the key of the license of the given licenseType from the license
    *         file. The license file is on the local computer
-   * @throws RuntimeException if the given licenseType is null.
+   * @throws RuntimeException if the given licenseType is null
    */
   private <L extends AbstractLicense> String readKeyFromLicenseFile(final Class<L> licenseType) {
     // Asserts that the given licenseType is not null.

@@ -44,7 +44,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
    *         additionalSubStyle
    * @throws RuntimeException if the given additionalSubStyle is not valid
-   * @throws RuntimeException if one of the given additionalSubStyles is null.
+   * @throws RuntimeException if one of the given additionalSubStyles is null
    */
   S withAdditionalSubStyle(ISelectingStyleWithSelectors additionalSubStyle);
 
@@ -53,7 +53,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
    *         additionalSubStyles
    * @throws RuntimeException if the given additionalSubStyles is null
-   * @throws RuntimeException if one of the given additionalSubStyles is null.
+   * @throws RuntimeException if one of the given additionalSubStyles is null
    */
   S withAdditionalSubStyles(ISelectingStyleWithSelectors... additionalSubStyles);
 
@@ -82,7 +82,7 @@ public interface IBaseStyle<S extends IBaseStyle<S>> extends IElement {
    * @return a new {@link IStyle} from the current {@link IStyle} with the given
    *         subStyles added
    * @throws RuntimeException if the given subStyles is null
-   * @throws RuntimeException if one of the given subStyles is not valid.
+   * @throws RuntimeException if one of the given subStyles is not valid
    */
   S withSubStyles(ExtendedIterable<? extends ISelectingStyleWithSelectors> subStyles);
 }

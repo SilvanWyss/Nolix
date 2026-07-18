@@ -27,7 +27,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * @param valueCreator
    * @param needToUpdateSupplier
    * @throws RuntimeException if the given valueCreator is null
-   * @throws RuntimeException if the given needToUpdateSupplier is null.
+   * @throws RuntimeException if the given needToUpdateSupplier is null
    */
   private LazyCalculatedProperty(final Supplier<V> valueCreator, final BooleanSupplier needToUpdateSupplier) {
     Validator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -45,7 +45,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator and
    *         needToUpdateSupplier
    * @throws RuntimeException if the given valueCreator is null
-   * @throws RuntimeException if the given needToUpdateSupplier is null.
+   * @throws RuntimeException if the given needToUpdateSupplier is null
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreaterAndNeedToUpdateSupplier(
     final Supplier<V2> valueCreator,
@@ -58,7 +58,7 @@ public final class LazyCalculatedProperty<V> implements ILazyCalculatedProperty<
    * @param <V2>         the type of the value of the created
    *                     {@link LazyCalculatedProperty}
    * @return a new {@link LazyCalculatedProperty} with the given valueCreator
-   * @throws RuntimeException if the given valueCreator is null.
+   * @throws RuntimeException if the given valueCreator is null
    */
   public static <V2> LazyCalculatedProperty<V2> forValueCreater(final Supplier<V2> valueCreator) {
     final BooleanSupplier needToUpdateSupplier = () -> true;

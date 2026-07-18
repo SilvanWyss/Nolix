@@ -28,7 +28,7 @@ public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableI
    * @param iterator
    * @param mapper
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper is null
    */
   private ExtendedIterableMapperViewIterator(final CopyableIterator<E> iterator, final Function<E, T> mapper) {
     Validator.assertThat(iterator).thatIsNamed(LowerCaseVariableNameCatalog.ITERATOR).isNotNull();
@@ -49,7 +49,7 @@ public final class ExtendedIterableMapperViewIterator<E, T> implements CopyableI
    * @return a new {@link ExtendedIterableMapperViewIterator} with the given
    *         iterator and mapper
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper is null
    */
   public static <T, T2> ExtendedIterableMapperViewIterator<T, T2> forIteratorAndMapper(
     final CopyableIterator<T> iterator,

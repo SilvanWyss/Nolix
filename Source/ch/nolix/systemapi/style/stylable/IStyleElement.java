@@ -36,7 +36,7 @@ public interface IStyleElement<E extends IStyleElement<E>> extends IStylableElem
    * 
    * @param style
    * @return the current {@link IStyleElement}
-   * @throws RuntimeException if the given configuration is null.
+   * @throws RuntimeException if the given configuration is null
    */
   E setStyle(IStyle style);
 }

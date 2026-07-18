@@ -57,7 +57,7 @@ public final class Server extends AbstractServer {
    * @param initialHttpMessage
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given initialHttpMessage is null
-   * @throws RuntimeException if the given initialHttpMessage is blank.
+   * @throws RuntimeException if the given initialHttpMessage is blank
    */
   private Server(final int port, final String initialHttpMessage) {
     // Asserts that the given port is in [0,65535].
@@ -98,7 +98,7 @@ public final class Server extends AbstractServer {
    * @param port
    * @return a new {@link Server} that will listen to {@link AbstractNetEndPoint}s
    *         on the given port
-   * @throws RuntimeException if the given port is not in [0, 65535].
+   * @throws RuntimeException if the given port is not in [0, 65535]
    */
   public static Server forPort(final int port) {
     return new Server(port, DEFAULT_INITIAL_HTTP_MESSAGE);
@@ -113,7 +113,7 @@ public final class Server extends AbstractServer {
    *         browser and close the connection
    * @throws RuntimeException if the given port is not in [0, 65535]
    * @throws RuntimeException if the given initialHttpMessage is null
-   * @throws RuntimeException if the given initialHttpMessage is blank.
+   * @throws RuntimeException if the given initialHttpMessage is blank
    */
   public static Server forPortAndInitialHttpMessage(final int port, final String initialHttpMessage) {
     return new Server(port, initialHttpMessage);

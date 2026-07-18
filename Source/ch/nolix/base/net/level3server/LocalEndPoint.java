@@ -43,7 +43,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
    * @param slot
-   * @throws RuntimeException if the given slot is null.
+   * @throws RuntimeException if the given slot is null
    */
   private LocalEndPoint(final ISlot slot) {
     this.peerType = PeerType.FRONTEND;
@@ -57,7 +57,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * Creates a new {@link LocalEndPoint} with the given counterpart.
    * 
    * @param counterpart
-   * @throws RuntimeException if the given counterpart is null.
+   * @throws RuntimeException if the given counterpart is null
    */
   private LocalEndPoint(LocalEndPoint counterpart) {
     peerType = PeerType.BACKEND;
@@ -80,7 +80,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
    * @param counterpart
    * @param target
    * @throws RuntimeException if the given target is null
-   * @throws RuntimeException if the given target is empty.
+   * @throws RuntimeException if the given target is empty
    */
   private LocalEndPoint(
     final LocalEndPoint counterpart,
@@ -103,7 +103,7 @@ public final class LocalEndPoint extends AbstractEndPoint {
   /**
    * @param slot
    * @return a new {@link LocalEndPoint} that will connect to the given slot
-   * @throws RuntimeException if the given slot is null.
+   * @throws RuntimeException if the given slot is null
    */
   public static LocalEndPoint toSlot(final ISlot slot) {
     return new LocalEndPoint(slot);

@@ -38,7 +38,7 @@ public abstract class AbstractDatabaseInitializer implements IDatabaseInitialize
    * Initializes the database with the given initialSchemaTimeStamp.
    * 
    * @param initialSchemaTimeStamp
-   * @throws RuntimeException if the given initialSchemaTimeStamp is null.
+   * @throws RuntimeException if the given initialSchemaTimeStamp is null
    */
   protected abstract void initializeDatabaseWithInitialSchemaTimestamp(ITime initialSchemaTimeStamp);
 

@@ -18,7 +18,7 @@ public abstract class AbstractMultiArgumentMediator<A> { //NOSONAR: The Abstract
    * Creates a new {@link AbstractMultiArgumentMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given arguments is null..
+   * @throws RuntimeException if the given arguments is null
    */
   protected AbstractMultiArgumentMediator(final Iterable<A> arguments) {
     if (arguments == null) {

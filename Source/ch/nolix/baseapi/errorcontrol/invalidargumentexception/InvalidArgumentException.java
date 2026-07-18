@@ -29,7 +29,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentNameDto
    * @throws RuntimeException if the given argumentNameDto is null
    * @throws RuntimeException if the argumentName of the given argumentNameDto is
-   *                          null or blank.
+   *                          null or blank
    */
   protected InvalidArgumentException(final Object argument, final ArgumentNameDto argumentNameDto) {
     super(argument, argumentNameDto);
@@ -43,7 +43,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    * @param errorPredicateDto
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
-   *                          is null or blank.
+   *                          is null or blank
    */
   protected InvalidArgumentException(final Object argument, final ErrorPredicateDto errorPredicateDto) {
     super(argument, errorPredicateDto);
@@ -61,7 +61,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    *                          null or blank
    * @throws RuntimeException if the given errorPredicateDto is null
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
-   *                          is null or blank.
+   *                          is null or blank
    */
   protected InvalidArgumentException(final Object argument, final ArgumentNameDto argumentNameDto,
     final ErrorPredicateDto errorPredicateDto) {
@@ -84,7 +84,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    * @throws RuntimeException if the errorPredicate of the given errorPredicateDto
    *                          is null or blank
    * @throws RuntimeException if the given causeDto is null
-   * @throws RuntimeException if the cause of the given causeDto is null.
+   * @throws RuntimeException if the cause of the given causeDto is null
    */
   protected InvalidArgumentException(
     final Object argument,
@@ -121,7 +121,7 @@ public final class InvalidArgumentException extends AbstractInvalidArgumentExcep
    * @param argumentName
    * @return a new {@link InvalidArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static InvalidArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {
     return new InvalidArgumentException(argument, new ArgumentNameDto(argumentName));

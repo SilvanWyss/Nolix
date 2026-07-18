@@ -22,7 +22,7 @@ public final class ForCountMediator implements IForCountMediator {
    * Creates a new {@link ForCountMediator} with the given maxRunCount.
    * 
    * @param maxRunCount
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative
    */
   private ForCountMediator(final int maxRunCount) {
     Validator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -33,7 +33,7 @@ public final class ForCountMediator implements IForCountMediator {
   /**
    * @param maxRunCount
    * @return a new {@link ForCountMediator} with the given maxRunCount
-   * @throws RuntimeException if the given maxRunCount is negative.
+   * @throws RuntimeException if the given maxRunCount is negative
    */
   public static ForCountMediator forMaxRunCount(final int maxRunCount) {
     return new ForCountMediator(maxRunCount);

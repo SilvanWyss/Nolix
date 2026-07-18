@@ -29,7 +29,7 @@ final class ResultJobExecutor<R> extends Thread {
    * resultJob.
    * 
    * @param resultJob
-   * @throws RuntimeException if the given resultJob is null.
+   * @throws RuntimeException if the given resultJob is null
    */
   private ResultJobExecutor(final Supplier<R> resultJob) {
     Validator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
@@ -45,7 +45,7 @@ final class ResultJobExecutor<R> extends Thread {
    * @return a new {@link ResultJobExecutor} for the given resultJob. The
    *         {@link ResultJobExecutor} will start automatically to execute the
    *         given resultJob
-   * @throws RuntimeException if the given resultJob is null.
+   * @throws RuntimeException if the given resultJob is null
    */
   public static <R> ResultJobExecutor<R> forResultJob(final Supplier<R> resultJob) {
     return new ResultJobExecutor<>(resultJob);

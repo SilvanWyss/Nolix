@@ -66,7 +66,7 @@ extends AbstractElement implements ITime {
    * Creates a new {@link Time} with the given zonedDateTime.
    * 
    * @param zonedDateTime
-   * @throws RuntimeException if the given zonedDateTime is null.
+   * @throws RuntimeException if the given zonedDateTime is null
    */
   private Time(final ZonedDateTime zonedDateTime) {
     Validator.assertThat(zonedDateTime).thatIsNamed(ZonedDateTime.class).isNotNull();
@@ -78,7 +78,7 @@ extends AbstractElement implements ITime {
    * @return a new {@link Time} for the given zonedDateTime.
    * 
    * @param zonedDateTime
-   * @throws RuntimeException if the given zonedDateTime is null.
+   * @throws RuntimeException if the given zonedDateTime is null
    */
   public static Time forZonedDateTime(final ZonedDateTime zonedDateTime) {
     return new Time(zonedDateTime);

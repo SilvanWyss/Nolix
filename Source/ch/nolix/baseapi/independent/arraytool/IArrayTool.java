@@ -12,14 +12,14 @@ public interface IArrayTool {
   /**
    * @param bytes
    * @return a new {@link Iterable} with the given bytes
-   * @throws RuntimeException if the given bytes is null.
+   * @throws RuntimeException if the given bytes is null
    */
   Iterable<Byte> createIterable(byte[] bytes);
 
   /**
    * @param values
    * @return a new {@link Iterable} with the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   Iterable<Double> createIterable(double[] values);
 
@@ -34,21 +34,21 @@ public interface IArrayTool {
   /**
    * @param values
    * @return a new {@link Iterable} with the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   Iterable<Long> createIterable(int[] values);
 
   /**
    * @param values
    * @return a new {@link Iterable} with the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   Iterable<Long> createIterable(long[] values);
 
   /**
    * @param values
    * @return a {@link String} representation of the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   String createString(long[] values);
 }

@@ -23,7 +23,7 @@ final class Slot implements ISlot {
    * @param name
    * @param parentServer
    * @throws RuntimeException if given name is null or blank
-   * @throws RuntimeException if the given parentServer is null.
+   * @throws RuntimeException if the given parentServer is null
    */
   private Slot(final String name, final AbstractServer<?> parentServer) {
     Validator.assertThat(name).thatIsNamed(LowerCaseVariableNameCatalog.NAME).isNotBlank();
@@ -39,7 +39,7 @@ final class Slot implements ISlot {
    * @return a new {@ServerSlot} with the given name and that will belong to the
    *         given parentServer
    * @throws RuntimeException if given name is null or blank
-   * @throws RuntimeException if the given parentServer is null.
+   * @throws RuntimeException if the given parentServer is null
    */
   public static Slot withNameAndParentServer(final String name, final AbstractServer<?> parentServer) {
     return new Slot(name, parentServer);

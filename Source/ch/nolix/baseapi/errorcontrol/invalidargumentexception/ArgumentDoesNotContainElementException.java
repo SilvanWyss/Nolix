@@ -52,7 +52,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
    * @param argument     - Can be null
    * @param argumentName
    * @param element      - Can be null
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private ArgumentDoesNotContainElementException(
     final Object argument,
@@ -79,7 +79,7 @@ public final class ArgumentDoesNotContainElementException extends AbstractInvali
    * @param element      - Can be null
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
    *         argument, argumentName and element
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static ArgumentDoesNotContainElementException forArgumentAndArgumentNameAndElement(
     final Object argument,

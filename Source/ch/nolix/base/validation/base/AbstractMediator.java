@@ -25,7 +25,7 @@ public abstract class AbstractMediator { //NOSONAR: A AbstractMediator does not 
    * Creates a new argument {@link AbstractMediator} with the given argumentName.
    * 
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   protected AbstractMediator(final String argumentName) {
     if (argumentName == null) {

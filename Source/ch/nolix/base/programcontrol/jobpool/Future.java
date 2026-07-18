@@ -13,7 +13,7 @@ public final class Future extends AbstractFuture {
    * Creates a new {@link Future} for the given jobWrapper.
    * 
    * @param jobWrapper
-   * @throws RuntimeException if the given jobWrapper is null.
+   * @throws RuntimeException if the given jobWrapper is null
    */
   private Future(final JobWrapper jobWrapper) {
     Validator.assertThat(jobWrapper).thatIsNamed(JobWrapper.class).isNotNull();
@@ -24,7 +24,7 @@ public final class Future extends AbstractFuture {
   /**
    * @param jobWrapper
    * @return a new {@link Future} for the given jobWrapper
-   * @throws RuntimeException if the given jobWrapper is null.
+   * @throws RuntimeException if the given jobWrapper is null
    */
   public static Future forJobWrapper(final JobWrapper jobWrapper) {
     return new Future(jobWrapper);

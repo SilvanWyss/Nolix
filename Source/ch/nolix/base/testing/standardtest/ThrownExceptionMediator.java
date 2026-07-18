@@ -25,7 +25,7 @@ public final class ThrownExceptionMediator extends AbstractThrownExceptionMediat
    * Creates a new {@link ThrownExceptionMediator} for the given exception.
    * 
    * @param exception
-   * @throws RuntimeException if the given exception is null.
+   * @throws RuntimeException if the given exception is null
    */
   private ThrownExceptionMediator(final Throwable exception) {
     // Calls constructor of the base class.
@@ -35,7 +35,7 @@ public final class ThrownExceptionMediator extends AbstractThrownExceptionMediat
   /**
    * @param exception
    * @return a new {@link ThrownExceptionMediator} for the given exception
-   * @throws RuntimeException if the given exception is null.
+   * @throws RuntimeException if the given exception is null
    */
   public static ThrownExceptionMediator forExcetpion(final Throwable exception) {
     return new ThrownExceptionMediator(exception);

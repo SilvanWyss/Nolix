@@ -16,7 +16,7 @@ public interface IDatabaseComponentCreator {
    * @return a new database properties node with the given name and
    *         initialSchemaTimeStamp
    * @throws RuntimeException if the given name is null or blank
-   * @throws RuntimeException if the given initialSchemaTimeStamp is null.
+   * @throws RuntimeException if the given initialSchemaTimeStamp is null
    */
   IMutableNode<?> createDatabasePropertiesNodeWithDatabaseNameAndInitialSchemaTimeStamp(
     String databaseName,
@@ -37,7 +37,7 @@ public interface IDatabaseComponentCreator {
   /**
    * @param initialSchemaTimeStamp
    * @return a new schema timestamp node with the given initialSchemaTimeStamp
-   * @throws RuntimeException if the given initialSchemaTimeStamp is null.
+   * @throws RuntimeException if the given initialSchemaTimeStamp is null
    */
   IMutableNode<?> createSchemaTimestampNodeWithInitialSchemaTimeStamp(ITime initialSchemaTimeStamp);
 }

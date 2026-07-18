@@ -20,7 +20,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
    * Creates a new {@link MultiDoubleMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   private MultiDoubleMediator(final Iterable<Double> arguments) {
     super(arguments);
@@ -29,7 +29,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
   /**
    * @param arguments
    * @return a new {@link MultiDoubleMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiDoubleMediator forArugments(final double[] arguments) {
     final var argumentsIterable = ARRAY_TOOL.createIterable(arguments);
@@ -40,7 +40,7 @@ public final class MultiDoubleMediator extends AbstractMultiArgumentMediator<Dou
   /**
    * @param arguments
    * @return a new {@link MultiDoubleMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static MultiDoubleMediator forArugments(final Iterable<Double> arguments) {
     return new MultiDoubleMediator(arguments);

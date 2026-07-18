@@ -37,7 +37,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * Creates a new {@link ExtendedIterableView} for the given container.
    * 
    * @param container
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    */
   private ExtendedIterableView(final ExtendedIterable<E> container) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
@@ -59,7 +59,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @param array
    * @param <T>   the type of the elements of the given array
    * @return a new {@link ExtendedIterableView} for the given array
-   * @throws RuntimeException if the given array is null.
+   * @throws RuntimeException if the given array is null
    */
   public static <T> ExtendedIterableView<T> forArray(final T[] array) {
     final var container = ArrayExtendedIterableView.forArray(array);
@@ -72,7 +72,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @param <T>    the type of the elements of the given arrays
    * @return a new {@link ExtendedIterableView} for the given arrays
    * @throws RuntimeException if the given arrays is null
-   * @throws RuntimeException if one of the given arrays is null.
+   * @throws RuntimeException if one of the given arrays is null
    */
   @SafeVarargs
   public static <T> ExtendedIterableView<T> forArrays(final T[]... arrays) {
@@ -112,7 +112,7 @@ public final class ExtendedIterableView<E> extends AbstractExtendedIterable<E> {
    * @param <T>       the type of the elements of the given iterables
    * @return a new {@link ExtendedIterableView} for the given iterables
    * @throws RuntimeException if the given iterables is null
-   * @throws RuntimeException if one of the given iterables is null.
+   * @throws RuntimeException if one of the given iterables is null
    */
   @SafeVarargs
   public static <T> ExtendedIterableView<T> forIterables(final Iterable<? extends T>... iterables) {

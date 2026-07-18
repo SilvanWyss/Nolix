@@ -76,7 +76,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    *         {@link ISelectingStyleWithSelectors} with the given
    *         additionalSelectorRoles
    * @throws RuntimeException if the given additionalSelectorRoles is null
-   * @throws RuntimeException if one of the given additionalSelectorRoles is null.
+   * @throws RuntimeException if one of the given additionalSelectorRoles is null
    */
   ISelectingStyleWithSelectors withAdditionalSelectorRoles(Enum<?>... additionalSelectorRoles);
 
@@ -138,7 +138,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param selectorId
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorId set
-   * @throws RuntimeException if the given selectorId is null or blank.
+   * @throws RuntimeException if the given selectorId is null or blank
    */
   ISelectingStyleWithSelectors withSelectorId(String selectorId);
 
@@ -146,7 +146,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorType set
-   * @throws RuntimeException if the given selectorType is null.
+   * @throws RuntimeException if the given selectorType is null
    */
   ISelectingStyleWithSelectors withSelectorType(final Class<?> selectorType);
 
@@ -154,7 +154,7 @@ public interface ISelectingStyleWithSelectors extends ISelectingStyle<ISelecting
    * @param selectorType
    * @return a new {@link ISelectingStyleWithSelectors} from the current
    *         {@link ISelectingStyleWithSelectors} with the given selectorType set
-   * @throws RuntimeException if the given selectorType is null or blank.
+   * @throws RuntimeException if the given selectorType is null or blank
    */
   ISelectingStyleWithSelectors withSelectorType(String selectorType);
 }

@@ -13,7 +13,7 @@ public interface IColumnDtoMapper {
   /**
    * @param sqlRecordWithNameAndDataType
    * @return a new {@link ColumnDto} from the given sqlRecordWithNameAndDataType
-   * @throws RuntimeException if the given sqlRecordWithNameAndDataType is null.
+   * @throws RuntimeException if the given sqlRecordWithNameAndDataType is null
    */
   ColumnDto mapSqlRecordWithNameAndDataTypeToColumnDto(ISqlRecord sqlRecordWithNameAndDataType);
 
@@ -22,7 +22,7 @@ public interface IColumnDtoMapper {
    * @return a new {@link ColumnDto} from the given
    *         sqlRecordWithTableNameAndNameAndDataType
    * @throws RuntimeException if the given
-   *                          sqlRecordWithTableNameAndNameAndDataType is null.
+   *                          sqlRecordWithTableNameAndNameAndDataType is null
    */
   ColumnDto mapSqlRecordWithTableNameAndNameAndDataTypeToColumnDto(ISqlRecord sqlRecordWithTableNameAndNameAndDataType);
 }

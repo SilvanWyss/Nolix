@@ -15,7 +15,7 @@ public interface IColumnSchemaViewDtoMapper {
    * @param oneBasedColumnOrdinalIndex
    * @return a new {@link ColumnInfoDto} from the given columnNode and
    *         oneBasedColumnOrdinalIndex
-   * @throws RuntimeException if the given columnNode is null.
+   * @throws RuntimeException if the given columnNode is null
    */
   ColumnInfoDto mapColumnNodeToColumnViewDto(IMutableNode<?> columnNode, int oneBasedColumnOrdinalIndex);
 }

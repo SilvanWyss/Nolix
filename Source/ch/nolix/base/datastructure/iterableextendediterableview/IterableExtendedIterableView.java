@@ -34,7 +34,7 @@ public final class IterableExtendedIterableView<E> extends AbstractExtendedItera
    * 
    * @param container
    * @param <T>       the type of the elements of the given container
-   * @throws RuntimeException if the given container is null.
+   * @throws RuntimeException if the given container is null
    */
   @SuppressWarnings("unchecked")
   private <T extends E> IterableExtendedIterableView(final Iterable<T> container) {

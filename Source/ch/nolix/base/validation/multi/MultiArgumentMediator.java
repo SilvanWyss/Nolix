@@ -18,7 +18,7 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
    * Creates a new {@link MultiArgumentMediator} for the given arguments.
    * 
    * @param arguments
-   * @throws RuntimeException if the given arguments is null..
+   * @throws RuntimeException if the given arguments is null
    */
   private MultiArgumentMediator(final Iterable<A> arguments) {
     super(arguments);
@@ -29,7 +29,7 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
    * @param <T>       the type of the arguments of the created
    *                  {@link MultiArgumentMediator}
    * @return a new {@link MultiArgumentMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static <T> MultiArgumentMediator<T> forArguments(final T[] arguments) {
     final var argumentsIterable = ARRAY_TOOL.createIterable(arguments);
@@ -42,7 +42,7 @@ public final class MultiArgumentMediator<A> extends AbstractMultiArgumentMediato
    * @param <T>       the type of the arguments of the created
    *                  {@link MultiArgumentMediator}
    * @return a new {@link MultiArgumentMediator} for the given arguments
-   * @throws RuntimeException if the given arguments is null.
+   * @throws RuntimeException if the given arguments is null
    */
   public static <T> MultiArgumentMediator<T> forArguments(final Iterable<T> arguments) {
     return new MultiArgumentMediator<>(arguments);

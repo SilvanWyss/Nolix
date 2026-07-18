@@ -26,7 +26,7 @@ final class ClientDataProviderController implements IDataProviderController {
    * parentClient.
    * 
    * @param parentClient
-   * @throws RuntimeException if the given parentClient is null.
+   * @throws RuntimeException if the given parentClient is null
    */
   private ClientDataProviderController(final AbstractClient<?> parentClient) {
     Validator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
@@ -37,7 +37,7 @@ final class ClientDataProviderController implements IDataProviderController {
   /**
    * @param client
    * @return a new {@link ClientDataProviderController} for the given client
-   * @throws RuntimeException if the given client is null.
+   * @throws RuntimeException if the given client is null
    */
   public static ClientDataProviderController forClient(final AbstractClient<?> client) {
     return new ClientDataProviderController(client);

@@ -64,7 +64,7 @@ public abstract class AbstractNode<N extends AbstractNode<N>> implements INode<N
   /**
    * @param escapeString
    * @return the origin {@link String} from the given escapeString
-   * @throws NullPointerException if the given escapeString is null.
+   * @throws NullPointerException if the given escapeString is null
    */
   public static String getOriginStringFromEscapeString(final String escapeString) {
     return //

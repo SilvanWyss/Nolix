@@ -11,7 +11,7 @@ import ch.nolix.baseapi.resourcecontrol.closecontroller.CloseStateRequestable;
 public interface IResourceValidator {
   /**
    * @param resource
-   * @throws RuntimeException if the given resource is null or closed.
+   * @throws RuntimeException if the given resource is null or closed
    */
   void assertIsOpen(CloseStateRequestable resource);
 }

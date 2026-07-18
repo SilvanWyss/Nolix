@@ -31,7 +31,7 @@ public interface IColumnValidator {
 
   /**
    * @param column
-   * @throws RuntimeException if the given column is not a base reference column.
+   * @throws RuntimeException if the given column is not a base reference column
    */
   void assertIsBaseReferenceColumn(IColumn column);
 }

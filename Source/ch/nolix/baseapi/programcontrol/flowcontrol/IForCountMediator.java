@@ -15,7 +15,7 @@ public interface IForCountMediator {
    * Lets the current {@link IForCountMediator} run the given job.
    * 
    * @param job
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   void run(Runnable job);
 
@@ -23,7 +23,7 @@ public interface IForCountMediator {
    * Lets the current {@link IForCountMediator} run the given job.
    * 
    * @param job
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   void run(IntConsumer job);
 
@@ -32,7 +32,7 @@ public interface IForCountMediator {
    * 
    * @param job
    * @return a new {@link IFuture} for the job execution
-   * @throws RuntimeException if the given job is null.
+   * @throws RuntimeException if the given job is null
    */
   IFuture runInBackground(Runnable job);
 }

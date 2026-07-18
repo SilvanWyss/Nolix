@@ -29,7 +29,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param min
    * @param max
    * @throws RuntimeException if the given min is null
-   * @throws RuntimeException if the given max is null.
+   * @throws RuntimeException if the given max is null
    */
   private ClosedInterval(final BigDecimal min, final BigDecimal max) {
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableNameCatalog.MINIMUM).isNotNull();
@@ -50,7 +50,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param decimalPlaceCount
    * @throws RuntimeException if the given min is null
    * @throws RuntimeException if the given max is null
-   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive
    */
   private ClosedInterval(final BigDecimal min, final BigDecimal max, final int decimalPlaceCount) {
     Validator.assertThat(min).thatIsNamed(LowerCaseVariableNameCatalog.MINIMUM).isNotNull();
@@ -79,7 +79,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param min
    * @param max
    * @param decimalPlaceCount
-   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive
    */
   private ClosedInterval(final double min, final double max, final int decimalPlaceCount) {
     this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), decimalPlaceCount);
@@ -91,7 +91,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @return a new {@link ClosedInterval} with the given min, max and their max
    *         decimal place count
    * @throws RuntimeException if the given min is null
-   * @throws RuntimeException if the given max is null.
+   * @throws RuntimeException if the given max is null
    */
   public static ClosedInterval withMinAndMax(final BigDecimal min, final BigDecimal max) {
     return new ClosedInterval(min, max);
@@ -105,7 +105,7 @@ public final class ClosedInterval implements IClosedInterval {
    *         decimalPlaceCount
    * @throws RuntimeException if the given min is null
    * @throws RuntimeException if the given max is null
-   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive
    */
   public static ClosedInterval withMinAndMaxAndDecimalPlaceCount(
     final BigDecimal min,
@@ -130,7 +130,7 @@ public final class ClosedInterval implements IClosedInterval {
    * @param decimalPlaceCount
    * @return a new {@link ClosedInterval} with the given min, max and
    *         decimalPlaceCount
-   * @throws RuntimeException if the given decimalPlaceCount is not positive.
+   * @throws RuntimeException if the given decimalPlaceCount is not positive
    */
   public static ClosedInterval withMinAndMaxAndDecimalPlaceCount(
     final double min,

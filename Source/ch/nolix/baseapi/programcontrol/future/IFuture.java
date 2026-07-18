@@ -51,7 +51,7 @@ public interface IFuture extends FinishRequestable {
   /**
    * Lets the current {@link IFuture} wait until it is finished successfully.
    * 
-   * @throws RuntimeException if the current {@link IFuture} catches an error.
+   * @throws RuntimeException if the current {@link IFuture} catches an error
    */
   void waitUntilIsFinishedSuccessfully();
 

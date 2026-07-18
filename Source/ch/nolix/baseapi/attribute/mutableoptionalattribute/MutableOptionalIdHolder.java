@@ -21,7 +21,7 @@ public interface MutableOptionalIdHolder extends OptionalIdHolder {
    * Sets the id of the current {@link MutableOptionalIdHolder}.
    * 
    * @param id
-   * @throws RuntimeException if the given id is null or blank.
+   * @throws RuntimeException if the given id is null or blank
    */
   void setId(String id);
 }

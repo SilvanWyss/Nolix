@@ -73,7 +73,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param paramEnum
    * @return a new {@link ImmutableNode} from the given paramEnum. throws
-   *         RuntimeException if the given paramEnum is null.
+   *         RuntimeException if the given paramEnum is null
    */
   public static ImmutableNode fromEnum(final Enum<?> paramEnum) {
     final var header = getTypeNameOfEnum(paramEnum);
@@ -100,7 +100,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param node
    * @return a new {@link ImmutableNode} from the given {@link INode}
-   * @throws RuntimeException if the given node is null.
+   * @throws RuntimeException if the given node is null
    */
   public static ImmutableNode fromNode(final INode<?> node) {
     if (node instanceof final ImmutableNode localNode) {
@@ -155,7 +155,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
   /**
    * @param childNode
    * @return a new {@link ImmutableNode} with the given childNode
-   * @throws RuntimeException if the given childNode is null.
+   * @throws RuntimeException if the given childNode is null
    */
   public static ImmutableNode withChildNode(final INode<?> childNode) {
     final var nodeChildNode = fromNode(childNode);
@@ -282,7 +282,7 @@ public final class ImmutableNode extends AbstractNode<ImmutableNode> {
    * @param childNode
    * @return a new {@link ImmutableNode} with the given header and childNode
    * @throws RuntimeException if the given header is null or blank
-   * @throws RuntimeException if the given childNode is null.
+   * @throws RuntimeException if the given childNode is null
    */
   public static ImmutableNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
     final var nodeChildNode = fromNode(childNode);

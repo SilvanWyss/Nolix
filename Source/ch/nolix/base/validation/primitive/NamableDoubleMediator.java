@@ -30,7 +30,7 @@ public final class NamableDoubleMediator extends AbstractDoubleMediator {
    * @param argumentName
    * @return a new {@link NamableDoubleMediator} for the argument of the current
    *         {@link NamableDoubleMediator} and the given argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public DoubleMediator thatIsNamed(final String argumentName) {
     return DoubleMediator.forArgumentAndArgumentName(getArgument(), argumentName);

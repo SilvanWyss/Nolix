@@ -157,7 +157,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    * @throws RuntimeException if there does not exist a file with the given
    *                          relative path in the folder of the current
    *                          {@link FolderAccessor}
-   * @throws RuntimeException if an error occurs.
+   * @throws RuntimeException if an error occurs
    */
   public String readFile(final String relativePath) {
     return FileAccessor.withFilePath(getPath() + "/" + relativePath).readFile();

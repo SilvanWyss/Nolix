@@ -127,7 +127,7 @@ implements IBackendClient<S> {
    * Pushes the given session to the current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @throws RuntimeException if the given session is null.
+   * @throws RuntimeException if the given session is null
    */
   final void internalPush(final AbstractSession<C, S> session) {
     sessionManager.pushSession(session);
@@ -139,7 +139,7 @@ implements IBackendClient<S> {
    * @param session
    * @param <R>     the type of the returned result
    * @return the result from the given session
-   * @throws RuntimeException if the given session is null.
+   * @throws RuntimeException if the given session is null
    */
   final <R> R internalPushAndGetResult(final AbstractSession<C, S> session) {
     return sessionManager.pushSessionAndGetResult(session);
@@ -153,7 +153,7 @@ implements IBackendClient<S> {
    * current {@link AbstractBackendClient}.
    * 
    * @param session
-   * @throws RuntimeException if the given session is null.
+   * @throws RuntimeException if the given session is null
    */
   final void internalSetCurrentSession(final AbstractSession<C, S> session) {
     sessionManager.setCurrentSession(session);

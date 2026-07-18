@@ -17,7 +17,7 @@ public interface ITableDtoMapper {
    * @return a new {@link TableDto} from the given sqlRecordsWithNameAndDataType
    * @throws RuntimeException if the given sqlRecordsWithNameAndDataType is null
    * @throws RuntimeException if the given one of the given
-   *                          sqlRecordsWithNameAndDataType is null.
+   *                          sqlRecordsWithNameAndDataType is null
    */
   TableDto mapSqlRecordsWithNameAndDataTypeToTableDto(
     String tableName,
@@ -30,7 +30,7 @@ public interface ITableDtoMapper {
    * @throws RuntimeException if the given
    *                          sqlRecordsWithTableNameAndNameAndDataType is null
    * @throws RuntimeException if the given one of the given
-   *                          sqlRecordsWithTableNameAndNameAndDataType is null.
+   *                          sqlRecordsWithTableNameAndNameAndDataType is null
    */
   ExtendedIterable<TableDto> mapSqlRecordsWithTableNameAndNameAndDataTypeToTableDtos(
     ExtendedIterable<ISqlRecord> sqlRecordsWithTableNameAndNameAndDataType);

@@ -23,7 +23,7 @@ public final class PositiveArgumentException extends AbstractInvalidArgumentExce
    * 
    * @param argument
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private PositiveArgumentException(final long argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -34,7 +34,7 @@ public final class PositiveArgumentException extends AbstractInvalidArgumentExce
    * @param argumentName
    * @return a new {@link PositiveArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static PositiveArgumentException forArgumentAndArgumentName(final long argument, final String argumentName) {
     return new PositiveArgumentException(argument, argumentName);

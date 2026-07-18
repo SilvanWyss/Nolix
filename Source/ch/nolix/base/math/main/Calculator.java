@@ -84,7 +84,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the average of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static double getAverage(final double... values) {
     return BASIC_CALCULATOR.getAverage(values);
@@ -93,7 +93,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the average of the given values
-   * @throws RuntimeException if the given values is empty.
+   * @throws RuntimeException if the given values is empty
    */
   public static double getAverage(final Iterable<Double> values) {
     return BASIC_CALCULATOR.getAverage(values);
@@ -102,7 +102,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the average of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static int getAverage(final int... values) {
     return BASIC_CALCULATOR.getAverage(values);
@@ -112,7 +112,7 @@ public final class Calculator {
    * @param values
    * @return the average of the given values
    * @throws RuntimeException if the given values is empty
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static long getAverage(final long... values) {
     return BASIC_CALCULATOR.getAverage(values);
@@ -122,7 +122,7 @@ public final class Calculator {
    * @param pOrder
    * @param inputValues
    * @return a new {@link ARModel} with the given pOrder and inputValues
-   * @throws RuntimeException if the given pOrder is negative.
+   * @throws RuntimeException if the given pOrder is negative
    */
   public static ARModel getARModell(final int pOrder, final double[] inputValues) {
     return ARModel.withOrderAndInputValues(pOrder, inputValues);
@@ -171,7 +171,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the biggest value of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static double getMax(final double... values) {
     return BASIC_CALCULATOR.getMax(values);
@@ -180,7 +180,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the biggest value of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static int getMax(final int... values) {
     return BASIC_CALCULATOR.getMax(values);
@@ -189,7 +189,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the biggest value of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static long getMax(final long... values) {
     return BASIC_CALCULATOR.getMax(values);
@@ -198,7 +198,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the smallest value of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static double getMin(final double... values) {
     return BASIC_CALCULATOR.getMin(values);
@@ -207,7 +207,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the smallest value of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static int getMin(final int... values) {
     return BASIC_CALCULATOR.getMin(values);
@@ -216,7 +216,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the smallest value of the given values
-   * @throws RuntimeException if the given values is null or empty.
+   * @throws RuntimeException if the given values is null or empty
    */
   public static long getMin(final long... values) {
     return BASIC_CALCULATOR.getMin(values);
@@ -249,7 +249,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the sum of the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   public static double getSum(final double... values) {
     return BASIC_CALCULATOR.getSum(values);
@@ -258,7 +258,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the sum of the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   public static int getSum(final int... values) {
     return BASIC_CALCULATOR.getSum(values);
@@ -267,7 +267,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the sum of the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   public static double getSum(final Iterable<Double> values) {
     return BASIC_CALCULATOR.getSum(values);
@@ -276,7 +276,7 @@ public final class Calculator {
   /**
    * @param values
    * @return the sum of the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   public static long getSum(final long... values) {
     return BASIC_CALCULATOR.getSum(values);

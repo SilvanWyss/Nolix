@@ -21,7 +21,7 @@ public final class SslServerEndPoint extends AbstractNetEndPoint {
    * Creates a new {@link SslServerEndPoint} with the given channelHandlerContext.
    *
    * @param channelHandlerContext
-   * @throws RuntimeException if the given channelHandlerContext is null.
+   * @throws RuntimeException if the given channelHandlerContext is null
    */
   private SslServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
@@ -34,7 +34,7 @@ public final class SslServerEndPoint extends AbstractNetEndPoint {
   /**
    * @param channelHandlerContext
    * @return a new {@link SslServerEndPoint} with the given channelHandlerContext
-   * @throws RuntimeException if the given channelHandlerContext is null.
+   * @throws RuntimeException if the given channelHandlerContext is null
    */
   public static SslServerEndPoint withChannelHandlerContext(final ChannelHandlerContext channelHandlerContext) {
     return new SslServerEndPoint(channelHandlerContext);

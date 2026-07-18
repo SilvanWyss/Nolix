@@ -31,7 +31,7 @@ public final class ValueProxy implements IValueProxy {
    * @param valueSpecificationSupplier
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueSpecificationConsumer is null
-   * @throws RuntimeException if the given valueSpecificationSupplier is null.
+   * @throws RuntimeException if the given valueSpecificationSupplier is null
    */
   private ValueProxy(
     final String name,
@@ -54,7 +54,7 @@ public final class ValueProxy implements IValueProxy {
    *         valueSpecificationConsumer and valueSpecificationSupplier
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueSpecificationConsumer is null
-   * @throws RuntimeException if the given valueSpecificationSupplier is null.
+   * @throws RuntimeException if the given valueSpecificationSupplier is null
    */
   public static ValueProxy withNameAndValueSpecificationConsumerAndValueSpecificationSupplier(
     final String name,

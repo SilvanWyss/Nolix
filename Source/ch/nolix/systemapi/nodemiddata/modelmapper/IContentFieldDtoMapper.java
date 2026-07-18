@@ -19,7 +19,7 @@ public interface IContentFieldDtoMapper {
    * @param columnView
    * @return a new {@link FieldDto} from the given contentFieldNode
    * @throws RuntimeException if the given contentFieldNode is null
-   * @throws RuntimeException if the given columnView is null.
+   * @throws RuntimeException if the given columnView is null
    */
   FieldDto mapContentFieldNodeToContentFieldDto(
     INode<?> contentFieldNode,
@@ -29,7 +29,7 @@ public interface IContentFieldDtoMapper {
    * @param entityNode
    * @param tableView
    * @return new {ContentFieldDto}s from the given entityNode
-   * @throws RuntimeException if the given entityNode is null.
+   * @throws RuntimeException if the given entityNode is null
    */
   ExtendedIterable<FieldDto> mapEntityNodeToContentFieldDtos(
     IMutableNode<?> entityNode,

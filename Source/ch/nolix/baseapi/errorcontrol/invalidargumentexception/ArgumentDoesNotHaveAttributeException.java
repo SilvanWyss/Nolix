@@ -25,7 +25,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * 
    * @param argument      - Can be null
    * @param attributeType
-   * @throws RuntimeException if the given attributeType is null.
+   * @throws RuntimeException if the given attributeType is null
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
     super(argument, new ErrorPredicateDto("does not have a " + getNameOfAttributeType(attributeType)));
@@ -37,7 +37,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * 
    * @param argument      - Can be null
    * @param attributeName
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
     super(
@@ -53,7 +53,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @param argumentName
    * @param attributeType
    * @throws RuntimeException if the given argumentName is null or blank
-   * @throws RuntimeException if the given attributeType is null.
+   * @throws RuntimeException if the given attributeType is null
    */
   private ArgumentDoesNotHaveAttributeException(
     final Object argument,
@@ -73,7 +73,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @param argumentName
    * @param attributeName
    * @throws RuntimeException if the given argumentName is null or blank
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   private ArgumentDoesNotHaveAttributeException(
     final Object argument,
@@ -90,7 +90,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @param attributeName
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
    *         argument and attributeName
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeName(
     final Object argument,
@@ -103,7 +103,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @param attributeType
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
    *         argument and attributeType
-   * @throws RuntimeException if the given attributeType is null.
+   * @throws RuntimeException if the given attributeType is null
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeType(
     final Object argument,
@@ -118,7 +118,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
    *         argument, argumentName and attributeName
    * @throws RuntimeException if the given argumentName is null or blank
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndArgumentNameAndAttributeName(
     final Object argument,
@@ -134,7 +134,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
    *         argument, argumentName and attributeType
    * @throws RuntimeException if the given argumentName is null or blank
-   * @throws RuntimeException if the given attributeType is null.
+   * @throws RuntimeException if the given attributeType is null
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndArgumentNameAndAttributeType(
     final String argumentName,
@@ -146,7 +146,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
   /**
    * @param attributeType
    * @return the name of the given attribtueType
-   * @throws RuntimeException if the given attribtueType is null.
+   * @throws RuntimeException if the given attribtueType is null
    */
   private static String getNameOfAttributeType(final Class<?> attributeType) {
     if (attributeType == null) {
@@ -165,7 +165,7 @@ public final class ArgumentDoesNotHaveAttributeException extends AbstractInvalid
   /**
    * @param attributeName
    * @return a validated attribute name from the given attributeName
-   * @throws RuntimeException if the given attributeName is null or blank.
+   * @throws RuntimeException if the given attributeName is null or blank
    */
   private static String getValidatedAttributeNameFromAttributeName(final String attributeName) {
     if (attributeName == null) {

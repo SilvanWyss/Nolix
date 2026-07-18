@@ -43,7 +43,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given getter is null
    * @throws RuntimeException if the given valueMapper is null
-   * @throws RuntimeException if the given specificationMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null
    */
   private MultiValueProxy(
     final String name,
@@ -78,7 +78,7 @@ public final class MultiValueProxy<V> implements IMultiValueProxy {
    * @throws RuntimeException if the given adder is null
    * @throws RuntimeException if the given getter is null
    * @throws RuntimeException if the given valueMapper is null
-   * @throws RuntimeException if the given specificationMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null
    */
   public static <T> MultiValueProxy<T> withNameAndAdderAndGetterAndValueMapperAndSpecificationMapper(
     final String name,

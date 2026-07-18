@@ -74,7 +74,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @throws RuntimeException if the given side1Thickness is negative
    * @throws RuntimeException if the given side2Thickness is negative
    * @throws RuntimeException if the given blurRadius is negative
-   * @throws RuntimeException if the given color is null.
+   * @throws RuntimeException if the given color is null
    */
   private CornerShadow(
     final Corner corner,
@@ -100,7 +100,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
   /**
    * @param cornerShadow
    * @return a {@link CornerShadow} from the given cornerShadow
-   * @throws RuntimeException if the given cornerShadow is null.
+   * @throws RuntimeException if the given cornerShadow is null
    */
   public static CornerShadow fromCornerShadow(final ICornerShadow cornerShadow) {
     if (cornerShadow instanceof CornerShadow localCornerShadow) {
@@ -127,7 +127,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
   /**
    * @param specification
    * @return a {@link CornerShadow} from the given specification
-   * @throws RuntimeException if the given specification is not valid.
+   * @throws RuntimeException if the given specification is not valid
    */
   public static CornerShadow fromSpecification(final INode<?> specification) {
     var corner = DEFAULT_CORNER;
@@ -189,7 +189,7 @@ public final class CornerShadow extends AbstractElement implements ICornerShadow
    * @throws RuntimeException if the given side1Thickness is negative
    * @throws RuntimeException if the given side2Thickness is negative
    * @throws RuntimeException if the given blurRadius is negative
-   * @throws RuntimeException if the given color is null.
+   * @throws RuntimeException if the given color is null
    */
   public static CornerShadow withCornerAndLocationAndSide1ThicknessAnsSide2ThicknessAndBlurRadiusAndColor(
     final Corner corner,

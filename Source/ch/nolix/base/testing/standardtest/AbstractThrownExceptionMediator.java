@@ -26,7 +26,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
    * exception.
    * 
    * @param exception
-   * @throws RuntimeException if the given exception is null.
+   * @throws RuntimeException if the given exception is null
    */
   protected AbstractThrownExceptionMediator(final Throwable exception) {
     // Asserts that the given exception is not null.
@@ -59,7 +59,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
    * {@link AbstractThrownExceptionMediator} does not have the given message.
    * 
    * @param message
-   * @throws RuntimeException if the given message is null.
+   * @throws RuntimeException if the given message is null
    */
   public final void withMessage(final String message) {
     // Asserts that the given message is not null.
@@ -99,7 +99,7 @@ public abstract class AbstractThrownExceptionMediator { //NOSONAR: A AbstractThr
    * the given regex
    * 
    * @param regex
-   * @throws RuntimeException if the given regex is null.
+   * @throws RuntimeException if the given regex is null
    */
   public final void withMessageThatMatches(final String regex) {
     if (regex == null) {

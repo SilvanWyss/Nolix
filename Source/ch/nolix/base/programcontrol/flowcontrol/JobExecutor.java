@@ -40,7 +40,7 @@ public final class JobExecutor extends Thread {
    * Creates a new {@link JobExecutor} with the given step.
    * 
    * @param step
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    */
   private JobExecutor(final Runnable step) {
     Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
@@ -58,7 +58,7 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param nextStepRunCondition
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given nextStepRunCondition is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null
    */
   private JobExecutor(final Runnable step, final BooleanSupplier nextStepRunCondition) {
     Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
@@ -106,7 +106,7 @@ public final class JobExecutor extends Thread {
    * @param step
    * @param maxStepRunCount
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given maxStepRunCount is negative.
+   * @throws RuntimeException if the given maxStepRunCount is negative
    */
   private JobExecutor(final Runnable step, final int maxStepRunCount) {
     Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
@@ -127,7 +127,7 @@ public final class JobExecutor extends Thread {
    * @param nextStepRunCondition
    * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative
-   * @throws RuntimeException if the given nextStepRunCondition is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null
    */
   private JobExecutor(final Runnable step, final int maxStepRunCount, final BooleanSupplier nextStepRunCondition) {
     Validator.assertThat(step).thatIsNamed(LowerCaseVariableNameCatalog.STEP).isNotNull();
@@ -183,7 +183,7 @@ public final class JobExecutor extends Thread {
    * @param delayBetweenStepRunsInMilliseconds
    * @throws RuntimeException if the given job is null
    * @throws RuntimeException if the given maxRunCount is negative
-   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative.
+   * @throws RuntimeException if the given timeIntervalInMilliseconds is negative
    */
   private JobExecutor(
     final Runnable step,
@@ -206,7 +206,7 @@ public final class JobExecutor extends Thread {
   /**
    * @param step
    * @return a new {@link JobExecutor} with the given step
-   * @throws RuntimeException if the given step is null.
+   * @throws RuntimeException if the given step is null
    */
   public static JobExecutor forStep(final Runnable step) {
     return new JobExecutor(step);
@@ -217,7 +217,7 @@ public final class JobExecutor extends Thread {
    * @param maxStepRunCount
    * @return a new {@link JobExecutor} with the given step and maxStepRunCount
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given maxStepRunCount is negative.
+   * @throws RuntimeException if the given maxStepRunCount is negative
    */
   public static JobExecutor forStepAndMaxStepRunCount(final Runnable step, final int maxStepRunCount) {
     return new JobExecutor(step, maxStepRunCount);
@@ -249,7 +249,7 @@ public final class JobExecutor extends Thread {
    *         nextStepRunCondition
    * @throws RuntimeException if the given step is null
    * @throws RuntimeException if the given maxStepRunCount is negative
-   * @throws RuntimeException if the given nextStepRunCondition is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null
    */
   public static JobExecutor forStepAndMaxStepRunCountAndNextStepRunCondition(
     final Runnable step,
@@ -285,7 +285,7 @@ public final class JobExecutor extends Thread {
    * @return a new {@link JobExecutor} with the given step and
    *         nextStepRunCondition
    * @throws RuntimeException if the given step is null
-   * @throws RuntimeException if the given nextStepRunCondition is null.
+   * @throws RuntimeException if the given nextStepRunCondition is null
    */
   public static JobExecutor forStepAndNextStepRunCondition(
     final Runnable step,

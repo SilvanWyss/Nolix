@@ -140,7 +140,7 @@ public final class FileSystemAccessor {
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
    *                          given path
-   * @throws RuntimeException if the given content is null.
+   * @throws RuntimeException if the given content is null
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final byte[] content) {
     final var fileAccessor = createFile(path, writeMode);
@@ -163,7 +163,7 @@ public final class FileSystemAccessor {
    *                          {@link WriteMode#THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY}
    *                          and there exists already a file system item with the
    *                          given path
-   * @throws RuntimeException if the given content is null.
+   * @throws RuntimeException if the given content is null
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode, final String content) {
     final var fileAccessor = createFile(path, writeMode);
@@ -378,7 +378,7 @@ public final class FileSystemAccessor {
    * 
    * @param path
    * @return the lines of the file with the given path
-   * @throws RuntimeException if there does not exist a file with the given path.
+   * @throws RuntimeException if there does not exist a file with the given path
    */
   public static ILinkedList<String> readFileToLines(final String path) {
     return FileAccessor.withFilePath(path).readFileToLines();

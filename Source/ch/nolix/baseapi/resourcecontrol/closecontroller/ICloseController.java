@@ -40,7 +40,7 @@ public interface ICloseController {
    * to.
    * 
    * @param parentClosePool
-   * @throws RuntimeException if the given parentClosePool is null.
+   * @throws RuntimeException if the given parentClosePool is null
    */
   void setParentClosePool(IClosePool parentClosePool);
 }

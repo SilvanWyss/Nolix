@@ -32,7 +32,7 @@ public final class ClosedArgumentException extends AbstractInvalidArgumentExcept
    * 
    * @param argument
    * @param argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   private ClosedArgumentException(final Object argument, final String argumentName) {
     super(argument, new ArgumentNameDto(argumentName), new ErrorPredicateDto(ERROR_PREDICATE));
@@ -51,7 +51,7 @@ public final class ClosedArgumentException extends AbstractInvalidArgumentExcept
    * @param argumentName
    * @return a new {@link ClosedArgumentException} for the given argument and
    *         argumentName
-   * @throws RuntimeException if the given argumentName is null or blank.
+   * @throws RuntimeException if the given argumentName is null or blank
    */
   public static ClosedArgumentException forArgumentAndArgumentName(final Object argument, final String argumentName) {
     return new ClosedArgumentException(argument, argumentName);

@@ -35,7 +35,7 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    * @param container
    * @param mapper
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper is null
    */
   private ExtendedIterableMapperView(final ExtendedIterable<E> container, final Function<E, T> mapper) {
     Validator.assertThat(container).thatIsNamed(LowerCaseVariableNameCatalog.CONTAINER).isNotNull();
@@ -54,7 +54,7 @@ public final class ExtendedIterableMapperView<E, T> extends AbstractExtendedIter
    * @return a new {@link ExtendedIterableMapperView} with the given container and
    *         mapper
    * @throws RuntimeException if the given container is null
-   * @throws RuntimeException if the given mapper is null.
+   * @throws RuntimeException if the given mapper is null
    */
   public static <T, T2> ExtendedIterableMapperView<T, T2> forContainerAndMapper(
     final AbstractExtendedIterable<T> container,

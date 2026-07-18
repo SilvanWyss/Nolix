@@ -48,7 +48,7 @@ public interface IntervallContainerViewProvider<E> {
    * @return a new view {@link ExtendedIterable} view of the current
    *         {@link IntervallContainerViewProvider} without the first element
    * @throws RuntimeException if the current
-   *                          {@link IntervallContainerViewProvider} is empty.
+   *                          {@link IntervallContainerViewProvider} is empty
    */
   ExtendedIterable<E> getViewWithoutFirst();
 
@@ -56,7 +56,7 @@ public interface IntervallContainerViewProvider<E> {
    * @param n
    * @return a new view {@link ExtendedIterable} view of the current
    *         {@link IntervallContainerViewProvider} without the first n elements
-   * @throws RuntimeException if the given n is negative.
+   * @throws RuntimeException if the given n is negative
    */
   ExtendedIterable<E> getViewWithoutFirst(int n);
 
@@ -64,7 +64,7 @@ public interface IntervallContainerViewProvider<E> {
    * @return a new view {@link ExtendedIterable} view of the current
    *         {@link IntervallContainerViewProvider} without the last element
    * @throws RuntimeException if the current
-   *                          {@link IntervallContainerViewProvider} is empty.
+   *                          {@link IntervallContainerViewProvider} is empty
    */
   ExtendedIterable<E> getViewWithoutLast();
 
@@ -72,7 +72,7 @@ public interface IntervallContainerViewProvider<E> {
    * @param n
    * @return a new view {@link ExtendedIterable} of the current
    *         {@link IntervallContainerViewProvider} without the last n elements
-   * @throws RuntimeException if the given n is negative.
+   * @throws RuntimeException if the given n is negative
    */
   ExtendedIterable<E> getViewWithoutLast(int n);
 }

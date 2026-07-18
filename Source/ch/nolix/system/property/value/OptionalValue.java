@@ -34,7 +34,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @param specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueMapper is null
-   * @throws RuntimeException if the given specificationMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null
    */
   private OptionalValue(
     final String name,
@@ -54,7 +54,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @return a new {@link OptionalValue} with the given name and setter and that
    *         can store a {@link Boolean}
    * @throws RuntimeException if the given name is null or blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<Boolean> forBooleanWithNameAndSetter(final String name, final Consumer<Boolean> setter) {
     return new OptionalValue<>(name, setter, INode::getSingleChildNodeAsBoolean, ImmutableNode::withChildNode);
@@ -66,7 +66,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @return a new {@link OptionalValue} with the given name and setter and that
    *         can store a {@link Double}
    * @throws RuntimeException if the given name is null or blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<Double> forDoubleWithNameAndSetter(final String name, final Consumer<Double> setter) {
     return new OptionalValue<>(name, setter, INode::getSingleChildNodeAsDouble, ImmutableNode::withChildNode);
@@ -81,7 +81,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    *         valueMapperand and that can store a {@link IElement}
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given setter is null
-   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given valueMapper is null
    */
   public static <E extends IElement> OptionalValue<E> forElementWithNameAndSetterAndValueMapper(
     final String name,
@@ -122,7 +122,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @return a new {@link OptionalValue} with the given name and setter and that
    *         can store a {@link Integer}
    * @throws RuntimeException if the given name is null or blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<Integer> forIntWithNameAndSetter(final String name, final Consumer<Integer> setter) {
     return new OptionalValue<>(name, setter, INode::getSingleChildNodeAsInt, ImmutableNode::withChildNode);
@@ -134,7 +134,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    * @return a new {@link OptionalValue} with the given name and setter and that
    *         can store a {@link String}
    * @throws RuntimeException if the given name is null or blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static OptionalValue<String> forStringWithNameAndSetter(final String name, final Consumer<String> setter) {
     return new OptionalValue<>(
@@ -154,7 +154,7 @@ public final class OptionalValue<V> extends AbstractValue<V> implements IOptiona
    *         and specificationMapper
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given valueMapper is null
-   * @throws RuntimeException if the given specificationMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null
    */
   public static <T> OptionalValue<T> withNameAndSetterAndValueMapperAndSpecificationMapper(
     final String name,

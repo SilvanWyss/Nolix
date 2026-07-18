@@ -10,7 +10,7 @@ public interface IItemMenuValidator {
   /**
    * @param itemMenu
    * @param item
-   * @throws RuntimeException if the given itemMenu cannot add the given item.
+   * @throws RuntimeException if the given itemMenu cannot add the given item
    */
   void assertCanAddItem(IItemMenu<?, ?> itemMenu, IItemMenuItem<?> item);
 }

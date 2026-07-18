@@ -16,7 +16,7 @@ public interface IEntityNodeMapper {
    * @param tableView
    * @param saveStamp
    * @return a new entity node from the given entityCreationDto
-   * @throws RuntimeException if the given entityCreationDto is null.
+   * @throws RuntimeException if the given entityCreationDto is null
    */
   INode<?> mapEntityCreationDtoToEntityNode(
     EntityCreationDto entityCreationDto,

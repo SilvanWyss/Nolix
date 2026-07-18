@@ -15,7 +15,7 @@ public interface IMultiReferenceEntryDeletionDtoMapper {
    * @param multiReferenceEntry
    * @return a new {@link MultiReferenceEntryDeletionDto} from the given
    *         multiReferenceEntry
-   * @throws RuntimeException if the given multiReferenceEntry is null.
+   * @throws RuntimeException if the given multiReferenceEntry is null
    */
   MultiReferenceEntryDeletionDto mapMultiReferenceEntryToMultiReferenceEntryDeletionDto(
     IMultiReferenceEntry<? extends IEntity> multiReferenceEntry);

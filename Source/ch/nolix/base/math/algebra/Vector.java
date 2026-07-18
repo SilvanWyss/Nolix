@@ -30,7 +30,7 @@ public final class Vector {
    * Creates a new {@link Vector} with the given values.
    * 
    * @param values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   private Vector(final double[] values) {
     this.values = Arrays.copyOf(values, values.length);
@@ -47,7 +47,7 @@ public final class Vector {
   /**
    * @param values
    * @return a new {@link Vector} with the given values
-   * @throws RuntimeException if the given values is null.
+   * @throws RuntimeException if the given values is null
    */
   public static Vector withValues(final double... values) {
     return new Vector(values);

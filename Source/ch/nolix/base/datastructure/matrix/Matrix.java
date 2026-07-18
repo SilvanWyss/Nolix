@@ -480,7 +480,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @throws RuntimeException if the given index is not positive
    * @throws RuntimeException if the given index is bigger than the number of
    *                          elements of the current {@link Matrix}
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   public void setAt(final int index, final E element) {
     // Asserts that the given element is not null.
@@ -508,7 +508,7 @@ public final class Matrix<E> extends AbstractExtendedIterable<E> implements IMat
    * @throws RuntimeException if the given column index is not positive
    * @throws RuntimeException if the given column index is bigger than the number
    *                          of columns of the current {@link Matrix}
-   * @throws RuntimeException if the given element is null.
+   * @throws RuntimeException if the given element is null
    */
   @Override
   public void setAtOneBasedRowIndexAndColumnIndex(

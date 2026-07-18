@@ -36,7 +36,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null
-   * @throws RuntimeException if the given specificationMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null
    */
   private Value(
     final String name,
@@ -61,7 +61,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    *         that will store a {@link Boolean}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static Value<Boolean> forBooleanWithNameAndDefaultValueAndSetter(
     final String name,
@@ -79,7 +79,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    *         that will store a {@link Double}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static Value<Double> forDoubleWithNameAndDefaultValueAndSetter(
     final String name,
@@ -99,7 +99,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @throws RuntimeException if the given name is null or blank
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
-   * @throws RuntimeException if the given valueMapper is null.
+   * @throws RuntimeException if the given valueMapper is null
    */
   public static <E extends IElement> Value<E> forElementWithNameAndDefaultValueAndSetterAndValueMapper(
     final String name,
@@ -117,7 +117,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    *         that will store a {@link Integer}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static Value<Integer> forIntWithNameAndDefaultValueAndSetter(
     final String name,
@@ -134,7 +134,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    *         that will store a {@link String}
    * @throws RuntimeException if the given name is null
    * @throws RuntimeException if the given name is blank
-   * @throws RuntimeException if the given setter is null.
+   * @throws RuntimeException if the given setter is null
    */
   public static Value<String> forStringWithNameAndDefaultValueAndSetter(
     final String name,
@@ -161,7 +161,7 @@ public final class Value<V> extends AbstractValue<V> implements IValue<V> {
    * @throws RuntimeException if the given defaultValue is null
    * @throws RuntimeException if the given setter is null
    * @throws RuntimeException if the given valueMapper is null
-   * @throws RuntimeException if the given specificationMapper is null.
+   * @throws RuntimeException if the given specificationMapper is null
    */
   public static <T> Value<T> withNameAndDefaultValueAndSetterAndValueMapperAndSpecificationMapper(
     final String name,

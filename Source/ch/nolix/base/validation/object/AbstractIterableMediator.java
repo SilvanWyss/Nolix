@@ -288,7 +288,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
    * @throws RuntimeException          if the argument of this container mediator
    *                                   is null
    * @throws NonEmptyArgumentException if the argument of this container mediator
-   *                                   is empty.
+   *                                   is empty
    */
   public void isEmpty() {
     isNotNull();
@@ -300,7 +300,7 @@ public abstract class AbstractIterableMediator<E> extends AbstractObjectMediator
 
   /**
    * @throws RuntimeException if the argument of this container mediator is null
-   * @throws RuntimeException if the argument of this container mediator is empty.
+   * @throws RuntimeException if the argument of this container mediator is empty
    */
   public void isNotEmpty() {
     isNotNull();

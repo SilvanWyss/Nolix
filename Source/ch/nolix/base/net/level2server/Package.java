@@ -22,7 +22,7 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
    * @param messageRole
    * @param message
    * @throws RuntimeException if the given message role is null
-   * @throws RuntimeException if the given message is null.
+   * @throws RuntimeException if the given message is null
    */
   private Package(final int index, final MessageRole messageRole, final String message) {
     super(index, message);
@@ -51,7 +51,7 @@ final class Package extends ch.nolix.base.net.messaging.IndexedPackage<String> {
    * @return a new {@link Package} with the given index and messageRole and
    *         message
    * @throws RuntimeException if the given message role is null
-   * @throws RuntimeException if the given message is null.
+   * @throws RuntimeException if the given message is null
    */
   public static Package withIndexAndMessageRoleAndMessage(
     final int index,

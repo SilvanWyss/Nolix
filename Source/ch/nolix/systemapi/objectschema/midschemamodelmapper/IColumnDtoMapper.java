@@ -13,7 +13,7 @@ public interface IColumnDtoMapper {
   /**
    * @param column
    * @return a new {@link ColumnDto} from the given column
-   * @throws RuntimeException if the given column is null.
+   * @throws RuntimeException if the given column is null
    */
   ColumnDto mapColumnToMidSchemaColumnDto(IColumn column);
 }

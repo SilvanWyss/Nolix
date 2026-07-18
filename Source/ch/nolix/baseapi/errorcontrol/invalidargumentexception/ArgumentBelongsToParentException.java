@@ -22,7 +22,7 @@ public final class ArgumentBelongsToParentException extends AbstractInvalidArgum
    * 
    * @param argument - Can be null
    * @param parent
-   * @throws RuntimeException if the given parent is null.
+   * @throws RuntimeException if the given parent is null
    */
   private ArgumentBelongsToParentException(final Object argument, final Object parent) {
     super(argument, new ErrorPredicateDto("belongs to a " + getTypeNameOfObject(parent)));
@@ -33,7 +33,7 @@ public final class ArgumentBelongsToParentException extends AbstractInvalidArgum
    * @param parent
    * @return a new {@link ArgumentBelongsToParentException} for the given argument
    *         and parent
-   * @throws RuntimeException if the given parent is null.
+   * @throws RuntimeException if the given parent is null
    */
   public static ArgumentBelongsToParentException forArgumentAndParent(final Object argument, final Object parent) {
     return new ArgumentBelongsToParentException(argument, parent);
@@ -42,7 +42,7 @@ public final class ArgumentBelongsToParentException extends AbstractInvalidArgum
   /**
    * @param object
    * @return the name of the type of the given object
-   * @throws RuntimeException if the given object is null.
+   * @throws RuntimeException if the given object is null
    */
   private static String getTypeNameOfObject(final Object object) {
     if (object == null) {

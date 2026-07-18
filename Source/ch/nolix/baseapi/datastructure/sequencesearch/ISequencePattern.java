@@ -45,7 +45,7 @@ public interface ISequencePattern<E> {
    *         {@link ISequencePattern } with the given conditions for the next
    *         elements of the sequences of the {@link ISequencePattern}
    * @throws RuntimeException if the given condition is null
-   * @throws RuntimeException if one of the given conditions is null.
+   * @throws RuntimeException if one of the given conditions is null
    */
   ISequencePattern<E> withConditionsForNexts(ExtendedIterable<Predicate<E>> conditions);
 

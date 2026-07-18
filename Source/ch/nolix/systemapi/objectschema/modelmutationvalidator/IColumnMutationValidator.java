@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectschema.model.ITable;
 public interface IColumnMutationValidator {
   /**
    * @param column
-   * @throws RuntimeException if the given column cannot be deleted.
+   * @throws RuntimeException if the given column cannot be deleted
    */
   void assertCanBeDeleted(IColumn column);
 
@@ -39,7 +39,7 @@ public interface IColumnMutationValidator {
    * @param column
    * @param name
    * 
-   * @throws RuntimeException if the given name cannot be set to the given column.
+   * @throws RuntimeException if the given name cannot be set to the given column
    */
   void assertCanSetName(IColumn column, String name);
 }
