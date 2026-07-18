@@ -27,6 +27,8 @@ public final class StringCatalog {
 
   public static final String COMMA = ",";
 
+  public static final String COLON = ":";
+
   public static final String DOLLAR = "$";
 
   public static final String DOT = ".";
