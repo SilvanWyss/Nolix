@@ -11,6 +11,11 @@ import ch.nolix.base.document.node.AbstractMutableNode;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 
+/**
+ * @author Silvan Wyss
+ * @param <N> the type of the tested {@link AbstractMutableNode}s of a
+ *            {@link BaseMutableNodeTest}
+ */
 abstract class BaseMutableNodeTest<N extends AbstractMutableNode<N>> extends BaseNodeTest<N> {
   @Test
   void testCase_addPostfixToHeader_whenDoesNotHaveHeader_andTheGivenPostfixIsBlank() {

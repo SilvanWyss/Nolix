@@ -13,6 +13,11 @@ import ch.nolix.base.testing.standardtest.StandardTest;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.baseapi.errorcontrol.invalidargumentexception.EmptyArgumentException;
 
+/**
+ * @author Silvan Wyss
+ * @param <N> the type of the tested {@link AbstractNode}s of a
+ *            {@link BaseNodeTest}
+ */
 abstract class BaseNodeTest<N extends AbstractNode<N>> extends StandardTest {
   @Test
   final void testCase_getStoredSingleChildNode_whenNodeDoesNotContainChildNodes() {
